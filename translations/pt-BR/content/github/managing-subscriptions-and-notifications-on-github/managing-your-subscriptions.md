@@ -4,6 +4,7 @@ intro: 'Para ajudá-lo a gerenciar suas notificações de forma eficiente, exist
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assinatura, consulte "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".

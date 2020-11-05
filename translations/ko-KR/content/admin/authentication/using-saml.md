@@ -79,10 +79,10 @@ These attributes are available. You can change the attribute names in the [manag
 
   {% endtip %}
 
-5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location_enterprise %}. ![SAML disable admin config](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location_enterprise %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location_enterprise %}. ![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
-8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location_enterprise %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML method](/assets/images/enterprise/management-console/saml-method.png)
+5. Select **Disable administrator demotion/promotion** if you **do not** want your SAML provider to determine administrator rights for users on {% data variables.product.product_location %}. ![SAML disable admin config](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![SAML authentication](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.product.product_location %}. ![SAML issuer](/assets/images/enterprise/management-console/saml-issuer.png)
+8. In the **Signature Method** and **Digest Method** drop-down menus, choose the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.product.product_location %}. Specify the format with the **Name Identifier Format** drop-down menu. ![SAML method](/assets/images/enterprise/management-console/saml-method.png)
 9. Under **Verification certificate**, click **Choose File** and choose a certificate to validate SAML responses from the IdP. ![SAML authentication](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. Modify the SAML attribute names to match your IdP if needed, or accept the default names. ![SAML attribute names](/assets/images/enterprise/management-console/saml-attributes.png)
 
@@ -100,7 +100,7 @@ These attributes are available. You can change the attribute names in the [manag
 
 {% endif %}
 
-### Revoking access to {% data variables.product.product_location_enterprise %}
+### Revoking access to {% data variables.product.product_location %}
 
 If you remove a user from your identity provider, you must also manually suspend them. Otherwise, they'll continue to be able to authenticate using access tokens or SSH keys. For more information, see "[Suspending and unsuspending users](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 

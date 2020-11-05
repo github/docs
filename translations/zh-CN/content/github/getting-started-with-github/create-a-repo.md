@@ -7,6 +7,7 @@ intro: '要将项目放在 {% data variables.product.product_location %} 上，�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在 {% data variables.product.product_name %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。
@@ -28,7 +29,7 @@ versions:
 
 恭喜！ 您已成功创建第一个仓库，并使用*自述文件*对其进行了初始化。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库创建`](https://cli.github.com/manual/gh_repo_create)”。

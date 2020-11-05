@@ -1,9 +1,10 @@
 ---
 title: Visão Geral
-intro: 'Saiba mais sobre a API do {% data variables.product.prodname_dotcom %}, proteja suas implementações e junte-se ao Programa de Desenvolvedor do {% data variables.product.prodname_dotcom %}.'
+intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and secure your deployments.{% else %}, secure your deployments, and join {% data variables.product.prodname_dotcom %}''s Developer Program.{% endif %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Índice

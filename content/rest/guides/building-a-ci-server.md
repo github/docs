@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -149,7 +150,7 @@ def process_pull_request(pull_request)
   @client.create_status(pull_request['base']['repo']['full_name'], pull_request['head']['sha'], 'success')
   puts "Pull request processed!"
 end
-```
+``` 
 
 ### Conclusion
 

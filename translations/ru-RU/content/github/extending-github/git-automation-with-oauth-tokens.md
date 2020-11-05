@@ -8,6 +8,7 @@ intro: 'You can use OAuth tokens to interact with {% data variables.product.prod
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Step 1: Get an OAuth token

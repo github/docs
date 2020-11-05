@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -20,22 +21,22 @@ Veja abaixo uma lista dos atalhos de teclado disponíveis.
 
 ### Atalhos para o site
 
-| Atalho                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".                                                                                                                                                                                                                               |
-| <kbd>g</kbd> <kbd>n</kbd>    | Vai para suas notificações. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre as notificações](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}". |
-| <kbd>esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                                                                                                                                                                                                           |
+| Atalho                       | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>s</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".                                                                                                                                                                                                                                                       |
+| <kbd>g</kbd> <kbd>n</kbd>    | Vai para suas notificações. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." |
+| <kbd>esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                                                                                                                                                                                                                                   |
 
 ### Repositórios
 
-| Atalho                    | Descrição                                                                                                                                                                                                                          |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>g</kbd> <kbd>c</kbd> | Vai para a aba **Code** (Código)                                                                                                                                                                                                   |
-| <kbd>g</kbd> <kbd>i</kbd> | Vai para a aba **Issues** (Problemas). Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)".                                                                                                          |
-| <kbd>g</kbd> <kbd>p</kbd> | Vai para a aba **Pull requests**. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| Atalho                    | Descrição                                                                                                                                                                                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>g</kbd> <kbd>c</kbd> | Vai para a aba **Code** (Código)                                                                                                                                                                                                                               |
+| <kbd>g</kbd> <kbd>i</kbd> | Vai para a aba **Issues** (Problemas). Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)".                                                                                                                                      |
+| <kbd>g</kbd> <kbd>p</kbd> | Vai para a aba **Pull requests**. For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 | <kbd>g</kbd> <kbd>a</kbd> | Acesse a aba de **Ações**. Para obter mais informações, consulte "[Sobre ações](/actions/getting-started-with-github-actions/about-github-actions)".{% endif %}
-| <kbd>g</kbd> <kbd>b</kbd> | Vai para a aba **Projects** (Projetos). Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".                                                                                        |
-| <kbd>g</kbd> <kbd>w</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/articles/about-wikis)".                                                                                                                             |
+| <kbd>g</kbd> <kbd>b</kbd> | Vai para a aba **Projects** (Projetos). Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".                                                                                                                    |
+| <kbd>g</kbd> <kbd>w</kbd> | Vai para a aba **Wiki**. Para obter mais informações, consulte "[Sobre wikis](/articles/about-wikis)".                                                                                                                                                         |
 
 ### Edição de código-fonte
 
@@ -109,7 +110,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>j</kbd>                                 | Move a seleção para baixo na lista                                                                                                                                                                                                                                                                                                                                         |
 | <kbd>k</kbd>                                 | Move a seleção para cima na lista                                                                                                                                                                                                                                                                                                                                          |
 | <kbd>cmd + shift + enter </kbd>              | Adiciona um comentário único no diff da pull request                                                                                                                                                                                                                                                                                                                       |
-| <kbd>alt</kbd> e clique                      | Alterna entre recolhimento e expansão de todos os comentários de revisão desatualizados em um pull request ao manter pressionada a tecla `alt` e clicar em **Mostrar desatualizado** ou **Ocultar desatualizado**. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| <kbd>alt</kbd> e clique                      | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Clique, em seguida <kbd>shift</kbd> e clique | Comente em várias linhas de uma pull request clicando em um número de linha, mantendo pressionado <kbd>shift</kbd>, depois clique em outro número de linha. Para obter mais informações, consulte "[Comentando em uma pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
 
 ### Quadros de projeto
@@ -162,7 +163,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 {% endif %}
 
 ### Notificações
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Atalho             | Descrição            |
 | ------------------ | -------------------- |
 | <kbd>e</kbd>       | Marcar como pronto   |

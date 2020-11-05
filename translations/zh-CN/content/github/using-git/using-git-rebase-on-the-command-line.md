@@ -7,6 +7,7 @@ intro: 以下是在命令行中使用 `git rebase` 的简短教程。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在本例中，我们将涵盖所有可用的 `git rebase` 命令，`exec` 除外。

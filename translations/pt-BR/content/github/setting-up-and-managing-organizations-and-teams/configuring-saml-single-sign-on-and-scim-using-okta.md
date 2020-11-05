@@ -70,7 +70,7 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 
 ### Leia mais
 
-- "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
 - "[Gerenciar a sincronização de equipe para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Compreender o SAML](https://developer.okta.com/docs/concepts/saml/) na documentação do Okta
 - [Entender o SCIM](https://developer.okta.com/docs/concepts/scim/) na documentação do Okta

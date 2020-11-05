@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -28,8 +29,8 @@ The repository owner has full control of the repository. In addition to all the 
 - [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - Delete packages. For more information, see "[Deleting a package](/github/managing-packages-with-github-packages/deleting-a-package)."{% endif %}
 - Create and edit repository social cards. For more information, see "[Customizing your repository's social media preview](/articles/customizing-your-repositorys-social-media-preview)."
-- Make the repository a template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."
-- Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% if currentVersion == "free-pro-team@latest" %}
+- Make the repository a template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."{% if currentVersion != "github-ae@latest" %}
+- Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - Dismiss {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 - [Manage data usage for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [Define code owners for the repository](/articles/about-code-owners)

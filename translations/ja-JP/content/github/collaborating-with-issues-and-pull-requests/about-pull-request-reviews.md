@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのレビューについて
 
 プルリクエストがオープンになった後、*読み取り*アクセスを持つすべてのユーザは、提案された変更をレビューしてコメントできます。 また、作者がプルリクエストから直接適用できるコード行への特定の変更を提案することもできます。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。
 
-リポジトリオーナーとコラボレーターは、特定の人物にプルリクエストのレビューをリクエストできます。 また、Organization メンバーは、リポジトリの読み取りアクセス権を持つ Team にプルリクエストのレビューをリクエストできます。 詳細は「[プルリクエストのレビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+リポジトリオーナーとコラボレーターは、特定の人物にプルリクエストのレビューをリクエストできます。 また、Organization メンバーは、リポジトリの読み取りアクセス権を持つ Team にプルリクエストのレビューをリクエストできます。 詳細は「[プルリクエストのレビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}You can specify a subset of team members to be automatically assigned in the place of the whole team. 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
 レビューにより、提案された変更についての議論がなされ、その変更がリポジトリのコントリビューションのガイドラインやその他の品質標準を満たすことを保証しやすくなります。 コードの特定の種類や領域に対して、どの個人や Team をオーナーとするかを、CODEOWNERS ファイルで定義できます。 プルリクエストが、定義されたオーナーを持っているコードを変更するものである場合、オーナーである個人あるいはTeam がレビューを担当するよう、自動的にリクエストされます。 詳細は「[コードオーナーについて](/articles/about-code-owners/)」を参照してください。
 

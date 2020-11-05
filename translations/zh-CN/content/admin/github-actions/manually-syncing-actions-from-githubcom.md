@@ -24,7 +24,7 @@ versions:
 
 ### 基本要求
 
-* 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业实例中。 以下示例演示如何将操作同步到企业实例上名为 `synced-actions` 的组织。 更多信息请参阅“[创建组织](/enterprise/admin/user-management/creating-organizations)”。
+* 在使用 `actions-sync` 工具之前，您必须确保所有目标组织已经存在于您的企业实例中。 以下示例演示如何将操作同步到企业实例上名为 `synced-actions` 的组织。 For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
 * 您必须在企业实例上创建可以创建并写入目标组织中的仓库的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 ### 示例：使用 `actions-sync` 工具

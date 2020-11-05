@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
@@ -86,7 +87,7 @@ In addition to the features available with {% data variables.product.prodname_te
 - A service level agreement for 99.9% monthly uptime
 - The option to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations with an enterprise account. For more information, see "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>."
 
-You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Setting up a trial of {% data variables.product.prodname_ghe_cloud %}](/articles/setting-up-a-trial-of-github-enterprise-cloud)."
+You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Setting up a trial of {% data variables.product.prodname_ghe_cloud %}</a>."
 
 For more information about hosting your own instance of [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), contact {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
 

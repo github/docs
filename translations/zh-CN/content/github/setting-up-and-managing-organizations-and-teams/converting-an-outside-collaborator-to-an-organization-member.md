@@ -6,16 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.
 ---
 
-{% tip %}
+{% if currentVersion == "free-pro-team@latest" %}
+如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。
+{% data reusables.organizations.org-invite-expiration %}{% endif %}
 
-**提示**：
-- Only organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."{% if currentVersion == "free-pro-team@latest" %}
-- 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {% data reusables.organizations.org-invite-expiration %}{% endif %}
-- If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users {% if currentVersion == "free-pro-team@latest" %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users
+{% if currentVersion == "free-pro-team@latest" %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

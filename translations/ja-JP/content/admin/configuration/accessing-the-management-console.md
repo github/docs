@@ -1,6 +1,6 @@
 ---
 title: Management Console にアクセスする
-intro: '{% data variables.product.product_location %}のセットアップと設定、メンテナンスウィンドウのスケジューリング、問題のトラブルシューティング、ライセンスの管理には{% data variables.enterprise.management_console %}を使ってください。'
+intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
   - /enterprise/admin/articles/about-the-management-console/
   - /enterprise/admin/articles/management-console-for-emergency-recovery/
@@ -17,15 +17,15 @@ versions:
 ### {% data variables.enterprise.management_console %}について
 
 次の基本的な管理作業には {% data variables.enterprise.management_console %} を使用します。
-- **初期セットアップ**: ブラウザで {% data variables.product.product_location_enterprise %} の IP アドレスにアクセスすることで {% data variables.product.product_location_enterprise %} を最初に起動したときに、初期セットアッププロセスを段階的に実行します。
+- **初期セットアップ**: ブラウザで {% data variables.product.product_location %} の IP アドレスにアクセスすることで {% data variables.product.product_location %} を最初に起動したときに、初期セットアッププロセスを段階的に実行します。
 - **インスタンスの基本設定**: [Settings] ページで、DNS、ホスト名、SSL、ユーザ認証、メール、モニタリングサービス、ログの転送を設定します。
-- **スケジュールメンテナンスウィンドウ**: {% data variables.enterprise.management_console %} または管理シェルを使用してメンテナンスを実行する際に、{% data variables.product.product_location_enterprise %} をオフラインにします。
+- **スケジュールメンテナンスウィンドウ**: {% data variables.enterprise.management_console %} または管理シェルを使用してメンテナンスを実行する際に、{% data variables.product.product_location %} をオフラインにします。
 - **トラブルシューティング**: Support Bundle を生成するか、高レベルの診断情報を一覧表示します。
 - **ライセンス管理**: {% data variables.product.prodname_enterprise %} ライセンスを一覧表示または更新します。
 
-{% data variables.enterprise.management_console %}には、{% data variables.product.product_location_enterprise %}のIPアドレスからいつでもアクセスできます。インスタンスがメンテナンスモードになっていたり、致命的なアプリケーション障害やホスト名あるいはSSLの設定ミスがあってもアクセス可能です。
+{% data variables.enterprise.management_console %}には、{% data variables.product.product_location %}のIPアドレスからいつでもアクセスできます。インスタンスがメンテナンスモードになっていたり、致命的なアプリケーション障害やホスト名あるいはSSLの設定ミスがあってもアクセス可能です。
 
-{% data variables.enterprise.management_console %}にアクセスするには、{% data variables.product.product_location_enterprise %}の初期セットアップ時に設定した管理者パスワードを使わなければなりません。 また、ポート8443で仮想マシンのホストに接続することもできます。 {% data variables.enterprise.management_console %}へのアクセスに問題があれば、中間のファイアウォールやセキュリティグループの設定を確認してください。
+{% data variables.enterprise.management_console %}にアクセスするには、{% data variables.product.product_location %}の初期セットアップ時に設定した管理者パスワードを使わなければなりません。 また、ポート8443で仮想マシンのホストに接続することもできます。 {% data variables.enterprise.management_console %}へのアクセスに問題があれば、中間のファイアウォールやセキュリティグループの設定を確認してください。
 
 ### サイト管理者としての{% data variables.enterprise.management_console %}へのアクセス
 

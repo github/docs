@@ -35,11 +35,11 @@ versions:
 
 为避免无意中删除团队成员，建议在组织或企业帐户中强制实施 SAML SSO，创建新团队以同步成员资格数据，并在同步现有团队之前检查 IdP 组成员资格。 更多信息请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
-如果您的组织由企业帐户拥有，则对企业帐户启用团队同步将覆盖组织级的团队同步设置。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
+如果您的组织由企业帐户拥有，则对企业帐户启用团队同步将覆盖组织级的团队同步设置。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
 
 ### 基本要求
 
-在将团队连接到身份提供程序组之前，组织或企业所有者必须为组织或企业帐户启用团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”和“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
+在将团队连接到身份提供程序组之前，组织或企业所有者必须为组织或企业帐户启用团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”和“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)”。
 
 为避免无意中删除团队成员，请访问 IdP 的管理门户，并确认每个当前团队成员也位于要连接到此团队的 IdP 组中。 如果您没有身份提供程序的这一访问权限，在可以联系 IdP 管理员。
 

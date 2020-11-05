@@ -8,6 +8,7 @@ intro: 'Se precisar gerenciar vários projetos em um único repositório, você 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Normalmente, um merge de subárvore é usado para conter um repositório dentro de outro repositório. O "sub-repositório" é armazenado em uma pasta do repositório principal.
