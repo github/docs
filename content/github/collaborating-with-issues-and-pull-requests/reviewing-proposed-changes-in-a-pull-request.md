@@ -1,5 +1,5 @@
 ---
-title: Reviewing proposed changes in a pull request
+title: 'Hi'
 intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
