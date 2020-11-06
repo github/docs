@@ -1201,6 +1201,16 @@ A branch protection rule.
 """
 type BranchProtectionRule implements Node {
   """
+  Can this branch be deleted.
+  """
+  allowsDeletions: Boolean!
+
+  """
+  Are force pushes allowed on this branch.
+  """
+  allowsForcePushes: Boolean!
+
+  """
   A list of conflicts matching branches protection rule and other branch protection rules
   """
   branchProtectionRuleConflicts(
@@ -1335,6 +1345,11 @@ type BranchProtectionRule implements Node {
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean!
+
+  """
+  Are merge commits prohibited from being pushed to this branch.
+  """
+  requiresLinearHistory: Boolean!
 
   """
   Are status checks required to update matching branches.
@@ -29748,10 +29763,6 @@ type RepositoryCollaboratorEdge {
 
   """
   The permission the user has on the repository.
-
-  **Upcoming Change on 2020-10-01 UTC**
-  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
-  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 
@@ -30033,10 +30044,6 @@ type RepositoryInvitation implements Node {
 
   """
   The permission granted on this repository by this invitation.
-
-  **Upcoming Change on 2020-10-01 UTC**
-  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
-  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 
@@ -34897,10 +34904,6 @@ type TeamRepositoryEdge {
 
   """
   The permission level the team has on the repository
-
-  **Upcoming Change on 2020-10-01 UTC**
-  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
-  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 }
