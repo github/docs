@@ -42,7 +42,7 @@ A job is a set of steps that execute on the same runner. By default, a workflow 
 
 #### Steps
 
-A step is an individual task that can run commands in a job. A step maybe either an _action_(more about actions below) or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
+A step is an individual task that can run commands in a job. A step maybe either an _action_ (more about actions below) or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
 
 #### Actions
 
