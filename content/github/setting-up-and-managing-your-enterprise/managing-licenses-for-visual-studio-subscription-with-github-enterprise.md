@@ -5,11 +5,12 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
   - /github/articles/about-the-github-and-visual-studio-bundle
   - /articles/about-the-github-and-visual-studio-bundle
+  - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 versions:
   free-pro-team: '*'
 ---
 
-### About {% data variables.product.prodname_vss_ghe %} 
+### About {% data variables.product.prodname_vss_ghe %}
 
 {% data variables.product.prodname_vss_ghe %} is a combined offering from Microsoft that allows a subscriber to use both {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_vs %}. {% data variables.product.prodname_vss_ghe %} is available from Microsoft under the terms of the Microsoft Enterprise Agreement. For more information, see [{% data variables.product.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/) on the {% data variables.product.prodname_vs %} website.
 
