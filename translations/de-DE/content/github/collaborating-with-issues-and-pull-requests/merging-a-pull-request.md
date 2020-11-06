@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -47,7 +48,7 @@ Wenn Du die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch
 
 The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. Weitere Informationen findest Du unter „[Verwalten des automatischen Löschens von Branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
    **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 每次按键盘上的 <kbd>return</kbd> 时，会插入一个称为行结束符的不可见字符。 不同的操作系统处理行结束符的方式不同。

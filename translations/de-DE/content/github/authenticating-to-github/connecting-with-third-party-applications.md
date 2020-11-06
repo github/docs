@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Sie eine Drittanbieter-Anwendung mit Ihrer {% data variables.product.product_name %}-Anmeldung identifizieren möchte, wird eine Seite mit den Kontaktdaten des Entwicklers und einer Liste der angeforderten Daten angezeigt.

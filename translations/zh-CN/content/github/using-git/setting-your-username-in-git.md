@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以使用 `git config` 命令更改与您的 Git 提交关联的名称。 您设置的新名称将在从命令行推送到 {% data variables.product.product_name %} 的任何未来提交中显示。 如果您想要将真实姓名保密，则可以使用任意文本作为您的 Git 用户名。

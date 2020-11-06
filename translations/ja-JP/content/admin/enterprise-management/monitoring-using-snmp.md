@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-SNMP とは、ネットワーク経由でデバイスを監視するための一般的基準です。 {% data variables.product.product_location_enterprise %}のj状態を監視可能にし、いつホストのマシンにメモリやストレージ、処理能力を追加すべきかを知るために、SNMP を有効にすることを強くおすすめします。
+SNMP とは、ネットワーク経由でデバイスを監視するための一般的基準です。 {% data variables.product.product_location %}のj状態を監視可能にし、いつホストのマシンにメモリやストレージ、処理能力を追加すべきかを知るために、SNMP を有効にすることを強くおすすめします。
 
 {% data variables.product.prodname_enterprise %} には標準の SNMP がインストールされているので、Nagios などのモニタリングシステムに対して利用可能な[数多くのプラグイン](http://www.monitoring-plugins.org/doc/man/check_snmp.html)を活用できます。
 
@@ -28,7 +28,7 @@ SNMP とは、ネットワーク経由でデバイスを監視するための一
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-これにより、{% data variables.product.product_location_enterprise %} ホストでのシステム時刻が返されます。
+これにより、{% data variables.product.product_location %} ホストでのシステム時刻が返されます。
 
 ### ユーザベースのセキュリティ
 

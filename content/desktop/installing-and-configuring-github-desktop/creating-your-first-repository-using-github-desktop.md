@@ -92,13 +92,8 @@ Now that you've created and published your repository, you're ready to make chan
 
 4. At the bottom of the **Changes** list, enter a commit message. To the right of your profile picture, type a short description of the commit. Since we're changing the _README.md_ file, "Add information about purpose of project" would be a good commit summary. Below the summary, you'll see a "Description" text field where you can type a longer description of the changes in the commit, which is helpful when looking back at the history of a project and understanding why changes were made. Since you're making a basic update of a _README.md_ file, you can skip the description.
   ![Commit message](/assets/images/help/desktop/getting-started-guide/commit-message.png)
-<<<<<<< HEAD
 5. Click **Commit to BRANCH NAME**. The commit button shows your current branch so you can be sure to commit to the branch you want.
   ![Commit to branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-=======
-5. Click **Commit to master**. The commit button shows your current branch, which in this case is `master`, so that you know which branch you are making a commit to.
-  ![Commit to master](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
->>>>>>> master
 6. To push your changes to the remote repository on {% data variables.product.product_name %}, click **Push origin**.
   ![Push origin](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
   - The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.

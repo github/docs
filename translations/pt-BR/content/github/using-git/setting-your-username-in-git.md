@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode alterar o nome associado aos commits do Git usando o comando `git config`. O novo nome configurado ficará visível em todos os commits futuros cujo push é feito para o {% data variables.product.product_name %} usando a linha de comando. Se não quiser usar seu nome verdadeiro, use qualquer texto como o nome de usuário do Git.

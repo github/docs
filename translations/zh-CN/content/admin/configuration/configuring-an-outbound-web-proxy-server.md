@@ -1,6 +1,6 @@
 ---
 title: 配置出站 Web 代理服务器
-intro: '代理服务器为 {% data variables.product.product_location_enterprise %} 额外提供了一级安全性。'
+intro: '代理服务器为 {% data variables.product.product_location %} 额外提供了一级安全性。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-a-proxy-server/
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-为 {% data variables.product.product_location_enterprise %} 启用代理服务器后，除非已将目标主机添加为 HTTP 代理排除项，否则会先通过代理服务器发送由 {% data variables.product.prodname_ghe_server %} 发送的出站消息。 出站消息类型包括传出 web 挂钩、上传包和提取旧头像。 代理服务器的 URL 为协议、域或 IP 地址外加端口号，例如 `http://127.0.0.1:8123`。
+为 {% data variables.product.product_location %} 启用代理服务器后，除非已将目标主机添加为 HTTP 代理排除项，否则会先通过代理服务器发送由 {% data variables.product.prodname_ghe_server %} 发送的出站消息。 出站消息类型包括传出 web 挂钩、上传包和提取旧头像。 代理服务器的 URL 为协议、域或 IP 地址外加端口号，例如 `http://127.0.0.1:8123`。
 
 {% note %}
 
-**注**：要将 {% data variables.product.product_location_enterprise %} 连接到 {% data variables.product.prodname_dotcom_the_website %}，您的代理配置必须允许连接到 `github.com` 和 `api.github.com`。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)”。
+**注**：要将 {% data variables.product.product_location %} 连接到 {% data variables.product.prodname_dotcom_the_website %}，您的代理配置必须允许连接到 `github.com` 和 `api.github.com`。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)”。
 
 {% endnote %}
 

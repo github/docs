@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Topics について
@@ -27,7 +28,7 @@ Topics を利用すれば、特定の領域に関するリポジトリを調べ�
 
 ### Topics をリポジトリに追加する
 
-{% data reusables.repositories.navigate-to-repo %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. リポジトリの説明の下にある [**Add topics**] をクリックします。 ![リポジトリのメインページにトピックリンクを追加](/assets/images/help/repository/add-topics-link.png)
 3. リポジトリに追加したいトピックを入力してから、スペースを入力します。 ![トピックの入力フォーム](/assets/images/help/repository/add-topic-form.png)
 4. トピックの追加が終わり次第、[**Done**] をクリックします。 ![トピックのリストと [Done] ボタンが表示されているフォーム](/assets/images/help/repository/add-topics-done-button.png)

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルにコードを検索できます。あるいは、特定のリポジトリや Organization のみのコードの検索もできます。 パブリックリポジトリのすべてにわたってコードを検索するには、{% data variables.product.product_name %} にサインインしていなければなりません。 詳細は「[GitHub 上での検索について](/articles/about-searching-on-github)」を参照してください。

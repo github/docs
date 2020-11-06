@@ -6,15 +6,25 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 While the API provides multiple methods for authentication, we strongly
 recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) for production applications. The other
 methods provided are intended to be used for scripts or testing (i.e., cases
 where full OAuth would be overkill). Third party applications that rely on
 {% data variables.product.product_name %} for authentication should not ask for or collect {% data variables.product.product_name %} credentials.
 Instead, they should use the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+
+To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a personal access token through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+
+{% endif %}
 
 ### Basic Authentication
 
@@ -36,6 +46,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 This approach is useful if your tools only support Basic Authentication but you want to take advantage of OAuth access token security features.
 
+{% if enterpriseServerVersions contains currentVersion %}
 #### Via username and password
 
 {% data reusables.apps.deprecating_password_auth %}
@@ -51,6 +62,8 @@ would authenticate you if you replace `<username>` with your {% data variables.p
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
 If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/v3/auth/#working-with-two-factor-authentication).
+
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 #### Authenticating for SAML SSO
@@ -84,6 +97,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 The value `organizations` is a comma-separated list of organization IDs for organizations require authorization of your personal access token.
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### Working with two-factor authentication
 
 {% data reusables.apps.deprecating_password_auth %}
@@ -91,6 +105,8 @@ The value `organizations` is a comma-separated list of organization IDs for orga
 When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token or OAuth token instead of your username and password.
 
 You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}with [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %} or use the "[Create a new authorization][create-access]" endpoint in the OAuth Authorizations API to generate a new OAuth token. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the GitHub API. The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.
+
+
 
 #### Using the OAuth Authorizations API with two-factor authentication
 
@@ -108,6 +124,7 @@ $ curl --request POST \
   --header 'x-github-otp: <em>OTP</em>' \
   --data '{"scopes": ["public_repo"], "note": "test"}'
 ```
+{% endif %}
 
 [create-access]: /v3/oauth_authorizations/#create-a-new-authorization
 [curl]: http://curl.haxx.se/

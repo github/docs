@@ -8,6 +8,7 @@ intro: 'Im Internet finden sich viele hilfreiche Ressourcen zu Git und {% data v
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Git verwenden

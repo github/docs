@@ -3,7 +3,7 @@ header:
   github_docs: GitHub Docs
   contact: 联系我们
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22目前作为版本候选仅有限发布。
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
     localization_complete: 我们经常发布文档更新，此页面的翻译可能仍在进行中。有关最新信息，请访问<a id="to-english-doc" href="/en">英文文档</a>。如果此页面上的翻译有问题，请<a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">告诉我们</a>。
     localization_in_progress: 你好，探索者！ 此页面正在积极开发或仍在翻译中。有关最新和最准确的信息，请访问我们的<a id="to-english-doc" href="/en">英文文档</a>。
     product_in_progress: '👋你好，探索者！ 此页面正在积极开发中。有关最新和最准确的信息，请访问我们的<a href="https://developer.github.com">开发者文档</a>。'
