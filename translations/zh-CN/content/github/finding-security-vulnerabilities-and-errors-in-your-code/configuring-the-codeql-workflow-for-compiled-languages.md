@@ -3,7 +3,7 @@ title: 为编译语言配置 CodeQL 工作流程
 shortTitle: 为编译语言配置
 intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何使用 {% data variables.product.prodname_codeql_workflow %} 扫描用编译语言编写的代码以查找漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: '拥有仓库写入权限的人可配置仓库的 {% data variables.product.prodname_code_scanning %}。'
+permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-action-for-compiled-languages

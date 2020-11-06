@@ -85,7 +85,7 @@ Web べースの {% data variables.enterprise.management_console %} と外部の
 
 #### SSHを使ったSupport Bundleの作成
 
-{% data variables.product.prodname_ghe_server %} アプライアンスが SSH を利用でき、外部のインターネットにアクセスできる場合は、以下の手順で Support Bundle を作成して共有できます。
+You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -110,8 +110,8 @@ Web べースの {% data variables.enterprise.management_console %} と外部の
 #### SSHを使ったSupport Bundleの直接アップロード
 
 以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- {% data variables.product.prodname_ghe_server %} アプライアンスに SSH でアクセスできること。
-- {% data variables.product.prodname_ghe_server %} アプライアンスから外部の TCP ポート 443 に HTTPS 接続ができること。
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. バンドルを当社のSupport Bundleサーバにアップロードします。
   ```shell
@@ -126,7 +126,7 @@ Support Bundleには過去2日分のログが含まれますが、_拡張_Suppor
 
 #### SSHを使った拡張Support Bundleの作成
 
-{% data variables.product.prodname_ghe_server %} アプライアンスに SSH でアクセスでき、外部のインターネットへアクセスできるのであれば、以下の手順で拡張 Support Bundle を作成し、共有できます。
+You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
 
 1. `ghe-support-bundle`コマンドに`-x`フラグを追加して、SSH経由で拡張Support Bundleをダウンロードしてください。
   ```shell
@@ -138,8 +138,8 @@ Support Bundleには過去2日分のログが含まれますが、_拡張_Suppor
 #### SSHを使った拡張Support Bundleの直接アップロード
 
 以下の状況であれば、Support Bundleを当社のサーバに直接アップロードできます。
-- {% data variables.product.prodname_ghe_server %} アプライアンスに SSH でアクセスできること。
-- {% data variables.product.prodname_ghe_server %} アプライアンスから外部の TCP ポート 443 に HTTPS 接続ができること。
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. バンドルを当社のSupport Bundleサーバにアップロードします。
   ```shell

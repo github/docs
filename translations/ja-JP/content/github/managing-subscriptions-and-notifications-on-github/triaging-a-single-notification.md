@@ -4,6 +4,7 @@ intro: '単一の通知を確認して調査する場合、詳細な通知ビュ
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### 単一の通知を保存する

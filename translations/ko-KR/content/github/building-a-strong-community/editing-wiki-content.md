@@ -14,6 +14,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Adding links

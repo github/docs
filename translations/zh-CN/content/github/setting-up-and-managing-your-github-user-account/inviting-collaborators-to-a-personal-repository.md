@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 组织拥有的仓库可授予更细致的访问权限。 更多信息请参阅“[{% data variables.product.product_name %} 上的访问权限](/articles/access-permissions-on-github)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 

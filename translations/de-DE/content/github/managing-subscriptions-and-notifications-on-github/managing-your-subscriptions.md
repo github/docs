@@ -4,6 +4,7 @@ intro: 'Um Dir zu helfen, Deine Benachrichtigungen effizient zu verwalten, gibt 
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 Um Dir zu helfen, Deine Abonnements zu verstehen und zu entscheiden, ob du Dich abmelden sollst, findest Du weitere Informationen auf „[Deine Abonnements ansehen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."

@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-{% data variables.product.product_location_enterprise %}に参加するユーザが増えるにつれて、ストレージボリュームをリサイズする必要があるかもしれません。 ストレージのリサイズに関する情報については、使用している仮想化プラットフォームのドキュメンテーションを参照してください。
+{% data variables.product.product_location %}に参加するユーザが増えるにつれて、ストレージボリュームをリサイズする必要があるかもしれません。 ストレージのリサイズに関する情報については、使用している仮想化プラットフォームのドキュメンテーションを参照してください。
 
 ### 要求及び推奨事項
 

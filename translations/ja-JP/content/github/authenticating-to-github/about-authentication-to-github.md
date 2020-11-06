@@ -4,27 +4,29 @@ intro: '認証先に応じて異なる認証情報を使用し、{% data variabl
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### {% data variables.product.prodname_dotcom %} への認証について
 
-アカウントの安全性を維持するには、{% data variables.product.product_name %} の特定のリソースにアクセスする前に認証する必要があります。 {% data variables.product.product_name %} への認証を行うときは、自分が確かに本人であることを証明するために、固有の認証情報を提供または確認します。
+To keep your account secure, you must authenticate before you can access{% if currentVersion != "github-ae@latest" %} certain{% endif %} resources on {% data variables.product.product_name %}. {% data variables.product.product_name %} への認証を行うときは、自分が確かに本人であることを証明するために、固有の認証情報を提供または確認します。
 
 {% data variables.product.product_name %} のリソースには、ブラウザ内、{% data variables.product.prodname_desktop %} または別のデスクトップアプリケーション経由、API 経由、またはコマンドライン経由など、さまざまな方法でアクセスできます。 {% data variables.product.product_name %} へのアクセス方法は、それぞれ異なる認証モードをサポートしています。
 
-- 2 要素認証のユーザ名とパスワード
+- {% if currentVersion == "github-ae@latest" %}Your identity provider (IdP){% else %}Username and password with two-factor authentication{% endif %}
 - 個人アクセストークン
 - SSH キー
 
 ### ブラウザで認証する
 
-{% data variables.product.product_name %} への認証は、ブラウザ内でさまざまな方法を使用して行うことができます。
+You can authenticate to {% data variables.product.product_name %} in your browser {% if currentVersion == "github-ae@latest" %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
 
 - **ユーザ名とパスワードのみ**
     - {% data variables.product.product_name %} でユーザアカウントを作成するときにパスワードを作成します。 パスワードマネージャを使用して、ランダムで一意のパスワードを生成することをお勧めします。 詳しい情報については、「[強力なパスワードを作成する](/github/authenticating-to-github/creating-a-strong-password)」を参照してください。
 - **2 要素認証 (2FA)**（推奨）
     - 2FA を有効にすると、ユーザ名とパスワードを入力した後に、モバイルデバイスのアプリケーションによって生成されたコードか、テキストメッセージ (SMS) として送信されたコードの入力も求められます。 詳しい情報については [2 要素認証を用いた {% data variables.product.prodname_dotcom %}へのアクセス](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)を参照してください。
     - モバイルアプリケーションまたはテキストメッセージでの認証に加えて、必要に応じて、WebAuthn を使用したセキュリティキーを使用した第2の認証方法を追加できます。 詳しい情報については、「[セキュリティキーを使用した 2 要素認証を設定する](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)」を参照してください。
+{% endif %}
 
 ### {% data variables.product.prodname_desktop %} で認証する
 
@@ -32,7 +34,7 @@ versions:
 
 ### API で認証する
 
-{% data variables.product.product_name %} API での認証は、ブラウザ内でさまざまな方法を使用して行うことができます。
+You can authenticate with the API in different ways.
 
 - **個人アクセストークン**
     - テストなどの限られた状況では、個人アクセストークンを使用して API にアクセスできます。 個人アクセストークンを使用すると、いつでもアクセスを取り消すことができます。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。

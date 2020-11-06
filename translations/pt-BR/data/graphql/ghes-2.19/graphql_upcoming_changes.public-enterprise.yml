@@ -1,0 +1,65 @@
+---
+upcoming_changes:
+  - 
+    location: Migration.uploadUrlTemplate
+    description: "`uploadUrlTemplate` será removido. Use `uploadUrl` em vez disso."
+    reason: "'uploadUrlTemplate' está sendo removido porque não é uma URL padrão e adiciona um passo extra do usuário."
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: ContributionOrder.field
+    description: "'field' será removido. Apenas um campo de pedido é suportado."
+    reason: "`field` será removido."
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Issue.timeline
+    description: "`timeline` será removido. Use Issue.timelineItems em vez disso."
+    reason: "`timeline` será removido"
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - 
+    location: Organization.pinnedRepositories
+    description: "`pinnedRepositories` será removido. Use ProfileOwner.pinnedItems em vez disso."
+    reason: pinnedRepositories será removido
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: PullRequest.timeline
+    description: "`timeline` será removido. Use PullRequest.timelineItems em vez disso."
+    reason: "`timeline` será removido"
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - 
+    location: RepositoryOwner.pinnedRepositories
+    description: "`pinnedRepositories` será removido. Use ProfileOwner.pinnedItems em vez disso."
+    reason: pinnedRepositories será removido
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: User.pinnedRepositories
+    description: "`pinnedRepositories` será removido. Use ProfileOwner.pinnedItems em vez disso."
+    reason: pinnedRepositories será removido
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: AssignedEvent.user
+    description: "`user` será removido. Use o campo `assignee`."
+    reason: Os responsáveis podem agora ser mannequines.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: UnassignedEvent.user
+    description: "`user` será removido. Use o campo `assignee`."
+    reason: Os responsáveis podem agora ser mannequines.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling

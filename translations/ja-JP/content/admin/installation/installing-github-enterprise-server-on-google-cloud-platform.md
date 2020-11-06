@@ -20,7 +20,7 @@ versions:
 
 ### マシンタイプの決定
 
-Google Cloud Platformde{% data variables.product.product_location_enterprise %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。
+Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。
 
 #### サポートされているマシンタイプ
 

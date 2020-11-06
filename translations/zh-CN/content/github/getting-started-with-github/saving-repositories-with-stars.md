@@ -1,6 +1,6 @@
 ---
 title: 使用星标保存仓库
-intro: 'You can star repositories{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %} and topics{% endif %} to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在 {% data variables.explore.your_stars_page %} 上搜索、排序和筛选星标仓库和主题。'

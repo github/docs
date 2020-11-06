@@ -18,7 +18,7 @@ versions:
 
 {% note %}
 
-**注意**: 継続的インテグレーション（CI）あるいはビルドサーバで定期的に{% data variables.product.product_location_enterprise %}をポーリングすると、実質的にサービス拒否攻撃となって問題が生ずることがあるので、更新のプッシュにはwebhookの利用をお勧めします。 詳しい情報については"[webhookについて](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)"を参照してください。
+**注意**: 継続的インテグレーション（CI）あるいはビルドサーバで定期的に{% data variables.product.product_location %}をポーリングすると、実質的にサービス拒否攻撃となって問題が生ずることがあるので、更新のプッシュにはwebhookの利用をお勧めします。 詳しい情報については"[webhookについて](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)"を参照してください。
 
 {% endnote %}
 

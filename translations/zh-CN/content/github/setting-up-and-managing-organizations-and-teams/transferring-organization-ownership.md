@@ -7,6 +7,7 @@ intro: 'To make someone else the owner of an organization account, you must add 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. 如果您是具有*所有者*权限的唯一成员，则授予其他组织成员所有者角色。 更多信息请参阅“[任命组织所有者](/github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)”。

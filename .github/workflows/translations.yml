@@ -24,7 +24,7 @@ jobs:
         branch: translations
     - if: ${{ steps.pr.outputs.number }}
       name: Check if already labeled
-      uses: actions/github-script@5d03ada4b0a753e9460b312e61cc4f8fdeacf163
+      uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
       id: has-label
       with:
         script: |
@@ -44,7 +44,7 @@ jobs:
         number: ${{ steps.pr.outputs.number }}
     - if: ${{ !steps.has-label.outputs.result }}
       name: Add automerge label
-      uses: actions/github-script@5d03ada4b0a753e9460b312e61cc4f8fdeacf163
+      uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |

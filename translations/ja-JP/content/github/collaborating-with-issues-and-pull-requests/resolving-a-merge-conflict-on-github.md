@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %}で解決できるマージコンフリクトは、Git リポジトリの別々のブランチで、同じファイルの同じ行に異なる変更がなされた場合など、互いに矛盾する行変更を原因とするもののみです。 その他すべての種類のマージ コンフリクトについては、コマンド ラインでコンフリクトをローカルに解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on
 {% data variables.product.product_name %} and must resolve merge conflicts on the command line. たとえば、マージ コンフリクト エディターが無効な場合、フォークと上流リポジトリの間の Pull Request ではそれを使用できません。
 {% endif %}
@@ -33,7 +34,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
  {% tip %}
 
- **ヒント:** [**Resolve conflicts**] ボタンが作動しない場合、指定した Pull Request のマージ コンフリクトは {% data variables.product.product_name %} で解決するには複雑すぎ{% if enterpriseServerVersions contains currentVersion %} るか、サイトの管理者がリポジトリ間の Pull Request に対してコンフリクト エディターを無効にしてい{% endif %}ます。 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
