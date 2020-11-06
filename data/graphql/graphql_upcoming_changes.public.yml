@@ -73,18 +73,6 @@ upcoming_changes:
   date: '2020-10-01T00:00:00+00:00'
   criticality: breaking
   owner: mikesea
-- location: RepositoryCollaboratorEdge.permission
-  description: Type for `permission` will change from `RepositoryPermission!` to `String`.
-  reason: This field may return additional values
-  date: '2020-10-01T00:00:00+00:00'
-  criticality: breaking
-  owner: oneill38
-- location: RepositoryInvitation.permission
-  description: Type for `permission` will change from `RepositoryPermission!` to `String`.
-  reason: This field may return additional values
-  date: '2020-10-01T00:00:00+00:00'
-  criticality: breaking
-  owner: oneill38
 - location: RepositoryInvitationOrderField.INVITEE_LOGIN
   description: "`INVITEE_LOGIN` will be removed."
   reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations
@@ -98,12 +86,6 @@ upcoming_changes:
   date: '2020-10-01T00:00:00+00:00'
   criticality: breaking
   owner: nholden
-- location: TeamRepositoryEdge.permission
-  description: Type for `permission` will change from `RepositoryPermission!` to `String`.
-  reason: This field may return additional values
-  date: '2020-10-01T00:00:00+00:00'
-  criticality: breaking
-  owner: oneill38
 - location: EnterpriseMemberEdge.isUnlicensed
   description: "`isUnlicensed` will be removed."
   reason: All members consume a license
