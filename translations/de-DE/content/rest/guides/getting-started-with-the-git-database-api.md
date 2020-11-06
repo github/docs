@@ -4,6 +4,7 @@ intro: 'The Git Database API gives you access to read and write raw Git objects 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Übersicht

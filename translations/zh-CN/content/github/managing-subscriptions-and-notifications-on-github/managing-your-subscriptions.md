@@ -4,6 +4,7 @@ intro: '为帮助您有效地管理通知，提供了多种取消订阅的方法
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 为帮助您了解您的订阅和决定是否取消订阅，请参阅“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。

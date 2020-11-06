@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre as versões
@@ -20,11 +21,11 @@ Versões são iterações de software implementáveis que você pode empacotar e
 
 As versões se baseiam em [tags Git](https://git-scm.com/book/en/Git-Basics-Tagging), que marcam um ponto específico no histórico do seu repositório. Uma data de tag pode ser diferente de uma data de versão, já que elas podem ser criadas em momentos diferentes. Para obter mais informações sobre como visualizar as tags existentes, consulte "[Visualizar tags e versões do seu repositório](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)".
 
-Você pode receber notificações quando novas versões são publicadas em um repositório sem receber notificações sobre outras atualizações para o repositório. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Visualizar as suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Inspecionar e não inspecionar as versões de um repositório](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
+Você pode receber notificações quando novas versões são publicadas em um repositório sem receber notificações sobre outras atualizações para o repositório. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching releases for a repository](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
 
 Qualquer pessoa com acesso de leitura a um repositório pode ver e comparar versões, mas somente pessoas com permissões de gravação a um repositório podem gerenciar versões. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 Pessoas com permissões de administrador para um repositório podem escolher se
 {% data variables.large_files.product_name_long %} os objetos de ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
 

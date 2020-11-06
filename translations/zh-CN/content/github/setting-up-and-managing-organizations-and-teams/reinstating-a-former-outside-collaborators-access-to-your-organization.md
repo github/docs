@@ -1,15 +1,16 @@
 ---
 title: 恢复前外部协作者对组织的访问权限
-intro: '如果您的组织中需要双因素身份验证，并且已从组织中删除了未启用 2FA 的外部协作者，则可以恢复前外部协作者对组织仓库、复刻和设置的访问权限。'
+intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-如果由于您[要求成员和外部协作者启用双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)而删除了外部协作者对您组织私有仓库的访问权限，则用户的访问权限和设置将保存三个月。 You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

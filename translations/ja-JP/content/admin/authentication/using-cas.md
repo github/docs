@@ -32,7 +32,7 @@ versions:
 ### CASの設定
 {% warning %}
 
-**警告：**{% data variables.product.product_location_enterprise %}でCASを設定するまでは、ユーザはCASのユーザ名とパスワードをAPIリクエストの認証やHTTP/HTTPS経由のGit操作に使えないことに注意してください。 その代わりに、ユーザは[アクセストークンを作成](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)しなければなりません。
+**警告：**{% data variables.product.product_location %}でCASを設定するまでは、ユーザはCASのユーザ名とパスワードをAPIリクエストの認証やHTTP/HTTPS経由のGit操作に使えないことに注意してください。 その代わりに、ユーザは[アクセストークンを作成](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)しなければなりません。
 
 {% endwarning %}
 

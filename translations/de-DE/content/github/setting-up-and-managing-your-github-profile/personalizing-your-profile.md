@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Dein Profilbild ändern
@@ -49,7 +50,7 @@ Du kannst den Namen, der in Deinem Profil angezeigt wird, ändern. This name may
 
 Fügen Sie eine Biografie zu Ihrem Profil hinzu, um anderen {% data variables.product.product_name %}-Benutzern Informationen zu Ihrer Person bereitzustellen. Mit [@Erwähnungen](/articles/basic-writing-and-formatting-syntax) und Emojis kannst Du Informationen dazu angeben, wo Du gerade arbeitest oder früher gearbeitet hast, welche Tätigkeit Du ausübst oder welche Kaffeesorte Du trinkst.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information on the profile README, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 

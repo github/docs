@@ -5,6 +5,7 @@ permissions: リポジトリへの読み取りアクセスを持つ人は、リ�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

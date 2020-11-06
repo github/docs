@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.about-protected-branches %} プルリクエストのリポジトリへのマージ方法に制限を適用することができます。

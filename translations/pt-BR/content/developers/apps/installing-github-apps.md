@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -46,7 +47,7 @@ Essas etapas pressupõem que você [criou um {% data variables.product.prodname_
 1. Na [página de configurações dos aplicativos GitHub](https://github.com/settings/apps), selecione o aplicativo público que você deseja configurar para que outras pessoas instalem.
 2. Em "URL da página inicial", digite a URL para a página inicial do seu aplicativo e clique em **Salvar as alterações**. ![URL da página inicial](/assets/images/github-apps/github_apps_homepageURL.png)
 3. O GitHub fornece uma página inicial para o seu aplicativo que inclui um link para a "URL da página inicial" do seu aplicativo. Para visitar a página inicial no GitHub, copie a URL do "Link público" e cole-a em um navegador. ![Link público](/assets/images/github-apps/github_apps_public_link.png)
-4. Crie uma página inicial para o seu aplicativo que inclui a URL de instalação do aplicativo: `https://github.com/apps/<app name>/installations/new`.
+4. Create a homepage for your app that includes the app installation URL: `{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new`.
 
 ### Autorizar usuários durante a instalação
 
@@ -59,4 +60,4 @@ Você pode fornecer um parâmetro de `estado` na URL de instalação de um aplic
 
 Para preservar um estado, adicione-o à URL de instalação:
 
-`https://github.com/apps/<app name>/installations/new?state=AB12t`
+`{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new?state=AB12t`

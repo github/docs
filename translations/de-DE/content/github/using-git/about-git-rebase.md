@@ -8,6 +8,7 @@ intro: 'Mit dem Befehl „git rebase“ kannst Du eine Reihe von Commits einfach
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
