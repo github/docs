@@ -50,7 +50,7 @@ _Actions_ are standalone commands that are combined into _steps_ to create a _jo
 
 #### Runners
 
-A runner is a server that has the {% data variables.product.prodname_actions %} runner application installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
+A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
 
 {% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS. For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
