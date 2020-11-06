@@ -32,7 +32,7 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - An assigned Technical Service Account Manager
   - Quarterly support reviews
   - Managed Admin services
-{% if enterpriseServerVersions contains currentVersion %}
+{% else if enterpriseServerVersions contains currentVersion %}
   - Technical account managers
   - Access to premium content
   - Scheduled health checks
