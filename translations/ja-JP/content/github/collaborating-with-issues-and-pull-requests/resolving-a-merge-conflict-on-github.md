@@ -1,63 +1,61 @@
 ---
-title: Resolving a merge conflict on GitHub
-intro: 'You can resolve simple merge conflicts that involve competing line changes on GitHub, using the conflict editor.'
+title: GitHub でのマージ コンフリクトを解決する
+intro: 'コンフリクト エディターを使用すれば、GitHub で行の変更が競合している単純なマージ コンフリクトを解決できます。'
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can only resolve merge conflicts on {% data variables.product.product_name %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
+{% data variables.product.product_name %}で解決できるマージコンフリクトは、Git リポジトリの別々のブランチで、同じファイルの同じ行に異なる変更がなされた場合など、互いに矛盾する行変更を原因とするもののみです。 その他すべての種類のマージ コンフリクトについては、コマンド ラインでコンフリクトをローカルに解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
-{% if currentVersion != "free-pro-team@latest" %}
-If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.product_name %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on
+{% data variables.product.product_name %} and must resolve merge conflicts on the command line. たとえば、マージ コンフリクト エディターが無効な場合、フォークと上流リポジトリの間の Pull Request ではそれを使用できません。
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. Make sure you really want to commit to this branch.
+**Warning:** When you resolve a merge conflict on
+{% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. このブランチにコミットすることが間違いでないことを確認してください。
 {% else %}
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+**Warning:** When you resolve a merge conflict on
+{% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). このブランチにコミットすることが間違いでないことを確認してください。 If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. head ブランチが保護されている場合、コンフリクトの解決をマージすることができないため、新しい head ブランチを作成するように求められます。 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
 {% endif %}
 
 {% endwarning %}
 
 {% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
-1. Near the bottom of your pull request, click **Resolve conflicts**.
-![Resolve merge conflicts button](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
+1. [Pull Requests] リストで、解決するマージ コンフリクトを起こしている Pull Request をクリックします。
+1. 指定した Pull Request の下部周辺で、[**Resolve conflicts**] をクリックします。 ![[Resolve merge conflicts] ボタン](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
  {% tip %}
 
- **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line)."
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. 別の Git クライアントを使用するか、コマンドラインで Git を使用して、マージのコンフリクトを解決する必要があります。 詳細は「[コマンド ラインを使用してマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-using-the-command-line)」を参照してください。
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
- ![View merge conflict example with conflict markers](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
-1. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
-1. Once you've resolved all the conflicts in the file, click **Mark as resolved**.
- ![Click mark as resolved button](/assets/images/help/pull_requests/mark-as-resolved-button.png)
-1. If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
- ![Select next conflicting file if applicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
-1. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
- ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png){% if currentVersion ver_lt "enterprise-server@2.22" %}
-1. If prompted, review the branch that you are committing to. If you want to commit to this branch, click **I understand, update _BRANCH_**.
-![Merge conflict confirmation window](/assets/images/help/pull_requests/merge-conflict-confirmation.png){% else %}
-1. If prompted, review the branch that you are committing to. 
+ ![コンフリクトマーカー付きのマージコンフリクトの例を表示する](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
+1. ファイルに複数のマージ コンフリクトがある場合は、次の一連のコンフリクト マーカーまで下にスクロールし、ステップ 4 と 5 を繰り返してマージ コンフリクトを解決します。
+1. ファイル内のコンフリクトをすべて解決したら、[**Mark as resolved**] をクリックします。 ![[Mark as resolved] ボタンをクリックする](/assets/images/help/pull_requests/mark-as-resolved-button.png)
+1. コンフリクトしているファイルが複数ある場合は、[conflicting files] の下のページの左側で編集する次のファイルを選択し、Pull Request のマージ コンフリクトをすべて解決するまでステップ 4 から 7 を繰り返します。 ![コンフリクトしている次のファイルを選択する（該当する場合）](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
+1. マージ コンフリクトをすべて解決したら、[**Commit merge**] をクリックします。 これにより、Base ブランチ全体が Head ブランチにマージされます。 ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png){% if currentVersion ver_lt "enterprise-server@2.22" %}
+1. プロンプトに従い、コミット先のブランチをレビューします。 このブランチにコミットする場合は [**I understand, update _BRANCH_**] をクリックします。 ![マージコンフリクト確認ウィンドウ](/assets/images/help/pull_requests/merge-conflict-confirmation.png){% else %}
+1. プロンプトに従い、コミット先のブランチをレビューします。
 
-   If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
- ![Prompt to review the branch that will be updated](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
-   
-   If you choose to create a new branch, enter a name for the branch.
-   
-   If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
-   
-   Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
+   head ブランチがリポジトリのデフォルトブランチである場合、コンフリクトを解決するために加えた変更でこのブランチを更新するか、新しいブランチを作成してこれをプルリクエストのヘッドブランチとして使用するかを選択できます。 ![更新するブランチの確認を求める](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
+
+   新しいブランチを作成する場合は、ブランチの名前を入力します。
+
+   プルリクエストの head ブランチが保護されている場合は、新しいブランチを作成する必要があります。 保護されたブランチを更新するオプションはありません。
+
+   [**Create branch and update my pull request**] または [**I understand, continue updating _BRANCH_**] をクリックします。 ボタンテキストは、実行中のアクションに対応しています。
 {% endif %}
-1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
+1. Pull Request をマージするには、[**Merge pull request**] をクリックします。 Pull Request のマージ オプションの詳細については、「 [Pull Request をマージする](/articles/merging-a-pull-request/)」を参照してください。
 
-### Further reading
+### 参考リンク
 
-- "[About pull request merges](/articles/about-pull-request-merges)"
+- [プルリクエストのマージについて](/articles/about-pull-request-merges)

@@ -77,9 +77,9 @@ runs:
 
 アクションのツールキットは、Node.js パッケージのコレクションで、より一貫性を保ちつつ、JavaScript を素早く作成するためのものです。
 
-ツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core)パッケージは、ワークフローのコマンド、入力および出力変数、終了ステータス、ならびにデバッグメッセージに対してインターフェースを提供します。
+ツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージは、ワークフローコマンド、入力変数と出力変数、終了ステータス、およびデバッグメッセージへのインターフェースを提供します。
 
-このツールキットはまた、認証を受けたOctokit RESTクライアント及びGitHub Actionsコンテキストへのアクセスを返す[`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github)パッケージも提供します。
+このツールキットは、認証された Octokit REST クライアントと GitHub Actions コンテキストへのアクセスを返す [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) パッケージも提供します。
 
 ツールキットは、`core` や `github` パッケージ以外のものも提供しています。 詳しい情報については、[actions/toolkit](https://github.com/actions/toolkit) リポジトリ以下を参照してください。
 
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-上記のサンプルの`index.js`でエラーが投げられた場合、`core.setFailed(error.message);`はアクションツールキットの[`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core)パッケージを使ってメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
+上記の `index.js` の例でエラーがスローされた場合、`core.setFailed(error.message);` はアクションツールキット [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
 
 
 ### READMEの作成

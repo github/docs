@@ -8,13 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您的贡献图显示公共仓库的活动。 您可以选择显示公共和私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
 
-**注：**如果您已[将用于本地 Git 配置的电子邮件地址添加到 {% data variables.product.product_name %} 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)，提交将仅在您的贡献图中显示。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)”
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)”
 
 {% endnote %}
 
@@ -25,7 +26,7 @@ versions:
 - 提交到仓库的默认分支或 `gh-pages` 分支
 - 打开议题
 - 提议拉取请求
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - 合作创作仓库默认分支或 `gh-pages` 分支中的提交{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -79,9 +80,12 @@ versions:
 
 ![贡献活动时间过滤器](/assets/images/help/profile/contributions_activity_time_filter.png)
 
+{% if currentVersion != "github-ae@latest" %}
 ### 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.product_location_enterprise %}的贡献
+If your site administrator has enabled
 
-如果您的站点管理员已启用{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到 {% data variables.product.prodname_dotcom_the_website %} 配置文件。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+{% endif %}
 
 ### 延伸阅读
 

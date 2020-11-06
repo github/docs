@@ -5,6 +5,7 @@ intro: 'Aprenda sobre recursos, bibliotecas, pré-visualizações e solução de
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Índice
@@ -15,4 +16,5 @@ versions:
 {% link_in_list /troubleshooting %}
 {% link_in_list /api-previews %}
 {% link_in_list /libraries %}
+{% link_in_list /openapi-description %}
 {% link_in_list /endpoints-available-for-github-apps %}

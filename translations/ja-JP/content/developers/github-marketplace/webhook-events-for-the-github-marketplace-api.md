@@ -13,7 +13,7 @@ versions:
 
 ### {% data variables.product.prodname_marketplace %} purchase webhook payload
 
-Webhooks `POST` requests have special headers. See "[Webhook delivery headers](/webhooks/event-payloads/#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
+Webhooks `POST` requests have special headers. See "[Webhook delivery headers](/webhooks/event-payloads/#delivery-headers)" for more details. GitHubは、失敗した配信の試行を再送信しません。 GitHubが送信したすべてのwebhookのペイロードを、アプリケーションが確実に受信できるようにしてください。
 
 Cancellations and downgrades take effect on the first day of the next billing cycle. Events for downgrades and cancellations are sent when the new plan takes effect at the beginning of the next billing cycle. Events for new purchases and upgrades begin immediately. Use the `effective_date` in the webhook payload to determine when a change will begin.
 
@@ -35,7 +35,7 @@ The `marketplace_purchase` object has the following keys:
 | -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `アカウント`              | `オブジェクト`  | The `organization` or `user` account associated with the subscription. Organization accounts will include `organization_billing_email`, which is the organization's administrative email address. To find email addresses for personal accounts, you can use the [Get the authenticated user](/v3/users/#get-the-authenticated-user) endpoint. |
 | `billing_cycle`      | `string`  | Can be `yearly` or `monthly`. When the `account` owner has a free GitHub plan and has purchased a free {% data variables.product.prodname_marketplace %} plan, `billing_cycle` will be `nil`.                                                                                                                                                  |
-| `unit_count`         | `整数`      | Number of units purchased.                                                                                                                                                                                                                                                                                                                     |
+| `unit_count`         | `integer` | Number of units purchased.                                                                                                                                                                                                                                                                                                                     |
 | `on_free_trial`      | `boolean` | `true` when the `account` is on a free trial.                                                                                                                                                                                                                                                                                                  |
 | `free_trial_ends_on` | `string`  | The date the free trial will expire.                                                                                                                                                                                                                                                                                                           |
 | `next_billing_date`  | `string`  | The date that the next billing cycle will start. When the `account` owner has a free GitHub.com plan and has purchased a free {% data variables.product.prodname_marketplace %} plan, `next_billing_date` will be `nil`.                                                                                                                       |
@@ -45,11 +45,11 @@ The `plan` object has the following keys:
 
 | キー                       | 種類                 | 説明                                                                                                                                    |
 | ------------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                     | `整数`               | The unique identifier for this plan.                                                                                                  |
+| `id`                     | `integer`          | The unique identifier for this plan.                                                                                                  |
 | `name`                   | `string`           | The plan's name.                                                                                                                      |
 | `説明`                     | `string`           | This plan's description.                                                                                                              |
-| `monthly_price_in_cents` | `整数`               | The monthly price of this plan in cents (US currency). For example, a listing that costs 10 US dollars per month will be 1000 cents.  |
-| `yearly_price_in_cents`  | `整数`               | The yearly price of this plan in cents (US currency). For example, a listing that costs 100 US dollars per month will be 10000 cents. |
+| `monthly_price_in_cents` | `integer`          | The monthly price of this plan in cents (US currency). For example, a listing that costs 10 US dollars per month will be 1000 cents.  |
+| `yearly_price_in_cents`  | `integer`          | The yearly price of this plan in cents (US currency). For example, a listing that costs 100 US dollars per month will be 10000 cents. |
 | `price_model`            | `string`           | The pricing model for this listing. Can be one of `flat-rate`, `per-unit`, or `free`.                                                 |
 | `has_free_trial`         | `boolean`          | `true` when this listing offers a free trial.                                                                                         |
 | `unit_name`              | `string`           | The name of the unit. If the pricing model is not `per-unit` this will be `nil`.                                                      |

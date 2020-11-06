@@ -16,6 +16,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Zustellungsoptionen für Benachrichtigungen
@@ -109,9 +110,9 @@ E-Mail-Benachrichtigungen von {% data variables.product.product_name %} enthalte
 | Header                   | Informationen                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `From`-Adresse           | This address will always be {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}.                                                                                                                                                                              |
-| `To`-Feld                | Dieses Feld ist direkt mit dem Thread verknüpft. Wenn Du auf die E-Mail antwortest, fügst Du der Unterhaltung einen neuen Kommentar hinzu.                                                                                                                                                                                                                                     |
-| `Cc`-Adresse             | {% data variables.product.product_name %} fügt Sie zu `Cc` hinzu, wenn Sie eine Unterhaltung abonniert haben. Die zweite E-Mail-Adresse in `Cc` entspricht dem Benachrichtigungsgrund. Das Suffix für diese Benachrichtigungsgründe lautet {% data variables.notifications.cc_address %}. Zu den möglichen Benachrichtigungsgründen gehören folgende: <ul><li>`assign`: Dir wurde ein Issue oder Pull Request zugewiesen.</li><li>`author`: Du hast einen Issue oder Pull Request erstellt.</li><li>`comment`: Du hast einen Issue oder Pull Request kommentiert.</li><li>`manual`: Ein Issue oder Pull Request, den Du manuell abonniert hast, wurde aktualisiert.</li><li>`mention`: Du wurdest in einem Issue oder Pull Request erwähnt.</li><li>`push`: Jemand hat einen Commit für einen Pull Request erstellt, den Du abonniert hast.</li><li>`review_requested`: Du oder ein Team, dem Du angehörst, wurdest/wurde gebeten, einen Review für einen Pull Request durchzuführen.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} hat eine Schwachstelle in einem Repository erkannt, für das Du Sicherheitswarnungen erhältst.</li><li>`state_change`: Ein Issue oder Pull Request, den Du abonniert hast, wurde entweder geschlossen oder geöffnet.</li><li>`subscribed`: Es gab eine Aktualisierung in einem Repository, das Du beobachtest.</li><li>`team_mention`: Ein Team, dem Du angehörst, wurde in einem Issue oder Pull Request erwähnt.</li><li>`your_activity`: Du hast einen Issue oder Pull Request geöffnet, kommentiert oder geschlossen.</li></ul> |
-| `mailing list`-Feld      | In diesem Feld werden der Name des Repositorys und sein Inhaber identifiziert. Das Format dieser Adresse lautet immer `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" % %}
+| `To`-Feld                | This field connects directly to the thread.{% if currentVersion != "github-ae@latest" %} If you reply to the email, you'll add a new comment to the conversation.{% endif %}
+| `Cc`-Adresse             | {% data variables.product.product_name %} fügt Sie zu `Cc` hinzu, wenn Sie eine Unterhaltung abonniert haben. Die zweite E-Mail-Adresse in `Cc` entspricht dem Benachrichtigungsgrund. Das Suffix für diese Benachrichtigungsgründe lautet {% data variables.notifications.cc_address %}. Zu den möglichen Benachrichtigungsgründen gehören folgende: <ul><li>`assign`: Dir wurde ein Issue oder Pull Request zugewiesen.</li><li>`author`: Du hast einen Issue oder Pull Request erstellt.</li><li>`comment`: Du hast einen Issue oder Pull Request kommentiert.</li><li>`manual`: Ein Issue oder Pull Request, den Du manuell abonniert hast, wurde aktualisiert.</li><li>`mention`: Du wurdest in einem Issue oder Pull Request erwähnt.</li><li>`push`: Jemand hat einen Commit für einen Pull Request erstellt, den Du abonniert hast.</li><li>`review_requested`: Du oder ein Team, dem Du angehörst, wurdest/wurde gebeten, einen Review für einen Pull Request durchzuführen.</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} hat eine Schwachstelle in einem Repository erkannt, für das Du Sicherheitswarnungen erhältst.</li>{% endif %}<li>`state_change`: Ein Issue oder Pull Request, den Du abonniert hast, wurde entweder geschlossen oder geöffnet.</li><li>`subscribed`: Es gab eine Aktualisierung in einem Repository, das Du beobachtest.</li><li>`team_mention`: Ein Team, dem Du angehörst, wurde in einem Issue oder Pull Request erwähnt.</li><li>`your_activity`: Du hast einen Issue oder Pull Request geöffnet, kommentiert oder geschlossen.</li></ul> |
+| `mailing list`-Feld      | In diesem Feld werden der Name des Repositorys und sein Inhaber identifiziert. Das Format dieser Adresse lautet immer `<repository name>.<repository owner>.{% data variables.command_line.backticks %}`. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | `X-GitHub-Severity`-Feld | {% data reusables.repositories.security-alerts-x-github-severity %} Die möglichen Schweregrade sind:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." | |{% endif %}
 
 ### Wähle Deine Benachrichtigungseinstellungen
@@ -157,34 +158,21 @@ If you are a member of more than one organization, you can configure each one to
 5. Wähle eine Deiner verifizierten E-Mail-Adressen aus, und klicke dann auf **Save** (Speichern).    
    ![Eigene E-Mail-Adressen pro Organisation ändern](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### {% data variables.product.prodname_dependabot_alerts %} Benachrichtigungsoptionen
 {% else %}
 ### Security alert notification options
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. You can receive {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} security alerts {% endif %} in your inbox, as a banner on {% data variables.product.product_name %}, on the command line, through email, or some combination of these options.
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for
 
-If you want to receive {% data variables.product.prodname_dependabot_alerts %} by email, choose whether you want a weekly email summary of vulnerabilities for up 10 repositories or a new email each time a vulnerability is detected. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
-
-{% if currentVersion == "enterprise-server@2.21" %}Choose how you want to receive security alerts for repositories that you are watching. Du kannst Sicherheitswarnungen in Deinem Posteingang erhalten, als Banner auf {% data variables.product.product_name %}, auf der Befehlszeile, per E-Mail oder eine beliebige Kombination dieser Optionen.
-
-Wenn Du Sicherheitswarnungen per E-Mail erhalten möchtest, wähle, ob Du eine wöchentliche E-Mail-Zusammenfassung von Verwundbarkeiten für bis zu 10 Repositories erhalten möchtest, oder eine neue E-Mail jedes Mal, wenn eine Verwundbarkeit entdeckt wird. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_short %} alerts options](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
-{% else %}
-  ![Optionen für Sicherheitswarnungen](/assets/images/help/notifications-v2/security-alerts-options.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
-{% note %}
-
-**Note:** You can filter your {% data variables.product.company_short %} inbox notifications by {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts. Weitere Informationen findest Du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)."
-
-{% endnote %}
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-
 ### {% data variables.product.prodname_actions %} Benachrichtigungsoptionen
 
 Wähle, wie Du Aktualisierungen für Workflow-Ausführungen erhalten willst für Repositorys, die Du beobachtest und die mit {% data variables.product.prodname_actions %} aufgesetzt sind. Du kannst auch wählen, nur Benachrichtigungen für fehlgeschlagene Workflow-Ausführungen zu erhalten.
@@ -194,7 +182,6 @@ Wähle, wie Du Aktualisierungen für Workflow-Ausführungen erhalten willst für
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-
 ### Push-Benachrichtigungen mit {% data variables.product.prodname_mobile %} aktivieren
 
 Wenn Du {% data variables.product.prodname_mobile %} installierst, bist Du automatisch für Web-Benachrichtigungen abonniert. Du kannst dann Push-Benachrichtigungen aktivieren für direkte Erwähnungen innerhalb der App.

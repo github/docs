@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+**注意：** 我们不支持向 {% data variables.product.prodname_ghe_server %} 添加额外的网络适配器。
 
 {% endnote %}
 

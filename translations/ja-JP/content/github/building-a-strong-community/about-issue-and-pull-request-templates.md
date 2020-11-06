@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリでIssueやプルリクエストのテンプレートを作成すると、コントリビューターはそのテンプレートを使い、リポジトリのコントリビューションのガイドラインに沿ってIssuelをオープンしたり、プルリクエスト中の変更を提案したりできるようになります。 リポジトリへのコントリビューションのガイドラインの追加に関する詳しい情報については[リポジトリコントリビューターのためのガイドラインを定める](/articles/setting-guidelines-for-repository-contributors)を参照してください。
 
-You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
 
 ### Issueのテンプレート
 
@@ -20,7 +21,7 @@ Issueテンプレートビルダーを使ってリポジトリにIssueのテン�
 
 テンプレートビルダーを使うと、各テンプレートに対してタイトルと説明を指定し、テンプレートの内容を追加し、リポジトリ中でそのテンプレートをデフォルトブランチにコミットするか、プルリクエストをオープンできます。 テンプレートビルダーは、新しい Issue ページにテンプレートを表示するのに必要となる YAML front matter マークアップを自動的に追加してくれます。 詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/articles/configuring-issue-templates-for-your-repository)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 

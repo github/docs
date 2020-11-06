@@ -1,52 +1,53 @@
 ---
-title: Removing files from Git Large File Storage
-intro: 'If you''ve set up {% data variables.large_files.product_name_short %} for your repository, you can remove all files or a subset of files from {% data variables.large_files.product_name_short %}.'
+title: Dateien aus dem Git Large File Storage entfernen
+intro: 'Wenn Sie für Ihr Repository {% data variables.large_files.product_name_short %} eingerichtet haben, können Sie alle oder einen Teil der Dateien aus {% data variables.large_files.product_name_short %} entfernen.'
 redirect_from:
   - /articles/removing-files-from-git-large-file-storage
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Removing a single file
+### Einzelne Datei entfernen
 
-1.  Remove the file from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
-2. Navigate to your *.gitattributes* file.
+1.  Entferne die Datei mit dem Befehl `filter-branch` oder mit BFG Repo-Cleaner aus dem Git-Verlauf des Repositorys. Weitere Informationen zur Verwendung dieser Werkzeuge findest Du unter „[Vertrauliche Daten aus einem Repository entfernen](/articles/removing-sensitive-data-from-a-repository).“
+2. Navigiere zu Deiner *.gitattributes*-Datei.
 
   {% note %}
 
-  **Note:** Your *.gitattributes* file is generally saved within your local repository. In some cases, you may have created a global *.gitattributes* file that contains all of your {% data variables.large_files.product_name_short %} associations.
+  **Hinweis:** Die *.gitattributes*-Datei wird im Allgemeinen im lokalen Repository gespeichert. Eventuell hast Du aber auch eine globale *.gitattributes*-Datei mit allen Deinen {% data variables.large_files.product_name_short %}-Zuordnungen erstellt.
 
   {% endnote %}
-3. Find and remove the associated {% data variables.large_files.product_name_short %} tracking rule within the *.gitattributes* file.
-4. Save and exit the *.gitattributes* file.
+3. Suche und entferne die zugeordnete {% data variables.large_files.product_name_short %}-Tracking-Regel (Nachverfolgungsregel) in der *.gitattributes*-Datei.
+4. Speichere und schließe die *.gitattributes*-Datei.
 
-### Removing all files within a {% data variables.large_files.product_name_short %} repository
+### Alle Dateien eines {% data variables.large_files.product_name_short %}-Repositorys entfernen
 
-1. Remove the files from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
-2. Optionally, to uninstall {% data variables.large_files.product_name_short %} in the repository, run:
+1. Entferne die Dateien mit dem Befehl `filter-branch` oder mit BFG Repo-Cleaner aus dem Git-Verlauf des Repositorys. Weitere Informationen zur Verwendung dieser Werkzeuge findest Du unter „[Vertrauliche Daten aus einem Repository entfernen](/articles/removing-sensitive-data-from-a-repository).“
+2. Führe optional folgenden Befehl aus, um {% data variables.large_files.product_name_short %} im Repository zu deinstallieren:
   ```shell
   $ git lfs uninstall
   ```
-  For {% data variables.large_files.product_name_short %} versions below 1.1.0, run:
+  Führe bei {% data variables.large_files.product_name_short %}-Versionen vor 1.1.0 folgenden Befehl aus:
   ```shell
   $ git lfs uninit
   ```
 
-### {% data variables.large_files.product_name_short %} objects in your repository
+### {% data variables.large_files.product_name_short %}-Objekte in Ihrem Repository
 
 After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% if currentVersion == "free-pro-team@latest" %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
 
-To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. When you delete a repository, any associated issues, stars, and forks are also deleted. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)."{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archived objects are purged after three months.{% endif %}
+To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. Wenn Du ein Repository löschst, werden alle zugehörigen Issues, Sterne und Forks ebenfalls gelöscht. Weitere Informationen findest Du unter "[Löschen eines Repositories](/github/administering-a-repository/deleting-a-repository)."{% else %}kontaktiere Deinen {% data variables.product.prodname_enterprise %}-Administrator, um die Objekte zu archivieren. Archivierte Objekte werden nach drei Monaten gelöscht.{% endif %}
 
 {% note %}
 
-**Note:** If you removed a single file and have other {% data variables.large_files.product_name_short %} objects that you'd like to keep in your repository, after deleting and recreating your repository, reconfigure your {% data variables.large_files.product_name_short %}-associated files. For more information, see "[Removing a single file](#removing-a-single-file)" and "[Configuring {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
+**Hinweis:** Wenn Du eine einzelne Datei entfernt hast und andere {% data variables.large_files.product_name_short %}-Objekte hast, die Du in Deinem Repository behalten möchtest, rekonfiguriere Deine {% data variables.large_files.product_name_short %} zugeordneten Dateien,nachdem Du Dein Repository gelöscht und neu erstellt hast. Weitere Informationen findest Du unter "[Entferne eine einzelne Datei](#removing-a-single-file)" und "[Konfiguriere {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
 
 {% endnote %}
 
-### Further reading
+### Weiterführende Informationen
 
-- "[About {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"
-- "[Installing {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
+- „[Informationen zu {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)“
+- „[Mit {% data variables.large_files.product_name_long %} zusammenarbeiten](/articles/collaboration-with-git-large-file-storage/)“
+- „[{% data variables.large_files.product_name_long %} installieren](/articles/installing-git-large-file-storage)“

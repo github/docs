@@ -36,7 +36,7 @@ Antes de começar, você criará um repositório {% data variables.product.produ
   echo "Goodbye"
   ```
 
-3. From your terminal, make `goodbye.sh` executable.
+3. No seu terminal, torne `goodbye.sh` executável.
 
   ```shell
   chmod +x goodbye.sh
@@ -85,7 +85,7 @@ Antes de começar, você criará um repositório {% data variables.product.produ
 
   Para obter mais informações sobre como usar `github.action_path`, consulte "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-1. No terminal, verifique no seu arquivo `action.yml`.
+1. No seu terminal, verifique o seu arquivo `action.yml`.
 
   ```shell
   git add action.yml
@@ -93,7 +93,7 @@ Antes de começar, você criará um repositório {% data variables.product.produ
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. Para obter mais informações, consulte "[Sobre ações](/actions/creating-actions/about-actions#using-release-management-for-actions)".
+1. No seu terminal, adicione uma tag. Este exemplo usa uma tag denominada `v1`. Para obter mais informações, consulte "[Sobre ações](/actions/creating-actions/about-actions#using-release-management-for-actions)".
 
   ```shell
   git tag -a -m "Description of this release" v1
@@ -104,7 +104,7 @@ Antes de começar, você criará um repositório {% data variables.product.produ
 
 O código de fluxo de trabalho a seguir usa a ação hello world completa que você fez em "[Criando uma ação arquivo de metadados](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
+Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` em outro repositório, mas substitua `actions/hello-world-composite-run-steps-action@v1` pelo repositório e a tag que você criou. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
 {% raw %}
 **.github/workflows/main.yml**

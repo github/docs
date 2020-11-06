@@ -1,1 +1,1 @@
-只要符合服务条款，任何人都可以在 {% data variables.product.prodname_marketplace %} 中发布操作。 与应用程序不同， 在 {% data variables.product.prodname_marketplace %} 中列出的 {% data variables.product.prodname_actions %} 不会经过 {% data variables.product.prodname_dotcom %} 验证。
+任何人都可以在 {% data variables.product.prodname_marketplace %} 中发布操作。 {% data variables.product.prodname_dotcom %} 会验证一些合作伙伴组织，但与验证的应用程序不同，{% data variables.product.prodname_dotcom %} 不审查或验证 {% data variables.product.prodname_marketplace %} 中列出的个别操作。
