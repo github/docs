@@ -553,7 +553,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: docker://gcr.io/cloud-builders/gradle
+        uses: docker://ghcr.io/cloud-builders/gradle
 ```
 
 #### **`jobs.<job_id>.steps.run`**
