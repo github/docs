@@ -98,22 +98,6 @@
         "owner": "mikesea"
       },
       {
-        "location": "RepositoryCollaboratorEdge.permission",
-        "description": "<p>Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.</p>",
-        "reason": "<p>This field may return additional values</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "oneill38"
-      },
-      {
-        "location": "RepositoryInvitation.permission",
-        "description": "<p>Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.</p>",
-        "reason": "<p>This field may return additional values</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "oneill38"
-      },
-      {
         "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
         "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
         "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
@@ -128,14 +112,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "nholden"
-      },
-      {
-        "location": "TeamRepositoryEdge.permission",
-        "description": "<p>Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.</p>",
-        "reason": "<p>This field may return additional values</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "oneill38"
       }
     ],
     "2021-01-01": [
@@ -1812,22 +1788,6 @@
         "owner": "mikesea"
       },
       {
-        "location": "RepositoryCollaboratorEdge.permission",
-        "description": "<p>Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.</p>",
-        "reason": "<p>This field may return additional values</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "oneill38"
-      },
-      {
-        "location": "RepositoryInvitation.permission",
-        "description": "<p>Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.</p>",
-        "reason": "<p>This field may return additional values</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "oneill38"
-      },
-      {
         "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
         "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
         "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
@@ -1842,14 +1802,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "nholden"
-      },
-      {
-        "location": "TeamRepositoryEdge.permission",
-        "description": "<p>Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.</p>",
-        "reason": "<p>This field may return additional values</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "oneill38"
       }
     ],
     "2021-01-01": [

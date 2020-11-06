@@ -5,7 +5,7 @@
 
 module.exports = [
   'actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16', //actions/cache@v2.1.2
-  'actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675', //actions/checkout@v2.3.3
+  'actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f', //actions/checkout@v2.3.4
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
   'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d', //actions/setup-node@v1.4.4
