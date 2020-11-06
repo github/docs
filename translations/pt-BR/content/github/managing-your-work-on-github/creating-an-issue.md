@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.create-issue-in-public-repository %}
@@ -14,7 +15,7 @@ Você pode abrir um novo problema com base no código de uma pull request existe
 
 Você pode abrir um novo problema diretamente de um comentário em um problema ou uma revisão de pull request. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Dica**: Você também pode criar um problema usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" na documentação do {% data variables.product.prodname_cli %}.

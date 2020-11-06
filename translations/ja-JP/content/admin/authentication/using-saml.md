@@ -33,7 +33,7 @@ versions:
 
 {% note %}
 
-**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% if currentVersion ver_gt "enterprise-server@2.21" %}To restore the user's access, you'll need to update the user account's `NameID` mapping. 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
+**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% if currentVersion ver_gt "enterprise-server@2.21" %} ユーザのアクセスを復元するには、ユーザアカウントの `NameID` マッピングを更新する必要があります。 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
 
 {% endnote %}
 
@@ -79,10 +79,10 @@ versions:
 
   {% endtip %}
 
-5. {% data variables.product.product_location_enterprise %} 上のユーザの管理者権限を SAML プロバイダに決めさせたく**ない**場合、[**Disable administrator demotion/promotion**] を選択します。 ![SAMLの無効化の管理者設定](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. **Single sign-on URL（シングルサインオンURL）**フィールドに、使用するIdpのシングルサインオンのリクエストのためのHTTPあるいはHTTPSエンドポイントを入力してください。 この値はIdpの設定によって決まります。 ホストが内部のネットワークからしか利用できない場合、[{% data variables.product.product_location_enterprise %}を内部ネームサーバーを利用するように設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)する必要があるかもしれません。 ![SAML認証](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. または、[**Issuer**] フィールドに、SAML の発行者の名前を入力します。 これは、{% data variables.product.product_location_enterprise %} へ送信されるメッセージの真正性を検証します。 ![SAML発行者](/assets/images/enterprise/management-console/saml-issuer.png)
-8. [**Signature Method**] および [**Digest Method**] ドロップダウンメニューで、SAML の発行者が {% data variables.product.product_location_enterprise %} からのリクエストの整合性の検証に使うハッシュアルゴリズムを選択します。 ** Name Identifier Format（Name Identifier形式）**ドロップダウンメニューから形式を指定してください。 ![SAML方式](/assets/images/enterprise/management-console/saml-method.png)
+5. {% data variables.product.product_location %} 上のユーザの管理者権限を SAML プロバイダに決めさせたく**ない**場合、[**Disable administrator demotion/promotion**] を選択します。 ![SAMLの無効化の管理者設定](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. **Single sign-on URL（シングルサインオンURL）**フィールドに、使用するIdpのシングルサインオンのリクエストのためのHTTPあるいはHTTPSエンドポイントを入力してください。 この値はIdpの設定によって決まります。 ホストが内部のネットワークからしか利用できない場合、[{% data variables.product.product_location %}を内部ネームサーバーを利用するように設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)する必要があるかもしれません。 ![SAML認証](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. または、[**Issuer**] フィールドに、SAML の発行者の名前を入力します。 これは、{% data variables.product.product_location %} へ送信されるメッセージの真正性を検証します。 ![SAML発行者](/assets/images/enterprise/management-console/saml-issuer.png)
+8. [**Signature Method**] および [**Digest Method**] ドロップダウンメニューで、SAML の発行者が {% data variables.product.product_location %} からのリクエストの整合性の検証に使うハッシュアルゴリズムを選択します。 ** Name Identifier Format（Name Identifier形式）**ドロップダウンメニューから形式を指定してください。 ![SAML方式](/assets/images/enterprise/management-console/saml-method.png)
 9. [**Verification certificate**] の下で、[**Choose File**] をクリックし、IdP からの SAML のレスポンスを検証するための証明書を選択してください。 ![SAML認証](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. 必要に応じてSAMLの属性名はIdPに合わせて修正してください。あるいはデフォルト名をそのまま受け付けてください。 ![SAMLの属性名](/assets/images/enterprise/management-console/saml-attributes.png)
 
@@ -100,7 +100,7 @@ versions:
 
 {% endif %}
 
-### {% data variables.product.product_location_enterprise %}へのアクセスの削除
+### {% data variables.product.product_location %}へのアクセスの削除
 
 アイデンティティプロバイダからユーザを削除したなら、そのユーザを手動でサスペンドもしなければなりません。 そうしなければ、そのユーザはアクセストークンあるいはSSHキーを使って引き続き認証を受けることができてしまいます。 詳しい情報については[ユーザのサスペンドとサスペンドの解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)を参照してください。
 
@@ -144,7 +144,7 @@ versions:
 
 > 別のユーザが既にアカウントを所有しています。 管理者に認証ログを確認するようご依頼ください。
 
-このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% if currentVersion ver_gt "enterprise-server@2.21" %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. 詳しい情報については、「[ユーザの SAML `NameID` の更新](#updating-a-users-saml-nameid)」を参照してください。{% else %} `NameID` マッピングの更新については、{% data variables.contact.contact_ent_support %} にお問い合わせください。{% endif %}
+このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_ghe_server %} のユーザアカウントの `NameID` マッピングが IdP のユーザの `NameID` とマッチすることを確認します。 詳しい情報については、「[ユーザの SAML `NameID` の更新](#updating-a-users-saml-nameid)」を参照してください。{% else %} `NameID` マッピングの更新については、{% data variables.contact.contact_ent_support %} にお問い合わせください。{% endif %}
 
 #### SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
 

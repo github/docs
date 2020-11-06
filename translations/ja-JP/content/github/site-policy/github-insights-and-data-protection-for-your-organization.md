@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 For more information about the terms that govern {% data variables.product.prodname_insights %}, see your {% data variables.product.prodname_ghe_one %} subscription agreement.
@@ -29,7 +30,7 @@ You have full control over which metrics, reports, repositories, and contributor
 
 - **Decide which repositories to include**: Before you start an analysis in {% data variables.product.prodname_insights %}, consider which repositories to include. Administrators can include repositories when adding organizations and can enable and disable repositories at any time. For more information on adding organizations to {% data variables.product.prodname_insights %}, see "[Managing organizations](/insights/installing-and-configuring-github-insights/managing-organizations)." For more information on enabling and disabling repositories, see "[Managing repositories](/insights/installing-and-configuring-github-insights/managing-repositories)."
 
-- **Decide which metrics and reports to include**: Administrators can enable and disable metrics and reports available for all users at any time. Administrators control the {% data variables.product.prodname_insights %} data that users have access to in your installation of {% data variables.product.prodname_ghe_server %}. For more information, see "[Managing available metrics and reports](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)."
+- **Decide which metrics and reports to include**: Administrators can enable and disable metrics and reports available for all users at any time. Administrators control the {% data variables.product.prodname_insights %} data that users have access to in your installation of {% data variables.product.prodname_ghe_server %}. 詳しい情報については「[利用できるメトリクスとレポートの管理](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)」を参照してください。
 
 - **Decide which contributors to include**: Administrators can disable a specific contributor’s data from being processed in the metrics and reports. For more information on managing contributor data, see "[Managing contributors and teams](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)."
 
@@ -37,7 +38,7 @@ You have full control over which metrics, reports, repositories, and contributor
 
 Under various data protection regulations, such as the General Data Protection Regulation (GDPR), users may have the right to request exclusion from processing, access, and correction, or to request deletion of their personal data. As the data controller, your organization should evaluate whether a particular user request is valid and, if appropriate, take action to fulfill the request.
 
-- **Exclusion of processing**: Users may have the right to have their personal data excluded from being processed. Administrators have the ability to remove a contributor’s data from being processed in {% data variables.product.prodname_insights %}, and the resulting reports and metrics will exclude the contributor’s data accordingly. For more information, see "[Managing contributors and teams](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)."
+- **Exclusion of processing**: Users may have the right to have their personal data excluded from being processed. Administrators have the ability to remove a contributor’s data from being processed in {% data variables.product.prodname_insights %}, and the resulting reports and metrics will exclude the contributor’s data accordingly. 詳しい情報については「[コントリビューターとTeamの管理](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)」を参照してください。
 
 - **Access**: Users may have the right to demand to see what personal data is being processed. Each metric and report has a detailed description of what personal data is being processed. For more information, see "[Metrics available with {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)." Raw data is available through the {% data variables.product.prodname_enterprise %} API. Your organization is responsible for any decisions to process personal data and for fulfilling any such requests.
 

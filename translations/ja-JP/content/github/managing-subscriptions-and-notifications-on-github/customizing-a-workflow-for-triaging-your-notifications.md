@@ -4,6 +4,7 @@ intro: 'これらのワークフロー例を調整してカスタマイズし、
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### インボックスのトリアージを開始する

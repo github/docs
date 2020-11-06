@@ -365,4 +365,16 @@ describe('catches errors thrown in Page class', () => {
 
     expect(getPage).toThrowError('versions')
   })
+
+  test('page with a version in frontmatter that its parent product is not available in', () => {
+    function getPage () {
+      return new Page({
+        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
+        basePath: path.join(__dirname, '../fixtures/products'),
+        languageCode: 'en'
+      })
+    }
+
+    expect(getPage).toThrowError(/`versions` frontmatter.*? product is not available in/)
+  })
 })

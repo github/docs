@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リモート Git コマンドや SSH の実行時に、接続がタイムアウトする場合があります:

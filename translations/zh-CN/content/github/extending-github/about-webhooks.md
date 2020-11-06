@@ -9,6 +9,7 @@ intro: Web 挂钩是一种通知方式，只要仓库或组织上发生特定操
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

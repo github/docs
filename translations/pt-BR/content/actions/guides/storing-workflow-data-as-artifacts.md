@@ -74,7 +74,7 @@ Por exemplo, o seu repositório ou um aplicativo web pode conter arquivos SASS e
 |   
 ```
 
-Esse exemplo mostra como criar um fluxo de trabalho para um projeto Node.js que `builds` (compila) o código no diretório `src` e executa os testes no diretório `tests`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
+Esse exemplo mostra como criar um fluxo de trabalho para um projeto Node.js que builds (compila) o código no diretório `src` e executa os testes no diretório `tests`. Você pode partir do princípio que executar `npm test` produz um relatório de cobertura de código denominado `code-coverage.html`, armazenado no diretório `output/test/`.
 
 O fluxo de trabalho faz o upload dos artefatos de produção no diretório `dist`, mas exclui todos os arquivos de markdown. Ele também e faz o upload do relatório de `code-coverage.html` como outro artefato.
 

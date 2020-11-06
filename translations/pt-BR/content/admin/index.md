@@ -3,9 +3,10 @@ title: Administradores da Empresa
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin
-intro: 'Guias detalhados para administradores de organizações/sistemas e especialistas em segurança que vão implantar, configurar e gerenciar instâncias do GitHub Enterprise.'
+intro: Documentation and guides for enterprise administrators, system administrators, and security specialists who {% if enterpriseServerVersions contains currentVersion %}deploy, {% endif %}configure{% if enterpriseServerVersions contains currentVersion %},{% endif %} and manage {% data variables.product.product_name %}.
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}

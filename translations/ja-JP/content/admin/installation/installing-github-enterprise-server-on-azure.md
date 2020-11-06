@@ -22,7 +22,7 @@ versions:
 
 ### 仮想マシンタイプの決定
 
-{% data variables.product.product_location_enterprise %}をAzure上で起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
+{% data variables.product.product_location %}をAzure上で起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
 
 #### サポートされているVMタイプとリージョン
 

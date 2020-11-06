@@ -11,7 +11,7 @@ versions:
 
 ### Informationen zur Subdomain-Isolation
 
-Die Subdomain-Isolation mindert Cross-Site-Scripting und andere verwandte Schwachstellen. Weitere Informationen finden Sie unter „[Cross-Site-Scripting](https://de.wikipedia.org/wiki/Cross-Site-Scripting)“ auf Wikipedia. Es wird dringend empfohlen, die Subdomain-Isolation auf {% data variables.product.product_location_enterprise %} zu aktivieren.
+Die Subdomain-Isolation mindert Cross-Site-Scripting und andere verwandte Schwachstellen. Weitere Informationen finden Sie unter „[Cross-Site-Scripting](https://de.wikipedia.org/wiki/Cross-Site-Scripting)“ auf Wikipedia. Es wird dringend empfohlen, die Subdomain-Isolation auf {% data variables.product.product_location %} zu aktivieren.
 
 Bei aktivierter Subdomain-Isolation ersetzt {% data variables.product.prodname_ghe_server %} verschiedene Pfade durch Subdomains.
 

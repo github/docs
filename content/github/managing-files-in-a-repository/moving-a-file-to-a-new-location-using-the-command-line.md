@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Many files can be [moved directly on {% data variables.product.product_name %}](/articles/moving-a-file-to-a-new-location), but some files, such as images, require that you move them from the command line.

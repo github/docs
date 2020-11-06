@@ -28,9 +28,9 @@ versions:
 
 仓库交互 API 允许具有所有者或管理员权限的用户临时限制哪些用户可以在公共存储库中发表评论、开设议题或创建拉取请求。 {% data reusables.interactions.interactions-detail %} 以下是有关 {% data variables.product.product_name %} 用户组的更多信息：
 
-* {% data reusables.interactions.existing-user-limit-definition %} in the repository.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the repository.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the repository.
+* 仓库中的 {% data reusables.interactions.existing-user-limit-definition %}。
+* 仓库中的 {% data reusables.interactions.contributor-user-limit-definition %}。
+* 仓库中的 {% data reusables.interactions.collaborator-user-limit-definition %}。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'repos' %}{% include rest_operation %}{% endif %}

@@ -13,6 +13,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 {% data variables.product.prodname_pages %}
@@ -26,7 +27,7 @@ You can host your site on
 
 要开始使用，请参阅“[创建 {% data variables.product.prodname_pages %} 站点](/articles/creating-a-github-pages-site)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 Organization owners can disable the publication of
 {% data variables.product.prodname_pages %} sites from the organization's repositories. 更多信息请参阅“[为组织禁止发布 {% data variables.product.prodname_pages %} 站点](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)”。
 {% endif %}
@@ -35,26 +36,26 @@ Organization owners can disable the publication of
 
 有三种类型的 {% data variables.product.prodname_pages %} 站点：项目、用户和组织。 项目站点连接到 {% data variables.product.product_name %} 上托管的特定项目，例如 JavaScript 库或配方集合。 用户和组织站点连接到特定的 {% data variables.product.product_name %} 帐户。
 
-To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<user>.github.io`{% else %}`<user>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% endif %}
+To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<user>.github.io`{% else %}`<user>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-项目站点的源文件与其项目存储在同一个仓库中。 {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<user>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% endif %}
+项目站点的源文件与其项目存储在同一个仓库中。 {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<user>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 有关自定义域如何影响站点 URL 的更多详细，请参阅“[关于自定义域和 {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)”。
 {% endif %}
 
-您只能为每个 {% data variables.product.product_name %} 账户创建一个用户或组织站点。 项目站点（无论是组织还是用户帐户拥有）没有限制。
+You can only create one user or organization site for each account on {% data variables.product.product_name %}. 项目站点（无论是组织还是用户帐户拥有）没有限制。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 The URL where your site is available depends on whether subdomain isolation is enabled for
 {% data variables.product.product_location %}.
 
 | 站点类型 | 子域隔离已启用 | 子域隔离已禁用 |
 | ---- | ------- | ------- |
 |      |         |         |
- 用户 | 
+ User | 
 
-`http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` | 组织 | `http(s)://pages.<hostname>/<organization>/<repository>/` | `http(s)://<hostname>/pages/<organization>/<repository>/` | 用户帐户拥有的项目站点 | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` 组织帐户拥有的项目站点 | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Project site owned by user account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
 更多信息请参阅“[启用子域隔离](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)”或联系您的站点管理员。
 {% endif %}
@@ -73,7 +74,7 @@ The URL where your site is available depends on whether subdomain isolation is e
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 如果默认发布源在您的仓库中，{% data variables.product.prodname_pages %} 将自动从该源发布站点。 用户和组织站点的默认发布源是仓库默认分支的根目录。 项目站点的默认发布来源是 `gh-pages` 分支的根目录。
 

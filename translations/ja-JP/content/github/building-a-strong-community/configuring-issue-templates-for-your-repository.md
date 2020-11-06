@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.default-issue-templates %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Issue テンプレートを作成する
 {% endif %}
 
@@ -27,7 +28,7 @@ versions:
 10. コミットメッセージフィールドの下で、テンプレートを直接デフォルトブランチにコミットするか、新しいブランチを作成してプルリクエストを開くか判断します。 プルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。 ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. **[Commit changes]** をクリックしてください。 変更がデフォルトブランチにマージされると、コントリビューターがリポジトリで新しい Issue を開くときにテンプレートを使用できるようになります。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### テンプレート選択画面を設定する
 
 {% data reusables.repositories.issue-template-config %}

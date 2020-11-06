@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Alterar sua imagem de perfil
@@ -49,7 +50,7 @@ Você pode alterar o nome que é exbido em seu perfil. Este nome também pode se
 
 Adicione uma bio em seu perfil para compartilhar informações sobre si mesmo com outros usuários {% data variables.product.product_name %}. Com a ajuda de [@menções](/articles/basic-writing-and-formatting-syntax) e emojis, você pode incluir informações sobre onde está trabalhando agora ou já trabalhou, que tipo de trabalho faz ou mesmo que tipo de café toma.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 Para um formulário mais longo e uma maneira mais proeminente de exibir informações personalizadas sobre você, também é possível usar um LEIAME do perfil. Para obter mais informações sobre o LEIAME do perfil, consulte "[Gerenciar o LEIAME do seu perfil](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)".
 

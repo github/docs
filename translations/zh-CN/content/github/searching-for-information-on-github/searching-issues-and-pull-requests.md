@@ -7,14 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索议题和拉取请求，也可以在特定组织内搜索议题和拉取请求。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
 
 {% tip %}
 
-**Tips:**{% if currentVersion != "free-pro-team@latest" %}
-  - 本文章包含在 {% data variables.product.prodname_dotcom %}.com 网站上的示例搜索，但您可以在 {% data variables.product.product_location_enterprise %} 上使用相同的搜索过滤器。{% endif %}
+**Tips:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - 本文章包含在 {% data variables.product.prodname_dotcom %}.com 网站上的示例搜索，但您可以在 {% data variables.product.product_location %} 上使用相同的搜索过滤器。{% endif %}
   - 有关可以添加到任何搜索限定符以进一步改善结果的搜索语法列表，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax)”。
   - 对多个字词的搜索词使用引号。 例如，如果要搜索具有标签 "In progress" 的议题，可搜索 `label:"in progress"`。 搜索不区分大小写。
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -124,7 +125,7 @@ versions:
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** 匹配涉及 @defunkt 或 @jlord 的议题。                |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) 匹配涉及 @mdo 且正文中未包含 "bootstrap" 字样的议题。 |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### 搜索链接的议题和拉取请求
 您可以将结果缩小到仅包括通过关闭引用链接到拉取请求的议题，或者链接到拉取请求可能关闭的议题的拉取请求。
 
@@ -229,7 +230,7 @@ versions:
 ### 搜索草稿拉取请求
 您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
 
-| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
 
 ### 按拉取请求审查状态和审查者搜索
 

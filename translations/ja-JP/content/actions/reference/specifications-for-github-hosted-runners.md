@@ -1,5 +1,5 @@
 ---
-title: Specifications for GitHub-hosted runners
+title: GitHub ホストランナーの仕様
 intro: '{% data variables.product.prodname_dotcom %}は、ワークフローを実行するためのホストされた仮想マシンを提供します。 仮想マシンには、{% data variables.product.prodname_actions %}で使用できるツール、パッケージ、および設定の環境が含まれています。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -50,12 +50,13 @@ Windowsの仮想マシンは、ユーザアカウント制御（UAC）が無効�
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
-Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+ワークフローログには、ジョブの実行に使用されたランナーが一覧表示されます。 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
 
-### Supported software
+### サポートされているソフトウェア
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. 各ランナーオペレーティングシステム用に含まれるツールの最新のリストについては、以下のリンクを参照してください。
+{% data variables.product.prodname_dotcom %} ホストランナーに含まれているソフトウェアツールは毎週更新されます。 各ランナーオペレーティングシステム用に含まれるツールの最新のリストについては、以下のリンクを参照してください。
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
@@ -63,16 +64,18 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
 * [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [MacOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、オペレーティングシステムのデフォルトの組み込みツールに加え、上のリファレンスのリスト内のパッケージにが含まれています。 たとえば、Ubuntu及びmacOSのランナーには、`grep`、`find`、`which`やその他のデフォルトのツールが含まれています。
 
-Workflow logs include a link to the preinstalled tools on the runner. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+ワークフローログには、ランナーにプリインストールされているツールへのリンクが含まれています。 詳しい情報については、「[ワークフロー実行の履歴を表示する](/actions/managing-workflow-runs/viewing-workflow-run-history)」を参照してください。
 
 リクエストしたいツールがある場合、[actions/virtual-environments](https://github.com/actions/virtual-environments) で Issue を開いてください。
 
-### IP addresses
+### IP アドレス
 
 {% note %}
 
@@ -119,7 +122,7 @@ JSONファイルには、`values`という配列があります。 この配列�
 }
 ```
 
-### File systems
+### ファイルシステム
 
 {% data variables.product.prodname_dotcom %}は、仮想マシン上の特定のディレクトリでアクションとシェルコマンドを実行します。 仮想マシン上のファイルパスは静的なものではありません。 `home`、`workspace`、`workflow` ディレクトリのファイルパスを構築するには、{% data variables.product.prodname_dotcom %}が提供している環境変数を使用してください。
 

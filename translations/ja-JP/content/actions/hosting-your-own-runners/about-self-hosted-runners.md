@@ -91,7 +91,7 @@ versions:
 
 - macOS 10.13 (High Sierra)以降
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 
@@ -113,7 +113,7 @@ api.github.com
 *.actions.githubusercontent.com
 ```
 
-{% data variables.product.prodname_dotcom %} OrganizationあるいはEnterpriseアカウントでIPアドレス許可リストを使うなら、セルフホストランナーのIPアドレスを許可リストに追加しなければなりません。 詳しい情報については「[Organizationの許可IPアドレスの管理](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」あるいは「[Enterpriseアカウントでのセキュリティ設定の適用](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)」を参照してください。
+{% data variables.product.prodname_dotcom %} OrganizationあるいはEnterpriseアカウントでIPアドレス許可リストを使うなら、セルフホストランナーのIPアドレスを許可リストに追加しなければなりません。 詳しい情報については「[Organizationの許可IPアドレスの管理](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)」あるいは「[Enterpriseアカウントでのセキュリティ設定の適用](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)」を参照してください。
 
 {% else %}
 

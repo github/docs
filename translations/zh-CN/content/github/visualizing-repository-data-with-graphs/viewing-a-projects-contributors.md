@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.repository-insights %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于贡献者
 
-You can view the top 100 contributors to a repository{% if currentVersion != "free-pro-team@latest" %}, including commit co-authors,{% endif %} in the contributors graph. 合并提交和空提交不会计为此图的贡献。
+You can view the top 100 contributors to a repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, including commit co-authors,{% endif %} in the contributors graph. 合并提交和空提交不会计为此图的贡献。
 
 {% if currentVersion == "free-pro-team@latest" %}
 您还可以看到为项目的 Python 依赖项做出贡献的人员列表。 要访问此社区贡献者列表，请访问 `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`。
@@ -31,7 +32,7 @@ You can view the top 100 contributors to a repository{% if currentVersion != "fr
 如果您没有在仓库的贡献者图中显示，可能是因为：
 - 您并非前 100 名贡献者之一。
 - 您的提交尚未合并到默认分支。
-- 您用于创作提交的电子邮件地址尚未添加到您的 {% data variables.product.product_name %} 帐户。
+- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -41,4 +42,4 @@ You can view the top 100 contributors to a repository{% if currentVersion != "fr
 
 如果仓库中的所有提交均位于非默认分支中，则您不在贡献者图中。 例如，除非 `gh-pages` 是仓库的默认分支，否则 `gh-pages` 分支上的提交不包含在图中。 要将您的提交合并到默认分支，您可以创建拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。
 
-如果您用于创作提交的电子邮件地址尚未添加到您的 {% data variables.product.product_name %} 帐户，则提交不会链接到您的帐户，并且您不会在贡献者图中显示。 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”和“[添加电子邮件地址到 {% data variables.product.product_name %} 帐户](/articles/adding-an-email-address-to-your-github-account)”。
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% if currentVersion != "github-ae@latest" %}" and "[Adding an email address to your {% data variables.product.product_name %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."
