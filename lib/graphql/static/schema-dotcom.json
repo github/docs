@@ -6607,6 +6607,22 @@
       ],
       "fields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleConflicts",
           "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
           "type": "BranchProtectionRuleConflictConnection!",
@@ -6849,6 +6865,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -44354,7 +44378,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission the user has on the repository.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission the user has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -44525,7 +44549,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission granted on this repository by this invitation.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission granted on this repository by this invitation.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -51056,7 +51080,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission level the team has on the repository</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission level the team has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",

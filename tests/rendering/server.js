@@ -354,7 +354,7 @@ describe('server', () => {
 
     test('articles that link to external links that contain /articles/ are not rewritten', async () => {
       const $ = await getDOM(`${latestEnterprisePath}/admin/installation/upgrading-github-enterprise-server`)
-      expect($('article a[href="https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/"]').length).toBe(1)
+      expect($('article a[href="https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm"]').length).toBe(1)
     })
   })
 
