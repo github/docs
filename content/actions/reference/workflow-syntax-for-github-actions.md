@@ -542,7 +542,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-##### Example using a Docker public registry action
+##### Example using a Github Container Registry
 
 `docker://{host}/{image}:{tag}`
 
@@ -554,6 +554,20 @@ jobs:
     steps:
       - name: My first step
         uses: docker://ghcr.io/cloud-builders/gradle
+```
+
+##### Example using a Docker public registry action
+
+`docker://{host}/{image}:{tag}`
+
+A Docker image in a public registry - <sub>[Google Container Registry - GCR](https://cloud.google.com/container-registry)</sub>
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://gcr.io/cloud-builders/gradle
 ```
 
 #### **`jobs.<job_id>.steps.run`**
