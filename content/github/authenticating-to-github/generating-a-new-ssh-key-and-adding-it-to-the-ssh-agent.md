@@ -134,7 +134,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% linux %}
 
-1. {% data reusables.command_line.start_ssh_agent %}
+1. {% data reusables.command_line.start_ssh_agent_umbrella6661 %}
 
 2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
