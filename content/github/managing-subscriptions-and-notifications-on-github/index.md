@@ -24,3 +24,4 @@ versions:
 {% topic_link_in_list /managing-subscriptions-for-activity-on-github %}
     {% link_in_list /viewing-your-subscriptions %}
     {% link_in_list /managing-your-subscriptions %}
+add INDEX.md
