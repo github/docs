@@ -58,9 +58,9 @@ You can use the `path` qualifier to search for source code that appears at a spe
 
 | Qualifier  | Example
 | ------------- | -------------
-| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/search?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) matches _readme_ files with the word "octocat" that are located at the root level of a repository.
+| <code>path:/</code> | [**octocat filename:readme path:/**](https://github.com/umbrella6661?utf8=%E2%9C%93&q=octocat+filename%3Areadme+path%3A%2F&type=Code) matches _readme_ files with the word "octocat" that are located at the root level of a repository.
 | <code>path:<em>DIRECTORY</em></code> | [**form path:cgi-bin language:perl**](https://github.com/search?q=form+path%3Acgi-bin+language%3Aperl&type=Code) matches Perl files with the word "form" in a <em>cgi-bin</em> directory, or in any of its subdirectories.
-| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/search?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in an <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>).
+| <code>path:<em>PATH/TO/DIRECTORY</em></code> | [**console path:app/public language:javascript**](https://github.com/umbrella6661?q=console+path%3A%22app%2Fpublic%22+language%3Ajavascript&type=Code) matches JavaScript files with the word "console" in an <em>app/public</em> directory, or in any of its subdirectories (even if they reside in <em>app/public/js/form-validators</em>).
 
 ### Search by language
 
@@ -68,7 +68,7 @@ You can search for code based on what language it's written in.
 
 | Qualifier  | Example
 | ------------- | -------------
-| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/search?q=element+language%3Axml+size%3A100&type=Code) matches code with the word "element" that's marked as being XML and has exactly 100 bytes.
+| <code>language:<em>LANGUAGE</em></code> | [**element language:xml size:100**](https://github.com/umbrella6661?q=element+language%3Axml+size%3A100&type=Code) matches code with the word "element" that's marked as being XML and has exactly 100 bytes.
 | | [**display language:scss**](https://github.com/search?q=display+language%3Ascss&type=Code) matches code with the word "display," that's marked as being SCSS.
 | | [**org:mozilla language:markdown**](https://github.com/search?utf8=%E2%9C%93&q=org%3Amozilla+language%3Amarkdown&type=Code) matches code from all @mozilla's repositories that's marked as Markdown.
 
@@ -78,7 +78,7 @@ You can use the `size` qualifier to search for source code based on the size of 
 
 | Qualifier  | Example
 | ------------- | -------------
-| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/search?q=function+size%3A%3E10000+language%3Apython&type=Code) matches code with the word "function," written in Python, in files that are larger than 10 KB.
+| <code>size:<em>n</em></code> | [**function size:&gt;10000 language:python**](https://github.com/umbrella6661?q=function+size%3A%3E10000+language%3Apython&type=Code) matches code with the word "function," written in Python, in files that are larger than 10 KB.
 
 ### Search by filename
 
