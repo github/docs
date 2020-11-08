@@ -1,4 +1,4 @@
----
+tranbaobien5@gmail.com
 title: Using GitHub Packages with your project's ecosystem
 shortTitle: Using GitHub Packages with your project's ecosystem
 intro: 'You can configure {% data variables.product.prodname_actions %} or your package client to work with {% data variables.product.prodname_registry %}.'
@@ -7,7 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
----
+tranbaobien
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
