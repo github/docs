@@ -17,6 +17,16 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+### Tab test
+
+{% tabs "shell" %}
+**Tabs content** goes here.
+{% tab "bash" %}
+This is a `tab`!
+{% tab "pwsh" %}
+Another tab.
+{% endtabs %}
+
 ### About workflow commands
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
