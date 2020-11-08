@@ -7,6 +7,7 @@ intro: 'Existem várias maneiras de clonar repositórios disponíveis no {% data
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você visualiza um repositório conectado à sua conta, as URLs que podem ser usadas para clonar o projeto no computador ficam disponíveis abaixo dos detalhes do repositório:
@@ -47,7 +48,7 @@ Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um rep
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 ### Clonar com {% data variables.product.prodname_cli %}
 
@@ -55,11 +56,14 @@ Você também pode instalar o {% data variables.product.prodname_cli %} para usa
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### Clonar com o Subversion
 
 Você também pode usar um cliente de [Subversion](https://subversion.apache.org/) para acessar qualquer repositório no {% data variables.product.prodname_dotcom %}. O Subversion oferece um conjunto de recursos diferente do Git. Para obter mais informações, consulte "[Quais são as diferenças entre Subversion e Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
+You can also access repositories on
 
-Você também pode acessar repositórios no {% data variables.product.prodname_dotcom %} a partir de clientes do Subversion. Para obter mais informações, consulte "[Suporte para clientes do Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
+{% data variables.product.prodname_dotcom %} from Subversion clients. Para obter mais informações, consulte "[Suporte para clientes do Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
+{% endif %}
 
 ### Leia mais
 

@@ -8,6 +8,7 @@ intro: Uma bifurcação é uma cópia de um repositório. Bifurcar um repositór
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia.
@@ -34,7 +35,7 @@ Ao criar um repositório público a partir de uma bifurcação do projeto de out
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Dica**: Você também pode bifurcar um repositório usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`bifurcação do repositório gh`](https://cli.github.com/manual/gh_repo_fork)" na documentação do {% data variables.product.prodname_cli %}.

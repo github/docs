@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.prodname_dotcom %} 提供免费和付费产品。 您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。 {% data reusables.products.product-roadmap %}
@@ -83,10 +84,10 @@ versions:
 - {% data variables.contact.enterprise_support %}. 更多信息请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} 附录</a>”。
 - 50,000 {% data variables.product.prodname_actions %} 分钟
 - 50GB {% data variables.product.prodname_registry %} 存储空间
-- 99.95% 月持续运行时间的服务等级协议
+- 99.9% 月持续运行时间的服务等级协议
 - 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“<a href="/articles/about-enterprise-accounts" class="dotcom-only">关于企业帐户</a>”。
 
-您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/articles/setting-up-a-trial-of-github-enterprise-cloud)”。
+您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">设置 {% data variables.product.prodname_ghe_cloud %} 的试用</a>”。
 
 有关托管理您自己的 [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com) 实例的更多信息，请联系 {% data variables.contact.contact_enterprise_sales %}。 {% data reusables.enterprise_installation.request-a-trial %}
 

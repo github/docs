@@ -1,6 +1,6 @@
 ---
 title: Enterprise を設定する
-intro: '{% data variables.product.prodname_ghe_server %} が起動して作動し始めたら、Organization のニーズに合わせてアプライアンスを設定できます。'
+intro: "After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization's needs."
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -11,5 +11,6 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

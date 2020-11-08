@@ -2,7 +2,7 @@ const previews = require('../../lib/graphql/static/previews')
 const upcomingChanges = require('../../lib/graphql/static/upcoming-changes')
 const changelog = require('../../lib/graphql/static/changelog')
 const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects')
-const { getOldVersionFromNewVersion } = require('../../lib/old-versions-utils')
+const allVersions = require('../../lib/all-versions')
 
 // TODO do we need to support staging? https://graphql-stage.github.com/explorer
 const explorerUrl = process.env.NODE_ENV === 'production'
@@ -13,14 +13,17 @@ module.exports = async (req, res, next) => {
   // ignore requests to non-GraphQL reference paths
   if (!req.path.includes('/graphql/')) return next()
 
-  // TODO need to update this to the new versions in coordination with the updater scripts
-  const currentOldVersion = getOldVersionFromNewVersion(req.context.currentVersion)
+  // Get the relevant name of the GraphQL schema files for the current version
+  // For example, free-pro-team@latest corresponds to dotcom,
+  // enterprise-server@2.22 corresponds to ghes-2.22,
+  // and github-ae@latest corresponds to ghae
+  const graphqlVersion = allVersions[req.context.currentVersion].miscVersionName
 
   req.context.graphql = {
-    schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${currentOldVersion}`),
-    previewsForCurrentVersion: previews[currentOldVersion],
-    upcomingChangesForCurrentVersion: upcomingChanges[currentOldVersion],
-    prerenderedObjectsForCurrentVersion: prerenderedObjects[currentOldVersion],
+    schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${graphqlVersion}`),
+    previewsForCurrentVersion: previews[graphqlVersion],
+    upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
+    prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
     explorerUrl,
     changelog
   }

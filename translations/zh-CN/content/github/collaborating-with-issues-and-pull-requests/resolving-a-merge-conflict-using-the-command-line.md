@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 当对文件的同一行进行竞争更改时，或者当一个人编辑文件而另一个人删除同一文件时，会发生合并冲突。 更多信息请参阅“[关于合并冲突](/articles/about-merge-conflicts/)”。

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Server-to-server requests
@@ -45,7 +46,7 @@ Different user-to-server request rate limits apply to {% data variables.product.
 
 {% endif %}
 
-User-to-server requests are rate limited at 5,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+User-to-server requests are rate limited at 5,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's{% if currentVersion == "github-ae@latest" %} token{% else %} username and password{% endif %} share the same quota of 5,000 requests per hour for that user.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

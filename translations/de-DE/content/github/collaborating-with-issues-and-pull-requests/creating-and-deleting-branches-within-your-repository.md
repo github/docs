@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Branch erstellen
@@ -29,7 +30,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 {% data reusables.repositories.navigate-to-branches %}
 1. Scrolle zum Branch, den Du löschen möchtest, und klicke auf {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}. ![Branch löschen](/assets/images/help/branches/branches-delete.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 Weitere Informationen finden Sie unter „[Informationen zu Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)“.

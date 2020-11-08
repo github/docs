@@ -19,8 +19,7 @@ Após habilitar o link, cada usuário poderá navegar diretamente de {% data var
   ```
 3. Retornar para
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 7. Abaixo
 {% octicon "gear" aria-label="The Settings gear" %} **Configurações**, clique em **{% data variables.product.prodname_insights %}**.

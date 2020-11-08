@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Pull Request API を使用すると、プルリクエストを一覧表示、編集、作成、マージできます。 プルリクエストのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。

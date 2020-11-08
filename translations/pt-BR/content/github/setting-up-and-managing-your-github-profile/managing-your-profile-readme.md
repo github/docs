@@ -4,6 +4,7 @@ intro: 'Você pode adicionar um LEIAME ao seu perfil de{% data variables.product
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 ### Sobre o LEIAME do seu perfil
