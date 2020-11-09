@@ -36,7 +36,6 @@ module.exports = function (app) {
   app.use('/dist', express.static('dist'))
   app.use('/events', require('./events'))
   app.use(require('./categories-for-support-team'))
-  app.use(require('./enterprise-data-endpoint'))
   app.use(require('./detect-language'))
   app.use(asyncMiddleware(require('./context')))
   app.use('/csrf', require('./csrf-route'))
