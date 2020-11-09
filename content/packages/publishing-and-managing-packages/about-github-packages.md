@@ -85,15 +85,15 @@ For more information about the container support offered by {% data variables.pr
 #### Support for package registries
 
 {% if currentVersion == "free-pro-team@latest" %}
-Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
 
 {% else %}
 
-The package types supported on {% data variables.product.product_location_enterprise %} may vary since your site administrator can enable or disable support for different package types. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
+The package types supported on {% data variables.product.product_location %} may vary since your site administrator can enable or disable support for different package types. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
 
-If {% data variables.product.product_location_enterprise %} has subdomain isolation enabled, then package registries will use `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Dockerfile will be hosted at `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
+If {% data variables.product.product_location %} has subdomain isolation enabled, then package registries will use `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Dockerfile will be hosted at `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
 
-If {% data variables.product.product_location_enterprise %} has subdomain isolation disabled, then package registries will use `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL. For example, your Gemfile will be hosted at `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, replacing *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
+If {% data variables.product.product_location %} has subdomain isolation disabled, then package registries will use `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL. For example, your Gemfile will be hosted at `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, replacing *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
 
 {% endif %}
 
@@ -103,13 +103,13 @@ If {% data variables.product.product_location_enterprise %} has subdomain isolat
 | --- | --- | --- | --- | --- |
 | JavaScript | Node package manager | `package.json`  | `npm` | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
 | Ruby |  RubyGems package manager | `Gemfile` |  `gem` | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
+| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
+| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
+| .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
 
 {% else %}
 
-With subdomain isolation enabled on {% data variables.product.product_location_enterprise %}:
+With subdomain isolation enabled on {% data variables.product.product_location %}:
 
 | Language | Description | Package format | Package client | Package namespace |
 | --- | --- | --- | --- | --- |
@@ -120,7 +120,7 @@ With subdomain isolation enabled on {% data variables.product.product_location_e
 | .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
 | N/A | Docker container management | `Dockerfile` | `Docker` | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
 
-With subdomain isolation disabled on {% data variables.product.product_location_enterprise %}:
+With subdomain isolation disabled on {% data variables.product.product_location %}:
 
 | Language | Description | Package format | Package client | Package namespace |
 | --- | --- | --- | --- | --- |
@@ -166,7 +166,7 @@ For more information, see "[Creating a personal access token](/github/authentica
 To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
 For example:
--  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository. If the repository is private, your token must also have the `repo` scope.
+-  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository.
 - To delete a specified version of a private package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted. For more information, see "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package)."
 
 | Scope | Description | Repository permissions |
@@ -174,7 +174,7 @@ For example:
 |`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
 |`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
 | `delete:packages` | Delete specified versions of private packages from {% data variables.product.prodname_registry %} | admin |
-| `repo` | Install, upload, and delete certain packages in private repositories (along with `read:packages`, `write:packages`, or `delete:packages`) | read, write, or admin |
+| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
 

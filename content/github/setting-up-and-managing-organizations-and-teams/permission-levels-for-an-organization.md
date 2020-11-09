@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Permission levels for an organization
@@ -61,9 +62,9 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |  |
 | Transfer repositories | **X** | |    |
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** | | |
-| List apps in {% data variables.product.prodname_marketplace %} | **X** | | |
+| List apps in {% data variables.product.prodname_marketplace %} | **X** | | |{% if currentVersion != "github-ae@latest" %}
 | Receive [{% data variables.product.prodname_dependabot_alerts %} about vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) for all of an organization's repositories | **X** |  |  |
-| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)") | **X** | | |
+| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)") | **X** | | |{% endif %}
 | [Manage the forking policy](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization) | **X** |  |  |
 | [Limit activity in public repositories in an organization](/articles/limiting-interactions-in-your-organization) | **X** | | |
 | Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | | |
@@ -84,7 +85,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Remove members from the organization | **X** | | |
 | Reinstate former members to the organization | **X** | | |
 | Add and remove people from **all teams** | **X** |  |  
-| Promote organization members to *team maintainer* | **X** |  |{% if currentVersion ver_gt "enterprise-server@2.19" %}
+| Promote organization members to *team maintainer* | **X** |  |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | Configure code review assignments (see "[Managing code review assignment for your team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)") | **X** |  |{% endif %}
 | Add collaborators to **all repositories** | **X** |  |
 | Access the organization audit log | **X** |  |
@@ -103,13 +104,13 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Edit and delete team discussions in **all teams** (for more information, see "[Managing disruptive comments](/articles/managing-disruptive-comments) | **X** |  |  |
 | Hide comments on commits, pull requests, and issues (see "[Managing disruptive comments](/articles/managing-disruptive-comments/#hiding-a-comment)" for details) | **X** | **X** | **X** |
 | Disable team discussions for an organization (see "[Disabling team discussions for your organization](/articles/disabling-team-discussions-for-your-organization)" for details) | **X** |  |  |
-| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)" for details) | **X** |  |  |{% if currentVersion ver_gt "enterprise-server@2.22" %}
+| Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)" for details) | **X** |  |  |{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 | Disable publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)" for details) | **X** | | |{% endif %}
 | [Move teams in an organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy) | **X** | | |
 | Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | |
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | |
-| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" %}
+| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | |{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | |{% endif %}
 
 {% endif %}

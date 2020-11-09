@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Accessing your security log
@@ -13,7 +14,7 @@ versions:
 The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
 
 {% data reusables.user_settings.access_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 2. In the user settings sidebar, click **Security log**.
   ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
@@ -24,7 +25,7 @@ The security log lists all actions performed within the last 90 days{% if curren
   ![Security log](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Searching your security log
 
 {% data reusables.audit_log.audit-log-search %}
@@ -48,9 +49,9 @@ Actions listed in your security log are grouped within the following categories:
 | `project` | Contains all activities related to project boards.
 | `public_key` | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).
 | `repo` | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
-| `team` | Contains all activities related to teams you are a part of.{% endif %}
-| `two_factor_authentication` | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).
+| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `team` | Contains all activities related to teams you are a part of.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| `two_factor_authentication` | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
 | `user` | Contains all activities related to your account.
 
 A description of the events within these categories is listed below.
@@ -142,7 +143,7 @@ A description of the events within these categories is listed below.
 | access | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
 | add_member | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
 | add_topic | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| archived | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if currentVersion != "free-pro-team@latest" %}
+| archived | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 | config.disable_anonymous_git_access | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | config.enable_anonymous_git_access | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | config.lock_anonymous_git_access | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
@@ -191,7 +192,7 @@ A description of the events within these categories is listed below.
 | revoke | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 #### The `team` category
 
@@ -206,26 +207,28 @@ A description of the events within these categories is listed below.
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 #### The `two_factor_authentication` category
 
 | Action | Description
 |------------------|-------------------
 | enabled | Triggered when [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) is enabled.
 | disabled | Triggered when two-factor authentication is disabled.
+{% endif %}
 
 #### The `user` category
 
 | Action | Description
 |--------------------|---------------------
-| add_email | Triggered when you [add a new email address](/articles/changing-your-primary-email-address).
+| add_email | Triggered when you {% if currentVersion != "github-ae@latest" %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.
 | create | Triggered when you create a new user account.
 | remove_email | Triggered when you remove an email address.
-| rename | Triggered when you rename your account.
+| rename | Triggered when you rename your account.{% if currentVersion != "github-ae@latest" %}
 | change_password | Triggered when you change your password.
-| forgot_password | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).
+| forgot_password | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
 | login | Triggered when you log in to {% data variables.product.product_location %}.
-| failed_login | Triggered when you failed to log in successfully.
-| two_factor_requested | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).
+| failed_login | Triggered when you failed to log in successfully.{% if currentVersion != "github-ae@latest" %}
+| two_factor_requested | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 | show_private_contributions_count | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
 | hide_private_contributions_count | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
 | report_content | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/articles/reporting-abuse-or-spam).{% endif %}

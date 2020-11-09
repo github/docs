@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -45,7 +46,7 @@ Obter uma [lista de eventos](/v3/issues/timeline/) para um problema ou pull requ
 
 **Tipo de mídia personalizada:** `mockingbird-preview` **Anunciado em:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 
 ### Ambientes pre-receive
@@ -56,7 +57,7 @@ Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 
 
 ### Integrações
@@ -121,7 +122,7 @@ Veja todos os [códigos de conduta](/v3/codes_of_conduct) ou obtenha qual códig
 
 **Tipo de mídia personalizado:** `scarlet-witch-preview`
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 
 
 ### Equipes aninhadas
@@ -132,7 +133,7 @@ Inclua o conteúdo aninhado das cargas da [equipe](/v3/teams/).
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 
 
@@ -144,7 +145,7 @@ Habilita [webhooks globais](/rest/reference/enterprise-admin#global-webhooks/) p
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 
 
 ### Transferência de repositório
@@ -155,7 +156,7 @@ Transfira um [repositório](/v3/repos/) para uma organização ou usuário.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 
 
 ### Adicionar motivo do bloqueio
@@ -182,7 +183,7 @@ Agora você pode [exigir múltiplas revisões de aprovação](/v3/repos/branches
 
 **Tipo de mídia personalizada:** `luke-cage-preview` **Anunciado em:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
 
 
 ### Recuperar informações do hovercard
@@ -193,7 +194,7 @@ Recuperar informações do [hovercard de alguém](/v3/users/#get-contextual-info
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 
 ### Verificar execuções e a API de conjuntos de verificações
@@ -204,7 +205,7 @@ Permite que um aplicativo GitHub execute verificações externas no código de u
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 
 
@@ -272,7 +273,7 @@ Permite que você restrinja temporariamente interações, como comentários, pro
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 
 
 ### Pull requests de rascunho
@@ -299,7 +300,7 @@ Você pode usar dois novos pontos de extremidade na [API de commits](/v3/repos/c
 
 **Tipos de mídia personalizada:** `groot-preview` **Anunciado:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 
 
 ### Desinstalar um aplicativo do GitHub
@@ -356,7 +357,7 @@ Você pode gerenciar os tokens de forma mais segura para aplicativos OAuth usand
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 
 ### Novo parâmetro de visibilidade para a API de repositórios

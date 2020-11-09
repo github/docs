@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.repository-insights %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### コントリビューターについて
 
-You can view the top 100 contributors to a repository{% if currentVersion != "free-pro-team@latest" %}, including commit co-authors,{% endif %} in the contributors graph. マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
+You can view the top 100 contributors to a repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}, including commit co-authors,{% endif %} in the contributors graph. マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can also see a list of people who have contributed to the project's Python dependencies. この、コミュニティコントリビューターのリストを表示するには、`https://github.com/REPO-OWNER/REPO-NAME/community_contributors` にアクセスしてください。
@@ -31,7 +32,7 @@ You can also see a list of people who have contributed to the project's Python d
 リポジトリのコントリビュータグラフにあなたが表示されない場合、以下の理由が考えられます:
 - 上位 100 人に入っていない。
 - コミットがデフォルトブランチにマージされていない。
-- コミットを書くのに使ったメールアドレスが、{% data variables.product.product_name %} アカウントに追加されていない。
+- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -41,4 +42,4 @@ You can also see a list of people who have contributed to the project's Python d
 
 リポジトリ内のあなたのコミットがすべてデフォルト以外のブランチにある場合、コントリビュータグラフには表示されません。 たとえば、`gh-pages`ブランチに対して行われたコミットは、`gh-pages`がリポジトリのデフォルトのブランチでない限り、グラフに含まれません。 コミットをデフォルトブランチにマージするため、プルリクエストを作成できます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)を参照してください。
 
-コミットを書くために使ったメールアドレスがあなたの {% data variables.product.product_name %} アカウントに追加されていない場合、そのコミットはアカウントにリンクされず、コントリビュータグラフには表示されません。 詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」および「[{% data variables.product.product_name %} アカウントにメールアドレスを追加する](/articles/adding-an-email-address-to-your-github-account)」を参照してください。
+If the email address you used to author the commits is not connected to your account on {% data variables.product.product_name %}, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address){% if currentVersion != "github-ae@latest" %}" and "[Adding an email address to your {% data variables.product.product_name %} account](/articles/adding-an-email-address-to-your-github-account){% endif %}."

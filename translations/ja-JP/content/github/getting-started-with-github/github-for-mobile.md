@@ -43,8 +43,9 @@ If you configure the language on your device to a supported language, {% data va
 
 ### フィードバックを送る
 
-{% data variables.product.prodname_mobile %} に関するフィードバックまたは機能のリクエストがある場合は、<a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> にメールでお問い合わせください。
+If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
 ### iOS のベータリリースをオプトアウトする
 

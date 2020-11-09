@@ -12,6 +12,7 @@ permissions: 'People with admin or maintainer permissions for a repository can u
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プロジェクトサイトを取り下げる
@@ -21,7 +22,7 @@ versions:
 3. `gh-pages` ブランチが公開ソースだった場合、
 {% if currentVersion == "free-pro-team@latest" %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
-5. Under "
+5. [
 {% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
   ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}

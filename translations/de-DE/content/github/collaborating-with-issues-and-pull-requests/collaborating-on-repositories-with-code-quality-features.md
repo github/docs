@@ -1,6 +1,6 @@
 ---
-title: Collaborating on repositories with code quality features
-intro: 'Workflow quality features like statuses, {% if currentVersion != "free-pro-team@latest" %}pre-receive hooks, {% endif %}protected branches, and required status checks help collaborators make contributions that meet conditions set by organization and repository administrators.'
+title: An Repositorys mit Codequalität-Funktionen zusammenarbeiten
+intro: 'Workflow-Qualitätsfunktionen wie Status, {% if enterpriseServerVersions contains currentVersion %}Pre-Receive-Hooks, {% endif %}geschützte Branches und erforderliche Statuschecks helfen Mitarbeitern dabei, Beiträge zu leisten, die den Bedingungen der Organisations- und Repository-Administratoren entsprechen.'
 mapTopic: true
 redirect_from:
   - /articles/collaborating-on-repositories-with-code-quality-features-enabled/
@@ -8,5 +8,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

@@ -5,16 +5,17 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: Uma conta de usuário é considerada inativa se não estiver ativa por no mínimo um mês. Você pode optar por suspender usuários inativos para liberar licenças de usuário.
+intro: A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O termo "atividade" inclui, entre outros:
-- Fazer login no {% data variables.product.prodname_ghe_server %};
+- Fazer login no {% data variables.product.product_name %};
 - Fazer comentários em problemas ou pull requests;
 - Criar, excluir, ver e marcar repositórios como favoritos;
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
+- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 - Acessar recursos usando um token de acesso pessoal ou chave SSH.{% endif %}
 
 ### Exibir usuários inativos
@@ -22,8 +23,8 @@ O termo "atividade" inclui, entre outros:
 É possível exibir uma lista de todos os usuários inativos que não foram suspensos e que não são administradores do site.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. Na barra lateral esquerda, clique em **Dormant users** (Usuários inativos). ![Guia Dormant users (Usuários inativos)](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
-4. Para suspender todos os usuários inativos nesta lista, na parte superior da página, clique em **Suspend all** (Suspender todos). ![Botão Suspend all (Suspender todos)](/assets/images/enterprise/site-admin-settings/suspend-all.png)
+3. Na barra lateral esquerda, clique em **Dormant users** (Usuários inativos). ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png){% if enterpriseServerVersions contains currentVersion %}
+4. Para suspender todos os usuários inativos nesta lista, na parte superior da página, clique em **Suspend all** (Suspender todos). ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
 ### Determinar se uma conta de usuário está inativa
 
@@ -36,9 +37,8 @@ O termo "atividade" inclui, entre outros:
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}

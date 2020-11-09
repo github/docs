@@ -14,9 +14,10 @@ intro: 'No centro do {% data variables.product.product_name %} há um sistema de
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Para usar o Git na linha de comando, você precisará fazer download, instalar e configurar o Git no computador. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} Você também pode instalar {% data variables.product.prodname_cli %} para usar {% data variables.product.product_name %} na linha de comando. Para obter mais informações sobre {% data variables.product.prodname_cli %}, consulte a documentação de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) .{% endif %}
+Para usar o Git na linha de comando, você precisará fazer download, instalar e configurar o Git no computador. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. Para obter mais informações sobre {% data variables.product.prodname_cli %}, consulte a documentação de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) .{% endif %}
 
 Se quiser trabalhar com o Git, mas não quiser usar a linha de comando, você poderá baixar e instalar o cliente do [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obter mais informações, consulte "[Instalar e configurar o {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
 

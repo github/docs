@@ -1,40 +1,42 @@
 ---
-title: File attachments on issues and pull requests
-intro: 'When you open issue or update a pull request, you can use issue attachments to upload images of proposed features or screenshots of bugs.'
+title: 议题和拉取请求中的文件附件
+intro: '在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
 {% warning %}
 
-**Warning:** If you add an image to a pull request or issue comment, anyone can view the anonymized image URL without authentication, even if the pull request is in a private repository{% if currentVersion != "free-pro-team@latest" %}, or if private mode is enabled{% endif %}. To keep sensitive images private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
+**警告：**如果您在拉取请求或议题评论中添加了图像，则任何人都可以查看匿名图像 URL，无需身份验证，即使该拉取请求位于私有仓库中{% if enterpriseServerVersions contains currentVersion %}或者启用了私有模式{% endif %}。 要对敏感图像保密，请从需要身份验证的私有网络或服务器提供它们。 {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+要将文件附加到议题或拉取请求对话，请将它拖放到评论框中。 或者，您也可以单击评论框底部的栏来浏览、选择和添加计算机中的文件。
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![从计算机选择附件](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Tip:** If you're using Chrome, you can also copy-and-paste images directly into the box.
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 
-The maximum size for files is 25MB and the maximum size for images is 10MB.
+文件大小不得超过 25MB，图像大小不得超过 10MB。
 
-We support these files:
+我们支持这些文件：
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*)
+* 日志文件 (*.log*)
+* Microsoft Word (*.docx*)、Powerpoint (*.pptx*) 和 Excel (*.xlsx*) 文档
+* 文本文件 (*.txt*)
+* PDF (*.pdf*)
+* ZIP (*.zip*、*.gz*)
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![附件动画 GIF](/assets/images/help/pull_requests/dragging_images.gif)

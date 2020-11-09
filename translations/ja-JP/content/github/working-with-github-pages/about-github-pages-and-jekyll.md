@@ -21,13 +21,14 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Jekyllについて
 
 Jekyllは、{% data variables.product.prodname_pages %}に組み込まれている静的サイトジェネレータで、ビルドプロセスを容易化できます。 JekyllはMarkdownおよびHTMLファイルを取り込み、選択したレイアウトに基づいて、完成された静的ウェブサイトを作成します。 Jekyllは、Markdownと、サイトに動的コンテンツを読み込むテンプレート言語のLiquidをサポートします。 詳しい情報については、[Jekyll](https://jekyllrb.com/)を参照してください。
 
-Windows は、Jekyll を公式にはサポートしていません。 詳しい情報については、Jekyllのドキュメンテーションの「[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)」を参照してください。
+Windows は、Jekyll を公式にはサポートしていません。 For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
 {% data variables.product.prodname_pages %} ではJekyllを使用することをおすすめします。 お好みに応じて、別の静的サイトジェネレータを使用することも、ローカルまたは別のサーバーにおけるビルドプロセスをカスタマイズすることもできます。 詳しい情報については「[{% data variables.product.prodname_pages %}について](/articles/about-github-pages#static-site-generators)」を参照してください。
 

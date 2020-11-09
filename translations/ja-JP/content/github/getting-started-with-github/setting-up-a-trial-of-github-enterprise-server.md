@@ -36,7 +36,7 @@ versions:
    - [Quick start guide to {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/) ウェブキャスト
    - {% data variables.product.prodname_dotcom %} ガイドの [Understanding the {% data variables.product.prodname_dotcom %}flow](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} ガイドの [Hello World](https://guides.github.com/activities/hello-world/)
-3. 組織のニーズに合わせてインスタンスを設定するには、「[{% data variables.product.prodname_ghe_server %} アプライアンスを設定する](/enterprise/admin/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
+3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 4. {% data variables.product.prodname_ghe_server %} とご使用のアイデンティティプロバイダとを統合するには、「[SAML を使用する](/enterprise/admin/user-management/using-saml)」および「[LDAP を使用する](/enterprise/admin/authentication/using-ldap)」を参照してください。
 5. 個人をトライアルに招待します。人数制限はありません。
    - ビルトイン認証または設定済みアイデンティティプロバイダを使用して、ユーザを {% data variables.product.prodname_ghe_server %} インスタンスに追加します。 詳細は「[ビルトイン認証を使用する](/enterprise/admin/user-management/using-built-in-authentication)」を参照してください。

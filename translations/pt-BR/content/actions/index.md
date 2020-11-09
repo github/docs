@@ -2,15 +2,19 @@
 title: Documentação do GitHub Actions
 shortTitle: GitHub Actions
 intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
-gettingStartedLinks:
-  - /actions/quickstart
-  - /actions/learn-github-actions
-guideLinks:
-  - /actions/managing-workflow-runs
-  - /actions/hosting-your-own-runners
-popularLinks:
-  - /actions/reference/workflow-syntax-for-github-actions
-  - /actions/reference/events-that-trigger-workflows
+introLinks:
+  quickstart: /actions/quickstart
+  learn: /actions/learn-github-actions
+featuredLinks:
+  gettingStarted:
+    - /actions/managing-workflow-runs
+    - /actions/hosting-your-own-runners
+  guide:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/about-packaging-with-github-actions
+  popular:
+    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/reference/events-that-trigger-workflows
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -36,10 +40,10 @@ versions:
 <div class="d-lg-flex gutter my-6 py-6">
   <div class="col-12 col-lg-4 mb-4 mb-lg-0">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in gettingStartedLinks %}
+      {% for link in featuredLinks.guide %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -50,7 +54,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in popularLinks %}
+      {% for link in featuredLinks.popular %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -61,40 +65,16 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Gerenciar fluxos de trabalho</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in guideLinks %}
+      {% for link in featuredLinks.gettingStarted %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
   </div>
 </div>
-<!-- Featured resources -->
-<div class="d-lg-flex gutter-lg my-6 py-6 text-center flex-items-stretch">
-  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-    <a href="/actions/creating-actions" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-blue text-white">{% octicon "bookmark" width="24" %}</div></div>
-      <h4>Create actions</h4>
-      <p class="mb-0">A complete guide to creating and sharing actions with the community.</p>
-    </a>
-  </div>
-  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-    <a href="https://github.com/actions/starter-workflows" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-purple text-white">{% octicon "rocket" width="24" %}</div></div>
-      <h4>Starter workflows</h4>
-      <p class="mb-0">A collection of workflow files to help you get started with GitHub Actions.</p>
-    </a>
-  </div>
-  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-    <a href="https://github.com/marketplace?type=actions" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-orange text-white">{% octicon "light-bulb" width="24" %}</div></div>
-      <h4>GitHub Actions Marketplace</h4>
-      <p class="mb-0">Explore community actions and supercharge your workflow.</p>
-    </a>
-  </div>
-</div>
 
 <!-- Code examples -->
 <div class="mt-6 pt-6">
-  <h2 class="mb-2">Guias</h2>
+  <h2 class="mb-2">Mais guias</h2>
 
   <div class="d-flex flex-wrap gutter">
     <div class="col-12 col-lg-4 mb-4">
@@ -183,7 +163,7 @@ versions:
           <h4>Publishing Node.js packages</h4>
           <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
           <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
+            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
             <span class="IssueLabel text-white bg-blue mr-2">CI</span>
           </div>
         </div>
@@ -195,5 +175,5 @@ versions:
     </div>
   </div>
 
-  <a href="/actions/guides" class="btn btn-outline mt-4">Mais guias {% octicon "arrow-right" %}</a>
+  <a href="/actions/guides" class="btn btn-outline mt-4">Mostrar todos os guias {% octicon "arrow-right" %}</a>
 </div>
