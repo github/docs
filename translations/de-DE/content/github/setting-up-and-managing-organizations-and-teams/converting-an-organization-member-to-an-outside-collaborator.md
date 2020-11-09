@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} Organisationsmitglieder in externe Mitarbeiter umwandeln.
@@ -23,7 +24,7 @@ Weitere Informationen findest Du unter „[Berechtigungsebenen für eine Organis
 
 Wir empfehlen Dir, den Zugriff des Organisationsmitglieds auf Repositorys zu überprüfen, um sicherzustellen, dass dessen Zugriff den Erwartungen entspricht. Weitere Informationen findest Du unter „[Den Zugriff einer Person auf ein Repository einer Organisation verwalten](/articles/managing-an-individual-s-access-to-an-organization-repository)“
 
-Wenn Du ein Organisationsmitglied in einen externen Mitarbeiter umwandelst, werden seine Berechtigungen als Organisationsmitglied drei Monate lang gespeichert. Dadurch kannst Du seine Mitgliedsberechtigungen wiederherstellen, wenn Du innerhalb dieser Zeit{% if currentVersion == "free-pro-team@latest" %} diesen Mitarbeiter einlädst, der Organisation erneut beizutreten{% else %} diesen Mitarbeiter erneut zu Deiner Organisation hinzufügst{% endif %}. Weitere Informationen findest Du unter „[Ehemaliges Mitglied Deiner Organisation wieder einsetzen](/articles/reinstating-a-former-member-of-your-organization).“
+When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% if currentVersion == "free-pro-team@latest" %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. Weitere Informationen findest Du unter „[Ehemaliges Mitglied Deiner Organisation wieder einsetzen](/articles/reinstating-a-former-member-of-your-organization).“
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

@@ -2,7 +2,7 @@
 
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
-These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
+These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
 
 ## Table of contents <!-- omit in toc -->
 - [The GitHub Docs approach to style](#the-github-docs-approach-to-style)
@@ -118,8 +118,8 @@ When code examples refer to a larger file, show the relevant section of the file
 
 ```
 on:
-schedule:
-  - cron:  "40 19 * * *"
+  schedule:
+    - cron:  "40 19 * * *"
 ```
 
 - **Avoid:**
@@ -132,7 +132,7 @@ schedule:
 ## Headers
 
 Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under “User licences”, view your total licenses.
+- **Use:** Under “User licenses”, view your total licenses.
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 
@@ -140,7 +140,7 @@ To orient readers and help them understand if the section is relevant to them, i
 
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Images, image maps, and multimedia](https://docs.microsoft.com/en-us/style-guide/accessibility/graphics-design-media#images-image-maps-and-multimedia)” in Microsoft’s Style Guide.
+Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Images, image maps, and multimedia](https://docs.microsoft.com/style-guide/accessibility/graphics-design-media#images-image-maps-and-multimedia)” in Microsoft’s Style Guide.
 
 ### Filenames
 
@@ -170,9 +170,9 @@ GitHub Brand Guide:
 - [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
-- [Bias-free communication](https://docs.microsoft.com/en-us/style-guide/bias-free-communication)
-- [Writing for all abilities](https://docs.microsoft.com/en-us/style-guide/accessibility/writing-all-abilities)
-- [Accessibility terms](https://docs.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
+- [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
+- [Writing for all abilities](https://docs.microsoft.com/style-guide/accessibility/writing-all-abilities)
+- [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
 - [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/inclusive-language/)
@@ -257,7 +257,7 @@ Take care to distinguish between product names and product elements. For more in
 
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/en-us/style-guide/punctuation)” in the Microsoft Style Guide.
+Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the data directory in the github/docs repository and the “Product names” section of this document.
@@ -272,7 +272,7 @@ A table’s contents should be clear from the preceding content - avoid unneeded
 
 Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.
 
-For further guidance, see “[Formatting titles](https://docs.microsoft.com/en-us/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
+For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
 
 ## User interface elements
 
@@ -336,17 +336,17 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 ### More resources
 GitHub Brand Guide:
 - [Referring to GitHub features and product elements](https://brand.github.com/content/terminology/#referring-to-github-features-and-product-elements)
-- [Page names and UI references](https://brand.github.com/content/grammar-usage/#page-names-and-ui-references)
+- [Page names and UI references](https://brand.github.com/content/grammar#page-names-and-ui-references)
 Microsoft Style Guide:
-- [Formatting text in instructions](https://docs.microsoft.com/en-us/style-guide/procedures-instructions/formatting-text-in-instructions)
+- [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 
 ## Voice and tone
 
-Use clear, simple language that’s approachable and accessible for a wide range of readers. For more information, see “[Voice](https://brand.github.com/content/voice/)” in GitHub’s Brand Guide. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/en-us/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/en-us/style-guide/top-10-tips-style-voice).”
+Use clear, simple language that’s approachable and accessible for a wide range of readers. For more information, see “[Voice](https://brand.github.com/content/voice)” in GitHub’s Brand Guide. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology) in and “[Words that can be tricky](https://brand.github.com/content/grammar-usage/#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/en-us/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology)” and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

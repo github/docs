@@ -11,13 +11,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
+{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 To authorize your OAuth app, consider which authorization flow best fits your app.
 
@@ -54,11 +55,11 @@ The web application flow to authorize users for your app is:
 
 | 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                    |
 | -------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `字符串` | **必填**。 您{% if currentVersion == "free-pro-team@latest" %}[注册 ](https://github.com/settings/applications/new){% else %}registered{% endif %} 时从 GitHub 收到的客户端 ID。                                                                                                                                                                     |
+| `client_id`    | `字符串` | **必填**。 The client ID you received from GitHub when you {% if currentVersion == "free-pro-team@latest" %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.                                                                                                                   |
 | `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 有关[重定向 url](#redirect-urls)，请参阅下方的详细信息。                                                                                                                                                                                                                                                       |
 | `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                                                                                                                   |
 | `作用域`          | `字符串` | 用空格分隔的[作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)列表。 如果未提供，对于未向应用程序授权任何作用域的用户，`scope` 将默认为空白列表。 对于已向应用程序授权作用域的用户，不会显示含作用域列表的 OAuth 授权页面。 相反，通过用户向应用程序授权的作用域集，此流程步骤将自动完成。 例如，如果用户已执行两次 web 流程，且授权了一个拥有 `user` 作用域的令牌和一个拥有 `repo` 作用域的令牌，未提供 `scope` 的第三次 web 流程将收到拥有 `user` 和 `repo` 作用域的令牌。 |
-| `state`        | `字符串` | {% data reusables.apps.state_description %}                                                                                                                                                                                                                                                                      |
+| `state`        | `字符串` | {% data reusables.apps.state_description %}
 | `allow_signup` | `字符串` | 在 OAuth 流程中，是否向经过验证的用户提供注册 GitHub 的选项。 默认值为 `true`。 如有政策禁止注册，请使用 `false`。                                                                                                                                                                                                                                             |
 
 #### 2. 用户被 GitHub 重定向回您的站点
@@ -71,13 +72,13 @@ The web application flow to authorize users for your app is:
 
 ##### 参数
 
-| 名称              | 类型    | 描述                                                                                                                            |
-| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------- |
+| 名称              | 类型    | 描述                                                                                                                  |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------- |
 | `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端 ID。 |
 | `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端密钥。  |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                                        |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                                       |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                                         |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                              |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                             |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                               |
 
 ##### 响应
 
@@ -110,7 +111,7 @@ The web application flow to authorize users for your app is:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
 {% note %}
@@ -135,13 +136,12 @@ Your app must request a user verification code and verification URL that the app
 
 ##### Input Parameters
 
-| 名称          | 类型    | 描述                                                                                                         |
-| ----------- | ----- | ---------------------------------------------------------------------------------------------------------- |
+| 名称          | 类型    | 描述                                                                                                    |
+| ----------- | ----- | ----------------------------------------------------------------------------------------------------- |
 | `client_id` | `字符串` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app. |
-| `作用域`       | `字符串` | The scope that your app is requesting access to.                                                           |
+| `作用域`       | `字符串` | The scope that your app is requesting access to.                                                      |
 
 ##### 响应
-
 
 {% if currentVersion == "free-pro-team@latest" %}
   ```JSON
@@ -167,12 +167,12 @@ Your app must request a user verification code and verification URL that the app
 
 ##### Response parameters
 
-| 名称                 | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `device_code`      | `字符串` | The device verification code is 40 characters and used to verify the device.                                                                                                                                                                                                                                                                                                                                                          |
-| `user_code`        | `字符串` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.                                                                                                                                                                                                                                                                             |
+| 名称                 | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `device_code`      | `字符串` | The device verification code is 40 characters and used to verify the device.                                                                                                                                                                                                                                                                                                                                                     |
+| `user_code`        | `字符串` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.                                                                                                                                                                                                                                                                        |
 | `verification_uri` | `字符串` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.                                                                                                                                                                                                                                                                                                         |
-| `expires_in`       | `整数`  | The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.                                                                                                                                                                                                                                                                                                                      |
+| `expires_in`       | `整数`  | The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.                                                                                                                                                                                                                                                                                                                 |
 | `interval`         | `整数`  | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error. |
 
 #### Step 2: Prompt the user to enter the user code in a browser
@@ -193,11 +193,11 @@ Once the user has authorized, the app will receive an access token that can be u
 
 ##### Input parameters
 
-| 名称            | 类型    | 描述                                                                                                                                                   |
-| ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`   | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端 ID。                         |
+| 名称            | 类型    | 描述                                                                                                                                              |
+| ------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`   | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端 ID。                              |
 | `device_code` | `字符串` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request. |
-| `grant_type`  | `字符串` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.                                                                 |
+| `grant_type`  | `字符串` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.                                                            |
 
 ##### 响应
 
@@ -217,15 +217,15 @@ If you make more than one access token request (`POST {% data variables.product.
 
 #### Error codes for the device flow
 
-| Error code                     | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Error code                     | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `authorization_pending`        | This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request.                                                                                                                                                          |
 | `slow_down`                    | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use. |
-| `expired_token`                | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `expired_token`                | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `unsupported_grant_type`       | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.                                                                                                                                                                                                                                                                                                |
-| `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.                                                                                                                                                                                                                                                                                                                                                                    |
-| `incorrect_device_code`        | The device_code provided is not valid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `access_denied`                | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.                                                                                                                                                                                                                                                                                                                                                                |
+| `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.                                                                                                                                                                                                                                                                                                                                                               |
+| `incorrect_device_code`        | The device_code provided is not valid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `access_denied`                | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.                                                                                                                                                                                                                                                                                                                                                           |
 
 For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
 
@@ -235,11 +235,13 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 非 web 身份验证适用于测试等有限的情况。 如果您需要，可以使用[基本验证](/v3/auth#basic-authentication)，通过[个人访问令牌设置页面](/articles/creating-an-access-token-for-command-line-use)创建个人访问令牌。 此方法支持用户随时撤销访问权限。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
 **注：**使用非 web 应用流程创建 OAuth2 令牌时，如果您或您的用户已启用双重身份验证，请确保明白如何[使用双重身份验证](/v3/auth/#working-with-two-factor-authentication)。
 
 {% endnote %}
+{% endif %}
 
 ### 重定向 URL
 
@@ -293,6 +295,6 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 * "[对授权请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[对 OAuth 应用程序访问令牌请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[Device flow errors](#errors-for-the-device-flow)"
 {% endif %}

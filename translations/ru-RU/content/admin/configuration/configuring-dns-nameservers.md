@@ -5,13 +5,11 @@ redirect_from:
   - /enterprise/admin/guides/installation/about-dns-nameservers/
   - /enterprise/admin/installation/configuring-dns-nameservers
   - /enterprise/admin/configuration/configuring-dns-nameservers
-  - /enterprise/admin/configuration/configuring-dns-nameservers
-  - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
 ---
 
-The nameservers you specify must resolve {% data variables.product.product_location_enterprise %}'s hostname.
+The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -30,7 +28,7 @@ The nameservers you specify must resolve {% data variables.product.product_locat
   ```
 3. Append any `nameserver` entries, then save the file.
 4. After verifying your changes, save the file.
-5. To add your new nameserver entries to {% data variables.product.product_location_enterprise %}, enter:
+5. To add your new nameserver entries to {% data variables.product.product_location %}, enter:
   ```shell
   $ sudo service resolvconf restart
   ```

@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.prodname_github_app %} を使用してエンドポイントにアクセスするには、インストールアクセストークンを使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_github_apps %} で認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
-{% for thing in rest.operationsEnabledForApps[currentVersion] %}
+{% for thing in rest.operationsEnabledForGitHubApps[currentVersion] %}
 {% assign category = thing[0] %}
 {% assign operations = thing[1] %}
 {% if operations.size > 0 %}

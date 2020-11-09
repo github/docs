@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 3. Checke den Branch aus, in den Du zusammenführen möchtest. Usually, you will merge into the default branch.
   ```shell
-  $ git checkout <em>master</em>
+  $ git checkout <em>DEFAULT_BRANCH_NAME</em>
   ```
 4. Rufe den gewünschten Branch aus dem vorgelagerten Repository ab. Auf diese Weise wird der Commit-Verlauf unverändert beibehalten.
   ```shell
@@ -23,5 +24,5 @@ versions:
 7. Überprüfe die Änderungen, und stelle sicher, dass alles in Ordnung ist.
 8. Übertrage den Merge in Dein GitHub-Repository.
   ```shell
-  $ git push origin <em>master</em>
+  $ git push origin <em>DEFAULT_BRANCH_NAME</em>
   ```

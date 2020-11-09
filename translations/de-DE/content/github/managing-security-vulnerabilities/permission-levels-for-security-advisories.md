@@ -1,6 +1,6 @@
 ---
 title: Berechtigungsstufen für Sicherheitshinweise
-intro: 'Welche Aktionen Du in einem Sicherheitshinweis durchführen kannst, hängt davon ab, ob Du Administrations- oder Schreibberechtigungen für den Sicherheitshinweis hast.'
+intro: Welche Aktionen Du in einem Sicherheitshinweis durchführen kannst, hängt davon ab, ob Du Administrations- oder Schreibberechtigungen für den Sicherheitshinweis hast.
 redirect_from:
   - /articles/permission-levels-for-maintainer-security-advisories
   - /github/managing-security-vulnerabilities/permission-levels-for-maintainer-security-advisories

@@ -1,1 +1,1 @@
-1. Next to the scheduled reminder you'd like to update, click **Edit**. ![Edit existing scheduled reminder](/assets/images/help/settings/scheduled-reminders-edit-existing.png)
+1. Ao lado do lembrete agendado que você deseja atualizar, clique em **Editar**. ![Editar lembrete programado existente](/assets/images/help/settings/scheduled-reminders-edit-existing.png)

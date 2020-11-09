@@ -10,7 +10,7 @@ versions:
 
 ### 编辑器工具
 
-要简化工作流程，您可以在第三方编辑器工具中连接到 {% data variables.product.product_name %} 仓库，例如 Atom、Unity 和 Visual Studio 等工具。
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and Visual Studio.
 
 #### {% data variables.product.product_name %} for Atom
 
@@ -30,8 +30,12 @@ versions:
 
 ### 项目管理工具
 
-要简化工作流程，您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Jira 等第三方项目管理工具集成。
+您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Jira 或 Slack 等第三方项目管理工具集成。
 
 #### Jira Cloud 与 {% data variables.product.product_name %}.com 集成
 
-您可以将 Jira Cloud 与个人或组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。
+您可以将 Jira Cloud 与个人或组织帐户集成，以扫描提交和拉取请求，在任何提及的 Jira 议题中创建相关的元数据和超链接。 For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+
+#### Slack and {% data variables.product.product_name %} integration
+
+You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.

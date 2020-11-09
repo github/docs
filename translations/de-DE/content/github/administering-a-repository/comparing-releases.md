@@ -1,10 +1,11 @@
 ---
 title: Releases vergleichen
-intro: 'Du kannst die Release-Tags vergleichen, um Änderungen an Deinem Repository zwischen verschiedenen Releases zu sehen.'
+intro: Du kannst die Release-Tags vergleichen, um Änderungen an Deinem Repository zwischen verschiedenen Releases zu sehen.
 permissions: Personen mit Lesezugriff auf ein Repository können Releases ansehen und vergleichen.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

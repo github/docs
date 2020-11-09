@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode adicionar cartões de problema ou pull request ao seu quadro de projeto ao:
@@ -54,15 +55,8 @@ Você pode adicionar cartões de problema ou pull request ao seu quadro de proje
 1. No lado direito de um problema ou uma pull request, clique em **Projects (Projetos) {% octicon "gear" aria-label="The Gear icon" %}**. ![Botão Project board (Quadro de projeto) na barra lateral](/assets/images/help/projects/sidebar-project.png)
 2. Clique na aba **Recent** (Recente), **Repository** (Repositório), **User** (Usuário) ou **Organization** (Organização) do quadro de projeto ao qual deseja adicionar. ![Guias Recent (Recente), Repository (Repositório) e Organization (Organização)](/assets/images/help/projects/sidebar-project-tabs.png)
 3. Digite o nome do projeto no campo **Filter projects** (Filtrar projetos). ![Caixa de pesquisa Project board (Quadro de projeto)](/assets/images/help/projects/sidebar-search-project.png)
-4. Selecione um ou mais quadros de projetos onde você deseja adicionar o problema ou pull request. ![Quadro de projeto selecionado](/assets/images/help/projects/sidebar-select-project.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-5. Clique em
-{% octicon "triangle-down" aria-label="The down triangle icon" %} e, em seguida, clique na coluna onde você quer seu problema ou pull request. O cartão irá para a parte inferior da coluna do quadro de projeto que você selecionou.
-  ![Menu Move card to column (Mover cartão para coluna)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
-{% else %}
-5. No lado direito de um problema ou uma pull request, clique em **NOME DO QUADRO DE PROJETO (awaiting triage)** (aguardando triagem). ![Link para o quadro de projeto](/assets/images/help/projects/sidebar-project-board-link.png)
-6. No quadro de projeto, clique em **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)** (Adicionar cartão) (1 novo). ![Botão Add cards (Adicionar cartões)](/assets/images/help/projects/add-cards-pending-button.png)
-7. Arraste o cartão do problema ou da pull request da seção **Triage** (Triagem) para a coluna desejada no quadro de projeto. Como alternativa, você pode mover cartões usando os atalhos de teclado. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-{% endif %}
+4. Selecione um ou mais quadros de projeto ao qual você deseja adicionar o problema ou pull request. ![Quadro de projeto selecionado](/assets/images/help/projects/sidebar-select-project.png)
+5. Clique em {% octicon "triangle-down" aria-label="The down triangle icon" %} e depois na coluna onde você quer seu problema ou pull request. O cartão irá para a parte inferior da coluna do quadro de projeto que você selecionou. ![Menu Move card to column (Mover cartão para coluna)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ### Leia mais
 

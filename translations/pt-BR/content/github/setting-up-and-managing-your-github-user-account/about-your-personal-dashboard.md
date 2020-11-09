@@ -8,6 +8,7 @@ intro: 'Você pode visitar seu painel pessoal para acompanhar problemas e pull r
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Acessar seu painel pessoal
@@ -46,7 +47,7 @@ Para obter mais informações sobre como atribuir estrelas a repositórios e seg
 
 ### Explorar repositórios recomendados
 
-Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações têm por base repositórios que você marcou com uma estrela ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Encontrar maneiras de contribuir com código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ### Leia mais
 

@@ -1,1 +1,1 @@
-When setting up a GitHub App, you can make its installation public so any GitHub user or organization can install the app, or private so you can only install it on the account that created it.
+Ao configurar um aplicativo GitHub, você pode tornar a instalação pública para que qualquer usuário ou organização do GitHub possa instalar o aplicativo, ou tornar a instalação privada para que você só possa instalá-lo na conta que o criou.

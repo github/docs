@@ -71,7 +71,6 @@ Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen dies
 | 8302/UDP  | Consul                       |
 | 25827/UDP | Collectd                     |
 
-
 ### Load-Balancer konfigurieren
 
  Sie sollten einen externen TCP-basierten Load-Balancer verwenden, der das PROXY-Protokoll unterstützt, um den Traffic auf die Knoten zu verteilen. Beachten Sie die folgenden Load-Balancer-Konfigurationen:

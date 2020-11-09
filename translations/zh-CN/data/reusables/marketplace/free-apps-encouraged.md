@@ -1,1 +1,1 @@
-Free apps are encouraged in {% data variables.product.prodname_marketplace %} and are a great way to offer open source services. If you list a paid version of your app outside of {% data variables.product.prodname_marketplace %}, you must offer at least one paid plan when listing the app in {% data variables.product.prodname_marketplace %}.
+{% data variables.product.prodname_marketplace %} 鼓励使用免费应用程序，这是提供开源服务的好方法。 如果您在 {% data variables.product.prodname_marketplace %} 的外部上架了应用程序的付费版本，则您在 {% data variables.product.prodname_marketplace %} 中上架该应用程序时，必须提供至少一个付费计划。

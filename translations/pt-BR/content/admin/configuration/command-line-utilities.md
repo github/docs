@@ -20,7 +20,8 @@ Depois de entrar como usuário administrador com SSH, você pode executar esses 
 Este utilitário insere um banner no topo de cada página do {% data variables.product.prodname_enterprise %}. Você pode usá-lo para enviar uma comunicação a todos os usuários.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Você também pode definir um banner de anúncio usando as configurações empresariais no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
+Você também pode definir um banner de anúncio usando as configurações corporativas em
+{% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
 {% endif %}
 
 ```shell
@@ -63,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-Com este utilitário, você pode recuperar e modificar as definições de configuração da {% data variables.product.product_location_enterprise %}.
+Com este utilitário, você pode recuperar e modificar as definições de configuração da {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -181,7 +182,6 @@ Este utilitário permite controlar o estado do modo de manutenção da instalaç
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 Este utilitário exibe novamente a mensagem do dia (MOTD) que os administradores veem quando acessam a instância através do shell administrativo. A saída contém uma visão geral do estado da instância.
@@ -189,7 +189,6 @@ Este utilitário exibe novamente a mensagem do dia (MOTD) que os administradores
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 
@@ -396,7 +395,7 @@ Este utilitário permite instalar um certificado CA personalizado de raiz no seu
 
 Execute este utilitário para adicionar uma cadeia de certificados para verificação de assinatura de commits S/MIME. Para obter mais informações, consulte "[Sobre a verificação de assinatura de commit](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)".
 
-Execute este utilitário quando a {% data variables.product.product_location_enterprise %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar essa questão é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` na {% data variables.product.product_location_enterprise %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
+Execute este utilitário quando a {% data variables.product.product_location %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar essa questão é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` na {% data variables.product.product_location %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
 
 ```
 SSL-Session:
@@ -454,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location_enterprise %}.
+Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version

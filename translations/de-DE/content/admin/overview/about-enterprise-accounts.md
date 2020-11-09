@@ -10,12 +10,12 @@ versions:
 
 ### Informationen zu Unternehmenskonten auf {% data variables.product.prodname_ghe_server %}
 
-Mit einem Unternehmens-Konto kannst Du mehrere {% data variables.product.prodname_dotcom %}-Organisationen und {% data variables.product.prodname_ghe_server %}-Instanzen verwalten. Dein Enterprise-Konto benötigt einen Anker, wie zum Beispiel eine Organisation oder ein persönliches Konto auf {% data variables.product.prodname_dotcom %}. Enterprise-Administratoren können Einstellungen und Voreinstellungen verwalten, darunter folgende:
+Mit einem Unternehmens-Konto kannst Du mehrere {% data variables.product.prodname_dotcom %}-Organisationen und {% data variables.product.prodname_ghe_server %}-Instanzen verwalten. Ihr Enterprise-Konto benötigt einen Handle, beispielsweise eine Organisation oder ein persönliches Konto auf {% data variables.product.prodname_dotcom %}. Enterprise-Administratoren können Einstellungen und Voreinstellungen verwalten, darunter folgende:
 
 - Mitgliederzugang und -verwaltung (Organisationsmitglieder, externe Mitarbeiter)
 - Abrechnung und Nutzung ({% data variables.product.prodname_ghe_server %}-Instanzen, Benutzerlizenzen, {% data variables.large_files.product_name_short %}-Pakete)
 - Sicherheit (Single-Sign-On, Zwei-Faktor-Authentifizierung)
-- Anfragen und Support-Paket-Einreichung bei {% data variables.contact.enterprise_support %}
+- Anfragen und Unterstützen von Bundle-Sharing mit {% data variables.contact.enterprise_support %}
 
 {% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 

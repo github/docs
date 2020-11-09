@@ -1,12 +1,13 @@
 ---
 title: 将您的签名密钥告知 Git
-intro: '要在本地对提交签名，您需要告知 Git 您有想要使用的 GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} 或 X.509{% endif %} 密钥。'
+intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}

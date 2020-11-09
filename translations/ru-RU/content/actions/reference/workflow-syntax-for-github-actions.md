@@ -21,10 +21,6 @@ Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file ex
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 
-### Usage limits
-
-{% data reusables.github-actions.github-actions-usage-limits %}
-
 ### **`name`**
 
 The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's actions page. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
@@ -64,8 +60,8 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:    
-      # Push events on master branch
-      - master
+      # Push events on main branch
+      - main
       # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
       # Push events to branches matching refs/heads/releases/10
@@ -229,7 +225,7 @@ A workflow run is made up of one or more jobs. Jobs run in parallel by default. 
 
 Each job runs in an environment specified by `runs-on`.
 
-You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits](#usage-limits)."
+You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
 
@@ -310,7 +306,7 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### **`jobs.<jobs_id>.outputs`**
+### **`jobs.<job_id>.outputs`**
 
 A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
 
@@ -393,7 +389,7 @@ You can use the `if` conditional to prevent a job from running unless a conditio
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[Usage limits](#usage-limits)."
+You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 #### Пример
 
@@ -447,7 +443,7 @@ The `my backup step` only runs when the previous step of a job fails. For more i
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@master
@@ -464,7 +460,7 @@ Selects an action to run as part of a step in your job. An action is a reusable 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
 - Using the commit SHA of a released action version is the safest for stability and security.
 - Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the `master` branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
@@ -481,7 +477,7 @@ steps:
   # Reference a minor version of a release
   - uses: actions/setup-node@v1.2
   # Reference a branch
-  - uses: actions/setup-node@master
+  - uses: actions/setup-node@main
 ```
 
 ##### Example using a public action
@@ -495,7 +491,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # Uses the master branch of a public repository
+        # Uses the default branch of a public repository
         uses: actions/heroku@master
       - name: My second step
         # Uses a specific version tag of a public repository
@@ -513,7 +509,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/aws/ec2@master
+        uses: actions/aws/ec2@main
 ```
 
 ##### Example using action in the same repository as the workflow
@@ -596,14 +592,14 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
 
-| Supported platform | `shell` parameter | Description                                                                                                                                                            | Command run internally                          |
-| ------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| All                | `bash`            | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used.     | `bash --noprofile --norc -eo pipefail {0}`      |
-| All                | `pwsh`            | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                               | `pwsh -command "& '{0}'"`                   |
-| All                | `python`          | Executes the python command.                                                                                                                                           | `python {0}`                                    |
-| Linux / macOS      | `sh`              | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path.                                                           | `sh -e {0}`                                     |
-| Windows            | `cmd`             | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`.                                          | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows            | `powershell`      | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command "& '{0}'"`.            |
+| Supported platform | `shell` parameter | Description                                                                                                                                                        | Command run internally                          |
+| ------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| All                | `bash`            | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}`      |
+| All                | `pwsh`            | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.                                                | `pwsh -command ". '{0}'"`                       |
+| All                | `python`          | Executes the python command.                                                                                                                                       | `python {0}`                                    |
+| Linux / macOS      | `sh`              | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path.                                                       | `sh -e {0}`                                     |
+| Windows            | `cmd`             | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`.                                           | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows            | `powershell`      | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name.  | `powershell -command ". '{0}'"`.                |
 
 ##### Example running a script using bash
 
@@ -678,7 +674,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/hello_world@master
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
@@ -695,7 +691,7 @@ A `string` that defines the inputs for a Docker container. {% data variables.pro
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -708,7 +704,6 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 1. Use defaults that allow using the action without specifying any `args`.
 1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
-
 #### **`jobs.<job_id>.steps.with.entrypoint`**
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
@@ -718,7 +713,7 @@ Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't 
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
@@ -766,7 +761,7 @@ A strategy creates a build matrix for your jobs. You can define different variat
 
 You can define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job's configuration and creates a job for each matrix you configure.
 
-{% data reusables.github-actions.matrix-limits %}
+{% data reusables.github-actions.usage-matrix-limits %}
 
 Each option you define in the `matrix` has a key and value. The keys you define become properties in the `matrix` context and you can reference the property in other areas of your workflow file. For example, if you define the key `os` that contains an array of operating systems, you can use the `matrix.os` property as the value of the `runs-on` keyword to create a job for each operating system. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
@@ -842,7 +837,6 @@ strategy:
 ##### Example including new combinations
 
 You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use `include` to specify that additional job.
-
 
 {% raw %}
 ```yaml
@@ -952,7 +946,25 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a public docker registry name.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.container.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Пример
+
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
 
 #### **`jobs.<job_id>.container.env`**
 
@@ -1015,19 +1027,43 @@ services:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+#### **`jobs.<job_id>.services.<service_id>.image`**
 
-The Docker image to use as the service container to run the action. The value can be the Docker base image name or a public docker Hub or registry.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.services.<service_id>.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Пример
+
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
+
+#### **`jobs.<job_id>.services.<service_id>.env`**
 
 Sets a `map` of environment variables in the service container.
 
-#### **`jobs.<job_id>.services.ports`**
+#### **`jobs.<job_id>.services.<service_id>.ports`**
 
 Sets an `array` of ports to expose on the service container.
 
-#### **`jobs.<job_id>.services.volumes`**
+#### **`jobs.<job_id>.services.<service_id>.volumes`**
 
 Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
 
@@ -1046,7 +1082,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+#### **`jobs.<job_id>.services.<service_id>.options`**
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
@@ -1076,16 +1112,16 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push|
 
 #### Patterns to match branches and tags
 
-| Pattern                                         | Description                                                                                                                                                                  | Example matches                                                                                    |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `feature/*`                                     | The `*` wildcard matches any character, but does not match slash (`/`).                                                                                                      | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `feature/**`                                    | The `**` wildcard matches any character including slash (`/`) in branch and tag names.                                                                                       | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name.                                                                                                                              | -`master`<br/>-`releases/mona-the-octocat`                                                   |
-| `'*'`                                           | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`master`<br/>-`releases`                                                                    |
-| `'**'`                                          | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter.                                                             | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*feature'`                                    | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes.                                                                    | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                           | Matches branch and tag names that start with `v2`.                                                                                                                           | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                           | Matches all semantic versioning tags with major version 1 or 2                                                                                                               | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| Pattern                                       | Description                                                                                                                                                                  | Example matches                                                                                    |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `feature/*`                                   | The `*` wildcard matches any character, but does not match slash (`/`).                                                                                                      | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
+| `feature/**`                                  | The `**` wildcard matches any character including slash (`/`) in branch and tag names.                                                                                       | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
+| -`main`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name.                                                                                                                              | -`main`<br/>-`releases/mona-the-octocat`                                                     |
+| `'*'`                                         | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`main`<br/>-`releases`                                                                      |
+| `'**'`                                        | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter.                                                             | -`all/the/branches`<br/>-`every/tag`                                                         |
+| `'*feature'`                                  | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes.                                                                    | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
+| `v2*`                                         | Matches branch and tag names that start with `v2`.                                                                                                                           | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                         | Matches all semantic versioning tags with major version 1 or 2                                                                                                               | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
 
 #### Patterns to match file paths
 

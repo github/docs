@@ -1,6 +1,6 @@
 ---
 title: Deine Auszahlungen von GitHub Sponsors verwalten
-intro: 'Du kannst Informationen zu vergangenen und künftigen Auszahlungen von {% data variables.product.prodname_sponsors %} einsehen und Deine Bankdaten bearbeiten.'
+intro: 'Sie können Informationen zu vergangenen und künftigen Auszahlungen von {% data variables.product.prodname_sponsors %} einsehen und Ihre Bankdaten bearbeiten.'
 redirect_from:
   - /articles/managing-your-payouts-from-github-sponsors
 versions:

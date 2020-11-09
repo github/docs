@@ -1,4 +1,5 @@
 const path = require('path')
+const slash = require('slash')
 const fs = require('fs')
 const walk = require('walk-sync')
 const matter = require('@github-docs/frontmatter')
@@ -109,11 +110,11 @@ describe('lint-files', () => {
   }
 
   const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
-  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => path.relative(rootDir, p))
+  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
   const contentMarkdownTuples = zip(contentMarkdownRelPaths, contentMarkdownAbsPaths)
 
   const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
-  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => path.relative(rootDir, p))
+  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
   const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
 
   describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
@@ -145,7 +146,7 @@ describe('lint-files', () => {
             if (match === '[Link Text](full-URL-of-wiki-page)') {
               return false
             }
-          } else if (markdownRelPath === 'content/admin/user-management/configuring-email-for-notifications.md') {
+          } else if (markdownRelPath === 'content/admin/configuration/configuring-email-for-notifications.md') {
             if (/^\[\d+\]: (?:connect|disconnect|[0-9A-F]+:)\s*$/.test(match)) {
               return false
             }

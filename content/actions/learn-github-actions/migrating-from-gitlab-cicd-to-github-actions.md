@@ -180,7 +180,7 @@ GitLab CI/CD
 deploy_prod:
   stage: deploy
   script:
-    - echo "Deply to production server"
+    - echo "Deploy to production server"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 ```
@@ -194,7 +194,7 @@ jobs:
     if: contains( github.ref, 'master')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deply to production server"
+      - run: echo "Deploy to production server"
 ```
 {% endraw %}
 </td>

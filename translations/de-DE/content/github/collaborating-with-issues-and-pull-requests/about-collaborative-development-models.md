@@ -1,12 +1,13 @@
 ---
 title: Informationen zu gemeinschaftlichen Entwicklungsmodellen
-intro: 'Die Art und Weise, wie Du Pull Requests verwendest, hängt von der Art des Entwicklungsmodells in Deinem Projekt ab.'
+intro: Die Art und Weise, wie Du Pull Requests verwendest, hängt von der Art des Entwicklungsmodells in Deinem Projekt ab.
 redirect_from:
   - /articles/types-of-collaborative-development-models/
   - /articles/about-collaborative-development-models
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Es gibt zwei Hauptarten von Entwicklungsmodellen, mit denen Du Pull Requests verwenden würdest. Mit dem *fork and pull model* (forken und abrufen Modell) kann jeder ein bestehendes Repository forken und Veränderungen an seine persönlichen Forks übertragen. Du benötigst keine Berechtigungen zum Quell-Repository, um an eine benutzereigene Fork zu übertragen. Die Änderungen können vom Projektbetreuer in das Quell-Repository gezogen werden. Wenn Du einen Pull Request öffnest, der Änderungen von Deiner benutzereigenen Fork zu einem Branch im Quell- (vorgelagerten) Repository vorschlägt, kannst Du allen Personen mit Push Zugriff auf das vorgelagerte Repository erlauben, Änderungen an Deinen Pull Requests zu machen.  Dieses Modell ist bei Open-Source-Projekten beliebt, da es Probleme für neue Mitarbeiter reduziert und Benutzern ermöglicht, unabhängig und ohne vorherige Koordination zu arbeiten.

@@ -5,9 +5,9 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks/
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
-  - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Getting information on deliveries

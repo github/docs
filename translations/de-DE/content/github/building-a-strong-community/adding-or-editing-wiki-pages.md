@@ -1,6 +1,6 @@
 ---
 title: Wiki-Seiten hinzufügen oder bearbeiten
-intro: 'Du kannst Wiki-Seiten direkt auf {% data variables.product.product_name %} oder lokal über die Befehlszeile hinzufügen und bearbeiten.'
+intro: 'Sie können Wiki-Seiten direkt auf {% data variables.product.product_name %} oder lokal über die Befehlszeile hinzufügen und bearbeiten.'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface/
   - /articles/editing-wiki-pages-via-the-online-interface/
@@ -11,6 +11,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Wiki-Seiten hinzufügen

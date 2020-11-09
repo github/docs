@@ -25,14 +25,14 @@ versions:
 
 The following attributes are available.
 
-| Attribute name | 유형    | 설명                                                                    |
-| -------------- | ----- | --------------------------------------------------------------------- |
+| Attribute name | 유형    | 설명                                                               |
+| -------------- | ----- | ---------------------------------------------------------------- |
 | `사용자 이름`       | 필수 사항 | The {% data variables.product.prodname_ghe_server %} username. |
 
 ### Configuring CAS
 {% warning %}
 
-**Warning:** Before configuring CAS on {% data variables.product.product_location_enterprise %}, note that users will not be able to use their CAS usernames and passwords to authenticate API requests or Git operations over HTTP/HTTPS. Instead, they will need to [create an access token](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
+**Warning:** Before configuring CAS on {% data variables.product.product_location %}, note that users will not be able to use their CAS usernames and passwords to authenticate API requests or Git operations over HTTP/HTTPS. Instead, they will need to [create an access token](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
 
 {% endwarning %}
 

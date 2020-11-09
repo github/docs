@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Confirmar o status de verificação da assinatura do commit
 
-1. No {% data variables.product.product_name %}, navegue até sua pull request.
+1. Em
+
+{% data variables.product.product_name %}, navegue até o seu pull request.
 {% data reusables.repositories.review-pr-commits %}
 3. Ao lado do hash de commit abreviado do seu commit, há uma caixa que mostra se a assinatura do commit foi verificada ou não. ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 4. Para exibir informações mais detalhadas sobre a assinatura do commit, clique em **Verified** (Verificada) ou **Unverified** (Não verificada). ![Commit assinado verificado](/assets/images/help/commits/gpg-signed-commit_verified_details.png)

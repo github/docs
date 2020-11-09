@@ -1,6 +1,6 @@
 ---
 title: 关于提交签名验证
-intro: '使用 GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} 或 S/MIME{% endif %} 可在本地签名标记并提交。 这些标记或提交在 {% data variables.product.product_name %} 上标示为已验证，便于其他人信任更改来自可信的来源。'
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. 这些标记或提交在 {% data variables.product.product_name %} 上标示为已验证，便于其他人信任更改来自可信的来源。'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于提交签名验证
@@ -59,8 +60,9 @@ versions:
 ### 自动程序的签名验证
 
 需要提交签名的组织和 {% data variables.product.prodname_github_app %} 可使用自动程序对提交签名。 如果提交或标记具有密码可验证的自动程序签名，则 {% data variables.product.product_name %} 会将提交或标记标示为已验证。
+自动程序签名验证仅在以下情况下才工作：请求被验证为
 
-自动程序的签名验证仅在请求被验证为 {% data variables.product.prodname_github_app %} 或自动程序并且不含自定义作者信息、自定义提交者信息、自定义签名信息（如提交 API）时才有效。
+{% data variables.product.prodname_github_app %} 或自动程序，并且不含自定义作者信息、自定义提交者信息以及自定义签名信息（如提交 API）。
 {% endif %}
 
 ### 延伸阅读

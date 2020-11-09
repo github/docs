@@ -5,7 +5,8 @@ redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About managing enterprise accounts with GraphQL

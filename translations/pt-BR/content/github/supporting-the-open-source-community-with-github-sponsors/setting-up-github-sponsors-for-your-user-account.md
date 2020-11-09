@@ -50,7 +50,7 @@ Depois de {% data variables.product.prodname_dotcom %} avaliar sua solicitação
 
 ### Enviando informações bancárias
 
-Se você vive em uma região aceita, você pode seguir essas instruções para enviar informações bancárias criando uma conta do Stripe Connect. {% data reusables.sponsors.stripe-supported-regions %}
+Se você vive em uma região aceita, você pode seguir essas instruções para enviar informações bancárias criando uma conta do Stripe Connect. A sua região de residência e a região da sua conta bancária devem corresponder. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

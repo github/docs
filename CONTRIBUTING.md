@@ -27,7 +27,12 @@ Fork using GitHub Desktop:
 - Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
 
 Fork using the command line:
+
 - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
+
+Fork with [GitHub Codespaces](https://github.com/features/codespaces):
+
+- [Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
 
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
@@ -45,7 +50,7 @@ When you're done making changes and you'd like to propose them for review, use t
 ### Your PR is merged!
 Congratulations! The whole GitHub community thanks you. :sparkles:
 
-Once your PR is merged, you can be added as a contributor in the [readme](README.md#contributors-).
+Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors).
 
 ### Keep contributing as you use GitHub Docs
 
@@ -64,12 +69,6 @@ Now that you're a part of the GitHub Docs community, you can keep participating 
   - [Labels](#labels)
 - [Opening a pull request](#opening-a-pull-request)
 - [Working in the github/docs repository](#working-in-the-githubdocs-repository)
-- [Resolving merge conflicts](#resolving-merge-conflicts)
-  - [In the GitHub user interface](#in-the-github-user-interface)
-    - [Editing the file and committing the changes](#editing-the-file-and-committing-the-changes)
-- [Troubleshooting](#troubleshooting)
-  - [Failed status checks](#failed-status-checks)
-- [Draft pull requests](#draft-pull-requests)
 - [Reviewing](#reviewing)
   - [Self review](#self-review)
   - [Pull request template](#pull-request-template)
@@ -95,7 +94,7 @@ A [pull request](https://docs.github.com/en/github/collaborating-with-issues-and
 When we merge those changes, they should be deployed to the live site within 24 hours. :earth_africa: To learn more about opening a pull request in this repo, see [Opening a pull request](#opening-a-pull-request) below.
 
 ### :question: Support
-We are a small team working hard to keep up with the documentation demands of a continously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
+We are a small team working hard to keep up with the documentation demands of a continuously changing product. Unfortunately, we just can't help with support questions in this repository. If you are experiencing a problem with GitHub, unrelated to our documentation, please [contact GitHub Support directly](https://support.github.com/contact). Any issues, discussions, or pull requests opened here requesting support will be given information about how to contact GitHub Support, then closed and locked.
 
 If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 
@@ -135,7 +134,7 @@ Here's some information that might be helpful while working on a Docs PR:
 
 - [Variables](/data/variables/README.md) - We use variables the same way we use reusables. Variables are for short strings of reusable text.
 
-- [Liquid](/contribution/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
+- [Liquid](/contributing/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
 
 - [Scripts](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally.
 

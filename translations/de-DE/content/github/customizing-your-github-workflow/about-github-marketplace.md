@@ -1,15 +1,15 @@
 ---
 title: Informationen zu GitHub Marketplace
-intro: '{% data variables.product.prodname_marketplace %} umfasst Tools zur Erweiterung der Funktionalität und Verbesserung Deines Workflows.'
+intro: '{% data variables.product.prodname_marketplace %} umfasst Tools zur Erweiterung der Funktionalität und Verbesserung Ihres Workflows.'
 redirect_from:
   - /articles/about-github-marketplace
 versions:
   free-pro-team: '*'
 ---
 
-Auf [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) kannst Du kostenlose wie kostenpflichtige Tools entdecken, durchsuchen und installieren, darunter [{% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/) und {% data variables.product.prodname_actions %}.
+Auf [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) können Sie kostenlose und kostenpflichtige Tools entdecken, durchsuchen und installieren, darunter [{% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/) und {% data variables.product.prodname_actions %}.
 
-Wenn Du ein kostenpflichtiges Tool erwirbst, bezahlst Du für Dein Tool-Abonnement mit den gleichen Abrechnungsinformationen, mit denen Du für Dein {% data variables.product.product_name %}-Abonnement bezahlst, und erhältst an Deinem regulären Abrechnungsdatum nur eine Rechnung. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
+Wenn Sie ein kostenpflichtiges Tool erwerben, bezahlen Sie für Ihr Tool-Abonnement mit den gleichen Abrechnungsinformationen, mit denen Sie für Ihr {% data variables.product.product_name %}-Abonnement bezahlen, und erhalten an Ihrem regulären Abrechnungsdatum eine Rechnung. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
 
 Unter Umständen hast Du auch die Möglichkeit, eine kostenlose 14-tägige Testversion für ausgewählte Tools zu nutzen. Du kannst während der Testphase jederzeit kündigen, und es wird Dir nichts in Rechnung gestellt, aber Du verlierst automatisch den Zugriff auf das Tool. Dein kostenpflichtiges Abonnement beginnt am Ende der 14-tägigen Testphase. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace).“
 

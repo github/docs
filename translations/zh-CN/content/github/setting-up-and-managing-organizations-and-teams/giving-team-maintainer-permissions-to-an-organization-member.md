@@ -1,12 +1,13 @@
 ---
 title: 向组织成员授予“团队维护员”权限
-intro: 组织所有者可将组织的任何成员升级为团队的*团队维护员*，向他们授予组织所有者的部分权限。
+intro: '组织所有者可将组织的任何成员升级为团队的*团队维护员*，向他们授予组织所有者的部分权限。'
 redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program/
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team_maintainers_can %}

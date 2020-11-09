@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility from private to public or public to private.

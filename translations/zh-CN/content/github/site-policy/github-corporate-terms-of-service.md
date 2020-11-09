@@ -9,7 +9,7 @@ versions:
 感谢您选择 GitHub 满足贵公司的业务需求。 请仔细阅读本协议，因为它管辖对产品（定义如下）的使用，除非 GITHUB 在这方面与客户签订了单独的书面协议。 单击“I AGREE（我同意）”或类似按钮或者使用产品，即表示客户接受本协议的所有条款和条件。 如果客户代表公司或其他法律实体签订本协议，则表示其拥有让该公司或其他法律实体受本协议约束的法律权限。
 
 ### GitHub 公司服务条款
-Version Effective Date: July 20, 2020
+版本生效日期：2020 年 7 月 20 日
 
 本协议适用于以下 GitHub 产品（详细定义见下文，统称为**“产品”**）：
 - 服务；
@@ -99,7 +99,7 @@ Version Effective Date: July 20, 2020
 
 *   用户登录名不能多人共享。
 
-- Customer must not use the Products (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction; (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC); or (c) if it is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. 更多信息请参阅我们的[出口管制政策](/articles/github-and-export-controls)。
+- 客户在以下情况下不得使用产品 (a) 违反美国或任何其他司法管辖区的出口管制或制裁法律；(b) 如果位于或普通居住于遭受美国 “外国资产管制办公室”(OFAC) 全面制裁的国家或地区；或 (c) 如果客户是[特别指定的国民 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) 或代表其工作，或者是遭受类似封锁或被拒绝方禁令的个人。 更多信息请参阅我们的[出口管制政策](/articles/github-and-export-controls)。
 
 #### 3. 帐户安全
 客户负责：(i) 在其公司帐户下发布的所有内容和发生的活动；(ii) 保持其帐户登录凭据的安全；以及 (iii) 在获悉通过其帐户对服务的任何未授权使用或访问时[及时通知 GitHub](https://github.com/contact)。  GitHub 对客户不遵守本 B 部分所造成的任何损失或损害概不负责。
@@ -107,11 +107,11 @@ Version Effective Date: July 20, 2020
 #### 4. 第三方条款
 在某些情况下，第三方的条款可能适用于客户对 GitHub 的使用。 例如，客户可能是本身具有条款或许可协议的组织的成员；客户可能下载与服务相集成的应用程序；或者，客户可能使用服务向另一项服务验证。 虽然本协议是 GitHub 与客户的完全协议，但其他方的条款也会管辖他们与客户的关系。
 
-#### 5. U.S. 5. 美国联邦政府条款
-If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+#### 5. 美国 5. 美国联邦政府条款
+如果客户是美国 联邦政府机构或者在政府部门访问或使用服务，则[美国 联邦政府修正](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。
 
-#### 6. Enterprise Cloud Service Level Agreement
-GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
+#### 6. Enterprise Cloud 服务等级协议
+GitHub 在[企业服务等级协议](/github/site-policy/github-enterprise-service-level-agreement)中提供了 GitHub Enterprise Cloud 的季度正常运行时间承诺。 客户注册 GitHub Enterprise Cloud 后，如果 GitHub 未达到其服务等级，则客户将有权获得服务积分。
 
 ### C. 遵守法律；可接受的使用；隐私
 
@@ -122,7 +122,7 @@ GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided i
 客户对服务的使用必须遵守 [GitHub 可接受的使用政策](/articles/github-acceptable-use-policies)和 [GitHub 社区指导方针](/articles/github-community-guidelines)。 客户不得在任何司法管辖区将服务用于非法、淫秽、冒犯性或欺诈性内容或活动，例如鼓吹或造成伤害；干扰或违反网络或系统的完整性或安全性；避开过滤器；发送主动、辱骂或欺诈性消息、病毒或有害代码；或者违反第三方权利。
 
 #### 3. 隐私
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 任何个人、实体或服务从服务收集数据都必须遵守 GitHub 隐私声明，特别是收集用户个人信息（定义见“GitHub 隐私声明”）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
+[GitHub 隐私声明](/articles/github-privacy-statement)和 [GitHub 数据保护附录](/github/site-policy/github-data-protection-addendum)详细介绍了 GitHub 的隐私保护和数据使用实践，以及 GitHub 在处理和保护客户个人数据方面的义务。 任何个人、实体或服务从服务收集数据都必须遵守 GitHub 隐私声明，特别是收集用户个人信息（定义见“GitHub 隐私声明”）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
 
 ### D. 内容责任；所有权；许可权利
 

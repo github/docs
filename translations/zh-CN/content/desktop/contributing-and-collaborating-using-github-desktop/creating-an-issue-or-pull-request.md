@@ -1,7 +1,7 @@
 ---
 title: 创建议题或拉取请求
 intro: 您可以创建议题或拉取请求，以提议并协作更改仓库。
-permissions: 任何人都可以在已启用议题的公共仓库创建议题。 对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。
+permissions: '任何人都可以在已启用议题的公共仓库创建议题。 对仓库具有读取权限的任何人都可以创建拉取请求，但要创建分支，必须具有写入权限。'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request
@@ -50,7 +50,9 @@ versions:
 
 1. 切换到要为其创建拉取请求的分支。 更多信息请参阅“[在分支之间切换](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)”。
 2. 单击 **Create pull request（创建拉取请求）**。 {% data variables.product.prodname_desktop %} 会将您的默认浏览器打开至 {% data variables.product.prodname_dotcom %}。 ![创建拉取请求按钮](/assets/images/help/desktop/mac-create-pull-request.png)
-4. 在 {% data variables.product.prodname_dotcom %} 上，确认 **base:** 下拉菜单中的分支是要合并更改的分支。 确认 **compare:** 下拉菜单中的分支是您进行了更改的主题分支。 ![用于选择基础和比较分支的下拉菜单](/assets/images/help/desktop/base-and-compare-branches.png)
+4. 在
+{% data variables.product.prodname_dotcom %} 上，确认 **base:** 下拉菜单中的分支是要合并更改的分支。 确认 **compare:** 下拉菜单中的分支是您进行了更改的主题分支。
+  ![用于选择基础和比较分支的下拉菜单](/assets/images/help/desktop/base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
 
@@ -60,7 +62,9 @@ versions:
 
 1. 切换到要为其创建拉取请求的分支。 更多信息请参阅“[在分支之间切换](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)”。
 2. 单击 **Create pull request（创建拉取请求）**。 {% data variables.product.prodname_desktop %} 会将您的默认浏览器打开至 {% data variables.product.prodname_dotcom %}。 ![创建拉取请求按钮](/assets/images/help/desktop/windows-create-pull-request.png)
-3. 在 {% data variables.product.prodname_dotcom %} 上，确认 **base:** 下拉菜单中的分支是要合并更改的分支。 确认 **compare:** 下拉菜单中的分支是您进行了更改的主题分支。 ![用于选择基础和比较分支的下拉菜单](/assets/images/help/desktop/base-and-compare-branches.png)
+3. 在
+{% data variables.product.prodname_dotcom %} 上，确认 **base:** 下拉菜单中的分支是要合并更改的分支。 确认 **compare:** 下拉菜单中的分支是您进行了更改的主题分支。
+  ![用于选择基础和比较分支的下拉菜单](/assets/images/help/desktop/base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
 

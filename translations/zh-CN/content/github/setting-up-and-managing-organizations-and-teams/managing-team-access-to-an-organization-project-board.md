@@ -1,11 +1,12 @@
 ---
 title: 管理团队对组织项目板的访问
-intro: 作为组织所有者或项目板管理员，您可以向团队授予对组织拥有的项目板的访问权限。
+intro: '作为组织所有者或项目板管理员，您可以向团队授予对组织拥有的项目板的访问权限。'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}

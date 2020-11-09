@@ -15,13 +15,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于仓库转让
 
 当您将仓库转让给新所有者时，他们可以立即管理仓库的内容、议题、拉取请求、版本、项目板和设置。
 
-仓库转让的前提条件： {% if currentVersion == "free-pro-team@latest" %}
+仓库转让的前提条件：{% if currentVersion == "free-pro-team@latest" %}
 - 当您将拥有的仓库转让给另一个用户帐户时，新所有者将收到一封确认电子邮件。 确认电子邮件包括接受转让的说明。 如果新所有者在一天之内没有接受转让，则邀请将过期。{% endif %}
 - 要将您拥有的仓库转让给一个组织，您必须拥有在目标组织中创建仓库的权限。
 - 目标帐户不得具有相同名称的仓库，或位于同一网络中的复刻。
@@ -36,7 +37,7 @@ versions:
 
 - 如果转让的仓库是复刻，则它仍与上游仓库关联。
 - 如果转让的仓库有任何复刻，则这些复刻在转让完成后仍与该仓库关联。
-- 如果转让的仓库使用 {% data variables.large_files.product_name_long %}，则所有 {% data variables.large_files.product_name_short %} 对象均自动移动。 此转让在后台进行，因此如果您有大量的 {% data variables.large_files.product_name_short %} 对象或者如果 {% data variables.large_files.product_name_short %} 对象本身很大，则进行转让可能需要一些时间。{% if currentVersion == "free-pro-team@latest" %}转让使用 {% data variables.large_files.product_name_short %} 的仓库之前，确保接收帐户有足够的数据包用来存储您将移动的 {% data variables.large_files.product_name_short %} 对象。 有关为用户帐户增加存储的更多详细，请参阅“[升级 {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)”。{% endif %}
+- 如果转让的仓库使用 {% data variables.large_files.product_name_long %}，则所有 {% data variables.large_files.product_name_short %} 对象均自动移动。 此转让在后台进行，因此如果您有大量的 {% data variables.large_files.product_name_short %} 对象或者如果 {% data variables.large_files.product_name_short %} 对象本身很大，则进行转让可能需要一些时间。{% if currentVersion == "free-pro-team@latest" %} 转让使用 {% data variables.large_files.product_name_short %} 的仓库之前，确保接收帐户有足够的数据包用来存储您将移动的 {% data variables.large_files.product_name_short %} 对象。 有关为用户帐户增加存储的更多详细，请参阅“[升级 {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)”。{% endif %}
 - 仓库在两个用户帐户之间转让时，议题分配保持不变。 当您将仓库从用户帐户转让给组织时，分配给组织中该成员的议题保持不变，所有其他议题受理人都将被清除。 只允许组织中的所有者创建新的议题分配。 当您将仓库从组织转让给用户帐户时，只有分配给仓库所有者的议题保留，所有其他议题受理人都将被清除。
 - 如果转让的仓库包含 {% data variables.product.prodname_pages %} 站点，则指向 Web 上 Git 仓库和通过 Git 活动的链接将重定向。 不过，我们不会重定向与仓库关联的 {% data variables.product.prodname_pages %}。
 - 指向以前仓库位置的所有链接均自动重定向到新位置。 当您对转让的仓库使用 `git clone`、`git fetch` 或 `git push` 时，这些命令将重定向到新仓库位置或 URL。 不过，为了避免混淆，我们强烈建议将任何现有的本地克隆副本更新为指向新仓库 URL。 您可以通过在命令行中使用 `git remote` 来执行此操作：

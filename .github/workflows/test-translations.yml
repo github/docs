@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
         with:
           ref: translations # check out the 'translations' branch
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
@@ -27,7 +27,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -52,10 +52,10 @@ jobs:
         test-group: [content, meta, rendering, routing, unit, links-and-images]
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
@@ -65,7 +65,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -77,3 +77,5 @@ jobs:
 
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"

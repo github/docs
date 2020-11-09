@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Você pode gerenciar chaves SSH em seus servidores ao automatizar scripts de implantação usando o encaminhamento do agente SSH, HTTPS com tokens do OAuth, chaves de implantação ou usuários de máquina.

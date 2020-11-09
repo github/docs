@@ -1,6 +1,6 @@
 ---
 title: Arten von GitHub-Konten
-intro: 'Dein Benutzerkonto ist Deine Identität auf {% data variables.product.product_location %}. Dein Benutzerkonto kann Mitglied einer beliebigen Anzahl von Organisationen sein.{% if currentVersion == "free-pro-team@latest" %} Organisationen können zu Enterprise-Konten gehören.{% endif %}'
+intro: 'Ihr Benutzerkonto ist Ihre Identität auf {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,10 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-Eine vollständige Liste der Funktionen für jedes {% data variables.product.product_name %}-Produkt findest Du auf „[{% data variables.product.prodname_dotcom %}-Produkte](/github/getting-started-with-github/githubs-products)."
+For a full list of features for each
+{% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Persönliche Benutzerkonten
@@ -65,12 +67,12 @@ Organisationen sind gemeinsame Konten, in denen Personengruppen projektübergrei
 
 ### Enterprise-Konten
 
-Mit Enterprise-Konten kannst Du die Richtlinien und Abrechnungen mehrerer {% data variables.product.prodname_dotcom_the_website %}-Organisationen zentral verwalten. {% data reusables.gated-features.enterprise-accounts %}
+Mit Enterprise-Konten können Sie die Richtlinien und Abrechnungen mehrerer {% data variables.product.prodname_dotcom_the_website %}-Organisationen zentral verwalten. {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Weiterführende Informationen
 
-{% if currentVersion == "free-pro-team@latest" %}- „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“
+{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
 - „[Neues Organisationskonto erstellen](/articles/creating-a-new-organization-account)“

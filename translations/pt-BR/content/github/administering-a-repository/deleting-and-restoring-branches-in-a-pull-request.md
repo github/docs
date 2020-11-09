@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Excluindo um branch usado para uma pull request
@@ -35,6 +36,5 @@ Você pode excluir um branch que esteja associado a uma pull request se a pull r
 
 ### Leia mais
 
-- "[Criar e excluir branches dentro do seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+- "[Criar e excluir branches dentro do seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"
 - "[Gerenciando a exclusão automática de branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)"
-{% endif %}

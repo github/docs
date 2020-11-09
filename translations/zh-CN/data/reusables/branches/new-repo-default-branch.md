@@ -1,1 +1,2 @@
-When you create a repository on {% data variables.product.prodname_dotcom %} with content, the repository is initialized with a single branch, called the default branch.
+在 {% data variables.product.product_location %}和 {% data variables.product.product_name %} 上创建一个有内容的仓库时，将创建包含单一分支的仓库。 仓库中的第一个分支是默认分支。
+

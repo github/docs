@@ -37,7 +37,9 @@ versions:
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. 要添加
+{% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。
+  ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
@@ -65,7 +67,9 @@ versions:
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. 要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. 要添加
+{% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。
+  ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}

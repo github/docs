@@ -7,6 +7,7 @@ intro: 'To put your project up on {% data variables.product.product_location %},
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software.
@@ -19,14 +20,16 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% data reusables.repositories.create_new %}
 2. Type a short, memorable name for your repository. For example, "hello-world". ![Field for entering a repository name](/assets/images/help/repository/create-repository-name.png)
-3. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}." ![Field for entering a repository description](/assets/images/help/repository/create-repository-desc.png)
+3. Optionally, add a description of your repository. For example, "My first repository on
+{% data variables.product.product_name %}."
+  ![Field for entering a repository description](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 
 Congratulations! You've successfully created your first repository, and initialized it with a *README* file.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.

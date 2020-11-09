@@ -1,12 +1,13 @@
 ---
 title: Informationen zu Pull Requests
-intro: 'Mit Pull Requests kannst Du andere Benutzer über Änderungen informieren, die Du an einen Branch in einem Repository auf {% data variables.product.product_name %} übertragen hast. Sobald ein Pull Request geöffnet ist, kannst Du die potenziellen Änderungen mit Mitarbeitern diskutieren und überprüfen und Follow-up-Commits hinzufügen, bevor Deine Änderungen in den Basis-Branch übertragen werden.'
+intro: 'Mit Pull Requests können Sie andere Benutzer über Änderungen informieren, die Sie an einen Branch in einem Repository auf {% data variables.product.product_name %} gepusht haben. Sobald ein Pull Request geöffnet ist, kannst Du die potenziellen Änderungen mit Mitarbeitern diskutieren und überprüfen und Follow-up-Commits hinzufügen, bevor Deine Änderungen in den Basis-Branch übertragen werden.'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Pull Requests
@@ -52,6 +53,13 @@ In Deinem Dashboard findest Du schnell Links zu zuletzt aktualisierten Pull Requ
 Wenn Du einen Pull Request erstellst, kannst Du wählen, ob Du einen für den Review bereiten Pull Request oder einen Pull-Request-Entwurf erstellen möchten. Pull-Request-Entwürfe können nicht zusammengeführt werden, und Code-Inhaber werden nicht automatisch aufgefordert, Pull-Request-Entwürfe zu überprüfen. Weitere Informationen zum Erstellen eines Pull-Request-Entwurfs findest Du unter „[Einen Pull Request erstellen](/articles/creating-a-pull-request)“ und „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork).“
 
 {% data reusables.pull_requests.mark-ready-review %} Du kannst einen Pull Request jederzeit in einen Entwurf umwandeln. Weitere Informationen findest Du unter „[Den Zustand eines Pull Requests ändern](/articles/changing-the-stage-of-a-pull-request).“
+
+### Differences between commits on compare and pull request pages
+
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
 
 ### Weiterführende Informationen
 
