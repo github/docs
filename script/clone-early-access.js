@@ -22,15 +22,28 @@ const { execSync } = require('child_process')
 const rimraf = require('rimraf').sync
 const fs = require('fs')
 const path = require('path')
+const os = require('os')
 const yaml = require('js-yaml')
 const eaConfig = yaml.load(fs.readFileSync(path.join(process.cwd(), 'ea-config.yml'), 'utf8'))
 
 // Early Access details
 const earlyAccessOwner = 'github'
-const earlyAccessRepo = 'docs-early-access'
-const earlyAccessDir = 'early-access'
-const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessRepo}`
-const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
+const earlyAccessRepoName = 'docs-early-access'
+const earlyAccessDirName = 'early-access'
+const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessRepoName}`
+
+const earlyAccessCloningParentDir = os.tmpdir()
+const earlyAccessCloningDir = path.join(earlyAccessCloningParentDir, earlyAccessRepoName)
+
+const destinationDirNames = ['content', 'data', 'assets']
+const destinationDirsMap = destinationDirNames
+  .reduce(
+    (map, dirName) => {
+      map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
+      return map
+    },
+    {}
+  )
 
 // Production vs. staging environment
 // TODO test that this works as expected
@@ -42,19 +55,73 @@ const earlyAccessBranch = HEROKU_PRODUCTION_APP ? eaConfig.EA_PRODUCTION_BRANCH 
 // Confirm that the branch exists in the remote
 const branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
 if (!branchExists) {
-  console.log(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepo}. Exiting!`)
-  process.exit(0)
+  console.error(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}. Exiting!`)
+  process.exit(1)
 }
 
-// Remove any dir that may pre-exist
-rimraf(earlyAccessContentDir)
+// Remove any previously cloned copies of the early access repo
+rimraf(earlyAccessCloningDir)
 
 // Clone the repo
-execSync(`git clone --single-branch --branch ${earlyAccessBranch} ${earlyAccessFullRepo} ${earlyAccessContentDir}`)
+console.log(`Setting up: ${earlyAccessCloningDir}`)
+execSync(
+  `git clone --single-branch --branch ${earlyAccessBranch} ${earlyAccessFullRepo} ${earlyAccessRepoName}`,
+  {
+    cwd: earlyAccessCloningParentDir
+  }
+)
 console.log(`Using early-access ${environment} branch: '${earlyAccessBranch}'`)
 
-// Remove the .git dir
-rimraf(`${earlyAccessContentDir}/.git`)
+// Remove all existing early access directories from this repo
+destinationDirNames.forEach(key => rimraf(destinationDirsMap[key]))
 
-// Confirm the directory exists
-fs.existsSync(earlyAccessContentDir)
+//
+// OLD STATE:
+//
+const dirName = 'content'
+
+// Remove the .git directory
+rimraf(path.join(earlyAccessCloningDir, '.git'))
+
+// Move the directory from the cloned source to the destination
+fs.renameSync(
+  earlyAccessCloningDir,
+  destinationDirsMap[dirName]
+)
+
+// Confirm the newly moved directory exist
+if (fs.existsSync(destinationDirsMap[dirName])) {
+  console.log(`Successfully moved early access directory '${dirName}' into this repo`)
+} else {
+  throw new Error(`Failed to move early access directory '${dirName}'!`)
+}
+// END OLD STATE
+
+//
+// FUTURE STATE:
+//
+// // Move the latest early access source directories into this repo
+// destinationDirNames.forEach((dirName) => {
+//   const sourceDir = path.join(earlyAccessCloningDir, dirName)
+//   const destDir = destinationDirsMap[dirName]
+
+//   // If the source directory doesn't exist, skip it
+//   if (!fs.existsSync(sourceDir)) {
+//     console.warn(`Early access directory '${dirName}' does not exist. Skipping...`)
+//     return
+//   }
+
+//   // Move the directory from the cloned source to the destination
+//   fs.renameSync(sourceDir, destDir)
+
+//   // Confirm the newly moved directory exist
+//   if (fs.existsSync(destDir)) {
+//     console.log(`Successfully moved early access directory '${dirName}' into this repo`)
+//   } else {
+//     throw new Error(`Failed to move early access directory '${dirName}'!`)
+//   }
+// })
+//
+// // Remove the source content again for good hygiene
+// rimraf(earlyAccessCloningDir)
+// END FUTURE STATE
