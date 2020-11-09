@@ -14,7 +14,7 @@ versions:
 
 {% data reusables.actions.actions-not-verified %}
 
-Para saber mais sobre a publicação do {% data variables.product.prodname_actions %} no {% data variables.product.prodname_marketplace %}, consulte "[{% data variables.product.prodname_actions %} no {% data variables.product.prodname_marketplace %}](/marketplace/actions/)".
+Para saber mais sobre publicação de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_marketplace %}, consulte "[Publicar ações no GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)".
 
 ### Aplicativos
 

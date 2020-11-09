@@ -29,7 +29,7 @@ versions:
 以下のように置き換えてください。
 - `USERNAME`を{% data variables.product.prodname_dotcom %}上のユーザアカウント名で。
 - `TOKEN`を個人アクセストークンで。
-- `OWNER`を、プロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で。{% if currentVersion != "free-pro-team@latest" %}
+- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
 - `HOSTNAME`を、{% data variables.product.prodname_ghe_server %}インスタンスのホスト名で。
 
 パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
@@ -51,7 +51,7 @@ versions:
 </configuration>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
 
 ```xml
@@ -90,8 +90,7 @@ versions:
 3. プロジェクト固有の情報をプロジェクトファイルに追加してください。プロジェクトファイルは*.csproj*で終わります。  以下のように置き換えてください。
     - `OWNER`を、プロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で。
     - `REPOSITORY`を、公開したいパッケージを含むリポジトリの名前で。
-    - `1.0.0`を、パッケージのバージョン番号で。
-{% if currentVersion != "free-pro-team@latest" %}
+    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
     - `HOSTNAME`を、{% data variables.product.prodname_ghe_server %}インスタンスのホスト名で。{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">

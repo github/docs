@@ -1,32 +1,32 @@
 ---
-title: Enabling force pushes to a protected branch
-intro: You can allow force pushes to a protected branch.
+title: 保護されたブランチへのフォースプッシュを有効化する
+intro: 保護されたブランチへのフォースプッシュを有効化することができます。
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
-Anyone with admin permissions to a repository can enable force pushes.
+リポジトリに対する管理者権限があるユーザは、フォースプッシュを有効化できます。
 
-### About force pushes to protected branches
+### 保護されたブランチへのフォースプッシュについて
 
-By default, force pushes are blocked on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions.
+デフォルトでは、フォースプッシュはすべての保護されたブランチでブロックされます。 保護されたブランチのフォースプッシュを有効にすると、少なくともリポジトリへの書き込み権限を持つユーザは、管理者権限を持つブランチを含め、ブランチをフォースプッシュできます。
 
-Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
+フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 
-{% if currentVersion != "free-pro-team@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. 詳しい情報については、「[ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)」を参照してください。
 
-If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
+サイト管理者がデフォルトブランチへのフォースプッシュのみをブロックしている場合、他の保護されたブランチに対してフォースプッシュを有効にできます。{% endif %}
 
 {% data reusables.repositories.protected-branches-options %}
 
-### Enabling force pushes
+### フォースプッシュの有効化
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-6. Under "Rules applied to everyone including administrators", select **Allow force pushes**.
-![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-7. Click **Create**.
+6. [Rules applied to everyone including administrators] で、 [**Allow force pushes**] を選択します。 ![フォースプッシュオプションを許可する](/assets/images/help/repository/allow-force-pushes.png)
+7. ** Create（作成）**をクリックしてください。

@@ -21,15 +21,15 @@ versions:
 
 ### 建议
 
-- 尽量减少升级过程中的升级次数。 例如，不要从 {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[2] }} 升级到 {{ enterpriseVersions.supported[1] }} 再升级到 {{ enterpriseVersions.latest }}，而应从 {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[2] }} 升级到 {{ enterpriseVersions.latest }}。
-- 如果您的版本比最新版本低几个版本，请通过升级过程的每一步骤尽量将 {% data variables.product.product_location_enterprise %} 升级为更高版本。 在每次升级时尽可能使用最新版本，这样一来您可以充分利用性能改进和错误修复。 例如，您可以从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.8 再升级到 2.10，但从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.9 再升级到 2.10 会在第二步中使用更高版本。
+- 尽量减少升级过程中的升级次数。 例如，不要从 {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} 升级到 {{ enterpriseServerReleases.supported[1] }} 再升级到 {{ enterpriseServerReleases.latest }}，而应从 {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} 升级到 {{ enterpriseServerReleases.latest }}。
+- 如果您的版本比最新版本低几个版本，请通过升级过程的每一步骤尽量将 {% data variables.product.product_location %} 升级为更高版本。 在每次升级时尽可能使用最新版本，这样一来您可以充分利用性能改进和错误修复。 例如，您可以从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.8 再升级到 2.10，但从 {% data variables.product.prodname_enterprise %} 2.7 升级到 2.9 再升级到 2.10 会在第二步中使用更高版本。
 - 升级时使用最新补丁版本。 {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - 使用暂存实例测试升级步骤。 更多信息请参阅“[设置暂存实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)”。
 - 如果运行多次升级，两次功能升级之间至少应间隔 24 小时，以便使数据迁移和后台升级任务能够彻底完成。
 
 ### 要求
 
-- 您必须从**最近**两个版本的功能版本开始升级。 例如，要升级到 {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.latest }}，您必须使用 {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[1] }} 或 {{ enterpriseVersions.supported[2] }}。
+- 您必须从**最近**两个版本的功能版本开始升级。 例如，要升级到 {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}，您必须使用 {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} 或 {{ enterpriseServerReleases.supported[2] }}。
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - 如果受影响的服务（例如内核、MySQL 或 Elasticsearch）需要重启 VM 或服务，热补丁可能需要停机一段时间。 需要重启时，系统会通知您。 您可以在稍后完成重启。
 - 通过热补丁升级时，必须提供额外的根存储，因为热补丁会安装某些服务的多个版本，直至升级完成。 如果根磁盘存储空间不足，运行前检查将发出通知。

@@ -1,6 +1,6 @@
 ---
 title: Sobre o aplicativo
-intro: 'Você pode construir integrações com as APIs do {% data variables.product.prodname_dotcom %} para adicionar flexibilidade e reduzir o atrito em seu próprio fluxo de trabalho. Você também pode compartilhar integrações com outros em [{% data variables.product.prodname_marketplace %}] (https://github.com/marketplace).'
+intro: 'You can build integrations with the {% data variables.product.prodname_dotcom %} APIs to add flexibility and reduce friction in your own workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os aplicativos no {% data variables.product.prodname_dotcom %} permitem que você automatize e melhore seu fluxo de trabalho. Você pode criar aplicativos para melhorar o seu fluxo de trabalho.{% if currentVersion == "free-pro-team@latest" %} Você também pode compartilhar ou vender aplicativos em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender como listar um aplicativo no {% data variables.product.prodname_marketplace %}, consulte "[Introdução ao GitHub Marketplace](/marketplace/getting-started/)".{% endif %}

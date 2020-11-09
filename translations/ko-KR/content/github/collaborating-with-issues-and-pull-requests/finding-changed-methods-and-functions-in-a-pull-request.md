@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Anyone with read access to a repository can see a summary list of the functions and methods changes in certain files of a pull request.

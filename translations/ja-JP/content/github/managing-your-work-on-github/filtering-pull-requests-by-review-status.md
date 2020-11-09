@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プルリクエストのリポジトリのリストをフィルタリングして、次の検索を行えます:

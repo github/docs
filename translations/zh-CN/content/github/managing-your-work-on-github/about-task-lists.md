@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 任务列表在评论中通过可点击的复选框呈现。 您可以选中或取消选中复选框来将其标记为完成或未完成。

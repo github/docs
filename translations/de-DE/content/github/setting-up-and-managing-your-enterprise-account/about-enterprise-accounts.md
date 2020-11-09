@@ -27,6 +27,8 @@ Weitere Informationen zu Mitgliederzugang und -verwaltung findest Du unter „[B
 
 For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 ### Mit Deinem Enterprise-Konto verknüpfte Organisationen verwalten
 
 Organisationen sind gemeinsame Konten, in denen Personengruppen projektübergreifend zusammenarbeiten können. Inhaber können den Mitgliederzugang zu den Daten und Projekten der Organisation mit komplexen Sicherheits- und Administrationsfunktionen verwalten. Weitere Informationen finden Sie unter „[Informationen zu Organisationen](/articles/about-organizations)“.
@@ -34,6 +36,8 @@ Organisationen sind gemeinsame Konten, in denen Personengruppen projektübergrei
 Enterprise-Inhaber können Organisationen erstellen und mit dem Enterprise-Konto verknüpfen. Nachdem Du Organisationen zu Deinem Enterprise-Konto hinzugefügt hast, kannst Du die Richtlinien der Organisationen verwalten und erzwingen. Die spezifischen Optionen für das Erzwingen variieren je nach Einstellung. Im Allgemeinen können Sie wählen, ob Sie eine einzige Richtlinie für alle Organisationen in Ihrem Enterprise-Konto erzwingen oder es den Inhabern ermöglichen möchten, Richtlinien auf Organisationsebene festzulegen.
 
 Weitere Informationen finden Sie unter „[Organisationen in Ihrem Enterprise-Konto verwalten](/articles/managing-organizations-in-your-enterprise-account)“ und „[Richtlinien für Organisationen in Ihrem Enterprise-Konto festlegen](/articles/setting-policies-for-organizations-in-your-enterprise-account)“.
+
+{% endif %}
 
 ### {% data variables.product.prodname_ghe_server %}-Lizenzen verwalten, die mit Deinem Unternehmens-Konto verknüpft sind
 

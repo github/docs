@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} 处理大文件的方式是存储对仓库中文件的引用，而不实际文件本身。 为满足 Git 的架构要求，{% data variables.large_files.product_name_short %} 创建了指针文件，用于对实际文件（存储在其他位置）的引用。 {% data variables.product.product_name %} 在仓库中管理此指针文件。 克隆仓库时，{% data variables.product.product_name %} 使用指针文件作为映射来查找大文件。
@@ -41,11 +42,13 @@ size 84977953
 
 它会跟踪所用 {% data variables.large_files.product_name_short %} 的 `version`，后接文件的唯一标识符 (`oid`)。 它还会存储最终文件的 `size`。
 
-{% tip %}
+{% note %}
 
-**提示**：{% data variables.large_files.product_name_short %} 不能用于 {% data variables.product.prodname_pages %} 站点。
+**注意**：
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
-{% endtip %}
+{% endnote %}
 
 ### 延伸阅读
 

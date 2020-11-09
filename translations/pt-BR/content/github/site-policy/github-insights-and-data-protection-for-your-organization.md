@@ -1,46 +1,47 @@
 ---
-title: GitHub Insights and data protection for your organization
-intro: '{% data variables.product.prodname_insights %} analyzes your {% data variables.product.prodname_ghe_server %} data. This data could include personal data of individuals in your organization who may have the right to understand how such personal data is being used.'
+title: O GitHub Insights e a proteção de dados para sua organização
+intro: '{% data variables.product.prodname_insights %} analisa seus dados {% data variables.product.prodname_ghe_server %}. Esses dados podem incluir dados pessoais de indivíduos em sua organização que podem ter o direito de entender como esses dados pessoais estão sendo usados.'
 product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-For more information about the terms that govern {% data variables.product.prodname_insights %}, see your {% data variables.product.prodname_ghe_one %} subscription agreement.
+Para obter mais informações sobre os termos que regem {% data variables.product.prodname_insights %}, consulte o seu contrato de assinatura do {% data variables.product.prodname_ghe_one %}.
 
-For the avoidance of doubt, none of the foregoing information should be considered legal advice provided by {% data variables.product.prodname_dotcom %}. You are responsible for securing your own legal analysis of the information provided herein and for your compliance with privacy and data protection laws. It is up to you whether to use {% data variables.product.prodname_insights %} to process your employees’ and users’ data, and if you do so, you are solely responsible for conducting such processing in compliance with applicable law.
+Para evitar dúvidas, nenhuma das informações acima devem ser consideradas aconselhamento legal fornecido por {% data variables.product.prodname_dotcom %}. Você é responsável por proteger sua própria análise legal das informações fornecidas neste documento e pelo seu cumprimento das leis de privacidade e proteção de dados. Fica a seu critério exclusivo usar {% data variables.product.prodname_insights %} para processar os dados dos seus funcionários e usuários e, se você fizer isso, você é o único responsável por realizar esse processamento em conformidade com a lei aplicável.
 
-### The organization’s roles and responsibilities
+### Funções e responsabilidades da organização
 
-When using {% data variables.product.prodname_insights %}, your organization is the data controller because your organization determines whether, how, and why {% data variables.product.prodname_insights %} will process any individual’s personal data. Your organization is solely responsible for ensuring that you are complying with all applicable laws in processing data with {% data variables.product.prodname_insights %}.
+Ao usar o {% data variables.product.prodname_insights %}, sua organização é o controlador de dados porque sua organização determina se, como e por que {% data variables.product.prodname_insights %} processará os dados pessoais de qualquer indivíduo. Sua organização é a única responsável por garantir que você esteja cumprindo com todas as leis aplicáveis no processamento de dados com {% data variables.product.prodname_insights %}.
 
-### Data privacy recommendations
+### Recomendação de privacidade de dados
 
-You have full control over which metrics, reports, repositories, and contributors to include before beginning use of {% data variables.product.prodname_insights %}. The data you process with {% data variables.product.prodname_insights %} can only be pulled from your installation of {% data variables.product.prodname_ghe_server %}. Consider balancing the risks versus the benefits of analyzing personal data.
+Você tem total controle sobre quais métricas, relatórios, repositórios e contribuidores incluir antes de iniciar o uso do {% data variables.product.prodname_insights %}. Os dados que você processa com {% data variables.product.prodname_insights %} só podem ser retirados da sua instalação do {% data variables.product.prodname_ghe_server %}. Considere equilibrar os riscos versus os benefícios da análise de dados pessoais.
 
-- **Develop a clear analysis plan**: You must understand clearly what you want to analyze and why, and then consider how {% data variables.product.prodname_insights %} may help you find those answers.
+- **Desenvolva um plano de análise claro**: você deve entender claramente o que você quer analisar e por quê, e, em seguida, considere como {% data variables.product.prodname_insights %} pode ajudá-lo a encontrar essas respostas.
 
-- **Consider a data protection impact assessment**: If your proposed use of {% data variables.product.prodname_insights %} involves processing personal data, consider completing a data protection impact assessment or otherwise completing formal legal analysis of your planned use.
+- **Considere uma avaliação de impacto de proteção de dados**: Se seu uso proposto de {% data variables.product.prodname_insights %} envolver processamento de dados pessoais, considere a conclusão de uma avaliação de impacto de proteção de dados ou a conclusão de uma análise jurídica formal do seu uso planejado.
 
-### Decide what data to use
+### Decida quais dados usar
 
-- **Decide which repositories to include**: Before you start an analysis in {% data variables.product.prodname_insights %}, consider which repositories to include. Administrators can include repositories when adding organizations and can enable and disable repositories at any time. For more information on adding organizations to {% data variables.product.prodname_insights %}, see "[Managing organizations](/insights/installing-and-configuring-github-insights/managing-organizations)." For more information on enabling and disabling repositories, see "[Managing repositories](/insights/installing-and-configuring-github-insights/managing-repositories)."
+- **Decida quais repositórios incluir**: Antes de iniciar uma análise em {% data variables.product.prodname_insights %}, considere quais repositórios incluir. Os administradores podem incluir repositórios quando estiverem adicionando organizações e podem habilitar e desabilitar repositórios a qualquer momento. Para obter mais informações sobre como adicionar organizações ao {% data variables.product.prodname_insights %}, consulte "[Gerenciar organizações](/insights/installing-and-configuring-github-insights/managing-organizations). Para obter mais informações sobre como ativar e desativar repositórios, consulte "[Gerenciar repositórios](/insights/installing-and-configuring-github-insights/managing-repositories)".
 
-- **Decide which metrics and reports to include**: Administrators can enable and disable metrics and reports available for all users at any time. Administrators control the {% data variables.product.prodname_insights %} data that users have access to in your installation of {% data variables.product.prodname_ghe_server %}. For more information, see "[Managing available metrics and reports](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)."
+- **Decida quais métricas e relatórios incluir**: Os administradores podem ativar e desativar as métricas e relatórios disponíveis para todos os usuários a qualquer momento. Os administradores controlam os dados do {% data variables.product.prodname_insights %} aos quais os usuários têm acesso na sua instalação do {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Gerenciar métricas e relatórios disponíveis](/insights/installing-and-configuring-github-insights/managing-available-metrics-and-reports)"
 
-- **Decide which contributors to include**: Administrators can disable a specific contributor’s data from being processed in the metrics and reports. For more information on managing contributor data, see "[Managing contributors and teams](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)."
+- **Decida quais contribuidores incluir**: Os administradores podem desativar os dados de um colaborador específico de serem processados nas métricas e relatórios. Para obter mais informações sobre o gerenciamento de dados do contribuidor, consulte "[Gerenciar contribuidores e equipes](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)".
 
-### User rights
+### Direitos do usuário
 
-Under various data protection regulations, such as the General Data Protection Regulation (GDPR), users may have the right to request exclusion from processing, access, and correction, or to request deletion of their personal data. As the data controller, your organization should evaluate whether a particular user request is valid and, if appropriate, take action to fulfill the request.
+Sob vários regulamentos de proteção de dados, como o Regulamento Geral de Proteção de Dados (RGPD), usuários podem ter o direito de solicitar a exclusão de processamento, acesso e correção ou solicitar a exclusão de seus dados pessoais. Como controlador de dados, sua organização deve avaliar se uma solicitação específica do usuário é válida e, se for o caso, tomar medidas para atender à solicitação.
 
-- **Exclusion of processing**: Users may have the right to have their personal data excluded from being processed. Administrators have the ability to remove a contributor’s data from being processed in {% data variables.product.prodname_insights %}, and the resulting reports and metrics will exclude the contributor’s data accordingly. For more information, see "[Managing contributors and teams](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)."
+- **Exclusão de processamento**: Os usuários podem ter o direito de ter seus dados pessoais excluídos do processamento. Os administradores têm a capacidade de remover do processamento os dados de um contribuinte em {% data variables.product.prodname_insights %} e os relatórios e métricas resultantes excluirão os dados do contribuidor apropriadamente. Para obter mais informações, consulte "[Gerenciar contribuidores e equipes](/insights/installing-and-configuring-github-insights/managing-contributors-and-teams)."
 
-- **Access**: Users may have the right to demand to see what personal data is being processed. Each metric and report has a detailed description of what personal data is being processed. For more information, see "[Metrics available with {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)." Raw data is available through the {% data variables.product.prodname_enterprise %} API. Your organization is responsible for any decisions to process personal data and for fulfilling any such requests.
+- **Acesso**: Os usuários podem ter o direito de exigir quais dados pessoais estão sendo processados. Cada métrica e cada relatório tem uma descrição detalhada dos dados pessoais que estão sendo processados. Para obter mais informações, consulte "[Mérticas disponíveis com o {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)". Os dados brutos estão disponíveis através da API do {% data variables.product.prodname_enterprise %}. Sua organização é responsável por quaisquer decisões de processamento de dados pessoais e pelo cumprimento de tais solicitações.
 
-- **Correction and deletion**: Users may have the right to rectify or delete their personal data. The data used in {% data variables.product.prodname_insights %} is derived from the existing data you add to or generate from your {% data variables.product.prodname_ghe_server %} installation. Correction and deletion should follow your organization's existing process to correct and delete data from {% data variables.product.prodname_ghe_server %}.
+- **Correção e exclusão**: Os usuários podem ter o direito de corrigir ou excluir seus dados pessoais. Os dados usados em {% data variables.product.prodname_insights %} são derivados de  dados existentes que você adiciona ou gera a partir da instalação do seu {% data variables.product.prodname_ghe_server %}. A correção e a exclusão devem seguir o processo existente da sua organização para corrigir e excluir dados de {% data variables.product.prodname_ghe_server %}.
 
-- **Transparency regarding processing**:  Each metric and report has a detailed description of what personal data is being processed. For more information, see "[Metrics available with {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)."
+- **Transparência em relação ao processamento**: Cada métrica e relatório tem uma descrição detalhada de quais dados pessoais estão sendo processados. Para obter mais informações, consulte "[Mérticas disponíveis com o {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)".

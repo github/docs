@@ -4,11 +4,11 @@
 
 #### Minimum requirements
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location_enterprise %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
 {% data reusables.enterprise_installation.hardware-rec-table %} For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 If you enable the beta for {% data variables.product.prodname_actions %} on your instance, we recommend planning for additional capacity.
 
@@ -32,7 +32,7 @@ We recommend a high-performance SSD with high input/output operations per second
 
 Your instance requires a persistent data disk separate from the root disk. Weitere Informationen findest Du unter „[Systemübersicht](/enterprise/admin/guides/installation/system-overview)“.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 If you enable the beta of {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 2.22, you'll need to configure external blob storage. For more information, see "[Enabling {% data variables.product.prodname_actions %} and configuring storage](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)."
 

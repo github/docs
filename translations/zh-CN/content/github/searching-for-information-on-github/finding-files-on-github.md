@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -18,7 +19,7 @@ versions:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. 在仓库名称下，单击 **Find file（查找文件）**。 ![查找文件按钮](/assets/images/help/search/find-file-button.png)
 {% else %}
 2. 在文件列表上方，单击 **Go to file（转到文件）**。 ![查找文件按钮](/assets/images/help/search/find-file-button.png)

@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can add personal information about yourself in your bio, like previous places you've worked, projects you've contributed to, or interests you have that other people may like to know about. For more information, see "[Adding a bio to your profile](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 {% data reusables.profile.profile-readme %}
 

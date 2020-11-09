@@ -1,32 +1,32 @@
 ---
-title: Enabling force pushes to a protected branch
-intro: You can allow force pushes to a protected branch.
+title: 启用强制推送到受保护分支
+intro: 您可以允许强制推送到受保护分支。
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
-Anyone with admin permissions to a repository can enable force pushes.
+对仓库具有管理员权限的任何人都可以启用强制推送。
 
-### About force pushes to protected branches
+### 关于强制推送到受保护分支
 
-By default, force pushes are blocked on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions.
+默认情况下，所有受保护分支上阻止强制推送。 对受保护分支启用强制推送时，只要具有仓库写入权限，任何人（包括具有管理员权限的人）都可以强制推送到该分支。
 
-Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
+启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 
-{% if currentVersion != "free-pro-team@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. 更多信息请参阅“[阻止强制推送到用户帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
 
-If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
+如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 
 {% data reusables.repositories.protected-branches-options %}
 
-### Enabling force pushes
+### 启用强制推送
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-6. Under "Rules applied to everyone including administrators", select **Allow force pushes**.
-![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
-7. Click **Create**.
+6. 在“Rules applied to everyone including administrators（适用于包括管理员在内的所有人规则）”下，选择 **Allow force pushes（允许强制推送）**。 ![允许强制推送选项](/assets/images/help/repository/allow-force-pushes.png)
+7. 单击 **Create（创建）**。

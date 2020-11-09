@@ -8,6 +8,7 @@ intro: '如果您 [使用 HTTPS 克隆 {% data variables.product.product_name %}
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您使用 SSH 克隆 {% data variables.product.product_name %} 仓库，则可使用 SSH 密钥进行身份验证，而不是使用其他凭据。 有关设置 SSH 连接的信息，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.about-protected-branches %} Você pode optar por aplicar restrições sobre como um pull request é mesclado no seu repositório.

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -122,20 +123,20 @@ A comment was added to the issue or pull request.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名前                   | 種類       | 説明                                                                                                                                              |
-| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`                | `string` | The REST API URL to retrieve the issue comment.                                                                                                 |
-| `html_url`           | `string` | The HTML URL of the issue comment.                                                                                                              |
-| `issue_url`          | `string` | The HTML URL of the issue.                                                                                                                      |
-| `id`                 | `整数`     | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `string` | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
-| `ユーザ`                | `オブジェクト` | The person who commented on the issue.                                                                                                          |
-| `created_at`         | `string` | The timestamp indicating when the comment was added.                                                                                            |
-| `updated_at`         | `string` | The timestamp indicating when the comment was updated or created, if the comment is never updated.                                              |
-| `author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment. |
-| `body`               | `string` | The comment body text.                                                                                                                          |
-| `event`              | `string` | The event value is `"commented"`.                                                                                                               |
-| `actor`              | `オブジェクト` | The person who generated the event.                                                                                                             |
+| 名前                   | 種類        | 説明                                                                                                                                              |
+| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `url`                | `string`  | The REST API URL to retrieve the issue comment.                                                                                                 |
+| `html_url`           | `string`  | The HTML URL of the issue comment.                                                                                                              |
+| `issue_url`          | `string`  | The HTML URL of the issue.                                                                                                                      |
+| `id`                 | `integer` | The unique identifier of the event.                                                                                                             |
+| `node_id`            | `string`  | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
+| `ユーザ`                | `オブジェクト`  | The person who commented on the issue.                                                                                                          |
+| `created_at`         | `string`  | The timestamp indicating when the comment was added.                                                                                            |
+| `updated_at`         | `string`  | The timestamp indicating when the comment was updated or created, if the comment is never updated.                                              |
+| `author_association` | `string`  | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment. |
+| `body`               | `string`  | The comment body text.                                                                                                                          |
+| `event`              | `string`  | The event value is `"commented"`.                                                                                                               |
+| `actor`              | `オブジェクト`  | The person who generated the event.                                                                                                             |
 
 ### committed
 
@@ -229,7 +230,7 @@ The issue or pull request was referenced from another issue or pull request.
 | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `actor`         | `オブジェクト` | The person who generated the event.                                                                                                                                                                                                                                                                                           |
 | `created_at`    | `string` | The timestamp indicating when the cross-reference was added.                                                                                                                                                                                                                                                                  |
-| `updated_at`    | `string` | The timestamp indicating when the cross-refererence was updated or created, if the cross-reference is never updated.                                                                                                                                                                                                          |
+| `updated_at`    | `string` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.                                                                                                                                                                                                            |
 | `資料`            | `オブジェクト` | The issue or pull request that added a cross-reference.                                                                                                                                                                                                                                                                       |
 | `source[type]`  | `string` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request` object exists. |
 | `source[issue]` | `オブジェクト` | The `issue` object that added the cross-reference.                                                                                                                                                                                                                                                                            |
@@ -347,7 +348,7 @@ The issue or pull request was locked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -579,20 +580,20 @@ The pull request was reviewed.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名前                   | 種類       | 説明                                                                                                                                              |
-| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                 | `整数`     | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `string` | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
-| `ユーザ`                | `オブジェクト` | The person who commented on the issue.                                                                                                          |
-| `body`               | `string` | The review summary text.                                                                                                                        |
-| `commit_id`          | `string` | The SHA of the latest commit in the pull request at the time of the review.                                                                     |
-| `submitted_at`       | `string` | The timestamp indicating when the review was submitted.                                                                                         |
-| `状態`                 | `string` | The state of the submitted review. Can be one of: `commented`, `changes_requested`, or `approved`.                                              |
-| `html_url`           | `string` | The HTML URL of the review.                                                                                                                     |
-| `pull_request_url`   | `string` | The REST API URL to retrieve the pull request.                                                                                                  |
-| `author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment. |
-| `_links`             | `オブジェクト` | The `html_url` and `pull_request_url`.                                                                                                          |
-| `event`              | `string` | The event value is `"reviewed"`.                                                                                                                |
+| 名前                   | 種類        | 説明                                                                                                                                              |
+| -------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                 | `integer` | The unique identifier of the event.                                                                                                             |
+| `node_id`            | `string`  | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
+| `ユーザ`                | `オブジェクト`  | The person who commented on the issue.                                                                                                          |
+| `body`               | `string`  | The review summary text.                                                                                                                        |
+| `commit_id`          | `string`  | The SHA of the latest commit in the pull request at the time of the review.                                                                     |
+| `submitted_at`       | `string`  | The timestamp indicating when the review was submitted.                                                                                         |
+| `state`              | `string`  | The state of the submitted review. Can be one of: `commented`, `changes_requested`, or `approved`.                                              |
+| `html_url`           | `string`  | The HTML URL of the review.                                                                                                                     |
+| `pull_request_url`   | `string`  | The REST API URL to retrieve the pull request.                                                                                                  |
+| `author_association` | `string`  | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment. |
+| `_links`             | `オブジェクト`  | The `html_url` and `pull_request_url`.                                                                                                          |
+| `event`              | `string`  | The event value is `"reviewed"`.                                                                                                                |
 
 ### subscribed
 
@@ -664,7 +665,7 @@ The issue was unlocked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

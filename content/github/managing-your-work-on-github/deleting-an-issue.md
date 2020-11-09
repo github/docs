@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can only delete issues in a repository owned by your user account. You cannot delete issues in a repository owned by another user account, even if you are a collaborator there.
