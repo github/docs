@@ -14,9 +14,10 @@ files:
       "data/reusables/README.md",
       "data/variables/product.yml",
       "data/variables/README.md",
+      "data/early-access",
       "data/graphql",
       "data/products.yml"
-      ]
+    ]
 
 # These end up as env vars used by the GitHub Actions workflow
 project_id_env: CROWDIN_PROJECT_ID

@@ -3,6 +3,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head } = require('../helpers')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+const loadPages = require('../../lib/pages')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -372,6 +373,44 @@ describe('server', () => {
     test('is not displayed if article has only one version', async () => {
       const $ = await getDOM('/en/articles/signing-up-for-a-new-github-account')
       expect($('.article-versions').length).toBe(0)
+    })
+  })
+
+  describe('hidden articles', () => {
+    let hiddenPageHrefs, hiddenPages
+
+    beforeAll(async (done) => {
+      const $ = await getDOM('/hidden')
+      hiddenPageHrefs = $('a').map((i, el) => $(el).attr('href')).get()
+
+      const allPages = await loadPages()
+      hiddenPages = allPages.filter(page => page.languageCode === 'en' && page.hidden)
+
+      done()
+    })
+
+    test('are listed at /hidden', async () => {
+      expect(hiddenPageHrefs.length).toBe(hiddenPages.length)
+    })
+
+    test('are not listed at /hidden in production', async () => {
+      const oldNodeEnv = process.env.NODE_ENV
+      process.env.NODE_ENV = 'production'
+      const res = await get('/hidden')
+      process.env.NODE_ENV = oldNodeEnv
+      expect(res.statusCode).toBe(403)
+    })
+
+    test('have noindex meta tags', async () => {
+      if (hiddenPageHrefs.length > 0) {
+        const $ = await getDOM(hiddenPageHrefs[0])
+        expect($('meta[content="noindex"]').length).toBe(1)
+      }
+    })
+
+    test('non-hidden articles do not have noindex meta tags', async () => {
+      const $ = await getDOM('/en/articles/set-up-git')
+      expect($('meta[content="noindex"]').length).toBe(0)
     })
   })
 
