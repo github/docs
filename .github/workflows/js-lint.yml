@@ -1,0 +1,59 @@
+name: Lint JS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches-ignore:
+      - translations
+
+jobs:
+  see_if_should_skip:
+    runs-on: ubuntu-latest
+
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
+        with:
+          cancel_others: 'false'
+          github_token: ${{ github.token }}
+          paths: '["**/*.js", "package*.json", ".github/workflows/js-lint.yml"]'
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: see_if_should_skip
+    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+
+      - name: Setup node
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+        with:
+          node-version: 14.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npx standard
+
+      - name: Check dependencies
+        run: npm run check-deps

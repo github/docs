@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -24,11 +25,11 @@ Du benötigst Schreibzugriff auf ein Repository, um einen Branch zu erstellen, e
 
 {% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally out when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.23" %}`main`{% else %}`master`{% endif %} in any new repository.
+By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %} in any new repository.
 
 {% data reusables.branches.set-default-branch %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 {% data reusables.branches.set-default-branch %}
 
@@ -40,7 +41,7 @@ Sobald Du mit Deiner Arbeit zufrieden bist, kannst Du einen Pull Request eröffn
 
 Nachdem ein Pull Request zusammengeführt oder geschlossen wurde, kannst Du den Head-Branch löschen, da dieser nicht mehr länger benötigt wird. Du benötigst Schreibzugriff auf dem Repository, um Branches zu löschen. Du kannst keine Branches löschen, die direkt mit einem offenen Pull Request verbunden sind. Weitere Informationen findest Du unter „[Löschen und Wiederherstellen von Branches in einem Pull Request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 Die folgenden Diagramme veranschaulichen dies.
 
@@ -73,7 +74,7 @@ Wenn ein Branch geschützt ist, trifft Folgendes zu:
 - Wenn die erforderlichen Statuschecks für den Branch aktiviert sind, kannst Du Änderungen erst dann in den Branch zusammenführen, wenn alle erforderlichen CI-Tests bestanden sind. Weitere Informationen findest Du unter „[Informationen zu Statuschecks](/articles/about-status-checks).“
 - Wenn erforderliche Pull-Request-Reviews auf dem Branch aktiviert sind, kannst Du Änderungen erst dann in den Branch zusammenführen, wenn alle Anforderungen der Richtlinie für Pull-Request-Reviews erfüllt sind. Weitere Informationen findest Du unter „[Einen Pull Request zusammenführen](/articles/merging-a-pull-request).“
 - Wenn der erforderliche Review von einem Codeinhaber auf einem Branch aktiviert ist und der Code mit einem Inhaber durch einen Pull Request geändert wird, muss ein Codeinhaber den Pull Request genehmigen, bevor er zusammengeführt werden kann. Weitere Informationen findest Du unter „[Informationen zu Codeinhabern](/articles/about-code-owners).“
-- Wenn die obligatorische Commit-Signatur auf einem Branch aktiviert ist, kannst Du keine Commits an den Branch übertragen, die nicht signiert und verifiziert sind. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About required commit signing](/articles/about-required-commit-signing)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+- Wenn die obligatorische Commit-Signatur auf einem Branch aktiviert ist, kannst Du keine Commits an den Branch übertragen, die nicht signiert und verifiziert sind. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About required commit signing](/articles/about-required-commit-signing)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 - Wenn du den Konflikt-Editor von {% data variables.product.prodname_dotcom %} benutzt, um Konflikte für eine Pull Request zu beheben, die Du aus einem geschützten Branch erstellt hast, wird Dir {% data variables.product.prodname_dotcom %} helfen, einen alternativen Branch für den Pull-Request zu erstellen, so dass Deine Auflösung der Konflikte zusammengeführt werden kann. Weitere Informationen findest Du unter „[Einen Mergekonflikt auf {% data variables.product.prodname_dotcom %} beheben](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github).“{% endif %}
 
 ### Weiterführende Informationen

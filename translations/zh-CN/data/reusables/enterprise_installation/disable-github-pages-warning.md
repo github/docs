@@ -1,5 +1,7 @@
+{% if enterpriseServerVersions contains currentVersion %}
 {% warning %}
 
-**警告：**如果禁用子网分隔，建议同时在设备上禁用 {% data variables.product.prodname_pages %}。 无法将用户提供的 {% data variables.product.prodname_pages %} 内容与其余设备数据分隔。 更多信息请参阅“[在设备上配置 {% data variables.product.prodname_pages %}](/enterprise/admin/guides/installation/configuring-github-pages-on-your-appliance/)”。
+**Warning:** If subdomain isolation is disabled, we recommend also disabling {% data variables.product.prodname_pages %} on your enterprise. There will be no way to isolate user-supplied {% data variables.product.prodname_pages %} content from the rest of your enterprise's data. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/)."
 
 {% endwarning %}
+{% endif %}

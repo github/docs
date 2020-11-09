@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
+ 
+  
 
 [Deployment API][deploy API]は、{% data variables.product.product_name %}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on the default branch.
 

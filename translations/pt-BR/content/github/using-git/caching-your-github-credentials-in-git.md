@@ -8,6 +8,7 @@ intro: 'Se você estiver [clonando repositórios de {% data variables.product.pr
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você clonar repositórios do {% data variables.product.product_name %} usando SSH, você irá efetuar a autenticação usando uma chave SSH em vez de usar outras credenciais. Para obter informações sobre como configurar uma conexão SSH, consulte "[Gerar uma chave SSH](/articles/generating-an-ssh-key)".

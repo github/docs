@@ -6,6 +6,7 @@ permissions: 自分がアクセス権を持つパッケージは、誰でも検�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -16,7 +17,7 @@ versions:
 
 {% if enterpriseServerVersions contains currentVersion %}
 パッケージを検索できるのは
-{% data variables.product.product_location_enterprise %} だけで、たとえ {% data variables.product.prodname_github_connect %} 有効にしていても{% data variables.product.prodname_dotcom_the_website %} では検索できません。
+{% data variables.product.product_name %} だけで、たとえ {% data variables.product.prodname_github_connect %} 有効にしていても{% data variables.product.prodname_dotcom_the_website %} では検索できません。
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

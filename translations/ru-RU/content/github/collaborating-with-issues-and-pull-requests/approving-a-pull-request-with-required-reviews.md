@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 For more information about required reviews, see "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)."

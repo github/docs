@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você solicita a adição de uma equipe como uma equipe secundária, uma solicitação é enviada aos mantenedores da equipe secundária. Quando um mantenedor da equipe secundária aprova a solicitação, a equipe secundária é aninhada abaixo da equipe principal na hierarquia da organização.

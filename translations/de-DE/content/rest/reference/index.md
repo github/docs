@@ -5,6 +5,7 @@ intro: View reference documentation to learn about the resources available in th
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Inhaltsverzeichnis

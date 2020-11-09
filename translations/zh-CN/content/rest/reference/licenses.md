@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 许可 API 返回有关热门开源许可的元数据，以及有关特定项目许可文件的信息。

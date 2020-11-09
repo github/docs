@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以删除未经授权（或可能已泄密）的 SSH 密钥，以确保攻击者无法再访问您的仓库。 您还可以批准有效的现有 SSH 密钥。
@@ -28,7 +29,7 @@ versions:
 
 5. {% data reusables.command_line.start_ssh_agent %}
 
-6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -45,7 +46,7 @@ versions:
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```{% endif %}
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
 
 {% endmac %}
 
@@ -53,12 +54,12 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。
     ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit) 的未验证密钥将在 SSH 密钥列表中突出显示。
 
   {% endtip %}
 
@@ -68,7 +69,7 @@ versions:
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -85,7 +86,7 @@ versions:
   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```{% endif %}
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. {% data variables.product.product_name %} 上的 SSH 密钥*应*匹配您计算机上的相同密钥。
 
 {% endwindows %}
 
@@ -93,12 +94,12 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
+3. 在 SSH Settings（SSH 设置）页面中，记下与您的帐户关联的 SSH 密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效 SSH 密钥，请单击 **Approve（批准）**。
     ![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
 
-     **Note:** If you're auditing your SSH keys due to an unsuccessful Git operation, the unverified key that caused the [SSH key audit error](/articles/error-we-re-doing-an-ssh-key-audit) will be highlighted in the list of SSH keys.
+     **注：**如果您由于 Git 操作失败而审核 SSH 密钥，则导致 [SSH 密钥审核错误](/articles/error-we-re-doing-an-ssh-key-audit) 的未验证密钥将在 SSH 密钥列表中突出显示。
 
   {% endtip %}
 
@@ -106,7 +107,7 @@ versions:
 
 5. {% data reusables.command_line.start_ssh_agent %}
 
-6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+6. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

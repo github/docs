@@ -1,12 +1,13 @@
 ---
 title: Exibir logs de push
-intro: 'Os administradores do site podem exibir uma lista de operações push do Git para qualquer repositório na {% data variables.product.product_location_enterprise %}.'
+intro: 'Site administrators can view a list of Git push operations for any repository on the enterprise.'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 As entradas de log de push mostram o seguinte:
@@ -26,6 +27,7 @@ As entradas de log de push mostram o seguinte:
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. Na barra lateral esquerda, clique em **Push Log** (Log de push). ![Guia de log de push](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Exibir os logs de push do repositório na linha de comando
 
 1. Acesse o SSH no appliance. Para obter mais informações, consulte "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)".
@@ -33,3 +35,4 @@ As entradas de log de push mostram o seguinte:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```
+{% endif %}

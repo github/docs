@@ -8,6 +8,7 @@ intro: '`git rebase` 命令用于轻松更改一系列提交，修改仓库的�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

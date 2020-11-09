@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 他のリポジトリにオープン Issue を移譲するには、Issue のあるリポジトリおよびその Issue の移譲先のリポジトリの書き込み権限が必要です。 詳細は「[Organization のためのリポジトリの権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。

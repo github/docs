@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 议题和拉取请求搜索栏可以定义您自己的自定义过滤器并按各种标准进行排序。 您可以在每个仓库的 **Issues（议题）**和 **Pull requests（拉取请求）**选项卡上以及[议题和拉取请求仪表板](/articles/viewing-all-of-your-issues-and-pull-requests)上找到搜索栏。
@@ -25,7 +26,7 @@ versions:
 - 按受理人过滤议题和拉取请求：`state:open type:issue assignee:octocat`
 - 按标签过滤议题和拉取请求：`state:open type:issue label:"bug"`
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 对于议题，您还可以使用搜索来：
 
 - 通过关闭引用过滤链接到拉取请求的议题：`linked:pr`
@@ -39,7 +40,7 @@ versions:
 - 过滤审查者要求更改的拉取请求：`state:open type:pr review:changes_requested`
 - 按[审查者](/articles/about-pull-request-reviews/)过滤拉取请求：`state:open type:pr reviewed-by:octocat`
 - 按[请求审查](/articles/requesting-a-pull-request-review)的特定用户过滤拉取请求：`state:open type:pr review-requested:octocat`
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - 过滤链接到拉取请求可能关闭的议题的拉取请求：`linked:issue`{% endif %}
 
 ### 延伸阅读
