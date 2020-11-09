@@ -402,11 +402,11 @@
     cases, this contains the local development, though that is purely by
     convention and is not required.
 - term: master
-   description: >-
-      The default branch in many Git repositories. By default, when you create 
-      a new Git repository on the command line a branch called `master` is created. 
-      Many tools now use an alternative name for the default branch. For example, 
-      when you create a new repository on GitHub the default branch is called `main`.
+  description: >-
+    The default branch in many Git repositories. By default, when you create 
+    a new Git repository on the command line a branch called `master` is created. 
+    Many tools now use an alternative name for the default branch. For example, 
+    when you create a new repository on GitHub the default branch is called `main`.
 - term: Members graph
   description: A repository graph that shows all the forks of a repository.
 - term: mention
