@@ -100,7 +100,7 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
 ##### Example
 
-To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions YAML. The example below only run a GitHub Action when it's manually triggered:
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
 
 ```yaml
 on: workflow_dispatch
