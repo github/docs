@@ -141,7 +141,8 @@
     Short, descriptive text that accompanys a commit and communicates the change
     the commit is introducing.
 - term: compare branch
-  description: The branch you use to create a pull request. 
+  description: >-
+    The branch you use to create a pull request.
     This branch is compared to the base branch you choose for the pull request, and the changes are identified.
     When the pull request is merged, the base branch is updated with the changes from the compare branch.
     Also known as the "head branch" of the pull request.
