@@ -30,6 +30,7 @@ In addition, **at least one** of the following must be true:
 - You have forked the repository.
 - You have opened a pull request or issue in the repository.
 - You have starred the repository.
+hii my name is jai
 
 ### Common reasons that contributions are not counted
 
