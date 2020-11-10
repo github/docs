@@ -35,7 +35,7 @@ const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAcces
 const earlyAccessCloningParentDir = os.tmpdir()
 const earlyAccessCloningDir = path.join(earlyAccessCloningParentDir, earlyAccessRepoName)
 
-const destinationDirNames = ['content', 'data', 'assets']
+const destinationDirNames = ['content', 'data', 'assets/images']
 const destinationDirsMap = destinationDirNames
   .reduce(
     (map, dirName) => {
