@@ -103,7 +103,7 @@ Host github.com-repo-1
 * `Hostname github.com` - Configures the alias to use the {% data variables.product.product_name %} server.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
-With these entries, you can then use the alias to clone a repository with a unique deploy key. For example:
+With these entries added, you can then use the alias to clone a repository, and the unique deploy key is automatically presented. For example:
 
 ```bash
 $ git clone git@github.com-repo-1:github-user/repo-1.git
