@@ -7,7 +7,8 @@ introLinks:
   reference: /actions/reference
 featuredLinks:
   guides:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/learn-github-actions
+    - /actions/guides/about-continuous-integration
     - /actions/guides/about-packaging-with-github-actions
   gettingStarted:
     - /actions/managing-workflow-runs
@@ -15,6 +16,10 @@ featuredLinks:
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/reference/events-that-trigger-workflows
+    - /actions/learn-github-actions
+    - /actions/reference/context-and-expression-syntax-for-github-actions
+    - /actions/reference/workflow-commands-for-github-actions
+    - /actions/reference/environment-variables
 changelog:
   - title: Self-Hosted Runner Group Access Changes
     date: '2020-10-16'

@@ -90,7 +90,7 @@ Organizationが{% data variables.product.prodname_insights %}に追加される�
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. "Contributors（コントリビューター）"の下で、ドロップダウンメニューを使い、コントリビューターを選択してください。 ![コントリビューターのドロップダウン](/assets/images/help/insights/contributors-drop-down.png)
+3. "Contributors（コントリビューター）"の下で、ドロップダウンメニューを使い、コントリビューターを選択してください。 ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
 4. [**Done**] をクリックします。
 
 #### カスタムTeamからのコントリビューターの削除

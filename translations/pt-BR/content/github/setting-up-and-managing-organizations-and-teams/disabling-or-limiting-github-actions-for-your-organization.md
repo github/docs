@@ -59,7 +59,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. Clique em **Salvar**.
 
 {% endif %}

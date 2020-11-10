@@ -38,6 +38,10 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.resolving-conversations %}
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Required reviews
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}

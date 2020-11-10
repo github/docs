@@ -77,7 +77,7 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ### Publicar um pacote
 
-Você pode publicar um pacote no {% data variables.product.prodname_registry %}, efetuando a autenticação com um arquivo *nuget.config*. Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. Para obter mais informações sobre como criar seu pacote, consulte "[Criar e publicar um pacote](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" na documentação da Microsoft.
+Você pode publicar um pacote no {% data variables.product.prodname_registry %}, efetuando a autenticação com um arquivo *nuget.config*. Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -159,7 +159,7 @@ Por exemplo, os projetos *OctodogApp* e *OctocatApp* irão publicar no mesmo rep
 
 ### Instalar um pacote
 
-Usar pacotes do {% data variables.product.prodname_dotcom %} no seu projeto é semelhante a usar pacotes do *nuget.org*. Adicione suas dependências de pacote ao seu arquivo *.csproj* especificando o nome e a versão do pacote. Para obter mais informações sobre como usar um arquivo *.csproj* no seu projeto, consulte "[Trabalhar com pacotes NuGet](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" na documentação da Microsoft.
+Usar pacotes do {% data variables.product.prodname_dotcom %} no seu projeto é semelhante a usar pacotes do *nuget.org*. Adicione suas dependências de pacote ao seu arquivo *.csproj* especificando o nome e a versão do pacote. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 
