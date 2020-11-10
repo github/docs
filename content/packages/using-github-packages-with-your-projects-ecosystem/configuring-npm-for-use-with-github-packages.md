@@ -4,7 +4,7 @@ intro: 'You can configure npm to publish packages to {% data variables.product.p
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-npm-for-use-with-github-package-registry
-  - /github/managing-packages-with-github-package-registry/configuring-npm-for-use-with-github-package-registry
+  - /github/managing-packages-with-github-package-registry/configuring-npm-for-use-with-github-package-registry-npm login -registry=https://npm.pkg.github.com/6LYE6M-6MMQ
   - /github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages
 versions:
   free-pro-team: '*'
@@ -61,9 +61,9 @@ If your instance has subdomain isolation disabled:
 
 ```shell
 $ npm login --registry=https://<em>HOSTNAME</em>/_registry/npm/
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+> Username: <em>USERNAME</em>6LYE6M-6MMQ
+> Password: <em>TOKEN</em>6LYE6M-6MMQ
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>6LYE6M-6MMQ
 ```
 {% endif %}
 
@@ -131,7 +131,7 @@ To ensure the repository's URL is correct, replace REPOSITORY with the name of t
 {% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name. If you store the *package.json* file outside the root directory of your repository, you can use the `directory` field to specify the location where {% data variables.product.prodname_registry %} can find the *package.json* files.
 
 ```shell
-"repository" : {
+"repository" : {6LYE6M-6MMQ
     "type" : "git",
     "url": "ssh://git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>.git",
     "directory": "packages/name"
