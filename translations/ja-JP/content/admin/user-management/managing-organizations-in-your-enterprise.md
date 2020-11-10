@@ -9,5 +9,6 @@ intro: 'Organizationは企業内で、部署や同様のプロジェクトで作
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About {% data variables.product.prodname_github_app %} permissions
@@ -331,7 +332,7 @@ _Traffic_
 - [`GET /repos/:owner/:repo/community/code_of_conduct`](/v3/codes_of_conduct/#get-the-code-of-conduct-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/compare/:base...:head`](/v3/repos/commits/#compare-two-commits) (:read)
 - [`GET /repos/:owner/:repo/contents/:path`](/v3/repos/contents/#get-repository-content) (:read)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`POST /repos/:owner/:repo/dispatches`](/v3/repos/#create-a-repository-dispatch-event) (:write)
 {% endif %}
 - [`POST /repos/:owner/:repo/forks`](/v3/repos/forks/#create-a-fork) (:read)
@@ -382,8 +383,8 @@ _importieren_
 
 _Reactions_
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write){% else %}- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction) (:write){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write){% else %}- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction) (:write){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-comment-reaction) (:write)
@@ -408,12 +409,13 @@ _Veröffentlichungen_
 
 - [`GET /repos/:owner/:repo/deployments`](/v3/repos/deployments/#list-deployments) (:read)
 - [`POST /repos/:owner/:repo/deployments`](/v3/repos/deployments/#create-a-deployment) (:write)
-- [`GET /repos/:owner/:repo/deployments/:deployment_id`](/v3/repos/deployments/#get-a-deployment) (:read){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- [`GET /repos/:owner/:repo/deployments/:deployment_id`](/rest/reference/repos#get-a-deployment) (:read){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /repos/:owner/:repo/deployments/:deployment_id`](/v3/repos/deployments/#delete-a-deployment) (:write){% endif %}
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses`](/v3/repos/deployments/#list-deployment-statuses) (:read)
 - [`POST /repos/:owner/:repo/deployments/:deployment_id/statuses`](/v3/repos/deployments/#create-a-deployment-status) (:write)
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id`](/v3/repos/deployments/#get-a-deployment-status) (:read)
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### Permission on "emails"
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -423,6 +425,7 @@ _Veröffentlichungen_
 - [`POST /user/emails`](/v3/users/emails/#add-an-email-address-for-the-authenticated-user) (:write)
 - [`DELETE /user/emails`](/v3/users/emails/#delete-an-email-address-for-the-authenticated-user) (:write)
 - [`GET /user/public_emails`](/v3/users/emails/#list-public-email-addresses-for-the-authenticated-user) (:read)
+{% endif %}
 
 ### Permission on "followers"
 
@@ -496,7 +499,7 @@ _Reactions_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/v3/reactions/#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/issues/:issue_number/reactions`](/v3/reactions/#list-reactions-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/reactions`](/v3/reactions/#create-reaction-for-an-issue) (:write)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-reaction) (:write)
@@ -577,12 +580,12 @@ _Teams_
 - [`GET /orgs/:org/teams`](/v3/teams/#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/v3/teams/#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/v3/teams/#get-a-team-by-name) (:read)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 - [`GET /teams/:team_id`](/v3/teams/#get-a-team) (:read)
 {% endif %}
 - [`PATCH /teams/:team_id`](/v3/teams/#update-a-team) (:write)
 - [`DELETE /teams/:team_id`](/v3/teams/#delete-a-team) (:write)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`GET /teams/:team_id/projects`](/v3/teams/#list-team-projects) (:read)
 - [`GET /teams/:team_id/projects/:project_id`](/v3/teams/#check-team-permissions-for-a-project) (:read)
 - [`PUT /teams/:team_id/projects/:project_id`](/v3/teams/#add-or-update-team-project-permissions) (:read)
@@ -619,7 +622,7 @@ _Teams_
 _Teams_
 - [`DELETE /teams/:team_id/projects/:project_id`](/v3/teams/#remove-a-project-from-a-team) (:read)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### Permission on "organization pre receive hooks"
 
 - [`GET /orgs/:org/pre-receive-hooks`](/v3/enterprise-admin/org_pre_receive_hooks/#list-pre-receive-hooks-for-an-organization) (:read)
@@ -733,7 +736,7 @@ _Reactions_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/v3/reactions/#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/v3/reactions/#list-reactions-for-a-pull-request-review-comment) (:read)
 - [`POST /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/v3/reactions/#create-reaction-for-a-pull-request-review-comment) (:write)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-reaction) (:write)
@@ -766,7 +769,7 @@ _Reviews_
 - [`POST /repos/:owner/:repo/hooks/:hook_id/pings`](/v3/repos/hooks/#ping-a-repository-webhook) (:read)
 - [`POST /repos/:owner/:repo/hooks/:hook_id/tests`](/v3/repos/hooks/#test-the-push-repository-webhook) (:read)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### Permission on "repository pre receive hooks"
 
 - [`GET /repos/:owner/:repo/pre-receive-hooks`](/v3/enterprise-admin/repo_pre_receive_hooks/#list-pre-receive-hooks-for-a-repository) (:read)

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn jemand Zugriff auf Deinen Computer erlangt, kann er mit SSH-Schlüsseln zudem auf jedes System zugreifen, das diese Schlüssel verwendet. Als zusätzliche Sicherheitsebene kannst Du Deinem SSH-Schlüssel eine Passphrase beifügen. Mit `ssh-agent` kannst Du Deine Passphrase sicher speichern, damit Du sie nicht erneut eingeben musst.

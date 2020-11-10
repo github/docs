@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
@@ -49,11 +50,14 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## コミュニティ
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## コンテンツ
 
@@ -76,7 +80,7 @@ Markdown や AsciiDoc などのマークアップファイルでは、`.html` �
 
 コンテンツのタイプに関係なく、一貫したオブジェクトフォーマットを取得するには、`object` メディアタイプパラメータを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
 
-API でのメディアタイプの使用について詳しくは、[こちら](/v3/media/)をご覧ください。
+You can read more about the use of media types in the API [here](/v3/media/).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -248,6 +252,7 @@ GitHub App を開発していて、外部サービスについて詳細な情報
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## トラフィック
 
 プッシュアクセスを持つリポジトリに対し、トラフィック API はリポジトリグラフが提供する情報へのアクセスを提供します。 詳細は「<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">リポジトリへのトラフィックを表示する</a>」を参照してください。
@@ -255,6 +260,7 @@ GitHub App を開発していて、外部サービスについて詳細な情報
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## webhook
 
@@ -263,7 +269,7 @@ Repository Webhooks API を使用すると、リポジトリ管理者がリポ�
 Organization のすべてのリポジトリからイベントを受信するため単一の webhook を設定する場合は、[Organization Webhooks](/rest/reference/orgs#webhooks) の API ドキュメントを参照してください。
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 ### webhook の受信
@@ -292,14 +298,14 @@ GitHub は、すべてのリポジトリに対する [PubSubHubbub](https://gith
 #### コールバック URL
 コールバック URL は `http://` プロトコルを使用できます。
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}
 
@@ -321,7 +327,7 @@ PubSubHubbub リクエストは複数回送信できます。 フックがすで
 
 | 名前             | 種類       | 説明                                                                                                                                                                                                                                         |
 | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `hub.mode`     | `string` | **Required**. `subscribe` または `unsubscribe`。                                                                                                                                                                                               |
-| `hub.topic`    | `string` | **Required**.  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                           |
+| `hub.mode`     | `string` | **必須**。 `subscribe` または `unsubscribe`。                                                                                                                                                                                                     |
+| `hub.topic`    | `string` | **必須**。  GitHub リポジトリがサブスクライブする URI。  パスのフォーマットは `/{owner}/{repo}/events/{event}` としてください。                                                                                                                                                 |
 | `hub.callback` | `string` | トピックの更新を受信する URI。                                                                                                                                                                                                                          |
 | `hub.secret`   | `string` | 送信する本文コンテンツの SHA1 HMAC を生成する共有秘密鍵。  Raw 形式のリクエスト本文と、`X-Hub-Signature` ヘッダのコンテンツを比較することで、 GitHub からのプッシュを検証できます。 詳細は、 [PubSubHubbub のドキュメント](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)を参照してください。 |

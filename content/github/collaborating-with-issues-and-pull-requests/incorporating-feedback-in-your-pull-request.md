@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Applying suggested changes
@@ -27,6 +28,10 @@ Each person who suggested a change included in the commit will be a co-author of
 ![Commit message field](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Click **Commit changes.**
 ![Commit changes button](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### Opening an issue for an out-of-scope suggestion
 

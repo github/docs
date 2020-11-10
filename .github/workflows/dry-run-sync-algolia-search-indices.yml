@@ -1,0 +1,31 @@
+name: (Dry run) Algolia
+
+on:
+  workflow_dispatch:
+
+jobs:
+  updateIndices:
+    name: (Dry run) Update indices
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+    - uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+      with:
+        node-version: 14.x
+    - name: cache node modules
+      uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: npm ci
+      run: npm ci
+    - name: (Dry run) sync indices
+      env:
+        ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run sync-search-dry-run

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
@@ -49,11 +50,14 @@ A API de Commits do repositório é compatível com a listagem, visualização e
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## Comunidade
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## Conteúdo
 
@@ -76,7 +80,7 @@ Para arquivos de markup, como Markdown ou AsciiDoc, você pode recuperar o HTML 
 
 Use o parâmetro do tipo de mídia do `objeto` para recuperar o conteúdo em um formato de objeto consistente independentemente do tipo de conteúdo. Por exemplo, em vez de um array de objetos para um diretório, a resposta será um objeto com um atributo de `entrada` contendo o array de objetos.
 
-Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/v3/media/).
+You can read more about the use of media types in the API [here](/v3/media/).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -248,6 +252,7 @@ Se você está desenvolvendo um aplicativo GitHub e deseja fornecer informaçõe
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## Tráfego
 
 Para repositórios aos quais você tem acesso de push, a API de tráfego fornece acesso às informações fornecidas no seu gráfico de repositório. Para obter mais informações, consulte "<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">Visualizar tráfego para um repositório</a>. "
@@ -255,6 +260,7 @@ Para repositórios aos quais você tem acesso de push, a API de tráfego fornece
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## Webhooks
 
@@ -263,7 +269,7 @@ A API de Webhooks do Repositório permite que os administradores do repositório
 Se você deseja configurar um único webhook para receber eventos de todos os repositórios da organização, consulte nossa documentação de API para [Webhooks de organização](/rest/reference/orgs#webhooks).
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 ### Receber Webhooks
@@ -292,14 +298,14 @@ O formato padrão é o que [os hooks post-receive existentes devem esperar](/pos
 #### URLs de chamada de retorno
 As URLs de chamada de retorno podem usar o protocolo `http://`.
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}Você também pode `github://` fazer chamada de retorno para especificar um serviço do GitHub.
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Oft kann Git Unterschiede zwischen Branches beheben und diese automatisch zusammenführen. In der Regel liegen die Änderungen in verschiedenen Zeilen oder sogar in verschiedenen Dateien vor, was das Zusammenführen für Computer leicht verständlich macht. Manchmal gibt es jedoch konkurrierende Änderungen, die Git ohne Deine Hilfe nicht bewältigen kann. Häufig treten Mergekonflikte auf, wenn Personen unterschiedliche Änderungen an derselben Zeile derselben Datei vornehmen, oder wenn eine Person eine Datei bearbeitet und eine andere Person dieselbe Datei löscht.

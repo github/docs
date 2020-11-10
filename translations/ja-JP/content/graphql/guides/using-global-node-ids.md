@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエストなど）には、REST APIを使っても、GraphQL APIを使ってもアクセスできます。 [最近のアップデート](https://developer.github.com/changes/2017-12-19-graphql-node-id/)で、多くのオブジェクトの**グローバルノードID**をREST APIから見つけ、それらのIDをGraphQLの操作で使えるようになりました。

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -21,31 +22,34 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 ### エンドポイント URL
 
-REST API エンドポイント（[管理コンソール](#management-console) API エンドポイントを除く）の前には、次の URL が付けられます。
+REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
 http(s)://<em>hostname</em>/api/v3/
 ```
 
+{% if enterpriseServerVersions contains currentVersion %}
 [管理コンソール](#management-console) API エンドポイントには、ホスト名のみがプレフィックスとして付加されます。
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
-
+{% endif %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### 認証
 
-{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if currentVersion != "free-pro-team@latest" %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if enterpriseServerVersions contains currentVersion %}Enterprise 固有のエンドポイントで使用する場合、OAuthトークンには `site_admin` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps#available-scopes)が必要です。{% endif %}
 
-Enterprise 管理 API エンドポイントには、認証された {% data variables.product.product_name %} サイト管理者のみがアクセスできます。ただし、[Management Console のパスワード](/enterprise/admin/articles/accessing-the-management-console/)が必要な [Management Console](#management-console) API は除きます。
+Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% if enterpriseServerVersions contains currentVersion %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### バージョン情報
 
-{% data variables.product.product_name %} インスタンスの現在のバージョンは、すべての API のレスポンスヘッダで返されます: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` [メタエンドポイント](/rest/reference/meta/)を呼び出して、現在のバージョンを読み取ることもできます。
+The current version of your enterprise is returned in the response header of every API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -54,7 +58,6 @@ Enterprise 管理 API エンドポイントには、認証された {% data vari
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-
 ## 支払い
 
 {% for operation in currentRestOperations %}
@@ -135,19 +138,46 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" %}
 
+## Encryption at rest
+
+You can use the encryption at rest API to manage the key that encrypts your data on {% data variables.product.product_name %}. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 管理統計
 
-管理統計 API は、インストールに関するさまざまなメトリクスを提供します。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
+管理統計 API は、インストールに関するさまざまなメトリクスを提供します。 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'admin-stats' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
+## Announcements
+
+The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'announcement' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+
 ## グローバル webhook
 
-グローバル webhook は {% data variables.product.prodname_enterprise %} インスタンスにインストールされています。 グローバル webhook を使用して、インスタンスのユーザ、Organization、Team、およびリポジトリのルールを自動的に監視、対応、強制することができます。 グローバル webhook は、[Organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[ユーザ](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[リポジトリ](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[Team](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[メンバー](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[メンバーシップ](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[フォーク](/developers/webhooks-and-events/webhook-events-and-payloads#fork)、[ping](/developers/webhooks-and-events/about-webhooks#ping-event) イベントタイプをサブスクライブできます。
+Global webhooks are installed on your enterprise. You can use global webhooks to automatically monitor, respond to, or enforce rules for users, organizations, teams, and repositories on your enterprise. グローバル webhook は、[Organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[ユーザ](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[リポジトリ](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[Team](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[メンバー](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[メンバーシップ](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[フォーク](/developers/webhooks-and-events/webhook-events-and-payloads#fork)、[ping](/developers/webhooks-and-events/about-webhooks#ping-event) イベントタイプをサブスクライブできます。
 
 *この API は、[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。 グローバル webhook の設定方法については、[グローバル webhookについて](/enterprise/admin/user-management/about-global-webhooks)を参照してください。
 
@@ -155,35 +185,47 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
   {% if operation.subcategory == 'global-webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## LDAP
 
-LDAP API を使用して、{% data variables.product.prodname_ghe_server %} ユーザまたは Team とそのリンクされた LDAP エントリ間のアカウント関係を更新するか、新しい同期をキューに入れることができます。
+LDAP API を使用して、{% data variables.product.product_name %} ユーザまたは Team とそのリンクされた LDAP エントリ間のアカウント関係を更新するか、新しい同期をキューに入れることができます。
 
-LDAP マッピングエンドポイントを使用すると、ユーザまたは Team がマッピングする識別名（DN）を更新できます。 LDAP エンドポイントは通常、{% data variables.product.prodname_ghe_server %} アプライアンスで [LDAP 同期が有効](/enterprise/admin/authentication/using-ldap)になっている場合にのみ有効です。 [ユーザの LDAP マッピングの更新](#update-ldap-mapping-for-a-user)エンドポイントは、LDAP 同期が無効になっている場合でも、LDAP が有効になっていれば使用できます。
+LDAP マッピングエンドポイントを使用すると、ユーザまたは Team がマッピングする識別名（DN）を更新できます。 LDAP エンドポイントは通常、{% data variables.product.product_name %} アプライアンスで [LDAP 同期が有効](/enterprise/admin/authentication/using-ldap)になっている場合にのみ有効です。 [ユーザの LDAP マッピングの更新](#update-ldap-mapping-for-a-user)エンドポイントは、LDAP 同期が無効になっている場合でも、LDAP が有効になっていれば使用できます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## ライセンス
 
-ライセンス API は、Enterprise ライセンスに関する情報を提供します。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
+ライセンス API は、Enterprise ライセンスに関する情報を提供します。 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'license' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Management Console
 
-管理コンソール API は、{% data variables.product.prodname_ghe_server %} インストールの管理に役立ちます。
+管理コンソール API は、{% data variables.product.product_name %} インストールの管理に役立ちます。
 
 {% tip %}
 
-Management Console への API 呼び出しを行うときは、ポート番号を明示的に設定する必要があります。 Enterprise インスタンスで TLS が有効になっている場合、ポート番号は `8443` です。それ以外の場合、ポート番号は `8080` です。
+Management Console への API 呼び出しを行うときは、ポート番号を明示的に設定する必要があります。 If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
 
 ポート番号を提供しない場合は、自動的にリダイレクトに従うようにツールを設定する必要があります。
 
-{% data variables.product.prodname_ghe_server %} は、[独自の TLS 証明書](/enterprise/admin/guides/installation/configuring-tls/)を追加する前に自己署名証明書を使用するため、`cURL` を使用するときに [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k)を追加する必要がある場合もあります。
+{% data variables.product.product_name %} は、[独自の TLS 証明書](/enterprise/admin/guides/installation/configuring-tls/)を追加する前に自己署名証明書を使用するため、`cURL` を使用するときに [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k)を追加する必要がある場合もあります。
 
 {% endtip %}
 
@@ -207,14 +249,21 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
   {% if operation.subcategory == 'management-console' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Organization
 
-Organization 管理 API を使用すると、{% data variables.product.prodname_ghe_server %} アプライアンスに Organization を作成できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
+The Organization Administration API allows you to create organizations on your enterprise. *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+
+{% if enterpriseServerVersions contains currentVersion %}
 ## Organization pre-receive フック
 
 Organization pre-receive フック API を使用すると、Organization で使用可能な pre-receive フックの適用を表示および変更できます。
@@ -236,27 +285,31 @@ Organization pre-receive フック API を使用すると、Organization で使�
   {% if operation.subcategory == 'org-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## pre-receive 環境
 
-pre-receive 環境 API を使用すると、pre-receive フックの環境を作成、一覧表示、更新、および削除できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
+pre-receive 環境 API を使用すると、pre-receive フックの環境を作成、一覧表示、更新、および削除できます。 *[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
 
 ### オブジェクトの属性
 
 #### pre-receive 環境
 
-| 名前                    | 種類        | 説明                                                                        |
-| --------------------- | --------- | ------------------------------------------------------------------------- |
-| `name`                | `string`  | UI に表示される環境の名前。                                                           |
-| `image_url`           | `string`  | ダウンロードおよび抽出される tarball への URL。                                            |
-| `default_environment` | `boolean` | これが {% data variables.product.prodname_ghe_server %} に同梱されるデフォルト環境かどうか。 |
-| `download`            | `オブジェクト`  | この環境のダウンロードステータス。                                                         |
-| `hooks_count`         | `整数`      | この環境を使用する pre-receive フックの数。                                              |
+| 名前                    | 種類        | 説明                                                               |
+| --------------------- | --------- | ---------------------------------------------------------------- |
+| `name`                | `string`  | UI に表示される環境の名前。                                                  |
+| `image_url`           | `string`  | ダウンロードおよび抽出される tarball への URL。                                   |
+| `default_environment` | `boolean` | これが {% data variables.product.product_name %} に同梱されるデフォルト環境かどうか。 |
+| `download`            | `オブジェクト`  | この環境のダウンロードステータス。                                                |
+| `hooks_count`         | `integer` | この環境を使用する pre-receive フックの数。                                     |
 
 #### pre-receive 環境のダウンロード
 
 | 名前              | 種類       | 説明                    |
 | --------------- | -------- | --------------------- |
-| `状態`            | `string` | 最新のダウンロードの状態。         |
+| `state`         | `string` | 最新のダウンロードの状態。         |
 | `downloaded_at` | `string` | 最新のダウンロードの開始時刻。       |
 | `message`       | `string` | 失敗時に、エラーメッセージが生成されます。 |
 
@@ -266,6 +319,9 @@ pre-receive 環境 API を使用すると、pre-receive フックの環境を作
   {% if operation.subcategory == 'pre-receive-environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
 ## pre-receive フック
 
 pre-receive フック API を使用すると、pre-receive フックを作成、一覧表示、更新、および削除できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
@@ -289,6 +345,10 @@ pre-receive フック API を使用すると、pre-receive フックを作成、
   {% if operation.subcategory == 'pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## リポジトリ pre-receive フック
 
 リポジトリ pre-receive フック API を使用すると、リポジトリで使用可能な pre-receive フックの適用を表示および変更できます。
@@ -309,17 +369,12 @@ pre-receive フック API を使用すると、pre-receive フックを作成、
   {% if operation.subcategory == 'repo-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## 検索インデックス
+{% endif %}
 
-検索インデックス API を使用すると、さまざまな検索インデックス作成タスクをキューに入れることができます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'search-indexing' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## ユーザ
 
-ユーザ管理 API を使用すると、{% data variables.product.prodname_ghe_server %} アプライアンスでユーザを昇格、降格、停止、および停止解除できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`403` レスポンスを受け取ります。
+The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`403` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -23,7 +24,7 @@ versions:
 让我们先测试设置。 打开命令提示符并输入以下命令：
 
 ```shell
-$ curl {% data variables.product.api_url_pre %}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -34,7 +35,7 @@ $ curl {% data variables.product.api_url_pre %}/zen
 
 ```shell
 # GET /users/defunkt
-$ curl {% data variables.product.api_url_pre %}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
@@ -48,7 +49,7 @@ $ curl {% data variables.product.api_url_pre %}/users/defunkt
 嗯，有点像 [JSON][json]。 我们来添加 `-i` 标志以包含标头：
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
@@ -110,7 +111,13 @@ $ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/u
 
 您可以使用[个人访问令牌设置页面][tokens settings]轻松[创建**个人访问令牌**][personal token]。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![个人令牌选择](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![个人令牌选择](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### 获取自己的用户个人资料
 

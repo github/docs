@@ -53,13 +53,15 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o mesmo valor:
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 

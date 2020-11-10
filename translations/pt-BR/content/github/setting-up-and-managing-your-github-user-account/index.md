@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -24,7 +25,7 @@ versions:
     {% link_in_list /managing-the-default-branch-name-for-your-repositories %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-user-account %}
     {% link_in_list /managing-access-to-your-user-accounts-project-boards %}    
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /integrating-jira-with-your-personal-projects %}
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" -->

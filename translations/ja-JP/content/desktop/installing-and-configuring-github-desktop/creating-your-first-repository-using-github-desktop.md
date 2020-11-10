@@ -1,7 +1,7 @@
 ---
 title: GitHub Desktop を使った最初のリポジトリ作成方法
-shortTitle: Creating your first repository
-intro: 'You can use {% data variables.product.prodname_desktop %} to create and manage a Git repository without using the command line.'
+shortTitle: 最初のリポジトリを作成する
+intro: '{% data variables.product.prodname_desktop %} を使って、コマンドラインを使用せずに Git リポジトリを作成および管理できます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop
 versions:
@@ -9,13 +9,13 @@ versions:
 ---
 
 ### はじめに
-{% data variables.product.prodname_desktop %} は、コマンドライン上でテキストコマンドを使うのではなく、ビジュアルインターフェースを使って、あなたの {% data variables.product.prodname_dotcom_the_website %} ワークフローを拡張し簡略化します。 By the end of this guide, you'll have used {% data variables.product.prodname_desktop %} to create a repository, make changes to the repository, and publish the changes to {% data variables.product.product_name %}.
+{% data variables.product.prodname_desktop %} は、コマンドライン上でテキストコマンドを使うのではなく、ビジュアルインターフェースを使って、あなたの {% data variables.product.prodname_dotcom_the_website %} ワークフローを拡張し簡略化します。 このガイドをとおして、{% data variables.product.prodname_desktop %} を使用してリポジトリを作成し、リポジトリに変更を加え、最後に変更を {% data variables.product.product_name %} に公開するところまでを行います。
 
-After installing {% data variables.product.prodname_desktop %} and signing into {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} you can create and clone a tutorial repository. The tutorial will introduce the basics of working with Git and {% data variables.product.prodname_dotcom %}, including installing a text editor, creating a branch, making a commit, pushing to {% data variables.product.prodname_dotcom_the_website %}, and opening a pull request. The tutorial is available if you do not have any repositories on {% data variables.product.prodname_desktop %} yet.
+{% data variables.product.prodname_desktop %} をインストールし、{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} にサインインした後、チュートリアルリポジトリを作成してクローンできます。 チュートリアルでは、テキストエディタのインストール、ブランチの作成、コミットの作成、{% data variables.product.prodname_dotcom_the_website %} へのプッシュ、プルリクエストの開始など、Gitと {% data variables.product.prodname_dotcom %} で作業するための基本をご紹介します。 チュートリアルは、{% data variables.product.prodname_desktop %} にリポジトリが未作成の場合に利用できます。
 
-We recommend completing the tutorial, but if you want to explore {% data variables.product.prodname_desktop %} by creating a new repository, this guide will walk you through using {% data variables.product.prodname_desktop %} to work on a Git repository.
+チュートリアルを最後まで完了することをお勧めしますが、新しいリポジトリを作成することで {% data variables.product.prodname_desktop %} を学ぶ場合は、このガイドで {% data variables.product.prodname_desktop %} を使用して Git で作業する方法を説明します。
 
-### Part 1: Installing {% data variables.product.prodname_desktop %} and authenticating your account
+### パート 1: {% data variables.product.prodname_desktop %} をインストールしてアカウントを認証する
 You can install {% data variables.product.prodname_desktop %} on any supported operating system. After you install the app, you will need to sign in and authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} before you can create and clone a tutorial repository.
 
 For more information on installing and authenticating, see "[Setting up {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)."

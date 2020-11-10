@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 1. Klicke unter dem Namen Deines Repositorys auf **Clone or download** (Klonen oder herunterladen). ![Schaltfläche „Clone or download“ (Klonen oder herunterladen)](/assets/images/help/repository/clone-repo-clone-url-button.png)
 1. Click **Open in Desktop** to clone the repository and open it in
 über {% data variables.product.prodname_desktop %}.

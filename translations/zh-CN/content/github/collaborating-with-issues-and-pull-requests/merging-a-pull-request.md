@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -45,13 +46,13 @@ versions:
 6. 单击 **Confirm merge（确认合并）**、**Confirm squash and merge（确认压缩并合并）**或 **Confirm rebase and merge（确认变基并合并）**。
 6. （可选）[删除分支](/articles/deleting-unused-branches)。 这有助于仓库的分支列表保持整洁。
 
-The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. 更多信息请参阅“[管理分支的自动删除](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)”。
+仓库可配置为在您合并拉请求时自动删除拉取请求的头部分支。 更多信息请参阅“[管理分支的自动删除](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)”。
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-   For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
+   **注：** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)”。
 
    {% endnote %}
    {% endif %}

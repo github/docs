@@ -1,3 +1,11 @@
-<div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 {{ header_notification_type }}">
-  {% if header_notification %}{{ header_notification }}{% endif %}
-</div>
+{% if currentVersion == "github-ae@latest" %}
+  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 limited_release {% if header_notification %}border-bottom{% endif %}">
+    {% data ui.header.notices.ghae_silent_launch %}
+  </div>
+{% endif %}
+
+{% if header_notification %}
+  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 {{ header_notification_type }}">
+    {{ header_notification }}
+  </div>
+{% endif %}

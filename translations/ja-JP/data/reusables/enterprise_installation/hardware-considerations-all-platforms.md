@@ -4,11 +4,11 @@
 
 #### Minimum requirements
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location_enterprise %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
 {% data reusables.enterprise_installation.hardware-rec-table %} For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 If you enable the beta for {% data variables.product.prodname_actions %} on your instance, we recommend planning for additional capacity.
 
@@ -32,7 +32,7 @@ We recommend a high-performance SSD with high input/output operations per second
 
 Your instance requires a persistent data disk separate from the root disk. 詳しい情報については「[システムの概要](/enterprise/admin/guides/installation/system-overview)」を参照してください。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 If you enable the beta of {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 2.22, you'll need to configure external blob storage. 詳しい情報については、「[{% data variables.product.prodname_actions %} の有効化とストレージの設定](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)」をご覧ください。
 

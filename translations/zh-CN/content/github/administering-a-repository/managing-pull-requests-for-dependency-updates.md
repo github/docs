@@ -9,9 +9,9 @@ versions:
 
 ### 关于 {% data variables.product.prodname_dependabot %} 拉取请求
 
-{% data variables.product.prodname_dependabot %} 提出拉取请求，以更新依赖项。 {% data variables.product.prodname_dependabot_short %} 可能会针对版本更新和/或安全更新提出拉取请求，具体取决于仓库的配置方式。 您可以按与任何其他拉取请求相同的方式管理这些拉取请求，但也有一些额外的可用命令。 有关启用 {% data variables.product.prodname_dependabot %} 依赖项更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”和“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
+{% data reusables.dependabot.pull-request-introduction %}
 
-当 {% data variables.product.prodname_dependabot %} 提出拉取请求时，将以您为仓库选择的方式通知您。 每个拉取请求都包含关于来自包管理系统的拟议变更的详细信息。 这些拉取请求将遵循仓库中定义的正常检查和测试。 此外，如果有足够的信息，您将看到兼容性分数。 这也有助于您决定是否合并变更。 有关此分数的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”。
+当 {% data variables.product.prodname_dependabot %} 提出拉取请求时，将以您为仓库选择的方式通知您。 每个拉取请求都包含关于来自包管理器的拟议变更的详细信息。 这些拉取请求将遵循仓库中定义的正常检查和测试。 此外，如果有足够的信息，您将看到兼容性分数。 这也有助于您决定是否合并变更。 有关此分数的信息，请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)”。
 
 如果您有多个依赖项要管理，可能会希望为每个包管理器自定义配置，以便拉取请求拥有特定的审查者、受理人和标签。 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 

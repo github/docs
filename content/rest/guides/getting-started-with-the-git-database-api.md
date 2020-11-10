@@ -4,9 +4,10 @@ intro: 'The Git Database API gives you access to read and write raw Git objects 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Overview
+### Overview 
 
 This basically allows you to reimplement a lot of Git functionality over our API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
 

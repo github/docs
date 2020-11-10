@@ -86,7 +86,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Schließen Sie die Verbindung zu {% data variables.product.product_location_enterprise %}:
+8. Schließen Sie die Verbindung zu {% data variables.product.product_location %}:
   ```shell
   $ exit
   > logout

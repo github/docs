@@ -95,3 +95,40 @@ Como resultado, os executores auto-hospedados quase [nunca devem ser usados para
 Você também deve considerar o ambiente das máquinas de executores auto-hospedadas:
 - Que informação sensível reside na máquina configurada como um executor auto-hospedado? Por exemplo, chaves SSH privadas, tokens de acesso à API, entre outros.
 - A máquina tem acesso à rede a serviços sensíveis? Por exemplo, serviços de metadados do Azure ou AWS. A quantidade de informações confidenciais neste ambiente deve ser limitada ao mínimo, e você deve estar sempre ciente de que qualquer usuário capaz de invocar fluxos de trabalho terá acesso a esse ambiente.
+
+### Auditar eventos de {% data variables.product.prodname_actions %}
+
+Você pode usar o log de auditoria para monitorar tarefas administrativas em uma organização. O log de auditoria registra o tipo de ação, quando foi executado e qual conta de usuário realizou a ação.
+
+Por exemplo, você pode usar o log de auditoria para monitorar o evento de `action:org.update_actions_secret`, que controla as alterações nos segredos da organização: ![Entradas do log de auditoria](/assets/images/help/repository/audit-log-entries.png)
+
+As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre como usar o registro de auditoria, consulte [Revisar o log de auditoria para a sua organização](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+
+#### Eventos para gerenciamento de segredo
+| Ação                                | Descrição                                                                                                                                                                                                  |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.create_actions_secret`  | Acionado quando um administrador da organização [cria um segredo de {% data variables.product.prodname_actions %}](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization). . |
+| `action:org.remove_actions_secret`  | Acionado quando um administrador da organização remove um segredo de {% data variables.product.prodname_actions %}.                                                                                        |
+| `action:org.update_actions_secret`  | Acionado quando um administrador da organização atualiza um segredo de {% data variables.product.prodname_actions %}.                                                                                      |
+| `action:repo.create_actions_secret` | Acionado quando um administrador do repositório [cria um segredo de {% data variables.product.prodname_actions %}](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).      |
+| `action:repo.remove_actions_secret` | Acionado quando um administrador do repositório remove um segredo de {% data variables.product.prodname_actions %}.                                                                                        |
+| `action:repo.update_actions_secret` | Acionado quando um administrador do repositório atualiza um segredo de {% data variables.product.prodname_actions %}.                                                                                      |
+
+#### Eventos para executores auto-hospedados
+| Ação                                      | Descrição                                                                                                                                                                                               |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.register_self_hosted_runner`  | Acionado quando um proprietário da organização [registra um novo executor auto-hospedado](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization). |
+| `action:org.remove_self_hosted_runner`    | Acionado quando um proprietário da organização [remove um executor auto-hospedado](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).              |
+| `action:repo.register_self_hosted_runner` | Acionado quando um administrador do repositório [registra um novo executor auto-hospedado](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).   |
+| `action:repo.remove_self_hosted_runner`   | Acionado quando um administrador do repositório [remove um executor auto-hospedado](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).                |
+
+#### Eventos para grupos de executores auto-hospedados
+| Ação                                      | Descrição                                                                                                                                                                                                                                     |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.runner_group_created`         | Acionada quando um administrador da organização [cria um grupo de executores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization). |
+| `action:org.runner_group_removed`         | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                |
+| `action:org.runner_group_renamed`         | Acionado quando um administrador da organização renomeia um grupo de executores auto-hospedados.                                                                                                                                              |
+| `action:org.runner_group_runners_added`   | Acionada quando um administrador da organização [adiciona um executor auto-hospedado a um grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).               |
+| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                                               | 
+
+

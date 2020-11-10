@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリを個人として所有することも、リポジトリの所有権を Organization 内の他の人々と共有することもできます。

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -42,7 +43,7 @@ Issue またはプルリクエストの[イベントのリスト](/v3/issues/tim
 
 **カスタムメディアタイプ:** `mockingbird-preview` **発表日:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### pre-receive 環境
 
 pre-receive フックの環境を作成、一覧表示、更新、削除します。
@@ -50,7 +51,7 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 **カスタムメディアタイプ:** `eye-scream-preview` **発表日:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### インテグレーション
 
 API を介して[インテグレーション](/early-access/integrations/)を管理します。
@@ -98,7 +99,7 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 
 **カスタムメディアタイプ:** `scarlet-witch-preview`
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### 入れ子チーム
 
 入れ子チームコンテンツを [Team](/v3/teams/) ペイロードに含めます。
@@ -107,7 +108,7 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### グローバル webhook
 
@@ -117,7 +118,7 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### リポジトリ移譲
 
 [リポジトリ](/v3/repos/)を Organization またはユーザに移譲します。
@@ -125,7 +126,7 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 **カスタムメディアタイプ:** `nightshade-preview` **発表日:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### ロック理由の追加
 
 [Issue をロック](/v3/issues/#lock-an-issue)するときに理由を追加できるようになりました。
@@ -145,7 +146,7 @@ API を使用して、プルリクエストに対して[複数の承認レビュ
 
 **カスタムメディアタイプ:** `luke-cage-preview` **発表日:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
 ### ホバーカード情報の取得
 
 [ユーザのホバーカード](/v3/users/#get-contextual-information-for-a-user)から情報を取得します。
@@ -154,7 +155,7 @@ API を使用して、プルリクエストに対して[複数の承認レビュ
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 ### チェック実行とチェックスイート API
 
 GitHub App がリポジトリのコードに対して外部チェックを実行できるようにします。 詳細については、[チェック実行](/v3/checks/runs/)と[チェックスイート](/v3/checks/suites/) API をご覧ください。
@@ -162,7 +163,7 @@ GitHub App がリポジトリのコードに対して外部チェックを実行
 **カスタムメディアタイプ:** `antiope-preview` **発表日:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### リポジトリへの匿名 Git アクセス
 
@@ -216,7 +217,7 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### ドラフトプルリクエスト
 
 ドラフトプルリクエスト API とその[プルリクエスト](/v3/pulls/)エンドポイントを使用して、プルリクエストがドラフト状態かどうかを確認できます。 ドラフトプルリクエストについての詳細は、「[プルリクエストについて](/articles/about-pull-requests/)」を参照してください。
@@ -237,7 +238,7 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 **カスタムメディアタイプ:** `groot-preview` **発表日:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### GitHub App のアンインストール
 
 GitHub App の所有者は、[Apps API](/v3/apps/#delete-an-installation-for-the-authenticated-app) を使用してアプリケーションをアンインストールできるようになりました。
@@ -279,7 +280,7 @@ GitHub App の所有者は、[Apps API](/v3/apps/#delete-an-installation-for-the
 **カスタムメディアタイプ:** `doctor-strange-preview` **発表日:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 ### Repositories API の新しい可視性パラメータ
 
 [Repositories API](/v3/repos/) でリポジトリの可視性を設定および取得できます。

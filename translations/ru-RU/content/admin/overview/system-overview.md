@@ -77,7 +77,7 @@ For more information, see "[Configuring backups on your appliance](/enterprise/{
 
 #### External services and support access
 
-{% data variables.product.prodname_ghe_server %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[Configuring email for notifications](/enterprise/{{ currentVersion }}/admin/user-management/configuring-email-for-notifications)," "[Setting up external monitoring](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)," and "[Log forwarding](/enterprise/{{ currentVersion }}/admin/installation/log-forwarding)."
+{% data variables.product.prodname_ghe_server %} can operate without any egress access from your network to outside services. You can optionally enable integration with external services for email delivery, external monitoring, and log forwarding. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)," "[Setting up external monitoring](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)," and "[Log forwarding](/admin/user-management/log-forwarding)."
 
 You can manually collect and send troubleshooting data to {% data variables.contact.github_support %}. For more information, see "[Providing data to {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)."
 
@@ -108,7 +108,7 @@ For more information about {% data variables.product.prodname_ghe_server %}'s us
 
 #### Audit and access logging
 
-{% data variables.product.prodname_ghe_server %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.prodname_ghe_server %} stores permanently. You can forward both types of logs in realtime to multiple destinations via the `syslog-ng` protocol. For more information, see "[Log forwarding](/enterprise/{{ currentVersion }}/admin/installation/log-forwarding)."
+{% data variables.product.prodname_ghe_server %} stores both traditional operating system and application logs. The application also writes detailed auditing and security logs, which {% data variables.product.prodname_ghe_server %} stores permanently. You can forward both types of logs in realtime to multiple destinations via the `syslog-ng` protocol. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
 
 Access and audit logs include information like the following.
 

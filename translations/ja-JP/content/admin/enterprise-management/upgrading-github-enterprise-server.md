@@ -150,7 +150,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location_enterprise %} を利用できるようにしてください。
+7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location %} を利用できるようにしてください。
 
   {% note %}
 
@@ -203,7 +203,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
    1. レプリカインスタンスで再度 `ghe-repl-setup <primary-instance-ip>` を実行してください。
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location_enterprise %} を使えるようにメンテナンスモードを無効化してください。
+6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location %} を使えるようにメンテナンスモードを無効化してください。
 
 ### 失敗したアップグレードからのリストア
 
