@@ -83,15 +83,13 @@ See [our guide on Git automation with tokens][git-automation].
 7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 8. Click **Add key**.
 
-##### Multiple Repositories on One Server
+##### Using multiple repositories on one server
 
-GitHub does not allow users to reuse deploy keys across multiple repositories, so when a personal key pair is undesirable (such as a deployment server) users have to generate a dedicated key pair for each repository they require.  Additionally, Git (currently) does not provide a way of configuring a preferred private key when using ssh remotes. 
+If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
 
-###### Setup
+In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. For example:
 
-1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
-2. Create an alias for each repository that points to the git server and assignes the private key:
-```
+```bash
 Host github.com-repo-0
         Hostname github.com
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
@@ -99,15 +97,13 @@ Host github.com-repo-0
 Host github.com-repo-1
         Hostname github.com
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
-
-Host github.com-repo-2
-        Hostname github.com
-        IdentityFile=/home/user/.ssh/repo-2_deploy_key
 ```
 
-###### Example Usage
+* `Host github.com-repo-0` - The repository's alias.
+* `Hostname github.com` - Configures the alias to use the {% data variables.product.product_name %} server.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - assigns a private key to the alias.
 
-To clone a repository with a unique Deploy Key, use the the alias as defined in the `~/.ssh/config`:
+With these entries, you can then use the alias to clone a repository with a unique Deploy Key. For example:
 
 ```
 git clone git@github.com-repo-1:github-user/repo-1.git
