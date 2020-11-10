@@ -837,7 +837,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 * **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
 
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your intallation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
+    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
 
 * **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
 

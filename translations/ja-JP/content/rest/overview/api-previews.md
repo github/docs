@@ -72,14 +72,6 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 **カスタムメディアタイプ:** `cloak-preview` **発表日:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### コミュニティプロフィールメトリクス
-
-パブリックリポジトリの[コミュニティプロフィールメトリック](/v3/repos/community/)（コミュニティ健全性とも呼ばれる）を取得します。
-
-**カスタムメディアタイプ:** `black-panther-preview` **発表日:** [2017-02-09](https://developer.github.com/changes/2017-02-09-community-health/)
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
 ### ユーザブロック
 
 ユーザは[他のユーザをブロック](/v3/users/blocking/)できます。 Organization も[ユーザをブロック](/v3/orgs/blocking/)できます。
@@ -206,16 +198,6 @@ Organization メンバーによるリポジトリの作成可否、および作�
 {% data variables.product.prodname_unfurls %} API を使用して、登録されたドメインにリンクする URL の詳細情報を GitHub で提供できるようになりました。 詳細については、「[添付コンテンツを使用する](/apps/using-content-attachments/)」を参照してください。
 
 **カスタムメディアタイプ:** `corsair-preview` **発表日:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### リポジトリと Organization に対するインタラクションの制限
-
-{% data variables.product.product_name %} リポジトリまたは Organization に対して、コメント、Issue のオープン、プルリクエスト作成などのインタラクションを一時的に制限できます。 有効にすると、指定した {% data variables.product.product_name %} ユーザのグループのみがこれらの操作に参加できます。インタラクション 詳細については、 [リポジトリインタラクション](/v3/interactions/repos/)と [Organization インタラクション](/v3/interactions/orgs/) API を参照してください。
-
-**カスタムメディアタイプ:** `sombra-preview` **発表日:** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
-
-{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### ドラフトプルリクエスト

@@ -15,8 +15,9 @@ homepage:
   version_picker: 버전
 toc:
   getting_started: 시작하기
-  popular_articles: 인기 문서
+  popular_articles: Popular
   guides: 안내서
+  whats_new: What's new
 pages:
   article_version: "문서 버전:"
   miniToc: 기사 내용
@@ -118,3 +119,6 @@ footer:
       careers: 채용
       press: 보도 자료
       shop: 쇼핑
+product_landing:
+  quick_start: Quickstart
+  reference_guides: Reference guides

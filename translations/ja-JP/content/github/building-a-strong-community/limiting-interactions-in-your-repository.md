@@ -1,28 +1,32 @@
 ---
 title: リポジトリでのインタラクションを制限する
-intro: 'オーナーまたは管理者のアクセス権を持つユーザは、あなたのパブリックリポジトリで特定のユーザがコメントする、Issue をオープンする、あるいはプルリクエストを作成するのを一時的に制限し、一定の期間、アクティビティ制限を適用することができます。'
+intro: 'You can temporarily enforce a period of limited activity for certain users on a public repository.'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
+permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 ---
 
-24 時間経過すると、ユーザはあなたのリポジトリで通常のアクティビティを再開できます。
+### About temporary interaction limits
 
-{% tip %}
+{% data reusables.community.interaction-limits-restrictions %}
 
-**ヒント:** Organization のオーナーは Organization 全体のアクティビティ制限を有効化できます。 Organization 全体のアクティビティ制限が有効な場合、個々のリポジトリについてアクティビティを制限することはできません。 詳細は「[Organization での操作を制限する](/articles/limiting-interactions-in-your-organization)」を参照してください。
+{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your repository.
 
-{% endtip %}
+{% data reusables.community.types-of-interaction-limits %}
+
+You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/github/building-a-strong-community/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/github/building-a-strong-community/limiting-interactions-in-your-organization)."
+
+### リポジトリでのインタラクションを制限する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. リポジトリの [Settings] サイドバーで、[**Interaction limits**] をクリックします。 ![リポジトリの設定での [Interaction limits] ](/assets/images/help/repository/repo-settings-interaction-limits.png)
-4. [Temporary interaction limits] で、次から 1 つ以上のオプションをクリックします。 ![[Temporary interaction limits] のオプション](/assets/images/help/repository/temporary-interaction-limits-options.png)
-    - [**Limit to existing users**]: 作成してから 24 時間経過していないアカウントで、以前のコントリビューションがなく、コラボレーターではないユーザのアクティビティを制限します。
-    - [**Limit to prior contributors**]: これまでにコントリビューションがなく、コラボレーターではないユーザのアクティビティを制限します。
-    - **Limit to repository collaborators**: Limits activity for users who do not have write access or are not collaborators.
+1. In the left sidebar, click **Moderation settings**. !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
+1. Under "Moderation settings", click **Interaction limits**. ![リポジトリの設定での [Interaction limits] ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+{% data reusables.community.set-interaction-limit %}
+  ![[Temporary interaction limits] のオプション](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
 ### 参考リンク
 - [悪用あるいはスパムのレポート](/articles/reporting-abuse-or-spam)

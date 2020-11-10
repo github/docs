@@ -2,6 +2,8 @@
 title: Enterprise アカウントで GitHub Actions のポリシーを施行する
 intro: 'Enterprise のオーナーは、Enterprise アカウントについて {% data variables.product.prodname_actions %} の無効化、有効化、および制限ができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
@@ -32,7 +34,7 @@ You can disable all workflows for an enterprise or set a policy that configures 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Policies**] で [**Allow specific actions**] を選択し、必要なアクションをリストに追加します。 ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### プライベートリポジトリのフォークのワークフローを有効にする
 
