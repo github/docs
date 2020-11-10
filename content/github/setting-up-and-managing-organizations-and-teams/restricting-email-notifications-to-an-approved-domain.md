@@ -19,4 +19,5 @@ Outside collaborators are not subject to restrictions on email notifications for
 {% data reusables.organizations.verified-domains %}
 5. Under "Enforcement preferences", select **Restrict email notifications to domain email**.
   ![Checkbox to restrict email notifications to verified domain emails](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)
-6. Click **Save**.
+6.
+7. Click **Save**.
