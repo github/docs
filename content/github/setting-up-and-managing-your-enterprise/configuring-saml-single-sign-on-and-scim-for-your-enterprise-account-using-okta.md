@@ -4,6 +4,7 @@ intro: 'You can use Security Assertion Markup Language (SAML) single sign-on (SS
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-and-scim-for-your-enterprise-account-using-okta
+  - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
 ---
@@ -63,7 +64,7 @@ After you enable SCIM, the following provisioning features are available for any
 1. Assign the application you created for your enterprise account to each group. {% data variables.product.prodname_dotcom %} will receive all `groups` data for each user.
 1. Add users to groups based on the organizations you'd like users to belong to.
 
-### Configuring user provisioning with SCIM in Okta 
+### Configuring user provisioning with SCIM in Okta
 
 {% data reusables.scim.enterprise-account-scim %}
 

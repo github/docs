@@ -49,7 +49,7 @@ There are two types of snapshots:
 | Platform | Snapshot method | Snapshot documentation URL |
 |---|---|---|
 | Amazon AWS | Disk | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
-| Azure | VM | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>
+| Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
 | Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
 | Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
 | VMware | VM | <https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html>

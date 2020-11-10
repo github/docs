@@ -64,7 +64,7 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 
 `{% octicon "<name of octicon>" %}`  
 `{% octicon "plus" %}`
-`{% octicon "plus" aria-label="The plus icon"}`
+`{% octicon "plus" aria-label="The plus icon" %}`
 
 ## Operating system tags
 
