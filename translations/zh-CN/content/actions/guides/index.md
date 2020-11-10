@@ -29,6 +29,7 @@ versions:
 {% link_in_list /about-continuous-integration %}
 {% link_in_list /setting-up-continuous-integration-using-workflow-templates %}
 {% link_in_list /building-and-testing-nodejs %}
+{% link_in_list /building-and-testing-powershell %}
 {% link_in_list /building-and-testing-python %}
 {% link_in_list /building-and-testing-java-with-maven %}
 {% link_in_list /building-and-testing-java-with-gradle %}

@@ -61,7 +61,6 @@ Você pode usar as chaves de configuração compatíveis com {% data variables.p
 - `settings`
 - `extensões`
 - `forwardPorts`
-- `devPort`
 - `postCreateCommand`
 
 #### Docker, arquivo Docker ou configurações de imagem
@@ -73,13 +72,9 @@ Você pode usar as chaves de configuração compatíveis com {% data variables.p
 - `remoteEnv`
 - `containerUser`
 - `remoteUser`
-- `updateRemoteUserUID`
 - `mounts`
-- `workspaceMount`
-- `workspaceFolder`
 - `runArgs`
 - `overrideCommand`
-- `shutdownAction`
 - `dockerComposeFile`
 
 Para obter mais informações sobre as configurações disponíveis para `devcontainer.json`, consulte [referência do devcontainer.json](https://aka.ms/vscode-remote/devcontainer.json) na documentação do {% data variables.product.prodname_vscode %}.

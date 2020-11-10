@@ -82,6 +82,7 @@ Filtros personalizados atualmente não suportam:
   - Distinguindo entre filtros de consulta `is:issue`, `is:pr` e `is:pull-request`. Essas consultas retornarão problemas e pull requests.
   - Criando mais de 15 filtros personalizados.
   - Alterando os filtros padrão ou sua ordenação.
+  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
 ### Consultas suportadas para filtros personalizados
 
@@ -113,7 +114,7 @@ Para filtrar notificações por motivos pelos quais recebeu uma atualização, v
 
 #### Consultas suportadas `is:`
 
-Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`

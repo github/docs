@@ -98,30 +98,39 @@ Você pode acionar manualmente uma execução de fluxo de trabalho usando a API 
 
  Para acionar o evento do webhook `workflow_dispatch` usando a API REST, você deve enviar uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.prodname_dotcom %} e fornecer o `ref` e qualquer `entrada` necessária. Para obter mais informações, consulte o ponto de extremidade da API REST "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".
 
+##### Exemplo
+
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
+
+```yaml
+on: workflow_dispatch
+```
+
 ##### Exemplo de configuração de fluxo de trabalho
 
-Este exemplo define o nome `` e `entradas de` domésticas e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home` . Se um `nome` não for fornecido, o valor padrão 'Mona, o Octocat' será impresso.
+Este exemplo define o nome `` e `entradas de` domésticas e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home` . If a `home` isn't provided, the default value 'The Octoverse' is printed.
 
 {% raw %}
 ```yaml
-nome: Fluxo de trabalho acionado manualmente
-em:
-  workflow_dispatch: entradas
-    :
-      nome:
-        descrição: 'Pessoa para cumprimentar'
-        necessário: verdadeiro
-        padrão: 'Mona, o Octocat '
-      casa:
-        descrição: 'localização'
-        necessário: falsos trabalhos de
+name: Manually triggered workflow
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
-:
+jobs:
   say_hello:
-    run-on: ubuntu-mais recente
-    passos:
-    - executar: |
-        eco "Olá ${{ github.event.inputs.name }}!"
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
         eco "- em ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
@@ -314,6 +323,33 @@ on:
     types: [created, deleted]
 ```
 
+The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
+
+For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
+
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+
+  issue-commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
+```
+
 #### `Problemas`
 
 Executa o fluxo de trabalho sempre que o evento `issues` ocorre. {% data reusables.developer-site.multiple_activity_types %} Para obter informações sobre a API REST, consulte "[problemas](/v3/issues)".
@@ -376,7 +412,7 @@ on:
 
 #### `page_build`
 
-Executa o fluxo de trabalho sempre que alguém faz push em um branch habilitado para o {% data variables.product.product_name %} Pages, o que aciona o evento `page_build`. Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
+Executa o fluxo de trabalho sempre que alguém faz push em um branch habilitado para o {% data variables.product.product_name %} Pages, o que aciona o evento `page_build`. For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -654,6 +690,10 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+| Carga de evento webhook                                  | Tipos de atividade | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| -------------------------------------------------------- | ------------------ | ------------------------------ | ------------- |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a              | Último commit no branch padrão | Branch padrão |
 
 Se precisar filtrar os branches desse evento, você poderá usar `branches` ou `branches-ignore`.
 
