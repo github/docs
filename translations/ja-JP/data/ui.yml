@@ -15,8 +15,9 @@ homepage:
   version_picker: バージョン
 toc:
   getting_started: はじめましょう
-  popular_articles: 人気のある記事
+  popular_articles: 人気
   guides: ガイド
+  whats_new: 更新情報
 pages:
   article_version: "記事のバージョン："
   miniToc: 'ここには以下の内容があります:'
@@ -118,3 +119,6 @@ footer:
       careers: キャリア
       press: プレス
       shop: ショップ
+product_landing:
+  quick_start: クイックスタート
+  reference_guides: Reference guides

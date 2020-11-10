@@ -82,6 +82,7 @@ versions:
   - 区分 `is:issue`、`is:pr` 及 `is:pull-request` 查询过滤器。 这些查询将返回议题和拉取请求。
   - 创建超过 15 个自定义过滤器。
   - 更改默认过滤器或其顺序。
+  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
 ### 支持的自定义过滤器查询
 
@@ -113,7 +114,7 @@ versions:
 
 #### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`

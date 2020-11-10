@@ -122,7 +122,7 @@ If you believe you're receiving notifications that don't belong to you, examine 
 3. 通知設定ページで、次の場合の通知の受信方法を選択します。
     - Watch しているリポジトリや Team ディスカッション、または参加している会話に更新がある場合。 詳しい情報については、「[参加と Watch 対象の通知について](#about-participating-and-watching-notifications)」を参照してください。
     - 新しいリポジトリにアクセスするか、新しい Team に参加した場合。 For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - リポジトリに新しい{% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %}セキュリティアラート{% endif %}があります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} 通知オプション](#github-dependabot-alerts-notification-options)」を参照してください。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - リポジトリに新しい{% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %}セキュリティアラート{% endif %}があります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} 通知オプション](#dependabot-alerts-notification-options)」を参照してください。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
     - リポジトリに新しいセキュリティアラートがある場合。 There are new security alerts in your repository. {% endif %} {% if currentVersion == "free-pro-team@latest" %}
     - {% data variables.product.prodname_actions %} で設定されたリポジトリにワークフロー実行の更新がある場合。 詳しい情報については、「[{% data variables.product.prodname_actions %} 通知オプション](#github-actions-notification-options)」を参照してください。{% endif %}
 

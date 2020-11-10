@@ -15,8 +15,9 @@ homepage:
   version_picker: Versão
 toc:
   getting_started: Introdução
-  popular_articles: Artigos populares
+  popular_articles: Popular
   guides: Guias
+  whats_new: O que há de novo
 pages:
   article_version: "Versão do artigo:"
   miniToc: Neste artigo
@@ -118,3 +119,6 @@ footer:
       careers: Carreiras
       press: Imprensa
       shop: Loja
+product_landing:
+  quick_start: QuickStart
+  reference_guides: Reference guides

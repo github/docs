@@ -1,6 +1,6 @@
 ---
 title: 关于 GitHub Enterprise Support
-intro: '{% data variables.contact.github_support %} can help you troubleshoot issues that arise on {% data variables.product.product_name %}.'
+intro: '{% data variables.contact.github_support %} 可帮助您排除 {% data variables.product.product_name %} 上出现的问题。'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
 versions:
@@ -16,22 +16,29 @@ versions:
 
 ### 关于 {% data variables.contact.enterprise_support %}
 
-{% data variables.product.product_name %} includes {% data variables.contact.enterprise_support %} in English{% if enterpriseServerVersions contains currentVersion %}and Japanese{% endif %}.
+{% data variables.product.product_name %} 包括 {% data variables.contact.enterprise_support %} 英语版{% if enterpriseServerVersions contains currentVersion %}和日语版{% endif %}。
 
 {% if enterpriseServerVersions contains currentVersion %}
-You can contact
-{% data variables.contact.enterprise_support %} through {% data variables.contact.contact_enterprise_portal %} for help with:
+您可以通过
+{% data variables.contact.enterprise_support %} 联系 {% data variables.contact.contact_enterprise_portal %} 来寻求以下帮助：
  - 安装和使用 {% data variables.product.product_name %}
  - 识别并验证可疑错误的原因
 {% endif %}
 
-In addition to all of the benefits of {% data variables.contact.enterprise_support %}, {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.premium_support %}{% else %}support for {% data variables.product.product_name %}{% endif %} offers:
+除了 {% data variables.contact.enterprise_support %} 的所有优点之外，{% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.premium_support %}{% else %}支持 {% data variables.product.product_name %}{% endif %} 还提供：
   - 通过我们的支持门户网站全天候提供书面支持
   - 全天候电话支持
-  - A{% if currentVersion == "github-ae@latest" %}n enhanced{% endif %} Service Level Agreement (SLA) {% if enterpriseServerVersions contains currentVersion %}with guaranteed initial response times{% endif %}
-  - Access to premium content{% if enterpriseServerVersions contains currentVersion %}
-  - Scheduled health checks{% endif %}
-  - 管理的服务
+  - {% if currentVersion == "github-ae@latest" %}增强的{% endif %}服务水平协议 (SLA) {% if enterpriseServerVersions contains currentVersion %}，包括保证的初始响应时间{% endif %}
+{% if currentVersion == "github-ae@latest" %}
+  - 分配的技术服务客户经理
+  - 季度支持审核
+  - 管理的管理员服务
+{% else if enterpriseServerVersions contains currentVersion %}
+  - 技术客户经理
+  - 高级内容访问权限
+  - 按时健康状态检查
+  - 管理的管理员小时数
+{% endif %}
 
 {% data reusables.support.government-response-times-may-vary %}
 

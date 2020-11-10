@@ -6,6 +6,7 @@ redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
@@ -48,8 +49,7 @@ In allen Organisationen Deines Enterprise-Kontos kannst Du Mitgliedern das Einla
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. Lies auf der Registerkarte **Repository policies** (Repository-Richtlinien) unter „Repository invitations“ (Repository-Einladungen) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Wählen Sie im Dropdownmenü unter „Repository invitations“ (Repository-Einladungen) eine Richtlinie aus.  
-   ![Dropdownmenü mit den Optionen für die Richtlinie für Einladungen von externen Mitarbeitern](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+4. Under "Repository invitations", use the drop-down menu and choose a policy. ![Dropdownmenü mit den Optionen für die Richtlinie für Einladungen von externen Mitarbeitern](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
 
 ### Eine Richtlinie zum Ändern der Repository-Sichtbarkeit erzwingen
 
