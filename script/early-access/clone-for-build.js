@@ -75,53 +75,27 @@ console.log(`Using early-access ${environment} branch: '${earlyAccessBranch}'`)
 // Remove all existing early access directories from this repo
 destinationDirNames.forEach(key => rimraf(destinationDirsMap[key]))
 
-//
-// OLD STATE:
-//
-const dirName = 'content'
+// Move the latest early access source directories into this repo
+destinationDirNames.forEach((dirName) => {
+  const sourceDir = path.join(earlyAccessCloningDir, dirName)
+  const destDir = destinationDirsMap[dirName]
 
-// Remove the .git directory
-rimraf(path.join(earlyAccessCloningDir, '.git'))
+  // If the source directory doesn't exist, skip it
+  if (!fs.existsSync(sourceDir)) {
+    console.warn(`Early access directory '${dirName}' does not exist. Skipping...`)
+    return
+  }
 
-// Move the directory from the cloned source to the destination
-fs.renameSync(
-  earlyAccessCloningDir,
-  destinationDirsMap[dirName]
-)
+  // Move the directory from the cloned source to the destination
+  fs.renameSync(sourceDir, destDir)
 
-// Confirm the newly moved directory exist
-if (fs.existsSync(destinationDirsMap[dirName])) {
-  console.log(`Successfully moved early access directory '${dirName}' into this repo`)
-} else {
-  throw new Error(`Failed to move early access directory '${dirName}'!`)
-}
-// END OLD STATE
+  // Confirm the newly moved directory exist
+  if (fs.existsSync(destDir)) {
+    console.log(`Successfully moved early access directory '${dirName}' into this repo`)
+  } else {
+    throw new Error(`Failed to move early access directory '${dirName}'!`)
+  }
+})
 
-//
-// FUTURE STATE:
-//
-// // Move the latest early access source directories into this repo
-// destinationDirNames.forEach((dirName) => {
-//   const sourceDir = path.join(earlyAccessCloningDir, dirName)
-//   const destDir = destinationDirsMap[dirName]
-
-//   // If the source directory doesn't exist, skip it
-//   if (!fs.existsSync(sourceDir)) {
-//     console.warn(`Early access directory '${dirName}' does not exist. Skipping...`)
-//     return
-//   }
-
-//   // Move the directory from the cloned source to the destination
-//   fs.renameSync(sourceDir, destDir)
-
-//   // Confirm the newly moved directory exist
-//   if (fs.existsSync(destDir)) {
-//     console.log(`Successfully moved early access directory '${dirName}' into this repo`)
-//   } else {
-//     throw new Error(`Failed to move early access directory '${dirName}'!`)
-//   }
-// })
-//
-// // Remove the source content again for good hygiene
-// rimraf(earlyAccessCloningDir)
-// END FUTURE STATE
+// Remove the source content again for good hygiene
+rimraf(earlyAccessCloningDir)
