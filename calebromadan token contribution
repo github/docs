@@ -1,0 +1,7 @@
+$ curl -v -H "Authorization: token TOKEN" https://api.github.com/repos/octodocs-test/test
+
+> X-GitHub-SSO: required; url=https://github.com/orgs/octodocs-test/sso?authorization_request=AZSCKtL4U8yX1H3sCQIVnVgmjmon5fWxks5YrqhJgah0b2tlbl9pZM4EuMz4
+{
+  "message": "Resource protected by organization SAML enforcement. You must grant your personal token access to this organization.",
+  "documentation_url": "https://docs.github.com"
+}
