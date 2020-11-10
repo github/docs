@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run script
-      run: script/check-english-links > broken_links.md
+      run: script/check-english-links.js > broken_links.md
     - name: Check if any broken links
       id: check
       run: |
