@@ -10,13 +10,13 @@ files:
   - source: /data/**/*.md
     translation: /translations/%locale%/%original_path%/%original_file_name%
     ignore: [
-      "data/README.md",
-      "data/reusables/README.md",
-      "data/variables/product.yml",
-      "data/variables/README.md",
-      "data/early-access",
-      "data/graphql",
-      "data/products.yml"
+      "/data/README.md",
+      "/data/reusables/README.md",
+      "/data/variables/product.yml",
+      "/data/variables/README.md",
+      "/data/early-access",
+      "/data/graphql",
+      "/data/products.yml"
     ]
 
 # These end up as env vars used by the GitHub Actions workflow
