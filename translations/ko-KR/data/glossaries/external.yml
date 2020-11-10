@@ -61,7 +61,7 @@
 - 
   term: 분기
   description: >-
-    분기는 리포지토리의 병렬 버전입니다. 리포지토리 내에 포함되어 있지만 기본 또는 마스터 브랜치에 영향을 주지 않으므로 "라이브" 버전을 방해하지 않고 자유롭게 작업할 수 있습니다. 변경한 경우 분기를 다시 마스터 브랜치에 병합하여 변경 내용을 게시할 수 있습니다.
+    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
 - 
   term: 분기 제한
   description: >-
@@ -140,7 +140,8 @@
     커밋을 수반하고 커밋이 도입하는 변경 내용을 전달하는 짧고 설명적인 텍스트입니다.
 - 
   term: 비교 브랜치
-  description: 끌어오기 요청을 만드는 데 사용하는 분기입니다. 이 분기는 끌어오기 요청에 대해 선택한 베이스 브랜치와 비교되며 변경 내용이 식별됩니다. 끌어오기 요청이 병합되면 베이스 브랜치가 비교 브랜치의 변경 내용으로 업데이트됩니다. 끌어오기 요청의 "헤드 브랜치"라고도 합니다.
+  description: >-
+    끌어오기 요청을 만드는 데 사용하는 분기입니다. 이 분기는 끌어오기 요청에 대해 선택한 베이스 브랜치와 비교되며 변경 내용이 식별됩니다. 끌어오기 요청이 병합되면 베이스 브랜치가 비교 브랜치의 변경 내용으로 업데이트됩니다. 끌어오기 요청의 "헤드 브랜치"라고도 합니다.
 - 
   term: 연속 통합
   description: >-
@@ -387,9 +388,13 @@
   term: 마크업
   description: 문서에 주석을 달고 서식을 지정하는 시스템입니다.
 - 
+  term: main
+  description: >-
+    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+- 
   term: master
   description: >-
-    기본 개발 분기입니다. Git 리포지토리를 만들 때마다 "master"라는 분기가 만들어지고 활성 분기가 됩니다. 대부분의 경우 순전히 관례적인 것이고 필수는 아니지만 로컬 개발을 포함합니다.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
 - 
   term: 구성원 그래프
   description: 리포지토리의 모든 포크를 표시하는 리포지토리 그래프입니다.

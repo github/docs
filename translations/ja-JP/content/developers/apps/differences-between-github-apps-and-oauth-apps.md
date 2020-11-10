@@ -1,5 +1,5 @@
 ---
-title: Differences between GitHub Apps and OAuth Apps
+title: GitHub App と OAuth App の違い
 intro: 'Understanding the differences between {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s will help you decide which app you want to create. An {% data variables.product.prodname_oauth_app %} acts as a GitHub user, whereas a {% data variables.product.prodname_github_app %} uses its own identity when installed on an organization or on repositories within an organization.'
 redirect_from:
   - /early-access/integrations/integrations-vs-oauth-applications/

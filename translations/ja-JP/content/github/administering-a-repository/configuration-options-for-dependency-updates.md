@@ -12,7 +12,7 @@ versions:
 
 {% data variables.product.prodname_dependabot %} の設定ファイルである *dependabot.yml* では YAML 構文を使用します。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
-このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのプルリクエストをトリガーするときにも使用されます。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」および「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」を参照してください。
+このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」および「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 
 ### *dependabot.yml* の設定オプション
 
@@ -56,13 +56,13 @@ versions:
 
 脆弱性のあるパッケージマニフェストのセキュリティアップデートは、デフォルトブランチでのみ発生します。 設定オプションが同じブランチに設定され（`target-branch` を使用しない場合は true）、脆弱性のあるマニフェストの `package-ecosystem` と `directory` を指定している場合、セキュリティアップデートのプルリクエストで関連オプションが使用されます。
 
-一般に、セキュリティアップデートでは、メタデータの追加や動作の変更など、プルリクエストに影響する設定オプションが使用されます。 セキュリティアップデートに関する詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」を参照してください。
+一般に、セキュリティアップデートでは、メタデータの追加や動作の変更など、プルリクエストに影響する設定オプションが使用されます。 セキュリティアップデートに関する詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**必須** {% data variables.product.prodname_dependabot %} で新しいバージョンを監視するパッケージマネージャーごとに、`package-ecosystem` 要素を1つ追加してください。 リポジトリには、これらの各パッケージマネージャーの依存関係マニフェストまたはロックファイルも含まれている必要があります。 If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+**Required** You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. リポジトリには、これらの各パッケージマネージャーの依存関係マニフェストまたはロックファイルも含まれている必要があります。 If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -308,7 +308,7 @@ updates:
 
 {% note %}
 
-構成ファイルの `ignore` オプションにプライベート依存関係を追加しても、{% data variables.product.prodname_dependabot_version_updates %} はプライベート Git 依存関係またはプライベート Git レジストリを含むマニフェストの依存関係のバージョン更新を実行できません。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)」を参照してください。
+構成ファイルの `ignore` オプションにプライベート依存関係を追加しても、{% data variables.product.prodname_dependabot_version_updates %} はプライベート Git 依存関係またはプライベート Git レジストリを含むマニフェストの依存関係のバージョン更新を実行できません。 詳しい情報については、「[{% data variables.product.prodname_dependabot_version_updates %} について](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)」を参照してください。
 
 {% endnote %}
 
@@ -542,7 +542,7 @@ updates:
 
 ### `vendor`
 
-Use the `vendor` option to tell {% data variables.product.prodname_dependabot_short %} to vendor dependencies when updating them.
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them.
 
 ```yaml
 # Configure version updates for both dependencies defined in manifests and vendored dependencies
@@ -557,7 +557,7 @@ updates:
       interval: "weekly"
 ```
 
-{% data variables.product.prodname_dependabot_short %} only updates the vendored dependencies located in specific directories in a repository.
+{% data variables.product.prodname_dependabot %} only updates the vendored dependencies located in specific directories in a repository.
 
 | パッケージマネージャー | Required file path for vendored dependencies                                                      | 詳細情報                                                                       |
 | ----------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |

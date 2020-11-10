@@ -91,11 +91,11 @@ versions:
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" -->
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
-    {% link_in_list /about-github-dependabot-version-updates %}
+    {% link_in_list /about-dependabot-version-updates %}
     {% link_in_list /enabling-and-disabling-version-updates %}
     {% link_in_list /listing-dependencies-configured-for-version-updates %}
     {% link_in_list /managing-pull-requests-for-dependency-updates %}
     {% link_in_list /customizing-dependency-updates %}
     {% link_in_list /configuration-options-for-dependency-updates %}
-    {% link_in_list /keeping-your-actions-up-to-date-with-github-dependabot %}
+    {% link_in_list /keeping-your-actions-up-to-date-with-dependabot %}
 <!-- endif -->

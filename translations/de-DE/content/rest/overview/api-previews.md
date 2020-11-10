@@ -72,14 +72,6 @@ Manage [projects](/v3/projects/).
 **Custom media type:** `cloak-preview` **Announced:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Community profile metrics
-
-Retrieve [community profile metrics](/v3/repos/community/) (also known as community health) for any public repository.
-
-**Custom media type:** `black-panther-preview` **Announced:** [2017-02-09](https://developer.github.com/changes/2017-02-09-community-health/)
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
 ### User blocking
 
 Users can [block other users](/v3/users/blocking/). Organizations can [block users](/v3/orgs/blocking/), too.
@@ -206,16 +198,6 @@ You can now configure whether organization members can create repositories and w
 You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
 
 **Custom media types:** `corsair-preview` **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### Interaction restrictions for repositories and organizations
-
-Allows you to temporarily restrict interactions, such as commenting, opening issues, and creating pull requests, for {% data variables.product.product_name %} repositories or organizations. When enabled, only the specified group of {% data variables.product.product_name %} users will be able to participate in these interactions. See the [Repository interactions](/v3/interactions/repos/) and [Organization interactions](/v3/interactions/orgs/) APIs for more details.
-
-**Custom media type:** `sombra-preview` **Announced:** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
-
-{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### Entwürfe für Pull Requests

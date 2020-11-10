@@ -122,7 +122,7 @@ If you do not enable watching or participating notifications for web{% if curren
 3. 在通知设置页面上，选择在以下情况下如何接收通知：
     - 在您关注的仓库或团队讨论或参与的对话中发生了更新。 更多信息请参阅“[关于参与和关注通知](#about-participating-and-watching-notifications)”。
     - 您获得了新仓库的访问权限或加入了新团队。 For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - 您的仓库中有新的 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}。 更多信息请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#github-dependabot-alerts-notification-options)”。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - 您的仓库中有新的 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}。 更多信息请参阅“[{% data variables.product.prodname_dependabot_alerts %} 通知选项](#dependabot-alerts-notification-options)”。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
     - 您的仓库中有新的安全警报。 For more information, see "[Security alert notification options](#security-alert-notification-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
     - 在使用 {% data variables.product.prodname_actions %} 设置的仓库上有工作流程运行更新。 更多信息请参阅“[{% data variables.product.prodname_actions %} 通知选项](#github-actions-notification-options)”。{% endif %}
 

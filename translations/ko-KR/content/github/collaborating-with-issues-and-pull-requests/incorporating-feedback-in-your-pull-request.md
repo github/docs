@@ -25,6 +25,10 @@ Each person who suggested a change included in the commit will be a co-author of
 4. In the commit message field, type a short, meaningful commit message that describes the change you made to the file or files. ![Commit message field](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Click **Commit changes.** ![Commit changes button](/assets/images/help/pull_requests/commit-changes-button.png)
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Opening an issue for an out-of-scope suggestion
 
 If someone suggests changes to your pull request and the changes are out of the pull request's scope, you can open a new issue to track the feedback. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
