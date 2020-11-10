@@ -17,8 +17,8 @@ describe('crowdin.yml config file', () => {
   })
 
   test('ignores all Early Access paths', async () => {
-    expect(ignoredPagePaths).toContain('content/early-access')
-    expect(ignoredDataPaths).toContain('data/early-access')
+    expect(ignoredPagePaths).toContain('/content/early-access')
+    expect(ignoredDataPaths).toContain('/data/early-access')
   })
 
   test('ignores all hidden pages', async () => {
