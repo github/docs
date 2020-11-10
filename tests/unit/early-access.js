@@ -1,7 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 
-const testViaActionsOnly = process.env.GITHUB_ACTIONS ? test : test.skip
+const { GITHUB_ACTIONS, GITHUB_REPOSITORY } = process.env
+const runningActionsOnInternalRepo = GITHUB_ACTIONS === 'true' && GITHUB_REPOSITORY === 'github/docs-internal'
+const testViaActionsOnly = runningActionsOnInternalRepo ? test : test.skip
 
 //
 // TODO test ea-config
