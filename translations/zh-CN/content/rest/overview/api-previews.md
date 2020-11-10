@@ -2,7 +2,6 @@
 title: API 预览
 intro: 您可以使用 API 预览来试用新功能并在这些功能正式发布之前提供反馈。
 redirect_from:
-  - /early-access/
   - /v3/previews
 versions:
   free-pro-team: '*'

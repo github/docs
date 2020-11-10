@@ -2,7 +2,6 @@
 title: API プレビュー
 intro: API プレビューを使用して新機能を試し、これらの機能が正式なものになる前にフィードバックを提供できます。
 redirect_from:
-  - /early-access/
   - /v3/previews
 versions:
   free-pro-team: '*'
