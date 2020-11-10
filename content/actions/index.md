@@ -7,7 +7,8 @@ introLinks:
   reference: /actions/reference
 featuredLinks:
   guides:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/learn-github-actions
+    - /actions/guides/about-continuous-integration
     - /actions/guides/about-packaging-with-github-actions
   gettingStarted:
     - /actions/managing-workflow-runs
