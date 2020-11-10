@@ -1,0 +1,1 @@
+You can re-request a review, for example, after you've made substantial changes to your pull request. To request a fresh review from a reviewer, in the sidebar of the **Conversation** tab, click the {% octicon "sync" aria-label="The sync icon" %} icon.

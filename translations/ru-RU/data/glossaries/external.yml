@@ -61,7 +61,7 @@
 - 
   term: ветвь
   description: >-
-    Ветвь — это параллельная версия репозитория. Она хранится в репозитории, но не влияет на ветвь первого порядка или главную ветвь, что позволяет свободно работать, не изменяя «рабочую» версию. После внесения необходимых изменений можно осуществить слияние своей ветви снова с главной ветвью для публикации сделанных изменений.
+    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
 - 
   term: ограничение ветви
   description: >-
@@ -140,7 +140,8 @@
     Краткий описательный текст, который присутствует в коммите и содержит информацию об изменении, которое вносит коммит.
 - 
   term: сравнить ветвь
-  description: Ветвь, используемая для создания запроса на включение внесенных изменений. Эта ветвь сравнивается с базовой ветвью, выбранной для запроса на включение внесенных изменений для выявления изменений. При слиянии запроса на включение внесенных изменений базовая ветвь обновляется с учетом изменений, внесенных в ветвь для сравнения. Также носит название «главная ветвь» запроса на включение внесенных изменений.
+  description: >-
+    Ветвь, используемая для создания запроса на включение внесенных изменений. Эта ветвь сравнивается с базовой ветвью, выбранной для запроса на включение внесенных изменений для выявления изменений. При слиянии запроса на включение внесенных изменений базовая ветвь обновляется с учетом изменений, внесенных в ветвь для сравнения. Также носит название «главная ветвь» запроса на включение внесенных изменений.
 - 
   term: непрерывная интеграция
   description: >-
@@ -387,9 +388,13 @@
   term: Разметка
   description: Система для аннотирования и форматирования документа.
 - 
+  term: main
+  description: >-
+    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+- 
   term: главная (ветвь)
   description: >-
-    Ветвь разработки по умолчанию. Каждый раз при создании репозитория Git создается ветвь с именем «master», которая становится активной ветвью. В большинстве случаев она содержит локальную разработку, хотя это чисто условно и необязательно.
+    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
 - 
   term: Диаграмма участников
   description: График репозитория, на котором показаны все ответвления репозитория.
@@ -417,7 +422,7 @@
   description: >-
     Дочерняя команда родительской команды. Может существовать несколько дочерних (или вложенных) команд.
 - 
-  term: Диаграмма сети
+  term: Сетевая диаграмма
   description: >-
     Диаграмма репозитория, на которой показана история ветвей всей сети репозитория, включая ветви корневого репозитория и ветви ответвлений, которые содержат уникальные для сети коммиты.
 - 

@@ -78,20 +78,6 @@ upcoming_changes:
     criticality: 重大
     owner: mikesea
   - 
-    location: RepositoryCollaboratorEdge.permission
-    description: '`permission` 的类型将从 `RepositoryPermission!` 更改为 `String`。'
-    reason: 此字段可能会返回其他值
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 重大
-    owner: oneill38
-  - 
-    location: RepositoryInvitation.permission
-    description: '`permission` 的类型将从 `RepositoryPermission!` 更改为 `String`。'
-    reason: 此字段可能会返回其他值
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 重大
-    owner: oneill38
-  - 
     location: RepositoryInvitationOrderField.INVITEE_LOGIN
     description: "`INVITEE_LOGIN` 将被删除。"
     reason: "`INVITEE_LOGIN` 不再是有效字段值。仓库邀请此时可与电子邮件关联，而不仅仅是被邀请者。"
@@ -105,13 +91,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: 重大
     owner: nholden
-  - 
-    location: TeamRepositoryEdge.permission
-    description: '`permission` 的类型将从 `RepositoryPermission!` 更改为 `String`。'
-    reason: 此字段可能会返回其他值
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 重大
-    owner: oneill38
   - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: "`isUnlicensed` 将被删除。"

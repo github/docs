@@ -66,9 +66,9 @@ The audit log lists the following information about actions made within your ent
 
 `org` 限定符可将操作限定为特定组织。 例如：
 
-* `org:my-org` 会找到在 `my-org` 组织中发生的所有事件。
+* `org:my-org` finds all events that occurred for the `my-org` organization.
 * `org:my-org action:team` 会找到在 `my-org` 组织中执行的所有团队事件。
-* `-org:my-org` 会排除在 `my-org` 组织中发生的所有事件。
+* `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
 #### 基于执行的操作搜索
 

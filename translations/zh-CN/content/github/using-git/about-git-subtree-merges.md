@@ -105,5 +105,5 @@ $ git pull -s subtree spoon-knife main
 
 ### 延伸阅读
 
-- [_Pro Git_ 书籍中的“子树合并”一章](https://git-scm.com/book/en/Git-Tools-Subtree-Merging)
+- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - "[如何使用子树合并策略](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

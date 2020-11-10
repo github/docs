@@ -16,10 +16,6 @@ versions:
 
 {% endwarning %}
 
-### 删除之前提交中添加的文件
-
-如果在之前的提交中添加了文件，则需要将其从仓库历史记录中删除。 要从仓库历史记录中删除文件，可以使用 BFG Repo-Cleaner 或 `git filter-branch` 命令。 更多信息请参阅“[从仓库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。
-
 ### 删除在最近未推送的提交中添加的文件
 
 如果文件使用最近的提交添加，而您尚未推送到 {% data variables.product.product_location %}，您可以删除文件并修改提交：
@@ -43,3 +39,7 @@ versions:
   $ git push
   # Push our rewritten, smaller commit
   ```
+
+### 删除之前提交中添加的文件
+
+如果在之前的提交中添加了文件，则需要将其从仓库历史记录中删除。 要从仓库历史记录中删除文件，可以使用 BFG Repo-Cleaner 或 `git filter-branch` 命令。 更多信息请参阅“[从仓库中删除敏感数据](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)”。

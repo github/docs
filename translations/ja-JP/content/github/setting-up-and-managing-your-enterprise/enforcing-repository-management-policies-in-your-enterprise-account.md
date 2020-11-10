@@ -6,6 +6,7 @@ redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
@@ -48,8 +49,7 @@ versions:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. [**Repository policies**] タブの [Repository invitations] で、設定変更についての情報を確認します。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. [Repository invitations] で、ドロップダウンメニューを使用してポリシーを選択します。  
-   ![外部コラボレーター招待ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+4. Under "Repository invitations", use the drop-down menu and choose a policy. ![外部コラボレーター招待ポリシーオプションのドロップダウンメニュー](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
 
 ### リポジトリの表示の変更に関するポリシーを施行する
 

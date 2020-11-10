@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_registry %} em {% data variables.product.prodname_ghe_server %} usa armazenamento externo de blob para armazenar seus pacotes. A quantidade de armazenamento necessária depende do seu uso de {% data variables.product.prodname_registry %}.
 
-No momento, {% data variables.product.prodname_registry %} é compatível com o armazenamento do blob com Amazon Web Services (AWS) S3. MinIO também é compatível, mas a configuração não está atualmente implementada na interface de {% data variables.product.product_name %}. Você pode usar o MinIO para armazenamento seguindo as instruções para AWS S3, inserindo as informações análogas para a configuração do seu MinIO.
+No momento, {% data variables.product.prodname_registry %} é compatível com o armazenamento do blob com Amazon Web Services (AWS) S3. MinIO também é compatível, mas a configuração não está atualmente implementada na interface de {% data variables.product.product_name %}. You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration.
 
 Para a melhor experiência, recomendamos o uso de um bucket dedicado para {% data variables.product.prodname_registry %}, separado do bucket usado para armazenamento para {% data variables.product.prodname_actions %}.
 

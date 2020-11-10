@@ -1,6 +1,6 @@
 ---
-title: Listing an app on GitHub Marketplace
-intro: 'Learn about requirements and best practices for listing your app on {% data variables.product.prodname_marketplace %}.'
+title: GitHub Marketplace上でのアプリケーションのリスト
+intro: 'アプリケーションを{% data variables.product.prodname_marketplace %}上でリストする際の要件とベストプラクティスについて学んでください。'
 mapTopic: true
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/

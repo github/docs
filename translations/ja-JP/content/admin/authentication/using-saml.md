@@ -29,7 +29,7 @@ versions:
 
 `NameID`要素は、他の属性が存在する場合でも必須です。
 
-`NameID`と{% data variables.product.prodname_ghe_server %}ユーザ名の間にマッピングが作成されるので、`NameID`は永続的かつ一意でなければならず、ユーザのライフサイクルを通じて変化しないことが必要です。
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 

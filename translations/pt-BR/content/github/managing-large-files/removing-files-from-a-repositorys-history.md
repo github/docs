@@ -16,10 +16,6 @@ versions:
 
 {% endwarning %}
 
-### Remover um arquivo adicionado em um commit anterior
-
-Se você adicionou um arquivo em um commit anterior, você deverá removê-lo do histórico do repositório. Para remover arquivos do histórico do repositório, você pode usar o comando BFG Repo-Cleaner ou o `git filter-branch`. Para obter mais informações, consulte "[Remover dados confidenciais de um repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
-
 ### Remover um arquivo adicionado ao commit não processado mais recente
 
 Se o arquivo foi adicionado ao commit mais recente e ainda não foi processado no {% data variables.product.product_location %}, você poderá excluir o arquivo e corrigir o commit:
@@ -43,3 +39,7 @@ Se o arquivo foi adicionado ao commit mais recente e ainda não foi processado n
   $ git push
   # Push our rewritten, smaller commit
   ```
+
+### Remover um arquivo adicionado em um commit anterior
+
+Se você adicionou um arquivo em um commit anterior, você deverá removê-lo do histórico do repositório. Para remover arquivos do histórico do repositório, você pode usar o comando BFG Repo-Cleaner ou o `git filter-branch`. Para obter mais informações, consulte "[Remover dados confidenciais de um repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
