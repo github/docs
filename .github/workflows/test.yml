@@ -73,6 +73,7 @@ jobs:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Run build script
+        if: ${{ github.repository != 'github/docs-internal' }}
         run: npm run build
 
       - name: Run tests
