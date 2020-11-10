@@ -40,6 +40,12 @@ To replace all text listed in `passwords.txt` wherever it can be found in your r
 $ bfg --replace-text passwords.txt
 ```
 
+At the end, force push the changes:
+
+```shell
+$ git push --force
+```
+
 See the [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
 
 #### Using filter-branch
