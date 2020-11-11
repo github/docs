@@ -98,6 +98,14 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
  To trigger the custom `workflow_dispatch` webhook event using the REST API, you must send a `POST` request to a {% data variables.product.prodname_dotcom %} API endpoint and provide the `ref` and any required `inputs`. For more information, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" REST API endpoint.
 
+##### Example
+
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
+
+```yaml
+on: workflow_dispatch
+```
+
 ##### Example workflow configuration
 
 This example defines the `name` and `home` inputs and prints them using the `github.event.inputs.name` and `github.event.inputs.home` contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.

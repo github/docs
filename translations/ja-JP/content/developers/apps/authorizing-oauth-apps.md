@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 ---
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
+{% data variables.product.product_name %} のOAuthの実装は、標準の[認可コード許可タイプ](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}およびWebブラウザを利用できないアプリケーションのためのOAuth 2.0の[Device Authorization Grant](https://tools.ietf.org/html/rfc8628){% endif %}をサポートしています。
 
 アプリケーションをテストする場合のように、標準的な方法でのアプリケーションの認可をスキップしたい場合には[非Webアプリケーションフロー](#non-web-application-flow)を利用できます。
 

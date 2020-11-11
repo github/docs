@@ -3,6 +3,8 @@ title: Gerenciar organizações sem proprietários na sua conta corporativa
 intro: Você pode tornar-se proprietário de uma organização na sua conta corporativa que não tem proprietários no momento.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Os proprietários da empresa podem gerenciar organizações sem proprietários em uma conta corporativa.
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

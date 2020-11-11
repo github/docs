@@ -26,6 +26,12 @@ When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in
 
 Note that `npm run build` is a one-time step that create static assets.
 
+### Using GitHub Codespaces
+
+As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces).
+
+In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
+
 ## Site structure
 
 This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.ws/), another Ruby static site generator.

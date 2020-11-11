@@ -75,8 +75,6 @@ gemをインストールするには、プロジェクトの*~/.gemrc*ファイ�
 
 To authenticate with Bundler, configure Bundler to use your personal access token, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *OWNER* with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %} Replace `REGISTRY-URL` with the URL for your instance's Rubygems registry. インスタンスで Subdomain Isolation が有効になっている場合は、`rubygems.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/rubygems` を使用します。 いずれの場合でも、 *HOSTNAME* を {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。{% endif %}
 
-{% data reusables.package_registry.lowercase-name-field %}
-
 ```shell
 $ bundle config https://{% if currentVersion == "free-pro-team@latest" %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/<em>OWNER USERNAME:TOKEN</em>
 ```

@@ -83,7 +83,7 @@ versions:
 #### 对包注册表的支持
 
 {% if currentVersion == "free-pro-team@latest" %}
-包注册表使用 `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 作为包主机 URL，用包命名空间替换 `PACKAGE-TYPE`。 例如，Gemfile 将托管在 `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 上。
+包注册表使用 `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 作为包主机 URL，用包命名空间替换 `PACKAGE-TYPE`。 例如，Gemfile 将托管在 `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 上。
 
 {% else %}
 
@@ -98,8 +98,8 @@ versions:
 | ---------- | ---------------------- | ----------------------------------- | ------------ | ----------------------------------------------------- |
 | JavaScript | 节点包管理器                 | `package.json`                      | `npm`        | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | RubyGems 包管理器          | `Gemfile`                           | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Apache Maven 项目管理和理解工具 | `pom.xml`                           | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Java 的 Gradle 构建自动化工具  | `build.gradle` 或 `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Apache Maven 项目管理和理解工具 | `pom.xml`                           | `mvn`        | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java 的 Gradle 构建自动化工具  | `build.gradle` 或 `build.gradle.kts` | `gradle`     | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | .NET 的 NuGet 包管理       | `nupkg`                             | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
@@ -161,15 +161,15 @@ versions:
 要安装或发布包，您必须使用具有适当作用域的令牌，并且您的用户帐户必须对该仓库具有适当的权限。
 
 例如：
--  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须对该仓库具有读取权限。 如果是私有仓库，您的令牌还必须具有 `repo` 作用域。
+-  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须对该仓库具有读取权限。
 - 要在 {% data variables.product.product_name %} 上删除私有包的特定版本，您的令牌必须具有 `delete:packages` 和 `repo` 作用域。 公共包无法删除。 更多信息请参阅“[删除包](/packages/publishing-and-managing-packages/deleting-a-package)”。
 
-| 作用域               | 描述                                                                         | 仓库权限      |
-| ----------------- | -------------------------------------------------------------------------- | --------- |
-| `read:packages`   | 从 {% data variables.product.prodname_registry %} 下载和安装包                    | 读取        |
-| `write:packages`  | 将包上传和发布到 {% data variables.product.prodname_registry %}                    | 写入        |
-| `delete:packages` | 从 {% data variables.product.prodname_registry %} 删除私有包的特定版本                | 管理员       |
-| `repo`            | 安装、上传和删除私有仓库中的某些包（对应 `read:packages`、`write:packages` 或 `delete:packages`） | 读取、写入或管理员 |
+| 作用域               | 描述                                                                             | 仓库权限            |
+| ----------------- | ------------------------------------------------------------------------------ | --------------- |
+| `read:packages`   | 从 {% data variables.product.prodname_registry %} 下载和安装包                        | 读取              |
+| `write:packages`  | 将包上传和发布到 {% data variables.product.prodname_registry %}                        | 写入              |
+| `delete:packages` | 从 {% data variables.product.prodname_registry %} 删除私有包的特定版本                    | 管理员             |
+| `repo`            | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 创建 {% data variables.product.prodname_actions %} 工作流程时，您可以使用 `GITHUB_TOKEN` 发布和安装 {% data variables.product.prodname_registry %} 中的包，无需存储和管理个人访问令牌。
 
