@@ -7,11 +7,11 @@ jobs:
   stale:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/stale@v3
+    - uses: actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }} 
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-pr-message: 'This PR is stale because it has been open 7 days with no activity and will be automatically closed in 3 days. To keep this PR open, update the PR by adding a comment or pushing a commit.'
         days-before-stale: 7
         days-before-close: 10

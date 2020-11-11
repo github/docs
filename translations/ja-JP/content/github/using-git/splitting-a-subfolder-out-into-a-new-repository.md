@@ -7,6 +7,7 @@ intro: Git リポジトリ内のフォルダを、全く新しいリポジトリ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリの新しいクローンを作成した場合でも、フォルダを別のリポジトリに分割したとき、Git の履歴や変更を失うことはありません。

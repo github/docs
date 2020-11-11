@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Issues oder Pull Requests kannst Du zu Deinem Projektboard hinzufügen, indem Du:
@@ -54,15 +55,8 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
 1. Klicke rechts neben einem Issue oder Pull Request auf **Projects {% octicon "gear" aria-label="The Gear icon" %}** (Projekte). ![Projektboard-Schaltfläche in Seitenleiste](/assets/images/help/projects/sidebar-project.png)
 2. Klicke auf die Registerkarte **Recent** (Zuletzt verwendet), **Repository** (Repository),**User** (Benutzer) oder **Organization** (Organisation) für das Projektboard, zu dem Du etwas hinzufügen möchtest. ![Registerkarten „Recent“ (Zuletzt verwendet), „Repository“ (Repository) und „Organization“ (Organisation)](/assets/images/help/projects/sidebar-project-tabs.png)
 3. Gib den Namen des Projekts in das Feld **Filter projects** (Projekte filtern) ein. ![Projektboard-Suchfeld](/assets/images/help/projects/sidebar-search-project.png)
-4. Wähle mindestens ein Projektboard aus, das Du zum Issue oder Pull Request hinzufügen möchten. ![Ausgewähltes Projektboard](/assets/images/help/projects/sidebar-select-project.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-5. Click
-{% octicon "triangle-down" aria-label="The down triangle icon" %}, then click the column where you want your issue or pull request. Das Ticket wird unten in der ausgewählten Projektboard-Spalte platziert.
-  ![Menü „Move card to column“ (Ticket in Spalte verschieben)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
-{% else %}
-5. Klicke rechts neben dem Issue oder Pull Request auf **PROJECT-BOARD-NAME (awaiting triage)** (PROJEKTBOARD-NAME (Einteilung ausstehend)). ![Link zum Projektboard](/assets/images/help/projects/sidebar-project-board-link.png)
-6. Klicke im Projektboard auf **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)** (Tickets hinzufügen (1 neu)). ![Schaltfläche „Add cards“ (Tickets hinzufügen)](/assets/images/help/projects/add-cards-pending-button.png)
-7. Ziehe das Ticket für den Issue oder Pull Request per Drag-and-Drop aus dem Bereich **Triage** (Einteilung) in die gewünschte Spalte im Projektboard. Alternativ kannst Du die Tickets auch mithilfe von Tastenkürzeln verschieben. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-{% endif %}
+4. Select one or more project boards where you want to add the issue or pull request. ![Ausgewähltes Projektboard](/assets/images/help/projects/sidebar-select-project.png)
+5. Klicke auf {% octicon "triangle-down" aria-label="The down triangle icon" %} und anschließend auf die Spalte, die den Issue oder Pull Request enthalten soll. Das Ticket wird unten in der ausgewählten Projektboard-Spalte platziert. ![Menü „Move card to column“ (Ticket in Spalte verschieben)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ### Weiterführende Informationen
 

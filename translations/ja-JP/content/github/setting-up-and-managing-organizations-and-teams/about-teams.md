@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Organization 内の Team のリスト](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,9 +20,9 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 
 ![Team のメンションの画像](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-また、LDAP Sync を使って {% data variables.product.product_location_enterprise %}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location_enterprise %}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
+また、LDAP Sync を使って {% data variables.product.product_location %}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location %}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 
 {% endif %}
 
@@ -55,11 +56,7 @@ Organization のメンバーは、Team 内のディスカッションを作成�
 
 Team を作るときには親を選択できます。あるいは、作成済みの Team を Organization の階層の中で移動させることもできます。 詳しい情報については[Organization 階層内での Team の移動](/articles/moving-a-team-in-your-organization-s-hierarchy)を参照してください。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
-
-{% endif %}
 
 ### Organization 内で Team を入れ子にする準備
 

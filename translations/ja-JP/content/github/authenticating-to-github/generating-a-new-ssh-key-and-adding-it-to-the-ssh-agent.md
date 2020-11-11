@@ -1,6 +1,6 @@
 ---
 title: 新しい SSH キーを生成して ssh-agent に追加する
-intro: 既存の SSH キーをチェックした後、新しい SSH キーを生成して認証に使用し、ssh-agent に追加できます。
+intro: '既存の SSH キーをチェックした後、新しい SSH キーを生成して認証に使用し、ssh-agent に追加できます。'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
   - /articles/generating-a-new-ssh-key/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH キーをまだお持ちでない場合は、[新しい SSH キーを生成](#generating-a-new-ssh-key)する必要があります。 SSH キーを持っているかどうかわからない場合は、[既存のキー](/articles/checking-for-existing-ssh-keys)をチェックします。
@@ -19,18 +20,26 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 以下のテキストを貼り付けます。メールアドレスは自分の {% data variables.product.product_name %} メールアドレスに置き換えてください。
   ```shell
-  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
+  {% note %}
+
+  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  ```shell
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+  ```
+
+  {% endnote %}
   これにより、入力したメールアドレスをラベルとして使用して新しい SSH キーが作成されます。
   ```shell
-  > Generating public/private rsa key pair.
+  > Generating public/private ed25519 key pair.
   ```
 3. 「Enter a file in which to save the key」というメッセージが表示されたら、Enter キーを押します。 これにより、デフォルトのファイル場所が受け入れられます。
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -38,7 +47,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_rsa):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -46,7 +55,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endlinux %}
@@ -80,18 +89,18 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
       $ touch ~/.ssh/config
       ```
 
-    * `~/.ssh/config` ファイルを開いてファイルを変更し、`id_rsa` キーのデフォルトの場所と名前を使用していない場合は `~/.ssh/id_rsa` を置き換えます。
+    * Open your `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
 
       ```
       Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_rsa
+        IdentityFile ~/.ssh/id_ed25519
       ```
 
 3. SSH 秘密鍵を ssh-agent に追加して、パスフレーズをキーチェーンに保存します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
-   $ ssh-add -K ~/.ssh/id_rsa
+   $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 

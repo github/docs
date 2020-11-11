@@ -1,6 +1,6 @@
 ---
 title: 阻止用户访问您的个人帐户
-intro: 您可以阻止用户以拒绝他们访问您的活动和仓库，以及阻止他们向您发送通知。
+intro: '您可以阻止用户以拒绝他们访问您的活动和仓库，以及阻止他们向您发送通知。'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
@@ -20,6 +20,7 @@ versions:
 您阻止用户后：
 - 该用户停止关注您
 - 该用户停止关注并取消固定您的仓库
+- The user is not able to join any organizations you are an owner of
 - 该用户的星标和议题分配从您的仓库中删除
 - 该用户对您的仓库的复刻被删除
 - 您删除用户仓库的任何复刻
@@ -38,7 +39,7 @@ versions:
 - 关注您或在其活动馈送中查看您的内容
 - 将您分配到议题或拉取请求
 - 邀请您成为其仓库的协作者
-- Invite you as a collaborator on a security advisory
+- 邀请您作为安全通告的协作者
 - 在评论中交叉引用您的仓库
 - 复刻、关注、固定您的仓库或对其标星
 - 赞助您

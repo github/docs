@@ -1,20 +1,19 @@
 name: Start new engineering PR workflow
 
 on: 
-  pull_request: 
+  pull_request_target:
     types: [opened, reopened]
     
 jobs:
   triage:
-    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
       DRAFT_COLUMN_ID: 10095775
       REGULAR_COLUMN_ID: 10095779
     steps:
-    - name: 
-      uses: actions/github-script@v2
+    - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+      continue-on-error: true
       with:
           github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
           script: |

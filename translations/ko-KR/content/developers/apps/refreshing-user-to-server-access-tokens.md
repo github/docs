@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 
@@ -28,10 +29,10 @@ This callback request will send you a new access token and a new refresh token. 
 
 #### 매개변수
 
-| 이름              | 유형    | 설명                                                                                                                                                                    |
-| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 이름              | 유형    | 설명                                                                                                                                                               |
+| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refresh_token` | `문자열` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token. |
-| `grant_type`    | `문자열` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                                    |
+| `grant_type`    | `문자열` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                               |
 | `client_id`     | `문자열` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.                                                                        |
 | `client_secret` | `문자열` | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.                                                                    |
 

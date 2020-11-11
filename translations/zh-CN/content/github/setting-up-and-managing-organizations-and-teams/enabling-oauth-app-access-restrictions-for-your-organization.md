@@ -1,6 +1,6 @@
 ---
 title: 对组织启用 OAuth App 访问限制
-intro: '组织所有者可启用 {% data variables.product.prodname_oauth_app %} 访问限制，以便在组织成员于其个人帐户上使用允许 {% data variables.product.prodname_oauth_app %} 的同时，防止不受信任的应用程序访问组织的资源。'
+intro: '组织所有者可启用 {% data variables.product.prodname_oauth_app %} 访问限制，以便在组织成员在其个人账户上使用允许 {% data variables.product.prodname_oauth_app %} 的同时，防止不受信任的应用程序访问组织的资源。'
 redirect_from:
   - /articles/enabling-third-party-application-restrictions-for-your-organization/
   - /articles/enabling-oauth-app-access-restrictions-for-your-organization
@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**Warnings**:
+**警告**：
 - 启用 {% data variables.product.prodname_oauth_app %} 访问限制将撤销对所有之前已授权 {% data variables.product.prodname_oauth_app %} 和 SSH 密钥的组织访问权限。 更多信息请参阅“[关于 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/about-oauth-app-access-restrictions)”。
 - 在设置 {% data variables.product.prodname_oauth_app %} 访问限制后，确保重新授权任何需要持续访问组织私有数据的 {% data variables.product.prodname_oauth_app %}。 所有组织成员将需要创建新的 SSH 密钥，并且组织将需要根据需要创建新的部署密钥。
 - 启用 {% data variables.product.prodname_oauth_app %} 访问限制后，应用程序可以使用 OAuth 令牌访问有关 {% data variables.product.prodname_marketplace %} 事务的信息。

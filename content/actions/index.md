@@ -2,15 +2,37 @@
 title: GitHub Actions Documentation
 shortTitle: GitHub Actions
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
-gettingStartedLinks:
-  - /actions/quickstart
-  - /actions/learn-github-actions
-guideLinks:
-  - /actions/managing-workflow-runs
-  - /actions/hosting-your-own-runners
-popularLinks:
-  - /actions/reference/workflow-syntax-for-github-actions
-  - /actions/reference/events-that-trigger-workflows
+introLinks:
+  quickstart: /actions/quickstart
+  reference: /actions/reference
+featuredLinks:
+  guides:
+    - /actions/learn-github-actions
+    - /actions/guides/about-continuous-integration
+    - /actions/guides/about-packaging-with-github-actions
+  gettingStarted:
+    - /actions/managing-workflow-runs
+    - /actions/hosting-your-own-runners
+  popular:
+    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/reference/events-that-trigger-workflows
+    - /actions/learn-github-actions
+    - /actions/reference/context-and-expression-syntax-for-github-actions
+    - /actions/reference/workflow-commands-for-github-actions
+    - /actions/reference/environment-variables
+changelog:
+  - title: Self-Hosted Runner Group Access Changes
+    date: '2020-10-16'
+    href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
+  - title: Ability to change retention days for artifacts and logs
+    date: '2020-10-08'
+    href: https://github.blog/changelog/2020-10-08-github-actions-ability-to-change-retention-days-for-artifacts-and-logs
+  - title: Deprecating set-env and add-path commands
+    date: '2020-10-01'
+    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands
+  - title: Fine-tune access to external actions
+    date: '2020-10-01'
+    href: https://github.blog/changelog/2020-10-01-github-actions-fine-tune-access-to-external-actions
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -32,69 +54,9 @@ versions:
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 
-<!-- Article links -->
-<div class="d-lg-flex gutter my-6 py-6">
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in gettingStartedLinks %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in popularLinks %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Manage workflows</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in guideLinks %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-<!-- Featured resources -->
-<div class="d-lg-flex gutter-lg my-6 py-6 text-center flex-items-stretch">
-  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-    <a href="/actions/creating-actions" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-blue text-white">{% octicon "bookmark" width="24" %}</div></div>
-      <h4>Create actions</h4>
-      <p class="mb-0">A complete guide to creating and sharing actions with the community.</p>
-    </a>
-  </div>
-  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-    <a href="https://github.com/actions/starter-workflows" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-purple text-white">{% octicon "rocket" width="24" %}</div></div>
-      <h4>Starter workflows</h4>
-      <p class="mb-0">A collection of workflow files to help you get started with GitHub Actions.</p>
-    </a>
-  </div>
-  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
-    <a href="https://github.com/marketplace?type=actions" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-orange text-white">{% octicon "light-bulb" width="24" %}</div></div>
-      <h4>GitHub Actions Marketplace</h4>
-      <p class="mb-0">Explore community actions and supercharge your workflow.</p>
-    </a>
-  </div>
-</div>
-
 <!-- Code examples -->
-<div class="mt-6 pt-6">
-  <h2 class="mb-2">Guides</h2>
+<div class="my-6 pt-6">
+  <h2 class="mb-2">More guides</h2>
 
   <div class="d-flex flex-wrap gutter">
     <div class="col-12 col-lg-4 mb-4">
@@ -183,7 +145,7 @@ versions:
           <h4>Publishing Node.js packages</h4>
           <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
           <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
+            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
             <span class="IssueLabel text-white bg-blue mr-2">CI</span>
           </div>
         </div>
@@ -195,5 +157,5 @@ versions:
     </div>
   </div>
 
-  <a href="/actions/guides" class="btn btn-outline mt-4">More guides {% octicon "arrow-right" %}</a>
+  <a href="/actions/guides" class="btn btn-outline mt-4">Show all guides {% octicon "arrow-right" %}</a>
 </div>

@@ -1,9 +1,9 @@
-2. At the top of the comment, click **edited** to open the edit history.
+2. Na parte superior do comentário, clique em **editado** para abrir o histórico de edição.
 
       {% note %}
 
-      **Note:** If you don't see the **edited** option, then the comment doesn't have an edit history.
+      **Nota:** Se você não vir a opção **editado**, significa que o comentário não tem um histórico de edição.
 
       {% endnote %}
 
-3. To view the details of a specific change, select it from the list of edits. ![View edit details for comment](/assets/images/help/repository/choose-comment-edit-to-expand.png)
+3. Para visualizar as informações de uma alteração específica, selecione-as na lista de edições. ![Ver as informações e edição para comentário](/assets/images/help/repository/choose-comment-edit-to-expand.png)

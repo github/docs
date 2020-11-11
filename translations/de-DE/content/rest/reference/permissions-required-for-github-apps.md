@@ -2,10 +2,11 @@
 title: Permissions required for GitHub Apps
 intro: 'You can find the required permissions for each {% data variables.product.prodname_github_app %}-compatible endpoint.'
 redirect_from:
-  - /v3/apps/permissions ---
+  - /v3/apps/permissions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About {% data variables.product.prodname_github_app %} permissions
@@ -18,12 +19,11 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 
 {% data reusables.apps.metadata-permissions %}
 
-
 - [`GET /`](/v3/#root-endpoint)
 - [`GET /codes_of_conduct`](/v3/codes_of_conduct/#get-all-codes-of-conduct)
 - [`GET /codes_of_conduct/:key`](/v3/codes_of_conduct/#get-a-code-of-conduct)
 - [`GET /emojis`](/v3/emojis/#emojis)
-- [`GET /feeds`](/v3/activity/feeds/#get-feeds)
+- [`GET /feeds`](/rest/reference/activity#get-feeds)
 - [`GET /licenses`](/v3/licenses/#get-all-commonly-used-licenses)
 - [`GET /licenses/:key`](/v3/licenses/#get-a-license)
 - [`POST /markdown`](/v3/markdown/#render-a-markdown-document)
@@ -39,22 +39,22 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 - [`GET /repos/:owner/:repo/community/profile`](/v3/repos/community/#get-community-profile-metrics)
 {% endif %}
 - [`GET /repos/:owner/:repo/contributors`](/v3/repos/#list-repository-contributors)
-- [`GET /repos/:owner/:repo/forks`](/v3/repos/forks/#list-forks)
+- [`GET /repos/:owner/:repo/forks`](/rest/reference/repos#list-forks)
 - [`GET /repos/:owner/:repo/languages`](/v3/repos/#list-repository-languages)
 - [`GET /repos/:owner/:repo/license`](/v3/licenses/#get-the-license-for-a-repository)
-- [`GET /repos/:owner/:repo/stargazers`](/v3/activity/starring/#list-stargazers)
+- [`GET /repos/:owner/:repo/stargazers`](/rest/reference/activity#list-stargazers)
 - [`GET /repos/:owner/:repo/stats/code_frequency`](/v3/repos/statistics/#get-the-weekly-commit-activity)
 - [`GET /repos/:owner/:repo/stats/commit_activity`](/v3/repos/statistics/#get-the-last-year-of-commit-activity)
 - [`GET /repos/:owner/:repo/stats/contributors`](/v3/repos/statistics/#get-all-contributor-commit-activity)
 - [`GET /repos/:owner/:repo/stats/participation`](/v3/repos/statistics/#get-the-weekly-commit-count)
 - [`GET /repos/:owner/:repo/stats/punch_card`](/v3/repos/statistics/#get-the-hourly-commit-count-for-each-day)
-- [`GET /repos/:owner/:repo/subscribers`](/v3/activity/watching/#list-watchers)
+- [`GET /repos/:owner/:repo/subscribers`](/rest/reference/activity#list-watchers)
 - [`GET /repos/:owner/:repo/tags`](/v3/repos/#list-repository-tags)
 - [`GET /repos/:owner/:repo/topics`](/v3/repos#get-all-repository-topics)
 - [`GET /repositories`](/v3/repos/#list-public-repositories)
 - [`GET /user/repos`](/v3/repos/#list-repositories-for-the-authenticated-user)
-- [`GET /user/starred`](/v3/activity/starring/#list-repositories-starred-by-a-user)
-- [`GET /user/subscriptions`](/v3/activity/watching/#list-repositories-watched-by-a-user)
+- [`GET /user/starred`](/rest/reference/activity#list-repositories-starred-by-a-user)
+- [`GET /user/subscriptions`](/rest/reference/activity#list-repositories-watched-by-a-user)
 - [`GET /users`](/v3/users/#list-users)
 - [`GET /users/:username`](/v3/users/#get-a-user)
 - [`GET /users/:username/followers`](/v3/users/followers/#list-followers-of-a-user)
@@ -62,10 +62,10 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 - [`GET /users/:username/following/:target_user`](/v3/users/followers/#check-if-a-user-follows-another-user)
 - [`GET /users/:username/gpg_keys`](/v3/users/gpg_keys/#list-gpg-keys-for-a-user)
 - [`GET /users/:username/orgs`](/v3/orgs/#list-organizations-for-a-user)
-- [`GET /users/:username/received_events`](/v3/activity/events/#list-events-received-by-the-authenticated-user)
-- [`GET /users/:username/received_events/public`](/v3/activity/events/#list-public-events-received-by-a-user)
+- [`GET /users/:username/received_events`](/rest/reference/activity#list-events-received-by-the-authenticated-user)
+- [`GET /users/:username/received_events/public`](/rest/reference/activity#list-public-events-received-by-a-user)
 - [`GET /users/:username/repos`](/v3/repos/#list-repositories-for-a-user)
-- [`GET /users/:username/subscriptions`](/v3/activity/watching/#list-repositories-watched-by-a-user)
+- [`GET /users/:username/subscriptions`](/rest/reference/activity#list-repositories-watched-by-a-user)
 
 _Mitarbeiter_
 - [`GET /repos/:owner/:repo/collaborators`](/v3/repos/collaborators/#list-repository-collaborators)
@@ -78,12 +78,12 @@ _Commit-Kommentare_
 - [`GET /repos/:owner/:repo/commits/:sha/comments`](/v3/repos/comments/#list-commit-comments)
 
 _Ereignisse_
-- [`GET /events`](/v3/activity/events/#list-public-events)
-- [`GET /networks/:owner/:repo/events`](/v3/activity/events/#list-public-events-for-a-network-of-repositories)
-- [`GET /orgs/:org/events`](/v3/activity/events/#list-public-organization-events)
-- [`GET /repos/:owner/:repo/events`](/v3/activity/events/#list-repository-events)
-- [`GET /users/:username/events`](/v3/activity/events/#list-events-for-the-authenticated-user)
-- [`GET /users/:username/events/public`](/v3/activity/events/#list-public-events-for-a-user)
+- [`GET /events`](/rest/reference/activity#list-public-events)
+- [`GET /networks/:owner/:repo/events`](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
+- [`GET /orgs/:org/events`](/rest/reference/activity#list-public-organization-events)
+- [`GET /repos/:owner/:repo/events`](/rest/reference/activity#list-repository-events)
+- [`GET /users/:username/events`](/rest/reference/activity#list-events-for-the-authenticated-user)
+- [`GET /users/:username/events/public`](/rest/reference/activity#list-public-events-for-a-user)
 
 _Git_
 - [`GET /gitignore/templates`](/v3/gitignore/#get-all-gitignore-templates)
@@ -169,7 +169,6 @@ _Suche_
 {% if currentVersion == "free-pro-team@latest" %}
 - [`DELETE /repos/:owner/:repo/vulnerability-alerts`](/v3/repos/#disable-vulnerability-alerts) (:write)
 {% endif %}
-- [`POST /user/repos`](/v3/repos/#create-a-repository-for-the-authenticated-user) (:write)
 - [`PATCH /user/repository_invitations/:invitation_id`](/v3/repos/invitations/#accept-a-repository-invitation) (:write)
 - [`DELETE /user/repository_invitations/:invitation_id`](/v3/repos/invitations/#decline-a-repository-invitation) (:write)
 
@@ -187,7 +186,7 @@ _Branches_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/required_signatures`](/v3/repos/branches/#create-commit-signature-protection) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/required_signatures`](/v3/repos/branches/#delete-commit-signature-protection) (:write)
 - [`GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#get-status-checks-protection) (:read)
-- [`PATCH /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#update-status-check-potection) (:write)
+- [`PATCH /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#update-status-check-protection) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#remove-status-check-protection) (:write)
 - [`GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts`](/v3/repos/branches/#get-all-status-check-contexts) (:read)
 - [`POST /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts`](/v3/repos/branches/#add-status-check-contexts) (:write)
@@ -333,7 +332,7 @@ _Traffic_
 - [`GET /repos/:owner/:repo/community/code_of_conduct`](/v3/codes_of_conduct/#get-the-code-of-conduct-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/compare/:base...:head`](/v3/repos/commits/#compare-two-commits) (:read)
 - [`GET /repos/:owner/:repo/contents/:path`](/v3/repos/contents/#get-repository-content) (:read)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`POST /repos/:owner/:repo/dispatches`](/v3/repos/#create-a-repository-dispatch-event) (:write)
 {% endif %}
 - [`POST /repos/:owner/:repo/forks`](/v3/repos/forks/#create-a-fork) (:read)
@@ -344,12 +343,10 @@ _Traffic_
 _Branches_
 - [`GET /repos/:owner/:repo/branches`](/v3/repos/branches/#list-branches) (:read)
 - [`GET /repos/:owner/:repo/branches/:branch`](/v3/repos/branches/#get-a-branch) (:read)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 - [`GET /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#list-apps-with-access-to-the-protected-branch) (:write)
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#add-app-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#set-app-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#remove-user-access-restrictions) (:write)
-{% endif %}
 
 _Commit-Kommentare_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/v3/repos/comments/#update-a-commit-comment) (:write)
@@ -363,13 +360,8 @@ _Git_
 - [`POST /repos/:owner/:repo/git/commits`](/v3/git/commits/#create-a-commit) (:write)
 - [`GET /repos/:owner/:repo/git/commits/:commit_id`](/v3/git/commits/#get-a-commit) (:read)
 - [`POST /repos/:owner/:repo/git/refs`](/v3/git/refs/#create-a-reference) (:write)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- [`GET /repos/:owner/:repo/git/refs/:ref`](/v3/git/refs/#get-a-reference) (:read)
-- [`GET /repos/:owner/:repo/git/refs`](/v3/git/refs/#list-references) (:read)
-{% else %}
 - [`GET /repos/:owner/:repo/git/ref/:ref`](/v3/git/refs/#get-a-reference) (:read)
 - [`GET /repos/:owner/:repo/git/matching-refs/:ref`](/v3/git/refs/#list-matching-references) (:read)
-{% endif %}
 - [`PATCH /repos/:owner/:repo/git/refs/:ref`](/v3/git/refs/#update-a-reference) (:write)
 - [`DELETE /repos/:owner/:repo/git/refs/:ref`](/v3/git/refs/#delete-a-reference) (:write)
 - [`POST /repos/:owner/:repo/git/tags`](/v3/git/tags/#create-a-tag-object) (:write)
@@ -391,8 +383,8 @@ _importieren_
 
 _Reactions_
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write){% else %}- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction) (:write){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write){% else %}- [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction) (:write){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-comment-reaction) (:write)
@@ -417,12 +409,13 @@ _Veröffentlichungen_
 
 - [`GET /repos/:owner/:repo/deployments`](/v3/repos/deployments/#list-deployments) (:read)
 - [`POST /repos/:owner/:repo/deployments`](/v3/repos/deployments/#create-a-deployment) (:write)
-- [`GET /repos/:owner/:repo/deployments/:deployment_id`](/v3/repos/deployments/#get-a-deployment) (:read){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- [`GET /repos/:owner/:repo/deployments/:deployment_id`](/rest/reference/repos#get-a-deployment) (:read){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /repos/:owner/:repo/deployments/:deployment_id`](/v3/repos/deployments/#delete-a-deployment) (:write){% endif %}
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses`](/v3/repos/deployments/#list-deployment-statuses) (:read)
 - [`POST /repos/:owner/:repo/deployments/:deployment_id/statuses`](/v3/repos/deployments/#create-a-deployment-status) (:write)
 - [`GET /repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id`](/v3/repos/deployments/#get-a-deployment-status) (:read)
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### Permission on "emails"
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -432,6 +425,7 @@ _Veröffentlichungen_
 - [`POST /user/emails`](/v3/users/emails/#add-an-email-address-for-the-authenticated-user) (:write)
 - [`DELETE /user/emails`](/v3/users/emails/#delete-an-email-address-for-the-authenticated-user) (:write)
 - [`GET /user/public_emails`](/v3/users/emails/#list-public-email-addresses-for-the-authenticated-user) (:read)
+{% endif %}
 
 ### Permission on "followers"
 
@@ -505,7 +499,7 @@ _Reactions_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/v3/reactions/#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/issues/:issue_number/reactions`](/v3/reactions/#list-reactions-for-an-issue) (:read)
 - [`POST /repos/:owner/:repo/issues/:issue_number/reactions`](/v3/reactions/#create-reaction-for-an-issue) (:write)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-reaction) (:write)
@@ -586,12 +580,12 @@ _Teams_
 - [`GET /orgs/:org/teams`](/v3/teams/#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/v3/teams/#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/v3/teams/#get-a-team-by-name) (:read)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 - [`GET /teams/:team_id`](/v3/teams/#get-a-team) (:read)
 {% endif %}
 - [`PATCH /teams/:team_id`](/v3/teams/#update-a-team) (:write)
 - [`DELETE /teams/:team_id`](/v3/teams/#delete-a-team) (:write)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`GET /teams/:team_id/projects`](/v3/teams/#list-team-projects) (:read)
 - [`GET /teams/:team_id/projects/:project_id`](/v3/teams/#check-team-permissions-for-a-project) (:read)
 - [`PUT /teams/:team_id/projects/:project_id`](/v3/teams/#add-or-update-team-project-permissions) (:read)
@@ -628,7 +622,7 @@ _Teams_
 _Teams_
 - [`DELETE /teams/:team_id/projects/:project_id`](/v3/teams/#remove-a-project-from-a-team) (:read)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### Permission on "organization pre receive hooks"
 
 - [`GET /orgs/:org/pre-receive-hooks`](/v3/enterprise-admin/org_pre_receive_hooks/#list-pre-receive-hooks-for-an-organization) (:read)
@@ -742,7 +736,7 @@ _Reactions_
 - [`POST /repos/:owner/:repo/issues/comments/:comment_id/reactions`](/v3/reactions/#create-reaction-for-an-issue-comment) (:write)
 - [`GET /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/v3/reactions/#list-reactions-for-a-pull-request-review-comment) (:read)
 - [`POST /repos/:owner/:repo/pulls/comments/:comment_id/reactions`](/v3/reactions/#create-reaction-for-a-pull-request-review-comment) (:write)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - [`DELETE /reactions/:reaction_id`](/v3/reactions/#delete-a-reaction-legacy) (:write)
 - [`DELETE /repos/:owner/:repo/comments/:comment_id/reactions/:reaction_id`](/v3/reactions/#delete-a-commit-comment-reaction) (:write)
 - [`DELETE /repos/:owner/:repo/issues/:issue_number/reactions/:reaction_id`](/v3/reactions/#delete-an-issue-reaction) (:write)
@@ -775,7 +769,7 @@ _Reviews_
 - [`POST /repos/:owner/:repo/hooks/:hook_id/pings`](/v3/repos/hooks/#ping-a-repository-webhook) (:read)
 - [`POST /repos/:owner/:repo/hooks/:hook_id/tests`](/v3/repos/hooks/#test-the-push-repository-webhook) (:read)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### Permission on "repository pre receive hooks"
 
 - [`GET /repos/:owner/:repo/pre-receive-hooks`](/v3/enterprise-admin/repo_pre_receive_hooks/#list-pre-receive-hooks-for-a-repository) (:read)

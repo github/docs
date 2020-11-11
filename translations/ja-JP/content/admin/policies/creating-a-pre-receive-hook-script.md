@@ -54,11 +54,11 @@ pre-receiveスクリプトの`終了ステータス`は、プッシュが受け�
 | $GITHUB_REPO_PUBLIC                 | 論理値で、`true` ならパブリックリポジトリを、`false` ならプライベートリポジトリを示す。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | $GITHUB_PUBLIC_KEY_FINGERPRINT      | ユーザの公開鍵のフィンガープリント。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | $GITHUB_PULL_REQUEST_HEAD           | PR の HEAD に対する `user:branch` という形式の文字列。<br>例: `octocat:fix-bug`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| $GITHUB_PULL_REQUEST_BASE           | A string in the format: `user:branch` for the BASE of the PR.<br> Example: `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| $GITHUB_PULL_REQUEST_BASE           | PR の BASE に対する `user:branch` という形式の文字列。<br>例: `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | $GITHUB_VIA                           | ref の作成に使われた方式。<br>**取り得る値: **<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | クライアントによって送信されたプッシュオプション数。 プッシュオプションに関する詳しい情報については、Gitのドキュメンテーションの[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)を参照してください。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | $GIT_PUSH_OPTION_N                  | ここで <em>N</em> は 0 から始まる整数で、この変数にはクライアントから送信されたプッシュオプションの文字列が含まれます。 送信された最初のオプションはGIT_PUSH_OPTION_0に保存され、2番目のオプションはGIT_PUSH_OPTION_1に保存され、といったようになります。 プッシュオプションに関する詳しい情報については、Gitのドキュメンテーションの[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)を参照してください。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
+| $GIT_USER_AGENT                     | 変更をプッシュしたクライアントから送信されたユーザエージェント文字列型。 |{% endif %}
 
 ### 権限の設定と {% data variables.product.prodname_ghe_server %} への pre-receive フックのプッシュ
 
@@ -102,8 +102,8 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
       adduser git -D -G root -h /home/git -s /bin/bash && \
       passwd -d git && \
       su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P '' && \
-      mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
       mkdir /home/git/test.git && \
       git --bare init /home/git/test.git"
 
@@ -135,7 +135,7 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > Sending build context to Docker daemon 3.584 kB
    > Step 1 : FROM gliderlabs/alpine:3.3
    >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P ' && mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
+   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
    >  ---> Running in e9d79ab3b92c
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -143,9 +143,9 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > OK: 34 MiB in 26 packages
    > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
    > Password for git changed by root
-   > Generating public/private rsa key pair.
-   > Your identification has been saved in /home/git/.ssh/id_rsa.
-   > Your public key has been saved in /home/git/.ssh/id_rsa.pub.
+   > Generating public/private ed25519 key pair.
+   > Your identification has been saved in /home/git/.ssh/id_ed25519.
+   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
    ....出力を省略....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
@@ -173,7 +173,7 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
 9. 生成された SSH キーをデータコンテナからローカルマシンにコピーしてください:
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_rsa .
+   $ docker cp data:/home/git/.ssh/id_ed25519 .
   ```
 
 10. テストリポジトリのリモートを修正して、Docker コンテナ内の `test.git` リポジトリにプッシュしてください。 この例では `git@github.com:octocat/Hello-World.git` を使っていますが、どのリポジトリを使ってもかまいません。 この例ではローカルマシン (127.0.0.1) がポート 52311 をバインドしているものとしていますが、docker がリモートマシンで動作しているなら異なる IP アドレスを使うことができます。
@@ -182,7 +182,7 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test master
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -191,7 +191,7 @@ pre-receive フックスクリプトは、{% data variables.product.prodname_ghe
    > Total 7 (delta 0), reused 7 (delta 0)
    > remote: error: rejecting all pushes
    > To git@192.168.99.100:test.git
-   >  ! [remote rejected] master -> master (pre-receive hook declined)
+   >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
   ```
 

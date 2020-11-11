@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索代码，也可以在特定仓库或组织内搜索代码。 要在所有公共仓库内搜索代码，您必须登录到 {% data variables.product.product_name %} 帐户。 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。
@@ -101,5 +102,5 @@ versions:
 ### 延伸阅读
 
 - “[排序搜索结果](/articles/sorting-search-results/)”
-- "[在复刻中搜索](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Searching in forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在 {% data variables.product.prodname_dotcom %} 上导航代码](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

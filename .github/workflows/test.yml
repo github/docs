@@ -3,6 +3,7 @@
 name: Node.js Tests
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -14,51 +15,35 @@ env:
   CI: true
 
 jobs:
-  lint:
+  see_if_should_skip:
+    continue-on-error: true
     runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
     steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v1
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289
         with:
-          node-version: 14.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run linter
-        run: npx standard
-
-      - name: Check dependencies
-        run: npm run check-deps
+          cancel_others: 'false'
+          github_token: ${{ github.token }}
+          paths: '[".github/workflows/test.yml",".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
 
   test:
+    needs: see_if_should_skip
+    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         test-group: [content, meta, rendering, routing, unit, links-and-images]
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
@@ -68,7 +53,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -83,9 +68,11 @@ jobs:
 
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Send Slack notification if workflow fails
-        uses: rtCamp/action-slack-notify@master
+        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
         if: failure() && github.ref == 'early-access'
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}

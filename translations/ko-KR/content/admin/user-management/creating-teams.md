@@ -9,7 +9,7 @@ versions:
 
 Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Permission levels for an organization repository](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)".
 
-A team can represent a group within your company or include people with certain interests or expertise. For example, a team of accessibility experts on {% data variables.product.product_location_enterprise %} could comprise of people from several different departments. Teams can represent functional concerns that complement a company's existing divisional hierarchy.
+A team can represent a group within your company or include people with certain interests or expertise. For example, a team of accessibility experts on {% data variables.product.product_location %} could comprise of people from several different departments. Teams can represent functional concerns that complement a company's existing divisional hierarchy.
 
 Organizations can create multiple levels of nested teams to reflect a company or group's hierarchy structure. For more information, see "[About teams](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)."
 
@@ -28,7 +28,7 @@ A prudent combination of teams is a powerful way to control repository access. F
 
 ### Creating teams with LDAP Sync enabled
 
-Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.product.product_location_enterprise %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+Instances using LDAP for user authentication can use LDAP Sync to manage a team's members. Setting the group's **Distinguished Name** (DN) in the **LDAP group** field will map a team to an LDAP group on your LDAP server. If you use LDAP Sync to manage a team's members, you won't be able to manage your team within {% data variables.product.product_location %}. The mapped team will sync its members in the background and periodically at the interval configured when LDAP Sync is enabled. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
@@ -46,7 +46,9 @@ Instances using LDAP for user authentication can use LDAP Sync to manage a team'
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. Search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name. {% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches. ![Mapping to the LDAP group DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
+6. Search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name.
+{% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches.
+![Mapping to the LDAP group DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}

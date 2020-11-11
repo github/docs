@@ -4,10 +4,11 @@ redirect_from:
   - /articles/
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
-intro: ソフトウェア開発者、設計者、およびプロジェクトマネージャーのためのドキュメント、ガイド、およびヘルプトピックです。 Git、プルリクエスト、Issues、Wiki、Gist の使用方法、および開発のために GitHub を最大限活用するために必要な全てのポイントをカバーしています。
+intro: 'ソフトウェア開発者、設計者、およびプロジェクトマネージャーのためのドキュメント、ガイド、およびヘルプトピックです。 Git、プルリクエスト、Issues、Wiki、Gist の使用方法、および開発のために GitHub を最大限活用するために必要な全てのポイントをカバーしています。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /getting-started-with-github %}
@@ -31,7 +32,7 @@ versions:
 {% link_in_list /setting-up-and-managing-organizations-and-teams %}
 
 <!-- if currentVersion == "free-pro-team@latest" -->
-{% link_in_list /setting-up-and-managing-your-enterprise-account %}
+{% link_in_list /setting-up-and-managing-your-enterprise %}
 <!-- endif -->
 
 <!-- if currentVersion == "free-pro-team@latest" -->

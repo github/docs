@@ -1,6 +1,6 @@
 ---
 title: READMEについて
-intro: リポジトリにREADMEファイルを追加して、そのプロジェクトがなぜ有益なのか、そのプロジェクトで何ができるか、そのプロジェクトをどのように使えるかを他者に伝えることができます。
+intro: 'リポジトリにREADMEファイルを追加して、そのプロジェクトがなぜ有益なのか、そのプロジェクトで何ができるか、そのプロジェクトをどのように使えるかを他者に伝えることができます。'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages/
   - /articles/relative-links-in-readmes/
@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-README ファイルは、{% if currentVersion == "free-pro-team@latest" %}[リポジトリのライセンス](/articles/licensing-a-repository)、[コントリビューションガイドライン](/articles/setting-guidelines-for-repository-contributors)、[行動規範](/articles/adding-a-code-of-conduct-to-your-project){% else %}[リポジトリのライセンス](/articles/licensing-a-repository)および[コントリビューションガイドライン](/articles/setting-guidelines-for-repository-contributors){% endif %}と合わせて、プロジェクトへのコントリビューションに対する期待を示し、管理するのに役立ちます。
+A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
 
 多くの場合、READMEはリポジトリへの訪問者が最初に目にするアイテムです。 通常、README ファイルには以下の情報が含まれています:
 - このプロジェクトが行うこと
@@ -23,7 +24,7 @@ README ファイルをリポジトリのルート、`docs`、または隠れデ�
 
 ![github/scientistリポジトリのメインページとそのREADMEファイル](/assets/images/help/repository/repo-with-readme.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
 {% data reusables.profile.profile-readme %}
 

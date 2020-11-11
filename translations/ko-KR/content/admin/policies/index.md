@@ -1,12 +1,12 @@
 ---
 title: Setting policies for your enterprise
-intro: 'You can set policies in {% data variables.product.prodname_enterprise %} to reduce risk and increase quality.'
+intro: 'You can set policies in {% data variables.product.product_name %} to reduce risk and increase quality.'
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
-  - /enterprise/admin/policies
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

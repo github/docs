@@ -1,6 +1,6 @@
 ---
 title: Bloquear usuário da conta pessoal
-intro: É possível bloquear um usuário para negar a ele acesso aos seus repositórios e atividades e para impedi-lo de enviar notificações a você.
+intro: 'É possível bloquear um usuário para negar a ele acesso aos seus repositórios e atividades e para impedi-lo de enviar notificações a você.'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
@@ -20,6 +20,7 @@ Você pode bloquear um usuário nas configurações da sua conta ou no perfil do
 Quando você bloqueia um usuário:
 - O usuário para de seguir você
 - O usuário para de inspecionar e deixa de fixar seus repositórios
+- The user is not able to join any organizations you are an owner of
 - As estrelas e atribuições de problema do usuário são removidas dos repositórios
 - As bifurcações dos seus repositórios são excluídas
 - Você exclui qualquer bifurcação dos repositórios do usuário

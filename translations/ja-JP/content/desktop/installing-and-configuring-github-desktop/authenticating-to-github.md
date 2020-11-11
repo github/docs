@@ -37,7 +37,9 @@ versions:
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] に認証情報を入力して [**Continue**] をクリックします。 ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. 次に、
+{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
+  ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
@@ -65,7 +67,9 @@ versions:
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. {% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] に認証情報を入力して [**Continue**] をクリックします。 ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. 次に、
+{% data variables.product.prodname_enterprise %} アカウントを追加するには、[Enterprise server address] の下に認証情報を入力し、[**Continue**] をクリックします。
+  ![GitHub EnterpriseのSign Inボタン](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
@@ -80,14 +84,14 @@ versions:
 
 {% mac %}
 
-1. [**Help**] ドロップダウンメニューを使用して、[**Show Logs in Finder**] をクリックします。 ![The Show Logs in Finder button](/assets/images/help/desktop/mac-show-logs.png)
+1. [**Help**] ドロップダウンメニューを使用して、[**Show Logs in Finder**] をクリックします。 ![[Show Logs in Finder] ボタン](/assets/images/help/desktop/mac-show-logs.png)
 2. 認証エラーが発生した日付からログファイルを選択します。
 
 {% endmac %}
 
 {% windows %}
 
-1. [**Help**] ドロップダウンメニューを使用して、[**Show Logs in Explorer**] をクリックします。 ![The Show Logs in Explorer button](/assets/images/help/desktop/windows-show-logs.png)
+1. [**Help**] ドロップダウンメニューを使用して、[**Show Logs in Explorer**] をクリックします。 ![[Show Logs in Explorer] ボタン](/assets/images/help/desktop/windows-show-logs.png)
 2. 認証エラーが発生した日付からログファイルを選択します。
 
 {% endwindows %}
@@ -150,30 +154,30 @@ fatal: Could not read from remote repository.
 正しいアクセス権があり、リポジトリが存在することを確認してください。
 ```
 
-This error means that either the repository that you are trying to clone has submodules that you do not have access to or you do not have a valid SSH key set up.
+このエラーは、クローンを作成しようとしているリポジトリにアクセス権のないサブモジュールがあるか、有効な SSH キーが設定されていないことを示しています。
 
-If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
+サブモジュールにアクセスできない場合は、リポジトリの権限の管理者に連絡してトラブルシューティングを行ってください。
 
-If you do not have a valid SSH key set up, see "[Generating a new SSH key and adding it to the SSH agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+有効な SSH キーが設定されていない場合は、「[新しい SSH キーを生成して SSH エージェントに追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
 {% windows %}
 
-#### Unable to read AskPass response
+#### AskPass レスポンスが読み取れない
 
 ```shell
 error: unable to read askpass response from '/Users/<path>/GitHub Desktop.app/Contents/Resources/app/static/ask-pass-trampoline.sh'
 fatal: could not read Username for 'https://github.com': terminal prompts disabled
 ```
 
-This error can be caused by multiple events.
+このエラーは、複数のイベントによって発生する可能性があります。
 
-If the `Command Processor` registry entries are modified, {% data variables.product.prodname_desktop %} will respond with an `Authentication failed` error. To check if these registry entries have been modified, follow these steps.
+`Command Processor` のレジストリエントリが変更されると、{% data variables.product.prodname_desktop %} は、`Authentication failed` で応答します。 これらのレジストリエントリが変更されているかどうかを確認するには、次のステップを実行します。
 
-1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations. `` HKEY_CURRENT_USER\Software\Microsoft\Command Processor\` ``HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
-2. Check to see if there is an `Autorun` value in either location.
-3. If there is an `Autorun` value, delete it.
+1. レジストリエディタ（`regedit.exe`）を開き、次の場所に移動します。 `` HKEY_CURRENT_USER\Software\Microsoft\Command Processor\` ``HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
+2. いずれかの場所に `Autorun` 値があるかどうかを確認します。
+3. `Autorun` 値がある場合は、それを削除します。
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+Windows ユーザ名に拡張 Unicode 文字が含まれている場合、AskPass レスポンスエラーが発生する可能性があります。 トラブルシューティングを行うには、新しい Windows ユーザアカウントを作成し、ファイルをそのアカウントに移行します。 詳しい情報については、Microsoft ドキュメンテーションの「[Windows でユーザアカウントを作成する](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)」を参照してください。
 
 {% endwindows %}
 

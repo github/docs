@@ -4343,48 +4343,6 @@
       ]
     },
     {
-      "name": "updateEnterpriseActionExecutionCapabilitySetting",
-      "kind": "mutations",
-      "id": "updateenterpriseactionexecutioncapabilitysetting",
-      "href": "/graphql/reference/mutations#updateenterpriseactionexecutioncapabilitysetting",
-      "description": "<p>Sets the action execution capability setting for an enterprise.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "UpdateEnterpriseActionExecutionCapabilitySettingInput!",
-          "id": "updateenterpriseactionexecutioncapabilitysettinginput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#updateenterpriseactionexecutioncapabilitysettinginput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "enterprise",
-          "type": "Enterprise",
-          "id": "enterprise",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#enterprise",
-          "description": "<p>The enterprise with the updated action execution capability setting.</p>"
-        },
-        {
-          "name": "message",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A message confirming the result of updating the action execution capability setting.</p>"
-        }
-      ]
-    },
-    {
       "name": "updateEnterpriseAdministratorRole",
       "kind": "mutations",
       "id": "updateenterpriseadministratorrole",
@@ -5497,7 +5455,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -6649,6 +6607,22 @@
       ],
       "fields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleConflicts",
           "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
           "type": "BranchProtectionRuleConflictConnection!",
@@ -6891,6 +6865,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -13992,66 +13974,6 @@
       "href": "/graphql/reference/objects#enterpriseownerinfo",
       "description": "<p>Enterprise information only visible to enterprise owners.</p>",
       "fields": [
-        {
-          "name": "actionExecutionCapabilitySettingOrganizations",
-          "description": "<p>A list of enterprise organizations configured with the provided action execution capabilities setting value.</p>",
-          "type": "OrganizationConnection!",
-          "id": "organizationconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#organizationconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for organizations with this setting.</p>",
-              "type": {
-                "name": "OrganizationOrder",
-                "id": "organizationorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#organizationorder"
-              }
-            }
-          ]
-        },
         {
           "name": "admins",
           "description": "<p>A list of all of the administrators for this enterprise.</p>",
@@ -44456,7 +44378,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission the user has on the repository.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission the user has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -44627,7 +44549,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission granted on this repository by this invitation.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission granted on this repository by this invitation.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -51158,7 +51080,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission level the team has on the repository</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission level the team has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -56813,31 +56735,6 @@
     }
   ],
   "enums": [
-    {
-      "name": "ActionExecutionCapabilitySetting",
-      "kind": "enums",
-      "id": "actionexecutioncapabilitysetting",
-      "href": "/graphql/reference/enums#actionexecutioncapabilitysetting",
-      "description": "<p>The possible capabilities for action executions setting.</p>",
-      "values": [
-        {
-          "name": "ALL_ACTIONS",
-          "description": "<p>All action executions are enabled.</p>"
-        },
-        {
-          "name": "DISABLED",
-          "description": "<p>All action executions are disabled.</p>"
-        },
-        {
-          "name": "LOCAL_ACTIONS_ONLY",
-          "description": "<p>Only actions defined within the repo are allowed.</p>"
-        },
-        {
-          "name": "NO_POLICY",
-          "description": "<p>Organization administrators action execution capabilities.</p>"
-        }
-      ]
-    },
     {
       "name": "AuditLogOrderField",
       "kind": "enums",
@@ -62920,6 +62817,22 @@
       "description": "<p>Autogenerated input type of CreateBranchProtectionRule.</p>",
       "inputFields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -63003,6 +62916,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -65801,7 +65722,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -67087,6 +67008,22 @@
       "description": "<p>Autogenerated input type of UpdateBranchProtectionRule.</p>",
       "inputFields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleId",
           "description": "<p>The global relay id of the branch protection rule to be updated.</p>",
           "type": "ID!",
@@ -67170,6 +67107,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -67350,40 +67295,6 @@
         {
           "name": "repositoryId",
           "description": "<p>The Node ID of the repository.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "UpdateEnterpriseActionExecutionCapabilitySettingInput",
-      "kind": "inputObjects",
-      "id": "updateenterpriseactionexecutioncapabilitysettinginput",
-      "href": "/graphql/reference/input-objects#updateenterpriseactionexecutioncapabilitysettinginput",
-      "description": "<p>Autogenerated input type of UpdateEnterpriseActionExecutionCapabilitySetting.</p>",
-      "inputFields": [
-        {
-          "name": "capability",
-          "description": "<p>The value for the action execution capability setting on the enterprise.</p>",
-          "type": "ActionExecutionCapabilitySetting!",
-          "id": "actionexecutioncapabilitysetting",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#actionexecutioncapabilitysetting"
-        },
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "enterpriseId",
-          "description": "<p>The ID of the enterprise on which to set the members can create repositories setting.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -68631,7 +68542,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -69077,7 +68988,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/pe-repos"
+          "@github/reponauts"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview"

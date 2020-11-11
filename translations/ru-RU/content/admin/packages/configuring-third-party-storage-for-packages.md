@@ -3,9 +3,6 @@ title: Configuring third-party storage for packages
 intro: 'You can configure the third-party service that {% data variables.product.prodname_registry %} uses to store your enterprise''s packages.'
 redirect_from:
   - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
 versions:
   enterprise-server: '>=2.22'
 ---
@@ -16,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}.
 
-At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analagous information for your MinIO configuration.
+At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration.
 
 For the best experience, we recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
 

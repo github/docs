@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルにコードを検索できます。あるいは、特定のリポジトリや Organization のみのコードの検索もできます。 パブリックリポジトリのすべてにわたってコードを検索するには、{% data variables.product.product_name %} にサインインしていなければなりません。 詳細は「[GitHub 上での検索について](/articles/about-searching-on-github)」を参照してください。
@@ -101,5 +102,5 @@ versions:
 ### 参考リンク
 
 - 「[検索結果をソートする](/articles/sorting-search-results/)」
-- "[フォーク内を検索する](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- [フォーク内を検索する](/articles/searching-in-forks){% if currentVersion == "free-pro-team@latest" %}
 - "[ {% data variables.product.prodname_dotcom %} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

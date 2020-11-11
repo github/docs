@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.large_files.use_lfs_tip %}
@@ -16,4 +17,4 @@ versions:
 
 ### 大きなファイルのブロックされたプッシュ
 
-{% if currentVersion != "free-pro-team@latest" %}デフォルトでは、{% endif %}{% data variables.product.product_name %}は{% data variables.large_files.max_github_size %}以上のプッシュをブロックします。 {% if currentVersion != "free-pro-team@latest" %}ただし、サイト管理者は、{% data variables.product.prodname_ghe_server %}インスタンスに別の制限を構成できます。 詳しい情報については 、「[Git のプッシュ制限を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)」を参照してください。{% endif %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}. 詳しい情報については 、「[Git のプッシュ制限を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)」を参照してください。{% endif %}

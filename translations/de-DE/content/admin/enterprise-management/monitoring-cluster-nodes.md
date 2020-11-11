@@ -1,15 +1,16 @@
 ---
-title: Monitoring cluster nodes
-intro: 'A {% data variables.product.prodname_ghe_server %} cluster is comprised of redundant services that are distributed across two or more nodes. If an individual service or an entire node were to fail, it should not be immediately apparent to users of the cluster. However since performance and redundancy are affected, it is important to monitor the health of a {% data variables.product.prodname_ghe_server %} cluster.'
+title: Clusterknoten überwachen
+intro: 'Ein {% data variables.product.prodname_ghe_server %}-Cluster besteht aus redundanten Diensten, die auf mindestens zwei Knoten verteilt sind. Wenn ein einzelner Dienst oder ein gesamter Knoten fehlschlägt, sollte dies den Benutzern des Clusters sofort auffallen. Da jedoch Leistung und Redundanz betroffen sind, ist es wichtig, den Zustand eines {% data variables.product.prodname_ghe_server %}-Clusters zu überwachen.'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
 versions:
   enterprise-server: '*'
 ---
-### Manually checking cluster status
 
-{% data variables.product.prodname_ghe_server %} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:
+### Clusterstatus manuell überprüfen
+
+{% data variables.product.prodname_ghe_server %} besitzt ein integriertes Befehlszeilendienstprogramm zum Überwachen des Clusterzustands. Wenn in der Verwaltungsshell der Befehl `ghe-cluster-status` ausgeführt wird, werden einige Zustandsprüfungen auf jedem Knoten ausgeführt, darunter die Verifizierung der Konnektivität und des Dienststatus. Die Ausgabe enthält alle Testergebnisse, darunter der Text `ok` oder `error`. Führen Sie beispielsweise Folgendes aus, um nur fehlgeschlagene Tests anzuzeigen:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -18,43 +19,51 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 ```
 {% note %}
 
-**Note:** If there are no failing tests, this command produces no output. This indicates the cluster is healthy.
+**Hinweis:** Wenn keine fehlgeschlagenen Tests vorliegen, gibt dieser Befehl nichts aus. Dies gibt an, dass der Cluster fehlerfrei ist.
 
 {% endnote %}
 
-### Monitoring cluster status with Nagios
+### Clusterstatus mit Nagios überwachen
 
-You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables.product.prodname_ghe_server %}. In addition to monitoring basic connectivity to each of the cluster nodes, you can check the cluster status by configuring Nagios to use the `ghe-cluster-status -n` command. This returns output in a format that Nagios understands.
+Sie können [Nagios](https://www.nagios.org/) für die Überwachung von {% data variables.product.prodname_ghe_server %} konfigurieren. Zusätzlich zur Überwachung der grundlegenden Konnektivität jedes Clusterknotens können Sie den Clusterstatus überprüfen, indem Sie Nagios für die Verwendung des Befehls `ghe-cluster-status -n` konfigurieren. Dadurch wird eine für Nagios verständliche Ausgabe zurückgegeben.
 
-#### Prerequisites
-* Linux host running Nagios.
-* Network access to the {% data variables.product.prodname_ghe_server %} cluster.
+#### Vorrausetzungen
+* Linux-Host, auf dem Nagios ausgeführt wird.
+* Netzwerkzugriff auf den {% data variables.product.prodname_ghe_server %}-Cluster.
 
-#### Configuring the Nagios host
-1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.
+#### Nagios-Host konfigurieren
+1. Generieren Sie einen SSH-Schlüssel mit einer leeren Passphrase. Nagios verwendet diese, um sich beim {% data variables.product.prodname_ghe_server %}-Cluster zu authentifizieren.
   ```shell
-  nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
-  > Generating public/private rsa key pair.
-  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_rsa):
+  nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>
+  > Generating public/private ed25519 key pair.
+  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_ed25519):
   > Enter passphrase (empty for no passphrase): <em>leave blank by pressing enter</em>
   > Enter same passphrase again: <em>press enter again</em>
-  > Your identification has been saved in /home/nagiosuser/.ssh/id_rsa.
-  > Your public key has been saved in /home/nagiosuser/.ssh/id_rsa.pub.
+  > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
+  > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
   ```
   {% danger %}
 
-  **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
+  **Sicherheitswarnung:** Ein SSH-Schlüssel ohne eine Passphrase kann ein Sicherheitsrisiko darstellen, wenn er für den vollen Zugriff auf einen Host berechtigt ist. Begrenzen Sie die Autorisierung dieses Schlüssels auf einen einzelnen schreibgeschützten Befehl.
 
   {% enddanger %}
-2. Copy the private key (`id_rsa`) to the `nagios` home folder and set the appropriate ownership.
+  {% note %}
+
+  **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
   ```shell
-  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_rsa /var/lib/nagios/.ssh/</em>
-  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_rsa</em>
+  nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
-3. To authorize the public key to run *only* the `ghe-cluster-status -n` command, use a `command=` prefix in the `/data/user/common/authorized_keys` file. From the administrative shell on any node, modify this file to add the public key generated in step 1. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-rsa AAAA....`
+  {% endnote %}
+2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
+  ```shell
+  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
+  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
+  ```
 
-4. Validate and copy the configuration to each node in the cluster by running `ghe-cluster-config-apply` on the node where you modified the `/data/user/common/authorized_keys` file.
+3. Verwenden Sie das Präfix `command=` in der Datei `/data/user/common/authorized_keys`, um den öffentlichen Schlüssel *nur* für den Befehl `ghe-cluster-status -n` zu autorisieren. Ändern Sie in der Verwaltungsshell oder auf einem beliebigen Knoten diese Datei, um den in Schritt 1 generierten öffentlichen Schlüssel hinzuzufügen. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+
+4. Validieren und kopieren Sie die Konfiguration auf jeden Knoten im Cluster. Führen Sie dazu `ghe-cluster-config-apply` auf dem Knoten aus, auf dem Sie die Datei `/data/user/common/authorized_keys` geändert haben.
 
   ```shell
   admin@ghe-data-node-0:~$ <em>ghe-cluster-config-apply</em>
@@ -63,14 +72,15 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
   > Finished cluster configuration
   ```
 
-5. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
+5. Um zu testen, ob das Nagios-Plug-in den Befehl erfolgreich ausführen kann, führen Sie es auf dem Nagios-Host interaktiv aus.
   ```shell
   nagiosuser@nagios:~$ /usr/lib/nagios/plugins/check_by_ssh -l admin -p 122 -H <em>hostname</em> -C "ghe-cluster-status -n" -t 30
   > OK - No errors detected
   ```
 
-6. Create a command definition in your Nagios configuration.
-  ###### Example definition
+6. Erstellen Sie eine Befehlsdefinition in Ihrer Nagios-Konfiguration.
+
+  ###### Beispieldefinition
 
   ```
   define command {
@@ -78,9 +88,10 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
-7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
+7. Fügen Sie diesen Befehl zu einer Dienstdefinition für einen Knoten im {% data variables.product.prodname_ghe_server %}-Cluster hinzu.
 
-  ###### Example definition
+
+  ###### Beispieldefinition
 
   ```
   define host{
@@ -98,6 +109,6 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
           }
   ```
 
-Once you add the definition to Nagios, the service check executes according to your configuration. You should be able to see the newly configured service in the Nagios web interface.
+Nachdem Sie Nagios die Definition hinzugefügt haben, wird die Dienstüberprüfung entsprechend Ihrer Konfiguration ausgeführt. Sie sollten den neu konfigurierten Dienst auf der Nagios-Weboberfläche anzeigen können.
 
-![Nagios Example](/assets/images/enterprise/cluster/nagios-example.png)
+![Nagios-Beispiel](/assets/images/enterprise/cluster/nagios-example.png)

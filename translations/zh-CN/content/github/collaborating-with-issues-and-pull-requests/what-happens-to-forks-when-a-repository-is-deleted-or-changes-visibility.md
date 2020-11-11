@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
@@ -29,7 +30,7 @@ versions:
 
 换句话说，即使将父仓库设为私有后，公共仓库的复刻也将在其各自的仓库网络中保持公开。 这样复刻所有者便可继续工作和协作，而不会中断。 如果公共复刻没有通过这种方式移动到单独的网络中，则这些复刻的所有者将需要获得适当的[访问权限](/articles/access-permissions-on-github)以从（现在私有的）父仓库中拉取更改并提交拉取请求 — 即使它们以前不需要这些权限。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 如果公共仓库启用了匿名 Git 读取权限并且该仓库设为私有，则所有仓库的复刻都将失去匿名 Git 读取权限并恢复为默认的禁用设置。 如果将复刻的仓库设为公共，则仓库管理员可以重新启用 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”
 {% endif %}
 

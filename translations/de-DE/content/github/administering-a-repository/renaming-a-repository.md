@@ -1,11 +1,12 @@
 ---
 title: Repository umbenennen
-intro: 'Du kannst ein Repository umbenennen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository verfügst.'
+intro: Du kannst ein Repository umbenennen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository verfügst.
 redirect_from:
   - /articles/renaming-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du ein Repository umbenennst, werden mit Ausnahme von Projektwebsite-URLs alle vorhandenen Informationen automatisch auf den neuen Namen umgeleitet, einschließlich:

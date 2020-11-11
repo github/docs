@@ -10,6 +10,6 @@ Mitglieder mit Team-Betreuer-Berechtigungen können folgende Aktionen durchführ
 - [Dem Team Organisationsmitglieder hinzufügen](/articles/adding-organization-members-to-a-team)
 - [Organisationsmitglieder aus dem Team entfernen](/articles/removing-organization-members-from-a-team)
 - [Ein vorhandenes Teammitglied zum Team-Betreuer hochstufen](/articles/giving-team-maintainer-permissions-to-an-organization-member)
-- Entfernen des Zugriffs eines Teams auf Repositorys{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-- [Code-Review-Zuweisung für das Team verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- Remove the team's access to repositories{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+- [Manage code review assignment for the team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [Geplante Erinnerungen für Pull Requests verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

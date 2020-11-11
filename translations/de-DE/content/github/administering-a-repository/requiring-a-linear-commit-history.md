@@ -1,10 +1,11 @@
 ---
 title: Einen linearen Commit-Verlauf verlangen
-intro: 'Du kannst einen linearen Commit-Verlauf verlangen, um alle Merge-Commits eines geschützten Branches zu blockieren.'
+intro: Du kannst einen linearen Commit-Verlauf verlangen, um alle Merge-Commits eines geschützten Branches zu blockieren.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Personen mit Administratorberechtigungen auf ein Repository können einen linearen Commit-Verlauf verlangen.

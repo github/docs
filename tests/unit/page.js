@@ -1,6 +1,7 @@
 const path = require('path')
 const cheerio = require('cheerio')
 const Page = require('../../lib/page')
+const allVersionIds = Object.keys(require('../../lib/all-versions'))
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 // get the `free-pro-team` segment of `free-pro-team@latest`
@@ -120,6 +121,43 @@ describe('Page class', () => {
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
       expect($('a[href="/capistrano"]').length).toBe(1)
+    })
+
+    // Most of our Liquid versioning tests are in https://github.com/docs/render-content,
+    // But they don't have access to our currently supported versions, which we're testing here.
+    // This test ensures that this works as expected: {% if enterpriseServerVersions contains currentVersion %}
+    test('renders the expected Enterprise Server versioned content', async () => {
+      const page = new Page({
+        relativePath: 'page-versioned-for-all-enterprise-releases.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+      // set version to the latest enteprise version
+      const context = {
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
+        currentLanguage: 'en',
+        enterpriseServerVersions: allVersionIds.filter(id => id.startsWith('enterprise-server@'))
+      }
+      let rendered = await page.render(context)
+      let $ = cheerio.load(rendered)
+      expect($.text()).toBe('This text should render on any actively supported version of Enterprise Server')
+      expect($.text()).not.toBe('This text should only render on non-Enterprise')
+
+      // change version to the oldest enterprise version, re-render, and test again;
+      // the results should be the same
+      context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+      rendered = await page.render(context)
+      $ = cheerio.load(rendered)
+      expect($.text()).toBe('This text should render on any actively supported version of Enterprise Server')
+      expect($.text()).not.toBe('This text should only render on non-Enterprise')
+
+      // change version to non-enterprise, re-render, and test again;
+      // the results should be the opposite
+      context.currentVersion = nonEnterpriseDefaultVersion
+      rendered = await page.render(context)
+      $ = cheerio.load(rendered)
+      expect($.text()).not.toBe('This text should render on any actively supported version of Enterprise Server')
+      expect($.text()).toBe('This text should only render on non-Enterprise')
     })
   })
 
@@ -326,5 +364,17 @@ describe('catches errors thrown in Page class', () => {
     }
 
     expect(getPage).toThrowError('versions')
+  })
+
+  test('page with a version in frontmatter that its parent product is not available in', () => {
+    function getPage () {
+      return new Page({
+        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
+        basePath: path.join(__dirname, '../fixtures/products'),
+        languageCode: 'en'
+      })
+    }
+
+    expect(getPage).toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 })

@@ -47,7 +47,7 @@ Subversion チェックアウトは違います。ワーキングディレクト
 
 Subversion ブリッジを使って GitHub にブランチを作成することもできます。
 
-svn クライアントから、`trunk` を更新して「master」が最新であることを確認します。
+From your svn client, make sure the default branch is current by updating `trunk`:
 ```shell
 $ svn up trunk
 > At revision 1.

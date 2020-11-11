@@ -1,18 +1,17 @@
 ---
 title: Gerenciar o nome do branch-padrão para seus repositórios
-intro: Você pode definir um nome do branch-padrão para todos os novos repositórios que você criar.
+intro: 'Você pode definir os novos repositórios com nome do branch-padrão que você cria em {% data variables.product.product_location %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
 ---
 
-### Sobre o nome do branch-padrão
+### Sobre o gerenciamento do nome do brancc-padrão
 
-{% data reusables.branches.new-repo-default-branch %} Este branch é atualmente denominado `mestre`, mas você pode definir o nome do branch-padrão como qualquer coisa que faça sentido para seu ambiente de desenvolvimento.
+Ao criar um novo repositório em {% data variables.product.product_location %}, o repositório conterá um branch, que será o branch-padrão. Você pode alterar o nome que {% data variables.product.product_name %} usa para o branch-padrão em novos repositórios que você criar. Para obter mais informações sobre o branch padrão, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
 
-{% data reusables.branches.set-default-branch %}
-
-{% data reusables.branches.rename-existing-branch %}
+{% data reusables.branches.change-default-branch %}
 
 ### Definir o nome do branch-padrão
 
@@ -24,4 +23,4 @@ versions:
 
 ### Leia mais
 
-- [Gerenciar o nome de branch-padrão para repositórios na sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)
+- "[Gerenciar o nome do branch-padrão para repositórios na sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"

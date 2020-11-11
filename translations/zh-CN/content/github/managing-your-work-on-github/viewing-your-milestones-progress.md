@@ -1,12 +1,13 @@
 ---
 title: 查看里程碑的进度
-intro: 为了跟踪您的里程碑，您需要更好地了解剩余多少未解决的议题和拉取请求。
+intro: '为了跟踪您的里程碑，您需要更好地了解剩余多少未解决的议题和拉取请求。'
 redirect_from:
   - /articles/viewing-your-milestone-s-progress
   - /articles/viewing-your-milestones-progress
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

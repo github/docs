@@ -1,11 +1,12 @@
 ---
 title: 建立强大的社区
-intro: 无论您的项目是开源项目还是私有项目，您都可以创建一个健康和高效的协作环境。
+intro: '无论您的项目是开源项目还是私有项目，您都可以创建一个健康和高效的协作环境。'
 redirect_from:
   - /categories/building-a-strong-community
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -36,6 +37,7 @@ versions:
     {% link_in_list /managing-disruptive-comments %}
     {% link_in_list /locking-conversations %}
     {% link_in_list /limiting-interactions-in-your-repository %}
+    {% link_in_list /limiting-interactions-for-your-user-account %}
     {% link_in_list /limiting-interactions-in-your-organization %}
     {% link_in_list /tracking-changes-in-a-comment %}
     {% link_in_list /managing-how-contributors-report-abuse-in-your-organizations-repository %}

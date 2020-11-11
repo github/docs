@@ -3,10 +3,11 @@ title: Organization を安全に保つ
 redirect_from:
   - /articles/preventing-unauthorized-access-to-organization-information/
   - /articles/keeping-your-organization-secure
-intro: Organization のオーナーがプロジェクトとデータを安全に保つ方法はいくつかあります。 Organization のオーナーは、不正な、または悪意のあるアクティビティが発生していないことを確認するために、Organization の監査ログ、メンバーの 2 要素認証ステータス、そしてアプリケーション設定を定期的にレビューする必要があります。
+intro: 'Organization のオーナーがプロジェクトとデータを安全に保つ方法はいくつかあります。 If you''re the owner of an organization, you should regularly review your organization''s audit log{% if currentVersion != "github-ae@latest" %}, member 2FA status,{% endif %} and application settings to ensure that no unauthorized or malicious activity has occurred.'
 mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

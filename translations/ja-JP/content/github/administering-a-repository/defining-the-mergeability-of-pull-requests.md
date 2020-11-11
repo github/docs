@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのマージ可能性を定義
-intro: プルリクエストをマージ可能にするための条件として、一連のチェックに合格することを必須とすることができます。 たとえば、ステータスチェックに合格しないプルリクエストをブロックすることができます。あるいは、プルリクエストを承認するレビューが一定数に達していなければマージできないようにすることができます。
+intro: 'プルリクエストをマージ可能にするための条件として、一連のチェックに合格することを必須とすることができます。 たとえば、ステータスチェックに合格しないプルリクエストをブロックすることができます。あるいは、プルリクエストを承認するレビューが一定数に達していなければマージできないようにすることができます。'
 redirect_from:
   - /articles/defining-the-mergeability-of-a-pull-request/
   - /articles/defining-the-mergeability-of-pull-requests
@@ -10,5 +10,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

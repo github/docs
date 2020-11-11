@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Vamos andar pelos conceitos básicos da API, à medida que abordamos alguns casos de uso diário.
@@ -17,14 +17,14 @@ Vamos andar pelos conceitos básicos da API, à medida que abordamos alguns caso
 
 A maioria dos aplicativos usará uma [biblioteca de segurança][wrappers] existente na linguagem da sua escolha, mas é importante familiarizar-se primeiro com os métodos HTTP e de API subjacentes.
 
-Não há uma maneira mais fazê-lo do que através do [cURL][curl].{% if currentVersion == "free-pro-team@latest" %} Se você estiver usando um cliente alternativo, observe que você será obrigado a enviar um [cabeçalho do agente de usuário](/rest/overview/resources-in-the-rest-api#user-agent-required) válido na sua solicitação.{% endif %}
+Não há uma maneira mais fácil dar os primeiros passos do que através do [cURL][curl]. {% if currentVersion == "free-pro-team@latest" %} Se você estiver usando um cliente alternativo, observe que você deve enviar um [cabeçalho do Agente de Usuário](/rest/overview/resources-in-the-rest-api#user-agent-required) válido na sua solicitação.{% endif %}
 
 #### Hello World
 
 Vamos começar testando a nossa configuração. Abra uma instrução de comando e digite o comando a seguir:
 
 ```shell
-$ curl {% data variables.product.api_url_pre %}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -35,7 +35,7 @@ Em seguida, vamos fazer `GET` para o [perfil de GitHub][users api] de [Chris Wan
 
 ```shell
 # GET /users/defunkt
-$ curl {% data variables.product.api_url_pre %}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
@@ -49,13 +49,12 @@ $ curl {% data variables.product.api_url_pre %}/users/defunkt
 Mmmmm, tem sabor de [JSON][json]. Vamos adicionar o sinalizador `-i` para incluir cabeçalhos:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -112,7 +111,13 @@ Ao efetuar a autenticação, você deverá ver seu limite de taxa disparado para
 
 Você pode facilmente [criar um **token de acesso pessoal**][personal token] usando a sua [página de configurações de tokens de acesso pessoal][tokens settings]:
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![Seleção de Token Pessoal](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![Seleção de Token Pessoal](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### Obtenha seu próprio perfil de usuário
 
@@ -194,7 +199,9 @@ Neste exemplo, pegamos apenas os repositórios que o octocat possui, não os nos
 
 #### Criar um repositório
 
-Buscar informações para repositórios existentes é um caso de uso comum, mas a API de {% data variables.product.product_name %} também é compatível com a criação de novos repositórios. Para [criar um repositório][create repo], precisamos `POST` alguns JSON que contenham as informações e opções de configuração.
+Buscar informações para repositórios existentes é um caso de uso comum, mas a
+API de {% data variables.product.product_name %} também é compatível com a criação de novos repositórios. Para [criar um repositório][create repo],
+precisamos `POST` alguns JSON que contém informações e opções de configuração.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \

@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Die Forks sind alphabetisch nach dem Benutzernamen der Person geordnet, die das Repository geforkt hat. Du kannst auf den Benutzernamen klicken, um zur {% data variables.product.product_name %}-Profilseite des Benutzers weitergeleitet zu werden, oder auf den Fork-Namen, um zum entsprechenden Fork des Repositorys weitergeleitet zu werden.
+Die Forks sind alphabetisch nach dem Benutzernamen der Person geordnet, die das Repository geforkt hat. Sie können auf den Benutzernamen klicken, um zur {% data variables.product.product_name %}-Profilseite des Benutzers weitergeleitet zu werden, oder auf den Forknamen, um zum entsprechenden Fork des Repositorys weitergeleitet zu werden.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
