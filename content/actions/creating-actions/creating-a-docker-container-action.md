@@ -67,7 +67,7 @@ Create a new `action.yml` file in the `hello-world-docker-action` directory you 
 
 {% raw %}
 **action.yml**
-```yaml{:yaml}
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
