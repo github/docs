@@ -1,6 +1,6 @@
 # Localization Prep Checklist
 
-Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](contribution/content-style-guide.md).
+Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](content-style-guide.md).
 
 - [ ] Use examples that are generic and can be understood by most people.
 - [ ] Avoid controversial examples or culturally specific to a group.
