@@ -13,6 +13,10 @@ featuredLinks:
   gettingStarted:
     - /actions/managing-workflow-runs
     - /actions/hosting-your-own-runners
+  guideCards:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/publishing-nodejs-packages
+    - /actions/guides/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/reference/events-that-trigger-workflows
@@ -56,7 +60,7 @@ versions:
 
 <!-- Code examples -->
 <div class="my-6 pt-6">
-  <h2 class="mb-2">More guides</h2>
+  <h2 class="mb-2 font-mktg h1">Code examples</h2>
 
   <div class="d-flex flex-wrap gutter">
     <div class="col-12 col-lg-4 mb-4">
@@ -156,6 +160,4 @@ versions:
       </a>
     </div>
   </div>
-
-  <a href="/actions/guides" class="btn btn-outline mt-4">Show all guides {% octicon "arrow-right" %}</a>
 </div>
