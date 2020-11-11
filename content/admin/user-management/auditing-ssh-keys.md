@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 Once initiated, the audit disables all existing SSH keys and forces users to approve or reject them before they're able to clone, pull, or push to any repositories. An audit is useful in situations where an employee or contractor leaves the company and you need to ensure that all keys are verified.
-
+ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
 ### Initiating an audit
 
 You can initiate an SSH key audit from the "All users" tab of the site admin dashboard:
