@@ -876,6 +876,37 @@ strategy:
 
 {% endnote %}
 
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using `include` with `env`. You can then refer to the custom environment variables in a later step.
+
+In this example, the included matrix entries for `node-version` are able to use different values in their environment variables. The `Echo site details` step then uses `env: ${{ matrix.env }}` to refer to the custom variables:
+
+{% raw %}
+```yaml
+name: Node.js CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       include:
+         - node-version: 10.x
+           env:
+             site: "prod"
+             datacenter: "site-a"
+         - node-version: 12.x
+           env:
+             site: "dev"
+             datacenter: "site-b"
+    steps:
+    - name: Echo site details
+      env: ${{ matrix.env }}
+      run: echo $site $datacenter
+```
+{% endraw %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
 When set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
