@@ -4,9 +4,9 @@
 /node_modules/
 npm-debug.log
 coverage/
-/assets/images/early-access/
-/content/early-access/
-/data/early-access/
+/assets/images/early-access
+/content/early-access
+/data/early-access
 
 # blc: broken link checker
 blc_output.log
