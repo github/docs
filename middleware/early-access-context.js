@@ -17,8 +17,6 @@ module.exports = function earlyAccessContext (req, res, next) {
 ${urls.map(url => `- [${url}](${url})`).join('\n')}
 `
 
-  console.log({ earlyAccessPageLinks })
-
   // Add to the rendering context
   req.context.earlyAccessPageLinks = earlyAccessPageLinks
 

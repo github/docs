@@ -38,7 +38,6 @@ module.exports = function (app) {
   app.use(require('./categories-for-support-team'))
   app.use(require('./detect-language'))
   app.use(asyncMiddleware(require('./context')))
-  app.use(/(\/.*)?\/early-access$/, require('./early-access-context'))
   app.use('/csrf', require('./csrf-route'))
   app.use(require('./find-page'))
   app.use(require('./notices'))
@@ -56,6 +55,7 @@ module.exports = function (app) {
   app.get('/_500', asyncMiddleware(require('./trigger-error')))
   app.use(require('./breadcrumbs'))
   app.use(require('./featured-links'))
+  app.use(/(\/.*)?\/early-access$/, require('./early-access-context'))
   app.get('/*', asyncMiddleware(require('./render-page')))
   app.use(require('./handle-errors'))
 }
