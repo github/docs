@@ -38,7 +38,7 @@ Before you begin, you'll need to create a GitHub repository.
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
@@ -47,12 +47,15 @@ Before you begin, you'll need to create a GitHub repository.
 In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
-```dockerfile
+```dockerfile{:copy}
 # Container image that runs your code
 FROM alpine:3.10
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
+
+# Makes your code file executable
+RUN chmod +x entrypoint.sh
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
@@ -64,7 +67,7 @@ Create a new `action.yml` file in the `hello-world-docker-action` directory you 
 
 {% raw %}
 **action.yml**
-```yaml
+```yaml{:yaml}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -96,16 +99,10 @@ Next, the script gets the current time and sets it as an output variable that ac
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
-1. Make your `entrypoint.sh` file executable:
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
-
 1. Add the following code to your `entrypoint.sh` file.
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
   
   echo "Hello $1"
@@ -159,7 +156,7 @@ From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
@@ -174,11 +171,11 @@ Now you're ready to test your action out in a workflow. When an action is in a p
 
 #### Example using a public action
 
-The following workflow code uses the completed hello world action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name.
+The following workflow code uses the completed hello world action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. Public actions can be used with or without publishing to marketplace. Publishing a public action requires you to add a release version tag.
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -188,6 +185,8 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
+      # For unpublished actions put <username>/<action-repository-name>@<branch-name>
+      # For published actions put <username>/<action-repository-name>@<version>
       uses: actions/hello-world-docker-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
@@ -199,11 +198,11 @@ jobs:
 
 #### Example using a private action
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
+Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. You cannot publish a private action to marketplace and can be used only by you in the same repository.
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -229,3 +228,4 @@ jobs:
 From your repository, click the **Actions** tab, and select the latest workflow run. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/docker-action-workflow-run.png)
+
