@@ -71,20 +71,6 @@ upcoming_changes:
     criticality: breaking
     owner: mikesea
   - 
-    location: RepositoryCollaboratorEdge.permission
-    description: O type `permission` mudará de `RepositoryPermission!` para `String`.
-    reason: Este campo pode retornar valores adicionais
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: oneill38
-  - 
-    location: RepositoryInvitation.permission
-    description: O type `permission` mudará de `RepositoryPermission!` para `String`.
-    reason: Este campo pode retornar valores adicionais
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: oneill38
-  - 
     location: RepositoryInvitationOrderField.INVITEE_LOGIN
     description: "`INVITEE_LOGIN` será removido."
     reason: "`INVITEE_LOGIN` não é mais um valor de campo válido. Convites de repositório agora podem ser associados a um email, não apenas a um convidado."
@@ -98,13 +84,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: nholden
-  - 
-    location: TeamRepositoryEdge.permission
-    description: O type `permission` mudará de `RepositoryPermission!` para `String`.
-    reason: Este campo pode retornar valores adicionais
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: oneill38
   - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: "`isUnlicensed` será removido."

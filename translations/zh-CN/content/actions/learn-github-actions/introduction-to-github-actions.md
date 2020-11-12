@@ -34,7 +34,7 @@ versions:
 
 #### 事件
 
-事件是触发工作流程的特定活动。 例如，当有推送提交到仓库或者创建议题或拉取请求时，{% data variables.product.prodname_dotcom %} 就可能产生活动。 您也可以使用仓库调度 web 挂钩在发生外部事件时触发工作流程。 有关可用于触发工作流程的事件的完整列表，请参阅[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)。
+事件是触发工作流程的特定活动。 例如，当有推送提交到仓库或者创建议题或拉取请求时，{% data variables.product.prodname_dotcom %} 就可能产生活动。 您还可以使用[仓库分发 web 挂钩](/rest/reference/repos#create-a-repository-dispatch-event)在发生外部事件时触发工作流程。 有关可用于触发工作流程的事件的完整列表，请参阅[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)。
 
 #### Jobs
 

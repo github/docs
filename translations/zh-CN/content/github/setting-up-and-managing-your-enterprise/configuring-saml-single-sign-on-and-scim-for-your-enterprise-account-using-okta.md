@@ -4,6 +4,7 @@ intro: '您可以使用安全声明标记语言 (SAML) 单点登录 (SSO) 和跨
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-and-scim-for-your-enterprise-account-using-okta
+  - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
 ---

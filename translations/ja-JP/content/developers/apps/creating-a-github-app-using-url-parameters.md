@@ -13,8 +13,8 @@ versions:
 ### {% data variables.product.prodname_github_app %} URL パラメータについて
 
 個人または Organization アカウントで、{% data variables.product.prodname_github_app %} の構成を事前設定する以下の URL をクエリパラメータに追加できます。
-* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* **Organization account:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
+* **ユーザアカウント:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Organization アカウント:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
 
 アプリケーションを作成するユーザは、アプリケーションをサブミットする前に {% data variables.product.prodname_github_app %} 登録ページから事前設定する値を編集できます。 URL クエリ文字列に `name` などの必須の値を含めない場合、アプリケーションを作成するユーザが、アプリケーションをサブミットする前に値を入力する必要があります。
 
@@ -56,7 +56,7 @@ versions:
 | [`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks)                                           | [Checks API](/v3/checks/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                      |
 | `content_references`                                                                                                             | 「[コンテンツ添付の作成](/v3/apps/installations/#create-a-content-attachment)」エンドポイントへのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                      |
 | [`contents`](/rest/reference/permissions-required-for-github-apps/#permission-on-contents)                                       | さまざまなエンドポイントにアクセス権を付与し、リポジトリのコンテンツを変更できるようにします。 `none`、`read`、`write` のいずれかです。                                                                                                                                                               |
-| [`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments)                                 | [Deployments API](/rest/reference/repos#deployments) へのアクセス権を付与します。 Can be one of: `none`, `read`, or `write`.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+| [`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments)                                 | [Deployments API](/rest/reference/repos#deployments) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 | [`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails)                                           | [Emails API](/v3/users/emails/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
 | [`followers`](/rest/reference/permissions-required-for-github-apps/#permission-on-followers)                                     | [Followers API](/v3/users/followers/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                          |
 | [`gpg_keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-gpg-keys)                                       | [GPG Keys API](/v3/users/gpg_keys/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                            |

@@ -61,7 +61,6 @@ If none of the pre-built configurations meet your needs, you can create a custom
 - `settings`
 - `extensions`
 - `forwardPorts`
-- `devPort`
 - `postCreateCommand`
 
 #### Docker、Dockerfile 或映像设置
@@ -73,13 +72,9 @@ If none of the pre-built configurations meet your needs, you can create a custom
 - `remoteEnv`
 - `containerUser`
 - `remoteUser`
-- `updateRemoteUserUID`
 - `mounts`
-- `workspaceMount`
-- `workspaceFolder`
 - `runArgs`
 - `overrideCommand`
-- `shutdownAction`
 - `dockerComposeFile`
 
 有关可用于 `devcontainer.json` 的设置的更多信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的 [devcontainer.json 参考](https://aka.ms/vscode-remote/devcontainer.json)。

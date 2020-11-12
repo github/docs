@@ -29,9 +29,16 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Suporte gravado por meio de nosso portal de suporte 24 horas por dias, 7 dias por semana
   - Suporte por telefone 24 horas por dia, 7 dias por semana
   - A{% if currentVersion == "github-ae@latest" %}n enhanced{% endif %} Service Level Agreement (SLA) {% if enterpriseServerVersions contains currentVersion %}with guaranteed initial response times{% endif %}
-  - Access to premium content{% if enterpriseServerVersions contains currentVersion %}
-  - Scheduled health checks{% endif %}
-  - Serviços gerenciados
+{% if currentVersion == "github-ae@latest" %}
+  - An assigned Technical Service Account Manager
+  - Quarterly support reviews
+  - Managed Admin services
+{% else if enterpriseServerVersions contains currentVersion %}
+  - Technical account managers
+  - Acesso a conteúdo premium
+  - Verificação de integridade agendadas
+  - Managed Admin hours
+{% endif %}
 
 {% data reusables.support.government-response-times-may-vary %}
 

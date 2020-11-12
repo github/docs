@@ -90,7 +90,7 @@ versions:
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. 在“Contributors（贡献者）”下，使用下拉菜单并选择贡献者。 ![贡献者下拉菜单](/assets/images/help/insights/contributors-drop-down.png)
+3. 在“Contributors（贡献者）”下，使用下拉菜单并选择贡献者。 ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
 4. 单击 **Done（完成）**。
 
 #### 从自定义团队中删除贡献者
