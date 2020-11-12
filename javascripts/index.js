@@ -15,6 +15,7 @@ import experiment from './experiment'
 import copyCode from './copy-code'
 import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
+import filterCodeExamples from './filter-code-examples'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -32,4 +33,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   experiment()
   copyCode()
   initializeEvents()
+  filterCodeExamples()
 })
