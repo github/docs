@@ -1,4 +1,4 @@
----
+---1
 title: Incorporating feedback in your pull request
 intro: 'When reviewers suggest changes in a pull request, you can automatically incorporate the changes into the pull request or open an issue to track out-of-scope suggestions.'
 redirect_from:
