@@ -28,13 +28,7 @@ To configure authentication and user provisioning for {% data variables.product.
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. In Azure AD, add {% data variables.product.ae_azure_ad_app_link %} to your tenant and configure single sign-on.
-
-    | Value in Azure AD | Value from {% data variables.product.prodname_ghe_managed %} |
-    | :- | :- |
-    | Identifier (Entity ID) | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em><code> |
-    | Reply URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
-    | Sign on URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
+1. In Azure AD, add {% data variables.product.ae_azure_ad_app_link %} to your tenant and configure single sign-on. For more information, see [Tutorial: Azure Active Directory single sign-on (SSO) integration with {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) in the Microsoft Docs.
 
 1. In {% data variables.product.prodname_ghe_managed %}, enter the details for your Azure AD tenant.
 
