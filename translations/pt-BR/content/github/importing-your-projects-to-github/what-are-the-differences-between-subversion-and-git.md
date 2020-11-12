@@ -35,9 +35,9 @@ Os projetos do Git também são armazenados em um único diretório. No entanto,
 Um fluxo de trabalho do Git fica assim:
 
 * Um repositório do Git armazena o histórico completo de todos os branches e tags dentro do diretório *.git*.
-* A versão estável mais recente está dentro do branch `master`.
+* A última versão estável está contida no branch-padrão.
 * O trabalho de recurso ativo é desenvolvido em branches separados.
-* Quando um recurso é concluído, o branch dele passa por merge em `master` e é excluído.
+* Quando um recurso é concluído, o branch de recurso é mesclado no branch-padrão e excluído.
 
 Ao contrário do SVN, a estrutura de diretórios no Git permanece a mesma, mas o conteúdo dos arquivos é alterado de acordo com o branch que você possui.
 

@@ -15,8 +15,8 @@ SAML SSO は、リポジトリや Issue、プルリクエストといった Orga
 
 SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを割り当てる任意のユーザが次のプロビジョニング機能を使えるようになります。
 
-| 機能            | 説明                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| 機能            | 説明                                                                                                                   |
+| ------------- | -------------------------------------------------------------------------------------------------------------------- |
 | 新しいユーザのプッシュ   | Okta でユーザを作成すると、{% data variables.product.prodname_dotcom %} Organization に参加するためのメールがユーザに届きます。                      |
 | ユーザ無効化のプッシュ   | Okta でユーザを無効化すると、そのユーザは {% data variables.product.prodname_dotcom %} Organization から削除されます。                          |
 | プロフィール更新のプッシュ | Okta でユーザのプロフィールを更新すると、そのユーザの {% data variables.product.prodname_dotcom %} の Organization でのメンバーシップに関するメタデータが更新されます。 |
@@ -70,7 +70,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 
 ### 参考リンク
 
-- [Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)
+- [Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)
 - [Organization の Team 同期を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)
 - Okta ドキュメントの「[Understanding SAML](https://developer.okta.com/docs/concepts/saml/)」
 - Okta ドキュメントの「[Understanding SCIM](https://developer.okta.com/docs/concepts/scim/)」

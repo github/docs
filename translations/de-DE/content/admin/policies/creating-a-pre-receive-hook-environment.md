@@ -97,11 +97,7 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
 
 ### Pre-Receive-Hook-Umgebung auf {% data variables.product.prodname_ghe_server %} hochladen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-
-
-
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 
 
 

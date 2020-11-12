@@ -7,14 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
 {% tip %}
 
-**Tips:**{% if currentVersion != "free-pro-team@latest" %}
-  - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.product.product_location_enterprise %}.{% endif %}
+**Tips:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.product.product_location %}.{% endif %}
   - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -124,7 +125,7 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.
 | | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Search for linked issues and pull requests
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
 
@@ -230,7 +231,7 @@ You can filter issues and pull requests by the number of reactions using the `re
 You can filter for draft pull requests. For more information, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
 
 | Qualifier        | Example
-| ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests.
 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) matches pull requests that are ready for review.{% else %}
 | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) matches draft pull requests.{% endif %}

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os parâmetros de consulta são partes opcionais de uma URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa ou um modelo de problemas no {% data variables.product.prodname_dotcom %}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
@@ -22,15 +23,15 @@ Se você criar um URL inválido usando parâmetros de consulta, ou se não tiver
 
 ### Parâmetros de consulta compatíveis
 
-| Parâmetro de consulta | Exemplo                                                                                                                                                                                                                                                           |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `texto`               | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&body=Fixes+the+problem.` cria uma pull request, comparando os branches `master` e `pull-request-test`, com o comentário "Corrige o problema" no texto da pull request. |
-| `title`               | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` cria um problema com a etiqueta "erro" e o título "Novo relatório de erros".                                                                                               |
-| `etiquetas`           | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&labels=bug` cria uma pull request, comparando os branches `master` e `pull-request-test`, com a etiqueta "erro".                                                       |
-| `modelo`              | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` cria um problema com um modelo no texto do problema.                                                                                                                                |
-| `marco`               | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` cria um problema com o marco "marcos de teste".                                                                                                                                   |
-| `assignees`           | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` cria um problema e o atribui a @octocat.                                                                                                                                                     |
-| `projetos`            | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` cria um problema com o título "Correção de erro" e o adiciona ao quadro de projeto 1 da organização.                                                                     |
+| Parâmetro de consulta | Exemplo                                                                                                                                                                                                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `texto`               | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&body=Fixes+the+problem.` cria um pull request que compara os branches `main` and `pull-request-test`, com o comentário "Corrige o problema" no texto do pull request. |
+| `title`               | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` cria um problema com a etiqueta "erro" e o título "Novo relatório de erros".                                                                                            |
+| `etiquetas`           | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&labels=bug` cria um pull request que compara os branches `main` e `pull-request-test` com a etiqueta "erro".                                                          |
+| `modelo`              | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` cria um problema com um modelo no texto do problema.                                                                                                                             |
+| `marco`               | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` cria um problema com o marco "marcos de teste".                                                                                                                                |
+| `assignees`           | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` cria um problema e o atribui a @octocat.                                                                                                                                                  |
+| `projetos`            | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` cria um problema com o título "Correção de erro" e o adiciona ao quadro de projeto 1 da organização.                                                                  |
 
 ### Preencher problemas e pull requests com modelos personalizados
 

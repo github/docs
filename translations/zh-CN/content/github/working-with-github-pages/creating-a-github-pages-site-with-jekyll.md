@@ -8,6 +8,7 @@ permissions: '拥有仓库管理员权限的人员可以使用 Jekyll 创建 {% 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 基本要求
@@ -44,14 +45,14 @@ versions:
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
   # Creates a new folder on your computer, initialized as a Git repository
   ```
-  4. Change directories to the repository.
+  4. 将目录更改为仓库。
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
   # Changes the working directory
   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
-  For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
+  例如，如果选择从默认分支上的 `docs` 文件夹发布站点，则创建并切换目录到 `docs` 文件夹。
  ```shell
  $ mkdir docs
  # Creates a new folder called docs
@@ -80,7 +81,7 @@ gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
 10. 保存并关闭 Gemfile。
 11. （可选）在本地测试您的站点。 更多信息请参阅“[使用 Jekyll 在本地测试 {% data variables.product.prodname_pages %} 站点](/articles/testing-your-github-pages-site-locally-with-jekyll)”。
-12. 将您的 {% data variables.product.product_name %} 仓库添加为远程，使用您的设备的主机名替换 {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_，{% endif %} _USER_ 替换为拥有该仓库的帐户{% if currentVersion != "free-pro-team@latest" %}，{% endif %}并且 _REPOSITORY_ 替换为仓库名称。
+12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

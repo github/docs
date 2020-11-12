@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 When making authenticated requests to the {% data variables.product.product_name %} API, applications often need to fetch the current user's repositories and organizations. In this guide, we'll explain how to reliably discover those resources.
 

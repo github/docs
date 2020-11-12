@@ -1,1 +1,1 @@
-当您仅启用本地操作时，工作流程只能运行位于您的仓库或组织中的操作。
+When you enable local actions only, workflows can only run actions located in your repository, organization, or enterprise.

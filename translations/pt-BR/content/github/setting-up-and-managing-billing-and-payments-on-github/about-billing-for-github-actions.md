@@ -12,8 +12,8 @@ versions:
 
 Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 
-| Produto                                                                  | Armazenamento | Minutos (por mês) |
-| ------------------------------------------------------------------------ | ------------- | ----------------- |
+| Produto                                                             | Armazenamento | Minutos (por mês) |
+| ------------------------------------------------------------------- | ------------- | ----------------- |
 | {% data variables.product.prodname_free_user %}                   | 500 MB        | 2.000             |
 | {% data variables.product.prodname_pro %}                           | 1 GB          | 3.000             |
 | {% data variables.product.prodname_free_team %} para organizações | 500 MB        | 2.000             |
@@ -44,14 +44,14 @@ O armazenamento usado por um repositório é o armazenamento total usado por art
 | macOS               | $0,08           |
 | Windows             | $0,016          |
 
-O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)".
+O número de trabalhos que você pode executar simultaneamente em todos os repositórios em sua conta de usuário ou organização depende do seu plano GitHub. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
 ### Calculando minutos e gastos de armazenamento
 
 No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo de minutos e armazenamento usado sobre o valor incluído em sua conta. Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 15.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de $56, dependendo dos sistemas operacionais usados para executar trabalhos.
 
 - 5.000 (3.000 Linux e 2.000 Windows) minutos = $56 ($24 + $32).
-  - 3.000 minutos Linux a $0,008 por = $24.
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2.000 minutos do Windows a $0,016 por minuto = $32.
 
 No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.

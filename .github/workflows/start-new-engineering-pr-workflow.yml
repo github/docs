@@ -1,7 +1,7 @@
 name: Start new engineering PR workflow
 
 on: 
-  pull_request: 
+  pull_request_target:
     types: [opened, reopened]
     
 jobs:
@@ -12,8 +12,7 @@ jobs:
       DRAFT_COLUMN_ID: 10095775
       REGULAR_COLUMN_ID: 10095779
     steps:
-    - name: 
-      uses: actions/github-script@44b873bc975058192f5279ebe7579496381f575d
+    - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
       continue-on-error: true
       with:
           github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}

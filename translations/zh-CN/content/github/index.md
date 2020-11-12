@@ -4,10 +4,11 @@ redirect_from:
   - /articles/
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
-intro: 适用于软件开发者、设计师和项目经理的文档、指南和帮助主题。 涵盖 Git、拉取请求、问题、wiki、gist 和充分使用 GitHub 进行开发所需的一切。
+intro: '适用于软件开发者、设计师和项目经理的文档、指南和帮助主题。 涵盖 Git、拉取请求、问题、wiki、gist 和充分使用 GitHub 进行开发所需的一切。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /getting-started-with-github %}
@@ -31,7 +32,7 @@ versions:
 {% link_in_list /setting-up-and-managing-organizations-and-teams %}
 
 <!-- if currentVersion == "free-pro-team@latest" -->
-{% link_in_list /setting-up-and-managing-your-enterprise-account %}
+{% link_in_list /setting-up-and-managing-your-enterprise %}
 <!-- endif -->
 
 <!-- if currentVersion == "free-pro-team@latest" -->

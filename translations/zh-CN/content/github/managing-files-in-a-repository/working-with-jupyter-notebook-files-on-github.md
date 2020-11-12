@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-笔记本的交互式功能（例如自定义的 JavaScript 图）在 {% data variables.product.product_location %} 上的仓库中不起作用。 有关示例，请参阅 [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)。
+笔记本的交互式功能（例如自定义的 JavaScript 图）在 {% data variables.product.product_location %} 上的仓库中不起作用。 有关示例，请参阅 [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)。
 
-要查看呈现 JavaScript 内容的 Jupyter notebook 或与其他人共享您的笔记本文件，您可以使用 [nbviewer](https://nbviewer.jupyter.org/)。 有关示例，请参阅在 nbviewer 上呈现的 [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)。
+要查看呈现 JavaScript 内容的 Jupyter notebook 或与其他人共享您的笔记本文件，您可以使用 [nbviewer](https://nbviewer.jupyter.org/)。 有关示例，请参阅在 nbviewer 上呈现的 [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)。
 
 要查看 Jupyter Notebook 的完全交互式版本，您可以在本地设置笔记本服务器。 更多信息请参阅“[Jupyter 的正式文档](http://jupyter.readthedocs.io/en/latest/index.html)”。
 

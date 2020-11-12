@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Team maintainers and organization owners can configure code review assignments.
@@ -17,7 +18,7 @@ When code owners are automatically requested for review, the team is still remov
 
 ### Routing algorithms
 
-Code review assignments automatically choose and assign reviewers based on one of two possible alogrithms.
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 The round robin algorithm chooses reviewers based on who's received the least recent review request, focusing on alternating between all members of the team regardless of the number of outstanding reviews they currently have.
 

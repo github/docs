@@ -1,11 +1,12 @@
 ---
 title: 申请添加子团队
-intro: 如果您在团队中具有维护员权限，可以申请在组织的层次结构中将现有团队嵌套在您的团队下面。
+intro: '如果您在团队中具有维护员权限，可以申请在组织的层次结构中将现有团队嵌套在您的团队下面。'
 redirect_from:
   - /articles/requesting-to-add-a-child-team
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 申请将某个团队添加为子团队时，申请会发送到子团队的维护员。 在子团队的维护员批准申请后，该子团队将嵌套在组织的层次结构中的父团队下面。

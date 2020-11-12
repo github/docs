@@ -1,6 +1,6 @@
 ---
 title: 管理者 Team を改善された Organization の権限に移行する
-intro: 2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された権限モデルに移行する必要があるかもしれません。 レガシーの管理者 Team は、改善された Organization 権限モデルに移行するまで、リポジトリの作成資格を自動的に維持します。
+intro: '2015 年 9 月以降に作成された Organization の場合、Organization の権限モデルはデフォルトで改善されています。 2015 年 9 月より前に作成された Organization は、古いオーナーおよび管理者 Team から、改善された権限モデルに移行する必要があるかもしれません。 レガシーの管理者 Team は、改善された Organization 権限モデルに移行するまで、リポジトリの作成資格を自動的に維持します。'
 redirect_from:
   - /articles/converting-your-previous-admin-team-to-the-improved-organization-permissions/
   - /articles/converting-an-admin-team-to-improved-organization-permissions

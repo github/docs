@@ -5,7 +5,8 @@ redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About managing enterprise accounts with GraphQL
@@ -23,7 +24,7 @@ With the Audit Log API, you can monitor when someone:
 - Promotes users to admin.
 - Changes permissions of a GitHub App.
 
-The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the "[AuditEntry interface](/v4/interface/auditentry/)."
+The Audit Log API enables you to keep copies of your audit log data. For queries made with the Audit Log API, the GraphQL response can include data for up to 90 to 120 days. For a list of the fields available with the Audit Log API, see the "[AuditEntry interface](/graphql/reference/interfaces#auditentry/)."
 
 With the Enterprise Accounts API, you can:
 - List and review all of the organizations and repositories that belong to your enterprise account.
@@ -202,6 +203,6 @@ For more information about getting started with GraphQL, see "[Introduction to G
 
 Here's an overview of the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API.
 
-For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sdiebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
+For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
 
 You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[Using the explorer](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)." For other information, such as authentication and rate limit details, check out the [guides](/v4/guides).

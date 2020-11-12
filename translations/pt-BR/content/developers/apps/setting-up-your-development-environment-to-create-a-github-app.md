@@ -6,15 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 ### Introdução
 
 Este guia irá analisar os passos necessários para configurar um aplicativo GitHub e executá-lo em um servidor. Os aplicativos GitHub exigem algumas etapas de configuração para gerenciar eventos do webhook e conectar o registro do aplicativo no GitHub ao seu código. O aplicativo neste guia serve como base que você pode usar para estender e criar novos aplicativos no GitHub.
 
-Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
+Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Funciona com o GitHub](https://github.com/works-with).{% endif %}
 
 Após concluir este projeto, você entenderá como efetuar a autenticação como um aplicativo GitHub e uma instalação, bem como e como esses métodos de autenticação são diferentes.
 
@@ -260,10 +260,10 @@ Antes de usar a biblioteca do Octokit.rb para fazer chamadas de API, você dever
 
 ``` ruby
 # Instancie um cliente do Octokit autenticado como um aplicativo GitHub.
-# A autenticação do aplicativo GitHub App exige que você construa um
-# JWT (https://jwt. o/introduction/) assinado com a chave privada do aplicativo
-# para que o GitHub possa ter certeza de que veio do aplicativo e não foi alterada por
-# terceiros maliciosos.
+# GitHub App authentication requires that you construct a
+# JWT (https://jwt.io/introduction/) signed with the app's private key,
+# so GitHub can be sure that it came from the app an not altered by
+# a malicious third party.
 def authenticate_app
   payload = {
       # The time that this JWT was issued, _i.e._ now.

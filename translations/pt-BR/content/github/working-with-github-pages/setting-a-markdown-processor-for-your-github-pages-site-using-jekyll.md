@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Pessoas com permissões de gravação para um repositório podem definir um processador markdown para um site do {% data variables.product.prodname_pages %}.
 
-O {% data variables.product.prodname_pages %} é compatível com dois processadores markdown: [kramdown](http://kramdown.gettalong.org/) e o próprio processador [CommonMark](https://commonmark.org/) estendido do {% data variables.product.prodname_dotcom %}, que é usado para renderizar markdown em estilo {% data variables.product.prodname_dotcom %} em todo o {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
+{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own extended [CommonMark](https://commonmark.org/) processor, which is used to render {% data variables.product.prodname_dotcom %} Flavored Markdown throughout {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
 
 Você pode usar o markdown em estilo {% data variables.product.prodname_dotcom %} com qualquer um dos processadores, mas apenas o processador CommonMark é que sempre corresponderá aos resultados que você vê no {% data variables.product.product_name %}.
 

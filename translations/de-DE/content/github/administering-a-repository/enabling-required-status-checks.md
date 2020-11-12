@@ -1,12 +1,13 @@
 ---
 title: Erforderliche Statuschecks aktivieren
-intro: 'Repository-Administratoren können erforderliche Statuschecks erzwingen, bevor ein Branch in einen Pull Request zusammengeführt wird oder bevor Commits auf einem lokalen Branch an den geschützten Remote-Branch übertragen werden können.'
+intro: Repository-Administratoren können erforderliche Statuschecks erzwingen, bevor ein Branch in einen Pull Request zusammengeführt wird oder bevor Commits auf einem lokalen Branch an den geschützten Remote-Branch übertragen werden können.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/enabling-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.protected-branches-options %}

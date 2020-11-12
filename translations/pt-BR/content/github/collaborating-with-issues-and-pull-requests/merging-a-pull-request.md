@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -42,12 +43,18 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+
+   {% endnote %}
+
 6. Clique em **Confirm merge** (Confirmar merge), **Confirm squash and merge** (Confirmar combinação por squash e merge) ou **Confirm rebase and merge** (Confirmar rebase e merge).
 6. Opcionalmente, [exclua o branch](/articles/deleting-unused-branches). Assim, a lista de branches do repositório ficará limpa.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}O repositório pode ser configurado para que o branch principal de uma pull request seja excluído automaticamente quando você faz o merge em uma pull request. Para obter mais informações, consulte "[Gerenciar a exclusão automática de branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)".{% endif %}
+O repositório pode ser configurado para que o branch principal de um pull request seja excluído automaticamente quando você faz o merge de um pull request. Para obter mais informações, consulte "[Gerenciar a exclusão automática de branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)".
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
    **Observação**: {% data reusables.pull_requests.retargeted-on-branch-deletion %} Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".

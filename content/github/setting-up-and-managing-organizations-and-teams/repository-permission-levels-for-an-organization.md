@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 People with admin permissions can manage individual and team access to an organization-owned repository.
@@ -68,7 +69,7 @@ In addition to managing organization-level settings, organization owners have ad
 | [Lock conversations](/articles/locking-conversations) | | | **X** | **X** | **X** |
 | Transfer issues (see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)" for details) |  | | **X** | **X** | **X** |
 | [Act as a designated code owner for a repository](/articles/about-code-owners) | | | **X** | **X** | **X** |
-| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| [Mark a draft pull request as ready for review](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | [Convert a pull request to a draft](/articles/changing-the-stage-of-a-pull-request) | | | **X** | **X** | **X** |{% endif %}
 | Submit reviews that affect a pull request's mergeability | | | **X** | **X** | **X** |
 | [Apply suggested changes](/articles/incorporating-feedback-in-your-pull-request) to pull requests | | | **X** | **X** | **X** |
@@ -103,7 +104,10 @@ In addition to managing organization-level settings, organization owners have ad
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository) for vulnerable dependencies | | | | | **X** |
-| [Manage data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository) | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" %}| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** | {% endif %}
+| [Manage data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository) | | | | | **X** |
+| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** | {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
+| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}
 | [Manage the forking policy for a repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository) | | | | | **X** |
 | [Transfer repositories into the organization](/articles/restricting-repository-creation-in-your-organization) | | | | | **X** |
 | [Delete or transfer repositories out of the organization](/articles/setting-permissions-for-deleting-or-transferring-repositories) | | | | | **X** |

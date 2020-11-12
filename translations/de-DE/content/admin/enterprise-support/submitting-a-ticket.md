@@ -1,17 +1,20 @@
 ---
 title: Ein Ticket einreichen
-intro: 'Sie können ein Supportticket über die {% data variables.product.prodname_ghe_server %}-{% data variables.enterprise.management_console %} oder das Supportportal absenden. Sie können ein Ticket als dringend kennzeichnen, wenn Ihr {% data variables.product.prodname_ghe_server %}-Produktionssystem ausgefallen ist oder sich in einem nicht mehr verwendbaren Zustand befindet.'
+intro: 'You can submit a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zum Absenden eines Tickets
 
 Bevor Sie ein Ticket absenden, sollten Sie hilfreiche Informationen für den {% data variables.contact.github_support %} sammeln und einen Ansprechpartner auswählen. Weitere Informationen finden Sie unter „[Absenden eines Tickets vorbereiten](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)“.
 
-Nachdem Sie Ihre Supportanfrage und optionale Diagnoseinformationen abgesendet haben, bittet der {% data variables.contact.github_support %} Sie unter Umständen, ein Support-Bundle herunterzuladen und für uns bereitzustellen. Weitere Informationen finden Sie unter „[Daten für den {% data variables.contact.github_support %} bereitstellen](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)“.
+{% if enterpriseServerVersions contains currentVersion %}
+After submitting your support request and optional diagnostic information,
+{% data variables.contact.github_support %} may ask you to download and share a support bundle with us. Weitere Informationen finden Sie unter „[Daten für den {% data variables.contact.github_support %} bereitstellen](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)“.
 
 ### Ticket über das {% data variables.contact.enterprise_portal %} einreichen
 
@@ -22,15 +25,15 @@ Nachdem Sie Ihre Supportanfrage und optionale Diagnoseinformationen abgesendet h
 
 ### Ein Ticket über Dein Firmenkonto einreichen
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Klicke unter „{% data variables.product.prodname_enterprise %} Help“ (Hilfe für {% data variables.product.prodname_enterprise %}), auf **{% data variables.contact.enterprise_support %} Portal**. ![Link zum Navigieren zur Enterprise-Support-Seite](/assets/images/enterprise/support/enterprise-support-link.png)
 5. Klicke auf **Submit a Ticket** (Ticket einreichen) ![Ein Ticket beim Enterprise-Support-Team einreichen](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Ticket über die {% data variables.product.prodname_ghe_server %}-{% data variables.enterprise.management_console %} absenden
+### Ticket über die {% data variables.product.product_name %}-{% data variables.enterprise.management_console %} absenden
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,7 +47,17 @@ Nachdem Sie Ihre Supportanfrage und optionale Diagnoseinformationen abgesendet h
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 7. Klicke auf **Submit** (Einreichen).
 
+{% endif %}
+{% if currentVersion == "github-ae@latest" %}
+### Ticket über das {% data variables.contact.ae_azure_portal %} absenden
+
+Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft documentation.
+
+For urgent issues, to ensure a quick response, after you submit a ticket, please call the support hotline immediately. Your Technical Support Account Manager (TSAM) will provide you with the number to use in your onboarding session.
+
+{% endif %}
+
 ### Weiterführende Informationen
 
-- „[Informationen zum {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)“
-- „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}

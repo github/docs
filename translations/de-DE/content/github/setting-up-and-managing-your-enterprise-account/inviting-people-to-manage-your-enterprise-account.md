@@ -1,6 +1,6 @@
 ---
 title: Personen zur Verwaltung Deines Enterprise-Kontos einladen
-intro: 'Du kannst Personen dazu einladen, Enterprise-Inhaber oder Abrechnungsmanager in Deinem Enterprise-Konto zu werden. Du kannst auch Enterprise-Inhaber und Abrechnungsmanager entfernen, die nicht mehr auf Dein Enterprise-Konto zugreifen müssen.'
+intro: Du kannst Personen dazu einladen, Enterprise-Inhaber oder Abrechnungsmanager in Deinem Enterprise-Konto zu werden. Du kannst auch Enterprise-Inhaber und Abrechnungsmanager entfernen, die nicht mehr auf Dein Enterprise-Konto zugreifen müssen.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/inviting-people-to-collaborate-in-your-business-account/

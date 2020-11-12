@@ -1,12 +1,13 @@
 ---
 title: Informationen zu Unterhaltungen auf GitHub
-intro: 'Du kannst spezifische Projekte und Änderungen sowie umfassendere Projekte oder Teamziele mithilfe verschiedener Arten von Diskussionen auf {% data variables.product.product_name %} besprechen.'
+intro: 'Sie können spezifische Projekte und Änderungen sowie umfassendere Projekte oder Teamziele mithilfe verschiedener Arten von Diskussionen auf {% data variables.product.product_name %} besprechen.'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Diskussionen auf {% data variables.product.product_name %}
@@ -19,7 +20,7 @@ Issues sind nützlich bei der Diskussion spezifischer Details eines Projekts, be
 
 ### Auf Ideen in Kommentaren reagieren
 
-Du kannst Deine Unterstützung oder Ablehnung für eine Idee in einer Unterhaltung zeigen. Wenn Du eine Reaktion auf einen Kommentar oder den Inhalt einer Teamdiskussion, eines Issues oder Pull-Requests hinzufügst, werden Personen, die die Unterhaltung abonniert haben, keine Benachrichtigung erhalten. Weitere Informationen über Abonnements findest Du unter {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Benachrichtigungen abonnieren und kündigen](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
+Du kannst Deine Unterstützung oder Ablehnung für eine Idee in einer Unterhaltung zeigen. Wenn Du eine Reaktion auf einen Kommentar oder den Inhalt einer Teamdiskussion, eines Issues oder Pull-Requests hinzufügst, werden Personen, die die Unterhaltung abonniert haben, keine Benachrichtigung erhalten. For more information about subscriptions, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
 
 ![Beispiel für einen Issue mit Reaktionen](/assets/images/help/repository/issue-reactions.png)
 

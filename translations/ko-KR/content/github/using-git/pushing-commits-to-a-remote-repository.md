@@ -7,12 +7,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The `git push` command takes two arguments:
 
 * A remote name, for example, `origin`
-* A branch name, for example, `master`
+* A branch name, for example, `main`
 
 예시:
 
@@ -20,7 +21,7 @@ The `git push` command takes two arguments:
 git push <em> &lt;REMOTENAME> &lt;BRANCHNAME> </em>
 ```
 
-As an example, you usually run `git push origin master` to push your local changes to your online repository.
+As an example, you usually run `git push origin main` to push your local changes to your online repository.
 
 ### Renaming branches
 
@@ -84,7 +85,7 @@ git fetch upstream
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
 > From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
->  * [new branch]      master     -> upstream/master
+>  * [new branch]      main     -> upstream/main
 ```
 
 When you're done making local changes, you can push your local branch to GitHub and [initiate a pull request](/articles/about-pull-requests).
@@ -97,3 +98,4 @@ For more information on working with forks, see "[Syncing a fork](/articles/sync
 - [`git remote` man page](https://git-scm.com/docs/git-remote.html)
 - "[Git cheatsheet](/articles/git-cheatsheet)"
 - "[Git workflows](/articles/git-workflows)"
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

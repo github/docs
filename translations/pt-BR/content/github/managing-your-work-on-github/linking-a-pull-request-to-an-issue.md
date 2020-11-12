@@ -1,6 +1,6 @@
 ---
 title: Vinculando uma pull request a um problema
-intro: 'Você pode vincular uma pull request a um problema {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} para mostrar que uma correção está em andamento e para{% endif %} fechar automaticamente o problema quando a pull request for mesclada.'
+intro: 'You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.'
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -9,19 +9,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**Observação:** As palavras-chave especiais na descrição de um pull request são interpretadas quando o pull request aponta para o branch-padrão do *repositório*. No entanto, se a base do PR's for *qualquer outro branch*, essas palavras-chave serão ignoradas, nenhum link será criado e o merge do PR não terá efeito sobre os problemas. **Se você deseja vincular um pull request a um problema usando uma palavra-chave, o PR deverá estar no branch-padrão.**
+
+{% endnote %}
 
 ### Sobre problemas e pull requests vinculados
 
-Você pode vincular um problema a uma pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}manualmente ou {% endif %}usando uma palavra-chave suportada na descrição da pull request.
+You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manually or {% endif %}using a supported keyword in the pull request description.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema.
-{% if currentVersion ver_lt "enterprise-server@2.21" %}Se a pull request e o problema estiverem em repositórios diferentes, {% data variables.product.product_name %} exibirá o link depois que a pull request sofrer merge, se a pessoa que faz o merge da pull request também tiver permissão para encerrar o problema.{% endif %}{% endif %}
+Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema. {% if currentVersion ver_lt "enterprise-server@2. 1" %}Se o pull request e o problema estiverem em repositórios diferentes, {% data variables.product.product_name %} mostrará o link após o merge do pull request, se a pessoa que mescla o pull request também tiver permissão para fechar o problema.{% endif %}
 
 Quando você mescla uma pull request vinculada no branch padrão de um repositório, o problema vinculado será fechado automaticamente. Para obter mais informações sobre o branch padrão, consulte "[Configurado o branch padrão](/github/administering-a-repository/setting-the-default-branch). "
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Vinculando manualmente uma pull request a um problema
 
 Qualquer pessoa com permissões de gravação em um repositório pode vincular manualmente uma pull request a um problema.
@@ -37,7 +42,7 @@ Você pode vincular manualmente até dez problemas para cada pull request. O pro
 
 ### Vinculando uma pull request a um problema usando uma palavra-chave
 
-Você pode vincular uma pull request a um problema usando uma palavra-chave suportada na descrição da pull request.
+Você pode vincular uma solicitação de pull a um problema usando uma palavra-chave compatível na descrição do pull request ou em uma mensagem de commit (observe que a solicitação do pull deve estar no branch-padrão).
 
 * close
 * closes
@@ -57,9 +62,9 @@ A sintaxe para fechar palavras-chave depende se o problema está no mesmo reposi
 | Problema em um repositório diferente | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | Múltiplos problemas                  | Usar sintaxe completa para cada problema      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Somente pull requests vinculadas manualmente podem ser desvinculadas. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}Only manually linked pull requests can be manually unlinked. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
 
-Você também pode usar palavras-chave de fechamento em uma mensagem de commit. O problema será encerrado quando você mesclar o commit no branch padrão{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, mas a pull request que contém o commit não será listada como uma pull request vinculada{% endif %}.
+Você também pode usar palavras-chave de fechamento em uma mensagem de commit. O problema será encerrado quando você mesclar o commit no branch padrão, mas o pull request que contém o commit não será listado como um pull request vinculado.
 
 ### Leia mais
 

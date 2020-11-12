@@ -6,11 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
-
 
 ### 最新バージョン
 
@@ -26,7 +26,7 @@ GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)�
 
 ### スキーマ
 
-{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
+{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -36,13 +36,12 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -77,7 +76,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 ### 認証
 
-{% data variables.product.product_name %} API v3 を使用して認証する方法は 2 つあります。  認証を必要とするリクエストは、場所によって `403 Forbidden` ではなく `404 Not Found` を返します。  これは、許可されていないユーザにプライベートリポジトリが誤って漏洩するのを防ぐためです。
+{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
 #### Basic 認証
 
@@ -97,8 +96,9 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% endnote %}
 
-[OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  OAuth2 トークンは、本番アプリケーションの [Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)で取得できることに注意してください。
+[OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 キー/シークレット
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -109,9 +109,9 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 `client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
 
-{% if currentVersion != "free-pro-team@latest" %}
 プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳しい情報については、 「[プライベートモードを有効化する](/enterprise/admin/installation/enabling-private-mode)」を参照してください。
 {% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 [認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
@@ -165,10 +165,10 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 

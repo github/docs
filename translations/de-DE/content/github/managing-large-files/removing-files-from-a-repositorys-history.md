@@ -1,12 +1,13 @@
 ---
 title: Dateien aus dem Verlauf eines Repositorys entfernen
-intro: 'Um eine große Datei aus Deinem Repository zu löschen, musst Du sie vollständig aus Deinem lokalen Repository und von {% data variables.product.product_location %} löschen.'
+intro: 'Um eine große Datei aus Ihrem Repository zu löschen, müssen Sie sie vollständig aus Ihrem lokalen Repository und von {% data variables.product.product_location %} löschen.'
 redirect_from:
   - /articles/removing-files-from-a-repository-s-history
   - /articles/removing-files-from-a-repositorys-history
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -15,13 +16,9 @@ versions:
 
 {% endwarning %}
 
-### Entfernen einer Datei, die in einem früheren Commit hinzugefügt wurde
-
-Wenn Du eine Datei in einem früheren Commit hinzugefügt hast, musst Du sie aus Deinem Repository-Verlauf entfernen. Um Dateien aus dem Verlauf Deines Repository zu entfernen, kannst Du den BFG Repo-Cleaner oder den Befehl `git filter-branch` verwenden. Weitere Informationen findest Du unter „[Vertrauliche Daten aus einem Repository entfernen](/github/authenticating-to-github/removing-sensitive-data-from-a-repository).“
-
 ### Datei entfernen, die beim letzten noch nicht übertragenen Commit hinzugefügt wurde
 
-Wenn eine Datei bei Deinem letzten Commit hinzugefügt, aber noch nicht per Push auf {% data variables.product.product_location %} übertragen wurde, kannst Du die Datei löschen und den Commit anpassen:
+Wenn eine Datei bei Ihrem letzten Commit hinzugefügt wurde und dieses noch nicht per Push auf {% data variables.product.product_location %} übertragen wurde, können Sie die Datei löschen und den Commit ändern:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
@@ -42,3 +39,7 @@ Wenn eine Datei bei Deinem letzten Commit hinzugefügt, aber noch nicht per Push
   $ git push
   # Uebertrage unseren neu geschriebenen, kleineren Commit
   ```
+
+### Entfernen einer Datei, die in einem früheren Commit hinzugefügt wurde
+
+Wenn Du eine Datei in einem früheren Commit hinzugefügt hast, musst Du sie aus Deinem Repository-Verlauf entfernen. Um Dateien aus dem Verlauf Deines Repository zu entfernen, kannst Du den BFG Repo-Cleaner oder den Befehl `git filter-branch` verwenden. Weitere Informationen findest Du unter „[Vertrauliche Daten aus einem Repository entfernen](/github/authenticating-to-github/removing-sensitive-data-from-a-repository).“

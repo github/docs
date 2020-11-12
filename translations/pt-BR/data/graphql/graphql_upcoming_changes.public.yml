@@ -37,8 +37,8 @@ upcoming_changes:
     owner: tambling
   - 
     location: Query.sponsorsListing
-    description: "`sponsorsListing` will be removed. Use `Sponsorable.sponsorsListing` instead."
-    reason: "`Query.sponsorsListing` will be removed."
+    description: "`sponsorsListing` será removido. `Sponsorable.sponsorsListing`."
+    reason: "`Query.sponsorsListing` será removido."
     date: 'RegistryPackageDependency.dependencyType'
     criticality: breaking
     owner: antn
@@ -51,8 +51,8 @@ upcoming_changes:
     owner: antn
   - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All pending members consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os integrantes pendentes consomem uma licença
     date: '2020-07-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
@@ -78,20 +78,6 @@ upcoming_changes:
     criticality: breaking
     owner: mikesea
   - 
-    location: RepositoryCollaboratorEdge.permission
-    description: O type `permission` mudará de `RepositoryPermission!` para `String`.
-    reason: Este campo pode retornar valores adicionais
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: oneill38
-  - 
-    location: RepositoryInvitation.permission
-    description: O type `permission` mudará de `RepositoryPermission!` para `String`.
-    reason: Este campo pode retornar valores adicionais
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: oneill38
-  - 
     location: RepositoryInvitationOrderField.INVITEE_LOGIN
     description: "`INVITEE_LOGIN` será removido."
     reason: "`INVITEE_LOGIN` não é mais um valor de campo válido. Convites de repositório agora podem ser associados a um email, não apenas a um convidado."
@@ -106,37 +92,30 @@ upcoming_changes:
     criticality: breaking
     owner: nholden
   - 
-    location: TeamRepositoryEdge.permission
-    description: O type `permission` mudará de `RepositoryPermission!` para `String`.
-    reason: Este campo pode retornar valores adicionais
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: oneill38
-  - 
     location: EnterpriseMemberEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All members consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os integrantes consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
   - 
     location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All outside collaborators consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os colaboradores externos consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
   - 
     location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All pending collaborators consume a license
+    description: "`isUnlicensed` será removido."
+    reason: Todos os colaboradores pendentes consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
-    description: "`DRAFT` will be removed. Use PullRequest.isDraft instead."
-    reason: DRAFT state will be removed from this enum and `isDraft` should be used instead
+    description: "O `DRAFT` será removido. Use PullRequest.isDraft."
+    reason: O status DRAFT será removido deste enum e o `isDraft` deverá ser usado
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: nplasterer

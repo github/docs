@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 新しい SSH キーを {% data variables.product.product_name %} アカウントに追加する前に、以下のことを済ませておかなければなりません:
@@ -78,10 +79,10 @@ versions:
 
   ```shell
   $ sudo apt-get install xclip
-  # xclip をダウンロードしてインストールします。 `apt-get`がなければ、それ以外のインストーラ（`yum`など）を使う必要があるかもしれません。
+  # xclip をダウンロードしてインストールします。 If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # id_rsa.pubファイルの内容をクリップボードにコピーする
+  $ xclip -selection clipboard &lt; ~/.ssh/id_rsa.pub
+  # Copies the contents of the id_rsa.pub file to your clipboard
   ```
   {% tip %}
 

@@ -3,7 +3,7 @@ header:
   github_docs: GitHub Docs
   contact: 연락처
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
     localization_complete: 문서에 대한 업데이트가 자주 게시되며, 이 페이지의 번역이 아직 진행 중일 수 있습니다. 최신 정보는<a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오. 이 페이지에서 번역에 문제가 있는 경우 <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">알려주십시오</a>.
     localization_in_progress: 안녕하세요! 이 페이지는 현재 개발 중이거나 아직 번역 중입니다. 정확한 최신 정보를 확인하려면 <a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오.
     product_in_progress: '👋 안녕하세요! 이 페이지는 현재 개발 중입니다. 정확한 최신 정보는 <a href="https://developer.github.com">개발자 설명서</a>를 방문하십시오.'
@@ -15,8 +15,9 @@ homepage:
   version_picker: 버전
 toc:
   getting_started: 시작하기
-  popular_articles: 인기 문서
+  popular_articles: Popular
   guides: 안내서
+  whats_new: What's new
 pages:
   article_version: "문서 버전:"
   miniToc: 기사 내용
@@ -118,3 +119,6 @@ footer:
       careers: 채용
       press: 보도 자료
       shop: 쇼핑
+product_landing:
+  quick_start: Quickstart
+  reference_guides: Reference guides

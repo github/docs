@@ -14,7 +14,7 @@ versions:
 
 {% data reusables.actions.actions-not-verified %}
 
-To learn about publishing {% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}, see "[{% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}](/marketplace/actions/)."
+To learn about publishing {% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
 ### 应用
 

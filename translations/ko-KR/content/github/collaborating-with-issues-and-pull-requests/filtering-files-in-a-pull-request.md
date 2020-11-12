@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can filter files in a pull request by file extension type, such as  `.html` or `.js`,  no extension,  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} code ownership, {% endif %} or dotfiles.
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
 
 {% tip %}
 
-**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} or files you have already viewed {% endif %}in the pull request diff from the file filter drop-down menu.
+**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
 
 {% endtip %}
 

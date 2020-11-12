@@ -1,1 +1,1 @@
-A new content reference is `created`. A new content reference is created when the body or comment of an issue or pull request includes a URL that matches a configured content reference domain. For more information, see "[Using content attachments](/apps/using-content-attachments/)" to learn more about content references and attachments.
+新的内容引用为 `created`。 当议题或拉取请求的正文或注释包含与配置的内容引用域匹配的 URL 时，将创建新的内容引用。 有关内容引用和附件的更多信息，请参阅“[使用内容附件](/apps/using-content-attachments/)”。

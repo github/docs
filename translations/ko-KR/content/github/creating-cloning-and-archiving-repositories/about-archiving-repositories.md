@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -20,7 +21,7 @@ versions:
 
 Once a repository is archived, you cannot add or remove collaborators or teams. Contributors with access to the repository can only fork or star your project.
 
-When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, and comments become read-only. To make changes in an archived repository, you must unarchive the repository first.
+When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, and comments become read-only. To make changes in an archived repository, you must unarchive the repository first.
 
 You can search for archived repositories. For more information, see "[Searching for repositories](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)." You can also search for issues and pull requests within archived repositories. For more information, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)."
 
