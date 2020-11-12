@@ -100,7 +100,7 @@ Host github.com-repo-1
 ```
 
 * `Host github.com-repo-0` - The repository's alias.
-* `Hostname github.com` - Configures the alias to use the {% data variables.product.product_name %} server.
+* `Hostname github.com` - Configures the hostname to use with the alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 With these entries added, you can then use the alias of the hostname to interact with the repository using SSH, so the unique deploy key for that alias used. For example:
