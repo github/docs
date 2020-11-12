@@ -25,18 +25,19 @@ featuredLinks:
     - /actions/reference/workflow-commands-for-github-actions
     - /actions/reference/environment-variables
 changelog:
+  - title: Removing set-env and add-path commands on November 16
+    date: '2020-11-09'
+    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+  - title: Ubuntu-latest workflows will use Ubuntu-20.04
+    date: '2020-10-29'
+    href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
+  - title: MacOS Big Sur Preview
+    date: '2020-10-29'
+    href: https://github.blog/changelog/2020-10-29-github-actions-macos-big-sur-preview
   - title: Self-Hosted Runner Group Access Changes
     date: '2020-10-16'
     href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
-  - title: Ability to change retention days for artifacts and logs
-    date: '2020-10-08'
-    href: https://github.blog/changelog/2020-10-08-github-actions-ability-to-change-retention-days-for-artifacts-and-logs
-  - title: Deprecating set-env and add-path commands
-    date: '2020-10-01'
-    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands
-  - title: Fine-tune access to external actions
-    date: '2020-10-01'
-    href: https://github.blog/changelog/2020-10-01-github-actions-fine-tune-access-to-external-actions
+  
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
