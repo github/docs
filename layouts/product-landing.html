@@ -30,7 +30,7 @@
           <div class="col-12 col-lg-4 mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
               <h3 class="f4 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.guides %}</h3>
-              <a href="/{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
+              <a href="{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
             </div>
             <ul class="list-style-none">
               {% for link in featuredLinks.guides %}
@@ -97,6 +97,10 @@
           </div>
         </div>
       {% endif %}
+
+      <div class="container-xl px-3 px-md-6 mt-6">
+        {% include all-articles %}
+      </div>
 
       <div class="border-top">
         {% include small-footer %}

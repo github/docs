@@ -60,105 +60,26 @@ versions:
 <!-- {% link_with_intro /reference %} -->
 
 <!-- Code examples -->
+{% assign actionsCodeExamples = site.data.variables.action_code_examples %}
+{% if actionsCodeExamples %}
 <div class="my-6 pt-6">
   <h2 class="mb-2 font-mktg h1">Code examples</h2>
 
+  <div class="pr-lg-3 mb-5 mt-3">
+    <input class="js-code-example-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Search code examples" type="text" autocomplete="off" />
+  </div>
+
   <div class="d-flex flex-wrap gutter">
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-nodejs">
-        <div class="p-4">
-          <h4>Building and testing Node.js</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Node.js application.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-nodejs</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-python">
-        <div class="p-4">
-          <h4>Building and testing Python</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Python application.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Python</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-python</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-maven">
-        <div class="p-4">
-          <h4>Building and testing Java with Maven</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Java project with Maven.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-maven</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-gradle">
-        <div class="p-4">
-          <h4>Building and testing Java with Gradle</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Java project with Gradle.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-gradle</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-ant">
-        <div class="p-4">
-          <h4>Building and testing Java with Ant</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Java project with Ant.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-ant</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/publishing-nodejs-packages">
-        <div class="p-4">
-          <h4>Publishing Node.js packages</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/publishing-nodejs-packages</span>
-        </footer>
-      </a>
-    </div>
+    {% render 'code-example-card' for actionsCodeExamples as example %}
+  </div>
+
+  <button class="js-code-example-show-more btn btn-outline float-right">Show more {% octicon "arrow-right" %}</button>
+
+  <div class="js-code-example-no-results d-none py-4 text-center text-gray font-mktg">
+    <div class="mb-3">{% octicon "search" width="24" %}</div>
+    <h3 class="text-normal">Sorry, there is no result for <strong class="js-code-example-filter-value"></strong></h3>
+    <p class="my-3 f4">It looks like we don't have an example that fits your filter.<br>Try another filter or add your code example</p>
+    <a href="https://github.com/github/docs/blob/HEAD/data/variables/action_code_examples.yml">Learn how to add a code example {% octicon "arrow-right" %}</a>
   </div>
 </div>
+{% endif %}
