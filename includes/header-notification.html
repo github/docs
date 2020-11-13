@@ -21,6 +21,11 @@
 {% if currentVersion == "github-ae@latest" %}
   {% assign release_notification_type = "true" %}
   {% assign release_notification = site.data.ui.header.notices.ghae_silent_launch %}
+
+<!-- Release candidate notice -->
+{% elsif currentVersion == site.data.variables.release_candidate.version %}
+  {% assign release_notification_type = "true" %}
+  {% assign release_notification = allVersions[currentVersion].versionTitle | append: site.data.ui.header.notices.release_candidate %}
 {% endif %}
 <!-- END RELEASE NOTICES -->
 
