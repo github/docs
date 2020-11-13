@@ -62,10 +62,22 @@ You can discard all the uncommitted changes in one file, a range of files, or di
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 #### Discarding changes in one or more lines
+You can discard one or more added lines in a single file before you commit them.
 
-1. In the list of changed files, select the file where you want to discard the changes since the last commit. 
-2. To select multiple files, click shift and click on the range of files you want to discard changes from.
-3. 
+{% note %}
+
+**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
+
+{% endnote %}
+
+In the list of changed files, right click on the line you want to discard. 
+
+  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
+
+In the list of changed files, right click the group of lines you want to discard. 
+
+  ![Discard multiple lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
+
 
 ### 4. Write a commit message and push your changes
 
@@ -90,3 +102,10 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+
+
+
+
+
+
