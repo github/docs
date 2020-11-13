@@ -37,9 +37,10 @@ As you make changes to files in your text editor and save them locally, you will
 
 If one file contains multiple changes, but you only want *some* of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
 
-When you review the diff of the file, the lines that will be included in the commit are highlighted in blue. To exclude the change, click the changed line so the blue disappears.
-
-![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
+1. In the top right corner, use the {% octicon "gear" aria-label="The Gear icon" %} to select a unified or split diff display to review your changes.
+  ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
+2. When you review the diff of the file, the lines that will be included in the commit are highlighted in blue. To exclude the change, click one or more changed lines so the blue disappears.
+  ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
 #### Discarding changes
 
