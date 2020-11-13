@@ -37,21 +37,21 @@ As you make changes to files in your text editor and save them locally, you will
 
 If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
 
-1. In the top right corner, use the {% octicon "gear" aria-label="The Gear icon" %} to select a unified or split diff display to review your changes.
+{% note %}
+
+**Note:** Split diff displays are currently in beta and subject to change.
+
+{% endnote %}
+
+1. In the top right corner, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split** to review your changes.
   ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
-2. When you review the diff of the file, the lines that will be included in the commit are highlighted in blue. To exclude the change, click one or more changed lines so the blue disappears.
+2. The lines that will be included in the commit are highlighted in blue. To exclude the change, click one or more changed lines so the blue disappears.
   ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
 ### 3. Discarding changes
-If you don't want uncommitted changes you've made, you can remove the changes by discarding them.
+If you have uncommitted changes that you don't want, you can remove the changes by discarding them. You can discard all uncommitted changes in one file, a range of files, or discard all changes in all files since the last commit.
 
-You can discard all the uncommitted changes in one file, a range of files, or discard all changes in all files since the last commit.
-
-{% note %}
-
-**Note:** Discarded changes are saved in a dated file in the Trash and you can recover them until the Trash is emptied.
-
-{% endnote %}
+Discarded changes are saved in a dated file in the Trash and you can recover them until the Trash is emptied.
 
 #### Discarding changes in one or more files
 
@@ -70,11 +70,11 @@ You can discard one or more added lines in a single file before you commit them.
 
 {% endnote %}
 
-In the list of changed files, right click on the line you want to discard. 
+In the list of changed files, right click on the line you want to discard and select **Discard added line**.
 
   ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
-In the list of changed files, right click the group of lines you want to discard. 
+In the list of changed files, right click the group of lines you want to discard and select **Discard added lines**. 
 
   ![Discard multiple lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
