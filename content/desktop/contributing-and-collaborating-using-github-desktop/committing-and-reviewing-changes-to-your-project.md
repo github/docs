@@ -35,18 +35,25 @@ As you make changes to files in your text editor and save them locally, you will
 
 #### Creating a partial commit
 
-If one file contains multiple changes, but you only want *some* of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
+If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
 
 1. In the top right corner, use the {% octicon "gear" aria-label="The Gear icon" %} to select a unified or split diff display to review your changes.
   ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
 2. When you review the diff of the file, the lines that will be included in the commit are highlighted in blue. To exclude the change, click one or more changed lines so the blue disappears.
   ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
-#### Discarding changes
+### 3. Discarding changes
+If you don't want uncommitted changes you've made, you can remove the changes by discarding them.
 
 You can discard all the uncommitted changes in one file, a range of files, or discard all changes in all files since the last commit.
 
-{% mac %}
+{% note %}
+
+**Note:** Discarded changes are saved in a dated file in the Trash and you can recover them until the Trash is emptied.
+
+{% endnote %}
+
+#### Discarding changes in one or more files
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -54,30 +61,13 @@ You can discard all the uncommitted changes in one file, a range of files, or di
 {% data reusables.desktop.confirm-discard-files %}
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-{% tip %}
+#### Discarding changes in one or more lines
 
-**Tip:** The changes you discarded are saved in a dated file in the Trash and you can recover them until the Trash is emptied.
+1. In the list of changed files, select the file where you want to discard the changes since the last commit. 
+2. To select multiple files, click shift and click on the range of files you want to discard changes from.
+3. 
 
-{% endtip %}
-
-{% endmac %}
-
-{% windows %}
-
-{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
-  ![Discard Changes option in context menu](/assets/images/help/desktop/discard-changes-win.png)
-{% data reusables.desktop.confirm-discard-files %}
-  ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-win.png)
-
-{% tip %}
-
-**Tip:** The changes you discarded are saved in a file in the Recycle Bin and you can recover them until it is emptied.
-
-{% endtip %}
-
-{% endwindows %}
-
-### 3. Write a commit message and push your changes
+### 4. Write a commit message and push your changes
 
 Once you're satisfied with the changes you've chosen to include in your commit, write your commit message and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
 
