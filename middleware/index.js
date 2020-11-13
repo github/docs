@@ -55,6 +55,7 @@ module.exports = function (app) {
   app.use(require('./disable-caching-on-safari'))
   app.get('/_500', asyncMiddleware(require('./trigger-error')))
   app.use(require('./breadcrumbs'))
+  app.use(require('./dev-toc'))
   app.use(require('./featured-links'))
   app.get('/*', asyncMiddleware(require('./render-page')))
   app.use(require('./handle-errors'))

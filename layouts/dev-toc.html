@@ -1,0 +1,61 @@
+<h3>Versions</h3>
+<ul>
+{% for version in allVersions %}
+<li><a href="/{{ version[0] }}/dev-toc">{{ version[1].versionTitle }}</a>
+{% endfor %}
+</ul>
+
+{% if allVersions[currentVersion] %}
+<h2>TOC for {{ allVersions[currentVersion].versionTitle }}</h2>
+
+{% for product in siteTree[currentLanguage][currentVersion].products %}
+<details><summary>{{product[1].title}}</summary>
+<ul>
+<li title="{{product[1].title}}">
+  <a href="/{{currentLanguage}}{{product[1].href}}">{{ product[1].title }}</a>
+  {% for category in product[1].categories %}
+  {% capture fullPathToCategory %}/{{currentLanguage}}{{category[1].href}}{% endcapture %}
+  <ul>
+  <li>
+    <a href="{{fullPathToCategory}}">{{ category[1].title }}</a>
+      <!-- some categories have maptopics with child articles -->
+      {% if category[1].maptopics %}
+      <ul">
+        {% for maptopic in category[1].maptopics %}
+          {% unless maptopic[1].hidden %}
+            {% capture fullPathToMaptopic %}/{{currentLanguage}}{{maptopic[1].href}}{% endcapture %}
+
+            <li>
+              <a href="{{fullPathToMaptopic}}">{{ maptopic[1].title }}</a>
+              <ul>
+                {% for article in maptopic[1].articles %}
+                {% capture fullPathToArticle %}/{{currentLanguage}}{{article[1].href}}{% endcapture %}
+
+                <li>
+                  <a href="{{fullPathToArticle}}">{{ article[1].title }}</a>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+      <!-- some categories have no maptopics, only articles -->
+      {% else %}
+      <ul>
+        {% for article in category[1].articles %}
+        {% capture fullPathToArticle %}/{{currentLanguage}}{{article[1].href}}{% endcapture %}
+        <li>
+          <a href="{{fullPathToArticle}}">{{ article[1].title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+</li>
+</ul>
+</details>
+{% endfor %}
+{% endif %}
