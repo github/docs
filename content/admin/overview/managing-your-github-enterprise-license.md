@@ -76,4 +76,4 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 10. Under "Enterprise Server Instances", click **Add server usage**.
   ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
-  ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)
+  ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png) RUN
