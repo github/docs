@@ -91,6 +91,11 @@
     "del": "^4.1.1",
     "dependency-check": "^4.1.0",
     "domwaiter": "^1.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "event-to-promise": "^0.8.0",
     "graphql": "^14.5.8",
     "heroku-client": "^3.1.0",
@@ -116,7 +121,6 @@
     "replace": "^1.2.0",
     "revalidator": "^0.3.1",
     "robots-parser": "^2.1.1",
-    "standard": "^14.3.1",
     "start-server-and-test": "^1.11.3",
     "supertest": "^4.0.2",
     "webpack-dev-middleware": "^3.7.2",
@@ -127,8 +131,8 @@
     "dev": "npm start",
     "build": "cross-env NODE_ENV=production npx webpack --mode production",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",
-    "lint": "standard --fix && prettier -w \"**/*.{yml,yaml}\"",
-    "test": "jest && standard && prettier -c \"**/*.{yml,yaml}\" && npm run check-deps",
+    "lint": "eslint --fix . && prettier -w \"**/*.{yml,yaml}\"",
+    "test": "jest && eslint . && prettier -c \"**/*.{yml,yaml}\" && npm run check-deps",
     "prebrowser-test": "npm run build",
     "browser-test": "start-server-and-test browser-test-server 4001 browser-test-tests",
     "browser-test-server": "cross-env NODE_ENV=production ENABLED_LANGUAGES='en,ja' PORT=4001 node server.js",
@@ -147,13 +151,6 @@
     "node": "12 - 14"
   },
   "repository": "https://github.com/github/docs",
-  "standard": {
-    "parser": "babel-eslint",
-    "env": [
-      "browser",
-      "jest"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "node script/prevent-translation-commits.js",

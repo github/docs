@@ -38,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: Run linter
-        run: npx standard
+        run: npx eslint .
 
       - name: Check dependencies
         run: npm run check-deps
