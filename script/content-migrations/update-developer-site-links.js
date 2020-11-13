@@ -16,7 +16,7 @@ const files = ['content', 'data'].map(dir => {
 }).flat()
 
 // match [foo](/v3) and [bar](/v4) Markdown links
-const linkRegex = new RegExp('\\(/v[34].*?\\)', 'g')
+const linkRegex = /\(\/v[34].*?\)/g
 
 main()
 
