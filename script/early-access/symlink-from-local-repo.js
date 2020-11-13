@@ -8,7 +8,6 @@
 //
 // [end-readme]
 
-const { execSync } = require('child_process')
 const rimraf = require('rimraf').sync
 const fs = require('fs')
 const path = require('path')
