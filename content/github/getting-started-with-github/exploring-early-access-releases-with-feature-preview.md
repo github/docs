@@ -1,5 +1,5 @@
 ---
-title: Exploring early access releases with feature preview
+title: Exploring early access releases with featu68re preview
 intro: You can use feature preview to see products or features that are available in beta and to enable or disable each feature for your user account.
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
