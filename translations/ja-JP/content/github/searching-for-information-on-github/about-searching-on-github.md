@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %}全体にわたってグローバルに検索できます。あるいは、検索を特定のリポジトリや Organization に絞ることもできます。
@@ -54,6 +55,7 @@ versions:
 
 ![高度な検索](/assets/images/help/search/advanced_search_demo.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 ### {% data variables.product.prodname_enterprise %} および {% data variables.product.prodname_dotcom_the_website %} にわたる並行検索
 
 あなたが {% data variables.product.prodname_enterprise %} を利用しており、{% data variables.product.prodname_ghe_cloud %} を利用する {% data variables.product.prodname_dotcom_the_website %} の Organization のメンバーなら、{% data variables.product.prodname_enterprise %} のサイト管理者は {% data variables.product.prodname_github_connect %} を有効化して、あなたが双方の環境にわたって同時に検索できるようにすることができます。 詳細は「[{% data variables.product.prodname_enterprise %} と {% data variables.product.prodname_dotcom_the_website %} の間での {% data variables.product.prodname_unified_search %} を有効化する](/enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com)」を参照してください。
@@ -61,8 +63,10 @@ versions:
 双方の環境にわたる検索は、{% data variables.product.prodname_enterprise %} からしか行えません。 検索の範囲を環境で狭めるには、{% data variables.search.advanced_url %} 上のフィルタオプションを使うか、検索プレフィックス `environment:` を利用できます。 {% data variables.product.prodname_enterprise %} 上のコンテンツだけを検索するには、`environment:local` という検索構文を使います。 {% data variables.product.prodname_dotcom_the_website %} 上のコンテンツだけを検索するには`environment:github` を使います。
 
 {% data variables.product.prodname_enterprise %} サイト管理者は、接続された {% data variables.product.prodname_ghe_cloud %} Organization 中のすべてのパブリックリポジトリ、すべてのプライベートリポジトリ、あるいは特定のプライベートリポジトリのみに対して {% data variables.product.prodname_unified_search %} を有効化できます。
+If your site administrator enables
 
-サイト管理者が {% data variables.product.prodname_unified_search %} をプライベートリポジトリで有効化したなら、あなたはサイト管理者が {% data variables.product.prodname_unified_search %} を有効化したプライベートリポジトリ内と、あなたがアクセスできる接続された {% data variables.product.prodname_dotcom_the_website %} Organization 内だけが検索できます。 あなたの {% data variables.product.prodname_enterprise %} 管理者と、{% data variables.product.prodname_dotcom_the_website %} 上の Organization のオーナーは、あなたのアカウントが所有しているプライベートリポジトリは検索できません。 適用可能なプライベートリポジトリを検索するには、{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_enterprise %} 上のあなたの個人アカウントに対してプライベートリポジトリ検索を有効化しなければなりません。 詳細は「[{% data variables.product.prodname_enterprise %} アカウントでのプライベートな {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。
+{% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. あなたの {% data variables.product.prodname_enterprise %} 管理者と、{% data variables.product.prodname_dotcom_the_website %} 上の Organization のオーナーは、あなたのアカウントが所有しているプライベートリポジトリは検索できません。 適用可能なプライベートリポジトリを検索するには、{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_enterprise %} 上のあなたの個人アカウントに対してプライベートリポジトリ検索を有効化しなければなりません。 詳細は「[{% data variables.product.prodname_enterprise %} アカウントでのプライベートな {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。
+{% endif %}
 
 ### 参考リンク
 

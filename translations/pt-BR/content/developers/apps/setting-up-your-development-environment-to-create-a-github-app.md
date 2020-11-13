@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -259,10 +260,10 @@ Antes de usar a biblioteca do Octokit.rb para fazer chamadas de API, você dever
 
 ``` ruby
 # Instancie um cliente do Octokit autenticado como um aplicativo GitHub.
-# A autenticação do aplicativo GitHub App exige que você construa um
-# JWT (https://jwt. o/introduction/) assinado com a chave privada do aplicativo
-# para que o GitHub possa ter certeza de que veio do aplicativo e não foi alterada por
-# terceiros maliciosos.
+# GitHub App authentication requires that you construct a
+# JWT (https://jwt.io/introduction/) signed with the app's private key,
+# so GitHub can be sure that it came from the app an not altered by
+# a malicious third party.
 def authenticate_app
   payload = {
       # The time that this JWT was issued, _i.e._ now.

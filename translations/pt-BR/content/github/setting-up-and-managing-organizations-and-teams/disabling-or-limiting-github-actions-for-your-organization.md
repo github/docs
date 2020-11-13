@@ -40,7 +40,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 
 {% note %}
 
-**Observação:** Talvez você não consiga gerenciar essas configurações se a sua organização for gerenciada por uma empresa que tem uma política de substituição. Para obter mais informações, {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account).{% else %}"[Aplicar políticas de {% data variables.product.prodname_actions %} para a sua empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise).{% endif %}
+**Observação:** Talvez você não consiga gerenciar essas configurações se a sua organização for gerenciada por uma empresa que tem uma política de substituição. Para obter mais informações, {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de {% data variables.product.prodname_actions %} na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account).{% else %}"[Aplicar políticas de {% data variables.product.prodname_actions %} para a sua empresa](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise).{% endif %}
 
 {% endnote %}
 
@@ -59,7 +59,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. Clique em **Salvar**.
 
 {% endif %}

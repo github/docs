@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -71,14 +72,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `cloak-preview` **公布日期：** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### 社区概况指标
-
-检索任何公共仓库的[社区概况指标](/v3/repos/community/)（也称为社区健康状况）。
-
-**自定义媒体类型：** `black-panther-preview` **公布日期：** [2017-02-09](https://developer.github.com/changes/2017-02-09-community-health/)
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
 ### 用户阻止
 
 用户可以[阻止其他用户](/v3/users/blocking/)。 组织也可以[阻止用户](/v3/orgs/blocking/)。
@@ -107,7 +100,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### 全局 web 挂钩
 
@@ -154,7 +147,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 ### 检查运行和检查套件 API
 
 允许 GitHub 应用程序对仓库的代码运行外部检查。 更多信息请参阅[检查运行](/v3/checks/runs/)和[检查套件](/v3/checks/suites/) API。
@@ -162,7 +155,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `antiope-preview` **公布日期：** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### 对仓库的匿名 Git 访问
 
@@ -205,16 +198,6 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。 更多信息请参阅“[使用内容附件](/apps/using-content-attachments/)”。
 
 **自定义媒体类型：** `corsair-preview` **公布日期：** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### 限制仓库和组织的交互
-
-允许您暂时限制 {% data variables.product.product_name %} 仓库或组织的交互，例如评论、打开议题和创建拉取请求等交互。 启用后，只有指定的 {% data variables.product.product_name %} 用户组才能参与这些交互。 更多信息请参阅[仓库交互](/v3/interactions/repos/)和[组织交互](/v3/interactions/orgs/) API。
-
-**自定义媒体类型：** `sombra-preview` **公布日期：** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
-
-{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### 草稿拉取请求
@@ -279,7 +262,7 @@ GitHub 应用程序的所有者现在可以使用[应用程序 API](/v3/apps/#de
 **自定义媒体类型：** `doctor-strange-preview` **公布日期：** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 ### 仓库 API 的新可见性参数
 
 您可以在[仓库 API](/v3/repos/) 中设置和检索仓库可见性。

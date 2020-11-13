@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### GraphQLでのEnterpriseアカウントの管理について
@@ -192,6 +193,6 @@ GraphQLの使い始め方に関する詳しい情報については「[GraphQL�
 
 Enterprise Accounts APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型の概要を以下に示します。
 
-Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/v4/)の詳細なGraphQLの定義があるサイドバーを見てください。
+For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
 
 GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳しい情報については「[Explorerの利用](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。 認証やレート制限の詳細など その他の情報については[ガイド](/v4/guides)を参照してください。

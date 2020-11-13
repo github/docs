@@ -3,7 +3,7 @@ title: Managing code scanning alerts for your repository
 shortTitle: アラートを管理する
 intro: 'You can view, fix, {% if currentVersion == "enterprise-server@2.22" %}or close{% else %}dismiss, or delete{% endif %} alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permission to a repository can manage {% data variables.product.prodname_code_scanning %} alerts for the repository.'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

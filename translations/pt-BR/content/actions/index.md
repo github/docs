@@ -2,16 +2,36 @@
 title: Documentação do GitHub Actions
 shortTitle: GitHub Actions
 intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
+introLinks:
+  quickstart: /actions/quickstart
+  reference: /actions/reference
 featuredLinks:
+  guides:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/about-packaging-with-github-actions
   gettingStarted:
-    - /actions/quickstart
-    - /actions/learn-github-actions
-  guide:
     - /actions/managing-workflow-runs
     - /actions/hosting-your-own-runners
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/reference/events-that-trigger-workflows
+changelog:
+  - 
+    title: Self-Hosted Runner Group Access Changes
+    date: '2020-10-16'
+    href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
+  - 
+    title: Ability to change retention days for artifacts and logs
+    date: '2020-10-08'
+    href: https://github.blog/changelog/2020-10-08-github-actions-ability-to-change-retention-days-for-artifacts-and-logs
+  - 
+    title: Deprecating set-env and add-path commands
+    date: '2020-10-01'
+    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands
+  - 
+    title: Fine-tune access to external actions
+    date: '2020-10-01'
+    href: https://github.blog/changelog/2020-10-01-github-actions-fine-tune-access-to-external-actions
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -33,44 +53,8 @@ versions:
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 
-<!-- Article links -->
-<div class="d-lg-flex gutter my-6 py-6">
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in featuredLinks.gettingStarted %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in featuredLinks.popular %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Gerenciar fluxos de trabalho</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in featuredLinks.guide %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-
 <!-- Code examples -->
-<div class="mt-6 pt-6">
+<div class="my-6 pt-6">
   <h2 class="mb-2">Mais guias</h2>
 
   <div class="d-flex flex-wrap gutter">

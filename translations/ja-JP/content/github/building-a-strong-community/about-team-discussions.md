@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -26,7 +27,7 @@ Team のページのパブリックなディスカッションに誰かがポス
 
 {% tip %}
 
-**ヒント:** 通知の設定によって、更新はメール、{% data variables.product.product_name %}上の Web 通知、あるいはその両方で受け取ることになります。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**ヒント:** 通知の設定によって、更新はメール、{% data variables.product.product_name %}上の Web 通知、あるいはその両方で受け取ることになります。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
 
 {% endtip %}
 
@@ -34,7 +35,7 @@ Team のページのパブリックなディスカッションに誰かがポス
 
 Team のディスカッションに対する通知をオフにするには、特定のディスカッションのポストのサブスクライブを解除するか、Watch の解除あるいは特定の Team のディスカッションを完全に無視するよう通知設定を変更できます。 Team のディスカッションの Watch を解除している場合でも、特定のディスカッションのポストについての通知をサブスクライブすることはできます。
 
-For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
+For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
 
 ### 参考リンク
 

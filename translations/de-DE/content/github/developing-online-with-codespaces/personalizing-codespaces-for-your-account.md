@@ -32,7 +32,7 @@ Wenn keine dieser Dateien gefunden wird, werden Dateien oder Ordner in `dotfiles
 
 Änderungen an Deinem `dotfiles`-Repository gelten nur für neue Codespaces und verändern bestehende Codespaces nicht.
 
-Weiter Informationen findest Du unter „[Personalisierung](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing)" in der {% data variables.product.prodname_vscode %}-Dokumentation.
+Weiter Informationen findest Du unter „[Personalisierung](https://docs.microsoft.com/visualstudio/online/reference/personalizing)" in der {% data variables.product.prodname_vscode %}-Dokumentation.
 
 {% note %}
 

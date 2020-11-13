@@ -98,32 +98,41 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
  REST API を使用してカスタム `workflow_dispatch` webhook イベントをトリガーするには、`POST` リクエストを {% data variables.product.prodname_dotcom %} API エンドポイントに送信し、`ref` および必要な `inputs` を入力する必要があります。 詳細については、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」REST API エンドポイントを参照してください。
 
+##### サンプル
+
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
+
+```yaml
+on: workflow_dispatch
+```
+
 ##### ワークフロー設定の例
 
-この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 ` `名が指定されていない場合は、既定値の 「Mona the Octocat」 が表示されます。</p>
+この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 If a <code>home` isn't provided, the default value 'The Octoverse' is printed.
 
-<p spaces-before="0">{% raw %}</p>
-
-<pre><code class="yaml">名前: 手動でトリガーされたワークフロー
-:
+{% raw %}
+```yaml
+name: Manually triggered workflow
+on:
   workflow_dispatch:
-    入力:
-      の説明:
-        
-        説明: 必須: true
-        デフォルト: 'モナ・ザ・オクトキャット' ホーム
-      : 'モナ・ザ・オクトキャット'
-        ホーム: '場所'
-        必要: 偽
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
-ジョブ:
+jobs:
   say_hello:
-    実行: ubuntu最新
-    ステップ:
-    - 実行 |
-        エコー "こんにちは ${{ github.event.inputs.name }}!
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
         エコー "- ${{ github.event.inputs.home }}で!
-`</pre>
+```
 {% endraw %}
 
 #### `repository_dispatch`
@@ -244,7 +253,7 @@ on:
 
 #### `delete`
 
-誰かがブランチまたはタグを作成し、それによって `delete` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/v3/git/refs/#delete-a-reference)」を参照してください。
+誰かがブランチまたはタグを作成し、それによって `create` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/v3/git/refs/#delete-a-reference)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -377,6 +386,36 @@ on:
 ```
 
 
+The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
+
+For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
+
+
+
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+
+  issue-commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
+```
+
+
 
 
 #### `issues`
@@ -459,7 +498,7 @@ on:
 
 #### `page_build`
 
-誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
+誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -587,7 +626,7 @@ on:
 
 {% note %}
 
-**注:** デフォルトでは、ワークフローが実行されるのは`pull_request` のアクティビティタイプが `opened`、`synchronize`、または `reopened` の場合だけです。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
+**Note:** By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
 
 {% endnote %}
 
@@ -821,6 +860,11 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+| webhook イベントのペイロード                                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------------- | ---------- | ----------------- | ------------ |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a      | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+
 
 このイベントからブランチをフィルタする必要がある場合は、`branches` または `branches-ignore` を使用できます。
 

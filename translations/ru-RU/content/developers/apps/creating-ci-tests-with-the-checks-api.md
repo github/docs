@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -133,7 +134,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -143,7 +144,8 @@ def create_check_run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
-      accept: 'application/vnd.github.v3+json',
+      # This header allows for beta access to Checks API
+      accept: 'application/vnd.github.antiope-preview+json',
       # The name of your check run.
       name: 'Octo RuboCop',
       # The payload structure differs depending on whether a check run or a check suite event occurred.
@@ -229,7 +231,7 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -607,7 +609,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete!
 updated_check_run = @installation_client.patch(
@@ -639,7 +641,7 @@ updated_check_run = @installation_client.patch(
 
 You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 updated_check_run = @installation_client.patch(
@@ -835,7 +837,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 * **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
 
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your intallation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
+    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
 
 * **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
 

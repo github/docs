@@ -9,9 +9,9 @@ const { getVersionedPathWithLanguage } = require('../../lib/path-utils')
 const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-developer-links')
+const allVersions = require('../../lib/all-versions')
 const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
   .filter(version => version.startsWith('enterprise-server@'))
-const { getOldVersionFromNewVersion } = require('../../lib/old-versions-utils')
 
 // schema-derived data to add to context object
 const rest = require('../../lib/rest')
@@ -70,14 +70,14 @@ describe('page rendering', () => {
 
         const relevantPermalink = page.permalinks.find(permalink => permalink.pageVersion === pageVersion)
 
-        const currentOldVersion = getOldVersionFromNewVersion(pageVersion)
+        const graphqlVersion = allVersions[pageVersion].miscVersionName
 
         // borrowed from middleware/contextualizers/graphql.js
         context.graphql = {
-          schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${currentOldVersion}`),
-          previewsForCurrentVersion: previews[currentOldVersion],
-          upcomingChangesForCurrentVersion: upcomingChanges[currentOldVersion],
-          prerenderedObjectsForCurrentVersion: prerenderedObjects[currentOldVersion],
+          schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${graphqlVersion}`),
+          previewsForCurrentVersion: previews[graphqlVersion],
+          upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
+          prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
           changelog
         }
 

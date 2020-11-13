@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can search for code globally across all of {% data variables.product.product_name %}, or search for code within a particular repository or organization. To search for code across all public repositories, you must be signed in to a {% data variables.product.product_name %} account. For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."

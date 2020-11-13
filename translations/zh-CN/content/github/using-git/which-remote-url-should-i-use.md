@@ -7,6 +7,7 @@ intro: '克隆 {% data variables.product.prodname_dotcom %} 上的仓库有几�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 当您登录到帐户查看仓库时，可以用于将项目克隆到计算机上的 URL 在仓库详细信息下方提供：
@@ -47,7 +48,7 @@ SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 �
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 ### 使用 {% data variables.product.prodname_cli %} 克隆
 
@@ -55,11 +56,14 @@ SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 �
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### 使用 Subversion 克隆
 
 您还可以使用 [Subversion](https://subversion.apache.org/) 客户端访问 {% data variables.product.prodname_dotcom %} 上的任何仓库。 Subversion 提供不同于 Git 的功能集。 更多信息请参阅“[Subversion 与 Git 之间有何差异？](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)”
+You can also access repositories on
 
-您也可以从 Subversion 客户端访问 {% data variables.product.prodname_dotcom %} 上的仓库。 更多信息请参阅“[Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
+{% data variables.product.prodname_dotcom %} from Subversion clients. 更多信息请参阅“[Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
+{% endif %}
 
 ### 延伸阅读
 

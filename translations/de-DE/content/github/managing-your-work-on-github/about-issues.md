@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst Feedback von Benutzern sammeln, Softwarefehler melden und Aufgaben organisieren, die Du mit Issues in einem Repository durchführen möchtest. Issues sind mehr als nur ein Ort zum Melden von Softwarefehlern.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-Um über die neuesten Kommentare in einem Issue auf dem Laufenden zu bleiben, kannst Du einen Issue beobachten, um Benachrichtigungen über neue Kommentare zu erhalten. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+Um über die neuesten Kommentare in einem Issue auf dem Laufenden zu bleiben, kannst Du einen Issue beobachten, um Benachrichtigungen über neue Kommentare zu erhalten. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 Um schnell Links zu kürzlich aktualisierten Issues zu finden, besuche Dein Dashboard. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
 

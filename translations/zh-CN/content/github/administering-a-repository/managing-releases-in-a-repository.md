@@ -12,18 +12,19 @@ permissions: '仓库协作者以及对仓库具有写入权限的人员可以创
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于发行版管理
 
 您也可以在 {% data variables.product.prodname_marketplace %} 中从特定的发行版发布操作。 更多信息请参阅“<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">在 {% data variables.product.prodname_marketplace %} 中发布操作</a>”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can choose whether
-{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+您可以选择是否
+将 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 对象包含在 {% data variables.product.product_name %} 为每个发行版创建的 ZIP 文件和 tarball 中。 更多信息请参阅“[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)”。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 管理发行版。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 发行版`](https://cli.github.com/manual/gh_release)”。

@@ -83,28 +83,28 @@ versions:
 #### パッケージレジストリのサポート
 
 {% if currentVersion == "free-pro-team@latest" %}
-パッケージレジストリは、`PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Gemfile は `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
+パッケージレジストリは、`PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Gemfile は `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
 
 {% else %}
 
-サイト管理者がさまざまなパッケージのタイプを有効化、無効化できるため、{% data variables.product.product_location_enterprise %} でサポートされているパッケージのタイプはさまざまです。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
+サイト管理者がさまざまなパッケージのタイプを有効化、無効化できるため、{% data variables.product.product_location %} でサポートされているパッケージのタイプはさまざまです。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
 
-{% data variables.product.product_location_enterprise %} が Subdomain Isolation を有効化している場合、パッケージレジストリは `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Dockerfile は `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
+{% data variables.product.product_location %} が Subdomain Isolation を有効化している場合、パッケージレジストリは `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Dockerfile は `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
 
-{% data variables.product.product_location_enterprise %} が Subdomain Isolation を無効化している場合、パッケージレジストリは `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。 たとえば、Gemfile は `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。*HOSTNAME* は、{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えます。 |{% endif %}
+{% data variables.product.product_location %} が Subdomain Isolation を無効化している場合、パッケージレジストリは `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。 たとえば、Gemfile は `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。*HOSTNAME* は、{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えます。 |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 | 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                             |
 | ---------- | ----------------------------- | ------------------------------------- | ------------ | ----------------------------------------------------- |
 | JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
 
-{% data variables.product.product_location_enterprise %} で Subdomain Isolation を有効化している場合
+{% data variables.product.product_location %} で Subdomain Isolation を有効化している場合
 
 | 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                       |
 | ---------- | ----------------------------- | ------------------------------------- | ------------ | ----------------------------------------------- |
@@ -115,7 +115,7 @@ versions:
 | .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
 | なし         | Dockerコンテナ管理プラットフォーム          | `Dockerfile`                          | `Docker`     | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
 
-{% data variables.product.product_location_enterprise %} で Subdomain Isolation を無効化している場合
+{% data variables.product.product_location %} で Subdomain Isolation を無効化している場合
 
 | 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                                 |
 | ---------- | ----------------------------- | ------------------------------------- | ------------ | --------------------------------------------------------- |
@@ -161,15 +161,15 @@ Subdomain Isolation の詳しい情報については、「[Subdomain Isolation 
 パッケージをインストールあるいは公開するには、適切なスコープを持つトークンを使い、ユーザアカウントがそのリポジトリに対する適切な権限を持っていなければなりません。
 
 例:
--  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントはそのリポジトリの読み取り権限を持っていなければなりません。 リポジトリがプライベートの場合は、トークンは`repo`スコープも持っていなければなりません。
+-  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントはそのリポジトリの読み取り権限を持っていなければなりません。
 - {% data variables.product.product_name %}上の特定バージョンのプライベートパッケージを削除するには、トークンは`delete:packages`及び`repo`スコープを持っていなければなりません。 パブリックなパッケージは削除できません。 詳しい情報については「[パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package)」を参照してください。
 
-| スコープ              | 説明                                                                                               | リポジトリの権限         |
-| ----------------- | ------------------------------------------------------------------------------------------------ | ---------------- |
-| `read:packages`   | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール                             | 読み取り             |
-| `write:packages`  | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開                                  | 書き込み             |
-| `delete:packages` | {% data variables.product.prodname_registry %}からの特定バージョンのプライベートパッケージの削除                          | 管理               |
-| `repo`            | プライベートリポジトリ内の特定パッケージのインストール、アップロード、削除（`read:packages`、`write:packages`あるいは`delete:packages`と併せて） | 読み取り、書き込み、あるいは管理 |
+| スコープ              | 説明                                                                             | リポジトリの権限        |
+| ----------------- | ------------------------------------------------------------------------------ | --------------- |
+| `read:packages`   | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール           | 読み取り            |
+| `write:packages`  | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開                | 書き込み            |
+| `delete:packages` | {% data variables.product.prodname_registry %}からの特定バージョンのプライベートパッケージの削除        | 管理              |
+| `repo`            | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 {% data variables.product.prodname_actions %}ワークフローを作成する際には、`GITHUB_TOKEN`を使って{% data variables.product.prodname_registry %}にパッケージを公開してインストールでき、個人アクセストークンを保存して管理する必要はありません。
 

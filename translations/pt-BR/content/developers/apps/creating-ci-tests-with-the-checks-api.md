@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -133,7 +134,7 @@ A ação `solicitada` solicita uma execução de verificação cada vez que o c�
 
 Você irá adicionar este novo método como um [Auxiliar do Sinatra](https://github.com/sinatra/sinatra#helpers), caso deseje que outros encaminhamentos o usem também. Em `auxiliares do`, adicione este método `create_check_run`:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -229,7 +230,7 @@ Nesta seção, você não vai iniciar o teste de CI ainda, mas você verá como 
 
 Vamos criar o método `initiate_check_run` e atualizar o status da execução de verificação. Adicione o seguinte código à seção auxiliar:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -607,7 +608,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Agora você tem todas as informações de que precisa para atualizar sua execução de verificação. Na [primeira metade deste início rápido](#step-14-updating-a-check-run), você adicionou este código para definir o status da execução de verificação de `sucesso`:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete!
 updated_check_run = @installation_client.patch(
@@ -639,7 +640,7 @@ updated_check_run = @installation_client.patch(
 
 Você deverá atualizar esse código para usar a variável de `conclusão` definida com base nos resultados do RuboCop (para `sucesso` ou `neutro`). Você pode atualizar o código com o seguinte:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete! E, se houver avisos, compartilhe-os.
 updated_check_run = @installation_client.patch(
@@ -835,7 +836,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
 
 * **P:** Meu aplicativo não está enviando código para o GitHub. Eu não vejo as correções que o RuboCop faz automaticamente!
 
-    **R:** Certifique-se de que você tem permissões de **Leitura & gravação** para "conteúdo de repositório" e qeu você está clonando o repositório com seu token de instalação. Consulte [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para obter detalhes.
+    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. Consulte [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para obter detalhes.
 
 * **P:** Vejo um erro no saída de depuração de `template_server.rb` relacionado à clonagem do meu repositório.
 

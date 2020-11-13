@@ -19,8 +19,7 @@ Weitere Informationen zum Hochstufen eines Benutzers auf einen Organisationsinha
 
 ### Benutzer über die Enterprise-Einstellungen hochstufen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. Klicken Sie in der oberen rechte Ecke der Seite auf **Add owner** (Inhaber hinzufügen). ![Schaltfläche zum Hinzufügen eines Administrators](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +27,7 @@ Weitere Informationen zum Hochstufen eines Benutzers auf einen Organisationsinha
 
 ### Websiteadministrator über die Enterprise-Einstellungen zurückstufen
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. Geben Sie in der oberen linken Ecke der Seite im Suchfeld „Find an administrator“ (Administrator suchen) den Benutzernamen der Person ein, die Sie zurückstufen möchten. ![Suchfeld zum Auffinden eines Administrators](/assets/images/help/business-accounts/business-account-search-for-admin.png)

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Mit der Suchleiste für Issues und Pull Requests kannst Du Deine eigenen benutzerdefinierten Filter erstellen und nach einer Vielzahl an Kriterien Sortierungen vornehmen. Die Suchleiste befindet sich auf den Registerkarten **Issues** und **Pull requests** jedes Repositorys und in Deinem [Dashboards für Issues und Pull Requests](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -25,7 +26,7 @@ Mithilfe von Suchbegriffen zu Issues und Pull Requests kannst Du:
 - Issues und Pull Requests nach Bearbeiter filtern: `state:open type:issue assignee:octocat`,
 - Issues und Pull Requests nach Kennzeichnung filtern: `state:open type:issue label:"bug"`.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 Für Issues kannst Du die Suche auf für folgendes benutzen:
 
 - Filtere für Issues, die zu einem Pull Request über eine schließende Referenz verknüpft sind:`linked:pr`
@@ -39,7 +40,7 @@ Bei Pull Requests kannst Du die Suche auch verwenden, um:
 - Pull Requests zu filtern, in denen ein Reviewer um Änderungen gebeten hat: `state:open type:pr review:changes_requested`
 - Pull Requests nach [Reviewer](/articles/about-pull-request-reviews/) zu filtern: `state:open type:pr reviewed-by:octocat`
 - Pull Requests nach dem bestimmten Benutzer zu filtern, der für den [Review angefordert](/articles/requesting-a-pull-request-review) wurde: `state:open type:pr review-requested:octocat`
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - Nach Pull Requests filtern, die zu einem Issue verknüpft sind, die der Pull Request schließen könnte: `linked:issue`{% endif %}
 
 ### Weiterführende Informationen

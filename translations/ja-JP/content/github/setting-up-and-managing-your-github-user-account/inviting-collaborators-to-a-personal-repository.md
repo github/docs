@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳しい情報については、「[{% data variables.product.product_name %}上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 

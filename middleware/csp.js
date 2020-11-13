@@ -21,7 +21,9 @@ module.exports = contentSecurityPolicy({
       'github.githubassets.com',
       'github-images.s3.amazonaws.com',
       'octodex.github.com',
-      'placehold.it'
+      'placehold.it',
+      '*.githubusercontent.com',
+      'github.com'
     ],
     objectSrc: [
       "'self'"

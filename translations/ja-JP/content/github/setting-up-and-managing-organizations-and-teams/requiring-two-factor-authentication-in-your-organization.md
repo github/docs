@@ -14,7 +14,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Enterprise で Organization の 2 要素認証を必須にすることもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)」を参照してください。
+Enterprise で Organization の 2 要素認証を必須にすることもできます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)」を参照してください。
 
 {% endif %}
 

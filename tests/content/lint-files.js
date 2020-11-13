@@ -146,7 +146,7 @@ describe('lint-files', () => {
             if (match === '[Link Text](full-URL-of-wiki-page)') {
               return false
             }
-          } else if (markdownRelPath === 'content/admin/user-management/configuring-email-for-notifications.md') {
+          } else if (markdownRelPath === 'content/admin/configuration/configuring-email-for-notifications.md') {
             if (/^\[\d+\]: (?:connect|disconnect|[0-9A-F]+:)\s*$/.test(match)) {
               return false
             }
@@ -267,6 +267,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(relativeArticleLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -281,6 +282,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(languageLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -295,6 +297,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(versionLinkRegEx) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -309,6 +312,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(domainLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -323,6 +327,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(oldVariableRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => {
@@ -341,6 +346,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(oldOcticonRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -355,6 +361,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(oldExtendedMarkdownRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))

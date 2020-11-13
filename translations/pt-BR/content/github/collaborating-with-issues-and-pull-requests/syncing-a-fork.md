@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para poder sincronizar a bifurcação com o repositório upstream, você deve [configurar um remote que aponte para o repositório upstream](/articles/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual referente ao seu projeto local.
-3. Obtenha os branches e os respectivos commits do repositório upstream. Os commits para `master` serão armazenados em um branch local, `upstream/master`.
+3. Obtenha os branches e os respectivos commits do repositório upstream. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -22,12 +23,12 @@ Para poder sincronizar a bifurcação com o repositório upstream, você deve [c
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
-4. Check out your fork's local `main` branch.
+4. Check out your fork's local default branch - in this case, we use `main`.
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
-5. Merge the changes from `upstream/main` into your local `main` branch. This brings your fork's `main` branch into sync with the upstream repository, without losing your local changes.
+5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
   ```shell
   $ git merge upstream/main
   > Updating a422352..5fdff0f

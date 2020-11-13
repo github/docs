@@ -1,17 +1,20 @@
 ---
 title: 提交事件单
-intro: '使用 {% data variables.product.prodname_ghe_server %}{% data variables.enterprise.management_console %} 或支持门户提交支持事件单。 当 {% data variables.product.prodname_ghe_server %} 生产系统关闭或处于不可用状态时，您可以将事件单标记为紧急。'
+intro: 'You can submit a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于提交事件单
 
 在提交事件单之前，您应当收集 {% data variables.contact.github_support %} 的有用信息并选择联系人。 更多信息请参阅“[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”。
 
-提交支持请求和可选诊断信息后，{% data variables.contact.github_support %} 可能会要求您下载支持包并将其共享给我们。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
+{% if enterpriseServerVersions contains currentVersion %}
+After submitting your support request and optional diagnostic information,
+{% data variables.contact.github_support %} may ask you to download and share a support bundle with us. 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
 
 ### 使用 {% data variables.contact.enterprise_portal %} 提交事件单
 
@@ -30,7 +33,7 @@ versions:
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### 使用 {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 提交事件单。
+### 使用 {% data variables.product.product_name %} {% data variables.enterprise.management_console %} 提交事件单。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,7 +47,17 @@ versions:
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 7. 单击 **Submit（提交）**。
 
+{% endif %}
+{% if currentVersion == "github-ae@latest" %}
+### 使用 {% data variables.contact.ae_azure_portal %}提交事件单
+
+Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft documentation.
+
+For urgent issues, to ensure a quick response, after you submit a ticket, please call the support hotline immediately. Your Technical Support Account Manager (TSAM) will provide you with the number to use in your onboarding session.
+
+{% endif %}
+
 ### 延伸阅读
 
-- “[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)”
-- “[关于 {% data variables.product.prodname_ghe_server %} 的 {% data variables.contact.premium_support %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)”。
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}

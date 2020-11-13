@@ -14,7 +14,7 @@ versions:
 
 ### Visão Geral
 
-Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. Uma organização permite que você armazene e gerencie centralmente segredos, artefatos e executores auto-hospedados. Você também pode criar modelos de fluxo de trabalho no repositório `.github` e compartilhá-los com outros usuários na sua organização.
+Se você precisar compartilhar fluxos de trabalho e outros recursos de {% data variables.product.prodname_actions %} com a sua equipe, considere colaborar dentro de uma organização de {% data variables.product.prodname_dotcom %}. An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. Você também pode criar modelos de fluxo de trabalho no repositório `.github` e compartilhá-los com outros usuários na sua organização.
 
 ### Criar um modelo do fluxo de trabalho
 

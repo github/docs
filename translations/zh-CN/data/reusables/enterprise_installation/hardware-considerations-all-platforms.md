@@ -4,11 +4,11 @@
 
 #### 最低要求
 
-建议根据 {% data variables.product.product_location_enterprise %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
+建议根据 {% data variables.product.product_location %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
 
 {% data reusables.enterprise_installation.hardware-rec-table %} 有关为现有实例调整资源的更多信息，请参阅“[增加存储容量](/enterprise/admin/installation/increasing-storage-capacity)”和“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 如果您为实例上的 {% data variables.product.prodname_actions %} 启用测试版，建议您规划额外的容量。
 
@@ -32,7 +32,7 @@
 
 您的实例需要一个独立于根磁盘的持久数据磁盘。 更多信息请参阅“[系统概述](/enterprise/admin/guides/installation/system-overview)”。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 如果您在 {% data variables.product.prodname_ghe_server %} 2.22 中启用 {% data variables.product.prodname_actions %} 的测试版，则需要配置外部 blob 存储。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
 

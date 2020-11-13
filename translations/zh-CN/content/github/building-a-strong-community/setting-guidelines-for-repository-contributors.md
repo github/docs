@@ -7,6 +7,7 @@ intro: 您可以创建告知人们应如何参与您的项目的指南。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 为帮助项目参与者做好工作，您可以将含有参与指南的文件添加到项目仓库的根目录 `docs` 或 `.github` 文件夹。 有人打开拉取请求或创建议题时，他们将看到指向该文件的链接。
@@ -19,7 +20,7 @@ versions:
 
 对于所有者和参与者来说，参与指南节省了由于不正确创建必须拒绝和重新提交的拉取请求或议题而导致的时间和麻烦。
 
-You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
 
 {% tip %}
 
@@ -51,6 +52,6 @@ You can create default contribution guidelines for your organization{% if curren
 - Open Government [参与指南](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md)。
 
 ### 延伸阅读
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
+- 开源指南的“[启动开源项目](https://opensource.guide/starting-a-project/)”部分{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - "[添加许可到仓库](/articles/adding-a-license-to-a-repository)"
