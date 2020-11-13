@@ -90,23 +90,23 @@ If you use multiple repositories on one server, you will need to generate a dedi
 In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. For example:
 
 ```bash
-Host github.com-repo-0
-        Hostname github.com
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
-Host github.com-repo-1
-        Hostname github.com
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host github.com-repo-0` - The repository's alias.
-* `Hostname github.com` - Configures the hostname to use with the alias.
+* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 With these entries added, you can then use the alias of the hostname to interact with the repository using SSH, so the unique deploy key for that alias used. For example:
 
 ```bash
-$ git clone git@github.com-repo-1:OWNER/repo-1.git
+$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ### Machine users
