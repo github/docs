@@ -103,7 +103,7 @@ Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE
 * `Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
 * `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
-With these entries added, you can then use the alias of the hostname to interact with the repository using SSH, so the unique deploy key for that alias used. For example:
+You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
 ```bash
 $ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
