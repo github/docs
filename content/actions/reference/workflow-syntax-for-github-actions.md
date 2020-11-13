@@ -270,6 +270,20 @@ The jobs in this example run sequentially:
 2. `job2`
 3. `job3`
 
+Here is an example of using a [conditional statement](https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions):
+
+````yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    if: always()
+    needs: [job1, job2]
+```
+
+``job3` will run after `job1` and `job2` whether `job1` and `job2` are successful or not.
+
 ### **`jobs.<job_id>.runs-on`**
 
 **Required** The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
