@@ -18,16 +18,11 @@ jobs:
       run: npm run build
     - name: Run script
       run: script/check-english-links.js > broken_links.md
-    - name: Check if any broken links
+    - if: ${{ failure() }} 
+      name: Get title for issue
       id: check
-      run: |
-        if [ "$(grep '0 broken links found' broken_links.md)" ]; then
-          echo ::set-output name=continue::no
-        else
-          echo "::set-output name=continue::yes"
-          echo "::set-output name=title::$(head -1 broken_links.md)"
-        fi
-    - if: ${{ steps.check.outputs.continue == 'yes' }}
+      run: echo "::set-output name=title::$(head -1 broken_links.md)"
+    - if: ${{ failure() }}
       name: Create issue from file
       uses: peter-evans/create-issue-from-file@35e304e2a12caac08c568247a2cb46ecd0c3ecc5
       with:
