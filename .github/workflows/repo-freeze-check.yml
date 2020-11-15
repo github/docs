@@ -1,0 +1,27 @@
+name: Repo Freeze Check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - unlocked
+    branches:
+      - main
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
+jobs:
+  check-freezer:
+    name: Prevent merging during deployment freezes
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Fail if repo merges are paused
+      if: ${{ env.FREEZE == 'true' }}
+      run: |
+        echo 'Merges into the "main" branch on this repo are currently paused!'
+        exit 1
