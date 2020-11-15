@@ -7,6 +7,7 @@ redirect_from:
   - '/articles/how-do-i-change-the-billing-email,setting-your-billing-email/'
   - /articles/setting-your-organization-s-billing-email/
   - /articles/setting-your-billing-email
+  - /articles/setting-your-user/account/config.ini/
 versions:
   free-pro-team: '*'
 ---
