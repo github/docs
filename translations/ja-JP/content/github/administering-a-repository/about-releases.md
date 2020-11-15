@@ -32,7 +32,7 @@ People with admin permissions to a repository can choose whether
 
 {% if currentVersion == "free-pro-team@latest" %}
 リリースでセキュリティの脆弱性が修正された場合は、リポジトリにセキュリティアドバイザリを公開する必要があります。
-{% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_short %} アラートを送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
+{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
 
 リポジトリ内のコードに依存しているリポジトリとパッケージを確認するために、依存関係グラフの [**依存関係**] タブを表示することができますが、それによって、新しいリリースの影響を受ける可能性があります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Security review process for submitted apps
-intro: 'GitHub''s security team reviews all apps submitted to {% data variables.product.prodname_marketplace %} to ensure that they meet security requirements. Follow these best practices to be prepared for the review process.'
+title: サブミットされたアプリケーションに対するセキュリティレビューのプロセス
+intro: 'GitHubのセキュリティチームは、{% data variables.product.prodname_marketplace %}にサブミットされたすべてのアプリケーションをレビューし、それらがセキュリティの要件を満たしていることを確認します。 このレビューのプロセスに備えるために、以下のベストプラクティスに従ってください。'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process/
   - /marketplace/getting-started/security-review-process
@@ -10,23 +10,23 @@ versions:
 
 
 
-After you've submitted your app for approval, the GitHub security team will request that you complete a security questionnaire about your app and overall security program. As part of the review, you will have the option to provide documentation to support your responses. You must submit two required documents before your app will be approved for {% data variables.product.prodname_marketplace %}: an [incident response plan](#incident-response-plan) and [vulnerability management workflow](#vulnerability-management-workflow).
+承認のためにアプリケーションをサブミットすると、GitHubのセキュリティチームはそのアプリケーションと全体的なセキュリティプログラムに関するセキュリティアンケートへの回答を求めます。 レビューの一環として、回答をサポートするためのドキュメンテーションを提供することもできます。 {% data variables.product.prodname_marketplace %}が承認される前に、[インシデントレスポンス計画](#incident-response-plan)と[脆弱性管理ワークフロー](#vulnerability-management-workflow)という2つの必須ドキュメントを提出しなければなりません。
 
 
-### Security best practices
+### セキュリティのベストプラクティス
 
-Follow these best practices to have a successful security review and provide a secure user experience.
+セキュリティレビューを成功させ、セキュアなユーザ体験を提供するために、以下のベストプラクティスに従ってください。
 
-#### Authorization, authentication, and access control
+#### 認可、認証、アクセスコントロール
 
-We recommend submitting a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
-- Apps must use the "[principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege)" and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality.
-- Apps must provide customers with a way to delete their account, without having to email or call a support person.
-- Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
-- Design your app with different user roles, depending on the functionality needed by each type of user. For example, a standard user should not have access to admin functionality, and billing managers might not need push access to repository code.
-- Your app should not share service accounts such as email or database services to manage your SaaS service.
-- All services used in your app should have unique login and password credentials.
-- Admin privilege access to the production hosting infrastructure should only be given to engineers and employees with administrative duties.
+OAuth Appよりは、GitHub Appをサブミットすることをおすすめします。 {% data reusables.marketplace.github_apps_preferred %}. 詳細については、「[GitHub AppsとOAuth Appsの違い](/apps/differences-between-apps/)」を参照してください。
+- アプリケーションは「[最小の権限の原則](https://en.wikipedia.org/wiki/Principle_of_least_privilege)」を用いなければならず、要求するOAuthのスコープやGitHub Appの権限は、意図された機能を実行するのにアプリケーションが必要とするものだけにすべきです。
+- アプリケーションは、サポート担当者にメールや連絡をすることなく、顧客が自分のアカウントを削除する方法を提供しなければなりません。
+- アプリケーションは、異なる実装間でトークンを共有してはなりません。 たとえば、デスクトップのアプリケーションはWebベースのアプリケーションとは別のトークンを持つべきです。 個々のトークンを使うことで、それぞれのアプリケーションはGitHubのリソースに必要なアクセスを個別にリクエストできます。
+- ユーザの種類に応じて求められる機能によって、様々なユーザのロールを持たせてアプリケーションを設計してください。 たとえば、標準的なユーザは管理機能を利用できるべきではなく、支払いマネージャーはリポジトリのコードにプッシュアクセスできるべきではありません。
+- アプリケーションは、SaaSサービスを管理するためのメールやデータベースサービスのようなサービスアカウントを共有するべきではありません。
+- アプリケーションで使用されるすべてのサービスは、固有のログインとパスワードクレデンシャルを持たなければなりません。
+- プロダクションのホスティングインフラストラクチャへの管理権限でのアクセスは、管理業務を持つエンジニアや従業員にのみ与えられるべきです。
 - Apps cannot use personal access tokens to authenticate and must authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or [GitHub App](/apps/about-apps/#about-github-apps):
   - OAuth Appsは、[OAuthトークン](/apps/building-oauth-apps/authorizing-oauth-apps/)を使って認証を受けなければなりません。
   - GitHub Apps must authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).

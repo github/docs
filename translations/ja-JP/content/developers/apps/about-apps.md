@@ -1,6 +1,6 @@
 ---
 title: アプリケーションについて
-intro: 'You can build integrations with the {% data variables.product.prodname_dotcom %} APIs to add flexibility and reduce friction in your own workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
+intro: '{% data variables.product.prodname_dotcom %} API でインテグレーションを構築し、柔軟性を強化してワークフローの摩擦を軽減できます。{% if currentVersion == "free-pro-team@latest" %}また、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) で他のユーザとインテグレーションを共有することも可能です。{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
