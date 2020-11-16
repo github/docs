@@ -76,7 +76,7 @@ To discard one added line, in the list of changed lines, right click on the line
 
 In the list of changed files, right click the group of lines you want to discard and select **Discard added lines**. 
 
-  ![Discard multiple lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
+  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
 
 ### 4. Write a commit message and push your changes
@@ -102,4 +102,3 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
-
