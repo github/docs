@@ -71,14 +71,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `cloak-preview` **公布日期：** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### 社区概况指标
-
-检索任何公共仓库的[社区概况指标](/v3/repos/community/)（也称为社区健康状况）。
-
-**自定义媒体类型：** `black-panther-preview` **公布日期：** [2017-02-09](https://developer.github.com/changes/2017-02-09-community-health/)
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
 ### 用户阻止
 
 用户可以[阻止其他用户](/v3/users/blocking/)。 组织也可以[阻止用户](/v3/orgs/blocking/)。
@@ -205,16 +197,6 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。 更多信息请参阅“[使用内容附件](/apps/using-content-attachments/)”。
 
 **自定义媒体类型：** `corsair-preview` **公布日期：** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### 限制仓库和组织的交互
-
-允许您暂时限制 {% data variables.product.product_name %} 仓库或组织的交互，例如评论、打开议题和创建拉取请求等交互。 启用后，只有指定的 {% data variables.product.product_name %} 用户组才能参与这些交互。 更多信息请参阅[仓库交互](/v3/interactions/repos/)和[组织交互](/v3/interactions/orgs/) API。
-
-**自定义媒体类型：** `sombra-preview` **公布日期：** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
-
-{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### 草稿拉取请求

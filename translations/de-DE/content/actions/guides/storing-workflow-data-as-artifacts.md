@@ -171,12 +171,12 @@ Von den Artefakten eines vorherigen Auftrags abhängige Aufträge müssen auf de
 
 Auftrag 1 führt die folgenden Schritte durch:
 - Führt eine mathematische Berechnung aus und speichert das Ergebnis in einer Textdatei namens `math-homework.txt`.
-- Verwendet die Aktion `upload-artifact`, um die Datei `math-homework.txt` mit dem Namen `homework` hochzuladen. Die Aktion platziert die Datei in einem Verzeichnis mit dem Namen `homework`.
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
 
 Auftrag 2 verwendet das Ergebnis des vorherigen Auftrags:
 - Lädt das im vorherigen Auftrag hochgeladene `homework`-Artefakt herunter. Die Aktion `download-artifact` lädt die Artefakte standardmäßig in das Verzeichnis der Arbeitsoberfläche, in dem der Schritt ausgeführt wird. Du kannst den Eingabeparameter `path` verwenden, um ein anderes Download-Verzeichnis anzugeben.
-- Liest den Wert in der Datei `homework/math-homework.txt`, führt eine mathematische Berechnung durch und speichert das Ergebnis in `math-homework.txt`.
-- Lädt die Datei `math-homework.txt` hoch. Dieser Upload überschreibt den vorherigen Upload, da beide Uploads den gleichen Namen haben.
+- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+- Lädt die Datei `math-homework.txt` hoch. This upload overwrites the previously uploaded artifact because they share the same name.
 
 Auftrag 3 zeigt das im vorherigen Auftrag hochgeladene Ergebnis an:
 - Lädt das `homework`-Artefakt herunter.

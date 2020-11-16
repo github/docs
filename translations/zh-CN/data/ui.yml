@@ -15,8 +15,9 @@ homepage:
   version_picker: 版本
 toc:
   getting_started: 入门指南
-  popular_articles: 热门文章
+  popular_articles: 热门
   guides: 指南
+  whats_new: 新增内容
 pages:
   article_version: "文章版本："
   miniToc: 本文内容
@@ -118,3 +119,6 @@ footer:
       careers: 招聘
       press: 新闻
       shop: 商店
+product_landing:
+  quick_start: 快速入门
+  reference_guides: Reference guides

@@ -1,26 +1,4 @@
 <div class="border-bottom border-gray-light no-print">
-
-  {% if currentLanguage != 'en' and page.relativePath contains '/site-policy/' %}
-    {% assign header_notification_type = "translation_policy" %}
-    {% assign header_notification = site.data.reusables.policies.translation %}
-
-  {% elsif site.data.ui.header.notices.flags.localization_complete == true %}
-    {% assign header_notification_type = "localization_complete" %}
-    {% assign header_notification = site.data.ui.header.notices.localization_complete %}
-
-  {% elsif site.data.ui.header.notices.flags.localization_in_progress == true %}
-    {% assign header_notification_type = "localization_in_progress" %}
-    {% assign header_notification = site.data.ui.header.notices.localization_in_progress %}
-
-  {% elsif currentLanguage == 'en' and site.data.ui.header.notices.flags.product_in_progress == true %}
-    {% assign header_notification_type = "product_in_progress" %}
-    {% assign header_notification = site.data.ui.header.notices.product_in_progress %}
-
-  {% elsif page.hidden %}
-    {% assign header_notification_type = "early_access" %}
-    {% assign header_notification = site.data.ui.header.notices.early_access %}
-  {% endif %}
-
   {% include header-notification %}
 
   <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full {% if error == '404' %} d-md-none {% endif %}">

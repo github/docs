@@ -10,7 +10,7 @@ versions:
 
 ### Sobre o uso de dados para seu repositório privado
 
-Ao habilitar o uso de dados para seu repositório privado, poderá acessar o gráfico de dependências, em que você pode acompanhar as dependências do repositório e receber alertas de {% data variables.product.prodname_dependabot_short %} quando o {% data variables.product.product_name %} detectar dependências vulneráveis. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#github-dependabot-alerts-for-vulnerable-dependencies)"
+When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)"
 
 ### Habilitar ou desabilitar os recursos de uso de dados
 

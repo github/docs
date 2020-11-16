@@ -343,6 +343,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(relativeArticleLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -357,6 +358,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(languageLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -371,6 +373,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(versionLinkRegEx) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -385,6 +388,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(domainLinkRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -449,6 +453,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(oldVariableRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => {
@@ -467,6 +472,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(oldOcticonRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -481,6 +487,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(oldExtendedMarkdownRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))

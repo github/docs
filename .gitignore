@@ -4,11 +4,14 @@
 /node_modules/
 npm-debug.log
 coverage/
+.linkinator
 /assets/images/early-access
 /content/early-access
 /data/early-access
+dist
 
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
 /dist/
+broken_links.md
