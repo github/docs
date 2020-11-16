@@ -51,7 +51,7 @@ If one file contains multiple changes, but you only want some of those changes t
 ### 3. Discarding changes
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
 
-Discarded changes are saved in a dated file in the Trash and you can recover them until the Trash is emptied.
+Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
 
 #### Discarding changes in one or more files
 
@@ -102,5 +102,4 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
-
 
