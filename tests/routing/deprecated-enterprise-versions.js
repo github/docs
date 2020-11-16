@@ -96,6 +96,22 @@ describe('deprecation banner', () => {
   })
 })
 
+describe('does not render helpfulness prompt or contribution button', () => {
+  test('does not render helpfulness prompt', async () => {
+    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    expect($('.js-helpfulness').length).toBe(0)
+    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($('.js-helpfulness').length).toBeGreaterThan(0)
+  })
+
+  test('does not render contribution button', async () => {
+    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    expect($('.contribution').length).toBe(0)
+    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($('.contribution').length).toBeGreaterThan(0)
+  })
+})
+
 describe('JS and CSS assets', () => {
   it('returns the expected CSS file > 2.18', async () => {
     const result = await supertest(app)
