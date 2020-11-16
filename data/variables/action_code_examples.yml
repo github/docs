@@ -1,10 +1,3 @@
-- title: Starter workflows
-  description: Workflow files for helping people get started with GitHub Actions
-  languages: TypeScript
-  href: actions/starter-workflows
-  tags:
-    - official
-    - workflows
 - title: Example services
   description: Example workflows using service containers
   languages: JavaScript
