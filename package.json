@@ -42,6 +42,7 @@
     "got": "^9.6.0",
     "gray-matter": "^4.0.1",
     "helmet": "^3.21.2",
+    "hot-shots": "^8.2.0",
     "html-entities": "^1.2.1",
     "html-truncate": "^1.2.2",
     "imurmurhash": "^0.1.4",
