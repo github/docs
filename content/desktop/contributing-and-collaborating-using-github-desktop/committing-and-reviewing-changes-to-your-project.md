@@ -70,7 +70,7 @@ You can discard one or more added lines that are uncommitted.
 
 {% endnote %}
 
-In the list of changed files, right click on the line you want to discard and select **Discard added line**.
+To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
 
   ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
@@ -102,6 +102,5 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
-
 
 
