@@ -16,3 +16,5 @@ jobs:
         days-before-stale: 7
         days-before-close: 10
         stale-pr-label: 'stale'
+        exempt-pr-labels: 'never-stale'
+        exempt-issue-labels: 'never-stale'
