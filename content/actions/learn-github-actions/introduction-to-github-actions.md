@@ -42,7 +42,7 @@ A job is a set of steps that execute on the same runner. By default, a workflow 
 
 #### Steps
 
-A step is an individual task that can run commands in a job. A step maybe either an _action_ (more about actions below) or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
+A step is an individual task that can run commands in a job. A step can be either an _action_ or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
 
 #### Actions
 
@@ -197,7 +197,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 
 #### Visualizing the workflow file
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or bash command. Steps 1 and 2 use prebuilt community actions. Steps 3 and 4 run bash commands directly on the runner. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell command. Steps 1 and 2 use prebuilt community actions. Steps 3 and 4 run shell commands directly on the runner. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-event.png)
 
