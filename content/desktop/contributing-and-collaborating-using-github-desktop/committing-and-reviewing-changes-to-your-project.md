@@ -45,7 +45,7 @@ If one file contains multiple changes, but you only want some of those changes t
 
 1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**.
   ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
-2. The lines that will be included in the commit are highlighted in blue. To exclude the change, click one or more changed lines so the blue disappears.
+2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
   ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
 ### 3. Discarding changes
@@ -102,7 +102,6 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
-
 
 
 
