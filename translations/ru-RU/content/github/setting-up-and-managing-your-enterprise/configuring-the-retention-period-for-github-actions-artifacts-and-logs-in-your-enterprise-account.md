@@ -2,6 +2,8 @@
 title: Configuring the retention period for GitHub Actions artifacts and logs in your enterprise account
 intro: 'Enterprise owners can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in an enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'

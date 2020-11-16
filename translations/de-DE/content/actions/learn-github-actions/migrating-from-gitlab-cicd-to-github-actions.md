@@ -118,9 +118,9 @@ linux_job:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Weitere Informationen findest Du unter „[Workflow Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-### Docker images
+### Docker-Images
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} support running jobs in a Docker image. In GitLab CI/CD, Docker images are defined with a `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
 
@@ -156,7 +156,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
+Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)“.
 
 ### Condition and expression syntax
 
@@ -180,7 +180,7 @@ GitLab CI/CD
 deploy_prod:
   stage: deploy
   script:
-    - echo "Deply to production server"
+    - echo "Deploy to production server"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 ```
@@ -194,7 +194,7 @@ jobs:
     if: contains( github.ref, 'master')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deply to production server"
+      - run: echo "Deploy to production server"
 ```
 {% endraw %}
 </td>
@@ -286,7 +286,7 @@ Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variable
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+Weitere Informationen findest Du unter "[Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#scheduled-events)."
 
 ### Variables and secrets
 
@@ -346,7 +346,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
+Weitere Informationen findest Du unter „[Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern](/actions/guides/caching-dependencies-to-speed-up-workflows)“.
 
 ### Artifacts
 

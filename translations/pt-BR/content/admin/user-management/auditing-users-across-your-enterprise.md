@@ -66,9 +66,9 @@ Só é possível usar o nome de usuário do {% data variables.product.product_na
 
 O qualificador `org` limita as ações a uma organização específica. Por exemplo:
 
-* `org:my-org` localiza todos os eventos que ocorreram na organização `my-org`;
+* `org:my-org` finds all events that occurred for the `my-org` organization.
 * `org:my-org action:team` localiza todos os eventos de equipe que ocorreram na organização `my-org`;
-* `org:my-org` exclui todos os eventos que ocorreram na organização `my-org`.
+* `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
 #### Pesquisar com base na ação
 

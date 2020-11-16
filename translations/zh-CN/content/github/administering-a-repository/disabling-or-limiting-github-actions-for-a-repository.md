@@ -63,7 +63,7 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. 在 **Actions permissions（操作权限）**下，选择 **Allow specific actions（允许特定操作）**并将所需操作添加到列表中。 ![添加操作到允许列表](/assets/images/help/repository/actions-policy-allow-list.png)
+1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list. ![添加操作到允许列表](/assets/images/help/repository/actions-policy-allow-list.png)
 2. 单击 **Save（保存）**。
 {% endif %}
 

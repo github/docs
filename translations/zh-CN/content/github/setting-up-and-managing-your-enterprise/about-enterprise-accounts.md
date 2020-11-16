@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
+  - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

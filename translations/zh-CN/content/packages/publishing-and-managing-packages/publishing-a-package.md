@@ -22,7 +22,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 如果软件包的新版本修复了安全漏洞，您应该在仓库中发布安全通告。
-{% data variables.product.prodname_dotcom %} 审查每个发布的安全通告，并且可能使用它向受影响的仓库发送 {% data variables.product.prodname_dependabot_short %} 警报。 更多信息请参阅“[关于 GitHub 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. 更多信息请参阅“[关于 GitHub 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 {% endif %}
 
 ### 发布包

@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。
-3. 从上游仓库获取分支及其各自的提交。 对 `main` 的提交将存储在本地分支 `upstream/main` 中。
+3. 从上游仓库获取分支及其各自的提交。 Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -23,12 +23,12 @@ versions:
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
-4. 检出复刻的本地 `main` 分支。
+4. Check out your fork's local default branch - in this case, we use `main`.
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
-5. 将来自 `upstream/main` 的更改合并到本地 `main` 分支中。 这会使复刻的 `main` 分支与上游仓库同步，而不会丢失本地更改。
+5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
   ```shell
   $ git merge upstream/main
   > Updating a422352..5fdff0f
