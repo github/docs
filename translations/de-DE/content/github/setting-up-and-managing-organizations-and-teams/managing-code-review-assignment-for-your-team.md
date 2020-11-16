@@ -18,7 +18,7 @@ Wenn Codeinhaber automatisch zum Review aufgefordert werden, wird das Team trotz
 
 ### Routing-Algorithmen
 
-Code-Review-Zuweisungen wählen und weisen Prüfer automatisch aufgrund einem von zwei möglichen Algorithmen zu.
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 Der Round-Robin-Algorithmus wählt die Prüfer basierend auf den Empfängern der letzten Review-Anforderungen aus, und fokussiert auf der abwechselnden Auswahl der Mitarbeiter des Teams, unabhängig von der Anzahl ausstehenden Reviews, die die Teammitglieder momentan haben.
 

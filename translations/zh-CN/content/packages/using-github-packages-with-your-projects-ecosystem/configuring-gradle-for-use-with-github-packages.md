@@ -30,7 +30,7 @@ versions:
 {% data variables.product.prodname_ghe_server %} 实例的主机名。
 {% endif %}
 
-将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *REPOSITORY* 替换为要发布的包所在仓库的名称，将 *OWNER* 替换为 {% data variables.product.prodname_dotcom %} 上拥有该仓库的用户或组织帐户的名称。 {% data reusables.package_registry.lowercase-name-field %}
+将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *REPOSITORY* 替换为要发布的包所在仓库的名称，将 *OWNER* 替换为 {% data variables.product.prodname_dotcom %} 上拥有该仓库的用户或组织帐户的名称。 Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 {% note %}
 

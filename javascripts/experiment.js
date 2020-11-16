@@ -41,4 +41,21 @@ export default function () {
   // const xbucket = bucket(testName)
   // if (xbucket === TREATMENT) { ... }
   // x.addEventListener('click', evt => evt.preventDefault(); await sendSuccess(testName); evt())
+
+  const treatment = document.getElementById('quickstart-treatment')
+  if (!treatment) return
+
+  const testName = 'quickstart-hello'
+  const xbucket = bucket(testName)
+
+  if (xbucket === TREATMENT) {
+    Array.from(
+      document.querySelectorAll('#article-contents > *')
+    ).forEach(el => { el.hidden = true })
+    treatment.hidden = false
+  }
+
+  document.documentElement.addEventListener('copy', () => {
+    sendSuccess(testName)
+  })
 }

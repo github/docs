@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-a-policy-on-dependency-insights/
   - /articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

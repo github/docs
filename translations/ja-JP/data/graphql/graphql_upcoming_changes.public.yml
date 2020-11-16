@@ -78,20 +78,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: mikesea
   - 
-    location: RepositoryCollaboratorEdge.permission
-    description: '`Permission`の型は、`RepositoryPermission!`から`String` に変更されます。'
-    reason: このフィールドは、追加の値を返す場合があります。
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: oneill38
-  - 
-    location: RepositoryInvitation.permission
-    description: '`Permission`の型は、`RepositoryPermission!`から`String` に変更されます。'
-    reason: このフィールドは、追加の値を返す場合があります。
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: oneill38
-  - 
     location: RepositoryInvitationOrderField.INVITEE_LOGIN
     description: "`INVITEE_LOGIN`は削除されます。"
     reason: "`INVITEE_LOGIN` は有効なフィールド値ではなくなりました。リポジトリの招待は、招待者だけではなく、メールにも関連付けられるようになりました。"
@@ -105,13 +91,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: 破壊的
     owner: nholden
-  - 
-    location: TeamRepositoryEdge.permission
-    description: '`Permission`の型は、`RepositoryPermission!`から`String` に変更されます。'
-    reason: このフィールドは、追加の値を返す場合があります。
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: oneill38
   - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: "`isUnlicensed` will be removed."

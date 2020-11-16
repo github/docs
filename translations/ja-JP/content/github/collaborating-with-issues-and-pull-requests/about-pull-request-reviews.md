@@ -38,6 +38,10 @@ versions:
 
 {% data reusables.pull_requests.resolving-conversations %}
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### 必須のレビュー
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
