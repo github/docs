@@ -19,12 +19,67 @@ versions:
 
 ### Tab test
 
+{% capture example_capture %}Something to reuse, e.g. in _tabs_.{% endcapture %}
+
 {% tabs "shell" %}
-**Tabs content** goes here.
-{% tab "bash" %}
+
+**No content** should be allowed here!
+
+{% tab "Bash" %}
+```bash
+VAR=${ date }
+echo "::set-output name=var::$VAR"
+```
+
 This is a `tab`!
-{% tab "pwsh" %}
-Another tab.
+- With a list
+- just for funsies
+
+{% tab "PowerShell" %}
+
+Another tab. {{ example_capture }}
+
+{% tab "Windows `cmd`" %}
+
+Markdown in tab title. Also using a capture:
+
+{{ example_capture}}
+
+{% endtabs %}
+
+{% tabs "shell" %}
+{% tab "Bash" %}
+```bash
+echo "$GITHUB_PATH"
+```
+{% tab "PowerShell" %}
+```powershell
+echo "$Env:GITHUB_PATH"
+```
+{% tab "Windows `cmd`" %}
+```cmd
+echo %GITHUB_PATH%
+```
+{% endtabs %}
+
+### Stress test
+
+{% tabs "other" %}
+{% tab "Bash" %}
+This is a different tab group!
+{% tab "PowerShell" %}
+Still different group!
+{% endtabs %}
+
+{% tabs "shell" %}
+{% tab "PowerShell" %}
+```powershell
+echo "$Env.GITHUB_ENV"
+```
+{% tab "Bash" %}
+```bash
+echo "${GITHUB_ENV}"
+```
 {% endtabs %}
 
 ### About workflow commands

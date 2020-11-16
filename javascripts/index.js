@@ -1,6 +1,7 @@
 // Import our SCSS files so webpack will process them
 import '../stylesheets/index.scss'
 import displayPlatformSpecificContent from './display-platform-specific-content'
+import displayTabContent from './display-tab-content'
 import explorer from './explorer'
 import search from './search'
 import nav from './nav'
@@ -22,6 +23,7 @@ import showMore from './show-more'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
+  displayTabContent()
   explorer()
   search()
   nav()
