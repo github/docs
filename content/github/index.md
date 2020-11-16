@@ -73,7 +73,7 @@ versions:
 
 {% link_in_list /managing-files-in-a-repository %}
 
-{% link_in_list /managing-large-files %}
+{% link_in_list /manage-large-files %}
 
 <!-- if currentVersion == "free-pro-team@latest" -->
 {% link_in_list /customizing-your-github-workflow %}
