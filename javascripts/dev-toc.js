@@ -15,7 +15,7 @@ export default function devToc () {
     const detailsElements = document.querySelectorAll('details')
 
     for (const detailsElement of detailsElements) {
-      detailsElement.open 
+      detailsElement.open
         ? detailsElement.removeAttribute('open')
         : detailsElement.open = true
     }
