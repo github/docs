@@ -62,7 +62,7 @@ Discarded changes are saved in a dated file in the Trash and you can recover the
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 #### Discarding changes in one or more lines
-You can discard one or more added lines in a single file before you commit them.
+You can discard one or more added lines that are uncommitted.
 
 {% note %}
 
@@ -102,7 +102,6 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
-
 
 
 
