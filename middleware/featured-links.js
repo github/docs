@@ -43,7 +43,8 @@ async function getLinkData (rawLinks, context) {
     links.push({
       href,
       title: await linkedPage.renderTitle(context, opts),
-      intro: await linkedPage.renderProp('intro', context, opts)
+      intro: await linkedPage.renderProp('intro', context, opts),
+      page: linkedPage
     })
   }
 

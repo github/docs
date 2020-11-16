@@ -43,6 +43,12 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+
+   {% endnote %}
+
 6. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
 6. Optionally, [delete the branch](/articles/deleting-unused-branches). This keeps the list of branches in your repository tidy.
 

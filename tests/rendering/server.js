@@ -163,24 +163,6 @@ describe('server', () => {
     })
   })
 
-  test('serves publicly accessible /enterprise.json', async () => {
-    const res = await get('/enterprise.json')
-
-    // check for CORS header
-    expect(res.headers['access-control-allow-origin']).toBe('*')
-
-    const enterpriseData = JSON.parse(res.text)
-    expect(Object.keys(enterpriseData).length).toBe(2)
-    expect(enterpriseData.enterpriseDates['2.0'].releaseDate).toBe('2014-11-11')
-    expect(enterpriseData.enterpriseDates['2.15'].deprecationDate).toBe('2019-10-16')
-    expect(enterpriseData.enterpriseVersions.supported.length).toBeGreaterThan(2)
-    expect(enterpriseData.enterpriseVersions.deprecated.length).toBeGreaterThan(16)
-    expect(typeof enterpriseData.enterpriseVersions.latest).toBe('string')
-    expect(typeof enterpriseData.enterpriseVersions.oldestSupported).toBe('string')
-    expect(typeof enterpriseData.enterpriseVersions.nextDeprecationDate).toBe('string')
-    expect(enterpriseData.enterpriseVersions.deprecatedOnNewSite.length).toBeGreaterThan(2)
-  })
-
   test('renders Markdown links that have Liquid hrefs', async () => {
     // example from markdown source:
     // 1. Go to {{ site.data.variables.product.product_name }}'s [Pricing]({{ site.data.variables.dotcom_billing.plans_url }}) page.
