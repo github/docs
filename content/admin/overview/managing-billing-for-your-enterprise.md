@@ -3,9 +3,9 @@ title: Managing billing for your enterprise
 intro: 'You can view billing information for your enterprise.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
-  - /enterprise/admin/installation/managing-billing-for-github-enterprise
-  - /enterprise/admin/overview/managing-billing-for-github-enterprise
-  - /admin/overview/managing-billing-for-github-enterprise
+  - ezaljb6@gmail.com/enterprise/admin/installation/managing-billing-for-github-enterprise
+  - ezaljb6@gmail.com/enterprise/admin/overview/managing-billing-for-github-enterprise
+  - ezaljb6@gmail.com/admin/overview/managing-billing-for-github-enterprise
 versions:
   enterprise-server: '*'
   github-ae: '*'
