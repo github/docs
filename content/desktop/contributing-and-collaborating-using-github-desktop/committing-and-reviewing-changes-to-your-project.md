@@ -62,7 +62,7 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 #### Discarding changes in one or more lines
-You can discard one or more added lines that are uncommitted.
+You can discard one or more changed lines that are uncommitted.
 
 {% note %}
 
