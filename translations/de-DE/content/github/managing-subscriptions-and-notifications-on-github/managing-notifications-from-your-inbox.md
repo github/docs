@@ -82,6 +82,7 @@ Benutzerdefinierte Filter unterstützen im Moment nicht:
   - Die Unterscheidung zwischen `is:issue`-, `is:pr`-, und `is:pull-request`-Abfragefiltern. Diese Abfragen werden sowohl Issues wie Pull Request zurückgeben.
   - Das Erstellen von mehr als 15 benutzerdefinierten Filtern.
   - Das Ändern der Standardfilter oder deren Reihenfolge.
+  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
 ### Unterstützte Abfragen für benutzerdefinierte Filter
 
@@ -113,7 +114,7 @@ Um Benachrichtigungen nach dem Grund zu filtern, weshalb Du eine Aktualisierung 
 
 #### Unterstützte `is:`-Abfragen
 
-Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`

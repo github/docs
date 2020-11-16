@@ -20,22 +20,18 @@ jobs:
           paths: '[".github/workflows/browser-test.yml","assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
   build:
     needs: see_if_should_skip
+    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     steps:
-      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
-      # Even if if doesn't do anything
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Checkout
+      - name: Checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Install
+      - name: Install
         uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         with:
           args: npm ci
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Test
+      - name: Test
         uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         with:
           args: npm run browser-test

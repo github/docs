@@ -5,6 +5,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
   - /github/articles/about-the-github-and-visual-studio-bundle
   - /articles/about-the-github-and-visual-studio-bundle
+  - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 versions:
   free-pro-team: '*'
 ---
@@ -21,7 +22,7 @@ Para obter mais informações sobre o {% data variables.product.prodname_enterpr
 
 1. Depois de comprar {% data variables.product.prodname_vss_ghe %}, entre em contato com {% data variables.contact.contact_enterprise_sales %} e mencione "{% data variables.product.prodname_vss_ghe %}". Você trabalhará com a equipe de vendas para criar uma conta empresarial em {% data variables.product.prodname_dotcom_the_website %}. Se você já possui uma conta corporativa em {% data variables.product.prodname_dotcom_the_website %}, ou se não tiver certeza, informe a nossa equipe de vendas.
 
-2. Atribua licenças para {% data variables.product.prodname_vss_ghe %} aos assinantes em {% data variables.product.prodname_vss_admin_portal_with_url %}. Para obter mais informações sobre a atribuição de licenças, consulte [Gerenciar assinaturas de {% data variables.product.prodname_vs %} com {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-github) na documentação da Microsoft.
+2. Atribua licenças para {% data variables.product.prodname_vss_ghe %} aos assinantes em {% data variables.product.prodname_vss_admin_portal_with_url %}. Para obter mais informações sobre a atribuição de licenças, consulte [Gerenciar assinaturas de {% data variables.product.prodname_vs %} com {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/visualstudio/subscriptions/assign-github) na documentação da Microsoft.
 
 3. Em {% data variables.product.prodname_dotcom_the_website %}, crie pelo menos uma organização pertencente à conta corporativa. Para obter mais informações, consulte "[Adicionar organizações à sua conta corporativa](/github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account)".
 
@@ -39,4 +40,4 @@ Você também pode ver convites pendentes de {% data variables.product.prodname_
 
 ### Leia mais
 
-- [Apresentar as assinaturas do Visual Studio com GitHub Enterprise](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github) na documentação da Microsoft
+- [Apresentar as assinaturas do Visual Studio com GitHub Enterprise](https://docs.microsoft.com/visualstudio/subscriptions/access-github) na documentação da Microsoft

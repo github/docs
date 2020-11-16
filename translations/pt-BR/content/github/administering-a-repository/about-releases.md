@@ -37,7 +37,7 @@ Pessoas com permissões de administrador para um repositório podem escolher se
 
 Se uma versão consertar uma vulnerabilidade de segurança, você deverá publicar uma consultoria de segurança no seu repositório.
 
-{% data variables.product.prodname_dotcom %} revisa cada consultoria de segurança publicada e pode usá-la para enviar alertas de {% data variables.product.prodname_dependabot_short %} para repositórios afetados. Para obter mais informações, consulte "[Sobre as consultorias de segurança do GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. Para obter mais informações, consulte "[Sobre as consultorias de segurança do GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 Você pode visualizar a aba **Dependentes** do gráfico de dependências para ver quais repositórios e pacotes dependem do código no repositório e pode, portanto, ser afetado por uma nova versão. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)". 
 

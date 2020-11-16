@@ -1,6 +1,6 @@
 ---
 title: REST endpoints for the GitHub Marketplace API
-intro: 'To help manage your app on {% data variables.product.prodname_marketplace %}, use these {% data variables.product.prodname_marketplace %} API endoints.'
+intro: 'To help manage your app on {% data variables.product.prodname_marketplace %}, use these {% data variables.product.prodname_marketplace %} API endpoints.'
 redirect_from:
   - /apps/marketplace/github-marketplace-api-endpoints/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
