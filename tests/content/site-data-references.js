@@ -1,4 +1,4 @@
-const { isEqual, get, uniqBy } = require('lodash')
+const { isEqual, get, uniqWith } = require('lodash')
 const loadSiteData = require('../../lib/site-data')
 const loadPages = require('../../lib/pages')
 const getDataReferences = require('../../lib/get-liquid-data-references')
@@ -6,8 +6,8 @@ const fs = require('fs')
 const path = require('path')
 
 describe('data references', () => {
-  let data
-  let pages
+  let data, pages
+
   beforeAll(async (done) => {
     data = await loadSiteData()
     pages = await loadPages()
@@ -20,15 +20,15 @@ describe('data references', () => {
     expect(pages.length).toBeGreaterThan(0)
 
     pages.forEach(page => {
+      const file = path.join('content', page.relativePath)
       const pageRefs = getDataReferences(page.markdown)
       pageRefs.forEach(key => {
         const value = get(data.en, key)
-        const file = path.join('content', page.relativePath)
         if (typeof value !== 'string') errors.push({ key, value, file })
       })
     })
 
-    errors = uniqBy(errors, isEqual) // remove duplicates
+    errors = uniqWith(errors, isEqual) // remove duplicates
     expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
   })
 
@@ -39,17 +39,18 @@ describe('data references', () => {
     expect(reusables.length).toBeGreaterThan(0)
 
     reusables.forEach(reusablesPerFile => {
+      let reusableFile = path.join(__dirname, '../../data/reusables/', getFilenameByValue(allReusables, reusablesPerFile))
+      reusableFile = getFilepath(reusableFile)
+
       const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
 
       reusableRefs.forEach(key => {
         const value = get(data.en, key)
-        let reusableFile = path.join(__dirname, '../../data/reusables/', getFilenameByValue(allReusables, reusablesPerFile))
-        reusableFile = getFilepath(reusableFile)
         if (typeof value !== 'string') errors.push({ key, value, reusableFile })
       })
     })
 
-    errors = uniqBy(errors, isEqual) // remove duplicates
+    errors = uniqWith(errors, isEqual) // remove duplicates
     expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
   })
 
@@ -60,17 +61,18 @@ describe('data references', () => {
     expect(variables.length).toBeGreaterThan(0)
 
     variables.forEach(variablesPerFile => {
+      let variableFile = path.join(__dirname, '../../data/variables/', getFilenameByValue(allVariables, variablesPerFile))
+      variableFile = getFilepath(variableFile)
+
       const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
       variableRefs.forEach(key => {
         const value = get(data.en, key)
-        let variableFile = path.join(__dirname, '../../data/variables/', getFilenameByValue(allVariables, variablesPerFile))
-        variableFile = getFilepath(variableFile)
         if (typeof value !== 'string') errors.push({ key, value, variableFile })
       })
     })
 
-    errors = uniqBy(errors, isEqual) // remove duplicates
+    errors = uniqWith(errors, isEqual) // remove duplicates
     expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
   })
 })
