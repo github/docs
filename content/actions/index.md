@@ -79,7 +79,7 @@ versions:
     <div class="mb-3">{% octicon "search" width="24" %}</div>
     <h3 class="text-normal">Sorry, there is no result for <strong class="js-code-example-filter-value"></strong></h3>
     <p class="my-3 f4">It looks like we don't have an example that fits your filter.<br>Try another filter or add your code example</p>
-    <a href="https://github.com/github/docs/blob/HEAD/data/variables/action_code_examples.yml">Learn how to add a code example {% octicon "arrow-right" %}</a>
+    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">Learn how to add a code example {% octicon "arrow-right" %}</a>
   </div>
 </div>
 {% endif %}

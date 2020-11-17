@@ -87,12 +87,39 @@ describe('deprecation banner', () => {
 
   test('deprecation warning banner says "will be discontinued" when date is in future', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner b').text().includes('will be discontinued')).toBe(true)
+    const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
+      ? 'was discontinued'
+      : 'will be discontinued'
+    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
   })
 
   test('deprecation warning banner says "was discontinued" when date is in past', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.deprecated[0]}`)
     expect($('.deprecation-banner b').text().includes('was discontinued')).toBe(true)
+  })
+})
+
+describe('does not render helpfulness prompt or contribution button', () => {
+  test('does not render helpfulness prompt', async () => {
+    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    if (enterpriseServerReleases.isOldestReleaseDeprecated) {
+      expect($('.js-helpfulness').length).toBe(0)
+    } else {
+      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    }
+  })
+
+  test('does not render contribution button', async () => {
+    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($('.contribution').length).toBeGreaterThan(0)
+    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    if (enterpriseServerReleases.isOldestReleaseDeprecated) {
+      expect($('.contribution').length).toBe(0)
+    } else {
+      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    }
   })
 })
 
