@@ -2,6 +2,7 @@ const { isEqual, get, uniqWith } = require('lodash')
 const loadSiteData = require('../../lib/site-data')
 const loadPages = require('../../lib/pages')
 const getDataReferences = require('../../lib/get-liquid-data-references')
+const frontmatter = require('@github-docs/frontmatter')
 const fs = require('fs')
 const path = require('path')
 
@@ -25,6 +26,25 @@ describe('data references', () => {
       pageRefs.forEach(key => {
         const value = get(data.en, key)
         if (typeof value !== 'string') errors.push({ key, value, file })
+      })
+    })
+
+    errors = uniqWith(errors, isEqual) // remove duplicates
+    expect(errors.length, JSON.stringify(errors, null, 2)).toBe(0)
+  })
+
+  test('every data reference found in metadata of English content files is defined and has a value', () => {
+    let errors = []
+    expect(pages.length).toBeGreaterThan(0)
+
+    pages.forEach(page => {
+      const metadataFile = path.join('content', page.relativePath)
+      const fileContents = fs.readFileSync(path.join(__dirname, '../..', metadataFile))
+      const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
+      const metadataRefs = getDataReferences(JSON.stringify(metadata))
+      metadataRefs.forEach(key => {
+        const value = get(data.en, key)
+        if (typeof value !== 'string') errors.push({ key, value, metadataFile })
       })
     })
 
