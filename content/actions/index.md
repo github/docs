@@ -66,7 +66,7 @@ versions:
   <h2 class="mb-2 font-mktg h1">Code examples</h2>
 
   <div class="pr-lg-3 mb-5 mt-3">
-    <input class="js-code-example-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Search code examples" type="text" autocomplete="off" />
+    <input class="js-code-example-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Search code examples" type="search" autocomplete="off" aria-label="Search code examples"/>
   </div>
 
   <div class="d-flex flex-wrap gutter">
