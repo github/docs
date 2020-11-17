@@ -58,4 +58,9 @@ export default function () {
   document.documentElement.addEventListener('copy', () => {
     sendSuccess(testName)
   })
+
+  // Hide sidebar navigation during test
+  Array.from(
+    document.querySelectorAll('.article-grid-toc-content > h3, .article-grid-toc-content ul')
+  ).forEach(el => { el.hidden = true })
 }

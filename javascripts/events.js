@@ -63,6 +63,7 @@ export function sendEvent ({
 
       // Content information
       path: location.pathname,
+      hostname: location.hostname,
       referrer: document.referrer,
       search: location.search,
       href: location.href,
