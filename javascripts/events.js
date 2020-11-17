@@ -192,6 +192,8 @@ export default function initializeEvents () {
     })
   })
 
+  if (!document.querySelector('.sidebar-products')) return
+
   // Navigate event
   Array.from(
     document.querySelectorAll('.sidebar-products details')
