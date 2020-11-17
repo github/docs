@@ -46,7 +46,7 @@ following query with the _search repositories_ endpoint:
 GitHub Octocat in:readme user:defunkt
 ```
 
-NOTE: Be sure to use your language's preferred HTML-encoder to construct your query strings. Example:
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. For example:
 ```javascript
 // JavaScript
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
