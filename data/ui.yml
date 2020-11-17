@@ -18,8 +18,7 @@ header:
       still in translation. For the most up-to-date and accurate information,
       please visit our
       <a id="to-english-doc" href="/en">English documentation</a>.
-    early_access:
-      👋 This page contains content about an early access feature. Please do not share this URL publicly.
+    early_access: 👋 This page contains content about an early access feature. Please do not share this URL publicly.
 search:
   need_help: Need help?
   placeholder: Search topics, products...
