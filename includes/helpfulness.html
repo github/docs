@@ -1,3 +1,4 @@
+{% unless currentVersion contains enterpriseServerReleases.oldestSupported %}
 <form class="js-helpfulness mt-4 f5" id="helpfulness-{{ helpId }}">
   <h4
     data-help-start
@@ -132,3 +133,4 @@
     {% data ui.helpfulness.feedback %}
   </p>
 </form>
+{% endunless %}
