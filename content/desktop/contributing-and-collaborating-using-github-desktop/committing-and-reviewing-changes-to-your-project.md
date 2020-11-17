@@ -74,7 +74,7 @@ To discard one added line, in the list of changed lines, right click on the line
 
   ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
-In the list of changed files, right click the group of lines you want to discard and select **Discard added lines**. 
+To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
   ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
