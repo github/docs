@@ -405,6 +405,7 @@ describe('lint-files', () => {
           const matches = []
 
           for (const [key, content] of Object.entries(dictionary)) {
+            if (typeof content !== 'string') continue
             const valMatches = (content.match(earlyAccessLinkRegex) || [])
             if (valMatches.length > 0) {
               matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -422,6 +423,7 @@ describe('lint-files', () => {
           const matches = []
 
           for (const [key, content] of Object.entries(dictionary)) {
+            if (typeof content !== 'string') continue
             const valMatches = (content.match(earlyAccessImageRegex) || [])
             if (valMatches.length > 0) {
               matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
@@ -439,6 +441,7 @@ describe('lint-files', () => {
         const matches = []
 
         for (const [key, content] of Object.entries(dictionary)) {
+          if (typeof content !== 'string') continue
           const valMatches = (content.match(badEarlyAccessImageRegex) || [])
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
