@@ -19,26 +19,23 @@ import filterCodeExamples from './filter-code-examples'
 import allArticles from './all-articles'
 import devToc from './dev-toc'
 
-if (location.pathname.endsWith('/dev-toc')) {
+document.addEventListener('DOMContentLoaded', async () => {
+  displayPlatformSpecificContent()
+  explorer()
+  search()
+  nav()
+  browserDateFormatter()
+  deprecationBanner()
+  sidebar()
+  wrapCodeTerms()
+  print()
+  localization()
+  await fillCsrf() // this must complete before any POST calls
+  helpfulness()
+  experiment()
+  copyCode()
+  initializeEvents()
+  filterCodeExamples()
+  allArticles()
   devToc()
-} else {
-  document.addEventListener('DOMContentLoaded', async () => {
-    displayPlatformSpecificContent()
-    explorer()
-    search()
-    nav()
-    browserDateFormatter()
-    deprecationBanner()
-    sidebar()
-    wrapCodeTerms()
-    print()
-    localization()
-    await fillCsrf() // this must complete before any POST calls
-    helpfulness()
-    experiment()
-    copyCode()
-    initializeEvents()
-    filterCodeExamples()
-    allArticles()
-  })
-}
+})
