@@ -26,7 +26,6 @@ When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in
 
 Note that `npm run build` is a one-time step that create static assets.
 
-
 ### Using GitHub Codespaces
 
 As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces).
