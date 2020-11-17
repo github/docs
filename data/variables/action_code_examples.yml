@@ -18,7 +18,7 @@
   tags:
     - issues
     - labels
-- title: Declaratively sync GitHub lables
+- title: Declaratively sync GitHub labels
   description: GitHub Action to sync GitHub labels in the declarative way
   languages: 'Go, Dockerfile'
   href: micnncim/action-label-syncer
