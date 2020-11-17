@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -13,6 +14,9 @@ versions:
 Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of Issues it receives per day.
 
 Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}--what events should it listen to. After that, you'll set up your server to receive and manage the payload.
+
+
+{% data reusables.webhooks.webhooks-rest-api-links %}
 
 ### Setting up a Webhook
 
@@ -42,9 +46,9 @@ Since we're developing locally for our tutorial, let's set it to `http://localho
 
 {% data reusables.webhooks.webhooks_ssl %}
 
-### アクティブ
+### Active
 
-By default, webhook deliveries are "Active." You can choose to disable the delivery of webhook payloads by deselecting "Active."
+デフォルトでは、webhookの配信は「Active」です。 You can choose to disable the delivery of webhook payloads by deselecting "Active."
 
 ### イベント
 

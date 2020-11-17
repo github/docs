@@ -54,12 +54,7 @@ versions:
 
 创建组时，必须选择一个策略以向企业中所有组织或所选特定组织授予访问权限。
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. 单击 **Self-hosted runners（自托管运行器）**选项卡。

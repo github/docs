@@ -36,6 +36,8 @@ If you upload a SARIF file without fingerprint data using the `/code-scanning/sa
 
 ### Validating your SARIF file
 
+<!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
+
 You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
 
 ### 支持的 SARIF 输出文件属性

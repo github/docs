@@ -78,7 +78,7 @@ Se tiver um fluxo de trabalho de {% data variables.product.prodname_actions %} q
 
 2. No seu arquivo de fluxo de trabalho do {% data variables.product.prodname_actions %}, atualize a URL do pacote de `https://docker.pkg.github.com` para `ghcr.io`.
 
-3. Adicione seu novo token de acesso pessoal (PAT) do {% data variables.product.prodname_container_registry %} como um segredo do GitHub ACtions. {% data variables.product.prodname_github_container_registry %} não é compatível com o uso do `GITHUB_TOKEN` para o seu PAT. Portanto, você deve usar uma variável personalizada diferente, como `CR_PAT`. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} não é compatível com o uso do `GITHUB_TOKEN` para o seu PAT. Portanto, você deve usar uma variável personalizada diferente, como `CR_PAT`. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
 4. No seu arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} atualize a autenticação do PAT substituindo o seu PAT do registro do Docker ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) por uma nova variável para o seu PAT de {% data variables.product.prodname_container_registry %}, como, por exemplo, {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
 

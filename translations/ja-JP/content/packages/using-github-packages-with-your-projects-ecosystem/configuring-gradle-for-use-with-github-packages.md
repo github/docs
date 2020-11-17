@@ -25,12 +25,12 @@ versions:
 
 Gradle GroovyもしくはKotlin DSLを使って、Gradleで{% data variables.product.prodname_registry %}に認証を受けることができます。それには、*build.gradle*ファイル（Gradle Groovy）もしくは*build.gradle.kts*ファイル（Kotlin DSL）ファイルを編集して、個人アクセストークンを含めます。 リポジトリ中の単一のパッケージもしくは複数パッケージを認識するようにGradle Groovy及びKotlin DSLを設定することもできます。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 *REGISTRY-URL* をインスタンスの Maven レジストリの URL に置き換えます。 インスタンスで Subdomain Isolation が有効になっている場合は、`maven.HOSTNAME` を使用します。 インスタンスで Subdomain Isolation が無効になっている場合は、`HOSTNAME/_registry/maven` を使用します。 いずれの場合でも、*HOSTNAME* を
 {% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えてください。
 {% endif %}
 
-*USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*REPOSITORY*を公開したいパッケージを含むリポジトリの名前で、*OWNER*をリポジトリを所有する{% data variables.product.prodname_dotcom %}のユーザもしくはOrganizationアカウント名で置き換えてください。 {% data reusables.package_registry.lowercase-name-field %}
+*USERNAME*を{% data variables.product.prodname_dotcom %}のユーザ名で、*TOKEN*を個人アクセストークンで、*REPOSITORY*を公開したいパッケージを含むリポジトリの名前で、*OWNER*をリポジトリを所有する{% data variables.product.prodname_dotcom %}のユーザもしくはOrganizationアカウント名で置き換えてください。 Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 {% note %}
 

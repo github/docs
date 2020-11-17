@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Um Forks in die Ergebnisse von [Repository-Suchen](/articles/searching-for-repositories) einzuschließen, musst Du Deiner Abfrage `fork:true` oder `fork:only` hinzufügen.

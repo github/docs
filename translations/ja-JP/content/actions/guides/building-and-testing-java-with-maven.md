@@ -30,7 +30,7 @@ Java及びMavenフレームワークの基本的な理解をしておくこと�
 
 ### Mavenワークフローテンプレートで始める
 
-{% data variables.product.prodname_dotcom %}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については[Mavenワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については、[Maven ワークフローテンプレート](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)を参照してください。
 
 素早く始めるには、新しいワークフローを作成する際に事前設定されたMavenテンプレートを選択できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のクイックスタート](/actions/quickstart)」を参照してください。
 

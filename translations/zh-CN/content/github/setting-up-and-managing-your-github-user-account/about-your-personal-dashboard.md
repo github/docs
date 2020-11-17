@@ -8,6 +8,7 @@ intro: '您可以访问个人仪表板，以跟踪您参与或关注的议题和
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 访问个人仪表板
@@ -27,6 +28,8 @@ versions:
 在仪表板的左侧栏中，可以访问常用仓库和团队。
 
 ![不同组织中的仓库和团队列表](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
+
+The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 4 months after you last interacted with them.
 
 您也可以点击 {% data variables.product.product_name %} 上任何页面顶部的搜索栏，查找近期访问过的仓库、团队及项目板列表。
 

@@ -4,6 +4,7 @@ intro: 'Git 数据库 API 使您能够在 {% data variables.product.product_name
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概览
@@ -38,7 +39,7 @@ versions:
 
 消费 API 需要明确请求拉取请求来创建一个_测试_合并提交。 当您在 UI 中查看拉取请求并且“ Merge（合并）”按钮显示时，或者当您使用 REST API 来[获取](/v3/pulls/#get-a-pull-request)、[创建](/v3/pulls/#create-a-pull-request)或[编辑](/v3/pulls/#update-a-pull-request)拉取请求时，将创建一个_测试_合并提交。 如果没有此请求，`merge` Git 引用将过时，直到下次有人查看拉取请求。
 
-If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
+如果您当前正在使用会生成过时 `merge` Git 引用的轮询方法，GitHub 建议使用以下步骤从默认分支获取最新更改：
 
 1. 接收拉取请求 web 挂钩。
 2. 调用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) 以启动创建合并提交候选项的后台作业。

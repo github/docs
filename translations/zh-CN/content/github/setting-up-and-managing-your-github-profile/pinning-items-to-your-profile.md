@@ -1,12 +1,13 @@
 ---
 title: 在个人资料中嵌入项目
-intro: 'You can pin {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists and {% endif %}repositories to your profile so other people can quickly see your best work.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以嵌入您拥有的或者对其做出了贡献的公共仓库。 对复刻的提交不计为贡献，因此不能嵌入非自己所有的复刻。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”

@@ -3,7 +3,7 @@ title: Enabling code scanning for a repository
 shortTitle: Enabling code scanning
 intro: 'You can enable {% data variables.product.prodname_code_scanning %} for your project''s repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can enable {% data variables.product.prodname_code_scanning %} for the repository.'
+permissions: 'If you have write permissions to a repository, you can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -38,7 +38,7 @@ You decide how you generate {% data variables.product.prodname_code_scanning %} 
 7. Choose whether you'd like to commit directly to the default branch, or create a new branch and start a pull request. ![Choose where to commit](/assets/images/help/repository/start-commit-choose-where-to-commit.png)
 8. Click **Commit new file** or **Propose new file**.
 
-Optionally, to customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)."
+In the default {% data variables.product.prodname_codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)."
 
 ### Дальнейшие шаги
 
@@ -86,7 +86,7 @@ After {% data variables.product.prodname_code_scanning %} has analyzed the code 
 
 There are other situations where there may be no analysis for the latest commit to the base branch for a pull request. These include:
 
-* The pull request has been raised against a branch other than the default branch or a protected branch, and this branch hasn't been analyzed.
+* The pull request has been raised against a branch other than the default branch, and this branch hasn't been analyzed.
 
   To the right of "Code scanning", click **Set up code scanning**.
 

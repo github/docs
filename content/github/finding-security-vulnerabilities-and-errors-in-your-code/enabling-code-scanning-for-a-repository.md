@@ -3,7 +3,7 @@ title: Enabling code scanning for a repository
 shortTitle: Enabling code scanning
 intro: 'You can enable {% data variables.product.prodname_code_scanning %} for your project''s repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can enable {% data variables.product.prodname_code_scanning %} for the repository.'
+permissions: 'If you have write permissions to a repository, you can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -62,7 +62,7 @@ After enabling {% data variables.product.prodname_code_scanning %} for your repo
 
 1. Review the logging output from the actions in this workflow as they run.
 
-1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
+1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 {% note %}
 

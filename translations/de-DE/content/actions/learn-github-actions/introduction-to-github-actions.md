@@ -34,7 +34,7 @@ The workflow is an automated procedure that you add to your repository. Workflow
 
 #### Ereignisse
 
-An event is a specific activity that triggers a workflow. Die Aktivität kann beispielsweise von {% data variables.product.prodname_dotcom %} stammen, wenn ein Commit an Repository gepusht oder wenn ein Issue oder ein Pull Request erstellt wird. You can also use the repository dispatch webhook to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+An event is a specific activity that triggers a workflow. Die Aktivität kann beispielsweise von {% data variables.product.prodname_dotcom %} stammen, wenn ein Commit an Repository gepusht oder wenn ein Issue oder ein Pull Request erstellt wird. You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
 
 #### Jobs
 

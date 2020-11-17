@@ -23,7 +23,7 @@ When we receive reports of trademark policy violations from holders of federal o
 
 ### How Do I Report a Trademark Policy Violation?
 
-Holders of registered trademarks can report possible trademark policy violations to GitHub via our [contact form](https://support.github.com/contact). Please submit trademark-related requests using your company email address and include all the information requested below to help expedite our response. Also be sure to clearly describe to us why the account may cause confusion with your mark or how the account may dilute or tarnish your mark.
+Holders of registered trademarks can report possible trademark policy violations to GitHub via our [contact form](https://support.github.com/contact?tags=docs-trademark). Please submit trademark-related requests using your company email address and include all the information requested below to help expedite our response. Also be sure to clearly describe to us why the account may cause confusion with your mark or how the account may dilute or tarnish your mark.
 
 ### What Information is Required When Reporting Trademark Policy Violations?
 
