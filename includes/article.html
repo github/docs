@@ -69,10 +69,11 @@
       {{ renderedPage }}
     </div>
     </div>
+
+    <div class="d-block d-xl-none border-top border-gray-light mt-4 markdown-body">
+      {% assign helpId = 'sm' %}
+      {% include helpfulness %}
+      {% include contribution %}
+    </div>
   </article>
-  <div class="d-block d-xl-none border-top border-gray-light mt-4 markdown-body">
-    {% assign helpId = 'sm' %}
-    {% include helpfulness %}
-    {% include contribution %}
-  </div>
 </main>
