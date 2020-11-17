@@ -16,7 +16,7 @@ Du kannst den Zugriff auf Organisations-Objekte beschränken, indem Du eine Gene
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-Konto konfigurieren. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
+Du kannst erlaubte IP-Adressen auch für die Organisationen in einem Enterprise-Konto konfigurieren. Weiter Informationen findest Du unter „[Sicherheitseinstellungen für Dein Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
 
 ### Eine zulässige IP-Adresse hinzufügen
 

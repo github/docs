@@ -16,7 +16,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`product`](#product)
   - [`layout`](#layout)
   - [`mapTopic`](#maptopic)
-  - [`gettingStartedLinks` and `popularLinks`](#gettingstartedlinks-and-popularlinks)
+  - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
@@ -132,11 +132,21 @@ For a layout named `layouts/article.html`, the value would be `article`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
-### `gettingStartedLinks` and `popularLinks`
+### `featuredLinks`
 
-- Purpose: Renders the linked articles' titles and intros under `Getting started` and `Popular articles` headings, respectively. See site homepage for an example.
-- Type: `Array`.
+- Purpose: Renders the linked articles' titles and intros on product landing pages and the homepage.
+- Type: `Object`.
 - Optional.
+
+Example:
+
+```yaml
+featuredLinks:
+  gettingStarted:
+    - /path/to/page
+  guides:
+    - /guides/example
+```
 
 ### `showMiniToc`
 
@@ -154,6 +164,12 @@ For a layout named `layouts/article.html`, the value would be `article`.
 
 - Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `script/reconcile-ids-with-filenames.js`.
 - Type: `Boolean`. Default is `false`.
+- Optional.
+
+### `changelog`
+
+- Purpose: Render a list of changelog items with timestamps on product pages (ex: `layouts/product-landing.html`)
+- Type: `Array`, items are objects `{ href: string, title: string, date: 'YYYY-MM-DD' }`
 - Optional.
 
 ### Escaping single quotes

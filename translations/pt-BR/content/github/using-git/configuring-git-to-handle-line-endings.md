@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Toda vez que você pressionar <kbd>retornar</kbd> no seu teclado, você insere um caractere invisível denominado delimitador. Os diferentes sistemas operacionais gerenciam os delimitadores de formas diferentes.

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 破壊的変更には、既存のクエリを損なったり、クライアントの実行時の振る舞いに影響するかもしれない変更が含まれます。 破壊的変更とそれらが行われる時期のリストについては、[破壊的変更の履歴](/v4/breaking_changes)を参照してください。

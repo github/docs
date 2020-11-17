@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O comando `git filter-branch` e o BFG Repo-Cleaner regravam o histórico do repositório, o que altera os SHAs dos commits existentes que você altera e quaisquer commits dependentes. Os SHAs do commit alterados podem afetar as pull requests abertas no repositório. Recomendamos que você faça merge ou feche todas todas as pull requests abertas antes de remover os arquivos do repositório.
@@ -134,7 +135,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
 
   {% endnote %}
 
-## Evitar commits acidentais no futuro
+### Evitar commits acidentais no futuro
 
 Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
@@ -145,5 +146,5 @@ Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
 ### Leia mais
 
-- [Página principal do `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [man page de `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Ferramentas do Git - Reescrevendo o Histórico](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

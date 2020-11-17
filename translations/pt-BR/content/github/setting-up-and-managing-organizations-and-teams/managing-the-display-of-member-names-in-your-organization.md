@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Proprietários de organização podem gerenciar a exibição do nome de integrantes na organização.

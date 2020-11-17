@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.migrating-from-codeplex %}
@@ -29,7 +30,7 @@ versions:
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. 在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。
   ```shell
@@ -67,7 +68,7 @@ versions:
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. 在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。
   ```shell
@@ -105,7 +106,7 @@ versions:
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. 在新的本地仓库中添加文件。 这会暂存它们用于第一次提交。
   ```shell

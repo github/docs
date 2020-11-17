@@ -9,6 +9,7 @@ intro: 'リポジトリのプルリクエストのオープン後、コラボレ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのコメントについて

@@ -31,7 +31,7 @@ Em circunstâncias especiais, como por razões legais ou para estar de acordo co
 
 {% else %}
 
-You cannot delete an entire package, but if you delete every version of a package, the package will no longer show on {% data variables.product.prodname_dotcom %}.
+At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.
 
 {% endif %}
 

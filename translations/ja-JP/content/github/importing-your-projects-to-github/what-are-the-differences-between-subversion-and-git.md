@@ -35,9 +35,9 @@ Git プロジェクトも、単一のディレクトリに保管されます。 
 Git のワークフローは以下のようになります:
 
 * Git リポジトリは、ブランチおよびタグのすべての履歴を、*.git* ディレクトリ内に保管します。
-* 最新の安定したリリースは、`master` ブランチ内に含まれます。
+* The latest stable release is contained within the default branch.
 * アクティブな feature は、別のブランチで開発されます。
-* feature が完了したとき、フィーチャブランチは `master` にマージされ消去されます。
+* When a feature is finished, the feature branch is merged into the default branch and deleted.
 
 Git はディレクトリ構造は同じままですが、SVN とは違い、ファイルの変更内容はブランチベースです。
 

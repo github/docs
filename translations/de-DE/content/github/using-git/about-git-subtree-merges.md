@@ -8,6 +8,7 @@ intro: 'Wenn Du mehrere Projekte innerhalb eines einzigen Repositorys verwalten 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Typischerweise wird eine Unterstruktur zusammengeführt, um ein Repository innerhalb eines anderen Repositorys einzubinden. Das „Unterrepository“ wird in einem Ordner des Haupt-Repositorys gespeichert.
@@ -104,5 +105,5 @@ $ git pull -s subtree spoon-knife main
 
 ### Weiterführende Informationen
 
-- [Kapitel „Eine Unterstruktur zusammenführen“ im _Pro Git_-Buch](https://git-scm.com/book/en/Git-Tools-Subtree-Merging)
+- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - „[Die Strategie des Zusammenführens von Unterstrukturen verwenden](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)“

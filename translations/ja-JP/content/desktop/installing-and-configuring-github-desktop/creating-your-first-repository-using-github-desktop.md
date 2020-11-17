@@ -1,7 +1,7 @@
 ---
 title: GitHub Desktop を使った最初のリポジトリ作成方法
-shortTitle: Creating your first repository
-intro: 'You can use {% data variables.product.prodname_desktop %} to create and manage a Git repository without using the command line.'
+shortTitle: 最初のリポジトリを作成する
+intro: '{% data variables.product.prodname_desktop %} を使って、コマンドラインを使用せずに Git リポジトリを作成および管理できます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/creating-your-first-repository-using-github-desktop
 versions:
@@ -9,13 +9,13 @@ versions:
 ---
 
 ### はじめに
-{% data variables.product.prodname_desktop %} は、コマンドライン上でテキストコマンドを使うのではなく、ビジュアルインターフェースを使って、あなたの {% data variables.product.prodname_dotcom_the_website %} ワークフローを拡張し簡略化します。 By the end of this guide, you'll have used {% data variables.product.prodname_desktop %} to create a repository, make changes to the repository, and publish the changes to {% data variables.product.product_name %}.
+{% data variables.product.prodname_desktop %} は、コマンドライン上でテキストコマンドを使うのではなく、ビジュアルインターフェースを使って、あなたの {% data variables.product.prodname_dotcom_the_website %} ワークフローを拡張し簡略化します。 このガイドをとおして、{% data variables.product.prodname_desktop %} を使用してリポジトリを作成し、リポジトリに変更を加え、最後に変更を {% data variables.product.product_name %} に公開するところまでを行います。
 
-After installing {% data variables.product.prodname_desktop %} and signing into {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} you can create and clone a tutorial repository. The tutorial will introduce the basics of working with Git and {% data variables.product.prodname_dotcom %}, including installing a text editor, creating a branch, making a commit, pushing to {% data variables.product.prodname_dotcom_the_website %}, and opening a pull request. The tutorial is available if you do not have any repositories on {% data variables.product.prodname_desktop %} yet.
+{% data variables.product.prodname_desktop %} をインストールし、{% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} にサインインした後、チュートリアルリポジトリを作成してクローンできます。 チュートリアルでは、テキストエディタのインストール、ブランチの作成、コミットの作成、{% data variables.product.prodname_dotcom_the_website %} へのプッシュ、プルリクエストの開始など、Gitと {% data variables.product.prodname_dotcom %} で作業するための基本をご紹介します。 チュートリアルは、{% data variables.product.prodname_desktop %} にリポジトリが未作成の場合に利用できます。
 
-We recommend completing the tutorial, but if you want to explore {% data variables.product.prodname_desktop %} by creating a new repository, this guide will walk you through using {% data variables.product.prodname_desktop %} to work on a Git repository.
+チュートリアルを最後まで完了することをお勧めしますが、新しいリポジトリを作成することで {% data variables.product.prodname_desktop %} を学ぶ場合は、このガイドで {% data variables.product.prodname_desktop %} を使用して Git で作業する方法を説明します。
 
-### Part 1: Installing {% data variables.product.prodname_desktop %} and authenticating your account
+### パート 1: {% data variables.product.prodname_desktop %} をインストールしてアカウントを認証する
 You can install {% data variables.product.prodname_desktop %} on any supported operating system. After you install the app, you will need to sign in and authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} before you can create and clone a tutorial repository.
 
 For more information on installing and authenticating, see "[Setting up {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-up-github-desktop)."
@@ -80,12 +80,8 @@ Now that you've created and published your repository, you're ready to make chan
 2. Make some changes to the _README.md_ file that you previously created. You can add information that describes your project, like what it does and why it is useful. When you are satisfied with your changes, save them in your text editor.
 3. In {% data variables.product.prodname_desktop %}, navigate to the **Changes** view. ファイルのリストに、_README.md_ が表示されているはずです。 The checkmark to the left of the _README.md_ file indicates that the changes you've made to the file will be part of the commit you make. 今後、複数のファイルに変更を行って、そのうちの一部のファイルのみの変更をコミットしたい場合があるかもしれません。 If you click the checkmark next to a file, that file will not be included in the commit. ![変更を表示する](/assets/images/help/desktop/getting-started-guide/viewing-changes.png)
 
-4. [**Changes**] リストの下に、コミットメッセージを入力します。 プロフィール画像の右側で、コミットについて簡潔な説明を入力します。 ここでは _README.md_ ファイルを変更するので、「プロジェクトの目的について情報を追加する」などがコミットの要約として良いかもしれません。 Below the summary, you'll see a "Description" text field where you can type a longer description of the changes in the commit, which is helpful when looking back at the history of a project and understanding why changes were made. 今は _README.md_ ファイルの基本的な更新を行っているところなので、この内容は飛ばしてもかまいません。 ![Commit message](/assets/images/help/desktop/getting-started-guide/commit-message.png) <<<<<<< HEAD
-5. Click **Commit to BRANCH NAME**. The commit button shows your current branch so you can be sure to commit to the branch you want.
-![Commit to branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-=======
-5. [**Commit to master**] をクリックします。 The commit button shows your current branch, which in this case is `master`, so that you know which branch you are making a commit to. ![[Commit to master]](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
-> > > > > > > master
+4. [**Changes**] リストの下に、コミットメッセージを入力します。 プロフィール画像の右側で、コミットについて簡潔な説明を入力します。 ここでは _README.md_ ファイルを変更するので、「プロジェクトの目的について情報を追加する」などがコミットの要約として良いかもしれません。 Below the summary, you'll see a "Description" text field where you can type a longer description of the changes in the commit, which is helpful when looking back at the history of a project and understanding why changes were made. 今は _README.md_ ファイルの基本的な更新を行っているところなので、この内容は飛ばしてもかまいません。 ![コミットメッセージ](/assets/images/help/desktop/getting-started-guide/commit-message.png)
+5. Click **Commit to BRANCH NAME**. The commit button shows your current branch so you can be sure to commit to the branch you want. ![Commit to branch](/assets/images/help/desktop/getting-started-guide/click-commit-to-master.png)
 6. 変更を {% data variables.product.product_name %} のリモートリポジトリにプッシュするには、[**Push origin**] をクリックします。 ![[Push origin]](/assets/images/help/desktop/getting-started-guide/push-to-origin.png)
   - The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.
   - The "origin" in **Push origin** means that you are pushing changes to the remote called `origin`, which in this case is your project's repository on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.product_name %} に何か新しいコミットをプッシュするまで、お手元のコンピューターにあるプロジェクトのリポジトリと、{% data variables.product.prodname_dotcom_the_website %} にあるプロジェクトのリポジトリには違いがあります。 This allows you to work locally and only push your changes to {% data variables.product.prodname_dotcom_the_website %} when you're ready.

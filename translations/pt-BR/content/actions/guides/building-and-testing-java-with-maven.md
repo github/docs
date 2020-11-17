@@ -30,7 +30,7 @@ Recomendamos que você tenha um entendimento básico da estrutura do Java e do M
 
 ### Introdução com um modelo de fluxo de trabalho do Maven
 
-{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Maven que funcionará para a maioria dos projetos Java baseados no Maven. Para obter mais informações, consulte o [modelo do fluxo de trabalho do Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Maven que funcionará para a maioria dos projetos Java baseados no Maven. Para obter mais informações, consulte o [Modelo do fluxo de trabalho do Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
 Para começar rapidamente, você pode escolher o modelo do Maven pré-configurado ao criar um novo fluxo de trabalho. Para obter mais informações, consulte o início rápido "[{% data variables.product.prodname_actions %}](/actions/quickstart)".
 

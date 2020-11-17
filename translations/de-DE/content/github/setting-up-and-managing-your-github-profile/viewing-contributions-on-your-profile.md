@@ -8,13 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Dein Beteiligungsdiagramm zeigt die Aktivitäten in öffentlichen Repositorys. Du kannst die Aktivitäten in öffentlichen und privaten Repositorys anzeigen, wobei spezifische Details Deiner Aktivität in privaten Repositorys anonymisiert werden. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
 
 {% note %}
 
-**Hinweis:** Commits werden nur dann in Deinem Beteiligungsdiagramm angezeigt, wenn Du Deinen [E-Mail-Einstellungen für {% data variables.product.product_name %} die E-Mail-Adresse hinzugefügt hast, die Du für Deine lokale Git-Konfiguration verwendet hast](/articles/adding-an-email-address-to-your-github-account). Weitere Informationen findest Du unter „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)“
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. Weitere Informationen findest Du unter „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)“
 
 {% endnote %}
 
@@ -25,7 +26,7 @@ Bestimmte Aktionen zählen auf Deiner Profilseite als Beiträge:
 - Commits zum Standardbranch eines Repositorys oder zum Branch `gh-pages`
 - das Öffnen eines Issues
 - das Vorschlagen eines Pull Requests
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Commits mit Co-Autor im Standardbranch eines Repositorys oder im Branch `gh-pages`{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -79,9 +80,12 @@ Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste 
 
 ![Zeitfilter für Beitragsaktivität](/assets/images/help/profile/contributions_activity_time_filter.png)
 
+{% if currentVersion != "github-ae@latest" %}
 ### Beiträge von {% data variables.product.product_location_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen
+If your site administrator has enabled
 
-Wenn Dein Websiteadministrator {% data variables.product.prodname_unified_contributions %} aktiviert hat, kannst Du die {% data variables.product.prodname_enterprise %}-Beitragszähler an Dein {% data variables.product.prodname_dotcom_the_website %}-Profil senden. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_ghe_server %}-Beiträge an Deine {% data variables.product.prodname_dotcom_the_website %} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_ghe_server %}-Beiträge an Deine {% data variables.product.prodname_dotcom_the_website %} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
+{% endif %}
 
 ### Weiterführende Informationen
 

@@ -2,12 +2,16 @@
 title: 创建 GitHub Pages 站点
 intro: '您可以在新仓库或现有仓库中创建 {% data variables.product.prodname_pages %} 站点。'
 redirect_from:
+  - /articles/creating-pages-manually/
+  - /articles/creating-project-pages-manually/
+  - /articles/creating-project-pages-from-the-command-line/
   - /articles/creating-project-pages-using-the-command-line/
   - /articles/creating-a-github-pages-site
 product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 为站点创建仓库

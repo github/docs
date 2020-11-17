@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在仓库中创建议题和拉取请求后，贡献者可以根据仓库的参与指南使用模板打开议题或描述其拉取请求中提议的更改。 有关向仓库添加参与指南的更多信息，请参阅“[设置仓库贡献者指南](/articles/setting-guidelines-for-repository-contributors)”。
 
-You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
 
 ### 议题模板
 
@@ -20,7 +21,7 @@ You can create default issue and pull request templates for your organization{% 
 
 使用模板构建器，可以指定每个模板的标题和描述，添加模板内容，然后提交模板到默认分支或在仓库中打开拉取请求。 模板构建器会自动添加模板显示于新议题页面所需的 YAML 扉页标记。 更多信息请参阅“[为仓库配置议题模板](/articles/configuring-issue-templates-for-your-repository)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% data reusables.repositories.issue-template-config %}更多信息请参阅“[为仓库配置议题模板](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)”。
 {% endif %}
 

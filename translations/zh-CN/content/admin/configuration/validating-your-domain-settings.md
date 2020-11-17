@@ -1,6 +1,6 @@
 ---
 title: 验证域设置
-intro: '首次启动 {% data variables.product.product_location_enterprise %} 之前，请确保域设置已正确配置。'
+intro: '首次启动 {% data variables.product.product_location %} 之前，请确保域设置已正确配置。'
 redirect_from:
   - /enterprise/admin/installation/validating-your-domain-settings
   - /enterprise/admin/configuration/validating-your-domain-settings

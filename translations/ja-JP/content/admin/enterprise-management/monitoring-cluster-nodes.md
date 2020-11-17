@@ -34,13 +34,13 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 #### Nagiosホストの設定
 1. 空のパスフレーズで SSH キーを生成してください。 Nagios はこれを使用して {% data variables.product.prodname_ghe_server %} クラスタへの認証を行います。
   ```shell
-  nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
-  > Generating public/private rsa key pair.
-  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_rsa):
+  nagiosuser@nagios:~$ <em>ssh-keygen -t ed25519</em>
+  > Generating public/private ed25519 key pair.
+  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_ed25519):
   > Enter passphrase (empty for no passphrase): <em>leave blank by pressing enter</em>
   > Enter same passphrase again: <em>press enter again</em>
-  > Your identification has been saved in /home/nagiosuser/.ssh/id_rsa.
-  > Your public key has been saved in /home/nagiosuser/.ssh/id_rsa.pub.
+  > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
+  > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
   ```
   {% danger %}
 
@@ -48,13 +48,21 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
  **セキュリティの警告:** パスフレーズを持たない SSH キーは、ホストへの完全なアクセスを承認されていた場合、セキュリティリスクになることがあります。 このキーの承認は、単一の読み取りのみのコマンドに限定してください。
 
   {% enddanger %}
-2. 秘密鍵 (`id_rsa`) を `nagios` ホームフォルダにコピーし、適切な所有権を設定します。
+  {% note %}
+
+  **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
   ```shell
-  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_rsa /var/lib/nagios/.ssh/</em>
-  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_rsa</em>
+  nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
   ```
 
-3. `ghe-cluster-status -n` コマンド*のみ*を実行するために公開鍵を認証するには、`/data/user/common/authorized_keys` ファイル中で `command=` プレフィックスを使ってください。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 例: `command="/usr/local/bin/ghe-cluster-status -n" ssh-rsa AAAA....`
+  {% endnote %}
+2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
+  ```shell
+  nagiosuser@nagios:~$ <em>sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/</em>
+  nagiosuser@nagios:~$ <em>sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519</em>
+  ```
+
+3. `ghe-cluster-status -n` コマンド*のみ*を実行するために公開鍵を認証するには、`/data/user/common/authorized_keys` ファイル中で `command=` プレフィックスを使ってください。 任意のノードの管理シェルから、このファイルを変更してステップ1で生成した公開鍵を追加してください。 For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
 4. `/data/user/common/authorized_keys` ファイルを変更したノード上で `ghe-cluster-config-apply` を実行し、設定を検証してクラスタ内の各ノードにコピーしてください。
 

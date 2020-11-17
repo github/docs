@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/about-cas-authentication/
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
-intro: 'CAS は、複数の Web アプリケーションのためのシングルサインオン (SSO) プロトコルです。 A CAS user account does not take up a {% if currentVersion ver_gt "enterprise-server@2.16" %}user license{% else %}seat{% endif %} until the user signs in.'
+intro: 'CAS は、複数の Web アプリケーションのためのシングルサインオン (SSO) プロトコルです。 CAS ユーザアカウントは、ユーザがサインインするまで、{% if currentVersion ver_gt "enterprise-server@2.16" %}ユーザライセンス{% else %}シート{% endif %}を消費しません。'
 versions:
   enterprise-server: '*'
 ---
@@ -32,7 +32,7 @@ versions:
 ### CASの設定
 {% warning %}
 
-**警告：**{% data variables.product.product_location_enterprise %}でCASを設定するまでは、ユーザはCASのユーザ名とパスワードをAPIリクエストの認証やHTTP/HTTPS経由のGit操作に使えないことに注意してください。 その代わりに、ユーザは[アクセストークンを作成](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)しなければなりません。
+**警告：**{% data variables.product.product_location %}でCASを設定するまでは、ユーザはCASのユーザ名とパスワードをAPIリクエストの認証やHTTP/HTTPS経由のGit操作に使えないことに注意してください。 その代わりに、ユーザは[アクセストークンを作成](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)しなければなりません。
 
 {% endwarning %}
 

@@ -8,6 +8,7 @@ intro: 'Der kooperative Ansatz von GitHub in der Entwicklung hängt von der Ver�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Eine Remote-URL ist die offizielle Ausdrucksweise von Git für „der Ort, an dem Dein Code gespeichert ist“. Diese URL kann Dein Repository auf GitHub oder der Fork eines anderen Benutzers sein oder sich sogar auf einem völlig anderen Server befinden.

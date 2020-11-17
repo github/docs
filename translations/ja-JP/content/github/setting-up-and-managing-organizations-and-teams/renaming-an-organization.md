@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -28,7 +29,7 @@ Organization の名前を変更したら、古い Organization 名は他の個�
 #### 自動ではない変更
 
 Organization の名前を変更したら、次のようになります:
-- 以前の Organization プロフィールページ (`https://{% data variables.command_line.backticks %}/previousorgname` など) にリンクすると、404 エラーが返されます。 We recommend you update links to your organization from other sites{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profiles{% endif %}.
+- 以前の Organization プロフィールページ (`https://{% data variables.command_line.backticks %}/previousorgname` など) にリンクすると、404 エラーが返されます。 他のサイト{% if currentVersion == "free-pro-team@latest" %} (LinkedIn や Twitter のプロフィールなど) {% endif %}からの Organization へのリンクを更新するよう推奨します。
 - 古い Organization 名を使用する API リクエストでは、404 エラーが返されます。 API リクエストにある古い Organization 名を更新するようおすすめします。
 - 古い Organization 名を使用する Team へは、自動での [@mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) リダイレクトはありません。
 

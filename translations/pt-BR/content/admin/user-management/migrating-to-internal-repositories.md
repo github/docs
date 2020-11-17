@@ -23,7 +23,7 @@ Todos os repositórios públicos pertencentes a contas de usuário na sua instâ
 
 O acesso de leitura anônimo Git será desativado para cada repositório público que se tornar interno ou privado.
 
-Se sua visibilidade padrão atual for pública, o padrão se tornará interno. Se o padrão atual for privado, o padrão não será alterado. Você pode alterar o padrão a qualquer momento. Para obter mais informações, consulte "[Configurar a visibilidade padrão de novos repositórios no seu appliance](/enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance)".
+Se sua visibilidade padrão atual for pública, o padrão se tornará interno. Se o padrão atual for privado, o padrão não será alterado. Você pode alterar o padrão a qualquer momento. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)".
 
 A política de criação de repositórios para a instância mudará para desativar repositórios públicos e permitir repositórios privados e internos. Você pode atualizar a política a qualquer momento. Para obter mais informações, consulte "[Restringir a criação de repositórios nas suas instâncias](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)".
 

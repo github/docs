@@ -21,7 +21,7 @@ Você só precisa de um repositório de {% data variables.product.prodname_dotco
 1. Do seu repositório no {% data variables.product.prodname_dotcom %}, crie um novo arquivo no diretório `.github/workflows` denominado `superlinter.yml`. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".
 2. Copie o conteúdo de YAML a seguir para o arquivo `superlinter.yml`. **Observação:** Se seu branch-padrão não for `principal`, atualize o valor de `DEFAULT_BRANCH` para corresponder ao nome do branch-padrão do seu repositório.
     {% raw %}
-    ```yaml
+    ```yaml{:copy}
     name: Super-Linter
 
     # Run this workflow every time a new commit pushed to your repository

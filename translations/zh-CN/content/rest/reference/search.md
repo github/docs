@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 搜索 API 可帮助您搜索要查找的特定条目。 例如，您可以在仓库中找到用户或特定文件。 就像您在 Google 上执行搜索一样。 它旨在帮助您找到要查找的一个或几个结果。 就像在 Google 上搜索一样，有时您希望查看几页搜索结果，以便找到最能满足您需求的条目。 为了满足这一需求， {% data variables.product.product_name %} 搜索 API **为每个搜索提供最多 1,000 个结果**。
@@ -27,7 +28,7 @@ versions:
 
 搜索 API 中的每个端点都使用[查询参数](https://en.wikipedia.org/wiki/Query_string)对 {% data variables.product.product_name %} 进行搜索。 有关包含端点和查询参数的示例，请参阅搜索 API 中的各个端点。
 
-查询可以包含 GitHub.com 上支持的搜索限定符的任意组合。 搜索查询的格式为：
+A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. 搜索查询的格式为：
 
 ```
 q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
