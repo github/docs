@@ -1,7 +1,15 @@
 {
   "overrides": [
     {
-      "files":[
+      "files": [
+        "**/*.json"
+      ],
+      "options": {
+        "parser": "json-stringify"
+      }
+    },
+    {
+      "files": [
         "**/*.{yml,yaml}"
       ],
       "options": {
