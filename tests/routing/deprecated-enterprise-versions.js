@@ -85,17 +85,12 @@ describe('deprecation banner', () => {
     expect($('.deprecation-banner b').text().endsWith('discontinued on .')).toBe(false)
   })
 
-  test('deprecation warning banner says "will be discontinued" when date is in future', async () => {
+  test('deprecation warning banner includes the right text depending on the date', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'
       : 'will be discontinued'
     expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
-  })
-
-  test('deprecation warning banner says "was discontinued" when date is in past', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.deprecated[0]}`)
-    expect($('.deprecation-banner b').text().includes('was discontinued')).toBe(true)
   })
 })
 
