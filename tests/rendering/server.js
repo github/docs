@@ -358,12 +358,12 @@ describe('server', () => {
     })
   })
 
-  describe('hidden articles', () => {
+  describe('Early Access articles', () => {
     let hiddenPageHrefs, hiddenPages
 
     beforeAll(async (done) => {
-      const $ = await getDOM('/hidden')
-      hiddenPageHrefs = $('a').map((i, el) => $(el).attr('href')).get()
+      const $ = await getDOM('/early-access')
+      hiddenPageHrefs = $('#article-contents ul > li > a').map((i, el) => $(el).attr('href')).get()
 
       const allPages = await loadPages()
       hiddenPages = allPages.filter(page => page.languageCode === 'en' && page.hidden)
@@ -371,16 +371,17 @@ describe('server', () => {
       done()
     })
 
-    test('are listed at /hidden', async () => {
-      expect(hiddenPageHrefs.length).toBe(hiddenPages.length)
+    test('are listed at /early-access', async () => {
+      // hiddenPages count multiplied by product version count per page
+      expect(hiddenPageHrefs.length).toBeGreaterThanOrEqual(hiddenPages.length)
     })
 
-    test('are not listed at /hidden in production', async () => {
+    test('are not listed at /early-access in production', async () => {
       const oldNodeEnv = process.env.NODE_ENV
       process.env.NODE_ENV = 'production'
-      const res = await get('/hidden')
+      const res = await get('/early-access', { followRedirects: true })
       process.env.NODE_ENV = oldNodeEnv
-      expect(res.statusCode).toBe(403)
+      expect(res.statusCode).toBe(404)
     })
 
     test('have noindex meta tags', async () => {
@@ -390,7 +391,7 @@ describe('server', () => {
       }
     })
 
-    test('non-hidden articles do not have noindex meta tags', async () => {
+    test('public articles do not have noindex meta tags', async () => {
       const $ = await getDOM('/en/articles/set-up-git')
       expect($('meta[content="noindex"]').length).toBe(0)
     })
