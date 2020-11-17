@@ -42,7 +42,6 @@ module.exports = function (app) {
   app.use(require('./early-access-paths'))
   app.use(require('./early-access-proxy'))
   app.use(require('./find-page'))
-  app.use(require('./notices'))
   app.use(require('./archived-enterprise-versions'))
   app.use(require('./archived-enterprise-versions-assets'))
   app.use('/assets', express.static('assets'))
