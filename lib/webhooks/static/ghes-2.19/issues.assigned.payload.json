@@ -31,9 +31,7 @@
       "type": "User",
       "site_admin": false
     },
-    "labels": [
-
-    ],
+    "labels": [],
     "state": "open",
     "locked": false,
     "assignee": {

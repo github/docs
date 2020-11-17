@@ -59,15 +59,9 @@
       "type": "User",
       "site_admin": false
     },
-    "assignees": [
-
-    ],
-    "requested_reviewers": [
-
-    ],
-    "requested_teams": [
-
-    ],
+    "assignees": [],
+    "requested_reviewers": [],
+    "requested_teams": [],
     "labels": [
       {
         "id": 1362934389,

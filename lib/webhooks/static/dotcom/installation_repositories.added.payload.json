@@ -43,9 +43,7 @@
       "metadata": "read",
       "vulnerability_alerts": "read"
     },
-    "events": [
-
-    ],
+    "events": [],
     "created_at": 1557933591,
     "updated_at": 1557933591,
     "single_file_name": null
@@ -60,9 +58,7 @@
       "private": false
     }
   ],
-  "repositories_removed": [
-
-  ],
+  "repositories_removed": [],
   "sender": {
     "login": "Codertocat",
     "id": 21031067,

@@ -43,9 +43,7 @@
       "metadata": "read",
       "vulnerability_alerts": "read"
     },
-    "events": [
-
-    ],
+    "events": [],
     "created_at": 1557933591,
     "updated_at": 1557933591,
     "single_file_name": null

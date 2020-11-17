@@ -27,9 +27,7 @@
       "url": "https://api.github.com/repos/github/hello-world/check-suites/5",
       "before": "146e867f55c26428e5f9fade55a9bbf5e95a7912",
       "after": "d6fde92930d4715a2b49857d24b940956b26d2d3",
-      "pull_requests": [
-
-      ],
+      "pull_requests": [],
       "app": {
         "id": 2,
         "node_id": "MDExOkludGVncmF0aW9uMQ==",
@@ -93,9 +91,7 @@
       "created_at": "2018-04-25 20:42:10",
       "updated_at": "2018-04-25 20:42:10"
     },
-    "pull_requests": [
-
-    ]
+    "pull_requests": []
   },
   "repository": {
     "id": 526,

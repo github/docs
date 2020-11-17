@@ -91,9 +91,7 @@
       "private": false
     }
   ],
-  "repositories_removed": [
-
-  ],
+  "repositories_removed": [],
   "enterprise": {
     "id": 1,
     "slug": "github",

@@ -62,15 +62,9 @@
         "site_admin": false
       }
     ],
-    "requested_reviewers": [
-
-    ],
-    "requested_teams": [
-
-    ],
-    "labels": [
-
-    ],
+    "requested_reviewers": [],
+    "requested_teams": [],
+    "labels": [],
     "milestone": null,
     "commits_url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/pulls/2/commits",
     "review_comments_url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/pulls/2/comments",

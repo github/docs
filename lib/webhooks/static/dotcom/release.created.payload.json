@@ -34,9 +34,7 @@
     "prerelease": false,
     "created_at": "2019-05-15T15:19:25Z",
     "published_at": "2019-05-15T15:20:53Z",
-    "assets": [
-
-    ],
+    "assets": [],
     "tarball_url": "https://api.github.com/repos/Codertocat/Hello-World/tarball/0.0.1",
     "zipball_url": "https://api.github.com/repos/Codertocat/Hello-World/zipball/0.0.1",
     "body": null

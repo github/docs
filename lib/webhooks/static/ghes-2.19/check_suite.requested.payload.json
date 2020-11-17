@@ -10,9 +10,7 @@
     "url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/check-suites/10",
     "before": "4544205a385319fd846d5df4ed2e3b8173529d78",
     "after": "78a96099c3f442d7f6e8d1a7d07090091993e65a",
-    "pull_requests": [
-
-    ],
+    "pull_requests": [],
     "app": {
       "id": 2,
       "node_id": "MDM6QXBwMg==",

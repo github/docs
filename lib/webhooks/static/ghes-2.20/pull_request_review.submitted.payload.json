@@ -78,18 +78,10 @@
     "merged_at": null,
     "merge_commit_sha": "e67e14475991deeb61cc1999c3bf9db333ac0d5f",
     "assignee": null,
-    "assignees": [
-
-    ],
-    "requested_reviewers": [
-
-    ],
-    "requested_teams": [
-
-    ],
-    "labels": [
-
-    ],
+    "assignees": [],
+    "requested_reviewers": [],
+    "requested_teams": [],
+    "labels": [],
     "milestone": null,
     "commits_url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/pulls/2/commits",
     "review_comments_url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/pulls/2/comments",

@@ -63,9 +63,7 @@
       "type": "User",
       "site_admin": false
     },
-    "assignees": [
-
-    ],
+    "assignees": [],
     "milestone": {
       "url": "https://octocoders.github.io/api/v3/repos/Codertocat/Hello-World/milestones/1",
       "html_url": "https://octocoders.github.io/Codertocat/Hello-World/milestone/1",

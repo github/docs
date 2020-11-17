@@ -6,8 +6,7 @@
     "sha": "78a96099c3f442d7f6e8d1a7d07090091993e65a",
     "ref": "master",
     "task": "deploy",
-    "payload": {
-    },
+    "payload": {},
     "original_environment": "production",
     "environment": "production",
     "description": null,

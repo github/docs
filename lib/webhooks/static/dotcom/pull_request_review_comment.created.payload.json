@@ -88,18 +88,10 @@
     "merged_at": null,
     "merge_commit_sha": "c4295bd74fb0f4fda03689c3df3f2803b658fd85",
     "assignee": null,
-    "assignees": [
-
-    ],
-    "requested_reviewers": [
-
-    ],
-    "requested_teams": [
-
-    ],
-    "labels": [
-
-    ],
+    "assignees": [],
+    "requested_reviewers": [],
+    "requested_teams": [],
+    "labels": [],
     "milestone": null,
     "commits_url": "https://api.github.com/repos/Codertocat/Hello-World/pulls/2/commits",
     "review_comments_url": "https://api.github.com/repos/Codertocat/Hello-World/pulls/2/comments",

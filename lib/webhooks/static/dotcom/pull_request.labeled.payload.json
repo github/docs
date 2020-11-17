@@ -81,12 +81,8 @@
         "site_admin": false
       }
     ],
-    "requested_reviewers": [
-
-    ],
-    "requested_teams": [
-
-    ],
+    "requested_reviewers": [],
+    "requested_teams": [],
     "labels": [
       {
         "id": 1362934389,

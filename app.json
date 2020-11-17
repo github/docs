@@ -5,7 +5,9 @@
     "NPM_CONFIG_PRODUCTION": "true"
   },
   "buildpacks": [
-    { "url": "heroku/nodejs" }
+    {
+      "url": "heroku/nodejs"
+    }
   ],
   "formation": {
     "web": {
