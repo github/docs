@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   wrapCodeTerms()
   print()
   localization()
-  await fillCsrf() // this must complete before any POST calls
-  helpfulness()
-  experiment()
   copyCode()
-  initializeEvents()
   filterCodeExamples()
   allArticles()
   devToc()
+  await fillCsrf() // this must complete before any POST calls
+  initializeEvents() // requires fillCsrf to complete
+  experiment() // requires fillCsrf to complete
+  helpfulness() // requires fillCsrf to complete
 })
