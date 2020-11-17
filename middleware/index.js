@@ -54,6 +54,7 @@ module.exports = function (app) {
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
+  app.use(require('./is-archived-version')) // Must come before archived-enterprise-versions* middleware
   app.use(require('./archived-enterprise-versions-assets')) // Must come before static/assets
   app.use('/dist', express.static('dist'))
   app.use('/assets', express.static('assets'))

@@ -1,6 +1,5 @@
 const path = require('path')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
-const enterpriseServerReleases = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const firstVersionDeprecatedOnNewSite = '2.13'
 const got = require('got')
@@ -12,20 +11,11 @@ const got = require('got')
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
 module.exports = async (req, res, next) => {
+  if (!req.isArchivedVersion) return next()
+  const requestedVersion = req.requestedVersion
+
   // Only match asset paths
   if (!patterns.assetPaths.test(req.path)) return next()
-
-  // Get the referrer, which may contain an enterprise version
-  const referrer = req.get('referrer')
-
-  // ignore paths that don't have an enterprise version number
-  if (!patterns.getEnterpriseVersionNumber.test(referrer)) return next()
-
-  // extract enterprise version from path, e.g. 2.16
-  const requestedVersion = referrer.match(patterns.getEnterpriseVersionNumber)[1]
-
-  // bail if the request version is not deprecated
-  if (!enterpriseServerReleases.deprecated.includes(requestedVersion)) return next()
 
   // get /dist/index.js and /dist/index.css paths from enterprisified paths
   const assetPath = req.path.replace(`/enterprise/${requestedVersion}`, '')
