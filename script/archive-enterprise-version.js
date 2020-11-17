@@ -66,7 +66,7 @@ class RewriteAssetPathsPlugin {
 
       await fs
         .promises
-        .writeFile(filePath, newBody)
+        .writeFile(filePath, newBody, 'binary')
     })
   }
 }
