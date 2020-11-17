@@ -1,11 +1,16 @@
+{% unless enterpriseServerReleases.isOldestReleaseDeprecated and currentVersion contains enterpriseServerReleases.oldestSupported %}
 <form class="js-helpfulness mt-4 f5" id="helpfulness-{{ helpId }}">
   <h4
     data-help-start
     data-help-yes
     data-help-no
+    class="mb-1"
   >
     {% data ui.helpfulness.able_to_find %}
   </h4>
+  <p class="f6">
+    <a href="/site-policy/github-privacy-statement">Privacy policy</a>
+  </p>
   <p
     class="radio-group"
     data-help-start
@@ -132,3 +137,4 @@
     {% data ui.helpfulness.feedback %}
   </p>
 </form>
+{% endunless %}

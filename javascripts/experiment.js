@@ -40,22 +40,29 @@ export default function () {
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)
   // if (xbucket === TREATMENT) { ... }
-  // x.addEventListener('click', evt => evt.preventDefault(); await sendSuccess(testName); evt())
+  // x.addEventListener('click', () => { sendSuccess(testName) })
 
-  const treatment = document.getElementById('quickstart-treatment')
-  if (!treatment) return
-
-  const testName = 'quickstart-hello'
+  const testName = 'helpfulness-prompt-to-bottom'
   const xbucket = bucket(testName)
 
   if (xbucket === TREATMENT) {
-    Array.from(
-      document.querySelectorAll('#article-contents > *')
-    ).forEach(el => { el.hidden = true })
-    treatment.hidden = false
+    const bigHelpfulness = document.querySelector('#helpfulness-xl')
+    const smallHelpfulness = document.querySelector('#helpfulness-sm')
+
+    // Check that helpfulness prompt is present on this page
+    if (!(bigHelpfulness && smallHelpfulness)) {
+      return
+    }
+
+    // Remove the -xl prompts
+    bigHelpfulness.parentElement.parentElement.removeChild(bigHelpfulness.parentElement)
+
+    // Always show the -sm prompt
+    smallHelpfulness.parentElement.classList.remove('d-xl-none')
   }
 
-  document.documentElement.addEventListener('copy', () => {
-    sendSuccess(testName)
+  const votes = Array.from(document.querySelectorAll('.js-helpfulness [type=radio]'))
+  votes.forEach(voteEl => {
+    voteEl.addEventListener('change', () => { sendSuccess(testName) })
   })
 }
