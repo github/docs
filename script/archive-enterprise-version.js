@@ -162,10 +162,12 @@ async function createRedirectPages (permalinks, pages, finalDirectory) {
   const redirects = await loadRedirects(pagesPerVersion)
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
-    // replace any liquid variables with the version number
-    oldPath = oldPath.replace('{{ page.version }}', version)
+    // remove any liquid variables that sneak in
+    oldPath = oldPath
+      .replace('/{{ page.version }}', '')
+      .replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
-    if (!oldPath.includes(`/enterprise-server@${version}`)) return
+    if (!(oldPath.includes(`/enterprise-server@${version}`) || oldPath.includes(`/enterprise/${version}`))) return
 
     const fullPath = path.join(finalDirectory, oldPath)
     const filename = `${fullPath}/index.html`
