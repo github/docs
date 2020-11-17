@@ -10,7 +10,11 @@
 // [end-readme]
 
 require('dotenv').config()
-const { DOCUBOT_REPO_PAT, HEROKU_PRODUCTION_APP } = process.env
+const {
+  DOCUBOT_REPO_PAT,
+  HEROKU_PRODUCTION_APP,
+  GIT_BRANCH
+} = process.env
 
 // Exit if PAT is not found
 if (!DOCUBOT_REPO_PAT) {
@@ -23,8 +27,22 @@ const rimraf = require('rimraf').sync
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
-const yaml = require('js-yaml')
-const eaConfig = yaml.load(fs.readFileSync(path.join(process.cwd(), 'ea-config.yml'), 'utf8'))
+const EA_PRODUCTION_BRANCH = 'main'
+
+// If a branch name is not provided in the environment, attempt to get
+// the local branch name; or default to 'main'
+let currentBranch = (GIT_BRANCH || '').replace(/^refs\/heads\//, '')
+if (!currentBranch) {
+  try {
+    currentBranch = execSync('git branch --show-current').toString()
+  } catch (err) {
+    // Ignore but log
+    console.warn('Error checking for local branch:', err.message)
+  }
+}
+if (!currentBranch) {
+  currentBranch = EA_PRODUCTION_BRANCH
+}
 
 // Early Access details
 const earlyAccessOwner = 'github'
@@ -50,12 +68,24 @@ const destinationDirsMap = destinationDirNames
 const environment = HEROKU_PRODUCTION_APP ? 'production' : 'staging'
 
 // Early access branch to clone
-const earlyAccessBranch = HEROKU_PRODUCTION_APP ? eaConfig.EA_PRODUCTION_BRANCH : eaConfig.EA_STAGING_BRANCH
+let earlyAccessBranch = HEROKU_PRODUCTION_APP ? EA_PRODUCTION_BRANCH : currentBranch
 
 // Confirm that the branch exists in the remote
-const branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
+let branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
+
+// If the branch did NOT exist, try checking for the default branch instead
+if (!branchExists && earlyAccessBranch !== EA_PRODUCTION_BRANCH) {
+  console.warn(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}!`)
+  console.warn(`Attempting the default branch ${EA_PRODUCTION_BRANCH} instead...`)
+
+  earlyAccessBranch = EA_PRODUCTION_BRANCH
+  branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
+}
+
+// If no suitable branch was found, bail out now
 if (!branchExists) {
-  console.error(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}. Exiting!`)
+  console.error(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepoName}!`)
+  console.error('Exiting!')
   process.exit(1)
 }
 
