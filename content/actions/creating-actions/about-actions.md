@@ -86,17 +86,17 @@ Under this release management approach, users should not be referencing an actio
 
 To use a specific action version, users can configure their {% data variables.product.prodname_actions %} workflow to target a tag, a commit's SHA, or a branch named for a release.
 
-#### Using tags for release management
+#### Using tags and branches for release management
 
-We recommend using tags for actions release management. Using this approach, your users can easily distinguish between major and minor versions:
+We recommend using tags and branches for actions release management. Using this approach, your users can easily distinguish between major and minor versions as well as give consumers control over consuming the latest serviced version of your Action or "pinning" some particular version.
 
-- Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
+- Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`). For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
 - Create a release using semantic versioning. For more information, see "[Creating releases](/articles/creating-releases)."
-- Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
-- Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
-- Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
+- Advance the major version branch (such as `v1`, `v2`) to point to the Git ref of the current release. 
+- Introduce a new major version branch (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
+- Major versions can be initially released with a `beta` branch to indicate their status, for example, `v2-beta`. The `-beta` suffix can then be removed when ready.
 
-This example demonstrates how a user can reference a major release tag:
+This example demonstrates how a user can reference a major release branch:
 
 ```yaml
 steps:
