@@ -11,28 +11,44 @@
 const rimraf = require('rimraf').sync
 const fs = require('fs')
 const path = require('path')
+const program = require('commander')
 
 // Early Access details
+const earlyAccessRepo = 'docs-early-access'
 const earlyAccessDirName = 'early-access'
+const earlyAccessRepoUrl = `https://github.com/github/${earlyAccessRepo}`
 
-if (!process.argv[2]) {
-  throw new Error('Must provide the location of your local `docs-early-access` repo directory')
+program
+  .description(`Create or destroy symlinks to your local "${earlyAccessRepo}" repository.`)
+  .option('-p, --path-to-early-access-repo <PATH>', `path to a local checkout of ${earlyAccessRepoUrl}`)
+  .option('-u, --unlink', 'remove the symlinks')
+  .parse(process.argv)
+
+const { pathToEarlyAccessRepo, unlink } = program
+
+if (!pathToEarlyAccessRepo && !unlink) {
+  throw new Error('Must provide either `--path-to-early-access-repo <PATH>` or `--unlink`')
 }
 
-const earlyAccessLocalRepoDir = path.resolve(process.cwd(), process.argv[2])
+let earlyAccessLocalRepoDir
 
-let dirStats
-try {
-  dirStats = fs.statSync(earlyAccessLocalRepoDir)
-} catch (err) {
-  dirStats = null
-}
+// If creating symlinks, run some extra validation
+if (!unlink && pathToEarlyAccessRepo) {
+  earlyAccessLocalRepoDir = path.resolve(process.cwd(), pathToEarlyAccessRepo)
 
-if (!dirStats) {
-  throw new Error('The local `docs-early-access` repo directory does not exist:', earlyAccessLocalRepoDir)
-}
-if (dirStats && !dirStats.isDirectory()) {
-  throw new Error('A non-directory entry exists at the local `docs-early-access` repo directory location:', earlyAccessLocalRepoDir)
+  let dirStats
+  try {
+    dirStats = fs.statSync(earlyAccessLocalRepoDir)
+  } catch (err) {
+    dirStats = null
+  }
+
+  if (!dirStats) {
+    throw new Error(`The local "${earlyAccessRepo}" repo directory does not exist:`, earlyAccessLocalRepoDir)
+  }
+  if (dirStats && !dirStats.isDirectory()) {
+    throw new Error(`A non-directory entry exists at the local "${earlyAccessRepo}" repo directory location:`, earlyAccessLocalRepoDir)
+  }
 }
 
 const destinationDirNames = ['content', 'data', 'assets/images']
@@ -46,7 +62,20 @@ const destinationDirsMap = destinationDirNames
   )
 
 // Remove all existing early access directories from this repo
-destinationDirNames.forEach(key => rimraf(destinationDirsMap[key]))
+destinationDirNames.forEach((dirName) => {
+  const destDir = destinationDirsMap[dirName]
+  rimraf(destDir)
+  console.log(`- Removed symlink for early access directory '${dirName}' from this repo`)
+})
+
+// If removing symlinks, just stop here!
+if (unlink) {
+  process.exit(0)
+}
+
+//
+// Otherwise, keep going...
+//
 
 // Move the latest early access source directories into this repo
 destinationDirNames.forEach((dirName) => {
@@ -73,5 +102,5 @@ destinationDirNames.forEach((dirName) => {
     throw new Error(`The early access directory '${dirName}' entry's symbolic link does not refer to a directory!`)
   }
 
-  console.log(`Successfully symlinked early access directory '${dirName}' into this repo`)
+  console.log(`+ Added symlink for early access directory '${dirName}' into this repo`)
 })
