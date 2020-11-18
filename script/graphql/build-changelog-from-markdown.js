@@ -76,11 +76,11 @@ async function main () {
 function getEntry (matches, regex) {
   return matches
     ? matches.map(match => {
-      const entry = {}
-      entry.title = cleanPreviewLinks(match.match(regex)[1])
-      entry.changes = getChangedItems(match.match(regex)[2])
-      return entry
-    })
+        const entry = {}
+        entry.title = cleanPreviewLinks(match.match(regex)[1])
+        entry.changes = getChangedItems(match.match(regex)[2])
+        return entry
+      })
     : []
 }
 

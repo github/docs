@@ -36,7 +36,7 @@ Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org
 A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 For example, if you wanted to search for all _repositories_ owned by `defunkt` that
@@ -44,7 +44,13 @@ contained the word `GitHub` and `Octocat` in the README file, you would use the
 following query with the _search repositories_ endpoint:
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. For example:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 See "[Searching on GitHub](/articles/searching-on-github/)"
