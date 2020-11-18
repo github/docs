@@ -1,6 +1,5 @@
 ---
 title: Gerenciar o GitHub Packages para a sua empresa
-shortTitle: GitHub Package Registry
 intro: 'Você pode habilitar o {% data variables.product.prodname_registry %} para a sua empresa e gerenciar configurações de {% data variables.product.prodname_registry %} e tipos de pacotes permitidos.'
 redirect_from:
   - /enterprise/admin/packages

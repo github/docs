@@ -171,12 +171,12 @@ Os trabalhos que são dependentes de artefatos de um trabalho anterior devem agu
 
 O Job 1 (Trabalho 1) executa estas etapas:
 - Realiza um cálculo de correspondência e salva o resultado em um arquivo de texto denominado `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
+- Usa a ação `upload-artifact` para fazer upload do arquivo `math-homework.txt` com o nome do artefato `homework`.
 
 O Job 2 (Trabalho 2) usa o resultado do trabalho anterior:
 - Baixa o artefato `homework` carregado no trabalho anterior. Por padrão, a ação `download-artifact` baixa artefatos no diretório da área de trabalho no qual a etapa está sendo executada. Você pode usar o parâmetro da entrada do `caminho` para especificar um diretório diferente para o download.
-- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-- Faz upload do arquivo `math-homework.txt`. This upload overwrites the previously uploaded artifact because they share the same name.
+- Lê o valor no arquivo `math-homework.txt`, efetua um cálculo matemático e salva o resultado em `math-homework.txt` novamente, sobrescrevendo o seu conteúdo.
+- Faz upload do arquivo `math-homework.txt`. Este upload sobrescreve o artefato carregado anteriormente porque compartilham o mesmo nome.
 
 O Job 3 (Trabalho 3) mostra o resultado carregado no trabalho anterior:
 - Baixa o artefato `homework`.

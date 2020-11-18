@@ -1,5 +1,5 @@
 ---
-title: GitHub AE Data Protection Agreement
+title: Contrato de Proteção de Dados do GitHub AE
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -10,11 +10,11 @@ Entrada em vigor desta versão: 1 de novembro de 2020
 
 ## INTRODUÇÃO
 
-The parties agree that the GitHub AE Data Protection Agreement and Security Exhibit (together, the “**Data Protection Agreement**” or “**DPA**”) set forth obligations with respect to the processing and security of Customer Personal Data in connection with GitHub AE (the “**Online Service**”). GitHub makes the commitments in this DPA to all customers using the Online Service.
+The parties agree that the GitHub AE Data Protection Agreement and Security Exhibit (together, the “**Data Protection Agreement**” or “**DPA**”) set forth obligations with respect to the processing and security of Customer Personal Data in connection with GitHub AE (the “**Online Service**”). O GitHub assume compromissos neste DPA perante todos os clientes que usam o Serviço On-line.
 
-In the event of any conflict or inconsistency between the DPA and any other terms in Customer’s agreements with GitHub (“Agreement”), the DPA shall prevail. Para clareza, consistente com a Cláusula 10 das Cláusulas Contratuais Padrão no Anexo 1, as Cláusulas Contratuais Padrão prevalecem sobre quaisquer outros termos no DPA.
+Na hipótese de qualquer conflito ou inconsistência entre o DPA e quaisquer outros termos nos acordos do Cliente com o GitHub ("Contrat"), prevalecerá o DPA. Para clareza, consistente com a Cláusula 10 das Cláusulas Contratuais Padrão no Anexo 1, as Cláusulas Contratuais Padrão prevalecem sobre quaisquer outros termos no DPA.
 
-## GITHUB DATA PROTECTION AGREEMENT
+## CONTRATO DE PROTEÇÃO DE DADOS DO GITHUB
 
 ### 1. Definições.
 
@@ -53,9 +53,9 @@ Customer is a Controller only for the Customer Personal Data it transfers direct
 #### 2.3 Conformidade do GitHub; transferências de dados.
 O GitHub cumprirá as Leis de proteção de dados aplicáveis em relação ao processamento de Dados pessoais.
 
-All transfers of Customer Personal Data out of the European Union, European Economic Area, United Kingdom, and Switzerland to provide the Online Service shall be governed by the Standard Contractual Clauses in Attachment 1 (Standard Contractual Clauses).
+Todas as transferências de dados pessoais do cliente para fora da União Europeia, Espaço Econômico Europeu, Reino Unido e a Suíça para fornecer o Serviço On-line serão regidas pelas Cláusulas Contratuais Padrão no Anexo 1 (Cláusulas Contratuais Padrão).
 
-GitHub will abide by the requirements of European Economic Area and Swiss data protection law regarding the collection, use, transfer, retention, and other processing of Personal Data from the European Economic Area, United Kingdom, and Switzerland. All transfers of Personal Data to a third country or an international organization will be subject to appropriate safeguards as described in Article 46 of the GDPR and such transfers and safeguards will be documented according to Article 30(2) of the GDPR.
+O GitHub cumprirá os requisitos do Espaço Econômico Europeu e da legislação suíça de proteção de dados referente à coleta, uso, transferência, retenção e outro tipo de processamento de Dados Pessoais do Espaço Econômico Europeu, Reino Unido e Suíça. Todas as transferências de Dados Pessoais para um país terceiro ou uma organização internacional estarão sujeitas às salvaguardas apropriadas, conforme descrito no Artigo 46 do RGPD e tais transferências e salvaguardas serão documentadas de acordo com o Artigo 30(2) do RGPD.
 
 Além disso, o GitHub é certificado na relação entre UE e EUA. e entre a Suíça e os EUA. Estruturas de Escudo de Privacidade e os compromissos que elas implicam, embora o GitHub não dependa da relação entre a UE e os EUA. Estrutura do Escudo de Privacidade como base jurídica para transferências de Dados Pessoais à luz do acórdão do Tribunal de Justiça da UE no processo C-311/18.  O GitHub concorda em notificar o Cliente se determinar que não pode mais cumprir sua obrigação de fornecer o mesmo nível de proteção exigido pelos princípios do Escudo de Privacidade.
 
@@ -68,13 +68,13 @@ GitHub will make available to Customer, in a manner consistent with the function
 O GitHub processará e comunicará os Dados Protegidos apenas para as Finalidades Permitidas, a menos que as Partes concordem, por escrito, com uma finalidade expandida.
 
 #### 3.2 Qualidade de Dados e Proporcionalidade.
-O GitHub manterá os dados pessoais do Cliente precisos e atualizados, ou habilitará o Cliente a fazê-lo. GitHub will take commercially reasonable steps to ensure that any Protected Data it collects on Customer’s behalf is adequate, relevant, and not excessive in relation to the purposes for which it is transferred and processed. In no event will GitHub intentionally collect Sensitive Data on Customer’s behalf. Customer agrees that the Online Service are not intended for the storage of Sensitive Data; if Customer chooses to upload Sensitive Data to the Online Service, Customer must comply with Article 9 of the GDPR, or equivalent provisions in the Applicable Data Protection Laws.
+O GitHub manterá os dados pessoais do Cliente precisos e atualizados, ou habilitará o Cliente a fazê-lo. O GitHub tomará medidas comercialmente razoáveis para garantir que os Dados protegidos que ele colete em nome do Cliente sejam adequados, relevantes e não excessivos em relação às finalidades para as quais são transferidos e processados. Em nenhuma hipótese, o GitHub coletará intencionalmente Dados confidenciais em nome do Cliente. Customer agrees that the Online Service are not intended for the storage of Sensitive Data; if Customer chooses to upload Sensitive Data to the Online Service, Customer must comply with Article 9 of the GDPR, or equivalent provisions in the Applicable Data Protection Laws.
 
 #### 3.3 Retenção e Exclusão de Dados.
-Upon Customer’s reasonable request, unless prohibited by law, GitHub will return, destroy, or deidentify all Customer Personal Data and related data at all locations where it is stored after it is no longer needed for the Permitted Purposes within thirty days of request. O GitHub pode reter Dados pessoais do cliente e dados relacionados, apenas na medida exigida pelas Leis de proteção de dados aplicáveis e durante o período estipulado por elas, desde que assegure que os Dados pessoais do cliente serão processados somente conforme necessário para a finalidade especificada nas Leis de proteção de dados aplicáveis e que os Dados pessoais do cliente permaneçam protegidos pelas Leis de proteção de dados aplicáveis.
+Mediante solicitação razoável do Cliente, a menos que proibido por lei, o GitHub devolverá, destruirá ou desidentificará todos os Dados pessoais do cliente e dados relacionados em todos os locais onde estejam armazenados, depois que não forem mais necessários para as finalidades permitidas, no prazo de 30 (trinta) dias após a solicitação. O GitHub pode reter Dados pessoais do cliente e dados relacionados, apenas na medida exigida pelas Leis de proteção de dados aplicáveis e durante o período estipulado por elas, desde que assegure que os Dados pessoais do cliente serão processados somente conforme necessário para a finalidade especificada nas Leis de proteção de dados aplicáveis e que os Dados pessoais do cliente permaneçam protegidos pelas Leis de proteção de dados aplicáveis.
 
 #### 3.4 Processamento de dados.
-GitHub provides the following information, required by Article 28(3) of the GDPR, regarding its processing of Customer’s Protected Data:
+No que diz respeito ao processamento de Dados Protegidos do Cliente, o GitHub fornece as informações a seguir, exigidas pelo artigo 28(3) do RGPD:
 
 a.  *The subject matter and duration of the processing* of Customer Personal Data are set out in the Agreement and the DPA.
 

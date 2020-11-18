@@ -13,7 +13,7 @@ Para obter mais informações, consulte "[Sobre modelos de problema e pull reque
 
 Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das pastas compatíveis para conter vários modelos de pull request, bem como usar o parâmetro de consulta `template` para especificar o modelo que preencherá o texto da pull request. Para obter mais informações, consulte "[Sobre automação de problemas e pull requests com parâmetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)".
 
-You can create default pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+É possível criar modelos padrão de pull requests para a organização{% if currentVersion == "free-pro-team@latest" or currentversion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
 
 ### Adicionar um modelo de pull request
 

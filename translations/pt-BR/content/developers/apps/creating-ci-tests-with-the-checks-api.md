@@ -836,7 +836,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
 
 * **P:** Meu aplicativo não está enviando código para o GitHub. Eu não vejo as correções que o RuboCop faz automaticamente!
 
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. Consulte [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para obter detalhes.
+    **R:** Certifique-se de que você tem permissões de **Leitura & gravação** para "conteúdo de repositório" e que você está clonando o repositório com seu token de instalação. Consulte [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para obter detalhes.
 
 * **P:** Vejo um erro no saída de depuração de `template_server.rb` relacionado à clonagem do meu repositório.
 

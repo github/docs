@@ -1,5 +1,5 @@
 ---
-title: Criar e estar o Java com o Gradle
+title: Criar e testar o Java com o Gradle
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Gradle.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -38,22 +38,22 @@ Você também pode adicionar este fluxo de trabalho manualmente, criando um novo
 
 {% raw %}
 ```yaml
-nome: Java CI
+name: Java CI
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
     runs-on: ubuntu-latest
 
-    etapas:
-      - usa: actions/checkout@v2
-      - nome: Set up JDK 1.8
-        usa: actions/setup-java@v1
-        com:
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
           java-version: 1.8
-      - nome: Criar com Gradle
-        executar: ./gradlew build
+      - name: Build with Gradle
+        run: ./gradlew build
 ```
 {% endraw %}
 
@@ -79,13 +79,13 @@ Se você usa comandos diferentes para criar seu projeto ou se você desejar usar
 
 {% raw %}
 ```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - ususaes: actions/setup-java@v1
-    com:
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-java@v1
+    with:
       java-version: 1.8
-  - Nome: Executa a tarefa do pacote do Gradle
-    executar: ./gradlew -b ci.gradle package
+  - name: Run the Gradle package task
+    run: ./gradlew -b ci.gradle package
 ```
 {% endraw %}
 
@@ -95,20 +95,20 @@ Você pode armazenar as suas dependências para acelerar as execuções do seu f
 
 {% raw %}
 ```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - nome: Set up JDK 1.8
-    usa: actions/setup-java@v1
-    com:
+steps:
+  - uses: actions/checkout@v2
+  - name: Set up JDK 1.8
+    uses: actions/setup-java@v1
+    with:
       java-version: 1.8
-  - nome: Cache Gradle packages
-    usa: actions/cache@v2
-    com:
-      caminho: ~/.gradle/caches
-      Chave: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+  - name: Cache Gradle packages
+    uses: actions/cache@v2
+    with:
+      path: ~/.gradle/caches
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
       restore-keys: ${{ runner.os }}-gradle
-  - Nome: Criar com Gradle
-    executar: ./gradlew build
+  - name: Build with Gradle
+    run: ./gradlew build
 ```
 {% endraw %}
 

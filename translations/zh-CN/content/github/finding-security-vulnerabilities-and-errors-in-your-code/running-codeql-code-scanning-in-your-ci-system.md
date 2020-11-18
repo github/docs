@@ -118,7 +118,7 @@ $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
     > Successfully uploaded results
     ```
 
-服务器有权直接从 {% data variables.product.prodname_dotcom_the_website %} 上{% if enterpriseServerVersions contains currentVersion %}或在 {% data variables.product.product_location %} 上镜像{% endif %}的 `github/codeql-action` 仓库下载 {% data variables.product.prodname_codeql %} 包，因此无需使用 `--codeql-path` 标志。 分析完成后， {% data variables.product.prodname_codeql_runner %} 会将结果上传到 {% data variables.product.prodname_code_scanning %} 视图。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+服务器有权直接从 {% data variables.product.prodname_dotcom_the_website %} 上{% if enterpriseServerVersions contains currentVersion %}或在 {% data variables.product.product_location %} 上镜像{% endif %}的 `github/codeql-action` 仓库下载 {% data variables.product.prodname_codeql %} 包，因此无需使用 `--codeql-path` 标志。 分析完成后， {% data variables.product.prodname_codeql_runner %} 会将结果上传到 {% data variables.product.prodname_code_scanning %} 视图。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
 #### 编译语言示例
 
