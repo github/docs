@@ -1,6 +1,6 @@
 module.exports = function earlyAccessContext (req, res, next) {
   if (process.env.NODE_ENV === 'production') {
-    return res.status(404).end()
+    return next(404)
   }
 
   const earlyAccessPages = req.context.pages
