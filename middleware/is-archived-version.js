@@ -2,8 +2,8 @@ const patterns = require('../lib/patterns')
 const { deprecated } = require('../lib/enterprise-server-releases')
 
 module.exports = async (req, res, next) => {
-  // if this is a docs path, use the req.path
   // if this is an assets path, use the referrer
+  // if this is a docs path, use the req.path
   const pathToCheck = req.get('referrer') || req.path
 
   // ignore paths that don't have an enterprise version number
