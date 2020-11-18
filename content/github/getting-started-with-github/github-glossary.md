@@ -1,4 +1,4 @@
----
+quynhthibanh@gmail.com
 title: GitHub glossary
 intro: 'Below are a list of some Git and {% data variables.product.prodname_dotcom %} specific terms we use across our sites and documentation.'
 redirect_from:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
+panda
 {% for term in site.data.glossaries.external %}
   ### {{term.term}}
   {{term.description}}
