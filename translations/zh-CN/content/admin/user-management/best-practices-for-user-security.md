@@ -1,6 +1,6 @@
 ---
 title: 用户安全的最佳实践
-intro: '{% if enterpriseServerVersions contains currentVersion %}Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there {% else %}There {% endif %}are steps your users can take to help protect your enterprise.'
+intro: '{% if enterpriseServerVersions contains currentVersion %}除了站点管理员可以实现的实例级别安全措施（SSL、子域隔离、配置防火墙）外，{% else %}{% endif %}您的用户还可以按照一些步骤操作来帮助保护。'
 redirect_from:
   - /enterprise/admin/user-management/best-practices-for-user-security
 versions:
@@ -18,7 +18,7 @@ versions:
 
 ### 需要密码管理器
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/)--on any computer they use to connect to your enterprise. 这样可以确保密码更强，大大降低被入侵或被盗的可能性。
+我们强烈建议要求您的用户在他们用于连接到企业的任何计算机上安装和使用密码管理器，例如 [LastPass](https://lastpass.com/)、[1Password](https://1password.com/) 或 [Keeper](https://keepersecurity.com/)。 这样可以确保密码更强，大大降低被入侵或被盗的可能性。
 
 ### 限制对团队和仓库的访问
 
