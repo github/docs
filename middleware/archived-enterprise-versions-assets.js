@@ -1,5 +1,6 @@
 const path = require('path')
 const patterns = require('../lib/patterns')
+const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
 
 // This module handles requests for the CSS and JS assets for
@@ -9,8 +10,8 @@ const got = require('got')
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
 module.exports = async (req, res, next) => {
-  if (!req.isArchivedVersion) return next()
-  const requestedVersion = req.requestedVersion
+  const { isArchived, requestedVersion } = isArchivedVersion(req)
+  if (!isArchived) return next()
 
   // Only match asset paths
   if (!patterns.assetPaths.test(req.path)) return next()

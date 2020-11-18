@@ -3,6 +3,7 @@ const slash = require('slash')
 const { latest, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
+const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
 const findPage = require('../lib/find-page')
 
@@ -11,8 +12,8 @@ const findPage = require('../lib/find-page')
 // https://github.com/github/help-docs-archived-enterprise-versions
 
 module.exports = async (req, res, next) => {
-  if (!req.isArchivedVersion) return next()
-  const requestedVersion = req.requestedVersion
+  const { isArchived, requestedVersion } = isArchivedVersion(req)
+  if (!isArchived) return next()
 
   // Skip asset paths
   if (patterns.assetPaths.test(req.path)) return next()
