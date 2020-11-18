@@ -135,9 +135,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 Após detectar várias solicitações com credenciais inválidas em um curto período de tempo, a API rejeitará temporariamente todas as tentativas de autenticação para esse usuário (incluindo aquelas com credenciais válidas) com `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
 > HTTP/1.1 403 Forbidden
+
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,9 +165,18 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 Você pode emitir uma solicitação `GET` para o ponto de extremidade de raiz para obter todas as categorias do ponto de extremidade com a qual a API REST é compatível:
 
 ```shell
-$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+{% note %}
+
+**Observação:** Por {% data variables.product.prodname_ghe_server %}, [como em todos os outros pontos de extremidade](/v3/enterprise-admin/#endpoint-urls), você deverá passar seu nome de usuário e senha.
+
+{% endnote %}
+
+{% endif %}
 
 ### IDs de nós globais do GraphQL
 

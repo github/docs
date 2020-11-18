@@ -1,6 +1,6 @@
 ---
 title: Fixar itens no seu perfil
-intro: 'Você pode fixar gists e repositórios no seu perfil para que outras pessoas possam ver seu melhor trabalho rapidamente.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile

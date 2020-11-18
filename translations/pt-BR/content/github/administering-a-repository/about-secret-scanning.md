@@ -1,7 +1,6 @@
 ---
 title: Sobre a varredura de segredo
 intro: 'O {% data variables.product.product_name %} verifica repositórios em busca de tipos de segredos conhecidos a fim de impedir o uso fraudulento de segredos que sofreram commit acidentalmente.'
-product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning

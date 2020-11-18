@@ -1,6 +1,6 @@
 ---
 title: Configurar endereço de e-mail de backup
-intro: Use um endereço de e-mail de backup como um destino adicional para notificações de conta relevantes para segurança{% if currentVersion ! "github-ae@latest" %} e para redefinir sua senha de forma segura, se não puder mais acessar seu endereço de e-mail principal{% endif %}.
+intro: Use a backup email address as an additional destination for security-relevant account notifications{% if currentVersion != "github-ae@latest" %} and to securely reset your password if you can no longer access your primary email address{% endif %}.
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:

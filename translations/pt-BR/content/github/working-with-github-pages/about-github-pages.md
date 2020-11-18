@@ -36,15 +36,15 @@ sites de {% data variables.product.prodname_pages %} nos repositórios da organi
 
 Há três tipos de site do {% data variables.product.prodname_pages %}: projeto, usuário e organização. Os sites de projeto são conectados a um projeto específico hospedado no {% data variables.product.product_name %}, como uma biblioteca do JavaScript ou um conjunto de receitas. Os sites de usuário e organização são conectados a uma conta específica do {% data variables.product.product_name %}.
 
-Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta de usuário denominada {% if currentVersion == "free-pro-team@latest" %}`<username>. ithub.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar um site da organização, você deve criar um repositório pertencente a uma organização denominada {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}A menos que você esteja usando um domínio personalizado, os sites de usuário e organização estarão disponíveis em `http(s)://<username>.github.io` ou `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}Sites de usuário e organização estão disponíveis em `http(s)://pages.<hostname>/<username>` ou `http(s)://pages.<hostname>/<organization>`.{% endif %}
+To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. Para publicar um site da organização, você deve criar um repositório pertencente a uma organização denominada {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% if currentVersion == "free-pro-team@latest" %}A menos que você esteja usando um domínio personalizado, os sites de projeto estão disponíveis em `http(s)://<username>.github.io/<repository>` ou `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Os sites de projeto estão disponíveis em `http(s)://pages.<hostname>/<username>/<repository>/` ou `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
+Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para obter mais informações sobre como os domínios personalizados afetam o URL do seu site, consulte "[Sobre domínios personalizados e {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)".
 {% endif %}
 
-Você só pode criar um site de usuário ou organização para cada conta em {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou de usuário, são ilimitados.
+You can only create one user or organization site for each account on {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou de usuário, são ilimitados.
 
 {% if enterpriseServerVersions contains currentVersion %}
 A URL em que o site está disponível depende da habilitação do isolamento de subdomínio para
@@ -63,7 +63,7 @@ Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Note:** Repositories using the legacy `<username>.github.com` naming scheme will still be published, but visitors will be redirected from `http(s)://<username>.github.com` to `http(s)://<username>.github.io`. Se ambos os repositórios, `<username>.github.com` e `<username>.github.io` existirem, somente o repositório `<username>.github.io` será publicado.
+**Note:** Repositories using the legacy `<username>.github.com` naming scheme will still be published, but visitors will be redirected from `http(s)://<username>.github.com` to `http(s)://<username>.github.io`. If both a `<username>.github.com` and `<username>.github.io` repository exist, only the `<username>.github.io` repository will be published.
 
 {% endnote %}
 {% endif %}

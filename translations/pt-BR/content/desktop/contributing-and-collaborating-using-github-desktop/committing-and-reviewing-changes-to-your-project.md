@@ -36,23 +36,17 @@ As alterações feitas nos arquivos via editor de texto e salvas no local també
 
 #### Criar um commit parcial
 
-If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. O restante das alterações ficará intacto, de modo que você possa fazer outras modificações e commits. Essa opção permite fazer commits separados mais relevantes, como manter alterações de quebra de linha em um commit separado das alterações de código.
+Se um arquivo tiver várias alterações e você quiser incluir somente *algumas* no commit, será possível criar um commit parcial. O restante das alterações ficará intacto, de modo que você possa fazer outras modificações e commits. Essa opção permite fazer commits separados mais relevantes, como manter alterações de quebra de linha em um commit separado das alterações de código.
 
-{% note %}
+Durante a revisão do diff do arquivo, as linhas a serem incluídas no commit ficam destacadas em azul. Para excluir a alteração, clique na linha alterada para que o destaque azul desapareça.
 
-**Note:** Split diff displays are currently in beta and subject to change.
+![Linhas desmarcadas em um arquivo](/assets/images/help/desktop/partial-commit.png)
 
-{% endnote %}
+#### Descartar alterações
 
-1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**. ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
-2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit. ![Linhas desmarcadas em um arquivo](/assets/images/help/desktop/partial-commit.png)
+Você pode descartar todas as alterações sem commits em um arquivo ou intervalo de arquivos. Também é possível descartar todas as alterações em todos os arquivos desde a última confirmação.
 
-### 3. Descartar alterações
-If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
-
-Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
-
-#### Discarding changes in one or more files
+{% mac %}
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -60,25 +54,30 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 {% data reusables.desktop.confirm-discard-files %}
   ![Botão Discard Changes (Descartar alterações) na caixa de diálogo Confirmation (Confirmação)](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-#### Discarding changes in one or more lines
-You can discard one or more changed lines that are uncommitted.
+{% tip %}
 
-{% note %}
+**Dica:** as alterações descartadas são salvas em um arquivo com data em Trash (Lixeira), e será possível recuperá-las até que a lixeira seja esvaziada.
 
-**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
+{% endtip %}
 
-{% endnote %}
+{% endmac %}
 
-To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
+{% windows %}
 
-  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
+{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
+  ![Opção Discard Changes (Descartar alterações) no menu de contexto](/assets/images/help/desktop/discard-changes-win.png)
+{% data reusables.desktop.confirm-discard-files %}
+  ![Botão Discard Changes (Descartar alterações) na caixa de diálogo Confirmation (Confirmação)](/assets/images/help/desktop/discard-changes-confirm-win.png)
 
-To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
+{% tip %}
 
-  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
+**Dica:** as alterações descartadas são salvas em um arquivo com data em Recycle Bin (Lixo), e será possível recuperá-las até a lixeira ser esvaziada.
 
+{% endtip %}
 
-### 4. Mensagem de commit e envio das alterações
+{% endwindows %}
+
+### 3. Mensagem de commit e envio das alterações
 
 Ao concluir as alterações que você decidiu fazer no commit, escreva a mensagem do commit e envie as alterações. Se o commit envolveu trabalho em colaboração, será possível atribuí-lo a mais de um autor.
 

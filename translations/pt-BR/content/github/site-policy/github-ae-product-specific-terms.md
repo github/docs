@@ -1,5 +1,5 @@
 ---
-title: Termos específicos do produto do GitHub AE
+title: GitHub AE Product Specific Terms
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -8,15 +8,15 @@ redirect_from:
 
 Entrada em vigor desta versão: 1 de novembro de 2020
 
-O Contrato é composto pelos presentes Termos Específicos de Produto do GitHub AE, pelos Termos Gerais que o Cliente aceitou e por quaisquer termos adicionais que o GitHub ou seus Afiliados apresentem quando um pedido é feito.
+The Agreement consists of these GitHub AE Product Specific Terms, the General Terms that Customer accepted, and any additional terms GitHub or its Affiliates present when an order is placed.
 
-### 1. Contas.
+### 1. Accounts.
 
-**Responsabilidade da Conta.** O cliente controla e é responsável pelas contas do usuário final e pelo conteúdo.
+**Account Responsibility.** Customer controls and is responsible for End User accounts and Content.
 
-**Segurança da conta.** O cliente é responsável por manter a segurança de sua credenciais de login da conta.
+**Account Security.** Customer is responsible for maintaining the security of its account login credentials.
 
-**Use Políticas.** Os usuários finais do cliente devem cumprir a Política de Uso Aceitável.
+**Use Policies.** Customer’s End Users must comply with the Acceptable Use Policy.
 
 **Suspension.** GitHub may suspend use of the Online Service during any period of Customer’s material breach.
 

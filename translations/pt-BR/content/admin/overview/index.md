@@ -1,6 +1,6 @@
 ---
 title: Visão Geral
-intro: 'Você pode aprender sobre {% data variables.product.product_name %} e gerenciar contas de {% if enterpriseServerVersions contains currentVersion %} e acesso, licenças e{% endif %} faturamento.'
+intro: 'You can learn about {% data variables.product.product_name %} and manage{% if enterpriseServerVersions contains currentVersion %} accounts and access, licenses, and{% endif %} billing.'
 redirect_from:
   - /enterprise/admin/overview
 versions:

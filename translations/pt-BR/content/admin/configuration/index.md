@@ -1,7 +1,7 @@
 ---
 title: Configurar o GitHub Enterprise
 shortTitle: Configurar o GitHub Enterprise
-intro: "É possível configurar sua empresa para atender às necessidades da sua organização."
+intro: "You can configure your enterprise to suit your organization's needs."
 redirect_from:
   - /enterprise/admin/configuration
 versions:
