@@ -91,8 +91,8 @@ steps:
 Como alternativa, você pode criar e fazes testes com versões exatas do Node.js.
 
 ```yaml
-estratégia:
-  matriz:
+strategy:
+  matrix:
     node-version: [8.16.2, 10.17.0]
 ```
 

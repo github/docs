@@ -26,6 +26,8 @@ You can integrate {% data variables.product.prodname_registry %} with {% data va
 
 {% data reusables.package_registry.container-registry-beta %}
 
+![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+
 {% endif %}
 
 #### Viewing packages

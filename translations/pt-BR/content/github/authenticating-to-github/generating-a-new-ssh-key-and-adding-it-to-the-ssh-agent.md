@@ -24,7 +24,7 @@ Caso não queira reinserir sua frase secreta cada vez que usa a chave SSH, é po
   ```
   {% note %}
 
-  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  **Observação:** Se você estiver usando um sistema legado que não é compatível com o algoritmo Ed25519, use:
   ```shell
    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
   ```
@@ -89,7 +89,7 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
+    * Abre o seu arquivo `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` se você não estiver usando o local e nome padrão para a sua chave `id_ed25519`.
 
       ```
       Host *

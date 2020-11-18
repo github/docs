@@ -30,7 +30,7 @@ Substitua *REGISTRY-URL* pela URL do registro do Maven para a sua instância. Se
 instância de {% data variables.product.prodname_ghe_server %}.
 {% endif %}
 
-Substitua *NOME DE USUÁRIO* pelo seu nome de usuário do {% data variables.product.prodname_dotcom %} *TOKEN* pelo seu token de acesso pessoal, *REPOSITÓRIO* pelo nome do repositório que contém o pacote que você deseja publicar, e *PROPRIETÁRIO* pelo nome do usuário ou conta de organização no {% data variables.product.prodname_dotcom %} que é proprietário do repositório. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
+Substitua *NOME DE USUÁRIO* pelo seu nome de usuário do {% data variables.product.prodname_dotcom %} *TOKEN* pelo seu token de acesso pessoal, *REPOSITÓRIO* pelo nome do repositório que contém o pacote que você deseja publicar, e *PROPRIETÁRIO* pelo nome do usuário ou conta de organização no {% data variables.product.prodname_dotcom %} que é proprietário do repositório. Como não é permitido usar letras maiúsculas, é preciso usar letras minúsculas no nome do proprietário do repositório, mesmo que o nome do usuário ou da organização no {% data variables.product.prodname_dotcom %} contenha letras maiúsculas.
 
 {% note %}
 

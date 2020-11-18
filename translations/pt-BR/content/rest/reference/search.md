@@ -31,13 +31,19 @@ Cada ponto de extremidade na API de Pesquisa usa [parâmetros de consulta](https
 A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. O formato da consulta de pesquisa é:
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 Por exemplo, se você quisesse pesquisar todos os _repositórios_ de propriedade de `defunkt` que continham a palavra `GitHub` e `Octocat` no arquivo LEIAME, você usaria a consulta seguinte com o ponto de extremidade _pesquisar repositórios_:
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. Por exemplo:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 Veja "[Pesquisar no GitHub](/articles/searching-on-github/)" para obter uma lista completa de qualificadores disponíveis, seu formato e um exemplo de como usá-los. Para obter informações sobre como usar operadores para corresponder a quantidades e datas específicas ou para excluir resultados, consulte "[Entender a sintaxe de pesquisa](/articles/understanding-the-search-syntax/)".

@@ -22,7 +22,7 @@ Você pode fazer o download do código-fonte completo para este projeto[no repos
 
 ### Registrar seu aplicativo
 
-First, you'll need to [register your application][new oauth app]. A cada aplicativo OAuth registrado recebe um ID de Cliente único e um Segredo de Cliente. O Segredo do Cliente não deve ser compartilhado! Isso inclui verificar o string de caracteres no seu repositório.
+Primeiro, você precisará [registrar o seu aplicativo][new oauth app]. A cada aplicativo OAuth registrado recebe um ID de Cliente único e um Segredo de Cliente. O Segredo do Cliente não deve ser compartilhado! Isso inclui verificar o string de caracteres no seu repositório.
 
 Você pode preencher cada informação da forma que preferir, exceto a **URL de chamada de retorno de autorização**. Esta é facilmente a parte mais importante para configurar o seu aplicativo. É a URL de chamada de retorno que o {% data variables.product.product_name %} retorna ao usuário após a autenticação bem-sucedida.
 
@@ -47,9 +47,9 @@ get '/' do
 end
 ```
 
-Your client ID and client secret keys come from [your application's configuration page][app settings].
-{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
+O seu ID de cliente e as chaves secretas de cliente vêm da [página de configuração do seu aplicativo][app settings].
+{% if currentVersion == "free-pro-team@latest" %} Você **nunca, __** deve armazenar esses valores em
+{% data variables.product.product_name %}--ou qualquer outro lugar público, para essa questão.{% endif %}Recomendamos armazená-los como
 [Variáveis de ambiente][about env vars]--que é exatamente o que fizemos aqui.
 
 Em seguida, em _views/index.erb_, cole este conteúdo:
@@ -73,7 +73,7 @@ Em seguida, em _views/index.erb_, cole este conteúdo:
 </html>
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra guide].)
+(Se você não estiver familiarizado com a forma como Sinatra funciona, recomendamos [a leitura do guia do Sinatra][Sinatra guide].)
 
 Observe também que a URL usa o parâmetro da consulta do `escopo` para definir os [escopos][oauth scopes] solicitados pelo aplicativo. Para o nosso aplicativo, estamos solicitando o escopo `user:email` para ler endereços de e-mail privados.
 

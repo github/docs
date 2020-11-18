@@ -85,7 +85,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 #### 使用 SSH 创建支持包
 
-You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
+如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并且拥有出站互联网访问权限，则可以使用下列步骤来创建和共享支持包。
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -110,8 +110,8 @@ You can use these steps to create and share a support bundle if you have SSH acc
 #### 使用 SSH 直接上传支持包
 
 在以下情况下您可以直接将支持包上传到我们的服务器：
-- You have SSH access to {% data variables.product.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
+- 您可以通过 SSH 访问 {% data variables.product.product_location %}。
+- 允许从 {% data variables.product.product_location %} 通过 TCP 端口 443 建立出站 HTTPS 连接。
 
 1. 将包上传到我们的支持包服务器：
   ```shell
@@ -126,7 +126,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 
 #### 使用 SSH 创建扩展支持包
 
-You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
+如果您可以通过 SSH 访问 {% data variables.product.product_location %} 并有拥有出站互联网访问权限，则可以使用下列步骤来创建和共享扩展支持包。
 
 1. 要通过 SSH 下载扩展支持包，可将 `-x` 标记添加到 `ghe-support-bundle` 命令中：
   ```shell
@@ -138,8 +138,8 @@ You can use these steps to create and share an extended support bundle if you ha
 #### 使用 SSH 直接上传扩展支持包
 
 在以下情况下您可以直接将支持包上传到我们的服务器：
-- You have SSH access to {% data variables.product.product_location %}.
-- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
+- 您可以通过 SSH 访问 {% data variables.product.product_location %}。
+- 允许从 {% data variables.product.product_location %} 通过 TCP 端口 443 建立出站 HTTPS 连接。
 
 1. 将包上传到我们的支持包服务器：
   ```shell
