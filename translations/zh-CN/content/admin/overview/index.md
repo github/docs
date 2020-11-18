@@ -1,6 +1,6 @@
 ---
 title: 概览
-intro: 'You can learn about {% data variables.product.product_name %} and manage{% if enterpriseServerVersions contains currentVersion %} accounts and access, licenses, and{% endif %} billing.'
+intro: '您可以了解{% data variables.product.product_name %}和管理{% if enterpriseServerVersions contains currentVersion %}帐户以及访问、许可和{% endif %}计费。'
 redirect_from:
   - /enterprise/admin/overview
 versions:

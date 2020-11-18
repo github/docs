@@ -97,7 +97,7 @@ async function main () {
   console.log(`Enterprise version to archive: ${version}`)
   const pages = await (require('../lib/pages')())
   const permalinksPerVersion = Object.keys(pages)
-    .filter(key => key.includes(`/enterprise/${version}`))
+    .filter(key => key.includes(`/enterprise-server@${version}`))
 
   const urls = dryRun
     ? permalinksPerVersion.slice(0, 10).map(href => `${host}${href}`)
@@ -162,10 +162,12 @@ async function createRedirectPages (permalinks, pages, finalDirectory) {
   const redirects = await loadRedirects(pagesPerVersion)
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
-    // replace any liquid variables with the version number
-    oldPath = oldPath.replace('{{ page.version }}', version)
+    // remove any liquid variables that sneak in
+    oldPath = oldPath
+      .replace('/{{ page.version }}', '')
+      .replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
-    if (!oldPath.includes(`/enterprise/${version}`)) return
+    if (!(oldPath.includes(`/enterprise-server@${version}`) || oldPath.includes(`/enterprise/${version}`))) return
 
     const fullPath = path.join(finalDirectory, oldPath)
     const filename = `${fullPath}/index.html`
