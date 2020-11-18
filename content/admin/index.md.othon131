@@ -1,4 +1,4 @@
----
+Othon131/docs
 title: Enterprise Administrators
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
@@ -6,8 +6,7 @@ redirect_from:
 intro: Documentation and guides for enterprise administrators, system administrators, and security specialists who {% if enterpriseServerVersions contains currentVersion %}deploy, {% endif %}configure{% if enterpriseServerVersions contains currentVersion %},{% endif %} and manage {% data variables.product.product_name %}.
 versions:
   enterprise-server: '*'
-  github-ae: '*'
----
+  github-ae:*1234
 
 {% link_with_intro /overview %}
 
