@@ -32,7 +32,7 @@ As an alternative, you can simply use [GitHub Codespaces](https://github.com/fea
 
 In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
 
-### Viewing a top-level TOC
+### Viewing a top-level table of contents
 
 While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
 
