@@ -100,7 +100,7 @@ Você pode acionar manualmente uma execução de fluxo de trabalho usando a API 
 
 ##### Exemplo
 
-Para usar o evento `workflow_dispatch`, é necessário incluí-lo como um gatilho no seu arquivo de fluxo de trabalho do GitHub Actions. O exemplo abaixo só executa o fluxo de trabalho quando é acionado manualmente:
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
 
 ```yaml
 on: workflow_dispatch
@@ -108,7 +108,7 @@ on: workflow_dispatch
 
 ##### Exemplo de configuração de fluxo de trabalho
 
-Este exemplo define o nome `` e `entradas de` domésticas e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home` . Se `home` não for fornecido, será impresso o valor-padrão 'The Octoverse'.
+Este exemplo define o nome `` e `entradas de` domésticas e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home` . If a `home` isn't provided, the default value 'The Octoverse' is printed.
 
 {% raw %}
 ```yaml
@@ -323,11 +323,10 @@ on:
     types: [created, deleted]
 ```
 
-O evento `issue_comment` ocorre para comentários em ambos os problemas e pull requests. Para determinar se o evento `issue_comment` foi acionado a partir de um problema ou pull request, você poderá verificar a carga do evento para a propriedade `issue.pull_request` e usá-la como condição para ignorar um trabalho.
+The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
 
-Por exemplo, você pode optar por executar o trabalho `pr_commented` quando eventos de comentários ocorrem em um pull request e executar o trabalho `issue_commented` quando os eventos de comentários ocorrem em um problema.
+For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
 
-{% raw %}
 ```yaml
 on: issue_comment
 
@@ -350,7 +349,6 @@ jobs:
       - run: |
           echo "Comment on issue #${{ github.event.issue.number }}"
 ```
-{% endraw %}
 
 #### `Problemas`
 
@@ -414,7 +412,7 @@ on:
 
 #### `page_build`
 
-Executa o fluxo de trabalho sempre que alguém faz push em um branch habilitado para o {% data variables.product.product_name %} Pages, o que aciona o evento `page_build`. Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
+Executa o fluxo de trabalho sempre que alguém faz push em um branch habilitado para o {% data variables.product.product_name %} Pages, o que aciona o evento `page_build`. For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 {% data reusables.github-actions.branch-requirement %}
 

@@ -1,9 +1,9 @@
 ---
-title: Configurar o logon único SAML para sua empresa
-shortTitle: Configurando o SAML SSO
-intro: Você pode configurar o logon único SAML (SSO) para sua empresa, o que permite que você controle centralmente a autenticação para {% data variables.product.product_location %} usando seu provedor de identidade (IdP).
+title: Configuring SAML single sign-on for your enterprise
+shortTitle: Configuring SAML SSO
+intro: You can configure SAML single sign-on (SSO) for your enterprise, which allows you to centrally control authentication for {% data variables.product.product_location %} using your identity provider (IdP).
 product: '{% data reusables.gated-features.saml-sso %}'
-permissions: Os proprietários das empresas podem configurar o SAML SSO para uma empresa em {% data variables.product.product_name %}.
+permissions: Enterprise owners can configure SAML SSO for an enterprise on {% data variables.product.product_name %}.
 versions:
   github-ae: '*'
 ---
@@ -12,51 +12,45 @@ versions:
 
 {% if currentVersion == "github-ae@latest" %}
 
-O SAML SSO permite que você controle centralmente e proteja o acesso ao {% data variables.product.product_location %} a partir do seu IdP SAML. Quando um usuário não autenticado visita {% data variables.product.product_location %} em um navegador, {% data variables.product.product_name %} redirecionará o usuário para seu IdP do SAML para efetuar a autenticação. Depois que o usuário efetua a autenticação com sucesso com uma conta no IdP, o usuário do IdP redireciona o usuário de volta para {% data variables.product.product_location %}. {% data variables.product.product_name %} valida a resposta do seu IdP e, em seguida, concede acesso ao usuário.
+SAML SSO allows you to centrally control and secure access to {% data variables.product.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
 
-Depois que um usuário efetua a autenticação com sucesso no seu IdP, a sessão do SAML do usuário para {% data variables.product.product_location %} fica ativa no navegador por 24 horas. Depois de 24 horas, o usuário deve efetuar a autenticação novamente com o seu IdP.
+After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.product.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
 
 {% data reusables.saml.assert-the-administrator-attribute %}
 
-{% data reusables.scim.after-you-configure-saml %} Para obter mais informações, consulte "[Configurar provisionamento do usuário para sua empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
+{% data reusables.scim.after-you-configure-saml %} For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 {% endif %}
 
-### Provedores de identidade compatíveis
+### Supported identity providers
 
-{% data variables.product.product_name %} é compatível com o SAML SSO, com IdPs que implementam o padrão SAML 2.0. Para obter mais informações, consulte a [Wiki do SAML](https://wiki.oasis-open.org/security) no site do OASIS.
+{% data variables.product.product_name %} supports SAML SSO with IdPs that implement the SAML 2.0 standard. For more information, see the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 
-{% data variables.product.company_short %} testou o SAML SSO para {% data variables.product.product_name %} com os seguintes IdPs.
+{% data variables.product.company_short %} has tested SAML SSO for {% data variables.product.product_name %} with the following IdPs.
 
 {% if currentVersion == "github-ae@latest" %}
 - Azure AD
 {% endif %}
 
-### Habilitar o SAML SSO
+### Enabling SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
 {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-Os seguintes IdPs fornecem documentação sobre a configuração de do SAML SSO para {% data variables.product.product_name %}. Se seu IdP não estiver listado, entre em contato com seu IdP para solicitar suporte para {% data variables.product.product_name %}.
+During initialization for {% data variables.product.product_name %}, you must configure {% data variables.product.product_name %} as a SAML Service Provider (SP) on your IdP. You must enter several unique values on your IdP to configure {% data variables.product.product_name %} as a valid SP.
 
- | IdP      | Mais informações                                                                                                                                                                                                                           |
- |:-------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
- | Azure AD | [Tutorial: integração do logon único (SSO) do Azure Active Directory com {% data variables.product.prodname_ghe_managed %}](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-tutorial) na documentação da Microsoft |
-
-Durante a inicialização para {% data variables.product.product_name %}, você deve configurar {% data variables.product.product_name %} como um Provedor de Serviço do SAML (SP) no seu IdP. Você deve inserir vários valores únicos no seu IdP para configurar {% data variables.product.product_name %} como um SP válido.
-
-| Valor                                                  | Outros nomes    | Descrição                                                                          | Exemplo                   |
-|:------------------------------------------------------ |:--------------- |:---------------------------------------------------------------------------------- |:------------------------- |
-| ID da Entidade do SP                                   | URL do SP       | Sua URL de nível superior para {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
-| URL do Serviço do Consumidor de Declaração (ACS) do SP | URL de resposta | URL em que o IdP envia respostas do SAML                                           | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
-| URL de logon único (SSO) do SP                         |                 | URL em que o IdP começa com SSO                                                    | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
+| Valor                                   | Other names | Descrição                                                                  | Exemplo                   |
+|:--------------------------------------- |:----------- |:-------------------------------------------------------------------------- |:------------------------- |
+| SP Entity ID                            | SP URL      | Your top-level URL for {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em></code> |
+| SP Assertion Consumer Service (ACS) URL | Reply URL   | URL where IdP sends SAML responses                                         | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/saml/consume</code> |
+| SP Single Sign-On (SSO) URL             |             | URL where IdP begins SSO                                                   | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/sso</code> |
 
 {% endif %}
 
-### Editar a configuração SAML SSO
+### Editing the SAML SSO configuration
 
-Se os detalhes para o seu IdP forem alterados, você deverá editar a configuração SAML SSO para o {% data variables.product.product_location %}. Por exemplo, se o certificado de seu IdP expirar, você poderá editar o valor para o certificado público.
+If the details for your IdP change, you'll need to edit the SAML SSO configuration for {% data variables.product.product_location %}. For example, if the certificate for your IdP expires, you can edit the value for the public certificate.
 
 {% if currentVersion == "github-ae@latest" %}
 
@@ -69,23 +63,23 @@ Se os detalhes para o seu IdP forem alterados, você deverá editar a configura�
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Em "logon único SAML", digite os novos detalhes para o seu IdP. ![Os campos de entrada de texto com detalhes de IdP para configuração SAML SSO para uma empresa](/assets/images/help/saml/ae-edit-idp-details.png)
-1. Opcionalmente, clique em {% octicon "pencil" aria-label="The edit icon" %} para configurar uma nova assinatura ou método de resumo. ![Ícone de editar para alterar a assinatura e o método de resumo](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
+1. Under "SAML single sign-on", type the new details for your IdP. ![Text entry fields with IdP details for SAML SSO configuration for an enterprise](/assets/images/help/saml/ae-edit-idp-details.png)
+1. Optionally, click {% octicon "pencil" aria-label="The edit icon" %} to configure a new signature or digest method. ![Edit icon for changing signature and digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest.png)
 
-    - Use os menus suspensos e escolha a nova assinatura ou o método de resumo. ![Menus suspensos para escolher uma nova assinatura ou método de resumo](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
-1. Para garantir que a informação inserida está correta, clique em **Testar configuração de SAML**. ![Botão "Testar configuração do SAML"](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
-1. Clique em **Salvar**. ![Botão "Salvar" para configuração do SAML SSO](/assets/images/help/saml/ae-edit-idp-details-save.png)
-1. Opcionalmente, para provisionar e desprovisionar contas de usuário automaticamente para {% data variables.product.product_location %}, reconfigure o provisionamento de usuário com SCIM. Para obter mais informações, consulte "[Configurar provisionamento do usuário para sua empresa](/admin/authentication/configuring-user-provisioning-for-your-enterprise)".
+    - Use the drop-down menus and choose the new signature or digest method. ![Drop-down menus for choosing a new signature or digest method](/assets/images/help/saml/ae-edit-idp-details-edit-signature-and-digest-drop-down-menus.png)
+1. To ensure that the information you've entered is correct, click **Test SAML configuration**. !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
+1. Clique em **Salvar**. !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-edit-idp-details-save.png)
+1. Optionally, to automatically provision and deprovision user accounts for {% data variables.product.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 {% endif %}
 
-### Desabilitar SAML SSO
+### Disabling SAML SSO
 
 {% if currentVersion == "github-ae@latest" %}
 
 {% warning %}
 
-**Aviso**: se você desabilitar o SAML SSO para {% data variables.product.product_location %}, os usuários sem sessões SAML SSO existentes não poderão entrar em {% data variables.product.product_location %}. As sessões SAML SSO em {% data variables.product.product_location %} terminam após 24 horas.
+**Warning**: If you disable SAML SSO for {% data variables.product.product_location %}, users without existing SAML SSO sessions cannot sign into {% data variables.product.product_location %}. SAML SSO sessions on {% data variables.product.product_location %} end after 24 hours.
 
 {% endwarning %}
 
@@ -98,7 +92,7 @@ Se os detalhes para o seu IdP forem alterados, você deverá editar a configura�
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Em "Logon único SAML", selecione **Habilitar autenticação do SAML**. ![Caixa de seleção para "Habilitar autenticação do SAML"](/assets/images/help/saml/ae-saml-disabled.png)
-1. Para desabilitar o SAML SSO e exigir o login com a conta de usuário integrada que você criou durante a inicialização, clique em **Salvar**. ![Botão "Salvar" para configuração do SAML SSO](/assets/images/help/saml/ae-saml-disabled-save.png)
+1. Under "SAML single sign-on", unselect **Enable SAML authentication**. ![Checkbox for "Enable SAML authentication"](/assets/images/help/saml/ae-saml-disabled.png)
+1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**. !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-saml-disabled-save.png)
 
 {% endif %}

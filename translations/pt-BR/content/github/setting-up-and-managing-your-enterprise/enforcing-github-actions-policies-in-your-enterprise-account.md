@@ -34,7 +34,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma empresa ou definir u
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![Adicionar ações para permitir lista](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### Habilitar fluxos de trabalho para bifurcações privadas do repositório
 

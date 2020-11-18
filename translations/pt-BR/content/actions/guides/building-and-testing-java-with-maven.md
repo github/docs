@@ -1,5 +1,5 @@
 ---
-title: Criar e testar o Java com o Maven
+title: Criar e estar o Java com o Maven
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Maven.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -38,22 +38,22 @@ Você também pode adicionar este fluxo de trabalho manualmente, criando um novo
 
 {% raw %}
 ```yaml
-name: Java CI
+nome: Java CI
 
-on: [push]
+em: [push]
 
-jobs:
-  build:
+trabalhos:
+  criar:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
+    etapas:
+      - usa: actions/checkout@v2
+      - nome: Set up JDK 1.8
+        usa: actions/setup-java@v1
+        com:
           java-version: 1.8
-      - name: Build with Maven
-        run: mvn -B package --file pom.xml
+      - nome: Criado com Maven
+        executar: mvn -B package --file pom.xml
 ```
 {% endraw %}
 
@@ -79,13 +79,13 @@ Se você usa comandos diferentes para criar seu projeto ou se desejar usar um al
 
 {% raw %}
 ```yaml
-steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v1
-    with:
+etapas:
+  - usa: actions/checkout@v2
+  - usa: actions/setup-java@v1
+    com:
       java-version: 1.8
-  - name: Run the Maven verify phase
-    run: mvn -B verify --file pom-ci.xml
+  - nome: Executar a fase de verificação do Maven
+    executar: mvn -B verify --file pom-ci.xml
 ```
 {% endraw %}
 
@@ -95,20 +95,20 @@ Você pode armazenar as suas dependências para acelerar as execuções do seu f
 
 {% raw %}
 ```yaml
-steps:
-  - uses: actions/checkout@v2
-  - name: Set up JDK 1.8
-    uses: actions/setup-java@v1
-    with:
+etapas:
+  - usa: actions/checkout@v2
+  - nome: Set up JDK 1.8
+    usa: actions/setup-java@v1
+    cpm:
       java-version: 1.8
-  - name: Cache Maven packages
-    uses: actions/cache@v2
-    with:
-      path: ~/.m2
-      key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+  - nome: Cache Maven packages
+    usa: actions/cache@v2
+    com:
+      caminho: ~/.m2
+      chave: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
-  - name: Build with Maven
-    run: mvn -B package --file pom.xml
+  - nome: Construir com Maven
+    executar: mvn -B package --file pom.xml
 ```
 {% endraw %}
 

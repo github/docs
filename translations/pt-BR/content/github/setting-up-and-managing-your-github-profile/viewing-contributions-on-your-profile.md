@@ -15,7 +15,7 @@ O gráfico de contribuição mostra a atividade em repositórios públicos. Voc�
 
 {% note %}
 
-**Observação:** Os commits só aparecerão no seu gráfico de contribuições se o endereço de e-mail que você usou para criar das submissões estiver conectado à sua conta em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 - Fazer commit no branch `gh-pages` ou no branch padrão de um repositório
 - Abrir um problema
 - Propor uma pull request
-- Enviar uma revisão de pull request{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Fazer coautoria de commits no branch `gh-pages` ou no branch padrão do repositório{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -82,9 +82,9 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 {% if currentVersion != "github-ae@latest" %}
 ### Exibir contribuições da {% data variables.product.product_location_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
-Se o administrador do site habilitou
+If your site administrator has enabled
 
-{% data variables.product.prodname_unified_contributions %}, você pode enviar contagens de contribuição de {% data variables.product.prodname_enterprise %} para o seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
 {% endif %}
 
 ### Leia mais
