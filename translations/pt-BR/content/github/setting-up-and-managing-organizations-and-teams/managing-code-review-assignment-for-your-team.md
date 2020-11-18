@@ -18,7 +18,7 @@ Quando se solicita automaticamente que os proprietários de códigos façam uma 
 
 ### Encaminhar algoritmos
 
-Escolha as atribuições de revisão de código e atribua os revisores automaticamente com base em um dos dois algoritmos possíveis.
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 O algoritmo round robin (rotativo) escolhe os revisores com base em quem recebeu a solicitação de revisão menos recente e tem o foco em alternar entre todos os integrantes da equipe, independentemente do número de avaliações pendentes que possuem atualmente.
 

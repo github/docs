@@ -1,6 +1,6 @@
 ---
-title: Configurar e gerenciar sua empresa
-shortTitle: Sua empresa
+title: Setting up and managing your enterprise
+shortTitle: Your enterprise
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account

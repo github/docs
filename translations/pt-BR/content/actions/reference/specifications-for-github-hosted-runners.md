@@ -31,7 +31,7 @@ Você pode especificar o tipo de executor para cada trabalho em um fluxo de trab
 
 O {% data variables.product.prodname_dotcom %} hospeda executores do Linux e Windows no Standard_DS2_v2 máquinas virtuais no Microsoft Azure com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. Para obter mais informações sobre os recursos da máquina Standard_DS2_v2, consulte "[Dv2 e DSv2-series](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" na documentação do Microsoft Azure.
 
-{% data variables.product.prodname_dotcom %} hospedas executores do macOS na nuvem do macOS do próprio {% data variables.product.prodname_dotcom %}.
+O {% data variables.product.prodname_dotcom %} usa [MacStadium](https://www.macstadium.com/) para hospedar os executores do macOS.
 
 #### Privilégios administrativos os executores hospedados no {% data variables.product.prodname_dotcom %}
 

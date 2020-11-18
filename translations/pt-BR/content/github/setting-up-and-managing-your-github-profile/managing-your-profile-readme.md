@@ -62,4 +62,4 @@ The method you choose is dependant upon your needs, but if you're unsure, we rec
 
 ### Leia mais
 
-- [Sobre READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)
+- [Sobre LEIAMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)

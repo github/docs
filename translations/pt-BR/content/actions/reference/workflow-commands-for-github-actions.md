@@ -164,14 +164,14 @@ Cria uma mensagem de erro e a imprime no log. Cria uma mensagem de erro e a impr
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
-### Agrupar linhas dos registros
+### Grouping log lines
 
 ```
 ::group::{title}
 ::endgroup::
 ```
 
-Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
 #### Exemplo
 
@@ -181,7 +181,7 @@ echo "Inside group"
 echo "::endgroup::"
 ```
 
-![Grupo dobrável no registro da execução do fluxo de trabalho](/assets/images/actions-log-group.png)
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
 ### Mascarar um valor no registro
 
@@ -278,7 +278,7 @@ echo "action_state=yellow" >> $GITHUB_ENV
 
 Executar `$action_state` em uma etapa futura agora retornará `amarelo`
 
-#### Strings de linha múltipla
+#### Multiline strings
 
 Para strings linha múltipla, você pode usar um delimitador com a seguinte sintaxe.
 

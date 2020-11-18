@@ -90,7 +90,7 @@ Você pode criar e gerenciar equipes personalizadas no {% data variables.product
 {% data reusables.github-insights.settings-tab %}
 {% data reusables.github-insights.teams-tab %}
 {% data reusables.github-insights.edit-team %}
-3. Em "Contribuidores", use o menu suspenso e selecione um contribuidor. ![Menu suspenso de contribuidores](/assets/images/help/insights/contributors-drop-down.png)
+3. Em "Contribuidores", use o menu suspenso e selecione um contribuidor. ![Contributors drop-down](/assets/images/help/insights/contributors-drop-down.png)
 4. Clique em **Cpncluído**.
 
 #### Remover um contribuidor de uma equipe personalizada

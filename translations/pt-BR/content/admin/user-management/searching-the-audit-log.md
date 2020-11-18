@@ -1,6 +1,6 @@
 ---
 title: Pesquisar no log de auditoria
-intro: 'Os administradores do site podem pesquisar uma extensa lista de ações auditadas sobre a empresa.'
+intro: 'Site administrators can search an extensive list of audited actions on the enterprise.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -19,7 +19,7 @@ Crie uma consulta de pesquisa com um ou mais pares chave-valor separados por ope
 |     `actor_id` | ID da conta do usuário que iniciou a ação.                                                |
 |        `actor` | Nome da conta do usuário que iniciou a ação.                                              |
 | `oauth_app_id` | ID do aplicativo OAuth associado à ação.                                                  |
-|         `Ação` | Nome da ação auditada                                                                     |
+|         `Ação` | Name of the audited action                                                                |
 |      `user_id` | ID do usuário afetado pela ação.                                                          |
 |      `usuário` | Nome do usuário afetado pela ação.                                                        |
 |      `repo_id` | ID do repositório afetado pela ação (se aplicável).                                       |
@@ -35,7 +35,7 @@ Por exemplo, para ver todas as ações que afetaram o repositório `octocat/Spoo
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-Para obter uma lista completa de ações, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
+For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
 
 ### Pesquisar no log de auditoria
 

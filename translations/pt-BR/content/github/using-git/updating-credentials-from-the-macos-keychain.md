@@ -1,6 +1,6 @@
 ---
 title: Atualizar credenciais da keychain OSX
-intro: 'Você precisará atualizar suas credenciais salvas no auxiliar `git-credential-osxkeychain` se você alterar o seu {% if currentVersion ! "github-ae@latest" %} nome de usuário, senha ou{% endif %} token de acesso pessoal em {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% if currentVersion != "github-ae@latest" %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - Entrada de senha do GitHub na keychain
@@ -21,7 +21,7 @@ versions:
 
 ### Excluir credenciais pela linha de comando
 
-Através da linha de comando, você pode usar o auxiliar de credenciais diretamente para apagar a entrada de keychain.
+Through the command line, you can use the credential helper directly to erase the keychain entry.
 
 ```shell
 $ git credential-osxkeychain erase
@@ -30,7 +30,7 @@ protocol=https
 > <em>[Pressione Return]</em>
 ```
 
-Se a ação for bem-sucedida, nada será impresso. Para testar se funcionou, experimente clonar um repositório do {% data variables.product.product_location %}. Se for solicitada uma senha, significa que a entrada da keychain foi excluída.
+Se a ação for bem-sucedida, nada será impresso. To test that it works, try and clone a repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
 ### Leia mais
 
