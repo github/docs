@@ -53,7 +53,7 @@ Connecting to {% data variables.product.prodname_github_codespaces %}  with the 
 
 ### Configuring a codespace for {% data variables.product.prodname_vs %}
 
-A codespace, created with Visual Studio, can be customized through a new tool called devinit, a command line tool included with Visual Studio.
+A codespace, created with {% data variables.product.prodname_vs %}, can be customized through a new tool called devinit, a command line tool included with {% data variables.product.prodname_vs %}.
 
 #### devinit
 
@@ -61,4 +61,4 @@ A codespace, created with Visual Studio, can be customized through a new tool ca
 
 devinit supports a configuration file called [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json), which can be added to your project for creating customized and repeatable development environments. Used with a `.devcontainer.json`, your codespace will be automatically configured upon creation.
 
-For more information about Windows codespace configuration and devinit, see [Customize a codespace](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces) in the Visual Studio documentation. For more information about devinit, see [Getting started with devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit).
+For more information about Windows codespace configuration and devinit, see [Customize a codespace](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces) in the {% data variables.product.prodname_vs %} documentation. For more information about devinit, see [Getting started with devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit).
