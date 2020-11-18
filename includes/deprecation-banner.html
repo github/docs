@@ -2,11 +2,12 @@
   <div class="deprecation-banner border rounded-1 mb-2 bg-yellow-light p-3 border-yellow f5">
     <p>
       <b>
-        <span data-display-until="{{ enterpriseServerReleases.nextDeprecationDate }}">
-          {% data reusables.enterprise_deprecation.version_will_be_deprecated %}
-        </span>
-        <span data-display-starting="{{ enterpriseServerReleases.nextDeprecationDate }}">
-          {% data reusables.enterprise_deprecation.version_was_deprecated %}
+        <span>
+        {% if enterpriseServerReleases.isOldestReleaseDeprecated %}
+        {% data reusables.enterprise_deprecation.version_was_deprecated %}
+        {% else %}
+        {% data reusables.enterprise_deprecation.version_will_be_deprecated %}
+        {% endif %}
         </span>
         <span data-date="{{ enterpriseServerReleases.nextDeprecationDate }}" data-format="%B %d, %Y" title="{{ enterpriseServerReleases.nextDeprecationDate }}">{{ enterpriseServerReleases.nextDeprecationDate }}</span>.
       </b>

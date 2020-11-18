@@ -24,7 +24,7 @@ versions:
   ```
   {% note %}
 
-  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  **注：**如果您使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：
   ```shell
    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
   ```
@@ -89,7 +89,7 @@ versions:
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
+    * 打开 `~/.ssh/config` 文件，然后修改该文件，如果未使用 `id_ed25519` 键的默认位置和名称，则替换 `~/.ssh/id_ed25519`。
 
       ```
       Host *

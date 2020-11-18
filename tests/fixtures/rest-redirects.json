@@ -451,7 +451,7 @@
   "/v3/migrations/orgs": "/en/free-pro-team@latest/rest/reference/migrations#orgs",
   "/v3/migrations/source_imports": "/en/free-pro-team@latest/rest/reference/migrations#source-imports",
   "/v3/migrations/users": "/en/free-pro-team@latest/rest/reference/migrations#users",
-  "/v3/oauth_authorizations": "/en/free-pro-team@latest/rest/reference/oauth-authorizations",
+  "/v3/oauth_authorizations": "/en/enterprise-server/rest/reference/oauth-authorizations",
   "/v3/orgs/blocking": "/en/free-pro-team@latest/rest/reference/orgs#blocking",
   "/v3/orgs/hooks": "/en/free-pro-team@latest/rest/reference/orgs#hooks",
   "/v3/orgs": "/en/free-pro-team@latest/rest/reference/orgs",
