@@ -4,7 +4,9 @@ const { deprecated } = require('../lib/enterprise-server-releases')
 module.exports = async (req, res, next) => {
   // if this is an assets path, use the referrer
   // if this is a docs path, use the req.path
-  const pathToCheck = req.get('referrer') || req.path
+  const pathToCheck = patterns.assetPaths.test(req.path)
+    ? req.get('referrer')
+    : req.path
 
   // ignore paths that don't have an enterprise version number
   if (!(patterns.getEnterpriseVersionNumber.test(pathToCheck) || patterns.getEnterpriseServerNumber.test(pathToCheck))) return next()
