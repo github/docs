@@ -113,8 +113,7 @@
     - wiki
     - publishing
 - title: Label your Pull Requests auto-magically (using committed files)
-  description: Github action to label your pull requests auto-magically (using committed
-  files)
+  description: Github action to label your pull requests auto-magically (using committed files)
   languages: 'TypeScript, Dockerfile, JavaScript'
   href: Decathlon/pull-request-labeler-action
   tags:
