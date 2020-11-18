@@ -1,4 +1,4 @@
----
+KYK BORÇLARI SİLİNSİN!---
 title: Creating a repository on GitHub
 intro: 'After you create your repository on {% data variables.product.product_name %}, you can customize its settings and content.'
 mapTopic: true
