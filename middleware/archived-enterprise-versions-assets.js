@@ -1,7 +1,5 @@
 const path = require('path')
-const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const patterns = require('../lib/patterns')
-const firstVersionDeprecatedOnNewSite = '2.13'
 const got = require('got')
 
 // This module handles requests for the CSS and JS assets for
@@ -17,18 +15,8 @@ module.exports = async (req, res, next) => {
   // Only match asset paths
   if (!patterns.assetPaths.test(req.path)) return next()
 
-  // get /dist/index.js and /dist/index.css paths from enterprisified paths
   const assetPath = req.path.replace(`/enterprise/${requestedVersion}`, '')
-
-  // paths are slightly different depending on the enterprise version
-  let proxyPath
-  if (versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)) {
-    // routing for >=2.13
-    proxyPath = path.join('/', requestedVersion, assetPath)
-  } else if (versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) {
-    // routing for <2.13
-    proxyPath = path.join('/', requestedVersion, 'assets', assetPath)
-  }
+  const proxyPath = path.join('/', requestedVersion, assetPath)
 
   try {
     const r = await got(`https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`)
