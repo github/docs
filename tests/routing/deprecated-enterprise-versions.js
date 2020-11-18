@@ -181,7 +181,7 @@ describe('JS and CSS assets', () => {
 
   it('returns the expected CSS file  ( <2.13 )', async () => {
     const result = await supertest(app)
-      .get('/stylesheets/application.css')
+      .get('/assets/stylesheets/application.css')
       .set('Referrer', '/en/enterprise/2.12')
 
     expect(result.statusCode).toBe(200)
