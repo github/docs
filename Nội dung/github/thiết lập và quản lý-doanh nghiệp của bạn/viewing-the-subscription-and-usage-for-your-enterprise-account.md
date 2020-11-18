@@ -1,4 +1,4 @@
----
+  ---
 title: Viewing the subscription and usage for your enterprise account
 intro: 'You can view the current subscription, license usage, invoices, payment history, and other billing information for your enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
