@@ -13,8 +13,8 @@ const englishRoot = `${root}/en`
 const { deprecated } = require('../lib/enterprise-server-releases')
 const got = require('got')
 
-// Links with these codes may or may not really be broken
-const retryStatusCodes = [429, 503, 'Undefined']
+// Links with these codes may or may not really be broken.
+const retryStatusCodes = [429, 503]
 
 // [start-readme]
 //
@@ -62,8 +62,8 @@ main()
 async function main () {
   // Clear and recreate a directory for logs.
   const logFile = path.join(__dirname, '../.linkinator/full.log')
-  rimraf(logFile)
-  mkdirp(logFile)
+  rimraf(path.dirname(logFile))
+  mkdirp(path.dirname(logFile))
 
   // Update CLI output and append to logfile after each checked link.
   checker.on('link', result => {
@@ -76,15 +76,10 @@ async function main () {
   // Scan is complete! Filter the results for broken links.
   const brokenLinks = result
     .filter(link => link.state === 'BROKEN')
-    // Coerce undefined status codes into strings so we can filter and display them (otherwise they stringify as 0)
-    .map(link => {
-      if (!link.status) link.status = 'Undefined'
-      return link
-    })
 
   // Links to retry individually.
   const linksToRetry = brokenLinks
-    .filter(link => retryStatusCodes.includes(link.status))
+    .filter(link => !link.status || retryStatusCodes.includes(link.status))
 
   await Promise.all(linksToRetry
     .map(async (link) => {
@@ -115,12 +110,20 @@ async function main () {
 
 function displayBrokenLinks (brokenLinks) {
   // Sort results by status code.
-  const allStatusCodes = uniq(brokenLinks.map(x => x.status))
+  const allStatusCodes = uniq(brokenLinks
+    // Coerce undefined status codes into `Invalid` strings so we can display them.
+    // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
+    .map(link => {
+      if (!link.status) link.status = 'Invalid'
+      return link
+    })
+    .map(link => link.status)
+  )
 
   allStatusCodes.forEach(statusCode => {
     const brokenLinksForStatus = brokenLinks.filter(x => x.status === statusCode)
 
-    console.log(`## Status code ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
+    console.log(`## Status ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
     console.log('```')
     brokenLinksForStatus.forEach(brokenLinkObj => {
       console.log(JSON.stringify(brokenLinkObj, null, 2))
