@@ -76,18 +76,14 @@ async function main () {
   const skippedLinks = result.links.filter(x => x.state === 'SKIPPED')
   const brokenLinks = result.links.filter(x => x.state === 'BROKEN')
 
-  console.log(dedent`
-    ${brokenLinks.length} broken links found on docs.github.com
-
-    Link scan completed in ${endTime - startTime}ms
-    Total links: ${result.links.length}
-    Skipped links: ${skippedLinks.length}
-    Broken links: ${brokenLinks.length}
-    For more details see ${path.relative(process.cwd(), logFile)}
-  `)
+  console.log(`${brokenLinks.length} broken links found on docs.github.com\n`)
 
   if (brokenLinks.length) {
-    console.log('\n\n' + JSON.stringify(brokenLinks, null, 2))
+    console.log('```')
+    brokenLinks.forEach(brokenLinkObj => {
+      console.log(JSON.stringify(brokenLinkObj, null, 2))
+    })
+    console.log('```')
     process.exit(1)
   }
 
