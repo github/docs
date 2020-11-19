@@ -893,17 +893,17 @@ jobs:
       matrix:
        include:
          - node-version: 10.x
-           env:
-             site: "prod"
-             datacenter: "site-a"
+           site: "prod"
+           datacenter: "site-a"
          - node-version: 12.x
-           env:
-             site: "dev"
-             datacenter: "site-b"
+           site: "dev"
+           datacenter: "site-b"
     steps:
     - name: Echo site details
-      env: ${{ matrix.env }}
-      run: echo $site $datacenter
+      env:
+        SITE: ${{ matrix.site }}
+        DATACENTER: ${{ matrix.datacenter }}
+      run: echo $SITE $DATACENTER
 ```
 {% endraw %}
 
