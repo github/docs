@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: November 1, 2020
+Version Effective Date: November 13, 2020
 
 Wenn Sie ein Konto erstellen, erhalten Sie Zugriff auf viele verschiedene Features und Produkte, die alle Teil des Dienstes sind. Da viele dieser Features und Produkte unterschiedliche Funktionen bieten, erfordern sie möglicherweise zusätzliche Geschäftsbedingungen, die für dieses Feature oder dieses Produkt spezifisch sind. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -89,7 +89,7 @@ In order to become a Sponsored Developer, you must agree to the [GitHub Sponsors
 
 ### 9. GitHub Advanced Security
 
-Mit GitHub Advanced Security können Sie Sicherheitslücken durch anpassbare und automatisierte semantische Codeanalyse identifizieren. GitHub Advanced Security ist pro Benutzer lizenziert. Wenn Sie GitHub Advanced Security als Teil von GitHub Enterprise Cloud verwenden, erfordern viele Funktionen von GitHub Advanced Security, einschließlich des automatisierten Code-Scannens privater Repositorys, auch die Verwendung von GitHub Actions. Die Abrechnung für die Nutzung von GitHub Actions erfolgt nutzungsbasiert und unterliegt den [GitHub Actions-Bedingungen](/github/site-policy/github-additional-product-terms#c-payment-and-billing-for-actions-and-packages).
+GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. Wenn Sie GitHub Advanced Security als Teil von GitHub Enterprise Cloud verwenden, erfordern viele Funktionen von GitHub Advanced Security, einschließlich des automatisierten Code-Scannens privater Repositorys, auch die Verwendung von GitHub Actions.
 
 ### 10. Dependabot Preview
 
@@ -108,4 +108,3 @@ We need the legal right to submit your contributions to the GitHub Advisory Data
 #### b. Lizenz für das GitHub Advisory Database
 
 The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
-
