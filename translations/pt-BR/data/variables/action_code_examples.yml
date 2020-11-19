@@ -1,0 +1,149 @@
+---
+- 
+  title: Starter workflows
+  description: Workflow files for helping people get started with GitHub Actions
+  languages: TypeScript
+  href: actions/starter-workflows
+  tags:
+    - official
+    - fluxos de trabalho
+- 
+  title: Example services
+  description: Example workflows using service containers
+  languages: JavaScript
+  href: actions/example-services
+  tags:
+    - service containers
+- 
+  title: Declaratively setup GitHub Labels
+  description: GitHub Action to declaratively setup labels across repos
+  languages: JavaScript
+  href: lannonbr/issue-label-manager-action
+  tags:
+    - Problemas
+    - etiquetas
+- 
+  title: Declaratively sync GitHub labels
+  description: GitHub Action to sync GitHub labels in the declarative way
+  languages: 'Go, Dockerfile'
+  href: micnncim/action-label-syncer
+  tags:
+    - Problemas
+    - etiquetas
+- 
+  title: Add releases to GitHub
+  description: Publish Github releases in an action
+  languages: 'Dockerfile, Shell'
+  href: elgohr/Github-Release-Action
+  tags:
+    - releases
+    - publishing
+- 
+  title: Publish a docker image to Dockerhub
+  description: A Github Action used to build and publish Docker images
+  languages: 'Dockerfile, Shell'
+  href: elgohr/Publish-Docker-Github-Action
+  tags:
+    - docker
+    - publishing
+    - build
+- 
+  title: Create an issue using content from a file
+  description: A GitHub action to create an issue using content from a file
+  languages: 'JavaScript, Python'
+  href: peter-evans/create-issue-from-file
+  tags:
+    - Problemas
+- 
+  title: Publish GitHub Releases with Assets
+  description: GitHub Action for creating GitHub Releases
+  languages: 'TypeScript, Shell, JavaScript'
+  href: softprops/action-gh-release
+  tags:
+    - releases
+    - publishing
+- 
+  title: GitHub Project Automation+
+  description: Automate GitHub Project cards with any webhook event.
+  languages: JavaScript
+  href: alex-page/github-project-automation-plus
+  tags:
+    - projetos
+    - automation
+    - Problemas
+    - Pull requests
+- 
+  title: Run GitHub Actions Locally with a web interface
+  description: Runs GitHub Actions workflows locally (local)
+  languages: 'JavaScript, HTML, Dockerfile, CSS'
+  href: phishy/wflow
+  tags:
+    - local-development
+    - devops
+    - docker
+- 
+  title: Run your GitHub Actions locally
+  description: Run GitHub Actions Locally in Terminal
+  languages: 'Go, Shell'
+  href: nektos/act
+  tags:
+    - local-development
+    - devops
+    - docker
+- 
+  title: Build and Publish Android debug APK
+  description: Build and release debug APK from your Android project
+  languages: 'Shell, Dockerfile'
+  href: ShaunLWM/action-release-debugapk
+  tags:
+    - android
+    - build
+- 
+  title: Generate sequential build numbers for GitHub Actions
+  description: GitHub action for generating sequential build numbers.
+  languages: JavaScript
+  href: einaregilsson/build-number
+  tags:
+    - build
+    - automation
+- 
+  title: GitHub actions to push back to repository
+  description: Push Git changes to GitHub repository without authentication difficulties
+  languages: 'JavaScript, Shell'
+  href: ad-m/github-push-action
+  tags:
+    - publishing
+- 
+  title: Generate release notes based on your events
+  description: Action to auto generate a release note based on your events
+  languages: 'Shell, Dockerfile'
+  href: Decathlon/release-notes-generator-action
+  tags:
+    - releases
+    - publishing
+- 
+  title: Create a GitHub wiki page based on the provided markdown file
+  description: Create a GitHub wiki page based on the provided markdown file
+  languages: 'Shell, Dockerfile'
+  href: Decathlon/wiki-page-creator-action
+  tags:
+    - wiki
+    - publishing
+- 
+  title: Label your Pull Requests auto-magically (using committed files)
+  description: >-
+    Github action to label your pull requests auto-magically (using committed files)
+  languages: 'TypeScript, Dockerfile, JavaScript'
+  href: Decathlon/pull-request-labeler-action
+  tags:
+    - projetos
+    - Problemas
+    - etiquetas
+- 
+  title: Add Label to your Pull Requests based on the author team name
+  description: Github action to label your pull requests based on the author name
+  languages: 'TypeScript, JavaScript'
+  href: JulienKode/team-labeler-action
+  tags:
+    - pull request
+    - etiquetas

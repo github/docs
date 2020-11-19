@@ -63,6 +63,7 @@ export function sendEvent ({
 
       // Content information
       path: location.pathname,
+      hostname: location.hostname,
       referrer: document.referrer,
       search: location.search,
       href: location.href,
@@ -190,6 +191,8 @@ export default function initializeEvents () {
       link_url: link.href
     })
   })
+
+  if (!document.querySelector('.sidebar-products')) return
 
   // Navigate event
   Array.from(
