@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const linkinator = require('linkinator')
 const program = require('commander')
-const { pull } = require('lodash')
+const { pull, uniq } = require('lodash')
 const checker = new linkinator.LinkChecker()
 const rimraf = require('rimraf').sync
 const mkdirp = require('mkdirp').sync
@@ -16,14 +16,11 @@ const got = require('got')
 // Links with these codes may or may not really be broken
 const retryStatusCodes = [429, 503, 'Undefined']
 
-// Broken S3 image URLs result in 403s, broken docs URLs results in 404s
-const allBrokenStatusCodes = [403, 404, ...retryStatusCodes]
-
 // [start-readme]
 //
 // This script runs once per day via a scheduled GitHub Action to check all links in
 // English content, not including deprecated Enterprise Server content. It opens an issue
-// if it finds broken links. To exclude a link, add it to `lib/excluded-links.js`.
+// if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
 //
 // [end-readme]
 
@@ -65,8 +62,8 @@ main()
 async function main () {
   // Clear and recreate a directory for logs.
   const logFile = path.join(__dirname, '../.linkinator/full.log')
-  rimraf(path.dirname(logFile))
-  mkdirp(path.dirname(logFile))
+  rimraf(logFile)
+  mkdirp(logFile)
 
   // Update CLI output and append to logfile after each checked link.
   checker.on('link', result => {
@@ -79,7 +76,7 @@ async function main () {
   // Scan is complete! Filter the results for broken links.
   const brokenLinks = result
     .filter(link => link.state === 'BROKEN')
-    // Coerce undefined status codes into strings so we can filter for them like the other status codes.
+    // Coerce undefined status codes into strings so we can filter and display them (otherwise they stringify as 0)
     .map(link => {
       if (!link.status) link.status = 'Undefined'
       return link
@@ -92,12 +89,11 @@ async function main () {
   await Promise.all(linksToRetry
     .map(async (link) => {
       try {
-        const r = await got(link.url)
-        // Remove the link from the list if got can access it.
-        if (!allBrokenStatusCodes.find(brokenStatusCode => r.statusCode === brokenStatusCode)) {
-          pull(brokenLinks, link)
-        }
-      // Do nothing if the URL is invalid, since it's already captured in the broken list.
+        // got throws an HTTPError if response code is not 2xx or 3xx.
+        // If got succeeds, we can remove the link from the list.
+        await got(link.url)
+        pull(brokenLinks, link)
+      // If got fails, do nothing. The link is already in the broken list.
       } catch (err) {
         // noop
       }
@@ -111,22 +107,24 @@ async function main () {
 
   // Format and display the results.
   console.log(`${brokenLinks.length} broken links found on docs.github.com\n`)
-  allBrokenStatusCodes
-    .forEach(statusCode => displayBrokenLinks(statusCode, brokenLinks))
+  displayBrokenLinks(brokenLinks)
 
   // Exit unsuccessfully if broken links are found.
   process.exit(1)
 }
 
-function displayBrokenLinks (statusCode, brokenLinks) {
-  const brokenLinksForStatus = brokenLinks.filter(x => x.status === statusCode)
+function displayBrokenLinks (brokenLinks) {
+  // Sort results by status code.
+  const allStatusCodes = uniq(brokenLinks.map(x => x.status))
 
-  if (!brokenLinksForStatus.length) return
+  allStatusCodes.forEach(statusCode => {
+    const brokenLinksForStatus = brokenLinks.filter(x => x.status === statusCode)
 
-  console.log(`## Status code ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
-  console.log('```')
-  brokenLinksForStatus.forEach(brokenLinkObj => {
-    console.log(JSON.stringify(brokenLinkObj, null, 2))
+    console.log(`## Status code ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
+    console.log('```')
+    brokenLinksForStatus.forEach(brokenLinkObj => {
+      console.log(JSON.stringify(brokenLinkObj, null, 2))
+    })
+    console.log('```')
   })
-  console.log('```')
 }
