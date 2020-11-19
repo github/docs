@@ -176,6 +176,14 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
+---
+
+**NOTE**
+
+Checking in `node_modules` into a git repository is known to cause a [few problems](https://byjoeybaker.com/why-you-should-never-commit-node-modules-in-nodejs). Hence the following alternative approach exists
+
+---
+
 As an alternative to checking in your `node_modules` directory you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. Install `vercel/ncc` by running this command in your terminal.
