@@ -47,7 +47,7 @@ versions:
 空仓库不含任何文件。 如果创建仓库时不使用 README 初始化仓库，通常会出现空仓库。
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 要使用 HTTPS 以命令行克隆仓库，请在“Quick setup（快速设置）”下单击 {% octicon "clippy" aria-label="The clipboard icon" %}。 To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}. ![空仓库克隆 URL 按钮](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. 要使用 HTTPS 以命令行克隆仓库，请在“Quick setup（快速设置）”下单击 {% octicon "clippy" aria-label="The clipboard icon" %}。 要使用 SSH 密钥克隆仓库，包括组织的 SSH 认证中心颁发的证书，单击 **SSH**，然后单击 {% octicon "clippy" aria-label="The clipboard icon" %}。 ![空仓库克隆 URL 按钮](/assets/images/help/repository/empty-https-url-clone-button.png)
 
    或者，要在 Desktop 中克隆仓库，请单击 {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop（在 Desktop 中设置）**并按照提示完成克隆。 ![空仓库克隆桌面按钮](/assets/images/help/repository/empty-desktop-clone-button.png)
 

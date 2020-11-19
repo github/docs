@@ -1,6 +1,7 @@
 ---
 title: Über „secret scanning" (Durchsuchen nach Geheimnissen)
 intro: '{% data variables.product.product_name %} durchsucht Repositorys nach bekannten Geheimnis-Typen, um die betrügerische Verwendung von Geheimnissen zu verhindern, die versehentlich freigegeben wurden.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
