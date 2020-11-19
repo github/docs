@@ -18709,6 +18709,11 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   id: ID!
 
   """
+  The interaction ability settings for this organization.
+  """
+  interactionAbility: RepositoryInteractionAbility
+
+  """
   The setting value for whether the organization has an IP allow list enabled.
   """
   ipAllowListEnabledSetting: IpAllowListEnabledSettingValue!
@@ -28858,6 +28863,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   id: ID!
 
   """
+  The interaction ability settings for this repository.
+  """
+  interactionAbility: RepositoryInteractionAbility
+
+  """
   Indicates if the repository is unmaintained.
   """
   isArchived: Boolean!
@@ -30080,6 +30090,71 @@ interface RepositoryInfo {
   Whether this repository has a custom image to use with Open Graph as opposed to being represented by the owner's avatar.
   """
   usesCustomOpenGraphImage: Boolean!
+}
+
+"""
+Repository interaction limit that applies to this object.
+"""
+type RepositoryInteractionAbility {
+  """
+  The time the currently active limit expires.
+  """
+  expiresAt: DateTime
+
+  """
+  The current limit that is enabled on this object.
+  """
+  limit: RepositoryInteractionLimit!
+
+  """
+  The origin of the currently active interaction limit.
+  """
+  origin: RepositoryInteractionLimitOrigin!
+}
+
+"""
+A repository interaction limit.
+"""
+enum RepositoryInteractionLimit {
+  """
+  Users that are not collaborators will not be able to interact with the repository.
+  """
+  COLLABORATORS_ONLY
+
+  """
+  Users that have not previously committed to a repository’s default branch will be unable to interact with the repository.
+  """
+  CONTRIBUTORS_ONLY
+
+  """
+  Users that have recently created their account will be unable to interact with the repository.
+  """
+  EXISTING_USERS
+
+  """
+  No interaction limits are enabled.
+  """
+  NO_LIMIT
+}
+
+"""
+Indicates where an interaction limit is configured.
+"""
+enum RepositoryInteractionLimitOrigin {
+  """
+  A limit that is configured at the organization level.
+  """
+  ORGANIZATION
+
+  """
+  A limit that is configured at the repository level.
+  """
+  REPOSITORY
+
+  """
+  A limit that is configured at the user-wide level.
+  """
+  USER
 }
 
 """
@@ -37899,6 +37974,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     primarySubjectId: ID
   ): Hovercard!
   id: ID!
+
+  """
+  The interaction ability settings for this user.
+  """
+  interactionAbility: RepositoryInteractionAbility
 
   """
   Whether or not this user is a participant in the GitHub Security Bug Bounty.
