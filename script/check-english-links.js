@@ -84,7 +84,7 @@ async function main () {
 
   // Links to retry individually.
   const linksToRetry = brokenLinks
-    .filter(link => retryStatusCodes.find(retryStatusCode => link.status === retryStatusCode))
+    .filter(link => retryStatusCodes.includes(link.status))
 
   await Promise.all(linksToRetry
     .map(async (link) => {
