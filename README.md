@@ -5,6 +5,7 @@ This repository contains the documentation website code and Markdown source file
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 In this article:
+
 - [Contributing](#contributing)
 - [READMEs](#readmes)
 - [License](#license)
