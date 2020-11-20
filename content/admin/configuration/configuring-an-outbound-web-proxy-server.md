@@ -21,6 +21,10 @@ When a proxy server is enabled for {% data variables.product.product_location %}
 {% data reusables.enterprise_management_console.privacy %}
 4. Under **HTTP Proxy Server**, type the URL of your proxy server.
   ![Field to type the HTTP Proxy Server URL](/assets/images/enterprise/management-console/http-proxy-field.png)
+  
 5. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas.
   ![Field to type any HTTP Proxy Exclusions](/assets/images/enterprise/management-console/http-proxy-exclusion-field.png)
+  
+**Note:** For wildcard settings enter the domain preceded by a leading .  Example: .mycompany.com
+
 {% data reusables.enterprise_management_console.save-settings %}
