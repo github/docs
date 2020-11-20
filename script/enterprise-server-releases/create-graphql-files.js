@@ -8,12 +8,12 @@ const graphqlDir = path.join(process.cwd(), 'lib/graphql/static')
 
 // [start-readme]
 //
-// This script updates the static GraphQL files for a new version.
+// This script creates the static GraphQL files for a new version.
 //
 // [end-readme]
 
 program
-  .description('Update GraphQL files in lib/graphql/static based on an existing version.')
+  .description('Create GraphQL files in lib/graphql/static based on an existing version.')
   .option('-n, --newVersion <version>', 'The version to copy the files to. Must be in <plan@release> format.')
   .option('-o, --oldVersion <version>', 'The version to copy the files from. Must be in <plan@release> format.')
   .parse(process.argv)
