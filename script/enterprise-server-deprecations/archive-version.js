@@ -10,10 +10,10 @@ const scrape = require('website-scraper')
 const program = require('commander')
 const rimraf = require('rimraf').sync
 const mkdirp = require('mkdirp').sync
-const version = require('../lib/enterprise-server-releases').oldestSupported
+const version = require('../../lib/enterprise-server-releases').oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
-const loadRedirects = require('../lib/redirects/precompile')
+const loadRedirects = require('../../lib/redirects/precompile')
 
 // [start-readme]
 //
@@ -95,7 +95,7 @@ async function main () {
   }
 
   console.log(`Enterprise version to archive: ${version}`)
-  const pages = await (require('../lib/pages')())
+  const pages = await (require('../../lib/pages')())
   const permalinksPerVersion = Object.keys(pages)
     .filter(key => key.includes(`/enterprise-server@${version}`))
 

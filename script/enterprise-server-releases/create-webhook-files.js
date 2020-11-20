@@ -4,7 +4,7 @@ const fs = require('fs')
 const mkdirp = require('mkdirp').sync
 const path = require('path')
 const program = require('commander')
-const allVersions = require('../lib/all-versions')
+const allVersions = require('../../lib/all-versions')
 
 // [start-readme]
 //
