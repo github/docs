@@ -880,7 +880,7 @@ strategy:
 
 You can add custom environment variables for each test combination by using `include` with `env`. You can then refer to the custom environment variables in a later step.
 
-In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses `env: ${{ matrix.env }}` to refer to the custom variables:
+In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses {% raw %}`env: ${{ matrix.env }}`{% endraw %} to refer to the custom variables:
 
 {% raw %}
 ```yaml
