@@ -38,7 +38,7 @@ Or you can build and load them to Algolia to make them live:
 ```
 VERSION='free-pro-team@latest' LANGUAGE='en' npm run sync-search
 ```
-The `VERSION` env var must be a currently supported version in `<PLAN@RELEASE>` format. The `LANGUAGE` env var must be a currently supported two-letter language code. 
+The `VERSION` environment variable must be a currently supported version in `<PLAN@RELEASE>` format. The `LANGUAGE` environment variable must be a currently supported two-letter language code. 
 
 ### Label-triggered workflow
 
