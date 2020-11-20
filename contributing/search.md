@@ -26,6 +26,41 @@ To sync the indices from your development environment:
 2. Run `npm run sync-search-dry-run`. This takes a while to complete. It will prepare, test, and validate all the indices without actually uploading anything to Algolia's servers.
 3. Run `npm run sync-search` to prepare the indices again and upload them to the Algolia servers.
 
+## Build indices for a specific language and/or version
+
+You can optionally build indices for a given language and/or a version. This is much faster than building all the indices.
+
+You can build them as a dry run, which creates the index locally but does not upload them to Algolia. For example:
+```
+VERSION='free-pro-team@latest' LANGUAGE='en' npm run sync-search-dry-run
+```
+Or you can build and load them to Algolia to make them live:
+```
+VERSION='free-pro-team@latest' LANGUAGE='en' npm run sync-search
+```
+The `VERSION` env var must be a currently supported version in `<PLAN@RELEASE>` format. The `LANGUAGE` env var must be a currently supported two-letter language code. 
+
+### Label-triggered workflow
+
+For our daily shipping needs, the indices are synced to Algolia only after a PR is shipped to the default branch, which means the search data isn't available for up to an hour after the content goes live.
+
+But for GHES releases, we have additional needs. We want:
+
+1) The search results to be live immediately upon releasing the new content.
+2) The search results to be previewable on the staging app the GHES release megabranch.
+
+Manually running `npm run sync` locally before shipping the megabranch can address #1, but it's cumbersome and hard to get the timing right. And it does not address #2.
+
+Now, docs team members can use an Actions workflow on GHES megabranch PRs by applying a label in this format:
+```
+sync-english-index-for-<PLAN@RELEASE>
+```
+This label will run a workflow on every push to **build and upload ONLY** the English index for the specified version. This means:
+
+* The GHES content will be searchable at the same time the megabranch is shipped, with no delay.
+* The GHES content will be searchable on staging throughout content creation.
+* No manual steps (unless anyone wants to do a dry-run test as described in the previous section).
+
 ## Files
 
 - [.github/workflows/sync-algolia-search-indices.yml](.github/workflows/sync-algolia-search-indices.yml) - the GitHub Actions workflow file that updates search indices whenever the main branch is updated.
