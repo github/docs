@@ -87,17 +87,6 @@ Gerencie [projetos](/v3/projects/).
 {% if currentVersion == "free-pro-team@latest" %}
 
 
-### Métricas do perfil da comunidade
-
-Recupere [métricas do perfil da comunidade](/v3/repos/community/) (também conhecidas como saúde da comunidade) para qualquer repositório público.
-
-**Tipo de mídia personalizada:** `black-panther-preview` **Anunciado em:** [2017-02-09](https://developer.github.com/changes/2017-02-09-community-health/) 
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-
 ### Bloqueio de usuário
 
 Os usuários podem [bloquear outros usuários](/v3/users/blocking/). As organizações também podem [bloquear usuários](/v3/orgs/blocking/).
@@ -260,18 +249,6 @@ Agora você pode configurar se os integrantes da organização podem criar repos
 Agora você pode fornecer mais informações no GitHub para URLs vinculadas a domínios registrados usando a API de {% data variables.product.prodname_unfurls %}. Consulte "[Usar anexos de conteúdo](/apps/using-content-attachments/)" para obter mais informações.
 
 **Tipos de mídia personalizada:** `corsair-preview` **Anunciado:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-
-
-### Restrições de interação para repositórios e organizações
-
-Permite que você restrinja temporariamente interações, como comentários, problemas de abertura e criação de pull requests para repositórios ou organizações de {% data variables.product.product_name %}. Quando ativado, apenas o grupo especificado de usuários de {% data variables.product.product_name %} poderá participar dessas interações. Consulte as APIs de [Interações de Repositório](/v3/interactions/repos/) e [Interações da organização](/v3/interactions/orgs/) para obter mais informações.
-
-**Tipo de mídia personalizada:** `umba-preview` **Anunciado:** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
-
-{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 

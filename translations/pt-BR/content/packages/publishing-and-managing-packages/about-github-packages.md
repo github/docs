@@ -83,7 +83,7 @@ Para mais informações sobre o suporte do contêiner oferecido por
 #### Suporte para registros de pacotes
 
 {% if currentVersion == "free-pro-team@latest" %}
-Os registros do pacote usam `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` como a URL do host do pacote, substituindo `PACKAGE-TYPE` pelo espaço de nome do pacote. Por exemplo, o seu Gemfile será hospedado em `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+Os registros do pacote usam `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` como a URL do host do pacote, substituindo `PACKAGE-TYPE` pelo espaço de nome do pacote. Por exemplo, o seu Gemfile será hospedado em `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
 
 {% else %}
 
@@ -98,8 +98,8 @@ Se o {% data variables.product.product_location %} tiver o isolamento de subdom�
 | ---------- | --------------------------------------------------------------------- | ------------------------------------ | ----------------- | ----------------------------------------------------- |
 | JavaScript | Gerenciador de pacotes de nó                                          | `package.json`                       | `npm`             | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | Gerenciador de pacotes de RubyGems                                    | `Gemfile`                            | `gem`             | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Ferramenta de gerenciamento de projetos e compreensão do Apache Maven | `pom.xml`                            | `mvn`             | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Ferramenta de automação do build Gradle para Java                     | `build.gradle` ou `build.gradle.kts` | `gradle`          | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Ferramenta de gerenciamento de projetos e compreensão do Apache Maven | `pom.xml`                            | `mvn`             | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Ferramenta de automação do build Gradle para Java                     | `build.gradle` ou `build.gradle.kts` | `gradle`          | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | Gerenciamento de pacotes NuGet para .NET                              | `nupkg`                              | `dotnet` CLI      | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
@@ -161,15 +161,15 @@ Para obter mais informações, consulte "[Criar um token de acesso pessoal](/git
 To install or publish a package, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
 Por exemplo:
--  Para fazer o download e instalar pacotes a partir de um repositório, seu token deve ter o escopo `read:packages`, e sua conta de usuário deve ter permissões de leitura para o repositório. Se o repositório for privado, seu token também deve ter o escopo `repo`.
+-  Para fazer o download e instalar pacotes a partir de um repositório, seu token deve ter o escopo `read:packages`, e sua conta de usuário deve ter permissões de leitura para o repositório.
 - Para excluir uma versão especificada de um pacote privado no {% data variables.product.product_name %}, seu token deve ter o escopo `delete:packages` e `repo`. Não é possível excluir pacotes públicos. Para obter mais informações, consulte "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package)".
 
-| Escopo            | Descrição                                                                                                                                    | Permissões do repositório          |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| `read:packages`   | Faça o download e instale pacotes do {% data variables.product.prodname_registry %}                                                          | leitura                            |
-| `write:packages`  | Faça o upload e publique os pacotes em {% data variables.product.prodname_registry %}                                                        | gravação                           |
-| `delete:packages` | Excluir versões especificadas de pacotes privados de {% data variables.product.prodname_registry %}                                          | administrador                      |
-| `repo`            | Instalar, fazer upload e excluir certos pacotes em repositórios privados (junto com `read:packages`, `write:packages`, ou `delete:packages`) | leitura, gravação ou administrador |
+| Escopo            | Descrição                                                                                           | Permissões do repositório |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------- |
+| `read:packages`   | Faça o download e instale pacotes do {% data variables.product.prodname_registry %}                 | leitura                   |
+| `write:packages`  | Faça o upload e publique os pacotes em {% data variables.product.prodname_registry %}               | gravação                  |
+| `delete:packages` | Excluir versões especificadas de pacotes privados de {% data variables.product.prodname_registry %} | administrador             |
+| `repo`            | Upload and delete packages (along with `write:packages`, or `delete:packages`)                      | write, or admin           |
 
 Ao criar um fluxo de trabalho de {% data variables.product.prodname_actions %}, você pode usar o `GITHUB_TOKEN` para publicar e instalar pacotes no {% data variables.product.prodname_registry %} sem precisar armazenar e gerenciar um token de acesso pessoal.
 

@@ -4,7 +4,7 @@ redirect_from:
   - /enterprise/admin/articles/preventing-users-from-creating-organizations/
   - /enterprise/admin/hidden/preventing-users-from-creating-organizations/
   - /enterprise/admin/user-management/preventing-users-from-creating-organizations
-intro: 'You can prevent users from creating organizations in your enterprise.'
+intro: '您可以防止用户在您的企业中创建组织。'
 versions:
   enterprise-server: '*'
   github-ae: '*'

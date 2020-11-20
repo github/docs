@@ -6,6 +6,7 @@ redirect_from:
   - /articles/enforcing-team-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-team-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

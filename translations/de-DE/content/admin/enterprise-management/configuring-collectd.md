@@ -11,7 +11,7 @@ versions:
 
 ### Externen `collectd`-Server einrichten
 
-Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie dies erledigen, bevor Sie die `collectd`-Weiterleitung auf {% data variables.product.product_location %} aktivieren. Ihr `collectd`-Server muss `collectd` Version 5.x oder höher ausführen.
+Falls Sie noch keinen externen `collectd`-Server eingerichtet haben, müssen Sie dies erledigen, bevor Sie die `collectd`-Weiterleitung auf {% data variables.product.product_location %} aktivieren. Your `collectd` server must be running `collectd` version 5.x or higher.
 
 1. Melden Sie sich bei Ihrem `collectd`-Server an.
 2. Erstellen Sie die `collectd`-Konfigurationsdatei, oder bearbeiten Sie sie so, dass das Netzwerk-Plug-in geladen und in die Server- und Portdirektiven die entsprechenden Werte eingetragen werden. Auf den meisten Distributionen befindet sie sich unter `/etc/collectd/collectd.conf`.
