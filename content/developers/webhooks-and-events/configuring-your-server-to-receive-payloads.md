@@ -32,7 +32,7 @@ When you're done with that, you can expose your localhost by running `./ngrok ht
 on the command line. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 Copy that funky `*.ngrok.io` URL! We're now going to go *back* to the Payload
