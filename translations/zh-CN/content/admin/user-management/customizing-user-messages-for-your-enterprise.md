@@ -1,10 +1,10 @@
 ---
-title: Customizing user messages for your enterprise
+title: 自定义企业的用户消息
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
-intro: 'You can create custom messages that users will see on the{% if enterpriseServerVersions contains currentVersion %} sign in and sign out pages{% else %} sign out page{% endif %}{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} or in an announcement banner at the top of every page{% endif %}.'
+intro: '您可以创建用户将在{% if enterpriseServerVersions contains currentVersion %} 登录和注销页面{% else %} 注销页面{% endif %}{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} 或每个页面顶部的公告横幅中{% endif %} 看到的自定义消息。'
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -51,7 +51,7 @@ versions:
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-You can also set an announcement banner{% if enterpriseServerVersions contains currentVersion %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+您也可以{% if enterpriseServerVersions contains currentVersion %} 使用命令行实用工具或{% endif %} 使用 API 在管理 shell 中设置公告横幅。 更多信息请参阅 {% if enterpriseServerVersions contains currentVersion %}“[命令行实用工具](/enterprise/admin/configuration/command-line-utilities#ghe-announce)”和 {% endif %}“[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)”。
 
 {% else %}
 

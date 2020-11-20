@@ -77,7 +77,7 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 
 {% note %}
 
-**Note:** Package names and scopes must only use lowercase letters.
+**注：**包名称和作用域只能使用小写字母。
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 
 通过在 *package.json* 文件中包含 `URL` 字段，您可以将多个包发布到同一个 {% data variables.product.prodname_dotcom %} 仓库。 更多信息请参阅“[将多个包发布到同一个仓库](#publishing-multiple-packages-to-the-same-repository)”。
 
-您可以使用项目中的本地 *.npmrc* 文件或使用 *package.json* 中的 `publishConfig` 选项来设置项目的作用域映射。 {% data variables.product.prodname_registry %} 只支持作用域内的 npm 包。 作用域内的包具有名称格式 `@owner/name`。 作用域内的包总是以 `@` 符号开头。 You may need to update the name in your *package.json* to use the scoped name. 例如，`"name": "@codertocat/hello-world-npm"`。
+您可以使用项目中的本地 *.npmrc* 文件或使用 *package.json* 中的 `publishConfig` 选项来设置项目的作用域映射。 {% data variables.product.prodname_registry %} 只支持作用域内的 npm 包。 作用域内的包具有名称格式 `@owner/name`。 作用域内的包总是以 `@` 符号开头。 您可能需要更新 *package.json* 中的名称以使用作用域内的名称。 例如，`"name": "@codertocat/hello-world-npm"`。
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -143,7 +143,7 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 
 ### 安装包
 
-通过在项目的 *package.json* 文件中将包添加为依赖项，您可以从 {% data variables.product.prodname_registry %} 安装包。 For more information on using a *package.json* in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
+通过在项目的 *package.json* 文件中将包添加为依赖项，您可以从 {% data variables.product.prodname_registry %} 安装包。 有关在项目中使用 *package.json* 的更多信息，请参阅 npm 文档中的“[使用 package.json](https://docs.npmjs.com/getting-started/using-a-package.json)”。
 
 默认情况下，您可以从一个组织添加包。 更多信息请参阅“[从其他组织安装包](#installing-packages-from-other-organizations)”。
 
