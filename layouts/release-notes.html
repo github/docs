@@ -1,0 +1,93 @@
+{% assign product = siteTree[currentLanguage][currentVersion].products[currentProduct] %}
+
+<!doctype html>
+<html lang="{{currentLanguage}}">
+  {% include head %}
+
+  <body class="d-lg-flex">
+    {% include sidebar %}
+
+    <main class="width-full">
+      {% include header %}
+      {% include deprecation-banner %}
+
+      <div class="container-xl px-3 px-md-6 my-4 my-lg-4 markdown-body">
+        <div class="d-lg-flex flex-justify-between">
+          <div class="d-block d-lg-none">{% include article-version-switcher %}</div>
+          <div class="d-flex flex-items-center" style="height: 39px;">
+            {% include breadcrumbs %}
+          </div>
+          <div class="d-none d-lg-block">{% include article-version-switcher %}</div>
+        </div>
+
+        <article class="mt-2 d-flex gutter">
+          <div class="col-12 col-md-10">
+            <header>
+              <h1>{{ allVersions[currentVersion].versionTitle }}</h1>
+            </header>
+
+            {% for patch in releaseNotes %}
+              <details id="{{ patch.version }}" class="details-reset mb-3" {% if forloop.first %}open{% endif %}>
+                <summary class="position-sticky top-0 bg-white pb-2 d-flex flex-items-center flex-justify-between border-bottom">
+                  <h2 class="d-flex flex-items-center border-bottom-0">
+                    {{ patch.version }}
+
+                    {% if patch.release_candidate %}
+                      <span class="IssueLabel bg-orange text-white mx-2">Release Candidate</span>
+                    {% endif %}
+                  </h2>
+
+                  <div>
+                    <span class="text-gray-light text-mono text-small" style="margin-left: auto">{{ patch.date | date: "%B %d, %Y" }}</span>
+
+                    <div class="mt-1 d-flex flex-items-center f5">
+                      <a href="https://enterprise.github.com/releases/{{ patch.version }}/download">
+                        Download GHES {{ patch.version }}
+                      </a>
+
+                      <button class="js-print btn-link ml-6">
+                        Print
+                      </button>
+                    </div>
+                  </div>
+                </summary>
+
+                <p>{{ patch.intro }}</p>
+
+                {% for section in patch.sortedNotes %}
+                  <div class="py-6 border-bottom d-block d-md-flex flex-items-baseline">
+                    <div class="mr-2 flex-shrink-0 mb-3">
+                      {% include 'release-notes-category-label' %}
+                    </div>
+
+                    <ul class="flex-auto container-xl">
+                      {% for note in section.notes %}
+                        {% if note.note and note.note != '<p>n/a</p>' %}
+                          <li>
+                            {{ note.note }}
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endfor %}
+              </details>
+            {% endfor %}
+          </div>
+
+          <aside class="col-2 d-none d-md-block no-print">
+            <h3 class="f5">Patch versions</h3>
+            <ul>
+              {% for patch in releaseNotes %}
+                <li><a href="#{{ patch.version }}">{{ patch.version }}</a></li>
+              {% endfor %}
+            </ul>
+          </aside>
+        </article>
+      </div>
+
+      {% include support %}
+      {% include small-footer %}
+    </main>
+  </body>
+</html>

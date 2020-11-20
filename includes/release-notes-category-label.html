@@ -1,0 +1,12 @@
+{% assign sectionTitle = section.title | default: 'Misc' %}
+
+{% case sectionTitle %}
+  {% when "New Feature" %}
+    {% assign colors = "bg-orange text-white" %}
+  {% when "Bugs" %}
+    {% assign colors = "bg-purple text-white" %}
+  {% else %}
+    {% assign colors = "bg-blue text-white" %}
+{% endcase %}
+
+<span class="{{ colors }} px-3 py-2 f5 text-uppercase text-mono">{{ sectionTitle }}</span>
