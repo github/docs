@@ -115,11 +115,13 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.{% if currentVersion == "free-pro-team@latest" %} To enable this beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
+**Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
+{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
