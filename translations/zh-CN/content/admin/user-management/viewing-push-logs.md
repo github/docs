@@ -1,6 +1,6 @@
 ---
 title: 查看推送日志
-intro: 'Site administrators can view a list of Git push operations for any repository on the enterprise.'
+intro: '站点管理员可以查看企业上任何仓库的 Git 推送操作列表。'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
