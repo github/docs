@@ -32,7 +32,7 @@ jobs:
         run: npm ci
       - name: Get version from label
         id: getVersion
-      - run: |
+        run: |
           echo "::set-output name=version::$(github.event.label.name.split('sync-english-index-for-')[1])"
       - name: Sync English index for single version
         env:
