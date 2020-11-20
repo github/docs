@@ -66,9 +66,9 @@ You can only use a {% data variables.product.product_name %} username, not an in
 
 The `org` qualifier limits actions to a specific organization. For example:
 
-* `org:my-org` finds all events that occured for the `my-org` organization.
+* `org:my-org` finds all events that occurred for the `my-org` organization.
 * `org:my-org action:team` finds all team events performed within the `my-org` organization.
-* `-org:my-org` excludes all events that occured for the `my-org` organization.
+* `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
 #### Search based on the action performed
 

@@ -21,9 +21,9 @@ versions:
 
 您可以使用项目类型的预建容器配置创建默认代码空间配置，也可以根据项目需要创建自定义配置。
 
-{% data variables.product.prodname_codespaces %}  uses settings contained in a configuration file named `devcontainer.json`. {% data reusables.codespaces.devcontainer-location %}
+{% data variables.product.prodname_codespaces %} 使用配置文件 `devcontainer.json` 中包含的设置。 {% data reusables.codespaces.devcontainer-location %}
 
-You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the {% data variables.product.prodname_vscode %} editor, but you can also set editor-specific settings in a file named `.vscode/settings.json`.
+您可以使用 `devcontainer.json` 为整个代码空间环境设置默认设置，包括 {% data variables.product.prodname_vscode %} 编辑器，但您也可以在 `.vscode/set.json` 文件中设置编辑器特定的设置。
 
 对仓库代码空间配置的更改只会应用到每个新的代码空间，而不影响任何现有的代码空间。
 
@@ -40,7 +40,7 @@ You can use your `devcontainer.json` to set default settings for the entire code
 
 ### 创建自定义代码空间配置
 
-If none of the pre-built configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
+如果任何预构建的配置都不能满足您的需要，您可以通过添加 `devcontainer.json` 文件来创建自定义配置。 {% data reusables.codespaces.devcontainer-location %}
 
 在该文件中，您可以使用支持的配置键来指定代码库环境的各个方面，例如要安装哪些 {% data variables.product.prodname_vscode %} 扩展。
 
@@ -61,7 +61,6 @@ If none of the pre-built configurations meet your needs, you can create a custom
 - `settings`
 - `extensions`
 - `forwardPorts`
-- `devPort`
 - `postCreateCommand`
 
 #### Docker、Dockerfile 或映像设置
@@ -73,13 +72,9 @@ If none of the pre-built configurations meet your needs, you can create a custom
 - `remoteEnv`
 - `containerUser`
 - `remoteUser`
-- `updateRemoteUserUID`
 - `mounts`
-- `workspaceMount`
-- `workspaceFolder`
 - `runArgs`
 - `overrideCommand`
-- `shutdownAction`
 - `dockerComposeFile`
 
 有关可用于 `devcontainer.json` 的设置的更多信息，请参阅 {% data variables.product.prodname_vscode %} 文档中的 [devcontainer.json 参考](https://aka.ms/vscode-remote/devcontainer.json)。

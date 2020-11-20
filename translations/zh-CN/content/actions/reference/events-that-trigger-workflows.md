@@ -98,9 +98,17 @@ versions:
 
  要使用 REST API 触发自定义 `workflow_dispatch` web 挂钩事件，您必须发送 `POST` 请求到 {% data variables.product.prodname_dotcom %} API 端点，并提供 `ref` 和任何必要的 `inputs`。 更多信息请参阅“[创建工作流程调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”REST API 端点。
 
+##### 示例
+
+要使用 `Workflow_paid` 事件，您需要将其作为触发器包含在您的 GitHub Actions 工作流程文件中。 下面的示例仅在手动触发时运行工作流程：
+
+```yaml
+on: workflow_dispatch
+```
+
 ##### 示例工作流程配置
 
-此示例定义了 `name` 和 `home` 输入，并使用 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文打印。 如果未提供 `name` ，则打印默认值“Mona the Octocat”。
+此示例定义了 `name` 和 `home` 输入，并使用 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文打印。 如果未提供 `home` ，则打印默认值“The Octoverse”。
 
 {% raw %}
 ```yaml
@@ -115,6 +123,7 @@ on:
       home:
         description: 'location'
         required: false
+        default: 'The Octoverse'
 
 jobs:
   say_hello:
@@ -313,6 +322,35 @@ on:
   issue_comment:
     types: [created, deleted]
 ```
+
+`issue_comment` 事件在评论问题和拉取请求时发生。 要确定 `issue_comment` 事件是否从议题或拉取请求触发，可以检查 `issue.pull_request` 属性的事件有效负载，并使用它作为跳过作业的条件。
+
+例如，您可以选择在拉取请求中发生评论事件时运行 `pr_commented` 作业，在议题中发生评论事件时运行 `issue_commented` 作业。
+
+{% raw %}
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+
+  issue-commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
+```
+{% endraw %}
 
 #### `issues`
 
@@ -654,6 +692,10 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+| Web 挂钩事件有效负载                                             | 活动类型  | `GITHUB_SHA` | `GITHUB_REF` |
+| -------------------------------------------------------- | ----- | ------------ | ------------ |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a | 默认分支上的最新提交   | 默认分支         |
 
 如果需要从此事件中筛选分支，可以使用 `branches` 或 `branches-ignore`。
 

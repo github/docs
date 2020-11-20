@@ -171,12 +171,12 @@ Jobs that are dependent on a previous job's artifacts must wait for the dependen
 
 Job 1 performs these steps:
 - Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the name `homework`. The action places the file in a directory named `homework`.
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
 
 Job 2 uses the result in the previous job:
 - Downloads the `homework` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
-- Reads the value in the `homework/math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt`.
-- Uploads the `math-homework.txt` file. This upload overwrites the previous upload because both of the uploads share the same name.
+- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+- Uploads the `math-homework.txt` file. This upload overwrites the previously uploaded artifact because they share the same name.
 
 Job 3 displays the result uploaded in the previous job:
 - Downloads the `homework` artifact.

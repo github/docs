@@ -26,6 +26,8 @@ You can integrate {% data variables.product.prodname_registry %} with {% data va
 
 {% data reusables.package_registry.container-registry-beta %}
 
+![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+
 {% endif %}
 
 #### Viewing packages
@@ -166,7 +168,7 @@ For more information, see "[Creating a personal access token](/github/authentica
 To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
 For example:
--  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository. If the repository is private, your token must also have the `repo` scope.
+-  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository.
 - To delete a specified version of a private package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted. For more information, see "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package)."
 
 | Scope | Description | Repository permissions |
@@ -174,7 +176,7 @@ For example:
 |`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
 |`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
 | `delete:packages` | Delete specified versions of private packages from {% data variables.product.prodname_registry %} | admin |
-| `repo` | Install, upload, and delete certain packages in private repositories (along with `read:packages`, `write:packages`, or `delete:packages`) | read, write, or admin |
+| `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
 

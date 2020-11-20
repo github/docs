@@ -1419,7 +1419,7 @@
           "Mutation.createContentAttachment"
         ],
         "owning_teams": [
-          "@github/ce-extensibility"
+          "@github/feature-lifecycle"
         ],
         "accept_header": "application/vnd.github.corsair-preview+json",
         "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
@@ -5997,6 +5997,22 @@
       ],
       "fields": [
         {
+          "name": "allowsDeletions",
+          "description": "<p>Can this branch be deleted.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "allowsForcePushes",
+          "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleConflicts",
           "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
           "type": "BranchProtectionRuleConflictConnection!",
@@ -6239,6 +6255,14 @@
         {
           "name": "requiresCommitSignatures",
           "description": "<p>Are commits required to be signed.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiresLinearHistory",
+          "description": "<p>Are merge commits prohibited from being pushed to this branch.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -17783,6 +17807,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
+              "type": {
+                "name": "IssueCommentOrder",
+                "id": "issuecommentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuecommentorder"
               }
             }
           ]
@@ -30488,6 +30522,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
+              "type": {
+                "name": "IssueCommentOrder",
+                "id": "issuecommentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuecommentorder"
+              }
             }
           ]
         },
@@ -41603,7 +41647,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission the user has on the repository.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission the user has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -41774,7 +41818,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission granted on this repository by this invitation.</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission granted on this repository by this invitation.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -43846,7 +43890,7 @@
         },
         {
           "name": "sponsorEntity",
-          "description": "<p>The user or organization that is sponsoring. Returns null if the sponsorship is private.</p>",
+          "description": "<p>The user or organization that is sponsoring, if you have permission to view them.</p>",
           "type": "Sponsor",
           "id": "sponsor",
           "kind": "unions",
@@ -47929,7 +47973,7 @@
         },
         {
           "name": "permission",
-          "description": "<p>The permission level the team has on the repository</p>\n<p><strong>Upcoming Change on 2020-10-01 UTC</strong>\n<strong>Description:</strong> Type for <code>permission</code> will change from <code>RepositoryPermission!</code> to <code>String</code>.\n<strong>Reason:</strong> This field may return additional values.</p>",
+          "description": "<p>The permission level the team has on the repository.</p>",
           "type": "RepositoryPermission!",
           "id": "repositorypermission",
           "kind": "enums",
@@ -49281,6 +49325,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
+              "type": {
+                "name": "IssueCommentOrder",
+                "id": "issuecommentorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuecommentorder"
               }
             }
           ]
@@ -53456,6 +53510,10 @@
           "description": "<p>The check suite or run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
         },
         {
+          "name": "STARTUP_FAILURE",
+          "description": "<p>The check suite or run has failed at startup.</p>"
+        },
+        {
           "name": "SUCCESS",
           "description": "<p>The check suite or run has succeeded.</p>"
         },
@@ -53703,6 +53761,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The deployment has queued.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The deployment is waiting.</p>"
         }
       ]
     },
@@ -54210,6 +54272,19 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order IP allow list entries by creation time.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueCommentOrderField",
+      "kind": "enums",
+      "id": "issuecommentorderfield",
+      "href": "/graphql/reference/enums#issuecommentorderfield",
+      "description": "<p>Properties by which issue comment connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "UPDATED_AT",
+          "description": "<p>Order issue comments by update time.</p>"
         }
       ]
     },
@@ -61024,6 +61099,31 @@
       ]
     },
     {
+      "name": "IssueCommentOrder",
+      "kind": "inputObjects",
+      "id": "issuecommentorder",
+      "href": "/graphql/reference/input-objects#issuecommentorder",
+      "description": "<p>Ways in which lists of issue comments can be ordered upon return.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order issue comments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field in which to order issue comments by.</p>",
+          "type": "IssueCommentOrderField!",
+          "id": "issuecommentorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuecommentorderfield"
+        }
+      ]
+    },
+    {
       "name": "IssueFilters",
       "kind": "inputObjects",
       "id": "issuefilters",
@@ -61223,7 +61323,7 @@
         },
         {
           "name": "lockReason",
-          "description": "<p>A reason for why the issue or pull request will be locked.</p>",
+          "description": "<p>A reason for why the item will be locked.</p>",
           "type": "LockReason",
           "id": "lockreason",
           "kind": "enums",
@@ -61231,7 +61331,7 @@
         },
         {
           "name": "lockableId",
-          "description": "<p>ID of the issue or pull request to be locked.</p>",
+          "description": "<p>ID of the item to be locked.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -62641,7 +62741,7 @@
         },
         {
           "name": "lockableId",
-          "description": "<p>ID of the issue or pull request to be unlocked.</p>",
+          "description": "<p>ID of the item to be unlocked.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",

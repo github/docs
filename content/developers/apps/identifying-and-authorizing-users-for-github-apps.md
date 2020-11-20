@@ -123,11 +123,13 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.{% if currentVersion == "free-pro-team@latest" %} To enable this beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
+**Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
+{% endif %}
 
 The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
 
@@ -662,7 +664,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Create commit signature protection](/v3/repos/branches/#create-commit-signature-protection)
 * [Delete commit signature protection](/v3/repos/branches/#delete-commit-signature-protection)
 * [Get status checks protection](/v3/repos/branches/#get-status-checks-protection)
-* [Update status check potection](/v3/repos/branches/#update-status-check-potection)
+* [Update status check protection](/v3/repos/branches/#update-status-check-protection)
 * [Remove status check protection](/v3/repos/branches/#remove-status-check-protection)
 * [Get all status check contexts](/v3/repos/branches/#get-all-status-check-contexts)
 * [Add status check contexts](/v3/repos/branches/#add-status-check-contexts)

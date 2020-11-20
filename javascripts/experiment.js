@@ -40,5 +40,29 @@ export default function () {
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)
   // if (xbucket === TREATMENT) { ... }
-  // x.addEventListener('click', evt => evt.preventDefault(); await sendSuccess(testName); evt())
+  // x.addEventListener('click', () => { sendSuccess(testName) })
+
+  const testName = 'helpfulness-prompt-to-bottom'
+  const xbucket = bucket(testName)
+
+  if (xbucket === TREATMENT) {
+    const bigHelpfulness = document.querySelector('#helpfulness-xl')
+    const smallHelpfulness = document.querySelector('#helpfulness-sm')
+
+    // Check that helpfulness prompt is present on this page
+    if (!(bigHelpfulness && smallHelpfulness)) {
+      return
+    }
+
+    // Remove the -xl prompts
+    bigHelpfulness.parentElement.parentElement.removeChild(bigHelpfulness.parentElement)
+
+    // Always show the -sm prompt
+    smallHelpfulness.parentElement.classList.remove('d-xl-none')
+  }
+
+  const votes = Array.from(document.querySelectorAll('.js-helpfulness [type=radio]'))
+  votes.forEach(voteEl => {
+    voteEl.addEventListener('change', () => { sendSuccess(testName) })
+  })
 }

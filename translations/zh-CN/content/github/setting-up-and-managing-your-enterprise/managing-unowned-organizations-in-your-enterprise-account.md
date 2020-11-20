@@ -3,6 +3,8 @@ title: 管理企业帐户中没有所有者的组织
 intro: 您可以成为企业帐户中目前没有所有者的组织的所有者。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: 企业所有者可管理企业帐户中没有所有者的组织。
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
