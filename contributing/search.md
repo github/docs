@@ -47,7 +47,7 @@ For our daily shipping needs, the indices are synced to Algolia only after a PR 
 But for GHES releases, we have additional needs. We want:
 
 1) The search results to be live immediately upon releasing the new content.
-2) The search results to be previewable on the staging app the GHES release megabranch.
+2) The search results to be viewable on the staging app for the GHES release megabranch.
 
 Manually running `npm run sync` locally before shipping the megabranch can address #1, but it's cumbersome and hard to get the timing right. And it does not address #2.
 
