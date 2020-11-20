@@ -100,7 +100,7 @@ versions:
 
 ##### 示例
 
-To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
+要使用 `Workflow_paid` 事件，您需要将其作为触发器包含在您的 GitHub Actions 工作流程文件中。 下面的示例仅在手动触发时运行工作流程：
 
 ```yaml
 on: workflow_dispatch
@@ -327,6 +327,7 @@ on:
 
 例如，您可以选择在拉取请求中发生评论事件时运行 `pr_commented` 作业，在议题中发生评论事件时运行 `issue_commented` 作业。
 
+{% raw %}
 ```yaml
 on: issue_comment
 
@@ -349,6 +350,7 @@ jobs:
       - run: |
           echo "Comment on issue #${{ github.event.issue.number }}"
 ```
+{% endraw %}
 
 #### `issues`
 

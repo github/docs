@@ -12,7 +12,7 @@ versions:
 
 {% data variables.product.prodname_dependabot %} 配置文件 *dependabot.yml* 使用 YAML 语法。 如果您是 YAML 的新用户并想要了解更多信息，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
-必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”和“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
+必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”和“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
 
 ### *dependabot.yml* 的配置选项
 
