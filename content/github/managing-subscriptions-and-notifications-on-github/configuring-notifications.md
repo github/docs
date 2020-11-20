@@ -58,8 +58,20 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ### About participating and watching notifications
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. To see repositories that you're watching, see [https://github.com/watching](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/building-a-strong-community/about-team-discussions)."
 
+To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+#### Configuring notifications
+{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+
+#### About custom notifications
+{% data reusables.notifications-v2.custom-notifications-beta %}
+You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
+{% endif %} For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)."
+
+#### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
 For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}.
