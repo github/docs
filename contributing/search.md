@@ -2,11 +2,11 @@
 
 ## Table of contents
 - [Overview](#overview)
-- [How it works](#how-it-works)
+- [Production deploys](#production-deploys)
 - [Manual sync from a checkout](#manual-sync-from-a-checkout)
   - [Build without sync (dry run)](#build-without-sync-dry-run)
   - [Build and sync](#build-and-sync)
-- [Label-triggered workflow](#label-triggered-workflow)
+- [Label-triggered Actions workflow](#label-triggered-actions-workflow)
 - [Files](#files)
   - [GitHub Actions workflow files](#github-actions-workflow-files)
   - [Code files](#code-files)
@@ -24,11 +24,13 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 ---
 
-## How it works
+## Production deploys
 
-The search data is synced automatically using a [GitHub Actions workflow](.github/workflows/sync-algolia-search-indices.yml) that is triggered by pushes to the `main` branch. This process generates structured data for all pages on the site, compares that data to what's currently on Algolia, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
+A [GitHub Actions workflow](.github/workflows/sync-algolia-search-indices.yml) triggered by pushes to the `main` branch syncs the search data to Algolia. This process generates structured data for all pages on the site, compares that data to what's currently on Algolia, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
 
 The Actions workflow progress can be viewed (by GitHub employees) in the [Actions tab](https://github.com/github/docs/actions?query=workflow%3AAlgolia) of the repo.
+
+Because the workflow runs after a branch is merged to `main`, there is a slight delay for search data updates to appear on the site.
 
 ## Manual sync from a checkout
 
@@ -64,7 +66,7 @@ You can set `VERSION` and `LANGUAGE` individually, too.
 
 Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`.
 
-## Label-triggered workflow
+## Label-triggered Actions workflow
 
 Docs team members can use an Actions workflow on GHES release PRs by applying a label in this format:
 ```
@@ -80,11 +82,11 @@ Why do we need this? For our daily shipping needs, it's tolerable that search up
 
 ## Files
 
-### GitHub Actions workflow files
+### Actions workflow files
 
 - [`.github/workflows/sync-algolia-search-indices.yml`](.github/workflows/sync-algolia-search-indices.yml) - Builds and syncs search indices whenever the `main` branch is pushed to (that is, on production deploys).
 - [`.github/workflows/dry-run-sync-algolia-search-indices.yml`](.github/workflows/dry-run-sync-algolia-search-indices.yml) - This workflow can be run manually (via `workflow_dispatch`) to do a dry run build of all the indices. Useful for confirming that the indices can build without erroring out.
-- [`.github/workflows/sync-single-english-algolia-index.yml`](.github/workflows/sync-single-english-algolia-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered workflow](#label-triggered-workflow)" for details.
+- [`.github/workflows/sync-single-english-algolia-index.yml`](.github/workflows/sync-single-english-algolia-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered Actions workflow](#label-triggered-actions-workflow)" for details.
 
 ### Code files
 
