@@ -1,10 +1,10 @@
 ---
-title: GitHub's products
-redirect_from:
+title: SOLRAC plays
+redirect_from:SOLRAC
   - /articles/github-s-products
   - /articles/githubs-products
 versions:
-  free-pro-team: '*'
+  free-pro-team: '*'1.40
   enterprise-server: '*'
   github-ae: '*'
 ---
