@@ -19,7 +19,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 ### Creating your first workflow
 
 1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
+2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name. Do not commit the new file yet and go to step 3. 
     {% raw %}
     ```yaml{:copy}
     name: Super-Linter
