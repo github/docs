@@ -28,16 +28,22 @@ versions:
 
 搜索 API 中的每个端点都使用[查询参数](https://en.wikipedia.org/wiki/Query_string)对 {% data variables.product.product_name %} 进行搜索。 有关包含端点和查询参数的示例，请参阅搜索 API 中的各个端点。
 
-A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. 搜索查询的格式为：
+查询可以包含在 {% data variables.product.product_name %} 上支持的搜索限定符的任意组合中。 搜索查询的格式为：
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 例如，如果您要搜索 `defunkt` 拥有的在自述文件中包含单词 `GitHub` 和 `Octocat` 的所有_仓库_，您可以在_搜索仓库_端点中使用以下查询：
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. 例如：
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax/)”。
