@@ -8,6 +8,7 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+Joanh dillon902@gmail.com
 
 
 ### About pull request merges
