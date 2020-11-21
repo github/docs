@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.migrating-from-codeplex %}
@@ -29,7 +30,7 @@ versions:
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
@@ -67,7 +68,7 @@ versions:
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
@@ -105,7 +106,7 @@ versions:
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell

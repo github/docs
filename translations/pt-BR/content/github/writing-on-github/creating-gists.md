@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre gists
@@ -17,9 +18,9 @@ Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e c
 
 Os gists podem ser públicos ou secretos. Os gists públicos são mostrados no {% data variables.gists.discover_url %}, onde as pessoas podem navegar por novos gists à medida que eles são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Os gists de segredos não aparecem em {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} e não são pesquisáveis. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 Se o administrador do site tiver desabilitado o modo privado, você também poderá usar gists anônimos, que podem ser públicos ou secretos.
 
@@ -50,7 +51,7 @@ O gist permite mapeamento de arquivos geoJSON. Esses mapas são exibidos em gist
 
 Você também pode arrastar e soltar um arquivo de texto da sua área de trabalho diretamente no editor do gist.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 Você também pode criar um gist usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh gist cria`](https://cli.github.com/manual/gh_gist_create)" na documentação do {% data variables.product.prodname_cli %}.

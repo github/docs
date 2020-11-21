@@ -4,6 +4,7 @@ intro: 'The Check Runs API enables you to build GitHub Apps that run powerful ch
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Übersicht
@@ -36,7 +37,7 @@ A check run is an individual test that is part of a check suite. Each run includ
 
 ![Check runs workflow](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 If a check run is in a incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on
 {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Only {% data variables.product.prodname_dotcom %} can mark check runs as `stale`. For more information about possible conclusions of a check run, see the [`conclusion` parameter](/rest/reference/checks#create-a-check-run--parameters).
 {% endif %}

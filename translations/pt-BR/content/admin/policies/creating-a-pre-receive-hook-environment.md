@@ -72,8 +72,7 @@ Para obter mais informações sobre como criar um ambiente chroot, consulte "[Ch
 
 ### Fazer upload de um ambiente de hook pre-receive no {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Clique em **Manage environments** (Gerenciar ambientes). ![Gerenciar ambientes](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)

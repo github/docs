@@ -144,7 +144,7 @@ Para obter mais informações sobre a nossa transparência em resposta a solicit
 Podemos compartilhar Informações Pessoais do Usuário se estivermos envolvidos em uma fusão, venda ou aquisição de entidades corporativas ou unidades de negócios. Diante de qualquer mudança de propriedade, garantiremos que a mudança ocorra de maneira a preservar a confidencialidade das Informações Pessoais de Usuário. Ademais, antes de qualquer transferência das suas Informações Pessoais de Usuário, enviaremos uma notificação a você pelo nosso Site ou por e-mail. A organização que receber nossas Informações Pessoais de Usuário terá que honrar toda e qualquer promessa que tenhamos feito em nossa Declaração de Privacidade ou em nossos Termos de Serviço.
 
 #### Informações de identificação não pessoal agregadas
-Nós compartilhamos com terceiros determinadas informações não pessoais agregadas sobre como nossos usuários, coletivamente, usam o GitHub, ou como nossos usuários reagem às nossas outras ofertas, tais como conferências ou eventos. Por exemplo, podemos [compilar estatísticas sobre a atividade de licenças de código aberto no GitHub](https://octoverse.github.com/).
+Nós compartilhamos com terceiros determinadas informações não pessoais agregadas sobre como nossos usuários, coletivamente, usam o GitHub, ou como nossos usuários reagem às nossas outras ofertas, tais como conferências ou eventos.
 
 Nós **não** vendemos suas Informações Pessoais de Usuário para obtenção de lucro ou considerações afins.
 

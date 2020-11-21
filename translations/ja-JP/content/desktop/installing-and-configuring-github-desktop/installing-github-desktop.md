@@ -1,16 +1,16 @@
 ---
 title: GitHub Desktopのインストール方法
 shortTitle: インストール
-intro: You can install GitHub Desktop on supported Windows or macOS operating systems.
+intro: サポートされている Windows または macOS オペレーティングシステムに GitHub デスクトップをインストールできます。
 redirect_from:
   - /desktop/getting-started-with-github-desktop/installing-github-desktop
 versions:
   free-pro-team: '*'
 ---
 
-### About {% data variables.product.prodname_desktop %} installation
+### {% data variables.product.prodname_desktop %} のインストールについて
 
-You can install {% data variables.product.prodname_desktop %} on supported operating systems. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}. For more information about creating an account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)" or contact your {% data variables.product.prodname_enterprise %} site administrator.
+サポートされているオペレーティングシステムに {% data variables.product.prodname_desktop %} をインストールできます。 {% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} にアカウントをお持ちの場合は、アカウントを {% data variables.product.prodname_desktop %} に接続できます。 アカウントの作成の詳細については、「[新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account/)」を参照するか、{% data variables.product.prodname_enterprise %} のサイト管理者にお問い合わせください。
 
 {% windows %}
 

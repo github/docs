@@ -1,41 +1,44 @@
 ---
-title: Backing up a repository
-intro: 'You can use{% if currentVersion != "free-pro-team@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+title: リポジトリのバックアップ
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
 {% if currentVersion == "free-pro-team@latest" %}
 
-To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/v3/migrations/)."
+リポジトリのアーカイブをダウンロードするには、ユーザあるいは Organization のマイグレーション用の API が利用できます。 詳しい情報については、「[移行](/v3/migrations/)」を参照してください。
 {% else %}
 
-You can download and back up your repositories manually:
+リポジトリのダウンロードおよびバックアップを手動で実行できます。
 
-- To download a repository's Git data to your local machine, you'll need to clone the repository. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
-- You can also download your repository's wiki. For more information, see "[Adding or editing wiki pages](/articles/adding-or-editing-wiki-pages)."
+- リポジトリの Git データをローカルマシンにダウンロードするには、リポジトリをクローンする必要があります。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
+- また、リポジトリの wiki をダウンロードすることもできます。 詳細は「[ウィキページを追加または編集する](/articles/adding-or-editing-wiki-pages)」を参照してください。
 
-When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your {% data variables.product.product_name %} repository to your local machine:
+リポジトリもしくは wiki をクローンすると、プロジェクトのファイルやコミット履歴などの Git のデータだけがダウンロードされます。 {% data variables.product.product_name %}リポジトリの他の要素をローカルマシンにエクスポートするには、弊社の API が利用できます。
 
-- [Issues](/v3/issues/#list-issues-for-a-repository)
-- [Pull requests](/v3/pulls/#list-pull-requests)
-- [Forks](/rest/reference/repos#list-forks)
-- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
-- [Milestones](/rest/reference/issues#list-milestones)
-- [Labels](/rest/reference/issues#list-labels-for-a-repository)
-- [Watchers](/rest/reference/activity#list-watchers)
-- [Stargazers](/rest/reference/activity#list-stargazers)
-- [Projects](/v3/projects/#list-repository-projects)
+- [問題](/v3/issues/#list-issues-for-a-repository)
+- [プルリクエスト](/v3/pulls/#list-pull-requests)
+- [フォーク](/rest/reference/repos#list-forks)
+- [コメント](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [マイルストーン](/rest/reference/issues#list-milestones)
+- [ラベル](/rest/reference/issues#list-labels-for-a-repository)
+- [Watcher](/rest/reference/activity#list-watchers)
+- [Starを付けたユーザ](/rest/reference/activity#list-stargazers)
+- [プロジェクト](/v3/projects/#list-repository-projects)
 {% endif %}
 
-Once you have {% if currentVersion != "free-pro-team@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Third-party backup tools
+### サードパーティのバックアップツール
 
-A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
+リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできるようにする {% data variables.product.product_name %} 上の_すべての_パブリックリポジトリをアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。
+You can back up all of a repository's Git data (such as project files and commit history), as well as much data from
 
-You can back up all of a repository's Git data (such as project files and commit history), as well as much data from {% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub is available in {% data variables.product.prodname_marketplace %}.
+{% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub は {% data variables.product.prodname_marketplace %}から利用できます。
 {% endif %}

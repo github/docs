@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre o gerenciamento de contas corporativas com o GraphQL
@@ -192,6 +193,6 @@ Para obter mais informações sobre como começar com GraphQL, consulte "[Introd
 
 Aqui está uma visão geral das novas consultas, mutações e tipos definidos por esquema disponíveis para uso com a API de Contas corporativas.
 
-Para obter mais detalhes sobre as novas consultas, mutações e tipos definidos por esquema disponíveis para uso com a API de Contas corporativas, consulte a barra lateral com definições detalhadas do GraphQL a partir de qualquer [Página de referência do GraphQL](/v4/).
+For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
 
 Você pode acessar a documentação de referência de no explorador do GraphQL no GitHub. Para obter mais informações, consulte "[Usando o explorador](/v4/guides/using-the-explorer#accessing-the-sidebar-docs). Para obter outras informações, como detalhes de autenticação e limite de taxa, confira os [guias](/v4/guides).

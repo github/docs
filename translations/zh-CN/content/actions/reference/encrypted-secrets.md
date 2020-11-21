@@ -1,5 +1,5 @@
 ---
-title: Encrypted secrets
+title: 加密机密
 intro: 加密密码允许您在仓库或组织中存储敏感信息。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -105,7 +105,7 @@ steps:
 ```
 {% endraw %}
 
-尽可能避免使用命令行在进程之间传递密码。 命令行进程可能对其他用户可见（使用 `ps` 命令）或通过[安全审计事件](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)获取。 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
+尽可能避免使用命令行在进程之间传递密码。 命令行进程可能对其他用户可见（使用 `ps` 命令）或通过[安全审计事件](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)获取。 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
 
 如果必须在命令行中传递密码，则将它们包含在适当的引用规则中。 密码通常包含可能意外影响 shell 的特殊字符。 要转义这些特殊字符，请引用环境变量。 例如：
 

@@ -7,6 +7,7 @@ intro: '「git remote set-url」コマンドにより、既存のリモートリ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -50,10 +51,9 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。
+次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-- [2要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa) を有効にしている場合は、[パーソナルアクセストークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して、GitHub パスワードのかわりに使用することができます。
-- Git が GitHub と通信するたびに GitHub のユーザ名とパスワードを思い出すよう、[認証情報ヘルパーを使用する](/github/using-git/caching-your-github-credentials-in-git)ことができます。
+You can [use a credential helper](/github/using-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
 ### Switching remote URLs from HTTPS to SSH
 

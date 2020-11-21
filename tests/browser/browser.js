@@ -37,7 +37,7 @@ describe('algolia browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to algolia', async () => {
+  it('sends the correct data to algolia for Enterprise Server', async () => {
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
 
@@ -49,6 +49,29 @@ describe('algolia browser search', () => {
         const parsedParams = querystring.parse(params)
         const analyticsTags = JSON.parse(parsedParams.analyticsTags)
         expect(indexName).toBe('github-docs-2.22-ja')
+        expect(analyticsTags).toHaveLength(2)
+        // browser tests are run against production build, so we are expecting env:production
+        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('#search-input-container input[type="search"]')
+    await newPage.type('#search-input-container input[type="search"]', 'test')
+  })
+
+  it('sends the correct data to algolia for GHAE', async () => {
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', interceptedRequest => {
+      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+        const data = JSON.parse(interceptedRequest.postData())
+        const { indexName, params } = data.requests[0]
+        const parsedParams = querystring.parse(params)
+        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
+        expect(indexName).toBe('github-docs-ghae-en')
         expect(analyticsTags).toHaveLength(2)
         // browser tests are run against production build, so we are expecting env:production
         expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
@@ -111,20 +134,20 @@ describe('helpfulness', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('#helpfulness-sm [for=helpfulness-yes-sm]')
+    await page.click('.js-helpfulness [for=helpfulness-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('#helpfulness-sm [type="email"]')
+    await page.waitForSelector('.js-helpfulness [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('#helpfulness-sm [type="email"]', 'test@example.com')
+    await page.type('.js-helpfulness [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('#helpfulness-sm [type="submit"]')
+    await page.click('.js-helpfulness [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('#helpfulness-sm [data-help-end]')
+    await page.waitForSelector('.js-helpfulness [data-help-end]')
   })
 })
 

@@ -26,7 +26,7 @@ Os segredos usam [caixas fechadas de Libsodium](https://libsodium.gitbook.io/doc
 Para ajudar a prevenir a divulgação acidental, o {% data variables.product.product_name %} usa um mecanismo que tenta redigir quaisquer segredos que aparecem nos registros de execução. Esta redação procura correspondências exatas de quaisquer segredos configurados, bem como codificações comuns dos valores, como Base64. No entanto, como há várias maneiras de transformar o valor de um segredo, essa anulação não é garantida. Como resultado, existem certas etapas proativas e boas práticas que você deve seguir para ajudar a garantir que os segredos sejam editados, e para limitar outros riscos associados aos segredos:
 
 - **Nunca usar dados estruturados como um segredo**
-    - Os dados não estruturados podem fazer com que ocorra uma falha na redação secreta nos registros, porque a redação depende, em grande parte, de encontrar uma correspondência exata para o valor específico do segredo. Por exemplo, não use um blob de JSON, XML, ou YAML (ou similar) para encapsular o valor de um segredo, já que isso reduz significativamente a probabilidade de os segredos serem devidamente redigidos. Em vez disso, crie segredos individuais para cada valor sensível.
+    - Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. Por exemplo, não use um blob de JSON, XML, ou YAML (ou similar) para encapsular o valor de um segredo, já que isso reduz significativamente a probabilidade de os segredos serem devidamente redigidos. Em vez disso, crie segredos individuais para cada valor sensível.
 - **Registre todos os segredos usados nos fluxos de trabalho**
     - Se um segredo for usado para gerar outro valor sensível dentro de um fluxo de trabalho, esse valor gerado deve ser formalmente [registrado como um segredo](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret) para que seja reproduzido se alguma vez aparecer nos registros. Por exemplo, se, ao usar uma chave privada para gerar um JWT assinado para acessar uma API web, certifique-se de registrar que JWT é um segredo ou não será redigido se entrar na saída de do registro.
     - O registro de segredos também aplica-se a qualquer tipo de transformação/codificação. Se seu segredo foi transformado de alguma forma (como Base64 ou URL codificada), certifique-se de registrar o novo valor como um segredo também.
@@ -95,3 +95,40 @@ Como resultado, os executores auto-hospedados quase [nunca devem ser usados para
 Você também deve considerar o ambiente das máquinas de executores auto-hospedadas:
 - Que informação sensível reside na máquina configurada como um executor auto-hospedado? Por exemplo, chaves SSH privadas, tokens de acesso à API, entre outros.
 - A máquina tem acesso à rede a serviços sensíveis? Por exemplo, serviços de metadados do Azure ou AWS. A quantidade de informações confidenciais neste ambiente deve ser limitada ao mínimo, e você deve estar sempre ciente de que qualquer usuário capaz de invocar fluxos de trabalho terá acesso a esse ambiente.
+
+### Auditar eventos de {% data variables.product.prodname_actions %}
+
+Você pode usar o log de auditoria para monitorar tarefas administrativas em uma organização. The audit log records the type of action, when it was run, and which user account performed the action.
+
+Por exemplo, você pode usar o log de auditoria para monitorar o evento de `action:org.update_actions_secret`, que controla as alterações nos segredos da organização: ![Entradas do log de auditoria](/assets/images/help/repository/audit-log-entries.png)
+
+As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre como usar o registro de auditoria, consulte [Revisar o log de auditoria para a sua organização](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+
+#### Eventos para gerenciamento de segredo
+| Ação                                | Descrição                                                                                                                                                                                                  |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.create_actions_secret`  | Acionado quando um administrador da organização [cria um segredo de {% data variables.product.prodname_actions %}](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization). . |
+| `action:org.remove_actions_secret`  | Acionado quando um administrador da organização remove um segredo de {% data variables.product.prodname_actions %}.                                                                                        |
+| `action:org.update_actions_secret`  | Acionado quando um administrador da organização atualiza um segredo de {% data variables.product.prodname_actions %}.                                                                                      |
+| `action:repo.create_actions_secret` | Acionado quando um administrador do repositório [cria um segredo de {% data variables.product.prodname_actions %}](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).      |
+| `action:repo.remove_actions_secret` | Acionado quando um administrador do repositório remove um segredo de {% data variables.product.prodname_actions %}.                                                                                        |
+| `action:repo.update_actions_secret` | Acionado quando um administrador do repositório atualiza um segredo de {% data variables.product.prodname_actions %}.                                                                                      |
+
+#### Eventos para executores auto-hospedados
+| Ação                                      | Descrição                                                                                                                                                                                               |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.register_self_hosted_runner`  | Acionado quando um proprietário da organização [registra um novo executor auto-hospedado](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization). |
+| `action:org.remove_self_hosted_runner`    | Acionado quando um proprietário da organização [remove um executor auto-hospedado](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).              |
+| `action:repo.register_self_hosted_runner` | Acionado quando um administrador do repositório [registra um novo executor auto-hospedado](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).   |
+| `action:repo.remove_self_hosted_runner`   | Acionado quando um administrador do repositório [remove um executor auto-hospedado](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).                |
+
+#### Eventos para grupos de executores auto-hospedados
+| Ação                                      | Descrição                                                                                                                                                                                                                                     |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.runner_group_created`         | Acionada quando um administrador da organização [cria um grupo de executores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization). |
+| `action:org.runner_group_removed`         | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                |
+| `action:org.runner_group_renamed`         | Acionado quando um administrador da organização renomeia um grupo de executores auto-hospedados.                                                                                                                                              |
+| `action:org.runner_group_runners_added`   | Acionada quando um administrador da organização [adiciona um executor auto-hospedado a um grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).               |
+| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                                               | 
+
+

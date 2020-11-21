@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode coletar feedback, reportar erros de software e organizar tarefas que deseja realizar com problemas em um repositório. Os problemas podem ser mais do que um lugar para relatar erros de relatório.
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-Para se manter atualizado sobre os comentários mais recentes em um problema, você pode inspecionar um problema a fim de recebe notificações sobre os últimos comentários. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre as notificações](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
+Para se manter atualizado sobre os comentários mais recentes em um problema, você pode inspecionar um problema a fim de recebe notificações sobre os últimos comentários. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
 

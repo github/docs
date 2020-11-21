@@ -8,6 +8,7 @@ intro: 'Über Dein persönliches Dashboard kannst Du über Issues und Pull Reque
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Auf Dein persönliches Dashboard zugreifen
@@ -28,13 +29,15 @@ Im Abschnitt „Recent activity" (Neueste Aktivitäten) Deines Newsfeed kannst D
 
 ![Liste mit Repositorys und Teams verschiedener Organisationen](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
+The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 4 months after you last interacted with them.
+
 Wenn Du oben auf einer beliebigen Seite auf {% data variables.product.product_name %} in die Suchleiste klickst, findest Du außerdem eine Liste Deiner zuletzt aufgerufenen Repositorys, Teams und Projektboards.
 
 ### Über Aktivitäten in der Community auf dem Laufenden bleiben
 
 Im Abschnitt „All activity" (Alle Aktivitäten) in Deinem Newsfeed kannst Du Aktualisierungen von Repositorys sehen, die Du abonniert hast und von Personen, denen Du folgst. Der Abschnitt „All activity" (Alle Aktivitäten) zeigt Aktualisierungen von Repositorys, die Du beobachtest oder mit Stern versehen hast und von Benutzern, denen Du folgst.
 
-In Deinem Newsfeed werden Aktualisierungen angezeigt, wenn ein Benutzer, dem Du folgst:
+In Ihrem News-Feed werden Aktualisierungen angezeigt, wenn ein Benutzer, dem Sie folgen,
 - Ein Repository mit einem Stern versieht.
 - Einem anderen Benutzer folgt.
 - ein öffentliches Repository erstellt.
@@ -42,7 +45,7 @@ In Deinem Newsfeed werden Aktualisierungen angezeigt, wenn ein Benutzer, dem Du 
 - Commits an ein von Dir beobachtetes Repository freigibt.
 - Ein öffentliches Repository forkt.
 
-Weitere Informationen zu Sternen für Repositorys und zum Folgen von Personen findest Du unter „[Repositorys mit Sternen markieren ](/articles/saving-repositories-with-stars/)“ und „[Jemandem folgen](/articles/following-people).“
+Weitere Informationen zu Sternen für Repositorys und zum Folgen von Personen finden Sie unter „[Repositorys mit Sternen speichern ](/articles/saving-repositories-with-stars/)“ und „[Jemandem folgen](/articles/following-people)“.
 
 ### Empfohlene Repositorys erkunden
 

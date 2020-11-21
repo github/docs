@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
@@ -27,16 +28,22 @@ Search API にはカスタムレート制限があります。 リクエスト�
 
 Search API の各エンドポイントでは、{% data variables.product.product_name %} で検索を行うために[クエリパラメータ](https://en.wikipedia.org/wiki/Query_string)を使用します。 エンドポイントとクエリパラメータを含める例については、Search API の個々のエンドポイントを参照してください。
 
-クエリには、GitHub.com でサポートされている検索修飾子を任意に組み合わせて使用できます。 検索クエリの形式は次のとおりです。
+A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. 検索クエリの形式は次のとおりです。
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 たとえば、README ファイルに `GitHub` と `Octocat` という言葉が含まれている、`defunkt` が所有する_リポジトリ_をすべて検索する場合、_検索リポジトリ_エンドポイントに次のクエリを使用します。
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. 例:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 使用可能な修飾子の完全な一覧、フォーマット、使用例については、「[GitHub での検索](/articles/searching-on-github/)」を参照してください。 特定の数量、日付に一致させたり、検索結果から除外したりするために演算子を使う方法の詳細については、「[検索構文を理解する](/articles/understanding-the-search-syntax/)」を参照してください。

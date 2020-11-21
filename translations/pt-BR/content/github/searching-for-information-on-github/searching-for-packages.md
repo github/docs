@@ -6,6 +6,7 @@ permissions: Qualquer pessoa pode pesquisar pacotes aos quais tem acesso.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -14,9 +15,9 @@ versions:
 
 É possível procurar pacotes globalmente em todos os {% data variables.product.product_name %} ou pesquisar pacotes dentro de uma determinada organização. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 Você só pode pesquisar pacotes em
-{% data variables.product.product_location_enterprise %}, não em {% data variables.product.prodname_dotcom_the_website %}, mesmo se {% data variables.product.prodname_github_connect %} estiver habilitado.
+{% data variables.product.product_name %}, não em {% data variables.product.prodname_dotcom_the_website %}, mesmo se {% data variables.product.prodname_github_connect %} estiver habilitado.
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

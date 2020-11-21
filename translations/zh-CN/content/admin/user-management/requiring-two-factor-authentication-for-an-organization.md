@@ -7,11 +7,11 @@ versions:
   enterprise-server: '*'
 ---
 
-使用 LDAP 或内置身份验证时，{% data variables.product.prodname_ghe_server %} 设备上将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
+使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-更多信息请参阅[支持双重身份验证的身份验证方法图表](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)。
+更多信息请参阅“[关于双重身份验证](/github/authenticating-to-github/about-two-factor-authentication)”。
 
 ### 强制执行双重身份验证的要求
 

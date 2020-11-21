@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -18,7 +19,7 @@ Este artigo fornece orientações para integradores existentes que estão consid
 - [Permissões refinadas](/apps/differences-between-apps/#requesting-permission-levels-for-resources) direcionadas às informações específicas que um aplicativo GitHub pode acessar, o que permite que o aplicativo seja mais amplamente utilizado por pessoas e organizações com políticas de segurança do que os aplicativos OAuth, que não podem ser limitados pelas permissões.
 - [Os tokens de vida útil curta](/apps/differences-between-apps/#token-based-identification) fornecem um método de autenticação mais seguro em relação aos tokens do OAuth. Um token do OAuth não expira até que a pessoa que autorizou o aplicativo OAuth revogue o token. Os aplicativos GitHub usam tokens que expiram rapidamente, o que cria uma janela de tempo muito menor para que tokens comprometidos sejam usados.
 - [Os webhooks integrados e centralizados](/apps/differences-between-apps/#webhooks) recebem eventos para todos os repositórios e organizações que o aplicativo pode acessar. Inversamente, os aplicativos OAuth exigem a configuração de um webhook para cada repositório e organização acessível ao usuário.
-- [As contas do bot](/apps/differences-between-apps/#machine-vs-bot-accounts) não consomem um assento do {% data variables.product.prodname_ghe_server %} e permanecem instaladas mesmo quando a pessoa que inicialmente instalou o aplicativo sair da organização.
+- [As contas do bot](/apps/differences-between-apps/#machine-vs-bot-accounts) não consomem um assento do {% data variables.product.product_name %} e permanecem instaladas mesmo quando a pessoa que inicialmente instalou o aplicativo sair da organização.
 - O suporte integrado para o OAuth ainda está disponível para aplicativos GitHub usando [pontos finais de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - [Os limites de taxa de API](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) dedicados para as contas do bot são escalados com a sua integração.
 - Os proprietários de repositórios podem [instalar aplicativos GitHub](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) em repositórios de organizações. Se a configuração de um aplicativo GitHub tiver permissões que solicitam os recursos de uma organização, o proprietário d organização deverá aprovar a instalação.

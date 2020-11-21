@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 A API dos aplicativos GitHub permite que você obtenha informações de alto nível sobre um aplicativo GitHub, bem como informações específicas sobre as instalações do aplicativo. Para saber mais sobre aplicativos GitHub, consulte "[Efetuar a autenticação como um aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
@@ -58,6 +59,15 @@ Certifique-se de substituir pontos de extremidades de amostra pelos pontos de ex
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+## Webhooks
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

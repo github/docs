@@ -43,8 +43,9 @@ Um Universal Links wieder zu aktivieren, drücke lange auf einen {% data variabl
 
 ### Feedback teilen
 
-Wenn Du Feedback oder Funktions-Anfragen für {% data variables.product.prodname_mobile %} hast, kannst Du uns eine E-Mail senden an <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
+If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
 ### Abmelden von Beta-Versionen für iOS
 

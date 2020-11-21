@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -27,7 +28,7 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 * Users **must** SSH in to deploy; automated deploy processes can't be used.
 * SSH agent forwarding can be troublesome to run for Windows users.
 
-##### Setup
+##### セットアップ
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
 2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
@@ -49,7 +50,7 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 * You must make sure that you configure your token with the correct access scopes.
 * Tokens are essentially passwords, and must be protected the same way.
 
-##### Setup
+##### セットアップ
 
 See [our guide on Git automation with tokens][git-automation].
 
@@ -70,7 +71,7 @@ See [our guide on Git automation with tokens][git-automation].
 * Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
 * Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
 
-##### Setup
+##### セットアップ
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public/private rsa key pair.
 2. In the upper-right corner of any {% data variables.product.product_name %} page, click your profile photo, then click **Your profile**. ![Navigation to profile](/assets/images/profile-page.png)
@@ -80,6 +81,32 @@ See [our guide on Git automation with tokens][git-automation].
 6. Provide a title, paste in your public key.  ![Deploy Key page](/assets/images/deploy-key.png)
 7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 8. Click **Add key**.
+
+##### Using multiple repositories on one server
+
+If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
+
+In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. 例:
+
+```bash
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+```
+
+* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+
+You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. 例:
+
+```bash
+$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+```
 
 ### Machine users
 
@@ -110,7 +137,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 * Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
 * Machine user keys, like deploy keys, are usually not protected by a passphrase.
 
-##### Setup
+##### セットアップ
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
 2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.

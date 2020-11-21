@@ -5,6 +5,7 @@ const patterns = require('../lib/patterns')
 const layouts = require('../lib/layouts')
 const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
+const statsd = require('../lib/statsd')
 
 // We've got lots of memory, let's use it
 // We can eventually throw this into redis
@@ -14,10 +15,11 @@ module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
   const originalUrl = req.originalUrl
 
-  // Serve from the cache if possible
-  if (!process.env.CI) {
+  // Serve from the cache if possible (skip during tests)
+  if (!process.env.CI && process.env.NODE_ENV !== 'test') {
     if (req.method === 'GET' && pageCache[originalUrl]) {
       console.log(`Serving from cached version of ${originalUrl}`)
+      statsd.increment('page.sent_from_cache')
       return res.send(pageCache[originalUrl])
     }
   }

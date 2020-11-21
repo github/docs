@@ -1,52 +1,53 @@
 ---
-title: Removing files from Git Large File Storage
-intro: 'If you''ve set up {% data variables.large_files.product_name_short %} for your repository, you can remove all files or a subset of files from {% data variables.large_files.product_name_short %}.'
+title: 从 Git Large File Storage 中删除文件
+intro: '如果您已设置仓库的 {% data variables.large_files.product_name_short %}，则可以从 {% data variables.large_files.product_name_short %} 中删除所有文件或文件的子集。'
 redirect_from:
   - /articles/removing-files-from-git-large-file-storage
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Removing a single file
+### 删除单个文件
 
-1.  Remove the file from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
-2. Navigate to your *.gitattributes* file.
+1.  使用 `filter-branch` 命令或 BFG Repo-Cleaner 从仓库的 Git 历史记录中删除文件。 有关使用这些命令或工具的详细信息，请参阅“[从仓库中删除敏感数据](/articles/removing-sensitive-data-from-a-repository)”。
+2. 导航到 *.gitattributes* 文件。
 
   {% note %}
 
-  **Note:** Your *.gitattributes* file is generally saved within your local repository. In some cases, you may have created a global *.gitattributes* file that contains all of your {% data variables.large_files.product_name_short %} associations.
+  **注：**您的 *.gitattributes* 文件通常保存在本地仓库中。 在某些情况下，您可能已创建包含所有 {% data variables.large_files.product_name_short %} 关联的全局 *.gitattributes* 文件。
 
   {% endnote %}
-3. Find and remove the associated {% data variables.large_files.product_name_short %} tracking rule within the *.gitattributes* file.
-4. Save and exit the *.gitattributes* file.
+3. 找到并删除 *.gitattributes* 文件内关联的 {% data variables.large_files.product_name_short %} 跟踪规则。
+4. 保存并退出 *.gitattributes* 文件。
 
-### Removing all files within a {% data variables.large_files.product_name_short %} repository
+### 删除 {% data variables.large_files.product_name_short %} 仓库内的所有文件
 
-1. Remove the files from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
-2. Optionally, to uninstall {% data variables.large_files.product_name_short %} in the repository, run:
+1. 使用 `filter-branch` 命令或 BFG Repo-Cleaner 从仓库的 Git 历史记录中删除文件。 有关使用这些命令或工具的详细信息，请参阅“[从仓库中删除敏感数据](/articles/removing-sensitive-data-from-a-repository)”。
+2. （可选）要卸载仓库中的 {% data variables.large_files.product_name_short %}，请运行：
   ```shell
   $ git lfs uninstall
   ```
-  For {% data variables.large_files.product_name_short %} versions below 1.1.0, run:
+  对于 1.1.0 以下的 {% data variables.large_files.product_name_short %} 版本，运行：
   ```shell
   $ git lfs uninit
   ```
 
-### {% data variables.large_files.product_name_short %} objects in your repository
+### 仓库中的 {% data variables.large_files.product_name_short %} 对象
 
 After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% if currentVersion == "free-pro-team@latest" %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
 
-To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. When you delete a repository, any associated issues, stars, and forks are also deleted. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)."{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archived objects are purged after three months.{% endif %}
+To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. 删除仓库时，所有关联的议题、星标和复刻也会被删除。 更多信息请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。{% else %}请联系 {% data variables.product.prodname_enterprise %} 管理员以存档对象。 存档的对象将在三个月后清除。{% endif %}
 
 {% note %}
 
-**Note:** If you removed a single file and have other {% data variables.large_files.product_name_short %} objects that you'd like to keep in your repository, after deleting and recreating your repository, reconfigure your {% data variables.large_files.product_name_short %}-associated files. For more information, see "[Removing a single file](#removing-a-single-file)" and "[Configuring {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
+**注：**如果删除了单个文件并有想要留在仓库中的其他 {% data variables.large_files.product_name_short %} 对象，则删除并重新创建仓库后，重新配置您的 {% data variables.large_files.product_name_short %} 关联文件。 更多信息请参阅“[删除单个文件](#removing-a-single-file)”和“[配置 {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)”。
 
 {% endnote %}
 
-### Further reading
+### 延伸阅读
 
-- "[About {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"
-- "[Installing {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
+- "[关于 {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
+- “[使用 {% data variables.large_files.product_name_long %} 进行协作](/articles/collaboration-with-git-large-file-storage/)”
+- "[安装 {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"

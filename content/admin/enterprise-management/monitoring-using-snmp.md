@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.product.product_location_enterprise %} and know when to add more memory, storage, or processor power to the host machine.
+SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.product.product_location %} and know when to add more memory, storage, or processor power to the host machine.
 
 {% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
 
@@ -29,7 +29,7 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-This should return the system time on {% data variables.product.product_location_enterprise %} host.
+This should return the system time on {% data variables.product.product_location %} host.
 
 ### User-based security
 

@@ -62,7 +62,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location_enterprise %}.
+With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -82,7 +82,7 @@ Allows you to find the uuid of your node in `cluster.conf`.
 Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -393,7 +393,7 @@ This utility allows you to install a custom root CA certificate on your {% data 
 
 Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "[About commit signature verification](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)."
 
-Run this utility when {% data variables.product.product_location_enterprise %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location_enterprise %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
+Run this utility when {% data variables.product.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
 
 ```
 SSL-Session:
@@ -451,7 +451,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-This utility prints the version, platform, and build of {% data variables.product.product_location_enterprise %}.
+This utility prints the version, platform, and build of {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version

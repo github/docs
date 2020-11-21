@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -46,8 +47,9 @@ get '/' do
 end
 ```
 
-客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。 您应该**永_不_**将这些值存储在
-{% data variables.product.product_name %}--或任何其他公共位置，因为它们很重要。 我们建议将它们存储为
+客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。
+{% if currentVersion == "free-pro-team@latest" %} **永远_不要_**将该事项的这些值存储在
+{% data variables.product.product_name %} 中或任何其他公共的地方。{% endif %} 建议将它们存储为
 [环境变量][about env vars]--我们正是这样做的。
 
 接下来，在 _views/index.erb_ 中粘贴此内容：
@@ -106,7 +108,7 @@ end
 
 #### 检查授予的作用域
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+用户可以通过直接更改 URL 来编辑您请求的范围。 这可以授予您的应用程序比您最初请求的更少的访问权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 有关请求和授予的范围的更多信息，请参阅“[OAuth 应用程序的范围](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)”。
 
 授予的作用域在交换令牌的响应中返回。
 

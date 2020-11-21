@@ -33,7 +33,7 @@ Wir empfehlen, dass Du ein grundlegendes Verständnis von Node.js, YAML, Workflo
 Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` Deines Repositorys ein.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]

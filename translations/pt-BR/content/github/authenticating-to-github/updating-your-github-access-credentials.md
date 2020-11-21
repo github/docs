@@ -1,6 +1,6 @@
 ---
 title: Atualizar credenciais de acesso do GitHub
-intro: 'As credenciais do {% data variables.product.product_name %} incluem não só a sua senha, mas também os tokens de acesso, as chaves SSH e os tokens da API do aplicativo que você usa para se comunicar com o {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
+intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -8,8 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion != "github-ae@latest" %}
 ### Solicitar uma nova senha
 
 1. Para solicitar uma nova senha, acesse {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
@@ -38,7 +40,7 @@ Para evitar que você perca a senha, sugerimos que você use um gerenciador de s
 Para maior segurança, além de alterar a senha, habilite também a autenticação de dois fatores. Consulte [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication) para ver mais detalhes.
 
 {% endtip %}
-
+{% endif %}
 ### Atualizar tokens de acesso
 
 Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para ver instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
@@ -51,6 +53,8 @@ Consulte "[Revisar as chaves SSH](/articles/reviewing-your-ssh-keys)" para ver i
 
 Se você tiver algum aplicativo registrado no {% data variables.product.product_name %}, talvez precise redefinir os tokens OAuth dele. Para obter mais informações, consulte o ponto de extremidade "[Redefinir uma autorização](/rest/reference/apps#reset-an-authorization)".
 
+{% if currentVersion != "github-ae@latest" %}
 ### Impedir acesso não autorizado
 
 Consulte "[Impedir acesso não autorizado](/articles/preventing-unauthorized-access)" para obter mais dicas sobre como proteger a conta e impedir acesso não autorizado.
+{% endif %}

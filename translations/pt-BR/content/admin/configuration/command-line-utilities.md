@@ -64,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-Com este utilitário, você pode recuperar e modificar as definições de configuração da {% data variables.product.product_location_enterprise %}.
+Com este utilitário, você pode recuperar e modificar as definições de configuração da {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -395,7 +395,7 @@ Este utilitário permite instalar um certificado CA personalizado de raiz no seu
 
 Execute este utilitário para adicionar uma cadeia de certificados para verificação de assinatura de commits S/MIME. Para obter mais informações, consulte "[Sobre a verificação de assinatura de commit](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)".
 
-Execute este utilitário quando a {% data variables.product.product_location_enterprise %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar essa questão é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` na {% data variables.product.product_location_enterprise %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
+Execute este utilitário quando a {% data variables.product.product_location %} não conseguir se conectar a outro servidor por ele estar usando um certificado SSL autoassinado ou um certificado SSL para o qual não há o pacote CA necessário. Uma forma de confirmar essa questão é executar `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` na {% data variables.product.product_location %}. Se o certificado SSL do servidor remoto puder ser verificado, sua `SSL-Session` deverá ter um código de retorno 0, conforme mostrado abaixo.
 
 ```
 SSL-Session:
@@ -453,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location_enterprise %}.
+Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version

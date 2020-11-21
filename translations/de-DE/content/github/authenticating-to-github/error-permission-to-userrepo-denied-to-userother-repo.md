@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Um das Problem zu beheben, entferne den Deployment-Schlüssel vom Repository und [füge ihn stattdessen zu Deinem Benutzerkonto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account).

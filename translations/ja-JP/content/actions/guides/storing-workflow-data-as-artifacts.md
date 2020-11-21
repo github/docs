@@ -41,7 +41,7 @@ versions:
 
 成果物はワークフローの実行中にアップロードされ、成果物の名前とサイズはUIで見ることができます。 {% data variables.product.product_name %}のUIを使って成果物がダウンロードされる場合、成果物の一部として個別にアップロードされたすべてのファイルはzipして1つのファイルにまとめられます。 これはすなわち、支払いはこのzipファイルのサイズではなく、アップロードされた成果物のサイズを元に計算されるということです。
 
-{% data variables.product.product_name %}には、ビルドアーティファクトのアップロードとダウンロードに使用できるアクションが2つあります。 詳しい情報については、 {% data variables.product.product_location %} 上の {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
+{% data variables.product.product_name %}には、ビルドの成果物のアップロードとダウンロードに使用できるアクションが2つあります。 詳しい情報については、 {% data variables.product.product_location %} 上の {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) および [download-artifact](https://github.com/actions/download-artifact) アクション{% else %} `actions/upload-artifact` および `download-artifact` アクション{% endif %}を参照してください。
 
 ジョブ間でデータを共有するには:
 
@@ -74,7 +74,7 @@ versions:
 |   
 ```
 
-この例では、`src`ディレクトリにコードを`builds`して、`tests`ディレクトリでテストを実行するNode.jsプロジェクトのワークフローを作成しています。 実行中の`npm test`が、`code-coverage.html`という名前で、`output/test/`ディレクトリに保存されるコード網羅率レポートを生成すると想定できます。
+この例では、srcディレクトリにコードを`builds`して、`tests`ディレクトリでテストを実行するNode.jsプロジェクトのワークフローを作成しています。 実行中の`npm test`が、`code-coverage.html`という名前で、`output/test/`ディレクトリに保存されるコード網羅率レポートを生成すると想定できます。
 
 ワークフローは、 `dist` ディレクトリにプロダクション アーティファクトをアップロードしますが、マークダウン ファイルは除きます。 また、 `の code-coverage.html` レポートを別のアーティファクトとしてアップロードします。
 
@@ -170,12 +170,12 @@ versions:
 
 ジョブ1は、以下のステップを実行します。
 - 数式の計算を実行し、その結果を`math-homework.txt`というテキストファイルに保存します。
-- `upload-artifact`アクションを使って、`math-homework.txt`ファイルを`homework`という名前でアップロードします。 このアクションで、ファイルが`homework`という名前のディレクトリに配置されます。
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
 
 ジョブ2は、前のジョブの結果を利用して、次の処理を実行します。
 - 前のジョブでアップロードされた`homework`成果物をダウンロードします。 デフォルトでは、`download-artifact`アクションは、ステップが実行されているワークスペースディレクトリに成果物をダウンロードします。 入力パラメータの`path`を使って、別のダウンロードディレクトリを指定することもできます。
-- `homework/math-homework.txt`ファイル中の値を読み取り、数式の計算を実行し、結果を`math-homework.txt`に保存します。
-- `math-homework.txt`ファイルをアップロードします。 このアップロードは、前のアップロードを上書きします。どちらも同じ名前を使っているからです。
+- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+- `math-homework.txt`ファイルをアップロードします。 This upload overwrites the previously uploaded artifact because they share the same name.
 
 ジョブ3は、前のジョブでアップロードされた結果を表示して、次の処理を実行します。
 - `homework`成果物をダウンロードします。

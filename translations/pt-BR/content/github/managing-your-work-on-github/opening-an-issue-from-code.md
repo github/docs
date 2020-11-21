@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você abre um problema de código, o problema contém um trecho mostrando a linha ou intervalo de código que você escolheu. Você pode abrir somente um problema no mesmo repositório onde o código é armazenado.

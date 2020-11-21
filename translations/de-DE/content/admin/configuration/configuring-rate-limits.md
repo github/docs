@@ -30,7 +30,7 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 
 ### Missbrauchsbegrenzungen aktivieren
 
-Durch das Festlegen von Missbrauchsbegrenzungen wird das allgemeine Dienstniveau von {% data variables.product.product_location_enterprise %} geschützt.
+Durch das Festlegen von Missbrauchsbegrenzungen wird das allgemeine Dienstniveau von {% data variables.product.product_location %} geschützt.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

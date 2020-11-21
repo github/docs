@@ -5,6 +5,7 @@ intro: GitHub RESTのAPIで使用できるリソースについては、リフ�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 目次

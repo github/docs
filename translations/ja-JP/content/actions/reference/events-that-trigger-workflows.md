@@ -15,9 +15,9 @@ versions:
 {% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
-### Configuring workflow events
+### ワークフローイベントを設定する
 
-You can configure workflows to run for one or more events using the `on` workflow syntax. 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
+`on` ワークフロー構文を使用して、1 つ以上のイベントに対して実行するようにワークフローを設定できます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -29,7 +29,7 @@ You can configure workflows to run for one or more events using the `on` workflo
 
 ワークフローの実行がトリガーされるには、以下のステップが生じます。
 
-1. An event occurs on your repository, and the resulting event has an associated commit SHA and Git ref.
+1. リポジトリでイベントが発生し、結果のイベントにはコミット SHA と Git ref が関連付けられます。
 2. リポジトリ内の関連づけられたコミットSHAもしくはGit refにおける `.github/workflows`ディレクトリ内でワークフローファイルが検索される。 ワークフローファイルは、コミットSHAあるいはGit refを考慮した上で存在していなければなりません。
 
   たとえば、イベントが特定のリポジトリブランチで発生したなら、ワークフローファイルはそのブランチ上でリポジトリ内に存在しなければなりません。
@@ -90,40 +90,49 @@ You can configure workflows to run for one or more events using the `on` workflo
 | ---------------------------------------------------------------- | ---------- | -------------------------- | --------------- |
 | [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a        | `GITHUB_REF` ブランチ上の直近のコミット | ディスパッチを受信したブランチ |
 
-You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
+カスタム定義の入力プロパティ、デフォルトの入力値、イベントに必要な入力をワークフローで直接設定できます。 ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
-You can manually trigger a workflow run using the {% data variables.product.prodname_dotcom %} API and from {% data variables.product.prodname_dotcom %}. For more information, see "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
+You can manually trigger a workflow run using the {% data variables.product.prodname_dotcom %} API and from {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[ワークフローを手動で実行する](/actions/managing-workflow-runs/manually-running-a-workflow)」を参照してください。
 
- {% data variables.product.prodname_dotcom %} でイベントをトリガーすると、{% data variables.product.prodname_dotcom %} で `ref` と `inputs` を直接入力できます。 For more information, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+ {% data variables.product.prodname_dotcom %} でイベントをトリガーすると、{% data variables.product.prodname_dotcom %} で `ref` と `inputs` を直接入力できます。 詳しい情報については、「[アクションで入力と出力を使用する](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)」を参照してください。
 
  REST API を使用してカスタム `workflow_dispatch` webhook イベントをトリガーするには、`POST` リクエストを {% data variables.product.prodname_dotcom %} API エンドポイントに送信し、`ref` および必要な `inputs` を入力する必要があります。 詳細については、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」REST API エンドポイントを参照してください。
 
-##### Example workflow configuration
+##### サンプル
 
-この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 ` `名が指定されていない場合は、既定値の 「Mona the Octocat」 が表示されます。</p>
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
 
-<p spaces-before="0">{% raw %}</p>
+```yaml
+on: workflow_dispatch
+```
 
-<pre><code class="yaml">名前: 手動でトリガーされたワークフロー
-:
+##### ワークフロー設定の例
+
+この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 If a <code>home` isn't provided, the default value 'The Octoverse' is printed.
+
+{% raw %}
+```yaml
+name: Manually triggered workflow
+on:
   workflow_dispatch:
-    入力:
-      の説明:
-        
-        説明: 必須: true
-        デフォルト: 'モナ・ザ・オクトキャット' ホーム
-      : 'モナ・ザ・オクトキャット'
-        ホーム: '場所'
-        必要: 偽
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
-ジョブ:
+jobs:
   say_hello:
-    実行: ubuntu最新
-    ステップ:
-    - 実行 |
-        エコー "こんにちは ${{ github.event.inputs.name }}!
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
         エコー "- ${{ github.event.inputs.home }}で!
-`</pre>
+```
 {% endraw %}
 
 #### `repository_dispatch`
@@ -307,7 +316,7 @@ on:
 
 
 
-#### `フォーク`
+#### `fork`
 
 誰かがリポジトリをフォークし、それによって `deployment_status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[フォークの作成](/v3/repos/forks/#create-a-fork)」を参照してください。
 
@@ -315,7 +324,7 @@ on:
 
 | webhook イベントのペイロード                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------- | ---------- | ----------------- | ------------ |
-| [`フォーク`](/webhooks/event-payloads/#fork) | n/a        | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| [`fork`](/webhooks/event-payloads/#fork) | n/a        | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 
 たとえば、`fork` イベントが発生したときにワークフローを実行する例は、次のとおりです。
@@ -377,6 +386,39 @@ on:
 ```
 
 
+The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
+
+For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
+
+{% raw %}
+
+
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+
+  issue-commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
+```
+
+
+{% endraw %}
+
 
 
 #### `issues`
@@ -405,15 +447,15 @@ on:
 
 
 
-#### `ラベル`
+#### `label`
 
 `label` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[ラベル](/v3/issues/labels/)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                       | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
-| ---------------------------------------- | ----------------------------------------------------------------- | ----------------- | ------------ |
-| [`ラベル`](/webhooks/event-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| webhook イベントのペイロード                         | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
+| ------------------------------------------ | ----------------------------------------------------------------- | ----------------- | ------------ |
+| [`label`](/webhooks/event-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
@@ -431,15 +473,15 @@ on:
 
 
 
-#### `マイルストーン`
+#### `milestone`
 
 `milestone` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[マイルストーン](/v3/issues/milestones/)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                               | アクティビティタイプ                                                                                                  | `GITHUB_SHA`      | `GITHUB_REF` |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
-| [`マイルストーン`](/webhooks/event-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| webhook イベントのペイロード                                 | アクティビティタイプ                                                                                                  | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
+| [`milestone`](/webhooks/event-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
@@ -459,7 +501,7 @@ on:
 
 #### `page_build`
 
-誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ページ](/rest/reference/repos#pages)」を参照してください。
+誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -587,7 +629,7 @@ on:
 
 {% note %}
 
-**注:** デフォルトでは、ワークフローが実行されるのは`pull_request` のアクティビティタイプが `opened`、`synchronize`、または `reopened` の場合だけです。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
+**Note:** By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。
 
 {% endnote %}
 
@@ -688,7 +730,7 @@ on: pull_request_target
 
 
 
-#### `プッシュ`
+#### `push`
 
 {% note %}
 
@@ -700,7 +742,7 @@ on: pull_request_target
 
 | webhook イベントのペイロード                       | アクティビティタイプ | `GITHUB_SHA`                                  | `GITHUB_REF` |
 | ---------------------------------------- | ---------- | --------------------------------------------- | ------------ |
-| [`プッシュ`](/webhooks/event-payloads/#push) | n/a        | プッシュされたコミット、ただし (デフォルトブランチの際に) ブランチを削除する場合を除く | 更新された ref    |
+| [`push`](/webhooks/event-payloads/#push) | n/a        | プッシュされたコミット、ただし (デフォルトブランチの際に) ブランチを削除する場合を除く | 更新された ref    |
 
 
 たとえば、`push` イベントが発生したときにワークフローを実行する例は、次のとおりです。
@@ -739,7 +781,7 @@ on:
 
 
 
-#### `リリース`
+#### `release`
 
 {% note %}
 
@@ -749,9 +791,9 @@ on:
 
 `release` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[リリース](/v3/repos/releases/)」を参照してください。
 
-| webhook イベントのペイロード                          | アクティビティタイプ                                                                                                                                                      | `GITHUB_SHA`       | `GITHUB_REF` |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
-| [`リリース`](/webhooks/event-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | リリースのタグが付いた直近のコミット | リリースのタグ      |
+| webhook イベントのペイロード                             | アクティビティタイプ                                                                                                                                                      | `GITHUB_SHA`       | `GITHUB_REF` |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
+| [`release`](/webhooks/event-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | リリースのタグが付いた直近のコミット | リリースのタグ      |
 
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
@@ -769,15 +811,15 @@ on:
 
 
 
-#### `ステータス`
+#### `status`
 
 Git コミットのステータスが変更された、それによって `status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ステータス](/v3/repos/statuses/)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                          | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
-| ------------------------------------------- | ---------- | ----------------- | ------------ |
-| [`ステータス`](/webhooks/event-payloads/#status) | n/a        | デフォルトブランチの直近のコミット | n/a          |
+| webhook イベントのペイロード                           | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------- | ---------- | ----------------- | ------------ |
+| [`status`](/webhooks/event-payloads/#status) | n/a        | デフォルトブランチの直近のコミット | n/a          |
 
 
 たとえば、`status` イベントが発生したときにワークフローを実行する例は、次のとおりです。
@@ -821,6 +863,11 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+| webhook イベントのペイロード                                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------------- | ---------- | ----------------- | ------------ |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a      | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+
 
 このイベントからブランチをフィルタする必要がある場合は、`branches` または `branches-ignore` を使用できます。
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Contribuições que são contabilizadas
@@ -29,18 +30,18 @@ Além disso, **pelo menos uma** das seguintes afirmativas devem ser verdadeiras:
 - Você bifurcou o repositório.
 - Você abriu uma pull request ou um problema no repositório.
 - Você marcou o repositório como favorito.
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### Motivos comuns para as contribuições não serem contabilizadas
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### O commit foi criado menos de 24 horas atrás
 
 Depois de fazer um commit que atenda aos requisitos para ser contabilizado como contribuição, talvez você precise aguardar até 24 horas para que a contribuição seja exibida no gráfico de contribuições.
 
-#### Você não adicionou o e-mail do commit no Git ao seu perfil
+#### Your local Git commit email isn't connected to your account
 
-Commits devem ser feitos com um endereço de e-mail adicionado à sua conta do {% data variables.product.product_name %} {% if currentVersion == "free-pro-team@latest" %} ou o endereço de e-mail `noreply` fornecido por {% data variables.product.product_name %} a você nas suas configurações de e-mail{% endif %} para aparecer no seu gráfico de contribuições.{% if currentVersion == "free-pro-team@latest" %} Para onter mais informações sobre endereços de e-mail`noreply`, consulte "[Definir o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses).{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 Você pode verificar o endereço de e-mail usado para um commit adicionando `.patch` ao final de uma URL de commit; por exemplo, <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -53,7 +54,7 @@ Subject: [PATCH] updated index for better welcome message
 
 O endereço de e-mail no campo `From:` é o que foi definido nas [configurações locais do Git](/articles/set-up-git). Neste exemplo, o endereço de e-mail usado para o commit é `octocat@nowhere.com`.
 
-Você precisará [adicionar o endereço de e-mail](/articles/adding-an-email-address-to-your-github-account) usado para o commit à sua conta do {% data variables.product.product_name %} caso ele não tenha sido adicionado ao seu perfil do {% data variables.product.product_name %}. O gráfico de contribuições será recriado automaticamente quando você adicionar o novo endereço.
+If the email address used for the commit is not connected to your account on {% data variables.product.product_name %}, {% if currentVersion == "github-ae@latest" %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your {% data variables.product.product_name %} account. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 

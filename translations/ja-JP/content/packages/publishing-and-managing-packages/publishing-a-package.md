@@ -22,7 +22,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 新しいバージョンのパッケージでセキュリティの脆弱性が解決される場合は、リポジトリでセキュリティアドバイザリを公開する必要があります。
-{% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_short %} アラートを送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
+{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
 {% endif %}
 
 ### パッケージを公開する
