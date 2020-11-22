@@ -7,11 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 有兴趣与 GitHub 平台集成吗？ [与您志趣相投的大有人在](https://github.com/integrations)。 本指南将帮助您构建能够为用户提供最佳体验*并*确保与 API 进行可靠交互的应用程序。
-
 
 ### 确保安全接收从 GitHub 交付的有效负载
 

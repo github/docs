@@ -8,6 +8,7 @@ intro: 'Você pode visitar seu painel pessoal para acompanhar problemas e pull r
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Acessar seu painel pessoal
@@ -28,6 +29,8 @@ Na barra lateral esquerda do painel, é possível acessar os repositórios e equ
 
 ![lista de repositórios e equipes de diferentes organizações](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
+The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list 4 months after you last interacted with them.
+
 Também é possível encontrar uma lista de seus repositórios, equipes e quadros de projeto recentemente visitados quando você clica na barra de pesquisa no topo de qualquer página do {% data variables.product.product_name %}.
 
 ### Permanecer atualizado com as atividades da comunidade
@@ -46,7 +49,7 @@ Para obter mais informações sobre como atribuir estrelas a repositórios e seg
 
 ### Explorar repositórios recomendados
 
-Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações têm por base repositórios que você marcou com uma estrela ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Encontrar maneiras de contribuir com código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ### Leia mais
 

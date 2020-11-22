@@ -30,9 +30,11 @@ Runs tests. Equivalent of `npm test`.
 
 ## Additional scripts
 
-### [`archive-enterprise-version.js`](archive-enterprise-version.js)
+### [`anonymize-branch.js`](anonymize-branch.js)
 
-Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
+Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+
+Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
 
 ---
 
@@ -55,11 +57,9 @@ The `ignore` array is for client-side or build-time stuff that doesn't get `requ
 ---
 
 
-### [`check-external-links`](check-external-links)
+### [`check-english-links.js`](check-english-links.js)
 
-The script is run once per day via a scheduled GitHub Action to check all links in the site. It automatically opens an issue if it finds broken links. To exclude a URL from the link check, add it to `lib/excluded-links.js`.
-
-For checking internal links, see `script/check-internal-links`.
+This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
 
 ---
 
@@ -71,18 +71,9 @@ This script is run automatically when you run the server locally. It checks whet
 ---
 
 
-### [`check-internal-links`](check-internal-links)
-
-This script wraps tests/links-and-images.js and provides an option to output results to a file.
-
-For more information, see `tests/README.md#broken-link-test`.
-
----
-
-
 ### [`check-s3-images.js`](check-s3-images.js)
 
-Run this script in your branch to check whether any images referenced in Enterprise content are not in the expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
 
 ---
 
@@ -108,6 +99,13 @@ Run this script in your branch to check whether any images referenced in Enterpr
 ---
 
 
+### [`content-migrations/update-developer-site-links.js`](content-migrations/update-developer-site-links.js)
+
+
+
+---
+
+
 ### [`create-glossary-from-spreadsheet.js`](create-glossary-from-spreadsheet.js)
 
 This script turns a Google Sheets CSV spreadsheet into a YAML file.
@@ -122,9 +120,44 @@ This script finds and lists all the Heroku staging apps and deletes any leftover
 ---
 
 
-### [`get-blc-command.js`](get-blc-command.js)
+### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
 
-This script parses options for `script/check-external-links`.
+Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
+
+---
+
+
+### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
+
+Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
+
+---
+
+
+### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
+
+This script creates the static GraphQL files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
+
+This script creates new static webhook payload files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/ghes-to-ghae-versioning.js`](enterprise-server-releases/ghes-to-ghae-versioning.js)
+
+Run this script to add versions frontmatter and Liquid conditionals for GitHub AE, based on anything currently versioned for the provided release of Enterprise Server. This script should be run as part of the Enterprise Server release process.
+
+---
+
+
+### [`enterprise-server-releases/release-banner.js`](enterprise-server-releases/release-banner.js)
+
+This script creates or removes a release candidate banner for a specified version.
 
 ---
 
@@ -233,50 +266,6 @@ This script moves reusables out of YAML files into individual Markdown files.
 ---
 
 
-### [`new-versioning/fixtures.js`](new-versioning/fixtures.js)
-
-
-
----
-
-
-### [`new-versioning/main`](new-versioning/main)
-
-All the new versioning!
-
-Usage $ script/new-versioning/main
-
----
-
-
-### [`new-versioning/move-admin-dir.js`](new-versioning/move-admin-dir.js)
-
-
-
----
-
-
-### [`new-versioning/update-content.js`](new-versioning/update-content.js)
-
-
-
----
-
-
-### [`new-versioning/update-frontmatter.js`](new-versioning/update-frontmatter.js)
-
-
-
----
-
-
-### [`new-versioning/update-products-yml.js`](new-versioning/update-products-yml.js)
-
-
-
----
-
-
 ### [`pages-with-liquid-titles.js`](pages-with-liquid-titles.js)
 
 This is a temporary script to visualize which pages have liquid (and conditionals) in their `title` frontmatter
@@ -346,13 +335,6 @@ An automated test checks for discrepancies between filenames and [autogenerated 
 ---
 
 
-### [`remove-deprecated-enterprise-version-markup.js`](remove-deprecated-enterprise-version-markup.js)
-
-Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
-
----
-
-
 ### [`remove-extraneous-translation-files.js`](remove-extraneous-translation-files.js)
 
 An [automated test](/tests/extraneous-translation-files.js) checks for files in the `translations/` directory that do not have an equivalent English file in the `content/` directory, and fails if it finds extraneous files. When the test fails, a human needs to run this script to remove the files.
@@ -371,13 +353,19 @@ Run this script to remove reusables and image files that exist in the repo but a
 
 This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
 
-It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for Crowdin to fix them.
+It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
 
-Usage: script/reset-translated-File.js <relative-filename> [<two-letter-language-code>]
+Usage: script/reset-translated-file.js <filename>
 
-script/reset-translated-File.js content/desktop/foo.md -> resets all translations of foo.md
+Examples:
 
-script/reset-translated-File.js content/desktop/foo.md de -> resets german translation of foo.md
+reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
+
+reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
+
+reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
+
+reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
 
 ---
 
@@ -453,9 +441,9 @@ This script is used by other scripts to update temporary AWS credentials and aut
 ---
 
 
-### [`upload-enterprise-images-to-s3.js`](upload-enterprise-images-to-s3.js)
+### [`upload-images-to-s3.js`](upload-images-to-s3.js)
 
-Run this script to: [upload individual files to S3](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/adding-individual-images-to-earlier-verisons-of-enterprise.md) or: [upload a batch of files to S3 for a new Enterprise release](https://github.com/github/product-documentation/blob/master/doc-team-workflows/working-on-enterprise-releases/information-for-all-writers/storing-a-batch-of-assets-on-s3-for-a-new-release.md). Run `upload-enterprise-images-to-s3.js --help` for usage details.
+Use this script to upload individual or batched asset files to a versioned S3 bucket. Run `upload-images-to-s3.js --help` for usage details.
 
 ---
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -38,7 +39,7 @@ Também é possível optar por ignorar alterações de espaço em branco para ob
 
 ![Menu de opções para exibição de diff](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-Para simplificar a revisão das alterações em uma pull request extensa, é possível filtrar o diff para mostrar apenas os tipos de arquivo selecionados{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}, mostrar arquivos dos quais você é CODEOWNER, ocultar arquivos que você já visualizou {% endif %} ou ocultar arquivos excluídos. Para obter mais informações, consulte "[Filtrar aquivos em uma pull request por tipo de arquivo](/articles/filtering-files-in-a-pull-request)".
+Para simplificar a revisão das alterações em um pull request extenso, é possível filtrar o diff para mostrar apenas os tipos de arquivo selecionados, mostrar arquivos dos quais você é CODEOWNER, ocultar arquivos que você já visualizou ou ocultar arquivos excluídos. Para obter mais informações, consulte "[Filtrar aquivos em uma pull request por tipo de arquivo](/articles/filtering-files-in-a-pull-request)".
 
   ![Menu suspenso File filter (Filtro de arquivo)](/assets/images/help/pull_requests/file-filter-menu.png)
 
@@ -54,7 +55,7 @@ Um diff de dois pontos compara duas referências de committish do Git, como SHAs
 
 Se desejar simular um diff de dois pontos em uma pull request e ver uma comparação entre as versões mais recentes de cada branch, você poderá fazer merge do branch base no branch de tópico, o que atualiza o último ancestral comum entre seus branches.
 
-Para obter mais informações sobre os comandos do Git para comparar alterações, consulte "[Opções de diff do Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" no book site do _Pro Git_.
+Para obter mais informações sobre os comandos do Git para comparar alterações, consulte "[Opções de diff do Git](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" no site do livro do _Pro Git_.
 
 ### Motivos pelos quais os diffs não serão exibidos
 - Você excedeu o limite total de arquivos ou de determinados tipos de arquivo. Para obter mais informações, consulte "[Limites para exibição de conteúdo e diffs em um repositório](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)".

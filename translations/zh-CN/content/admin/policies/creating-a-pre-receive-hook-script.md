@@ -54,11 +54,11 @@ versions:
 | $GITHUB_REPO_PUBLIC                 | 一个布尔值，为 `true` 时表示公共仓库，为 `false` 时表示私有仓库。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | $GITHUB_PUBLIC_KEY_FINGERPRINT      | 用户的公钥指纹。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | $GITHUB_PULL_REQUEST_HEAD           | 格式中的字符串：`user:branch`，适用于 PR 的 HEAD。<br>示例：`octocat:fix-bug`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| $GITHUB_PULL_REQUEST_BASE           | A string in the format: `user:branch` for the BASE of the PR.<br> Example: `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| $GITHUB_PULL_REQUEST_BASE           | 格式中的字符串：`user:branch`，适用于 PR 的 BASE。<br>示例： `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | $GITHUB_VIA                           | 用于创建 ref 的方法。<br> **可选值：**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | 客户端发送的推送选项数。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | $GIT_PUSH_OPTION_N                  | 其中 <em>N</em> 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 GIT_PUSH_OPTION_0 中，发送的第二个选项存储在 GIT_PUSH_OPTION_1 中，依此类推。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
+| $GIT_USER_AGENT                     | 推送更改的客户端发送的 user-agent 字符串。 |{% endif %}
 
 ### 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
 
@@ -102,8 +102,8 @@ versions:
       adduser git -D -G root -h /home/git -s /bin/bash && \
       passwd -d git && \
       su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P '' && \
-      mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
       mkdir /home/git/test.git && \
       git --bare init /home/git/test.git"
 
@@ -135,7 +135,7 @@ versions:
    > Sending build context to Docker daemon 3.584 kB
    > Step 1 : FROM gliderlabs/alpine:3.3
    >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P ' && mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
+   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
    >  ---> Running in e9d79ab3b92c
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -143,9 +143,9 @@ versions:
    > OK: 34 MiB in 26 packages
    > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
    > Password for git changed by root
-   > Generating public/private rsa key pair.
-   > Your identification has been saved in /home/git/.ssh/id_rsa.
-   > Your public key has been saved in /home/git/.ssh/id_rsa.pub.
+   > Generating public/private ed25519 key pair.
+   > Your identification has been saved in /home/git/.ssh/id_ed25519.
+   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
    ....truncated output....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
@@ -173,7 +173,7 @@ versions:
 9. 将生成的 SSH 密钥从数据容器复制到本地计算机：
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_rsa .
+   $ docker cp data:/home/git/.ssh/id_ed25519 .
   ```
 
 10. 修改远程测试仓库并将其推送到 Docker 容器中的 `test.git` 仓库。 此示例使用了 `git@github.com:octocat/Hello-World.git`，但您可以使用想要的任何仓库。 此示例假定您的本地计算机 (127.0.0.1) 绑定了端口 52311，但如果 docker 在远程计算机上运行，则可以使用不同的 IP 地址。
@@ -182,7 +182,7 @@ versions:
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test master
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -191,7 +191,7 @@ versions:
    > Total 7 (delta 0), reused 7 (delta 0)
    > remote: error: rejecting all pushes
    > To git@192.168.99.100:test.git
-   >  ! [remote rejected] master -> master (pre-receive hook declined)
+   >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
   ```
 

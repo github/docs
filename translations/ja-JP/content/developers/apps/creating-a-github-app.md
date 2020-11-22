@@ -1,5 +1,5 @@
 ---
-title: Creating a GitHub App
+title: GitHub App を作成する
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
   - /early-access/integrations/creating-an-integration/
@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}To learn how to use GitHub App Manifests, which allow people to create preconfigured GitHub Apps, see "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}構成済みの GitHub App を作成できる GitHub App Manifest の使い方については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
@@ -23,37 +24,46 @@ versions:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Click **New GitHub App**. ![Button to create a new GitHub App](/assets/images/github-apps/github_apps_new.png)
-5. In "GitHub App name", type the name of your app. ![Field for the name of your GitHub App](/assets/images/github-apps/github_apps_app_name.png)
+4. [**New GitHub App**] をクリックします。 ![新しい GitHub App を作成するボタン](/assets/images/github-apps/github_apps_new.png)
+5. [GitHub App name] に、アプリケーションの名前を入力します。 ![GitHub App の名前フィールド](/assets/images/github-apps/github_apps_app_name.png)
 
-  Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
+  アプリケーションには簡潔で明快な名前を付けましょう。 アプリケーションの名前は、既存の GitHub ユーザと同じ名前にできません。ただし、その名前があなた自身のユーザ名や Organization 名である場合は例外です。 インテグレーションが動作すると、ユーザインターフェース上にアプリケーション名のスラッグが表示されます。
 
-6. Optionally, in "Description", type a description of your app that users will see. ![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
-7. In "Homepage URL", type the full URL to your app's website. ![Field for the homepage URL of your GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-8. In "User authorization callback URL", type the full URL to redirect to after a user authorizes an installation. This URL is used if your app needs to identify and authorize user-to-server requests. ![Field for the user authorization callback URL of your GitHub App](/assets/images/github-apps/github_apps_user_authorization.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-9. By default, to improve your app's security, your app will use expiring user authorization tokens. To opt-out of using expiring user tokens, you must deselect "Expire user authorization tokens". To learn more about setting up a refresh token flow and the benefits of expiring user tokens, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)." ![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
+6. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Description] に入力します。 ![GitHub App の説明フィールド](/assets/images/github-apps/github_apps_description.png)
+7. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![GitHub App のホームページ URL フィールド](/assets/images/github-apps/github_apps_homepage_url.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+8. [Callback URL] に、ユーザがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。
+
+  [**Add callback URL**] を使用して、コールバック URL を最大 10 個追加できます。
+
+  ![[Add callback URL] のボタンと コールバック URL のフィールド](/assets/images/github-apps/github_apps_callback_url_multiple.png)
+{% else %}
+8. [User authorization callback URL] に、ユーザーがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。 ![GitHub App のユーザ認可コールバック URL フィールド](/assets/images/github-apps/github_apps_user_authorization.png)
+
 {% endif %}
-9. If your app authorizes users using the OAuth flow, you can select **Request user authorization (OAuth) during installation** to allow people to authorize the app when they install it, saving a step. If you select this option, the "Setup URL" becomes unavailable and users will be redirected to your "User authorization callback URL" after installing the app. See "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)" for more information. ![Request user authorization during installation](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
-10. If additional setup is required after installation, add a "Setup URL" to redirect users to after they install your app. ![Field for the setup URL of your GitHub App ](/assets/images/github-apps/github_apps_setup_url.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+9. デフォルトでは、アプリケーションのセキュリティを高めるため、アプリケーションは期限付きのユーザ認可トークンを使用します。 期限付きのユーザトークンの使用をオプトアウトするには、[Expire user authorization tokens] の選択を解除する必要があります。 リフレッシュトークンフローの設定と、期限付きユーザトークンの利点に関する詳細については、「[ユーザからサーバーに対するアクセストークンをリフレッシュする](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)」を参照してください。 ![GitHub App のセットアップ中に期限付きユーザトークンをオプトインするオプション](/assets/images/github-apps/expire-user-tokens-selection.png)
+{% endif %}
+9. アプリケーションが OAuth フローを使用してユーザを認可する場合、[**Request user authorization (OAuth) during installation**] を選択して、ユーザーかアプリをインストール時に認可するようにできます。 このオプションを選択した場合、[Setup URL] が利用できなくなり、アプリケーションのインストール後にユーザはあなたが設定した [User authorization callback URL] にリダイレクトされます。 詳しい情報については「[インストール中にユーザを認可する](/apps/installing-github-apps/#authorizing-users-during-installation)」を参照してください。 ![インストール時にユーザの認可を要求する](/assets/images/github-apps/github_apps_request_auth_upon_install.png)
+10. インストール後に追加の設定が必要な場合、[Setup URL] を追加して、アプリケーションをインストールした後にユーザをリダイレクトします。 ![GitHub App のセットアップ URL フィールド ](/assets/images/github-apps/github_apps_setup_url.png)
 
   {% note %}
 
-  **Note:** When you select **Request user authorization (OAuth) during installation** in the previous step, this field becomes unavailable and people will be redirected to the "User authorization callback URL" after installing the app.
+  **注釈:** 前のステップで [**Request user authorization (OAuth) during installation**] を選択した場合、このフィールドは利用できなくなり、アプリケーションのインストール後にユーザは [User authorization callback URL] にリダイレクトされます。
 
   {% endnote %}
 
-11. In "Webhook URL", type the URL that events will POST to. Each app receives its own webhook which will notify you every time the app is installed or modified, as well as any other events the app subscribes to. ![Field for the webhook URL of your GitHub App](/assets/images/github-apps/github_apps_webhook_url.png)
+11. [Webhook URL] に、イベントが POST する URL を入力します。 各アプリケーションは、アプリケーションがインストールまたは変更されたり、アプリケーションがサブスクライブしているその他のイベントが発生したりするたびに、アプリケーションで設定した webhook を受信します。 ![GitHub App の webhook URL フィールド](/assets/images/github-apps/github_apps_webhook_url.png)
 
-12. Optionally, in "Webhook Secret", type an optional secret token used to secure your webhooks. ![Field to add a secret token for your webhook](/assets/images/github-apps/github_apps_webhook_secret.png)
+12. 必要に応じて、webhook を保護するための、オプションのシークレットトークンを [Webhook Secret] に入力します。 ![webhook にシークレットトークンを追加するフィールド](/assets/images/github-apps/github_apps_webhook_secret.png)
 
   {% note %}
 
-  **Note:** We highly recommend that you set a secret token. 詳しい情報については「[webhookをセキュアにする](/webhooks/securing/)」を参照してください。
+  **注釈:** シークレットトークンは、設定することを強くお勧めします。 詳しい情報については「[webhookをセキュアにする](/webhooks/securing/)」を参照してください。
 
   {% endnote %}
 
-13. In "Permissions", choose the permissions your app will request. For each type of permission, use the drop-down menu and click **Read-only**, **Read & write**, or **No access**. ![Various permissions for your GitHub App](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
-14. In "Subscribe to events", choose whether to subscribe your app to **Label**, **Public**, **Repository**, or **Watch** events. ![Subscribe to events options for your GitHub App](/assets/images/github-apps/github_apps_subscribe_to_events.png)
-15. To choose where the app can be installed, select either **Only on this account** or **Any account**. For more information on installation options, see "[Making a GitHub App public or private](/apps/managing-github-apps/making-a-github-app-public-or-private/)." ![Installation options for your GitHub App](/assets/images/github-apps/github_apps_installation_options.png)
-16. Click **Create GitHub App**. ![Button to create your GitHub App](/assets/images/github-apps/github_apps_create_github_app.png)
+13. [Permissions] で、アプリケーションが要求する権限を選択します。 権限の各タイプで、ドロップダウンメニューを使用して [**Read-only**]、[**Read & write**]、または[**No access**] をクリックします。 ![GitHub App のさまざまな権限](/assets/images/github-apps/github_apps_new_permissions_post2dot13.png)
+14. [Subscribe to events] で、アプリケーションが [**Label**]、[**Public**]、 [**Repository**]、[**Watch**] イベントにサブスクライブするかどうかを選択します。 ![GitHub App のイベントオプションにサブスクライブする](/assets/images/github-apps/github_apps_subscribe_to_events.png)
+15. アプリケーションをインストールする場所を、[**Only on this account**] (このアカウントのみ) と [**Any account**] (すべてのアカウント) から選びます。 これらのオプションに関する詳しい情報については、「[GitHub App をパブリックまたはプライベートにする](/apps/managing-github-apps/making-a-github-app-public-or-private/)」を参照してください。 ![GitHub App のインストールオプション](/assets/images/github-apps/github_apps_installation_options.png)
+16. [**Create GitHub App**] をクリックします。 ![GitHub App を作成するボタン](/assets/images/github-apps/github_apps_create_github_app.png)

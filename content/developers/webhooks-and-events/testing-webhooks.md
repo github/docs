@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -15,7 +16,7 @@ view provides some tooling for testing your deployed payloads.
 
 ### Listing recent deliveries
 
-Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a deployment was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
+Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a delivery was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
 
 {% data variables.product.product_name %} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
 

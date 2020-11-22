@@ -1,16 +1,17 @@
 ---
 title: 请求拉取请求审查
-intro: 创建拉取请求后，您可以请求特定人员审查您提议的更改。 如果您是组织成员，还可以请求特定团队审查您的更改。
+intro: '创建拉取请求后，您可以请求特定人员审查您提议的更改。 如果您是组织成员，还可以请求特定团队审查您的更改。'
 redirect_from:
   - /articles/requesting-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 用户帐户拥有的仓库的所有者和协作者可以分配拉取请求审查。 拥有仓库查验漏洞权限的组织成员可以分配拉取请求审查。
 
-所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
+所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
 {% note %}
 

@@ -1,12 +1,13 @@
 ---
 title: 许可仓库
-intro: GitHub 上的公共仓库常用于共享开源软件。 要使仓库真正开源，您需要许可它供其他人免费使用、更改和分发软件。
+intro: 'GitHub 上的公共仓库常用于共享开源软件。 要使仓库真正开源，您需要许可它供其他人免费使用、更改和分发软件。'
 redirect_from:
   - /articles/open-source-licensing/
   - /articles/licensing-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 选择合适的许可
@@ -49,6 +50,7 @@ versions:
 |    | Do What The F*ck You Want To Public License | `wtfpl`         |
 |    | Educational Community License v2.0 | `ecl-2.0`                |
 |    | Eclipse Public License 1.0 | `epl-1.0`                        |
+|    | Eclipse Public License 2.0 | `epl-2.0`                        |
 |    | European Union Public License 1.1 | `eupl-1.1`                |
 |    | GNU Affero General Public License v3.0 | `agpl-3.0`           |
 |    | GNU General Public License 系列 | `gpl`                         |
@@ -89,5 +91,5 @@ GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决�
 
 ### 延伸阅读
 
-- 开源指南的“[开源的法律方面](https://opensource.guide/legal/)”部分{% if currentVersion == "free-pro-team@latest" %}
+- 开源指南的“[开源的法律 方面](https://opensource.guide/legal/)”部分{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

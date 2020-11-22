@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Pré-visualizações da API permitem que você experimente novas APIs e alterações nos métodos de API existentes antes de se tornarem parte da API oficial do GitHub.
@@ -27,7 +27,7 @@ Permite que você faça o download de repositórios da conta do usuário ou da o
 
 ### Implementações aprimoradas
 
-Exerça um maior controle sobre as [implantações](/v3/repos/deployments/) com mais informações e uma granularidade mais precisa.
+Exerça um maior controle sobre as [implantações](/rest/reference/repos#deployments) com mais informações e uma granularidade mais precisa.
 
 **Tipo de mídia personalizada:** `ant-man-preview` **Anunciado em:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
@@ -46,18 +46,7 @@ Obter uma [lista de eventos](/v3/issues/timeline/) para um problema ou pull requ
 
 **Tipo de mídia personalizada:** `mockingbird-preview` **Anunciado em:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-
-
-### Pages
-
-Obtenha mais informações sobre o site do [GitHub Pages](/v3/repos/pages/).
-
-**Tipo de mídia personalizada:** `mister-fantastic-preview` **Anunciado em:** [2016-07-06](https://developer.github.com/changes/2016-07-06-github-pages-preview-api/) 
-
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 
 ### Ambientes pre-receive
@@ -68,7 +57,7 @@ Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 
 
 ### Integrações
@@ -98,17 +87,6 @@ Gerencie [projetos](/v3/projects/).
 {% if currentVersion == "free-pro-team@latest" %}
 
 
-### Métricas do perfil da comunidade
-
-Recupere [métricas do perfil da comunidade](/v3/repos/community/) (também conhecidas como saúde da comunidade) para qualquer repositório público.
-
-**Tipo de mídia personalizada:** `black-panther-preview` **Anunciado em:** [2017-02-09](https://developer.github.com/changes/2017-02-09-community-health/) 
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-
 ### Bloqueio de usuário
 
 Os usuários podem [bloquear outros usuários](/v3/users/blocking/). As organizações também podem [bloquear usuários](/v3/orgs/blocking/).
@@ -133,7 +111,7 @@ Veja todos os [códigos de conduta](/v3/codes_of_conduct) ou obtenha qual códig
 
 **Tipo de mídia personalizado:** `scarlet-witch-preview`
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 
 
 ### Equipes aninhadas
@@ -144,19 +122,19 @@ Inclua o conteúdo aninhado das cargas da [equipe](/v3/teams/).
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 
 
 ### Webhooks globais
 
-Habilita [webhooks globais](/v3/enterprise-admin/global_webhooks/) para  [organizações](/webhooks/event-payloads/#organization) e tipos de evento do [usuário](/webhooks/event-payloads/#user). Esta visualização da API só está disponível para {% data variables.product.prodname_ghe_server %}.
+Habilita [webhooks globais](/rest/reference/enterprise-admin#global-webhooks/) para  [organizações](/webhooks/event-payloads/#organization) e tipos de evento do [usuário](/webhooks/event-payloads/#user). Esta visualização da API só está disponível para {% data variables.product.prodname_ghe_server %}.
 
-**Tipo de mídia personalizada:** `superpro-preview` **Anunciado em:** [2017-12-12](/v3/enterprise-admin/global_webhooks)
+**Tipo de mídia personalizada:** `superpro-preview` **Anunciado em:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 
 
 ### Transferência de repositório
@@ -167,7 +145,7 @@ Transfira um [repositório](/v3/repos/) para uma organização ou usuário.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 
 
 ### Adicionar motivo do bloqueio
@@ -175,17 +153,6 @@ Transfira um [repositório](/v3/repos/) para uma organização ou usuário.
 Agora você pode adicionar um motivo ao[bloquear um problema](/v3/issues/#lock-an-issue).
 
 **Tipo de mídia personalizada:** `sailor-v-preview` **Anunciado em:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview) 
-
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-
-
-### Discussões de equipe
-
-Agora você pode usar a API para gerenciar [as discussões de equipe](/v3/teams/discussions) e [comentários de discussão de equipe](/v3/teams/discussion_comments).
-
-**Tipo de mídia personalizada:** `echo-preview` **Anunciado em:** [2018-02-07](https://developer.github.com/changes/2018-02-07-team-discussions-api)
 
 {% endif %}
 
@@ -205,7 +172,7 @@ Agora você pode [exigir múltiplas revisões de aprovação](/v3/repos/branches
 
 **Tipo de mídia personalizada:** `luke-cage-preview` **Anunciado em:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
 
 
 ### Recuperar informações do hovercard
@@ -216,15 +183,18 @@ Recuperar informações do [hovercard de alguém](/v3/users/#get-contextual-info
 
 {% endif %}
 
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 
 ### Verificar execuções e a API de conjuntos de verificações
 
 Permite que um aplicativo GitHub execute verificações externas no código de um repositório. Veja as [execuções de verificação](/v3/checks/runs/) e [Conjuntos de verificação](/v3/checks/suites/) das APIs para obter mais informações.
 
-**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
+**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/) 
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 
 
@@ -260,7 +230,7 @@ Os manifestos do aplicativo GitHub permitem que pessoas criem aplicativos GitHub
 
 ### Status da implantação
 
-Agora você pode atualizar o ambiente `` de um [status de implantação](/v3/repos/deployments/#create-a-deployment-status) e usar os estados `in_progress` e `na fila`. Ao criar o status da implantação, agora você pode usar o parâmetro `auto_inactive` para marcar implantações de `produção` antigas como `inativa`.
+Agora você pode atualizar o ambiente `` de um [status de implantação](/rest/reference/repos#create-a-deployment-status) e usar os estados `in_progress` e `na fila`. Ao criar o status da implantação, agora você pode usar o parâmetro `auto_inactive` para marcar implantações de `produção` antigas como `inativa`.
 
 **Tipo de mídia personalizada:** `flash-preview` **Anunciado:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -280,19 +250,7 @@ Agora você pode fornecer mais informações no GitHub para URLs vinculadas a do
 
 **Tipos de mídia personalizada:** `corsair-preview` **Anunciado:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
-{% if currentVersion == "free-pro-team@latest" %}
-
-
-
-### Restrições de interação para repositórios e organizações
-
-Permite que você restrinja temporariamente interações, como comentários, problemas de abertura e criação de pull requests para repositórios ou organizações de {% data variables.product.product_name %}. Quando ativado, apenas o grupo especificado de usuários de {% data variables.product.product_name %} poderá participar dessas interações. Consulte as APIs de [Interações de Repositório](/v3/interactions/repos/) e [Interações da organização](/v3/interactions/orgs/) para obter mais informações.
-
-**Tipo de mídia personalizada:** `umba-preview` **Anunciado:** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
-
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 
 
 ### Pull requests de rascunho
@@ -307,7 +265,7 @@ Você pode usar a API do Pull Requests de rascunho e seus pontos de extremidade 
 
 ### Habilitar e desabilitar páginas
 
-Você pode usar os novos pontos de extremidade no [API de páginas](/v3/repos/pages/) para habilitar ou desabilitar páginas. Para saber mais sobre páginas, consulte "[Princípios básicos do GitHub Pages](/categories/github-pages-basics)".
+Você pode usar os novos pontos de extremidade no [API de páginas](/rest/reference/repos#pages) para habilitar ou desabilitar páginas. Para saber mais sobre páginas, consulte "[Princípios básicos do GitHub Pages](/categories/github-pages-basics)".
 
 **Tipos de mídia personalizada:** `switcheroo-preview` **Anunciado:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
@@ -319,7 +277,7 @@ Você pode usar dois novos pontos de extremidade na [API de commits](/v3/repos/c
 
 **Tipos de mídia personalizada:** `groot-preview` **Anunciado:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 
 
 ### Desinstalar um aplicativo do GitHub
@@ -376,7 +334,7 @@ Você pode gerenciar os tokens de forma mais segura para aplicativos OAuth usand
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 
 ### Novo parâmetro de visibilidade para a API de repositórios

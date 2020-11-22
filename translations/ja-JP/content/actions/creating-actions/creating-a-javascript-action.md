@@ -1,18 +1,18 @@
 ---
 title: JavaScript アクションを作成する
-intro: このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。
+intro: 'このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
-  - /アクション/ビルディングアクション/作成-javaスクリプトアクション
+  - /actions/building-actions/creating-a-javascript-action
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
@@ -51,7 +51,7 @@ versions:
 
 ### アクションのメタデータファイルの作成
 
-`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
+`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 
 **アクション.yml**
@@ -77,9 +77,9 @@ runs:
 
 アクションのツールキットは、Node.js パッケージのコレクションで、より一貫性を保ちつつ、JavaScript を素早く作成するためのものです。
 
-ツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core)パッケージは、ワークフローのコマンド、入力および出力変数、終了ステータス、ならびにデバッグメッセージに対してインターフェースを提供します。
+ツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージは、ワークフローコマンド、入力変数と出力変数、終了ステータス、およびデバッグメッセージへのインターフェースを提供します。
 
-このツールキットはまた、認証を受けたOctokit RESTクライアント及びGitHub Actionsコンテキストへのアクセスを返す[`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github)パッケージも提供します。
+このツールキットは、認証された Octokit REST クライアントと GitHub Actions コンテキストへのアクセスを返す [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) パッケージも提供します。
 
 ツールキットは、`core` や `github` パッケージ以外のものも提供しています。 詳しい情報については、[actions/toolkit](https://github.com/actions/toolkit) リポジトリ以下を参照してください。
 
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-上記のサンプルの`index.js`でエラーが投げられた場合、`core.setFailed(error.message);`はアクションツールキットの[`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core)パッケージを使ってメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
+上記の `index.js` の例でエラーがスローされた場合、`core.setFailed(error.message);` はアクションツールキット [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗の終了コードを設定します。 詳しい情報については「[アクションの終了コードの設定](/actions/creating-actions/setting-exit-codes-for-actions)」を参照してください。
 
 
 ### READMEの作成
@@ -258,4 +258,8 @@ jobs:
 
 リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}

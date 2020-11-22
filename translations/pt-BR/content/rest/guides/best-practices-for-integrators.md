@@ -7,11 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 Interessado em integrar-se à plataforma do GitHub? [Você está em boas mãos](https://github.com/integrations). Este guia ajudará você a construir um aplicativo que fornece a melhor experiência para seus usuários *e* garantir que interaja, de modo confiável, com a API.
-
 
 ### Garante cargas seguras entregues a partir do GitHub
 
@@ -25,11 +25,11 @@ Há várias etapas que você pode dar para garantir o recebimento de cargas entr
 
 ### Favoreça o trabalho assíncrono em detrimento do trabalho síncrono
 
-O GitHub espera que as integrações respondam dentro de {% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %} segundos após receber a carga do webhook. Se o seu serviço demorar mais do que isso para ser concluído, o GitHub encerrará a conexão e a carga será perdida.
+O GitHub espera que as integrações respondam dentro de {% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %} segundos para receber a carga do webhook. Se o seu serviço demorar mais do que isso para ser concluído, o GitHub encerrará a conexão e a carga será perdida.
 
 Como é impossível prever a rapidez com que o seu serviço será concluído, você deve fazer todo o "trabalho real" em um trabalho que atue em segundo plano. [Resque](https://github.com/resque/resque/) (para Ruby), [RQ](http://python-rq.org/) (para Python) ou [RabbitMQ](http://www.rabbitmq.com/) (para Java) são exemplos de bibliotecas que podem lidar com a fila e o processamento de trabalhos em segundo plano.
 
-Observe que, mesmo com um trabalho em segundo plano, o GitHub ainda espera que seu servidor responda no prazo de {% if currentVersion == "free-pro-team@latest" %}dez{% else %}trinta{% endif %} segundos. Seu servidor precisa reconhecer que recebeu a carga enviando algum tipo de resposta. É fundamental que o seu serviço realize qualquer validação em uma carga o mais rápido possível para que você possa relatar com precisão se o seu servidor irá continuar com a solicitação ou não.
+Observe que mesmo com um trabalho em segundo plano em andamento, o GitHub ainda espera que o seu servidor responda dentro de {% if currentVersion == "free-pro-team@latest" %}dez{% else %}trinta{% endif %} segundos. Seu servidor precisa reconhecer que recebeu a carga enviando algum tipo de resposta. É fundamental que o seu serviço realize qualquer validação em uma carga o mais rápido possível para que você possa relatar com precisão se o seu servidor irá continuar com a solicitação ou não.
 
 ### Use códigos de status de HTTP apropriados ao responder ao GitHub
 

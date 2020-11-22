@@ -1,6 +1,6 @@
 ---
 title: pre-receiveフック環境の作成
-intro: pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。
+intro: 'pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。'
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
@@ -72,8 +72,7 @@ chroot 環境の作成に関する詳しい情報については *Debian Wiki* �
 
 ### {% data variables.product.prodname_ghe_server %}へのpre-receiveフック環境のアップロード
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. [**Manage environments**] (環境を管理) をクリックします。 ![環境を管理](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)

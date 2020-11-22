@@ -1,6 +1,6 @@
 ---
 title: Arten der von GitHub versendeten E-Mails
-intro: 'Du kannst von {% data variables.product.product_name %} verschiedene Arten von E-Mails erhalten, unter anderem Benachrichtigungen, Kontoinformationen und Marketingkommunikation.'
+intro: 'Sie können von {% data variables.product.product_name %} verschiedene Arten von E-Mails erhalten, unter anderem Benachrichtigungen, Kontoinformationen und Marketingkommunikation.'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:

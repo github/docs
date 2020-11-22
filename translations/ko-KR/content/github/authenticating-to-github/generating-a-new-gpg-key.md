@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -29,7 +30,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default `RSA and DSA`.
+4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default `RSA and RSA`.
 5. Enter the desired key size. Your key must be at least `4096` bits.
 6. Enter the length of time the key should be valid. Press `Enter` to specify the default selection, indicating that the key doesn't expire.
 7. Verify that your selections are correct.

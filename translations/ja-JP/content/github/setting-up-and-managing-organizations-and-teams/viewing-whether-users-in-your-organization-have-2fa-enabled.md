@@ -1,6 +1,6 @@
 ---
 title: Organization 内のユーザが 2 要素認証を有効にしているかどうかを表示する
-intro: どの Organization のオーナー、メンバー、および 外部コラボレーターが 2 要素認証を有効にしているかを確認できます。
+intro: 'どの Organization のオーナー、メンバー、および 外部コラボレーターが 2 要素認証を有効にしているかを確認できます。'
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
 versions:
@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**メモ:** {% if currentVersion == "free-pro-team@latest" %}オーナー、支払いマネージャーおよび{% else %}{% endif %}外部コラボレーターを含むすべてのメンバーに、2 要素認証を有効にするよう要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
+**注釈:** {% if currentVersion == "free-pro-team@latest" %}オーナー、支払いマネージャーおよび{% else %}{% endif %}外部コラボレーターを含むすべてのメンバーに、2 要素認証を有効にするよう要求できます。 詳しい情報については [Organization で 2 要素認証を要求する](/articles/requiring-two-factor-authentication-in-your-organization)を参照してください。
 
 {% endnote %}
 

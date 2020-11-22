@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 {% note %}
 
-**Note:** This package type may not be available for your instance, because site administrators can enable or disable each supported package type. For more information, see "[Configuring packages support for your enterprise](/enterprise/admin/packages/configuring-packages-support-for-your-enterprise)."
+**注：**这种包类型可能不适用于您的实例，因为站点管理员可以启用或禁用每种支持的包类型。 更多信息请参阅“[为企业配置软件包支持](/enterprise/admin/packages/configuring-packages-support-for-your-enterprise)”。
 
 {% endnote %}
 {% endif %}

@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**Aviso:** se você for integrante{% if currentVersion == "free-pro-team@latest" %}, gerente de cobrança{% endif %} ou colaborador externo em um repositório público de uma organização que requeira autenticação de dois fatores e desabilitar a 2FA, será automaticamente removido da organização e perderá acesso aos repositórios. Para recuperar o acesso à organização, torne a habilitar a autenticação de dois fatores e entre em contato com um proprietário da organização.
+**Aviso:** Se você é integrante{% if currentVersion == "free-pro-team@latest" %}, gerente de cobrança,{% endif %} ou colaborador externo em um repositório público de uma organização que exige autenticação de dois fatores e você desativa a 2FA, você será automaticamente removido da organização e perderá o acesso aos repositórios. Para recuperar o acesso à organização, torne a habilitar a autenticação de dois fatores e entre em contato com um proprietário da organização.
 
 {% endwarning %}
 

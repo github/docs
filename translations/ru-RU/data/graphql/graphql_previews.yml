@@ -28,57 +28,6 @@
   owning_teams:
     - '@github/ecosystem-api'
 - 
-  title: Checks
-  description: This preview adds support for reading checks created by GitHub Apps.
-  toggled_by: ':antiope-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - CheckAnnotationRange
-    - CheckAnnotationPosition
-    - CheckAnnotationSpan
-    - CheckAnnotation
-    - CheckAnnotationConnection.nodes
-    - CheckAnnotationData
-    - CheckAnnotationEdge.node
-    - CheckAnnotationLevel
-    - CheckConclusionState
-    - CheckStatusState
-    - CheckSuiteAutoTriggerPreference
-    - CheckRun
-    - CheckRunConnection.nodes
-    - CheckRunEdge.node
-    - CheckRunAction
-    - CheckRunFilter
-    - CheckRunOutput
-    - CheckRunOutputImage
-    - CheckRunType
-    - CheckSuite
-    - CheckSuiteConnection.nodes
-    - CheckSuiteEdge.node
-    - CheckSuiteFilter
-    - CreateCheckRunInput
-    - CreateCheckRunPayload
-    - CreateCheckSuiteInput
-    - CreateCheckSuitePayload
-    - Commit.checkSuites
-    - Mutation.createCheckRun
-    - Mutation.createCheckSuite
-    - Mutation.rerequestCheckSuite
-    - Mutation.updateCheckRun
-    - Mutation.updateCheckSuitePreferences
-    - Push
-    - RequestableCheckStatusState
-    - RerequestCheckSuiteInput
-    - RerequestCheckSuitePayload
-    - UpdateCheckRunInput
-    - UpdateCheckRunPayload
-    - UpdateCheckSuitePayload.checkSuite
-    - UpdateCheckSuitePreferencesInput
-    - UpdateCheckSuitePreferencesPayload
-  owning_teams:
-    - '@github/ce-extensibility'
-- 
   title: >-
     MergeInfoPreview - More detailed information about a pull request's merge state.
   description: >-
@@ -104,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: Access to a Repositories Dependency Graph
   description: This preview adds support for reading a dependency graph for a repository.
@@ -153,7 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: Pinned Issues Preview
   description: This preview adds support for pinned issues.

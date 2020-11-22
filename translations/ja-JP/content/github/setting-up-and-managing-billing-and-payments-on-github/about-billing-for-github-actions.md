@@ -12,8 +12,8 @@ versions:
 
 利用時間 (分) は毎月リセットされますが、ストレージはリセットされません。
 
-| 製品                                                                    | ストレージ  | 分 (月あたり) |
-| --------------------------------------------------------------------- | ------ | -------- |
+| 製品                                                               | ストレージ  | 分 (月あたり) |
+| ---------------------------------------------------------------- | ------ | -------- |
 | {% data variables.product.prodname_free_user %}                | 500 MB | 2,000    |
 | {% data variables.product.prodname_pro %}                        | 1 GB   | 3,000    |
 | Organization の {% data variables.product.prodname_free_team %} | 500 MB | 2,000    |
@@ -44,14 +44,14 @@ versions:
 | macOS        | $0.08   |
 | Windows      | $0.016  |
 
-アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、「[{% data variables.product.prodname_actions %}について](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)」を参照してください。
+アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
 ### 利用時間 (分) とストレージ消費量の計算
 
 月末に、{% data variables.product.prodname_dotcom %}はアカウントに含まれている量に対して使用された分とストレージのコストを計算します。 たとえば、Organizationが{% data variables.product.prodname_team %}を使用しており、使用量に制限をしていない場合、15,000分を使用すればジョブを実行しているオペレーティングシステムによって、合計でストレージと分は56ドルの超過コストになるかもしれません。
 
 - 5,000 (3,000 Linux と 2,000 Windows) 分 = $56 ($24 + $32)。
-  - 単価$0.008で3,000 Linux分 = $24。
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 単価$0.016で2,000 Windows分 = $32。
 
 月末に、{% data variables.product.prodname_dotcom %}はデータ転送を最も近いGBに丸めます。

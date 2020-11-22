@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você incluir uma licença detectável no seu repositório, as pessoas que o visitam o verão no topo da página do repositório. Para ler o arquivo de licença inteiro, clique no nome da licença.
@@ -32,7 +33,7 @@ As licenças de código aberto permitem que outras pessoas usem, alterem e distr
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

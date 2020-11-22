@@ -8,21 +8,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+
 {% warning %}
 
-**Warning**: Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+**Warnings**:
 
+- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
+ 
 {% endwarning %}
-{% endif %}
-
-Please also keep in mind that:
-- Deleting a private repository will delete all of its forks.
-- Deleting a public repository will not delete its forks.
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can restore some deleted repositories within 90 days. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."

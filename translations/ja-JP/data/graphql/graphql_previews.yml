@@ -28,57 +28,6 @@
   owning_teams:
     - '@github/ecosystem-api'
 - 
-  title: チェック
-  description: このプレビューは、GitHub Appsによって作成された読み取りチェックのサポートを追加します。
-  toggled_by: ':antiope-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - CheckAnnotationRange
-    - CheckAnnotationPosition
-    - CheckAnnotationSpan
-    - CheckAnnotation
-    - CheckAnnotationConnection.nodes
-    - CheckAnnotationData
-    - CheckAnnotationEdge.node
-    - CheckAnnotationLevel
-    - CheckConclusionState
-    - CheckStatusState
-    - CheckSuiteAutoTriggerPreference
-    - CheckRun
-    - CheckRunConnection.nodes
-    - CheckRunEdge.node
-    - CheckRunAction
-    - CheckRunFilter
-    - CheckRunOutput
-    - CheckRunOutputImage
-    - CheckRunType
-    - CheckSuite
-    - CheckSuiteConnection.nodes
-    - CheckSuiteEdge.node
-    - CheckSuiteFilter
-    - CreateCheckRunInput
-    - CreateCheckRunPayload
-    - CreateCheckSuiteInput
-    - CreateCheckSuitePayload
-    - Commit.checkSuites
-    - Mutation.createCheckRun
-    - Mutation.createCheckSuite
-    - Mutation.rerequestCheckSuite
-    - Mutation.updateCheckRun
-    - Mutation.updateCheckSuitePreferences
-    - Push
-    - RequestableCheckStatusState
-    - RerequestCheckSuiteInput
-    - RerequestCheckSuitePayload
-    - UpdateCheckRunInput
-    - UpdateCheckRunPayload
-    - UpdateCheckSuitePayload.checkSuite
-    - UpdateCheckSuitePreferencesInput
-    - UpdateCheckSuitePreferencesPayload
-  owning_teams:
-    - '@github/ce-extensibility'
-- 
   title: >-
     MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
   description: >-
@@ -104,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: リポジトリの依存関係グラフへのアクセス
   description: このプレビューは、リポジトリの依存関係グラフの読み取りのサポートを追加します。
@@ -153,7 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: ピン止めされたIssueのプレビュー
   description: このプレビューは、ピン止めされたIssueのサポートを追加します。

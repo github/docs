@@ -13,45 +13,49 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### {% data variables.product.prodname_pages %}について
+### {% data variables.product.prodname_pages %} について
 
 {% data variables.product.prodname_pages %} は、{% data variables.product.product_name %} のリポジトリから HTML、CSS、および JavaScript ファイル を直接取得し、任意でビルドプロセスを通じてファイルを実行し、ウェブサイトを公開できる静的なサイトホスティングサービスです。 {% data variables.product.prodname_pages %} サイトの例については、[{% data variables.product.prodname_pages %} サンプル集](https://github.com/collections/github-pages-examples)で見ることができます。
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.prodname_dotcom %} の`github.io` ドメインまたはご自身のカスタムドメインで、サイトをホストできます。 詳細は「[{% data variables.product.prodname_pages %} でカスタムドメインを使用する](/articles/using-a-custom-domain-with-github-pages)」を参照してください。
+You can host your site on
+{% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. 詳細は「[{% data variables.product.prodname_pages %} でカスタムドメインを使用する](/articles/using-a-custom-domain-with-github-pages)」を参照してください。
 {% endif %}
 
 作成方法については、「[{% data variables.product.prodname_pages %} サイトを作成する](/articles/creating-a-github-pages-site)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+Organization owners can disable the publication of
+{% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
 {% endif %}
 
 ### {% data variables.product.prodname_pages %} サイトの種類
 
 {% data variables.product.prodname_pages %} サイトには、3 つの種類があります。プロジェクト、ユーザ、そして Organization です。 プロジェクトサイトは、JavaScript ライブラリやレシピ集など、{% data variables.product.product_name %} の特定のプロジェクトに関するものです。 ユーザおよび Organization サイトは、特定の {% data variables.product.product_name %} に関するものです。
 
-ユーザサイトを公開するには、{% if currentVersion == "free-pro-team@latest" %}`<user>.github.io`{% else %}`<user>.<hostname>`{% endif %} という名前のユーザアカウントが所有するリポジトリを作成する必要があります。 Organization サイトを公開するには、 {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}という名前のOrganizationが所有するリポジトリを作成する必要があります。 {% if currentVersion == "free-pro-team@latest" %}カスタムドメインを設定していない場合、ユーザおよび Organization サイトは `http(s)://<username>.github.io` または `http(s)://<organization>.github.io` から利用できます。{% endif %}
+To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-プロジェクトサイトのソースファイルは、プロジェクトと同じリポジトリに保存されます。 {% if currentVersion == "free-pro-team@latest" %}カスタムドメインを設定していない場合、プロジェクトサイトは `http(s)://<user>.github.io/<repository>` または `http(s)://<organization>.github.io/<repository>` から利用できます。{% endif %}
+プロジェクトサイトのソースファイルは、プロジェクトと同じリポジトリに保存されます。 {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 カスタムドメインがサイトの URL に与える影響に関する詳しい情報については、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages)」を参照してください。
 {% endif %}
 
-{% data variables.product.product_name %} アカウントごとに、ユーザまたは Organization サイトを 1 つだけ作成できます。 プロジェクトサイトの数については、Organization アカウントでもユーザアカウントでも、無制限です。
+You can only create one user or organization site for each account on {% data variables.product.product_name %}. プロジェクトサイトの数については、Organization アカウントでもユーザアカウントでも、無制限です。
 
-{% if currentVersion != "free-pro-team@latest" %}
-サイトが利用できる URL については、{% data variables.product.product_location %} で Subdomain Isolation を有効にしているかどうかで異なります。
+{% if enterpriseServerVersions contains currentVersion %}
+The URL where your site is available depends on whether subdomain isolation is enabled for
+{% data variables.product.product_location %}.
 
 | サイトの種類 | Subdomain Isolation が有効 | Subdomain isolation が無効 |
 | ------ | ----------------------- | ----------------------- |
 |        |                         |                         |
- ユーザ | 
+ User | 
 
-`http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` | Organization | `http(s)://pages.<hostname>/<organization>/<repository>/` | `http(s)://<hostname>/pages/<organization>/<repository>/` | ユーザアカウントが所有するプロジェクトサイト | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Organization アカウントが所有するプロジェクトサイト | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Project site owned by user account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
 詳しい情報については、 「[Subdomain Isolation を有効化する](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)」を参照するか、サイト管理者にお問い合わせください。
 {% endif %}
@@ -59,7 +63,7 @@ Organization owners can disable the publication of {% data variables.product.pro
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**注釈:** Repositories using theレガシーの `<user>.github.com` 命名規則を使用しているリポジトリも公開されますが、訪問者は `http(s)://<username>.github.com` から`http(s)://<username>.github.io` にリダイレクトされます。 `<user>.github.com` と `<user>.github.io` の両方のリポジトリが存在する場合、 `<user>.github.io` のリポジトリのみが公開されます。
+**Note:** Repositories using the legacy `<username>.github.com` naming scheme will still be published, but visitors will be redirected from `http(s)://<username>.github.com` to `http(s)://<username>.github.io`. If both a `<username>.github.com` and `<username>.github.io` repository exist, only the `<username>.github.io` repository will be published.
 
 {% endnote %}
 {% endif %}
@@ -70,7 +74,7 @@ The publishing source for your {% data variables.product.prodname_pages %} site 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 If the default publishing source exists in your repository, {% data variables.product.prodname_pages %} will automatically publish a site from that source. The default publishing source for user and organization sites is the root of the default branch for the repository. The default publishing source for project sites is the root of the `gh-pages` branch.
 
@@ -86,7 +90,7 @@ If you choose the `/docs` folder of any branch as your publishing source, {% dat
 
 プロジェクトサイトは、`master` ブランチまたは `master` ブランチ場の `/docs` フォルダから公開することもできます。 これらの公開元からサイトを公開するには、別の公開元を設定する必要があります。 詳しい情報については「[{% data variables.product.prodname_pages %} サイトの公開元を設定する](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)」を参照してください。
 
- `master` ブランチ上の `/docs` フォルダを公開元として選択する場合、サイトを公開するため、{% data variables.product.prodname_pages %} は{% if currentVersion == "free-pro-team@latest" %}、_CNAME_ ファイルも含めた{% endif %}全てのファイルを `/docs` フォルダから読み取ります。{% if currentVersion == "free-pro-team@latest" %}たとえば、{% data variables.product.prodname_pages %} 設定からカスタムドメインを編集すると、そのカスタムドメインは `/docs/CNAME` に書き込みます。 _CNAME_ ファイルに関する詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}
+ If you choose the `/docs` folder of the `master` branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% if currentVersion == "free-pro-team@latest" %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% if currentVersion == "free-pro-team@latest" %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. _CNAME_ ファイルに関する詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}
 
  デフォルトブランチが`master`または`gh-pages`ではない場合でも、他のブランチからはプロジェクトサイトを公開することはできません。
 
@@ -111,17 +115,17 @@ If you choose the `/docs` folder of any branch as your publishing source, {% dat
 {% endif %}
 {% data variables.product.prodname_pages %} サイトには、次の使用制限があります:
 
-  - {% data variables.product.prodname_pages %} ソースリポジトリには、1GB の推奨上限があります。{% if currentVersion == "free-pro-team@latest" %}詳しい情報については、「[私のディスク容量はいくつですか？](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)」を参照してください。{% endif %}
+  - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1GB.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[What is my disk quota?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
   - 公開された{% data variables.product.prodname_pages %}のサイトは1GB以上であってはなりません。
 {% if currentVersion == "free-pro-team@latest" %}
-  - {% data variables.product.prodname_pages %} サイトには、月当たり 100GB の*ソフトな*帯域幅制限があります。
-  - {% data variables.product.prodname_pages %} サイトには、時間当たり 10 ビルドの*ソフトな*制限があります。
+  - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100GB per month.
+  - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.
 
 あなたのサイトがこれらの使用割当量を超えている場合、あなたのサイトにサービスを提供できないか、{% data variables.contact.contact_support %} から、あなたのサイトが当社のサーバーに与える影響を減らす方法を示唆するメールが届くことがあります。そうした方法の例としては、サードパーティのコンテンツ配信ネットワーク (CDN) をサイトの前に配置したり、リリースなどの他の {% data variables.product.prodname_dotcom %} 機能を利用したり、ニーズに合った別のホスティングサービスに移行したりすることなどが挙げられます。
 
 #### 禁止される用途
 
-{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とるす、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
+{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とする、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
 
 さらに、{% data variables.product.prodname_pages %} サイトでは、以下を禁じています:
 
@@ -132,8 +136,9 @@ If you choose the `/docs` folder of any branch as your publishing source, {% dat
   - 攻略法詐欺
   - 性的・わいせつなコンテンツ
   - 自分の素性またはサイトの目的を誤って表現しているコンテンツ
+If you have questions about whether your use or intended use falls into these categories, please contact
 
-あなたの用途または意図された用途がこれらのカテゴリに該当するかどうかについて質問がある場合は、{% data variables.contact.contact_support %} にお問い合わせください。
+{% data variables.contact.contact_support %}.
 {% endif %}
 
 ### {% data variables.product.prodname_pages %} での MIME タイプ

@@ -1,14 +1,18 @@
 ---
 title: Oraganization の以前のメンバーを復帰させる
-intro: 'Organizationのオーナーは{% if currentVersion == "free-pro-team@latest" %}Oraganization の以前のメンバーを招待して Oraganization に復帰させて{% else %}以前のメンバーを Oraganization に追加して{% endif%}、その個人の以前のロール、アクセス権、フォーク、設定をリストアするかどうかを選択することができます。'
+intro: 'Organizationのオーナーは {% if currentVersion == "free-pro-team@latest" %}Oraganization の以前のメンバーを招待して Oraganization に復帰させて{% else %}以前のメンバーを Oraganization に追加して{% endif%}、その個人の以前のロール、アクセス権、フォーク、設定をリストアするかどうかを選択することができます。'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: 'Organization owners can reinstate a former member of an organization.'
 ---
 
-[ユーザを Organization から削除する](/articles/removing-a-member-from-your-organization)場合、[Organization のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)場合、または[メンバーと外部のコラボレータに 2要素認証（2FA）を有効化するよう要求](/articles/requiring-two-factor-authentication-in-your-organization)したためにユーザが Organization から削除される場合、そのユーザのアクセス権限と設定は 3 か月間保存されます。 そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion =="free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
+### About member reinstatement
+
+If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion != "github-ae@latest" %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion =="free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -21,21 +25,15 @@ Oraganization の以前のメンバーを復帰させると、次のことがリ
  - Organization での Issue 割り当て
  - リポジトリプラン (リポジトリのアクティビティを Watch するか Watch しないか無視するかについての通知設定)
 
-    {% tip %}
+{% if enterpriseServerVersions contains currentVersion %}
+Organization のメンバーが 2 要素認証を使用していなかったために Organization から削除された場合、Organization で 2 要素認証を使用するようメンバーに要求することに変わりないのであれば、以前のメンバーは 2 要素認証を有効化しないとメンバーとして復帰できません。
+{% endif %}
 
-    {% if currentVersion == "free-pro-team@latest" %}
-    **Tips**:
-    - Organization のメンバーが 2 要素認証を使用していなかったために Organization から削除された場合、Organization で 2 要素認証を使用するようメンバーに要求することに変わりないのであれば、以前のメンバーは 2 要素認証を有効化しないとメンバーとして復帰できません。
-    - Organization に参加するようユーザを招待できるのは、Organization オーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
-    - Organization にユーザ単位の有料プランがある場合、Organization の以前のメンバーを復帰させる前に、使用されていないライセンスを使用可能にしておく必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-expiration %}
+{% if currentVersion == "free-pro-team@latest" %}
+Organization にユーザ単位の有料プランがある場合、Organization の以前のメンバーを復帰させる前に、使用されていないライセンスを使用可能にしておく必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-expiration %}
+{% endif %}
 
-   {% else %}
-    **Tips**:
-    - Organization のメンバーが 2 要素認証を使用していなかったために Organization から削除された場合、Organization で 2 要素認証を使用するようメンバーに要求することに変わりないのであれば、以前のメンバーは 2 要素認証を有効化しないとメンバーとして復帰できません。
-    - Organization にユーザを追加できるのは、Organization オーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
-   {% endif %}
-
-   {% endtip %}
+### Oraganization の以前のメンバーを復帰させる
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

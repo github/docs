@@ -6,15 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Agora que você [configurou seu servidor local](/webhooks/configuring/), você pode estar interessado em fazer push do seu código em seus limites. Para isso, a visualização de webhooks do GitHub fornece algumas ferramentas para testar suas cargas implantadas.
 
 ### Listar as entregas recentes
 
-Cada webhook tem sua própria seção "Entregas Recentes", que lista, de forma resumida, se uma implementação foi bem-sucedida (sinal verde) ou falhou (x vermelho). Você também pode identificar quando se tentou cada entrega.
+Cada webhook tem sua própria seção "Entregas Recentes", que lista, se uma entrega foi bem sucedida (verificação verde) ou falhou (vermelho x). Você também pode identificar quando se tentou cada entrega.
 
 {% data variables.product.product_name %} mantém um registro de cada entrega de webhook para {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} dias.
 

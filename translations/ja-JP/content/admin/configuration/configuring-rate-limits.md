@@ -13,7 +13,7 @@ versions:
 {% data variables.product.prodname_enterprise_api %}のレート制限を有効化すれば、個人あるいは認証されていないユーザによるリソースの過剰な利用を回避できます。 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-{% data variables.product.prodname_enterprise_api %}のレート制限を有効化すれば、個人あるいは認証されていないユーザによるリソースの過剰な利用を回避できます。 For more information, see "[Rate Limiting](/enterprise/{{ currentVersion }}/v3/#rate-limiting)."
+{{ site.data.variables.product.prodname_enterprise_api }}のレート制限を有効化すれば、個人あるいは認証されていないユーザによるリソースの過剰な利用を回避できます。 For more information, see "[Rate Limiting](/enterprise/{{ page.version }}/v3/#rate-limiting)."
 {% endif %}
 
 {% note %}
@@ -30,7 +30,7 @@ versions:
 
 ### 不正利用レート制限の有効化
 
-不正利用レート制限を設定すれば、{% data variables.product.product_location_enterprise %}上のサービスの全体のレベルを保護できます。
+不正利用レート制限を設定すれば、{% data variables.product.product_location %}上のサービスの全体のレベルを保護できます。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

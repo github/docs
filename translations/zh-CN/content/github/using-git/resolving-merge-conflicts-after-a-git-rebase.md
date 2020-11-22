@@ -1,11 +1,12 @@
 ---
 title: 解决 Git 变基后的合并冲突
-intro: 当您执行 `git rebase` 操作时，通常会移动提交。 因此，您可能会遇到引入合并冲突的情况。 这意味着您的两个提交修改了同一个文件中的同一行，而 Git 不知道要应用哪个更改。
+intro: '当您执行 `git rebase` 操作时，通常会移动提交。 因此，您可能会遇到引入合并冲突的情况。 这意味着您的两个提交修改了同一个文件中的同一行，而 Git 不知道要应用哪个更改。'
 redirect_from:
   - /articles/resolving-merge-conflicts-after-a-git-rebase
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

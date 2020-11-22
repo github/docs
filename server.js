@@ -10,14 +10,14 @@ const app = express()
 
 require('./middleware')(app)
 
-// prevent the app from starting up durings tests
+// prevent the app from starting up during tests
 /* istanbul ignore next */
 if (!module.parent) {
   // check that the development server is not already running
   portUsed.check(port).then(async status => {
     if (status === false) {
       // If in production, warm the server at the start
-      if (process.env.NODE_ENV === 'production') await warmServer()
+      if (process.env.NODE_ENV === 'production') warmServer()
 
       // workaround for https://github.com/expressjs/express/issues/1101
       const server = require('http').createServer(app)

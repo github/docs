@@ -1,6 +1,6 @@
 ---
 title: Organization のインサイトを表示する
-intro: Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。
+intro: 'Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。'
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -36,7 +36,7 @@ dependency insights を使えば、あなたの Organization が頼るオープ�
 3. Organization 名の下にある {% octicon "graph" aria-label="The bar graph icon" %} [**Insights**] をクリックします。 ![メイン Organization ナビゲーションバーの [Insights] タブ](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. この Organization への依存関係を表示するには、[**Dependencies**] をクリックします。 ![メイン Organization ナビゲーションバーの下にある [Dependencies] タブ](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. あなたの {% data variables.product.prodname_ghe_cloud %} Organization の dependency insights をすべて表示するには、[**My organizations**] をクリックします。 ![[Dependencies] タブの下にある [My organizations] ボタン](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
-6. [**Open security advisories**] および [**Licenses**] グラフの結果をクリックすることで、脆弱性ステータス、ライセンスまたはその 2 つを組み合わせてフィルタリングできます。 ![Organization の脆弱性およびライセンスのグラフ](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
+6. [**Open security advisories**] および [**Licenses**] グラフの結果をクリックすることで、脆弱性ステータス、ライセンスまたはその 2 つを組み合わせてフィルタリングできます。 ![My organizations vulnerabilities and licenses graphs](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
 7. 各脆弱性の隣にある [{% octicon "package" aria-label="The package icon" %} **dependents**] をクリックして、Organization でどの依存関係が各ライブラリを使っているかを表示できます。 ![Organization の脆弱性のある依存関係](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
 
@@ -45,4 +45,4 @@ dependency insights を使えば、あなたの Organization が頼るオープ�
    - [Organization について](/github/setting-up-and-managing-organizations-and-teams/about-organizations)
    - [リポジトリの依存関係を見る](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)
    - [Organization dependency insights の可視性を変更する](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)
-   - [Enterprise アカウントに dependency insights に関するポリシーを施行する](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)
+   - [Enterprise アカウントに dependency insights に関するポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)

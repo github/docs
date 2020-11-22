@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.organizations_include %}
@@ -25,5 +26,4 @@ Para organizações que pertencem a uma conta corporativa, a cobrança é gerenc
 
 Uma entidade, como uma empresa, não lucrativa, ou um grupo, pode concordar com os Termos de serviço padrão ou os Termos de serviço corporativos para a respectiva organização. Para obter mais informações, consulte "[Atualizar para os Termos de serviço corporativos](/articles/upgrading-to-the-corporate-terms-of-service)".
 
-{% data reusables.organizations.enter-data-protection-agreement %} Para obter mais informações, consulte "[Inserir um contato de proteção de dados com o {% data variables.product.prodname_dotcom %} para conformidade com o regulamento GDPR](/articles/entering-a-data-protection-agreement-with-github-for-gdpr-compliance)".
 {% endif %}

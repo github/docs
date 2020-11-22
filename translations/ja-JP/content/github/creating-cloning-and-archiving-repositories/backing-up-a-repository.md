@@ -1,11 +1,12 @@
 ---
 title: リポジトリのバックアップ
-intro: '{% if currentVersion != "free-pro-team@latest" %}Git および {% endif %}API{% if currentVersion == "free-pro-team@latest" %}またはサードパーティのツール{% endif %}を使用して、リポジトリをバックアップできます。'
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -22,21 +23,22 @@ versions:
 
 - [問題](/v3/issues/#list-issues-for-a-repository)
 - [プルリクエスト](/v3/pulls/#list-pull-requests)
-- [フォーク](/v3/repos/forks/#list-forks)
-- [コメント](/v3/issues/comments/#list-comments-in-a-repository)
-- [マイルストーン](/v3/issues/milestones/#list-milestones-for-a-repository)
-- [ラベル](/v3/issues/labels/#list-all-labels-for-this-repository)
-- [Watcher](/v3/activity/watching/#list-watchers)
-- [Starを付けたユーザ](/v3/activity/starring/#list-stargazers)
+- [フォーク](/rest/reference/repos#list-forks)
+- [コメント](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [マイルストーン](/rest/reference/issues#list-milestones)
+- [ラベル](/rest/reference/issues#list-labels-for-a-repository)
+- [Watcher](/rest/reference/activity#list-watchers)
+- [Starを付けたユーザ](/rest/reference/activity#list-stargazers)
 - [プロジェクト](/v3/projects/#list-repository-projects)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}バックアップしたいすべての内容のローカルバージョンができたなら、zipアーカイブを作成して{% else %}アーカイブがダウンロードできたなら{% endif %}外部ハードディスクにコピーするか、[Google Drive](https://www.google.com/drive/)あるいは[ Dropbox](https://www.dropbox.com/)などのクラウドベースのバックアップサービスにアップロードしてください。
+Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### サードパーティのバックアップツール
 
 リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできるようにする {% data variables.product.product_name %} 上の_すべての_パブリックリポジトリをアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。
+You can back up all of a repository's Git data (such as project files and commit history), as well as much data from
 
-リポジトリのすべての Git データ (プロジェクトファイルやコミット履歴) は、{% data variables.product.product_name %}からのデータの大部分 (Issue やプルリクエストなど) と共に[ BackHub](https://github.com/marketplace/backhub)でバックアップできます。BackHub は、リポジトリの日次の循環バックアップを、最大で 30 日までさかのぼったスナップショットと共に作成します。 BackHub は {% data variables.product.prodname_marketplace %}から利用できます。
+{% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub は {% data variables.product.prodname_marketplace %}から利用できます。
 {% endif %}

@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@master
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -659,7 +659,7 @@ For built-in shell keywords, we provide the following defaults that are executed
 
 - `cmd`
   - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will and return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to use with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
 #### **`jobs.<job_id>.steps.env`**
 
@@ -876,6 +876,37 @@ strategy:
 
 {% endnote %}
 
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using `include` with `env`. You can then refer to the custom environment variables in a later step.
+
+In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses {% raw %}`env: ${{ matrix.env }}`{% endraw %} to refer to the custom variables:
+
+{% raw %}
+```yaml
+name: Node.js CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       include:
+         - node-version: 10.x
+           site: "prod"
+           datacenter: "site-a"
+         - node-version: 12.x
+           site: "dev"
+           datacenter: "site-b"
+    steps:
+    - name: Echo site details
+      env:
+        SITE: ${{ matrix.site }}
+        DATACENTER: ${{ matrix.datacenter }}
+      run: echo $SITE $DATACENTER
+```
+{% endraw %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
 When set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
@@ -946,7 +977,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1029,7 +1060,7 @@ services:
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

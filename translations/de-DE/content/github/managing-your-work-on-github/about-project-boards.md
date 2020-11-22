@@ -1,19 +1,20 @@
 ---
 title: Informationen zu Projektboards
-intro: 'Mit Projektboards auf {% data variables.product.product_name %} kannst Du Deine Arbeit organisieren und priorisieren. Du kannst Projektboards für die Arbeit an bestimmten Funktionen, für umfassende Roadmaps oder sogar für Checklisten für Releases erstellen. Projektboards bieten Dir die Flexibilität, individuelle Workflows nach Deinen Bedürfnissen zu erstellen.'
+intro: 'Mit Projektboards auf {% data variables.product.product_name %} können Sie Ihre Arbeit organisieren und priorisieren. Du kannst Projektboards für die Arbeit an bestimmten Funktionen, für umfassende Roadmaps oder sogar für Checklisten für Releases erstellen. Projektboards bieten Dir die Flexibilität, individuelle Workflows nach Deinen Bedürfnissen zu erstellen.'
 redirect_from:
   - /articles/about-projects/
   - /articles/about-project-boards
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Projektboards bestehen aus Issues, Pull Requests und Hinweisen, die als Tickets in Spalten Deiner Wahl kategorisiert werden. Du kannst per Drag-and-Drop oder Tastenkürzel Tickets innerhalb einer Spalte neu anordnen, Tickets von Spalte zu Spalte verschieben und die Reihenfolge der Spalten ändern.
 
 Projektboard-Tickets enthalten relevante Metadaten für Issues und Pull Requests, wie Kennzeichnungen, Bearbeiter, Status und den öffnenden Benutzer. {% data reusables.project-management.edit-in-project %}
 
-Du kannst außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_name %} verwenden. Über Hinweise kannst Du auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
+Sie können außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_name %} verwenden. Über Hinweise können Sie auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
 
 Arten von Projektboards:
 
@@ -59,7 +60,7 @@ Weitere Informationen zur Automatisierung von Projektboards findest Du unter „
 ### Weiterführende Informationen
 
 - „[Ein Projektboard erstellen](/articles/creating-a-project-board)“
-- „[Ein Projektboard bearbeiten](/articles/editing-a-project-board)“{% if currentVersion == "free-pro-team@latest" %}
+- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}
 - „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board)“
 - „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization)“

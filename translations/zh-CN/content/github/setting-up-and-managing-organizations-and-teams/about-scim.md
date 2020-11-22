@@ -17,7 +17,7 @@ versions:
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)”。
+{% data reusables.scim.enterprise-account-scim %} 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)”。
 
 ### 延伸阅读
 

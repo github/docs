@@ -27,7 +27,7 @@ Während Deiner Zeit als Student wirst Du möglicherweise dazu aufgefordert, in 
 
 {% endnote %}
 
-Weitere Informationen zum Verlängerung Deines {% data variables.product.prodname_student_pack %}s findest Du unter „[Ablauf und Verlängerungen](/articles/applying-for-a-student-developer-pack/#expiration-and-renewals).“
+Weitere Informationen zum Verlängerung Ihres {% data variables.product.prodname_student_pack %}s finden Sie unter „[Ablauf und Verlängerungen](/articles/applying-for-a-student-developer-pack/#expiration-and-renewals)“.
 
 ### Ein {% data variables.product.prodname_student_pack %} beantragen
 
@@ -41,9 +41,9 @@ Weitere Informationen zum Verlängerung Deines {% data variables.product.prodnam
 
 ### Ablauf und Verlängerungen
 
-Wenn Dein Zugriff auf das {% data variables.product.prodname_student_pack %} abgelaufen ist, kannst Du ihn erneut beantragen, sofern Du die Voraussetzungen weiterhin erfüllst. Einige unserer Partnerangebote können jedoch nicht verlängert werden. Die meisten zeitlich begrenzten Angebote unserer Partner beginnen unmittelbar nachdem Du sie eingerichtet hast. Weitere Informationen findest Du auf der [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)-Seite.
+Wenn Ihr Zugriff auf das {% data variables.product.prodname_student_pack %} abgelaufen ist, können Sie ihn erneut beantragen, sofern Sie die Voraussetzungen weiterhin erfüllen. Einige unserer Partnerangebote können jedoch nicht verlängert werden. Die meisten zeitlich begrenzten Angebote unserer Partner beginnen unmittelbar nachdem Du sie eingerichtet hast. Weitere Informationen findest Du auf der [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)-Seite.
 
-Angaben dazu, wann Dein kostenloser Zugriff auf das {% data variables.product.prodname_student_pack %} abläuft, findest Du in den [Abrechnungseinstellungen](https://github.com/settings/billing) Deines Kontos.
+Angaben dazu, wann Ihr kostenloser Zugriff auf das {% data variables.product.prodname_student_pack %} abläuft, finden Sie in den [Abrechnungseinstellungen](https://github.com/settings/billing) Ihres Kontos.
 
 ### Weiterführende Informationen
 

@@ -24,7 +24,7 @@ A ferramenta `actions-sync` só pode fazer download de ações de {% data variab
 
 ### Pré-requisitos
 
-* Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino existam na instância corporativa. O exemplo a seguir demonstra como sincronizar ações com uma organização denominada `synced-actions` em uma instância corporativa. Para obter mais informações, consulte "[Criar organizações](/enterprise/admin/user-management/creating-organizations)".
+* Antes de usar a ferramenta `actions-sync`, você deve garantir que todas as organizações de destino existam na instância corporativa. O exemplo a seguir demonstra como sincronizar ações com uma organização denominada `synced-actions` em uma instância corporativa. For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
 * Você deve criar um token de acesso pessoal (PAT) na instância corporativa que pode criar e gravar em repositórios nas organizações de destino. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ### Exemplo: Usando a ferramenta de `actions-sync`

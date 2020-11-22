@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The top graph shows commits for the entire year by week.

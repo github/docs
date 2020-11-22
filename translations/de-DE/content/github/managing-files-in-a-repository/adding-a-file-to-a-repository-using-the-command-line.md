@@ -1,12 +1,13 @@
 ---
 title: Eine Datei über die Befehlszeile zu einem Repository hinzufügen
-intro: 'Du kannst eine vorhandene Datei über die Befehlszeile in ein {% data variables.product.product_name %}-Repository hochladen.'
+intro: 'Sie können eine vorhandene Datei über die Befehlszeile in ein {% data variables.product.product_name %}-Repository hochladen.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository-from-the-command-line/
   - /articles/adding-a-file-to-a-repository-using-the-command-line
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -19,7 +20,9 @@ versions:
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. Verschiebe auf Deinem Computer die Datei, die Du zu {% data variables.product.product_name %} hochladen möchtest, in das lokale Verzeichnis, das beim Klonen des Repositorys erstellt wurde.
+1. On your computer, move the file you'd like to upload to
+
+{% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
 {% data reusables.git.stage_for_commit %}

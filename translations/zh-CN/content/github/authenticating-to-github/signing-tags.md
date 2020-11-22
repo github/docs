@@ -1,12 +1,13 @@
 ---
 title: 对标记签名
-intro: You can sign tags locally using GPG or S/MIME.
+intro: 您可以使用 GPG 或 S/MIME 在本地对标记进行签名。
 redirect_from:
   - /articles/signing-tags-using-gpg/
   - /articles/signing-tags
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}

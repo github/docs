@@ -1,17 +1,17 @@
 ---
 title: 为组织要求双重身份验证
-intro: 您可以要求组织成员和外部协作者为他们在组织中的个人帐户启用双重身份验证，使恶意操作者更难以访问组织的仓库和设置。
+intro: '您可以要求组织成员和外部协作者为他们在组织中的个人帐户启用双重身份验证，使恶意操作者更难以访问组织的仓库和设置。'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
 ---
 
-使用 LDAP 或内置身份验证时，{% data variables.product.prodname_ghe_server %} 设备上将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
+使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-更多信息请参阅[支持双重身份验证的身份验证方法图表](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)。
+更多信息请参阅“[关于双重身份验证](/github/authenticating-to-github/about-two-factor-authentication)”。
 
 ### 强制执行双重身份验证的要求
 
@@ -49,7 +49,7 @@ versions:
 
   您还可以在搜索中使用组织名称，查看已从特定组织中移除的用户：
     - `org:octo-org AND reason:two_factor_requirement_non_compliance`
-5. Click **Search**.
+5. 单击 **Search（搜索）**。
 
 ### 帮助被删除的成员和外部协作者重新加入您的组织
 

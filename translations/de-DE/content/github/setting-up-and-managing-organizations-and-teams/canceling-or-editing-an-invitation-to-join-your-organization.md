@@ -1,6 +1,6 @@
 ---
 title: Eine Einladung zum Beitritt zu Deiner Organisation abbrechen oder bearbeiten
-intro: 'Organisationsinhaber können eine Einladung zum Beitritt zu Deiner Organisation jederzeit abbrechen oder bearbeiten, solange der Benutzer sie noch nicht angenommen hat.'
+intro: Organisationsinhaber können eine Einladung zum Beitritt zu Deiner Organisation jederzeit abbrechen oder bearbeiten, solange der Benutzer sie noch nicht angenommen hat.
 redirect_from:
   - /articles/canceling-or-editing-an-invitation-to-join-your-organization
 versions:

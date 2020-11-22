@@ -17,7 +17,7 @@ You're under no obligation to choose a license. However, without a license, the 
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. If you have already created a public repository and no longer want users to have access to it, you can make your repository private. When you convert a public repository to a private repository, existing forks or local copies created by other users will still exist. For more information, see "[Making a public repository private](/articles/making-a-public-repository-private)."
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."
 
 {% endnote %}
 

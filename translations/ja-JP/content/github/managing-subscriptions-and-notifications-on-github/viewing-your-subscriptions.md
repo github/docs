@@ -1,6 +1,6 @@
 ---
 title: サブスクリプションを表示する
-intro: 通知の送信元と通知のボリュームを把握するため、定期的にサブスクリプションを確認し、リポジトリを Watch することをお勧めします。
+intro: '通知の送信元と通知のボリュームを把握するため、定期的にサブスクリプションを確認し、リポジトリを Watch することをお勧めします。'
 redirect_from:
   - /articles/subscribing-to-conversations/
   - /articles/unsubscribing-from-conversations/
@@ -17,6 +17,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} で進行中のアクティビティのサブスクリプションの通知を受け取ります。 There are many reasons you can be subscribed to a conversation. 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)」を参照してください。

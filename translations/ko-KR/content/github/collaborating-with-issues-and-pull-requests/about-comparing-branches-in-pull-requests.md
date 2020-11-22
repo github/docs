@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -38,7 +39,7 @@ You can also choose to ignore whitespace changes to get a more accurate view of 
 
 ![Diff viewing options menu](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}, show files you are a CODEOWNER of, hide files you have already viewed,{% endif %} or hide deleted files. For more information, see "[Filtering files in a pull request by file type](/articles/filtering-files-in-a-pull-request)."
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[Filtering files in a pull request by file type](/articles/filtering-files-in-a-pull-request)."
 
   ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
 
@@ -54,7 +55,7 @@ A two-dot diff compares two Git committish references, such as SHAs or OIDs (Obj
 
 If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
 
-For more information about Git commands to compare changes, see "[Git diff options ](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
+For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
 ### Reasons diffs will not display
 - You've exceeded the total limit of files or certain file types. For more information, see "[Limits for viewing content and diffs in a repository](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)."

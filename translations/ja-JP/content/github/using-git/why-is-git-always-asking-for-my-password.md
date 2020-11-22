@@ -1,19 +1,19 @@
 ---
 title: Git が常にパスワードを要求するのはなぜですか？
-intro: GitHub とやり取りしようとするたびに Git がユーザ名とパスワードの入力を求めてくる場合は、おそらくリポジトリに HTTPS クローン URL を使用しています。
+intro: 'GitHub とやり取りしようとするたびに Git がユーザ名とパスワードの入力を求めてくる場合は、おそらくリポジトリに HTTPS クローン URL を使用しています。'
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-HTTPS リモート URL を使用すると、 SSH を使用するときと比べていくつかの利点があります。 SSH よりも、設定が簡単です。 通常は厳密なファイアウォールやプロキシを介して動作します。 ただし、リポジトリをプルまたはプッシュするたびに GitHub の認証情報を入力するように求められます。
+HTTPS リモート URL を使用すると、 SSH を使用するときと比べていくつかの利点があります。 SSH よりも、設定が簡単です。 通常は厳密なファイアウォールやプロキシを介して動作します。 However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository.
 
-[認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)よう Git を設定すれば、パスワードの入力を求められなくなります。 {% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user_settings.password-authentication-deprecation %}
 
-認証情報のキャッシュを設定すると、HTTPS を使用してリポジトリをプルまたはプッシュするとき、Git は自動的にパスワードではなくキャッシュされた個人アクセストークンを使用します。
-
+[認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)よう Git を設定すれば、パスワードの入力を求められなくなります。 Once you've configured credential caching, Git automatically uses your cached personal access token when you pull or push a repository using HTTPS.
 
 ### 参考リンク
 

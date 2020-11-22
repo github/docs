@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -13,6 +14,9 @@ versions:
 Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of Issues it receives per day.
 
 Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}--what events should it listen to. After that, you'll set up your server to receive and manage the payload.
+
+
+{% data reusables.webhooks.webhooks-rest-api-links %}
 
 ### Setting up a Webhook
 

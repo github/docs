@@ -1,12 +1,13 @@
 ---
 title: 排查服务挂钩问题
-intro: 如果没有交付有效负载，请检查这些常见问题。
+intro: '如果没有交付有效负载，请检查这些常见问题。'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks/
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
   - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 获取有关交付的信息
@@ -25,7 +26,7 @@ versions:
 2. 浏览到您要调查的仓库。
 3. 单击导航侧栏中的 **Hooks** 链接。 ![挂钩侧边栏](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. 单击有问题的服务挂钩下的 **Latest Delivery** 链接。
-5. Click **Delivery**. ![查看有效负载](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+5. 单击 **Delivery（交付）**。 ![查看有效负载](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
 
 ### 查看过去的交付
 

@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplaceについて
-intro: 'Learn the basics to prepare your app for review before joining {% data variables.product.prodname_marketplace %}.'
+intro: '{% data variables.product.prodname_marketplace %}に参加する前に、アプリケーションをレビューに備えるための基本を学んでください。'
 redirect_from:
   - /apps/marketplace/getting-started/
   - /marketplace/getting-started
@@ -8,58 +8,58 @@ versions:
   free-pro-team: '*'
 ---
 
-[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) connects you to developers who want to extend and improve their {% data variables.product.prodname_dotcom %} workflows. You can list free and paid tools for developers to use in {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_marketplace %} offers developers two types of tools: {% data variables.product.prodname_actions %} and Apps, and each tool requires different steps for adding it to {% data variables.product.prodname_marketplace %}.
+[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace)は、{% data variables.product.prodname_dotcom %}のワークフローを拡張し、改善したい開発者とあなたをつなぎます。 {% data variables.product.prodname_marketplace %}で利用する、開発者のための無料及び有料のツールをリストできます。 {% data variables.product.prodname_marketplace %}は、開発者に{% data variables.product.prodname_actions %}とアプリケーションという2種類のツールを提供します。それぞれのツールは、{% data variables.product.prodname_marketplace %}への追加に際して異なるステップを必要とします。
 
 ### GitHub Actions
 
 {% data reusables.actions.actions-not-verified %}
 
-To learn about publishing {% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}, see "[{% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}](/marketplace/actions/)."
+{% data variables.product.prodname_marketplace %}での{% data variables.product.prodname_actions %}の公開について学ぶには、「[GitHub Marketplaceでのactionsの公開](/actions/creating-actions/publishing-actions-in-github-marketplace)」を参照してください。
 
-### アプリ
+### アプリケーション
 
-You can list verified and unverified apps in {% data variables.product.prodname_marketplace %}. Unverified apps do not go through the security, testing, and verification cycle {% data variables.product.prodname_dotcom %} requires for verified apps.
+{% data variables.product.prodname_marketplace %}において、検証済み及び未検証のアプリケーションをリストできます。 未検証のアプリケーションは、検証済みのアプリケーションに{% data variables.product.prodname_dotcom %}が求めるセキュリティ、テスト、検証のサイクルを通っていません。
 
-Verified apps have a green badge in {% data variables.product.prodname_marketplace %}. Unverified apps have a grey badge next to their listing and are only available as free apps.
+検証済みのアプリケーションは、{% data variables.product.prodname_marketplace %}で緑のバッジが付きます。 未検証のアプリケーションは、リストの隣に灰色のバッジが付き、無料のアプリケーションとしてのみ利用できます。
 
-![Green verified and grey unverified badge](/assets/images/marketplace/marketplace_verified_badges.png)
+![検証済みの緑と未検証の灰色のバッジ](/assets/images/marketplace/marketplace_verified_badges.png)
 
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s, see "[Building apps](/apps/)."
+{% data variables.product.prodname_marketplace %}のアプリケーションの作成に関心があるものの、{% data variables.product.prodname_github_apps %}や{% data variables.product.prodname_oauth_app %}については初心者なら、「[アプリケーションの構築](/apps/)」を参照してください。
 
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}. See "[Differences between GitHub and OAuth apps](/apps/differences-between-apps/)" for more details. To learn more about switching from OAuth to {% data variables.product.prodname_github_apps %}, see [Migrating OAuth Apps to {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/).
+{% data reusables.marketplace.github_apps_preferred %}、{% data variables.product.prodname_marketplace %}ではOAuthと{% data variables.product.prodname_github_app %}をどちらもリストできます。 詳細については「[GitHubとOAuthのアプリケーションの違い](/apps/differences-between-apps/)」を参照してください。 OAuthから{% data variables.product.prodname_github_apps %}への切り替えについてさらに学ぶには、[OAuth Appsから{% data variables.product.prodname_github_app %}への移行](/apps/migrating-oauth-apps-to-github-apps/)を参照してください。
 
-If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.
+{% data variables.product.prodname_marketplace %}に関する質問がある場合は、{% data variables.contact.contact_support %}に直接お問い合わせください。
 
-#### Unverified Apps
+#### 未検証のアプリケーション
 
-Unverified apps do not need to meet the "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" or go through the "[Security review process](/marketplace/getting-started/security-review-process/)".
+未検証のアプリケーションは、「[{% data variables.product.prodname_marketplace %}でのアプリケーションのリストの要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を満たしていたり、「[セキュリティレビューのプロセス](/marketplace/getting-started/security-review-process/)」を通る必要はありません。
 
-{% data reusables.marketplace.unverified-apps %} Having a published paid plan will prevent you from being able to submit an unverified app. You must remove paid plans or keep them in draft mode before publishing an unverified app.
+{% data reusables.marketplace.unverified-apps %} 有料プランを公開すると、未検証のアプリケーションはサブミットできなくなります。 未検証のアプリケーションを公開する前には、有料プランを削除するか、有料プランをドラフトモードにしておかなければなりません。
 
-To list your unverified app in {% data variables.product.prodname_marketplace %}, you only need to create a "[Listing on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/)" and submit it as an unverified listing.
+{% data variables.product.prodname_marketplace %}で未検証のアプリケションをリストするには、「[{% data variables.product.prodname_marketplace %}上でリスト](/marketplace/listing-on-github-marketplace/)」を作成し、それを未検証のリストとしてサブミットするだけです。
 
 {% data reusables.marketplace.launch-with-free %}
 
-#### Verified Apps
+#### 検証済みアプリケーション
 
-If you've already built an app and you're interested in submitting a verified listing in {% data variables.product.prodname_marketplace %}, start here:
+すでにアプリケーションを構築済みで、{% data variables.product.prodname_marketplace %}に検証済みのリストをサブミットしたい場合には、以下から始めてください。
 
-1. [Getting started with {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)<br/>Learn about requirements, guidelines, and the app submission process.
+1. [{% data variables.product.prodname_marketplace %}を始める](/marketplace/getting-started/)<br/>要件、ガイドライン、アプリケーションのサブミットのプロセスについて学んでください。
 
-1. [Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)<br/>Before you can list your app on {% data variables.product.prodname_marketplace %}, you'll need to integrate billing flows using the {% data variables.product.prodname_marketplace %} API and webhook events.
+1. [{% data variables.product.prodname_marketplace %} APIとのインテグレーション](/marketplace/integrating-with-the-github-marketplace-api/)<br/>アプリケーションを{% data variables.product.prodname_marketplace %}でリストできるようにするには、{% data variables.product.prodname_marketplace %} APIとwebhookイベントを使って支払いフローをインテグレーションしなければなりません。
 
-1. [Listing on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/) <br/>Create a draft {% data variables.product.prodname_marketplace %} listing, configure webhook settings, and set up pricing plans.
+1. [{% data variables.product.prodname_marketplace %}でのリスト](/marketplace/listing-on-github-marketplace/)<br/>ドラフトの{% data variables.product.prodname_marketplace %}のリストを作成し、webhookを設定し、価格プランをセットアップします。
 
-1. [Selling your app](/marketplace/selling-your-app/)<br/>Learn about pricing plans, billing cycles, and how to receive payment from {% data variables.product.prodname_dotcom %} for your app.
+1. [アプリケーションの販売](/marketplace/selling-your-app/)<br/>価格プラン、支払いサイクル、アプリケーションに対する{% data variables.product.prodname_dotcom %}カラの支払いの受け取り方を学んでください。
 
-1. [{% data variables.product.prodname_marketplace %} Insights](/marketplace/github-marketplace-insights/)<br/>See how your app is performing in {% data variables.product.prodname_marketplace %}. You can use metrics collected by {% data variables.product.prodname_dotcom %} to guide your marketing campaign and  be successful in {% data variables.product.prodname_marketplace %}.
+1. [{% data variables.product.prodname_marketplace %}のインサイト](/marketplace/github-marketplace-insights/)<br/>{% data variables.product.prodname_marketplace %}でのアプリケーションのパフォーマンスを見てください。 {% data variables.product.prodname_dotcom %}が収集したメトリクスを使ってマーケティングキャンペーンを導き、{% data variables.product.prodname_marketplace %}で成功してください。
 
-1. [{% data variables.product.prodname_marketplace %} transactions](/marketplace/github-marketplace-transactions/)<br/>Download and view transaction data for your {% data variables.product.prodname_marketplace %} listing.
+1. [{% data variables.product.prodname_marketplace %}のトランザクション](/marketplace/github-marketplace-transactions/)<br/>{% data variables.product.prodname_marketplace %}のリストからトランザクションデータをダウンロードして見てください。
 
-### Reviewing your app
+### アプリケーションのレビュー
 
-We want to make sure that the apps offered on {% data variables.product.prodname_marketplace %} are safe, secure, and well tested. The {% data variables.product.prodname_marketplace %} onboarding specialists will review your app to ensure that it meets all requirements. Follow the guidelines in these articles before submitting your app:
+弊社は、{% data variables.product.prodname_marketplace %}から提供されているアプリケーションが安全であり、十分テストされていることを確実にしたいと考えています。 {% data variables.product.prodname_marketplace %}のオンボーディングスペシャリストがアプリケーションをレビューし、すべての要件を満たしていることを確認します。 アプリケーションをサブミットする前に、以下の記事のガイドラインに従ってください。
 
 
-* [Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)
-* [Security review process](/marketplace/getting-started/security-review-process/)
+* [{% data variables.product.prodname_marketplace %}でのアプリケーションのリストに対する要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)
+* [セキュリティレビュープロセス](/marketplace/getting-started/security-review-process/)

@@ -15,10 +15,10 @@ Na sua página de notificações, também é possível marcar as notificações 
 
 - "[Marcando notificações como lidas](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/marking-notifications-as-read)"
 - "[Salvando notificações para mais tarde](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/saving-notifications-for-later)"
-- "[Fazer a assinatura e cancelar a assinatura de notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
+- "[Assinando e cancelando notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
 
 ### Leia mais
 
-- "<a href="/enterprise/[/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching">Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
+- "[Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
 - "<a href="/enterprise/[/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories">Fazer a inspeção e cancelar a inspeção de repositórios](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"
-- "[Fazer a assinatura e cancelar a assinatura de notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
+- "[Assinando e cancelando notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
