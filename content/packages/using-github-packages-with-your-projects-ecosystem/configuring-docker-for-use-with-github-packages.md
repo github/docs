@@ -204,6 +204,6 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% endnote %}
 
-### Further reading
+### Further reading:
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
