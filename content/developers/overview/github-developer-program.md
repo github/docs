@@ -1,3 +1,4 @@
+
 ---
 title: GitHub Developer Program
 intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
@@ -9,7 +10,7 @@ versions:
 
 Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
 
-## Stay in the know
+### Stay in the know
 
 Be the first to know about API changes and try out new features before they launch in the [Developer blog](https://developer.github.com/changes/).
 
@@ -24,7 +25,7 @@ Build your own tools that seamlessly integrate with the place you push code ever
 
 ## Have an integration that works with GitHub?
 
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
+Awesome! We'd ❤️  to have you be part of the program. Here’s how you can spread the word:</p>
 * [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
 * Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
 * Post a video or a blog on your website about your integration
