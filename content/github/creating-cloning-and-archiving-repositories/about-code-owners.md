@@ -39,7 +39,7 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 
 ### CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
 
 If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
 #### Example of a CODEOWNERS file
