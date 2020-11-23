@@ -55,9 +55,11 @@ async function main () {
         // remove version segment
         .replace(new RegExp(`/(${allVersions.join('|')})`), '')
 
-      // re-add the fragment
+      // re-add the fragment after removing any fragment added via the redirect
+      // otherwise /v3/git/refs/#create-a-reference will become /rest/reference/git#refs#create-a-reference
+      // we want to preserve the #create-a-reference fragment, not #refs
       const newLink = fragment
-        ? redirect + '#' + fragment
+        ? redirect.replace(/#.+?$/, '') + '#' + fragment
         : redirect
 
       // first replace the old link with the new link
