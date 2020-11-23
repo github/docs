@@ -60,11 +60,11 @@ async function main () {
         ? redirect + '#' + fragment
         : redirect
 
-      // first remove any trailing slashes from the old link,
-      // then replace with the new link
+      // first replace the old link with the new link
+      // then remove any trailing slashes
       newContent = newContent
-        .replace(`${devLink}/`, devLink)
         .replace(devLink, newLink)
+        .replace(`${newLink}/`, newLink)
     }
 
     fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
