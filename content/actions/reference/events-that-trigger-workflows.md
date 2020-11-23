@@ -90,6 +90,8 @@ You can manually trigger workflow runs. To trigger specific workflows in a repos
 | ------------------ | ------------ | ------------ | ------------------|
 | [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a | Last commit on the `GITHUB_REF` branch | Branch that received dispatch |
 
+{% data reusables.github-actions.branch-requirement %}
+
 You can configure custom-defined input properties, default input values, and required inputs for the event directly in your workflow. When the workflow runs, you can access the input values in the `github.event.inputs` context. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 You can manually trigger a workflow run using the {% data variables.product.product_name %} API and from {% data variables.product.product_name %}. For more information, see "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
