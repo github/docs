@@ -49,7 +49,24 @@ describe('creating a changelog from old schema and new schema', () => {
     - '@github/engineering'
 `)
 
-    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, previews)
+    oldUpcomingChanges = yaml.safeLoad(`
+upcoming_changes:
+  - location: EnterprisePendingCollaboratorEdge.isUnlicensed
+    description: '\`isUnlicensed\` will be removed.'
+    date: '2021-01-01T00:00:00+00:00'
+`).upcoming_changes
+
+    newUpcomingChanges = yaml.safeLoad(`
+upcoming_changes:
+  - location: Query.stableField
+    description: '\`stableField\` will be removed.'
+    date: '2021-06-01T00:00:00+00:00'
+  - location: EnterprisePendingCollaboratorEdge.isUnlicensed
+    description: '\`isUnlicensed\` will be removed.'
+    date: '2021-01-01T00:00:00+00:00'
+`).upcoming_changes
+
+    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges)
     expect(entry).toMatchSnapshot()
   })
 
@@ -59,7 +76,7 @@ describe('creating a changelog from old schema and new schema', () => {
       i: Int!
     }`
 
-    const nullEntry = await createChangelogEntry(schemaString, schemaString, [])
+    const nullEntry = await createChangelogEntry(schemaString, schemaString, [], [], [])
     expect(nullEntry).toBeNull()
   })
 })

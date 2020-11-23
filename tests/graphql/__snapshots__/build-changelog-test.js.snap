@@ -23,6 +23,13 @@ Object {
       "title": "The GraphQL schema includes these changes:",
     },
   ],
-  "upcomingChanges": Array [],
+  "upcomingChanges": Array [
+    Object {
+      "changes": Array [
+        "On member \`Query.stableField\`:\`stableField\` will be removed. **Effective 2021-06-01**.",
+      ],
+      "title": "The following changes will be made to the schema:",
+    },
+  ],
 }
 `;

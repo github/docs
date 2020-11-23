@@ -26,21 +26,40 @@ async function main() {
   const previewsString = fs.readFileSync('data/graphql/graphql_previews.yml')
   const previews = yaml.safeLoad(previewsString)
 
-  const changelogEntry = createChangelogEntry(oldSchemaString, newSchemaBuffer.toString(), previews)
-  if (changelogEntry) {
-    // Build a `yyyy-mm-dd`-formatted date string
-    // and tag the changelog entry with it
-    const today = new Date()
-    const todayString = String(today.getFullYear()) + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0')
-    changelogEntry.date = todayString
+  // TODO how to make sure to get these before the file is updated?
+  const oldUpcomingChangesString = fs.readFileSync('data/graphql/graphql_upcoming_changes_public.yml')
+  const oldUpcomingChanges = yaml.safeLoad(oldUpcomingChangesString).upcoming_changes
+  // TODO actually get different changes here
+  const newUpcomingChanges = oldUpcomingChanges
 
-    const previousChangelogString = fs.readFileSync('lib/graphql/static/changelog.json')
-    const previousChangelog = JSON.parse(previousChangelogString)
-    // add a new entry to the changelog data
-    previousChangelog.unshift(changelogEntry)
-    // rewrite the updated changelog
-    fs.writeFileSync('lib/graphql/static/changelog.json', JSON.stringify(previousChangelog, null, 2))
+  const changelogEntry = createChangelogEntry(oldSchemaString, newSchemaBuffer.toString(), previews, oldUpcomingChanges, newUpcomingChanges)
+  if (changelogEntry) {
+    prependDatedEntry(changelogEntry, 'lib/graphql/static/changelog.json')
   }
+}
+
+/**
+ * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
+ * structure written to `targetPath`. (`changelogEntry` and that file are modified in place.)
+ * @param {object} changelogEntry
+ * @param {string} targetPath
+ * @return {void}
+ */
+function prependDatedEntry(changelogEntry, targetPath) {
+  // Build a `yyyy-mm-dd`-formatted date string
+  // and tag the changelog entry with it
+  const today = new Date()
+  const todayString = String(today.getFullYear()) + '-' +
+    String(today.getMonth() + 1).padStart(2, '0') + '-' +
+    String(today.getDate()).padStart(2, '0')
+  changelogEntry.date = todayString
+
+  const previousChangelogString = fs.readFileSync(targetPath)
+  const previousChangelog = JSON.parse(previousChangelogString)
+  // add a new entry to the changelog data
+  previousChangelog.unshift(changelogEntry)
+  // rewrite the updated changelog
+  fs.writeFileSync(targetPath, JSON.stringify(previousChangelog, null, 2))
 }
 
 /**
@@ -50,10 +69,12 @@ async function main() {
  * Otherwise, return null.
  * @param {string} [oldSchemaString]
  * @param {string} [newSchemaString]
- * @param {object} [previews]
+ * @param {Array<object>} [previews]
+ * @param {Array<object>} [oldUpcomingChanges]
+ * @param {Array<object>} [newUpcomingChanges]
  * @return {object?}
  */
-async function createChangelogEntry(oldSchemaString, newSchemaString, previews) {
+async function createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges) {
   // Create schema objects out of the strings
   const oldSchema = await loadSchema(oldSchemaString)
   const newSchema = await loadSchema(newSchemaString)
@@ -72,8 +93,20 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews) 
   })
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(changesToReport, previews)
+
+  const addedUpcomingChanges = newUpcomingChanges.filter(function (change) {
+    // Manually check each of `newUpcomingChanges` for an equivalent entry
+    // in `oldUpcomingChanges`.
+    return !oldUpcomingChanges.find(function (oldChange) {
+      return (oldChange.location == change.location &&
+        oldChange.date == change.date &&
+        oldChange.description == change.description
+      )
+    })
+  })
+
   // If there were any changes, create a changelog entry
-  if (schemaChangesToReport.length > 0 || previewChangesToReport.length > 0) {
+  if (schemaChangesToReport.length > 0 || previewChangesToReport.length > 0 || addedUpcomingChanges.length > 0) {
     const changelogEntry = {
       schemaChanges: [],
       previewChanges: [],
@@ -97,17 +130,18 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews) 
       })
     }
 
-    // TODO how are these populated?
-    // "upcomingChanges": [
-    //   {
-    //     "title": "The following changes will be made to the schema:",
-    //     "changes": [
-    //       "On member `Issue.timeline`: `timeline` will be removed. Use Issue.timelineItems instead. **Effective 2020-10-01**.",
-    //       "On member `PullRequest.timeline`: `timeline` will be removed. Use PullRequest.timelineItems instead. **Effective 2020-10-01**."
-    //     ]
-    //   }
-    // ]
-    const upcomingChanges = []
+    if (addedUpcomingChanges.length > 0) {
+      changelogEntry.upcomingChanges.push({
+        title: "The following changes will be made to the schema:",
+        changes: addedUpcomingChanges.map(function (change) {
+          const location = change.location
+          const description = change.description
+          const date = change.date.split("T")[0]
+          return "On member `" + location + "`:" + description + " **Effective " + date + "**."
+        })
+      })
+    }
+
     return changelogEntry
   } else {
     return null
