@@ -14,7 +14,7 @@ const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
-const { prependDatedEntry, createChangelogEntry } = require("./build-changelog")
+const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
@@ -60,7 +60,7 @@ async function main () {
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
     let previousUpcomingChanges = null
     if (fs.existsSync(upcomingChangesPath)) {
-      previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, "utf8"))
+      previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
     }
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     updateFile(upcomingChangesPath, safeForPublicChanges)
@@ -71,7 +71,7 @@ async function main () {
     const schemaPath = getDataFilepath('schemas', graphqlVersion)
     let previousSchemaString = null
     if (fs.existsSync(upcomingChangesPath)) {
-      previousSchemaString = fs.readFileSync(schemaPath, "utf8")
+      previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
     }
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
     const safeForPublicSchema = removeHiddenMembers(schemaPath, latestSchema)
@@ -90,7 +90,7 @@ async function main () {
         safeForPublicSchema,
         safeForPublicPreviews,
         previousUpcomingChanges.upcoming_changes,
-        yaml.safeLoad(safeForPublicChanges).upcoming_changes,
+        yaml.safeLoad(safeForPublicChanges).upcoming_changes
       )
       if (changelogEntry) {
         prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))

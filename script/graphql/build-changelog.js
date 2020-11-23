@@ -1,7 +1,6 @@
 const { diff, ChangeType } = require('@graphql-inspector/core')
 const { loadSchema } = require('@graphql-tools/load')
 const fs = require('fs')
-const yaml = require('js-yaml')
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
@@ -10,7 +9,7 @@ const yaml = require('js-yaml')
  * @param {string} targetPath
  * @return {void}
  */
-function prependDatedEntry(changelogEntry, targetPath) {
+function prependDatedEntry (changelogEntry, targetPath) {
   // Build a `yyyy-mm-dd`-formatted date string
   // and tag the changelog entry with it
   const today = new Date()
@@ -39,7 +38,7 @@ function prependDatedEntry(changelogEntry, targetPath) {
  * @param {Array<object>} [newUpcomingChanges]
  * @return {object?}
  */
-async function createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges) {
+async function createChangelogEntry (oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges) {
   // Create schema objects out of the strings
   const oldSchema = await loadSchema(oldSchemaString)
   const newSchema = await loadSchema(newSchemaString)
@@ -53,7 +52,7 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews, 
     } else if (CHANGES_TO_IGNORE.includes(change.type)) {
       // Do nothing
     } else {
-      throw "This change type should be added to CHANGES_TO_REPORT or CHANGES_TO_IGNORE: " + change.type
+      throw new Error('This change type should be added to CHANGES_TO_REPORT or CHANGES_TO_IGNORE: ' + change.type)
     }
   })
 
@@ -63,9 +62,9 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews, 
     // Manually check each of `newUpcomingChanges` for an equivalent entry
     // in `oldUpcomingChanges`.
     return !oldUpcomingChanges.find(function (oldChange) {
-      return (oldChange.location == change.location &&
-        oldChange.date == change.date &&
-        oldChange.description == change.description
+      return (oldChange.location === change.location &&
+        oldChange.date === change.date &&
+        oldChange.description === change.description
       )
     })
   })
@@ -75,7 +74,7 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews, 
     const changelogEntry = {
       schemaChanges: [],
       previewChanges: [],
-      upcomingChanges: [],
+      upcomingChanges: []
     }
 
     const schemaChange = {
@@ -86,23 +85,23 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews, 
     changelogEntry.schemaChanges.push(schemaChange)
 
     for (const previewTitle in previewChangesToReport) {
-      let previewChanges = previewChangesToReport[previewTitle]
-      let cleanTitle = cleanPreviewTitle(previewTitle)
-      let entryTitle = "The [" + cleanTitle + "](/graphql/overview/schema-previews#" + previewAnchor(cleanTitle) + ") includes these changes:"
+      const previewChanges = previewChangesToReport[previewTitle]
+      const cleanTitle = cleanPreviewTitle(previewTitle)
+      const entryTitle = 'The [' + cleanTitle + '](/graphql/overview/schema-previews#' + previewAnchor(cleanTitle) + ') includes these changes:'
       changelogEntry.previewChanges.push({
         title: entryTitle,
-        changes: cleanMessagesFromChanges(previewChanges.changes),
+        changes: cleanMessagesFromChanges(previewChanges.changes)
       })
     }
 
     if (addedUpcomingChanges.length > 0) {
       changelogEntry.upcomingChanges.push({
-        title: "The following changes will be made to the schema:",
+        title: 'The following changes will be made to the schema:',
         changes: addedUpcomingChanges.map(function (change) {
           const location = change.location
           const description = change.description
-          const date = change.date.split("T")[0]
-          return "On member `" + location + "`:" + description + " **Effective " + date + "**."
+          const date = change.date.split('T')[0]
+          return 'On member `' + location + '`:' + description + ' **Effective ' + date + '**.'
         })
       })
     }
@@ -119,13 +118,13 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews, 
  * @param {string} title
  * @return {string}
  */
-function cleanPreviewTitle(title) {
-  if (title == "UpdateRefsPreview") {
-    title = "Update refs preview"
-  } else if (title == "MergeInfoPreview") {
-    title = "Merge info preview"
-  } else if (!title.endsWith("preview")) {
-    title = title + " preview"
+function cleanPreviewTitle (title) {
+  if (title === 'UpdateRefsPreview') {
+    title = 'Update refs preview'
+  } else if (title === 'MergeInfoPreview') {
+    title = 'Merge info preview'
+  } else if (!title.endsWith('preview')) {
+    title = title + ' preview'
   }
   return title
 }
@@ -136,7 +135,7 @@ function cleanPreviewTitle(title) {
  * @param {string} [previewTitle]
  * @return {string}
 */
-function previewAnchor(previewTitle) {
+function previewAnchor (previewTitle) {
   return previewTitle
     .toLowerCase()
     .replace(/ /g, '-')
@@ -148,11 +147,11 @@ function previewAnchor(previewTitle) {
  * @param {Array<object>} changes
  * @return {Array<string>}
  */
-function cleanMessagesFromChanges(changes) {
+function cleanMessagesFromChanges (changes) {
   return changes.map(function (change) {
     // replace single quotes around graphql names with backticks,
     // to match previous behavior from graphql-schema-comparator
-    return change.message.replace(/'([a-zA-Z\. :!]+)'/g, '`$1`')
+    return change.message.replace(/'([a-zA-Z. :!]+)'/g, '`$1`')
   })
 }
 
@@ -165,7 +164,7 @@ function cleanMessagesFromChanges(changes) {
  * @param {object} previews
  * @return {object}
  */
-function segmentPreviewChanges(changesToReport, previews) {
+function segmentPreviewChanges (changesToReport, previews) {
   // Build a map of `{ path => previewTitle` }
   // for easier lookup of change to preview
   const pathToPreview = {}
@@ -180,12 +179,12 @@ function segmentPreviewChanges(changesToReport, previews) {
   changesToReport.forEach(function (change) {
     // For each change, see if its path _or_ one of its ancestors
     // is covered by a preview. If it is, mark this change as belonging to a preview
-    const pathParts = change.path.split(".")
+    const pathParts = change.path.split('.')
     let testPath = null
     let previewTitle = null
     let previewChanges = null
     while (pathParts.length > 0 && !previewTitle) {
-      testPath = pathParts.join(".")
+      testPath = pathParts.join('.')
       previewTitle = pathToPreview[testPath]
       // If that path didn't find a match, then we'll
       // check the next ancestor.
@@ -227,7 +226,7 @@ const CHANGES_TO_REPORT = [
   ChangeType.UnionMemberAdded,
   ChangeType.SchemaQueryTypeChanged,
   ChangeType.SchemaMutationTypeChanged,
-  ChangeType.SchemaSubscriptionTypeChanged,
+  ChangeType.SchemaSubscriptionTypeChanged
 ]
 
 const CHANGES_TO_IGNORE = [
@@ -259,7 +258,7 @@ const CHANGES_TO_IGNORE = [
   ChangeType.InputFieldDescriptionChanged,
   ChangeType.TypeDescriptionChanged,
   ChangeType.TypeDescriptionRemoved,
-  ChangeType.TypeDescriptionAdded,
+  ChangeType.TypeDescriptionAdded
 ]
 
 module.exports = { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }
