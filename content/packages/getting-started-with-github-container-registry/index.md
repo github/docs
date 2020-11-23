@@ -1,4 +1,4 @@
----
+add index.md
 title: Getting started with GitHub Container Registry
 intro: 'Learn about {% data variables.product.prodname_container_registry %} concepts and how to migrate your Docker images from {% data variables.product.prodname_registry %}.'
 versions:
