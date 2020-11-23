@@ -106,7 +106,7 @@ describe("updating the changelog file", () => {
 
     const exampleEntry = { someStuff: true }
     prependDatedEntry(exampleEntry, testTargetPath)
-    const newContents = fs.readFileSync(testTargetPath).toString()
+    const newContents = fs.readFileSync(testTargetPath, "utf8")
     // reset the file:
     fs.writeFileSync(testTargetPath, previousContents)
 

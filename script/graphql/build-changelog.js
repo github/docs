@@ -1,42 +1,7 @@
 const { diff, ChangeType } = require('@graphql-inspector/core')
 const { loadSchema } = require('@graphql-tools/load')
-const git = require('../../lib/git-utils')
 const fs = require('fs')
 const yaml = require('js-yaml')
-
-// check for required PAT
-if (!process.env.GITHUB_TOKEN) {
-  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
-  process.exit(1)
-}
-
-// main()
-
-async function main() {
-  // Load the previous schema from this repo
-  // TODO -- how to make sure that this script runs _before_ this artifact is updated?
-  // Maybe hook into the existing `update-files` script instead of being a stand-alone script.
-  const oldSchemaString = fs.readFileSync('data/graphql/schema.docs.graphql').toString()
-
-  // Load the latest schema from github/github
-  const tree = await git.getTree('github', 'github', 'heads/master')
-  const schemaFileBlob = tree.find(entry => entry.path.includes('config/schema.docs.graphql') && entry.type === 'blob')
-  const newSchemaBuffer = await git.getContentsForBlob('github', 'github', schemaFileBlob)
-
-  const previewsString = fs.readFileSync('data/graphql/graphql_previews.yml')
-  const previews = yaml.safeLoad(previewsString)
-
-  // TODO how to make sure to get these before the file is updated?
-  const oldUpcomingChangesString = fs.readFileSync('data/graphql/graphql_upcoming_changes_public.yml')
-  const oldUpcomingChanges = yaml.safeLoad(oldUpcomingChangesString).upcoming_changes
-  // TODO actually get different changes here
-  const newUpcomingChanges = oldUpcomingChanges
-
-  const changelogEntry = createChangelogEntry(oldSchemaString, newSchemaBuffer.toString(), previews, oldUpcomingChanges, newUpcomingChanges)
-  if (changelogEntry) {
-    prependDatedEntry(changelogEntry, 'lib/graphql/static/changelog.json')
-  }
-}
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
