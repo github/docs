@@ -73,3 +73,69 @@ versions:
 - 詳細なチュートリアルは、「[{% data variables.product.prodname_actions %}を学ぶ](/actions/learn-github-actions)」
 - 特定の使用例とサンプルについては、「[ガイド](/actions/guides)」
 - Super-Linter アクションの設定の詳細については、[github/super-linter](https://github.com/github/super-linter)
+
+<div id="quickstart-treatment" hidden>
+
+### Introduction
+
+Printing "Hello, World!" is a great way to explore the basic set up and syntax of a new programming language. In this guide, you'll use GitHub Actions to print "Hello, World!" within your {% data variables.product.prodname_dotcom %} repository's workflow logs. All you need to get started is a {% data variables.product.prodname_dotcom %} repository where you feel comfortable creating and running a sample {% data variables.product.prodname_actions %} workflow. Feel free to create a new repository for this Quickstart, you can use it to test this and future {% data variables.product.prodname_actions %} workflows.
+
+### Creating your first workflow
+
+1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `hello-world.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+2. Copy the following YAML contents into the `hello-world.yml` file.
+    {% raw %}
+    ```yaml{:copy}
+    name: Say hello!
+
+    # GitHub Actions Workflows are automatically triggered by GitHub events
+    on:
+      # For this workflow, we're using the workflow_dispatch event which is triggered when the user clicks Run workflow in the GitHub Actions UI
+      workflow_dispatch:
+        # The workflow_dispatch event accepts optional inputs so you can customize the behavior of the workflow
+        inputs:
+          name:
+            description: 'Person to greet'
+            required: true
+            default: 'World'
+    # When the event is triggered, GitHub Actions will run the jobs indicated
+    jobs:
+      say_hello:
+        # Uses a ubuntu-lates runner to complete the requested steps
+        runs-on: ubuntu-latest
+        steps:
+        - run: |
+            echo "Hello ${{ github.event.inputs.name }}!"
+    ```
+    {% endraw %}
+3. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
+    ![Commit workflow file](/assets/images/help/repository/commit-hello-world-file.png)
+4. Once the pull request has been merged, you'll be ready to move on to "Trigger your workflow".
+
+### Trigger your workflow
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. In the left sidebar, click the workfow you want to run.
+   ![Select say hello job](/assets/images/help/repository/say-hello-job.png)
+1. On the right, click the **Run workflow** drop-down and click **Run workflow**. Optionally, you can enter a custom message into the "Person to greet" input before running the workflow.
+   ![Trigger the manual workflow](/assets/images/help/repository/manual-workflow-trigger.png)
+1. The workflow run will appear at the top of the list of "Say hello!" workflow runs. Click "Say hello!" to see the result of the workflow run.
+   ![Workflow run result listing](/assets/images/help/repository/workflow-run-listing.png)
+1. In the left sidebar, click the "say_hello" job.
+   ![Workflow job listing](/assets/images/help/repository/workflow-job-listing.png)
+1. In the workflow logs, expand the 'Run echo "Hello World!"' section.
+   ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
+
+### More starter workflows
+
+{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+
+### Next steps
+
+The hello-world workflow you just added is a simple example of a manually triggered workflow. This is only the beginning of what you can do with {% data variables.product.prodname_actions %}. リポジトリには、さまざまなイベントに基づいてさまざまなジョブをトリガーする複数のワークフローを含めることができます。 {% data variables.product.prodname_actions %} は、アプリケーション開発プロセスのほぼすべての要素を自動化するのに役立ちます。 開始する場合、 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
+- "[Guides](/actions/guides)" for specific uses cases and examples
+
+</div>

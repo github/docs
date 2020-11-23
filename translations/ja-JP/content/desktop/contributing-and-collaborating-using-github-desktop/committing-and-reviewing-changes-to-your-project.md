@@ -36,17 +36,23 @@ versions:
 
 #### 部分的なコミットの作成方法
 
-1つのファイルに複数の変更があり、*一部*だけをコミットに含めたい場合は、部分的なコミットを作成できます。 追加変更やコミットできるように、他の変更はそのまま残ります。 これにより、改行の変更をコードや構文の変更から区別するなど、個別で有意義なコミットの作成が可能になります。
+If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. 追加変更やコミットできるように、他の変更はそのまま残ります。 これにより、改行の変更をコードや構文の変更から区別するなど、個別で有意義なコミットの作成が可能になります。
 
-ファイルのdiffを確認するとき、コミットに含まれる行は青色で強調表示されます。 変更を除外するには、青色が消えるように変更された行をクリックします。
+{% note %}
 
-![ファイルで選択解除された行](/assets/images/help/desktop/partial-commit.png)
+**Note:** Split diff displays are currently in beta and subject to change.
 
-#### 変更の廃棄
+{% endnote %}
 
-1つのファイルや複数のファイルのコミットされていない全ての変更の廃棄、または最新コミット以降の全てのファイルの全ての変更の廃棄ができます。
+1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**. ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
+2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit. ![ファイルで選択解除された行](/assets/images/help/desktop/partial-commit.png)
 
-{% mac %}
+### 3. 変更の廃棄
+If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
+
+Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
+
+#### Discarding changes in one or more files
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -54,30 +60,25 @@ versions:
 {% data reusables.desktop.confirm-discard-files %}
   ![確定ダイアログ内の [Discard Changes] ボタン](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-{% tip %}
+#### Discarding changes in one or more lines
+You can discard one or more changed lines that are uncommitted.
 
-**ヒント：**廃棄した変更は、Trash内の日付付きファイルに保存され、Trashが空になるまでは復元できます。
+{% note %}
 
-{% endtip %}
+**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
 
-{% endmac %}
+{% endnote %}
 
-{% windows %}
+To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
 
-{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
-  ![コンテキストメニュー内の [Discard Changes] オプション](/assets/images/help/desktop/discard-changes-win.png)
-{% data reusables.desktop.confirm-discard-files %}
-  ![確定ダイアログ内の [Discard Changes] ボタン](/assets/images/help/desktop/discard-changes-confirm-win.png)
+  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
-{% tip %}
+To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
-**ヒント：**廃棄した変更は、Recycle Bin内のファイルに保存され、空になるまでは復元できます。
+  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
-{% endtip %}
 
-{% endwindows %}
-
-### 3. コミットメッセージの入力と変更のプッシュ
+### 4. コミットメッセージの入力と変更のプッシュ
 
 コミットに含めたい変更を決めたら、コミットメッセージを入力して変更をプッシュします。 コミットで共同作業した場合、コミットに 1 人以上の作者を追加できます。
 
