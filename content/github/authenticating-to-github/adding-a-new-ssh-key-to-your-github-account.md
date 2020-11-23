@@ -25,7 +25,7 @@ After adding a new SSH key to your {% data variables.product.product_name %} acc
 
   ```shell
   $ pbcopy &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
