@@ -192,7 +192,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-When using {% data data.variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% raw %}
 ```yaml
@@ -228,7 +228,7 @@ steps:
 
 #### Caching Dependencies
 
-When using {% data data.variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 

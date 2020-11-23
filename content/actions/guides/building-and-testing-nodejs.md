@@ -129,7 +129,7 @@ If you don't specify a Node.js version, {% data variables.product.prodname_dotco
 
 {% data variables.product.prodname_dotcom %}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {% data variables.product.prodname_dotcom %}-hosted runners also have Grunt, Gulp, and Bower installed.
 
-When using {% data data.variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 #### Example using npm
 
@@ -227,7 +227,7 @@ always-auth=true
 
 #### Example caching dependencies
 
-When using {% data data.variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>" and the [`cache` action](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
