@@ -7,6 +7,8 @@ const { zip } = require('lodash')
 const yaml = require('js-yaml')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
+const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
+const revalidator = require('revalidator')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -373,6 +375,32 @@ describe('lint-files', () => {
       })
     }
   )
+
+  // GHES release notes
+  const ghesReleaseNotesDir = path.join(__dirname, '../../data/release-notes')
+  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
+  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
+  const ghesReleaseNotesYamlTuples = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+
+  if (ghesReleaseNotesYamlTuples.length > 0) {
+    describe.each(ghesReleaseNotesYamlTuples)(
+      'in "%s"',
+      (yamlRelPath, yamlAbsPath) => {
+        let dictionary
+
+        beforeAll(async () => {
+          const fileContents = await fs.promises.readFile(yamlAbsPath, 'utf8')
+          dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+        })
+
+        it('matches the schema', () => {
+          const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
+          const errorMessage = errors.map(error => `- [${error.property}]: ${error.attribute}, ${error.message}`).join('\n')
+          expect(errors.length, errorMessage).toBe(0)
+        })
+      }
+    )
+  }
 })
 
 function formatLinkError (message, links) {

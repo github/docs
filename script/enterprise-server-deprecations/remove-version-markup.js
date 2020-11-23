@@ -6,11 +6,11 @@ const walk = require('walk-sync')
 const matter = require('gray-matter')
 const program = require('commander')
 const { indexOf, nth } = require('lodash')
-const removeLiquidStatements = require('../lib/remove-liquid-statements')
-const removeDeprecatedFrontmatter = require('../lib/remove-deprecated-frontmatter')
-const enterpriseServerReleases = require('../lib/enterprise-server-releases')
-const contentPath = path.join(__dirname, '../content')
-const dataPath = path.join(__dirname, '../data')
+const removeLiquidStatements = require('../../lib/remove-liquid-statements')
+const removeDeprecatedFrontmatter = require('../../lib/remove-deprecated-frontmatter')
+const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
+const contentPath = path.join(__dirname, '../../content')
+const dataPath = path.join(__dirname, '../../data')
 const removeUnusedAssetsScript = 'script/remove-unused-assets'
 const elseifRegex = /{-?% elsif/
 
@@ -62,7 +62,7 @@ const allFiles = contentFiles.concat(dataFiles)
 
 main()
 console.log(`\nRunning ${removeUnusedAssetsScript}...`)
-require(`../${removeUnusedAssetsScript}`)
+require(path.join(process.cwd(), removeUnusedAssetsScript))
 
 function printElseIfFoundWarning (location) {
   console.log(`${location} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`)

@@ -28546,6 +28546,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "interactionAbility",
+          "description": "<p>The interaction ability settings for this organization.</p>",
+          "type": "RepositoryInteractionAbility",
+          "id": "repositoryinteractionability",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryinteractionability"
+        },
+        {
           "name": "ipAllowListEnabledSetting",
           "description": "<p>The setting value for whether the organization has an IP allow list enabled.</p>",
           "type": "IpAllowListEnabledSettingValue!",
@@ -42675,6 +42683,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "interactionAbility",
+          "description": "<p>The interaction ability settings for this repository.</p>",
+          "type": "RepositoryInteractionAbility",
+          "id": "repositoryinteractionability",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryinteractionability"
+        },
+        {
           "name": "isArchived",
           "description": "<p>Indicates if the repository is unmaintained.</p>",
           "type": "Boolean!",
@@ -44550,6 +44566,39 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryInteractionAbility",
+      "kind": "objects",
+      "id": "repositoryinteractionability",
+      "href": "/graphql/reference/objects#repositoryinteractionability",
+      "description": "<p>Repository interaction limit that applies to this object.</p>",
+      "fields": [
+        {
+          "name": "expiresAt",
+          "description": "<p>The time the currently active limit expires.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The current limit that is enabled on this object.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "origin",
+          "description": "<p>The origin of the currently active interaction limit.</p>",
+          "type": "RepositoryInteractionLimitOrigin!",
+          "id": "repositoryinteractionlimitorigin",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitorigin"
         }
       ]
     },
@@ -52396,6 +52445,14 @@
           ]
         },
         {
+          "name": "interactionAbility",
+          "description": "<p>The interaction ability settings for this user.</p>",
+          "type": "RepositoryInteractionAbility",
+          "id": "repositoryinteractionability",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryinteractionability"
+        },
+        {
           "name": "isBountyHunter",
           "description": "<p>Whether or not this user is a participant in the GitHub Security Bug Bounty.</p>",
           "type": "Boolean!",
@@ -59454,6 +59511,52 @@
         {
           "name": "REPOSITORY",
           "description": "<p>Created the repository.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryInteractionLimit",
+      "kind": "enums",
+      "id": "repositoryinteractionlimit",
+      "href": "/graphql/reference/enums#repositoryinteractionlimit",
+      "description": "<p>A repository interaction limit.</p>",
+      "values": [
+        {
+          "name": "COLLABORATORS_ONLY",
+          "description": "<p>Users that are not collaborators will not be able to interact with the repository.</p>"
+        },
+        {
+          "name": "CONTRIBUTORS_ONLY",
+          "description": "<p>Users that have not previously committed to a repository’s default branch will be unable to interact with the repository.</p>"
+        },
+        {
+          "name": "EXISTING_USERS",
+          "description": "<p>Users that have recently created their account will be unable to interact with the repository.</p>"
+        },
+        {
+          "name": "NO_LIMIT",
+          "description": "<p>No interaction limits are enabled.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryInteractionLimitOrigin",
+      "kind": "enums",
+      "id": "repositoryinteractionlimitorigin",
+      "href": "/graphql/reference/enums#repositoryinteractionlimitorigin",
+      "description": "<p>Indicates where an interaction limit is configured.</p>",
+      "values": [
+        {
+          "name": "ORGANIZATION",
+          "description": "<p>A limit that is configured at the organization level.</p>"
+        },
+        {
+          "name": "REPOSITORY",
+          "description": "<p>A limit that is configured at the repository level.</p>"
+        },
+        {
+          "name": "USER",
+          "description": "<p>A limit that is configured at the user-wide level.</p>"
         }
       ]
     },

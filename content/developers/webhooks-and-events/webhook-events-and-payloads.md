@@ -1299,7 +1299,9 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 #### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
+{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### workflow_run
 
 When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
@@ -1320,5 +1322,4 @@ Key | Type | Description
 #### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.workflow_run }}
-
 {% endif %}
