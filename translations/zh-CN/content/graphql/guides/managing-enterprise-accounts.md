@@ -203,6 +203,6 @@ fragment repositories on Organization {
 
 下面是关于可与企业账户 API 结合使用的新查询、突变和架构定义类型的概述。
 
-For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
+有关可与企业账户 API 结合使用的新查询、突变和架构定义类型的详细信息，请参阅任何 [GraphQL 参考页面](/v4/)含有详细 GraphQL 定义的边栏。
 
 您可以从 GitHub 的 GraphQL explorer 访问参考文档。 更多信息请参阅“[使用 explorer](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)。” 有关其他信息，如身份验证和速率限制详细信息，请查看[指南](/v4/guides)。 有关其他信息，如身份验证和速率限制详细信息，请查看[指南](/v4/guides)。

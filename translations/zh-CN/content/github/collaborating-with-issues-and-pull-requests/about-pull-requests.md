@@ -59,7 +59,7 @@ versions:
 比较页和拉取请求页使用不同的方法来计算已更改文件的差异：
 
 - 比较页显示头部引用的提示与头部及基础引用当前的共同上层节点（即合并基础）之间的差异。
-- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+- 拉请求页面显示在创建拉取请求时头部引用头与头部和基础的共同上层节点之间的差异。 因此，用于比较的合并基础可能不同。
 
 ### 延伸阅读
 

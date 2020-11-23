@@ -85,7 +85,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: Pinned Issues Preview
   description: This preview adds support for pinned issues.

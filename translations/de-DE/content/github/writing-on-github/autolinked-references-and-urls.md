@@ -41,12 +41,12 @@ In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise 
 
 Verweise auf den SHA-Hash eines Commits werden zum Committen auf {% data variables.product.product_name %} automatisch in verkürzte Links umgewandelt.
 
-| Verweistyp                  | Rohverweis                                                                           | Kurzlink                                                                                                          |
-| --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| Commit-URL                  | https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                   |
-| SHA                         | a5c3785ed8d6a35868bc169f07e40e889087fd2e                                             | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                   |
-| Benutzer@SHA                | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                       | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)             |
-| Benutzername/Repository@SHA | jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e                           | [jlord/sheetsee.js@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| Verweistyp                    | Rohverweis                                                                                                                                                                     | Kurzlink                                                                                                            |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| Commit-URL                    | [`https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                     |
+| SHA                           | a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                       | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                     |
+| Benutzer@SHA                  | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                                                                                                                 | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)               |
+| `Benutzername/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e`                                                                                                                   | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
 ### Benutzerdefinierte automatische Verknüpfungen von externen Ressourcen
 

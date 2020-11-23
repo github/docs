@@ -4,12 +4,8 @@ redirect_from:
   - /v3/oauth_authorizations
   - /v3/oauth-authorizations
 versions:
-  free-pro-team: '*'
   enterprise-server: '*'
 ---
-
-{% data reusables.apps.deprecating_token_oauth_authorizations %}
-{% data reusables.apps.deprecating_password_auth %}
 
 この API を使用すると、OAuth アプリケーションから自分のアカウントへのアクセスを管理することができます。 この API にアクセスするには、ユーザ名とパスワードを使用する [Basic 認証](/rest/overview/other-authentication-methods#basic-authentication) が必要であり、トークンは使用できません。
 
