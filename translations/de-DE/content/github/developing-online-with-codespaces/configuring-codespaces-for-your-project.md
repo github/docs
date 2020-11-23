@@ -61,7 +61,6 @@ Du kannst Konfigurationsschlüssel verwenden, die von {% data variables.product.
 - `settings`
 - `extensions`
 - `forwardPorts`
-- `devPort`
 - `postCreateCommand`
 
 #### Docker-, Dockerfile- oder Image-Einstellungen
@@ -73,13 +72,9 @@ Du kannst Konfigurationsschlüssel verwenden, die von {% data variables.product.
 - `remoteEnv`
 - `containerUser`
 - `remoteUser`
-- `updateRemoteUserUID`
 - `mounts`
-- `workspaceMount`
-- `workspaceFolder`
 - `runArgs`
 - `overrideCommand`
-- `shutdownAction`
 - `dockerComposeFile`
 
 Weitere Informationen über die verfügbaren Einstellungen für `devcontainer.json` findest Du unter [devcontainer.json-Referenz](https://aka.ms/vscode-remote/devcontainer.json) in der {% data variables.product.prodname_vscode %}-Dokumentation.

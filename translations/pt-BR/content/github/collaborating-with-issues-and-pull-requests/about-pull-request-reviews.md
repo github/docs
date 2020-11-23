@@ -38,6 +38,10 @@ Você pode exibir todas as revisões que uma pull request recebeu na linha do te
 
 {% data reusables.pull_requests.resolving-conversations %}
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Revisões obrigatórias
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}

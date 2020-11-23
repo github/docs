@@ -1,6 +1,6 @@
 ---
-title: Auditing users across your enterprise
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the past 90 days, including details such as who performed the action, what the action was, and when the action was performed.'
+title: 审核整个企业的用户
+intro: '审核日志仪表板向站点管理员显示过去 90 天内企业中所有用户和组织执行的操作，包括操作执行者、操作内容以及操作执行时间等详细信息。'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -12,7 +12,7 @@ versions:
 
 ### 访问审核日志
 
-The audit log dashboard gives you a visual display of audit data across your enterprise.
+审核日志仪表板让您能够直观地看到企业中的审计数据。
 
 ![实例级审核日志仪表板](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
@@ -22,9 +22,9 @@ The audit log dashboard gives you a visual display of audit data across your ent
 
 在地图中，您可以平移和缩放来查看世界范围内的事件。 将鼠标悬停在国家/地区上，可以看到该国家/地区内事件的快速盘点。
 
-### Searching for events across your enterprise
+### 在企业中搜索事件
 
-The audit log lists the following information about actions made within your enterprise:
+审核日志列出了有关企业内所执行操作的以下信息：
 
 * 操作发生的[仓库](#search-based-on-the-repository)
 * 执行操作的[用户](#search-based-on-the-user)
@@ -37,7 +37,7 @@ The audit log lists the following information about actions made within your ent
 
 **注意：**
 
-- 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
+- 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 中使用多种运算符进行搜索。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/github/searching-for-information-on-github/about-searching-on-github)”。
 - 要搜索 90 天之前的事件，请使用 `created` 限定符。
 
 {% endwarning %}
@@ -66,13 +66,13 @@ The audit log lists the following information about actions made within your ent
 
 `org` 限定符可将操作限定为特定组织。 例如：
 
-* `org:my-org` 会找到在 `my-org` 组织中发生的所有事件。
+* `org:my-org` 会找到 `my-org` 组织发生的所有事件。
 * `org:my-org action:team` 会找到在 `my-org` 组织中执行的所有团队事件。
-* `-org:my-org` 会排除在 `my-org` 组织中发生的所有事件。
+* `-org:my-org` 会排除 `my-org` 组织发生的所有事件。
 
 #### 基于执行的操作搜索
 
-`action` 限定符可搜索特定事件（按类别组织）。 For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
 
 | 类别名称   | 描述                   |
 | ------ | -------------------- |

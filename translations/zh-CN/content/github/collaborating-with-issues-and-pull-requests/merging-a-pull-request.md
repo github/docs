@@ -43,6 +43,12 @@ versions:
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **注意：** 电子邮件选择器不可用于变基合并（无法创建合并提交） 或压缩合并（将创建拉取请求的用户计为压缩提交的作者）。
+
+   {% endnote %}
+
 6. 单击 **Confirm merge（确认合并）**、**Confirm squash and merge（确认压缩并合并）**或 **Confirm rebase and merge（确认变基并合并）**。
 6. （可选）[删除分支](/articles/deleting-unused-branches)。 这有助于仓库的分支列表保持整洁。
 
