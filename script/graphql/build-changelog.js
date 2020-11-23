@@ -297,4 +297,4 @@ const CHANGES_TO_IGNORE = [
   ChangeType.TypeDescriptionAdded,
 ]
 
-module.exports = { createChangelogEntry, cleanPreviewTitle, previewAnchor }
+module.exports = { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }

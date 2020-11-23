@@ -33,3 +33,18 @@ Object {
   ],
 }
 `;
+
+exports[`updating the changelog file modifies the entry object and the file on disk 1`] = `
+"[
+  {
+    \\"someStuff\\": true,
+    \\"date\\": \\"2020-11-23\\"
+  },
+  {
+    \\"previous_entry\\": \\"...\\"
+  },
+  {
+    \\"another_previous_entry\\": \\"...\\"
+  }
+]"
+`;

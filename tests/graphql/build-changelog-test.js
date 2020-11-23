@@ -1,5 +1,6 @@
 const yaml = require("js-yaml")
-const { createChangelogEntry, cleanPreviewTitle, previewAnchor } = require('../../script/graphql/build-changelog')
+const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } = require('../../script/graphql/build-changelog')
+const fs = require("fs")
 
 describe('creating a changelog from old schema and new schema', () => {
   it('finds a diff of schema changes, upcoming changes, and preview changes', async () => {
@@ -95,5 +96,22 @@ describe("Preparing preview links", () => {
   it("creates anchors from preview titles", () => {
     expect(previewAnchor("Merge info preview")).toEqual("merge-info-preview")
     expect(previewAnchor("some.punct123 preview")).toEqual("somepunct123-preview")
+  })
+})
+
+describe("updating the changelog file", () => {
+  it("modifies the entry object and the file on disk", () => {
+    const testTargetPath = "tests/graphql/example_changelog.json"
+    const previousContents = fs.readFileSync(testTargetPath)
+
+    const exampleEntry = { someStuff: true }
+    prependDatedEntry(exampleEntry, testTargetPath)
+    const newContents = fs.readFileSync(testTargetPath).toString()
+    // reset the file:
+    fs.writeFileSync(testTargetPath, previousContents)
+
+    const expectedDate = (new Date).toISOString().split("T")[0]
+    expect(exampleEntry).toEqual({ someStuff: true, date: expectedDate })
+    expect(newContents).toMatchSnapshot()
   })
 })
