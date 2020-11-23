@@ -92,7 +92,7 @@ const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 //  - {{ #warning }}
 //  - {{ /pizza }}
 //
-const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*}}/g
+const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
@@ -124,7 +124,7 @@ describe('lint-files', () => {
       let content
 
       beforeAll(async () => {
-        const content = await fs.promises.readFile(markdownAbsPath, 'utf8')
+        content = await fs.promises.readFile(markdownAbsPath, 'utf8')
       })
 
       test('relative URLs must start with "/"', async () => {
