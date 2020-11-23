@@ -16,8 +16,6 @@ versions:
 
 パブリックパッケージを削除する場合、そのパッケージに依存するプロジェクトを破壊する可能性があることに注意してください。
 
-
-
 ### 予約されているパッケージのバージョンと名前
 
 {% data reusables.package_registry.package-immutability %}

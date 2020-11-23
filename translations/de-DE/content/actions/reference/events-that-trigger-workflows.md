@@ -98,30 +98,39 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
  To trigger the custom `workflow_dispatch` webhook event using the REST API, you must send a `POST` request to a {% data variables.product.prodname_dotcom %} API endpoint and provide the `ref` and any required `inputs`. For more information, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" REST API endpoint.
 
+##### Beispiel
+
+To use the `workflow_dispatch` event, you need to include it as a trigger in your GitHub Actions workflow file. The example below only runs the workflow when it's manually triggered:
+
+```yaml
+on: workflow_dispatch
+```
+
 ##### Example workflow configuration
 
-In diesem Beispiel wird der `Name` definiert und</code> ein- und `zu Hause verwendet, und sie werden mit den Kontexten <code>github.event.inputs.name` und `github.event.inputs.home` gedruckt. Wenn ein `Name` nicht angegeben wird, wird der Standardwert 'Mona the Octocat' gedruckt.
+In diesem Beispiel wird der `Name` definiert und</code> ein- und `zu Hause verwendet, und sie werden mit den Kontexten <code>github.event.inputs.name` und `github.event.inputs.home` gedruckt. If a `home` isn't provided, the default value 'The Octoverse' is printed.
 
 {% raw %}
 ```yaml
-Name: Manuell ausgelöster Workflow
-auf:
+name: Manually triggered workflow
+on:
   workflow_dispatch:
-    Eingaben:
-      Name:
-        Beschreibung: 'Person zu grüßen'
-        erforderlich: true
-        Standard: 'Mona the Octocat'
-      Home:
-        Beschreibung: 'Standort'
-        erforderlich: falsche
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'Mona the Octocat'
+      home:
+        description: 'location'
+        required: false
+        default: 'The Octoverse'
 
-Jobs:
+jobs:
   say_hello:
-    läuft auf: ubuntu-latest
-    Schritte:
-    - laufen: |
-        Echo "Hallo{{ github.event.inputs.name }}!"
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo "Hello ${{ github.event.inputs.name }}!"
         echo "- in{{ github.event.inputs.home }}!"
 ```
 {% endraw %}
@@ -314,6 +323,35 @@ on:
     types: [created, deleted]
 ```
 
+The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
+
+For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
+
+{% raw %}
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
+
+  issue-commented:
+    # This job only runs for issue comments
+    name: Issue comment
+    if: ${{ !github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
+```
+{% endraw %}
+
 #### `Issues (Lieferungen)`
 
 Führt den Workflow aus, wenn das Ereignis `issues` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Issues](/v3/issues)."
@@ -326,7 +364,7 @@ Führt den Workflow aus, wenn das Ereignis `issues` eintritt. {% data reusables.
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Sie können einen Workflow beispielsweise ausführen, wenn ein Issue geöffnet (`opened`) oder bearbeitet (`edited`) oder wenn ein Meilenstein gesetzt (`milestoned`) wurde.
+Du kannst einen Workflow beispielsweise ausführen, wenn ein Problem geöffnet (`opened`) oder bearbeitet (`edited`) wurde oder wenn dafür ein Meilenstein gesetzt wurde (`milestoned`).
 
 ```yaml
 on:
@@ -356,7 +394,7 @@ on:
 
 #### `Meilensteine`
 
-Führt den Workflow aus, wenn das Ereignis `milestone` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Milestones](/v3/issues/milestones/)."
+Führt Deinen Workflow aus, wenn das Ereignis `milestone` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Milestones](/v3/issues/milestones/)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -413,7 +451,7 @@ on:
 
 #### `project_card`
 
-Führt den Workflow aus, wenn das Ereignis `project_ticket` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project cards](/v3/projects/cards)."
+Führt den Workflow aus, wenn das Ereignis `project_card` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project cards](/v3/projects/cards)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -433,7 +471,7 @@ on:
 
 #### `project_column`
 
-Führt den Workflow aus, wenn das Ereignis `project_column` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project columns](/v3/projects/columns)."
+Führt Deinen Workflow aus, wenn das Ereignis `project_column` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project columns](/v3/projects/columns)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -443,7 +481,7 @@ Führt den Workflow aus, wenn das Ereignis `project_column` eintritt. {% data re
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Sie können einen Workflow beispielsweise ausführen, wenn eine Projektspalte erstellt (`created`) oder gelöscht (`deleted`) wurde.
+Du kannst einen Workflow beispielsweise ausführen, wenn eine Projektspalte erstellt (`created`) oder gelöscht (`deleted`) wurde.
 
 ```yaml
 on:
@@ -453,7 +491,7 @@ on:
 
 #### `public`
 
-Führt den Workflow aus, wenn ein Benutzer ein privates Repository öffentlich macht, wodurch das Ereignis `public` ausgelöst wird. For information about the REST API, see "[Edit repositories](/v3/repos/#edit)."
+Führt Deinen Workflow aus, wenn ein Benutzer ein privates Repository öffentlich macht, wodurch das Ereignis `public` ausgelöst wird. For information about the REST API, see "[Edit repositories](/v3/repos/#edit)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -461,7 +499,7 @@ Führt den Workflow aus, wenn ein Benutzer ein privates Repository öffentlich m
 | -------------------------------------------- | --------------- | --------------------------------- | --------------- |
 | [`public`](/webhooks/event-payloads/#public) | –               | Letzter Commit im Standard-Branch | Standard-Branch |
 
-Sie können einen Workflow beispielsweise ausführen, wenn das Ereignis `public` eintritt.
+Du kannst einen Workflow beispielsweise ausführen, wenn das Ereignis `public` eintritt.
 
 ```yaml
 on:
@@ -470,11 +508,11 @@ on:
 
 #### `pull_request`
 
-Führt den Workflow aus, wenn das Ereignis `pull_request` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull requests](/v3/pulls)."
+Führt Deinen Workflow aus, wenn das Ereignis `pull_request` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull requests](/v3/pulls)."
 
 {% note %}
 
-**Hinweis:** Standardmäßig wird ein Workflow nur dann ausgeführt, wenn der `pull_request` den Aktivitätstyp `opened`, `synchronize` oder `reopened` aufweist. Sollen Workflows für weitere Aktivitätstypen ausgelöst werden, geben Sie das Stichwort `types` an.
+**Note:** By default, a workflow only runs when a `pull_request`'s activity type is `opened`, `synchronize`, or `reopened`. Sollen Workflows für weitere Aktivitätstypen ausgelöst werden, verwende das Schlüsselwort `types`.
 
 {% endnote %}
 
@@ -496,7 +534,7 @@ on:
 
 #### `pull_request_review`
 
-Führt den Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/v3/pulls/reviews)."
+Führt Deinen Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/v3/pulls/reviews)."
 
 | Nutzlast des Webhook-Ereignisses                                       | Aktivitätstypen                                            | `GITHUB_SHA`                                | `GITHUB_REF`                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
@@ -542,7 +580,7 @@ This event is similar to `pull_request`, except that it runs in the context of t
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | -------------- |
 | [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Last commit on the PR base branch | PR base branch |
 
-By default, a workflow only runs when a `pull_request_target`'s activity type is `opened`, `synchronize`, or `reopened`. Sollen Workflows für weitere Aktivitätstypen ausgelöst werden, geben Sie das Stichwort `types` an. Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)“.
+By default, a workflow only runs when a `pull_request_target`'s activity type is `opened`, `synchronize`, or `reopened`. Sollen Workflows für weitere Aktivitätstypen ausgelöst werden, verwende das Schlüsselwort `types`. Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)“.
 
 Du kannst einen Workflow beispielsweise dann ausführen, wenn ein Pull Request zugewiesen (`assigned`), geöffnet (`opened`), synchronisiert (`synchronize`) oder erneut geöffnet (`reopened`) wurde.
 
@@ -654,6 +692,10 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+| Nutzlast des Webhook-Ereignisses                         | Aktivitätstypen | `GITHUB_SHA`                      | `GITHUB_REF`    |
+| -------------------------------------------------------- | --------------- | --------------------------------- | --------------- |
+| [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a           | Letzter Commit im Standard-Branch | Standard-Branch |
 
 If you need to filter branches from this event, you can use `branches` or `branches-ignore`.
 

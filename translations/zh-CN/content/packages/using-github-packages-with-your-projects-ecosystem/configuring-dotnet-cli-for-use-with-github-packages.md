@@ -78,7 +78,7 @@ versions:
 
 ### 发布包
 
-您可以使用 *nuget.config* 文件进行身份验证，将包发布到 {% data variables.product.prodname_registry %}。 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
+您可以使用 *nuget.config* 文件进行身份验证，将包发布到 {% data variables.product.prodname_registry %}。 发布时，您需要将 *csproj* 文件中的 `OWNER` 值用于您的 *nuget.config* 身份验证文件。 在 *.csproj* 文件中指定或增加版本号，然后使用 `dotnet pack` 命令创建该版本的 *.nuspec* 文件。 有关创建包的更多信息，请参阅 Microsoft 文档中的“[创建和发布包](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)”。
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -160,7 +160,7 @@ versions:
 
 ### 安装包
 
-在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 *nuget.org* 的包。 将包依赖项添加到 *.csproj* 文件以指定包名称和版本。 有关在项目中使用 *.csproj* 文件的更多信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)”。
+在项目中使用来自 {% data variables.product.prodname_dotcom %} 的包类似于使用来自 *nuget.org* 的包。 将包依赖项添加到 *.csproj* 文件以指定包名称和版本。 有关在项目中使用 *.csproj* 文件的更多信息，请参阅 Microsoft 文档中的“[使用 NuGet 包](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)”。
 
 {% data reusables.package_registry.authenticate-step %}
 

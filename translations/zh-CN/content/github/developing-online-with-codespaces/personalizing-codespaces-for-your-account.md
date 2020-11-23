@@ -32,7 +32,7 @@ Dotfiles 是类似 Unix 的系统上以 `.` 开头的文件和文件夹，用于
 
 对 `dotfile` 仓库所做的任何更改只会应用到每个新的代码空间，而不影响任何现有的代码空间。
 
-更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的[个性化](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing)。
+更多信息请参阅 {% data variables.product.prodname_vscode %} 文档中的[个性化](https://docs.microsoft.com/visualstudio/online/reference/personalizing)。
 
 {% note %}
 

@@ -102,8 +102,8 @@ versions:
       adduser git -D -G root -h /home/git -s /bin/bash && \
       passwd -d git && \
       su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P '' && \
-      mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
       mkdir /home/git/test.git && \
       git --bare init /home/git/test.git"
 
@@ -135,7 +135,7 @@ versions:
    > Sending build context to Docker daemon 3.584 kB
    > Step 1 : FROM gliderlabs/alpine:3.3
    >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P ' && mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
+   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
    >  ---> Running in e9d79ab3b92c
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -143,9 +143,9 @@ versions:
    > OK: 34 MiB in 26 packages
    > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
    > Password for git changed by root
-   > Generating public/private rsa key pair.
-   > Your identification has been saved in /home/git/.ssh/id_rsa.
-   > Your public key has been saved in /home/git/.ssh/id_rsa.pub.
+   > Generating public/private ed25519 key pair.
+   > Your identification has been saved in /home/git/.ssh/id_ed25519.
+   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
    ....truncated output....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
@@ -173,7 +173,7 @@ versions:
 9. 将生成的 SSH 密钥从数据容器复制到本地计算机：
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_rsa .
+   $ docker cp data:/home/git/.ssh/id_ed25519 .
   ```
 
 10. 修改远程测试仓库并将其推送到 Docker 容器中的 `test.git` 仓库。 此示例使用了 `git@github.com:octocat/Hello-World.git`，但您可以使用想要的任何仓库。 此示例假定您的本地计算机 (127.0.0.1) 绑定了端口 52311，但如果 docker 在远程计算机上运行，则可以使用不同的 IP 地址。
@@ -182,7 +182,7 @@ versions:
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test main
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.

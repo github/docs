@@ -16,7 +16,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_code_scanning %} 的 SARIF 文件上传
 
-{% data variables.product.prodname_dotcom %} 使用静态分析结果交换格式 (SARIF) 文件中的信息创建 {% data variables.product.prodname_code_scanning %} 警报。 SARIF 文件可通过在用于上传文件的 {% data variables.product.prodname_actions %} 工作流程中运行的 SARIF 兼容分析工具生成。 或者，当文件生成为仓库外部的构件时， 您可以直接将 SARIF 文件推送到仓库，并使用工作流程上传 SARIF 文件。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} 使用静态分析结果交换格式 (SARIF) 文件中的信息创建 {% data variables.product.prodname_code_scanning %} 警报。 SARIF 文件可通过在用于上传文件的 {% data variables.product.prodname_actions %} 工作流程中运行的 SARIF 兼容分析工具生成。 或者，当文件生成为仓库外部的构件时， 您可以直接将 SARIF 文件推送到仓库，并使用工作流程上传 SARIF 文件。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
 您可以使用许多静态分析安全测试工具来生成 SARIF 文件，包括 {% data variables.product.prodname_codeql %}。 结果必须使用 SARIF 版本 2.1.0。 更多信息请参阅“[关于代码扫描的 SARIF 支持](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning)”。
 
