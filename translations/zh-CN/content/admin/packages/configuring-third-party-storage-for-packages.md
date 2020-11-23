@@ -21,7 +21,10 @@ versions:
 
 {% warning %}
 
-**警告**：确保配置将来要使用的存储桶。 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
+**警告：**
+- It's critical you set the restrictive access policies you want for your storage bucket because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. For more information, see [Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html) in the AWS Documentation.
+- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+- Make sure to configure the bucket you'll want to use in the future. 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
 
 {% endwarning %}
 

@@ -186,7 +186,7 @@ _ブランチ_
 - [`POST /repos/:owner/:repo/branches/:branch/protection/required_signatures`](/v3/repos/branches/#create-commit-signature-protection) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/required_signatures`](/v3/repos/branches/#delete-commit-signature-protection) (:write)
 - [`GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#get-status-checks-protection) (:read)
-- [`PATCH /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#update-status-check-potection) (:write)
+- [`PATCH /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#update-status-check-protection) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/required_status_checks`](/v3/repos/branches/#remove-status-check-protection) (:write)
 - [`GET /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts`](/v3/repos/branches/#get-all-status-check-contexts) (:read)
 - [`POST /repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts`](/v3/repos/branches/#add-status-check-contexts) (:write)

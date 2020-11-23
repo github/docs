@@ -105,7 +105,7 @@ steps:
 ```
 {% endraw %}
 
-Wann immer dies möglich ist, vermeide die Übergabe von Geheimnissen zwischen Prozessen von der Befehlszeile aus. Befehlszeilen-Prozesse können für andere Benutzer (mithilfe des Befehls `ps`) sichtbar sein oder von [„security audit events“ (Ereignissen zur Sicherheits-Überprüfung)](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing) erfasst werden. Um den Schutz von Geheimnissen zu unterstützen, solltest Du die Verwendung von Umgebungsvariablen, `STDIN` oder andere vom Zielprozess unterstützte Mechanismen in Betracht ziehen.
+Wann immer dies möglich ist, vermeide die Übergabe von Geheimnissen zwischen Prozessen von der Befehlszeile aus. Befehlszeilen-Prozesse können für andere Benutzer (mithilfe des Befehls `ps`) sichtbar sein oder von [„security audit events“ (Ereignissen zur Sicherheits-Überprüfung)](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing) erfasst werden. Um den Schutz von Geheimnissen zu unterstützen, solltest Du die Verwendung von Umgebungsvariablen, `STDIN` oder andere vom Zielprozess unterstützte Mechanismen in Betracht ziehen.
 
 Wenn Sie Geheimnisse innerhalb einer Kommandozeile übergeben müssen, umschließe sie im Rahmen der gültigen Quotierungsregeln. Geheimnisse enthalten oft Sonderzeichen, die in Deiner Shell unbeabsichtigte Wirkungen entfalten können. Um diese Sonderzeichen zu vermeiden, verwende Deine Umgebungsvariablen mit Anführungszeichen. Ein Beispiel:
 

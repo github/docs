@@ -1,6 +1,7 @@
 ---
 title: 管理来自密码扫描的警报
 intro: 您可以查看并关闭已检入仓库的密码的警报。
+product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'
 ---

@@ -24,12 +24,13 @@ versions:
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
         env:
           super_secret: ${{ secrets.SUPERSECRET }}
         run: |
-          example-command "$SUPER_SECRET"
+          example-command "$super_secret"
 ```
 {% endraw %}
 
@@ -49,6 +50,7 @@ jobs:
       - run: ./setup_server.sh
   build:
     needs: setup
+    runs-on: ubuntu-latest
     steps:
       - run: ./build_server.sh
   test:
@@ -141,7 +143,7 @@ jobs:
 ```yaml
 jobs:
   example-job:
-      runs-on: [self-hosted, linux, x64, gpu]
+    runs-on: [self-hosted, linux, x64, gpu]
 ```
 
 詳しい情報については、「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。

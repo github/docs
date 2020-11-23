@@ -15,6 +15,20 @@ const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
 
+// check for required PAT
+if (!process.env.GITHUB_TOKEN) {
+  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
+  process.exit(1)
+}
+
+// check for required Ruby gems (see note below about why this is needed)
+try {
+  execSync('gem which graphql')
+} catch (err) {
+  console.error('\nYou need to run: bundle install')
+  process.exit(1)
+}
+
 // TODO this step is only required as long as we support GHE versions *OLDER THAN* 2.21
 // as soon as 2.20 is deprecated on 2021-02-11, we can remove all graphql-ruby filtering
 const removeHiddenMembersScript = path.join(__dirname, './utils/remove-hidden-schema-members.rb')
@@ -64,6 +78,9 @@ async function main () {
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
   updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
   updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+
+  // Ensure the YAML linter runs before checkinging in files
+  execSync('npx prettier -w "**/*.{yml,yaml}"')
 }
 
 // get latest from github/github

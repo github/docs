@@ -4,9 +4,10 @@ header:
   contact: Contato
   notices:
     ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    release_candidate: '# The version name is rendered before the below text via includes/header-notification.html '' is currently under limited release as a release candidate.'''
     localization_complete: Publicamos atualizações frequentes em nossa documentação, e a tradução desta página ainda pode estar em andamento. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>. Se houver problemas com a tradução desta página, <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">entre em contato conosco</a>.
     localization_in_progress: Olá! No momento, esta página ainda está sendo desenvolvida ou traduzida. Para obter as informações mais recentes, acesse a <a id="to-english-doc" href="/en">documentação em inglês</a>.
-    product_in_progress: '👋 Olá, explorador! Esta página está em desenvolvimento ativo. Para obter as informações mais atualizadas e precisas, visite nossa <a href="https://developer.github.com">documentação do desenvolvedor</a>.'
+    early_access: '👋 This page contains content about an early access feature. Please do not share this URL publicly.'
 search:
   need_help: Precisa de ajuda?
   placeholder: Pesquisar tópicos, produtos...
@@ -15,10 +16,11 @@ homepage:
   version_picker: Versão
 toc:
   getting_started: Introdução
-  popular_articles: Artigos populares
+  popular_articles: Popular
   guides: Guias
+  whats_new: O que há de novo
 pages:
-  article_version: "Versão do artigo:"
+  article_version: 'Versão do artigo:'
   miniToc: Neste artigo
 errors:
   oops: Ops!
@@ -118,3 +120,6 @@ footer:
       careers: Carreiras
       press: Imprensa
       shop: Loja
+product_landing:
+  quick_start: QuickStart
+  reference_guides: Reference guides

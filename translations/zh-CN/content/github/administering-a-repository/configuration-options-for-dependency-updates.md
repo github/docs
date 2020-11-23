@@ -12,7 +12,7 @@ versions:
 
 {% data variables.product.prodname_dependabot %} 配置文件 *dependabot.yml* 使用 YAML 语法。 如果您是 YAML 的新用户并想要了解更多信息，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
-必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”和“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”。
+必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。 更多信息请参阅“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”和“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
 
 ### *dependabot.yml* 的配置选项
 
@@ -56,13 +56,13 @@ versions:
 
 仅对默认分支上有漏洞的包清单提出安全更新。 如果为同一分支设置配置选项（不使用 `target-branch` 时为 true），并为有漏洞的清单指定 `package-ecosystem` 和 `directory`，则安全更新的拉取请求使用相关选项。
 
-一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”。
+一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)”。
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**必选** 为您希望 {% data variables.product.prodname_dependabot_short %} 监控新版本的每个包管理器添加一个 `package-ecosystem` 元素。 仓库还必须包含其中每个包管理器的依赖项清单或锁定文件。 如果您想要为支持它的软件包管理器启用供应，则必须在所需的目录中找到供应的依赖项。 更多信息请参阅下面的 [`vendor`](#vendor)。
+**必选** 为您希望 {% data variables.product.prodname_dependabot %} 监控新版本的每个包管理器添加一个 `package-ecosystem` 元素。 仓库还必须包含其中每个包管理器的依赖项清单或锁定文件。 如果您想要为支持它的软件包管理器启用供应，则必须在所需的目录中找到供应的依赖项。 更多信息请参阅下面的 [`vendor`](#vendor)。
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -308,7 +308,7 @@ updates:
 
 {% note %}
 
-**注**：{% data variables.product.prodname_dependabot_version_updates %} 无法为包含私有 git 依赖项或私有 git 注册表的清单中的任何依赖项运行版本更新，即使您将私有依赖项添加到配置文件的 `ignore` 选项。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)”。
+**注**：{% data variables.product.prodname_dependabot_version_updates %} 无法为包含私有 git 依赖项或私有 git 注册表的清单中的任何依赖项运行版本更新，即使您将私有依赖项添加到配置文件的 `ignore` 选项。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)”。
 
 {% endnote %}
 
@@ -543,7 +543,7 @@ updates:
 
 ### `vendor`
 
-使用 `vendor` 选项指示 {% data variables.product.prodname_dependabot_short %} 在更新依赖项时供应它们。
+使用 `vendor` 选项指示 {% data variables.product.prodname_dependabot %} 在更新依赖项时供应它们。
 
 ```yaml
 # Configure version updates for both dependencies defined in manifests and vendored dependencies
@@ -558,7 +558,7 @@ updates:
       interval: "weekly"
 ```
 
-{% data variables.product.prodname_dependabot_short %} 仅更新位于仓库的特定目录中供应的依赖项。
+{% data variables.product.prodname_dependabot %} 仅更新位于仓库的特定目录中供应的依赖项。
 
 | 包管理器      | 供应的依赖项所需的文件路径                             | 更多信息                                                            |
 | --------- | ----------------------------------------- | --------------------------------------------------------------- |

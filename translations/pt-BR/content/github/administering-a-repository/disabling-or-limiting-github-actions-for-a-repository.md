@@ -63,7 +63,7 @@ Como alternativa, você pode habilitar o {% data variables.product.prodname_acti
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-1. Em **Permissões de ações**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista. ![Adicionar ações para permitir lista](/assets/images/help/repository/actions-policy-allow-list.png)
+1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list. ![Adicionar ações para permitir lista](/assets/images/help/repository/actions-policy-allow-list.png)
 2. Clique em **Salvar**.
 {% endif %}
 

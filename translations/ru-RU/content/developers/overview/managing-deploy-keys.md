@@ -82,6 +82,32 @@ See [our guide on Git automation with tokens][git-automation].
 7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 8. Click **Add key**.
 
+##### Using multiple repositories on one server
+
+If you use multiple repositories on one server, you will need to generate a dedicated key pair for each one. You can't reuse a deploy key for multiple repositories.
+
+In the server's SSH configuration file (usually `~/.ssh/config`), add an alias entry for each repository. Например:
+
+```bash
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+```
+
+* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+* `Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+
+You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. Например:
+
+```bash
+$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+```
+
 ### Machine users
 
 If your server needs to access multiple repositories, you can create a new {% data variables.product.product_name %} account and attach an SSH key that will be used exclusively for automation. Since this {% data variables.product.product_name %} account won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).

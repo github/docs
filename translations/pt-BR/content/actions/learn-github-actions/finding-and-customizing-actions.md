@@ -87,7 +87,7 @@ Para obter mais informações, consulte "[Usar o gerenciamento de versões para 
 
 ### Usar entradas e saídas com uma ação
 
-Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. Por exemplo, uma ação pode exigir que você especifique um caminho para um arquivo, o nome de uma etiqueta ou outros dados que usará como parte do processamento da ação.
+Uma ação geralmente aceita ou exige entradas e gera saídas que você pode usar. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
 Para ver as entradas e saídas de uma ação, verifique a `action.yml` ou `action.yaml` no diretório-raiz do repositório.
 

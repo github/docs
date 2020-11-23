@@ -134,20 +134,20 @@ describe('helpfulness', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('#helpfulness-sm [for=helpfulness-yes-sm]')
+    await page.click('.js-helpfulness [for=helpfulness-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('#helpfulness-sm [type="email"]')
+    await page.waitForSelector('.js-helpfulness [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('#helpfulness-sm [type="email"]', 'test@example.com')
+    await page.type('.js-helpfulness [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('#helpfulness-sm [type="submit"]')
+    await page.click('.js-helpfulness [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('#helpfulness-sm [data-help-end]')
+    await page.waitForSelector('.js-helpfulness [data-help-end]')
   })
 })
 

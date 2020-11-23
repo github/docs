@@ -1,10 +1,12 @@
+name: Merged notification
 on:
   pull_request_target:
-    types: ['closed']
+    types:
+      - 'closed'
 
 jobs:
   comment:
-    if: github.event.repository.private == false && github.event.pull_request.merged && github.event.pull_request.base.ref == github.event.repository.default_branch
+    if: github.repository == 'github/docs' && github.event.pull_request.merged && github.event.pull_request.base.ref == github.event.repository.default_branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9

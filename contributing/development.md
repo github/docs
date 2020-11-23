@@ -8,7 +8,7 @@ This site is powered by Node.js! :sparkles: :turtle: :rocket: :sparkles:
 
 It runs on macOS, Windows, and Linux environments.
 
-You'll need Node.js version 12 or 14 to run the site. To install Node.js, [download the "LTS" installer from nodejs.org](https://nodejs.org). If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) for instructions on switching Node.js versions. 
+You'll need Node.js version 12 or 14 to run the site. To install Node.js, [download the "LTS" installer from nodejs.org](https://nodejs.org). If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) for instructions on switching Node.js versions.
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
@@ -16,12 +16,27 @@ Once you've installed Node.js (which includes the popular `npm` package manager)
 git clone https://github.com/github/docs
 cd docs
 npm install
+npm run build
 npm start
 ```
 
 You should now have a running server! Visit [localhost:4000](http://localhost:4000) in your browser. It will automatically restart as you make changes to site content.
 
 When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in your terminal window.
+
+Note that `npm run build` is a one-time step that create static assets.
+
+### Using GitHub Codespaces
+
+As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces).
+
+In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
+
+### Viewing a top-level table of contents
+
+While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
+
+At the `/dev-toc` path, you'll see a list of available versions. Click a version, and a list of products will appear. Note that the TOC content is versioned. If you are viewing `free-pro-team@latest` and you click the `Enterprise Admin` product, it will be empty, because there isn't any Admin content available on that version.
 
 ## Site structure
 

@@ -183,6 +183,6 @@ encoding: UTF-8
 
 此错误意味着您的代码包含无法识别的 Liquid 标记。
 
-要排除故障，请确保错误消息所指文件中的所有 Liquid 标记都与 Jekyll 的默认变量相匹配，并且标记名称没有拼写错误。 有关默认变量列表，请参阅 Jekyll 文档中的“[变量](https://jekyllrb.com/docs/variables/)”。
+要排除故障，请确保错误消息所指文件中的所有 Liquid 标记都与 Jekyll 的默认变量相匹配，并且标记名称没有拼写错误。 For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
 
 不受支持的插件是无法识别标记的常见来源。 如果您通过在本地生成站点并将静态文件推送到 {% data variables.product.product_name %} 的方法在站点中使用不受支持的插件，请确保该插件未引入 Jekyll 默认变量中没有的标记。 有关受支持插件的列表，请参阅“[关于 {% data variables.product.prodname_pages %} 和 Jekyll](/articles/about-github-pages-and-jekyll#plugins)”。

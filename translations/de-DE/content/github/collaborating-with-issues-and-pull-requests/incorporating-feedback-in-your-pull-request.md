@@ -25,6 +25,10 @@ Jede Person, die eine der Änderungen des Commits vorgeschlagen hat, wird Co-Aut
 4. Gib im Feld für die Commit-Mitteilung eine kurze, aussagekräftige Commit-Mitteilung ein, die die Änderung beschreibt, die Du an der Datei oder den Dateien vorgenommen hast. ![Feld für Commit-Mitteilung](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Klicke auf **Commit changes** (Änderungen freigeben). ![Schaltfläche „Commit changes“ (Änderungen freigeben)](/assets/images/help/pull_requests/commit-changes-button.png)
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Öffnen eines Issue für Vorschläge außerhalb des Geltungsbereichs
 
 Wenn jemand Änderungen an Deinem Pull Request vorschlägt und die Änderungen nicht in den Pull-Request-Geltungsbereich fallen, kannst Du einen neuen Issue öffnen, um das Feedback zu verfolgen. Weitere Informationen findest Du unter „[Öffnen eines Issue aus einem Kommentar](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."

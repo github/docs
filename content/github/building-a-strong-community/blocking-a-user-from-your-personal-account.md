@@ -20,6 +20,7 @@ You can block a user in your account settings or from the user's profile. {% dat
 When you block a user:
 - The user stops following you
 - The user stops watching and unpins your repositories
+- The user is not able to join any organizations you are an owner of
 - The user's stars and issue assignments are removed from your repositories
 - The user's forks of your repositories are deleted
 - You delete any forks of the user's repositories

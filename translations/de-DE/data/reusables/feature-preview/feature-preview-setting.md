@@ -1,0 +1,1 @@
+1. Klicke in der oberen rechten Ecke einer beliebigen Seite auf Dein Profilfoto und dann auf **Feature preview** (Funktions-Vorschau). ![Schaltfläche „Feature preview" (Funktions-Vorschau)](/assets/images/help/settings/feature-preview-button.png)
