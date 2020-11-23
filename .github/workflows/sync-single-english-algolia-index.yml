@@ -15,7 +15,7 @@ on:
 jobs:
   updateIndices:
     name: Update English index for single version based on a label's version
-    if: github.repository == 'github/docs-internal' && startsWith(github.event.label.name, 'sync-english-index-for-')
+    if: github.repository == 'github/docs-internal' && contains(github.event.pull_request.labels.*.name, 'sync-english-index-for-')
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -34,11 +34,10 @@ jobs:
         run: npm ci
       - name: Get version from label
         id: getVersion
-        run: |
-          echo "::set-output name=version::$(github.event.label.name.split('sync-english-index-for-')[1])"
+        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-algolia-label.js
       - name: Sync English index for single version
         env:
-          VERSION: ${{ steps.getVersion.outputs.version }}
+          VERSION: ${{ steps.getVersion.outputs.versionToSync }}
           LANGUAGE: 'en'
           ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
