@@ -3,6 +3,8 @@ name: Algolia Sync Single English Index
 on:
   pull_request:
     types:
+      - labeled
+      - unlabeled
       - opened
       - reopened
       - synchronize
