@@ -43,10 +43,16 @@ async function main() {
   }
 }
 
-
-// Compare `oldSchemaString` to `newSchemaString`, and if there are any
-// changes that warrant a changelog entry, return a changelog entry.
-// Otherwise, return null.
+/**
+ * Compare `oldSchemaString` to `newSchemaString`, and if there are any
+ * changes that warrant a changelog entry, return a changelog entry.
+ * Based on the parsed `previews`, identify changes that are under a preview.
+ * Otherwise, return null.
+ * @param {string} [oldSchemaString]
+ * @param {string} [newSchemaString]
+ * @param {object} [previews]
+ * @return {object?}
+ */
 async function createChangelogEntry(oldSchemaString, newSchemaString, previews) {
   // Create schema objects out of the strings
   const oldSchema = await loadSchema(oldSchemaString)
@@ -108,8 +114,12 @@ async function createChangelogEntry(oldSchemaString, newSchemaString, previews) 
   }
 }
 
-// prepare the preview title from github/github source for the docs.
-// ported from build-changelog-from-markdown
+/**
+ * Prepare the preview title from github/github source for the docs.
+ * (ported from build-changelog-from-markdown)
+ * @param {string} title
+ * @return {string}
+ */
 function cleanPreviewTitle(title) {
   if (title == "UpdateRefsPreview") {
     title = "Update refs preview"
@@ -122,17 +132,23 @@ function cleanPreviewTitle(title) {
 }
 
 /**
+ * Turn the given title into an HTML-ready anchor.
+ * (ported from https://github.com/github/graphql-docs/blob/master/lib/graphql_docs/update_internal_developer/change_log.rb#L281)
  * @param {string} [previewTitle]
  * @return {string}
 */
 function previewAnchor(previewTitle) {
-  // ported from https://github.com/github/graphql-docs/blob/master/lib/graphql_docs/update_internal_developer/change_log.rb#L281
   return previewTitle
     .toLowerCase()
     .replace(/ /g, '-')
     .replace(/[^\w-]/g, '')
 }
 
+/**
+ * Turn changes from graphql-inspector into messages for the HTML changelog.
+ * @param {Array<object>} changes
+ * @return {Array<string>}
+ */
 function cleanMessagesFromChanges(changes) {
   return changes.map(function (change) {
     // replace single quotes around graphql names with backticks,
@@ -141,6 +157,15 @@ function cleanMessagesFromChanges(changes) {
   })
 }
 
+/**
+ * Split `changesToReport` into two parts,
+ * one for changes in the main schema,
+ * and another for changes that are under preview.
+ * (Ported from https://github.com/github/graphql-docs/blob/7e6a5ccbf13cc7d875fee65527b25bc49e886b41/lib/graphql_docs/update_internal_developer/change_log.rb#L230)
+ * @param {Array<object>} changesToReport
+ * @param {object} previews
+ * @return {object}
+ */
 function segmentPreviewChanges(changesToReport, previews) {
   // Build a map of `{ path => previewTitle` }
   // for easier lookup of change to preview
@@ -237,7 +262,5 @@ const CHANGES_TO_IGNORE = [
   ChangeType.TypeDescriptionRemoved,
   ChangeType.TypeDescriptionAdded,
 ]
-
-
 
 module.exports = { createChangelogEntry, cleanPreviewTitle, previewAnchor }
