@@ -317,7 +317,7 @@ cache: npm
 </tr>
 </table>
 
-For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% data variables.product.prodname_actions %} caching is only applicable to {% data data.variables.product.prodname_dotcom %}-hosted runners.  For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ### Examples of common tasks
 
