@@ -2,8 +2,15 @@
 
 exports[`creating a changelog from old schema and new schema finds a diff of schema changes, upcoming changes, and preview changes 1`] = `
 Object {
-  "date": "2020-11-20",
-  "previewChanges": Array [],
+  "previewChanges": Array [
+    Object {
+      "changes": Array [
+        "Field \`Query.previewField\` changed type from \`PreviewType\` to \`PreviewType!\`",
+        "Type for argument \`changeTypeArgument\` on field 'PreviewType.field1\` changed from \`Int\` to \`Float'",
+      ],
+      "title": "The [Test preview](/graphql/overview/schema-previews#test-preview) includes these changes:",
+    },
+  ],
   "schemaChanges": Array [
     Object {
       "changes": Array [
