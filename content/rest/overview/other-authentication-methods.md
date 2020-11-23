@@ -69,7 +69,7 @@ would authenticate you if you replace `<username>` with your {% data variables.p
 ```shell
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
-If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/v3/auth/#working-with-two-factor-authentication).
+If you have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
 
 {% endif %}
 

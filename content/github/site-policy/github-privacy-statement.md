@@ -201,7 +201,7 @@ Please contact the Account owners for more information about how they might proc
 
 #### Third party applications
 
-You have the option of enabling or adding third-party applications, known as "Developer Products," to your Account. These Developer Products are not necessary for your use of GitHub. We will share your User Personal Information with third parties when you ask us to, such as by purchasing a Developer Product from the Marketplace; however, you are responsible for your use of the third-party Developer Product and for the amount of User Personal Information you choose to share with it. You can check our [API documentation](/v3/users/) to see what information is provided when you authenticate into a Developer Product using your GitHub profile.
+You have the option of enabling or adding third-party applications, known as "Developer Products," to your Account. These Developer Products are not necessary for your use of GitHub. We will share your User Personal Information with third parties when you ask us to, such as by purchasing a Developer Product from the Marketplace; however, you are responsible for your use of the third-party Developer Product and for the amount of User Personal Information you choose to share with it. You can check our [API documentation](/rest/reference/users) to see what information is provided when you authenticate into a Developer Product using your GitHub profile.
 
 #### GitHub Pages
 
