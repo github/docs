@@ -24,7 +24,7 @@ jobs:
         name: Get title for issue
         id: check
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
-      - if: failure()
+      - if: ${{ failure() }}
         name: Close previous report
         uses: lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8
         with:
