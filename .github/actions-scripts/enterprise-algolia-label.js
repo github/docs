@@ -12,6 +12,11 @@ const eventPayload = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, '
 const labelText = 'sync-english-index-for-'
 const labelsArray = eventPayload.pull_request.labels
 
+// Exit early if no labels are on this PR
+if (!(labelsArray && labelsArray.length)) {
+  process.exit(0)
+}
+
 // Find the relevant label
 const algoliaLabel = labelsArray.find(label => label.startsWith(labelText))
 
