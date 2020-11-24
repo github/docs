@@ -67,7 +67,7 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
+Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
 Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
 
@@ -462,7 +462,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List teams](/rest/reference/teams#list-teams)
 * [Create a team](/rest/reference/teams#create-a-team)
-* [Get a team by name](/rest/reference/teams#get-a-team-by-name) 
+* [Get a team by name](/rest/reference/teams#get-a-team-by-name)
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 * [Get a team](/rest/reference/teams#get-a-team)
 {% endif %}
@@ -484,7 +484,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get an organization](/rest/reference/orgs#get-an-organization)
 * [Update an organization](/rest/reference/orgs#update-an-organization)
 * [List organization memberships for the authenticated user](/rest/reference/orgs#list-organization-memberships-for-the-authenticated-user)
-* [Get an organization membership for the authenticated user](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user) 
+* [Get an organization membership for the authenticated user](/rest/reference/orgs#get-an-organization-membership-for-the-authenticated-user)
 * [Update an organization membership for the authenticated user](/rest/reference/orgs#update-an-organization-membership-for-the-authenticated-user)
 * [List organizations for the authenticated user](/rest/reference/orgs#list-organizations-for-the-authenticated-user)
 * [List organizations for a user](/rest/reference/orgs#list-organizations-for-a-user)
@@ -824,7 +824,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List commit statuses for a reference](/rest/reference/repos#list-commit-statuses-for-a-reference)
 * [Create a commit status](/rest/reference/repos#create-a-commit-status)
 
-##### Team Discussions 
+##### Team Discussions
 
 * [List discussions](/rest/reference/teams#list-discussions)
 * [Create a discussion](/rest/reference/teams#create-a-discussion)
