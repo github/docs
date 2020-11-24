@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Get version from label if present
         id: getVersion
-        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-algolia-label.js
+        run: .github/actions-scripts/enterprise-algolia-label.js
       - if: ${{ steps.getVersion.outputs.versionToSync }}
         name: checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
