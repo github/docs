@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { difference, isPlainObject } = require('lodash')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 // list of REST markdown files that do not correspond to REST API resources
 // TODO could we get this list dynamically, say via page frontmatter?
