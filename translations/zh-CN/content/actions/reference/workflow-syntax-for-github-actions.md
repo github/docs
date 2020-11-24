@@ -594,7 +594,7 @@ jobs:
 
 | 支持的平台         | `shell` 参数   | 描述                                                                                                               | 内部运行命令                                          |
 | ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                   | `bash --noprofile --norc -eo pipefail {0}`      |
+| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shell。                   | `bash --noprofile --norc -eo pipefail {0}`      |
 | 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                             | `pwsh -command ". '{0}'"`                       |
 | 所有            | `python`     | 执行 python 命令。                                                                                                    | `python {0}`                                    |
 | Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                  | `sh -e {0}`                                     |
