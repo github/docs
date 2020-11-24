@@ -31,5 +31,6 @@ module.exports = [
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815',
-  'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
+  'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0',
+  'EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575'
 ]
