@@ -65,8 +65,7 @@ async function main () {
       // first replace the old link with the new link
       // then remove any trailing slashes
       newContent = newContent
-        .replace(devLink, newLink)
-        .replace(`${newLink}/`, newLink)
+        .replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
     }
 
     fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
