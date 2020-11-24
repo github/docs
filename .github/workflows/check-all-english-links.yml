@@ -41,7 +41,7 @@ jobs:
           labels: broken link report
       - if: ${{ failure() }}
         name: Add issue to FR project board
-        uses: peter-evans/create-or-update-project-card@80140aaeb9730972a83c626031250621fe8f6670v1
+        uses: peter-evans/create-or-update-project-card@80140aaeb9730972a83c626031250621fe8f6670
         with:
           project-repository: 'github'
           project-number: '1367'
