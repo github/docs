@@ -220,7 +220,7 @@ end
 
 #### Define a route handler
 
-An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You'll won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
+An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
 
 ``` ruby
 post '/event_handler' do

@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const program = require('commander')
 const yaml = require('js-yaml')
-const allVersions = require('../lib/all-versions')
+const allVersions = require('../../lib/all-versions')
 const releaseCandidateFile = 'data/variables/release_candidate.yml'
 const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
 
