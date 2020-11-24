@@ -1,4 +1,4 @@
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 
 describe('enterprise release notes', () => {
   jest.setTimeout(60 * 1000)

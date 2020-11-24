@@ -1,6 +1,6 @@
 const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM } = require('../helpers')
+const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
 
 describe('enterprise deprecation', () => {
