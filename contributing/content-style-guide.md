@@ -162,7 +162,7 @@ It’s critical that all of our documentation is inclusive and respectful of our
 | --- | --- |
 | Allowlist | Whitelist |
 | Denylist | Blacklist |
-| Main branch | Default branch |
+| Default/Main branch | Master branch |
 
 ### Resources about inclusive language
 
