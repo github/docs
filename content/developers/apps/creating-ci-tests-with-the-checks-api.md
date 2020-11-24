@@ -140,7 +140,7 @@ You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sina
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /v3/checks/runs/#create-a-check-run
+  # /rest/reference/checks#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -159,7 +159,7 @@ end
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /v3/checks/runs/#create-a-check-run
+  # /rest/reference/checks#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -240,7 +240,7 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /v3/checks/runs/#update-a-check-run
+  # /rest/reference/checks#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -276,7 +276,7 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /v3/checks/runs/#update-a-check-run
+  # /rest/reference/checks#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -536,7 +536,7 @@ annotations = []
 # You can create a maximum of 50 annotations per request to the Checks
 # API. To add more than 50 annotations, use the "Update a check run" API
 # endpoint. This example code limits the number of annotations to 50.
-# See /v3/checks/runs/#update-a-check-run
+# See /rest/reference/checks#update-a-check-run
 # for details.
 max_annotations = 50
 
