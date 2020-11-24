@@ -8,6 +8,7 @@ redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-security-settings-in-your-enterprise-account
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

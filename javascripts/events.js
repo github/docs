@@ -63,6 +63,7 @@ export function sendEvent ({
 
       // Content information
       path: location.pathname,
+      hostname: location.hostname,
       referrer: document.referrer,
       search: location.search,
       href: location.href,
@@ -124,7 +125,7 @@ function getPerformance () {
   )
   const nav = performance?.getEntriesByType('navigation')?.[0]
   return {
-    firstContentfulPaint: paint ? paint / 1000 : undefined,
+    firstContentfulPaint: paint ? paint.startTime / 1000 : undefined,
     domInteractive: nav ? nav.domInteractive / 1000 : undefined,
     domComplete: nav ? nav.domComplete / 1000 : undefined,
     render: nav ? (nav.responseEnd - nav.requestStart) / 1000 : undefined
@@ -190,6 +191,8 @@ export default function initializeEvents () {
       link_url: link.href
     })
   })
+
+  if (!document.querySelector('.sidebar-products')) return
 
   // Navigate event
   Array.from(

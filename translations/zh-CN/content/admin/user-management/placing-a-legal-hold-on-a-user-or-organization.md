@@ -1,6 +1,6 @@
 ---
 title: 合法保留用户或组织
-intro: 'You can place a legal hold on a user or organization to ensure that repositories they own cannot be permanently removed from your enterprise.'
+intro: '您可以合法保留用户或组织，以便确保他们拥有的仓库不会从企业中永久移除。'
 redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:

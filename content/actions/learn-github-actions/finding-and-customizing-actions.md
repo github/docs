@@ -90,7 +90,7 @@ For more information, see "[Using release management for actions](/actions/creat
 
 ### Using inputs and outputs with an action
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will uses as part of the action processing. 
+An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing. 
 
 To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository. 
 
