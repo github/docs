@@ -428,9 +428,9 @@ For more information, see "[Restricting publication of {% data variables.product
 | Action | Description
 |------------------|-------------------
 | `close` | Triggered when someone closes a security advisory. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
-| `cve_request` | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data.variables.product.prodname_dotcom %} for a draft security advisory.
-| `github_broadcast` | Triggered when {% data.variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.
-| `github_withdraw` | Triggered when {% data.variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.
+| `cve_request` | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
+| `github_broadcast` | Triggered when {% data variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.
+| `github_withdraw` | Triggered when {% data variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.
 | `open` | Triggered when someone opens a draft security advisory.
 | `publish` | Triggered when someone publishes a security advisory.
 | `reopen` | Triggered when someone reopens as draft security advisory.
