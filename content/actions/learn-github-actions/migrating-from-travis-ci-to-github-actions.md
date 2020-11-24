@@ -184,7 +184,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 #### Hosting your own runners
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)." 
+If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
 
 #### Concurrent jobs and execution time
 
@@ -213,7 +213,7 @@ For example:
           shell: bash
 ```
 
-### Error handling in {% data variables.product.prodname_actions %} 
+### Error handling in {% data variables.product.prodname_actions %}
 
 When migrating to {% data variables.product.prodname_actions %}, there are different approaches to error handling that you might need to be aware of.
 
@@ -288,7 +288,7 @@ jobs:
 
 ### Caching dependencies
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system. 
+Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
 
 <table>
 <tr>
@@ -323,7 +323,7 @@ cache: npm
 </tr>
 </table>
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ### Examples of common tasks
 
