@@ -18,12 +18,11 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - name: Get version from label if present
-        id: getVersion
-        run: .github/actions-scripts/enterprise-algolia-label.js
-      - if: ${{ steps.getVersion.outputs.versionToSync }}
-        name: checkout
+      - name: checkout
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Get version from Algolia label if present; do not continue if the label is not found.
+        id: getVersion
+        run: $GITHUB_WORKSPACE/.github/actions-scripts/enterprise-algolia-label.js
       - if: ${{ steps.getVersion.outputs.versionToSync }}
         uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
