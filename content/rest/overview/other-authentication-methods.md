@@ -134,9 +134,9 @@ $ curl --request POST \
 {% endif %}
 
 [curl]: http://curl.haxx.se/
-[oauth-auth]: /v3/#authentication
+[oauth-auth]: /rest#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
 [saml-sso-tokens]: https://github.com/settings/tokens
 [allowlist]: /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
-[user-issues]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
+[user-issues]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
