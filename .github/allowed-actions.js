@@ -22,7 +22,7 @@ module.exports = [
   'juliangruber/find-pull-request-action@64d55773c959748ad30a4184f4dc102af1669f7b',
   'juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512',
   'pascalgn/automerge-action@c9bd182',
-  'peter-evans/create-issue-from-file@35e304e2a12caac08c568247a2cb46ecd0c3ecc5',
+  'peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326',
   'peter-evans/create-pull-request@938e6aea6f8dbdaced2064e948cb806c77fe87b8',
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
