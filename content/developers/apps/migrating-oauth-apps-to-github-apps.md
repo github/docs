@@ -23,7 +23,7 @@ This article provides guidelines for existing integrators who are considering mi
 - Built-in support for OAuth is still available to GitHub Apps using [user-to-server endpoints](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - Dedicated [API rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) for bot accounts scale with your integration.
 - Repository owners can [install GitHub Apps](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.
-- Open Source community support is available through [Octokit libraries](/restoverview/libraries) and other frameworks such as [Probot](https://probot.github.io/).
+- Open Source community support is available through [Octokit libraries](/rest/overview/libraries) and other frameworks such as [Probot](https://probot.github.io/).
 - Integrators building GitHub Apps have opportunities to adopt earlier access to APIs.
 
 ### Converting an OAuth App to a GitHub App

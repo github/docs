@@ -154,7 +154,7 @@ You can also check which repositories are accessible to a user for an installati
     Authorization: token OAUTH-TOKEN
     GET /user/installations/:installation_id/repositories
 
-More details can be found in: [List app installations accessible to the user access token](/restreference/apps#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token).
+More details can be found in: [List app installations accessible to the user access token](/rest/reference/apps#list-app-installations-accessible-to-the-user-access-token) and [List repositories accessible to the user access token](/rest/reference/apps#list-repositories-accessible-to-the-user-access-token).
 
 ### Handling a revoked GitHub App authorization
 
@@ -172,7 +172,7 @@ Because user-level permissions are granted on an individual user basis, you can 
 
 ### User-to-server requests
 
-While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4](/graphql) or [REST v3](/rest/) endpoints.
+While most of your API interaction should occur using your server-to-server installation access tokens, certain endpoints allow you to perform actions via the API using a user access token. Your app can make the following requests using [GraphQL v4](/graphql) or [REST v3](/rest) endpoints.
 
 #### Supported endpoints
 

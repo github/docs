@@ -11,7 +11,7 @@ versions:
 
 Here are some quick links to get you up and running with the GraphQL API v4:
 
-* [Authentication](/graphql/guidesforming-calls-with-graphql#authenticating-with-graphql)
+* [Authentication](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [Root endpoint](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
 * [Schema introspection](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)
 * [Rate limits](/graphql/overview/resource-limitations)

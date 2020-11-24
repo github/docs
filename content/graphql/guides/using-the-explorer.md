@@ -13,7 +13,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-[GraphQL Explorer](/graphqloverview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
+[GraphQL Explorer](/graphql/overview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
 
 {% note %}
 
@@ -67,7 +67,7 @@ All types in a GraphQL schema include a `description` field compiled into docume
 
 {% note %}
 
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql/)," though it is formatted differently in places.
+The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql)," though it is formatted differently in places.
 
 {% endnote %}
 

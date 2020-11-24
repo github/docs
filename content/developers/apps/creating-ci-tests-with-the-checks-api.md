@@ -12,7 +12,7 @@ versions:
 
 ### Introduction
 
-This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/restreference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
 
@@ -49,7 +49,7 @@ To get an idea of what your Checks API CI server will do when you've completed t
 
 ### Prerequisites
 
-Before you get started, you may want to familiarize yourself with [Github Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest/). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+Before you get started, you may want to familiarize yourself with [Github Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
 
@@ -140,7 +140,7 @@ You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sina
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /rest/reference/checks#create-a-check-run
+  # /v3/checks/runs/#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -159,7 +159,7 @@ end
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /rest/reference/checks#create-a-check-run
+  # /v3/checks/runs/#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -175,7 +175,7 @@ end
 ```
 {% endif %}
 
-This code calls the "[Create a check run](/v3/checks/runs/#create-a-check-run)" endpoint using the generic [HTTP `POST` method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). This method takes two parameters: the URL of the endpoint and the input parameters to the method.
+This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the generic [HTTP `POST` method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). This method takes two parameters: the URL of the endpoint and the input parameters to the method.
 
 To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [Rubocop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo Rubocop" is used here, but you can choose any name you'd like for the check run.
 
@@ -240,7 +240,7 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /rest/reference/checks#update-a-check-run
+  # /v3/checks/runs/#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -276,7 +276,7 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /rest/reference/checks#update-a-check-run
+  # /v3/checks/runs/#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -435,7 +435,7 @@ The code above gets the full repository name and the head SHA of the commit from
 
 ### Step 2.3. Running RuboCop
 
-Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) and [Checks API annotations](/v3/checks/runs/#create-a-check-run).
+Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
 
 The following code runs RuboCop and saves the style code errors in JSON format. Add this code below the call to `clone_repository` you added in the [previous step](#step-22-cloning-the-repository) and above the code that updates the check run to complete.
 
@@ -525,7 +525,7 @@ The `@output` variable contains the parsed JSON results of the RuboCop report. A
 
 The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this quickstart you are [updating the check run](/rest/reference/checks#update-a-check-run) with annotations.
 
-The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/v3/checks/runs/#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/v3/checks/runs/#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
+The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
 
 A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. See the [`annotations` object](/rest/reference/checks#annotations-object-1) reference documentation for details.
 
