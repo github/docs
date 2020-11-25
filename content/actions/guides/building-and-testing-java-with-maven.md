@@ -53,7 +53,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -85,7 +85,7 @@ steps:
     with:
       java-version: 1.8
   - name: Run the Maven verify phase
-    run: mvn -B verify --file pom-ci.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -108,7 +108,7 @@ steps:
       key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
   - name: Build with Maven
-    run: mvn -B package --file pom.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
