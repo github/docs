@@ -80,7 +80,7 @@ async function main () {
   updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
 
   // Ensure the YAML linter runs before checkinging in files
-  execSync('npx prettier -w "**/*.{yml,yaml}"')
+  execSync('npx prettier -w "**/*.{yml,yaml,json}"')
 }
 
 // get latest from github/github
