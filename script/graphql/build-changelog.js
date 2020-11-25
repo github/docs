@@ -12,10 +12,7 @@ const fs = require('fs')
 function prependDatedEntry (changelogEntry, targetPath) {
   // Build a `yyyy-mm-dd`-formatted date string
   // and tag the changelog entry with it
-  const today = new Date()
-  const todayString = String(today.getFullYear()) + '-' +
-    String(today.getMonth() + 1).padStart(2, '0') + '-' +
-    String(today.getDate()).padStart(2, '0')
+  const today = new Date().toISOString().slice(0, 10)
   changelogEntry.date = todayString
 
   const previousChangelogString = fs.readFileSync(targetPath)

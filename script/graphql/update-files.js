@@ -58,10 +58,7 @@ async function main () {
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    let previousUpcomingChanges = null
-    if (fs.existsSync(upcomingChangesPath)) {
-      previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
-    }
+    const previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     updateFile(upcomingChangesPath, safeForPublicChanges)
     upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
@@ -69,10 +66,7 @@ async function main () {
     // 3. UPDATE SCHEMAS
     // note: schemas live in separate files per version
     const schemaPath = getDataFilepath('schemas', graphqlVersion)
-    let previousSchemaString = null
-    if (fs.existsSync(upcomingChangesPath)) {
-      previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
-    }
+    const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
     const safeForPublicSchema = removeHiddenMembers(schemaPath, latestSchema)
     updateFile(schemaPath, safeForPublicSchema)
@@ -83,9 +77,10 @@ async function main () {
     // because the objects page is too big to render on page load
     prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion)
 
+    // 5. UPDATE CHANGELOG
     if (allVersions[version].nonEnterpriseDefault) {
       // The Changelog is only build for free-pro-team@latest
-      const changelogEntry = createChangelogEntry(
+      const changelogEntry = await createChangelogEntry(
         previousSchemaString,
         safeForPublicSchema,
         safeForPublicPreviews,
