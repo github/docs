@@ -1,7 +1,7 @@
 const yaml = require('js-yaml')
 const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } = require('../../script/graphql/build-changelog')
 const fs = require('fs')
-const MockDate = require("mockdate")
+const MockDate = require('mockdate')
 const expectedChangelogEntry = require('../fixtures/changelog-entry')
 const expectedUpdatedChangelogFile = require('../fixtures/updated-changelog-file')
 
@@ -116,14 +116,13 @@ describe('updating the changelog file', () => {
     const previousContents = fs.readFileSync(testTargetPath)
 
     const exampleEntry = { someStuff: true }
-    const expectedDate = "2020-11-20"
+    const expectedDate = '2020-11-20'
     MockDate.set(expectedDate)
 
     prependDatedEntry(exampleEntry, testTargetPath)
     const newContents = fs.readFileSync(testTargetPath, 'utf8')
     // reset the file:
     fs.writeFileSync(testTargetPath, previousContents)
-
 
     expect(exampleEntry).toEqual({ someStuff: true, date: expectedDate })
     expect(JSON.parse(newContents)).toEqual(expectedUpdatedChangelogFile)
