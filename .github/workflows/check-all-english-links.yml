@@ -43,7 +43,7 @@ jobs:
         name: Add issue to FR project board
         uses: peter-evans/create-or-update-project-card@80140aaeb9730972a83c626031250621fe8f6670
         with:
-          project-repository: 'github'
+          project-location: 'github'
           project-number: '1367'
           column-name: 'Docs-content FR issues'
           issue-number: ${{ steps.broken-link-report.outputs.issue-number }}
