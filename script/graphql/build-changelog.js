@@ -12,7 +12,7 @@ const fs = require('fs')
 function prependDatedEntry (changelogEntry, targetPath) {
   // Build a `yyyy-mm-dd`-formatted date string
   // and tag the changelog entry with it
-  const today = new Date().toISOString().slice(0, 10)
+  const todayString = new Date().toISOString().slice(0, 10)
   changelogEntry.date = todayString
 
   const previousChangelogString = fs.readFileSync(targetPath)
@@ -200,6 +200,11 @@ function segmentPreviewChanges (changesToReport, previews) {
   return { schemaChangesToReport: schemaChanges, previewChangesToReport: changesByPreview }
 }
 
+// We only want to report changes to schema structure.
+// Deprecations are covered by "upcoming changes."
+// By listing the changes explicitly here, we can make sure that,
+// if the library changes, we don't miss publishing anything that we mean to.
+// This was originally ported from https://github.com/github/graphql-docs/blob/7e6a5ccbf13cc7d875fee65527b25bc49e886b41/lib/graphql_docs/update_internal_developer/change_log.rb#L35-L103
 const CHANGES_TO_REPORT = [
   ChangeType.FieldArgumentDefaultChanged,
   ChangeType.FieldArgumentTypeChanged,
