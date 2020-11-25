@@ -2,7 +2,6 @@ const path = require('path')
 const slash = require('slash')
 const fs = require('fs')
 const walk = require('walk-sync')
-const matter = require('@github-docs/frontmatter')
 const { zip } = require('lodash')
 const yaml = require('js-yaml')
 const languages = require('../../lib/languages')
@@ -81,19 +80,19 @@ const versionLinkRegEx = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?:(?:http
 const domainLinkRegex = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?:https?:)?\/\/(?:help|docs|developer)\.github\.com(?!\/changes\/)[^)\s]*(?:\)|\s+|$)/gm
 
 // {{ site.data.example.pizza }}
-const oldVariableRegex = /{{\s?site\.data\..*}}/g
+const oldVariableRegex = /{{\s*?site\.data\..*?}}/g
 
 //  - {{ octicon-plus }}
 //  - {{ octicon-plus An example label }}
 //
-const oldOcticonRegex = /{{\s?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s?}}/g
+const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 
 //  - {{#note}}
 //  - {{/note}}
 //  - {{ #warning }}
 //  - {{ /pizza }}
 //
-const oldExtendedMarkdownRegex = /{{\s?[#/][a-z-]+\s?}}/g
+const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
@@ -125,10 +124,7 @@ describe('lint-files', () => {
       let content
 
       beforeAll(async () => {
-        const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
-        const { content: bodyContent } = matter(fileContents)
-
-        content = bodyContent
+        content = await fs.promises.readFile(markdownAbsPath, 'utf8')
       })
 
       test('relative URLs must start with "/"', async () => {
@@ -214,7 +210,7 @@ describe('lint-files', () => {
         const matches = (content.match(oldVariableRegex) || [])
         const matchesWithExample = matches.map(match => {
           const example = match
-            .replace(/{{\s?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*}}/g, '{% data $1 %}')
+            .replace(/{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g, '{% data $1 %}')
           return `${match} => ${example}`
         })
         const errorMessage = formatLinkError(oldVariableErrorText, matchesWithExample)
@@ -229,7 +225,7 @@ describe('lint-files', () => {
 
       test('does not use old extended markdown syntax', async () => {
         Object.keys(tags).forEach(tag => {
-          const reg = new RegExp(`{{\\s?[#|/]${tag}`, 'g')
+          const reg = new RegExp(`{{\\s*?[#|/]${tag}`, 'g')
           if (reg.test(content)) {
             const matches = (content.match(oldExtendedMarkdownRegex)) || []
             const tagMessage = oldExtendedMarkdownErrorText
@@ -334,7 +330,7 @@ describe('lint-files', () => {
           if (valMatches.length > 0) {
             matches.push(...valMatches.map((match) => {
               const example = match
-                .replace(/{{\s?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*}}/g, '{% data $1 %}')
+                .replace(/{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g, '{% data $1 %}')
               return `Key "${key}": ${match} => ${example}`
             }))
           }

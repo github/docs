@@ -1288,7 +1288,7 @@ The event’s actor is the [user](/v3/users/) who starred a repository, and the 
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_dispatch)」を参照してください。
@@ -1302,9 +1302,10 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### workflow_run
 
-When a {% data variables.product.prodname_actions %} workflow run is requested or completed. 詳しい情報については、「[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows#workflow_run)」を参照してください。
+When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
 
 #### Availability
 
@@ -1322,3 +1323,4 @@ When a {% data variables.product.prodname_actions %} workflow run is requested o
 #### Webhook payload example
 
 {{ webhookPayloadsForCurrentVersion.workflow_run }}
+{% endif %}
