@@ -6,6 +6,7 @@ export default function tabs () {
 
   // configure links for switching platform content
   tabLinks().forEach(link => {
+    // TODO: stop browser from scrolling
     link.addEventListener('click', (event) => {
       event.preventDefault()
       console.log(`Tab group: ${event.target.dataset.group}, id: ${event.target.dataset.tab}`)
@@ -51,6 +52,18 @@ function showFirstTab () {
       initialTabPerGroup.set(tab.dataset.group, tab.dataset.tab)
     }
   })
+  tabLinks().forEach( tab => {
+    if (tab.dataset.tab === initialTabPerGroup.get(tab.dataset.group)) {
+      tab.classList.add('selected')
+      // TODO: distinguish groups
+      Array.from(document.querySelectorAll(`.tab.tab-${ tab.dataset.tab }`))
+      .forEach( block => {
+        block.style.display = ''
+      })
+    }
+  })
+
+  /*
   console.dir(initialTabPerGroup)
   Array.from(document.querySelectorAll('.tabs a:nth-child(1)'))
     .forEach( tab => {
@@ -62,4 +75,5 @@ function showFirstTab () {
           block.style.display = ''
         })
     })
+  */
 }
