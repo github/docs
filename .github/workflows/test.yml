@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, meta, rendering, routing, unit, links-and-images]
+        test-group: [content, meta, rendering, routing, unit, links-and-images, graphql]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything

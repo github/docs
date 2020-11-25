@@ -1,8 +1,15 @@
 const yaml = require('js-yaml')
 const { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry } = require('../../script/graphql/build-changelog')
 const fs = require('fs')
+const MockDate = require("mockdate")
+const expectedChangelogEntry = require('../fixtures/changelog-entry')
+const expectedUpdatedChangelogFile = require('../fixtures/updated-changelog-file')
 
 describe('creating a changelog from old schema and new schema', () => {
+  afterEach(() => {
+    MockDate.reset()
+  })
+
   it('finds a diff of schema changes, upcoming changes, and preview changes', async () => {
     const oldSchemaString = `
     type PreviewType {
@@ -68,7 +75,7 @@ upcoming_changes:
 `).upcoming_changes
 
     const entry = await createChangelogEntry(oldSchemaString, newSchemaString, previews, oldUpcomingChanges, newUpcomingChanges)
-    expect(entry).toMatchSnapshot()
+    expect(entry).toEqual(expectedChangelogEntry)
   })
 
   it('returns null when there isnt any difference', async () => {
@@ -100,18 +107,25 @@ describe('Preparing preview links', () => {
 })
 
 describe('updating the changelog file', () => {
+  afterEach(() => {
+    MockDate.reset()
+  })
+
   it('modifies the entry object and the file on disk', () => {
     const testTargetPath = 'tests/graphql/example_changelog.json'
     const previousContents = fs.readFileSync(testTargetPath)
 
     const exampleEntry = { someStuff: true }
+    const expectedDate = "2020-11-20"
+    MockDate.set(expectedDate)
+
     prependDatedEntry(exampleEntry, testTargetPath)
     const newContents = fs.readFileSync(testTargetPath, 'utf8')
     // reset the file:
     fs.writeFileSync(testTargetPath, previousContents)
 
-    const expectedDate = (new Date()).toISOString().split('T')[0]
+
     expect(exampleEntry).toEqual({ someStuff: true, date: expectedDate })
-    expect(newContents).toMatchSnapshot()
+    expect(JSON.parse(newContents)).toEqual(expectedUpdatedChangelogFile)
   })
 })
