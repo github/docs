@@ -84,7 +84,7 @@ $ ghe-config -l
 API レート制限からユーザのリストを除外できます。 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # ユーザーの hubot と github-actions をレート制限から除外する
 ```
 {% endif %}
