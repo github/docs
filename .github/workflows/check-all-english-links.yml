@@ -28,7 +28,7 @@ jobs:
         name: Close previous report
         uses: lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8
         with:
-          query: 'label:"broken+link+report"'
+          query: 'label:"broken link report"'
           token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
       - if: ${{ failure() }}
         name: Create issue from file
