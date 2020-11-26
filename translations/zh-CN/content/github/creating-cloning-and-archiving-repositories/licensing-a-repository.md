@@ -18,7 +18,7 @@ versions:
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. 如果您已创建公共仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将公共仓库转换为私有仓库时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[将公共仓库设为私有](/articles/making-a-public-repository-private)”。
+**注：**如果您在 GitHub 的公共仓库中发布源代码，{% if currentVersion == "free-pro-team@latest" %}根据[服务条款](/articles/github-terms-of-service)，{% endif %}其他 GitHub 用户有权利在 GitHub 站点中查看您的仓库并对其复刻。 如果您已创建公共仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将公共仓库转换为私有仓库时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[将公共仓库设为私有](/articles/making-a-public-repository-private)”。
 
 {% endnote %}
 
@@ -91,5 +91,5 @@ GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决�
 
 ### 延伸阅读
 
-- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
+- 开源指南的“[开源的法律 方面](https://opensource.guide/legal/)”部分{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
