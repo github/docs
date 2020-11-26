@@ -36,17 +36,23 @@ versions:
 
 #### 创建部分提交
 
-如果一个文件包含多处更改，但只有*部分*更改要包含在提交中，则可创建部分提交。 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
+If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
 
-在审查文件的差异时，包含在提交中的行将以蓝色高亮显示。 要排除更改，请单击更改的行让蓝色消失。
+{% note %}
 
-![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
+**Note:** Split diff displays are currently in beta and subject to change.
 
-#### 放弃更改
+{% endnote %}
 
-您可以放弃一个文件、一系列文件中所有未提交的更改，或者放弃上次提交后所有文件中的所有更改。
+1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**. ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
+2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit. ![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
 
-{% mac %}
+### 3. 放弃更改
+If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
+
+Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
+
+#### Discarding changes in one or more files
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -54,30 +60,25 @@ versions:
 {% data reusables.desktop.confirm-discard-files %}
   ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-{% tip %}
+#### Discarding changes in one or more lines
+You can discard one or more changed lines that are uncommitted.
 
-**提示：**您放弃的更改保存在垃圾桶的日期文件中，在垃圾桶清空之前可以恢复。
+{% note %}
 
-{% endtip %}
+**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
 
-{% endmac %}
+{% endnote %}
 
-{% windows %}
+To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
 
-{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
-  ![上下文菜单中的 Discard Changes（放弃更改）选项](/assets/images/help/desktop/discard-changes-win.png)
-{% data reusables.desktop.confirm-discard-files %}
-  ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-win.png)
+  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
-{% tip %}
+To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
-**提示：**您放弃的更改保存在垃圾桶的文件中，在垃圾桶清空之前可以恢复。
+  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
-{% endtip %}
 
-{% endwindows %}
-
-### 3. 编写提交消息并推送更改
+### 4. 编写提交消息并推送更改
 
 对选择要包含在提交中的更改感到满意后，编写提交消息并推送更改。 如果协作处理了某个提交，也可以将提交归于多个作者。
 

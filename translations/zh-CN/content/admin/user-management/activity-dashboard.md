@@ -1,6 +1,6 @@
 ---
 title: 活动仪表板
-intro: 'The Activity dashboard gives you an overview of all the activity in your enterprise.'
+intro: '活动仪表板提供企业中所有活动的概览。'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -24,8 +24,8 @@ versions:
 ![活动仪表板](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
 {% if enterpriseServerVersions contains currentVersion %}
-For more analytics based on data from
-{% data variables.product.product_name %}, you can purchase {% data variables.product.prodname_insights %}. 更多信息请参阅“[关于 {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)”。
+有关基于
+{% data variables.product.product_name %} 中数据的更多分析，您可以购买 {% data variables.product.prodname_insights %}。 更多信息请参阅“[关于 {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)”。
 {% endif %}
 
 ### 访问活动仪表板

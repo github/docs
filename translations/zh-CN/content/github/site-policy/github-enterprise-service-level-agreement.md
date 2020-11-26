@@ -26,6 +26,6 @@ versions:
 正常运行时间计算不包括因以下原因导致的服务功能故障：(i) 客户的行为、疏忽或滥用服务，包括违反协议；(ii) 客户的网络连接故障；(iii) 超出 GitHub 合理控制范围的因素，包括不可抗力事件；或 (iv) 客户的设备、服务或其他技术。
 
 ## 服务积分兑换
-如果 GitHub 不符合此 SLA，则客户必须在该日历季度结束后的三十 (30) 天内向 GitHub 提出书面申请才能兑换服务积分。 服务积分兑换的书面申请应发送到 [GitHub 支持部门](https://support.github.com/contact)。
+如果 GitHub 不符合此 SLA，则客户必须在该日历季度结束后的三十 (30) 天内向 GitHub 提出书面申请才能兑换服务积分。 Written requests for Service Credits redemption and GitHub Enterprise Cloud custom monthly or quarterly reports should be sent to [GitHub Support](https://support.github.com/contact).
 
 服务积分可以采取退款或贷记给客户帐户的形式，不能兑换为现金，每个日历季度的上限为九十 (90) 天的付费服务，要求客户已支付任何未结发票， 并在客户与 GitHub 的协议终止后过期。 服务积分是针对 GitHub 未能履行此 SLA 中任何义务的唯一和排他性补救措施。 
