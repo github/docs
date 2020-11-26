@@ -1,6 +1,6 @@
 ---
 title: '错误：未找到仓库'
-intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.product.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.'
+intro: '{% if currentversion == "free-proteam@latest" or currentversion == "github-ae@latest" %}如果您在克隆仓库时看到这个错误，意味着仓库不存在或您没有权限访问它。{% else %}如果您在克隆仓库时看到此错误，意味着仓库不存在、您没有访问权限，或者 {% data variables.product.product_location %} 处于隐私模式。{% endif %} 对此错误有一些解决办法，具体取决于错误原因。'
 redirect_from:
   - /articles/error-repository-not-found
 versions:

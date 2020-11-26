@@ -1,4 +1,4 @@
-const { getDOM } = require('../helpers')
+const { getDOM } = require('../helpers/supertest')
 const { oldestSupported, latest } = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
@@ -42,15 +42,13 @@ describe('header', () => {
   describe('notices', () => {
     test('displays a "localization in progress" notice for WIP languages', async () => {
       const $ = await getDOM('/de')
-      expect($('.header-notifications.localization_in_progress').length).toBe(1)
-      expect($('.localization_complete').length).toBe(0)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
       expect($('.header-notifications a[href="/en"]').length).toBe(1)
     })
 
     test('displays "complete" notice for non-WIP non-English languages', async () => {
       const $ = await getDOM('/ja')
-      expect($('.header-notifications.localization_complete').length).toBe(1)
-      expect($('.localization_in_progress').length).toBe(0)
+      expect($('.header-notifications.translation_notice').length).toBe(1)
       expect($('.header-notifications a[href="/en"]').length).toBe(1)
       expect($('.header-notifications a[href*="github.com/contact"]').length).toBe(1)
     })
@@ -62,7 +60,7 @@ describe('header', () => {
 
     test('displays translation disclaimer notice on localized site-policy pages', async () => {
       const $ = await getDOM('/ja/github/site-policy/github-logo-policy')
-      expect($('.header-notifications.translation_policy a[href="https://github.com/github/site-policy/issues"]').length).toBe(1)
+      expect($('.header-notifications.translation_notice a[href="https://github.com/github/site-policy/issues"]').length).toBe(1)
     })
   })
 
