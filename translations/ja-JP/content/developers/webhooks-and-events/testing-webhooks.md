@@ -1,5 +1,5 @@
 ---
-title: webhookのテスト
+title: Testing webhooks
 intro: 'Review your webhook deliveries on {% data variables.product.prodname_dotcom %}, including the HTTP Request and payload as well as the response.'
 redirect_from:
   - /webhooks/testing

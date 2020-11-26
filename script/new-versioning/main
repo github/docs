@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+#
+# All the new versioning!
+#
+# Usage
+# $ script/new-versioning/main
+#
+# [end-readme]
+
+base="script/new-versioning/"
+
+scripts=(
+  "move-admin-dir.js"
+  "update-frontmatter.js"
+  "update-content.js"
+  "update-products-yml.js"
+)
+
+for script in "${scripts[@]}"
+do
+  fullPath="${base}${script}"
+  printf "\n"
+  echo "⭐ $script"
+  "${fullPath}"
+
+  echo "${script} is done!"
+  printf "\n\n"
+done
+
+echo "done with all scripts!"

@@ -16,7 +16,7 @@ const files = ['content', 'data'].map(dir => {
 }).flat()
 
 // match [foo](/v3) and [bar](/v4) Markdown links
-const linkRegex = /\(\/v[34].*?\)/g
+const linkRegex = new RegExp('\\(/v[34].*?\\)', 'g')
 
 main()
 
@@ -55,17 +55,16 @@ async function main () {
         // remove version segment
         .replace(new RegExp(`/(${allVersions.join('|')})`), '')
 
-      // re-add the fragment after removing any fragment added via the redirect
-      // otherwise /v3/git/refs/#create-a-reference will become /rest/reference/git#refs#create-a-reference
-      // we want to preserve the #create-a-reference fragment, not #refs
+      // re-add the fragment
       const newLink = fragment
-        ? redirect.replace(/#.+?$/, '') + '#' + fragment
+        ? redirect + '#' + fragment
         : redirect
 
-      // first replace the old link with the new link
-      // then remove any trailing slashes
+      // first remove any trailing slashes from the old link,
+      // then replace with the new link
       newContent = newContent
-        .replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
+        .replace(`${devLink}/`, devLink)
+        .replace(devLink, newLink)
     }
 
     fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))

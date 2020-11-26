@@ -1,5 +1,5 @@
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { getDOM } = require('../helpers/supertest')
+const { getDOM } = require('../helpers')
 
 describe('page titles', () => {
   jest.setTimeout(300 * 1000)

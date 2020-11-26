@@ -5,7 +5,7 @@ const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
-const { get } = require('../helpers/supertest')
+const { get } = require('../helpers')
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)

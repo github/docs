@@ -31,19 +31,13 @@ Search API の各エンドポイントでは、{% data variables.product.product
 A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. 検索クエリの形式は次のとおりです。
 
 ```
-SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
+q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
 ```
 
 たとえば、README ファイルに `GitHub` と `Octocat` という言葉が含まれている、`defunkt` が所有する_リポジトリ_をすべて検索する場合、_検索リポジトリ_エンドポイントに次のクエリを使用します。
 
 ```
-GitHub Octocat in:readme user:defunkt
-```
-
-**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. 例:
-```javascript
-// JavaScript
-const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
+q=GitHub+Octocat+in:readme+user:defunkt
 ```
 
 使用可能な修飾子の完全な一覧、フォーマット、使用例については、「[GitHub での検索](/articles/searching-on-github/)」を参照してください。 特定の数量、日付に一致させたり、検索結果から除外したりするために演算子を使う方法の詳細については、「[検索構文を理解する](/articles/understanding-the-search-syntax/)」を参照してください。

@@ -1,7 +1,7 @@
 const languages = require('../../lib/languages')
 const robotsParser = require('robots-parser')
 const robotsMiddleware = require('../../middleware/robots')
-const { get } = require('../helpers/supertest')
+const { get } = require('../helpers')
 const MockExpressResponse = require('mock-express-response')
 const products = require('../../lib/all-products')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')

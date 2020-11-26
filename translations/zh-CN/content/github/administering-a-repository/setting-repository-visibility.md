@@ -20,11 +20,11 @@ versions:
 
 #### 将仓库设为私有
 
-   * {% data variables.product.prodname_dotcom %} 将会分离公共仓库的公共复刻并将其放入新的网络中。 公共复刻无法设为私有。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果将仓库的可见性从内部更改为私有，{% data variables.product.prodname_dotcom %} 将删除属于无法访问新私有仓库的任何用户的复刻。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)”
+   * {% data variables.product.prodname_dotcom %} 将会分离公共仓库的公共复刻并将其放入新的网络中。 公共复刻无法设为私有。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
    {% if currentVersion == "free-pro-team@latest" %}* 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 {% data reusables.gated-features.more-info %}
    * 任何已发布的 {% data variables.product.prodname_pages %} 站点都将自动取消发布。 如果您将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应在将仓库设为私有之前删除或更新 DNS 记录，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。
    * {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) 上存档内容和数据”。{% endif %}
-   {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}* 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。{% endif %}
+   {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}* Anonymous Git read access is no longer available. 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。{% endif %}
 
 #### 将仓库设为公共
 

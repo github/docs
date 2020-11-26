@@ -1,7 +1,6 @@
 ---
 title: Managing alerts from secret scanning
 intro: You can view and close alerts for secrets checked in to your repository.
-product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'
 ---

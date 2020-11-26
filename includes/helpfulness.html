@@ -1,16 +1,11 @@
-{% unless enterpriseServerReleases.isOldestReleaseDeprecated and currentVersion contains enterpriseServerReleases.oldestSupported %}
-<form class="js-helpfulness mt-4 f5">
+<form class="js-helpfulness mt-4 f5" id="helpfulness-{{ helpId }}">
   <h4
     data-help-start
     data-help-yes
     data-help-no
-    class="mb-1"
   >
     {% data ui.helpfulness.able_to_find %}
   </h4>
-  <p class="f6">
-    <a href="/github/site-policy/github-privacy-statement">Privacy policy</a>
-  </p>
   <p
     class="radio-group"
     data-help-start
@@ -19,24 +14,24 @@
   >
     <input
       hidden
-      id="helpfulness-yes"
+      id="helpfulness-yes-{{ helpId }}"
       type="radio"
       name="helpfulness-vote"
       value="Yes"
       aria-label="{% data ui.helpfulness.yes %}"
     />
-    <label class="btn x-radio-label" for="helpfulness-yes">
+    <label class="btn x-radio-label" for="helpfulness-yes-{{ helpId }}">
       {% octicon "thumbsup" height="24" %}
     </label>
     <input
       hidden
-      id="helpfulness-no"
+      id="helpfulness-no-{{ helpId }}"
       type="radio"
       name="helpfulness-vote"
       value="No"
       aria-label="{% data ui.helpfulness.no %}"
     />
-    <label class="btn x-radio-label" for="helpfulness-no">
+    <label class="btn x-radio-label" for="helpfulness-no-{{ helpId }}">
       {% octicon "thumbsdown" height="24" %}
     </label>
   </p>
@@ -55,7 +50,7 @@
   <p hidden data-help-no>
     <label
       class="d-block mb-1 f6"
-      for="helpfulness-category"
+      for="helpfulness-category-{{ helpId }}"
     >
       {% data ui.helpfulness.category_label %}
       <span class="text-normal text-gray-light float-right ml-1">
@@ -65,7 +60,7 @@
     <select
       class="form-control select-sm width-full"
       name="helpfulness-category"
-      id="helpfulness-category"
+      id="helpfulness-category-{{ helpId }}"
     >
       <option value="">
         {% data ui.helpfulness.category_default %}
@@ -87,7 +82,7 @@
   <p hidden data-help-no>
     <label
       class="d-block mb-1 f6"
-      for="helpfulness-comment"
+      for="helpfulness-comment-{{ helpId }}"
     >
       <span>{% data ui.helpfulness.comment_label %}</span>
       <span class="text-normal text-gray-light float-right ml-1">
@@ -97,13 +92,13 @@
     <textarea
       class="form-control input-sm width-full"
       name="helpfulness-comment"
-      id="helpfulness-comment"
+      id="helpfulness-comment-{{ helpId }}"
     ></textarea>
   </p>
   <p>
     <label
       class="d-block mb-1 f6"
-      for="helpfulness-email"
+      for="helpfulness-email-{{ helpId }}"
       hidden
       data-help-no
     >
@@ -116,7 +111,7 @@
       type="email"
       class="form-control input-sm width-full"
       name="helpfulness-email"
-      id="helpfulness-email"
+      id="helpfulness-email-{{ helpId }}"
       placeholder="{% data ui.helpfulness.email_placeholder %}"
       hidden
       data-help-yes
@@ -137,4 +132,3 @@
     {% data ui.helpfulness.feedback %}
   </p>
 </form>
-{% endunless %}

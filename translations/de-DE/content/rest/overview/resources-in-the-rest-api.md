@@ -135,9 +135,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 After detecting several requests with invalid credentials within a short period, the API will temporarily reject all authentication attempts for that user (including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
 > HTTP/1.1 403 Forbidden
+
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,9 +165,18 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
-$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+{% note %}
+
+**Note:** For {% data variables.product.prodname_ghe_server %}, [as with all other endpoints](/v3/enterprise-admin/#endpoint-urls), you'll need to pass your username and password.
+
+{% endnote %}
+
+{% endif %}
 
 ### GraphQL global node IDs
 

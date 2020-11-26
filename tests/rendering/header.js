@@ -1,4 +1,4 @@
-const { getDOM } = require('../helpers/supertest')
+const { getDOM } = require('../helpers')
 const { oldestSupported, latest } = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 

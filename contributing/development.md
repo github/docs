@@ -32,12 +32,6 @@ As an alternative, you can simply use [GitHub Codespaces](https://github.com/fea
 
 In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
 
-### Viewing a top-level table of contents
-
-While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
-
-At the `/dev-toc` path, you'll see a list of available versions. Click a version, and a list of products will appear. Note that the TOC content is versioned. If you are viewing `free-pro-team@latest` and you click the `Enterprise Admin` product, it will be empty, because there isn't any Admin content available on that version.
-
 ## Site structure
 
 This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.ws/), another Ruby static site generator.

@@ -1,8 +1,7 @@
 name: Merged notification
 on:
   pull_request_target:
-    types:
-      - 'closed'
+    types: ['closed']
 
 jobs:
   comment:

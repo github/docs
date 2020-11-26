@@ -1758,11 +1758,6 @@ enum CheckConclusionState {
   STALE
 
   """
-  The check suite or run has failed at startup.
-  """
-  STARTUP_FAILURE
-
-  """
   The check suite or run has succeeded.
   """
   SUCCESS
@@ -6589,11 +6584,6 @@ enum DeploymentState {
   The deployment has queued
   """
   QUEUED
-
-  """
-  The deployment is waiting.
-  """
-  WAITING
 }
 
 """
@@ -10846,11 +10836,6 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Returns the last _n_ elements from the list.
     """
     last: Int
-
-    """
-    Ordering options for issue comments returned from the connection.
-    """
-    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -11440,31 +11425,6 @@ type IssueCommentEdge {
   The item at the end of the edge.
   """
   node: IssueComment
-}
-
-"""
-Ways in which lists of issue comments can be ordered upon return.
-"""
-input IssueCommentOrder {
-  """
-  The direction in which to order issue comments by the specified field.
-  """
-  direction: OrderDirection!
-
-  """
-  The field in which to order issue comments by.
-  """
-  field: IssueCommentOrderField!
-}
-
-"""
-Properties by which issue comment connections can be ordered.
-"""
-enum IssueCommentOrderField {
-  """
-  Order issue comments by update time
-  """
-  UPDATED_AT
 }
 
 """
@@ -12474,12 +12434,12 @@ input LockLockableInput {
   clientMutationId: String
 
   """
-  A reason for why the item will be locked.
+  A reason for why the issue or pull request will be locked.
   """
   lockReason: LockReason
 
   """
-  ID of the item to be locked.
+  ID of the issue or pull request to be locked.
   """
   lockableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Lockable")
 }
@@ -20317,11 +20277,6 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
-
-    """
-    Ordering options for issue comments returned from the connection.
-    """
-    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -30023,7 +29978,7 @@ type Sponsorship implements Node {
   sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
 
   """
-  The user or organization that is sponsoring, if you have permission to view them.
+  The user or organization that is sponsoring. Returns null if the sponsorship is private.
   """
   sponsorEntity: Sponsor
 
@@ -33217,7 +33172,7 @@ input UnlockLockableInput {
   clientMutationId: String
 
   """
-  ID of the item to be unlocked.
+  ID of the issue or pull request to be unlocked.
   """
   lockableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Lockable")
 }
@@ -35534,11 +35489,6 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryOwne
     Returns the last _n_ elements from the list.
     """
     last: Int
-
-    """
-    Ordering options for issue comments returned from the connection.
-    """
-    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """

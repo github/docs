@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-版本生效日期：2020 年 11 月 13 日
+版本生效日期：2020 年 11 月 1 日
 
 创建帐户后，您有权访问许多不同的功能和产品，它们都是服务的一部分。 由于其中许多功能和产品具有不同的功能，因此可能需要特定于该功能或产品的附加条款和条件。 Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -89,7 +89,7 @@ In order to access GitHub Connect, Customer must have at least one (1) Account o
 
 ### 9. GitHub Advanced Security
 
-GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. 如果您将 GitHub Advanced Security 用作 GitHub Enterprise Cloud 的一部分，GitHub Advanced Security 的许多功能（包括对私有仓库的自动化代码扫描）还需要使用 GitHub 操作。
+GitHub Advanced Security 帮助您通过可自定义的自动化语义学代码分析来识别安全漏洞。 GitHub Advanced Security 逐用户许可。 如果您将 GitHub Advanced Security 用作 GitHub Enterprise Cloud 的一部分，GitHub Advanced Security 的许多功能（包括对私有仓库的自动化代码扫描）还需要使用 GitHub 操作。 对 GitHub 操作使用情况的计费以使用为基础，必须遵守 [GitHub 操作条款](/github/site-policy/github-additional-product-terms#c-payment-and-billing-for-actions-and-packages)。
 
 ### 10. Dependabot Preview
 
@@ -108,3 +108,4 @@ GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Co
 #### b. GitHub Advisory Database 的许可
 
 GitHub Advisory Database 的许可采用[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)原则。 有关署名条款，请参阅 <https://github.com/advisories> 上的 GitHub Advisory Database，或者所使用的单独 GitHub Advisory Database 记录（以 <https://github.com/advisories> 为前缀）。
+

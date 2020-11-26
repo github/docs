@@ -76,7 +76,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 ### 身份验证
 
-{% if currentVersion == "github-ae@latest" %} 我们建议通过 [web 应用程序流程](/developers/apps/authorizing-oauth-apps#web-application-flow)创建 OAuth2 令牌来向 {% data variables.product.product_name %} REST API 验证。 {% else %} 通过 {% data variables.product.product_name %} REST API 验证有两种方式。{% endif %} 需要身份验证的请求有时将返回 `404 Not Found`，而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
+{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
 #### 基本验证
 
@@ -96,7 +96,7 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% endnote %}
 
-阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  请注意，OAuth2 令牌可使用生产应用程序的 [web 应用程序流](/developers/apps/authorizing-oauth-apps#web-application-flow)来获取。
+阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 键/密钥
@@ -135,9 +135,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 在短时间内检测到多个使用无效凭据的请求后，API 将暂时拒绝该用户的所有身份验证尝试（包括使用有效凭据的尝试），并返回 `403 Forbidden`：
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
+$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
 > HTTP/1.1 403 Forbidden
+
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,9 +165,18 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 您可以向根端点发出 `GET` 请求，以获取 REST API 支持的所有端点类别：
 
 ```shell
-$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
--u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+{% note %}
+
+**注：**对于 {% data variables.product.prodname_ghe_server %}，[与所有其他端点一样](/v3/enterprise-admin/#endpoint-urls)，您需要传递用户名和密码。
+
+{% endnote %}
+
+{% endif %}
 
 ### GraphQL 全局节点 ID
 

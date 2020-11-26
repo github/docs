@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@1.0.0
+    uses: actions/heroku@master
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -491,10 +491,10 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # Uses the default branch of a public repository
-        uses: actions/heroku@1.0.0
+        # 公開リポジトリのデフォルトブランチを使用する
+        uses: actions/heroku@master
       - name: My second step
-        # Uses a specific version tag of a public repository
+        # パブリックリポジトリの特定のバージョンタグを使用する
         uses: actions/aws@v2.0.1
 ```
 
@@ -659,7 +659,7 @@ steps:
 
 - `cmd`
   - 各エラーコードをチェックしてそれぞれに対応するスクリプトを書く以外、フェイルファースト動作を完全にオプトインする方法はないようです。 デフォルトでその動作を指定することはできないため、この動作はスクリプトに記述する必要があります。
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
+  - `cmd.exe`は、実行した最後のプログラムのエラーレベルで終了し、runnerにそのエラーコードを返します。 この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+この`entrypoint`キーワードはDockerコンテナのアクションを使おうとしていますが、これは入力を定義しないJavaScriptのアクションにも使えます。
 
 #### **`jobs.<job_id>.steps.env`**
 

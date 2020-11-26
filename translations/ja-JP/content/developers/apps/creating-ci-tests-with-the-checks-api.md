@@ -351,7 +351,7 @@ Checks API を使用すると、ステータス、画像、要約、アノテー
 
 ### ステップ 2.1. Ruby ファイルを追加する
 
-RuboCop がチェックするため、特定のファイルまたはディレクトリ全体を渡すことができます。 このクイックスタートでは、ディレクトリ全体で RuboCop を実行します。 RuboCop がチェックするのは Ruby のコードのみなので、エラーが含まれる Ruby ファイルをリポジトリ内に最低 1 つ置くとよいでしょう。 以下に示すサンプルのファイルには、いくつかのエラーが含まれています。 このサンプルの Ruby ファイルを、アプリケーションがインストールされているリポジトリに追加します (`myfile.rb` などのように、ファイル名には `.rb` の拡張子を必ず付けてください)。
+RuboCop がチェックするため、特定のファイルまたはディレクトリ全体を渡すことができます。 このクイックスタートでは、ディレクトリ全体で RuboCop を実行します。 RuboCop がチェックするのは Ruby のコードのみなので、エラーが含まれる Ruby ファイルをリポジトリ内に最低 1 つ置くとよいでしょう。 以下に示すサンプルのファイルには、いくつかのエラーが含まれています。 Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
 
 ```ruby
 # The Octocat class tells you about different breeds of Octocat
@@ -375,15 +375,15 @@ m.display
 
 ### ステップ 2.2. リポジトリをクローンする
 
-RuboCop はコマンドラインユーティリティとして使用できます。 これはつまり、RuboCop がファイルを解析するためには、GitHub App が CI サーバー上のリポジトリのローカルコピーをクローンする必要があるということです。 Ruby アプリケーションで Git の操作を実行するには、[ruby-git](https://github.com/ruby-git/ruby-git) gem を使用できます。
+RuboCop is available as a command-line utility. That means your GitHub App will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem.
 
-`building-a-checks-api-ci-server` リポジトリの `Gemfile` には既に ruby-git gem が含まれており、[必要な環境のステップ](#prerequisites)で `bundle install` を実行した時にインストール済みです。 gem を使用するには、`template_server.rb` ファイルの先頭に次のコードを追加します。
+The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `template_server.rb` file:
 
 ``` ruby
 require 'git'
 ```
 
-リポジトリをクローンするには、アプリケーションに「リポジトリコンテンツ」の読み取り権限が必要です。 このクイックスタートでは、後ほどコンテンツを GitHub にプッシュする必要がありますが、そのためには書き込み権限が必要です。 Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. アプリケーションの権限を更新するには、以下の手順に従います。
+Your app needs read permission for "Repository contents" to clone a repository. Later in this quickstart, you'll need to push contents to GitHub, which requires write permission. Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. アプリケーションの権限を更新するには、以下の手順に従います。
 
 1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. In the "Permissions" section, find "Repository contents", and select **Read & write** in the "Access" dropdown next to it.

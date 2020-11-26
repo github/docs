@@ -164,12 +164,6 @@ git:
 </tr>
 </table>
 
-#### Using environment variables in a matrix
-
-Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
-
-In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
-
 ### Key features in {% data variables.product.prodname_actions %}
 
 When migrating from Travis CI, consider the following key features in {% data variables.product.prodname_actions %}:
@@ -184,7 +178,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 #### Hosting your own runners
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)."
+If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see ["Hosting your own runners](/actions/hosting-your-own-runners)." 
 
 #### Concurrent jobs and execution time
 
@@ -213,7 +207,7 @@ For example:
           shell: bash
 ```
 
-### Error handling in {% data variables.product.prodname_actions %}
+### Error handling in {% data variables.product.prodname_actions %} 
 
 When migrating to {% data variables.product.prodname_actions %}, there are different approaches to error handling that you might need to be aware of.
 
@@ -288,7 +282,7 @@ jobs:
 
 ### Caching dependencies
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
+Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system. 
 
 <table>
 <tr>
@@ -323,7 +317,7 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
 
 ### Examples of common tasks
 

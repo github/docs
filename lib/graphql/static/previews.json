@@ -109,7 +109,7 @@
         "Mutation.createContentAttachment"
       ],
       "owning_teams": [
-        "@github/feature-lifecycle"
+        "@github/ce-extensibility"
       ],
       "accept_header": "application/vnd.github.corsair-preview+json",
       "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
@@ -1254,7 +1254,7 @@
         "Mutation.createContentAttachment"
       ],
       "owning_teams": [
-        "@github/feature-lifecycle"
+        "@github/ce-extensibility"
       ],
       "accept_header": "application/vnd.github.corsair-preview+json",
       "href": "/graphql/overview/schema-previews#create-content-attachments-preview"

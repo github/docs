@@ -1,6 +1,6 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers/supertest')
+const { get, getDOM, head } = require('../helpers')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 

@@ -5,8 +5,6 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-authors:
-  - potatoqualitee
 ---
 
 {% data reusables.actions.enterprise-beta %}

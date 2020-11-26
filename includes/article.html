@@ -55,6 +55,11 @@
           {% endfor %}
         </ul>
         {% endif %}
+        <div class="d-none d-xl-block{% if miniTocItems.size > 1 %} border-top border-gray-light mt-4{% endif %}">
+          {% assign helpId = 'xl' %}
+          {% include helpfulness %}
+          {% include contribution %}
+        </div>
       </div>
     </div>
     <div id="article-contents" class="article-grid-body">
@@ -64,10 +69,10 @@
       {{ renderedPage }}
     </div>
     </div>
-
-    <div class="d-block border-top border-gray-light mt-4 markdown-body">
-      {% include helpfulness %}
-      {% include contribution %}
-    </div>
   </article>
+  <div class="d-block d-xl-none border-top border-gray-light mt-4 markdown-body">
+    {% assign helpId = 'sm' %}
+    {% include helpfulness %}
+    {% include contribution %}
+  </div>
 </main>

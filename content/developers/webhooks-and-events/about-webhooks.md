@@ -31,4 +31,4 @@ See "[Webhook event payloads](/webhooks/event-payloads)" for the list of availab
 For more information about the `ping` event webhook payload, see the [`ping`](/webhooks/event-payloads/#ping) event.
 
 [org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#hooks
+[repo-hooks]: /v3/repos/hooks/
