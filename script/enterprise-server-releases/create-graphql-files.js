@@ -3,8 +3,10 @@
 const fs = require('fs')
 const path = require('path')
 const program = require('commander')
+const mkdirp = require('mkdirp').sync
 const allVersions = require('../../lib/all-versions')
-const graphqlDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
+const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 
 // [start-readme]
 //
@@ -35,8 +37,8 @@ const newVersionId = allVersions[newVersion].miscVersionName
 const oldVersionId = allVersions[oldVersion].miscVersionName
 
 // copy the schema file wholesale (there are separate schema files per version)
-const newSchemaFile = path.join(graphqlDir, `schema-${newVersionId}.json`)
-const oldSchemaFile = path.join(graphqlDir, `schema-${oldVersionId}.json`)
+const newSchemaFile = path.join(graphqlStaticDir, `schema-${newVersionId}.json`)
+const oldSchemaFile = path.join(graphqlStaticDir, `schema-${oldVersionId}.json`)
 fs.copyFileSync(oldSchemaFile, newSchemaFile)
 
 // check that it worked
@@ -46,9 +48,9 @@ if (!fs.existsSync(newSchemaFile)) {
 }
 
 // the other files are objects with vers3091iuions as keys, so we need to require them
-const previewsFile = path.join(graphqlDir, 'previews.json')
-const changesFile = path.join(graphqlDir, 'upcoming-changes.json')
-const objectsFile = path.join(graphqlDir, 'prerendered-objects.json')
+const previewsFile = path.join(graphqlStaticDir, 'previews.json')
+const changesFile = path.join(graphqlStaticDir, 'upcoming-changes.json')
+const objectsFile = path.join(graphqlStaticDir, 'prerendered-objects.json')
 
 const previews = require(previewsFile)
 const changes = require(changesFile)
@@ -78,6 +80,29 @@ if (!Object.keys(objects).includes(newVersionId)) {
 fs.writeFileSync(previewsFile, JSON.stringify(previews, null, 2))
 fs.writeFileSync(changesFile, JSON.stringify(changes, null, 2))
 fs.writeFileSync(objectsFile, JSON.stringify(objects, null, 2))
+
+// now create the new version directory in data/graphql
+const srcDir = path.join(graphqlDataDir, oldVersionId)
+const destDir = path.join(graphqlDataDir, newVersionId)
+mkdirp(destDir)
+
+// copy the files
+fs.readdirSync(srcDir).forEach(file => {
+  const srcFile = path.join(srcDir, file)
+  const destFile = path.join(destDir, file)
+  fs.copyFileSync(srcFile, destFile)
+})
+
+// check that it worked
+if (!fs.existsSync(destDir)) {
+  console.log(`Error! A new directory was not successfully created at ${destDir}.`)
+  process.exit(1)
+}
+
+if (!fs.readdirSync(destDir).length) {
+  console.log(`Error! The directory created at ${destDir} is empty.`)
+  process.exit(1)
+}
 
 // print success message
 console.log(`Done! Copied ${oldVersion} GraphQL files to ${newVersion} files.`)
