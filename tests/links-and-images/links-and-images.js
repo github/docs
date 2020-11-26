@@ -1,4 +1,4 @@
-const { LinksChecker, buildInitialContext, buildPathContext, updateContextPerPath } = require('../helpers/links-checker')
+const { LinksChecker, buildInitialContext, buildPathContext } = require('../helpers/links-checker')
 const languageCode = 'en'
 
 // TODO set to true when we're ready to report and fix broken anchors
@@ -32,7 +32,7 @@ describe('page rendering', () => {
     expect(result.size, `Found ${result.size} total broken images: ${JSON.stringify([...result], null, 2)}`).toBe(0)
   })
 
-  // When ready to unskip this, 
+  // When ready to unskip this,
   test.skip('every page has links with anchors that can be resolved', async () => {
     const result = await linksChecker.getBrokenAnchors()
     const numBrokenAnchors = [...result].reduce((accumulator, [path, anchors]) => accumulator + Object.keys(anchors).length, 0)

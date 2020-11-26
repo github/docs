@@ -5,9 +5,8 @@ const path = require('path')
 
 const { getVersionStringFromPath } = require('../../lib/path-utils')
 const patterns = require('../../lib/patterns')
-const { deprecated, latest } = require('../../lib/enterprise-server-releases')
+const { deprecated } = require('../../lib/enterprise-server-releases')
 const findPageInVersion = require('../../lib/find-page-in-version')
-const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const rest = require('../../middleware/contextualizers/rest')
 const graphql = require('../../middleware/contextualizers/graphql')
 const contextualize = require('../../middleware/context')
@@ -97,7 +96,7 @@ class LinksChecker {
 
     const pathCacheKey = `${version}:${path}`
     const $ = await this.getRenderedPageObj(pathCacheKey, context)
-    
+
     const imageSrcs = $('img[src^="/assets"]').map((i, el) => $(el).attr('src')).toArray()
 
     this.addImagesForLater(imageSrcs, pathCacheKey)
@@ -131,7 +130,7 @@ class LinksChecker {
           continue
         }
 
-        //------ BEGIN ONEOFF EXCLUSIONS -------///
+        // ------ BEGIN ONEOFF EXCLUSIONS -------///
         // skip GraphQL public schema paths (these are checked by separate tests)
         if (link.startsWith('/public/') && link.endsWith('.graphql')) continue
 
@@ -144,7 +143,7 @@ class LinksChecker {
         // example: /enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release
         const gheVersionInLink = link.match(patterns.getEnterpriseVersionNumber)
         if (gheVersionInLink && deprecated.includes(gheVersionInLink[1])) continue
-        //------ END ONEOFF EXCLUSIONS -------///
+        // ------ END ONEOFF EXCLUSIONS -------///
 
         // look for linked page
         const versionFromHref = getVersionStringFromPath(link)
@@ -155,7 +154,7 @@ class LinksChecker {
           this.brokenLinks.set(link, { linkedFrom: [pathCacheKey] })
           continue
         }
-        
+
         // if we're not checking external anchors, we're done
         if (!checkExternalAnchors) {
           continue
@@ -165,7 +164,7 @@ class LinksChecker {
         const linkedPagePermalink = linkedPage.permalinks.find(permalink => permalink.pageVersion === version)
 
         if (linkedPagePermalink) {
-          const linkedPageContext = await buildPathContext(context, linkedPage, linkedPagePermalink) 
+          const linkedPageContext = await buildPathContext(context, linkedPage, linkedPagePermalink)
 
           if (anchor) {
             await this.setRenderedPageObj(`${version}:${linkedPage.relativePath}`, linkedPageContext)
@@ -217,10 +216,10 @@ async function applyMiddleware (middleware, req) {
 }
 
 async function buildInitialContext () {
-  const req = { 
+  const req = {
     path: '/en',
-    language: 'en', 
-    query: {} 
+    language: 'en',
+    query: {}
   }
   await applyMiddleware(contextualize, req)
   return req.context
@@ -231,13 +230,13 @@ async function buildPathContext (context, page, permalink) {
     page,
     currentVersion: permalink.pageVersion,
     relativePath: permalink.relativePath
-  } 
- 
-  const req = { 
+  }
+
+  const req = {
     path: permalink.href,
     context: Object.assign({}, context, pathContext),
     language: 'en',
-    query: {} 
+    query: {}
   }
 
   await applyMiddleware(rest, req)
