@@ -37,6 +37,8 @@ versions:
 
 - 骚扰、辱骂、威胁或煽动暴力对待任何个人或团体，包括我们的员工、高管和代理或其他用户；
 
+- post off-topic content, or interact with platform features, in a way that significantly or repeatedly disrupts the experience of other users;
+
 - 将我们的服务器用于任何形式的过度自动化批量活动（如发送垃圾邮件或加密货币挖矿），通过自动化方式对我们的服务器施加不当的负担，或者通过我们的服务器转发任何其他形式的主动广告或招揽，如快速致富方案；
 
 - 使用我们的服务器破坏或试图破坏、非授权访问或试图非授权访问任何服务、设备、数据、帐户或网络（[GitHub 漏洞赏金计划](https://bounty.github.com)授权的活动除外）；
@@ -48,15 +50,17 @@ versions:
 ### 4. 服务使用限制
 未获明确的书面同意，不得重制、重复、复制、销售、转售或利用服务的任何部分、使用服务或访问服务。
 
-### 5. 擦除和 API 使用限制
-擦除是指通过自动化过程（如自动程序或网络爬虫 ）从我们的服务中提取数据。 它不是指通过我们的 API 收集信息。 有关我们的 API 条款，请参阅我们[服务条款](/articles/github-terms-of-service#h-api-terms)的 H 部分。 您可能因以下原因而擦除网站：
+### 5. Information Usage Restrictions
+You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
-- 研究人员可能出于研究目的而从服务中擦除公共的非个人信息，但仅当来自该研究的出版物开放访问时才可擦除。
-- 档案管理人员可能出于存档目的而擦除服务中的公共数据。
+-  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
+-  Archivists may use public information from the Service for archival purposes.
 
-不得出于发送垃圾邮件的目的而擦除服务，包括出于销售用户个人信息的目的（根据 [GitHub 隐私声明](/articles/github-privacy-statement)中的定义），例如招聘人员、猎头和工作板。
+Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. 有关我们的 API 条款，请参阅我们[服务条款](/articles/github-terms-of-service#h-api-terms)的 H 部分。
 
-通过擦除收集的数据的所有使用必须遵守 [GitHub 隐私声明](/articles/github-privacy-statement)。
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+
+Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
 ### 6. 隐私
 禁止滥用用户个人信息。

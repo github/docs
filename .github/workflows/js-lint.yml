@@ -21,7 +21,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '["**/*.js", "package*.json", ".github/workflows/js-lint.yml"]'
+          paths: '["**/*.js", "package*.json", ".github/workflows/js-lint.yml", ".eslint*"]'
 
   lint:
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         run: npm ci
 
       - name: Run linter
-        run: npx standard
+        run: npx eslint .
 
       - name: Check dependencies
         run: npm run check-deps
