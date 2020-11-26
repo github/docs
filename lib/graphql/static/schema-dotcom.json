@@ -1685,7 +1685,7 @@
           "Mutation.createContentAttachment"
         ],
         "owning_teams": [
-          "@github/feature-lifecycle"
+          "@github/ce-extensibility"
         ],
         "accept_header": "application/vnd.github.corsair-preview+json",
         "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
@@ -19033,16 +19033,6 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
-              "type": {
-                "name": "IssueCommentOrder",
-                "id": "issuecommentorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#issuecommentorder"
-              }
             }
           ]
         },
@@ -28538,22 +28528,6 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
-          "name": "hasSponsorsListing",
-          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "interactionAbility",
-          "description": "<p>The interaction ability settings for this organization.</p>",
-          "type": "RepositoryInteractionAbility",
-          "id": "repositoryinteractionability",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#repositoryinteractionability"
-        },
-        {
           "name": "ipAllowListEnabledSetting",
           "description": "<p>The setting value for whether the organization has an IP allow list enabled.</p>",
           "type": "IpAllowListEnabledSettingValue!",
@@ -28620,14 +28594,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "isSponsoringViewer",
-          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "isVerified",
@@ -29343,7 +29309,7 @@
         },
         {
           "name": "sponsorsListing",
-          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
+          "description": "<p>The GitHub Sponsors listing for this user.</p>",
           "type": "SponsorsListing",
           "id": "sponsorslisting",
           "kind": "objects",
@@ -29702,24 +29668,8 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
-          "name": "viewerCanSponsor",
-          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
           "name": "viewerIsAMember",
           "description": "<p>Viewer is an active member of this organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "viewerIsSponsoring",
-          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -33116,16 +33066,6 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
-              "type": {
-                "name": "IssueCommentOrder",
-                "id": "issuecommentorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#issuecommentorder"
               }
             }
           ]
@@ -42683,14 +42623,6 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
-          "name": "interactionAbility",
-          "description": "<p>The interaction ability settings for this repository.</p>",
-          "type": "RepositoryInteractionAbility",
-          "id": "repositoryinteractionability",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#repositoryinteractionability"
-        },
-        {
           "name": "isArchived",
           "description": "<p>Indicates if the repository is unmaintained.</p>",
           "type": "Boolean!",
@@ -44566,39 +44498,6 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
-        }
-      ]
-    },
-    {
-      "name": "RepositoryInteractionAbility",
-      "kind": "objects",
-      "id": "repositoryinteractionability",
-      "href": "/graphql/reference/objects#repositoryinteractionability",
-      "description": "<p>Repository interaction limit that applies to this object.</p>",
-      "fields": [
-        {
-          "name": "expiresAt",
-          "description": "<p>The time the currently active limit expires.</p>",
-          "type": "DateTime",
-          "id": "datetime",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "limit",
-          "description": "<p>The current limit that is enabled on this object.</p>",
-          "type": "RepositoryInteractionLimit!",
-          "id": "repositoryinteractionlimit",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#repositoryinteractionlimit"
-        },
-        {
-          "name": "origin",
-          "description": "<p>The origin of the currently active interaction limit.</p>",
-          "type": "RepositoryInteractionLimitOrigin!",
-          "id": "repositoryinteractionlimitorigin",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#repositoryinteractionlimitorigin"
         }
       ]
     },
@@ -47090,7 +46989,7 @@
         },
         {
           "name": "sponsorEntity",
-          "description": "<p>The user or organization that is sponsoring, if you have permission to view them.</p>",
+          "description": "<p>The user or organization that is sponsoring. Returns null if the sponsorship is private.</p>",
           "type": "Sponsor",
           "id": "sponsor",
           "kind": "unions",
@@ -52417,14 +52316,6 @@
           ]
         },
         {
-          "name": "hasSponsorsListing",
-          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
           "name": "hovercard",
           "description": "<p>The hovercard information for this user in a given context.</p>",
           "type": "Hovercard!",
@@ -52443,14 +52334,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "interactionAbility",
-          "description": "<p>The interaction ability settings for this user.</p>",
-          "type": "RepositoryInteractionAbility",
-          "id": "repositoryinteractionability",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#repositoryinteractionability"
         },
         {
           "name": "isBountyHunter",
@@ -52495,14 +52378,6 @@
         {
           "name": "isSiteAdmin",
           "description": "<p>Whether or not this user is a site administrator.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "isSponsoringViewer",
-          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -52562,16 +52437,6 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "orderBy",
-              "description": "<p>Ordering options for issue comments returned from the connection.</p>",
-              "type": {
-                "name": "IssueCommentOrder",
-                "id": "issuecommentorder",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#issuecommentorder"
               }
             }
           ]
@@ -53572,7 +53437,7 @@
         },
         {
           "name": "sponsorsListing",
-          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
+          "description": "<p>The GitHub Sponsors listing for this user.</p>",
           "type": "SponsorsListing",
           "id": "sponsorslisting",
           "kind": "objects",
@@ -53906,24 +53771,8 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
-          "name": "viewerCanSponsor",
-          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
           "name": "viewerIsFollowing",
           "description": "<p>Whether or not this user is followed by the viewer.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "viewerIsSponsoring",
-          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -56509,24 +56358,8 @@
       "description": "<p>Entities that can be sponsored through GitHub Sponsors.</p>",
       "fields": [
         {
-          "name": "hasSponsorsListing",
-          "description": "<p>True if this user/organization has a GitHub Sponsors listing.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "isSponsoringViewer",
-          "description": "<p>True if the viewer is sponsored by this user/organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
           "name": "sponsorsListing",
-          "description": "<p>The GitHub Sponsors listing for this user or organization.</p>",
+          "description": "<p>The GitHub Sponsors listing for this user.</p>",
           "type": "SponsorsListing",
           "id": "sponsorslisting",
           "kind": "objects",
@@ -56662,22 +56495,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "viewerCanSponsor",
-          "description": "<p>Whether or not the viewer is able to sponsor this user/organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "viewerIsSponsoring",
-          "description": "<p>True if the viewer is sponsoring this user/organization.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -56984,10 +56801,6 @@
           "description": "<p>The check suite or run was marked stale by GitHub. Only GitHub can use this conclusion.</p>"
         },
         {
-          "name": "STARTUP_FAILURE",
-          "description": "<p>The check suite or run has failed at startup.</p>"
-        },
-        {
           "name": "SUCCESS",
           "description": "<p>The check suite or run has succeeded.</p>"
         },
@@ -57235,10 +57048,6 @@
         {
           "name": "QUEUED",
           "description": "<p>The deployment has queued.</p>"
-        },
-        {
-          "name": "WAITING",
-          "description": "<p>The deployment is waiting.</p>"
         }
       ]
     },
@@ -57816,19 +57625,6 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order IP allow list entries by creation time.</p>"
-        }
-      ]
-    },
-    {
-      "name": "IssueCommentOrderField",
-      "kind": "enums",
-      "id": "issuecommentorderfield",
-      "href": "/graphql/reference/enums#issuecommentorderfield",
-      "description": "<p>Properties by which issue comment connections can be ordered.</p>",
-      "values": [
-        {
-          "name": "UPDATED_AT",
-          "description": "<p>Order issue comments by update time.</p>"
         }
       ]
     },
@@ -59511,52 +59307,6 @@
         {
           "name": "REPOSITORY",
           "description": "<p>Created the repository.</p>"
-        }
-      ]
-    },
-    {
-      "name": "RepositoryInteractionLimit",
-      "kind": "enums",
-      "id": "repositoryinteractionlimit",
-      "href": "/graphql/reference/enums#repositoryinteractionlimit",
-      "description": "<p>A repository interaction limit.</p>",
-      "values": [
-        {
-          "name": "COLLABORATORS_ONLY",
-          "description": "<p>Users that are not collaborators will not be able to interact with the repository.</p>"
-        },
-        {
-          "name": "CONTRIBUTORS_ONLY",
-          "description": "<p>Users that have not previously committed to a repository’s default branch will be unable to interact with the repository.</p>"
-        },
-        {
-          "name": "EXISTING_USERS",
-          "description": "<p>Users that have recently created their account will be unable to interact with the repository.</p>"
-        },
-        {
-          "name": "NO_LIMIT",
-          "description": "<p>No interaction limits are enabled.</p>"
-        }
-      ]
-    },
-    {
-      "name": "RepositoryInteractionLimitOrigin",
-      "kind": "enums",
-      "id": "repositoryinteractionlimitorigin",
-      "href": "/graphql/reference/enums#repositoryinteractionlimitorigin",
-      "description": "<p>Indicates where an interaction limit is configured.</p>",
-      "values": [
-        {
-          "name": "ORGANIZATION",
-          "description": "<p>A limit that is configured at the organization level.</p>"
-        },
-        {
-          "name": "REPOSITORY",
-          "description": "<p>A limit that is configured at the repository level.</p>"
-        },
-        {
-          "name": "USER",
-          "description": "<p>A limit that is configured at the user-wide level.</p>"
         }
       ]
     },
@@ -65133,31 +64883,6 @@
       ]
     },
     {
-      "name": "IssueCommentOrder",
-      "kind": "inputObjects",
-      "id": "issuecommentorder",
-      "href": "/graphql/reference/input-objects#issuecommentorder",
-      "description": "<p>Ways in which lists of issue comments can be ordered upon return.</p>",
-      "inputFields": [
-        {
-          "name": "direction",
-          "description": "<p>The direction in which to order issue comments by the specified field.</p>",
-          "type": "OrderDirection!",
-          "id": "orderdirection",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#orderdirection"
-        },
-        {
-          "name": "field",
-          "description": "<p>The field in which to order issue comments by.</p>",
-          "type": "IssueCommentOrderField!",
-          "id": "issuecommentorderfield",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#issuecommentorderfield"
-        }
-      ]
-    },
-    {
       "name": "IssueFilters",
       "kind": "inputObjects",
       "id": "issuefilters",
@@ -65357,7 +65082,7 @@
         },
         {
           "name": "lockReason",
-          "description": "<p>A reason for why the item will be locked.</p>",
+          "description": "<p>A reason for why the issue or pull request will be locked.</p>",
           "type": "LockReason",
           "id": "lockreason",
           "kind": "enums",
@@ -65365,7 +65090,7 @@
         },
         {
           "name": "lockableId",
-          "description": "<p>ID of the item to be locked.</p>",
+          "description": "<p>ID of the issue or pull request to be locked.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -67119,7 +66844,7 @@
         },
         {
           "name": "lockableId",
-          "description": "<p>ID of the item to be unlocked.</p>",
+          "description": "<p>ID of the issue or pull request to be unlocked.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",

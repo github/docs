@@ -11,7 +11,7 @@ versions:
 
 <div class="jumbotron libraries-jumbotron">
   <img src="/assets/images/gundamcat.png" class="gundamcat" alt="Gundamcat" />
-  <h1>Octokit 风格多样</h1>
+  <h1>Octokit comes in many flavors</h1>
   <p class="lead">使用官方的 Octokit 库，或者使用任何适用的第三方库。</p>
   <div class="octokit-links"><br/>
      <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
@@ -48,7 +48,7 @@ Library name | Repository |---|---| **haskell-github** | [fpco/Github](https://g
 
 ### Java
 
-Library name | Repository | More information |---|---|---| **GitHub Java API**| [org.eclipse.egit.github.core](https://github.com/eclipse/egit-github/tree/master/org.eclipse.egit.github.core) | Is part of the [GitHub Mylyn Connector](https://github.com/eclipse/egit-github) and aims to support the entire GitHub v3 API.  可在 [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22org.eclipse.egit.github.core%22) 中构建。 **用于 Java 的 GitHub API**| [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)|定义面向对象的 GitHub API 表示形式。 **JCabi GitHub API**|[github.jcabi.com（个人网站）](http://github.jcabi.com)|基于 Java7 JSON API (JSR-353)，简化 runtime GitHub stub 测试，涵盖整个 API。
+Library name | Repository | More information |---|---|---| **GitHub Java API**| [org.eclipse.egit.github.core](https://github.com/eclipse/egit-github/tree/master/org.eclipse.egit.github.core) | Is part of the [GitHub Mylyn Connector](https://github.com/eclipse/egit-github) and aims to support the entire GitHub v3 API.  可在 [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22org.eclipse.egit.github.core%22) 中构建。 **GitHub API for Java**| [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)|defines an object oriented representation of the GitHub API. **JCabi GitHub API**|[github.jcabi.com (Personal Website)](http://github.jcabi.com)|is based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API.
 
 ### JavaScript
 

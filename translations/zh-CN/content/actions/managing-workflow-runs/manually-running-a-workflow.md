@@ -10,9 +10,9 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 配置工作流程手动运行
+### Configuring a workflow to run manually
 
-要手动运行工作流程，工作流程必须配置为在发生 `workflow_dispatch` 事件时运行。 有关配置 `workflow_paid` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
+要手动运行工作流程，工作流程必须配置为在发生 `workflow_dispatch` 事件时运行。 For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
 ### 在 {% data variables.product.prodname_dotcom %} 上运行工作流程
 

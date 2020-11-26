@@ -35,8 +35,8 @@
             <ul class="list-style-none">
               {% for link in featuredLinks.guides %}
                 <li class="border-top">
-                  <a class="link-with-intro Bump-link--hover no-underline d-block py-3" href="{{ link.href }}">
-                    <h4 class="link-with-intro-title mb-1">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
+                  <a class="link-with-intro Bump-link--hover no-underline d-block py-4" href="{{ link.href }}">
+                    <h4 class="link-with-intro-title link-gray-dark mb-1">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
                     <p class="link-with-intro-intro color-gray-5 mb-0">{{ link.intro | truncatewords: 12 }}</p>
                   </a>
                 </li>
@@ -52,7 +52,7 @@
               {% for link in featuredLinks.popular %}
                 <li class="border-top">
                   <a class="link-with-intro Bump-link--hover no-underline d-block py-3" href="{{ link.href }}">
-                    <h4 class="link-with-intro-title">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
+                    <h4 class="link-with-intro-title link-gray-dark">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
                   </a>
                 </li>
               {% endfor %}
@@ -68,11 +68,11 @@
               {% for link in page.changelog %}
                 <li class="border-top">
                   <a href="{{ link.href }}" class="d-block text-gray-dark Bump-link--hover py-3 no-underline">
-                    <h4>{{ link.title }} <span class="Bump-link-symbol">→</span></h4>
                     <time
-                      class="tooltipped tooltipped-n text-gray-light text-mono mt-1"
+                      class="tooltipped tooltipped-n text-gray-light text-mono mb-1"
                       aria-label="{{ link.date | date: '%B %d, %Y' }}"
                     >{{ link.date | date: "%B %d" }}</time>
+                    <h4>{{ link.title }} <span class="Bump-link-symbol">→</span></h4>
                   </a>
                 </li>
               {% endfor %}

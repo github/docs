@@ -1,7 +1,6 @@
 ---
 title: Managing secret scanning for your organization
 intro: 'You can control which repositories in your organization {% data variables.product.product_name %} will scan for secrets.'
-product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'Organization owners can manage {% data variables.product.prodname_secret_scanning %} for repositories in the organization.'
 versions:
   free-pro-team: '*'

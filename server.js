@@ -10,7 +10,7 @@ const app = express()
 
 require('./middleware')(app)
 
-// prevent the app from starting up during tests
+// prevent the app from starting up durings tests
 /* istanbul ignore next */
 if (!module.parent) {
   // check that the development server is not already running

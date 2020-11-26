@@ -32,7 +32,7 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 `-I` 参数表示我们只关注标头，而不关注实际内容。 在检查结果时，您会注意到 Link 标头中的一些信息，如下所示：
 
-    链接：<https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 我们来分解说明。 `rel="next"` 表示下一页是 `page=2`。 这是合理的，因为在默认情况下，所有分页查询都是从第 `1` 页开始。`rel="last"` 提供了更多信息，指示结果的最后一页是第 `34` 页。 因此，我们还有 33 页有关 `addClass` 的信息可用。 不错！
@@ -49,7 +49,7 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 以下是再次出现的 Link 标头：
 
-    链接：<https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
@@ -66,7 +66,7 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 请注意它对标头响应的影响：
 
-    链接：<https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
       <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 您可能已经猜到了，`rel="last"` 信息表明最后一页现在是第 20 页。 这是因为我们要求每页提供更多的结果相关信息。

@@ -5,8 +5,6 @@ product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-authors:
-  - potatoqualitee
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -30,7 +28,7 @@ authors:
 
 ### 为 Pester 添加工作流程
 
-要使用 PowerShell 和 Pester 自动执行测试，您可以添加在每次将更改推送到仓库时运行的工作流程。 在以下示例中，`Test-Path` 用于检查文件 `resultsfile.log` 是否存在。
+要使用 PowerShell 和 Pester 自动执行测试，可以添加一个在每次有更改推送到存储库时运行的工作流程。 在以下示例中，`Test-Path` 用于检查文件 `resultsfile.log` 是否存在。
 
 此示例工作流程文件必须添加到您仓库的 `.github/workflows/` 目录：
 

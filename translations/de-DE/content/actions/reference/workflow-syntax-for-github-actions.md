@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@1.0.0
+    uses: actions/heroku@master
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@1.0.0
+        uses: actions/heroku@master
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -659,7 +659,7 @@ Für integrierte Shell-Stichwörter gelten die folgenden Standards, die durch au
 
 - `cmd`
   - Wenn Du das Fail-Fast-Verhalten uneingeschränkt nutzen möchtest, hast Du anscheinend keine andere Wahl, als Dein Skript so zu schreiben, dass jeder Fehlercode geprüft und eine entsprechende Reaktion eingeleitet wird. Dieses Verhalten kann nicht standardmäßig bereitgestellt werden; Du musst es explizit in Dein Skript schreiben.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. Dieses Verhalten ist intern mit dem vorherigen Standardverhalten von `sh` und `pwsh` konsistent und ist der Standard für `cmd.exe`, weshalb dieses Verhalten unverändert bleibt.
+  - `cmd.exe` wird mit dem Errorlevel des zuletzt ausgeführten Programms beendet, und dieser Fehlercode wird an den Runner übergeben. Dieses Verhalten ist intern mit dem vorherigen Standardverhalten von `sh` und `pwsh` konsistent und ist der Standard für `cmd.exe`, weshalb dieses Verhalten unverändert bleibt.
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+Das Schlüsselwort `entrypoint` ist für Docker Container-Aktionen vorgesehen, kann jedoch auch für JavaScript-Aktionen herangezogen werden, in denen keine Eingaben definiert werden.
 
 #### **`jobs.<job_id>.steps.env`**
 

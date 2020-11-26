@@ -1,5 +1,6 @@
 ---
 title: Enterprise 向けの GitHub Packages を管理する
+shortTitle: GitHub Packages
 intro: 'Enterprise で {% data variables.product.prodname_registry %} を有効にして、{% data variables.product.prodname_registry %} 設定と許可されたパッケージタイプを管理できます。'
 redirect_from:
   - /enterprise/admin/packages

@@ -20,8 +20,6 @@ As more users join {% data variables.product.product_location %}, you may need t
 
 {% endnote %}
 
-#### Minimum requirements
-
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Increasing the data partition size

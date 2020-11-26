@@ -1,6 +1,6 @@
 ---
-title: リストのメトリクスの参照
-intro: '{% data variables.product.prodname_marketplace %} インサイトのページは、{% data variables.product.prodname_github_app %}のメトリクスを表示します。 このメトリクスを使って{% data variables.product.prodname_github_app %}のパフォーマンスを追跡し、価格、プラン、無料トライアル、マーケティングキャンペーンの効果の可視化の方法に関する判断を、より多くの情報に基づいて行えます。'
+title: Viewing metrics for your listing
+intro: 'The {% data variables.product.prodname_marketplace %} Insights page displays metrics for your {% data variables.product.prodname_github_app %}. You can use the metrics to track your {% data variables.product.prodname_github_app %}''s performance and make more informed decisions about pricing, plans, free trials, and how to visualize the effects of marketing campaigns.'
 redirect_from:
   - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
   - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
@@ -12,7 +12,7 @@ versions:
 
 
 
-過去の日（24時間）、週、月、あるいは{% data variables.product.prodname_github_app %}がリストされた期間全体に対するメトリクスを見ることができます。
+You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 
 {% note %}
 

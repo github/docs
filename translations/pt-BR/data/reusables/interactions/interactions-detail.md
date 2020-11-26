@@ -1,1 +1,1 @@
-When restrictions are enabled, only the specified type of {% data variables.product.product_name %} user will be able to participate in interactions. Restrictions automatically expire after a defined duration.
+Quando as restrições são ativadas, apenas o grupo especificado de {% data variables.product.product_name %} os usuários serão capazes de participar de interações. As restrições expiram 24 horas a partir do momento que são estabelecidas.

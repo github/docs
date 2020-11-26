@@ -3,10 +3,10 @@ name: Auto Merge Dependency Updates
 on:
   pull_request:
     paths:
-      - 'package*.json'
-      - 'Gemfile*'
-      - 'Dockerfile'
-      - '.github/workflows/**'
+      - "package*.json"
+      - "Gemfile*"
+      - "Dockerfile"
+      - ".github/workflows/**"
   pull_request_review:
     types:
       - edited

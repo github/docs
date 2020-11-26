@@ -99,7 +99,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/feature-lifecycle'
+    - '@github/ce-extensibility'
 - title: Pinned Issues Preview
   description: This preview adds support for pinned issues.
   toggled_by: ':elektra-preview'

@@ -1,7 +1,6 @@
 ---
 title: 关于密码扫描
 intro: '{% data variables.product.product_name %} 扫描仓库查找已知的密码类型，以防止欺诈性使用意外提交的密码。'
-product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning

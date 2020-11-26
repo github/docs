@@ -162,7 +162,7 @@ It’s critical that all of our documentation is inclusive and respectful of our
 | --- | --- |
 | Allowlist | Whitelist |
 | Denylist | Blacklist |
-| Default/Main branch | Master branch |
+| Main branch | Default branch |
 
 ### Resources about inclusive language
 
@@ -193,8 +193,8 @@ Introduce links consistently using a standard format that clearly indicates wher
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H3 header.
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
+- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)."
+- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 

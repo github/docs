@@ -1,4 +1,4 @@
-const { getDOM, getJSON } = require('../helpers/supertest')
+const { getDOM, getJSON } = require('../helpers')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')

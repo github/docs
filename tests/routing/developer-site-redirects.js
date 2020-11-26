@@ -1,6 +1,6 @@
 const { eachOfLimit } = require('async')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get } = require('../helpers/supertest')
+const { get } = require('../helpers')
 const { getEnterpriseVersionNumber } = require('../../lib/patterns')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const restRedirectFixtures = require('../fixtures/rest-redirects')

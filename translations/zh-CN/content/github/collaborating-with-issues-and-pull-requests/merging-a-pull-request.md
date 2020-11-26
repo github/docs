@@ -45,7 +45,7 @@ versions:
 
    {% note %}
 
-   **注意：** 电子邮件选择器不可用于变基合并（无法创建合并提交） 或压缩合并（将创建拉取请求的用户计为压缩提交的作者）。
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
 
    {% endnote %}
 

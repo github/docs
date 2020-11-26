@@ -1,5 +1,6 @@
 ---
 title: 管理企业的 GitHub Packages
+shortTitle: GitHub Packages
 intro: '您可以为企业启用 {% data variables.product.prodname_registry %}，并管理 {% data variables.product.prodname_registry %} 设置和允许的包类型。'
 redirect_from:
   - /enterprise/admin/packages

@@ -327,7 +327,6 @@ The `issue_comment` event occurs for comments on both issues and pull requests. 
 
 For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
 
-{% raw %}
 ```yaml
 on: issue_comment
 
@@ -350,7 +349,6 @@ jobs:
       - run: |
           echo "Comment on issue #${{ github.event.issue.number }}"
 ```
-{% endraw %}
 
 #### `issues`
 

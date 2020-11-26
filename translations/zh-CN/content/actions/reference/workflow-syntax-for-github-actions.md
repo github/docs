@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@1.0.0
+    uses: actions/heroku@master
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@1.0.0
+        uses: actions/heroku@master
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -659,7 +659,7 @@ steps:
 
 - `cmd`
   - 除了编写脚本来检查每个错误代码并相应地响应之外，似乎没有办法完全选择快速失败行为。 由于我们默认不能实际提供该行为，因此您需要将此行为写入脚本。
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
+  - `cmd.exe` 在退出时带有其执行的最后一个程序的错误等级，并且会将错误代码返回到运行程序。 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+`entrypoint` 关键词旨在用于 Docker 容器操作，但您也可以将其用于未定义任何输入的 JavaScript 操作。
 
 #### **`jobs.<job_id>.steps.env`**
 

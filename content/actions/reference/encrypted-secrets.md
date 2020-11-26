@@ -43,11 +43,11 @@ You can use and read encrypted secrets in a workflow file if you have access to 
 
 {% endwarning %}
 
-You can also manage secrets using the REST API. For more information, see "[Secrets](/rest/reference/actions#secrets)."
+You can also manage secrets using the REST API. For more information, see "[Secrets](/v3/actions/secrets/)."
 
 #### Limiting credential permissions
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/v3/guides/managing-deploy-keys/#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
 
 ### Creating encrypted secrets for a repository
 

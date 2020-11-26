@@ -21,7 +21,7 @@ versions:
 
   私下讨论并修复仓库代码中的安全漏洞。 然后，您可以发布安全通告，提醒您的社区注意漏洞并鼓励他们升级。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
-- **{% data variables.product.prodname_dependabot_alerts %} 和安全更新**
+- **{% data variables.product.prodname_dependabot_alerts %} and security updates**
 
   查看有关已知包含安全漏洞的依赖项的警报，并选择是否自动生成拉取请求以更新这些依赖项。 更多信息请参阅“[关于漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 
@@ -43,6 +43,6 @@ versions:
 * 您的仓库依赖的生态系统和包
 * 依赖于您的仓库的仓库和包
 
-必须先启用依赖项图，然后 {% data variables.product.prodname_dotcom %} 才能针对有安全漏洞的依赖项生成 {% data variables.product.prodname_dependabot_alerts %}。
+You must enable the dependency graph before {% data variables.product.prodname_dotcom %} can generate {% data variables.product.prodname_dependabot_alerts %} for dependencies with security vulnerabilities.
 
 您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
