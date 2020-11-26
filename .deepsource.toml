@@ -1,7 +1,34 @@
 version = 1
 
 [[analyzers]]
+name = "python"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+
+[[analyzers]]
+name = "go"
+enabled = true
+
+  [analyzers.meta]
+  import_paths = ["github.com/Highaboveus2/docs"]
+  dependencies_vendored = true
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+
+[[analyzers]]
+name = "docker"
+enabled = true
+
+[[analyzers]]
 name = "ruby"
+enabled = true
+
+[[analyzers]]
+name = "terraform"
 enabled = true
 
 [[analyzers]]
@@ -9,20 +36,64 @@ name = "javascript"
 enabled = true
 
   [analyzers.meta]
+  plugins = [
+    "ember",
+    "angular",
+    "meteor",
+    "react",
+    "angularjs",
+    "vue"
+  ]
   environment = [
-    "nodejs",
-    "mocha",
     "mongo",
+    "mocha",
+    "nodejs",
     "jasmine",
     "browser",
     "jquery",
     "jest"
   ]
-  plugins = [
-    "react",
-    "meteor",
-    "vue",
-    "angularjs",
-    "ember",
-    "angular"
-  ]
+
+[[analyzers]]
+name = "sql"
+enabled = true
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[transformers]]
+name = "rubocop"
+enabled = true
+
+[[transformers]]
+name = "black"
+enabled = true
+
+[[transformers]]
+name = "gofmt"
+enabled = true
+
+[[transformers]]
+name = "yapf"
+enabled = true
+
+[[transformers]]
+name = "autopep8"
+enabled = true
+
+[[transformers]]
+name = "isort"
+enabled = true
+
+[[transformers]]
+name = "standardrb"
+enabled = true
+
+[[transformers]]
+name = "prettier"
+enabled = true
+
+[[transformers]]
+name = "standardjs"
+enabled = true
