@@ -9,4 +9,10 @@ versions:
   github-ae: '*'
 ---
 
-{% include rest_operations_at_current_path %}
+{'GET /emojis'}
+- 
+ -
+ --
+ --2
+ - -
+ 
