@@ -19,12 +19,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             exclude: /node_modules\/lodash/,
-            presets: [
-              ['@babel/preset-env', { targets: '> 0.25%, not dead' }]
-            ],
-            plugins: [
-              '@babel/transform-runtime'
-            ]
+            presets: [['@babel/preset-env', { targets: '> 0.25%, not dead' }]],
+            plugins: ['@babel/transform-runtime']
           }
         }
       },
@@ -65,9 +61,7 @@ module.exports = {
       filename: 'index.css'
     }),
     new CopyWebpackPlugin({
-      patterns: [
-        { from: 'node_modules/@primer/css/fonts', to: 'fonts' }
-      ]
+      patterns: [{ from: 'node_modules/@primer/css/fonts', to: 'fonts' }]
     }),
     new EnvironmentPlugin(['NODE_ENV'])
   ]

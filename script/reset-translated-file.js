@@ -45,7 +45,10 @@ let relativePath = fs.existsSync(pathArg)
 
 // extract relative path and language code if pathArg is in the format `translations/<lang>/path/to/file`
 if (relativePath.startsWith('translations/')) {
-  languageCode = Object.values(languages).find(language => relativePath.startsWith(language.dir) && language.code !== 'en').code
+  languageCode = Object.values(languages).find(
+    (language) =>
+      relativePath.startsWith(language.dir) && language.code !== 'en'
+  ).code
   relativePath = relativePath.split(path.sep).slice(2).join(path.sep)
 }
 
@@ -57,7 +60,14 @@ Object.values(languages).forEach(({ code }) => {
   if (code === 'en') return
   if (languageCode && languageCode !== code) return
 
-  const translatedFile = path.join(process.cwd(), languages[code].dir, relativePath)
+  const translatedFile = path.join(
+    process.cwd(),
+    languages[code].dir,
+    relativePath
+  )
   fs.writeFileSync(translatedFile, englishContent)
-  console.log('reverted to English: %s', path.relative(process.cwd(), translatedFile))
+  console.log(
+    'reverted to English: %s',
+    path.relative(process.cwd(), translatedFile)
+  )
 })

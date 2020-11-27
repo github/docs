@@ -1,6 +1,6 @@
 // This middleware uses the request path to find a page in the preloaded context.pages object
 
-module.exports = async function findPage (req, res, next) {
+module.exports = async function findPage(req, res, next) {
   let page = req.context.pages[req.path]
 
   // if this is a localized request that can't be found, try finding an English variant

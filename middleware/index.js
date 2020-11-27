@@ -4,10 +4,9 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = fn =>
-  (req, res, next) => {
-    Promise.resolve(fn(req, res, next)).catch(next)
-  }
+const asyncMiddleware = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch(next)
+}
 
 module.exports = function (app) {
   // *** Development tools ***
@@ -69,7 +68,9 @@ module.exports = function (app) {
   app.get('/_500', asyncMiddleware(require('./trigger-error')))
 
   // *** Preparation for render-page ***
-  app.use(asyncMiddleware(require('./contextualizers/enterprise-release-notes')))
+  app.use(
+    asyncMiddleware(require('./contextualizers/enterprise-release-notes'))
+  )
   app.use(require('./contextualizers/graphql'))
   app.use(require('./contextualizers/rest'))
   app.use(require('./contextualizers/webhooks'))

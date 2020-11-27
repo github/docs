@@ -54,7 +54,12 @@ const relativeArticleLinkRegex = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?
 //  - [Node.js](https://nodejs.org/en/)
 //  - etc.
 //
-const languageLinkRegex = new RegExp(`(?=^|[^\\]]\\s*)\\[[^\\]]+\\](?::\\n?[ \\t]+|\\s*\\()(?:(?:https?://(?:help|docs|developer)\\.github\\.com)?/(?:${languageCodes.join('|')})(?:/[^)\\s]*)?)(?:\\)|\\s+|$)`, 'gm')
+const languageLinkRegex = new RegExp(
+  `(?=^|[^\\]]\\s*)\\[[^\\]]+\\](?::\\n?[ \\t]+|\\s*\\()(?:(?:https?://(?:help|docs|developer)\\.github\\.com)?/(?:${languageCodes.join(
+    '|'
+  )})(?:/[^)\\s]*)?)(?:\\)|\\s+|$)`,
+  'gm'
+)
 
 // Things matched by this RegExp:
 //  - [link text](/enterprise/2.19/admin/blah)
@@ -95,12 +100,17 @@ const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 
 const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
-const languageLinkErrorText = 'Found article links with hard-coded language codes:'
-const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
+const languageLinkErrorText =
+  'Found article links with hard-coded language codes:'
+const versionLinkErrorText =
+  'Found article links with hard-coded version numbers:'
 const domainLinkErrorText = 'Found article links with hard-coded domain names:'
-const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
-const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
-const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
+const oldVariableErrorText =
+  'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
+const oldOcticonErrorText =
+  'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
+const oldExtendedMarkdownErrorText =
+  'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 
 describe('lint-files', () => {
   const mdWalkOptions = {
@@ -111,12 +121,22 @@ describe('lint-files', () => {
   }
 
   const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
-  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
-  const contentMarkdownTuples = zip(contentMarkdownRelPaths, contentMarkdownAbsPaths)
+  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map((p) =>
+    slash(path.relative(rootDir, p))
+  )
+  const contentMarkdownTuples = zip(
+    contentMarkdownRelPaths,
+    contentMarkdownAbsPaths
+  )
 
   const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
-  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
-  const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
+  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map((p) =>
+    slash(path.relative(rootDir, p))
+  )
+  const reusableMarkdownTuples = zip(
+    reusableMarkdownRelPaths,
+    reusableMarkdownAbsPaths
+  )
 
   describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
     'in "%s"',
@@ -128,35 +148,60 @@ describe('lint-files', () => {
       })
 
       test('relative URLs must start with "/"', async () => {
-        const initialMatches = (content.match(relativeArticleLinkRegex) || [])
+        const initialMatches = content.match(relativeArticleLinkRegex) || []
 
         // Filter out some very specific false positive matches
-        const matches = initialMatches.filter(match => {
-          if (markdownRelPath === 'content/github/enforcing-best-practices-with-github-policies/overview.md') {
+        const matches = initialMatches.filter((match) => {
+          if (
+            markdownRelPath ===
+            'content/github/enforcing-best-practices-with-github-policies/overview.md'
+          ) {
             if (match === '[A-Z]([a-z]|-)') {
               return false
             }
-          } else if (markdownRelPath === 'content/github/enforcing-best-practices-with-github-policies/constraints.md') {
+          } else if (
+            markdownRelPath ===
+            'content/github/enforcing-best-practices-with-github-policies/constraints.md'
+          ) {
             if (match === '[a-z]([a-z]|-)') {
               return false
             }
-          } else if (markdownRelPath === 'content/github/building-a-strong-community/editing-wiki-content.md') {
+          } else if (
+            markdownRelPath ===
+            'content/github/building-a-strong-community/editing-wiki-content.md'
+          ) {
             if (match === '[Link Text](full-URL-of-wiki-page)') {
               return false
             }
-          } else if (markdownRelPath === 'content/admin/configuration/configuring-email-for-notifications.md') {
+          } else if (
+            markdownRelPath ===
+            'content/admin/configuration/configuring-email-for-notifications.md'
+          ) {
             if (/^\[\d+\]: (?:connect|disconnect|[0-9A-F]+:)\s*$/.test(match)) {
               return false
             }
-          } else if (markdownRelPath === 'content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md') {
-            if (/^\[\d+\]: (?:Starting|Started|√|\d{4}-\d{2}-\d{2})\s*$/.test(match)) {
+          } else if (
+            markdownRelPath ===
+            'content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md'
+          ) {
+            if (
+              /^\[\d+\]: (?:Starting|Started|√|\d{4}-\d{2}-\d{2})\s*$/.test(
+                match
+              )
+            ) {
               return false
             }
-          } else if (markdownRelPath === 'content/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning.md') {
+          } else if (
+            markdownRelPath ===
+            'content/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning.md'
+          ) {
             if (/^\[(?:here|ruleIndex|ruleID)\]\(\d+\)\s*$/.test(match)) {
               return false
             }
-          } else if (markdownRelPath === 'content/github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository.md') {
+          } else if (
+            markdownRelPath ===
+            'content/github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository.md'
+          ) {
             if (match === '[DATE]: [FEATURE ') {
               return false
             }
@@ -167,30 +212,41 @@ describe('lint-files', () => {
             ) {
               return false
             }
-          } else if (markdownRelPath === 'data/reusables/repositories/relative-links.md') {
-            if (match === '[Contribution guidelines for this project](docs/CONTRIBUTING.md)') {
+          } else if (
+            markdownRelPath === 'data/reusables/repositories/relative-links.md'
+          ) {
+            if (
+              match ===
+              '[Contribution guidelines for this project](docs/CONTRIBUTING.md)'
+            ) {
               return false
             }
           }
           return true
         })
 
-        const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
+        const errorMessage = formatLinkError(
+          relativeArticleLinkErrorText,
+          matches
+        )
         expect(matches.length, errorMessage).toBe(0)
       })
 
       test('URLs must not contain a hard-coded language code', async () => {
-        const matches = (content.match(languageLinkRegex) || [])
+        const matches = content.match(languageLinkRegex) || []
         const errorMessage = formatLinkError(languageLinkErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
 
       test('URLs must not contain a hard-coded version number', async () => {
-        const initialMatches = (content.match(versionLinkRegEx) || [])
+        const initialMatches = content.match(versionLinkRegEx) || []
 
         // Filter out some very specific false positive matches
-        const matches = initialMatches.filter(match => {
-          if (markdownRelPath === 'content/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md') {
+        const matches = initialMatches.filter((match) => {
+          if (
+            markdownRelPath ===
+            'content/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md'
+          ) {
             return false
           }
           return true
@@ -201,33 +257,38 @@ describe('lint-files', () => {
       })
 
       test('URLs must not contain a hard-coded domain name', async () => {
-        const matches = (content.match(domainLinkRegex) || [])
+        const matches = content.match(domainLinkRegex) || []
         const errorMessage = formatLinkError(domainLinkErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
 
       test('does not use old site.data variable syntax', async () => {
-        const matches = (content.match(oldVariableRegex) || [])
-        const matchesWithExample = matches.map(match => {
-          const example = match
-            .replace(/{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g, '{% data $1 %}')
+        const matches = content.match(oldVariableRegex) || []
+        const matchesWithExample = matches.map((match) => {
+          const example = match.replace(
+            /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
+            '{% data $1 %}'
+          )
           return `${match} => ${example}`
         })
-        const errorMessage = formatLinkError(oldVariableErrorText, matchesWithExample)
+        const errorMessage = formatLinkError(
+          oldVariableErrorText,
+          matchesWithExample
+        )
         expect(matches.length, errorMessage).toBe(0)
       })
 
       test('does not use old octicon variable syntax', async () => {
-        const matches = (content.match(oldOcticonRegex) || [])
+        const matches = content.match(oldOcticonRegex) || []
         const errorMessage = formatLinkError(oldOcticonErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
 
       test('does not use old extended markdown syntax', async () => {
-        Object.keys(tags).forEach(tag => {
+        Object.keys(tags).forEach((tag) => {
           const reg = new RegExp(`{{\\s*?[#|/]${tag}`, 'g')
           if (reg.test(content)) {
-            const matches = (content.match(oldExtendedMarkdownRegex)) || []
+            const matches = content.match(oldExtendedMarkdownRegex) || []
             const tagMessage = oldExtendedMarkdownErrorText
               .replace('{{#note}}', `{{#${tag}}}`)
               .replace('{% note %}', `{% ${tag} %}`)
@@ -248,135 +309,152 @@ describe('lint-files', () => {
   }
 
   const variableYamlAbsPaths = walk(variablesDir, yamlWalkOptions).sort()
-  const variableYamlRelPaths = variableYamlAbsPaths.map(p => path.relative(rootDir, p))
+  const variableYamlRelPaths = variableYamlAbsPaths.map((p) =>
+    path.relative(rootDir, p)
+  )
   const variableYamlTuples = zip(variableYamlRelPaths, variableYamlAbsPaths)
 
-  describe.each(variableYamlTuples)(
-    'in "%s"',
-    (yamlRelPath, yamlAbsPath) => {
-      let dictionary
+  describe.each(variableYamlTuples)('in "%s"', (yamlRelPath, yamlAbsPath) => {
+    let dictionary
 
-      beforeAll(async () => {
-        const fileContents = await fs.promises.readFile(yamlAbsPath, 'utf8')
-        dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
-      })
+    beforeAll(async () => {
+      const fileContents = await fs.promises.readFile(yamlAbsPath, 'utf8')
+      dictionary = yaml.safeLoad(fileContents, { filename: yamlRelPath })
+    })
 
-      test('relative URLs must start with "/"', async () => {
-        const matches = []
+    test('relative URLs must start with "/"', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(relativeArticleLinkRegex) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(relativeArticleLinkRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(relativeArticleLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(
+        relativeArticleLinkErrorText,
+        matches
+      )
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('URLs must not contain a hard-coded language code', async () => {
-        const matches = []
+    test('URLs must not contain a hard-coded language code', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(languageLinkRegex) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(languageLinkRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(languageLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(languageLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('URLs must not contain a hard-coded version number', async () => {
-        const matches = []
+    test('URLs must not contain a hard-coded version number', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(versionLinkRegEx) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(versionLinkRegEx) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(versionLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(versionLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('URLs must not contain a hard-coded domain name', async () => {
-        const matches = []
+    test('URLs must not contain a hard-coded domain name', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(domainLinkRegex) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(domainLinkRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(domainLinkErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(domainLinkErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('does not use old site.data variable syntax', async () => {
-        const matches = []
+    test('does not use old site.data variable syntax', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(oldVariableRegex) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => {
-              const example = match
-                .replace(/{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g, '{% data $1 %}')
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(oldVariableRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(
+            ...valMatches.map((match) => {
+              const example = match.replace(
+                /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
+                '{% data $1 %}'
+              )
               return `Key "${key}": ${match} => ${example}`
-            }))
-          }
+            })
+          )
         }
+      }
 
-        const errorMessage = formatLinkError(oldVariableErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(oldVariableErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('does not use old octicon variable syntax', async () => {
-        const matches = []
+    test('does not use old octicon variable syntax', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(oldOcticonRegex) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(oldOcticonRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(oldOcticonErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
+      const errorMessage = formatLinkError(oldOcticonErrorText, matches)
+      expect(matches.length, errorMessage).toBe(0)
+    })
 
-      test('does not use old extended markdown syntax', async () => {
-        const matches = []
+    test('does not use old extended markdown syntax', async () => {
+      const matches = []
 
-        for (const [key, content] of Object.entries(dictionary)) {
-          if (typeof content !== 'string') continue
-          const valMatches = (content.match(oldExtendedMarkdownRegex) || [])
-          if (valMatches.length > 0) {
-            matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-          }
+      for (const [key, content] of Object.entries(dictionary)) {
+        if (typeof content !== 'string') continue
+        const valMatches = content.match(oldExtendedMarkdownRegex) || []
+        if (valMatches.length > 0) {
+          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
         }
+      }
 
-        const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
-        expect(matches.length, errorMessage).toBe(0)
-      })
-    }
-  )
+      const errorMessage = formatLinkError(
+        oldExtendedMarkdownErrorText,
+        matches
+      )
+      expect(matches.length, errorMessage).toBe(0)
+    })
+  })
 
   // GHES release notes
   const ghesReleaseNotesDir = path.join(__dirname, '../../data/release-notes')
-  const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
-  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map(p => path.relative(rootDir, p))
-  const ghesReleaseNotesYamlTuples = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
+  const ghesReleaseNotesYamlAbsPaths = walk(
+    ghesReleaseNotesDir,
+    yamlWalkOptions
+  ).sort()
+  const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map((p) =>
+    path.relative(rootDir, p)
+  )
+  const ghesReleaseNotesYamlTuples = zip(
+    ghesReleaseNotesYamlRelPaths,
+    ghesReleaseNotesYamlAbsPaths
+  )
 
   if (ghesReleaseNotesYamlTuples.length > 0) {
     describe.each(ghesReleaseNotesYamlTuples)(
@@ -390,8 +468,16 @@ describe('lint-files', () => {
         })
 
         it('matches the schema', () => {
-          const { errors } = revalidator.validate(dictionary, ghesReleaseNotesSchema)
-          const errorMessage = errors.map(error => `- [${error.property}]: ${error.attribute}, ${error.message}`).join('\n')
+          const { errors } = revalidator.validate(
+            dictionary,
+            ghesReleaseNotesSchema
+          )
+          const errorMessage = errors
+            .map(
+              (error) =>
+                `- [${error.property}]: ${error.attribute}, ${error.message}`
+            )
+            .join('\n')
           expect(errors.length, errorMessage).toBe(0)
         })
       }
@@ -399,6 +485,6 @@ describe('lint-files', () => {
   }
 })
 
-function formatLinkError (message, links) {
+function formatLinkError(message, links) {
   return `${message}\n  - ${links.join('\n  - ')}`
 }

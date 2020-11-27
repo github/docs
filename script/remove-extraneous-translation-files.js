@@ -13,10 +13,14 @@ const findExtraneousFiles = require('../lib/find-extraneous-translation-files')
 
 main()
 
-async function main () {
+async function main() {
   const files = findExtraneousFiles()
-  console.log(`Found ${files.length} extraneous translation ${files.length === 1 ? 'file' : 'files'}\n\n`)
-  files.forEach(file => {
+  console.log(
+    `Found ${files.length} extraneous translation ${
+      files.length === 1 ? 'file' : 'files'
+    }\n\n`
+  )
+  files.forEach((file) => {
     console.log(file)
     fs.unlinkSync(file)
   })

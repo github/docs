@@ -17,7 +17,9 @@ const prerenderObjects = require('./utils/prerender-objects')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
-  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
+  console.error(
+    'Error! You must have a GITHUB_TOKEN set in an .env file to run this script.'
+  )
   process.exit(1)
 }
 
@@ -31,13 +33,16 @@ try {
 
 // TODO this step is only required as long as we support GHE versions *OLDER THAN* 2.21
 // as soon as 2.20 is deprecated on 2021-02-11, we can remove all graphql-ruby filtering
-const removeHiddenMembersScript = path.join(__dirname, './utils/remove-hidden-schema-members.rb')
+const removeHiddenMembersScript = path.join(
+  __dirname,
+  './utils/remove-hidden-schema-members.rb'
+)
 
 const versionsToBuild = Object.keys(allVersions)
 
 main()
 
-async function main () {
+async function main() {
   const previewsJson = {}
   const upcomingChangesJson = {}
   const prerenderedObjects = {}
@@ -51,15 +56,25 @@ async function main () {
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
-    const safeForPublicPreviews = yaml.safeLoad(await getRemoteRawContent(previewsPath, graphqlVersion))
+    const safeForPublicPreviews = yaml.safeLoad(
+      await getRemoteRawContent(previewsPath, graphqlVersion)
+    )
     updateFile(previewsPath, yaml.safeDump(safeForPublicPreviews))
     previewsJson[graphqlVersion] = processPreviews(safeForPublicPreviews)
 
     // 2. UPDATE UPCOMING CHANGES
-    const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
-    const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
+    const upcomingChangesPath = getDataFilepath(
+      'upcomingChanges',
+      graphqlVersion
+    )
+    const safeForPublicChanges = await getRemoteRawContent(
+      upcomingChangesPath,
+      graphqlVersion
+    )
     updateFile(upcomingChangesPath, safeForPublicChanges)
-    upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
+    upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(
+      safeForPublicChanges
+    )
 
     // 3. UPDATE SCHEMAS
     // note: schemas live in separate files per version
@@ -67,24 +82,38 @@ async function main () {
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
     const safeForPublicSchema = removeHiddenMembers(schemaPath, latestSchema)
     updateFile(schemaPath, safeForPublicSchema)
-    const schemaJsonPerVersion = await processSchemas(safeForPublicSchema, safeForPublicPreviews)
-    updateStaticFile(schemaJsonPerVersion, path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`))
+    const schemaJsonPerVersion = await processSchemas(
+      safeForPublicSchema,
+      safeForPublicPreviews
+    )
+    updateStaticFile(
+      schemaJsonPerVersion,
+      path.join(graphqlStaticDir, `schema-${graphqlVersion}.json`)
+    )
 
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion)
+    prerenderedObjects[graphqlVersion] = await prerenderObjects(
+      schemaJsonPerVersion
+    )
   }
 
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
-  updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
-  updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+  updateStaticFile(
+    upcomingChangesJson,
+    path.join(graphqlStaticDir, 'upcoming-changes.json')
+  )
+  updateStaticFile(
+    prerenderedObjects,
+    path.join(graphqlStaticDir, 'prerendered-objects.json')
+  )
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')
 }
 
 // get latest from github/github
-async function getRemoteRawContent (filepath, graphqlVersion) {
+async function getRemoteRawContent(filepath, graphqlVersion) {
   const options = {
     owner: 'github',
     repo: 'github'
@@ -100,7 +129,7 @@ async function getRemoteRawContent (filepath, graphqlVersion) {
 }
 
 // find the relevant filepath in script/graphql/utils/data-filenames.json
-function getDataFilepath (id, graphqlVersion) {
+function getDataFilepath(id, graphqlVersion) {
   const versionType = getVersionType(graphqlVersion)
 
   // for example, dataFilenames['schema']['ghes'] = schema.docs-enterprise.graphql
@@ -113,7 +142,7 @@ function getDataFilepath (id, graphqlVersion) {
   return path.join(graphqlDataDir, dataSubdir, filename)
 }
 
-async function setBranchAsRef (options, graphqlVersion, branch = false) {
+async function setBranchAsRef(options, graphqlVersion, branch = false) {
   const versionType = getVersionType(graphqlVersion)
   const defaultBranch = 'master'
 
@@ -142,27 +171,29 @@ async function setBranchAsRef (options, graphqlVersion, branch = false) {
 
 // given a GraphQL version like `ghes-2.22`, return `ghes`;
 // given a GraphQL version like `ghae` or `dotcom`, return as is
-function getVersionType (graphqlVersion) {
+function getVersionType(graphqlVersion) {
   return graphqlVersion.split('-')[0]
 }
 
-function updateFile (filepath, content) {
+function updateFile(filepath, content) {
   console.log(`fetching latest data to ${filepath}`)
   mkdirp(path.dirname(filepath))
   fs.writeFileSync(filepath, content, 'utf8')
 }
 
-function updateStaticFile (json, filepath) {
+function updateStaticFile(json, filepath) {
   const jsonString = JSON.stringify(json, null, 2)
   updateFile(filepath, jsonString)
 }
 
 // run Ruby script to remove featureFlagged directives and other hidden members
-function removeHiddenMembers (schemaPath, latestSchema) {
+function removeHiddenMembers(schemaPath, latestSchema) {
   // have to write a temp file because the schema is too big to store in memory
   const tempSchemaFilePath = `${schemaPath}-TEMP`
   fs.writeFileSync(tempSchemaFilePath, latestSchema)
-  const remoteClean = execSync(`${removeHiddenMembersScript} ${tempSchemaFilePath}`).toString()
+  const remoteClean = execSync(
+    `${removeHiddenMembersScript} ${tempSchemaFilePath}`
+  ).toString()
   fs.unlinkSync(tempSchemaFilePath)
 
   return remoteClean

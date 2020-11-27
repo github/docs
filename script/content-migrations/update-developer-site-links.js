@@ -10,19 +10,25 @@ const loadRedirects = require('../../lib/redirects/precompile')
 const allVersions = Object.keys(require('../../lib/all-versions'))
 
 // get all content and data files
-const files = ['content', 'data'].map(dir => {
-  return walk(path.join(process.cwd(), dir), { includeBasePath: true, directories: false })
-    .filter(file => file.endsWith('.md') && !file.endsWith('README.md'))
-}).flat()
+const files = ['content', 'data']
+  .map((dir) => {
+    return walk(path.join(process.cwd(), dir), {
+      includeBasePath: true,
+      directories: false
+    }).filter((file) => file.endsWith('.md') && !file.endsWith('README.md'))
+  })
+  .flat()
 
 // match [foo](/v3) and [bar](/v4) Markdown links
 const linkRegex = /\(\/v[34].*?\)/g
 
 main()
 
-async function main () {
+async function main() {
   // we need to load the pages so we can get the redirects
-  const englishPages = (await loadPages()).filter(p => p.languageCode === 'en')
+  const englishPages = (await loadPages()).filter(
+    (p) => p.languageCode === 'en'
+  )
   const redirects = await loadRedirects(englishPages)
 
   for (const file of files) {
@@ -33,8 +39,9 @@ async function main () {
 
     // remove parentheses: (/v3) -> /v3
     // also remove trailing slash before closing parens if there is one
-    const devLinks = links
-      .map(link => link.replace('(', '').replace(/\/?\)/, ''))
+    const devLinks = links.map((link) =>
+      link.replace('(', '').replace(/\/?\)/, '')
+    )
 
     let newContent = content
 
@@ -64,11 +71,16 @@ async function main () {
 
       // first replace the old link with the new link
       // then remove any trailing slashes
-      newContent = newContent
-        .replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
+      newContent = newContent.replace(
+        new RegExp(`${devLink}/?(?=\\))`),
+        newLink
+      )
     }
 
-    fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+    fs.writeFileSync(
+      file,
+      frontmatter.stringify(newContent, data, { lineWidth: 10000 })
+    )
   }
   console.log('Done!')
 }

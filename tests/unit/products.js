@@ -11,7 +11,7 @@ describe('products module', () => {
   })
 
   test('every product is valid', () => {
-    Object.values(products).forEach(product => {
+    Object.values(products).forEach((product) => {
       const { valid, errors } = revalidator.validate(product, schema)
       const expectation = JSON.stringify({ product, errors }, null, 2)
       expect(valid, expectation).toBe(true)
@@ -24,18 +24,36 @@ describe('mobile-only products nav', () => {
 
   test('renders current product on various product pages for each product', async () => {
     // Note the unversioned homepage at `/` does not have a product selected in the mobile dropdown
-    expect((await getDOM('/github'))('#current-product').text().trim()).toBe('GitHub.com')
+    expect((await getDOM('/github'))('#current-product').text().trim()).toBe(
+      'GitHub.com'
+    )
 
     // Enterprise server
-    expect((await getDOM('/en/enterprise/admin'))('#current-product').text().trim()).toBe('Enterprise Administrators')
-    expect((await getDOM('/en/enterprise/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address'))('#current-product').text().trim()).toBe('GitHub.com')
+    expect(
+      (await getDOM('/en/enterprise/admin'))('#current-product').text().trim()
+    ).toBe('Enterprise Administrators')
+    expect(
+      (
+        await getDOM(
+          '/en/enterprise/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address'
+        )
+      )('#current-product')
+        .text()
+        .trim()
+    ).toBe('GitHub.com')
 
-    expect((await getDOM('/desktop'))('#current-product').text().trim()).toBe('GitHub Desktop')
+    expect((await getDOM('/desktop'))('#current-product').text().trim()).toBe(
+      'GitHub Desktop'
+    )
 
-    expect((await getDOM('/actions'))('#current-product').text().trim()).toBe('GitHub Actions')
+    expect((await getDOM('/actions'))('#current-product').text().trim()).toBe(
+      'GitHub Actions'
+    )
 
     // localized
-    expect((await getDOM('/ja/desktop'))('#current-product').text().trim()).toBe('GitHub Desktop')
+    expect(
+      (await getDOM('/ja/desktop'))('#current-product').text().trim()
+    ).toBe('GitHub Desktop')
   })
 })
 
@@ -53,7 +71,9 @@ describe('products middleware', () => {
   })
 
   test('adds res.context.currentProduct object', async () => {
-    const currentProduct = await getJSON(`/en/${nonEnterpriseDefaultVersion}/github?json=currentProduct`)
+    const currentProduct = await getJSON(
+      `/en/${nonEnterpriseDefaultVersion}/github?json=currentProduct`
+    )
     expect(currentProduct).toBe('github')
   })
 })

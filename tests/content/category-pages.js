@@ -25,130 +25,178 @@ describe('category pages', () => {
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
-    ignore: ['{rest,graphql,developers}/**', 'enterprise/index.md', '**/articles/**'],
+    ignore: [
+      '{rest,graphql,developers}/**',
+      'enterprise/index.md',
+      '**/articles/**'
+    ],
     directories: false,
     includeBasePath: true
   }
 
   const productIndices = walk(contentDir, walkOptions)
-  const productNames = productIndices.map(index => path.basename(path.dirname(index)))
+  const productNames = productIndices.map((index) =>
+    path.basename(path.dirname(index))
+  )
 
   // Combine those to fit Jest's `.each` usage
   const productTuples = zip(productNames, productIndices)
 
-  describe.each(productTuples)(
-    'product "%s"',
-    (productName, productIndex) => {
-      // Get links included in product index page.
-      // Each link corresponds to a product subdirectory (category).
-      // Example: "getting-started-with-github"
-      const contents = fs.readFileSync(productIndex, 'utf8')
-      const { content } = matter(contents)
+  describe.each(productTuples)('product "%s"', (productName, productIndex) => {
+    // Get links included in product index page.
+    // Each link corresponds to a product subdirectory (category).
+    // Example: "getting-started-with-github"
+    const contents = fs.readFileSync(productIndex, 'utf8')
+    const { content } = matter(contents)
 
-      const categoryLinks = getLinks(content)
-        // HACK: I'm not really sure why this file is a one-off but it is...
-        .filter(link => !(productName === 'actions' && link === 'quickstart'))
+    const categoryLinks = getLinks(content)
+      // HACK: I'm not really sure why this file is a one-off but it is...
+      .filter((link) => !(productName === 'actions' && link === 'quickstart'))
 
-      // Map those to the Markdown file paths that represent that category page index
-      const productDir = path.dirname(productIndex)
-      const categoryPaths = categoryLinks.map(link => getPath(productDir, link, 'index'))
+    // Map those to the Markdown file paths that represent that category page index
+    const productDir = path.dirname(productIndex)
+    const categoryPaths = categoryLinks.map((link) =>
+      getPath(productDir, link, 'index')
+    )
 
-      // Make them relative for nicer display in test names
-      const categoryRelativePaths = categoryPaths.map(p => path.relative(contentDir, p))
+    // Make them relative for nicer display in test names
+    const categoryRelativePaths = categoryPaths.map((p) =>
+      path.relative(contentDir, p)
+    )
 
-      // Combine those to fit Jest's `.each` usage
-      const categoryTuples = zip(categoryRelativePaths, categoryPaths, categoryLinks)
+    // Combine those to fit Jest's `.each` usage
+    const categoryTuples = zip(
+      categoryRelativePaths,
+      categoryPaths,
+      categoryLinks
+    )
 
-      describe.each(categoryTuples)(
-        'category index "%s"',
-        (indexRelPath, indexAbsPath, indexLink) => {
-          let publishedArticlePaths, availableArticlePaths, indexTitle
+    describe.each(categoryTuples)(
+      'category index "%s"',
+      (indexRelPath, indexAbsPath, indexLink) => {
+        let publishedArticlePaths, availableArticlePaths, indexTitle
 
-          beforeAll(async () => {
-            const categoryDir = path.dirname(indexAbsPath)
+        beforeAll(async () => {
+          const categoryDir = path.dirname(indexAbsPath)
 
-            // Get child article links included in each subdir's index page
-            const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
-            const { data, content } = matter(indexContents)
-            const articleLinks = getLinks(content)
+          // Get child article links included in each subdir's index page
+          const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
+          const { data, content } = matter(indexContents)
+          const articleLinks = getLinks(content)
 
-            // Save the index title for later testing
-            indexTitle = await renderContent(data.title, { site: siteData }, { textOnly: true })
+          // Save the index title for later testing
+          indexTitle = await renderContent(
+            data.title,
+            { site: siteData },
+            { textOnly: true }
+          )
 
-            publishedArticlePaths = (await Promise.all(
+          publishedArticlePaths = (
+            await Promise.all(
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await fs.promises.readFile(
+                  articlePath,
+                  'utf8'
+                )
                 const { data } = matter(articleContents)
 
                 // Do not include map topics in list of published articles
                 if (data.mapTopic || data.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
-                return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
+                return `/${path
+                  .relative(categoryDir, articlePath)
+                  .replace(/\.md$/, '')}`
               })
-            )).filter(Boolean)
+            )
+          ).filter(Boolean)
 
-            // Get all of the child articles that exist in the subdir
-            const childEntries = await fs.promises.readdir(categoryDir, { withFileTypes: true })
-            const childFileEntries = childEntries.filter(ent => ent.isFile() && ent.name !== 'index.md')
-            const childFilePaths = childFileEntries.map(ent => path.join(categoryDir, ent.name))
+          // Get all of the child articles that exist in the subdir
+          const childEntries = await fs.promises.readdir(categoryDir, {
+            withFileTypes: true
+          })
+          const childFileEntries = childEntries.filter(
+            (ent) => ent.isFile() && ent.name !== 'index.md'
+          )
+          const childFilePaths = childFileEntries.map((ent) =>
+            path.join(categoryDir, ent.name)
+          )
 
-            availableArticlePaths = (await Promise.all(
+          availableArticlePaths = (
+            await Promise.all(
               childFilePaths.map(async (articlePath) => {
-                const articleContents = await fs.promises.readFile(articlePath, 'utf8')
+                const articleContents = await fs.promises.readFile(
+                  articlePath,
+                  'utf8'
+                )
                 const { data } = matter(articleContents)
 
                 // Do not include map topics nor hidden pages in list of available articles
                 if (data.mapTopic || data.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
-                return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
+                return `/${path
+                  .relative(categoryDir, articlePath)
+                  .replace(/\.md$/, '')}`
               })
-            )).filter(Boolean)
-          })
+            )
+          ).filter(Boolean)
+        })
 
-          test('contains all expected articles', () => {
-            const missingArticlePaths = difference(availableArticlePaths, publishedArticlePaths)
-            const errorMessage = formatArticleError('Missing article links:', missingArticlePaths)
-            expect(missingArticlePaths.length, errorMessage).toBe(0)
-          })
+        test('contains all expected articles', () => {
+          const missingArticlePaths = difference(
+            availableArticlePaths,
+            publishedArticlePaths
+          )
+          const errorMessage = formatArticleError(
+            'Missing article links:',
+            missingArticlePaths
+          )
+          expect(missingArticlePaths.length, errorMessage).toBe(0)
+        })
 
-          test('does not any unexpected articles', () => {
-            const unexpectedArticles = difference(publishedArticlePaths, availableArticlePaths)
-            const errorMessage = formatArticleError('Unexpected article links:', unexpectedArticles)
-            expect(unexpectedArticles.length, errorMessage).toBe(0)
-          })
+        test('does not any unexpected articles', () => {
+          const unexpectedArticles = difference(
+            publishedArticlePaths,
+            availableArticlePaths
+          )
+          const errorMessage = formatArticleError(
+            'Unexpected article links:',
+            unexpectedArticles
+          )
+          expect(unexpectedArticles.length, errorMessage).toBe(0)
+        })
 
-          // TODO: Unskip this test once the related script has been executed
-          test.skip('slugified title matches parent directory name', () => {
-            // Get the parent directory name
-            const categoryDirPath = path.dirname(indexAbsPath)
-            const categoryDirName = path.basename(categoryDirPath)
+        // TODO: Unskip this test once the related script has been executed
+        test.skip('slugified title matches parent directory name', () => {
+          // Get the parent directory name
+          const categoryDirPath = path.dirname(indexAbsPath)
+          const categoryDirName = path.basename(categoryDirPath)
 
-            slugger.reset()
-            const expectedSlug = slugger.slug(entities.decode(indexTitle))
+          slugger.reset()
+          const expectedSlug = slugger.slug(entities.decode(indexTitle))
 
-            // Check if the directory name matches the expected slug
-            expect(categoryDirName).toBe(expectedSlug)
+          // Check if the directory name matches the expected slug
+          expect(categoryDirName).toBe(expectedSlug)
 
-            // If this fails, execute "script/reconcile-category-dirs-with-ids.js"
-          })
-        }
-      )
-    }
-  )
+          // If this fails, execute "script/reconcile-category-dirs-with-ids.js"
+        })
+      }
+    )
+  })
 })
 
-function getLinks (contents) {
-  return contents.match(linkRegex)
-    .map(link => link.match(linkRegex.source)[1])
+function getLinks(contents) {
+  return contents
+    .match(linkRegex)
+    .map((link) => link.match(linkRegex.source)[1])
 }
 
-function getPath (productDir, link, filename) {
+function getPath(productDir, link, filename) {
   return path.join(productDir, link, `${filename}.md`)
 }
 
-function formatArticleError (message, articles) {
+function formatArticleError(message, articles) {
   return `${message}\n  - ${articles.join('\n  - ')}`
 }

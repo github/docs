@@ -13,21 +13,24 @@ module.exports = async (req, res, next) => {
   if (
     !req.headers ||
     !req.headers['early-access-shared-secret'] ||
-    req.headers['early-access-shared-secret'] !== process.env.EARLY_ACCESS_SHARED_SECRET
+    req.headers['early-access-shared-secret'] !==
+      process.env.EARLY_ACCESS_SHARED_SECRET
   ) {
     return res.status(401).send({ error: '401 Unauthorized' })
   }
 
-  paths = paths || chain(req.context.pages)
-    .filter(page => page.hidden && page.languageCode === 'en')
-    .map(page => {
-      const permalinks = page.permalinks.map(permalink => permalink.href)
-      const redirects = Object.keys(page.redirects)
-      return permalinks.concat(redirects)
-    })
-    .flatten()
-    .uniq()
-    .value()
+  paths =
+    paths ||
+    chain(req.context.pages)
+      .filter((page) => page.hidden && page.languageCode === 'en')
+      .map((page) => {
+        const permalinks = page.permalinks.map((permalink) => permalink.href)
+        const redirects = Object.keys(page.redirects)
+        return permalinks.concat(redirects)
+      })
+      .flatten()
+      .uniq()
+      .value()
 
   return res.json(paths)
 }

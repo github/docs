@@ -10,8 +10,9 @@ const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-developer-links')
 const allVersions = require('../../lib/all-versions')
-const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
-  .filter(version => version.startsWith('enterprise-server@'))
+const enterpriseServerVersions = Object.keys(
+  require('../../lib/all-versions')
+).filter((version) => version.startsWith('enterprise-server@'))
 
 // schema-derived data to add to context object
 const rest = require('../../lib/rest')
@@ -47,8 +48,11 @@ describe('page rendering', () => {
     context.site = siteData[languageCode].site
     context.redirects = redirects
 
-    const developerPages = pages
-      .filter(page => page.relativePath.match(developerContentRegex) && page.languageCode === languageCode)
+    const developerPages = pages.filter(
+      (page) =>
+        page.relativePath.match(developerContentRegex) &&
+        page.languageCode === languageCode
+    )
 
     let checkedLinks = {}
     let checkedImages = {}
@@ -59,7 +63,10 @@ describe('page rendering', () => {
       const brokenLinksPerPage = {}
 
       // get an array of the pages product versions
-      const pageVersions = getApplicableVersions(page.versions, page.relativePath)
+      const pageVersions = getApplicableVersions(
+        page.versions,
+        page.relativePath
+      )
 
       for (const pageVersion of pageVersions) {
         // attach page-specific properties to context
@@ -68,7 +75,9 @@ describe('page rendering', () => {
         context.currentVersion = pageVersion
         context.enterpriseServerVersions = enterpriseServerVersions
 
-        const relevantPermalink = page.permalinks.find(permalink => permalink.pageVersion === pageVersion)
+        const relevantPermalink = page.permalinks.find(
+          (permalink) => permalink.pageVersion === pageVersion
+        )
 
         const graphqlVersion = allVersions[pageVersion].miscVersionName
 
@@ -77,7 +86,8 @@ describe('page rendering', () => {
           schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${graphqlVersion}`),
           previewsForCurrentVersion: previews[graphqlVersion],
           upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
-          prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
+          prerenderedObjectsForCurrentVersion:
+            prerenderedObjects[graphqlVersion],
           changelog
         }
 
@@ -88,7 +98,8 @@ describe('page rendering', () => {
           languageCode
         )
 
-        context.operationsForCurrentProduct = context.rest.operations[pageVersion] || []
+        context.operationsForCurrentProduct =
+          context.rest.operations[pageVersion] || []
 
         if (relevantPermalink.href.includes('rest/reference/')) {
           const docsPath = relevantPermalink.href
@@ -96,13 +107,17 @@ describe('page rendering', () => {
             .split('#')[0] // do not include #fragments
 
           // find all operations that with an operationID that matches the requested docs path
-          context.currentRestOperations = context.operationsForCurrentProduct
-            .filter(operation => operation.operationId.startsWith(docsPath))
+          context.currentRestOperations = context.operationsForCurrentProduct.filter(
+            (operation) => operation.operationId.startsWith(docsPath)
+          )
         }
 
         // collect elements of the page that may contain links
-        const pageContent = relevantPermalink.href.includes('graphql/reference/objects')
-          ? page.markdown + context.graphql.prerenderedObjectsForCurrentVersion.html
+        const pageContent = relevantPermalink.href.includes(
+          'graphql/reference/objects'
+        )
+          ? page.markdown +
+            context.graphql.prerenderedObjectsForCurrentVersion.html
           : page.intro + page.permissions + page.markdown
 
         // renderContent is much faster than page.render, even though we later have to run
@@ -111,20 +126,32 @@ describe('page rendering', () => {
         const $ = cheerio.load(pageHtml, { xmlMode: true })
 
         // check images
-        const { brokenImages: brokenImagesPerVersion, checkedImageCache } = await checkImages($, pageVersion, page.relativePath, checkedImages)
-        if (brokenImagesPerVersion.length) brokenImagesPerPage[pageVersion] = brokenImagesPerVersion
+        const {
+          brokenImages: brokenImagesPerVersion,
+          checkedImageCache
+        } = await checkImages($, pageVersion, page.relativePath, checkedImages)
+        if (brokenImagesPerVersion.length)
+          brokenImagesPerPage[pageVersion] = brokenImagesPerVersion
         checkedImages = checkedImageCache
 
         // check anchors and links
-        const { brokenLinks: brokenLinksPerVersion, checkedLinkCache } = await checkLinks($, page, context, pageVersion, checkedLinks)
-        if (brokenLinksPerVersion.anchors.length) brokenAnchorsPerPage[pageVersion] = brokenLinksPerVersion.anchors
-        if (brokenLinksPerVersion.links.length) brokenLinksPerPage[pageVersion] = brokenLinksPerVersion.links
+        const {
+          brokenLinks: brokenLinksPerVersion,
+          checkedLinkCache
+        } = await checkLinks($, page, context, pageVersion, checkedLinks)
+        if (brokenLinksPerVersion.anchors.length)
+          brokenAnchorsPerPage[pageVersion] = brokenLinksPerVersion.anchors
+        if (brokenLinksPerVersion.links.length)
+          brokenLinksPerPage[pageVersion] = brokenLinksPerVersion.links
         checkedLinks = checkedLinkCache
       }
 
-      if (Object.keys(brokenImagesPerPage).length) brokenImages[page.fullPath] = brokenImagesPerPage
-      if (Object.keys(brokenAnchorsPerPage).length) brokenAnchors[page.fullPath] = brokenAnchorsPerPage
-      if (Object.keys(brokenLinksPerPage).length) brokenLinks[page.fullPath] = brokenLinksPerPage
+      if (Object.keys(brokenImagesPerPage).length)
+        brokenImages[page.fullPath] = brokenImagesPerPage
+      if (Object.keys(brokenAnchorsPerPage).length)
+        brokenAnchors[page.fullPath] = brokenAnchorsPerPage
+      if (Object.keys(brokenLinksPerPage).length)
+        brokenLinks[page.fullPath] = brokenLinksPerPage
     }
 
     done()
@@ -132,26 +159,47 @@ describe('page rendering', () => {
 
   test('every page has image references that can be resolved', async () => {
     const numbrokenImages = getNumBrokenItems(brokenImages)
-    expect(numbrokenImages, `Found ${numbrokenImages} total broken images: ${JSON.stringify(brokenImages, null, 2)}`).toBe(0)
+    expect(
+      numbrokenImages,
+      `Found ${numbrokenImages} total broken images: ${JSON.stringify(
+        brokenImages,
+        null,
+        2
+      )}`
+    ).toBe(0)
   })
 
   test.skip('every page has links with anchors that can be resolved', async () => {
     const numbrokenAnchors = getNumBrokenItems(brokenAnchors)
-    expect(numbrokenAnchors, `Found ${numbrokenAnchors} total broken anchors: ${JSON.stringify(brokenAnchors, null, 2)}`).toBe(0)
+    expect(
+      numbrokenAnchors,
+      `Found ${numbrokenAnchors} total broken anchors: ${JSON.stringify(
+        brokenAnchors,
+        null,
+        2
+      )}`
+    ).toBe(0)
   })
 
   // disable anchor test til we resolve broken anchors
   test.skip('every page has links that can be resolved', async () => {
     const numbrokenLinks = getNumBrokenItems(brokenLinks)
-    expect(numbrokenLinks, `Found ${numbrokenLinks} total broken links: ${JSON.stringify(brokenLinks, null, 2)}`).toBe(0)
+    expect(
+      numbrokenLinks,
+      `Found ${numbrokenLinks} total broken links: ${JSON.stringify(
+        brokenLinks,
+        null,
+        2
+      )}`
+    ).toBe(0)
   })
 })
 
 // count all the nested items
-function getNumBrokenItems (items) {
+function getNumBrokenItems(items) {
   // filter for entries like this:
   // '/article-path-here.md.dotcom.1.broken link': '/en/articles/foo',
-  return Object.keys(flat(items))
-    .filter(key => last(key.split('.')).includes('broken'))
-    .length
+  return Object.keys(flat(items)).filter((key) =>
+    last(key.split('.')).includes('broken')
+  ).length
 }

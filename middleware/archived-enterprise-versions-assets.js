@@ -20,7 +20,9 @@ module.exports = async (req, res, next) => {
   const proxyPath = path.join('/', requestedVersion, assetPath)
 
   try {
-    const r = await got(`https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`)
+    const r = await got(
+      `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
+    )
     res.set('accept-ranges', 'bytes')
     res.set('content-type', r.headers['content-type'])
     res.set('content-length', r.headers['content-length'])

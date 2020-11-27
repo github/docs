@@ -11,12 +11,16 @@ const addRedirectToFrontmatter = require('../lib/redirects/add-redirect-to-front
 
 const contentDir = path.join(process.cwd(), 'content')
 
-const contentFiles = walk(contentDir, { includeBasePath: true, directories: false })
-  .filter(file => {
-    return file.endsWith('.md') &&
+const contentFiles = walk(contentDir, {
+  includeBasePath: true,
+  directories: false
+}).filter((file) => {
+  return (
+    file.endsWith('.md') &&
     !file.endsWith('index.md') &&
     !file.includes('README')
-  })
+  )
+})
 
 // [start-readme]
 //
@@ -33,7 +37,7 @@ if (process.platform.startsWith('win')) {
   process.exit()
 }
 
-contentFiles.forEach(oldFullPath => {
+contentFiles.forEach((oldFullPath) => {
   const { data, content } = frontmatter(fs.readFileSync(oldFullPath, 'utf8'))
 
   // skip pages with frontmatter flag
@@ -59,7 +63,9 @@ contentFiles.forEach(oldFullPath => {
   const oldContentPath = path.relative(process.cwd(), oldFullPath)
   const newContentPath = path.relative(process.cwd(), newFullPath)
 
-  const gitStatusOfFile = execSync(`git status --porcelain ${oldContentPath}`).toString()
+  const gitStatusOfFile = execSync(
+    `git status --porcelain ${oldContentPath}`
+  ).toString()
 
   // if file is untracked, do a regular mv; otherwise do a git mv
   if (gitStatusOfFile.includes('??')) {
@@ -70,7 +76,10 @@ contentFiles.forEach(oldFullPath => {
 
   // then add the old path to the redirect_from frontmatter
   // TODO fix path separators on Windows (e.g. \github\extending-github\about-webhooks)
-  const redirect = path.join('/', path.relative(contentDir, oldFullPath).replace(/.md$/, ''))
+  const redirect = path.join(
+    '/',
+    path.relative(contentDir, oldFullPath).replace(/.md$/, '')
+  )
   data.redirect_from = addRedirectToFrontmatter(data.redirect_from, redirect)
 
   // update the file

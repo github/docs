@@ -39,11 +39,16 @@ describe('algolia browser search', () => {
 
   it('sends the correct data to algolia for Enterprise Server', async () => {
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+    await newPage.goto(
+      'http://localhost:4001/ja/enterprise/2.22/admin/installation'
+    )
 
     await newPage.setRequestInterception(true)
-    newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+    newPage.on('request', (interceptedRequest) => {
+      if (
+        interceptedRequest.method() === 'POST' &&
+        /algolia/i.test(interceptedRequest.url())
+      ) {
         const data = JSON.parse(interceptedRequest.postData())
         const { indexName, params } = data.requests[0]
         const parsedParams = querystring.parse(params)
@@ -51,7 +56,9 @@ describe('algolia browser search', () => {
         expect(indexName).toBe('github-docs-2.22-ja')
         expect(analyticsTags).toHaveLength(2)
         // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+        expect(analyticsTags).toEqual(
+          expect.arrayContaining(['site:docs.github.com', 'env:production'])
+        )
       }
       interceptedRequest.continue()
     })
@@ -62,11 +69,16 @@ describe('algolia browser search', () => {
 
   it('sends the correct data to algolia for GHAE', async () => {
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
+    await newPage.goto(
+      'http://localhost:4001/en/github-ae@latest/admin/overview'
+    )
 
     await newPage.setRequestInterception(true)
-    newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+    newPage.on('request', (interceptedRequest) => {
+      if (
+        interceptedRequest.method() === 'POST' &&
+        /algolia/i.test(interceptedRequest.url())
+      ) {
         const data = JSON.parse(interceptedRequest.postData())
         const { indexName, params } = data.requests[0]
         const parsedParams = querystring.parse(params)
@@ -74,7 +86,9 @@ describe('algolia browser search', () => {
         expect(indexName).toBe('github-docs-ghae-en')
         expect(analyticsTags).toHaveLength(2)
         // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+        expect(analyticsTags).toEqual(
+          expect.arrayContaining(['site:docs.github.com', 'env:production'])
+        )
       }
       interceptedRequest.continue()
     })
@@ -118,11 +132,13 @@ describe('algolia browser search', () => {
 describe('helpfulness', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
-    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
+    await page.goto(
+      'http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions'
+    )
 
     // Track network requests
     await page.setRequestInterception(true)
-    page.on('request', request => {
+    page.on('request', (request) => {
       // Ignore GET requests
       if (!/\/events$/.test(request.url())) return request.continue()
       expect(request.method()).toMatch(/POST|PUT/)
@@ -153,12 +169,14 @@ describe('helpfulness', () => {
 
 describe('csrf meta', () => {
   it('should have a csrf-token meta tag on the page', async () => {
-    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
+    await page.goto(
+      'http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions'
+    )
     await page.waitForSelector('meta[name="csrf-token"]')
   })
 })
 
-async function getLocationObject (page) {
+async function getLocationObject(page) {
   const location = await page.evaluate(() => {
     return Promise.resolve(JSON.stringify(window.location, null, 2))
   })

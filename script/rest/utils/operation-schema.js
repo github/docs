@@ -1,7 +1,6 @@
 // This schema is used to validate each generated operation object at build time
 
 module.exports = {
-
   // Every operation must have these props
   required: [
     'verb',
@@ -15,7 +14,6 @@ module.exports = {
   ],
 
   properties: {
-
     // Properties from the source OpenAPI schema that this module depends on
     externalDocs: {
       description: 'The public documentation for the given operation',
@@ -52,18 +50,21 @@ module.exports = {
       minLength: 1
     },
     descriptionHTML: {
-      description: 'The rendered HTML version of the markdown `description` property',
+      description:
+        'The rendered HTML version of the markdown `description` property',
       type: 'string'
     },
     notes: {
       type: 'array'
     },
     slug: {
-      description: 'GitHub.com-style param-case property for use as a unique DOM id',
+      description:
+        'GitHub.com-style param-case property for use as a unique DOM id',
       type: 'string'
     },
     category: {
-      description: 'the `issues` in `/v3/issues/events/`; supports legacy developer site URLs',
+      description:
+        'the `issues` in `/v3/issues/events/`; supports legacy developer site URLs',
       type: 'string'
     },
     categoryLabel: {
@@ -71,7 +72,8 @@ module.exports = {
       type: 'string'
     },
     subcategory: {
-      description: 'the `events` in `/v3/issues/events/`; supports legacy developer site URLs',
+      description:
+        'the `events` in `/v3/issues/events/`; supports legacy developer site URLs',
       type: 'string'
     },
     subcategoryLabel: {

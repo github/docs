@@ -16,7 +16,7 @@ const glossary = yaml.safeLoad(fs.readFileSync(inputFile, 'utf8'))
 console.log(glossary)
 const external = []
 const internal = []
-glossary.forEach(term => {
+glossary.forEach((term) => {
   if (term.internal) {
     delete term.internal
     internal.push(term)

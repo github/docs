@@ -15,18 +15,23 @@ describe('hydro', () => {
       }
     })
       // Respond with a 200 and store the body we sent
-      .post('/').reply(200, (_, body) => { params = body })
+      .post('/')
+      .reply(200, (_, body) => {
+        params = body
+      })
   })
 
   describe('#publish', () => {
     it('publishes a single event to Hydro', async () => {
       await hydro.publish('event-name', { pizza: true })
       expect(params).toEqual({
-        events: [{
-          schema: 'event-name',
-          value: JSON.stringify({ pizza: true }),
-          cluster: 'potomac'
-        }]
+        events: [
+          {
+            schema: 'event-name',
+            value: JSON.stringify({ pizza: true }),
+            cluster: 'potomac'
+          }
+        ]
       })
     })
   })
@@ -39,15 +44,18 @@ describe('hydro', () => {
       ])
 
       expect(params).toEqual({
-        events: [{
-          schema: 'event-name',
-          value: JSON.stringify({ pizza: true }),
-          cluster: 'potomac'
-        }, {
-          schema: 'other-name',
-          value: JSON.stringify({ salad: false }),
-          cluster: 'potomac'
-        }]
+        events: [
+          {
+            schema: 'event-name',
+            value: JSON.stringify({ pizza: true }),
+            cluster: 'potomac'
+          },
+          {
+            schema: 'other-name',
+            value: JSON.stringify({ salad: false }),
+            cluster: 'potomac'
+          }
+        ]
       })
     })
   })

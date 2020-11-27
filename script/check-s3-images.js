@@ -7,7 +7,10 @@ const loadSiteData = require('../lib/site-data')
 const renderContent = require('../lib/render-content')
 const allVersions = require('../lib/all-versions')
 const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
-const { getS3BucketPathFromVersion, getVersionFromS3BucketPath } = require('../lib/s3-bucket-path-utils')
+const {
+  getS3BucketPathFromVersion,
+  getVersionFromS3BucketPath
+} = require('../lib/s3-bucket-path-utils')
 const patterns = require('../lib/patterns')
 const authenticateToAWS = require('../lib/authenticate-to-aws.js')
 const readlineSync = require('readline-sync')
@@ -15,8 +18,9 @@ const { execSync } = require('child_process')
 const uploadScript = path.join(process.cwd(), 'script/upload-images-to-s3.js')
 
 // ignore the non-enterprise default version
-const versionsToCheck = Object.keys(allVersions)
-  .filter(version => version !== nonEnterpriseDefaultVersion)
+const versionsToCheck = Object.keys(allVersions).filter(
+  (version) => version !== nonEnterpriseDefaultVersion
+)
 
 // [start-readme]
 //
@@ -28,7 +32,7 @@ const versionsToCheck = Object.keys(allVersions)
 
 main()
 
-async function main () {
+async function main() {
   const s3 = await authenticateToAWS()
 
   console.log('Working...\n')
@@ -40,7 +44,10 @@ async function main () {
   for (const version of versionsToCheck) {
     for (const page of pages) {
       // skip page if it doesn't have a permalink for the current version
-      if (!page.permalinks.some(permalink => permalink.pageVersion === version)) continue
+      if (
+        !page.permalinks.some((permalink) => permalink.pageVersion === version)
+      )
+        continue
 
       // skip index pages because they do not contain images
       if (page.relativePath.endsWith('index.md')) continue
@@ -61,7 +68,7 @@ async function main () {
 
       const bucketPath = getS3BucketPathFromVersion(version)
 
-      imageReferences.forEach(ref => {
+      imageReferences.forEach((ref) => {
         s3References.push(`${bucketPath}${ref}`)
       })
     }
@@ -70,7 +77,9 @@ async function main () {
   // store all images referenced in Enterprise content
   const s3ReferencesToCheck = chain(s3References).uniq().sort().value()
 
-  console.log(`Found ${s3ReferencesToCheck.length} images referenced in S3-eligible content in the current checkout.\n`)
+  console.log(
+    `Found ${s3ReferencesToCheck.length} images referenced in S3-eligible content in the current checkout.\n`
+  )
 
   console.log('Checking the github-images S3 bucket...\n')
 
@@ -92,26 +101,32 @@ async function main () {
     return
   }
 
-  console.log(`${imagesMissingFromS3.length} images are missing from S3:\n\n${imagesMissingFromS3.join('\n')}`)
+  console.log(
+    `${
+      imagesMissingFromS3.length
+    } images are missing from S3:\n\n${imagesMissingFromS3.join('\n')}`
+  )
 
   const prompt = `\nDo you want to try to upload these images to S3 from your local checkout?
 \nPress Y to continue, or press enter any other key to cancel: `
 
   const answer = readlineSync.question(prompt)
 
-  if (!answer.match(/^Y$/mi)) {
+  if (!answer.match(/^Y$/im)) {
     console.log('Exiting!')
     process.exit()
   }
 
   console.log('Trying to upload...\n')
-  imagesMissingFromS3.forEach(missingImage => {
+  imagesMissingFromS3.forEach((missingImage) => {
     // given an s3 path like `enterprise/2.19/assets/images/foo.png`,
     // find the version `enterprise-server@2.19` and the local path `assets/images/foo.png`,
     // then attempt to upload the file using the upload script
     const version = getVersionFromS3BucketPath(missingImage)
     const assetPath = missingImage.replace(/.+?assets/, 'assets')
-    const result = execSync(`${uploadScript} --single ${assetPath} --version ${version}`)
+    const result = execSync(
+      `${uploadScript} --single ${assetPath} --version ${version}`
+    )
     console.log(result.toString())
   })
 
@@ -119,17 +134,17 @@ async function main () {
   main()
 }
 
-async function getEnglishPages () {
+async function getEnglishPages() {
   const pages = await loadPages()
-  return pages.filter(page => page.languageCode === 'en')
+  return pages.filter((page) => page.languageCode === 'en')
 }
 
-async function getEnglishSiteData () {
+async function getEnglishSiteData() {
   const siteData = await loadSiteData()
   return siteData.en.site
 }
 
-async function listObjects (s3, bucketPath, imagesOnS3, token) {
+async function listObjects(s3, bucketPath, imagesOnS3, token) {
   const params = {
     Bucket: 'github-images',
     StartAfter: bucketPath
@@ -139,9 +154,9 @@ async function listObjects (s3, bucketPath, imagesOnS3, token) {
 
   const data = await s3.listObjectsV2(params).promise()
 
-  const matchingKeys = data.Contents
-    .map(obj => obj.Key)
-    .filter(imageFile => imageFile.startsWith(bucketPath))
+  const matchingKeys = data.Contents.map((obj) => obj.Key).filter((imageFile) =>
+    imageFile.startsWith(bucketPath)
+  )
 
   if (!matchingKeys.length) return []
 

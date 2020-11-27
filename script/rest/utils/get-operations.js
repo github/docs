@@ -4,7 +4,7 @@ const Operation = require('./operation')
 // and returns an array of its operation objects with their
 // HTTP verb and requestPath attached as properties
 
-module.exports = async function getOperations (schema) {
+module.exports = async function getOperations(schema) {
   const operations = []
 
   for (const [requestPath, operationsAtPath] of Object.entries(schema.paths)) {

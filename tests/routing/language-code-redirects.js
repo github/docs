@@ -11,7 +11,9 @@ describe('language code redirects', () => {
 
     $ = await get('/jp/articles/about-your-personal-dashboard', { dom: false })
     expect($.res.statusCode).toBe(301)
-    expect($.res.headers.location).toBe('/ja/articles/about-your-personal-dashboard')
+    expect($.res.headers.location).toBe(
+      '/ja/articles/about-your-personal-dashboard'
+    )
   })
 
   test('redirects accidental /zh-CN* requests to /cn*', async () => {
@@ -20,8 +22,12 @@ describe('language code redirects', () => {
     expect($.res.statusCode).toBe(301)
     expect($.res.headers.location).toBe('/cn')
 
-    $ = await get('/zh-TW/articles/about-your-personal-dashboard', { dom: false })
+    $ = await get('/zh-TW/articles/about-your-personal-dashboard', {
+      dom: false
+    })
     expect($.res.statusCode).toBe(301)
-    expect($.res.headers.location).toBe('/cn/articles/about-your-personal-dashboard')
+    expect($.res.headers.location).toBe(
+      '/cn/articles/about-your-personal-dashboard'
+    )
   })
 })

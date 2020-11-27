@@ -25,9 +25,13 @@ describe('enterprise deprecation', () => {
   })
 
   test('workaround for lost frontmatter redirects works in deprecated enterprise content >=2.13', async () => {
-    const res = await get('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page')
+    const res = await get(
+      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page'
+    )
     expect(res.statusCode).toBe(301)
-    expect(res.headers.location).toBe('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile')
+    expect(res.headers.location).toBe(
+      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile'
+    )
   })
 
   test('handles requests for deprecated Enterprise pages ( >=2.13 )', async () => {
@@ -71,7 +75,9 @@ describe('enterprise deprecation', () => {
 
 describe('deprecation banner', () => {
   test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
+    const $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
+    )
     expect($('.deprecation-banner').length).toBe(1)
   })
 
@@ -81,24 +87,36 @@ describe('deprecation banner', () => {
   })
 
   test('deprecation warning banner includes a date', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner b').text().endsWith('discontinued on .')).toBe(false)
+    const $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
+    )
+    expect(
+      $('.deprecation-banner b').text().endsWith('discontinued on .')
+    ).toBe(false)
   })
 
   test('deprecation warning banner includes the right text depending on the date', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
+    const $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
+    )
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'
       : 'will be discontinued'
-    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
+    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(
+      true
+    )
   })
 })
 
 describe('does not render helpfulness prompt or contribution button', () => {
   test('does not render helpfulness prompt', async () => {
-    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    let $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.latest}/github`
+    )
     expect($('.js-helpfulness').length).toBeGreaterThan(0)
-    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`
+    )
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.js-helpfulness').length).toBe(0)
     } else {
@@ -107,9 +125,13 @@ describe('does not render helpfulness prompt or contribution button', () => {
   })
 
   test('does not render contribution button', async () => {
-    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    let $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.latest}/github`
+    )
     expect($('.contribution').length).toBeGreaterThan(0)
-    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    $ = await getDOM(
+      `/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`
+    )
     if (enterpriseServerReleases.isOldestReleaseDeprecated) {
       expect($('.contribution').length).toBe(0)
     } else {
@@ -146,7 +168,9 @@ describe('JS and CSS assets', () => {
 
     expect(result.statusCode).toBe(200)
     expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+    expect(result.get('Content-Type')).toBe(
+      'application/javascript; charset=utf-8'
+    )
   })
 
   it('returns the expected JS file', async () => {
@@ -156,7 +180,9 @@ describe('JS and CSS assets', () => {
 
     expect(result.statusCode).toBe(200)
     expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+    expect(result.get('Content-Type')).toBe(
+      'application/javascript; charset=utf-8'
+    )
   })
 
   it('returns the expected image', async () => {

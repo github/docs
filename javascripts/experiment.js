@@ -4,13 +4,13 @@ import { getUserEventsId, sendEvent } from './events'
 const TREATMENT = 'TREATMENT'
 const CONTROL = 'CONTROL'
 
-export function bucket (test) {
+export function bucket(test) {
   const id = getUserEventsId()
   const hash = murmur(test).hash(id).result()
   return hash % 2 ? TREATMENT : CONTROL
 }
 
-export async function sendSuccess (test) {
+export async function sendSuccess(test) {
   return sendEvent({
     type: 'experiment',
     experiment_name: test,
@@ -21,14 +21,14 @@ export async function sendSuccess (test) {
 
 const xmlns = 'http://www.w3.org/2000/svg'
 
-export function h (tagName, attributes = {}, children = []) {
+export function h(tagName, attributes = {}, children = []) {
   const el = ['svg', 'path'].includes(tagName)
     ? document.createElementNS(xmlns, tagName)
     : document.createElement(tagName)
-  Object.entries(attributes).forEach(
-    ([key, value]) => el.setAttribute(key, value)
+  Object.entries(attributes).forEach(([key, value]) =>
+    el.setAttribute(key, value)
   )
-  children.forEach(child =>
+  children.forEach((child) =>
     typeof child === 'string'
       ? el.append(document.createTextNode(child))
       : el.append(child)

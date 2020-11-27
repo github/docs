@@ -1,4 +1,4 @@
-export async function fillCsrf () {
+export async function fillCsrf() {
   const response = await fetch('/csrf', {
     method: 'GET',
     headers: {
@@ -12,9 +12,8 @@ export async function fillCsrf () {
   document.querySelector('head').append(meta)
 }
 
-export default function getCsrf () {
-  const csrfEl = document
-    .querySelector('meta[name="csrf-token"]')
+export default function getCsrf() {
+  const csrfEl = document.querySelector('meta[name="csrf-token"]')
   if (!csrfEl) return ''
   return csrfEl.getAttribute('content')
 }

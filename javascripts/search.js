@@ -1,6 +1,11 @@
 import { sendEvent } from './events'
 const instantsearch = require('instantsearch.js').default
-const { searchBox, hits, configure, analytics } = require('instantsearch.js/es/widgets')
+const {
+  searchBox,
+  hits,
+  configure,
+  analytics
+} = require('instantsearch.js/es/widgets')
 const algoliasearch = require('algoliasearch')
 const searchWithYourKeyboard = require('search-with-your-keyboard')
 const querystring = require('querystring')
@@ -12,7 +17,9 @@ const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-versi
 const languageCodes = Object.keys(languages)
 const maxContentLength = 300
 
-const hasStandaloneSearch = () => document.getElementById('landing') || document.querySelector('body.error-404') !== null
+const hasStandaloneSearch = () =>
+  document.getElementById('landing') ||
+  document.querySelector('body.error-404') !== null
 
 const resultTemplate = (item) => {
   // Attach an `algolia-query` param to each result link so analytics
@@ -28,7 +35,10 @@ const resultTemplate = (item) => {
 
   // Display page title and heading (if present exists)
   const title = item._highlightResult.heading
-    ? [item._highlightResult.title.value, item._highlightResult.heading.value].join(': ')
+    ? [
+        item._highlightResult.title.value,
+        item._highlightResult.heading.value
+      ].join(': ')
     : item._highlightResult.title.value
 
   // Remove redundant title from the end of breadcrumbs
@@ -40,7 +50,10 @@ const resultTemplate = (item) => {
 
   // Truncate and ellipsize the content string without breaking any HTML
   // within it, such as the <mark> tags added by Algolia for emphasis.
-  item.modifiedContent = truncate(item._highlightResult.content.value, maxContentLength)
+  item.modifiedContent = truncate(
+    item._highlightResult.content.value,
+    maxContentLength
+  )
 
   // Construct the template to return
   const html = `
@@ -67,10 +80,12 @@ export default function () {
 
   window.initialPageLoad = true
   const opts = {
-
     // https://www.algolia.com/apps/ZI5KPY1HBE/dashboard
     // This API key is public. There's also a private API key for writing to the Aloglia API
-    searchClient: algoliasearch('ZI5KPY1HBE', '685df617246c3a10abba589b4599288f'),
+    searchClient: algoliasearch(
+      'ZI5KPY1HBE',
+      '685df617246c3a10abba589b4599288f'
+    ),
 
     // There's an index for every version/language combination
     indexName: `github-docs-${deriveVersionFromPath()}-${deriveLanguageCodeFromPath()}`,
@@ -82,7 +97,7 @@ export default function () {
     // sync query params to search input
     routing: true,
 
-    searchFunction: helper => {
+    searchFunction: (helper) => {
       // console.log('searchFunction', helper.state)
       const query = helper.state.query
       const queryPresent = query && query.length > 0
@@ -103,12 +118,18 @@ export default function () {
         const inactiveClass = container.getAttribute('data-inactive-class')
 
         if (!activeClass) {
-          console.error('container is missing required `data-active-class` attribute', container)
+          console.error(
+            'container is missing required `data-active-class` attribute',
+            container
+          )
           return
         }
 
         if (!inactiveClass) {
-          console.error('container is missing required `data-inactive-class` attribute', container)
+          console.error(
+            'container is missing required `data-inactive-class` attribute',
+            container
+          )
           return
         }
 
@@ -136,48 +157,47 @@ export default function () {
   const search = instantsearch(opts)
 
   // Find search placeholder text in a <meta> tag, falling back to a default
-  const placeholderMeta = document.querySelector('meta[name="site.data.ui.search.placeholder"]')
-  const placeholder = placeholderMeta ? placeholderMeta.content : 'Search topics, products...'
-
-  search.addWidgets(
-    [
-      hits({
-        container: '#search-results-container',
-        templates: {
-          empty: 'No results',
-          item: resultTemplate
-        },
-        // useful for debugging template context, if needed
-        transformItems: items => {
-          // console.log(`transformItems`, items)
-          return items
-        }
-      }),
-      configure({
-        analyticsTags: [
-          'site:docs.github.com',
-          `env:${process.env.NODE_ENV}`
-        ]
-      }),
-      searchBox({
-        container: '#search-input-container',
-        placeholder,
-        // only autofocus on the homepage, and only if no #hash is present in the URL
-        autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
-        showReset: false,
-        showSubmit: false
-      }),
-      analytics({
-        pushFunction (params, state, results) {
-          sendEvent({
-            type: 'search',
-            search_query: results.query
-            // search_context
-          })
-        }
-      })
-    ]
+  const placeholderMeta = document.querySelector(
+    'meta[name="site.data.ui.search.placeholder"]'
   )
+  const placeholder = placeholderMeta
+    ? placeholderMeta.content
+    : 'Search topics, products...'
+
+  search.addWidgets([
+    hits({
+      container: '#search-results-container',
+      templates: {
+        empty: 'No results',
+        item: resultTemplate
+      },
+      // useful for debugging template context, if needed
+      transformItems: (items) => {
+        // console.log(`transformItems`, items)
+        return items
+      }
+    }),
+    configure({
+      analyticsTags: ['site:docs.github.com', `env:${process.env.NODE_ENV}`]
+    }),
+    searchBox({
+      container: '#search-input-container',
+      placeholder,
+      // only autofocus on the homepage, and only if no #hash is present in the URL
+      autofocus: hasStandaloneSearch() && !window.location.hash.length,
+      showReset: false,
+      showSubmit: false
+    }),
+    analytics({
+      pushFunction(params, state, results) {
+        sendEvent({
+          type: 'search',
+          search_query: results.query
+          // search_context
+        })
+      }
+    })
+  ])
 
   // enable for debugging
   search.on('render', (...args) => {
@@ -193,14 +213,16 @@ export default function () {
   toggleSearchDisplay()
 
   // delay removal of the query param so analytics client code has a chance to track it
-  setTimeout(() => { removeAlgoliaQueryTrackingParam() }, 500)
+  setTimeout(() => {
+    removeAlgoliaQueryTrackingParam()
+  }, 500)
 }
 
 // When a user performs an in-site search an `algolia-query` param is
 // added to the URL so analytics can track the queries and the pages
 // they lead to. This function strips the query from the URL after page load,
 // so the bare article URL can be copied/bookmarked/shared, sans tracking param
-function removeAlgoliaQueryTrackingParam () {
+function removeAlgoliaQueryTrackingParam() {
   if (
     history &&
     history.replaceState &&
@@ -218,7 +240,7 @@ function removeAlgoliaQueryTrackingParam () {
   }
 }
 
-function toggleSearchDisplay (isReset) {
+function toggleSearchDisplay(isReset) {
   const input = document.querySelector('#search-input-container input')
   const overlay = document.querySelector('.search-overlay-desktop')
 
@@ -250,35 +272,48 @@ function toggleSearchDisplay (isReset) {
   })
 }
 
-function openSearch () {
-  document.querySelector('#search-input-container input').classList.add('js-open')
+function openSearch() {
+  document
+    .querySelector('#search-input-container input')
+    .classList.add('js-open')
   document.querySelector('#search-results-container').classList.add('js-open')
   document.querySelector('.search-overlay-desktop').classList.add('js-open')
 }
 
-function closeSearch () {
+function closeSearch() {
   // Close modal if not on homepage
   if (!hasStandaloneSearch()) {
-    document.querySelector('#search-input-container input').classList.remove('js-open')
-    document.querySelector('#search-results-container').classList.remove('js-open')
-    document.querySelector('.search-overlay-desktop').classList.remove('js-open')
+    document
+      .querySelector('#search-input-container input')
+      .classList.remove('js-open')
+    document
+      .querySelector('#search-results-container')
+      .classList.remove('js-open')
+    document
+      .querySelector('.search-overlay-desktop')
+      .classList.remove('js-open')
   }
 
   document.querySelector('.ais-Hits').style.display = 'none'
   document.querySelector('#search-input-container input').value = ''
-  window.history.replaceState({}, 'clear search query', window.location.pathname)
+  window.history.replaceState(
+    {},
+    'clear search query',
+    window.location.pathname
+  )
 }
 
-function deriveLanguageCodeFromPath () {
+function deriveLanguageCodeFromPath() {
   let languageCode = location.pathname.split('/')[1]
   if (!languageCodes.includes(languageCode)) languageCode = 'en'
   return languageCode
 }
 
-function deriveVersionFromPath () {
+function deriveVersionFromPath() {
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
   const version = location.pathname.split('/')[2] || nonEnterpriseDefaultVersion
-  const versionObject = allVersions[version] || allVersions[nonEnterpriseDefaultVersion]
+  const versionObject =
+    allVersions[version] || allVersions[nonEnterpriseDefaultVersion]
 
   // if GHES, returns the release number like 2.21, 2.22, etc.
   // if FPT, returns 'dotcom'

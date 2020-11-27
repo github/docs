@@ -30,7 +30,7 @@ describe('developer redirects', () => {
     test('graphql enterprise homepage', async () => {
       const res = await get('/enterprise/v4', { followAllRedirects: true })
       expect(res.statusCode).toBe(200)
-      const finalPath = (new URL(res.request.url)).pathname
+      const finalPath = new URL(res.request.url).pathname
       const expectedFinalPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/graphql`
       expect(finalPath).toBe(expectedFinalPath)
     })
@@ -42,10 +42,15 @@ describe('developer redirects', () => {
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en${newPath}`)
 
-      const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
+      const enterpriseRes = await get(`/enterprise${oldPath}`, {
+        followAllRedirects: true
+      })
       expect(enterpriseRes.statusCode).toBe(200)
-      const finalPath = (new URL(enterpriseRes.request.url)).pathname
-      const expectedFinalPath = newPath.replace(nonEnterpriseDefaultVersion, `enterprise-server@${enterpriseServerReleases.latest}`)
+      const finalPath = new URL(enterpriseRes.request.url).pathname
+      const expectedFinalPath = newPath.replace(
+        nonEnterpriseDefaultVersion,
+        `enterprise-server@${enterpriseServerReleases.latest}`
+      )
       expect(finalPath).toBe(`/en${expectedFinalPath}`)
     })
 
@@ -104,7 +109,10 @@ describe('developer redirects', () => {
         MAX_CONCURRENT_REQUESTS,
         async (newPath, oldPath) => {
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(
+            res.statusCode,
+            `${oldPath} did not redirect to ${newPath}`
+          ).toBe(301)
           expect(res.headers.location).toBe(newPath)
         }
       )
@@ -118,9 +126,15 @@ describe('developer redirects', () => {
         async (newPath, oldPath) => {
           // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
           // We make an exception to always redirect versionless paths to the latest version.
-          newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
+          newPath = newPath.replace(
+            '/enterprise-server/',
+            `/enterprise-server@${enterpriseServerReleases.latest}/`
+          )
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(
+            res.statusCode,
+            `${oldPath} did not redirect to ${newPath}`
+          ).toBe(301)
           expect(res.headers.location).toBe(newPath)
         }
       )
@@ -137,13 +151,17 @@ describe('developer redirects', () => {
         async (newPath, oldPath) => {
           const releaseNumber = oldPath.match(getEnterpriseVersionNumber)
           if (!releaseNumber) return
-          if (!enterpriseServerReleases.supported.includes(releaseNumber[1])) return
+          if (!enterpriseServerReleases.supported.includes(releaseNumber[1]))
+            return
 
           oldPath = oldPath
             .replace(/\/enterprise\/(\d.\d\d)\//, '/enterprise-server@$1/')
             .replace('/user/', '/')
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(
+            res.statusCode,
+            `${oldPath} did not redirect to ${newPath}`
+          ).toBe(301)
           expect(res.headers.location).toBe(newPath)
         }
       )
@@ -157,9 +175,15 @@ describe('developer redirects', () => {
         async (newPath, oldPath) => {
           // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
           // We make an exception to always redirect versionless paths to the latest version.
-          newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
+          newPath = newPath.replace(
+            '/enterprise-server/',
+            `/enterprise-server@${enterpriseServerReleases.latest}/`
+          )
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(
+            res.statusCode,
+            `${oldPath} did not redirect to ${newPath}`
+          ).toBe(301)
           expect(res.headers.location).toBe(newPath)
         }
       )
@@ -176,13 +200,17 @@ describe('developer redirects', () => {
         async (newPath, oldPath) => {
           const releaseNumber = oldPath.match(getEnterpriseVersionNumber)
           if (!releaseNumber) return
-          if (!enterpriseServerReleases.supported.includes(releaseNumber[1])) return
+          if (!enterpriseServerReleases.supported.includes(releaseNumber[1]))
+            return
 
           oldPath = oldPath
             .replace(/\/enterprise\/(\d.\d\d)\//, '/enterprise-server@$1/')
             .replace('/user/', '/')
           const res = await get(oldPath)
-          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(
+            res.statusCode,
+            `${oldPath} did not redirect to ${newPath}`
+          ).toBe(301)
           expect(res.headers.location).toBe(newPath)
         }
       )

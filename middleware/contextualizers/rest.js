@@ -24,10 +24,13 @@ module.exports = async function (req, res, next) {
   // ignore empty strings or bare `/`
   if (!category || category.length < 2) return next()
 
-  const operationsForCurrentProduct = req.context.rest.operations[req.context.currentVersion] || []
+  const operationsForCurrentProduct =
+    req.context.rest.operations[req.context.currentVersion] || []
 
   // find all operations with a category matching the current path
-  req.context.currentRestOperations = operationsForCurrentProduct.filter(operation => operation.category === category)
+  req.context.currentRestOperations = operationsForCurrentProduct.filter(
+    (operation) => operation.category === category
+  )
 
   return next()
 }

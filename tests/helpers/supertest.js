@@ -9,7 +9,10 @@ const helpers = {}
 
 const request = (method, route) => supertest(app)[method](route)
 
-helpers.get = async function (route, opts = { followRedirects: false, followAllRedirects: false }) {
+helpers.get = async function (
+  route,
+  opts = { followRedirects: false, followAllRedirects: false }
+) {
   let res = await request('get', route)
 
   // follow all redirects, or just follow one
@@ -23,16 +26,18 @@ helpers.get = async function (route, opts = { followRedirects: false, followAllR
 }
 
 helpers.head = async function (route, opts = { followRedirects: false }) {
-  const res = await request('head', route).redirects(opts.followRedirects ? 10 : 0)
+  const res = await request('head', route).redirects(
+    opts.followRedirects ? 10 : 0
+  )
   return res
 }
 
-helpers.post = route => request('post', route)
+helpers.post = (route) => request('post', route)
 
 helpers.getDOM = async function (route) {
   const res = await helpers.get(route, { followRedirects: true })
 
-  const $ = cheerio.load((res.text || ''), { xmlMode: true })
+  const $ = cheerio.load(res.text || '', { xmlMode: true })
   $.res = Object.assign({}, res)
   return $
 }

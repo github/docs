@@ -19,12 +19,12 @@ const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN })
 
 main()
 
-async function main () {
+async function main() {
   const apps = chain(await heroku.get('/apps'))
     .orderBy('name')
     .value()
 
-  async function ping (app) {
+  async function ping(app) {
     // ?warmup param has no effect but makes it easier to find these requests in the logs
     const url = `https://${app.name}.herokuapp.com/en?warmup`
     try {

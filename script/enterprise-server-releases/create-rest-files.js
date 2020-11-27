@@ -14,9 +14,17 @@ const decoratedDir = 'lib/rest/static/decorated'
 // [end-readme]
 
 program
-  .description('Create new openAPI files in lib/rest/static/decorated and lib/rest/static/dereferenced based on an existing version.')
-  .option('-n, --newVersion <version>', 'The new version to copy the REST files to. Must be in <plan@release> format.')
-  .option('-o, --oldVersion <version>', 'The existing version to copy the REST files from. Must be in <plan@release> format.')
+  .description(
+    'Create new openAPI files in lib/rest/static/decorated and lib/rest/static/dereferenced based on an existing version.'
+  )
+  .option(
+    '-n, --newVersion <version>',
+    'The new version to copy the REST files to. Must be in <plan@release> format.'
+  )
+  .option(
+    '-o, --oldVersion <version>',
+    'The existing version to copy the REST files from. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
 const newVersion = program.newVersion
@@ -27,8 +35,15 @@ if (!(newVersion && oldVersion)) {
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).includes(oldVersion))) {
-  console.log('Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.')
+if (
+  !(
+    Object.keys(allVersions).includes(newVersion) &&
+    Object.keys(allVersions).includes(oldVersion)
+  )
+) {
+  console.log(
+    'Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 

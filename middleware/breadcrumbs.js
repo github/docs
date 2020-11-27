@@ -17,7 +17,10 @@ module.exports = async (req, res, next) => {
   pathParts.shift()
 
   const productPath = path.posix.join('/', req.context.currentProduct)
-  const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
+  const product =
+    req.context.siteTree[req.language][req.context.currentVersion].products[
+      req.context.currentProduct
+    ]
 
   req.context.breadcrumbs.product = {
     href: path.posix.join('/', req.context.currentVersion, productPath),
@@ -29,7 +32,12 @@ module.exports = async (req, res, next) => {
   // get category path
   // e.g., `getting-started-with-github` in /free-pro-team@latest/github/getting-started-with-github
   // or /enterprise-server@2.21/github/getting-started-with-github
-  const categoryPath = path.posix.join('/', req.context.currentVersion, productPath, pathParts[1])
+  const categoryPath = path.posix.join(
+    '/',
+    req.context.currentVersion,
+    productPath,
+    pathParts[1]
+  )
 
   const category = product.categories[categoryPath]
 
@@ -64,7 +72,9 @@ module.exports = async (req, res, next) => {
     // find parent maptopic if one exists
     // some categories don't have maptopics, e.g. site-policy
     if (category.maptopics) {
-      maptopic = Object.values(category.maptopics).find(maptopic => maptopic.articles[articlePath])
+      maptopic = Object.values(category.maptopics).find(
+        (maptopic) => maptopic.articles[articlePath]
+      )
 
       if (maptopic) {
         req.context.breadcrumbs.maptopic = {
@@ -85,7 +95,11 @@ module.exports = async (req, res, next) => {
 
     if (!articlePage) return next()
 
-    const articleTitle = await articlePage.renderProp('shortTitle', req.context, { textOnly: true, encodeEntities: true })
+    const articleTitle = await articlePage.renderProp(
+      'shortTitle',
+      req.context,
+      { textOnly: true, encodeEntities: true }
+    )
 
     req.context.breadcrumbs.article = {
       href: articlePath,

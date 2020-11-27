@@ -12,7 +12,7 @@ const PARAMETER_EXAMPLES = {
   emails: ['octocat@github.com']
 }
 
-function createCodeSamples (operation) {
+function createCodeSamples(operation) {
   const route = {
     method: operation.verb.toUpperCase(),
     path: operation.requestPath,
@@ -27,16 +27,21 @@ function createCodeSamples (operation) {
   ]
 }
 
-function toShellExample ({ route, serverUrl }) {
-  const pathParams = mapValues(getExamplePathParams(route), (value, paramName) =>
-    PARAMETER_EXAMPLES[paramName] ? value : snakeCase(value).toUpperCase()
+function toShellExample({ route, serverUrl }) {
+  const pathParams = mapValues(
+    getExamplePathParams(route),
+    (value, paramName) =>
+      PARAMETER_EXAMPLES[paramName] ? value : snakeCase(value).toUpperCase()
   )
-  const path = urlTemplate.parse(route.path.replace(/:(\w+)/g, '{$1}')).expand(pathParams)
+  const path = urlTemplate
+    .parse(route.path.replace(/:(\w+)/g, '{$1}'))
+    .expand(pathParams)
   const params = getExampleBodyParams(route)
   const { method } = route
 
-  const requiredPreview = get(route, 'operation.x-github.previews', [])
-    .find(preview => preview.required)
+  const requiredPreview = get(route, 'operation.x-github.previews', []).find(
+    (preview) => preview.required
+  )
 
   const defaultAcceptHeader = requiredPreview
     ? `application/vnd.github.${requiredPreview.name}-preview+json`
@@ -51,11 +56,11 @@ function toShellExample ({ route, serverUrl }) {
   return `curl \\\n  ${args.join(' \\\n  ')}`
 }
 
-function toJsExample ({ route }) {
+function toJsExample({ route }) {
   const params = route.operation.parameters
-    .filter(param => !param.deprecated)
-    .filter(param => param.in !== 'header')
-    .filter(param => param.required)
+    .filter((param) => !param.deprecated)
+    .filter((param) => param.in !== 'header')
+    .filter((param) => param.required)
     .reduce(
       (_params, param) =>
         Object.assign(_params, {
@@ -67,8 +72,8 @@ function toJsExample ({ route }) {
 
   // add any required preview headers to the params object
   const requiredPreviewNames = get(route.operation, 'x-github.previews', [])
-    .filter(preview => preview.required)
-    .map(preview => preview.name)
+    .filter((preview) => preview.required)
+    .map((preview) => preview.name)
 
   if (requiredPreviewNames.length) {
     Object.assign(params, {
@@ -77,8 +82,10 @@ function toJsExample ({ route }) {
   }
 
   // add required content type header (presently only for `POST /markdown/raw`)
-  const contentTypeHeader = route.operation.parameters.find(param => {
-    return param.name.toLowerCase() === 'content-type' && get(param, 'schema.enum')
+  const contentTypeHeader = route.operation.parameters.find((param) => {
+    return (
+      param.name.toLowerCase() === 'content-type' && get(param, 'schema.enum')
+    )
   })
 
   if (contentTypeHeader) {
@@ -87,12 +94,14 @@ function toJsExample ({ route }) {
     })
   }
 
-  const args = Object.keys(params).length ? ', ' + stringify(params, null, 2) : ''
+  const args = Object.keys(params).length
+    ? ', ' + stringify(params, null, 2)
+    : ''
   return `await octokit.request('${route.method} ${route.path}'${args})`
 }
 
-function getExamplePathParams ({ operation }) {
-  const pathParams = operation.parameters.filter(param => param.in === 'path')
+function getExamplePathParams({ operation }) {
+  const pathParams = operation.parameters.filter((param) => param.in === 'path')
   if (pathParams.length === 0) {
     return {}
   }
@@ -102,7 +111,7 @@ function getExamplePathParams ({ operation }) {
   }, {})
 }
 
-function getExampleBodyParams ({ operation }) {
+function getExampleBodyParams({ operation }) {
   let schema
   try {
     schema = operation.requestBody.content['application/json'].schema
@@ -130,7 +139,7 @@ function getExampleBodyParams ({ operation }) {
   }, {})
 }
 
-function getExampleParamValue (name, schema) {
+function getExampleParamValue(name, schema) {
   const value = PARAMETER_EXAMPLES[name]
   if (value) {
     return value
@@ -154,5 +163,7 @@ function getExampleParamValue (name, schema) {
     case 'array':
       return [getExampleParamValue(name, schema.items)]
   }
-  throw new Error(`Unknown data type in schema:, ${JSON.stringify(schema, null, 2)}`)
+  throw new Error(
+    `Unknown data type in schema:, ${JSON.stringify(schema, null, 2)}`
+  )
 }

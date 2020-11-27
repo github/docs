@@ -54,19 +54,23 @@ const main = async () => {
   })
 
   if (extra.length) {
-    console.error(`Packages in package.json not used in your code: ${extra.join(', ')}`)
+    console.error(
+      `Packages in package.json not used in your code: ${extra.join(', ')}`
+    )
   }
 
   const missing = dependencyCheck.missing(data.package, data.used)
 
   if (missing.length) {
-    console.error(`Dependencies not listed in package.json: ${missing.join(', ')}`)
+    console.error(
+      `Dependencies not listed in package.json: ${missing.join(', ')}`
+    )
   }
 
   if (extra.length || missing.length) process.exit(1)
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err)
   process.exit(1)
 })

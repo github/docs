@@ -15,16 +15,17 @@ const dirs = ['content', 'data']
 //
 // [end-readme]
 
-dirs.forEach(dir => {
+dirs.forEach((dir) => {
   const englishPath = path.join(__dirname, `../${dir}`)
-  const filenames = walk(englishPath)
-    .filter(filename => {
-      return (filename.endsWith('.yml') || filename.endsWith('.md')) &&
-        !filename.endsWith('README.md')
-    })
+  const filenames = walk(englishPath).filter((filename) => {
+    return (
+      (filename.endsWith('.yml') || filename.endsWith('.md')) &&
+      !filename.endsWith('README.md')
+    )
+  })
 
-  filenames.forEach(filename => {
-    Object.values(languages).forEach(language => {
+  filenames.forEach((filename) => {
+    Object.values(languages).forEach((language) => {
       if (language.code === 'en') return
       const fullPath = path.join(__dirname, '..', language.dir, dir, filename)
       if (!fs.existsSync(fullPath)) {

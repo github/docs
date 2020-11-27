@@ -5,9 +5,10 @@ const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects
 const allVersions = require('../../lib/all-versions')
 
 // TODO do we need to support staging? https://graphql-stage.github.com/explorer
-const explorerUrl = process.env.NODE_ENV === 'production'
-  ? 'https://graphql.github.com/explorer'
-  : 'http://localhost:3000'
+const explorerUrl =
+  process.env.NODE_ENV === 'production'
+    ? 'https://graphql.github.com/explorer'
+    : 'http://localhost:3000'
 
 module.exports = async (req, res, next) => {
   // ignore requests to non-GraphQL reference paths

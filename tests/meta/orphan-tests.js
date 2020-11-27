@@ -12,9 +12,11 @@ describe('check for orphan tests', () => {
 
     const filteredList = testDirectory
       // Filter out our exceptions
-      .filter(item => !EXCEPTIONS.includes(item))
+      .filter((item) => !EXCEPTIONS.includes(item))
       // Don't include directories
-      .filter(item => !fs.statSync(path.join(pathToTests, item)).isDirectory())
+      .filter(
+        (item) => !fs.statSync(path.join(pathToTests, item)).isDirectory()
+      )
 
     expect(filteredList).toHaveLength(0)
   })

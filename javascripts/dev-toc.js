@@ -1,7 +1,7 @@
 const expandText = 'Expand All'
 const closeText = 'Close All'
 
-export default function devToc () {
+export default function devToc() {
   const expandButton = document.querySelector('.js-expand')
   if (!expandButton) return
 
@@ -9,18 +9,20 @@ export default function devToc () {
 
   expandButton.addEventListener('click', () => {
     // on click, toggle all the details elements open or closed
-    const anyDetailsOpen = Array.from(detailsElements).find(details => details.open)
+    const anyDetailsOpen = Array.from(detailsElements).find(
+      (details) => details.open
+    )
 
     for (const detailsElement of detailsElements) {
       anyDetailsOpen
         ? detailsElement.removeAttribute('open')
-        : detailsElement.open = true
+        : (detailsElement.open = true)
     }
 
     // toggle the button text on click
     anyDetailsOpen
-      ? expandButton.textContent = expandText
-      : expandButton.textContent = closeText
+      ? (expandButton.textContent = expandText)
+      : (expandButton.textContent = closeText)
   })
 
   // also toggle the button text on clicking any of the details elements
@@ -30,7 +32,7 @@ export default function devToc () {
 
       // we can only get an accurate count of the open details elements if we wait a fraction after click
       setTimeout(() => {
-        if (!Array.from(detailsElements).find(details => details.open)) {
+        if (!Array.from(detailsElements).find((details) => details.open)) {
           expandButton.textContent = expandText
         }
       }, 50)

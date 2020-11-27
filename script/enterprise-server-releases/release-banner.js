@@ -17,28 +17,42 @@ const allowedActions = ['create', 'remove']
 // [end-readme]
 
 program
-  .description('Create or remove a release candidate banner for the provided docs version.')
+  .description(
+    'Create or remove a release candidate banner for the provided docs version.'
+  )
   // The following two settings let us use `version` as a flag without clashing with reserved opts
   .storeOptionsAsProperties(false)
   .passCommandToAction(false)
-  .option(`-a, --action <${allowedActions.join(' or ')}>`, 'Create or remove the banner.')
-  .option('-v, --version <version>', 'The version the banner applies to. Must be in <plan@release> format.')
+  .option(
+    `-a, --action <${allowedActions.join(' or ')}>`,
+    'Create or remove the banner.'
+  )
+  .option(
+    '-v, --version <version>',
+    'The version the banner applies to. Must be in <plan@release> format.'
+  )
   .parse(process.argv)
 
 const options = program.opts()
 
 if (!allowedActions.includes(options.action)) {
-  console.log(`Error! You must specify --action <${allowedActions.join(' or ')}>.`)
+  console.log(
+    `Error! You must specify --action <${allowedActions.join(' or ')}>.`
+  )
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(options.version))) {
-  console.log('Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.')
+if (!Object.keys(allVersions).includes(options.version)) {
+  console.log(
+    'Error! You must specify --version with the full name of a supported version, e.g., enterprise-server@2.22.'
+  )
   process.exit(1)
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.safeLoad(fs.readFileSync(releaseCandidateYaml, 'utf8'))
+const releaseCandidateData = yaml.safeLoad(
+  fs.readFileSync(releaseCandidateYaml, 'utf8')
+)
 
 // Create or remove the variable
 if (options.action === 'create') {

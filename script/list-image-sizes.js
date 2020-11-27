@@ -14,10 +14,10 @@ const imagesExtensions = ['.jpg', '.jpeg', '.png', '.gif']
 // [end-readme]
 
 const images = chain(walk(imagesPath, { directories: false }))
-  .filter(relativePath => {
+  .filter((relativePath) => {
     return imagesExtensions.includes(path.extname(relativePath.toLowerCase()))
   })
-  .map(relativePath => {
+  .map((relativePath) => {
     const fullPath = path.join(imagesPath, relativePath)
     const { width, height } = imageSize(fullPath)
     const size = width * height
@@ -26,7 +26,7 @@ const images = chain(walk(imagesPath, { directories: false }))
   .orderBy('size', 'desc')
   .value()
 
-images.forEach(image => {
+images.forEach((image) => {
   const { relativePath, width, height } = image
   console.log(`${width} x ${height} - ${relativePath}`)
 })

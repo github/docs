@@ -1,7 +1,7 @@
 const patterns = require('../../lib/patterns')
 const { URL } = require('url')
 
-module.exports = async function handleRedirects (req, res, next) {
+module.exports = async function handleRedirects(req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
@@ -27,10 +27,14 @@ module.exports = async function handleRedirects (req, res, next) {
   // look for a redirect in the global object
   // for example, given an incoming path /v3/activity/event_types
   // find /en/developers/webhooks-and-events/github-event-types
-  redirectWithoutQueryParams = req.context.redirects[redirectWithoutQueryParams] || redirectWithoutQueryParams
+  redirectWithoutQueryParams =
+    req.context.redirects[redirectWithoutQueryParams] ||
+    redirectWithoutQueryParams
 
   // add query params back in
-  redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
+  redirect = queryParams
+    ? redirectWithoutQueryParams + queryParams
+    : redirectWithoutQueryParams
 
   // do not redirect a path to itself
   // req._parsedUrl.path includes query params whereas req.path does not
@@ -50,6 +54,6 @@ module.exports = async function handleRedirects (req, res, next) {
   return res.redirect(301, redirect)
 }
 
-function removeQueryParams (redirect) {
+function removeQueryParams(redirect) {
   return new URL(redirect, 'https://docs.github.com').pathname
 }

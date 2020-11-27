@@ -11,7 +11,7 @@ describe('data references', () => {
   beforeAll(async (done) => {
     data = await loadSiteData()
     pages = await loadPages()
-    pages = pages.filter(page => page.languageCode === 'en')
+    pages = pages.filter((page) => page.languageCode === 'en')
     done()
   })
 
@@ -19,9 +19,9 @@ describe('data references', () => {
     let errors = []
     expect(pages.length).toBeGreaterThan(0)
 
-    pages.forEach(page => {
+    pages.forEach((page) => {
       const pageRefs = getDataReferences(page.markdown)
-      pageRefs.forEach(key => {
+      pageRefs.forEach((key) => {
         const value = get(data.en, key)
         const file = path.join('content', page.relativePath)
         if (typeof value !== 'string') errors.push({ key, value, file })
@@ -38,12 +38,16 @@ describe('data references', () => {
     const reusables = Object.values(allReusables)
     expect(reusables.length).toBeGreaterThan(0)
 
-    reusables.forEach(reusablesPerFile => {
+    reusables.forEach((reusablesPerFile) => {
       const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
 
-      reusableRefs.forEach(key => {
+      reusableRefs.forEach((key) => {
         const value = get(data.en, key)
-        let reusableFile = path.join(__dirname, '../../data/reusables/', getFilenameByValue(allReusables, reusablesPerFile))
+        let reusableFile = path.join(
+          __dirname,
+          '../../data/reusables/',
+          getFilenameByValue(allReusables, reusablesPerFile)
+        )
         reusableFile = getFilepath(reusableFile)
         if (typeof value !== 'string') errors.push({ key, value, reusableFile })
       })
@@ -59,12 +63,16 @@ describe('data references', () => {
     const variables = Object.values(allVariables)
     expect(variables.length).toBeGreaterThan(0)
 
-    variables.forEach(variablesPerFile => {
+    variables.forEach((variablesPerFile) => {
       const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
-      variableRefs.forEach(key => {
+      variableRefs.forEach((key) => {
         const value = get(data.en, key)
-        let variableFile = path.join(__dirname, '../../data/variables/', getFilenameByValue(allVariables, variablesPerFile))
+        let variableFile = path.join(
+          __dirname,
+          '../../data/variables/',
+          getFilenameByValue(allVariables, variablesPerFile)
+        )
         variableFile = getFilepath(variableFile)
         if (typeof value !== 'string') errors.push({ key, value, variableFile })
       })
@@ -75,15 +83,13 @@ describe('data references', () => {
   })
 })
 
-function getFilenameByValue (object, value) {
-  return Object.keys(object).find(key => object[key] === value)
+function getFilenameByValue(object, value) {
+  return Object.keys(object).find((key) => object[key] === value)
 }
 
 // if path exists, assume it's a directory; otherwise, assume a YML extension
-function getFilepath (filepath) {
-  filepath = fs.existsSync(filepath)
-    ? filepath + '/'
-    : filepath + '.yml'
+function getFilepath(filepath) {
+  filepath = fs.existsSync(filepath) ? filepath + '/' : filepath + '.yml'
 
   // we only need the relative path
   return filepath.replace(path.join(__dirname, '../../'), '')

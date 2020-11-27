@@ -3,7 +3,7 @@ const layouts = require('../lib/layouts')
 const FailBot = require('../lib/failbot')
 const loadSiteData = require('../lib/site-data')
 
-function shouldLogException (error) {
+function shouldLogException(error) {
   const IGNORED_ERRORS = [
     // avoid sending CSRF token errors (from bad-actor POST requests)
     'EBADCSRFTOKEN'
@@ -17,7 +17,7 @@ function shouldLogException (error) {
   return true
 }
 
-module.exports = async function handleError (error, req, res, next) {
+module.exports = async function handleError(error, req, res, next) {
   // if the error is thrown before req.context is created (say, in the Page class),
   // set req.context.site here so we can pass data/ui.yml text to the 500 layout
   if (!req.context) {
@@ -48,5 +48,7 @@ module.exports = async function handleError (error, req, res, next) {
     }
   }
 
-  res.status(500).send(await liquid.parseAndRender(layouts['error-500'], req.context))
+  res
+    .status(500)
+    .send(await liquid.parseAndRender(layouts['error-500'], req.context))
 }

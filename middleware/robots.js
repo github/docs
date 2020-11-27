@@ -23,25 +23,28 @@ module.exports = function (req, res, next) {
 
   // Disallow crawling of WIP localized content
   Object.values(languages)
-    .filter(language => language.wip)
-    .forEach(language => {
-      defaultResponse = defaultResponse.concat(`\nDisallow: /${language.code}\nDisallow: /${language.code}/*\n`)
+    .filter((language) => language.wip)
+    .forEach((language) => {
+      defaultResponse = defaultResponse.concat(
+        `\nDisallow: /${language.code}\nDisallow: /${language.code}/*\n`
+      )
     })
 
   // Disallow crawling of WIP products
   Object.values(products)
-    .filter(product => product.wip)
-    .forEach(product => {
-      defaultResponse = defaultResponse.concat(`\nDisallow: /*${product.href}\nDisallow: /*/enterprise/*/user${product.href}`)
+    .filter((product) => product.wip)
+    .forEach((product) => {
+      defaultResponse = defaultResponse.concat(
+        `\nDisallow: /*${product.href}\nDisallow: /*/enterprise/*/user${product.href}`
+      )
     })
 
   // Disallow crawling of Deprecated enterprise versions
-  deprecated
-    .forEach(version => {
-      defaultResponse = defaultResponse
-        .concat(`\nDisallow: /*/enterprise-server@${version}/*`)
-        .concat(`\nDisallow: /*/enterprise/${version}/*`)
-    })
+  deprecated.forEach((version) => {
+    defaultResponse = defaultResponse
+      .concat(`\nDisallow: /*/enterprise-server@${version}/*`)
+      .concat(`\nDisallow: /*/enterprise/${version}/*`)
+  })
 
   return res.send(defaultResponse)
 }

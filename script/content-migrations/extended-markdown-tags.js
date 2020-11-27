@@ -6,7 +6,7 @@ const replace = require('replace')
 
 const FINDER = /{{\s?([#/])([a-z-]+)?\s?}}/g
 
-async function rewriteFiles (dir) {
+async function rewriteFiles(dir) {
   const files = walk(dir, { includeBasePath: true })
   replace({
     regex: FINDER,
@@ -26,7 +26,7 @@ async function rewriteFiles (dir) {
   })
 }
 
-async function main () {
+async function main() {
   const dirs = [
     path.join(__dirname, '../../content'),
     path.join(__dirname, '../../data'),

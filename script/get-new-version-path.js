@@ -4,8 +4,12 @@ const path = require('path')
 const assert = require('assert')
 const patterns = require('../lib/patterns')
 const { deprecated } = require('../lib/enterprise-server-releases')
-const { getNewVersionedPath, getOldVersionFromOldPath } = require('../lib/old-versions-utils')
-const usage = 'must provide a path like "/github/getting-started" or "/enterprise/2.20/user/github/getting-started", with or without language code'
+const {
+  getNewVersionedPath,
+  getOldVersionFromOldPath
+} = require('../lib/old-versions-utils')
+const usage =
+  'must provide a path like "/github/getting-started" or "/enterprise/2.20/user/github/getting-started", with or without language code'
 
 // [start-readme]
 //

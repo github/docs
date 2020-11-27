@@ -1,17 +1,21 @@
 const previewsJson = require('../../lib/graphql/static/previews')
 const upcomingChangesJson = require('../../lib/graphql/static/upcoming-changes')
 const prerenderedObjectsJson = require('../../lib/graphql/static/prerendered-objects')
-const { schemaValidator, previewsValidator, upcomingChangesValidator } = require('../../lib/graphql/validator')
+const {
+  schemaValidator,
+  previewsValidator,
+  upcomingChangesValidator
+} = require('../../lib/graphql/validator')
 const revalidator = require('revalidator')
 const allVersions = Object.values(require('../../lib/all-versions'))
-const graphqlVersions = allVersions.map(v => v.miscVersionName)
-const graphqlTypes = require('../../lib/graphql/types').map(t => t.kind)
+const graphqlVersions = allVersions.map((v) => v.miscVersionName)
+const graphqlTypes = require('../../lib/graphql/types').map((t) => t.kind)
 
 describe('graphql json files', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   test('static files have versions as top-level keys', () => {
-    graphqlVersions.forEach(version => {
+    graphqlVersions.forEach((version) => {
       expect(version in previewsJson).toBe(true)
       expect(version in upcomingChangesJson).toBe(true)
       expect(version in prerenderedObjectsJson).toBe(true)
@@ -19,29 +23,38 @@ describe('graphql json files', () => {
   })
 
   test('schemas object validation', () => {
-    graphqlVersions.forEach(version => {
+    graphqlVersions.forEach((version) => {
       const schemaJsonPerVersion = require(`../../lib/graphql/static/schema-${version}`)
       // all graphql types are arrays except for queries
       graphqlTypes
-        .filter(type => type !== 'queries')
-        .forEach(type => {
-          schemaJsonPerVersion[type].forEach(typeObj => {
-            const { valid, errors } = revalidator.validate(typeObj, schemaValidator[type])
+        .filter((type) => type !== 'queries')
+        .forEach((type) => {
+          schemaJsonPerVersion[type].forEach((typeObj) => {
+            const { valid, errors } = revalidator.validate(
+              typeObj,
+              schemaValidator[type]
+            )
             const errorMessage = JSON.stringify(errors, null, 2)
             expect(valid, errorMessage).toBe(true)
           })
         })
 
       // check query connections separately
-      schemaJsonPerVersion.queries.connections.forEach(connection => {
-        const { valid, errors } = revalidator.validate(connection, schemaValidator.queryConnections)
+      schemaJsonPerVersion.queries.connections.forEach((connection) => {
+        const { valid, errors } = revalidator.validate(
+          connection,
+          schemaValidator.queryConnections
+        )
         const errorMessage = JSON.stringify(errors, null, 2)
         expect(valid, errorMessage).toBe(true)
       })
 
       // check query fields separately
-      schemaJsonPerVersion.queries.fields.forEach(field => {
-        const { valid, errors } = revalidator.validate(field, schemaValidator.queryFields)
+      schemaJsonPerVersion.queries.fields.forEach((field) => {
+        const { valid, errors } = revalidator.validate(
+          field,
+          schemaValidator.queryFields
+        )
         const errorMessage = JSON.stringify(errors, null, 2)
         expect(valid, errorMessage).toBe(true)
       })
@@ -49,9 +62,12 @@ describe('graphql json files', () => {
   })
 
   test('previews object validation', () => {
-    graphqlVersions.forEach(version => {
-      previewsJson[version].forEach(previewObj => {
-        const { valid, errors } = revalidator.validate(previewObj, previewsValidator)
+    graphqlVersions.forEach((version) => {
+      previewsJson[version].forEach((previewObj) => {
+        const { valid, errors } = revalidator.validate(
+          previewObj,
+          previewsValidator
+        )
         const errorMessage = JSON.stringify(errors, null, 2)
         expect(valid, errorMessage).toBe(true)
       })
@@ -59,11 +75,14 @@ describe('graphql json files', () => {
   })
 
   test('upcoming changes object validation', () => {
-    graphqlVersions.forEach(version => {
-      Object.values(upcomingChangesJson[version]).forEach(changes => {
+    graphqlVersions.forEach((version) => {
+      Object.values(upcomingChangesJson[version]).forEach((changes) => {
         // each object value is an array of changes
-        changes.forEach(changeObj => {
-          const { valid, errors } = revalidator.validate(changeObj, upcomingChangesValidator)
+        changes.forEach((changeObj) => {
+          const { valid, errors } = revalidator.validate(
+            changeObj,
+            upcomingChangesValidator
+          )
           const errorMessage = JSON.stringify(errors, null, 2)
           expect(valid, errorMessage).toBe(true)
         })
@@ -72,7 +91,7 @@ describe('graphql json files', () => {
   })
 
   test('prerendered objects validation', () => {
-    graphqlVersions.forEach(version => {
+    graphqlVersions.forEach((version) => {
       // shape of prerenderedObject: {
       //   html: <div>foo</div>,
       //   miniToc: {contents: '<a>bar</a>', headingLevel: N, indentationLevel: N}

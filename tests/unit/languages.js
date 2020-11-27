@@ -10,7 +10,7 @@ describe('languages module', () => {
   })
 
   test('every language is valid', () => {
-    Object.values(languages).forEach(language => {
+    Object.values(languages).forEach((language) => {
       const { valid, errors } = revalidator.validate(language, schema)
       const expectation = JSON.stringify(errors, null, 2)
       expect(valid, expectation).toBe(true)

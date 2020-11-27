@@ -31,9 +31,7 @@ describe('GET /early-access-paths.json', () => {
           {
             hidden: true,
             languageCode: 'en',
-            permalinks: [
-              { href: '/some-hidden-page' }
-            ],
+            permalinks: [{ href: '/some-hidden-page' }],
             redirects: {
               '/old-hidden-page': '/new-hidden-page'
             }

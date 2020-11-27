@@ -7,7 +7,7 @@ const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-ve
 describe('find page', () => {
   jest.setTimeout(1000 * 1000)
 
-  test('falls back to the English page if it can\'t find a localized page', async () => {
+  test("falls back to the English page if it can't find a localized page", async () => {
     const page = new Page({
       relativePath: 'page-that-does-not-exist-in-translations-dir.md',
       basePath: path.join(__dirname, '../fixtures'),
@@ -34,7 +34,12 @@ describe('find page', () => {
 
     // add named keys
     for (const page of pages) {
-      pages[`/en/${nonEnterpriseDefaultVersion}/${page.relativePath.replace('.md', '')}`] = page
+      pages[
+        `/en/${nonEnterpriseDefaultVersion}/${page.relativePath.replace(
+          '.md',
+          ''
+        )}`
+      ] = page
     }
 
     const redirects = await loadRedirects(pages)

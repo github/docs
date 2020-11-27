@@ -11,14 +11,21 @@ module.exports = async (req, res, next) => {
   // For example, free-pro-team@latest corresponds to dotcom,
   // enterprise-server@2.22 corresponds to ghes-2.22,
   // and github-ae@latest corresponds to ghae
-  const webhookPayloadDir = allVersions[req.context.currentVersion].miscVersionName
+  const webhookPayloadDir =
+    allVersions[req.context.currentVersion].miscVersionName
 
   const webhookPayloadsForCurrentVersion = webhookPayloads[webhookPayloadDir]
 
   // if current version is non-dotcom, include dotcom payloads in object so we can fall back to them if needed
-  req.context.webhookPayloadsForCurrentVersion = req.context.currentVersion === nonEnterpriseDefaultVersion
-    ? webhookPayloadsForCurrentVersion
-    : defaults(webhookPayloadsForCurrentVersion, webhookPayloads[allVersions[nonEnterpriseDefaultVersion].miscVersionName])
+  req.context.webhookPayloadsForCurrentVersion =
+    req.context.currentVersion === nonEnterpriseDefaultVersion
+      ? webhookPayloadsForCurrentVersion
+      : defaults(
+          webhookPayloadsForCurrentVersion,
+          webhookPayloads[
+            allVersions[nonEnterpriseDefaultVersion].miscVersionName
+          ]
+        )
 
   return next()
 }

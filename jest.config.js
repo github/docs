@@ -12,25 +12,19 @@ module.exports = {
       statements: -5
     }
   },
-  preset: isBrowser
-    ? 'jest-puppeteer'
-    : undefined,
+  preset: isBrowser ? 'jest-puppeteer' : undefined,
   reporters: isActions
     ? ['default', 'jest-github-actions-reporter']
     : ['default'],
-  modulePathIgnorePatterns: [
-    'assets/'
-  ],
+  modulePathIgnorePatterns: ['assets/'],
   setupFilesAfterEnv: ['jest-expect-message'],
-  ...isBrowser ? {} : { testEnvironment: 'node' },
+  ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',
     'vendor/',
     'tests/helpers/',
-    ...isBrowser ? [] : ['tests/browser/browser.js']
+    ...(isBrowser ? [] : ['tests/browser/browser.js'])
   ],
-  testMatch: [
-    '**/tests/**/*.js'
-  ],
+  testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions
 }

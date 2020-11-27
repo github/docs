@@ -1,4 +1,4 @@
-function filterCards (cards, value) {
+function filterCards(cards, value) {
   const noResults = document.querySelector('.js-code-example-no-results')
   const matchReg = new RegExp(value, 'i')
 
@@ -25,11 +25,8 @@ function filterCards (cards, value) {
 
     // Check if this card matches
     const { title, description, tags } = card.dataset
-    const cardMatches = (
-      matchReg.test(title) ||
-      matchReg.test(description) ||
-      matchReg.test(tags)
-    )
+    const cardMatches =
+      matchReg.test(title) || matchReg.test(description) || matchReg.test(tags)
 
     if (cardMatches) {
       card.classList.remove('d-none')
@@ -48,14 +45,14 @@ function filterCards (cards, value) {
   }
 }
 
-export default function filterCodeExamples () {
+export default function filterCodeExamples() {
   const filter = document.querySelector('.js-code-example-filter')
   if (!filter) return
 
   const cards = Array.from(document.querySelectorAll('.js-code-example-card'))
   const showMoreButton = document.querySelector('.js-code-example-show-more')
 
-  filter.addEventListener('keyup', evt => {
+  filter.addEventListener('keyup', (evt) => {
     const value = evt.currentTarget.value
 
     // Show or hide the "Show more" button if there is a value
@@ -65,9 +62,10 @@ export default function filterCodeExamples () {
     filterCards(cards, value)
   })
 
-  showMoreButton.addEventListener('click', evt => {
+  showMoreButton.addEventListener('click', (evt) => {
     // Number of cards that are currently visible
-    const numShown = cards.filter(card => !card.classList.contains('d-none')).length
+    const numShown = cards.filter((card) => !card.classList.contains('d-none'))
+      .length
     // We want to show 6 more
     const totalToShow = numShown + 6
 

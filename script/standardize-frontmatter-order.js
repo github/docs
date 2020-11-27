@@ -8,8 +8,10 @@ const { schema } = require('../lib/frontmatter')
 const properties = Object.keys(schema.properties)
 const contentDir = path.join(__dirname, '../content')
 
-const contentFiles = walk(contentDir, { includeBasePath: true })
-  .filter(relativePath => relativePath.endsWith('.md') && !relativePath.includes('README'))
+const contentFiles = walk(contentDir, { includeBasePath: true }).filter(
+  (relativePath) =>
+    relativePath.endsWith('.md') && !relativePath.includes('README')
+)
 
 // [start-readme]
 //
@@ -18,12 +20,15 @@ const contentFiles = walk(contentDir, { includeBasePath: true })
 //
 // [end-readme]
 
-contentFiles.forEach(fullPath => {
+contentFiles.forEach((fullPath) => {
   const { content, data } = matter(fs.readFileSync(fullPath, 'utf8'))
   const newData = {}
-  properties.forEach(prop => {
+  properties.forEach((prop) => {
     if (data[prop]) newData[prop] = data[prop]
   })
 
-  fs.writeFileSync(fullPath, matter.stringify(content, newData, { lineWidth: 10000 }))
+  fs.writeFileSync(
+    fullPath,
+    matter.stringify(content, newData, { lineWidth: 10000 })
+  )
 })

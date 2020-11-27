@@ -11,7 +11,7 @@ require('make-promises-safe')
 
 main()
 
-async function main () {
+async function main() {
   const sync = require('../lib/algolia/sync')
   const opts = {
     dryRun: 'DRY_RUN' in process.env,

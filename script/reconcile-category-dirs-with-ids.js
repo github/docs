@@ -36,7 +36,7 @@ if (process.platform.startsWith('win')) {
 // Execute!
 main()
 
-async function main () {
+async function main() {
   const englishCategoryIndices = getEnglishCategoryIndices()
   const siteData = await getEnglishSiteData()
 
@@ -48,7 +48,11 @@ async function main () {
     const categoryDirPath = path.dirname(categoryIndex)
     const categoryDirName = path.basename(categoryDirPath)
 
-    const title = await renderContent(data.title, { site: siteData }, { textOnly: true })
+    const title = await renderContent(
+      data.title,
+      { site: siteData },
+      { textOnly: true }
+    )
     slugger.reset()
     const expectedSlug = slugger.slug(entities.decode(title))
 
@@ -78,19 +82,30 @@ Redirect: "${redirectPath}"
     data.redirect_from.push(redirectPath)
 
     // Update the category index file on disk
-    fs.writeFileSync(categoryIndex, frontmatter.stringify(content, data, { lineWidth: 10000 }))
+    fs.writeFileSync(
+      categoryIndex,
+      frontmatter.stringify(content, data, { lineWidth: 10000 })
+    )
 
     // Update all of the category's articles on disk as well to add a new redirect to their frontmatter
     for (const articleFileName of fs.readdirSync(categoryDirPath)) {
       const articlePath = path.join(categoryDirPath, articleFileName)
 
       // Figure out redirect path
-      const articlePathMinusExtension = path.join(categoryDirPath, path.basename(articleFileName, '.md'))
-      const redirectArticlePath = '/' + slash(path.relative(contentDir, articlePathMinusExtension))
+      const articlePathMinusExtension = path.join(
+        categoryDirPath,
+        path.basename(articleFileName, '.md')
+      )
+      const redirectArticlePath =
+        '/' + slash(path.relative(contentDir, articlePathMinusExtension))
 
       // Log it
       const relativeOldArticlePath = path.relative(contentDir, articlePath)
-      const newArticlePath = path.join(categoryDirParentDir, expectedSlug, articleFileName)
+      const newArticlePath = path.join(
+        categoryDirParentDir,
+        expectedSlug,
+        articleFileName
+      )
       const relativeNewArticlePath = path.relative(contentDir, newArticlePath)
       console.log(`Adding redirect to article:
 Old: "${relativeOldArticlePath}"
@@ -99,7 +114,9 @@ Redirect: "${redirectArticlePath}"
   `)
 
       const articleContents = fs.readFileSync(articlePath, 'utf8')
-      const { data: articleData, content: articleContent } = frontmatter(articleContents)
+      const { data: articleData, content: articleContent } = frontmatter(
+        articleContents
+      )
 
       // Add a new redirect to the frontmatter
       if (!articleData.redirect_from) {
@@ -108,7 +125,10 @@ Redirect: "${redirectArticlePath}"
       articleData.redirect_from.push(redirectArticlePath)
 
       // Update the article file on disk
-      fs.writeFileSync(articlePath, frontmatter.stringify(articleContent, articleData, { lineWidth: 10000 }))
+      fs.writeFileSync(
+        articlePath,
+        frontmatter.stringify(articleContent, articleData, { lineWidth: 10000 })
+      )
     }
 
     // Update the reference to this category in the product index file on disk
@@ -117,9 +137,19 @@ Redirect: "${redirectArticlePath}"
     // script run but TBH I'm OK with that in a manually executed script
     const productIndexPath = path.join(categoryDirParentDir, 'index.md')
     const productIndexContents = fs.readFileSync(productIndexPath, 'utf8')
-    const { data: productIndexData, content: productIndex } = frontmatter(productIndexContents)
-    const revisedProductIndex = productIndex.replace(new RegExp(`(\\s+)(?:/${categoryDirName})(\\s+)`, 'g'), `$1/${expectedSlug}$2`)
-    fs.writeFileSync(productIndexPath, frontmatter.stringify(revisedProductIndex, productIndexData, { lineWidth: 10000 }))
+    const { data: productIndexData, content: productIndex } = frontmatter(
+      productIndexContents
+    )
+    const revisedProductIndex = productIndex.replace(
+      new RegExp(`(\\s+)(?:/${categoryDirName})(\\s+)`, 'g'),
+      `$1/${expectedSlug}$2`
+    )
+    fs.writeFileSync(
+      productIndexPath,
+      frontmatter.stringify(revisedProductIndex, productIndexData, {
+        lineWidth: 10000
+      })
+    )
 
     console.log(`*** Updated product index "${productIndexPath}" for ☝️\n`)
 
@@ -128,10 +158,14 @@ Redirect: "${redirectArticlePath}"
   }
 }
 
-function getEnglishCategoryIndices () {
+function getEnglishCategoryIndices() {
   const walkOptions = {
     globs: ['*/*/**/index.md'],
-    ignore: ['{rest,graphql,developers}/**', 'enterprise/admin/index.md', '**/articles/**'],
+    ignore: [
+      '{rest,graphql,developers}/**',
+      'enterprise/admin/index.md',
+      '**/articles/**'
+    ],
     directories: false,
     includeBasePath: true
   }
@@ -139,7 +173,7 @@ function getEnglishCategoryIndices () {
   return walk(contentDir, walkOptions)
 }
 
-async function getEnglishSiteData () {
+async function getEnglishSiteData() {
   const siteData = await loadSiteData()
   return siteData.en.site
 }

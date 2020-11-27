@@ -11,7 +11,7 @@ const authenticateToAWS = require('../lib/authenticate-to-aws.js')
 
 main()
 
-async function main () {
+async function main() {
   const s3 = await authenticateToAWS()
   if (s3) {
     console.log('You are authenticated to s3!')

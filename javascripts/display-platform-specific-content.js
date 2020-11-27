@@ -4,7 +4,7 @@ const detectedPlatforms = new Set()
 
 // Emphasize content for the visitor's OS (inferred from user agent string)
 
-export default function displayPlatformSpecificContent () {
+export default function displayPlatformSpecificContent() {
   let platform = getPlatformFromUserAgent()
 
   // adjust platform names to fit existing mac/windows/linux scheme
@@ -19,7 +19,7 @@ export default function displayPlatformSpecificContent () {
   showContentForPlatform(platform)
 
   // configure links for switching platform content
-  switcherLinks().forEach(link => {
+  switcherLinks().forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault()
       showContentForPlatform(event.target.dataset.platform)
@@ -28,56 +28,60 @@ export default function displayPlatformSpecificContent () {
   })
 }
 
-function showContentForPlatform (platform) {
+function showContentForPlatform(platform) {
   // (de)activate switcher link appearances
-  switcherLinks().forEach(link => {
-    (link.dataset.platform === platform)
+  switcherLinks().forEach((link) => {
+    link.dataset.platform === platform
       ? link.classList.add('selected')
       : link.classList.remove('selected')
   })
 }
 
-function findPlatformSpecificContent (platform) {
+function findPlatformSpecificContent(platform) {
   // find all platform-specific *block* elements and hide or show as appropriate
   // example: {{ #mac }} block content {{/mac}}
   Array.from(document.querySelectorAll('.extended-markdown'))
-    .filter(el => supportedPlatforms.some(platform => el.classList.contains(platform)))
-    .forEach(el => {
+    .filter((el) =>
+      supportedPlatforms.some((platform) => el.classList.contains(platform))
+    )
+    .forEach((el) => {
       detectPlatforms(el)
-      el.style.display = el.classList.contains(platform)
-        ? ''
-        : 'none'
+      el.style.display = el.classList.contains(platform) ? '' : 'none'
     })
 
   // find all platform-specific *inline* elements and hide or show as appropriate
   // example: <span class="platform-mac">inline content</span>
-  Array.from(document.querySelectorAll('.platform-mac, .platform-windows, .platform-linux'))
-    .forEach(el => {
-      detectPlatforms(el)
-      el.style.display = el.classList.contains('platform-' + platform)
-        ? ''
-        : 'none'
-    })
+  Array.from(
+    document.querySelectorAll(
+      '.platform-mac, .platform-windows, .platform-linux'
+    )
+  ).forEach((el) => {
+    detectPlatforms(el)
+    el.style.display = el.classList.contains('platform-' + platform)
+      ? ''
+      : 'none'
+  })
 
   return Array.from(detectedPlatforms)
 }
 
 // hide links for any platform-specific sections that are not present
-function hideSwitcherLinks (platformsInContent) {
-  Array.from(document.querySelectorAll('a.platform-switcher'))
-    .forEach(link => {
+function hideSwitcherLinks(platformsInContent) {
+  Array.from(document.querySelectorAll('a.platform-switcher')).forEach(
+    (link) => {
       if (platformsInContent.includes(link.dataset.platform)) return
       link.style.display = 'none'
-    })
+    }
+  )
 }
 
-function detectPlatforms (el) {
-  el.classList.forEach(elClass => {
+function detectPlatforms(el) {
+  el.classList.forEach((elClass) => {
     const value = elClass.replace(/platform-/, '')
     if (supportedPlatforms.includes(value)) detectedPlatforms.add(value)
   })
 }
 
-function switcherLinks () {
+function switcherLinks() {
   return Array.from(document.querySelectorAll('a.platform-switcher'))
 }

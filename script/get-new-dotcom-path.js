@@ -33,13 +33,16 @@ if (fs.existsSync(categoryDir)) {
 }
 
 // otherwise add extension and check whether it's a file
-if (!filename.endsWith(markdownExtension)) filename = filename + markdownExtension
+if (!filename.endsWith(markdownExtension))
+  filename = filename + markdownExtension
 
 // run find command
 const newPath = execSync(`find ${newDotcomDir} -name ${filename}`).toString()
 
 if (!newPath) {
-  console.log(`Cannot find new path for "${oldPath}". Check the name and try again.\n`)
+  console.log(
+    `Cannot find new path for "${oldPath}". Check the name and try again.\n`
+  )
   process.exit(0)
 }
 

@@ -22,12 +22,20 @@ describe('pages module', () => {
   })
 
   test('every page has a `languageCode`', async () => {
-    expect(pages.every(page => languageCodes.includes(page.languageCode))).toBe(true)
+    expect(
+      pages.every((page) => languageCodes.includes(page.languageCode))
+    ).toBe(true)
   })
 
   test('every page has a non-empty `permalinks` array', async () => {
-    const brokenPages = pages.filter(page => !Array.isArray(page.permalinks) || page.permalinks.length === 0)
-    const expectation = JSON.stringify(brokenPages.map(page => page.fullPath), null, 2)
+    const brokenPages = pages.filter(
+      (page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0
+    )
+    const expectation = JSON.stringify(
+      brokenPages.map((page) => page.fullPath),
+      null,
+      2
+    )
     expect(brokenPages.length, expectation).toBe(0)
   })
 
@@ -45,31 +53,42 @@ describe('pages module', () => {
       return acc
     }, [])
 
-    const message = `Found ${duplicates.length} duplicate redirect_from ${duplicates.length === 1 ? 'path' : 'paths'}.\n
+    const message = `Found ${duplicates.length} duplicate redirect_from ${
+      duplicates.length === 1 ? 'path' : 'paths'
+    }.\n
  ${duplicates.join('\n')}`
     expect(duplicates.length, message).toBe(0)
   })
 
   test('every English page has a filename that matches its slugified title', async () => {
     const nonMatches = pages
-      .filter(page => {
+      .filter((page) => {
         slugger.reset()
-        return page.languageCode === 'en' && // only check English
-        !page.relativePath.includes('index.md') && // ignore TOCs
-        !page.allowTitleToDifferFromFilename && // ignore docs with override
-        slugger.slug(entities.decode(page.title)) !== path.basename(page.relativePath, '.md')
+        return (
+          page.languageCode === 'en' && // only check English
+          !page.relativePath.includes('index.md') && // ignore TOCs
+          !page.allowTitleToDifferFromFilename && // ignore docs with override
+          slugger.slug(entities.decode(page.title)) !==
+            path.basename(page.relativePath, '.md')
+        )
       })
       // make the output easier to read
-      .map(page => {
-        return JSON.stringify({
-          file: path.basename(page.relativePath),
-          title: page.title,
-          path: page.fullPath
-        }, null, 2)
+      .map((page) => {
+        return JSON.stringify(
+          {
+            file: path.basename(page.relativePath),
+            title: page.title,
+            path: page.fullPath
+          },
+          null,
+          2
+        )
       })
 
     const message = `
-Found ${nonMatches.length} ${nonMatches.length === 1 ? 'file' : 'files'} that do not match their slugified titles.\n
+Found ${nonMatches.length} ${
+      nonMatches.length === 1 ? 'file' : 'files'
+    } that do not match their slugified titles.\n
 ${nonMatches.join('\n')}\n
 To fix, run script/reconcile-filenames-with-ids.js\n\n`
 
@@ -79,11 +98,12 @@ To fix, run script/reconcile-filenames-with-ids.js\n\n`
   test('every page has valid frontmatter', async () => {
     const frontmatterErrors = chain(pages)
       // .filter(page => page.languageCode === 'en')
-      .map(page => page.frontmatterErrors)
+      .map((page) => page.frontmatterErrors)
       .flatten()
       .value()
 
-    const failureMessage = JSON.stringify(frontmatterErrors, null, 2) +
+    const failureMessage =
+      JSON.stringify(frontmatterErrors, null, 2) +
       '\n\n' +
       chain(frontmatterErrors).map('filepath').join('\n').value()
 
@@ -113,17 +133,19 @@ To fix, run script/reconcile-filenames-with-ids.js\n\n`
 
   test('every non-English page has a matching English page', async () => {
     const englishPaths = chain(pages)
-      .filter(page => page.languageCode === 'en')
-      .map(page => page.relativePath)
+      .filter((page) => page.languageCode === 'en')
+      .map((page) => page.relativePath)
       .value()
     const nonEnglishPaths = chain(pages)
-      .filter(page => page.languageCode !== 'en')
-      .map(page => page.relativePath)
+      .filter((page) => page.languageCode !== 'en')
+      .map((page) => page.relativePath)
       .uniq()
       .value()
 
     const diff = difference(nonEnglishPaths, englishPaths)
-    const failureMessage = `Unmatched non-English pages:\n - ${diff.join('\n - ')}`
+    const failureMessage = `Unmatched non-English pages:\n - ${diff.join(
+      '\n - '
+    )}`
     expect(diff.length, failureMessage).toBe(0)
   })
 })

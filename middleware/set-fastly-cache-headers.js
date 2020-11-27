@@ -3,7 +3,6 @@ const STALE_TTL = String(60 * 10) // 10 minutes
 
 module.exports = (req, res, next) => {
   res.set({
-
     // Say you want Fastly to cache your content but you don't want it cached by browsers.
     // The best way to do this would be to send Fastly both the Cache-Control header as you want
     // it to go to the browsers, and use Surrogate-Control to tell us how long to cache for.

@@ -5,8 +5,9 @@ const getApplicableVersions = require('../../lib/get-applicable-versions')
 const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-links')
-const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
-  .filter(version => version.startsWith('enterprise-server@'))
+const enterpriseServerVersions = Object.keys(
+  require('../../lib/all-versions')
+).filter((version) => version.startsWith('enterprise-server@'))
 const flat = require('flat')
 const { last } = require('lodash')
 
@@ -38,9 +39,9 @@ describe('page rendering', () => {
     let checkedImages = {}
 
     const englishPages = pages
-      .filter(page => page.languageCode === languageCode)
+      .filter((page) => page.languageCode === languageCode)
       // ignore developers content, to be checked separately
-      .filter(page => !page.relativePath.match(/^(rest|graphql|developers)/))
+      .filter((page) => !page.relativePath.match(/^(rest|graphql|developers)/))
 
     for (const page of englishPages) {
       // skip map topics because they have no content of their own
@@ -51,7 +52,10 @@ describe('page rendering', () => {
       const brokenLinksPerPage = {}
 
       // get an array of the pages product versions
-      const pageVersions = getApplicableVersions(page.versions, page.relativePath)
+      const pageVersions = getApplicableVersions(
+        page.versions,
+        page.relativePath
+      )
 
       for (const pageVersion of pageVersions) {
         // attach page-specific properties to context
@@ -69,45 +73,78 @@ describe('page rendering', () => {
         const $ = cheerio.load(pageHtml, { xmlMode: true })
 
         // check images
-        const { brokenImages: brokenImagesPerVersion, checkedImageCache } = await checkImages($, pageVersion, page.relativePath, checkedImages)
-        if (brokenImagesPerVersion.length) brokenImagesPerPage[pageVersion] = brokenImagesPerVersion
+        const {
+          brokenImages: brokenImagesPerVersion,
+          checkedImageCache
+        } = await checkImages($, pageVersion, page.relativePath, checkedImages)
+        if (brokenImagesPerVersion.length)
+          brokenImagesPerPage[pageVersion] = brokenImagesPerVersion
         checkedImages = checkedImageCache
 
         // check anchors and links
-        const { brokenLinks: brokenLinksPerVersion, checkedLinkCache } = await checkLinks($, page, context, pageVersion, checkedLinks)
-        if (brokenLinksPerVersion.anchors.length) brokenAnchorsPerPage[pageVersion] = brokenLinksPerVersion.anchors
-        if (brokenLinksPerVersion.links.length) brokenLinksPerPage[pageVersion] = brokenLinksPerVersion.links
+        const {
+          brokenLinks: brokenLinksPerVersion,
+          checkedLinkCache
+        } = await checkLinks($, page, context, pageVersion, checkedLinks)
+        if (brokenLinksPerVersion.anchors.length)
+          brokenAnchorsPerPage[pageVersion] = brokenLinksPerVersion.anchors
+        if (brokenLinksPerVersion.links.length)
+          brokenLinksPerPage[pageVersion] = brokenLinksPerVersion.links
         checkedLinks = checkedLinkCache
       }
 
-      if (Object.keys(brokenImagesPerPage).length) brokenImages[page.fullPath] = brokenImagesPerPage
-      if (Object.keys(brokenAnchorsPerPage).length) brokenAnchors[page.fullPath] = brokenAnchorsPerPage
-      if (Object.keys(brokenLinksPerPage).length) brokenLinks[page.fullPath] = brokenLinksPerPage
+      if (Object.keys(brokenImagesPerPage).length)
+        brokenImages[page.fullPath] = brokenImagesPerPage
+      if (Object.keys(brokenAnchorsPerPage).length)
+        brokenAnchors[page.fullPath] = brokenAnchorsPerPage
+      if (Object.keys(brokenLinksPerPage).length)
+        brokenLinks[page.fullPath] = brokenLinksPerPage
     }
     done()
   })
 
   test('every page has image references that can be resolved', async () => {
     const numbrokenImages = getNumBrokenItems(brokenImages)
-    expect(numbrokenImages, `Found ${numbrokenImages} total broken images: ${JSON.stringify(brokenImages, null, 2)}`).toBe(0)
+    expect(
+      numbrokenImages,
+      `Found ${numbrokenImages} total broken images: ${JSON.stringify(
+        brokenImages,
+        null,
+        2
+      )}`
+    ).toBe(0)
   })
 
   test('every page has links with anchors that can be resolved', async () => {
     const numbrokenAnchors = getNumBrokenItems(brokenAnchors)
-    expect(numbrokenAnchors, `Found ${numbrokenAnchors} total broken anchors: ${JSON.stringify(brokenAnchors, null, 2)}`).toBe(0)
+    expect(
+      numbrokenAnchors,
+      `Found ${numbrokenAnchors} total broken anchors: ${JSON.stringify(
+        brokenAnchors,
+        null,
+        2
+      )}`
+    ).toBe(0)
   })
 
   test('every page has links that can be resolved', async () => {
     const numbrokenLinks = getNumBrokenItems(brokenLinks)
-    expect(numbrokenLinks, `Found ${numbrokenLinks} total broken links: ${JSON.stringify(brokenLinks, null, 2)}`).toBe(0)
+    expect(
+      numbrokenLinks,
+      `Found ${numbrokenLinks} total broken links: ${JSON.stringify(
+        brokenLinks,
+        null,
+        2
+      )}`
+    ).toBe(0)
   })
 })
 
 // count all the nested items
-function getNumBrokenItems (items) {
+function getNumBrokenItems(items) {
   // filter for entries like this:
   // '/article-path-here.md.dotcom.1.broken link': '/en/articles/foo',
-  return Object.keys(flat(items))
-    .filter(key => last(key.split('.')).includes('broken'))
-    .length
+  return Object.keys(flat(items)).filter((key) =>
+    last(key.split('.')).includes('broken')
+  ).length
 }

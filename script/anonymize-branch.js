@@ -11,7 +11,8 @@
 // [end-readme]
 
 process.env.GIT_AUTHOR_NAME = process.env.GIT_COMMITTER_NAME = 'Octomerger Bot'
-process.env.GIT_AUTHOR_EMAIL = process.env.GIT_COMMITTER_EMAIL = '63058869+Octomerger@users.noreply.github.com'
+process.env.GIT_AUTHOR_EMAIL = process.env.GIT_COMMITTER_EMAIL =
+  '63058869+Octomerger@users.noreply.github.com'
 
 const { execSync: exec } = require('child_process')
 const path = require('path')
@@ -20,7 +21,11 @@ const message = args[0]
 const base = args[1] || 'main'
 
 if (!message || !message.length) {
-  console.error(`Specify a new commit message in quotes. Example:\n\nscript/${path.basename(module.filename)} "new commit"`)
+  console.error(
+    `Specify a new commit message in quotes. Example:\n\nscript/${path.basename(
+      module.filename
+    )} "new commit"`
+  )
   process.exit()
 }
 

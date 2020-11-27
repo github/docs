@@ -24,9 +24,17 @@ const loadRedirects = require('../../lib/redirects/precompile')
 // [end-readme]
 
 program
-  .description('Scrape HTML of the oldest supported Enterprise version and add it to the archival repository.')
-  .option('-p, --path-to-archival-repo <PATH>', `path to a local checkout of ${archivalRepoUrl}`)
-  .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
+  .description(
+    'Scrape HTML of the oldest supported Enterprise version and add it to the archival repository.'
+  )
+  .option(
+    '-p, --path-to-archival-repo <PATH>',
+    `path to a local checkout of ${archivalRepoUrl}`
+  )
+  .option(
+    '-d, --dry-run',
+    'only scrape the first 10 pages for testing purposes'
+  )
   .parse(process.argv)
 
 const pathToArchivalRepo = program.pathToArchivalRepo
@@ -35,12 +43,12 @@ const dryRun = program.dryRun
 main()
 
 class RewriteAssetPathsPlugin {
-  constructor (version, tempDirectory) {
+  constructor(version, tempDirectory) {
     this.version = version
     this.tempDirectory = tempDirectory
   }
 
-  apply (registerAction) {
+  apply(registerAction) {
     registerAction('onResourceSaved', async ({ resource }) => {
       // Show some activity
       process.stdout.write('.')
@@ -64,22 +72,26 @@ class RewriteAssetPathsPlugin {
 
       const filePath = path.join(this.tempDirectory, resource.getFilename())
 
-      await fs
-        .promises
-        .writeFile(filePath, newBody, 'binary')
+      await fs.promises.writeFile(filePath, newBody, 'binary')
     })
   }
 }
 
-async function main () {
+async function main() {
   if (!pathToArchivalRepo) {
-    console.log(`Please specify a path to a local checkout of ${archivalRepoUrl}`)
-    console.log(`Example: script/archive-enterprise-version.js ../${archivalRepoName}`)
+    console.log(
+      `Please specify a path to a local checkout of ${archivalRepoUrl}`
+    )
+    console.log(
+      `Example: script/archive-enterprise-version.js ../${archivalRepoName}`
+    )
     process.exit()
   }
 
   if (dryRun) {
-    console.log('This is a dry run! Creating HTML for redirects and scraping the first 10 pages only.\n')
+    console.log(
+      'This is a dry run! Creating HTML for redirects and scraping the first 10 pages only.\n'
+    )
   }
 
   // Build the production assets, to simulate a production deployment
@@ -95,13 +107,14 @@ async function main () {
   }
 
   console.log(`Enterprise version to archive: ${version}`)
-  const pages = await (require('../../lib/pages')())
-  const permalinksPerVersion = Object.keys(pages)
-    .filter(key => key.includes(`/enterprise-server@${version}`))
+  const pages = await require('../../lib/pages')()
+  const permalinksPerVersion = Object.keys(pages).filter((key) =>
+    key.includes(`/enterprise-server@${version}`)
+  )
 
   const urls = dryRun
-    ? permalinksPerVersion.slice(0, 10).map(href => `${host}${href}`)
-    : permalinksPerVersion.map(href => `${host}${href}`)
+    ? permalinksPerVersion.slice(0, 10).map((href) => `${host}${href}`)
+    : permalinksPerVersion.map((href) => `${host}${href}`)
 
   console.log(`found ${urls.length} pages for version ${version}`)
 
@@ -135,7 +148,7 @@ async function main () {
   server.listen(port, async () => {
     console.log(`started server on ${host}`)
 
-    await scrape(scraperOptions).catch(err => {
+    await scrape(scraperOptions).catch((err) => {
       console.error('scraping error')
       console.error(err)
     })
@@ -146,19 +159,26 @@ async function main () {
     )
     rimraf(tempDirectory)
 
-    console.log(`\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`)
+    console.log(
+      `\n\ndone scraping! added files to ${path.relative(
+        process.cwd(),
+        finalDirectory
+      )}\n`
+    )
 
     // create redirect html files to preserve frontmatter redirects
     await createRedirectPages(permalinksPerVersion, pages, finalDirectory)
 
-    console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
+    console.log(
+      `next step: deprecate ${version} in lib/enterprise-server-releases.js`
+    )
 
     process.exit()
   })
 }
 
-async function createRedirectPages (permalinks, pages, finalDirectory) {
-  const pagesPerVersion = permalinks.map(permalink => pages[permalink])
+async function createRedirectPages(permalinks, pages, finalDirectory) {
+  const pagesPerVersion = permalinks.map((permalink) => pages[permalink])
   const redirects = await loadRedirects(pagesPerVersion)
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
@@ -167,7 +187,13 @@ async function createRedirectPages (permalinks, pages, finalDirectory) {
       .replace('/{{ page.version }}', '')
       .replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
-    if (!(oldPath.includes(`/enterprise-server@${version}`) || oldPath.includes(`/enterprise/${version}`))) return
+    if (
+      !(
+        oldPath.includes(`/enterprise-server@${version}`) ||
+        oldPath.includes(`/enterprise/${version}`)
+      )
+    )
+      return
 
     const fullPath = path.join(finalDirectory, oldPath)
     const filename = `${fullPath}/index.html`
@@ -182,7 +208,7 @@ async function createRedirectPages (permalinks, pages, finalDirectory) {
 
 // prior art: https://github.com/github/help-docs-archived-enterprise-versions/blob/master/2.12/user/leave-a-repo/index.html
 // redirect html files already exist in <=2.12 because these versions were deprecated on the old static site
-function getRedirectHtml (newPath) {
+function getRedirectHtml(newPath) {
   return `<!DOCTYPE html>
 <html>
 <head>

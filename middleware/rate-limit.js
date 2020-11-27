@@ -6,7 +6,7 @@ const REDIS_URL = process.env.REDIS_URL
 
 module.exports = rateLimit({
   // 1 minute (or practically unlimited outside of production)
-  windowMs: isProduction ? (60 * 1000) : 1,
+  windowMs: isProduction ? 60 * 1000 : 1,
   // limit each IP to X requests per windowMs
   max: 250,
   // Don't rate limit requests for 200s and redirects

@@ -19,37 +19,38 @@ const endComment = 'end-readme'
 const startCommentRegex = new RegExp(startComment)
 const endCommentRegex = new RegExp(endComment)
 
-const ignoreList = [
-  'README.md'
-]
+const ignoreList = ['README.md']
 
-const scriptsToRuleThemAll = [
-  'bootstrap',
-  'server',
-  'test'
-]
+const scriptsToRuleThemAll = ['bootstrap', 'server', 'test']
 
-const allScripts = walk(__dirname, { directories: false })
-  .filter(script => ignoreList.every(ignoredPath => !script.includes(ignoredPath)))
+const allScripts = walk(__dirname, { directories: false }).filter((script) =>
+  ignoreList.every((ignoredPath) => !script.includes(ignoredPath))
+)
 
 const otherScripts = difference(allScripts, scriptsToRuleThemAll)
 
 // build an object with script name as key and readme comment as value
 const allComments = {}
-allScripts.forEach(script => {
+allScripts.forEach((script) => {
   const fullPath = path.join(__dirname, script)
 
   let addToReadme = false
-  const readmeComment = fs.readFileSync(fullPath, 'utf8')
+  const readmeComment = fs
+    .readFileSync(fullPath, 'utf8')
     .split('\n')
-    .filter(cmt => {
+    .filter((cmt) => {
       if (startCommentRegex.test(cmt)) addToReadme = true
       if (endCommentRegex.test(cmt)) addToReadme = false
-      if (addToReadme && !cmt.includes(startComment) && !cmt.includes(endComment)) return cmt
+      if (
+        addToReadme &&
+        !cmt.includes(startComment) &&
+        !cmt.includes(endComment)
+      )
+        return cmt
       return false
     })
     // remove comment markers and clean up newlines
-    .map(cmt => cmt.replace(/^(\/\/|#) ?/m, ''))
+    .map((cmt) => cmt.replace(/^(\/\/|#) ?/m, ''))
     .join('\n')
     .trim()
 
@@ -82,9 +83,11 @@ if (template === fs.readFileSync(readme, 'utf8')) {
   console.log('The README.md has been updated!')
 }
 
-function createTemplate (arrayOfScripts) {
-  return arrayOfScripts.map(script => {
-    const comment = allComments[script]
-    return dedent`### [\`${script}\`](${script})\n\n${comment}\n\n---\n\n`
-  }).join('\n')
+function createTemplate(arrayOfScripts) {
+  return arrayOfScripts
+    .map((script) => {
+      const comment = allComments[script]
+      return dedent`### [\`${script}\`](${script})\n\n${comment}\n\n---\n\n`
+    })
+    .join('\n')
 }

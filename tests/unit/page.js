@@ -8,7 +8,8 @@ const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-ve
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
 const opts = {
-  relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
+  relativePath:
+    'github/collaborating-with-issues-and-pull-requests/about-branches.md',
   basePath: path.join(__dirname, '../../content'),
   languageCode: 'en'
 }
@@ -16,7 +17,9 @@ const opts = {
 describe('Page class', () => {
   test('preserves file path info', () => {
     const page = new Page(opts)
-    expect(page.relativePath).toBe('github/collaborating-with-issues-and-pull-requests/about-branches.md')
+    expect(page.relativePath).toBe(
+      'github/collaborating-with-issues-and-pull-requests/about-branches.md'
+    )
     expect(page.fullPath.includes(page.relativePath)).toBe(true)
   })
 
@@ -79,15 +82,24 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
+        currentPath:
+          '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
         currentLanguage: 'en'
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
-      expect(page.markdown.includes('(/articles/about-pull-requests)')).toBe(true)
-      expect(page.markdown.includes('(/en/articles/about-pull-requests)')).toBe(false)
+      expect(page.markdown.includes('(/articles/about-pull-requests)')).toBe(
+        true
+      )
+      expect(page.markdown.includes('(/en/articles/about-pull-requests)')).toBe(
+        false
+      )
       expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
+      expect(
+        $(
+          `a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`
+        ).length
+      ).toBeGreaterThan(0)
     })
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {
@@ -96,32 +108,52 @@ describe('Page class', () => {
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
-        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
+        currentPath:
+          '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
         currentLanguage: 'en'
       }
       await page.render(context)
       const $ = cheerio.load(page.intro)
       expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
+      expect(
+        $(
+          `a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`
+        ).length
+      ).toBeGreaterThan(0)
     })
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
       const page = new Page({
-        relativePath: 'admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md',
+        relativePath:
+          'admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
       const context = {
-        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
+        page: {
+          version: `enterprise-server@${enterpriseServerReleases.latest}`
+        },
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentPath: `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123`,
         currentLanguage: 'en'
       }
       const rendered = await page.render(context)
       const $ = cheerio.load(rendered)
-      expect(page.markdown.includes('(/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)')).toBe(true)
-      expect($(`a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/11.10.340/admin/articles/upgrading-to-the-latest-release"]`).length).toBe(0)
-      expect($('a[href="/en/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release"]').length).toBeGreaterThan(0)
+      expect(
+        page.markdown.includes(
+          '(/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)'
+        )
+      ).toBe(true)
+      expect(
+        $(
+          `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/11.10.340/admin/articles/upgrading-to-the-latest-release"]`
+        ).length
+      ).toBe(0)
+      expect(
+        $(
+          'a[href="/en/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release"]'
+        ).length
+      ).toBeGreaterThan(0)
     })
 
     test('does not rewrite links to external redirects', async () => {
@@ -151,27 +183,39 @@ describe('Page class', () => {
       const context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
-        enterpriseServerVersions: allVersionIds.filter(id => id.startsWith('enterprise-server@'))
+        enterpriseServerVersions: allVersionIds.filter((id) =>
+          id.startsWith('enterprise-server@')
+        )
       }
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
-      expect($.text()).toBe('This text should render on any actively supported version of Enterprise Server')
-      expect($.text()).not.toBe('This text should only render on non-Enterprise')
+      expect($.text()).toBe(
+        'This text should render on any actively supported version of Enterprise Server'
+      )
+      expect($.text()).not.toBe(
+        'This text should only render on non-Enterprise'
+      )
 
       // change version to the oldest enterprise version, re-render, and test again;
       // the results should be the same
       context.currentVersion = `enterprise-server@${enterpriseServerReleases.oldestSupported}`
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
-      expect($.text()).toBe('This text should render on any actively supported version of Enterprise Server')
-      expect($.text()).not.toBe('This text should only render on non-Enterprise')
+      expect($.text()).toBe(
+        'This text should render on any actively supported version of Enterprise Server'
+      )
+      expect($.text()).not.toBe(
+        'This text should only render on non-Enterprise'
+      )
 
       // change version to non-enterprise, re-render, and test again;
       // the results should be the opposite
       context.currentVersion = nonEnterpriseDefaultVersion
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
-      expect($.text()).not.toBe('This text should render on any actively supported version of Enterprise Server')
+      expect($.text()).not.toBe(
+        'This text should render on any actively supported version of Enterprise Server'
+      )
       expect($.text()).toBe('This text should only render on non-Enterprise')
     })
   })
@@ -212,15 +256,39 @@ describe('Page class', () => {
 
     test('has a key for every supported enterprise version (and no deprecated versions)', () => {
       const page = new Page(opts)
-      const pageVersions = page.permalinks.map(permalink => permalink.pageVersion)
-      expect(enterpriseServerReleases.supported.every(version => pageVersions.includes(`enterprise-server@${version}`))).toBe(true)
-      expect(enterpriseServerReleases.deprecated.every(version => !pageVersions.includes(`enterprise-server@${version}`))).toBe(true)
+      const pageVersions = page.permalinks.map(
+        (permalink) => permalink.pageVersion
+      )
+      expect(
+        enterpriseServerReleases.supported.every((version) =>
+          pageVersions.includes(`enterprise-server@${version}`)
+        )
+      ).toBe(true)
+      expect(
+        enterpriseServerReleases.deprecated.every(
+          (version) => !pageVersions.includes(`enterprise-server@${version}`)
+        )
+      ).toBe(true)
     })
 
     test('sets versioned values', () => {
       const page = new Page(opts)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-branches`)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/github/collaborating-with-issues-and-pull-requests/about-branches`)
+      expect(
+        page.permalinks.find(
+          (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion
+        ).href
+      ).toBe(
+        `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-branches`
+      )
+      expect(
+        page.permalinks.find(
+          (permalink) =>
+            permalink.pageVersion ===
+            `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+        ).href
+      ).toBe(
+        `/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/github/collaborating-with-issues-and-pull-requests/about-branches`
+      )
     })
 
     test('homepage permalinks', () => {
@@ -229,18 +297,41 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}`)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === 'homepage').href).toBe('/en')
+      expect(
+        page.permalinks.find(
+          (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion
+        ).href
+      ).toBe(`/en/${nonEnterpriseDefaultVersion}`)
+      expect(
+        page.permalinks.find(
+          (permalink) =>
+            permalink.pageVersion ===
+            `enterprise-server@${enterpriseServerReleases.oldestSupported}`
+        ).href
+      ).toBe(
+        `/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`
+      )
+      expect(
+        page.permalinks.find(
+          (permalink) => permalink.pageVersion === 'homepage'
+        ).href
+      ).toBe('/en')
     })
 
     test('permalinks for dotcom-only pages', () => {
       const page = new Page({
-        relativePath: 'github/getting-started-with-github/signing-up-for-a-new-github-account.md',
+        relativePath:
+          'github/getting-started-with-github/signing-up-for-a-new-github-account.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/signing-up-for-a-new-github-account`)
+      expect(
+        page.permalinks.find(
+          (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion
+        ).href
+      ).toBe(
+        `/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/signing-up-for-a-new-github-account`
+      )
       expect(page.permalinks.length).toBe(1)
     })
 
@@ -250,8 +341,18 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`)
-      const pageVersions = page.permalinks.map(permalink => permalink.pageVersion)
+      expect(
+        page.permalinks.find(
+          (permalink) =>
+            permalink.pageVersion ===
+            `enterprise-server@${enterpriseServerReleases.latest}`
+        ).href
+      ).toBe(
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`
+      )
+      const pageVersions = page.permalinks.map(
+        (permalink) => permalink.pageVersion
+      )
       expect(pageVersions.length).toBeGreaterThan(1)
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
@@ -262,18 +363,35 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/products/actions/some-category/some-article`)
+      expect(
+        page.permalinks.find(
+          (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion
+        ).href
+      ).toBe(
+        `/en/${nonEnterpriseDefaultVersion}/products/actions/some-category/some-article`
+      )
       expect(page.permalinks.length).toBe(1)
     })
 
     test('permalinks for non-GitHub.com products with Enterprise versions', () => {
       const page = new Page({
-        relativePath: '/insights/installing-and-configuring-github-insights/about-github-insights.md',
+        relativePath:
+          '/insights/installing-and-configuring-github-insights/about-github-insights.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`)
-      const pageVersions = page.permalinks.map(permalink => permalink.pageVersion)
+      expect(
+        page.permalinks.find(
+          (permalink) =>
+            permalink.pageVersion ===
+            `enterprise-server@${enterpriseServerReleases.latest}`
+        ).href
+      ).toBe(
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/insights/installing-and-configuring-github-insights/about-github-insights`
+      )
+      const pageVersions = page.permalinks.map(
+        (permalink) => permalink.pageVersion
+      )
       expect(pageVersions.length).toBeGreaterThan(1)
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
@@ -291,9 +409,9 @@ describe('Page class', () => {
   describe('Page.getLanguageVariants()', () => {
     it('returns an array of language variants of the given URL', () => {
       const variants = Page.getLanguageVariants('/en')
-      expect(variants.every(variant => variant.name)).toBe(true)
-      expect(variants.every(variant => variant.code)).toBe(true)
-      expect(variants.every(variant => variant.href)).toBe(true)
+      expect(variants.every((variant) => variant.name)).toBe(true)
+      expect(variants.every((variant) => variant.code)).toBe(true)
+      expect(variants.every((variant) => variant.href)).toBe(true)
     })
 
     it('works for the homepage', () => {
@@ -303,8 +421,12 @@ describe('Page class', () => {
     })
 
     it('works for enterprise URLs', () => {
-      const variants = Page.getLanguageVariants(`/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`)
-      expect(variants.find(({ code }) => code === 'en').href).toBe(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`)
+      const variants = Page.getLanguageVariants(
+        `/ja/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`
+      )
+      expect(variants.find(({ code }) => code === 'en').href).toBe(
+        `/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/articles/github-glossary`
+      )
       // expect(variants.find(({ code }) => code === 'ja').href).toBe('/ja/enterprise/2.14/user/articles/github-glossary')
     })
   })
@@ -320,7 +442,7 @@ describe('Page class', () => {
 
   describe('page.versions frontmatter', () => {
     test.skip('pages that apply to older enterprise versions', async () => {
-    // There are none of these in the content at this time!
+      // There are none of these in the content at this time!
     })
 
     // Note this test will go out of date when we deprecate 2.20
@@ -358,7 +480,7 @@ describe('Page class', () => {
 
 describe('catches errors thrown in Page class', () => {
   test('frontmatter parsing error', () => {
-    function getPage () {
+    function getPage() {
       return new Page({
         relativePath: 'page-with-frontmatter-error.md',
         basePath: path.join(__dirname, '../fixtures'),
@@ -370,7 +492,7 @@ describe('catches errors thrown in Page class', () => {
   })
 
   test('missing versions frontmatter', () => {
-    function getPage () {
+    function getPage() {
       return new Page({
         relativePath: 'page-with-missing-product-versions.md',
         basePath: path.join(__dirname, '../fixtures'),
@@ -382,14 +504,17 @@ describe('catches errors thrown in Page class', () => {
   })
 
   test('page with a version in frontmatter that its parent product is not available in', () => {
-    function getPage () {
+    function getPage() {
       return new Page({
-        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
+        relativePath:
+          'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
         basePath: path.join(__dirname, '../fixtures/products'),
         languageCode: 'en'
       })
     }
 
-    expect(getPage).toThrowError(/`versions` frontmatter.*? product is not available in/)
+    expect(getPage).toThrowError(
+      /`versions` frontmatter.*? product is not available in/
+    )
   })
 })

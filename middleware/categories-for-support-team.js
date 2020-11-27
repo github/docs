@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
   return res.json(categories)
 }
 
-function generateCategories () {
+function generateCategories() {
   // get links included in dotcom index page.
   // each link corresponds to a dotcom subdirectory
   // example: getting-started-with-github
@@ -24,7 +24,7 @@ function generateCategories () {
 
   // get links included in each subdir's index page
   // these are links to articles
-  links.forEach(link => {
+  links.forEach((link) => {
     const category = {}
     const indexPath = getPath(link, 'index')
     const indexContents = fs.readFileSync(indexPath, 'utf8')
@@ -38,7 +38,7 @@ function generateCategories () {
 
     const publishedArticles = []
 
-    articleLinks.forEach(articleLink => {
+    articleLinks.forEach((articleLink) => {
       const publishedArticle = {}
 
       // get title from frontmatter
@@ -63,11 +63,12 @@ function generateCategories () {
   return categories
 }
 
-function getLinks (contents) {
-  return contents.match(linkRegex)
-    .map(link => link.match(linkRegex.source)[1])
+function getLinks(contents) {
+  return contents
+    .match(linkRegex)
+    .map((link) => link.match(linkRegex.source)[1])
 }
 
-function getPath (link, filename) {
+function getPath(link, filename) {
   return path.join(dotcomDir, link, `${filename}.md`)
 }

@@ -1,4 +1,3 @@
-
 const middleware = require('../../middleware/early-access-proxy')
 const nock = require('nock')
 const MockExpressResponse = require('mock-express-response')
@@ -23,7 +22,9 @@ describe('Early Access middleware', () => {
   test('are proxied from an obscured host', async () => {
     const mock = nock('https://secret-website.com')
       .get('/alpha-product/foo')
-      .reply(200, 'yay here is your proxied content', { 'content-type': 'text/html' })
+      .reply(200, 'yay here is your proxied content', {
+        'content-type': 'text/html'
+      })
     const req = { ...baseReq, path: '/alpha-product/foo' }
     const res = new MockExpressResponse()
     const next = jest.fn()
@@ -35,9 +36,13 @@ describe('Early Access middleware', () => {
   test('follows redirects', async () => {
     const mock = nock('https://secret-website.com')
       .get('/alpha-product/foo')
-      .reply(301, undefined, { Location: 'https://secret-website.com/alpha-product/foo2' })
+      .reply(301, undefined, {
+        Location: 'https://secret-website.com/alpha-product/foo2'
+      })
       .get('/alpha-product/foo2')
-      .reply(200, 'yay you survived the redirect', { 'content-type': 'text/html' })
+      .reply(200, 'yay you survived the redirect', {
+        'content-type': 'text/html'
+      })
     const req = { ...baseReq, path: '/alpha-product/foo' }
     const res = new MockExpressResponse()
     const next = jest.fn()

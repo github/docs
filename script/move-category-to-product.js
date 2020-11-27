@@ -21,13 +21,26 @@ const contentDir = path.join(__dirname, '../content')
 
 // derive global values
 const [relativePath, productId, productName] = process.argv.slice(2)
-assert(relativePath, 'first arg must be a path to an existing category, e.g., github/working-with-github-pages')
+assert(
+  relativePath,
+  'first arg must be a path to an existing category, e.g., github/working-with-github-pages'
+)
 assert(productId, 'second arg must be the ID of the new product, e.g., pages')
-assert(productName, 'third arg must be the full name of the new product in quotes, e.g., "GitHub Pages"')
-assert.strictEqual(relativePath.split('/').length, 2, 'first arg must only contain one slash, e.g., github/working-with-github-pages')
+assert(
+  productName,
+  'third arg must be the full name of the new product in quotes, e.g., "GitHub Pages"'
+)
+assert.strictEqual(
+  relativePath.split('/').length,
+  2,
+  'first arg must only contain one slash, e.g., github/working-with-github-pages'
+)
 
 const oldCategoryDir = path.join(contentDir, relativePath)
-assert(fs.existsSync(oldCategoryDir), `directory does not exist: ${oldCategoryDir}`)
+assert(
+  fs.existsSync(oldCategoryDir),
+  `directory does not exist: ${oldCategoryDir}`
+)
 
 const productDir = path.join(contentDir, productId)
 
@@ -40,23 +53,25 @@ createNewProductToc()
 removeCategoryFromOldProductToc()
 updateFrontmatter()
 
-console.log(`Moved files to content/${productId} and updated frontmatter!\n\nNext steps:\n`)
+console.log(
+  `Moved files to content/${productId} and updated frontmatter!\n\nNext steps:\n`
+)
 
 // display data that needs to be manually added to lib files
 printProductsModuleUpdate()
 printFrontmatterSchemaUpdate()
 
-function makeNewProductDir () {
+function makeNewProductDir() {
   if (!fs.existsSync(productDir)) {
     execSync(`mkdir ${productDir}`)
   }
 }
 
-function moveFilesToNewDir () {
+function moveFilesToNewDir() {
   execSync(`git mv ${oldCategoryDir} ${productDir}`)
 }
 
-function createNewProductToc () {
+function createNewProductToc() {
   const productTocPath = path.join(productDir, 'index.md')
   const data = {}
   data.title = `${productName} Documentation`
@@ -64,10 +79,13 @@ function createNewProductToc () {
   data.productVersions[productId] = '*'
   const content = `\n{% link_with_intro /${categoryName} %}`
 
-  fs.writeFileSync(productTocPath, matter.stringify(content, data, { lineWidth: 10000 }))
+  fs.writeFileSync(
+    productTocPath,
+    matter.stringify(content, data, { lineWidth: 10000 })
+  )
 }
 
-function removeCategoryFromOldProductToc () {
+function removeCategoryFromOldProductToc() {
   const oldProductTocPath = path.join(contentDir, oldproductId, 'index.md')
   const tocContents = fs.readFileSync(oldProductTocPath, 'utf8')
   const { content, data } = matter(tocContents)
@@ -76,21 +94,34 @@ function removeCategoryFromOldProductToc () {
 
   const newContent = content.replace(new RegExp(link), '')
 
-  fs.writeFileSync(oldProductTocPath, matter.stringify(newContent, data, { lineWidth: 10000 }))
+  fs.writeFileSync(
+    oldProductTocPath,
+    matter.stringify(newContent, data, { lineWidth: 10000 })
+  )
 }
 
-function updateFrontmatter () {
+function updateFrontmatter() {
   const newCategoryDir = path.join(productDir, categoryName)
 
   // for every article in the category, update productVersions and redirect frontmatter
-  walk(newCategoryDir, { includeBasePath: true }).forEach(file => {
+  walk(newCategoryDir, { includeBasePath: true }).forEach((file) => {
     const articleContents = fs.readFileSync(file, 'utf8')
     const { content, data } = matter(articleContents)
 
-    const baseFilename = file.endsWith('index.md') ? '' : path.basename(file, '.md')
+    const baseFilename = file.endsWith('index.md')
+      ? ''
+      : path.basename(file, '.md')
 
-    const redirectString = path.join('/', oldproductId, categoryName, baseFilename)
-    data.redirect_from = addRedirectToFrontmatter(data.redirect_from, redirectString)
+    const redirectString = path.join(
+      '/',
+      oldproductId,
+      categoryName,
+      baseFilename
+    )
+    data.redirect_from = addRedirectToFrontmatter(
+      data.redirect_from,
+      redirectString
+    )
 
     data.productVersions = {}
     data.productVersions[productId] = '*'
@@ -100,7 +131,7 @@ function updateFrontmatter () {
   })
 }
 
-function printProductsModuleUpdate () {
+function printProductsModuleUpdate() {
   const newProduct = {
     id: productId,
     name: productName,
@@ -111,11 +142,13 @@ function printProductsModuleUpdate () {
   const obj = {}
   obj[productId] = newProduct
 
-  console.log('1. Add the following block to lib/products.js. Note: the order of this file determines the product order everywhere on the site.\n')
+  console.log(
+    '1. Add the following block to lib/products.js. Note: the order of this file determines the product order everywhere on the site.\n'
+  )
   console.log(obj)
 }
 
-function printFrontmatterSchemaUpdate () {
+function printFrontmatterSchemaUpdate() {
   const newFrontmatter = {
     type: 'string',
     conform: '(add validSemverRange here)',
@@ -124,6 +157,8 @@ function printFrontmatterSchemaUpdate () {
   const obj = {}
   obj[productId] = newFrontmatter
 
-  console.log('\n2. Add the following block to the productVersions object in lib/frontmatter.js (ordered alphabetically). Make sure the \'conform\' property looks like the others. \n')
+  console.log(
+    "\n2. Add the following block to the productVersions object in lib/frontmatter.js (ordered alphabetically). Make sure the 'conform' property looks like the others. \n"
+  )
   console.log(obj)
 }

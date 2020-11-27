@@ -22,10 +22,10 @@ const stagingAppNamePrefix = 'docs-internal-pr-'
 
 main()
 
-async function main () {
+async function main() {
   const stagingApps = chain(await heroku.get('/apps'))
-    .filter(app => app.name.startsWith(stagingAppNamePrefix))
-    .map(app => {
+    .filter((app) => app.name.startsWith(stagingAppNamePrefix))
+    .map((app) => {
       app.pullRequestNumber = Number(app.name.match(/\d+$/)[0])
       return app
     })

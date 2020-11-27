@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid')
 module.exports = function (req, res, next) {
   if (!req.hydro.maySend()) return next()
 
-  res.on('finish', async function recordRedirect () {
+  res.on('finish', async function recordRedirect() {
     // We definitely don't want 304
     if (![301, 302, 303, 307, 308].includes(res.statusCode)) return
     const schemaName = req.hydro.schemas.redirect

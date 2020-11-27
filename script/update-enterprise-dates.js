@@ -28,17 +28,19 @@ main()
 
 // GHE Release Lifecycle Dates:
 // https://github.com/github/enterprise-releases/blob/master/releases.json
-async function main () {
+async function main() {
   let raw
   try {
     raw = await getDataFromReleasesRepo()
   } catch (err) {
     console.log('error getting JSON from enterprise-releases repo')
-    throw (err)
+    throw err
   }
   const json = prepareData(raw)
   if (json === prettify(jsonFile)) {
-    console.log('This repo is already in sync with https://github.com/github/enterprise-releases/blob/master/releases.json!')
+    console.log(
+      'This repo is already in sync with https://github.com/github/enterprise-releases/blob/master/releases.json!'
+    )
   } else {
     fs.writeFileSync(filename, json, 'utf8')
     console.log(`${filename} has been updated!`)
@@ -46,7 +48,7 @@ async function main () {
 }
 
 // Uses https://octokit.github.io/rest.js/#api-Repos-getContents
-async function getDataFromReleasesRepo () {
+async function getDataFromReleasesRepo() {
   const octokit = github()
   const { data } = await octokit.repos.getContents({
     owner: 'github',
@@ -60,10 +62,10 @@ async function getDataFromReleasesRepo () {
 
 // We only need some of the values from the source JSON
 // We use https://github.com/zeke/browser-date-formatter on the client side to reformat the dates
-function prepareData (raw) {
+function prepareData(raw) {
   const data = Object.entries(JSON.parse(raw))
   const obj = {}
-  data.forEach(versions => {
+  data.forEach((versions) => {
     const datesObj = {}
     const version = versions[0]
     const releaseDate = versions[1].start
@@ -75,6 +77,6 @@ function prepareData (raw) {
   return prettify(obj)
 }
 
-function prettify (json) {
+function prettify(json) {
   return JSON.stringify(json, null, 2)
 }

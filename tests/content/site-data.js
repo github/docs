@@ -28,8 +28,13 @@ describe('siteData module (English)', () => {
   })
 
   test('includes English reusables', async () => {
-    const reusable = get(data, 'en.site.data.reusables.command_line.switching_directories_procedural')
-    expect(reusable).toBe('1. Change the current working directory to your local repository.')
+    const reusable = get(
+      data,
+      'en.site.data.reusables.command_line.switching_directories_procedural'
+    )
+    expect(reusable).toBe(
+      '1. Change the current working directory to your local repository.'
+    )
   })
 
   test('includes Japanese variables', async () => {
@@ -70,7 +75,10 @@ describe('siteData module (English)', () => {
   })
 
   test('includes markdown files as data', async () => {
-    const reusable = get(data, 'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section')
+    const reusable = get(
+      data,
+      'en.site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section'
+    )
     expect(typeof reusable).toBe('string')
     expect(reusable.includes('1. ')).toBe(true)
   })
@@ -82,10 +90,16 @@ describe('siteData module (English)', () => {
   })
 
   test('warn if any YAML reusables are found', async () => {
-    const reusables = require('walk-sync')(path.join(__dirname, '../../data/reusables'))
+    const reusables = require('walk-sync')(
+      path.join(__dirname, '../../data/reusables')
+    )
     expect(reusables.length).toBeGreaterThan(100)
-    const yamlResuables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
-    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlResuables.join('\n')}`
+    const yamlResuables = reusables.filter(
+      (filename) => filename.endsWith('.yml') || filename.endsWith('.yaml')
+    )
+    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlResuables.join(
+      '\n'
+    )}`
     expect(yamlResuables.length, message).toBe(0)
   })
 

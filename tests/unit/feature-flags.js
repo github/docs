@@ -2,7 +2,7 @@ require('../../lib/feature-flags')
 const ffs = require('../../feature-flags')
 
 describe('feature flags', () => {
-  Object.keys(ffs).forEach(featureName => {
+  Object.keys(ffs).forEach((featureName) => {
     expect(featureName.startsWith('FEATURE_')).toBe(true)
   })
 

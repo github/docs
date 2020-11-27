@@ -14,7 +14,7 @@ let maxScrollY = 0
 let pauseScrolling = false
 let sentExit = false
 
-export function getUserEventsId () {
+export function getUserEventsId() {
   if (cookieValue) return cookieValue
   cookieValue = Cookies.get(COOKIE_NAME)
   if (cookieValue) return cookieValue
@@ -27,7 +27,7 @@ export function getUserEventsId () {
   return cookieValue
 }
 
-export function sendEvent ({
+export function sendEvent({
   type,
   version = '1.0.0',
   page_render_duration,
@@ -119,10 +119,10 @@ export function sendEvent ({
   return body
 }
 
-function getPerformance () {
-  const paint = performance?.getEntriesByType('paint')?.find(
-    ({ name }) => name === 'first-contentful-paint'
-  )
+function getPerformance() {
+  const paint = performance
+    ?.getEntriesByType('paint')
+    ?.find(({ name }) => name === 'first-contentful-paint')
   const nav = performance?.getEntriesByType('navigation')?.[0]
   return {
     firstContentfulPaint: paint ? paint.startTime / 1000 : undefined,
@@ -132,30 +132,27 @@ function getPerformance () {
   }
 }
 
-function trackScroll () {
+function trackScroll() {
   // Throttle the calculations to no more than five per second
   if (pauseScrolling) return
   pauseScrolling = true
-  setTimeout(() => { pauseScrolling = false }, 200)
+  setTimeout(() => {
+    pauseScrolling = false
+  }, 200)
 
   // Update maximum scroll position reached
-  const scrollPosition = (
+  const scrollPosition =
     (window.scrollY + window.innerHeight) /
     document.documentElement.scrollHeight
-  )
   if (scrollPosition > maxScrollY) maxScrollY = scrollPosition
 }
 
-function sendExit () {
+function sendExit() {
   if (sentExit) return
   if (document.visibilityState !== 'hidden') return
   if (!pageEventId) return
   sentExit = true
-  const {
-    firstContentfulPaint,
-    domInteractive,
-    domComplete
-  } = getPerformance()
+  const { firstContentfulPaint, domInteractive, domComplete } = getPerformance()
   return sendEvent({
     type: 'exit',
     exit_page_id: pageEventId,
@@ -167,7 +164,7 @@ function sendExit () {
   })
 }
 
-export default function initializeEvents () {
+export default function initializeEvents() {
   // Page event
   const { render } = getPerformance()
   const pageEvent = sendEvent({
@@ -176,14 +173,14 @@ export default function initializeEvents () {
   })
 
   // Clipboard event
-  ;['copy', 'cut', 'paste'].forEach(verb => {
+  ;['copy', 'cut', 'paste'].forEach((verb) => {
     document.documentElement.addEventListener(verb, () => {
       sendEvent({ type: 'clipboard', clipboard_operation: verb })
     })
   })
 
   // Link event
-  document.documentElement.addEventListener('click', evt => {
+  document.documentElement.addEventListener('click', (evt) => {
     const link = evt.target.closest('a[href^="http"]')
     if (!link) return
     sendEvent({
@@ -195,24 +192,28 @@ export default function initializeEvents () {
   if (!document.querySelector('.sidebar-products')) return
 
   // Navigate event
-  Array.from(
-    document.querySelectorAll('.sidebar-products details')
-  ).forEach(details => details.addEventListener(
-    'toggle',
-    evt => sendEvent({
-      type: 'navigate',
-      navigate_label: `details ${evt.target.open ? 'open' : 'close'}: ${evt.target.querySelector('summary').innerText}`
-    })
-  ))
+  Array.from(document.querySelectorAll('.sidebar-products details')).forEach(
+    (details) =>
+      details.addEventListener('toggle', (evt) =>
+        sendEvent({
+          type: 'navigate',
+          navigate_label: `details ${evt.target.open ? 'open' : 'close'}: ${
+            evt.target.querySelector('summary').innerText
+          }`
+        })
+      )
+  )
 
-  document.querySelector('.sidebar-products').addEventListener('click', evt => {
-    const link = evt.target.closest('a')
-    if (!link) return
-    sendEvent({
-      type: 'navigate',
-      navigate_label: `link: ${link.href}`
+  document
+    .querySelector('.sidebar-products')
+    .addEventListener('click', (evt) => {
+      const link = evt.target.closest('a')
+      if (!link) return
+      sendEvent({
+        type: 'navigate',
+        navigate_label: `link: ${link.href}`
+      })
     })
-  })
 
   // Exit event
   pageEventId = pageEvent?.context?.event_id

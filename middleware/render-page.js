@@ -11,7 +11,7 @@ const statsd = require('../lib/statsd')
 // We can eventually throw this into redis
 const pageCache = {}
 
-module.exports = async function renderPage (req, res, next) {
+module.exports = async function renderPage(req, res, next) {
   const page = req.context.page
   const originalUrl = req.originalUrl
 
@@ -27,9 +27,13 @@ module.exports = async function renderPage (req, res, next) {
   // render a 404 page
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && req.context.redirectNotFound) {
-      console.error(`\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`)
+      console.error(
+        `\nTried to redirect to ${req.context.redirectNotFound}, but that page was not found.\n`
+      )
     }
-    return res.status(404).send(await liquid.parseAndRender(layouts['error-404'], req.context))
+    return res
+      .status(404)
+      .send(await liquid.parseAndRender(layouts['error-404'], req.context))
   }
 
   if (req.method === 'HEAD') {
@@ -47,14 +51,21 @@ module.exports = async function renderPage (req, res, next) {
 
   // get mini TOC items on articles
   if (page.showMiniToc) {
-    context.miniTocItems = getMiniTocItems(context.renderedPage, page.miniTocMaxHeadingLevel)
+    context.miniTocItems = getMiniTocItems(
+      context.renderedPage,
+      page.miniTocMaxHeadingLevel
+    )
   }
 
   // handle special-case prerendered GraphQL objects page
   if (req.path.endsWith('graphql/reference/objects')) {
     // concat the markdown source miniToc items and the prerendered miniToc items
-    context.miniTocItems = context.miniTocItems.concat(req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc)
-    context.renderedPage = context.renderedPage + req.context.graphql.prerenderedObjectsForCurrentVersion.html
+    context.miniTocItems = context.miniTocItems.concat(
+      req.context.graphql.prerenderedObjectsForCurrentVersion.miniToc
+    )
+    context.renderedPage =
+      context.renderedPage +
+      req.context.graphql.prerenderedObjectsForCurrentVersion.html
   }
 
   // Create string for <title> tag
@@ -62,7 +73,8 @@ module.exports = async function renderPage (req, res, next) {
 
   // add localized ` - GitHub Docs` suffix to <title> tag (except for the homepage)
   if (!patterns.homepagePath.test(req.path)) {
-    context.page.fullTitle = context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
+    context.page.fullTitle =
+      context.page.fullTitle + ' - ' + context.site.data.ui.header.github_docs
   }
 
   // `?json` query param for debugging request context
@@ -73,7 +85,8 @@ module.exports = async function renderPage (req, res, next) {
     } else {
       // dump all the keys: ?json
       return res.json({
-        message: 'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
+        message:
+          'The full context object is too big to display! Try one of the individual keys below, e.g. ?json=page. You can also access nested props like ?json=site.data.reusables',
         keys: Object.keys(context)
       })
     }

@@ -17,7 +17,7 @@ describe('developer.github.com redirects', () => {
     // test a subset of the top paths
     const pathsToCheck = 300
     const paths = require('../fixtures/top-old-developer-site-paths.json')
-      .filter(path => !ignoredPatterns.some(pattern => path.match(pattern)))
+      .filter((path) => !ignoredPatterns.some((pattern) => path.match(pattern)))
       .slice(0, pathsToCheck)
 
     const non200s = []
@@ -30,10 +30,14 @@ describe('developer.github.com redirects', () => {
     }
 
     // generate an object with empty values as the error message
-    const errorMessage = JSON.stringify(non200s.reduce((acc, path) => {
-      acc[path] = ''
-      return acc
-    }, {}), null, 2)
+    const errorMessage = JSON.stringify(
+      non200s.reduce((acc, path) => {
+        acc[path] = ''
+        return acc
+      }, {}),
+      null,
+      2
+    )
 
     expect(non200s, errorMessage).toEqual([])
   })
