@@ -1,4 +1,4 @@
----
+Submit change ---
 title: GitHub and Trade Controls
 redirect_from:
   - /articles/github-and-export-controls
