@@ -1,4 +1,4 @@
----
+---submit change 
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
@@ -36,4 +36,4 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 ### Further reading
 
-- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-ezaljb6@gmail.com)"
