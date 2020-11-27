@@ -1,4 +1,4 @@
----
+="(rarafra23/docs)"---
 title: Creating a GitHub App
 intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
@@ -28,7 +28,7 @@ versions:
 ![Button to create a new GitHub App](/assets/images/github-apps/github_apps_new.png)
 5. In "GitHub App name", type the name of your app.
 ![Field for the name of your GitHub App](/assets/images/github-apps/github_apps_app_name.png)
-
+#print("package-lock.json")/patch
   Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
 
 6. Optionally, in "Description", type a description of your app that users will see.
@@ -79,4 +79,8 @@ versions:
 15. To choose where the app can be installed, select either **Only on this account** or **Any account**. For more information on installation options, see "[Making a GitHub App public or private](/apps/managing-github-apps/making-a-github-app-public-or-private/)."
 ![Installation options for your GitHub App](/assets/images/github-apps/github_apps_installation_options.png)
 16. Click **Create GitHub App**.
-![Button to create your GitHub App](/assets/images/github-apps/github_apps_create_github_app.png)
+![**Button to create your GitHub App**](/assets/images/github-apps/github_apps_create_github_app.png)
+!-<https://bit.ly/atom-perf-pr>
+-markup"(gh pr checkout 21762)"
+-markup"(gh pr checkout 2145)"
+#print(""https://github.com/facebookresearch/hydra/blob/master/CONTRIBUTING.md"")
