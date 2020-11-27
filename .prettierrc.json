@@ -2,6 +2,16 @@
   "overrides": [
     {
       "files":[
+        "**/*.js"
+      ],
+      "options": {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "none"
+      }
+    },
+    {
+      "files":[
         "**/*.{yml,yaml}"
       ],
       "options": {

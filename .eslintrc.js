@@ -6,20 +6,21 @@ module.exports = {
     node: true
   },
   parser: 'babel-eslint',
+  plugins: ['prettier'],
   extends: [
     'eslint:recommended',
-    'standard'
+    'standard',
+    'prettier',
+    'plugin:prettier/recommended',
+    'prettier/standard'
   ],
   parserOptions: {
     ecmaVersion: 11
   },
-  rules: {
-  },
+  rules: {},
   overrides: [
     {
-      files: [
-        '**/tests/**/*.js'
-      ],
+      files: ['**/tests/**/*.js'],
       env: {
         jest: true
       }
