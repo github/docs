@@ -1,4 +1,4 @@
----
+rtattours---
 title: Using LDAP
 redirect_from:
   - /enterprise/admin/articles/configuring-ldap-authentication/
