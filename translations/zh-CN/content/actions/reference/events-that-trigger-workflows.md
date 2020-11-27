@@ -572,6 +572,8 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 #### `pull_request_target`
 
 此事件类似于 `pull_request`，只不过它在拉取请求的基础仓库的上下文中运行，而不是在合并提交中运行。 这意味着您可以更安全地将您的密码提供给由拉取请求触发的工作流程，因为只有在基础仓库的提交中定义的工作流程才会运行。 例如，此事件允许您根据事件有效负载的内容创建工作流程来标识和评论拉取请求。
@@ -588,6 +590,8 @@ on:
 on: pull_request_target
     types: [assigned, opened, synchronize, reopened]
 ```
+
+{% endif %}
 
 #### `推送`
 
@@ -689,6 +693,8 @@ on:
     types: [started]
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
@@ -710,6 +716,8 @@ on:
       - completed
       - requested
 ```
+
+{% endif %}
 
 ### 使用个人访问令牌触发新工作流程
 

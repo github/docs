@@ -1,6 +1,6 @@
 ---
 title: 关于应用程序
-intro: 'You can build integrations with the {% data variables.product.prodname_dotcom %} APIs to add flexibility and reduce friction in your own workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
+intro: '您可以构建与 {% data variables.product.prodname_dotcom %} API 的集成来增加灵活性并减少自己工作流程中的摩擦。{% if currentVersion == "free-pro-team@latest" %} 您也可以与 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 上的其他API 集成。{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -12,37 +12,37 @@ versions:
   github-ae: '*'
 ---
 
-Apps on {% data variables.product.prodname_dotcom %} allow you to automate and improve your workflow. You can build apps to improve your workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share or sell apps in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). To learn how to list an app on {% data variables.product.prodname_marketplace %}, see "[Getting started with GitHub Marketplace](/marketplace/getting-started/)."{% endif %}
+{% data variables.product.prodname_dotcom %} 上的应用程序允许您自动化并改进工作流程。 您可以构建应用程序来改进工作流程。{% if currentversion == "free proteam@latest" %} 您也可以在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) 中分享或销售应用程序。 要了解如何在 {% data variables.product.prodname_marketplace %} 上列出应用程序，请参阅“[GitHub Marketplace 使用入门](/marketplace/getting-started/)”。{% endif %}
 
-{% data reusables.marketplace.github_apps_preferred %}, but GitHub supports both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_apps %}. For information on choosing a type of app, see "[About apps](/apps/about-apps/)" and "[Differences between apps](/apps/differences-between-apps/)."
+{% data reusables.marketplace.github_apps_preferred %}，但 GitHub 支持 {% data variables.product.prodname_oauth_app %} 和 {% data variables.product.prodname_github_apps %}。 有关选择应用程序类型的信息，请参阅“[关于应用程序](/apps/about-apps/)”和“[应用程序之间的差异](/apps/differences-between-apps/)”。
 
 {% data reusables.apps.general-apps-restrictions %}
 
-For a walkthrough of the process of building a {% data variables.product.prodname_github_app %}, see "[Building Your First {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)."
+有关构建 {% data variables.product.prodname_github_app %} 的过程演练，请参阅“[构建第一个 {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)”。
 
 ### 关于 {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_github_apps %} are first-class actors within GitHub. A {% data variables.product.prodname_github_app %} acts on its own behalf, taking actions via the API directly using its own identity, which means you don't need to maintain a bot or service account as a separate user.
+{% data variables.product.prodname_github_apps %} 是 GitHub 中的一流产品。 {% data variables.product.prodname_github_app %} 应用程序以自己的名义运行，通过 API 直接使用自己的身份进行操作，这意味着您无需作为独立用户维护自动程序或服务帐户。
 
-{% data variables.product.prodname_github_apps %} can be installed directly on organizations and user accounts and granted access to specific repositories. 它们拥有内置 web 挂钩和狭窄的特定权限。 When you set up your {% data variables.product.prodname_github_app %}, you can select the repositories you want it to access. 例如，您可以设置一个名为 `MyGitHub` 的应用程序，允许它在 `octocat` 仓库且_仅_在 `octocat` 仓库写入议题。 To install a {% data variables.product.prodname_github_app %}, you must be an organization owner or have admin permissions in a repository.
+{% data variables.product.prodname_github_apps %} 可以直接安装在组织和用户帐户上，并获得对特定仓库的访问权限。 它们拥有内置 web 挂钩和狭窄的特定权限。 设置 {% data variables.product.prodname_github_app %}时，可以选择希望它访问的仓库。 例如，您可以设置一个名为 `MyGitHub` 的应用程序，允许它在 `octocat` 仓库且_仅_在 `octocat` 仓库写入议题。 要安装 {% data variables.product.prodname_github_app %}，您必须是组织所有者或在仓库中具有管理员权限。
 
 {% data reusables.apps.app_manager_role %}
 
-{% data variables.product.prodname_github_apps %} are applications that need to be hosted somewhere. For step-by-step instructions that cover servers and hosting, see "[Building Your First {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)."
+{% data variables.product.prodname_github_apps %} 是需要托管在某处的应用程序。 有关涵盖服务器和托管服务的分步说明，请参阅“[构建第一个 {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)。”
 
-To improve your workflow, you can create a {% data variables.product.prodname_github_app %} that contains multiple scripts or an entire application, and then connect that app to many other tools. For example, you can connect {% data variables.product.prodname_github_apps %} to GitHub, Slack, other in-house apps you may have, email programs, or other APIs.
+要改进自己的工作流程，可以创建一个包含多个脚本或整个应用程序的 {% data variables.product.prodname_github_app %}，然后将此应用程序连接至许多其他工具。 例如，您可以将 {% data variables.product.prodname_github_apps %} 连接至 GitHub、Slack、自己可能拥有的其他内部应用程序、电子邮件程序或其他 API。
 
-Keep these ideas in mind when creating {% data variables.product.prodname_github_apps %}:
+创建 {% data variables.product.prodname_github_apps %} 时，请记住以下方法：
 
 {% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.maximum-github-apps-allowed %} {% endif %}
-* A {% data variables.product.prodname_github_app %} should take actions independent of a user (unless the app is using a [user-to-server](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests) token). {% data reusables.apps.expiring_user_authorization_tokens %}
+* {% data variables.product.prodname_github_app %} 的操作应独立于用户（除非此应用程序使用[用户至服务器](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps#user-to-server-requests)令牌）。 {% data reusables.apps.expiring_user_authorization_tokens %}
 
-* Make sure the {% data variables.product.prodname_github_app %} integrates with specific repositories.
-* The {% data variables.product.prodname_github_app %} should connect to a personal account or an organization.
-* Don't expect the {% data variables.product.prodname_github_app %} to know and do everything a user can.
-* Don't use a {% data variables.product.prodname_github_app %} if you just need a "Login with GitHub" service. But a {% data variables.product.prodname_github_app %} can use a [user identification flow](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/) to log users in _and_ do other things.
-* Don't build a {% data variables.product.prodname_github_app %} if you _only_ want to act as a GitHub user and do everything that user can do.{% if currentVersion == "free-pro-team@latest" %}
+* 请确保 {% data variables.product.prodname_github_app %} 与特定仓库集成。
+* {% data variables.product.prodname_github_app %} 应该连接到个人帐户或组织。
+* 不要指望 {% data variables.product.prodname_github_app %} 知道并尽其所能。
+* 如果您只需要“使用GitHub登录”服务，请不要使用 {% data variables.product.prodname_github_app %}。 但是，{% data variables.product.prodname_github_app %} 可以使用[用户识别流程](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)登录用户账户_和_执行其他操作。
+* 如果您_只_想作为 GitHub 用户并做用户可以执行的所有操作，请不要构建 {% data variables.product.prodname_github_app %}。{% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 
 To begin developing {% data variables.product.prodname_github_apps %}, start with "[Creating a {% data variables.product.prodname_github_app %}](/apps/building-github-apps/creating-a-github-app/)."{% if currentVersion == "free-pro-team@latest" %} To learn how to use {% data variables.product.prodname_github_app %} Manifests, which allow people to create preconfigured {% data variables.product.prodname_github_apps %}, see "[Creating {% data variables.product.prodname_github_apps %} from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)."{% endif %}

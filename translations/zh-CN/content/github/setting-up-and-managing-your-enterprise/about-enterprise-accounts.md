@@ -20,7 +20,7 @@ versions:
 - 安全性（单点登录、双重身份验证）
 - 与 {% data variables.contact.enterprise_support %} 共享请求和支持包
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 有关 {% data variables.product.prodname_ghe_cloud %} 与 {% data variables.product.prodname_ghe_server %} 之间差异的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。 要升级至 {% data variables.product.prodname_enterprise %} 或开始使用企业帐户，请联系 {% data variables.contact.contact_enterprise_sales %}。
 

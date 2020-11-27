@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 ---
 
-您可以全局搜索所有 {% data variables.product.product_name %}，也可搜索特定仓库或组织。
+{% data reusables.search.you-can-search-globally %}
 
 - 要全局搜索所有 {% data variables.product.product_name %}，请在页面顶部的搜索字段中输入您要查找的内容，然后在搜索下拉菜单中选择“所有{% data variables.product.prodname_dotcom %}”。
 - 要在特定仓库或组织中搜索，请导航到该仓库或组织页面，在页面顶部的搜索字段中输入要查找的内容，然后按 **Enter**。
@@ -23,7 +23,8 @@ versions:
 
 **注意：**
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - {% data variables.product.prodname_pages %} 网站在 {% data variables.product.product_name %} 上不可搜索。 但如果源代码内容存在于仓库的默认分支中，您可以使用代码搜索来搜索。 更多信息请参阅“[搜索代码](/articles/searching-code)”。 有关 {% data variables.product.prodname_pages %} 的更多信息，请参阅“[什么是 GitHub Pages？ ](/articles/what-is-github-pages/)”
 - Currently our search doesn't support exact matching.
 - Whenever you are searching in code files, only the first two results in each file will be returned.
@@ -36,7 +37,7 @@ versions:
 
 ### {% data variables.product.prodname_dotcom %} 上的搜索类型
 
-您可以在所有公共 {% data variables.product.product_name %} 仓库以及您可以访问的所有 {% data variables.product.product_name %} 仓库中搜索以下类型的信息：
+You can search for the following information across all repositories you can access on {% data variables.product.product_location %}.
 
 - [仓库](/articles/searching-for-repositories)
 - [主题](/articles/searching-topics)

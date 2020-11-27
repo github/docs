@@ -1,6 +1,6 @@
 ---
 title: プロフィールでコントリビューションを表示する
-intro: '{% data variables.product.product_name %} プロフィールは、固定されたリポジトリと過去 1 年間のリポジトリコントリビューション貢献のグラフを表示します。'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-コントリビューショングラフは、パブリックリポジトリからのアクティビティを表示します。 パブリックリポジトリとプライベートリポジトリの両方からアクティビティを表示するように選択できます。プライベートリポジトリでは、アクティビティの詳細を表示できます。 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and{% endif %}private repositories, with specific details of your activity in private repositories anonymized. 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
 
 {% note %}
 
@@ -33,15 +33,19 @@ versions:
 
 ### 人気のあるリポジトリ
 
-このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 [自分のプロフィールにリポジトリをピン止めする](/articles/pinning-repositories-to-your-profile)と、このセクションは [Pinned repositories] に変わります。
+このセクションには、ウォッチャーが最も多いリポジトリが表示されます。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![人気のあるリポジトリ](/assets/images/help/profile/profile_popular_repositories.png)
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Pinned repositories
 
 このセクションには最大 6 つのパブリックリポジトリが表示されます。このリポジトリには、自分のリポジトリだけでなく、自分がコントリビュートしたリポジトリも含めることができます。 選択したリポジトリに関する重要な詳細を簡単に見るために、このセクションの各リポジトリには、行われている作業の要約、そのリポジトリに付いた [Star](/articles/saving-repositories-with-stars/) の数、およびそのリポジトリで使用されている主なプログラミング言語が含まれます。 詳細は「[プロフィールにリポジトリをピン止めする](/articles/pinning-repositories-to-your-profile)」を参照してください。
 
 ![Pinned repositories](/assets/images/help/profile/profile_pinned_repositories.png)
+
+{% endif %}
 
 ### コントリビューションカレンダー
 
