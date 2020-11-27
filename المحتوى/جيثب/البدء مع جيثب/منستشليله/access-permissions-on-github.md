@@ -1,5 +1,5 @@
----
-title: Access permissions on GitHub
+###منصةشليله 
+العنوان: أذونات الوصول على جيثب
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
   - /articles/what-are-the-different-types-of-team-permissions/
