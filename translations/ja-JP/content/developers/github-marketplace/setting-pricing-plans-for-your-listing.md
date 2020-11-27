@@ -65,7 +65,7 @@ versions:
 
 {% data variables.product.prodname_marketplace %}プランの価格プランが不要になった場合、あるいは価格の細部を調整する必要が生じた場合、その価格プランを削除できます。
 
-![Button to remove your pricing plan](/assets/images/marketplace/marketplace_remove_this_plan.png)
+![価格プランを削除するボタン](/assets/images/marketplace/marketplace_remove_this_plan.png)
 
 {% data variables.product.prodname_marketplace %}にリスト済みのアプリケーションの価格プランを公開すると、そのプランは変更できなくなります。 その代わりに、その価格プランを削除しなければなりません。 削除された価格プランを購入済みの顧客は、オプトアウトして新しい価格プランに移行するまでは、そのプランを使い続けます。 価格プランの詳細については、「[{% data variables.product.prodname_marketplace %}の価格プラン](/marketplace/selling-your-app/github-marketplace-pricing-plans/)」を参照してください。
 
