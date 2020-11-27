@@ -1,4 +1,4 @@
----
+package-lock.json---
 title: Enabling improved container support
 intro: 'To use {% data variables.product.prodname_github_container_registry %}, you must enable it for your user or organization account.'
 product: '{% data reusables.gated-features.packages %}'
