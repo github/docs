@@ -20,7 +20,7 @@ Enterprise アカウントでは、複数の {% data variables.product.prodname_
 - セキュリティ (シングルサインオン、2 要素認証)
 - {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 {% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについては、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。 {% data variables.product.prodname_enterprise %} にアップグレードする、または Enterprise アカウントを使い始める場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 

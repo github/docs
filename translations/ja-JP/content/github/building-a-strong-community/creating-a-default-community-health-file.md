@@ -7,7 +7,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 ### デフォルトのコミュニティ健全性ファイルについて

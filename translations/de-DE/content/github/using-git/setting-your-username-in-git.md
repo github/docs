@@ -20,13 +20,13 @@ Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt 
 2. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
-  ```
+   ```
 
 ### Git-Benutzername für ein einzelnes Repository festlegen
 
@@ -37,13 +37,13 @@ Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt 
 3. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa
-  ```
+   ```
 
 ### Weiterführende Informationen
 

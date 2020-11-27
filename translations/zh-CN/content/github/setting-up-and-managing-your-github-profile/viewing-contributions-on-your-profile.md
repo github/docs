@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中查看贡献
-intro: '您的 {% data variables.product.product_name %} 个人资料显示固定仓库以及过去一年中您的仓库贡献图。'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-您的贡献图显示公共仓库的活动。 您可以选择显示公共和私有仓库的活动，并将私有仓库中活动的具体详细信息匿名化。 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and{% endif %}private repositories, with specific details of your activity in private repositories anonymized. 更多信息请参阅“[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
 {% note %}
 
@@ -33,15 +33,19 @@ versions:
 
 ### 受欢迎的仓库
 
-此部分显示具有最多查看者的仓库。 您[将仓库固定到个人资料](/articles/pinning-repositories-to-your-profile)后，此部分将更改为“Pinned repositories（固定的仓库）”。
+此部分显示具有最多查看者的仓库。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![受欢迎的仓库](/assets/images/help/profile/profile_popular_repositories.png)
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### 固定的仓库
 
 此部分显示最多六个公共仓库，并可包括您的仓库以及您对其做出贡献的仓库。 为便于查看关于您选择提供的仓库的重要详细信息，此部分中的每个仓库均包括所进行工作的摘要、仓库已收到的[星号](/articles/saving-repositories-with-stars/)数量以及仓库中使用的主要编程语言。 更多信息请参阅“[将仓库固定到个人资料](/articles/pinning-repositories-to-your-profile)”。
 
 ![固定的仓库](/assets/images/help/profile/profile_pinned_repositories.png)
+
+{% endif %}
 
 ### 贡献日历
 
