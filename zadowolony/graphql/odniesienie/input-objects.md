@@ -1,4 +1,4 @@
----
+--CommitAuthor
 title: Input objects
 redirect_from:
   - /v4/input_object
