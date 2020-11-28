@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "rtatnet-3769"
+    labels:
+        app: "rtatnet-3769"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: rtatnet0e77-rtatnet-3769.146eb5066d054a1cac0b.centralus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "rtatnet-3769"
+                servicePort: 443
