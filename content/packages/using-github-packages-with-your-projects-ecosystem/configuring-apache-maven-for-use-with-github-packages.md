@@ -66,11 +66,11 @@ If your instance has subdomain isolation enabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          <!-- EACH package should be separately noted due to a limitation on group/organization
+          &lt;!-- EACH package should be separately noted due to a limitation on group/organization
                level package resolution. This may lead to numerous `repository` definitions that
                are different in `REPOSITORY` only.
-          -->
-          <!-- <repository>
+          --&gt;
+          &lt!-- <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
             <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
@@ -81,7 +81,7 @@ If your instance has subdomain isolation enabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          --> 
+          --&gt; 
         </repositories>
     </profile>
   </profiles>
@@ -128,11 +128,11 @@ If your instance has subdomain isolation disabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          <!-- EACH package should be separately noted due to a limitation on group/organization
+          &lt;!-- EACH package should be separately noted due to a limitation on group/organization
                level package resolution. This may lead to numerous `repository` definitions that
                are different in `REPOSITORY` only.
-          -->
-          <!-- <repository>
+          --&gt;
+          &lt;!-- <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
@@ -143,7 +143,7 @@ If your instance has subdomain isolation disabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          --> 
+          --&gt;
         </repositories>
     </profile>
   </profiles>
