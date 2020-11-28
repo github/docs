@@ -13,17 +13,16 @@ versions:
 
 {% data reusables.organizations.owners-and-admins-can %} ein Organisations-Repository löschen. Wenn **Allow members to delete or transfer repositories for this organization** (Mitgliedern das Löschen oder Übertragen von Repositorys für diese Organisation erlauben) deaktiviert wurde, können nur Organisationsinhaber Repositorys der Organisation löschen. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+
 {% warning %}
 
-**Warnung**: Wenn Du ein Repository löschst, werden die Releaseanhänge und Teamberechtigungen **dauerhaft** gelöscht. Diese Aktion **kann nicht** rückgängig gemacht werden.
+**Warnings**:
+
+- Deleting a repository will **permanently** delete release attachments and team permissions. Diese Aktion **kann nicht** rückgängig gemacht werden.
+- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
 
 {% endwarning %}
-{% endif %}
-
-Beachte auch Folgendes:
-- Beim Löschen eines privaten Repositorys werden all seine Forks ebenfalls gelöscht.
-- Beim Löschen eines öffentlichen Repositorys werden seine Forks nicht gelöscht.
 
 {% if currentVersion == "free-pro-team@latest" %}
 Bestimmte gelöschte Repositorys können innerhalb von 90 Tagen wiederhergestellt werden. Weitere Informationen findest Du unter „[Ein gelöschtes Repository wiederherstellen](/articles/restoring-a-deleted-repository).“

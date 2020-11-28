@@ -1,6 +1,6 @@
 ---
 title: 备份仓库
-intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+intro: '您可以使用{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git 和{% endif %} API {% if currentVersion == "free-pro-team@latest" %}或第三方工具{% endif %}备份仓库。'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
@@ -32,7 +32,7 @@ versions:
 - [项目](/v3/projects/#list-repository-projects)
 {% endif %}
 
-Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+一旦您拥有 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}所有要备份内容的本地版本，您就可以创建一个 zip 存档并{% else %}下载您的存档。您可以{% endif %}将其复制到外部硬盘和/或将其上传到基于云的备份服务，例如 [Google Drive](https://www.google.com/drive/) 或 [Dropbox](https://www.dropbox.com/)。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 第三方备份工具

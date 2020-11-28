@@ -73,3 +73,69 @@ versions:
 - “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，以获取深入教程
 - “[指南](/actions/guides)”，以获取特定用例和示例
 - [github/super-linter](https://github.com/github/super-linter)，以获取有关配置 Super-Linter 操作的详细信息
+
+<div id="quickstart-treatment" hidden>
+
+### Introduction
+
+打印“Hello, World!”是探索新编程语言的基本设置和语法的好方法。 在本指南中，您将使用 GitHub Actions 在 {% data variables.product.prodname_dotcom %} 仓库的工作流程日志中打印“Hello, World!”。 您只需要一个您可以在其中轻松创建和运行示例 {% data variables.product.prodname_actions %} 工作流程的 {% data variables.product.prodname_dotcom %} 仓库。 请随意为此快速入门创建新仓库，您可以使用它来测试此仓库和未来的 {% data variables.product.prodname_actions %} 工作流程。
+
+### Creating your first workflow
+
+1. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflows` 目录中创建一个名为 `hello-world.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
+2. 将以下 YAML 内容复制到 `hello-world.yml` 文件中。
+    {% raw %}
+    ```yaml{:copy}
+    name: Say hello!
+
+    # GitHub Actions Workflows are automatically triggered by GitHub events
+    on:
+      # For this workflow, we're using the workflow_dispatch event which is triggered when the user clicks Run workflow in the GitHub Actions UI
+      workflow_dispatch:
+        # The workflow_dispatch event accepts optional inputs so you can customize the behavior of the workflow
+        inputs:
+          name:
+            description: 'Person to greet'
+            required: true
+            default: 'World'
+    # When the event is triggered, GitHub Actions will run the jobs indicated
+    jobs:
+      say_hello:
+        # Uses a ubuntu-lates runner to complete the requested steps
+        runs-on: ubuntu-latest
+        steps:
+        - run: |
+            echo "Hello ${{ github.event.inputs.name }}!"
+    ```
+    {% endraw %}
+3. 滚动到页面底部，然后选择 **Create a new branch for this commit and start a pull request（为此提交创建一个新分支并开始拉取请求）**。 然后，若要创建拉取请求，请单击 **Propose new file（提议新文件）**。
+    ![提交工作流程文件](/assets/images/help/repository/commit-hello-world-file.png)
+4. 合并拉取请求后，即可继续“触发工作流程”。
+
+### Trigger your workflow
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. 在左侧边栏中，单击您想要运行的工作流程。
+   ![选择 say hello 作业](/assets/images/help/repository/say-hello-job.png)
+1. 在右侧，单击 **Run workflow（运行工作流程）**下拉菜单，然后单击 **Run workflow（运行工作流程）**。 （可选）您可以在运行工作流程之前在“问候的人（Person to greet）”输入中输入自定义消息。
+   ![触发手动工作流程](/assets/images/help/repository/manual-workflow-trigger.png)
+1. 工作流程运行将出现在 "Say hello!" 工作流程运行列表顶部。 单击 "Say hello!" 可查看工作流程运行结果。
+   ![工作流程运行结果列表](/assets/images/help/repository/workflow-run-listing.png)
+1. 在左侧栏中，单击 "say_hello" 作业。
+   ![工作流程作业列表](/assets/images/help/repository/workflow-job-listing.png)
+1. 在工作流程日志中，展开 'Run echo "Hello World!"' 部分。
+   ![工作流程详细信息](/assets/images/help/repository/workflow-log-listing.png)
+
+### More starter workflows
+
+{% data variables.product.prodname_dotcom %} 提供预配置的工作流程模板，可用于开始自动化或创建持续集成工作流程。 您可以在 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) 仓库{% else %} {% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览工作流程模板的完整列表。
+
+### Next steps
+
+您刚才添加的 hello-world 工作流程是手动触发的工作流程的简单示例。 这只是您可以对 {% data variables.product.prodname_actions %} 执行操作的开始。 您的仓库可以包含多个基于不同事件触发不同任务的工作流程。 {% data variables.product.prodname_actions %} 可以帮助您自动执行应用程序开发过程的几乎每个方面。 准备好开始了吗？ 下面是一些可帮助您执行 {% data variables.product.prodname_actions %} 后续步骤的有用资源：
+
+- “[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)”，用于深入的教程
+- “[Guides](/actions/guides)”，用于特定的使用情况和示例
+
+</div>

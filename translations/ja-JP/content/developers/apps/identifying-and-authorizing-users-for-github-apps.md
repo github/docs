@@ -123,11 +123,13 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### デバイスフロー
 
+{% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**ノート:** デバイスフローはパブリックベータであり、変更されることがあります。{% if currentVersion == "free-pro-team@latest" %} このベータの機能を有効化するには、「[アプリケーションのベータ機能のアクティベート](/developers/apps/activating-beta-features-for-apps)」を参照してください。{% endif %}
+**Note:** The device flow is in public beta and subject to change.
 
 {% endnote %}
+{% endif %}
 
 デバイスフローを使えば、CLIツールやGit認証情報マネージャーなどのヘッドレスアプリケーションのユーザを認可できます。
 
@@ -904,7 +906,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get the authenticated user](/v3/users/#get-the-authenticated-user)
 * [List app installations accessible to the user access token](/v3/apps/installations/#list-app-installations-accessible-to-the-user-access-token)
 {% if currentVersion == "free-pro-team@latest" %}
-* [List subscriptions for the authenticated user](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)
+* [認証されたユーザのサブスクリプションのリスト](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)
 {% endif %}
 * [List users](/v3/users/#list-users)
 * [Get a user](/v3/users/#get-a-user)
