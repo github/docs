@@ -37,7 +37,7 @@ If you want to interact with multiple repositories, you can add each repository 
 If your instance has subdomain isolation enabled:
 {% endif %}
 
-```
+<pre>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -94,12 +94,12 @@ If your instance has subdomain isolation enabled:
     </server>
   </servers>
 </settings>
-```
+</pre>
 
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
-```
+<pre>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -156,7 +156,7 @@ If your instance has subdomain isolation disabled:
     </server>
   </servers>
 </settings>
-```
+</pre>
 {% endif %}
 
 #### Authenticating with the `GITHUB_TOKEN`
