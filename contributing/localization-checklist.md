@@ -21,7 +21,7 @@ Use the following checklist to help make your files more translation-friendly. F
 - [ ] Avoid vague nouns and pronouns (vague sentence subject).
 - [ ] Keep inline links to a minimum. If they are necessary, preface them with a phrase such as "For more information, see "Link title". Alternatively, add relevant links to a "Further reading" section at the end of the topic.
 
-## Examples
+## Exampleshh478989
 
 | Guideline | Avoid | Use instead |
 | --------- | ----- | ----------- |
