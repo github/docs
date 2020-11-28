@@ -135,9 +135,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 API は、無効な認証情報を含むリクエストを短期間に複数回検出すると、`403 Forbidden` で、そのユーザに対するすべての認証試行（有効な認証情報を含む）を一時的に拒否します。
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,18 +165,9 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-
-{% note %}
-
-**注釈:** {% data variables.product.prodname_ghe_server %} では、[他のすべてのエンドポイントと同様に](/v3/enterprise-admin/#endpoint-urls)、ユーザ名とパスワードを渡す必要があります。
-
-{% endnote %}
-
-{% endif %}
 
 ### GraphQL グローバルノード ID
 

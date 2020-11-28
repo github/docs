@@ -16,7 +16,7 @@
 
 [Markdown](http://daringfireball.net/projects/markdown/) is a human-friendly syntax for formatting plain text. Our documentation is written with [GitHub Flavored Markdown](https://docs.github.com/en/github/writing-on-github/about-writing-and-formatting-on-github), a custom version of Markdown used across GitHub.
 
-This site's Markdown rendering is powered by the [`@github-docs/render-content`](https://github.com/docs/render-content) and [`hubdown`](https://github.com/electron/hubdown) npm packages, which are in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
+This site's Markdown rendering is powered by the [`/lib/render-content`](/lib/render-content) and [`hubdown`](https://github.com/electron/hubdown) npm packages, which are in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
 
 ## Callout tags
 

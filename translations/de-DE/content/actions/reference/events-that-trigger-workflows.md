@@ -327,6 +327,7 @@ The `issue_comment` event occurs for comments on both issues and pull requests. 
 
 For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
 
+{% raw %}
 ```yaml
 on: issue_comment
 
@@ -349,6 +350,7 @@ jobs:
       - run: |
           echo "Comment on issue #${{ github.event.issue.number }}"
 ```
+{% endraw %}
 
 #### `Issues (Lieferungen)`
 
@@ -540,7 +542,7 @@ Führt Deinen Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {%
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Du kannst einen Workflow beispielsweise ausführen, wenn ein Pull-Request-Review bearbeitet (`edited`) oder verworfen (`dismissed`) wurde.
+Sie können einen Workflow beispielsweise ausführen, wenn ein Pull-Request-Review bearbeitet (`edited`) oder verworfen (`dismissed`) wurde.
 
 ```yaml
 on:
@@ -560,7 +562,7 @@ Führt den Workflow aus, wenn ein Kommentar zum vereinheitlichten Diff für eine
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-Du kannst einen Workflow beispielsweise ausführen, wenn ein Pull-Request-Review-Kommentar erstellt (`created`) oder gelöscht (`deleted`) wurde.
+Sie können einen Workflow beispielsweise ausführen, wenn ein Pull-Request-Review-Kommentar erstellt (`created`) oder gelöscht (`deleted`) wurde.
 
 ```yaml
 on:
@@ -569,6 +571,8 @@ on:
 ```
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
 #### `pull_request_target`
 
@@ -586,6 +590,8 @@ Du kannst einen Workflow beispielsweise dann ausführen, wenn ein Pull Request z
 on: pull_request_target
     types: [assigned, opened, synchronize, reopened]
 ```
+
+{% endif %}
 
 #### `Push`
 
@@ -687,6 +693,8 @@ on:
     types: [started]
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
@@ -708,6 +716,8 @@ on:
       - completed
       - requested
 ```
+
+{% endif %}
 
 ### Neue Workflows mit einem persönlichen Zugangs-Token auslösen
 

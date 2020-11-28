@@ -20,7 +20,7 @@ Mit einem Unternehmens-Konto kannst Du mehrere {% data variables.product.prodnam
 - Sicherheit (Single-Sign-On, Zwei-Faktor-Authentifizierung)
 - Anfragen und Unterstützen von Bundle-Sharing mit {% data variables.contact.enterprise_support %}
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 Weitere Informationen über die Unterschiede zwischen {% data variables.product.prodname_ghe_cloud %} und {% data variables.product.prodname_ghe_server %} findest Du auf „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/githubs-products)." Um auf {% data variables.product.prodname_enterprise %} zu hochzustufen oder um mit einem Unternehmenskonto einzusteigen, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}.
 

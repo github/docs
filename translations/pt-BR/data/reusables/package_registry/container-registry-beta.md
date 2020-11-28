@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota:** {% data variables.product.prodname_github_container_registry %} está atualmente em versão beta público e sujeito a alterações. Atualmente, {% data variables.product.prodname_github_container_registry %} é compatível apenas com formatos de imagem do Docker. Durante o beta, o armazenamento e a largura de banda são grátis. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry/about-github-container-registry)."
+**Nota:** {% data variables.product.prodname_github_container_registry %} está atualmente em versão beta público e sujeito a alterações. Durante o beta, o armazenamento e a banda larga são grátis. To use {% data variables.product.prodname_github_container_registry %}, you must enable the feature preview. For more information, see "[About {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry/about-github-container-registry)" and "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% endnote %}

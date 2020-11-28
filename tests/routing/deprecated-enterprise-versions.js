@@ -1,6 +1,6 @@
 const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM } = require('../helpers')
+const { get, getDOM } = require('../helpers/supertest')
 const supertest = require('supertest')
 
 describe('enterprise deprecation', () => {
@@ -85,14 +85,36 @@ describe('deprecation banner', () => {
     expect($('.deprecation-banner b').text().endsWith('discontinued on .')).toBe(false)
   })
 
-  test('deprecation warning banner says "will be discontinued" when date is in future', async () => {
+  test('deprecation warning banner includes the right text depending on the date', async () => {
     const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
-    expect($('.deprecation-banner b').text().includes('will be discontinued')).toBe(true)
+    const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
+      ? 'was discontinued'
+      : 'will be discontinued'
+    expect($('.deprecation-banner b').text().includes(expectedString)).toBe(true)
+  })
+})
+
+describe('does not render helpfulness prompt or contribution button', () => {
+  test('does not render helpfulness prompt', async () => {
+    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    if (enterpriseServerReleases.isOldestReleaseDeprecated) {
+      expect($('.js-helpfulness').length).toBe(0)
+    } else {
+      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    }
   })
 
-  test('deprecation warning banner says "was discontinued" when date is in past', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.deprecated[0]}`)
-    expect($('.deprecation-banner b').text().includes('was discontinued')).toBe(true)
+  test('does not render contribution button', async () => {
+    let $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/github`)
+    expect($('.contribution').length).toBeGreaterThan(0)
+    $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/github`)
+    if (enterpriseServerReleases.isOldestReleaseDeprecated) {
+      expect($('.contribution').length).toBe(0)
+    } else {
+      expect($('.js-helpfulness').length).toBeGreaterThan(0)
+    }
   })
 })
 
@@ -159,7 +181,7 @@ describe('JS and CSS assets', () => {
 
   it('returns the expected CSS file  ( <2.13 )', async () => {
     const result = await supertest(app)
-      .get('/stylesheets/application.css')
+      .get('/assets/stylesheets/application.css')
       .set('Referrer', '/en/enterprise/2.12')
 
     expect(result.statusCode).toBe(200)

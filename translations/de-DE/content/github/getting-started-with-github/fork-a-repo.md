@@ -25,9 +25,15 @@ Du kannst Forks beispielsweise benutzen, um Änderungen im Zusammenhang mit der 
 
 Open-Source-Software basiert auf der Idee, dass wir durch gemeinsamen Code bessere, zuverlässigere Software erstellen können. Weitere Informationen findest Du in „[Über die Open-Source-Initiative](http://opensource.org/about)“ auf der Open-Source-Initiative-Website.
 
+For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen Benutzers erstellst, musst Du unbedingt eine Lizenzdatei hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. Weitere Informationen findest Du unter „[Wähle eine Open-Source-Lizenz](http://choosealicense.com/)“ auf der choosealicense-Website.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+
+{% endif %}
 
 {% note %}
 
