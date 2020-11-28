@@ -37,7 +37,7 @@ If you want to interact with multiple repositories, you can add each repository 
 If your instance has subdomain isolation enabled:
 {% endif %}
 
-<pre>
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -66,14 +66,10 @@ If your instance has subdomain isolation enabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          <!-- EACH package should be separately noted due to a limitation on group/organization
-               level package resolution. This may lead to numerous `repository` definitions that
-               are different in `REPOSITORY` only.
-          -->
-          <!-- <repository>
+          <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+            <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY-2</url>
             <releases>
               <enabled>true</enabled>
             </releases>
@@ -81,7 +77,7 @@ If your instance has subdomain isolation enabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          -->
+
         </repositories>
     </profile>
   </profiles>
@@ -94,12 +90,12 @@ If your instance has subdomain isolation enabled:
     </server>
   </servers>
 </settings>
-</pre>
+```
 
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
-<pre>
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -128,14 +124,10 @@ If your instance has subdomain isolation disabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          <!-- EACH package should be separately noted due to a limitation on group/organization
-               level package resolution. This may lead to numerous `repository` definitions that
-               are different in `REPOSITORY` only.
-          -->
-          <!-- <repository>
+          <repository>
             <id>github</id>
             <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+            <url>https://maven.pkg.github.com/OWNER/REPOSITORY-2</url>
             <releases>
               <enabled>true</enabled>
             </releases>
@@ -143,7 +135,6 @@ If your instance has subdomain isolation disabled:
               <enabled>true</enabled>
             </snapshots>
           </repository>
-          -->
         </repositories>
     </profile>
   </profiles>
@@ -156,7 +147,7 @@ If your instance has subdomain isolation disabled:
     </server>
   </servers>
 </settings>
-</pre>
+```
 {% endif %}
 
 #### Authenticating with the `GITHUB_TOKEN`
