@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "rtatnet-3769"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "rtatnet-3769"
+  template:
+    metadata:
+      labels:
+        app: "rtatnet-3769"
+    spec:
+      containers:
+        - name: "rtatnet-3769"
+          image: "rohittavelsacr.azurecr.io/rtatnet"
+          ports:
+          - containerPort: 443
