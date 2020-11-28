@@ -1,6 +1,6 @@
 ---
 version: 1
-ownership:
+ownership: Zachry T WooD III
 - name: docs-internal
   long_name: GitHub Help Docs
   kind: heroku
