@@ -705,6 +705,8 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 
 
 #### `pull_request_target`
@@ -727,6 +729,8 @@ on: pull_request_target
     types: [assigned, opened, synchronize, reopened]
 ```
 
+
+{% endif %}
 
 
 
@@ -858,6 +862,8 @@ on:
 ```
 
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 
 
 #### `workflow_run`
@@ -885,6 +891,8 @@ on:
       - requested
 ```
 
+
+{% endif %}
 
 
 

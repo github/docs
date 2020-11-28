@@ -22,7 +22,7 @@ versions:
 
 仓库管理员可以添加他们喜欢的任何主题到仓库。 适用于对仓库分类的主题包括仓库的预期目的、主题领域、社区或语言。{% if currentVersion == "free-pro-team@latest" %}此外，{% data variables.product.product_name %} 也会分析公共仓库内容，生成建议的主题，仓库管理员可以接受或拒绝。 私有仓库内容不可分析，也不会收到主题建议。{% endif %}
 
-公共和私有仓库都可有主题，但在主题搜索结果中只能看到您可以访问的私有仓库。
+{% if currentVersion == "github-ae@latest" %}Internal {% else %}Public, internal, {% endif %}and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
 您可以搜索与公共仓库关联的仓库。 更多信息请参阅“[搜索仓库](/articles/searching-for-repositories#search-by-topic)”。 您也可以搜索 {% data variables.product.product_name %} 中的主题列表。 更多信息请参阅“[搜索主题](/articles/searching-topics)”。
 

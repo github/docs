@@ -227,7 +227,7 @@ Each job runs in an environment specified by `runs-on`.
 
 You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
 ### **`jobs.<job_id>`**
 
@@ -878,34 +878,9 @@ strategy:
 
 ##### Using environment variables in a matrix
 
-You can add custom environment variables for each test combination by using `include` with `env`. You can then refer to the custom environment variables in a later step.
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
 
-In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses {% raw %}`env: ${{ matrix.env }}`{% endraw %} to refer to the custom variables:
-
-{% raw %}
-```yaml
-name: Node.js CI
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-       include:
-         - node-version: 10.x
-           site: "prod"
-           datacenter: "site-a"
-         - node-version: 12.x
-           site: "dev"
-           datacenter: "site-b"
-    steps:
-    - name: Echo site details
-      env:
-        SITE: ${{ matrix.site }}
-        DATACENTER: ${{ matrix.datacenter }}
-      run: echo $SITE $DATACENTER
-```
-{% endraw %}
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 

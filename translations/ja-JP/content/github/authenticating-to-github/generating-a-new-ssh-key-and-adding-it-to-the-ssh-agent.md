@@ -98,13 +98,19 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
         IdentityFile ~/.ssh/id_ed25519
       ```
 
+     {% note %}
+
+     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+
+     {% endnote %}
+
 3. SSH 秘密鍵を ssh-agent に追加して、パスフレーズをキーチェーンに保存します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 
-  **メモ: ** `-K` オプションは、`ssh-add` の Apple の標準バージョン内にあり、ssh-agent に SSH キーを追加する際にキーチェーンにパスフレーズを保存します。
+  **メモ: ** `-K` オプションは、`ssh-add` の Apple の標準バージョン内にあり、ssh-agent に SSH キーを追加する際にキーチェーンにパスフレーズを保存します。 If you chose not to add a passphrase to your key, run the command without the `-K` option.
 
   Apple の標準バージョンをインストールしていない場合は、エラーが発生する場合があります。 このエラーの解決方法についての詳細は、「[エラー: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)」を参照してください。
 

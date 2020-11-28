@@ -1,6 +1,7 @@
 ---
 title: Opening an issue from code
 intro: You can open a new issue from a specific line or lines of code in a file or pull request.
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
@@ -13,7 +14,7 @@ When you open an issue from code, the issue contains a snippet showing the line 
 
 ![Code snippet rendered in an issue opened from code](/assets/images/help/repository/issue-opened-from-code.png)
 
-{% data reusables.repositories.create-issue-in-public-repository %}
+{% data reusables.repositories.administrators-can-disable-issues %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Locate the code you want to reference in an issue:
