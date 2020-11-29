@@ -12,7 +12,7 @@ The SCIM API is used by SCIM-enabled Identity Providers (IdPs) to automate provi
 
 {% note %}
 
-**Note:** The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/v3/auth/#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
+**Note:** The SCIM API is available only to organizations on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)."
 
 {% endnote %}
 

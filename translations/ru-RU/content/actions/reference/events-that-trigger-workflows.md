@@ -572,6 +572,8 @@ on:
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 #### `pull_request_target`
 
 This event is similar to `pull_request`, except that it runs in the context of the base repository of the pull request, rather than in the merge commit. This means that you can more safely make your secrets available to the workflows triggered by the pull request, because only workflows defined in the commit on the base repository are run. For example, this event allows you to create workflows that label and comment on pull requests, based on the contents of the event payload.
@@ -588,6 +590,8 @@ For example, you can run a workflow when a pull request has been `assigned`, `op
 on: pull_request_target
     types: [assigned, opened, synchronize, reopened]
 ```
+
+{% endif %}
 
 #### `отправка`
 
@@ -689,6 +693,8 @@ on:
     types: [started]
 ```
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
@@ -710,6 +716,8 @@ on:
       - completed
       - requested
 ```
+
+{% endif %}
 
 ### Triggering new workflows using a personal access token
 
