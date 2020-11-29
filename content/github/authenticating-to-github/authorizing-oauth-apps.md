@@ -42,7 +42,7 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 
 {% tip %}
 
-**Note:** Currently, you can't scope source code access to read-only.
+**Note:** Currently, you can't scope source code access to read-only. 
 
 {% endtip %}
 
