@@ -7,7 +7,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 ### Die richtige Lizenz auswählen
@@ -18,7 +17,7 @@ Du bist nicht dazu verpflichtet, eine Lizenz auszuwählen. Bedenke jedoch, dass 
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. Wenn Du bereits ein öffentliches Repository erstellt hast und nicht mehr möchtest, dass andere Benutzer darauf zugreifen, kannst Du festlegen, dass Dein Repository privat ist. Wenn Du ein öffentliches Repository in ein privates umwandelst, bleiben vorhandene Forks oder lokale Kopien bestehen, die andere Benutzer erstellt haben. Weitere Informationen findest Du unter „[Ein öffentliches Repository in ein privates umwandeln](/articles/making-a-public-repository-private).“
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/github/administering-a-repository/setting-repository-visibility).“
 
 {% endnote %}
 

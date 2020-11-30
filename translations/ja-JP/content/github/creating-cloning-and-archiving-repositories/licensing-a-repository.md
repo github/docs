@@ -7,7 +7,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 ### 適切なライセンスを選択する
@@ -18,7 +17,7 @@ versions:
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. すでにパブリックリポジトリを作成しており、ユーザによるアクセスを禁止したい場合には、リポジトリをプライベートにすることができます。 パブリックリポジトリをプライベートリポジトリに変換しても、他のユーザが作成した既存のフォークやローカル コピーは存続します。 詳細は「[パブリックリポジトリをプライベートにする](/articles/making-a-public-repository-private)」を参照してください。
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
 
 {% endnote %}
 
