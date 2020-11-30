@@ -59,7 +59,7 @@ The `ignore` array is for client-side or build-time stuff that doesn't get `requ
 
 ### [`check-english-links.js`](check-english-links.js)
 
-This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link, add it to `lib/excluded-links.js`.
+This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
 
 ---
 
@@ -134,7 +134,14 @@ Run this script after an Enterprise deprecation to remove Liquid statements and 
 ---
 
 
-### [`enterprise-server-releases/create-webhooks-for-new-version.js`](enterprise-server-releases/create-webhooks-for-new-version.js)
+### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
+
+This script creates the static GraphQL files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
 
 This script creates new static webhook payload files for a new version.
 
