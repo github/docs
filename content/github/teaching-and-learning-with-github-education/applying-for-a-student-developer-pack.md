@@ -1,5 +1,5 @@
 ---
-title: Applying for a student developer pack
+title: Applying for the Student Developer Pack
 intro: 'As a student, you can apply for the {% data variables.product.prodname_student_pack %}, which includes offers and benefits from {% data variables.product.prodname_dotcom %} partners.'
 redirect_from:
   - /articles/applying-for-a-student-developer-pack
