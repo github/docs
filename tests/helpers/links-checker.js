@@ -76,7 +76,7 @@ class LinksChecker {
 
   addAnchorForLater (pagePath, anchor, linkedFrom) {
     const anchorsInPath = this.anchorLinksToCheck.get(pagePath) || {}
-    const anchorLink = anchorsInPath[anchor] ? anchorsInPath[anchor] : { linkedFrom: [] }
+    const anchorLink = anchorsInPath[anchor] || { linkedFrom: [] }
     anchorLink.linkedFrom = union(anchorLink.linkedFrom, [linkedFrom])
     anchorsInPath[anchor] = anchorLink
     this.anchorLinksToCheck.set(pagePath, anchorsInPath)
