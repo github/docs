@@ -20,6 +20,8 @@ versions:
 
 {% endnote %}
 
+#### 最低要求
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### 增加数据分区大小

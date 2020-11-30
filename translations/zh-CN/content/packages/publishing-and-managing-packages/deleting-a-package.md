@@ -35,10 +35,6 @@ versions:
 
 {% endif %}
 
-### 保留的包版本和名称
-
-{% data reusables.package_registry.package-immutability %}
-
 ### 在 {% data variables.product.product_name %} 上删除私有包的版本
 
 要删除私有包版本，您必须具有仓库的管理员权限。
