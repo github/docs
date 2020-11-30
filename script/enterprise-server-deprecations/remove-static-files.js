@@ -21,6 +21,7 @@ const supportedEnterpriseVersions = Object.values(allVersions).filter(v => v.pla
 
 // webhooks and GraphQL
 const supportedMiscVersions = supportedEnterpriseVersions.map(v => v.miscVersionName)
+// The miscBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
 const miscBaseName = supportedEnterpriseVersions.map(v => v.miscBaseName)[0]
 
 ;[graphqlDataDir, graphqlStaticDir, webhooksStaticDir].forEach(dir => {
@@ -29,6 +30,7 @@ const miscBaseName = supportedEnterpriseVersions.map(v => v.miscBaseName)[0]
 
 // REST
 const supportedOpenApiVersions = supportedEnterpriseVersions.map(v => v.openApiVersionName)
+// The openApiBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
 const openApiBaseName = supportedEnterpriseVersions.map(v => v.openApiBaseName)[0]
 
 ;[restDecoratedDir, restDereferencedDir].forEach(dir => {
