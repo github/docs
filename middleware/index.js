@@ -62,7 +62,7 @@ module.exports = function (app) {
   app.use('/csrf', require('./csrf-route'))
   app.use(require('./archived-enterprise-versions'))
   app.use(require('./robots'))
-  app.use(/(\/.*)?\/early-access$/, require('./early-access-context'))
+  app.use(/(\/.*)?\/early-access$/, require('./contextualizers/early-access-links'))
   app.use(require('./categories-for-support-team'))
   app.use(require('./loaderio-verification'))
   app.get('/_500', asyncMiddleware(require('./trigger-error')))
