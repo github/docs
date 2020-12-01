@@ -25,7 +25,7 @@ module.exports = async function prerenderObjects (schemaJsonPerVersion, version)
   for (const object of schemaJsonPerVersion.objects) {
     context.item = object
     const objectHtml = await liquid.parseAndRender(objectIncludeFile, context)
-    const $ = cheerio.load(objectHtml)
+    const $ = cheerio.load(objectHtml, { xmlMode: true })
     rewriteLocalLinks($, version, currentLanguage)
     const htmlWithVersionedLinks = $.html()
     objectsArray.push(htmlWithVersionedLinks)
