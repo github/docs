@@ -127,6 +127,13 @@ Run this script during the Enterprise deprecation process to download static cop
 ---
 
 
+### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
+
+This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
+
+---
+
+
 ### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
 
 Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
@@ -137,6 +144,13 @@ Run this script after an Enterprise deprecation to remove Liquid statements and 
 ### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
 
 This script creates the static GraphQL files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
+
+This script creates new static openAPI files for a new version and modifies the info.version.
 
 ---
 
@@ -294,13 +308,6 @@ This script is run as a git precommit hook (installed by husky after npm install
 ---
 
 
-### [`preview-openapi-changes`](preview-openapi-changes)
-
-
-
----
-
-
 ### [`purge-fastly`](purge-fastly)
 
 Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn). Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
@@ -366,6 +373,41 @@ reset a single translated file using a full path: $ script/reset-translated-file
 reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
 
 reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+
+---
+
+
+### [`rest/update-files.js`](rest/update-files.js)
+
+Run this script to pull openAPI files from github/github, dereference them, and decorate them.
+
+---
+
+
+### [`rest/utils/create-code-samples.js`](rest/utils/create-code-samples.js)
+
+
+
+---
+
+
+### [`rest/utils/get-operations.js`](rest/utils/get-operations.js)
+
+
+
+---
+
+
+### [`rest/utils/operation-schema.js`](rest/utils/operation-schema.js)
+
+
+
+---
+
+
+### [`rest/utils/operation.js`](rest/utils/operation.js)
+
+
 
 ---
 

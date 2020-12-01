@@ -1,6 +1,6 @@
 ---
-title: Configuring npm for use with GitHub Packages
-intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
+title: Configurar o npm para usar com o GitHub Packages
+intro: 'Você pode configurar o npm para publicar pacotes no {% data variables.product.prodname_registry %} e usar pacotes armazenados no {% data variables.product.prodname_registry %} como dependências em um projeto npm.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-npm-for-use-with-github-package-registry
@@ -13,22 +13,22 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-{% data reusables.package_registry.admins-can-configure-package-types %}
+**Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
-### Authenticating to {% data variables.product.prodname_registry %}
+### Autenticar-se no {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with a personal access token
+#### Efetuando a autenticação com um token de acesso pessoal
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user *~/.npmrc* file to include your personal access token or by logging in to npm on the command line using your username and personal access token.
+Você pode efetuar a autenticação no {% data variables.product.prodname_registry %} com o npm editando seu arquivo *~/.npmrc* por usuário para incluir o seu token de acesso pessoal ou fazer o login no npm na linha de comando usando seu nome de usuário e token de acesso pessoal.
 
-To authenticate by adding your personal access token to your *~/.npmrc* file, edit the *~/.npmrc* file for your project to include the following line, replacing {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance and {% endif %}*TOKEN* with your personal access token.  Create a new *~/.npmrc* file if one doesn't exist.
+Para efetuar a autenticação adicionando seu token de acesso pessoal ao seu arquivo *~/.npmrc*, edite o arquivo *~/.npmrc* para que o seu projeto inclua a linha a seguir substituindo {% if enterpriseServerVersions contains currentVersion %}*NOME DE HOST* pelo nome do host da sua instância {% data variables.product.prodname_ghe_server %} e {% endif %}*TOKEN* pelo seu token de acesso pessoal.  Crie um novo arquivo *~/.npmrc* se um não existir.
 
 {% if enterpriseServerVersions contains currentVersion %}
-If your instance has subdomain isolation enabled:
+Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
 ```shell
@@ -36,75 +36,82 @@ If your instance has subdomain isolation enabled:
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
-If your instance has subdomain isolation disabled:
+Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ```shell
-//<em>HOSTNAME</em>/_registry/npm/:_authToken=<em>TOKEN</em>
-```
-{% endif %}
-
-To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *PUBLIC-EMAIL-ADDRESS* with your email address.
-
-{% if enterpriseServerVersions contains currentVersion %}
-If your instance has subdomain isolation enabled:
-{% endif %}
-
-```shell
-$ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
-```
-
-{% if enterpriseServerVersions contains currentVersion %}
-If your instance has subdomain isolation disabled:
-
-```shell
-$ npm login --registry=https://<em>HOSTNAME</em>/_registry/npm/
+$ npm login --registry=https://npm.pkg.github.com
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 {% endif %}
 
-#### Authenticating with the `GITHUB_TOKEN`
+Para efetuar a autenticação conectado no npm, use o comando `npm login` , substituindo o *NOME DE USUÁRIO* pelo seu nome de usuário do {% data variables.product.prodname_dotcom %}, o *TOKEN* pelo seu token de acesso pessoal e *PUBLIC-EMAIL-ADDRESS* pelo seu endereço de e-mail.
+
+Se {% data variables.product.prodname_registry %} não é seu registro de pacote padrão para usar npm e você deseja usar o comando `npm audit` , recomendamos que você use o sinalizador `--scope` com o proprietário do pacote quando você efetuar a autenticação no {% data variables.product.prodname_registry %}.
+
+{% if enterpriseServerVersions contains currentVersion %}
+Se sua instância tem o isolamento de subdomínio habilitado:
+{% endif %}
+
+```shell
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+```
+
+{% if enterpriseServerVersions contains currentVersion %}
+Se sua instância tem o isolamento de subdomínio desabilitado:
+
+```shell
+$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+```
+{% endif %}
+
+#### Efetuando a autenticação com o `GITHUB_TOKEN`
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publishing a package
+### Publicar um pacote
 
 {% note %}
 
-**Note:** Package names and scopes must only use lowercase letters.
+**Nota:** Os nomes dos pacotes e escopos só devem usar letras minúsculas.
 
 {% endnote %}
 
-By default, {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the name field of the *package.json* file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can add a summary for the package listing page by including a *README.md* file in your package directory. For more information, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" and "[How to create Node.js Modules](https://docs.npmjs.com/getting-started/creating-node-modules)" in the npm documentation.
+Por padrão, o {% data variables.product.prodname_registry %} publica um pacote no repositório {% data variables.product.prodname_dotcom %} que você especificar no campo nome do arquivo *package.json*. Por exemplo, você publicaria um pacote denominado `@my-org/test` no repositório `my-org/test` do {% data variables.product.prodname_dotcom %}. Você pode adicionar um resumo da página de listagem do pacote incluindo um arquivo *README.md* no diretório do seu pacote. Para obter mais informações, consulte "[Trabalhando com package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" e "[Como criar Módulos de Node.js](https://docs.npmjs.com/getting-started/creating-node-modules)" na documentação do npm.
 
-You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `URL` field in the *package.json* file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
+Você pode publicar vários pacotes no mesmo repositório do {% data variables.product.prodname_dotcom %} incluindo um campo de `URL` no arquivo *package.json*. Para obter mais informações, consulte "[Publicar vários pacotes no mesmo repositório](#publishing-multiple-packages-to-the-same-repository)".
 
-You can set up the scope mapping for your project using either a local *.npmrc* file in the project or using the `publishConfig` option in the *package.json*. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@owner/name`. Scoped packages always begin with an `@` symbol. You may need to update the name in your *package.json* to use the scoped name. For example, `"name": "@codertocat/hello-world-npm"`.
+É possível definir o mapeamento do escopo para o seu projeto usando um arquivo local *.npmrc* no projeto ou usando a opção `publishConfig` em *package.json*. {% data variables.product.prodname_registry %} só é compatível com pacotes npm com escopo definido. Pacotes com escopo têm nomes no formato `@owner/name`. Os pacotes com escopo sempre começam pelo símbolo `@`. Talvez seja necessário atualizar o nome no *package.json* para usar o nome com escopo. Por exemplo, `"name": "@codertocat/hello-world-npm"`.
 
 {% data reusables.package_registry.viewing-packages %}
 
-#### Publishing a package using a local *.npmrc* file
+#### Publicar um pacote usando o arquivo *.npmrc* local
 
-You can use an *.npmrc* file to configure the scope mapping for your project. In the *.npmrc* file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an *.npmrc* file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
+Você pode usar um arquivo *.npmrc* para configurar o mapeamento do escopo para o seu projeto. No arquivo *.npmrc*, use a URL e o proprietário da conta de {% data variables.product.prodname_registry %} para que {% data variables.product.prodname_registry %} saiba onde rotear as solicitações de pacotes. O uso de um arquivo *.npmrc* impede que outros desenvolvedores publiquem acidentalmente o pacote no npmjs.org em vez de {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Verify the name of your package in your project's *package.json*. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your *package.json* should be `@my-org/test`.
+1. Verifique o nome do pacote no *package.json* do seu projeto. O campo `name` (nome) deve conter o escopo e o nome do pacote. Por exemplo, se o pacote é denominado de "test" e você está publicando em "My-org"
+organização de {% data variables.product.prodname_dotcom %}, o campo `nome` no seu *package.json* deve ser `@my-org/test`.
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-#### Publishing a package using `publishConfig` in the *package.json* file
+#### Publicar um pacote usando o `publishConfig` no arquivo *package.json*
 
-You can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+Você pode usar o elemento `publishConfig` no arquivo *package.json* para especificar o registro onde você quer o pacote publicado. Para obter mais informações, consulte "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" na documentação npm.
 
-1. Edit the *package.json* file for your package and include a `publishConfig` entry.
+1. Edite o arquivo *package.json* do seu pacote e inclua uma entrada `publishConfig`.
   {% if enterpriseServerVersions contains currentVersion %}
-  If your instance has subdomain isolation enabled:
+  Se sua instância tem o isolamento de subdomínio habilitado:
   {% endif %}
   ```shell
   "publishConfig": {
@@ -112,7 +119,7 @@ You can use `publishConfig` element in the *package.json* file to specify the re
   },
   ```
   {% if enterpriseServerVersions contains currentVersion %}
-  If your instance has subdomain isolation disabled:
+  Se sua instância tem o isolamento de subdomínio desabilitado:
    ```shell
    "publishConfig": {
      "registry":"https://<em>HOSTNAME</em>/_registry/npm/"
@@ -122,13 +129,13 @@ You can use `publishConfig` element in the *package.json* file to specify the re
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-### Publishing multiple packages to the same repository
+### Publicar vários pacotes no mesmo repositório
 
-To publish multiple packages to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the *package.json* file for each package.
+Para publicar vários pacotes no mesmo repositório, você pode incluir a URL do repositório do {% data variables.product.prodname_dotcom %} no campo `repositório` do arquivo *package.json* para cada pacote.
 
-To ensure the repository's URL is correct, replace REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository.
+Para garantir que a URL do repositório esteja correta, substitua REPOSITÓRIO pelo nome do repositório que contém o pacote que você deseja publicar, e o PROPRIETÁRIO pelo nome de usuário ou conta de organização no {% data variables.product.prodname_dotcom %} que é proprietário do repositório.
 
-{% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name. If you store the *package.json* file outside the root directory of your repository, you can use the `directory` field to specify the location where {% data variables.product.prodname_registry %} can find the *package.json* files.
+O {% data variables.product.prodname_registry %} corresponderá ao repositório baseado na URL, em vez de ser baseado no nome do pacote. Se você armazenar o arquivo *package.json* fora do diretório raiz do seu repositório, você poderá usar o campo `diretório` para especificar o local onde {% data variables.product.prodname_registry %} pode encontrar os arquivos *package.json*.
 
 ```shell
 "repository" : {
@@ -138,18 +145,18 @@ To ensure the repository's URL is correct, replace REPOSITORY with the name of t
   },
 ```
 
-### Installing a package
+### Instalar um pacote
 
-You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the *package.json* file for your project. For more information on using a *package.json* in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
+Você pode instalar pacotes do {% data variables.product.prodname_registry %} adicionando os pacotes como dependências no arquivo *package.json* para o seu projeto. Para obter mais informações sobre como usar um pacote *package.json* no projeto, consulte "[Trabalhar com package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" na documentação npm.
 
-By default, you can add packages from one organization. For more information, see "[Installing packages from other organizations](#installing-packages-from-other-organizations)."
+Por padrão, você pode adicionar pacotes a partir de uma organização. Para obter mais informações, consulte [Instalar pacotes de outras organizações](#installing-packages-from-other-organizations)."
 
-You also need to add the *.npmrc* file to your project so all requests to install packages will go through {% data variables.product.prodname_registry %}. When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from *npmjs.com*. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.
+Você também precisa adicionar o arquivo *.npmrc* ao seu projeto para que todas as solicitações de instalação passem pelo {% data variables.product.prodname_registry %}. Ao encaminhar todas as solicitações através de {% data variables.product.prodname_registry %}, você pode usar pacotes com escopo e sem escopo de *npmjs.com*. Para obter mais informações, consulte "[npm-scope](https://docs.npmjs.com/misc/scope)" na documentação npm.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-4. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. For example, this following *package.json* uses the `@octo-org/octo-app` package as a dependency.
+4. Configure *package.json* no seu projeto para usar o pacote que você está instalando. Para adicionar as suas dependências de pacote ao arquivo *package.json* para {% data variables.product.prodname_registry %}, especifique o nome do pacote com escopo completo, como, por exemplo, `@my-org/server`. Para pacotes do *npmjs.com*, especifique o nome completo, como `@babel/core` ou `@lodash`. Por exemplo, o arquivo *package.json* a seguir usa o pacote `@octo-org/octo-app` como uma dependência.
 
   ```
   {
@@ -164,18 +171,18 @@ You also need to add the *.npmrc* file to your project so all requests to instal
     }
   }
   ```
-5. Install the package.
+5. Instale o pacote.
 
   ```shell
   $ npm install
   ```
 
-#### Installing packages from other organizations
+#### Instalar pacotes de outras organizações
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project.
+Por padrão, você só pode usar pacotes do {% data variables.product.prodname_registry %} de uma organização. Se você deseja encaminhar solicitações de pacotes para várias organizações e usuários, você pode adicionar linhas ao seu arquivo *.npmrc* substituindo {% if enterpriseServerVersions contains currentVersion %}*NOME DE HOST* pelo nome do host da sua instância de {% data variables.product.prodname_ghe_server %} e {% endif %}*PROPRIETÁRIO* pelo nome do usuário ou organização que possui o repositório que contém o seu projeto.
 
 {% if enterpriseServerVersions contains currentVersion %}
-If your instance has subdomain isolation enabled:
+Se sua instância tem o isolamento de subdomínio habilitado:
 {% endif %}
 
 ```shell
@@ -185,7 +192,7 @@ registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
-If your instance has subdomain isolation disabled:
+Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ```shell
 registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
@@ -194,6 +201,6 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 ```
 {% endif %}
 
-### Further reading
+### Leia mais
 
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package/)"

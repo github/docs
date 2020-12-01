@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
-permissions: 'Organization owners can reinstate a former member of an organization.'
+permissions: 'Os proprietários da organização podem restabelecer um antigo integrante de uma organização.'
 ---
 
-### About member reinstatement
+### Sobre a reintegração de integrantes
 
-If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion != "github-ae@latest" %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. Você pode restaurar os privilégios do usuário se você {% if currentVersion =="free-pro-team@latest" %}convidá-los{% else %}adicioná-los{% endif %} à organização nesse período de tempo.
+Se você [remover um usuário da sua organização](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} ou{% else %},{% endif %} [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion ! "github-ae@latest" %}, ou um usuário foi removido da sua organização porque você [exigiu que os integrantes e colaboradores externos habilitassem a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, os privilégios e configurações do usuário ficarão salvos por três meses. Você pode restaurar os privilégios do usuário se você {% if currentVersion =="free-pro-team@latest" %}convidá-los{% else %}adicioná-los{% endif %} à organização nesse período de tempo.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

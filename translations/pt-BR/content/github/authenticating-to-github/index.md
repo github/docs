@@ -1,7 +1,7 @@
 ---
 title: Autenticar com o GitHub
 shortTitle: Autenticação
-intro: 'Keep your account and data secure with features like {% if currentVersion != "github-ae@latest" %}two-factor authentication, {% endif %}SSH{% if currentVersion != "github-ae@latest" %},{% endif %} and commit signature verification.'
+intro: 'Mantenha sua conta e dados protegidos com recursos como {% if currentVersion != "github-ae@latest" %}autenticação de dois fatores, {% endif %}SSH{% if currentVersion ! "github-ae@latest" %},{% endif %} e verificação de assinatura do commit.'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/

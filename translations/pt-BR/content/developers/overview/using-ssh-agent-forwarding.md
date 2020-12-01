@@ -22,7 +22,7 @@ Confira o [Guia das Dicas Técnicas de Steve Friedl][tech-tips] para obter uma e
 
 Certifique-se de que sua própria chave SSH esteja configurada e funcionando. Você pode usar [nosso guia sobre a geração de chaves SSH][generating-keys], caso ainda não tenha feito isso.
 
-You can test that your local key works by entering `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` in the terminal:
+Você pode testar se a chave local funciona, inserindo `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}nome de host{% else %}github. om{% endif %}` no terminal:
 
 ```shell
 $ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
@@ -48,7 +48,7 @@ Começamos bem. Vamos configurar SSH para permitir o encaminhamento de agentes p
 
 ### Testar o encaminhamento de agente SSH
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` once more.  Se tudo correr bem, você retornará à mesma mensagem apresentada quando você fez localmente.
+Para testar se o encaminhamento de agente está funcionando com seu servidor, você pode ingressar por SSH no servidor e executar `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}nome de host{% else %}github.com{% endif %}` mais uma vez.  Se tudo correr bem, você retornará à mesma mensagem apresentada quando você fez localmente.
 
 Se você não tiver certeza se sua chave local está sendo usada, você também poderá inspecionar a variável `SSH_AUTH_SOCK` no seu servidor:
 

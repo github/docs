@@ -10,10 +10,16 @@ versions:
   github-ae: '*'
 ---
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
 
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
 ### 创建议题模板
+
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}

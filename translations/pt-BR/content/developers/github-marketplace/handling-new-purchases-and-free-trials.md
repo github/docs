@@ -68,7 +68,7 @@ Depois que o cliente concluir a autorização, seu aplicativo receberá um token
 
 ### Etapa 4. Provisionar as contas dos clientes
 
-Seu aplicativo deve fornecer uma conta de cliente para todas as novas compras. Usar o token de acesso que você recebeu para o cliente na [Etapa 3. Autorização](#step-3-authorization), chame o ponto de extremidade "[Lista de assinaturas para o usuário autenticado](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)". A resposta incluirá a `conta` do cliente e mostrará se está em um teste grátis (`on_free_trial`). Use estas informações para concluir a configuração e o provisionamento.
+Seu aplicativo deve fornecer uma conta de cliente para todas as novas compras. Usar o token de acesso que você recebeu para o cliente na [Etapa 3. Autorização](#step-3-authorization), chame o ponto de extremidade "[Lista de assinaturas para o usuário autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)". A resposta incluirá a `conta` do cliente e mostrará se está em um teste grátis (`on_free_trial`). Use estas informações para concluir a configuração e o provisionamento.
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 
@@ -76,6 +76,6 @@ Se a compra for para uma organização e por usuário, você poderá solicitar q
 
 É possível personalizar a forma como os integrantes da organização recebem acesso ao seu aplicativo. Aqui estão algumas sugestões:
 
-**Preços fixos:** Se a compra for feita para uma organização que usa preços fixos, seu aplicativo poderá [obter todos os integrantes da organização](/v3/orgs/members/#list-organization-members) através da API e solicitar ao administrador da organização que escolha quais integrantes terão usuários pagos no lado do integrador.
+**Preços fixos:** Se a compra for feita para uma organização que usa preços fixos, seu aplicativo poderá [obter todos os integrantes da organização](/rest/reference/orgs#list-organization-members) através da API e solicitar ao administrador da organização que escolha quais integrantes terão usuários pagos no lado do integrador.
 
 **Preços por unidade:** Um método de provisionamento de estações por unidade é permitir que os usuários ocupem uma estação enquanto iniciam a sessão do aplicativo. Quando o cliente atingir o limite de contagem da estação, seu aplicativo poderá alertar o usuário de que ele precisa fazer a atualização do plano de {% data variables.product.prodname_marketplace %}.
