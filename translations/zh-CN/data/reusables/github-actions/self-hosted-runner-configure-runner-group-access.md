@@ -1,12 +1,12 @@
-1. In the **Self-hosted runners** section of the settings page, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} next to the runner group you'd like to configure, then click **Edit name and [organization|repository] access**.
-    ![Manage repository permissions](/assets/images/help/settings/actions-runner-manage-permissions.png)
+1. 在设置页面的 **Self-hosted runners（自托管运行器）**部分，单击要配置的运行器组旁边的 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Edit name and [organization|repository] access（编辑名称和[组织|仓库]权限）**。 ![管理仓库权限](/assets/images/help/settings/actions-runner-manage-permissions.png)
 1. Modify your policy options, or change the runner group name.
 
    {% warning %}
 
-   **Warning**
+   **警告**
+
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
-   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
-

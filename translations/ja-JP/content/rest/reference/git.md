@@ -34,7 +34,7 @@ Git blob (バイナリラージオブジェクト) は、各ファイルのコ�
 
 ## コミット
 
-Git コミットは、Git リポジトリ内の階層（[Git ツリー](/v3/git/trees)）とファイルのコンテンツ（[Git blob](/v3/git/blobs)）のスナップショットです。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [コミットオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects)の読み書きができます。
+Git コミットは、Git リポジトリ内の階層（[Git ツリー](/rest/reference/git#trees)）とファイルのコンテンツ（[Git blob](/rest/reference/git#blobs)）のスナップショットです。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [コミットオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects)の読み書きができます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
@@ -50,7 +50,7 @@ Git リファレンス（`git ref`）は、Git コミット SHA-1 ハッシュ�
 
 ## タグ
 
-Git タグは [Git リファレンス](/v3/git/refs)に似ていますが、変更しないことを指す Git コミットです。 Git タグは、特定のリリースを指すときに役立ちます。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [タグオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags)の読み書きができます。 Git タグ API は、[アノテーションされたタグオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags)のみをサポートし、軽量タグはサポートしません。
+Git タグは [Git リファレンス](/rest/reference/git#refs)に似ていますが、変更しないことを指す Git コミットです。 Git タグは、特定のリリースを指すときに役立ちます。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [タグオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags)の読み書きができます。 Git タグ API は、[アノテーションされたタグオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags)のみをサポートし、軽量タグはサポートしません。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'tags' %}{% include rest_operation %}{% endif %}

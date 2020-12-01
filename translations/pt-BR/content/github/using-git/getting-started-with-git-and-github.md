@@ -1,5 +1,5 @@
 ---
-title: Getting started with Git and GitHub
+title: Indrodução ao Git e GitHub
 intro: ''
 mapTopic: true
 redirect_from:

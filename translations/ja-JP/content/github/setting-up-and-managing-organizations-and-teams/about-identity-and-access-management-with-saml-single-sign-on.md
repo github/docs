@@ -40,7 +40,7 @@ Organization で SAML SSO を有効化する前に、IdP を Organization に接
 
 ### SAML SSO で Organization にメンバーを追加する
 
-SAML SSO を有効化後、Organization に新しいメンバーを追加する方法はいくつかあります。 Organization のオーナーは、{% data variables.product.product_name %} で手作業または API を使って、新しいメンバーを招待できます。 詳細は {} の「[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization)」および「[メンバー](/v3/orgs/members/#add-or-update-organization-membership)」を参照してください。
+SAML SSO を有効化後、Organization に新しいメンバーを追加する方法はいくつかあります。 Organization のオーナーは、{% data variables.product.product_name %} で手作業または API を使って、新しいメンバーを招待できます。 詳細は {} の「[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization)」および「[メンバー](/rest/reference/orgs#add-or-update-organization-membership)」を参照してください。
 
 {% data reusables.organizations.team-synchronization %}
 

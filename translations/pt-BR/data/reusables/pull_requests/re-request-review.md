@@ -1,1 +1,1 @@
-You can re-request a review, for example, after you've made substantial changes to your pull request. To request a fresh review from a reviewer, in the sidebar of the **Conversation** tab, click the {% octicon "sync" aria-label="The sync icon" %} icon.
+Você pode ressolicitar uma revisão, por exemplo, após fazer alterações substanciais no seu pull request. Para solicitar uma nova revisão de um revisor, na barra lateral da aba **Conversa**, clique no ícone {% octicon "sync" aria-label="The sync icon" %}.
