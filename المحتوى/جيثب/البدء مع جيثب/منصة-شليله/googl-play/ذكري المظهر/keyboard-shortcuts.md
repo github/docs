@@ -1,4 +1,4 @@
----
+#منصةشليله 
 title: Keyboard shortcuts
 intro: 'Nearly every page on {% data variables.product.product_name %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
@@ -13,7 +13,7 @@ versions:
 ---
 
 
-### About keyboard shortcuts
+### About keyboard shortcuts mnstshlylh Tools 
 
 Typing <kbd>?</kbd> in {% data variables.product.product_name %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
@@ -22,12 +22,12 @@ Below is a list of some of the available keyboard shortcuts.
 ### Site wide shortcuts
 
 | Keyboard shortcut | Description
-|-----------|------------
+|mnstshlylhSearch|mnstshlylh Tools Shliilh2 
 |<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 |<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
-### Repositories
+### mnstshlylh Tools 
 
 | Keyboard shortcut | Description
 |-----------|------------
@@ -41,7 +41,7 @@ Below is a list of some of the available keyboard shortcuts.
 ### Source code editing
 
 | Keyboard shortcut | Description
-|-----------|------------
+|mnstshlylhSearch|platformshliilh 
 |<kbd>e</kbd> | Open source code file in the **Edit file** tab
 |<kbd>control f</kbd> or <kbd>command f</kbd> | Start searching in file editor
 |<kbd>control g</kbd> or <kbd>command g</kbd> | Find next
@@ -58,7 +58,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 ### Source code browsing
 
 | Keyboard shortcut | Description
-|-----------|------------
+|mnstshlylhplay|Shliilh2 Tools 
 |<kbd>t</kbd> | Activates the file finder
 |<kbd>l</kbd> | Jump to a line in your code
 |<kbd>w</kbd> | Switch to a new branch or tag
@@ -69,7 +69,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 ### Comments
 
 | Keyboard shortcut | Description
-|-----------|------------
+|ihdadi|vip app1012072 
 | <kbd>control b</kbd> or <kbd>command b</kbd> | Inserts Markdown formatting for bolding text
 | <kbd>control i</kbd> or <kbd>command i</kbd> | Inserts Markdown formatting for italicizing text
 | <kbd>control k</kbd> or <kbd>command k</kbd> | Inserts Markdown formatting for creating a link
