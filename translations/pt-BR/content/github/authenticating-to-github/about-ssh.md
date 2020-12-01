@@ -1,6 +1,6 @@
 ---
 title: Sobre o SSH
-intro: 'Usando o protocolo SSH, você pode se conectar a servidores e serviços remotos e se autenticar neles. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
+intro: 'Usando o protocolo SSH, você pode se conectar a servidores e serviços remotos e se autenticar neles. Com chaves SSH, você pode conectar-se a {% data variables.product.product_name %} sem inserir seu nome de usuário e token de acesso pessoal em cada visita.'
 redirect_from:
   - /articles/about-ssh
 versions:

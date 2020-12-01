@@ -31,15 +31,15 @@ webhookの`POST`リクエストには、特別なヘッダがあります。 詳
 
 `marketplace_purchase`オブジェクトは、以下のキーを持ちます。
 
-| キー                   | 種類        | 説明                                                                                                                                                                                                                           |
-| -------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account`            | `object`  | サブスクリプションに関連づけられた`organization`もしくあは`user`アカウント。 Organizationアカウントは、そのOrganizationの管理者のメールアドレスである`organization_billing_email`を含みます。 個人アカウントのメールアドレスを知るには、[認証されたユーザの取得](/v3/users/#get-the-authenticated-user)エンドポイントが利用できます。 |
-| `billing_cycle`      | `string`  | `yearly`もしくは`monthly`のいずれかになります。 `account`の所有者が無料のGitHubのプランを使っており、無料の{% data variables.product.prodname_marketplace %}プランを購入した場合、`billing_cycle`は`nil`になります。                                                                |
-| `unit_count`         | `integer` | 購入したユーザ数。                                                                                                                                                                                                                    |
-| `on_free_trial`      | `boolean` | `account`が無料トライアル中の場合`true`になります。                                                                                                                                                                                            |
-| `free_trial_ends_on` | `string`  | 無料トライアルが期限切れになる日付。                                                                                                                                                                                                           |
-| `next_billing_date`  | `string`  | 次の支払いサイクルが始まる日付。 `account`の所有者が無料のGitHub.comのプランを使っており、無料の{% data variables.product.prodname_marketplace %}プランを購入した場合、`next_billing_date`は`nil`になります。                                                                        |
-| `plan`               | `オブジェクト`  | `user`または`organization`が購入したプラン。                                                                                                                                                                                             |
+| キー                   | 種類        | 説明                                                                                                                                                                                                                                      |
+| -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account`            | `object`  | サブスクリプションに関連づけられた`organization`もしくあは`user`アカウント。 Organizationアカウントは、そのOrganizationの管理者のメールアドレスである`organization_billing_email`を含みます。 個人アカウントのメールアドレスを知るには、[認証されたユーザの取得](/rest/reference/users#get-the-authenticated-user)エンドポイントが利用できます。 |
+| `billing_cycle`      | `string`  | `yearly`もしくは`monthly`のいずれかになります。 `account`の所有者が無料のGitHubのプランを使っており、無料の{% data variables.product.prodname_marketplace %}プランを購入した場合、`billing_cycle`は`nil`になります。                                                                           |
+| `unit_count`         | `integer` | 購入したユーザ数。                                                                                                                                                                                                                               |
+| `on_free_trial`      | `boolean` | `account`が無料トライアル中の場合`true`になります。                                                                                                                                                                                                       |
+| `free_trial_ends_on` | `string`  | 無料トライアルが期限切れになる日付。                                                                                                                                                                                                                      |
+| `next_billing_date`  | `string`  | 次の支払いサイクルが始まる日付。 `account`の所有者が無料のGitHub.comのプランを使っており、無料の{% data variables.product.prodname_marketplace %}プランを購入した場合、`next_billing_date`は`nil`になります。                                                                                   |
+| `plan`               | `オブジェクト`  | `user`または`organization`が購入したプラン。                                                                                                                                                                                                        |
 
 `plan`オブジェクトには以下のキーがあります。
 
