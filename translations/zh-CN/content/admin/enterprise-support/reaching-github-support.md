@@ -1,6 +1,6 @@
 ---
 title: 联系 GitHub Support
-intro: 'Contact {% data variables.contact.enterprise_support %} using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
+intro: '使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或{% endif %}支持门户联系 {% data variables.contact.enterprise_support %}。'
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/reaching-github-enterprise-support/
   - /enterprise/admin/enterprise-support/reaching-github-support
@@ -14,7 +14,7 @@ versions:
 
 ### 联系 {% data variables.contact.enterprise_support %}
 
-{% data variables.contact.enterprise_support %} customers can open a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or the {% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} the {% data variables.contact.contact_ae_portal %}{% endif %}. 将事件单的优先级标为 {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %} 或 {% data variables.product.support_ticket_priority_low %}。 更多信息请参阅“[为支持事件单分配优先级](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)”和“[提交事件单](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)”。
+{% data variables.contact.enterprise_support %} 客户可以使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或 {% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} {% data variables.contact.contact_ae_portal %}{% endif %} 打开支持单。 将事件单的优先级标为 {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %} 或 {% data variables.product.support_ticket_priority_low %}。 更多信息请参阅“[为支持事件单分配优先级](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support#assigning-a-priority-to-a-support-ticket)”和“[提交事件单](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)”。
 
 ### 联系 {% data variables.contact.enterprise_support %}
 

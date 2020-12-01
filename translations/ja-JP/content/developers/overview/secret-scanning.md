@@ -1,6 +1,6 @@
 ---
 title: Secret scanning
-intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+intro: 'サービスプロバイダーは、{% data variables.product.prodname_dotcom %}とパートナーになり、シークレットスキャンニングを通じてシークレットトークンのフォーマットを保護できます。シークレットスキャンニングは、そのシークレットのフォーマットで誤って行われたコミットを検索し、サービスプロバイダーの検証用エンドポイントに送信します。'
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
@@ -9,39 +9,39 @@ versions:
 ---
 
 
-{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. Secret scanning happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our secret scanning.
+{% data variables.product.prodname_dotcom %}は、既知のシークレットフォーマットに対してリポジトリをスキャンし、誤ってコミットされたクレデンシャルが不正利用されることを防ぎます。 シークレットスキャンニングは、デフォルトでパブリックなリポジトリで行われ、プライベートリポジトリではリポジトリ管理者もしくはOrganizationのオーナーが有効化できます。 サービスプロバイダーは{% data variables.product.prodname_dotcom %}とパートナーになり、シークレットのフォーマットがシークレットスキャンニングに含まれるようにすることができます。
 
-When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
+シークレットのフォーマットに対する一致がパブリックリポジトリで見つかった場合、選択したHTTPのエンドポイントにペイロードが送信されます。
 
-When a match of your secret format is found in a private repository configured for secret scanning, then repository admins are alerted and can view and manage the secret scanning results on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from secret scanning](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
+シークレットスキャンニングが設定されたプライベートリポジトリでシークレットフォーマットへの一致が見つかった場合、リポジトリの管理者にはアラートが発せられ、{% data variables.product.prodname_dotcom %}上でシークレットスキャンニングの結果を見て管理できます。 詳しい情報については「[シークレットスキャンニングからのアラートの管理](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
 
 {% note %}
 
-**Note:** Secret scanning for private repositories is currently in beta.
+**ノート:** プライベートリポジトリに対するシークレットスキャンニングは、現在ベータです。
 
 {% endnote %}
 
-This article describes how you can partner with {% data variables.product.prodname_dotcom %}  as a service provider and join the secret scanning program.
+この記事では、サービスプロバイダーとして{% data variables.product.prodname_dotcom %}とパートナーになり、シークレットスキャンニングプログラムに参加する方法を説明します。
 
-### The secret scanning process
+### シークレットスキャンニングのプロセス
 
-##### How secret scanning works in a public repository
+##### パブリックリポジトリでのシークレットスキャンニングの動作
 
-The following diagram summarizes the secret scanning process for public repositories, with any matches sent to a service provider's verify endpoint.
+以下の図は、パブリックリポジトリに対するシークレットスキャンニングのプロセスをまとめたもので、一致があった場合にサービスプロバイダへの検証エンドポイントに送信されています。
 
 ![Flow diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint](/assets/images/secret-scanning-flow.png "Secret scanning flow")
 
-### Joining the secret scanning program on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %}上のシークレットスキャンニングプログラムへの参加
 
-1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
-1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the secret scanning message payload.
-1. Implement signature verification in your secret alert service.
-1. Implement secret revocation and user notification in your secret alert service.
+1. プロセスを開始するために、{% data variables.product.prodname_dotcom %}に連絡してください。
+1. スキャンしたい関連シークレットを特定し、それらを捕捉するための正規表現を作成してください。
+1. パブリックリポジトリで見つかったシークレットの一致に対応するために、シークレットスキャンニングのメッセージペイロードを含む{% data variables.product.prodname_dotcom %}からのwebhookを受け付けるシークレットアラートサービスを作成してください。
+1. シークレットアラートサービスに、署名検証を実装してください。
+1. シークレットアラートサービスに、シークレットの破棄とユーザへの通知を実装してください。
 
-#### Contact {% data variables.product.prodname_dotcom %} to get the process started
+#### プロセスを開始するための{% data variables.product.prodname_dotcom %}への連絡
 
-To get the enrollment process started, email secret-scanning@github.com.
+登録のプロセスを開始するために、secret-scanning@github.comにメールしてください。
 
 You will receive details on the secret scanning program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
 
@@ -79,7 +79,7 @@ Content-Length: 0123
 ]
 ```
 
-The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match.
+The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match. Your endpoint should be able to handle requests with a large number of matches without timing out.
 
 * **Token**: The value of the secret match.
 * **Type**: The unique name you provided to identify your regular expression.

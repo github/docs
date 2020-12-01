@@ -48,6 +48,7 @@ describe('POST /events', () => {
 
       // Content information
       path: '/github/docs/issues',
+      hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
@@ -134,6 +135,16 @@ describe('POST /events', () => {
         context: {
           ...pageExample.context,
           path: ' '
+        }
+      }, 400)
+    )
+
+    it('should hostname be uri-reference', () =>
+      checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          hostname: ' '
         }
       }, 400)
     )
