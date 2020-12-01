@@ -1,5 +1,5 @@
 ---
-title: Setting up and managing billing and payments on GitHub
+title: Manage billing and payments on GitHub
 shortTitle: Billing and payments
 redirect_from:
   - /categories/setting-up-and-managing-billing-and-payments-on-github
