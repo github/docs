@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
@@ -28,7 +29,7 @@ versions:
 
 ### コミットコメントのカスタムメディアタイプ
 
-以下がコミットコメントでサポートされているメディアタイプです。 API におけるメディアタイプの使用に関する詳細は、[こちら](/v3/media/)を参照してください。
+以下がコミットコメントでサポートされているメディアタイプです。 API におけるメディアタイプの使用に関する詳細は、[こちら](/rest/overview/media-types)を参照してください。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -49,11 +50,14 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## コミュニティ
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'community' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## コンテンツ
 
@@ -61,7 +65,7 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
 
 ### リポジトリコンテンツのカスタムメディアタイプ
 
-[README](/v3/repos/contents/#get-a-repository-readme)、[ファイル](/v3/repos/contents/#get-repository-content)、[シンボリックリンク](/v3/repos/contents/#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
+[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、[シンボリックリンク](/rest/reference/repos#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -70,13 +74,13 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
 
 Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-[すべてのオブジェクト](/v3/repos/contents/#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
+[すべてのオブジェクト](/rest/reference/repos#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.object
 
 コンテンツのタイプに関係なく、一貫したオブジェクトフォーマットを取得するには、`object` メディアタイプパラメータを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
 
-API でのメディアタイプの使用について詳しくは、[こちら](/v3/media/)をご覧ください。
+API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}
@@ -248,6 +252,7 @@ GitHub App を開発していて、外部サービスについて詳細な情報
   {% if operation.subcategory == 'statuses' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## トラフィック
 
 プッシュアクセスを持つリポジトリに対し、トラフィック API はリポジトリグラフが提供する情報へのアクセスを提供します。 詳細は「<a href="/github/visualizing-repository-data-with-graphs/viewing-traffic-to-a-repository" class="dotcom-only">リポジトリへのトラフィックを表示する</a>」を参照してください。
@@ -255,6 +260,7 @@ GitHub App を開発していて、外部サービスについて詳細な情報
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'traffic' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## webhook
 

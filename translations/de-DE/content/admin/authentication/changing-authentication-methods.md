@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Wenn Sie die Authentifizierungsmethode ändern, werden die Benutzerkonten auf {% data variables.product.product_location_enterprise %} beibehalten, und Benutzer melden sich weiterhin beim selben Konto an, sofern ihr Benutzername nicht geändert wird.
+Wenn Sie die Authentifizierungsmethode ändern, werden die Benutzerkonten auf {% data variables.product.product_location %} beibehalten, und Benutzer melden sich weiterhin beim selben Konto an, sofern ihr Benutzername nicht geändert wird.
 
-Wenn bei der neuen Authentifizierungsmethode Benutzernamen geändert werden, werden neue Konten erstellt. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user).
+Wenn bei der neuen Authentifizierungsmethode Benutzernamen geändert werden, werden neue Konten erstellt. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
 Zudem sollten Sie die folgenden Issues in Betracht ziehen:
 
@@ -30,4 +30,4 @@ Zudem sollten Sie die folgenden Issues in Betracht ziehen:
 
 * **Zwei-Faktor-Authentifizierung:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers:** Sie können Benutzer einladen, sich bei {% data variables.product.product_location_enterprise %} zu authentifizieren, ohne sie zu Ihrem Identity Provider hinzuzufügen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers zulassen](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)“.
+* **Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers:** Sie können Benutzer einladen, sich bei {% data variables.product.product_location %} zu authentifizieren, ohne sie zu Ihrem Identity Provider hinzuzufügen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers zulassen](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)“.

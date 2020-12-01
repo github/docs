@@ -1,19 +1,20 @@
 ---
 title: 关于分支限制
-intro: 'Branches within repositories that belong to organizations can be configured so that only certain users{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} or{% endif %} teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, or apps{% endif %} can push to the branch.'
+intro: '属于组织的仓库中的分支可配置为仅特定用户、团队或应用程序可推送到分支。'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. 在启用分支限制后，只有被授予权限的用户{% if page.version == "dotcom" or page.version ver_gt "2.18" %},{% else %}或{% endif %}团队{% if page.version == "dotcom" or page.version ver_gt "2.18" %}或应用{% endif %}才可推送到受保护分支。 You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
+启用分支限制时，只有已授予权限的用户、团队或应用程序才能推送到受保护的分支。 在启用分支限制后，只有被授予权限的用户{% if page.version == "dotcom" or page.version ver_gt "2.18" %},{% else %}或{% endif %}团队{% if page.version == "dotcom" or page.version ver_gt "2.18" %}或应用{% endif %}才可推送到受保护分支。 您可以在受保护分支的设置中查看和编辑对受保护分支具有推送权限的用户、团队或应用程序。
 
-You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with `write` access to a repository.
+您只能向对仓库具有 `write` 权限的用户、团队或已安装的 {% data variables.product.prodname_github_apps %} 授予推送到受保护分支的权限。
 
-People and apps with admin permissions to a repository are always able to push to a protected branch.
+对仓库具有管理员权限的人员和应用程序始终能够推送到受保护分支。
 
 {% tip %}
 

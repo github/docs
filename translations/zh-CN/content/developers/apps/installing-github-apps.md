@@ -1,31 +1,32 @@
 ---
-title: Installing GitHub Apps
-intro: 'When your app is public, anyone can install your app on their repository through {% if currentVersion == "free-pro-team@latest" %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL. When your app is private, you can only install the app on repositories that you own.'
+title: 安装 GitHub 应用程序
+intro: '当您的应用程序为公共时，任何人都可以通过 {% if currentVersion == "free-pro-team@latest" %} {% data variables.product.prodname_marketplace %} 或{% endif %}安装 URL 将您的应用程序安装在他们的仓库中。 当您的应用程序为私有时，您只能将该应用程序安装在您自己的仓库中。'
 redirect_from:
   - /apps/installing-github-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Note:** Your {% data variables.product.prodname_github_app %} will have access to any repositories the app creates, even if someone only installs your app on selected repositories.
+**注：**您的 {% data variables.product.prodname_github_app %} 将有权访问应用程序创建的任何仓库，即使用户只在选定的仓库中安装您的应用程序。
 
 {% endnote %}
 
-### Installing your private GitHub App on your repository
+### 在您的仓库中安装您的私有 GitHub 应用程序
 
-Once you create a private GitHub App, you can install it on one of your org or user repositories. For more information, see "[Private installation flow](/apps/managing-github-apps/making-a-github-app-public-or-private/#private-installation-flow)."
+创建私有 GitHub 应用程序后，您可以将其安装在您的某个组织或用户仓库中。 更多信息请参阅“[私有安装流程](/apps/managing-github-apps/making-a-github-app-public-or-private/#private-installation-flow)”。
 
-1. From the [GitHub Apps settings page](https://github.com/settings/apps), select your app.
-2. In the left sidebar, click **Install App**.
-3. Click **Install** next to the organization or user account containing the correct repository.
-4. Install the app on all repositories or select repositories. ![App installation permissions](/assets/images/install_permissions.png)
-5. Once installed, you will see configuration options for the app on your selected account. You can make changes here, or repeat the previous steps to install the app on another account.
+1. 从 [GitHub 应用程序设置页面](https://github.com/settings/apps)，选择您的应用程序。
+2. 在左边栏中，单击 **Install App（安装应用程序）**。
+3. 单击包含适当仓库的组织或用户帐户旁边的 **Install（安装）**。
+4. 将应用程序安装在所有仓库或所选仓库中。 ![App installation permissions](/assets/images/install_permissions.png)
+5. 安装后，您将在所选帐户上看到应用程序的配置选项。 您可以在这里进行更改，或重复前面的步骤将应用程序安装到其他帐户上。
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Offering your app in the GitHub Marketplace
+### 在 GitHub Marketplace 中提供您的应用程序
 
 You can offer a paid or free version of your app in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), where people can search for and view details about your app. {% data variables.product.prodname_marketplace %} automatically installs a GitHub App when an order is complete.
 
@@ -46,7 +47,7 @@ These steps assume you have [built a {% data variables.product.prodname_github_a
 1. From the [GitHub Apps settings page](https://github.com/settings/apps), select the public app you want to configure for others to install.
 2. In "Homepage URL," type the URL for your app's homepage and click **Save changes**. ![Homepage URL](/assets/images/github-apps/github_apps_homepageURL.png)
 3. GitHub provides a landing page for your app that includes a link to your app's "Homepage URL." To visit the landing page on GitHub, copy the URL from "Public link" and paste it into a browser. ![Public link](/assets/images/github-apps/github_apps_public_link.png)
-4. Create a homepage for your app that includes the app installation URL: `https://github.com/apps/<app name>/installations/new`.
+4. Create a homepage for your app that includes the app installation URL: `{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new`.
 
 ### Authorizing users during installation
 
@@ -59,4 +60,4 @@ You can provide a `state` parameter in an app's installation URL to preserve the
 
 To preserve a state, add it to the installation URL:
 
-`https://github.com/apps/<app name>/installations/new?state=AB12t`
+`{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new?state=AB12t`

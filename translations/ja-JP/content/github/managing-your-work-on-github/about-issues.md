@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリ中の Issue で、ユーザフィードバックの収集、ソフトウェアバグの報告、完了したいタスクの編成ができます。 Issueは、単なるソフトウェアのバグを報告する場所以上の働きをします。
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-Issue 内の最も最新のコメントの情報を得ておきたい場合には、Issue を Watch して最新のコメントについての通知を受けることができます。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+Issue 内の最も最新のコメントの情報を得ておきたい場合には、Issue を Watch して最新のコメントについての通知を受けることができます。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 サブスクライブした Issue の最新の更新へのリンクを素早く見つけるには、ダッシュボードにアクセスしてください。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 

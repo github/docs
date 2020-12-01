@@ -1,16 +1,17 @@
 ---
 title: Sicherung eines Repositorys durchführen
-intro: 'You can use{% if enterpriseServerVersions contains currentVersion %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Um ein Archiv Deines Repositorys herunterzuladen, kannst du die API für die Migration von Benutzern oder Organisationen verwenden. For more information, see "[Migrations](/v3/migrations/)."
+Um ein Archiv Deines Repositorys herunterzuladen, kannst du die API für die Migration von Benutzern oder Organisationen verwenden. For more information, see "[Migrations](/rest/reference/migrations)."
 {% else %}
 
 Du kannst Deine Repositorys manuell herunterladen und sichern:
@@ -20,18 +21,18 @@ Du kannst Deine Repositorys manuell herunterladen und sichern:
 
 Wenn Du ein Repository oder Wiki klonst, werden nur Git-Daten wie Projektdateien und der Commit-Verlauf heruntergeladen. Mithilfe unserer API kannst Du andere Elemente Deines {% data variables.product.product_name %}-Repositorys auf Deinen lokalen Computer herunterladen:
 
-- [Issues](/v3/issues/#list-issues-for-a-repository)
-- [Pull Requests](/v3/pulls/#list-pull-requests)
+- [Issues](/rest/reference/issues#list-issues-for-a-repository)
+- [Pull Requests](/rest/reference/pulls#list-pull-requests)
 - [Forks](/rest/reference/repos#list-forks)
 - [Kommentare](/rest/reference/issues#list-issue-comments-for-a-repository)
 - [Meilensteine](/rest/reference/issues#list-milestones)
 - [Kennzeichnungen](/rest/reference/issues#list-labels-for-a-repository)
 - [Watcher](/rest/reference/activity#list-watchers)
 - [Stargazers](/rest/reference/activity#list-stargazers)
-- [Projekte](/v3/projects/#list-repository-projects)
+- [Projekte](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-Sobald Sie {% if enterpriseServerVersions contains currentVersion %}eine lokale Version aller Inhalte haben, die Sie sichern möchten, können Sie ein ZIP-Archiv erstellen und {% else %}Ihr Archiv heruntergeladen haben, können Sie {% endif %}es auf eine externe Festplatte kopieren und/oder auf einen Cloud-basierten Dienst wie [Google Drive](https://www.google.com/drive/) oder [Dropbox](https://www.dropbox.com/) hochladen.
+Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Backup-Tools (Sicherungswerkzeuge) von Drittanbietern

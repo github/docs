@@ -7,15 +7,28 @@ intro: '要将项目放在 {% data variables.product.product_location %} 上，�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 您可以在 {% data variables.product.product_name %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。
+
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
 **注：**您可以为开源项目创建公共仓库。 创建公共仓库时，请确保包含[许可文件](http://choosealicense.com/)以确定您希望与其他人共享项目。 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
+
+{% endif %}
 
 {% data reusables.repositories.create_new %}
 2. 为仓库键入简短、令人难忘的名称。 例如 "hello-world"。 ![用于输入仓库名称的字段](/assets/images/help/repository/create-repository-name.png)
@@ -28,7 +41,7 @@ versions:
 
 恭喜！ 您已成功创建第一个仓库，并使用*自述文件*对其进行了初始化。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库创建`](https://cli.github.com/manual/gh_repo_create)”。

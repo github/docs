@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Ao usar LDAP ou autenticação integrada, a autenticação de dois fatores é compatível no appliance do {% data variables.product.prodname_ghe_server %}. Os administradores da organização podem exigir que os integrantes habilitem a autenticação de dois fatores.
+Ao usar o LDAP ou autenticação integrada, a autenticação de dois fatores será compatível em {% data variables.product.product_location %}. Os administradores da organização podem exigir que os integrantes habilitem a autenticação de dois fatores.
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 

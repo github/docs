@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -15,9 +16,7 @@ versions:
 {% topic_link_in_list /creating-and-editing-commits %}
     {% link_in_list /about-commits %}
     {% link_in_list /creating-a-commit-with-multiple-authors %}
-<!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /creating-a-commit-on-behalf-of-an-organization %}
-<!-- endif -->
     {% link_in_list /changing-a-commit-message %}
 {% topic_link_in_list /viewing-and-comparing-commits %}
     {% link_in_list /commit-branch-and-tag-labels %}

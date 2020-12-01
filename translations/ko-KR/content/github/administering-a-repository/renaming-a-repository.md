@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Gists
@@ -32,7 +33,11 @@ In folgenden Fällen erhältst Du eine Benachrichtigung:
 - Jemand erwähnt Dich in einem Gist.
 - Du abonnierst einen Gist, indem Du oben im Gist auf **Subscribe** (Abonnieren) klickst.
 
-Du kannst Gists an Deinem Profil anheften, damit andere Personen sie leichter sehen. Weitere Informationen finden Sie unter „[Elemente an Ihr Profil anheften](/articles/pinning-items-to-your-profile)“.
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+Du kannst Gists an Deinem Profil anheften, damit andere Personen sie leichter sehen. Weitere Informationen findest Du unter „[Elemente an Dein Profil anheften](/articles/pinning-items-to-your-profile).“
+
+{% endif %}
 
 Um Gists zu entdecken, die von anderen Benutzern erstellt wurden, rufe die {% data variables.gists.gist_homepage %} auf und klicke dort auf **All Gists** (Alle Gists). Daraufhin wird eine Seite mit allen Gists angezeigt, die nach dem Zeitpunkt der Erstellung oder Aktualisierung sortiert sind. Mit der {% data variables.gists.gist_search_url %} können Sie Gists auch nach Sprache suchen. Die Gist-Suche nutzt dieselbe Suchsyntax wie [die Codesuche](/articles/searching-code).
 
@@ -50,7 +55,7 @@ Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in ein
 
 Du kannst auch eine Textdatei per Drag-and-Drop von Deinem Desktop direkt in den Gist-Editor ziehen.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.

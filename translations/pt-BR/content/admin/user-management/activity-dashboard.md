@@ -1,12 +1,13 @@
 ---
 title: Painel Atividade
-intro: 'O painel Atividade mostra um panorama de todas as atividades na {% data variables.product.product_location_enterprise %}.'
+intro: 'O painel de atividades oferece uma visão geral de toda a atividade da sua empresa.'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O painel Atividade gera gráficos semanais, mensais e anuais informando o número de:
@@ -22,7 +23,10 @@ O painel Atividade gera gráficos semanais, mensais e anuais informando o númer
 
 ![Painel Atividade](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-Para mais análises baseadas em dados de {% data variables.product.prodname_enterprise %}, você pode comprar o {% data variables.product.prodname_insights %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
+{% if enterpriseServerVersions contains currentVersion %}
+Para mais análises com base em dados de
+{% data variables.product.product_name %}, você pode comprar {% data variables.product.prodname_insights %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
+{% endif %}
 
 ### Acessar o painel Atividade
 

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Gistについて
@@ -32,7 +33,11 @@ Secret gists don't show up in {% data variables.gists.discover_url %} and are no
 - 誰かがあなたを Gist 中でメンションした場合。
 - いずれかの Gist の上部で [** Subscribe**] をクリックして、Gist をサブスクライブした場合。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 You can pin gists to your profile so other people can see them easily. 詳しい情報については、「[プロフィールにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
+
+{% endif %}
 
 他の人が作成した Gist は、{% data variables.gists.gist_homepage %} にアクセスして [**All Gists**] をクリックすることで見つけることができます。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist 検索は[コード検索](/articles/searching-code)と同じ検索構文を使います。
 
@@ -50,7 +55,7 @@ Gist は GeoJSON ファイルのマッピングをサポートしています。
 
 テキストファイルをデスクトップから直接 Gist エディターにドラッグアンドドロップすることもできます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.

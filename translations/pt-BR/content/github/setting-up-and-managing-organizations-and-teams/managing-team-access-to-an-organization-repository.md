@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Pessoas com acesso de administrador a um repositório podem gerenciar o acesso de equipes ao repositório. Mantenedores de equipes podem remover o acesso de uma equipe a um repositório.

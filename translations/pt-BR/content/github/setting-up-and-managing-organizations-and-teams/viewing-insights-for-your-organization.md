@@ -36,7 +36,7 @@ Com as informações de dependência, é possível visualizar vulnerabilidades, 
 3. No nome da organização, clique em {% octicon "graph" aria-label="The bar graph icon" %} **Insights** (Informações). ![Guia Insights (Informações) na principal barra de navegação da organização](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. Clique em **Dependencies** (Dependências) para exibir as que pertencem a esta organização. ![Guia Dependencies (Dependências) na principal barra de navegação da organização](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. Para exibir informações de dependência para todas as suas organizações do {% data variables.product.prodname_ghe_cloud %}, clique em **My organizations** (Minhas organizações). ![Botão My organizations (Minhas organizações) na guia Dependencies (Dependências)](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
-6. Você pode clicar nos resultados dos gráficos **Consultorias de segurança abertas** e **Licenças** para filtrar por um status de vulnerabilidade, uma licença ou uma combinação dos dois. ![Gráficos de licenças e vulnerabilidades em My organizations (Minhas organizações)](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
+6. Você pode clicar nos resultados dos gráficos **Consultorias de segurança abertas** e **Licenças** para filtrar por um status de vulnerabilidade, uma licença ou uma combinação dos dois. ![Gráficos de "vulnerabilidades das minhas organizações"](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
 7. Também pode clicar em {% octicon "package" aria-label="The package icon" %} **Dependents** (Dependentes) ao lado de cada vulnerabilidade para ver quais dependentes na organização estão usando cada biblioteca. ![Dependentes vulneráveis em My organizations (Minhas organizações)](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
 
@@ -45,4 +45,4 @@ Com as informações de dependência, é possível visualizar vulnerabilidades, 
    - "[Sobre organizações](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[Explorar as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - "[Alterar a visibilidade das informações de dependência da organização](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)"
-   - "[Aplicar uma política nas informações de dependência de sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)".
+   - "[Aplicar uma política nas informações de dependência de sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)".

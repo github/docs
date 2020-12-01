@@ -1,6 +1,6 @@
 ---
 title: Pinning items to your profile
-intro: 'You can pin {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists and {% endif %}repositories to your profile so other people can quickly see your best work.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile

@@ -12,12 +12,11 @@ versions:
 
 ### Enterprise の {% data variables.product.prodname_actions %} 権限について
 
-{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にすると、企業内のすべての Organization で有効になります。 Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 You can also limit the use of public actions, so that people can only use local actions that exist in an organization.
+{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にすると、企業内のすべての Organization で有効になります。 Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
 
 ### Enterprise の {% data variables.product.prodname_actions %} 権限の管理
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
@@ -29,8 +28,7 @@ versions:
 
 #### Configuring the private fork policy for your enterprise
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}

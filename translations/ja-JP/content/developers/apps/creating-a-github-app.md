@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}事前設定された GitHub App を作成できる GitHub App Manifest の使い方については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}構成済みの GitHub App を作成できる GitHub App Manifest の使い方については、「[マニフェストから GitHub App を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
@@ -26,12 +27,21 @@ versions:
 4. [**New GitHub App**] をクリックします。 ![新しい GitHub App を作成するボタン](/assets/images/github-apps/github_apps_new.png)
 5. [GitHub App name] に、アプリケーションの名前を入力します。 ![GitHub App の名前フィールド](/assets/images/github-apps/github_apps_app_name.png)
 
-  Give your app a clear and succinct name. Your app cannot have the same name as an existing GitHub user, unless it is your own user or organization name. A slugged version of your app's name will be shown in the user interface when your integration takes an action.
+  アプリケーションには簡潔で明快な名前を付けましょう。 アプリケーションの名前は、既存の GitHub ユーザと同じ名前にできません。ただし、その名前があなた自身のユーザ名や Organization 名である場合は例外です。 インテグレーションが動作すると、ユーザインターフェース上にアプリケーション名のスラッグが表示されます。
 
 6. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Description] に入力します。 ![GitHub App の説明フィールド](/assets/images/github-apps/github_apps_description.png)
 7. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![GitHub App のホームページ URL フィールド](/assets/images/github-apps/github_apps_homepage_url.png)
-8. [User authorization callback URL] に、ユーザーがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 This URL is used if your app needs to identify and authorize user-to-server requests. ![GitHub App のユーザ認可コールバック URL フィールド](/assets/images/github-apps/github_apps_user_authorization.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+8. [Callback URL] に、ユーザがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。
+
+  [**Add callback URL**] を使用して、コールバック URL を最大 10 個追加できます。
+
+  ![[Add callback URL] のボタンと コールバック URL のフィールド](/assets/images/github-apps/github_apps_callback_url_multiple.png)
+{% else %}
+8. [User authorization callback URL] に、ユーザーがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。 ![GitHub App のユーザ認可コールバック URL フィールド](/assets/images/github-apps/github_apps_user_authorization.png)
+
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 9. デフォルトでは、アプリケーションのセキュリティを高めるため、アプリケーションは期限付きのユーザ認可トークンを使用します。 期限付きのユーザトークンの使用をオプトアウトするには、[Expire user authorization tokens] の選択を解除する必要があります。 リフレッシュトークンフローの設定と、期限付きユーザトークンの利点に関する詳細については、「[ユーザからサーバーに対するアクセストークンをリフレッシュする](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)」を参照してください。 ![GitHub App のセットアップ中に期限付きユーザトークンをオプトインするオプション](/assets/images/github-apps/expire-user-tokens-selection.png)
 {% endif %}
 9. アプリケーションが OAuth フローを使用してユーザを認可する場合、[**Request user authorization (OAuth) during installation**] を選択して、ユーザーかアプリをインストール時に認可するようにできます。 このオプションを選択した場合、[Setup URL] が利用できなくなり、アプリケーションのインストール後にユーザはあなたが設定した [User authorization callback URL] にリダイレクトされます。 詳しい情報については「[インストール中にユーザを認可する](/apps/installing-github-apps/#authorizing-users-during-installation)」を参照してください。 ![インストール時にユーザの認可を要求する](/assets/images/github-apps/github_apps_request_auth_upon_install.png)

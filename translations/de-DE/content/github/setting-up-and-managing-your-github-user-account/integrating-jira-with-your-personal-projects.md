@@ -5,11 +5,12 @@ redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
-3. Klicke auf der linken Seitenleiste auf **{% data variables.product.prodname_oauth_app %}**. ![Registerkarte von { site.data.variables.product.prodname_oauth_app } in der linken Seitenleiste](/assets/images/help/settings/developer-settings-oauth-apps.png)
+3. Klicke auf der linken Seitenleiste auf **{% data variables.product.prodname_oauth_app %}**. ![{% data variables.product.prodname_oauth_app %}s tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. Klicke auf **Register a new application** (Eine neue Anwendung registrieren).
 4. Gib unter **Application name** (Anwendungsname) „Jira“ ein.
 5. Gib unter **Homepage URL** (URL für Startseite) die vollständige URL Deiner Jira-Instanz ein.

@@ -52,7 +52,7 @@
         "RefUpdate"
       ],
       "owning_teams": [
-        "@github/pe-repos"
+        "@github/reponauts"
       ],
       "accept_header": "application/vnd.github.update-refs-preview+json",
       "href": "/graphql/overview/schema-previews#update-refs-preview"
@@ -109,7 +109,7 @@
         "Mutation.createContentAttachment"
       ],
       "owning_teams": [
-        "@github/ce-extensibility"
+        "@github/feature-lifecycle"
       ],
       "accept_header": "application/vnd.github.corsair-preview+json",
       "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
@@ -179,7 +179,7 @@
       "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
     }
   ],
-  "2.22": [
+  "ghes-2.22": [
     {
       "title": "Access to package version deletion preview",
       "description": "This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.",
@@ -383,7 +383,7 @@
       "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
     }
   ],
-  "2.21": [
+  "ghes-2.21": [
     {
       "title": "Access to package version deletion preview",
       "description": "This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.",
@@ -632,7 +632,7 @@
       "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
     }
   ],
-  "2.20": [
+  "ghes-2.20": [
     {
       "title": "GitHub packages preview",
       "description": "This preview adds support for objects relating to GitHub Packages.",
@@ -926,7 +926,20 @@
       "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
     }
   ],
-  "2.19": [
+  "ghae": [
+    {
+      "title": "Access to package version deletion preview",
+      "description": "This preview adds support for the DeletePackageVersion mutation which enables deletion of private package versions.",
+      "toggled_by": "package-deletes-preview",
+      "toggled_on": [
+        "Mutation.deletePackageVersion"
+      ],
+      "owning_teams": [
+        "@github/pe-package-registry"
+      ],
+      "accept_header": "application/vnd.github.package-deletes-preview+json",
+      "href": "/graphql/overview/schema-previews#access-to-package-version-deletion-preview"
+    },
     {
       "title": "Deployments preview",
       "description": "This preview adds support for deployments mutations and new deployments features.",
@@ -943,65 +956,6 @@
       "href": "/graphql/overview/schema-previews#deployments-preview"
     },
     {
-      "title": "Draft pull requests preview",
-      "description": "This preview adds support for draft pull requests.",
-      "toggled_by": "shadow-cat-preview",
-      "toggled_on": [
-        "Mutation.markPullRequestReadyForReview",
-        "CreatePullRequestInput.draft",
-        "PullRequest.isDraft"
-      ],
-      "owning_teams": [
-        "@github/pe-pull-requests"
-      ],
-      "accept_header": "application/vnd.github.shadow-cat-preview+json",
-      "href": "/graphql/overview/schema-previews#draft-pull-requests-preview"
-    },
-    {
-      "title": "Checks preview",
-      "description": "This preview adds support for reading checks created by GitHub Apps.",
-      "toggled_by": "antiope-preview",
-      "toggled_on": [
-        "CheckAnnotationRange",
-        "CheckAnnotationPosition",
-        "CheckAnnotationSpan",
-        "CheckAnnotation",
-        "CheckAnnotationConnection.nodes",
-        "CheckAnnotationData",
-        "CheckAnnotationEdge.node",
-        "CheckAnnotationLevel",
-        "CheckConclusionState",
-        "CheckStatusState",
-        "CheckSuiteAutoTriggerPreference",
-        "CheckRun",
-        "CheckRunConnection.nodes",
-        "CheckRunEdge.node",
-        "CheckRunAction",
-        "CheckRunFilter",
-        "CheckRunOutput",
-        "CheckRunOutputImage",
-        "CheckRunType",
-        "CheckSuite",
-        "CheckSuiteConnection.nodes",
-        "CheckSuiteEdge.node",
-        "CheckSuiteFilter",
-        "Commit.checkSuites",
-        "Mutation.createCheckRun",
-        "Mutation.createCheckSuite",
-        "Mutation.rerequestCheckSuite",
-        "Mutation.updateCheckRun",
-        "Mutation.updateCheckSuitePreferences",
-        "Push",
-        "RequestableCheckStatusState",
-        "UpdateCheckSuitePayload.checkSuite"
-      ],
-      "owning_teams": [
-        "@github/ecosystem-primitives"
-      ],
-      "accept_header": "application/vnd.github.antiope-preview+json",
-      "href": "/graphql/overview/schema-previews#checks-preview"
-    },
-    {
       "title": "Merge info preview",
       "description": "This preview adds support for accessing fields that provide more detailed information about a pull request's merge state.",
       "toggled_by": "merge-info-preview",
@@ -1016,33 +970,19 @@
       "href": "/graphql/overview/schema-previews#merge-info-preview"
     },
     {
-      "title": "Repository vulnerability alerts preview",
-      "description": "This preview adds support for viewing vulnerability alerts for a repository.",
-      "toggled_by": "vixen-preview",
+      "title": "Update refs preview",
+      "description": "This preview adds support for updating multiple refs in a single operation.",
+      "toggled_by": "update-refs-preview",
       "toggled_on": [
-        "RepositoryVulnerabilityAlert",
-        "Repository.vulnerabilityAlerts",
-        "RepositoryVulnerabilityAlertConnection",
-        "RepositoryVulnerabilityAlertEdge"
+        "Mutation.updateRefs",
+        "GitRefname",
+        "RefUpdate"
       ],
       "owning_teams": [
-        "@github/ee-security-workflows"
+        "@github/reponauts"
       ],
-      "accept_header": "application/vnd.github.vixen-preview+json",
-      "href": "/graphql/overview/schema-previews#repository-vulnerability-alerts-preview"
-    },
-    {
-      "title": "Temporary cloning token for private repositories preview",
-      "description": "This preview adds support for accessing a temporary token field for cloning private repositories.",
-      "toggled_by": "daredevil-preview",
-      "toggled_on": [
-        "Repository.tempCloneToken"
-      ],
-      "owning_teams": [
-        "@github/experience-engineering-work"
-      ],
-      "accept_header": "application/vnd.github.daredevil-preview+json",
-      "href": "/graphql/overview/schema-previews#temporary-cloning-token-for-private-repositories-preview"
+      "accept_header": "application/vnd.github.update-refs-preview+json",
+      "href": "/graphql/overview/schema-previews#update-refs-preview"
     },
     {
       "title": "Project event details preview",
@@ -1069,21 +1009,6 @@
       "href": "/graphql/overview/schema-previews#project-event-details-preview"
     },
     {
-      "title": "Minimize comments preview",
-      "description": "This preview adds support for minimizing comments on issues, pull requests, commits, and gists.",
-      "toggled_by": "queen-beryl-preview",
-      "toggled_on": [
-        "Mutation.minimizeComment",
-        "Mutation.unminimizeComment",
-        "Minimizable"
-      ],
-      "owning_teams": [
-        "@github/ce-community-and-safety"
-      ],
-      "accept_header": "application/vnd.github.queen-beryl-preview+json",
-      "href": "/graphql/overview/schema-previews#minimize-comments-preview"
-    },
-    {
       "title": "Create content attachments preview",
       "description": "This preview adds support for creating content attachments.",
       "toggled_by": "corsair-preview",
@@ -1091,7 +1016,7 @@
         "Mutation.createContentAttachment"
       ],
       "owning_teams": [
-        "@github/ecosystem-primitives"
+        "@github/feature-lifecycle"
       ],
       "accept_header": "application/vnd.github.corsair-preview+json",
       "href": "/graphql/overview/schema-previews#create-content-attachments-preview"
@@ -1143,25 +1068,22 @@
       "href": "/graphql/overview/schema-previews#import-project-preview"
     },
     {
-      "title": "Multi line comments preview",
-      "description": "This preview adds support for blob-positioned and multi-line comments.",
-      "toggled_by": "comfort-fade-preview",
+      "title": "Team review assignments preview",
+      "description": "This preview adds support for updating the settings for team review assignment.",
+      "toggled_by": "stone-crop-preview",
       "toggled_on": [
-        "Mutation.addPullRequestReviewThread",
-        "AddPullRequestReviewInput.threads",
-        "DiffSide",
-        "PullRequestReviewThread.startLine",
-        "PullRequestReviewThread.originalStartLine",
-        "PullRequestReviewThread.startDiffSide",
-        "PullRequestReviewThread.line",
-        "PullRequestReviewThread.originalLine",
-        "PullRequestReviewThread.diffSide"
+        "Mutation.updateTeamReviewAssignment",
+        "TeamReviewAssignmentAlgorithm",
+        "Team.reviewRequestDelegationEnabled",
+        "Team.reviewRequestDelegationAlgorithm",
+        "Team.reviewRequestDelegationMemberCount",
+        "Team.reviewRequestDelegationNotifyTeam"
       ],
       "owning_teams": [
         "@github/pe-pull-requests"
       ],
-      "accept_header": "application/vnd.github.comfort-fade-preview+json",
-      "href": "/graphql/overview/schema-previews#multi-line-comments-preview"
+      "accept_header": "application/vnd.github.stone-crop-preview+json",
+      "href": "/graphql/overview/schema-previews#team-review-assignments-preview"
     }
   ]
 }

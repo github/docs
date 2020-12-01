@@ -7,6 +7,7 @@ intro: Você pode transformar uma pasta em um repositório do Git repository em 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você criar um clone do repositório, não perderá nenhuma alteração ou histórico do Git quando dividir uma pasta e criar um repositório separado.

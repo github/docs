@@ -4,6 +4,7 @@ intro: '为帮助您有效地管理通知，提供了多种取消订阅的方法
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 为帮助您了解您的订阅和决定是否取消订阅，请参阅“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
@@ -54,6 +55,13 @@ versions:
 {% data reusables.notifications.access_notifications %}
 1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉按钮单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
     - 取消关注仓库
     - 只关注某仓库的发行版
     - 忽略某仓库的所有通知
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+    - 取消关注仓库
+    - 忽略某仓库的所有通知
+    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
+{% endif %}

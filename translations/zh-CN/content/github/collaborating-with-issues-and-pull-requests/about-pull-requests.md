@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于拉取请求
@@ -53,12 +54,12 @@ versions:
 
 {% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
 
-### Differences between commits on compare and pull request pages
+### 比较页和拉取请求页上的提交之间的差异
 
-The compare and pull request pages use different methods to calculate the diff for changed files:
+比较页和拉取请求页使用不同的方法来计算已更改文件的差异：
 
-- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
-- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+- 比较页显示头部引用的提示与头部及基础引用当前的共同上层节点（即合并基础）之间的差异。
+- 拉请求页面显示在创建拉取请求时头部引用头与头部和基础的共同上层节点之间的差异。 因此，用于比较的合并基础可能不同。
 
 ### 延伸阅读
 

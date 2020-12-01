@@ -11,7 +11,7 @@ versions:
 
 ### Subdomain Isolationについて
 
-Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location_enterprise %}ではSubdomain Isolationを有効化することを強くお勧めします。
+Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location %}ではSubdomain Isolationを有効化することを強くお勧めします。
 
 Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。
 

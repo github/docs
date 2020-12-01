@@ -1,6 +1,6 @@
 ---
 title: GitHub InsightsとGitHub Enterprise間のリンクの有効化
-intro: 'ユーザが{% data variables.product.prodname_ghe_server %}から{{  site.data.variables.product.prodname_insights }}へアクセスできるようにするリンクを有効化できます。'
+intro: 'You can enable a link that will allow users to navigate from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_insights %}.'
 product: '{% data reusables.gated-features.github-insights %}'
 permissions: '{% data variables.product.prodname_ghe_server %}のサイト管理者は、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_insights %}間のリンクを有効化できます。'
 redirect_from:
@@ -19,8 +19,7 @@ versions:
   ```
 3. 次に、
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 7. Under
 {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **{% data variables.product.prodname_insights %}**.

@@ -1,30 +1,34 @@
 ---
 title: Limiting interactions in your repository
-intro: 'People with owner or admin access can temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity.'
+intro: 'You can temporarily enforce a period of limited activity for certain users on a public repository.'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
+permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
 ---
 
-After 24 hours, users can resume normal activity in your repository.
+### About temporary interaction limits
 
-{% tip %}
+{% data reusables.community.interaction-limits-restrictions %}
 
-**Tip:** Organization owners can enable organization-wide activity limitations. If organization-wide activity limitations are enabled, you can't limit activity for individual repositories. For more information, see "[Limiting interactions in your organization](/articles/limiting-interactions-in-your-organization)."
+{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your repository.
 
-{% endtip %}
+{% data reusables.community.types-of-interaction-limits %}
+
+You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/github/building-a-strong-community/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/github/building-a-strong-community/limiting-interactions-in-your-organization)."
+
+### Limiting interactions in your repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In your repository's Settings sidebar, click **Interaction limits**.
-![Interaction limits in repository settings ](/assets/images/help/repository/repo-settings-interaction-limits.png)
-4. Under "Temporary interaction limits", click one or more options:
+1. In the left sidebar, click **Moderation settings**.
+  !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
+1. Under "Moderation settings", click **Interaction limits**.
+  ![Interaction limits in repository settings ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+{% data reusables.community.set-interaction-limit %}
   ![Temporary interaction limit options](/assets/images/help/repository/temporary-interaction-limits-options.png)
-    - **Limit to existing users**: Limits activity for users with accounts that are less than 24 hours old who do not have prior contributions and are not collaborators.
-    - **Limit to prior contributors**: Limits activity for users who have not previously contributed and are not collaborators.
-    - **Limit to repository collaborators**: Limits activity for users who do not have write access or are not collaborators.
 
 ### Further reading
 - "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"

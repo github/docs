@@ -131,7 +131,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### 从 {% data variables.product.prodname_dotcom_the_website %} 上的组织中删除仓库
 
-在解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的仓库后，您应当使用[仓库删除端点](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository)删除之前迁移的每一个仓库。 您需要身份验证的访问令牌：
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). 您需要身份验证的访问令牌：
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
