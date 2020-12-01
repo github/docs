@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst Dateien in einem Pull-Request nach Dateierweiterungstyp filtern, wie zum Beispiel  `.html` oder `.js`, keine Erweiterung,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} Code Inhaberschaft, {% endif %} oder Punktdateien.
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
 
 {% tip %}
 
-**Tipp:** Um die Ansicht Deines Pull-Requests-Diffs zu vereinfachen, kannst Du temporär auch gelöschte Dateien{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} oder Dateien, die Du bereits angezeigt hast, {% endif %}in dem Pull-Request-Diff über das Dateifilter-Dropdownmenü ausblenden.
+**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
 
 {% endtip %}
 

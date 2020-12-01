@@ -1,25 +1,29 @@
 ---
 title: Resolver um conflito de merge no GitHub
-intro: Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.
+intro: 'Você pode resolver conflitos de merge simples que envolvem alterações concorrentes na linha usando o editor de conflitos.'
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você só pode resolver conflitos de merge no {% data variables.product.product_name %} causados por alterações concorrentes na linha, como quando as pessoas fazem alterações diferentes na mesma linha do mesmo arquivo em diferentes branches no seu repositório Git. Para todos os outros tipos de conflito de merge, você deve resolver o conflito localmente na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line/)".
 
-{% if currentVersion != "free-pro-team@latest" %}
-Se um administrador do site desabilitar o editor de conflitos de merge para pull requests entre repositórios, você não poderá usar o editor de conflitos no {% data variables.product.product_name %} e deverá resolver os conflitos de merge na linha de comando. Por exemplo, se o editor de conflitos de merge estiver desabilitado, você não poderá usá-lo em uma pull request entre uma bifurcação e um repositório upstream.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+Se um administrador do site desabilitar o editor de conflitos de merge para pull requests entre repositórios, você não poderá usar o editor de conflitos em
+{% data variables.product.product_name %} e deverá resolver os conflitos de merge na linha de comando. Por exemplo, se o editor de conflitos de merge estiver desabilitado, você não poderá usá-lo em uma pull request entre uma bifurcação e um repositório upstream.
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Aviso:** Ao resolver um conflito de merge em {% data variables.product.product_name %}, todo o [branch-base](/github/getting-started-with-github/github-glossary#base-branch) do seu pull request é mesclado no [cabeçalho do branch](/github/getting-started-with-github/github-glossary#head-branch), mesmo que o cabeçalho do branch seja o branch-padrão do seu repositório ou um branch protegido. Verifique se você deseja realmente fazer commit para esse branch.
+**Aviso:** Ao resolver um conflito de merge em
+{% data variables.product.product_name %}, todo o [branch base](/github/getting-started-with-github/github-glossary#base-branch) do seu pull request é mesclado no [branch principal](/github/getting-started-with-github/github-glossary#head-branch), mesmo que o branch principal seja o branch padrão do seu repositório ou um branch protegido. Verifique se você deseja realmente fazer commit para esse branch.
 {% else %}
-**Aviso:** Quando você resolve um conflito de merge no {% data variables.product.product_name %},  todo o [branch base](/github/getting-started-with-github/github-glossary#base-branch) da sua pull request é mesclada ao [branch head](/github/getting-started-with-github/github-glossary#head-branch). Verifique se você deseja realmente fazer commit para esse branch. Se o branch do cabeçalho for o branch-padrão do seu repositório, você terá a opção de criar um novo branch para servir como o branch do cabeçalho para o seu pull request. Se o branch head estiver protegido, você não será capaz de mesclar sua resolução de conflitos nele, então você será solicitado a criar um novo branch head. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
+**Aviso:** Ao resolver um conflito de merge em
+{% data variables.product.product_name %}, todo o [branch base](/github/getting-started-with-github/github-glossary#base-branch) do seu pull request é mesclado no [branch principal](/github/getting-started-with-github/github-glossary#head-branch). Verifique se você deseja realmente fazer commit para esse branch. Se o branch do cabeçalho for o branch-padrão do seu repositório, você terá a opção de criar um novo branch para servir como o branch do cabeçalho para o seu pull request. Se o branch head estiver protegido, você não será capaz de mesclar sua resolução de conflitos nele, então você será solicitado a criar um novo branch head. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
 {% endif %}
 
 {% endwarning %}
@@ -30,7 +34,7 @@ Se um administrador do site desabilitar o editor de conflitos de merge para pull
 
  {% tip %}
 
- **Dica:** se o botão **Resolve conflicts** (Resolver conflitos) estiver desativado, o conflito de merge da pull request é muito complexo para ser resolvido no {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} ou o administrador do site desabilitou o editor de conflitos para pull requests entre repositórios{% endif %}. Você deve resolver o conflito de merge usando um cliente Git alternativo, ou usando o Git na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line)".
+ **Dica:** Se o botão **Resolver conflitos** estiver desativado, significa que o conflito de merge do pull request é muito complexo para ser resolvido em {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} ou o administrador do site desativou o editor de conflitos para pull requests entre repositórios{% endif %}. Você deve resolver o conflito de merge usando um cliente Git alternativo, ou usando o Git na linha de comando. Para obter mais informações, consulte "[Resolver um conflito de merge usando a linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line)".
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

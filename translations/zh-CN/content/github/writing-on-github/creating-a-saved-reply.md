@@ -1,11 +1,12 @@
 ---
 title: 创建已保存回复
-intro: 如果您经常反复添加相同的评论，您可以创建已保存回复。
+intro: '如果您经常反复添加相同的评论，您可以创建已保存回复。'
 redirect_from:
   - /articles/creating-a-saved-reply
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

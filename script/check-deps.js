@@ -17,6 +17,7 @@ const path = require('path')
 const main = async () => {
   const data = await dependencyCheck({
     entries: [
+      path.posix.join(__dirname, '..', '*.js'),
       path.posix.join(__dirname, '..', '*', '*.js'),
       path.posix.join('!', __dirname, '..', 'javascripts', '*.js'),
       path.posix.join(__dirname, '..', 'script', 'graphql', '*.js')
@@ -47,7 +48,8 @@ const main = async () => {
       'search-with-your-keyboard',
       'uuid',
       'imurmurhash',
-      'js-cookie'
+      'js-cookie',
+      'clipboard'
     ]
   })
 

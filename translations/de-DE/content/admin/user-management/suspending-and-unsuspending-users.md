@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/articles/suspended-users/
   - /enterprise/admin/articles/suspending-and-unsuspending-users/
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
-intro: 'Wenn ein Benutzer das Unternehmen verlässt oder in eine andere Abteilung wechselt, sollten Sie dessen Zugriffsmöglichkeit auf {% data variables.product.product_location_enterprise %} entfernen oder ändern.'
+intro: 'Wenn ein Benutzer das Unternehmen verlässt oder in eine andere Abteilung wechselt, sollten Sie dessen Zugriffsmöglichkeit auf {% data variables.product.product_location %} entfernen oder ändern.'
 versions:
   enterprise-server: '*'
 ---
@@ -27,7 +27,7 @@ Vor dem Sperren von Websiteadministratoren müssen Sie diese auf gewöhnliche Be
 
 {% tip %}
 
-**Hinweis:** Bei [aktivierter LDAP-Synchronisierung](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) für {% data variables.product.product_location_enterprise %} werden Benutzer automatisch gesperrt, wenn sie aus dem LDAP-Verzeichnisserver entfernt werden. Wenn die LDAP-Synchronisierung für Ihre Instanz aktiviert wird, werden die normalen Methoden zur Benutzersperrung deaktiviert.
+**Hinweis:** Bei [aktivierter LDAP-Synchronisierung](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) für {% data variables.product.product_location %} werden Benutzer automatisch gesperrt, wenn sie aus dem LDAP-Verzeichnisserver entfernt werden. Wenn die LDAP-Synchronisierung für Ihre Instanz aktiviert wird, werden die normalen Methoden zur Benutzersperrung deaktiviert.
 
 {% endtip %}
 
@@ -65,8 +65,7 @@ Wie beim Sperren eines Benutzers wird das Entsperren eines Benutzers sofort wirk
 
 Sie können eine benutzerdefinierte Meldung erstellen, die gesperrten Benutzern angezeigt wird, wenn sie versuchen, sich anzumelden.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 5. Klicken Sie auf **Add message** (Meldung hinzufügen). ![„Add message“ (Meldung hinzufügen)](/assets/images/enterprise/site-admin-settings/add-message.png)
@@ -84,4 +83,4 @@ Sie können eine benutzerdefinierte Meldung erstellen, die gesperrten Benutzern 
   ```
 
 ### Weiterführende Informationen
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"

@@ -53,7 +53,7 @@ Customer agrees that GitHub and its licensors own all right, title and interest 
 
 Nothing in this Addendum will impair GitHub’s right to develop, acquire, license, market, promote or distribute products, software or technologies that might compete with Customer’s.
 
-#### 9. Приватность
+#### 9. Конфиденциальность
 
 GitHub may collect information about how Customer uses GitHub Connect and how GitHub can improve it. Customer may enable GitHub Connect to authorize GitHub to collect protected data, which includes private repository data and Customer Personal Information (as defined in the GitHub Privacy Statement), from Customer's Enterprise account. If Customer connects its Enterprise instance with its GitHub.com account, Customer sends identifying instance information to GitHub.com, which information is governed by [GitHub’s Privacy Statement](/articles/github-privacy-statement/). By enabling this configuration, Customer agrees that it is responsible for the actions that are performed on or through its account, subject to the terms of its Generally Applicable Terms.
 

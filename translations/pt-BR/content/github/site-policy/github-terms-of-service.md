@@ -32,11 +32,11 @@ Obrigado por usar o GitHub! Estamos felizes por você estar aqui. Por favor, lei
 | [N. Isenção de Garantias](#n-disclaimer-of-warranties)                    | Fornecemos nosso serviço tal como está, e não fazemos promessas nem damos garantias sobre este serviço. **Por favor, leia esta seção cuidadosamente; você deve entender o que esperar.**                                                                    |
 | [O. Limitação de responsabilidade](#o-limitation-of-liability)            | Não seremos responsáveis por danos ou prejuízos resultantes da sua utilização ou incapacidade de utilizar o serviço ou de outra forma decorrente deste contrato. **Por favor, leia esta seção cuidadosamente; ela limita nossas obrigações para com você.** |
 | [P. Versão e Indenização](#p-release-and-indemnification)                 | Você é totalmente responsável pelo uso do serviço.                                                                                                                                                                                                          |
-| [Q. Eu concordo com estes Termos de Serviço](#q-changes-to-these-terms)   | Podemos modificar este contrato, mas vamos dar a você um aviso de 30 dias sobre as alterações que afetem seus direitos.                                                                                                                                     |
+| [Q. Eu concordo com estes Termos de Serviço](#q-changes-to-these-terms)   | Podemos modificar este contrato, mas vamos dar a você um aviso de 30 dias sobre as alterações materiais.                                                                                                                                                    |
 | [R. Disposições Gerais](#r-miscellaneous)                                 | Por favor, veja esta seção para detalhes legais, incluindo a nossa escolha de legislação.                                                                                                                                                                   |
 
 ### Termos de Serviço do GitHub
-Data de vigência: 2 de abril de 2020
+Data de vigência: 16 de novembro de 2020
 
 
 ### A. Definições
@@ -54,7 +54,7 @@ Data de vigência: 2 de abril de 2020
 ### B. Termos da conta
 **Versão curta:** *Contas e Organizações do Usuário têm controles administrativos diferentes; uma pessoa precisa criar sua Conta; você deve ter 13 anos ou mais; deve fornecer um endereço de e-mail válido e não pode ter mais de uma Conta gratuita. Você é o único responsável por sua Conta e tudo o que acontece enquanto você estiver logado ou usando sua Conta. Você é responsável por manter sua Conta segura.*
 
-#### 1. Account Controls
+#### 1. Controles da conta
 - Usuários. Sujeito a estes Termos, você mantém o controle administrativo final sobre sua Conta de Usuário e o Conteúdo dentro dela.
 
 - Organizações. O "proprietário" de uma Organização que foi criada sob estes Termos tem o controle administrativo supremo sobre essa Organização e sobre o Conteúdo dentro dela. No Serviço, um proprietário pode gerenciar acesso de Usuário aos dados e projetos da Organização. Uma Organização pode ter vários proprietários, mas deve haver pelo menos uma Conta de Usuário designada como proprietário de uma Organização. Se você é o proprietário de uma Organização sob estes Termos, nós consideramos que você é responsável pelas ações que são executadas naquela Organização ou através dela.
@@ -69,7 +69,7 @@ Temos algumas regras simples para Contas de Usuário no Serviço do GitHub.
 - Uma pessoa ou entidade legal não pode manter mais de uma Conta gratuita (se você optar por controlar uma conta de máquina também, sem problemas, mas só pode ser usada para executar uma máquina).
 - Você deve ter 13 anos ou mais. Embora nos sintamos felizes ao vermos os brilhantes codificadores se entusiasmarem ao aprender a programar, temos de cumprir a legislação dos Estados Unidos. O GitHub não direciona nosso Serviço para crianças com menos de 13 anos, e nós não permitimos quaisquer Usuários com menos de 13 anos no nosso Serviço. Se soubermos de qualquer Usuário menor de 13 anos, vamos [encerrar a Conta de Usuário imediatamente](#l-cancellation-and-termination). Se você for residente de um país fora dos Estados Unidos, a idade mínima do seu país pode ser maior; num caso destes, você é responsável por cumprir as leis do seu país.
 - Seu login pode ser usado apenas por uma pessoa — ou seja, um único login não pode ser compartilhado por várias pessoas. Uma organização paga só pode fornecer acesso ao número de Contas de Usuário que sua assinatura permite.
-- Você não pode usar o GitHub em violação do controle de exportação ou das leis de sanções dos Estados Unidos ou de qualquer outra jurisdição aplicável. Você não pode usar o GitHub se você é ou está trabalhando em nome de um [Nacional Especialmente Designado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) ou uma pessoa sujeita a bloqueios semelhantes ou proibições de parte negada administradas por uma agência do governo dos EUA. government agency.  O GitHub pode permitir que pessoas em certos países ou territórios sancionados acessem certos serviços do GitHub de acordo com as autorizações do governo dos Estados Unidos. government authorizations.  Para obter mais informações, por favor veja nossa [política de Controles de Exportação](/articles/github-and-export-controls).
+- Você não pode usar o GitHub em violação do controle de exportação ou das leis de sanções dos Estados Unidos ou de qualquer outra jurisdição aplicável. Você não pode usar o GitHub se você é ou está trabalhando em nome de um [Nacional Especialmente Designado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) ou uma pessoa sujeita a bloqueios semelhantes ou proibições de parte negada administradas por uma agência do governo dos EUA. agência do governo.  O GitHub pode permitir que pessoas em certos países ou territórios sancionados acessem certos serviços do GitHub de acordo com as autorizações do governo dos Estados Unidos. autorizações do governo.  Para obter mais informações, por favor veja nossa [política de Controles de Exportação](/articles/github-and-export-controls).
 
 #### 4. Segurança da Conta de Usuário
 Você é responsável por manter sua Conta segura enquanto usa nosso Serviço. Nós oferecemos ferramentas como a autenticação de dois fatores para ajudá-lo a manter a segurança de sua Conta, mas o conteúdo de sua Conta e sua segurança são de sua responsabilidade.
@@ -77,7 +77,7 @@ Você é responsável por manter sua Conta segura enquanto usa nosso Serviço. N
 - Você é responsável por manter a segurança de sua Conta e senha. O GitHub não pode e não será responsabilizado por qualquer perda ou dano causado por sua falha em cumprir com esta obrigação de segurança.
 - Você irá rapidamente [notificar o GitHub](https://support.github.com/contact) se estiver ciente de qualquer uso não autorizado de, ou acesso a, nosso Serviço através de sua Conta, incluindo qualquer uso não autorizado de sua senha ou Conta.
 
-#### 5. Additional Terms
+#### 5. Termos adicionais
 Em algumas situações, os termos de terceiros podem ser aplicados ao seu uso do GitHub.  Por exemplo, você pode ser integrante de uma organização no GitHub com seus próprios termos ou contratos de licença. Você poderá baixar um aplicativo que se integra ao GitHub; ou utilizar o GitHub para autenticar em outro serviço. Por favor, esteja ciente de que, embora esses Termos representem nosso acordo total com você, os termos de terceiros governam suas relações com você.
 
 Se você é um Usuário do governo ou, de outro modo, acessar ou usar qualquer Serviço GitHub em uma competência do governo, esta [Emenda do Governo aos Termos de Serviço do GitHub](/articles/amendment-to-github-terms-of-service-applicable-to-u-s-federal-government-users/) se aplica a você, e você concorda com as suas disposições.
@@ -98,17 +98,17 @@ Você concorda que, em nenhuma circunstância, violará nossas [Políticas de Us
 Você pode criar ou fazer upload do conteúdo gerado pelo usuário usando o Serviço. Você é o único responsável pelo conteúdo e por qualquer dano resultante de qualquer conteúdo gerado pelo usuário que você publicar, fizer upload, linkar para ou deixar disponível através do Serviço, independentemente da forma desse Conteúdo. Não somos responsáveis por nenhuma exibição pública ou uso indevido do seu Conteúdo Gerado pelo Usuário.
 
 #### 2. O GitHub pode remover conteúdo
-Não pré-avaliamos o Conteúdo Gerado pelo Usuário, mas temos o direito (embora não tenhamos a obrigação) de recusar ou remover qualquer Conteúdo Gerado pelo Usuário que, em nosso exclusivo critério, viole quaisquer [termos ou políticas no GitHub](/github/site-policy).
+Temos o direito de recusar ou remover qualquer Conteúdo Gerado por Usuário que, a nosso exclusivo critério, viole quaisquer leis ou [termos ou políticas do GitHub](/github/site-policy). Conteúdo Gerado pelo Usuário disposto no GitHub para dispositivos móveis pode estar sujeito aos termos adicionais de aplicativos móveis.
 
-#### 3. Ownership of Content, Right to Post, and License Grants
+#### 3. Propriedade do conteúdo, Direito de postar; Concessões de licença
 Você mantém a propriedade e a responsabilidade pelo seu conteúdo. Se você está postando qualquer coisa que você não criou ou não possui os direitos, você concorda que é responsável por qualquer conteúdo que você publique; que você só enviará Conteúdo que você tem o direito de publicar; e que você esteja em total conformidade com licenças de terceiros relacionadas ao Conteúdo que você publicar.
 
 Porque você retem a propriedade e a responsabilidade do seu conteúdo, precisamos que você nos conceda — e outros usuários do GitHub — certas permissões legais, listadas nas Seções D.4 — D.7. Estas concessões de licença se aplicam ao Seu Conteúdo. Se você fizer upload de Conteúdo que já vem com uma licença que concede ao GitHub as permissões que precisamos para executar nosso Serviço, nenhuma licença adicional é necessária. Você compreende que não receberá nenhum pagamento por qualquer um dos direitos concedidos nas Seções D.4 — D.7. As licenças que você nos concede terminarão quando você remover Seu Conteúdo de nossos servidores, a menos que outros Usuários o tenham bifurcado.
 
 #### 4. Concessão de licença para nós
-Precisamos do direito legal para fazer coisas como hospedar Seu Conteúdo, publicá-lo, e compartilhá-lo. Você concede a nós e aos nossos sucessores legais o direito de armazenar, analisar e exibir Seu Conteúdo, e fazer cópias acessórias conforme necessário para renderizar o Site e fornecer o Serviço. Isto inclui o direito de fazer coisas como copiá-lo para a nossa base de dados e fazer backups; mostrá-lo para você e para outros usuários; analisá-lo em um índice de pesquisa ou analisá-lo em nossos servidores; compartilhá-lo com outros usuários; e executá-lo, no caso de Seu Conteúdo ser algo como música ou vídeo.
+Precisamos do direito legal para fazer coisas como hospedar Seu Conteúdo, publicá-lo, e compartilhá-lo. Você concede a nós e aos nossos sucessores legais o direito de armazenar, arquivar, analisar e exibir Seu Conteúdo, e fazer cópias eventuais, conforme necessário, para fornecer o Serviço, incluindo o melhoramento do Serviço ao longo do tempo. Esta licença inclui o direito de fazer coisas como copiá-lo para a nossa base de dados e fazer backups; mostrá-lo para você e para outros usuários; analisá-lo em um índice de pesquisa ou analisá-lo em nossos servidores; compartilhá-lo com outros usuários; e executá-lo, no caso de Seu Conteúdo ser algo como música ou vídeo.
 
-Esta licença não concede ao GitHub o direito de vender Seu Conteúdo ou, de outra forma, distribuí-lo ou usá-lo fora de nossa provisão do Serviço.
+Esta licença não concede ao GitHub o direito de vender Seu Conteúdo. Isso também não concede ao GitHub o direito de distribuir ou utilizar o Seu Conteúdo fora da nossa prestação do Serviço, salvo como parte do direito de arquivar o Seu Conteúdo, o GitHub pode permitir que nossos parceiros armazenem e arquivem Seu Conteúdo em repositórios públicos, relacionados ao [GitHub Arctic Code Vault e o GitHub Archive Program](https://archiveprogram.github.com/).
 
 #### 5. Concessão de licença a outros usuários
 Qualquer Conteúdo gerado pelo Usuário que você publicar publicamente, incluindo problemas, comentários e contribuições para repositórios de outros Usuários, pode ser visto por outros. Definindo seus repositórios para serem vistos publicamente, você concorda em permitir que outros vejam e "bifurquem" seus repositórios (isso significa que outros podem fazer suas próprias cópias do Conteúdo de seus repositórios em repositórios que eles controlam).
@@ -116,17 +116,17 @@ Qualquer Conteúdo gerado pelo Usuário que você publicar publicamente, incluin
 Se você definir suas páginas e repositórios para serem vistos publicamente, você concede a cada Usuário do GitHub uma licença mundial não exclusiva para uso, exibição e execução de Seu Conteúdo através do Serviço GitHub e para reproduzir Seu Conteúdo exclusivamente no GitHub, conforme permitido através da funcionalidade do GitHub (por exemplo, através da bifurcação). Você poderá conceder direitos adicionais se [adotar uma licença](/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository). Se você está fazendo upload do Conteúdo que você não criou ou possui, você é responsável por garantir que o Conteúdo que você faz o upload é licenciado em termos que concedem essas permissões a outros Usuários do GitHub.
 
 #### 6. Contribuições na licença de repositório
-Sempre que você fizer uma contribuição a um repositório que contém notificação de uma licença, você licencia sua contribuição nos mesmos termos e concorda que tem o direito de licenciar sua contribuição nesses termos. Se possui um contrato separado para licenciar suas contribuições em termos diferentes, como um contrato de licença de colaborador, esse contrato será substituído.
+Sempre que você adicionar Conteúdo a um repositório que contém notificação de uma licença, você licencia esse Conteúdo nos mesmos termos e concorda que tem o direito de licenciar o Conteúdo nesses termos. Se você tiver um contrato separado para licenciar esse Conteúdo em termos diferentes, como um contrato de licença de colaborador, aquele contrato será substituído.
 
 Não é assim que as coisas já funcionam? Sim. Isso é amplamente aceito como a norma na comunidade de código aberto; é comumente referido pela abreviatura "entrada=saída". Estamos apenas tornando isso explícito.
 
-#### 7. Moral Rights
+#### 7. Direitos Morais
 Você mantém todos os direitos morais do Seu Conteúdo que você faz upload, publica ou envia em qualquer parte do Serviço, incluindo os direitos de integridade e atribuição. No entanto, você renuncia a esses direitos e concorda em não fazê-los valer contra nós, no intuito de permitir que exerçamos razoavelmente os direitos concedidos na Seção D.4, mas não de outra maneira.
 
 Na medida em que este contrato não é aplicável pela legislação aplicável, você concede ao GitHub os direitos que precisamos para usar Seu Conteúdo sem atribuição e fazer adaptações razoáveis do Seu Conteúdo conforme necessário para renderizar o Site e fornecer o Serviço.
 
 ### E. Repositórios privados
-**Versão curta:** *Você pode ter acesso a repositórios privados. Nós tratamos o conteúdo de repositórios privados como confidencial, e só acessamos por razões de suporte, com seu consentimento, ou se necessário, por razões de segurança.*
+**Versão curta:** *Tratamos o conteúdo de repositórios privados como confidencial, e só o acessamos conforme descrito na nossa Declaração de Privacidade — para fins de segurança, para auxiliar o proprietário do repositório com uma questão de suporte, para manter a integridade do Serviço, cumprir as nossas obrigações legais, se tivermos motivos para acreditar que o conteúdo está em violação da lei, ou com o seu consentimento.*
 
 #### 1. Controle de Repositórios Privados
 Algumas Contas podem ter repositórios privados, que permitem ao Usuário controlar o acesso ao Conteúdo.
@@ -135,17 +135,16 @@ Algumas Contas podem ter repositórios privados, que permitem ao Usuário contro
 O GitHub considera o conteúdo de repositórios privados como confidencial para você. O GitHub protegerá o conteúdo de repositórios privados de uso, acesso ou divulgação não autorizados da mesma forma que utilizaríamos para proteger nossas próprias informações confidenciais de natureza semelhante e, em todo caso, com um grau de cuidado razoável.
 
 #### 3. Access
-Os funcionários do GitHub somente podem acessar o conteúdo de seus repositórios privados nas seguintes situações:
-- Com o seu consentimento e conhecimento, por motivo de suporte. Se o GitHub acessar um repositório privado por motivo de suporte, nós faremos isso somente com o consentimento e conhecimento do proprietário.
-- Quando o acesso é necessário por razões de segurança, incluindo quando o acesso é necessário para manter a confidencialidade, integridade, disponibilidade e resiliência contínuas dos sistemas e Serviço do GitHub.
+O pessoal do GitHub só pode acessar o conteúdo dos seus repositórios privados nas situações descritas em nossa [Declaração de Privacidade](/github/site-policy/github-privacy-statement#repository-contents).
 
 Você pode optar por habilitar acesso adicional a seus repositórios privados. Por exemplo:
 - Você pode habilitar vários serviços do GitHub ou recursos que requerem direitos adicionais ao Seu Conteúdo em repositórios privados. Estes direitos podem variar, dependendo do serviço ou recurso, mas o GitHub continuará a tratar seu Conteúdo do repositório privado como confidencial. Se esses serviços ou recursos exigem direitos além daqueles que precisamos fornecer no Serviço GitHub, forneceremos uma explicação desses direitos.
 
-#### 4. Exclusions
-Se tivermos razões para acreditar que os conteúdos de um repositório privado estão violando a lei ou estes Termos, temos o direito de acessar, revisar e removê-los. Além disso, podemos ser [obrigados, por lei,](/github/site-policy/github-privacy-statement#for-legal-disclosure) a divulgar o conteúdo de seus repositórios privados.
+Além disso, podemos ser [obrigados, por lei,](/github/site-policy/github-privacy-statement#for-legal-disclosure) a divulgar o conteúdo de seus repositórios privados.
 
-### F. Copyright Infringement and DMCA Policy
+O GitHub fornecerá avisos sobre nosso acesso ao conteúdo do repositório privado, a menos que [para divulgação legal](/github/site-policy/github-privacy-statement#for-legal-disclosure), para cumprir nossas obrigações legais, ou onde de outra forma estiver vinculado por requisitos legais, para verificação automatizada ou se em resposta a uma ameaça de segurança ou outro risco à segurança.
+
+### F. Violação de direitos autorais e política DMCA
 Se você acredita que o conteúdo em nosso site viola seus direitos autorais, por favor, entre em contato conosco de acordo com nossa [Política Digital Millennium Copyright Act](/articles/dmca-takedown-policy/). Se você é um proprietário de direitos autorais e acredita que o conteúdo no GitHub viola seus direitos, por favor, entre em contato conosco via [formulário DMCA](https://github.com/contact/dmca) ou envie e-mail para copyright@github.com. Poderá haver consequências jurídicas para o envio de um aviso de remoção falso ou leviano. Antes de enviar uma solicitação de remoção, você deve considerar usos legais, tais como uso justo e usos licenciados.
 
 Nós encerraremos as Contas de [infratores reiterados](/articles/dmca-takedown-policy/#e-repeated-infringement) desta política.
@@ -153,10 +152,10 @@ Nós encerraremos as Contas de [infratores reiterados](/articles/dmca-takedown-p
 ### G. Avisos de Propriedade Intelectual
 **Versão curta:** *Nós somos proprietários do serviço e de todo o nosso conteúdo. Para que você use nosso conteúdo, nós lhe damos certos direitos relativos a ele, mas você só pode usar nosso conteúdo da forma que permitimos.*
 
-#### 1. GitHub's Rights to Content
+#### 1. Direitos do GitHub ao conteúdo
 GitHub e nossos licenciadores, fornecedores, agentes, e/ou nossos provedores de conteúdo detêm a propriedade de todos os direitos de propriedade intelectual de qualquer tipo relacionados ao Site e Serviço. Reservamo-nos todos os direitos que não lhe são expressamente concedidos neste Contrato ou por lei. O visual e a impressão do Site e do Serviço estão protegidos sob direitos autorais de  © GitHub, Inc. Todos os direitos reservados. Você não pode duplicar, copiar ou reutilizar qualquer parte do HTML/CSS, Javascript ou conceitos e elementos de design visual sem permissão escrita expressa do GitHub.
 
-#### 2. GitHub Trademarks and Logos
+#### 2. Logotipos e marcas registradas do GitHub
 Se você gostaria de usar as marcas registradas do GitHub, você deve seguir todas as nossas diretrizes sobre a marca registrada, incluindo as da nossa página de logomarcas: https://github.com/logos.
 
 #### 3. Licença para as Políticas GitHub
@@ -288,7 +287,7 @@ Você concorda em nos indenizar, defender-nos e nos manter a parte de e contra q
 ### Q. Alterações nestes termos
 **Versão curta:** *Queremos que nossos usuários sejam informados de alterações importantes em nossos termos, mas algumas alterações não são tão importantes — não queremos lhe incomodar toda vez que consertamos um erro de digitação. Portanto, embora possamos modificar este contrato a qualquer momento, notificaremos os usuários de quaisquer alterações que afetem seus direitos e lhe daremos tempo para se ajustar a elas.*
 
-Nós nos reservamos o direito, a nosso exclusivo critério, de alterar estes Termos de Serviço a qualquer momento e atualizar estes Termos de Serviço no caso de tais alterações. Nós notificaremos nossos Usuários sobre mudanças materiais neste Contrato, como alterações de preços, pelo menos 30 dias antes da mudança ter efeito, publicando um aviso em nosso Site. Para modificações não materiais, seu uso contínuo do Site constitui acordo para nossas revisões destes Termos de Serviço. Você pode ver todas as alterações nestes Termos Adicionais em nosso repositório [Política do Site](https://github.com/github/site-policy).
+Nós nos reservamos o direito, a nosso exclusivo critério, de alterar estes Termos de Serviço a qualquer momento e atualizar estes Termos de Serviço no caso de tais alterações. Notificaremos nossos Usuários sobre alterações materiais neste Contrato, tais como aumentos de preço, pelo menos 30 dias antes das alterações entrarem em vigor, postando uma notificação em nosso Website ou enviando um e-mail para o endereço de e-mail principal especificado em sua conta do GitHub. O uso contínuo do Serviço pelo Cliente após esses 30 dias constitui concordância com essas revisões deste Contrato. Para quaisquer outras modificações, seu uso contínuo do Website constitui acordo com nossas revisões destes Termos de Serviço. Você pode ver todas as alterações nestes Termos Adicionais em nosso repositório [Política do Site](https://github.com/github/site-policy).
 
 Nós nos reservamos o direito de, a qualquer momento e de vez em quando, modificar ou descontinuar, temporariamente ou permanentemente, o Site (ou qualquer parte dele) com ou sem aviso prévio.
 

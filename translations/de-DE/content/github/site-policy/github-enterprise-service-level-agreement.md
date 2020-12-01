@@ -8,8 +8,6 @@ versions:
   free-pro-team: '*'
 ---
 
-# GitHub Enterprise Service Level Agreement
-
 **Short version:** GitHub guarantees a 99.9% quarterly uptime commitment for the GitHub Enterprise Cloud service (the “**Service Level**” or “**SLA**”). If GitHub does not meet the SLA, then Customer will be entitled to a service credit to Customer’s account (“**Service Credits**”).
 
 For definitions of each Service feature  (“**Service Feature**”) and to review historical and current Uptime, visit the [GitHub Status Page](https://www.githubstatus.com/). Capitalized terms used but not defined in this SLA have the meaning assigned in Customer’s applicable agreement.
@@ -28,6 +26,6 @@ For definitions of each Service feature  (“**Service Feature**”) and to revi
 Excluded from the Uptime Calculation are Service Feature failures resulting from (i) Customer’s acts, omissions, or misuse of the Service including violations of the Agreement; (ii) failure of Customer’s internet connectivity; (iii) factors outside GitHub's reasonable control, including force majeure events; or (iv) Customer’s equipment, services, or other technology.
 
 ## Service Credits Redemption
-If GitHub does not meet this SLA, Customer may redeem Service Credits only upon written request to GitHub within thirty (30) days of the end of the calendar quarter. Written requests for Service Credits redemption should be sent to [GitHub Support](https://support.github.com/contact).
+If GitHub does not meet this SLA, Customer may redeem Service Credits only upon written request to GitHub within thirty (30) days of the end of the calendar quarter. Written requests for Service Credits redemption and GitHub Enterprise Cloud custom monthly or quarterly reports should be sent to [GitHub Support](https://support.github.com/contact).
 
 Service Credits may take the form of a refund or credit to Customer’s account, cannot be exchanged into a cash amount, are limited to a maximum of ninety (90) days of paid service per calendar quarter, require Customer to have paid any outstanding invoices, and expire upon termination of Customer’s agreement with GitHub. Service Credits are the sole and exclusive remedy for any failure by GitHub to meet any obligations in this SLA. 

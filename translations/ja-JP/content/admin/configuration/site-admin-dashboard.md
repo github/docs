@@ -1,6 +1,6 @@
 ---
 title: サイトアドミンのダッシュボード
-intro: 'サイトアドミンのダッシュボードには、{% data variables.product.product_location_enterprise %} インスタンスを管理するのに役立つ多数のツールが備わっています。'
+intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard/
   - /enterprise/admin/installation/site-admin-dashboard
@@ -15,7 +15,7 @@ versions:
 
 ### 検索
 
-ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {% data variables.enterprise.management_console %}を起動することができます。
+ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {{ site.data.variables.enterprise.management_console }}を起動することができます。
 
 {% else %}
 
@@ -43,7 +43,7 @@ GitHub の[ 流行ページ][] のためのデータは、リポジトリとデ�
 
 ### 報告
 
-{% data variables.product.product_location_enterprise %}にある、ユーザやOrganization、リポジトリについての情報が必要な場合、一般的には、[GitHub API](/rest) を使って、JSON のデータをフェッチします。 残念ながら、API は、必要なデータを提供しない可能性があり、使用するのには専門知識が必要です。 サイトアドミンのダッシュボードには代替手段として [**Reports**] セクションがあり、ユーザー、Organization、およびリポジトリに必要と思われるほぼすべての情報を掲載した CSV レポートを簡単にダウンロードできます。
+{% data variables.product.product_location %}にある、ユーザやOrganization、リポジトリについての情報が必要な場合、一般的には、[GitHub API](/rest) を使って、JSON のデータをフェッチします。 残念ながら、API は、必要なデータを提供しない可能性があり、使用するのには専門知識が必要です。 サイトアドミンのダッシュボードには代替手段として [**Reports**] セクションがあり、ユーザー、Organization、およびリポジトリに必要と思われるほぼすべての情報を掲載した CSV レポートを簡単にダウンロードできます。
 
 具体的には、次の情報を含む CSV 報告をダウンロードできます。
 
@@ -146,7 +146,7 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 さらに、修理ジョブは、並列化のために"修理オフセット"を使っています。 これは照合されているレコードのデータベーステーブルへのオフセットです。 このオフセットによって、複数の背景ジョブの作業を同期化できます。
 
-プログレスバーは、全ての背景ワーカープロセスによる、現在の修理ステータスを表示します。 それは、データベースの中の最高レコード ID と修理オフセットでのパーセント差です。 修復ジョブが完了した後にプログレスバーに表示される値については心配しないでください。それは修復オフセットとデータベース内の最大レコード ID の差を示すものであるため、たとえリポジトリが実際にインデックス付けされていても、{% data variables.product.product_location_enterprise %} にリポジトリが追加されるにつれて値は減少します。
+プログレスバーは、全ての背景ワーカープロセスによる、現在の修理ステータスを表示します。 それは、データベースの中の最高レコード ID と修理オフセットでのパーセント差です。 修復ジョブが完了した後にプログレスバーに表示される値については心配しないでください。それは修復オフセットとデータベース内の最大レコード ID の差を示すものであるため、たとえリポジトリが実際にインデックス付けされていても、{% data variables.product.product_location %} にリポジトリが追加されるにつれて値は減少します。
 
 いつでも新規コード検索インデックスの修理ジョブを開始できます。 1つの CPU を使って、検索インデックスをデータベース及びGitのリポジトリデータと照合します。 I/O パフォーマンスに与える影響を最小限にするため、および、オペレーションがタイムアウトする可能性を減少するために混雑していない時間帯に修理ジョブを実行してみてください。 `top` のようなユーティリティで、システム負荷と CPU 使用率の平均を監視しましょう。大差がない場合は、混雑している時間帯にもインデックスの修理ジョブを実行しても安全なはずです。
 
@@ -162,13 +162,13 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 ### 全ユーザ
 
-ここでは、{% data variables.product.product_location_enterprise %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{{ site.data.variables.product.product_location_enterprise }} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 {% endif %}
 
 ### リポジトリ
 
-これは {% data variables.product.product_location_enterprise %} 上のリポジトリのリストです。 リポジトリ名をクリックしてリポジトリを管理するための機能にアクセスできます。
+これは {% data variables.product.product_location %} 上のリポジトリのリストです。 リポジトリ名をクリックしてリポジトリを管理するための機能にアクセスできます。
 
 - [リポジトリへのフォースプッシュをブロックする](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
 - [{% data variables.large_files.product_name_long %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
@@ -176,17 +176,17 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 ### 全ユーザ
 
-ここでは、{% data variables.product.product_location_enterprise %} 上のすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{% data variables.product.product_location %} 上のすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 ### サイトアドミン
 
-ここでは、{% data variables.product.product_location_enterprise %} 上のすべての管理者を確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{% data variables.product.product_location %} 上のすべての管理者を確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 ### 休眠ユーザ
 
-ここでは、{% data variables.product.product_location_enterprise %} 上のすべての非アクティブなユーザーを確認して、[一時停止](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)することができます。 ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
+ここでは、{% data variables.product.product_location %} 上のすべての非アクティブなユーザーを確認して、[一時停止](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)することができます。 ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
 
-- {% data variables.product.product_location_enterprise %} 用に設定されている休眠しきい値よりも長く存在している。
+- {% data variables.product.product_location %} 用に設定されている休眠しきい値よりも長く存在している。
 - その期間内にどのアクティビティも生成していない。
 - サイト管理人ではない
 
@@ -194,7 +194,7 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 ### 停止されたユーザ
 
-ここでは、{% data variables.product.product_location_enterprise %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{% data variables.product.product_location %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
   [ 流行ページ]: https://github.com/blog/1585-explore-what-is-trending-on-github
 

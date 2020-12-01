@@ -1,6 +1,6 @@
 ---
 title: Convidar colaboradores para um repositório pessoal
-intro: 'Você pode {% if currentVersion == "free-pro-team@latest" %}convidar usuários para se tornarem{% else %}adicionar usuários como{% endif %} colaboradores em seu repositório pessoal.'
+intro: 'Você pode {% if currentVersion == "free-pro-team@latest" %}convidar usuários para se tornarem{% else %}adicionar usuários como{% endif %} colaboradores do seu repositório pessoal.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.product_name %}](/articles/access-permissions-on-github)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
@@ -29,7 +30,7 @@ Os repositórios de propriedade de uma organização podem conceder mais acesso 
 
 1. Pergunte o nome de usuário da pessoa que você está convidando como colaborador.
 
-{% if currentVersion == "free-pro-team@latest" %} Caso ela ainda não tenha um nome de usuário, pode se inscrever para o {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se para uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}"
+{% if currentVersion == "free-pro-team@latest" %} Se eles ainda não têm um nome de usuário, eles podem se inscrever em {% data variables.product.prodname_dotcom %} Para obter mais informações, consulte "[Inscrever-se para uma nova conta de {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -49,7 +50,7 @@ Os repositórios de propriedade de uma organização podem conceder mais acesso 
 
 ### Leia mais
 
-- "[Níveis de permissão para um repositório de uma conta de usuário](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)"
+- "[Níveis de permissão para um repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Remover um colaborador de um repositório pessoal](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Remover a si mesmo de um repositório de colaborador](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[Organizar integrantes em equipes](/articles/organizing-members-into-teams)"

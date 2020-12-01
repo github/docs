@@ -1,6 +1,6 @@
 ---
 title: 创建预接收挂钩环境
-intro: 要执行预接收挂钩，请使用默认的预接收环境，或者创建自定义环境。
+intro: '要执行预接收挂钩，请使用默认的预接收环境，或者创建自定义环境。'
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
@@ -21,10 +21,10 @@ versions:
 {% data reusables.linux.ensure-docker %}
 2. 创建包含此信息的文件 `Dockerfile.alpine-3.3`：
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN apk add --no-cache git bash
-    ```
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN apk add --no-cache git bash
+   ```
 3. 从包含 `Dockerfile.dev` 的工作目录中，构建一个镜像：
 
    ```shell
@@ -36,44 +36,43 @@ versions:
    >  ---> Using cache
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
-  ```
+   ```
 4. 创建一个容器：
 
    ```shell
    $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
-  ```
+   ```
 5. 将 Docker 容器导出到 `gzip` 压缩的 `tar` 文件：
 
    ```shell
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
-  ```
+   ```
 
-  此文件 `alpine-3.3.tar.gz` 已准备好上传到 {% data variables.product.prodname_ghe_server %} 设备。
+   此文件 `alpine-3.3.tar.gz` 已准备好上传到 {% data variables.product.prodname_ghe_server %} 设备。
 
 ### 使用 chroot 创建预接收挂钩环境
 
 1. 创建 Linux `chroot` 环境。
 2. 创建 `chroot` 目录的 `gzip` 压缩 `tar` 文件：
-  ```shell
-  $ cd /path/to/chroot
-  $ tar -czf /path/to/pre-receive-environment.tar.gz .
+   ```shell
+   $ cd /path/to/chroot
+   $ tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
-  {% note %}
+   {% note %}
 
-    **注意：**
-    - 不要在 tar 存档中包含文件的主目录路径，如 `/path/to/chroot`。
-    - `/bin/sh` 必须存在并且可执行，作为 chroot 环境的入口点。
-    - 与传统的 chroot 不同，预接收挂钩的 chroot 环境不需要 `dev` 目录。
+   **注意：**
+   - 不要在 tar 存档中包含文件的主目录路径，如 `/path/to/chroot`。
+   - `/bin/sh` 必须存在并且可执行，作为 chroot 环境的入口点。
+   - 与传统的 chroot 不同，预接收挂钩的 chroot 环境不需要 `dev` 目录。
 
-  {% endnote %}
+   {% endnote %}
 
 关于创建 chroot 环境的更多信息，请参阅 *Debian Wiki* 中的“[Chroot](https://wiki.debian.org/chroot)”、*Ubuntu 社区帮助 Wiki* 中的“[BasicChroot](https://help.ubuntu.com/community/BasicChroot)”，或者 *Alpine Linux Wiki* 中的“[在 chroot 中安装 Alpine Linux](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)”。
 
 ### 在 {% data variables.product.prodname_ghe_server %} 上上传预接收挂钩环境
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. 单击 **Manage environments**。 ![管理环境](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
@@ -90,4 +89,4 @@ versions:
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz
    > Pre-receive hook environment 'AlpineTestEnv' (2) has been created.
-  ```
+   ```

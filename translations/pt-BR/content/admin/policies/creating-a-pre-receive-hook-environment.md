@@ -21,10 +21,10 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
 {% data reusables.linux.ensure-docker %}
 2. Crie o arquivo `Dockerfile.alpine-3.3` que contém estas informações:
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN apk add --no-cache git bash
-    ```
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN apk add --no-cache git bash
+   ```
 3. No diretório que contém `Dockerfile.alpine-3.3`, crie uma imagem:
 
    ```shell
@@ -36,44 +36,43 @@ Você pode usar uma ferramenta de gerenciamento de contêineres do Linux para cr
    >  ---> Using cache
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
-  ```
+   ```
 4. Crie um contêiner:
 
    ```shell
    $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
-  ```
+   ```
 5. Exporte o contêiner Docker para um arquivo `tar` compactado por `gzip`:
 
    ```shell
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
-  ```
+   ```
 
-  O arquivo `alpine-3.3.tar.gz` está pronto para o upload no appliance do {% data variables.product.prodname_ghe_server %}.
+   O arquivo `alpine-3.3.tar.gz` está pronto para o upload no appliance do {% data variables.product.prodname_ghe_server %}.
 
 ### Criar um ambiente de hook pre-receive usando chroot
 
 1. Crie um ambiente Linux `chroot`.
 2. Crie um arquivo `tar` do diretório `chroot` compactado em um `gzip`.
-  ```shell
-  $ cd /path/to/chroot
-  $ tar -czf /path/to/pre-receive-environment.tar.gz .
+   ```shell
+   $ cd /path/to/chroot
+   $ tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
-  {% note %}
+   {% note %}
 
-    **Notas:**
-    - Não inclua caminhos do diretório principal de arquivos dentro do arquivo tar, como `/path/to/chroot`.
-    - `/bin/sh` deve existir e ser executável, como o ponto de entrada no ambiente chroot.
-    - Ao contrário de chroots tradicionais, o diretório `dev` não é exigido pelo ambiente chroot para hooks pre-receive.
+   **Notas:**
+   - Não inclua caminhos do diretório principal de arquivos dentro do arquivo tar, como `/path/to/chroot`.
+   - `/bin/sh` deve existir e ser executável, como o ponto de entrada no ambiente chroot.
+   - Ao contrário de chroots tradicionais, o diretório `dev` não é exigido pelo ambiente chroot para hooks pre-receive.
 
-  {% endnote %}
+   {% endnote %}
 
 Para obter mais informações sobre como criar um ambiente chroot, consulte "[Chroot](https://wiki.debian.org/chroot)" na *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" na *Ubuntu Community Help Wiki* ou "[Instalar Alpine Linux em chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" na *Alpine Linux Wiki*.
 
 ### Fazer upload de um ambiente de hook pre-receive no {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Clique em **Manage environments** (Gerenciar ambientes). ![Gerenciar ambientes](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
@@ -90,4 +89,4 @@ Para obter mais informações sobre como criar um ambiente chroot, consulte "[Ch
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz
    > Pre-receive hook environment 'AlpineTestEnv' (2) has been created.
-  ```
+   ```

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 
@@ -24,14 +25,14 @@ To renew an expiring user-to-server access token, you can exchange the `refresh_
 
   `POST https://github.com/login/oauth/access_token`
 
-This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/v3/guides/basics-of-authentication/#providing-a-callback)."
+This callback request will send you a new access token and a new refresh token.  This callback request is similar to the OAuth request you would use to exchange a temporary `code` for an access token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" and "[Basics of authentication](/rest/guides/basics-of-authentication#providing-a-callback)."
 
 #### 参数
 
-| 名称              | 类型    | 描述                                                                                                                                                                    |
-| --------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称              | 类型    | 描述                                                                                                                                                               |
+| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refresh_token` | `字符串` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token. |
-| `grant_type`    | `字符串` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                                    |
+| `grant_type`    | `字符串` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                               |
 | `client_id`     | `字符串` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.                                                                        |
 | `client_secret` | `字符串` | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.                                                                    |
 
@@ -68,4 +69,4 @@ If you want your app to use non-expiring user-to-server access tokens, you can d
 
 Existing {% data variables.product.prodname_github_app %}s using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
 
-Enabling expiring user tokens for existing {% data variables.product.prodname_github_app %}s requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. For more information, see "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)."
+Enabling expiring user tokens for existing {% data variables.product.prodname_github_app %}s requires sending users through the OAuth flow to re-issue new user tokens that will expire in 8 hours and making a request with the refresh token to get a new access token and refresh token. 更多信息请参阅“[识别和授权 GitHub 应用程序用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。

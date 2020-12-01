@@ -1,6 +1,6 @@
 ---
 title: 增加存储容量
-intro: 您可以增加或更改可供 Git 仓库、数据库、搜索索引和其他持久应用程序数据使用的存储容量。
+intro: '您可以增加或更改可供 Git 仓库、数据库、搜索索引和其他持久应用程序数据使用的存储容量。'
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-随着更多的用户加入 {% data variables.product.product_location_enterprise %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
+随着更多的用户加入 {% data variables.product.product_location %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
 
 ### 要求与建议
 
@@ -19,6 +19,8 @@ versions:
 **注**：调整用户存储卷之前，请将实例置于维护模式。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
 {% endnote %}
+
+#### 最低要求
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 

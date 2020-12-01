@@ -1,6 +1,6 @@
 ---
-title: About GitHub Container Registry
-intro: 'The {% data variables.product.prodname_github_container_registry %} allows you to seamlessly host and manage Docker container images in your organization or personal user account on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_github_container_registry %} allows you to configure who can manage and access packages using fine-grained permissions.'
+title: 关于 GitHub Container Registration
+intro: '{% data variables.product.prodname_github_container_registry %} 允许您在 {% data variables.product.prodname_dotcom %} 上的组织或个人用户帐户中无缝托管和管理 Docker 容器映像。 {% data variables.product.prodname_github_container_registry %} 允许您配置谁可以使用细粒度权限管理和访问包。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -8,35 +8,40 @@ versions:
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_container_registry %} is currently in public beta and subject to change. Currently, {% data variables.product.prodname_github_container_registry %} only supports Docker image formats. During the beta, storage and bandwidth is free.
+**注：**{% data variables.product.prodname_github_container_registry %} 目前处于公测阶段，可能会更改。 在测试阶段，存储和带宽是免费的。 To use {% data variables.product.prodname_github_container_registry %}, you must enable the feature for your account. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 {% endnote %}
 
-
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
-To share context about your package's use, you can link a repository to your container image on {% data variables.product.prodname_dotcom %}. For more information, see "[Connecting a repository to a container image](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)."
+要共享有关包使用的上下文，可以将仓库链接到 {% data variables.product.prodname_dotcom %} 上的容器映像。 更多信息请参阅“[将仓库连接到容器映像](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)”。
 
 ### 支持的格式
 
-The {% data variables.product.prodname_container_registry %} currently only supports Docker images.
+{% data variables.product.prodname_container_registry %} 目前支持以下容器映像格式：
 
+* [Docker 映像清单 V2，架构 2](https://docs.docker.com/registry/spec/manifest-v2-2/)
+* [Open Container Initiative (OCI) 规格](https://github.com/opencontainers/image-spec)
 
-### Visibility and access permissions for container images
+#### 清单列表/映像索引
 
-If you have admin permissions to a container image, you can set the container image to private or public. Public images allow anonymous access and can be pulled without authentication or signing in via the CLI.
+{% data variables.product.prodname_github_container_registry %} 也支持 Docker V2、Schema 2 和 OCI 映像规格中定义的 [Docker 清单列表](https://docs.docker.com/registry/spec/manifest-v2-2/#manifest-list)/[OCI 映像索引](https://github.com/opencontainers/image-spec/blob/79b036d80240ae530a8de15e1d21c7ab9292c693/image-index.md)格式。
 
-As an admin, you can also grant access permissions for a container image that are separate from the permissions you've set at the organization and repository levels.
+### 容器映像的可见性和访问权限
 
-For container images published and owned by a user account, you can give any person an access role. For container images published and owned by an organization, you can give any person or team in the organization an access role.
+如果您对容器映像具有管理员权限，可以将容器映像设置为私有或公有。 公有映像允许匿名访问，无需身份验证或通过 CLI 登录即可进行拉取。
 
-| Permission role | Access description                                                                                                                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 读取              | Can download package. <br> Can read package metadata.                                                                                      |
-| 写入              | Can upload and download this package. <br> Can read and write package metadata.                                                            |
-| 管理员             | Can upload, download, delete, and manage this package. <br> Can read and write package metadata. <br> Can grant package permissions. |
+作为管理员，您还可以授予容器映像的访问权限，该权限与在组织和仓库级别设置的权限不同。
 
-For more information, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
+对于由用户帐户发布和拥有的容器映像，您可以向任何人授予访问角色。 对于组织发布和拥有的容器映像，您可以为组织中的任何人或团队授予访问角色。
+
+| 权限角色 | 访问描述                                                         |
+| ---- | ------------------------------------------------------------ |
+| 读取   | 可以下载包。 <br> 可以读取包元数据。                                  |
+| 写入   | 可以上传和下载此包。 <br> 可以读取和写入包元数据。                           |
+| 管理员  | 可以上传、下载、删除和管理此包。 <br> 可以读取和写入包元数据。 <br> 可以授予包权限。 |
+
+更多信息请参阅“[配置容器映像的访问控制和可见性](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)”。
 
 ### 关于 {% data variables.product.prodname_github_container_registry %} 的计费
 
@@ -44,10 +49,10 @@ For more information, see "[Configuring access control and visibility for contai
 
 ### 联系支持
 
-If you have feedback or feature requests for {% data variables.product.prodname_github_container_registry %}, use the [feedback form](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages).
+如果您对 {% data variables.product.prodname_github_container_registry %} 有反馈或功能请求，请使用[反馈表](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages)。
 
 如果在 {% data variables.product.prodname_github_container_registry %} 方面遇到以下问题，请使用[我们的联系表](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages)联系 {% data variables.contact.github_support %}：
 
 * 遇到任何与文档相矛盾的事情.
 * 遇到模糊或不清楚的错误.
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally-identifying information.
+* 发布的包中含有敏感数据，例如违反 GDPR、API 密钥或个人身份信息.

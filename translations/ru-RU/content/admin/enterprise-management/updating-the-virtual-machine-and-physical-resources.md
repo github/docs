@@ -6,8 +6,6 @@ redirect_from:
   - '/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-physical-resources/'
   - /enterprise/admin/installation/updating-the-virtual-machine-and-physical-resources
   - /enterprise/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources
-  - /enterprise/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources
-  - /enterprise/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources
 mapTopic: true
 versions:
   enterprise-server: '*'

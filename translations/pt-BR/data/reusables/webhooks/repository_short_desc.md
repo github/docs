@@ -1,1 +1,1 @@
-Activity related to a repository. {% data reusables.webhooks.action_type_desc %} For more information, see the "[repositories](/v3/repos/)" REST API.
+Atividade relacionada a um repositório. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST dos[repositórios](/rest/reference/repos)".

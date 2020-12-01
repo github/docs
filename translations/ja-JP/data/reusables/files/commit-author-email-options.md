@@ -1,3 +1,4 @@
 {% if currentVersion == "free-pro-team@latest" %}
-メールアドレスのプライバシーを有効化していないなら、{% data variables.product.product_name %}のプルリクエストの編集、削除、ファイルの作成、マージの際に変更の作者となる検証済みのメールアドレスを選択できます。 メールアドレスのプライバシーを有効化しているなら、コミット作者のメールアドレスは変更できず、デフォルトで`<username>@users.noreply.github.com`になります。
+If you haven't enabled email address privacy, you can choose which verified email address to author changes with when you edit, delete, or create files or merge a pull request on
+{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 メールアドレスのプライバシーを有効化しているなら、コミット作者のメールアドレスは変更できず、デフォルトで`<username>@users.noreply.github.com`になります。
 {% endif %}

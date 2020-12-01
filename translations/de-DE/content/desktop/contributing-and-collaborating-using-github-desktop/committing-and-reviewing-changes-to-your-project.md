@@ -1,6 +1,6 @@
 ---
 title: Änderungen an Deinem Projekt sowohl per Commit übertragen als auch überprüfen
-intro: '{% data variables.product.prodname_desktop %} verfolgt alle Änderungen an allen Dateien, während Du sie bearbeitest. Du kannst festlegen, wie die Änderungen gruppiert werden sollen, um aussagekräftige Commits zu erstellen.'
+intro: '{% data variables.product.prodname_desktop %} verfolgt alle Änderungen an allen Dateien, während Sie sie bearbeiten. Du kannst festlegen, wie die Änderungen gruppiert werden sollen, um aussagekräftige Commits zu erstellen.'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
 versions:
@@ -23,7 +23,7 @@ versions:
 
 ### 2. Die in einen Commit einzubeziehenden Änderungen auswählen
 
-Wenn Du in Deinem Texteditor Änderungen an Dateien vornimmst und Du diese lokal speicherst, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
+Wenn Sie in Ihrem Texteditor Änderungen an Dateien vornehmen und Sie diese lokal speichern, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
 
 * Das rote {% octicon "diff-removed" aria-label="The diff removed icon color-red" %}-Symbol weist auf entfernte Dateien hin.
 * Das gelbe {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %}-Symbol weist auf geänderte Dateien hin.
@@ -36,17 +36,23 @@ Wenn Du in Deinem Texteditor Änderungen an Dateien vornimmst und Du diese lokal
 
 #### Partiellen Commit erstellen
 
-Wenn eine Datei mehrere Änderungen aufweist, Du aber möchtest, dass nur *einige* dieser Änderungen in einem Commit enthalten sind, kannst Du einen partiellen Commit erstellen. Der Rest Deiner Änderungen bleibt erhalten, sodass Du zusätzliche Änderungen und Commits vornehmen kannst. Dadurch kannst Du separate, aussagekräftige Commits erstellen, beispielsweise kannst Du Änderungen der Zeilenumbrüche in einem Commit vom Code oder von Fließtextänderungen getrennt halten.
+If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. Der Rest Deiner Änderungen bleibt erhalten, sodass Du zusätzliche Änderungen und Commits vornehmen kannst. Dadurch kannst Du separate, aussagekräftige Commits erstellen, beispielsweise kannst Du Änderungen der Zeilenumbrüche in einem Commit vom Code oder von Fließtextänderungen getrennt halten.
 
-Wenn Du den Diff der Datei überprüfst, werden die Zeilen, die in den Commit aufgenommen werden, blau hervorgehoben. Um die Änderung auszuschließen, klickst Du auf die geänderte Zeile, damit das Blau verschwindet.
+{% note %}
 
-![Zeilen in einer Datei aus der Auswahl entfernen](/assets/images/help/desktop/partial-commit.png)
+**Note:** Split diff displays are currently in beta and subject to change.
 
-#### Änderungen verwerfen
+{% endnote %}
 
-Du kannst alle nicht per Commit übertragenen Änderungen in einer einzelnen Datei, in einer Gruppe von Dateien oder alle Änderungen in allen Dateien seit dem letzten Commit verwerfen.
+1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**. ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
+2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit. ![Zeilen in einer Datei aus der Auswahl entfernen](/assets/images/help/desktop/partial-commit.png)
 
-{% mac %}
+### 3. Änderungen verwerfen
+If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
+
+Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
+
+#### Discarding changes in one or more files
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -54,32 +60,27 @@ Du kannst alle nicht per Commit übertragenen Änderungen in einer einzelnen Dat
 {% data reusables.desktop.confirm-discard-files %}
   ![Schaltfläche „Discard Changes“ (Änderungen verwerfen) im Bestätigungsdialogfeld](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-{% tip %}
+#### Discarding changes in one or more lines
+You can discard one or more changed lines that are uncommitted.
 
-**Tipp:** Die von Dir verworfenen Änderungen werden unter „Trash“ (Papierkorb) in einer Datei mit entsprechender Datumsangabe gespeichert. Du kannst diese wiederherstellen, bis der Papierkorb geleert wird.
+{% note %}
 
-{% endtip %}
+**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
 
-{% endmac %}
+{% endnote %}
 
-{% windows %}
+To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
 
-{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
-  ![Option „Discard Changes“ (Änderungen verwerfen) im Kontextmenü](/assets/images/help/desktop/discard-changes-win.png)
-{% data reusables.desktop.confirm-discard-files %}
-  ![Schaltfläche „Discard Changes“ (Änderungen verwerfen) im Bestätigungsdialogfeld](/assets/images/help/desktop/discard-changes-confirm-win.png)
+  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
-{% tip %}
+To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
-**Tipp:** Die von Dir verworfenen Dateien werden im „Recycle Bin“ (Papierkorb) in einer Datei gespeichert. Du kannst diese wiederherstellen, bis der Papierkorb geleert wird.
+  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
-{% endtip %}
 
-{% endwindows %}
+### 4. Eine Commit-Mitteilung schreiben und Deine Änderungen per Push übertragen
 
-### 3. Eine Commit-Mitteilung schreiben und Deine Änderungen per Push übertragen
-
-Sobald Du mit den Änderungen zufrieden bist, die Du in Deinen Commit aufnehmen möchtest, schreibest Du Deine Commit-Mitteilung, und überträgst Deine Änderungen per Push. Wenn Du an einem Commit mitgewirkt hast, kannst Du einen Commit auch mehr als einem Autor zuweisen.
+Sobald Sie mit den Änderungen zufrieden sind, die Sie in Ihren Commit aufnehmen möchten, schreiben Sie Ihre Commit-Mitteilung, und übertragen Sie Ihre Änderungen per Push-Vorgang. Wenn Sie an einem Commit mitgewirkt haben, können Sie einen Commit auch mehr als einem Autor zuweisen.
 
 {% note %}
 

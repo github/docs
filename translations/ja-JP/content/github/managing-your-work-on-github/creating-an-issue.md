@@ -1,23 +1,23 @@
 ---
 title: Issue の作成
-intro: Issue は、バグ、拡張、その他リクエストの追跡に使用できます。
+intro: 'Issue は、バグ、拡張、その他リクエストの追跡に使用できます。'
+permissions: '読み取り権限を持つユーザは、Issue が有効なときリポジトリに Issue を作成できます。'
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-{% data reusables.repositories.create-issue-in-public-repository %}
 
 既存のプルリクエストのコードに基づく新しい Issue を開くことができます。 詳しい情報については「[コードから Issue を開く](/github/managing-your-work-on-github/opening-an-issue-from-code)」を参照してください。
 
 Issue または Pull Requestレビューのコメントから新しい Issue を直接開くことができます。 詳しい情報については「[コメントからIssueを開く](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
-**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
+**ヒント**: {% data variables.product.prodname_cli %} を使用して Issue を作成することもできます。 詳しい情報については、ドキュメントの「[`gh issue create`](https://cli.github.com/manual/gh_issue_create)」{% data variables.product.prodname_cli %} を参照してください。
 
 {% endtip %}
 {% endif %}

@@ -15,8 +15,8 @@ O SAML SSO controla e protege o acesso a recursos da organização, como reposit
 
 Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponíveis para qualquer usuário ao qual você atribuir seu aplicativo do {% data variables.product.prodname_ghe_cloud %} no Okta.
 
-| Funcionalidade                        | Descrição                                                                                                                                                                       |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Funcionalidade                        | Descrição                                                                                                                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Fazer push de novos usuários          | Ao criar um novo usuário no Okta, ele receberá um e-mail para juntar-se à sua organização do {% data variables.product.prodname_dotcom %}.                                 |
 | Fazer push de desativações de usuário | Ao desativar um usuário no Okta, este removerá o usuário da sua organização de {% data variables.product.prodname_dotcom %}.                                               |
 | Fazer push das atualização de perfil  | Ao atualizar o perfil de um usuário no Okta, este atualizará os metadados para a associação do usuário na sua organização de {% data variables.product.prodname_dotcom %}. |
@@ -70,7 +70,7 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 
 ### Leia mais
 
-- "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
 - "[Gerenciar a sincronização de equipe para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Compreender o SAML](https://developer.okta.com/docs/concepts/saml/) na documentação do Okta
 - [Entender o SCIM](https://developer.okta.com/docs/concepts/scim/) na documentação do Okta

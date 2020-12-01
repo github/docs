@@ -28,7 +28,8 @@ versions:
 {% data variables.product.prodname_insights %}を{% data variables.product.prodname_enterprise %}に接続するには、{% data variables.product.prodname_enterprise %}上のOrganization内に{% data variables.product.prodname_github_app %}を作成しなければなりません。 インテグレーションが動作すると、{% data variables.product.prodname_enterprise %}上にアプリケーションのスラッグバージョンの名前が表示されます。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. {% data variables.product.prodname_insights %}に接続したいOrganizationにアクセスしてください。
+2. Navigate to the organization you'd like to connect to
+{% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. **New {% data variables.product.prodname_github_app %}（新規{% data variables.product.prodname_github_app %}）**をクリックしてください。 ![新規GitHub Appボタン](/assets/images/help/apps/github_apps_new.png)
@@ -60,7 +61,7 @@ versions:
     - Repository
     - Team ![イベントへのサブスクライブチェックボックス](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
-13. {% data variables.product.product_location_enterprise %}内の任意のユーザあるいはOrganizationからのデータに{% data variables.product.prodname_github_app %}がアクセスできるようにするために、"Where can this {% data variables.product.prodname_github_app %} be installed?（この{% data variables.product.prodname_github_app %}はどこにインストールできますか？）"の下で、**Any account（任意のアカウント）**を選択してください。 ![任意のアカウントへのアクセスを有効化するラジオボタン](/assets/images/help/apps/github_apps_installation_options_any_account.png)
+13. {% data variables.product.product_location %}内の任意のユーザあるいはOrganizationからのデータに{% data variables.product.prodname_github_app %}がアクセスできるようにするために、"Where can this {% data variables.product.prodname_github_app %} be installed?（この{% data variables.product.prodname_github_app %}はどこにインストールできますか？）"の下で、**Any account（任意のアカウント）**を選択してください。 ![任意のアカウントへのアクセスを有効化するラジオボタン](/assets/images/help/apps/github_apps_installation_options_any_account.png)
 14. **Create {% data variables.product.prodname_github_app %}（{% data variables.product.prodname_github_app %}の作成）**をクリックしてください。 ![GitHub Appの作成ボタン](/assets/images/help/apps/github_apps_create_github_app.png)
 15. アプリケーションの設定をレビューしてください。
 16. "Private keys（秘密鍵）"の下で、**Generate a private key（秘密鍵の生成）**をクリックしてください。 ![秘密鍵の生成ボタン](/assets/images/help/apps/generate-private-key.png)

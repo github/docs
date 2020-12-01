@@ -1,11 +1,13 @@
 ---
 title: Eine Organisation von Grund auf neu erstellen
-intro: 'Erstelle eine Organisation, um fein abgestufte Zugriffsberechtigungen für Repositorys anzuwenden.'
-redirect_from:
-  - /articles/creating-a-new-organization-from-scratch
+intro: Erstelle eine Organisation, um fein abgestufte Zugriffsberechtigungen für Repositorys anzuwenden.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+redirect_from:
+  - /articles/creating-a-new-organization-from-scratch
+  - /admin/user-management/creating-organizations
 ---
 
 Wenn Du eine Organisation von Grund auf neu erstellst, sind mit ihr keine Repositorys verknüpft. Weitere Informationen zum Hinzufügen von Repositorys zu einer Organisation findest Du unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“ und „[Ein Repository übertragen](/articles/transferring-a-repository).“
@@ -13,7 +15,7 @@ Wenn Du eine Organisation von Grund auf neu erstellst, sind mit ihr keine Reposi
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. Folge den Anweisungen, um Deine Organisation zu erstellen. {% if currentVersion == "free-pro-team@latest" %}Weitere Informationen zu den für Dein Team verfügbaren Plänen findest Du unter „[{% data variables.product.prodname_dotcom %}-Produkte](/articles/githubs-products)“.{% endif %}
+4. Folge den Anweisungen, um Deine Organisation zu erstellen. {% if currentVersion == "free-pro-team@latest" %}For more information about the plans available for your team, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)."{% endif %}
 
 ### Weiterführende Informationen
 

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre gists
@@ -17,9 +18,9 @@ Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e c
 
 Os gists podem ser públicos ou secretos. Os gists públicos são mostrados no {% data variables.gists.discover_url %}, onde as pessoas podem navegar por novos gists à medida que eles são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Os gists secretos não são mostrados no {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} e não são pesquisáveis. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
+Os gists secretos não aparecem em {% data variables.gists.discover_url %} e não são pesquisáveis. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 Se o administrador do site tiver desabilitado o modo privado, você também poderá usar gists anônimos, que podem ser públicos ou secretos.
 
@@ -27,15 +28,16 @@ Se o administrador do site tiver desabilitado o modo privado, você também pode
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-
 Você receberá uma notificação quando:
 - Você for o autor de um gist.
 - Alguém mencionar você em um gist.
 - Você assinar um gist, clicando em **Subscribe** (Assinar) no topo de qualquer gist.
-{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 Você pode fixar os gists no seu perfil para que outras pessoas possam vê-los facilmente. Para obter mais informações, consulte "[Fixar itens ao seu perfil](/articles/pinning-items-to-your-profile)".
+
+{% endif %}
 
 É possível descobrir gists que outras pessoas criaram acessando a {% data variables.gists.gist_homepage %} e clicando em **All Gists** (Todos os gists). Isso levará você a uma página com todos os gists classificados e exibidos por data de criação ou atualização. Também é possível pesquisar gists por linguagem com {% data variables.gists.gist_search_url %}. A pesquisa de gist usa a mesma sintaxe de pesquisa que a [pesquisa de código](/articles/searching-code).
 
@@ -53,7 +55,7 @@ O gist permite mapeamento de arquivos geoJSON. Esses mapas são exibidos em gist
 
 Você também pode arrastar e soltar um arquivo de texto da sua área de trabalho diretamente no editor do gist.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 Você também pode criar um gist usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh gist cria`](https://cli.github.com/manual/gh_gist_create)" na documentação do {% data variables.product.prodname_cli %}.

@@ -1,6 +1,6 @@
 ---
 title: Configurar o endereço de e-mail do commit
-intro: 'Você pode configurar um endereço de e-mail principal no {% data variables.product.product_name %} associado às opções do Git baseadas na web executadas, como edições e merges.'
+intro: 'Você pode definir o endereço de e-mail que é usado para criar commits em {% data variables.product.product_name %} e no seu computador.'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre os endereços de e-mail do commit
@@ -21,7 +22,7 @@ O {% data variables.product.product_name %} usa o endereço de e-mail do commit 
 
 Para operações do Git baseadas na web, você pode configurar o endereço de e-mail do commit no {% data variables.product.product_name %}. Para commits cujo push é feito usando a linha de comando, você pode configurar o endereço de e-mail do commmit no Git.
 
-{% if currentVersion == "free-pro-team@latest" %}Os commits feitos antes da alteração do endereço de e-mail do commit continuarão associados ao endereço de e-mail anterior.{% else %}Depois de alterar o endereço de e-mail do commit no {% data variables.product.product_name %}, o novo endereço de e-mail ficará visível por padrão em todas as próximas operações do Git baseadas na web. Os commits feitos antes da alteração do endereço de e-mail do commit continuarão associados ao endereço de e-mail anterior.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Todos os commits que você fez antes de alterar o seu endereço de e-mail de commit ainda estão associados ao seu endereço de e-mail anterior.{% else %}Depois de alterar o seu endereço de e-mail de commit no dia {% data variables.product.product_name %}, o novo endereço de e-mail ficará visível em todas as suas operações futuras baseadas na web do Git por padrão. Os commits feitos antes da alteração do endereço de e-mail do commit continuarão associados ao endereço de e-mail anterior.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -33,11 +34,11 @@ Para operações do Git baseadas na web, você pode configurar o endereço de e-
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}Se não quiser usar seu endereço de e-mail pessoal, você poderá usar um endereço de e-mail `no-reply` fornecido pelo {% data variables.product.product_name %} como o endereço de e-mail do commit. Para usar o endereço de e-mail `noreply` para commits cujo push é feito usando a linha de comando, use esse endereço de e-mail ao configurar o endereço de e-mail do commit no Git. Para usar o endereço `noreply` para operações do Git baseadas na web, configure o endereço de e-mail do commit no GitHub e selecione **Keep my email address private** (Manter meu endereço de e-mail privado).
+{% if currentVersion == "free-pro-team@latest" %}Se você desejar manter o seu endereço de e-mail pessoal privado, você poderá usar um endereço de e-mail `no-reply` fornecido por {% data variables.product.product_name %} como seu endereço de e-mail de commit. Para usar o endereço de e-mail `noreply` para commits cujo push é feito usando a linha de comando, use esse endereço de e-mail ao configurar o endereço de e-mail do commit no Git. Para usar o endereço `noreply` para operações do Git baseadas na web, configure o endereço de e-mail do commit no GitHub e selecione **Keep my email address private** (Manter meu endereço de e-mail privado).
 
 Você também pode optar por bloquear os commits cujo push é feito usando a linha de comando que expõem seu endereço de e-mail pessoal. Para obter mais informações, consulte "[Bloquear pushes de linha de comando que mostrem endereços de e-mail pessoais](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)".{% endif %}
 
-Para garantir que os commits sejam atribuídos a você e apareçam no gráfico de contribuições, use um endereço de e-mail que tenha [adicionado à conta do GitHub](/articles/adding-an-email-address-to-your-github-account/){% if currentVersion == "free-pro-team@latest" %} ou o endreço de e-mail `noreply` fornecido pelo {% data variables.product.product_name %} nas configurações do e-mail{% endif %}.
+Para garantir que os commits sejam atribuídos a você e que apareçam no gráfico de contribuições, use um endereço de e-mail que esteja conectado à sua conta de {% data variables.product.product_name %} {% if currentVersion == "free-pro-team@latest" %}, ou o endereço de e-mail `noreply` fornecido a você nas configurações de email{% endif %}. {% if currentVersion != "github-ae@latest" %}Para obter mais informações, consulte "[Adicionar um endereço de e-mail à sua conta de {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account){% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

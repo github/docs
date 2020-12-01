@@ -1,12 +1,13 @@
 ---
 title: 创建标签
-intro: 在有写入权限的仓库中，您可以创建标签来组织议题和提取请求。
+intro: '在有写入权限的仓库中，您可以创建标签来组织议题和提取请求。'
 redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests/
   - /articles/creating-a-label
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -29,6 +30,6 @@ versions:
 - "[关于标签](/articles/about-labels)"
 - “[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests)”
 - “[编辑标签](/articles/editing-a-label)”
-- "[按标签过滤议题和拉取请求](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 - "[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)"
 {% endif %}

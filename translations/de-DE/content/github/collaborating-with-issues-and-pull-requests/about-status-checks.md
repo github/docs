@@ -1,12 +1,13 @@
 ---
 title: Informationen zu Statuschecks
-intro: 'Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.'
+intro: Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.
 redirect_from:
   - /articles/about-statuses/
   - /articles/about-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Statuschecks basieren auf externen Prozessen, beispielsweise Builds mit fortlaufender Integration, die bei jedem Push an ein Repository ausgeführt werden. Du kannst den Zustand *Ausstehend*, *Bestanden* oder *Nicht bestanden* des Statuschecks neben den einzelnen Commits in Deinem Pull Request sehen.
@@ -28,7 +29,7 @@ Es gibt zwei Arten von Statuschecks auf {% data variables.product.product_name %
 
 _Prüfungen_ unterscheiden sich von _Status_ dadurch, dass sie Zeilenanmerkungen und detailliertere Meldungen enthalten und nur für die Verwendung mit {% data variables.product.prodname_github_app %}s verfügbar sind.
 
-Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/v3/checks/)" and "[Statuses](/v3/repos/statuses/)."
+Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
 ### Prüfungen
 

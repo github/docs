@@ -19,7 +19,6 @@ Como uma alternativa ao serviço de e-mail, agora você pode começar a usar not
 
 {% endnote %}
 
-
 ### Linha do tempo da depreciação
 
 - **1 de outubro de 2018**: o GitHub foi suspenso, permitindo que os usuários instalassem serviços. Removemos o GitHub Services da interface de usuário do GitHub.com.
@@ -30,7 +29,7 @@ Como uma alternativa ao serviço de e-mail, agora você pode começar a usar not
 
 P GitHub Services (às vezes referido como Hooks de Serviço) é o método legado de integração, em que o GitHub hospedou uma parte dos serviços do nosso integrador por meio do [repositório `github-services`](https://github.com/github/github-services). Ações executadas no GitHub acionam esses serviços e você pode usá-los para acionar ações fora do GitHub.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 ### Encontrar repositórios que usam o GitHub Services
 Fornecemos um script de linha de comando que ajuda a identificar quais repositórios usam o GitHub Services. Para obter mais informações, consulte [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 

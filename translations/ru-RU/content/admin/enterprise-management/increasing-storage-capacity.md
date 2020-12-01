@@ -4,15 +4,13 @@ intro: 'You can increase or change the amount of storage available for Git repos
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
-  - /enterprise/admin/enterprise-management/increasing-storage-capacity
-  - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
 ---
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-As more users join {% data variables.product.product_location_enterprise %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
+As more users join {% data variables.product.product_location %}, you may need to resize your storage volume. Refer to the documentation for your virtualization platform for information on resizing storage.
 
 ### Requirements and recommendations
 
@@ -21,6 +19,8 @@ As more users join {% data variables.product.product_location_enterprise %}, you
 **Note:** Before resizing the user storage volume, put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
+
+#### Minimum requirements
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 

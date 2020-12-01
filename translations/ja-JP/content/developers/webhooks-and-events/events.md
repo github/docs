@@ -1,9 +1,10 @@
 ---
 title: イベント
-intro: 'Your integrations can subscribe and react to events on {% data variables.product.prodname_dotcom %}.'
+intro: 'インテグレーションは、{% data variables.product.prodname_dotcom %}上のイベントをサブスクライブし、反応できます。'
 mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

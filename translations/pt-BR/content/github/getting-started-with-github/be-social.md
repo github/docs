@@ -7,6 +7,7 @@ intro: 'Você pode interagir com pessoas, repositórios e organizações no {% d
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para saber mais sobre como acessar o painel pessoal, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
@@ -21,7 +22,7 @@ Clique em **Follow** (Seguir) na página do perfil de uma pessoa para segui-la.
 
 ### Inspecionar um repositório
 
-Você pode inspecionar um repositório para receber notificações de novos problemas e pull requests. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Assistindo e desassistindo repositórios](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Você pode inspecionar um repositório para receber notificações de novos problemas e pull requests. Quando o proprietário atualiza o repositório, você vê as alterações no seu painel pessoal. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Visualizar suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Inspecionar e não inspecionar repositórios](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Clique em **Watch** (Inspecionar) no topo de um repositório para inspecioná-lo.
 

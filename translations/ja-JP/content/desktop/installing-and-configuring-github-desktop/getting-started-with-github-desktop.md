@@ -1,17 +1,17 @@
 ---
 title: GitHub Desktop を使ってみる
-intro: 'Learn how to set up, authenticate, and configure {% data variables.product.prodname_desktop %} to allow you to contribute to projects directly from your machine.'
+intro: '{% data variables.product.prodname_desktop %} のセットアップ、認証、構成して、自分のマシンから直接プロジェクトに貢献できるようにする方法を学びます。'
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 ---
 
 ### はじめに
-{% data variables.product.prodname_desktop %} is an application that enables you to interact with {% data variables.product.prodname_dotcom %} using a GUI instead of the command line or a web browser. {% data variables.product.prodname_desktop %} は、あなたとあなたの Team が Git および {% data variables.product.prodname_dotcom %} とベストプラクティスを使用して共同開発することを推奨します。 You can use {% data variables.product.prodname_desktop %} to complete most Git commands from your desktop with visual confirmation of changes. You can push to, pull from, and clone remote repositories with {% data variables.product.prodname_desktop %}, and use collaborative tools such as attributing commits and creating pull requests.
+{% data variables.product.prodname_desktop %} は、コマンドラインや Web ブラウザの代わりに GUI を使用して {% data variables.product.prodname_dotcom %} とやり取りできるようにするアプリケーションです。 {% data variables.product.prodname_desktop %} は、あなたとあなたの Team が Git および {% data variables.product.prodname_dotcom %} とベストプラクティスを使用して共同開発することを推奨します。 {% data variables.product.prodname_desktop %} を使用すると、変更を視覚的に確認して、デスクトップからほとんどの Git コマンドを完了できます。 {% data variables.product.prodname_desktop %} を使用してリモートリポジトリにプッシュ、プル、およびクローンを作成し、コミットの関連付けやプルリクエストの作成などのコラボレーションツールを使用できます。
 
-This guide will help you get started with {% data variables.product.prodname_desktop %} by setting up the application, authenticating your account, configuring basic settings, and introducing the fundamentals of managing projects with {% data variables.product.prodname_desktop %}. You will be able to use {% data variables.product.prodname_desktop %} to collaborate on projects and connect to remote repositories after working through this guide.
+このガイドは、アプリケーションのセットアップ、アカウントの認証、基本設定の構成、および {% data variables.product.prodname_desktop %} を使用したプロジェクト管理の基本を紹介しており、{% data variables.product.prodname_desktop %} の使用開始の際に役立ちます。 このガイドを実行すると、{% data variables.product.prodname_desktop %} を使用してプロジェクトでコラボレーションを行い、リモートリポジトリに接続できるようになります。
 
-You might find it helpful to have a basic understanding of Git and {% data variables.product.prodname_dotcom %} before getting started with {% data variables.product.prodname_desktop %}. For more information, see the following articles.
+{% data variables.product.prodname_desktop %} を始める前に、Git と {% data variables.product.prodname_dotcom %} の基本を理解しておくと便利です。 詳しい情報については、次の記事を参照してください。
 
 - "[Learning about Git](/github/using-git/learning-about-git)"
 - "[Learning about {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/learning-about-github)"
@@ -20,7 +20,7 @@ You might find it helpful to have a basic understanding of Git and {% data varia
 {% data variables.product.prodname_desktop %} is an open source project. You can see the roadmap, contribute to the project, or open an issue to provide feedback or feature requests. For more information, see the [`desktop/desktop`](https://github.com/desktop/desktop) repository.
 
 ### Part 1: Installing and authenticating
-You can install {% data variables.product.prodname_desktop %} on any supported operating system. For more information, see "[Supported operating systems](/desktop/getting-started-with-github-desktop/supported-operating-systems)."
+{% data variables.product.prodname_desktop %} は、サポートされている任意のオペレーティングシステムにインストールできます。 For more information, see "[Supported operating systems](/desktop/getting-started-with-github-desktop/supported-operating-systems)."
 
 To install {% data variables.product.prodname_desktop %}, visit the download page for [{% data variables.product.prodname_desktop %}](https://desktop.github.com/). 詳しい情報については「[{% data variables.product.prodname_desktop %}のインストール](/desktop/installing-and-configuring-github-desktop/installing-github-desktop)」を参照してください。
 
@@ -92,7 +92,7 @@ After you make changes to a branch, you can review them in {% data variables.pro
 
   ![Viewing and making commits](/assets/images/help/desktop/commit-button.png)
 
-If you want to access your changes remotely or share them with other people, you can push your commits to {% data variables.product.prodname_dotcom %}. For more information, see "[Pushing changes to {% data variables.product.prodname_dotcom %}](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)."
+If you want to access your changes remotely or share them with other people, you can push your commits to {% data variables.product.prodname_dotcom %}. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} への変更をプッシュする](/desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github)」を参照してください。
 
 #### Collaborating with {% data variables.product.prodname_desktop %}
 You can use {% data variables.product.prodname_desktop %} to create issues or pull requests to collaborate on projects with other people. Issues help you keep track of ideas and discuss possible changes to projects. Pull requests let you share your proposed changes with others, receive feedback, and merge changes into a project. For more information, see "[Creating an issue or pull request](/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request)."''
@@ -100,7 +100,7 @@ You can use {% data variables.product.prodname_desktop %} to create issues or pu
 You can view your own or your collaborator's pull requests in {% data variables.product.prodname_desktop %}. Viewing a pull request in {% data variables.product.prodname_desktop %} lets you see any proposed changes and make additional changes by opening the project's files and repositories in your default text editor. For more information, see "[Viewing a pull request in {% data variables.product.prodname_desktop %}](/desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop)."
 
 #### Keeping your local repository in sync
-When you make changes to your local repositories or when other people make changes to the remote repositories, you will need to sync your local copy of the project with the remote repository. {% data variables.product.prodname_desktop %} can keep your local copy of a project in sync with the remote version by pushing and pulling commits. For more information, see "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)."
+When you make changes to your local repositories or when other people make changes to the remote repositories, you will need to sync your local copy of the project with the remote repository. {% data variables.product.prodname_desktop %} can keep your local copy of a project in sync with the remote version by pushing and pulling commits. 詳しい情報については、「[ブランチを同期する](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)」を参照してください。
 
 ### 参考リンク
 - "[Installing and authenticating to {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop)"

@@ -77,7 +77,7 @@ Das Anwendungssicherheitsteam von {% data variables.product.prodname_dotcom %} k
 
 #### Externe Dienste und Supportzugang
 
-{% data variables.product.prodname_ghe_server %} lässt sich ohne jeglichen Egress-Zugriff vom Netzwerk auf externe Dienste nutzen. Optional können Sie die Integration in externe Dienste zur E-Mail-Zustellung, zur externen Überwachung und zur Protokollweiterleitung aktivieren. Weitere Informationen finden Sie unter „[E-Mail für Benachrichtigungen konfigurieren](/enterprise/{{ currentVersion }}/admin/user-management/configuring-email-for-notifications)“, „[Externe Überwachung festlegen](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)“ und „[Protokollweiterleitung](/enterprise/{{ currentVersion }}/admin/installation/log-forwarding)“.
+{% data variables.product.prodname_ghe_server %} lässt sich ohne jeglichen Egress-Zugriff vom Netzwerk auf externe Dienste nutzen. Optional können Sie die Integration in externe Dienste zur E-Mail-Zustellung, zur externen Überwachung und zur Protokollweiterleitung aktivieren. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-email-for-notifications)," "[Setting up external monitoring](/enterprise/{{ currentVersion }}/admin/installation/setting-up-external-monitoring)," and "[Log forwarding](/admin/user-management/log-forwarding)."
 
 Sie können manuell Fehlerbehebungsdaten sammeln und an den {% data variables.contact.github_support %} senden. Weitere Informationen finden Sie unter „[Daten für den {% data variables.contact.github_support %}-Support bereitstellen](/enterprise/{{ currentVersion }}/admin/enterprise-support/providing-data-to-github-support)“.
 
@@ -108,7 +108,7 @@ Weitere Informationen zu den Benutzerberechtigungen in {% data variables.product
 
 #### Audit- und Zugriffsprotokollierung
 
-{% data variables.product.prodname_ghe_server %} speichert sowohl herkömmliche Betriebssystem- als auch Anwendungsprotokolle. Die Anwendung führt außerdem detaillierte Audit- und Sicherheitsprotokolle, die {% data variables.product.prodname_ghe_server %} dauerhaft speichert. Sie können beide Protokolltypen über das `syslog-ng`-Protokoll in Echtzeit an mehrere Ziele weiterleiten. Weitere Informationen finden Sie unter „[Protokollweiterleitung](/enterprise/{{ currentVersion }}/admin/installation/log-forwarding)“.
+{% data variables.product.prodname_ghe_server %} speichert sowohl herkömmliche Betriebssystem- als auch Anwendungsprotokolle. Die Anwendung führt außerdem detaillierte Audit- und Sicherheitsprotokolle, die {% data variables.product.prodname_ghe_server %} dauerhaft speichert. Sie können beide Protokolltypen über das `syslog-ng`-Protokoll in Echtzeit an mehrere Ziele weiterleiten. For more information, see "[Log forwarding](/admin/user-management/log-forwarding)."
 
 Zugriffs- und Auditprotokolle enthalten beispielsweise die folgenden Informationen.
 

@@ -1,1 +1,1 @@
-Activity related to pull request review comments in the pull request's unified diff. {% data reusables.webhooks.action_type_desc %} For more information, see the "[pull request review comments](/v3/pulls/comments/)" REST API.
+Atividade relacionada aos comentários de revisão do pull request no diff unificado do pull request. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST dos "[comentários de revisão de pull request](/rest/reference/pulls#comments)".

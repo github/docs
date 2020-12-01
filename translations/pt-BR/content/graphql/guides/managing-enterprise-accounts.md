@@ -5,7 +5,8 @@ redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre o gerenciamento de contas corporativas com o GraphQL
@@ -23,7 +24,7 @@ Com a API de Log de Auditoria, você pode monitorar quando alguém:
 - Promove usuários a admininistradores.
 - Altera as permissões de um aplicativo GitHub.
 
-A API de Log de Auditoria permite que você mantenha cópias dos seus dados do log de auditoria. Para consultas feitas com a API do Log de Auditoria, a resposta do GraphQL pode incluir dados de 90 a 120 dias. Para obter uma lista dos campos disponíveis na API do Log de Auditoria, consulte a "[interface AuditEntry](/v4/interface/auditentry/)".
+A API de Log de Auditoria permite que você mantenha cópias dos seus dados do log de auditoria. Para consultas feitas com a API do Log de Auditoria, a resposta do GraphQL pode incluir dados de 90 a 120 dias. Para obter uma lista dos campos disponíveis na API do Log de Auditoria, consulte a "[interface AuditEntry](/graphql/reference/interfaces#auditentry/)".
 
 Com a API de Contas corporativas, você pode:
 - Listar e revisar todas as organizações e repositórios que pertencem à conta corporativa.
@@ -32,7 +33,7 @@ Com a API de Contas corporativas, você pode:
 - Convidar os administradores para a sua conta corporativa.
 - Criar novas organizações na sua conta corporativa.
 
-Para obter uma lista dos campos disponíveis da API de Contas corprativas, consulte "[campos e tipos do GraphQL para a API de Conta corporativa](/v4/guides/managing-enterprise-accounts/#graphql-fields-and-types-for-the-enterprise-accounts-api)".
+Para obter uma lista dos campos disponíveis da API de Contas corprativas, consulte "[campos e tipos do GraphQL para a API de Conta corporativa](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)".
 
 ### Primeiros passos usando o GraphQL para contas corporativas
 
@@ -186,12 +187,12 @@ Esta consulta do GraphQL solicita as últimas 5 entradas de registro para uma or
 }
 ```
 
-Para obter mais informações sobre como começar com GraphQL, consulte "[Introdução ao GraphQL](/v4/guides/intro-to-graphql/)" e "[Formando chamadas com o GraphQL](/v4/guides/forming-calls/)".
+Para obter mais informações sobre como começar com GraphQL, consulte "[Introdução ao GraphQL](/graphql/guides/introduction-to-graphql)" e "[Formando chamadas com o GraphQL](/graphql/guides/forming-calls-with-graphql)".
 
 ### Campos e tipos do GraphQL para a API de Contas corporativas
 
 Aqui está uma visão geral das novas consultas, mutações e tipos definidos por esquema disponíveis para uso com a API de Contas corporativas.
 
-Para obter mais detalhes sobre as novas consultas, mutações e tipos definidos por esquema disponíveis para uso com a API de Contas corporativas, consulte a barra lateral com definições detalhadas do GraphQL a partir de qualquer [Página de referência do GraphQL](/v4/).
+Para obter mais detalhes sobre as novas consultas, mutações e tipos definidos por esquema disponíveis para uso com a API de Contas corporativas, consulte a barra lateral com definições detalhadas do GraphQL a partir de qualquer [Página de referência do GraphQL](/graphql).
 
-Você pode acessar a documentação de referência de no explorador do GraphQL no GitHub. Para obter mais informações, consulte "[Usando o explorador](/v4/guides/using-the-explorer#accessing-the-sidebar-docs). Para obter outras informações, como detalhes de autenticação e limite de taxa, confira os [guias](/v4/guides).
+Você pode acessar a documentação de referência de no explorador do GraphQL no GitHub. Para obter mais informações, consulte "[Usando o explorador](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs). Para obter outras informações, como detalhes de autenticação e limite de taxa, confira os [guias](/graphql/guides).

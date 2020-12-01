@@ -1,1 +1,1 @@
-Activity related to repositories being added to a GitHub App installation. {% data reusables.webhooks.action_type_desc %} For more information, see the "[GitHub App installation](/v3/apps/)" REST API.
+Atividade relacionada aos repositórios adicionados a uma instalação do aplicativo GitHub. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST da "[Instalação do aplicativo GitHub](/rest/reference/apps)".

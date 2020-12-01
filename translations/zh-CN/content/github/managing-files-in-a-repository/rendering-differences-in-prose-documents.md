@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 包含散文文档的提交和拉取请求能够使用*源*视图和*呈现*视图来表示这些文档。
@@ -45,9 +46,9 @@ versions:
 
 ### 查看复杂的差异
 
-一些拉取请求涉及大型复杂文档的大量更改。 When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+一些拉取请求涉及大型复杂文档的大量更改。 当更改需要太长时间来分析时，{% data variables.product.product_name %} 不能总是生成更改的渲染视图。 如果发生这种情况，当您单击渲染按钮时，将会看到错误消息。
 
-![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
+![无法渲染视图时的消息](/assets/images/help/repository/prose_diff_rendering.png)
 
 您仍可使用源视图来分析和评论更改。
 

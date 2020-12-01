@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -26,7 +27,8 @@ versions:
     {% link_in_list /viewing-deployment-activity-for-your-repository %}
 <!-- endif -->
     {% link_in_list /managing-the-forking-policy-for-your-repository %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
+    {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository %}
     {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}
     {% link_in_list /managing-git-lfs-objects-in-archives-of-your-repository %}
     {% link_in_list /enabling-anonymous-git-read-access-for-a-repository %}
@@ -41,8 +43,8 @@ versions:
     {% link_in_list /restoring-a-deleted-repository %}
 <!-- endif -->
 {% topic_link_in_list /managing-branches-in-your-repository %}
-    {% link_in_list /setting-the-default-branch %}
     {% link_in_list /viewing-branches-in-your-repository %}
+    {% link_in_list /changing-the-default-branch %}
     {% link_in_list /deleting-and-restoring-branches-in-a-pull-request %}
 {% topic_link_in_list /configuring-pull-request-merges %}
     {% link_in_list /about-merge-methods-on-github %}
@@ -89,11 +91,11 @@ versions:
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" -->
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
-    {% link_in_list /about-github-dependabot-version-updates %}
+    {% link_in_list /about-dependabot-version-updates %}
     {% link_in_list /enabling-and-disabling-version-updates %}
     {% link_in_list /listing-dependencies-configured-for-version-updates %}
     {% link_in_list /managing-pull-requests-for-dependency-updates %}
     {% link_in_list /customizing-dependency-updates %}
     {% link_in_list /configuration-options-for-dependency-updates %}
-    {% link_in_list /keeping-your-actions-up-to-date-with-github-dependabot %}
+    {% link_in_list /keeping-your-actions-up-to-date-with-dependabot %}
 <!-- endif -->

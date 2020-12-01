@@ -1,6 +1,6 @@
 ---
 title: Fixar itens no seu perfil
-intro: 'Você pode fixar {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists e {% endif %}repositórios em seu perfil para que outras pessoas possam ver mais rapidamente os seus melhores trabalhos.'
+intro: 'Você pode fixar gists e repositórios no seu perfil para que outras pessoas possam ver seu melhor trabalho rapidamente.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile

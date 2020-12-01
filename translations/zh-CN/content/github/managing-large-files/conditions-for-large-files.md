@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.large_files.use_lfs_tip %}
@@ -16,4 +17,4 @@ versions:
 
 ### 阻止大文件的推送
 
-{% if currentVersion != "free-pro-team@latest" %}默认情况下， {% endif %}{% data variables.product.product_name %} 阻止超过 {% data variables.large_files.max_github_size %} 的推送。 {% if currentVersion != "free-pro-team@latest" %}但站点管理员可为您的 {% data variables.product.prodname_ghe_server %} 实例配置不同的限制。 更多信息请参阅“[设置 Git 推送限制](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)”。{% endif %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}However, a site administrator can configure a different limit for {% data variables.product.product_location %}. 更多信息请参阅“[设置 Git 推送限制](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)”。{% endif %}

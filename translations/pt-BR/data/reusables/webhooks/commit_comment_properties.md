@@ -1,4 +1,4 @@
-| Tecla        | Tipo     | Descrição                                                                |
-| ------------ | -------- | ------------------------------------------------------------------------ |
-| `Ação`       | `string` | A ação realizada. Pode ser `criado`.                                     |
-| `comentário` | `objeto` | The [commit comment](/v3/repos/comments/#get-a-commit-comment) resource. |
+| Tecla        | Tipo     | Descrição                                                                        |
+| ------------ | -------- | -------------------------------------------------------------------------------- |
+| `Ação`       | `string` | A ação realizada. Pode ser `criado`.                                             |
+| `comentário` | `objeto` | O recurso de [comentário de commit](/rest/reference/repos#get-a-commit-comment). |

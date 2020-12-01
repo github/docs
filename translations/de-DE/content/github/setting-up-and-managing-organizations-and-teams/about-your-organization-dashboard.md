@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Auf das Dashboard Deiner Organisation zugreifen
@@ -28,7 +29,7 @@ Im Abschnitt „Recent activity" (Neueste Aktivitäten) Deines Newsfeed kannst D
 
 Im Bereich "Alle Aktivitäten" Deines Newsfeed kannst Du Aktualisierungen von anderen Teams und Repositorys in Deiner Organisation ansehen.
 
-Der Abschnitt "Alle Aktivitäten" zeigt alle aktuellen Aktivitäten in der Organisation, einschließlich Aktivitäten in Repositorys, die Du nicht abonniert hast, und von Personen, denen Du nicht folgst. Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„\[Über Benachrichtigungen\](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Beobachtung von Repositorys aktivieren und deaktivieren](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" und „[Personen folgen](/articles/following-people)."
+Der Abschnitt "Alle Aktivitäten" zeigt alle aktuellen Aktivitäten in der Organisation, einschließlich Aktivitäten in Repositorys, die Du nicht abonniert hast, und von Personen, denen Du nicht folgst. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
 
 Beispielsweise werden im Newsfeed der Organisation Aktualisierungen angezeigt, wenn jemand in der Organisation:
  - einen neuen Branch erstellt,
@@ -36,8 +37,8 @@ Beispielsweise werden im Newsfeed der Organisation Aktualisierungen angezeigt, w
  - einen Pull-Request-Review-Kommentar absendet,
  - ein Repository forkt,
  - eine Wiki-Seite erstellt,
- - Commits pusht,
- - ein öffentliches Repository erstellt.
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### Weiterführende Informationen
 

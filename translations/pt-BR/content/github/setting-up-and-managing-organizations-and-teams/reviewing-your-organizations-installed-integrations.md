@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.profile.access_profile %}
@@ -14,7 +15,7 @@ versions:
 {% data reusables.organizations.org_settings %}
 4. Na barra lateral esquerda, clique em **Installed {% data variables.product.prodname_github_app %}s** ({% data variables.product.prodname_github_app %}s instalados). ![Guia Installed {% data variables.product.prodname_github_app %}s ({% data variables.product.prodname_github_app %}s instalados) na barra lateral de configurações da organização](/assets/images/help/organizations/org-settings-installed-github-apps.png)
 5. Próximo do {% data variables.product.prodname_github_app %} que deseja revisar, clique em **Configure** (Configurar). ![Botão Configure (Configurar)](/assets/images/help/organizations/configure-installed-integration-button.png)
-6. Revise o acesso ao repositório e as permissões de {% data variables.product.prodname_github_app %}s. ![Opção para fornecer ao {% data variables.product.prodname_github_app %} acesso a todos os repositórios ou a repositórios específicos](/assets/images/help/organizations/toggle-integration-repo-access.png)
+6. Revise o acesso ao repositório e as permissões de {% data variables.product.prodname_github_app %}. ![Opção para fornecer ao {% data variables.product.prodname_github_app %} acesso a todos os repositórios ou a repositórios específicos](/assets/images/help/organizations/toggle-integration-repo-access.png)
     - Para fornecer acesso ao {% data variables.product.prodname_github_app %} em todos os repositórios da organização, selecione **All repositories** (Todos os repositórios).
     - Para selecionar repositórios específicos para fornecer acesso ao aplicativo, selecione **Only select repositories** (Somente os repositórios selecionados) e insira o nome do repositório.
 7. Clique em **Salvar**.

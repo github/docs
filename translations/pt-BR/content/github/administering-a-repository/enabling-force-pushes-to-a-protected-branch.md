@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode habilitar push forçado.
@@ -15,7 +16,7 @@ Por padrão, pushes forçados são bloqueados em todos os branches protegidos. Q
 
 Habilitar push forçado não irá substituir quaisquer outras regras de proteção de branch. Por exemplo, se um branch exigir um histórico de commit linear, você não poderá forçar commits a mesclar commits para esse branch.
 
-{% if currentVersion != "free-pro-team@latest" %}Você não pode habilitar pushes forçados para um branch protegido se um administrador do site bloquear push forçados para todos os branches do seu repositório. Para obter mais informações, consulte "[Bloqueando push forçado para repositórios de propriedade de uma conta de usuário ou organização](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% if enterpriseServerVersions contém currentVersion ou currentVersion == "github-ae@latest" %}Você não pode habilitar push forçados para um branch protegido se um administrador do site bloqueou o push forçado para todos os branches no seu repositório. Para obter mais informações, consulte "[Bloqueando push forçado para repositórios de propriedade de uma conta de usuário ou organização](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 Se um administrador do site bloquear pushes forçados apenas para o branch padrão, você ainda pode habilitar pushes forçados para qualquer outro branch protegido.{% endif %}
 

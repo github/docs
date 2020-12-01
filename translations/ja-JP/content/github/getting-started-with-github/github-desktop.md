@@ -4,9 +4,10 @@ intro: '{% data variables.product.prodname_desktop %} は、ビジュアルイ�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### {% data variables.product.prodname_desktop %}について
+### {% data variables.product.prodname_desktop %} について
 
 {% data reusables.desktop.about-github-desktop %}
 

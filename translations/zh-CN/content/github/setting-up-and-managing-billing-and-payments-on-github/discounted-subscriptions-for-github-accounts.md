@@ -22,7 +22,7 @@ versions:
 
 ### 学校和大学折扣
 
-经验证的教师可出于教学和学术研究目的申请 {% data variables.product.prodname_team %}。 经验证的教师可出于教学和学术研究目的申请 {% data variables.product.prodname_team %}。 更多信息请参阅“[在课堂和研究中使用 {% data variables.product.prodname_dotcom %}](/articles/using-github-in-your-classroom-and-research)”。 更多信息请访问 [{% data variables.product.prodname_education %}](https://education.github.com/)。
+经验证的教师可出于教学和学术研究目的申请 {% data variables.product.prodname_team %}。 经验证的教师可出于教学和学术研究目的申请 {% data variables.product.prodname_team %}。 更多信息请参阅“[在课堂和研究中使用 {{ site.data.variables.product.prodname_dotcom }}](/articles/using-github-in-your-classroom-and-research)”。 更多信息请访问 [{% data variables.product.prodname_education %}](https://education.github.com/)。
 
 ### 非赢利组织和图书馆折扣
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Applying suggested changes
@@ -23,6 +24,10 @@ Each person who suggested a change included in the commit will be a co-author of
     - To add the suggestion to a batch of changes, click **Add suggestion to batch**. Continue to add the suggested changes you want to include in a single commit. When you've finished adding suggested changes, click **Commit suggestions**. ![Add suggestion to batch button](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. In the commit message field, type a short, meaningful commit message that describes the change you made to the file or files. ![Commit message field](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Click **Commit changes.** ![Commit changes button](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### Opening an issue for an out-of-scope suggestion
 

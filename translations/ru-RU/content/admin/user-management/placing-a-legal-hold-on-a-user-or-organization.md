@@ -1,11 +1,11 @@
 ---
 title: Placing a legal hold on a user or organization
-intro: 'You can place a legal hold on a user or organization to ensure that repositories they own cannot be permanently removed from {% data variables.product.product_location_enterprise %}.'
+intro: 'You can place a legal hold on a user or organization to ensure that repositories they own cannot be permanently removed from your enterprise.'
 redirect_from:
-  - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. After 90 days the repository is purged and deleted forever. If you place a legal hold on a user or organization, repositories they own are available for restore indefinitely.

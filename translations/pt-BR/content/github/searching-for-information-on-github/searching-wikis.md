@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode pesquisar wikis globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+Você pode pesquisar wikis globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
 {% data reusables.search.syntax_tips %}
 

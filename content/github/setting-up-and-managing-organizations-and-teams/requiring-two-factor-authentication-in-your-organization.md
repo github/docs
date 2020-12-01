@@ -14,7 +14,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)."
+You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)."
 
 {% endif %}
 

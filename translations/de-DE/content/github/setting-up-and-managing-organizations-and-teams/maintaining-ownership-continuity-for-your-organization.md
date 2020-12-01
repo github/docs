@@ -1,6 +1,6 @@
 ---
 title: Aufrechterhaltung der Inhaberkontinuität für Deine Organisation
-intro: 'Organisationen können mehr als einen Organisationsinhaber haben, um Inhaberlücken zu vermeiden.'
+intro: Organisationen können mehr als einen Organisationsinhaber haben, um Inhaberlücken zu vermeiden.
 redirect_from:
   - /articles/changing-a-person-s-role-to-owner
   - /articles/changing-a-persons-role-to-owner
@@ -9,6 +9,7 @@ permissions: Organisationsinhaber können jedes Mitglied einer Organisation zum 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Über die Aufrechterhaltung der Inhaberkontinuität für Deine Organisation

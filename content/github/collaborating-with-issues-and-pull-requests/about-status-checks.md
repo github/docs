@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
@@ -28,7 +29,7 @@ There are two types of status checks on {% data variables.product.product_name %
 
 _Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_app %}s.
 
-Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/v3/checks/)" and "[Statuses](/v3/repos/statuses/)."
+Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
 ### Checks
 
@@ -46,7 +47,7 @@ You can navigate between the checks summaries for various commits in a pull requ
 
 #### Skipping and requesting checks for individual commits
 
-When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)."
+When a repository is set to automatically request checks for pushes, you can choose to skip checks for an individual commit you push. When a repository is _not_ set to  automatically request checks for pushes, you can request checks for an individual commit you push. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
 To skip or request checks for your commit, add one of the following trailer lines to the end of your commit message:
 

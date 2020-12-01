@@ -1,11 +1,12 @@
 ---
 title: 关于 SSH
-intro: '使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 {% data variables.product.product_name %}，而无需在每次访问时提供用户名或密码。'
+intro: '使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 {% data variables.product.product_name %}，而无需在每次访问时都提供用户名和个人访问令牌。'
 redirect_from:
   - /articles/about-ssh
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在设置 SSH 时，将会[生成 SSH 密钥并将其添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)，然后[将该密钥添加到您的 {% data variables.product.product_name %} 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。 将 SSH 密钥添加到 ssh-agent，通过使用密码确保 SSH 密钥增加一层保护。 更多信息请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
@@ -15,12 +16,11 @@ versions:
 建议定期[查阅 SSH 密钥列表](/articles/reviewing-your-ssh-keys)，撤销任何无效或安全受到威胁的密钥。
 
 {% if currentVersion == "free-pro-team@latest" %}
-如果 SSH 密钥一年未使用，则作为安全预防措施，{% data variables.product.prodname_dotcom %} 会自动删除非活动的 SSH 密钥。 更多信息请参阅“[删除或缺失的 SSH 密钥](/articles/deleted-or-missing-ssh-keys)”。
+如果 SSH 密钥一年未使用，则作为安全预防措施，
+{% data variables.product.prodname_dotcom %} 会自动删除非活动的 SSH 密钥。 更多信息请参阅“[删除或缺失的 SSH 密钥](/articles/deleted-or-missing-ssh-keys)”。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 如果您是提供 SSH 证书的组织成员，可以使用证书来访问组织的仓库，而无需添加证书到您的 {% data variables.product.product_name %} 帐户。 更多信息请参阅“[关于 SSH 认证中心](/articles/about-ssh-certificate-authorities)”。
-{% endif %}
 
 ### 延伸阅读
 

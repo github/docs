@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const { difference, isPlainObject } = require('lodash')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 // list of REST markdown files that do not correspond to REST API resources
 // TODO could we get this list dynamically, say via page frontmatter?
@@ -38,6 +38,12 @@ describe('REST references docs', () => {
     const operation = operations.find(operation => operation.operationId === 'emojis/get')
     expect(isPlainObject(operation)).toBe(true)
     expect(operation.description).toContain('GitHub Enterprise')
+  })
+
+  test('loads operations enabled for GitHub Apps', async () => {
+    const operations = await getJSON('/en/free-pro-team@latest/rest/overview/endpoints-available-for-github-apps?json=rest.operationsEnabledForGitHubApps')
+    expect(operations['free-pro-team@latest'].actions.length).toBeGreaterThan(0)
+    expect(operations['enterprise-server@2.22'].actions.length).toBeGreaterThan(0)
   })
 
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {

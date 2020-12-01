@@ -1,6 +1,6 @@
 ---
 title: Mitarbeiter zu einem persönlichen Repository einladen
-intro: 'Du kannst {% if currentVersion == "free-pro-team@latest" %}Benutzer als Mitarbeiter zu Deinem persönlichen Repository einladen{% else %}Benutzer als Mitarbeiter zu Deinem persönlichen Repository hinzufügen{% endif %}.'
+intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffsberechtigungen gewähren. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {% data variables.product.product_name %}](/articles/access-permissions-on-github).“
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
@@ -29,7 +30,7 @@ Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffs
 
 1. Frage nach dem Benutzernamen der Person, die Du als Mitarbeiter einlädst.
 
-{% if currentVersion == "free-pro-team@latest" %} Wenn die Person noch keinen Benutzernamen besitzt, kann sie sich für {% data variables.product.prodname_dotcom %} anmelden. Weitere Informationen findest Du unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -49,7 +50,7 @@ Repositorys, die einer Organisation gehören, können feiner abgestufte Zugriffs
 
 ### Weiterführende Informationen
 
-- „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)“
+- „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)“
 - „[Mitarbeiter aus einem persönlichen Repository entfernen](/articles/removing-a-collaborator-from-a-personal-repository)“
 - „[Dich selbst aus dem Repository eines Mitarbeiters entfernen](/articles/removing-yourself-from-a-collaborator-s-repository)“
 - „[Mitglieder in Teams organisieren](/articles/organizing-members-into-teams)“

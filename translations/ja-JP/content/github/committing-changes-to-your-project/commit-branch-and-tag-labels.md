@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コミットがデフォルトブランチにない場合、コミットを含むブランチが表示されます。 コミットがマージされていないプルリクエストの一部である場合は、リンクが表示されます。
@@ -14,7 +15,7 @@ versions:
 
 コミットがデフォルトブランチにある場合は、そのコミットを含むタグがすべて表示され、ブランチのリストにはデフォルトブランチのみが表示されます。
 
-![Commit-master-label](/assets/images/help/commits/Commit-master-label.png)
+![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
 ### 参考リンク
 

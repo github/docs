@@ -15,8 +15,8 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 
 启用 SCIM 后，您在 Okta 中为其分配了 {% data variables.product.prodname_ghe_cloud %} 应用程序的任何用户都可以使用以下配置。
 
-| 功能       | 描述                                                                                                      |
-| -------- | ------------------------------------------------------------------------------------------------------- |
+| 功能       | 描述                                                                                                 |
+| -------- | -------------------------------------------------------------------------------------------------- |
 | 推送新用户    | 在 Okta 中创建新用户时，该用户将收到一封电子邮件，让其加入您的 {% data variables.product.prodname_dotcom %} 组织。                |
 | 推送用户停用   | 当您在 Okta 中停用某用户时，Okta 会将该用户从您的 {% data variables.product.prodname_dotcom %} 组织中删除。                 |
 | 推送个人资料更新 | 当您在 Okta 中更新某用户的个人资料时，Okta 会在您的 {% data variables.product.prodname_dotcom %} 组织中更新该用户成员资格的元数据。     |
@@ -70,7 +70,7 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 
 ### 延伸阅读
 
-- “[使用 Okta 为企业帐户配置 SAML 单点登录和 SCIM](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)”
+- “[使用 Okta 为企业帐户配置 SAML 单点登录和 SCIM](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)”
 - "[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - Okta 文档中的[了解 SAML](https://developer.okta.com/docs/concepts/saml/)
 - Okta 文档中的[了解 SCIM](https://developer.okta.com/docs/concepts/scim/)

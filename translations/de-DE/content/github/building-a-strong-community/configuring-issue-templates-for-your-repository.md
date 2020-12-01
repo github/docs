@@ -1,18 +1,25 @@
 ---
 title: Issuevorlagen für Dein Repository konfigurieren
-intro: 'Du kannst die Vorlagen anpassen, die für Mitarbeiter zur Verfügung stehen, wenn sie neue Issues in Deinem Repository eröffnen.'
+intro: Du kannst die Vorlagen anpassen, die für Mitarbeiter zur Verfügung stehen, wenn sie neue Issues in Deinem Repository eröffnen.
 redirect_from:
   - /github/building-a-strong-community/creating-issue-templates-for-your-repository
   - /articles/configuring-issue-templates-for-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 {% data reusables.repositories.default-issue-templates %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
 ### Issuevorlagen erstellen
+
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -24,10 +31,10 @@ versions:
 7. Um automatisch einen standardmäßigen Issuetitel einzurichten, weise den Issue an Benutzern mit Lesezugriff auf das Repository zu. Du kannst auch Kennzeichnungen zur Issuevorlage hinzufügen und diese Details unter „Optional additional Information“ (Optionale zusätzliche Informationen) eingeben. Außerdem kannst Du diese Details auch in der Issuevorlage mit `title`, `labels` oder `assignees` im YAML-Titelei-Format hinzufügen. ![Zusätzliche Informationen für Issuevorlagen](/assets/images/help/repository/additional-issue-template-info.png)
 8. Wenn mit der Vorschau und Bearbeitung der Vorlage fertig bist, klicke in der oberen rechten Ecke der Seite auf **Propose changes** (Änderungen vorschlagen). ![Schaltfläche „Propose changes“ (Änderungen vorschlagen)](/assets/images/help/repository/propose-changes-button.png)
 9. Gib eine Commit-Mitteilung ein, in der Du Deine Änderungen beschreibst. ![Feld „Issue template commit message" (Commit-Mitteilung für Issuevorlage)](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. Lege unterhalb der Commit-Mitteilungsfelder fest, ob Du Deine Vorlage direkt an den Standardbranch freigeben oder einen neuen Branch erstellen und einen Pull Request öffnen möchtest. Weitere Informationen zu Pull Requests findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests).“ ![Auswahl zwischen Commit der Issuevorlage an Master oder Öffnen eines Pull Requests](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+10. Lege unterhalb der Commit-Mitteilungsfelder fest, ob Du Deine Vorlage direkt an den Standardbranch freigeben oder einen neuen Branch erstellen und einen Pull Request öffnen möchtest. Weitere Informationen zu Pull Requests findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests).“ ![Issue template commit to main or open pull request choice](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Klicke auf **Commit changes** (Änderungen freigeben). Sobald diese Änderungen in den Standardbranch zusammengeführt wurden, steht die Vorlage für Mitarbeiter zur Verfügung, wenn sie neue Issues im Repository erstellen.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Konfigurieren der Vorlagenauswahl
 
 {% data reusables.repositories.issue-template-config %}

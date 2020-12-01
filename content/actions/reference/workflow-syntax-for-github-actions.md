@@ -227,7 +227,7 @@ Each job runs in an environment specified by `runs-on`.
 
 You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
 ### **`jobs.<job_id>`**
 
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@master
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -595,11 +595,11 @@ You can override the default shell settings in the runner's operating system usi
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
 | All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
-| All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command "& '{0}'"` |
+| All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
 | All | `python` | Executes the python command. | `python {0}` |
 | Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
 | Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command "& '{0}'"`. |
+| Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
 ##### Example running a script using bash
 
@@ -659,7 +659,7 @@ For built-in shell keywords, we provide the following defaults that are executed
 
 - `cmd`
   - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will and return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to use with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
 #### **`jobs.<job_id>.steps.env`**
 
@@ -876,6 +876,12 @@ strategy:
 
 {% endnote %}
 
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+
+{% data reusables.github-actions.matrix-variable-example %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
 When set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
@@ -946,7 +952,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1029,7 +1035,7 @@ services:
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

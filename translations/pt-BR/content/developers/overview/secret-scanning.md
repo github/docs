@@ -79,7 +79,7 @@ Content-Length: 0123
 ]
 ```
 
-O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta.
+O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta. Seu ponto de extremidade deve ser capaz de lidar com solicitações com um grande número de correspondências sem exceder o tempo.
 
 * **Token**: O valor da correspondência secreta.
 * **Tipo**: O nome único que você forneceu para identificar sua expressão regular.

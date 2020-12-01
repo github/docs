@@ -1,6 +1,6 @@
 ---
-title: Building GitHub Apps
-intro: You can build GitHub Apps for personal or public use. Learn how to register and set up permissions and authentication options for GitHub Apps.
+title: GitHub App を構築する
+intro: GitHub App を、個人用または一般用として構築できます。 GitHub App の登録と、権限および認証オプションの設定方法について学びましょう。
 mapTopic: true
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/
@@ -8,5 +8,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

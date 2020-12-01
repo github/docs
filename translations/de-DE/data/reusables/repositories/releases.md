@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 
 1. Klicke unter Deinem Repository-Namen auf **Releases**. ![Registerkarte „Releases"](/assets/images/help/releases/release-link.png)
 

@@ -8,6 +8,7 @@ intro: 'Du kannst OAuth-Tokens einsetzen, um über automatisierte Skripts mit {%
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Schritt 1: Ein OAuth-Token erhalten
@@ -42,4 +43,4 @@ Um diese Aufforderungen zu vermeiden, kannst Du die Passwort-Zwischenspeicherung
 
 ### Weiterführende Informationen
 
-- "[Authorizing OAuth Apps](/v3/oauth/)"
+- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

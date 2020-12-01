@@ -1,1 +1,1 @@
-Activity related to an issue. {% data reusables.webhooks.action_type_desc %} For more information, see the "[labels](/v3/issues/labels/)" REST API.
+Atividade relacionada a um problema. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte API REST de [etiquetas](/rest/reference/issues#labels)".

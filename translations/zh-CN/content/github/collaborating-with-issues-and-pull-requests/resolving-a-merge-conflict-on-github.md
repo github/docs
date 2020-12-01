@@ -1,25 +1,29 @@
 ---
 title: 在 GitHub 上解决合并冲突
-intro: 您可以使用冲突编辑器在 GitHub 上解决涉及竞争行更改的简单合并冲突。
+intro: '您可以使用冲突编辑器在 GitHub 上解决涉及竞争行更改的简单合并冲突。'
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您只能在 {% data variables.product.product_name %} 上解决由竞争行更改引起的合并冲突，例如当人们对 Git 仓库中不同分支上同一文件的同一行进行不同的更改时。 对于所有其他类型的合并冲突，您必须在命令行上本地解决冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line/)”。
 
-{% if currentVersion != "free-pro-team@latest" %}
-如果站点管理员对仓库之间的拉取请求禁用合并冲突编辑器，则无法在 {% data variables.product.product_name %} 上使用冲突编辑器，并且必须在命令行上解决合并冲突。 例如，如果禁用合并冲突编辑器，则无法在复刻和上游仓库之间的拉取请求中使用它。
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+如果站点管理员对仓库之间的拉取请求禁用合并冲突编辑器，则无法在
+{% data variables.product.product_name %} 上使用冲突编辑器，并且必须在命令行上解决合并冲突。 例如，如果禁用合并冲突编辑器，则无法在复刻和上游仓库之间的拉取请求中使用它。
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. 确保您确实想要提交到此分支。
+**警告：**在
+{% data variables.product.product_name %} 上解决合并冲突时，拉取请求的整个[基本分支](/github/getting-started-with-github/github-glossary#base-branch)都会合并到[头部分支](/github/getting-started-with-github/github-glossary#head-branch)中，即使头部分支是仓库的默认分支或受保护分支。 确保您确实想要提交到此分支。
 {% else %}
-**警告：**在 {% data variables.product.product_name %} 上解决合并冲突时，拉取请求的整个[基本分支](/github/getting-started-with-github/github-glossary#base-branch)都会合并到[头部分支](/github/getting-started-with-github/github-glossary#head-branch)中。 确保您确实想要提交到此分支。 If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. 如果头部分支是受保护分支，则无法将冲突解决合并到其中，因此系统会提示您创建一个新的头部分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
+**警告：**在
+{% data variables.product.product_name %} 上解决合并冲突时，拉取请求的整个[基本分支](/github/getting-started-with-github/github-glossary#base-branch)都会合并到[头部分支](/github/getting-started-with-github/github-glossary#head-branch)中。 确保您确实想要提交到此分支。 如果头部分支是仓库的默认分支，您可以选择创建一个新分支作为拉取请求的头部分支。 如果头部分支是受保护分支，则无法将冲突解决合并到其中，因此系统会提示您创建一个新的头部分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
 {% endif %}
 
 {% endwarning %}
@@ -30,7 +34,7 @@ versions:
 
  {% tip %}
 
- **提示：**如果停用 **Resolve conflicts（解决冲突）**按钮，则拉取请求的合并冲突过于复杂而无法在 {% data variables.product.product_name %} 上解决{% if currentVersion != "free-pro-team@latest" %}或站点管理员已禁用仓库之间拉取请求的冲突编辑器{% endif %}。 必须使用备用 Git 客户端或在命令行上使用 Git 解决合并冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line)”。
+ **提示：**如果停用 **Resolve conflicts（解决冲突）**按钮，则拉取请求的合并冲突过于复杂而无法在 {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 上解决，或站点管理员已禁用仓库之间拉取请求的冲突编辑器{% endif %}。 必须使用备用 Git 客户端或在命令行上使用 Git 解决合并冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line)”。
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

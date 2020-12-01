@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Accessing your organization dashboard
@@ -28,7 +29,7 @@ In the left sidebar of your dashboard, you can access your organization's top re
 
 In the "All activity" section of your news feed, you can view updates from other teams and repositories in your organization.
 
-The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
+The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
 
 For instance, the organization news feed shows updates when someone in the organization:
  - Creates a new branch.
@@ -36,8 +37,8 @@ For instance, the organization news feed shows updates when someone in the organ
  - Submits a pull request review comment.
  - Forks a repository.
  - Creates a wiki page.
- - Pushes commits.
- - Creates a public repository.
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### Further information
 

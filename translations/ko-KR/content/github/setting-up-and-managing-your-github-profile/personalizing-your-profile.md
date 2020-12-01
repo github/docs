@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Changing your profile picture
@@ -40,7 +41,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 ### Changing your profile name
 
-You can change the name that is displayed on your profile. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."{% endif %}
+You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
 
 {% data reusables.user_settings.access_settings %}
 2. Under "Name", type the name you want to be displayed on your profile. ![Name field in profile settings](/assets/images/help/profile/name-field.png)
@@ -51,7 +52,7 @@ Add a bio to your profile to share information about yourself with other {% data
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information on the profile README, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 
 {% endif %}
 
@@ -101,12 +102,12 @@ If you select the "Busy" option, when people @mention your username, assign you 
 
 When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.
 
-| Badge                                                           | Program                                                                   | 설명                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Badge                                                           | Program                                                              | 설명                                                                                                                                                                                                                                                                                                                                                         |
+| --------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} Contributor** | If you authored any commit(s) on the default branch of a repository that was archived in the 2020 Arctic Vault program, you'll get an {% data variables.product.prodname_arctic_vault %} Contributor badge on your profile. For more information on the program, see [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com). |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Developer Program Member**                                              | If you're a registered member of the GitHub Developer Program, building an app with the GitHub API, you'll get a Developer Program Member badge on your profile. For more information on the GitHub Developer Program, see [GitHub Developer](/program/).                                                                                                            |
-| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub Sponsor**                                                        | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a GitHub Sponsor badge on your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)."                                 |
-| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                                   | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)."                                                |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Developer Program Member**                                         | If you're a registered member of the GitHub Developer Program, building an app with the GitHub API, you'll get a Developer Program Member badge on your profile. For more information on the GitHub Developer Program, see [GitHub Developer](/program/).                                                                                                  |
+| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub Sponsor**                                                   | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a GitHub Sponsor badge on your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)."                            |
+| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                              | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products#github-pro)."                                                     |
 
 ### Disabling badges on your profile
 

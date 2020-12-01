@@ -1,12 +1,13 @@
 ---
-title: 错误：ssh-add：非法选项 -- K
-intro: 此错误意味着您的‘ssh-add’版本不支持 macOS 密钥链集成，此集成允许您将密码存储在密钥链中。
+title: '错误：ssh-add：非法选项 -- K'
+intro: '此错误意味着您的‘ssh-add’版本不支持 macOS 密钥链集成，此集成允许您将密码存储在密钥链中。'
 redirect_from:
   - /articles/error-ssh-add-illegal-option-k
   - /articles/error-ssh-add-illegal-option----k
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当您将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在您的密钥链中。 如果您已安装不同版本的 `ssh-add`，该版本可能缺少对 `-K` 的支持。

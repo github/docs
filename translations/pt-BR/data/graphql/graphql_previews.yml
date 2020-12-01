@@ -28,57 +28,6 @@
   owning_teams:
     - '@github/ecosystem-api'
 - 
-  title: Verificações
-  description: Esta visualização adiciona suporte para verificações de leitura criadas pelo GitHub Apps.
-  toggled_by: ':antiope-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - CheckAnnotationRange
-    - CheckAnnotationPosition
-    - CheckAnnotationSpan
-    - CheckAnnotation
-    - CheckAnnotationConnection.nodes
-    - CheckAnnotationData
-    - CheckAnnotationEdge.node
-    - CheckAnnotationLevel
-    - CheckConclusionState
-    - CheckStatusState
-    - CheckSuiteAutoTriggerPreference
-    - CheckRun
-    - CheckRunConnection.nodes
-    - CheckRunEdge.node
-    - CheckRunAction
-    - CheckRunFilter
-    - CheckRunOutput
-    - CheckRunOutputImage
-    - CheckRunType
-    - CheckSuite
-    - CheckSuiteConnection.nodes
-    - CheckSuiteEdge.node
-    - CheckSuiteFilter
-    - CreateCheckRunInput
-    - CreateCheckRunPayload
-    - CreateCheckSuiteInput
-    - CreateCheckSuitePayload
-    - Commit.checkSuites
-    - Mutation.createCheckRun
-    - Mutation.createCheckSuite
-    - Mutation.rerequestCheckSuite
-    - Mutation.updateCheckRun
-    - Mutation.updateCheckSuitePreferences
-    - Push
-    - RequestableCheckStatusState
-    - RerequestCheckSuiteInput
-    - RerequestCheckSuitePayload
-    - UpdateCheckRunInput
-    - UpdateCheckRunPayload
-    - UpdateCheckSuitePayload.checkSuite
-    - UpdateCheckSuitePreferencesInput
-    - UpdateCheckSuitePreferencesPayload
-  owning_teams:
-    - '@github/ce-extensibility'
-- 
   title: >-
     MergeInfoPreview - Mais informações detalhadas sobre o estado de merge de uma pull request.
   description: >-
@@ -104,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: Acesso aos Repositórios com Gráfico de Dependência
   description: Esta visualização adiciona suporte para a leitura em um repositório com gráfico de dependência.
@@ -153,7 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: Visualização de Issues fixados
   description: Esta visualização adiciona suporte para os issues fixos.

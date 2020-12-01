@@ -7,11 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 Interessado em integrar-se à plataforma do GitHub? [Você está em boas mãos](https://github.com/integrations). Este guia ajudará você a construir um aplicativo que fornece a melhor experiência para seus usuários *e* garantir que interaja, de modo confiável, com a API.
-
 
 ### Garante cargas seguras entregues a partir do GitHub
 
@@ -20,16 +20,16 @@ Interessado em integrar-se à plataforma do GitHub? [Você está em boas mãos](
 Há várias etapas que você pode dar para garantir o recebimento de cargas entregues pelo GitHub:
 
 1. Certifique-se de que seu servidor de recebimento tenha uma conexão HTTPS. Por padrão, o GitHub verificará os certificados SSL ao entregar cargas.{% if currentVersion == "free-pro-team@latest" %}
-1. Você pode adicionar [o endereço IP que usamos ao entregar hooks](/github/authenticating-to-github/about-githubs-ip-addresses) à lista de permissões do seu servidor. Para garantir que você esteja sempre verificando o endereço IP correto, você pode [usar o ponto de extremidade `/meta`](/v3/meta/#meta) para encontrar o endereço que utilizamos.{% endif %}
+1. Você pode adicionar [o endereço IP que usamos ao entregar hooks](/github/authenticating-to-github/about-githubs-ip-addresses) à lista de permissões do seu servidor. Para garantir que você esteja sempre verificando o endereço IP correto, você pode [usar o ponto de extremidade `/meta`](/rest/reference/meta#meta) para encontrar o endereço que utilizamos.{% endif %}
 1. Forneça [um token secreto](/webhooks/securing/) para garantir que as cargas estão definitivamente vindo do GitHub. Ao impor um token secreto, você garantirá que todos os dados recebidos pelo seu servidor estejam absolutamente vindo do GitHub. Idealmente, você deve fornecer um token secreto diferente *por usuário* do seu serviço. Dessa forma, se um token for comprometido, nenhum outro usuário será afetado.
 
 ### Favoreça o trabalho assíncrono em detrimento do trabalho síncrono
 
-O GitHub espera que as integrações respondam dentro de {% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %} segundos após receber a carga do webhook. Se o seu serviço demorar mais do que isso para ser concluído, o GitHub encerrará a conexão e a carga será perdida.
+O GitHub espera que as integrações respondam dentro de {% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %} segundos para receber a carga do webhook. Se o seu serviço demorar mais do que isso para ser concluído, o GitHub encerrará a conexão e a carga será perdida.
 
 Como é impossível prever a rapidez com que o seu serviço será concluído, você deve fazer todo o "trabalho real" em um trabalho que atue em segundo plano. [Resque](https://github.com/resque/resque/) (para Ruby), [RQ](http://python-rq.org/) (para Python) ou [RabbitMQ](http://www.rabbitmq.com/) (para Java) são exemplos de bibliotecas que podem lidar com a fila e o processamento de trabalhos em segundo plano.
 
-Observe que, mesmo com um trabalho em segundo plano, o GitHub ainda espera que seu servidor responda no prazo de {% if currentVersion == "free-pro-team@latest" %}dez{% else %}trinta{% endif %} segundos. Seu servidor precisa reconhecer que recebeu a carga enviando algum tipo de resposta. É fundamental que o seu serviço realize qualquer validação em uma carga o mais rápido possível para que você possa relatar com precisão se o seu servidor irá continuar com a solicitação ou não.
+Observe que mesmo com um trabalho em segundo plano em andamento, o GitHub ainda espera que o seu servidor responda dentro de {% if currentVersion == "free-pro-team@latest" %}dez{% else %}trinta{% endif %} segundos. Seu servidor precisa reconhecer que recebeu a carga enviando algum tipo de resposta. É fundamental que o seu serviço realize qualquer validação em uma carga o mais rápido possível para que você possa relatar com precisão se o seu servidor irá continuar com a solicitação ou não.
 
 ### Use códigos de status de HTTP apropriados ao responder ao GitHub
 
@@ -49,7 +49,7 @@ Os usuários podem entrar nas respostas do servidor que você enviar de volta ao
 
 O GitHub é explícito ao informar quando um recurso foi movido, fornecendo um código de estado de redirecionamento. Você deveria seguir estes redirecionamentos. Cada resposta de redirecionamento define o cabeçalho da `Localização` com a nova URI a ser acessada. Se você receber um redirecionamento, é melhor atualizar seu código para seguir a nova URI, caso você esteja solicitando um caminho obsoleto que possamos remover.
 
-Nós fornecemos [uma lista de códigos de status de HTTP](/v3/#http-redirects) que você pode consultar ao projetar o seu aplicativo para seguir redirecionamentos.
+Nós fornecemos [uma lista de códigos de status de HTTP](/rest#http-redirects) que você pode consultar ao projetar o seu aplicativo para seguir redirecionamentos.
 
 ### Não analise as URLs manualmente
 

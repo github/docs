@@ -1,11 +1,12 @@
 ---
 title: 親チームの追加または変更をリクエストする
-intro: ある Team でメンテナーの権限を所有している場合は、Organization の階層内で自分の Team を親チームの下にネストするようにリクエストできます。
+intro: 'ある Team でメンテナーの権限を所有している場合は、Organization の階層内で自分の Team を親チームの下にネストするようにリクエストできます。'
 redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 自分の Team の親を追加または変更するようにリクエストすると、その親チームのメンテナーにリクエストが送信されます。 新しい親チームのメンテナーがリクエストを承認すると、自分の Team は Organization の階層内で親チームの下に子チームとしてネストされます。

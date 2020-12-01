@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントからのユーザのブロック
-intro: ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。
+intro: 'ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
@@ -20,6 +20,7 @@ versions:
 ユーザをブロックすると、以下のようになります:
 - そのユーザによるあなたのフォローは止まります
 - ユーザがリポジトリの Watch を停止し、リポジトリのピン留めを解除します
+- The user is not able to join any organizations you are an owner of
 - そのユーザによる Star 付けや Issue 割り当てはリポジトリから削除されます。
 - リポジトリのユーザのフォークが削除されます
 - ユーザのリポジトリのフォークを削除します

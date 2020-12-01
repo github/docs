@@ -27,13 +27,13 @@ versions:
 
 在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
 
-在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 {% data reusables.package_registry.lowercase-name-field %}
+在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 将 {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为 {% data variables.product.prodname_ghe_server %} 实例的主机名称，{% endif %}将 *REPOSITORY* 替换为您要向其发布包或从中安装包的仓库的名称，并将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称。 由于不支持大写字母，因此，即使您的 {% data variables.product.prodname_dotcom %} 用户或组织名称中包含大写字母，也必须对仓库所有者使用小写字母。
 
 如果要与多个仓库交互，您可以将每个仓库添加到 `repository` 标记中独立的子 `repositories`，将每个仓库的 `id` 映射到 `servers` 标记中的凭据。
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
@@ -60,7 +60,7 @@ versions:
         <repository>
           <id>github</id>
           <name>GitHub OWNER Apache Maven Packages</name>
-          <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+          <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
         </repository>
       </repositories>
     </profile>
@@ -76,7 +76,7 @@ versions:
 </settings>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```
@@ -127,14 +127,14 @@ versions:
 
 {% data reusables.package_registry.default-name %} 例如，{% data variables.product.prodname_dotcom %} 将名为 `com.example:test` 的包发布到名为 `OWNER/test` 的仓库中。
 
-如果要将多个包发布到同一个仓库，您可以在 `pom.xml` 文件的 `<distributionManagement>` 元素中包含该仓库的 URL。 {% data variables.product.prodname_dotcom %} will match the repository based on that field. 由于仓库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一个仓库无需额外步骤、
+如果要将多个包发布到同一个仓库，您可以在 `pom.xml` 文件的 `<distributionManagement>` 元素中包含该仓库的 URL。 {% data variables.product.prodname_dotcom %} 将根据该字段匹配仓库。 由于仓库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一个仓库无需额外步骤、
 
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 
 1. 编辑包目录中 *pom.xml* 文件的 `distributionManagement` 元素，将 `OWNER` 替换为拥有该仓库的用户或组织帐户的名称，将 `REPOSITORY` 替换为包含项目的仓库的名称。
 
-在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
-  {% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}将 *HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名称， {% endif %}将 `OWNER` 替换为拥有仓库的用户或组织帐户的名称，并将 `REPOSITORY` 替换为包含您项目的仓库的名称。
+  {% if enterpriseServerVersions contains currentVersion %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
   ```
@@ -142,11 +142,11 @@ versions:
      <repository>
        <id>github</id>
        <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+       <url>https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
      </repository>
   </distributionManagement>
   ```
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
   ```
   <distributionManagement>

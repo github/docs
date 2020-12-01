@@ -20,4 +20,4 @@ Se as notificações de e-mail estiverem configuradas, você poderá acessar as 
 ### Leia mais
 
 - "[Sobre notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "<a href="/enterprise/[/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching">Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
+- "[Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

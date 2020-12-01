@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** To access the API with your GitHub App, you must provide a custom [media type](/v3/media) in the `Accept` Header for your requests.
+**注：**要使用 GitHub 应用程序访问 API，您必须在请求的 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)。
 
 `application/vnd.github.machine-man-preview+json`
 

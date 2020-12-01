@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Use o menu Sort (Ordenar) para ordenar os resultados por relevância, número de estrelas, número de bifurcações e data da atualização dos itens.
@@ -18,8 +19,8 @@ Para ordenar por interações, reações, data de criação, data do committer e
 
 O qualificador `sort:interactions` ordena pelo maior número combinado de reações e comentários.
 
-| Qualifier                                       | Exemplo                                                                                                                                                                                                                                                                                        |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifier                                       | Exemplo                                                                                                                                                                                                                                                                                   |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:interactions` ou `sort:interactions-desc` | [**org:github sort:interactions**](https://github.com/search?q=org%3Agithub+sort%3Ainteractions&type=Issues) identifica os problemas nos repositórios do {% data variables.product.product_name %} ordenados pelo maior número combinado de reações e comentários.                        |
 | `sort:interactions-asc`                         | [**org:github sort:interactions-asc**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Ainteractions-asc&type=Issues) identifica os problemas nos repositórios do {% data variables.product.product_name %} ordenados pelo menor número combinado de reações e comentários. |
 
@@ -27,8 +28,8 @@ O qualificador `sort:interactions` ordena pelo maior número combinado de reaç�
 
 O qualificador `sort:reactions` ordena pelo número ou tipo de reações.
 
-| Qualifier                                 | Exemplo                                                                                                                                                                                                                                                                                  |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifier                                 | Exemplo                                                                                                                                                                                                                                                                             |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:reactions` ou `sort:reactions-desc` | [**org:github sort:reactions**](https://github.com/search?q=org%3Agithub+sort%3Areactions&type=Issues) identifica os problemas nos repositórios do {% data variables.product.product_name %} ordenados pelo maior número de reações.                                                |
 | `sort:reactions-asc`                      | [**org:github sort:reactions-asc**](https://github.com/search?q=org%3Agithub+sort%3Areactions-asc&type=Issues) identifica os problemas nos repositórios do {% data variables.product.product_name %} ordenados pelo número crescente de reações (do menor para o maior).            |
 | <code>sort:reactions-<em>reaction</em></code>                 | [**org:github sort:reactions-+1**](https://github.com/search?q=org%3Agithub+sort%3Areactions-%2B1&type=Issues) identifica os problemas nos repositórios do {% data variables.product.product_name %} ordenados pelo maior número de reações de curtida (:+1:).                      |
@@ -41,8 +42,8 @@ O qualificador `sort:reactions` ordena pelo número ou tipo de reações.
 
 O qualificador `sort:author-date` ordena de forma crescente ou decrescente por data de criação.
 
-| Qualifier                                     | Exemplo                                                                                                                                                                                                                                                                                                                      |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifier                                     | Exemplo                                                                                                                                                                                                                                                                                                                 |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:author-date` ou `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) identifica os commits que contêm a palavra "feature" nos repositórios do {% data variables.product.product_name %} ordenados de forma decrescente por data de criação.       |
 | `sort:author-date-asc`                        | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) identifica os commits que contêm a palavra "feature" nos repositórios do {% data variables.product.product_name %} ordenados de forma crescente por data de criação. |
 
@@ -50,8 +51,8 @@ O qualificador `sort:author-date` ordena de forma crescente ou decrescente por d
 
 O qualificador `sort:committer-date` ordena de forma crescente ou decrescente por data do committer.
 
-| Qualifier                                           | Exemplo                                                                                                                                                                                                                                                                                                                              |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Qualifier                                           | Exemplo                                                                                                                                                                                                                                                                                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:committer-date` ou `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) identifica os commits que contêm a palavra "feature" nos repositórios do {% data variables.product.product_name %} ordenados de forma decrescente por data do committer.       |
 | `sort:committer-date-asc`                           | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) identifica os commits que contêm a palavra "feature" nos repositórios do {% data variables.product.product_name %} ordenados de forma crescente por data do committer. |
 

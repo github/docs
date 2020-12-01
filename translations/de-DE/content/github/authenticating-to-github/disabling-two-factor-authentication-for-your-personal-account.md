@@ -12,7 +12,7 @@ Wir empfehlen dringend, Dein Konto mit der Zwei-Faktor-Authentifizierung zu sch�
 
 {% warning %}
 
-**Warnung:** Wenn Du ein Mitglied{% if currentVersion == "free-pro-team@latest" %}, Abrechnungsmanager{% endif %} oder externer Mitarbeiter eines öffentlichen Repositorys einer Organisation bist, die die Zwei-Faktor-Authentifizierung voraussetzt, und Du die 2FA deaktivierst, wirst Du automatisch aus der Organisation entfernt und verlierst den Zugriff auf deren Repositorys. Um wieder auf die Organisation zugreifen zu können, aktiviere die Zwei-Faktor-Authentifizierung erneut und wende Dich an einen Organisationsinhaber.
+**Warning:** If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. Um wieder auf die Organisation zugreifen zu können, aktiviere die Zwei-Faktor-Authentifizierung erneut und wende Dich an einen Organisationsinhaber.
 
 {% endwarning %}
 

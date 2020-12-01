@@ -1,0 +1,47 @@
+{% assign product = siteTree[currentLanguage][currentVersion].products[currentProduct] %}
+{% assign maxArticles = 10 %}
+
+<div class="py-6">
+  <h2 class="font-mktg mb-4">All {{ product.title }} docs</h2>
+
+  <div class="d-flex gutter flex-wrap">
+    {% for category in product.categories %}
+      {% unless category[1].standalone %}
+        <div class="col-12 col-lg-4 mb-6 height-full">
+          <h4 class="mb-3"><a href="/{{ currentLanguage }}{{ category[1].href }}">{{ category[1].title }}</a></h4>
+
+          {% if category[1].maptopics %}
+            <ul class="list-style-none">
+              {% for maptopic in category[1].maptopics %}
+                {% unless maptopic[1].hidden %}
+                  {% assign numArticles = maptopic[1].articles | obj_size %}
+                  <li>
+                    <a class="text-gray-dark" href="/{{ currentLanguage }}{{ maptopic[1].href }}">{{ maptopic[1].title }}</a>
+                    <ul class="sidebar-articles my-2">
+                      {% for article in maptopic[1].articles %}
+                        <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}"><a href="/{{ currentLanguage }}{{ article[1].href }}">{{ article[1].title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                    {% if numArticles > maxArticles %}
+                      <button class="js-all-articles-show-more btn-link link-gray">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
+                    {% endif %}
+                  </li>
+                {% endunless %}
+              {% endfor %}
+            </ul>
+          {% else %}
+            <ul class="list-style-none">
+              {% assign numArticles = category[1].articles | obj_size %}
+              {% for article in category[1].articles %}
+                <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}"><a href="/{{ currentLanguage }}{{ article[1].href }}">{{ article[1].title }}</a></li>
+              {% endfor %}
+            </ul>
+            {% if numArticles > maxArticles %}
+              <button class="js-all-articles-show-more btn-link link-gray">Show {{ numArticles | minus: maxArticles }} more {% octicon "chevron-up" class="v-align-text-bottom" %}</button>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>

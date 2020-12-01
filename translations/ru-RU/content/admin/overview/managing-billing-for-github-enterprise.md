@@ -5,7 +5,6 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
   - /enterprise/admin/overview/managing-billing-for-github-enterprise
-  - /enterprise/admin/overview/managing-billing-for-github-enterprise
 versions:
   enterprise-server: '*'
 ---

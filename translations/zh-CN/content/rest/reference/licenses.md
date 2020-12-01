@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 许可 API 返回有关热门开源许可的元数据，以及有关特定项目许可文件的信息。
@@ -15,12 +16,12 @@ versions:
 
 **注：**这些端点还将返回仓库的许可信息：
 
-- [获取仓库](/v3/repos/#get-a-repository)
-- [列出用户的仓库](/v3/repos/#list-repositories-for-a-user)
-- [列出组织仓库](/v3/repos/#list-organization-repositories)
-- [列出复刻](/v3/repos/forks/#list-forks)
-- [列出用户关注的仓库](/v3/activity/watching/#list-repositories-watched-by-a-user)
-- [列出团队仓库](/v3/teams/#list-team-repositories)
+- [获取仓库](/rest/reference/repos#get-a-repository)
+- [列出用户的仓库](/rest/reference/repos#list-repositories-for-a-user)
+- [列出组织仓库](/rest/reference/repos#list-organization-repositories)
+- [列出复刻](/rest/reference/repos#list-forks)
+- [列出用户关注的仓库](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [列出团队仓库](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 

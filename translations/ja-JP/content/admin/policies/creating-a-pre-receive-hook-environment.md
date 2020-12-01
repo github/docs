@@ -1,6 +1,6 @@
 ---
 title: pre-receiveフック環境の作成
-intro: pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。
+intro: 'pre-receiveフックを実行するには、デフォルトのpre-receive環境を使うか、カスタムの環境を作成します。'
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment
@@ -21,10 +21,10 @@ pre-receiveフック環境の構築には、Linuxのコンテナ管理ツール�
 {% data reusables.linux.ensure-docker %}
 2. この情報を含む `Dockerfile.alpine-3.3` ファイルを作成してください:
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN apk add --no-cache git bash
-    ```
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN apk add --no-cache git bash
+   ```
 3. `Dockerfile.alpine-3.3`を含むワーキングディレクトリから、イメージをビルドします:
 
    ```shell
@@ -36,44 +36,43 @@ pre-receiveフック環境の構築には、Linuxのコンテナ管理ツール�
    >  ---> Using cache
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
-  ```
+   ```
 4. コンテナを作成します:
 
    ```shell
    $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
-  ```
+   ```
 5. この Docker コンテナを `gzip` 圧縮された `tar` ファイルにエクスポートします:
 
    ```shell
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
-  ```
+   ```
 
-  このファイル `alpine-3.3.tar.gz` を {% data variables.product.prodname_ghe_server %} アプライアンスにアップロードする準備ができました。
+   このファイル `alpine-3.3.tar.gz` を {% data variables.product.prodname_ghe_server %} アプライアンスにアップロードする準備ができました。
 
 ### chrootを使ったpre-receiveフック環境の作成
 
 1. Linux の `chroot` 環境を作成します。
 2. `chroot` ディレクトリの `gzip` 圧縮された `tar` ファイルを作成します.
-  ```shell
-  $ cd /path/to/chroot
-  $ tar -czf /path/to/pre-receive-environment.tar.gz .
+   ```shell
+   $ cd /path/to/chroot
+   $ tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
-  {% note %}
+   {% note %}
 
-    **ノート:**
-    - `/path/to/chroot`のような、ファイルの先行するディレクトリパスをtarアーカイブに含めないでください。
-    - chroot環境へのエントリポイントとして、`/bin/sh`が存在し、実行可能でなければなりません。
-    - 旧来のchrootと異なり、`dev`ディレクトリはpre-receiveフックのためのchroot環境では必要ありません。
+   **ノート:**
+   - `/path/to/chroot`のような、ファイルの先行するディレクトリパスをtarアーカイブに含めないでください。
+   - chroot環境へのエントリポイントとして、`/bin/sh`が存在し、実行可能でなければなりません。
+   - 旧来のchrootと異なり、`dev`ディレクトリはpre-receiveフックのためのchroot環境では必要ありません。
 
-  {% endnote %}
+   {% endnote %}
 
 chroot 環境の作成に関する詳しい情報については *Debian Wiki* の「[Chroot](https://wiki.debian.org/chroot)」、*Ubuntu Community Help Wiki* の「[BasicChroot](https://help.ubuntu.com/community/BasicChroot)」、または *Alpine Linux Wiki* の「[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)」を参照してください。
 
 ### {% data variables.product.prodname_ghe_server %}へのpre-receiveフック環境のアップロード
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. [**Manage environments**] (環境を管理) をクリックします。 ![環境を管理](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
@@ -90,4 +89,4 @@ chroot 環境の作成に関する詳しい情報については *Debian Wiki* �
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz
    > Pre-receive hook environment 'AlpineTestEnv' (2) has been created.
-  ```
+   ```

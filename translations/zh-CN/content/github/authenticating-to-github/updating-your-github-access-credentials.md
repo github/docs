@@ -1,6 +1,6 @@
 ---
 title: 更新 GitHub 访问凭据
-intro: '{% data variables.product.product_name %} 凭据不仅包括密码，还包括您用于与 {% data variables.product.product_name %} 通信的访问令牌、SSH 密钥和应用程序 API 令牌。 如果您有需要，可以自行重置所有这些访问凭据。'
+intro: '{% data variables.product.product_name %} 凭据不仅{% if currentVersion != "github-ae@latest" %}包括密码，还{% endif %}包括您用于与 {% data variables.product.product_name %} 通信的访问令牌、SSH 密钥和应用程序 API 令牌。 如果您有需要，可以自行重置所有这些访问凭据。'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -8,8 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion != "github-ae@latest" %}
 ### 请求新密码
 
 1. 要请求新密码，请访问 {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
@@ -29,11 +31,7 @@ versions:
 
 1. {% data variables.product.signin_link %}到 {% data variables.product.product_name %}。
 {% data reusables.user_settings.access_settings %}
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.user_settings.security %}
-{%- else %}
-{% data reusables.user_settings.account_settings %}
-{%- endif %}
 4. 在“Change password（更改密码）”下，输入旧密码、强新密码并确认新密码。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
 5. 单击 **Update password（更新密码）**。
 
@@ -42,7 +40,7 @@ versions:
 为实现更高的安全性，除了更改密码以外，还可启用双重身份验证。 有关更多详细信息，请参阅[关于双重身份验证](/articles/about-two-factor-authentication)。
 
 {% endtip %}
-
+{% endif %}
 ### 更新访问令牌
 
 有关审查和删除访问令牌的说明，请参阅“[审查授权的集成](/articles/reviewing-your-authorized-integrations)”。 要生成新的访问令牌，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
@@ -55,6 +53,8 @@ versions:
 
 如果您向 {% data variables.product.product_name %} 注册了任何应用程序，则需要重置其 OAuth 令牌。 更多信息请参阅“[重置授权](/rest/reference/apps#reset-an-authorization)”端点。
 
+{% if currentVersion != "github-ae@latest" %}
 ### 防止未授权的访问
 
 有关保护您的帐户和阻止未授权访问的更多提示，请参阅“[阻止未授权的访问](/articles/preventing-unauthorized-access)”。
+{% endif %}

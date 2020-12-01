@@ -1,15 +1,16 @@
 ---
 title: JIRA を個人プロジェクトに統合する
-intro: Jira Cloud をユーザ アカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。
+intro: 'Jira Cloud をユーザ アカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。'
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
-3. 左サイドバーで [**{% data variables.product.prodname_oauth_app %}s**] をクリックします。 ![左サイドバーの [{ site.data.variables.product.prodname_oauth_app }s] タブ](/assets/images/help/settings/developer-settings-oauth-apps.png)
+3. 左サイドバーで [**{% data variables.product.prodname_oauth_app %}s**] をクリックします。 ![{% data variables.product.prodname_oauth_app %}s tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. [**Register a new application**] をクリックします。
 4. [**Application name**] に "Jira" と入力します。
 5. [**Homepage URL**] に、JIRA インスタンスの完全な URL を入力します。

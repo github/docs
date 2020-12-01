@@ -1,18 +1,18 @@
 ---
 title: Docker コンテナのアクションを作成する
-intro: このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。
+intro: 'このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action
-  - /アクション/ビルディングアクション/ドッカーコンテナアクションの作成
+  - /actions/building-actions/creating-a-docker-container-action
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
@@ -61,7 +61,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ### アクションのメタデータファイルの作成
 
-新しい `action.yml` ファイルを、上で作成した `hello-world-docker-action` ディレクトリの中に作成します。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
+新しい `action.yml` ファイルを、上で作成した `hello-world-docker-action` ディレクトリの中に作成します。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
 **アクション.yml**

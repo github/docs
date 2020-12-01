@@ -7,6 +7,7 @@ permissions: Qualquer pessoa com acesso de gravação a um repositório pode der
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}
@@ -18,7 +19,7 @@ versions:
 ### Modificar uma pull request ativa no local
 
 {% data reusables.repositories.sidebar-pr %}
-2. Na lista de pull requests, clique na pull request que você gostaria de modificar.{% if currentVersion == "free-pro-team@latest" %}
+2. Na lista de pull requests, clique no pull request que deseja modificar.{% if currentVersion == "free-pro-team@latest" %}
 3. Para escolher onde você gostaria de abrir a pull request, selecione **Abrir com o menu suspenso {% octicon "triangle-down" aria-label="The down triangle icon" %}** e clique em uma das abas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. Na caixa de merge, clique em **instruções para linha de comando**. Siga a sequência de etapas para rebaixar a pull request proposta. ![Link para acessar instruções de pull request da linha de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. Como opção, para exibir as alterações propostas no {% data variables.product.prodname_desktop %}, clique em **abrir em {% data variables.product.prodname_desktop %}**. ![Link para abrir uma pull request localmente no Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
