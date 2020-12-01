@@ -24,7 +24,7 @@ Then, make sure the _CNAME_ file is formatted correctly.
 - The _CNAME_ entry must be the bare domain. For example, `www.example.com`,`blog.example.com`, or `example.com`.
 - The _CNAME_ entry can only be used once on {% data variables.product.product_name %}. For example, if another repository's _CNAME_ file contains `example.com`, you cannot use `example.com` in the _CNAME_ file for your repository.
 
-### DNS misconfiguration
+### DNS Misconfiguration
 
 If you have trouble pointing the default domain for your site to your custom domain, contact your DNS provider.
 
@@ -47,7 +47,7 @@ Make sure your site does not:
 
 For a list of supported custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)."
 
-### HTTPS errors
+### HTTPS Errors
 
 {% data variables.product.prodname_pages %} sites using custom domains that are correctly configured with _CNAME_, `ALIAS`, `ANAME`, or `A` DNS records can be accessed over HTTPS. For more information, see "[Securing your {% data variables.product.prodname_pages %} site with HTTPS](/articles/securing-your-github-pages-site-with-https)."
 
@@ -59,6 +59,6 @@ If you're using Certification Authority Authorization (CAA) records, at least on
 
 If the URL for your site contains a username or organization name that begins or ends with a dash, or contains consecutive dashes, people browsing with Linux will receive a server error when they attempt to visit your site. To fix this, change your {% data variables.product.product_name %} username to remove non-alphanumeric characters. For more information, see "[Changing your {% data variables.product.prodname_dotcom %} username](/articles/changing-your-github-username/)."
 
-### Browser cache
+### Browser Cache
 
 If you've recently changed or removed your custom domain and can't access the new URL in your browser, you may need to clear your browser's cache to reach the new URL. For more information on clearing your cache, see your browser's documentation.
