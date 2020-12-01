@@ -10,7 +10,7 @@ versions:
 
 As contas de usuário no {% data variables.product.product_location %} são preservadas quando você altera o método de autenticação, e os usuários continuarão fazendo login na mesma conta (desde que não haja alteração nos nomes de usuário).
 
-Se o novo método de autenticação alterar nomes de usuários, serão criadas novas contas. Como administrador, você pode renomear os usuários nas configurações de administração do site ou usando a [a API de administração do usuário](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user).
+Se o novo método de autenticação alterar nomes de usuários, serão criadas novas contas. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
 Veja outras questões que você deve manter em mente:
 

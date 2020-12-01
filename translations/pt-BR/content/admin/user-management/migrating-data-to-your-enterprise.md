@@ -131,7 +131,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Depois de desbloquear os repositórios da organização do {% data variables.product.prodname_dotcom_the_website %}, você deve excluir todos os repositórios migrados anteriormente usando o [endpoint de exclusão de repositórios](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

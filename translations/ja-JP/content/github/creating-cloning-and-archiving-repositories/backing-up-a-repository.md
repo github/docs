@@ -11,7 +11,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-リポジトリのアーカイブをダウンロードするには、ユーザあるいは Organization のマイグレーション用の API が利用できます。 詳しい情報については、「[移行](/v3/migrations/)」を参照してください。
+リポジトリのアーカイブをダウンロードするには、ユーザあるいは Organization のマイグレーション用の API が利用できます。 詳しい情報については、「[移行](/rest/reference/migrations)」を参照してください。
 {% else %}
 
 リポジトリのダウンロードおよびバックアップを手動で実行できます。
@@ -21,15 +21,15 @@ versions:
 
 リポジトリもしくは wiki をクローンすると、プロジェクトのファイルやコミット履歴などの Git のデータだけがダウンロードされます。 {% data variables.product.product_name %}リポジトリの他の要素をローカルマシンにエクスポートするには、弊社の API が利用できます。
 
-- [問題](/v3/issues/#list-issues-for-a-repository)
-- [プルリクエスト](/v3/pulls/#list-pull-requests)
+- [問題](/rest/reference/issues#list-issues-for-a-repository)
+- [プルリクエスト](/rest/reference/pulls#list-pull-requests)
 - [フォーク](/rest/reference/repos#list-forks)
 - [コメント](/rest/reference/issues#list-issue-comments-for-a-repository)
 - [マイルストーン](/rest/reference/issues#list-milestones)
 - [ラベル](/rest/reference/issues#list-labels-for-a-repository)
 - [Watcher](/rest/reference/activity#list-watchers)
 - [Starを付けたユーザ](/rest/reference/activity#list-stargazers)
-- [プロジェクト](/v3/projects/#list-repository-projects)
+- [プロジェクト](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
 Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).

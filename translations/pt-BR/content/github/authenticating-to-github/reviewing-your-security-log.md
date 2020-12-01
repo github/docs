@@ -1,6 +1,7 @@
 ---
-title: Reviewing your security log
-intro: You can review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
+title: Revisar seus logs de segurança
+intro: Você pode revisar o log de segurança da sua conta de usuário para entender melhor as ações que você realizou e ações realizadas por outras pessoas que envolvem você.
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/reviewing-your-security-log
 versions:
@@ -9,242 +10,243 @@ versions:
   github-ae: '*'
 ---
 
-### Accessing your security log
+### Acessar o log de segurança
 
-The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
+O log de segurança lista todas as ações realizadas nos últimos 90 dias{% if currentVersion ver_lt "enterprise-server@2.20" %}, até 50{% endif %}.
 
 {% data reusables.user_settings.access_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-2. In the user settings sidebar, click **Security log**.
-  ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
+2. Na barra lateral de configurações do usuário, clique em **log de segurança**. ![Aba do log de segurança](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
-3. Under "Security history," your log is displayed.
-  ![Security log](/assets/images/help/settings/user_security_log.png)
-4. Click on an entry to see more information about the event.
-  ![Security log](/assets/images/help/settings/user_security_history_action.png)
+3. O log é exibido em "Security history" (Histórico de segurança). ![Log de segurança](/assets/images/help/settings/user_security_log.png)
+4. Clique em uma entrada para ver mais informações sobre o evento. ![Log de segurança](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### Searching your security log
+### Pesquisar no seu registro de segurança
 
 {% data reusables.audit_log.audit-log-search %}
 
-#### Search based on the action performed
+#### Pesquisar com base na ação
 {% else %}
-### Understanding events in your security log
-
-Actions listed in your security log are grouped within the following categories:
+### Entender eventos no seu log de segurança
 {% endif %}
 
-| Category Name | Description
-|------------------|-------------------{% if currentVersion == "free-pro-team@latest" %}
-| `account_recovery_token` | Contains all activities related to [adding a recovery token](/articles/configuring-two-factor-authentication-recovery-methods).
-| `billing` | Contains all activities related to your billing information.
-| `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| `marketplace_listing` | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
-| `oauth_access` | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
-| `payment_method` | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}
-| `profile_picture` | Contains all activities related to your profile picture.
-| `project` | Contains all activities related to project boards.
-| `public_key` | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).
-| `repo` | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| `team` | Contains all activities related to teams you are a part of.{% endif %}{% if currentVersion != "github-ae@latest" %}
-| `two_factor_authentication` | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
-| `user` | Contains all activities related to your account.
+Os eventos listados no seu registro de segurança são acionados por suas ações. As ações são agrupadas nas seguintes categorias:
 
-A description of the events within these categories is listed below.
+| Categoria                                                                              | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
+| [`account_recovery_token`](#account_recovery_token-category-actions)                   | Contém todas as atividade relacionadas a [adicionar um token de recuperação](/articles/configuring-two-factor-authentication-recovery-methods).                                                                                                                                                                                                                                                                                                 |
+| [`cobrança`](#billing-category-actions)                                                | Contém todas as atividades relacionadas às suas informações de cobrança.                                                                                                                                                                                                                                                                                                                                                                        |
+| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contém todas as atividades relacionadas à assinatura do Contrato de desenvolvedor do {% data variables.product.prodname_marketplace %}.                                                                                                                                                                                                                                                                                                         |
+| [`marketplace_listing`](#marketplace_listing-category-actions)                         | Contém todas as atividades relacionadas aos aplicativos listados no {% data variables.product.prodname_marketplace %}.{% endif %}
+| [`oauth_access`](#oauth_access-category-actions)                                       | Contém todas as atividades relacionadas a [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) com as quais você se conectou.{% if currentVersion == "free-pro-team@latest" %}
+| [`payment_method`](#payment_method-category-actions)                                   | Contém todas as atividades relacionadas ao pagamento da sua assinatura do {% data variables.product.prodname_dotcom %}.{% endif %}
+| [`profile_picture`](#profile_picture-category-actions)                                 | Contém todas as atividades relacionadas à imagem do seu perfil.                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`project`](#project-category-actions)                                                 | Contém todas as atividades relacionadas aos quadros de projeto.                                                                                                                                                                                                                                                                                                                                                                                 |
+| [`public_key`](#public_key-category-actions)                                           | Contém todas as atividades relacionadas às [chaves SSH públicas](/articles/adding-a-new-ssh-key-to-your-github-account).                                                                                                                                                                                                                                                                                                                        |
+| [`repo`](#repo-category-actions)                                                       | Contém todas as atividades relacionadas aos repositórios que você possui.{% if currentVersion == "free-pro-team@latest" %}
+| [`sponsors`](#sponsors-category-actions)                                               | Contém todos os eventos relacionados a {% data variables.product.prodname_sponsors %} e botões de patrocinador (veja "[Sobre {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" e "[ Exibir um botão de patrocinador no seu repositório](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| [`equipe`](#team-category-actions)                                                     | Contém todas as atividades relacionadas a equipes das quais você faz parte.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| [`two_factor_authentication`](#two_factor_authentication-category-actions)             | Contem todas as atividades relacionadas a [autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
+| [`usuário`](#user-category-actions)                                                    | Contém todas as atividades relacionadas à sua conta.                                                                                                                                                                                                                                                                                                                                                                                            |
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### The `account_recovery_token` category
-
-| Action | Description
-|------------------|-------------------
-| confirm | Triggered when you successfully [store a new token with a recovery provider](/articles/configuring-two-factor-authentication-recovery-methods).
-| recover | Triggered when you successfully [redeem an account recovery token](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).
-| recover_error | Triggered when a token is used but {% data variables.product.prodname_dotcom %} is not able to validate it.
-
-#### The `billing` category
-
-| Action | Description
-|------------------|-------------------
-| change_billing_type | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {% data variables.product.prodname_dotcom %}.
-| change_email | Triggered when you [change your email address](/articles/changing-your-primary-email-address).
-
-#### The `marketplace_agreement_signature` category
-
-| Action | Description
-|------------------|-------------------
-| create | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
-
-#### The `marketplace_listing` category
-
-| Action | Description
-|------------------|-------------------
-| approve | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.
-| create | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.
-| delist | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.
-| redraft | Triggered when your listing is sent back to draft state.
-| reject | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
-
-{% endif %}
-
-#### The `oauth_access` category
-
-| Action | Description
-|------------------|-------------------
-| create | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/articles/authorizing-oauth-apps).
-| destroy | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations).
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-#### The `payment_method` category
-
-| Action | Description
-|------------------|-------------------
-| clear | Triggered when [a payment method](/articles/removing-a-payment-method) on file is removed.
-| create | Triggered when a new payment method is added, such as a new credit card or PayPal account.
-| update | Triggered when an existing payment method is updated.
-
-{% endif %}
-
-#### The `profile_picture` category
-
-| Action | Description
-|------------------|-------------------
-| update | Triggered when you [set or update your profile picture](/articles/setting-your-profile-picture/).
-
-#### The `project` category
-
-| Action | Description
-|--------------------|---------------------
-| `create` | Triggered when a project board is created.
-| `rename` | Triggered when a project board is renamed.
-| `update` | Triggered when a project board is updated.
-| `delete` | Triggered when a project board is deleted.
-| `link`   | Triggered when a repository is linked to a project board.
-| `unlink` | Triggered when a repository is unlinked from a project board.
-| `project.access` | Triggered when a project board's visibility is changed.
-| `update_user_permission` | Triggered when an outside collaborator is added to or removed from a project board or has their permission level changed.
-
-#### The `public_key` category
-
-| Action | Description
-|------------------|-------------------
-| create | Triggered when you [add a new public SSH key to your {% data variables.product.product_name %} account](/articles/adding-a-new-ssh-key-to-your-github-account).
-| delete | Triggered when you [remove a public SSH key to your {% data variables.product.product_name %} account](/articles/reviewing-your-ssh-keys).
-
-#### The `repo` category
-
-| Action | Description
-|------------------|-------------------
-| access | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
-| add_member | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
-| add_topic | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| archived | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| config.disable_anonymous_git_access | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
-| config.enable_anonymous_git_access | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
-| config.lock_anonymous_git_access | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
-| config.unlock_anonymous_git_access | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
-| create | Triggered when [a new repository is created](/articles/creating-a-new-repository).
-| destroy |  Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
-| disable | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| enable | Triggered when a repository is re-enabled.{% endif %}
-| remove_member | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
-| remove_topic | Triggered when a repository owner removes a topic from a repository.
-| rename | Triggered when [a repository is renamed](/articles/renaming-a-repository).
-| transfer | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
-| transfer_start | Triggered when a repository transfer is about to occur.
-| unarchived | Triggered when a repository owner unarchives a repository.
-
-{% if currentVersion == "free-pro-team@latest" %}
-#### The `sponsors` category
-
-| Action | Description
-|------------------|-------------------
-| repo_funding_link_button_toggle | Triggered when you enable or disable a sponsor button in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
-| repo_funding_links_file_action | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
-| sponsor_sponsorship_cancel | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
-| sponsor_sponsorship_create | Triggered when you sponsor a developer (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor#sponsoring-a-developer)")
-| sponsor_sponsorship_preference_change | Triggered when you change whether you receive email updates from a sponsored developer (see "[Managing your sponsorship](/articles/managing-your-sponsorship)")
-| sponsor_sponsorship_tier_change | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
-| sponsored_developer_approve | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| sponsored_developer_create | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| sponsored_developer_profile_update | Triggered when you edit your sponsored developer profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")
-| sponsored_developer_request_approval | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| sponsored_developer_tier_description_update | Triggered when you change the description for a sponsorship tier (see "[Changing your sponsorship tiers](/articles/changing-your-sponsorship-tiers)")
-| sponsored_developer_update_newsletter_send | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/articles/contacting-your-sponsors)")
-| waitlist_invite_sponsored_developer | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-| waitlist_join | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-#### The `successor_invitation` category
-
-| Action | Description
-|------------------|-------------------
-| accept | Triggered when you accept a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| cancel | Triggered when you cancel a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| create | Triggered when you create a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| decline | Triggered when you decline a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-| revoke | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-
-#### The `team` category
-
-| Action | Description
-|------------------|-------------------
-| add_member | Triggered when a member of an organization you belong to [adds you to a team](/articles/adding-organization-members-to-a-team).
-| add_repository | Triggered when a team you are a member of is given control of a repository.
-| create | Triggered when a new team in an organization you belong to is created.
-| destroy | Triggered when a team you are a member of is deleted from the organization.
-| remove_member | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team) you are a member of.
-| remove_repository | Triggered when a repository is no longer under a team's control.
-
-{% endif %}
-
-{% if currentVersion != "github-ae@latest" %}
-#### The `two_factor_authentication` category
-
-| Action | Description
-|------------------|-------------------
-| enabled | Triggered when [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) is enabled.
-| disabled | Triggered when two-factor authentication is disabled.
-{% endif %}
-
-#### The `user` category
-
-| Action | Description
-|--------------------|---------------------
-| add_email | Triggered when you {% if currentVersion != "github-ae@latest" %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.
-| create | Triggered when you create a new user account.
-| remove_email | Triggered when you remove an email address.
-| rename | Triggered when you rename your account.{% if currentVersion != "github-ae@latest" %}
-| change_password | Triggered when you change your password.
-| forgot_password | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
-| login | Triggered when you log in to {% data variables.product.product_location %}.
-| failed_login | Triggered when you failed to log in successfully.{% if currentVersion != "github-ae@latest" %}
-| two_factor_requested | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
-| show_private_contributions_count | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).
-| hide_private_contributions_count | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
-| report_content | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/articles/reporting-abuse-or-spam).{% endif %}
-
-#### The `user_status` category
-
-| Action | Description
-|--------------------|---------------------
-| update | Triggered when you set or change the status on your profile. For more information, see "[Setting a status](/articles/personalizing-your-profile/#setting-a-status)."
-| destroy | Triggered when you clear the status on your profile.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-### Exporting your security log
+### Exportar o seu log de segurança
 
 {% data reusables.audit_log.export-log %}
 {% data reusables.audit_log.exported-log-keys-and-values %}
 
 {% endif %}
+
+### Ações do log de segurança
+
+Uma visão geral de algumas das ações mais comuns que são registradas como eventos no log de segurança.
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### `account_recovery_token` ações de categoria
+
+| Ação            | Descrição                                                                                                                                       |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `confirm`       | Acionada quando você [armazena um novo token com um provedor de recuperação](/articles/configuring-two-factor-authentication-recovery-methods). |
+| `recover`       | Acionada quando você [resgata um token de recuperação de conta](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).            |
+| `recover_error` | Acionada quando um token é usado, mas o {% data variables.product.prodname_dotcom %} não consegue validá-lo.                                    |
+
+#### ações de categoria de `cobrança`
+
+| Ação                  | Descrição                                                                                                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `change_billing_type` | Acionada quando você [altera o modo de pagamento](/articles/adding-or-editing-a-payment-method) do {% data variables.product.prodname_dotcom %}. |
+| `change_email`        | Acionada quando você [altera o endereço de e-mail](/articles/changing-your-primary-email-address).                                               |
+
+#### ações de categoria de `marketplace_agreement_signature`
+
+| Ação     | Descrição                                                                                                     |
+| -------- | ------------------------------------------------------------------------------------------------------------- |
+| `create` | Acionada quando você assina o Contrato de desenvolvedor do {% data variables.product.prodname_marketplace %}. |
+
+#### ações de categoria de `marketplace_listing`
+
+| Ação      | Descrição                                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------------------------ |
+| `aprovar` | Acionada quando sua lista é aprovada para inclusão no {% data variables.product.prodname_marketplace %}.     |
+| `create`  | Acionada quando você cria uma lista para seu app no {% data variables.product.prodname_marketplace %}.       |
+| `delist`  | Acionada quando sua lista é removida do {% data variables.product.prodname_marketplace %}.                   |
+| `redraft` | Triggered when your listing is sent back to draft state.                                                     |
+| `reject`  | Acionada quando sua lista não é aprovada para inclusão no {% data variables.product.prodname_marketplace %}. |
+
+{% endif %}
+
+#### ações de categoria`Oauth_access`
+
+| Ação      | Descrição                                                                                                                                                    |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`  | Acionada quando você [concede acesso a um {% data variables.product.prodname_oauth_app %}](/articles/authorizing-oauth-apps).                              |
+| `destroy` | Acionada quando você [revoga o acesso de um {% data variables.product.prodname_oauth_app %}a sua conta](/articles/reviewing-your-authorized-integrations). |
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### ações de categoria `payment_method`
+
+| Ação     | Descrição                                                                                                  |
+| -------- | ---------------------------------------------------------------------------------------------------------- |
+| `clear`  | Acionada quando [um método de pagamento](/articles/removing-a-payment-method) registrado é removido.       |
+| `create` | Acionada quando um novo método de pagamento, como um novo cartão de crédito ou conta PayPal, é adicionado. |
+| `update` | Acionada quando um método de pagamento é atualizado.                                                       |
+
+{% endif %}
+
+#### ações de categoria `profile_picture`
+
+| Ação     | Descrição                                                                                                 |
+| -------- | --------------------------------------------------------------------------------------------------------- |
+| `update` | Acionada quando você [configura ou atualiza sua foto do perfil](/articles/setting-your-profile-picture/). |
+
+#### ações de categoria `project`
+
+| Ação                     | Descrição                                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `access`                 | Acionada quando a visibilidade de um quadro de projeto é alterada.                                                              |
+| `create`                 | Acionada quando um quadro de projeto é criado.                                                                                  |
+| `rename`                 | Acionada quando um quadro de projeto é renomeado.                                                                               |
+| `update`                 | Acionada quando um quadro de projeto é atualizado.                                                                              |
+| `delete`                 | Acionada quando um quadro de projeto é excluído.                                                                                |
+| `link`                   | Acionada quando um repositório é vinculado a um quadro de projeto.                                                              |
+| `unlink`                 | Acionada quando um repositório é desvinculado de um quadro de projeto.                                                          |
+| `update_user_permission` | Acionada quando um colaborador externo é adicionado ou removido de um quadro de projeto ou tem seu nível de permissão alterado. |
+
+#### ações de categoria `public_key`
+
+| Ação     | Descrição                                                                                                                                                                   |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create` | Acionada quando você [adiciona uma nova chave SSH pública a sua conta do {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account). |
+| `delete` | Acionada quando você [remove uma chave SSH pública da sua conta do {% data variables.product.product_name %}](/articles/reviewing-your-ssh-keys).                           |
+
+#### ações de categoria `repo`
+
+| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `access`                              | Acionada quando um repositório seu é [alterado de "privado" para "público"](/articles/making-a-private-repository-public) (ou vice-versa).                                                                                                                                                                                                                  |
+| `add_member`                          | Acionada quando um usuário de {% data variables.product.product_name %} é {% if currentVersion == "free-pro-team@latest" %}[convidado a ter acesso de colaboração](/articles/inviting-collaborators-to-a-personal-repository){% else %}[dado acesso de colaboração](/articles/inviting-collaborators-to-a-personal-repository){% endif %} a um repositório. |
+| `add_topic`                           | Acionada quando um proprietário do repositório [adiciona um tópico](/articles/classifying-your-repository-with-topics) a um repositório.                                                                                                                                                                                                                    |
+| `archived`                            | Acionada quando um proprietário do repositório [arquiva um repositório](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
+| `config.disable_anonymous_git_access` | Acionada quando um [acesso de leitura anônimo do Git é desabilitado](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) em um repositório público.                                                                                                                                                         |
+| `config.enable_anonymous_git_access`  | Acionada quando um [acesso de leitura anônimo do Git é habilitado](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) em um repositório público.                                                                                                                                                           |
+| `config.lock_anonymous_git_access`    | Acionada quando a [configuração de acesso de leitura anônimo do Git de um repositório é bloqueada](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).                                                                                                                                 |
+| `config.unlock_anonymous_git_access`  | Acionada quando a [configuração de acesso de leitura anônimo do Git de um repositório é desbloqueada](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
+| `create`                              | Acionada quando [um repositório é criado](/articles/creating-a-new-repository).                                                                                                                                                                                                                                                                             |
+| `destroy`                             | Acionada quando [um repositório é excluído](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
+| `desabilitar`                         | Acionada quando um repositório é desabilitado (por exemplo, por [fundos insuficientes](/articles/unlocking-a-locked-account)).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `habilitar`                           | Acionada quando um repositório é habilitado novamente.{% endif %}
+| `remove_member`                       | Acionada quando um usuário do {% data variables.product.product_name %} é [removido de um repositório como um colaborador](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                                   |
+| `remove_topic`                        | Acionada quando um proprietário do repositório remove um tópico de um repositório.                                                                                                                                                                                                                                                                          |
+| `rename`                              | Acionada quando [um repositório é renomeado](/articles/renaming-a-repository).                                                                                                                                                                                                                                                                              |
+| `transferir`                          | Acionada quando [um repositório é transferido](/articles/how-to-transfer-a-repository).                                                                                                                                                                                                                                                                     |
+| `transfer_start`                      | Acionada quando uma transferência de repositório está prestes a ocorrer.                                                                                                                                                                                                                                                                                    |
+| `unarchived`                          | Acionada quando um proprietário do repositório desarquiva um repositório.                                                                                                                                                                                                                                                                                   |
+
+{% if currentVersion == "free-pro-team@latest" %}
+#### ações de categoria de `patrocinadores`
+
+| Ação                                          | Descrição                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `repo_funding_link_button_toggle`             | Acionada quando você habilita ou desabilita um botão de patrocinador no repositório (consulte "[Exibir um botão de patrocinador no seu repositório](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                                  |
+| `repo_funding_links_file_action`              | Acionada quando você altera o arquivo FUNDING no repositório (consulte "[Exibir botão de patrocinador no repositório](/articles/displaying-a-sponsor-button-in-your-repository)")                                                                                                                                                                |
+| `sponsor_sponsorship_cancel`                  | Acionada quando você cancela um patrocínio (consulte "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)")                                                                                                                                                                                                                  |
+| `sponsor_sponsorship_create`                  | Acionadas quando você patrocina um desenvolvedor (consulte "[Patrocinar um colaborador de código aberto](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor#sponsoring-a-developer)")                                                                                                       |
+| `sponsor_sponsorship_preference_change`       | Acionada quando você altera o recebimento de atualizações de e-mail de um desenvolvedor patrocinado (consulte "[Gerenciar o patrocínio](/articles/managing-your-sponsorship)")                                                                                                                                                                   |
+| `sponsor_sponsorship_tier_change`             | Acionada quando você faz upgrade ou downgrade do patrocínio (consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)")                                                                                                                                |
+| `sponsored_developer_approve`                 | Acionada quando sua conta do {% data variables.product.prodname_sponsors %} é aprovada (ver "[Configuração de {% data variables.product.prodname_sponsors %} para sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                                    |
+| `sponsored_developer_create`                  | Acionada quando sua conta de {% data variables.product.prodname_sponsors %} é criada (consulte "[Configurar {% data variables.product.prodname_sponsors %} para sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                                      |
+| `sponsored_developer_profile_update`          | Acionada quando você edita seu perfil de desenvolvedor patrocinado (consulte "[Editar informações de perfil para {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                           |
+| `sponsored_developer_request_approval`        | Acionada quando você enviar seu aplicativo para {% data variables.product.prodname_sponsors %} para aprovação (consulte "[Configurar {% data variables.product.prodname_sponsors %} para sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")             |
+| `sponsored_developer_tier_description_update` | Acionada quando você altera a descrição de um nível de patrocínio (consulte "[Alterar níveis de patrocínio](/articles/changing-your-sponsorship-tiers)")                                                                                                                                                                                         |
+| `sponsored_developer_update_newsletter_send`  | Acionada quando você envia uma atualização por e-mail aos patrocinadores (consulte "[Entrar em contato com os patrocinadores](/articles/contacting-your-sponsors)")                                                                                                                                                                              |
+| `waitlist_invite_sponsored_developer`         | Acionada quando você é convidado a juntar-se a {% data variables.product.prodname_sponsors %} a partir da lista de espera (consulte "[Configurar {% data variables.product.prodname_sponsors %} para sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)") |
+| `waitlist_join`                               | Acionada quando você se junta à lista de espera para tornar-se um desenvolvedor patrocinado (consulte "[Configurar {% data variables.product.prodname_sponsors %} para sua conta de usuário](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                               |
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+#### ações de categoria `successor_invitation`
+
+| Ação       | Descrição                                                                                                                                                                                                                                                                     |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aceitar`  | Acionada quando você aceita um convite de sucessão (consulte "[Manter a continuidade da propriedade dos repositórios da conta do seu usuário](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)") |
+| `cancelar` | Acionado quando você cancela um convite de sucessão (consulte"[Manter a continuidade da propriedade dos repositórios da conta do seu usuário](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)") |
+| `create`   | Acionado quando você cria um convite de sucessão (consulte "[Manter a continuidade da propriedade dos repositórios da conta do usuário](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")       |
+| `recusar`  | Acionado quando você recusa um convite de sucessão (consulte "[Manter a continuidade da propriedade dos repositórios da conta do usuário](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")     |
+| `revogar`  | Acionado quando você revoga um convite de sucessão (consulte "[Manter a continuidade da propriedade dos repositórios da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)") |
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+#### ações de categoria de `equipe`
+
+| Ação                | Descrição                                                                                                                                                |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_member`        | Acionada quando um integrante de uma organização à qual você pertence [adiciona você em uma equipe](/articles/adding-organization-members-to-a-team).    |
+| `add_repository`    | Acionada quando uma equipe da qual você faz parte recebe o controle de um repositório.                                                                   |
+| `create`            | Acionada quando uma equipe é criada em uma organização à qual você pertence.                                                                             |
+| `destroy`           | Acionada quando uma equipe da qual você faz parte é excluída da organização.                                                                             |
+| `remove_member`     | Acionada quando um integrante de uma organização é [removido de uma equipe](/articles/removing-organization-members-from-a-team) da qual você faz parte. |
+| `remove_repository` | Acionada quando um repositório deixa de ser controlado por uma equipe.                                                                                   |
+
+{% endif %}
+
+{% if currentVersion != "github-ae@latest" %}
+#### ações de categoria`two_factor_authentication`
+
+| Ação       | Descrição                                                                                                                          |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled`  | Acionada quando a [autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) é habilitada. |
+| `disabled` | Acionada quando a autenticação de dois fatores é desabilitada.                                                                     |
+{% endif %}
+
+#### ações de categoria `user`
+
+| Ação                               | Descrição                                                                                                                                                                                                     |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_email`                        | Acionada quando você {% if currentVersion != "github-ae@latest" %}[adiciona um novo endereço de email](/articles/changing-your-primary-email-address){% else %}adiciona um novo endereço de email{% endif %}. |
+| `create`                           | Acionada quando você cria uma nova conta de usuário.{% if currentVersion != "github-ae@latest" %}
+| `change_password`                  | Acionada quando você altera a senha.                                                                                                                                                                          |
+| `forgot_password`                  | Acionada quando você solicita [a redefinição da senha](/articles/how-can-i-reset-my-password).{% endif %}
+| `hide_private_contributions_count` | Acionada quando você [oculta as contribuições privadas no seu perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).                                                            |
+| `login`                            | Acionada quando você faz login no {% data variables.product.product_location %}.                                                                                                                              |
+| `failed_login`                     | Acionada quando você não consegue fazer login.                                                                                                                                                                |
+| `remove_email`                     | Acionada quando você remove um endereço de e-mail.                                                                                                                                                            |
+| `rename`                           | Acionada quando você renomeia a conta.{% if currentVersion == "free-pro-team@latest" %}
+| `report_content`                   | Acionada quando você [denuncia um problema ou uma pull request, ou um comentário em um problema, uma pull request, ou commit](/articles/reporting-abuse-or-spam).{% endif %}
+| `show_private_contributions_count` | Acionada quando você [divulga contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %}
+| `two_factor_requested`             | Acionada quando {% data variables.product.product_name %} pede a você por [seu código de autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+
+#### ações de categoria `user_status`
+
+| Ação      | Descrição                                                                                                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `update`  | Acionada quando você configura ou altera o status no perfil. Para obter mais informações, consulte "[Configurar um status](/articles/personalizing-your-profile/#setting-a-status)". |
+| `destroy` | Acionada quando você remove o status no perfil.                                                                                                                                      |
+
+

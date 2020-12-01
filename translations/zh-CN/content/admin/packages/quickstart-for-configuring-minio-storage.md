@@ -1,15 +1,15 @@
 ---
-title: Quickstart for configuring MinIO storage
-intro: 'Set up MinIO as a storage provider for using {% data variables.product.prodname_registry %} on your enterprise.'
+title: 配置 MinIO 存储快速入门
+intro: '设置 MinIO 作为存储提供商以在企业上使用 {% data variables.product.prodname_registry %}。'
 versions:
   enterprise-server: '>=2.22'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.product.product_location_enterprise %}, you need to prepare your third-party storage solution.
+在 {% data variables.product.product_location_enterprise %} 上启用和配置 {% data variables.product.prodname_registry %} 之前，您必须准备第三方存储解决方案。
 
-MinIO offers object storage with support for the S3 API and {% data variables.product.prodname_registry %} on your enterprise.
+MinIO 在企业上提供对象存储并支持 S3 API 和 {% data variables.product.prodname_registry %}。
 
 This quickstart shows you how to set up MinIO using Docker for use with {% data variables.product.prodname_registry %} but you have other options for managing MinIO besides Docker. For more information about MinIO, see the official [MinIO docs](https://docs.min.io/).
 
@@ -38,9 +38,9 @@ For more information about your options, see the official [MinIO docs](https://d
     ```shell
     $ docker pull minio/minio
     ```
-    For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
+    更多信息请参阅官方的“[MinIO 快速入门指南](https://docs.min.io/docs/minio-quickstart-guide)”。
 
-3. Sign in to MinIO using your MinIO access key and secret.
+3. 使用您的 MinIO 访问密钥登录 MinIO。
 
     {% linux %}
     ```shell
@@ -58,16 +58,16 @@ For more information about your options, see the official [MinIO docs](https://d
     ```
     {% endmac %}
 
-    You can access your MinIO keys using the environment variables:
+    您可以使用环境变量访问 MinIO 密钥：
 
     ```shell
     $ echo $MINIO_ACCESS_KEY
     $ echo $MINIO_SECRET_KEY
     ```
 
-4. Run MinIO in your chosen mode.
+4. 在您选择的模式下运行 MinIO。
 
-   * Run MinIO using Docker on a single host:
+   * 在单一主机上使用 Docker 运行 MinIO：
 
      ```shell
      $ docker run -p 9000:9000 \
@@ -77,9 +77,9 @@ For more information about your options, see the official [MinIO docs](https://d
              minio/minio server /data
      ```
 
-     For more information, see "[MinIO Docker Quickstart guide](https://docs.min.io/docs/minio-docker-quickstart-guide.html)."
+     更多信息请参阅“[MinIO Docker 快速入门指南](https://docs.min.io/docs/minio-docker-quickstart-guide.html)”。
 
-   * Run MinIO using Docker as a NAS gateway:
+   * 使用 Docker 作为 NAS 网关运行 MinIO：
 
      This setup is useful for deployments where there is already a NAS you want to use as the backup storage for {% data variables.product.prodname_registry %}.
 

@@ -54,8 +54,6 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-サポートされていない地域にお住まいで、{% data variables.product.prodname_sponsors %} のベータに参加が許可された場合は、ACH 送金または電信で支払いを受けられるように、銀行口座情報を指定する手順が、メールで届きます。
-
 {% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
