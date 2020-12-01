@@ -1,4 +1,4 @@
-const { getDOM, getJSON } = require('../helpers')
+const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('breadcrumbs', () => {

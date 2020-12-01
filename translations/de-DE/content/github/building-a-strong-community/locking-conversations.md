@@ -15,7 +15,7 @@ Das Sperren einer Unterhaltung erstellt ein Zeitleistenereignis, das für alle B
 
 ![Anonymisiertes Zeitleistenereignis für eine gesperrte Unterhaltung](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-Solange eine Unterhaltung gesperrt ist, können nur [Personen mit Schreibzugriff](/articles/repository-permission-levels-for-an-organization/) und [Repository-Inhaber und -Mitarbeiter](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account) Kommentare hinzufügen, ausblenden und löschen.
+Solange eine Unterhaltung gesperrt ist, können nur [Personen mit Schreibzugriff](/articles/repository-permission-levels-for-an-organization/) und [Repository-Inhaber und -Mitarbeiter](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) Kommentare hinzufügen, ausblenden und löschen.
 
 Um nach gesperrten Unterhaltungen in einem nicht archivierten Repository zu suchen, kannst Du die Qualifizierer `is:locked` und `archived:false` verwenden. In archivierten Repositorys sind Unterhaltungen automatisch gesperrt. Weitere Informationen findest Du unter „[Issues und Pull Requests durchsuchen](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked).“
 

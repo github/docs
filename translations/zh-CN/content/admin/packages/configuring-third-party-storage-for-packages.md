@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_registry %} 使用外部 Blob 存储来存储您的软件包。 所需存储量取决于您使用 {% data variables.product.prodname_registry %} 的情况。
 
-目前，{% data variables.product.prodname_registry %} 支持使用 Amazon Web Services (AWS) S3 的 Blob 存储。 还支持 MinIO，但配置当前未在 {% data variables.product.product_name %} 界面中实现。 您可以按照 AWS S3 的说明使用 MinIO 进行存储，输入 MinIO 配置的类似信息。
+目前，{% data variables.product.prodname_registry %} 支持使用 Amazon Web Services (AWS) S3 的 Blob 存储。 还支持 MinIO，但配置当前未在 {% data variables.product.product_name %} 界面中实现。 您可以按照 AWS S3 的说明使用 MinIO 进行存储，输入 MinIO 配置的类似信息。 Before configuring third-party storage for {% data variables.product.prodname_registry %} on {% data variables.product.prodname_dotcom %}, you must set up a bucket with your third-party storage provider. For more information on installing and running a MinIO bucket to use with {% data variables.product.prodname_registry %}, see the "[Quickstart for configuring MinIO storage](/admin/packages/quickstart-for-configuring-minio-storage)."
 
 为了获得最佳体验，我们建议对 {% data variables.product.prodname_registry %} 使用专用存储桶，与用于 {% data variables.product.prodname_actions %} 存储的存储桶分开。
 

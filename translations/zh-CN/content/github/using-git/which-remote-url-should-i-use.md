@@ -3,7 +3,7 @@ title: 我应使用哪个远程 URL？
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: '克隆 {% data variables.product.prodname_dotcom %} 上的仓库有几种方法。'
+intro: '克隆 {% data variables.product.product_location %} 上的仓库有几种方法。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,7 +16,7 @@ versions:
 
 ### 使用 HTTPS URL 克隆
 
-`https://` 克隆 URL 在所有仓库（公共和私有）中提供。 即使您在防火墙或代理后面，这些 URL 也有效。
+The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
 当您在命令行中使用 HTTPS URL 对远程仓库执行 `git clone`、`git fetch`、`git pull` 或 `git push` 命令时，Git 将要求您输入 {% data variables.product.product_name %} 用户名和密码。 {% data reusables.user_settings.password-authentication-deprecation %}
 
