@@ -55,7 +55,7 @@ O fluxo de anexo de conteúdo mostra a relação entre a URL no problema ou pull
 }
 ```
 
-**Etapa 4.** O aplicativo usa o `content_reference` `id` </code> para [Criar um anexo de conteúdo](/v3/apps/installations/#create-a-content-attachment) usando a API REST. Você também precisará do `id` da `instalação` para efetuar a autenticação como uma [instalação do aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/rest/reference/apps#create-a-content-attachment) using the REST API. Você também precisará do `id` da `instalação` para efetuar a autenticação como uma [instalação do aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -116,7 +116,7 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-Para obter mais informações sobre `node_id`, consulte "[Usando IDs de nó globais](/v4/guides/using-global-node-ids/)".
+For more information on `node_id`, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
 
 ### Exemplo de uso de manifestos do Probot e do aplicativo GitHub
 

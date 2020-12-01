@@ -35,7 +35,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ### Validar cargas do GitHub
 
-Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. This hash signature is included with the headers of each request as {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
+Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. Esta assinatura hash está incluída com os cabeçalhos de cada solicitação como {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" ou currentVersion == "github-ae@latest" %}`X-Hub-Signature-256`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 {% note %}
@@ -81,7 +81,7 @@ end{% endif %}
 
 A sua linguagem e implementações do servidor podem ser diferentes deste código de exemplo. No entanto, há uma série de aspectos muito importantes a destacar:
 
-* No matter which implementation you use, the hash signature starts with {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2.23" %}`sha1=`{% endif %}, using the key of your secret token and your payload body.
+* Não importa qual implementação você usar, a assinatura hash começa com {% if currentVersion == "free-pro-team@latest" ou currentVersion ver_gt "enterprise-server@2. 2" or "github-ae@latest" %}`sha256=`{% elsif currentVersion ver_lt "enterprise-server@2. 3" %}`sha1=`{% endif %}, usando a chave do seu token secreto e o seu texto de carga.
 
 * Não **se recomenda** usar um operador simples de`==`. Um método como [`secure_compare`][secure_compare] executa uma comparação de strings "tempo constante", o que ajuda a mitigar certos ataques de tempo contra operadores de igualdade regular.
 

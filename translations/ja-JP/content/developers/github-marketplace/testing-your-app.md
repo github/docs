@@ -37,7 +37,7 @@ versions:
 
 ### APIのテスト
 
-ほとんどの{% data variables.product.prodname_marketplace %} APIエンドポイントに対しては、テストに利用できるハードコーディングされた偽のデータを返すスタブのAPIエンドポイントも提供されています。 スタブのデータを受信するには、ルートに`/stubbed`を含むスタブURL（たとえば`/user/marketplace_purchases/stubbed`）を指定してください。 スタブデータのアプローチをサポートしているエンドポイントのリストは、[{% data variables.product.prodname_marketplace %}エンドポイント](/v3/apps/marketplace/#github-marketplace)を参照してください。
+ほとんどの{% data variables.product.prodname_marketplace %} APIエンドポイントに対しては、テストに利用できるハードコーディングされた偽のデータを返すスタブのAPIエンドポイントも提供されています。 スタブのデータを受信するには、ルートに`/stubbed`を含むスタブURL（たとえば`/user/marketplace_purchases/stubbed`）を指定してください。 スタブデータのアプローチをサポートしているエンドポイントのリストは、[{% data variables.product.prodname_marketplace %}エンドポイント](/rest/reference/apps#github-marketplace)を参照してください。
 
 ### webhookのテスト
 

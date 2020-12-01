@@ -43,4 +43,4 @@ Um diese Aufforderungen zu vermeiden, kannst Du die Passwort-Zwischenspeicherung
 
 ### Weiterführende Informationen
 
-- "[Authorizing OAuth Apps](/v3/oauth/)"
+- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"
