@@ -111,7 +111,6 @@ async function createChangelogEntry (oldSchemaString, newSchemaString, previews,
 
 /**
  * Prepare the preview title from github/github source for the docs.
- * (ported from build-changelog-from-markdown)
  * @param {string} title
  * @return {string}
  */

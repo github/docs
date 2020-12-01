@@ -179,12 +179,6 @@ Given: /github/getting-started-with-github/using-github Returns: /free-pro-team@
 
 Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /enterprise-server@2.22/admin/installation/upgrading-github-enterprise
 
----
-
-
-### [`graphql/build-changelog-from-markdown.js`](graphql/build-changelog-from-markdown.js)
-
-
 
 ---
 
@@ -446,5 +440,3 @@ This script is used by other scripts to update temporary AWS credentials and aut
 Use this script to upload individual or batched asset files to a versioned S3 bucket. Run `upload-images-to-s3.js --help` for usage details.
 
 ---
-
-
