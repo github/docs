@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [ -d "../docs-early-access" ]; then
+  echo "A '../docs-early-access' directory already exists!" 
+  exit 0
+fi
+
+# Go up a directory
+pushd ..
+
+# Clone the repo
+git clone git@github.com:github/docs-early-access.git
+
+# Go back to the previous working directory
+popd
+
+# Symlink the local docs-early-access repo into this repo
+node script/early-access/symlink-from-local-repo.js -p ../docs-early-access
+
+echo -e '\nDone!'
