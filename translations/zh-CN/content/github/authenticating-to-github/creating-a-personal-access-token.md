@@ -12,7 +12,7 @@ versions:
   github-ae: '*'
 ---
 
-在使用[GitHub API 或](/v3/auth/#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
+在使用[GitHub API 或](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
 
 {% if currentVersion == "free-pro-team@latest" %}如果要使用 PAT 访问使用 SAML SSO 的组织所拥有的资源，则必须授权 PAT。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/articles/about-authentication-with-saml-single-sign-on)”和“[授权个人访问令牌用于 SAML 单点登录](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。{% endif %}
 

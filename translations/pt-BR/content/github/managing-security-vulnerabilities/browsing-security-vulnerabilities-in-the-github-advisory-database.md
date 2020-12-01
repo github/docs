@@ -1,7 +1,7 @@
 ---
 title: Pesquisar vulnerabilidades de segurança no banco de dados de consultoria do GitHub
 intro: 'O {% data variables.product.prodname_advisory_database %} permite que você pesquise vulnerabilidades que afetam projetos de código aberto no {% data variables.product.company_short %}.'
-shortTitle: Browsing the Advisory Database
+shortTitle: Navegar no banco de dados da consultoria
 versions:
   free-pro-team: '*'
 ---
