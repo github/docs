@@ -226,7 +226,12 @@ async function buildInitialContext () {
 }
 
 async function buildPathContext (initialContext, page, permalink) {
-  // Create a new object with path-specific properties
+  // Create a new object with path-specific properties.
+  // Note this is cherry-picking properties currently only needed by the middlware below;
+  // See middleware/context.js for the rest of the properties we are NOT refreshing per page.
+  // If we find this causes problems for link checking, we can call `contextualize` on
+  // every page. For now, this cherry-picking approach is intended to improve performance so
+  // we don't have to build the expensive `pages`, `redirects`, etc. data on every page we check.
   const pathContext = {
     page,
     currentVersion: permalink.pageVersion,
@@ -247,7 +252,7 @@ async function buildPathContext (initialContext, page, permalink) {
   // Pass the req to the contextualizing middlewares
   await applyMiddleware(rest, req)
   await applyMiddleware(graphql, req)
-  // Release notes are on docs site starting with GHES 3.0
+  // Release notes are available on docs site starting with GHES 3.0
   if (versionSatisfiesRange(permalink.pageVersion, '>=3.0')) {
     await applyMiddleware(releaseNotes, req)
   }
