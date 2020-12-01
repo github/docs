@@ -4,6 +4,7 @@ const fs = require('fs')
 const walk = require('walk-sync')
 const { zip } = require('lodash')
 const yaml = require('js-yaml')
+const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
@@ -167,7 +168,7 @@ describe('lint-files', () => {
 
       beforeAll(async () => {
         const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
-        const { data, content: bodyContent } = matter(fileContents)
+        const { data, content: bodyContent } = frontmatter(fileContents)
 
         content = bodyContent
         isHidden = data.hidden === true
