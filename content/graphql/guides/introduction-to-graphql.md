@@ -12,7 +12,7 @@ versions:
 
 ### GraphQL terminology
 
-The GitHub GraphQL API represents an architectural and conceptual shift from the GitHub REST API. You will likely encounter some new terminology in the GraphQL API [reference docs](/v4/).
+The GitHub GraphQL API represents an architectural and conceptual shift from the GitHub REST API. You will likely encounter some new terminology in the GraphQL API [reference docs](/graphql).
 
 ### Schema
 
@@ -31,11 +31,11 @@ This means that if you try to return a field that is not a scalar, schema valida
 
 ### Argument
 
-An argument is a set of key-value pairs attached to a specific field. Some fields require an argument. [Mutations](/v4/guides/forming-calls#about-mutations) require an input object as an argument.
+An argument is a set of key-value pairs attached to a specific field. Some fields require an argument. [Mutations](/graphql/guides/forming-calls-with-graphql#about-mutations) require an input object as an argument.
 
 ### Implementation
 
-A GraphQL schema may use the term _implements_ to define how an object inherits from an [interface](/v4/interface).
+A GraphQL schema may use the term _implements_ to define how an object inherits from an [interface](/graphql/reference/interfaces).
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
@@ -56,13 +56,13 @@ This means object `Y` requires the same fields/arguments/return types that inter
 
 In the reference docs, you'll find that:
 
-* Each [object](/v4/object) lists the interface(s) _from which it inherits_ under **Implements**.
+* Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
 
-* Each [interface](/v4/interface) lists the objects _that inherit from it_ under **Implementations**.
+* Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
 
 ### Connection
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/v4/guides/migrating-from-rest)."
+Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
 
 It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
 
@@ -72,7 +72,7 @@ Edges represent connections between nodes. When you query a connection, you trav
 
 ### Node
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/v4/scalar), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/v4/guides/using-global-node-ids)."
+_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
 
 ## Discovering the GraphQL API
 
@@ -131,4 +131,4 @@ query {
 
   {% endnote %}
 
-  For more information about performing queries, see "[Forming calls with GraphQL](/v4/guides/forming-calls)."
+  For more information about performing queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."

@@ -27,7 +27,7 @@ Name                                 | Description
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [deploy key]: /guides/managing-deploy-keys/#deploy-keys
   [generate token]: /articles/creating-an-access-token-for-command-line-use
-  [OAuth access token]: /v3/oauth/
+  [OAuth access token]: /developers/apps/authorizing-oauth-apps
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication
 
