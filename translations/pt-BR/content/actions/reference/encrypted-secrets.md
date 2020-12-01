@@ -43,11 +43,11 @@ Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se
 
 {% endwarning %}
 
-Você também pode gerenciar segredos usando o API REST. Para obter mais informações, consulte "[Segredos](/v3/actions/secrets/)".
+Você também pode gerenciar segredos usando o API REST. Para obter mais informações, consulte "[Segredos](/rest/reference/actions#secrets)".
 
 #### Permissões limitadas de credenciais
 
-Ao gerar credenciais, recomendamos que você conceda as permissões mínimas possíveis. Por exemplo, em vez de usar credenciais pessoais, use [chaves de implantação](/v3/guides/managing-deploy-keys/#deploy-keys) ou uma conta de serviço. Considere conceder permissões somente leitura se isso o necessário e limite o acesso tanto quanto possível. Ao gerar um token de acesso pessoal (PAT), selecione o menor escopo necessário.
+Ao gerar credenciais, recomendamos que você conceda as permissões mínimas possíveis. Por exemplo, em vez de usar credenciais pessoais, use [chaves de implantação](/developers/overview/managing-deploy-keys#deploy-keys) ou uma conta de serviço. Considere conceder permissões somente leitura se isso o necessário e limite o acesso tanto quanto possível. Ao gerar um token de acesso pessoal (PAT), selecione o menor escopo necessário.
 
 ### Criar segredos encriptados para um repositório
 

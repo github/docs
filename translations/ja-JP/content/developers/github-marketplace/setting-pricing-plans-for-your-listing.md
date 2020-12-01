@@ -1,6 +1,6 @@
 ---
-title: Setting pricing plans for your listing
-intro: 'When [listing your app on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/), you can choose to provide your app as a free service or sell your app. If you plan to sell your app, you can create different pricing plans for different feature tiers.'
+title: リストに対する価格プランの設定
+intro: '[アプリケーションを{% data variables.product.prodname_marketplace %}上でリストする](/marketplace/listing-on-github-marketplace/)際に、アプリケーションを無料のサービスとして提供するか、アプリケーションを販売するかを選択できます。 アプリケーションを販売することを計画するなら、様々な機能レベルに対して異なる価格プランを作成できます。'
 redirect_from:
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
   - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/setting-a-github-marketplace-listing-s-pricing-plan/
@@ -19,64 +19,64 @@ versions:
 
 
 
-### Creating pricing plans
+### 価格プランの作成
 
-To learn about the types of pricing plans that {% data variables.product.prodname_marketplace %} offers, see "[{% data variables.product.prodname_marketplace %} Pricing Plans](/marketplace/selling-your-app/github-marketplace-pricing-plans/)." You'll also find helpful billing guidelines in "[Selling your app](/marketplace/selling-your-app/)."
+{% data variables.product.prodname_marketplace %}が提供する価格プランの種類について学ぶには、「[{% data variables.product.prodname_marketplace %}の価格プラン](/marketplace/selling-your-app/github-marketplace-pricing-plans/)」を参照してください。 有益な支払いのガイドラインが「[アプリケーションの販売](/marketplace/selling-your-app/)」にもあります。
 
-Pricing plans can be in the draft or published state. If you haven't submitted your {% data variables.product.prodname_marketplace %} listing for approval, a published listing will function the same way as draft listings until your app is approved and listed on {% data variables.product.prodname_marketplace %}. Draft listings allow you to create and save new pricing plans without making them available on your {% data variables.product.prodname_marketplace %} listing page. Once you publish the pricing plan, it's available for customers to purchase immediately. You can publish up to 10 pricing plans.
+価格プランは、ドラフトまたは公開状態にできます。 {% data variables.product.prodname_marketplace %}のリストを承認のためにサブミットしていない場合、公開されたリストはアプリケーションが承認され、{% data variables.product.prodname_marketplace %}上でリストされるまではドラフトのリストと同様に機能します。 ドラフトのリストを利用すると、{% data variables.product.prodname_marketplace %}リストページで利用できるようにすることなく、新しい価格プランを作成して保存できます。 価格プランを公開すると、すぐに顧客が購入できるようになります。 最大で10の価格プランを公開できます。
 
-To create a pricing plan for your {% data variables.product.prodname_marketplace %} listing, click **Plans and pricing** in the left sidebar of your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage). If you haven't created a {% data variables.product.prodname_marketplace %} listing yet, read "[Creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)" to learn how.
+{% data variables.product.prodname_marketplace %}リストの価格プランを作成するには、[{% data variables.product.prodname_marketplace %}リストページ](https://github.com/marketplace/manage)の左のサイドバーで**Plans and pricing（プラント価格）**をクリックしてください。 まだ{% data variables.product.prodname_marketplace %}リストを作成していないなら、「[ドラフトの{% data variables.product.prodname_marketplace %}リストの作成](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)」を読んで、作成方法を学んでください。
 
-When you click **New draft plan**, you'll see a form that allows you to customize your pricing plan. You'll need to configure the following fields to create a pricing plan:
+**New draft plan（新規ドラフトプラン）**をクリックすると、価格プランをカスタマイズできるフォームが表示されます。 価格プランを作成するには、以下のフィールドを設定しなければなりません。
 
-#### Plan name
+#### Plan name（プラン名）
 
-Your pricing plan's name will appear on your {% data variables.product.prodname_marketplace %} app's landing page. You can customize the name of your pricing plan to align to the plan's resources, the size of the company that will use the plan, or anything you'd like.
+価格プランの名前は{% data variables.product.prodname_marketplace %}アプリケーションのランディングページに表示されます。 プランのリソース、プランを利用する企業の規模、あるいは好きなもの何にでもあわせて価格プランの名前をカスタマイズできます。
 
-#### Pricing models
+#### Pricing models（価格モデル）
 
-##### Free plans
+##### Free plans（無料プラン）
 
-{% data reusables.marketplace.free-apps-encouraged %} A free plan still requires you to handle [new purchase](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/) and [cancellation](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/) billing flows. See "[Billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)" for more details.
+{% data reusables.marketplace.free-apps-encouraged %} 無料プランでも、[新規購入](/marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)や[キャンセル](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)の支払いフローを処理する必要があります。 詳細については「[支払いフロー](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)」を参照してください。
 
-##### Flat-rate plans
+##### Flat-rate plans（定額プラン）
 
-Flat-rate pricing plans allow you to offer your service to customers for a flat-rate fee. {% data reusables.marketplace.marketplace-pricing-free-trials %}
+定額プランを使うと、顧客に対して定額でサービスを提供できます。 {% data reusables.marketplace.marketplace-pricing-free-trials %}
 
-You must set a price for both monthly and yearly subscriptions in U.S. Dollars for flat-rate plans.
+定額料金では、米ドルで月額及び年額のサブスクリプションに対して 価格を設定しなければなりません。
 
-##### Per-unit plans
+##### Per-unit plans（ユニット単位プラン）
 
-Per-unit pricing allows you to offer your app in units. For example, a unit can be a person, seat, or user. You'll need to provide a name for the unit and set a price for both monthly and yearly subscriptions, in U.S. Dollars.
+ユニット単位での価格を利用すると、ユニットごとにアプリケーションを提供できます。 たとえば、ユニットには人、シート、ユーザが使えます。 ユニットの名前を提供し、月額及び年額のサブスクリプションを米ドルで 設定しなければなりません。
 
-#### Available for
+#### Available for（利用の対象）
 
-{% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal and organization accounts**, **Personal accounts only**, or **Organization accounts only**. For example, if your pricing plan is per-unit and provides multiple seats, you would select **Organization accounts only** because there is no way to assign seats to people in an organization from a personal account.
+{% data variables.product.prodname_marketplace %}の価格プランは、**Personal and organization accounts（個人及びOrganizationのアカウント）**、**Personal accounts only（個人アカウントのみ）**、**Organization accounts only（Organizationアカウントのみ）**のいずれかに適用できます。 たとえば、価格プランがユニット単位であり、複数のシートを提供するなら、個人アカウントからOrganization内の人にシートを割り当てる方法はないので、**Organization accounts only（Organizationアカウントのみ）**が選択できるでしょう。
 
-#### Short description
+#### Short description（短い説明）
 
-Write a brief summary of the details of the pricing plan. The description might include the type of customer the plan is intended for or the resources the plan includes.
+価格プランの詳細に関する簡単な概要を書いてください。 この説明には、そのプランが意図している顧客の種類や、プランに含まれるリソースなどが含まれることがあります。
 
-#### Bullets
+#### Bullets（箇条書き）
 
-You can write up to four bullets that include more details about your pricing plan. The bullets might include the use cases of your app or list more detailed information about the resources or features included in the plan.
+最大で4項目の箇条書きをして、価格プランに関する詳細を含めることができます。 この箇条書きでは、アプリケーションのユースケースを含めたり、プランに含まれるリソースや機能に関するさらなる詳細をリストしたりすることができます。
 
-### Changing a {% data variables.product.prodname_marketplace %} listing's pricing plan
+### {% data variables.product.prodname_marketplace %}リストの価格プランの変更
 
-If a pricing plan for your {% data variables.product.prodname_marketplace %} plan is no longer needed or if you need to adjust pricing details, you can remove it.
+{% data variables.product.prodname_marketplace %}プランの価格プランが不要になった場合、あるいは価格の細部を調整する必要が生じた場合、その価格プランを削除できます。
 
-![Button to remove your pricing plan](/assets/images/marketplace/marketplace_remove_this_plan.png)
+![価格プランを削除するボタン](/assets/images/marketplace/marketplace_remove_this_plan.png)
 
-Once you publish a pricing plan for an app already listed in the {% data variables.product.prodname_marketplace %}, you can't make changes to the plan. Instead, you'll need to remove the pricing plan. Customers who already purchased the removed pricing plan will continue to use it until they opt out and move onto a new pricing plan. For more on pricing plans, see "[{% data variables.product.prodname_marketplace %} pricing plans](/marketplace/selling-your-app/github-marketplace-pricing-plans/)."
+{% data variables.product.prodname_marketplace %}にリスト済みのアプリケーションの価格プランを公開すると、そのプランは変更できなくなります。 その代わりに、その価格プランを削除しなければなりません。 削除された価格プランを購入済みの顧客は、オプトアウトして新しい価格プランに移行するまでは、そのプランを使い続けます。 価格プランの詳細については、「[{% data variables.product.prodname_marketplace %}の価格プラン](/marketplace/selling-your-app/github-marketplace-pricing-plans/)」を参照してください。
 
-Once you remove a pricing plan, users won't be able to purchase your app using that plan. Existing users on the removed pricing plan will continue to stay on the plan until they cancel their plan subscription.
+価格プランを削除すると、ユーザはそのプランを使ってアプリケーションを購入することはできなくなります。 削除されたプランの既存ユーザは、プランのサブスクリプションをキャンセルするまではそのプランに留まり続けます。
 
 {% note %}
 
-**Note:** {% data variables.product.product_name %} can't remove users from a removed pricing plan. You can run a campaign to encourage users to upgrade or downgrade from the removed pricing plan onto a new pricing plan.
+**ノート:** {% data variables.product.product_name %}は、削除された価格プランからユーザを削除することはできません。 削除された価格プランから新しい価格プランへ、アップグレードもしくはダウングレードするようユーザに促すキャンペーンを実行できます。
 
 {% endnote %}
 
-You can disable GitHub Marketplace free trials without retiring the pricing plan, but this prevents you from initiating future free trials for that plan. If you choose to disable free trials for a pricing plan, users already signed up can complete their free trial.
+価格プランを取り下げることなくGitHub Marketplaceの無料トライアルを無効化することはできますが、そうすると将来的にそのプランの無料トライアルを開始できなくなります。 価格プランに対する無料トライアルを無効にすることにした場合、サインアップ済みのユーザは無料トライアルを最後まで利用できます。
 
-After retiring a pricing plan, you can create a new pricing plan with the same name as the removed pricing plan. For instance, if you have a "Pro" pricing plan but need to change the flat rate price, you can remove the "Pro" pricing plan and create a new "Pro" pricing plan with an updated price. Users will be able to purchase the new pricing plan immediately.
+価格プランを終了した後には、削除した価格プランと同じ名前で新しい価格プランを作成できます。 たとえば、「Pro」価格プランがあるものの、定額料金を変更する必要がある場合、その「Pro」価格プランを削除し、更新された価格で新しい「Pro」価格プランを作成できます。 ユーザは、すぐに新しい価格プランで購入できるようになります。

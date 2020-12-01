@@ -36,7 +36,7 @@ Aus den folgenden Gründen wirst Du möglicherweise im Mitarbeiterdiagramm eines
 
 {% tip %}
 
-**Tip:** To list all commit contributors in a repository, see "[Repositories](/v3/repos/#list-contributors)."
+**Tip:** To list all commit contributors in a repository, see "[Repositories](/rest/reference/repos#list-contributors)."
 
 {% endtip %}
 

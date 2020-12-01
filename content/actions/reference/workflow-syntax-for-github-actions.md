@@ -227,7 +227,7 @@ Each job runs in an environment specified by `runs-on`.
 
 You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
 ### **`jobs.<job_id>`**
 
@@ -875,6 +875,12 @@ strategy:
 **Note:** All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.
 
 {% endnote %}
+
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 

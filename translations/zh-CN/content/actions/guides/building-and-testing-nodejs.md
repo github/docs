@@ -129,7 +129,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 npm 和 Yarn 依赖项管理器。 在构建和测试代码之前，可以使用 npm 和 Yarn 在工作流程中安装依赖项。 Windows 和 Linux {% data variables.product.prodname_dotcom %} 托管的运行器也安装了 Grunt、Gulp 和 Bower。
 
-您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 #### 使用 npm 的示例
 
@@ -227,7 +227,7 @@ always-auth=true
 
 #### 缓存依赖项示例
 
-您可以使用唯一的密钥缓存依赖项，并在使用 `cache` 操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
 
 {% raw %}
 ```yaml
@@ -241,7 +241,7 @@ steps:
   uses: actions/cache@v2
   with:
     # npm cache files are stored in `~/.npm` on Linux/macOS
-    path: ~/.npm 
+    path: ~/.npm
     key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
     restore-keys: |
       ${{ runner.OS }}-node-

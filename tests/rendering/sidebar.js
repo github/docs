@@ -1,4 +1,4 @@
-const { getDOM } = require('../helpers')
+const { getDOM } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('sidebar', () => {

@@ -1,7 +1,7 @@
 const revalidator = require('revalidator')
 const products = require('../../lib/all-products')
 const schema = require('../../lib/products-schema')
-const { getDOM, getJSON } = require('../helpers')
+const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('products module', () => {

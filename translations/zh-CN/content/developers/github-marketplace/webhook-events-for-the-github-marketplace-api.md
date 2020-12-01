@@ -31,15 +31,15 @@ Web 挂钩 `POST` 请求具有特殊标头。 有关详细信息，请参阅“[
 
 `marketplace_purchase` 对象含有以下键：
 
-| 键                    | 类型    | 描述                                                                                                                                                                  |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `帐户`                 | `对象`  | 与订阅关联的 `organization` 或 `user` 帐户。 组织帐户将包含 `Organization_billing_email`, 这是组织的行政电子邮件地址。 要查找个人帐户的电子邮件地址，您可以使用[获取经过身份验证的用户](/v3/users/#get-the-authenticated-user)端点。 |
-| `billing_cycle`      | `字符串` | 可以是 `yearly` 或 `monthly`。 如果 `account` 所有者拥有免费 GitHub 计划并且购买了免费 {% data variables.product.prodname_marketplace %} 计划，则 `billing_cycle` 将为 `nil`。                    |
-| `unit_count`         | `整数`  | 购买的单位数。                                                                                                                                                             |
-| `on_free_trial`      | `布尔值` | 当 `account` 处于免费试用期时，该值为 `true`。                                                                                                                                    |
-| `free_trial_ends_on` | `字符串` | 免费试用到期日期。                                                                                                                                                           |
-| `next_billing_date`  | `字符串` | 下一个结算周期开始日期。 如果 `account` 所有者拥有免费 GitHub.com 计划并且购买了免费 {% data variables.product.prodname_marketplace %} 计划，则 `next_billing_date` 将为 `nil`。                         |
-| `plan`               | `对象`  | `user` 或 `organization` 购买的计划。                                                                                                                                      |
+| 键                    | 类型    | 描述                                                                                                                                                                             |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `帐户`                 | `对象`  | 与订阅关联的 `organization` 或 `user` 帐户。 组织帐户将包含 `Organization_billing_email`, 这是组织的行政电子邮件地址。 要查找个人帐户的电子邮件地址，您可以使用[获取经过身份验证的用户](/rest/reference/users#get-the-authenticated-user)端点。 |
+| `billing_cycle`      | `字符串` | 可以是 `yearly` 或 `monthly`。 如果 `account` 所有者拥有免费 GitHub 计划并且购买了免费 {% data variables.product.prodname_marketplace %} 计划，则 `billing_cycle` 将为 `nil`。                               |
+| `unit_count`         | `整数`  | 购买的单位数。                                                                                                                                                                        |
+| `on_free_trial`      | `布尔值` | 当 `account` 处于免费试用期时，该值为 `true`。                                                                                                                                               |
+| `free_trial_ends_on` | `字符串` | 免费试用到期日期。                                                                                                                                                                      |
+| `next_billing_date`  | `字符串` | 下一个结算周期开始日期。 如果 `account` 所有者拥有免费 GitHub.com 计划并且购买了免费 {% data variables.product.prodname_marketplace %} 计划，则 `next_billing_date` 将为 `nil`。                                    |
+| `plan`               | `对象`  | `user` 或 `organization` 购买的计划。                                                                                                                                                 |
 
 `plan` 对象含有以下键：
 

@@ -1,7 +1,7 @@
 ---
-title: Managing identity and access for your enterprise
-shortTitle: Managing identity and access
-intro: You can centrally manage accounts and access to {% data variables.product.product_location %}.
+title: 管理企业的身份和访问权限
+shortTitle: 管理身份和访问权限
+intro: 您可以集中管理帐户以及对 {% data variables.product.product_location %} 的访问权限。
 mapTopic: true
 versions:
   github-ae: '*'

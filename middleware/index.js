@@ -68,6 +68,8 @@ module.exports = function (app) {
   app.get('/_500', asyncMiddleware(require('./trigger-error')))
 
   // *** Preparation for render-page ***
+  app.use(asyncMiddleware(require('./contextualizers/enterprise-release-notes')))
+  app.use(require('./contextualizers/graphql'))
   app.use(require('./contextualizers/rest'))
   app.use(require('./contextualizers/webhooks'))
   app.use(require('./breadcrumbs'))
