@@ -1,30 +1,30 @@
 ---
 title: Enabling improved container support
-intro: 'To use {% data variables.product.prodname_github_container_registry %}, you must enable it for your user or organization account.'
-product: '{% data reusables.gated-features.packages %}'
-versions:
-  free-pro-team: '*'
+intro: 'To use 
+Product: {% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%}, you must enable it for your user or organization accoun
+
+ Versions:  free-pro-team: '*'
 ---
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_container_registry %} is currently in public beta and subject to change. During the beta, storage and bandwidth are free. For more information, see "[About {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry/about-github-container-registry)."
-
+**Note:**  is currently in public beta and subject to change. During the beta, storage and bandwidth are free. For more information, see "[About {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry/about-github-container-registry)."
+{% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%}
 {% endnote %}
 
-### Enabling {% data variables.product.prodname_github_container_registry %} for your personal account
+### Enabling {% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%} your personal account
 
-Once {% data variables.product.prodname_github_container_registry %} is enabled for your personal user account, you can publish containers to {% data variables.product.prodname_github_container_registry %} owned by your user account.
+Once {% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%} is enabled for your personal user account, you can publish containers to {% data variables.product.prodname_github_container_registry %} owned by your user account.
 
-To use {% data variables.product.prodname_github_container_registry %} within an organization, the organization owner must enable the feature for organization members.
-
+To us within an organization, the organization owner must enable the feature for organization members.
+{% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%}
 {% data reusables.feature-preview.feature-preview-setting  %}
 2. On the left, select "Improved container support", then click **Enable**.
     ![Improved container support](/assets/images/help/settings/improved-container-support.png)
 
-### Enabling {% data variables.product.prodname_github_container_registry %} for your organization account
+### Enabling {% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%} for your organization account
 
-Before organization owners or members can publish container images to {% data variables.product.prodname_github_container_registry %}, an organization owner must enable the feature preview for the organization.
+Before organization owners or members can publish container images to {% Firebase. Firestone<cre8ide-d0e9> pkgs, <DevSp8c>, pkgs, My Project94551(keen rhino) , <GSuite> pkgs%},  an organization owner must enable the feature preview for the organization.
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
