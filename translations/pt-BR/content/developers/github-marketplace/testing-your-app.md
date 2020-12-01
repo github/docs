@@ -37,7 +37,7 @@ Seus cenários de teste podem exigir a definição de planos de listagem que ofe
 
 ### Testar APIs
 
-Para a maioria dos pontos de extremidade da API de do {% data variables.product.prodname_marketplace %}, nós também fornecemos pontos de extremidade de teste da API, que retornam dados falsos de código que você pode usar para testes. Para receber dados de teste, você deve especificar as URLs de teste, que incluem `/teste` no encaminhamento (por exemplo, `/user/marketplace_purchases/stubbed`). Para obter uma lista de pontos de extremidade compatíveis com essa abordagem de dados de teste, consulte [pontos de extremidade do {% data variables.product.prodname_marketplace %} ](/v3/apps/marketplace/#github-marketplace). .
+Para a maioria dos pontos de extremidade da API de do {% data variables.product.prodname_marketplace %}, nós também fornecemos pontos de extremidade de teste da API, que retornam dados falsos de código que você pode usar para testes. Para receber dados de teste, você deve especificar as URLs de teste, que incluem `/teste` no encaminhamento (por exemplo, `/user/marketplace_purchases/stubbed`). Para obter uma lista de pontos de extremidade compatíveis com essa abordagem de dados de teste, consulte [pontos de extremidade do {% data variables.product.prodname_marketplace %} ](/rest/reference/apps#github-marketplace). .
 
 ### Testar webhooks
 

@@ -65,5 +65,5 @@ Ao terminar, clique em **Adicionar webhook**. Ufa! Agora que você criou o webho
 Para configurar um webhook para todos os eventos, use o caractere curinga (`*`) para especificar os eventos de webhook. Ao adicionar o evento curinga, substituiremos todos os eventos existentes que você tenha configurado pelo evento curinga e enviaremos todas as cargas para os eventos compatíveis. Você também obterá automaticamente todos os novos eventos que possamos adicionar no futuro.
 
 [webhooks-overview]: /webhooks/
-[webhook-api]: /v3/repos/hooks/
+[webhook-api]: /rest/reference/repos#hooks
 [hooks-api]: /webhooks/#events
