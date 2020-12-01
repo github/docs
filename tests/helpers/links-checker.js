@@ -10,8 +10,8 @@ const findPageInVersion = require('../../lib/find-page-in-version')
 const rest = require('../../middleware/contextualizers/rest')
 const graphql = require('../../middleware/contextualizers/graphql')
 const contextualize = require('../../middleware/context')
-// TODO enable when release notes are live
-// const releaseNotes = require('../../middleware/contextualizers/enterprise-release-notes')
+const releaseNotes = require('../../middleware/contextualizers/enterprise-release-notes')
+const versionSatisfiesRange = require('../../lib/version-satisfies-range')
 
 class LinksChecker {
   constructor (opts = { languageCode: 'en', internalHrefPrefixes: ['/', '#'] }) {
@@ -225,26 +225,35 @@ async function buildInitialContext () {
   return req.context
 }
 
-async function buildPathContext (context, page, permalink) {
+async function buildPathContext (initialContext, page, permalink) {
+  // Create a new object with path-specific properties
   const pathContext = {
     page,
     currentVersion: permalink.pageVersion,
     relativePath: permalink.relativePath
   }
 
+  // Combine it with the initial context object that has pages, redirects, etc.
+  const combinedContext = Object.assign({}, initialContext, pathContext)
+
+  // Create a new req object using the combined context
   const req = {
     path: permalink.href,
-    context: Object.assign({}, context, pathContext),
+    context: combinedContext,
     language: 'en',
     query: {}
   }
 
+  // Pass the req to the contextualizing middlewares
   await applyMiddleware(rest, req)
   await applyMiddleware(graphql, req)
-  // TODO enable when release notes are live
-  // await applyMiddleware(releaseNotes, req)
+  // Release notes are on docs site starting with GHES 3.0
+  if (versionSatisfiesRange(permalink.pageVersion, '>=3.0')) {
+    await applyMiddleware(releaseNotes, req)
+  }
 
-  return Object.assign({}, context, req.context)
+  // Return the resulting context object with REST, GraphQL, and release notes data now attached
+  return req.context
 }
 
 module.exports = {
