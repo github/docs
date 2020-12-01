@@ -12,8 +12,8 @@ versions:
 ### Table of Contents
 
 {% topic_link_in_list /managing-repository-settings %}
-    {% link_in_list /setting-repository-visibility %}{% if currentVersion == "free-pro-team@latest" %}
-    {% link_in_list /managing-teams-and-people-with-access-to-your-repository %}{% endif %}
+    {% link_in_list /setting-repository-visibility %}
+    {% link_in_list /managing-teams-and-people-with-access-to-your-repository %}
     {% link_in_list /classifying-your-repository-with-topics %}
     {% link_in_list /customizing-how-changed-files-appear-on-github %}
     {% link_in_list /about-email-notifications-for-pushes-to-your-repository %}
