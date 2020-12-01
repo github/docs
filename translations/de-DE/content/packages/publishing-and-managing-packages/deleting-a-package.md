@@ -35,10 +35,6 @@ At this time, {% data variables.product.prodname_registry %} on {% data variable
 
 {% endif %}
 
-### Reserved package versions and names
-
-{% data reusables.package_registry.package-immutability %}
-
 ### Deleting a version of a private package on {% data variables.product.product_name %}
 
 To delete a private package version, you must have admin permissions in the repository.

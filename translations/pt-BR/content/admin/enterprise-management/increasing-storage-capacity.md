@@ -20,6 +20,8 @@ versions:
 
 {% endnote %}
 
+#### Requisitos mínimos
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Aumentar o tamanho da partição de dados
