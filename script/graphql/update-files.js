@@ -72,7 +72,7 @@ async function main () {
 
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion)
+    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
   }
 
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
