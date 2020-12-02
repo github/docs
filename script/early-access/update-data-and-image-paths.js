@@ -20,6 +20,7 @@ const earlyAccessImages = path.posix.join(process.cwd(), 'assets/images/early-ac
 
 program
   .description('Update data and image paths.')
+  .option('-p, --path-to-early-access-content-file <PATH>', `Path to a specific content file. Defaults to all Early Access content files if not provided.`)
   .option('-a, --add', 'Add "early-access" to data and image paths.')
   .option('-r, --remove', 'Remove "early-access" from data and image paths.')
   .parse(process.argv)
@@ -29,9 +30,20 @@ if (!(program.add || program.remove)) {
   process.exit(1)
 }
 
-// Gather the EA content and data files
-const earlyAccessContentAndDataFiles = walk(earlyAccessContent, { includeBasePath: true, directories: false })
+let earlyAccessContentAndDataFiles
+if (program.pathToEarlyAccessContentFile) {
+  earlyAccessContentAndDataFiles = path.posix.join(process.cwd(), program.pathToEarlyAccessContentFile)
+
+  if (!fs.existsSync(earlyAccessContentAndDataFiles)) {
+    console.error(`Error! ${program.pathToEarlyAccessContentFile} can't be found. Make sure the path starts with 'content/early-access'.`)
+    process.exit(1)
+  }
+  earlyAccessContentAndDataFiles = [earlyAccessContentAndDataFiles]
+} else {
+  // Gather the EA content and data files
+  earlyAccessContentAndDataFiles = walk(earlyAccessContent, { includeBasePath: true, directories: false })
   .concat(walk(earlyAccessData, { includeBasePath: true, directories: false }))
+}
 
 // Update the EA content and data files
 earlyAccessContentAndDataFiles
