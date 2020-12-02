@@ -10,11 +10,12 @@ module.exports = function earlyAccessContext (req, res, next) {
     .filter(page => page.relativePath !== 'early-access/index.md')
     // Create Markdown links
     .map(page => {
-      return page.permalinks.map(permalink => `- [${permalink.href}](${permalink.href})`)
+      return page.permalinks.map(permalink => `- [${permalink.title}](${permalink.href})`)
     })
     .flat()
     // Get links for the current version
     .filter(link => link.includes(req.context.currentVersion))
+    .sort()
     .join('\n')
 
   // Add to the rendering context
