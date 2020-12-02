@@ -12,6 +12,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Code blocks](#code-blocks)
   - [Commands](#commands)
   - [Examples](#examples)
+  - [Indentation](#indentation)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -127,6 +128,21 @@ on:
 ```
 schedule:
   - cron:  "40 19 * * *"
+```
+
+### Indentation
+
+In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
+
+- **Use:**
+
+```yaml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
 ```
 
 ## Headers
