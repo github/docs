@@ -43,11 +43,11 @@ Du kannst verschlüsselte Geheimnisse in einer Workflow-Datei verwenden und lese
 
 {% endwarning %}
 
-Sie können Geheimnisse auch mit der REST-API verwalten. Weitere Informationen finden Sie unter "[Secrets](/v3/actions/secrets/)".
+Sie können Geheimnisse auch mit der REST-API verwalten. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
 #### Einschränken von Anmeldeinformationsberechtigungen
 
-Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Berechtigungen zu erteilen. Anstatt z.B. persönliche Anmeldeinformationen zu verwenden, solltest Du [Bereitstellen von Schlüsseln](/v3/guides/managing-deploy-keys/#deploy-keys) oder einen „Service-Account“ (Dienstkonto) benuzen. Ziehe in Erwägung, Nur-Lese-Berechtigungen zu gewähren, wenn dies ausreicht, und schränke den Zugriff so weit wie möglich ein. Wähle beim Generieren eines persönlichen Zugriffstokens („personal access token“, PAT) die geringsmöglichen Anwendungsbereiche („scopes“) aus.
+Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Berechtigungen zu erteilen. Anstatt z.B. persönliche Anmeldeinformationen zu verwenden, solltest Du [Bereitstellen von Schlüsseln](/developers/overview/managing-deploy-keys#deploy-keys) oder einen „Service-Account“ (Dienstkonto) benuzen. Ziehe in Erwägung, Nur-Lese-Berechtigungen zu gewähren, wenn dies ausreicht, und schränke den Zugriff so weit wie möglich ein. Wähle beim Generieren eines persönlichen Zugriffstokens („personal access token“, PAT) die geringsmöglichen Anwendungsbereiche („scopes“) aus.
 
 ### Erstellen verschlüsselter Geheimnisse für ein Repository
 

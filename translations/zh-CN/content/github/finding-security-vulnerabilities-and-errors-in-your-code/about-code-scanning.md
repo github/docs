@@ -20,7 +20,7 @@ versions:
 
 如果 {% data variables.product.prodname_code_scanning %} 发现您的代码中可能存在漏洞或错误，{% data variables.product.prodname_dotcom %} 会在仓库中显示警报。 在修复触发警报的代码之后，{% data variables.product.prodname_dotcom %} 将关闭警报。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
-{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”。
+{% data variables.product.prodname_code_scanning_capc %} 使用 {% data variables.product.prodname_actions %}。 For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
 要开始 {% data variables.product.prodname_code_scanning %}，请参阅“[启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)”。
 

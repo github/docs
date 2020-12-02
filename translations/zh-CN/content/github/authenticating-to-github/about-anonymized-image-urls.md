@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-为托管您的图像，{% data variables.product.product_name %} 使用 [开源项目 Camo](https://github.com/atmos/camo)。 Camo 为每幅图像生成开头为 `https://camo.githubusercontent.com/` 的匿名 URL 代理，将会对其他用户隐藏您的浏览器详细信息和相关信息。
+为托管您的图像，{% data variables.product.product_name %} 使用 [开源项目 Camo](https://github.com/atmos/camo)。 Camo generates an anonymous URL proxy for each image which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
 
 直接或间接收到您的匿名化图像 URL 的任何人都可查看您的图像。 为对敏感图像保密，将它们限于私人网络或需要身份验证的服务器，而不使用 Camo。
 

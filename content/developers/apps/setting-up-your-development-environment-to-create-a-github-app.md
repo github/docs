@@ -37,7 +37,7 @@ You may find it helpful to have a basic understanding of the following:
 * [GitHub Apps](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/v3)
+* [REST APIs](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!

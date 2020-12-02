@@ -1,1 +1,1 @@
-必须登录才能跨所有公共仓库搜索代码。
+You must be signed into a user account on {% data variables.product.product_name %} to search for code across all public repositories.

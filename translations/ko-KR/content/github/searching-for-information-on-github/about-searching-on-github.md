@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 ---
 
-You can search globally across all of {% data variables.product.product_name %}, or scope your search to a particular repository or organization.
+{% data reusables.search.you-can-search-globally %}
 
 - To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "All {% data variables.product.prodname_dotcom %}" in the search drop-down menu.
 - To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
@@ -23,7 +23,8 @@ You can search globally across all of {% data variables.product.product_name %},
 
 **참고:**
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/articles/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
 - Currently our search doesn't support exact matching.
 - Whenever you are searching in code files, only the first two results in each file will be returned.
@@ -36,7 +37,7 @@ After running a search on {% data variables.product.product_name %}, you can sor
 
 ### Types of searches on {% data variables.product.prodname_dotcom %}
 
-You can search the following types of information across all public {% data variables.product.product_name %} repositories, and all private {% data variables.product.product_name %} repositories you have access to:
+You can search for the following information across all repositories you can access on {% data variables.product.product_location %}.
 
 - [Repositories](/articles/searching-for-repositories)
 - [Topics](/articles/searching-topics)

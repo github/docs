@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} 上の {% data variables.product.prodname_registry %} は、外部の blob ストレージを使用してパッケージを保存します。 必要なストレージ容量は、{% data variables.product.prodname_registry %} の使用状況によって異なります。
 
-現時点では、{% data variables.product.prodname_registry %} は Amazon Web Services (AWS) S3 で blob ストレージをサポートしています。 MinIO もサポートされていますが、設定は現在 {% data variables.product.product_name %} インタフェースに実装されていません。 You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration.
+現時点では、{% data variables.product.prodname_registry %} は Amazon Web Services (AWS) S3 で blob ストレージをサポートしています。 MinIO もサポートされていますが、設定は現在 {% data variables.product.product_name %} インタフェースに実装されていません。 You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration. Before configuring third-party storage for {% data variables.product.prodname_registry %} on {% data variables.product.prodname_dotcom %}, you must set up a bucket with your third-party storage provider. For more information on installing and running a MinIO bucket to use with {% data variables.product.prodname_registry %}, see the "[Quickstart for configuring MinIO storage](/admin/packages/quickstart-for-configuring-minio-storage)."
 
 最適なエクスペリエンスを得るには、{% data variables.product.prodname_actions %} のストレージに使用するバケットとは別に、{% data variables.product.prodname_registry %} }専用のバケットを使用することをお勧めします。
 

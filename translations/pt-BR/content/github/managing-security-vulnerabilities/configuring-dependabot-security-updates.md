@@ -1,7 +1,7 @@
 ---
-title: Configuring Dependabot security updates
+title: Configurar atualizações de segurança do Dependabot
 intro: 'Você pode usar {% data variables.product.prodname_dependabot_security_updates %} ou pull requests manuais para atualizar facilmente dependências vulneráveis.'
-shortTitle: Configuring Dependabot security updates
+shortTitle: Configurar atualizações de segurança do Dependabot
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -11,9 +11,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### About configuring {% data variables.product.prodname_dependabot_security_updates %}
+### Sobre a configuração de {% data variables.product.prodname_dependabot_security_updates %}
 
-You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+É possível habilitar o {% data variables.product.prodname_dependabot_security_updates %} para qualquer repositório que use {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
 Você pode desativar as {% data variables.product.prodname_dependabot_security_updates %} em um repositório individual ou para todos os repositórios que pertencem à sua conta de usuário ou organização. Para obter mais informações, consulte "[Gerenciar o {% data variables.product.prodname_dependabot_security_updates %} para seus repositórios](#managing-dependabot-security-updates-for-your-repositories) abaixo".
 
