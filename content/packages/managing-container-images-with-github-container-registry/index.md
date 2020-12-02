@@ -9,3 +9,4 @@ versions:
 {% link_in_list /connecting-a-repository-to-a-container-image %}
 {% link_in_list /pushing-and-pulling-docker-images %}
 {% link_in_list /deleting-a-container-image %}
+rohittravels index.md
