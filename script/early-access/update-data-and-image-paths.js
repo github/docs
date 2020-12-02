@@ -1,0 +1,139 @@
+#!/usr/bin/env node
+
+// [start-readme]
+//
+// This script is run on a writer's machine while developing Early Access content locally. It
+// updates the data and image paths to either include `early-access` or remove it.
+//
+// [end-readme]
+
+const fs = require('fs')
+const path = require('path')
+const program = require('commander')
+const walk = require('walk-sync')
+const { escapeRegExp, last } = require('lodash')
+const yaml = require('js-yaml')
+const patterns = require('../../lib/patterns')
+const earlyAccessContent = path.posix.join(process.cwd(), 'content/early-access')
+const earlyAccessData = path.posix.join(process.cwd(), 'data/early-access')
+const earlyAccessImages = path.posix.join(process.cwd(), 'assets/images/early-access')
+
+program
+  .description('Update data and image paths.')
+  .option('-a, --add', 'Add "early-access" to data and image paths.')
+  .option('-r, --remove', 'Remove "early-access" from data and image paths.')
+  .parse(process.argv)
+
+if (!(program.add || program.remove)) {
+  console.error('Error! Must specify either `--add` or `--remove`.')
+  process.exit(1)
+}
+
+// Gather the EA content and data files
+const earlyAccessContentAndDataFiles = walk(earlyAccessContent, { includeBasePath: true, directories: false })
+  .concat(walk(earlyAccessData, { includeBasePath: true, directories: false }))
+
+// Update the EA content and data files
+earlyAccessContentAndDataFiles
+  .forEach(file => {
+    const oldContents = fs.readFileSync(file, 'utf8')
+
+    // Get all the data references in each file that exist in data/early-access
+    const dataRefs = (oldContents.match(patterns.dataReference) || [])
+      .filter(dataRef => dataRef.includes('variables') ? checkVariable(dataRef) : checkReusable(dataRef))
+
+    // Get all the image references in each file that exist in assets/images/early-access
+    const imageRefs = (oldContents.match(patterns.imagePath) || [])
+      .filter(imageRef => checkImage(imageRef))
+
+    const replacements = {}
+
+    if (program.add) {
+      dataRefs
+        // Since we're adding early-access to the path, filter for those that do not already include it
+        .filter(dataRef => !dataRef.includes('data early-access.'))
+        // Add to the { oldRef: newRef } replacements object
+        .forEach(dataRef => {
+          replacements[dataRef] = dataRef.replace(/({% data )(.*)/, '$1early-access.$2')
+        })
+
+      imageRefs
+        // Since we're adding early-access to the path, filter for those that do not already include it
+        .filter(imageRef => !imageRef.split('/').includes('early-access'))
+        // Add to the { oldRef: newRef } replacements object
+        .forEach(imageRef => {
+          replacements[imageRef] = imageRef.replace('/assets/images/', '/assets/images/early-access/')
+        })
+    }
+
+    if (program.remove) {
+      dataRefs
+        // Since we're removing early-access from the path, filter for those that include it
+        .filter(dataRef => dataRef.includes('{% data early-access.'))
+        // Add to the { oldRef: newRef } replacements object
+        .forEach(dataRef => {
+          replacements[dataRef] = dataRef.replace('early-access.', '')
+        })
+
+      imageRefs
+        // Since we're removing early-access from the path, filter for those that include it
+        .filter(imageRef => imageRef.split('/').includes('early-access'))
+        // Add to the { oldRef: newRef } replacements object
+        .forEach(imageRef => {
+          replacements[imageRef] = imageRef.replace('/assets/images/early-access/', '/assets/images/')
+        })
+    }
+
+    // Return early if nothing to replace
+    if (!Object.keys(replacements).length) {
+      return
+    }
+
+    // Make the replacement in the content
+    let newContents = oldContents
+    Object.entries(replacements).forEach(([oldRef, newRef]) => {
+      newContents = newContents.replace(new RegExp(escapeRegExp(oldRef), 'g'), newRef)
+    })
+
+    // Write the updated content
+    fs.writeFileSync(file, newContents)
+  })
+
+console.log('Done! Run "git status" in your docs-early-access checkout to see the changes.\n')
+
+function checkVariable (dataRef) {
+  // Get the data file path from the data reference
+  const variablePathArray = dataRef.match(/{% data (.*?) %}/)[1].split('.')
+  // If early access is part of the path, remove it (since the path below already includes it)
+    .filter(n => n !== 'early-access')
+
+  const variableKey = last(variablePathArray); variablePathArray.pop()
+  const variablePath = path.posix.join(earlyAccessData, `${variablePathArray.join('/')}.yml`)
+
+  // If the variable file doesn't exist in data/early-access, exclude it
+  if (!fs.existsSync(variablePath)) return false
+
+  // If the variable file exists but doesn't have the referenced key, exclude it
+  const variableFileContent = yaml.safeLoad(fs.readFileSync(variablePath, 'utf8'))
+  return variableFileContent[variableKey]
+}
+
+function checkReusable (dataRef) {
+  const reusablePath = dataRef.match(/{% data (.*?) %}/)[1].split('.')
+    // If early access is part of the path, remove it (since the path below already includes it)
+    .filter(n => n !== 'early-access')
+    .join('/')
+
+  // If the reusable file doesn't exist in data/early-access, exclude it
+  return fs.existsSync(`${path.posix.join(earlyAccessData, reusablePath)}.md`)
+}
+
+function checkImage (imageRef) {
+  const imagePath = imageRef
+    .replace('/assets/images/', '')
+    // If early access is part of the path, remove it (since the path below already includes it)
+    .replace('early-access', '')
+
+  // If the image file doesn't exist in assets/images/early-access, exclude it
+  return fs.existsSync(path.posix.join(earlyAccessImages, imagePath))
+}
