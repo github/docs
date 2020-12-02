@@ -32,7 +32,7 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 {% endif %}
 
-### User-to-server requests
+### 用户到服务器请求
 
 {% data variables.product.prodname_github_app %}s can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
 

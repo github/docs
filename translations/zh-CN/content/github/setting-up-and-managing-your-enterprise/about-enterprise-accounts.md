@@ -26,7 +26,7 @@ versions:
 
 For more information about member access and management, see "{% if currentVersion == "free-pro-team@latest" %}[Managing users in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Managing users, organizations, and repositories](/admin/user-management){% endif %}."
 
-有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
+有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/graphql/guides/managing-enterprise-accounts)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

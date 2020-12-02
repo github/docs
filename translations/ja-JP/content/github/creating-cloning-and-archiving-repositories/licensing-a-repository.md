@@ -74,7 +74,7 @@ versions:
 
 ### ライセンスを見つけてもらう
 
-[オープンソースの Ruby Gem Licensee](https://github.com/benbalter/licensee) は、リポジトリの *LICENSE* ファイルを、既知のライセンスの候補リストと比較します。 Licensee には [ライセンス API](/v3/licenses/) も用意されており、 {% data variables.product.product_name %} のリポジトリがどのようにライセンスされているかを[深く理解できます](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 自分のリポジトリで使用しているライセンスが、[ライセンス選択のウェブサイト](http://choosealicense.com/appendix/)にリストされていない場合は、[ライセンスの追加をリクエストする](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)ことができます。
+[オープンソースの Ruby Gem Licensee](https://github.com/benbalter/licensee) は、リポジトリの *LICENSE* ファイルを、既知のライセンスの候補リストと比較します。 Licensee には [ライセンス API](/rest/reference/licenses) も用意されており、 {% data variables.product.product_name %} のリポジトリがどのようにライセンスされているかを[深く理解できます](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 自分のリポジトリで使用しているライセンスが、[ライセンス選択のウェブサイト](http://choosealicense.com/appendix/)にリストされていない場合は、[ライセンスの追加をリクエストする](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)ことができます。
 
 自分のリポジトリで使用しているライセンスが、ライセンス選択のウェブサイトにはリストされていて、リポジトリ ページのトップに明示的に表示されていない場合には、複数のライセンスが含まれるなど、複雑な状況が考えられます。 ライセンスを見つけてもらうために、*LICENSE* ファイルは単純にし、リポジトリの *README* ファイルなど、どこかでその複雑さに言及してください。
 

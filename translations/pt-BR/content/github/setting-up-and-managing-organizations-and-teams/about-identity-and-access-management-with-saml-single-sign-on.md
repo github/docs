@@ -40,7 +40,7 @@ Alguns IdPs suportam acesso de provisionamento a uma organização do {% data va
 
 ### Adicionar integrantes a uma organização usando SAML SSO
 
-Depois que o SAML SSO é habilitado, há várias maneiras possíveis de adicionar novos integrantes à organização. Os proprietários da organização podem convidar novos integrantes manualmente no {% data variables.product.product_name %} ou usando a API. Para obter mais informações, consulte "[Convidar usuários para juntar-se à sua organização](/articles/inviting-users-to-join-your-organization)" e "[Integrantes](/v3/orgs/members/#add-or-update-organization-membership)".
+Depois que o SAML SSO é habilitado, há várias maneiras possíveis de adicionar novos integrantes à organização. Os proprietários da organização podem convidar novos integrantes manualmente no {% data variables.product.product_name %} ou usando a API. Para obter mais informações, consulte "[Convidar usuários para juntar-se à sua organização](/articles/inviting-users-to-join-your-organization)" e "[Integrantes](/rest/reference/orgs#add-or-update-organization-membership)".
 
 {% data reusables.organizations.team-synchronization %}
 

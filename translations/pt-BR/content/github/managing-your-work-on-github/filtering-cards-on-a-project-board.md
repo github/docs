@@ -22,7 +22,7 @@ Também é possível usar a barra de pesquisa "Filter cards" (Fitrar cartões) q
 - Filtrar cartões por status de verificação com `status:pending`, `status:success` ou `status:failure`
 - Filtrar cartões por tipo com `type:issue`, `type:pr` ou `type:note`
 - Filtrar cartões por estado e tipo com `is:open`, `is:closed` ou `is:merged`; e `is:issue`, `is:pr` ou `is:note`
-- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- Filtrar cartões por problemas vinculados a um pull request por uma referência de fechamento usando `linkado:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" ou versão atual == "github-ae@latest" %}
 - Filtrar cartões por repositório em um quadro de projetos de toda a organização usando `repo:ORGANIZATION/REPOSITORY`{% endif %}
 
 1. Navegue até o quadro de projetos que contém os cartões que você deseja filtrar.

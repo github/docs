@@ -54,7 +54,7 @@ https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/
 
 Por exemplo, se você notar que um cliente está em um plano de 5 pessoas e precisa passar para um plano de 10 pessoas, você poderia exibir um botão na interface do usuário do seu aplicativo que diz "Aqui está como atualizar" ou exibir um banner com um link para a URL de atualização. A URL atualização leva o cliente para a página de confirmação de confirmação da atualização do seu plano da listagem.
 
-Use o `LISTING_PLAN_NUMBER` para o plano que o cliente gostaria de comprar. Ao criar novos planos de preços, eles recebem um `LISTING_PLAN_NUMBER`, que é exclusivo para cada plano na sua listagem, e um `LISTING_PLAN_ID`, que é exclusivo para cada plano no {% data variables.product.prodname_marketplace %}. Você pode encontrar esses números ao [Listar planos](/v3/apps/marketplace/#list-plans), que identifica os seus planos de preços da listagem. Use o `LISTING_PLAN_ID` e "[Listar contas de um plano](/v3/apps/marketplace/#list-accounts-for-a-plan)" para obter o `CUSTOMER_ACCOUNT_ID`.
+Use o `LISTING_PLAN_NUMBER` para o plano que o cliente gostaria de comprar. Ao criar novos planos de preços, eles recebem um `LISTING_PLAN_NUMBER`, que é exclusivo para cada plano na sua listagem, e um `LISTING_PLAN_ID`, que é exclusivo para cada plano no {% data variables.product.prodname_marketplace %}. Você pode encontrar esses números ao [Listar planos](/rest/reference/apps#list-plans), que identifica os seus planos de preços da listagem. Use o `LISTING_PLAN_ID` e "[Listar contas de um plano](/rest/reference/apps#list-accounts-for-a-plan)" para obter o `CUSTOMER_ACCOUNT_ID`.
 
 
 {% note %}

@@ -91,7 +91,7 @@ jobs:
 
 {% endnote %}
 
-您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 例如，以下作业将安装 `SqlServer` 和 `PSScriptAnalyzer` 模块：
 
@@ -119,7 +119,7 @@ jobs:
 
 #### 缓存依赖项
 
-您可以使用唯一密钥缓存 PowerShell 依赖项，以在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 PowerShell 根据运行器的操作系统将其依赖项缓存在不同的位置。 例如，以下 Ubuntu 示例中使用的 `path` 位置在 Windows 操作系统中是不同的。
 
