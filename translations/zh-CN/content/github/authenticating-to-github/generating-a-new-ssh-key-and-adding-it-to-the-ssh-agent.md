@@ -20,18 +20,26 @@ versions:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 粘贴下面的文本（替换为您的 {% data variables.product.product_name %} 电子邮件地址）。
   ```shell
-  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
+  {% note %}
+
+  **注：**如果您使用的是不支持 Ed25519 算法的旧系统，请使用以下命令：
+  ```shell
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+  ```
+
+  {% endnote %}
   这将创建以所提供的电子邮件地址为标签的新 SSH 密钥。
   ```shell
-  > Generating public/private rsa key pair.
+  > Generating public/private ed25519 key pair.
   ```
 3. 提示您“Enter a file in which to save the key（输入要保存密钥的文件）”时，按 Enter 键。 这将接受默认文件位置。
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -39,7 +47,7 @@ versions:
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_rsa):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -47,7 +55,7 @@ versions:
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endlinux %}
@@ -81,22 +89,28 @@ versions:
       $ touch ~/.ssh/config
       ```
 
-    * 打开 `~/.ssh/config` 文件，然后修改该文件，如果未使用 `id_rsa` 键的默认位置和名称，则替换 `~/.ssh/id_rsa`。
+    * 打开 `~/.ssh/config` 文件，然后修改该文件，如果未使用 `id_ed25519` 键的默认位置和名称，则替换 `~/.ssh/id_ed25519`。
 
       ```
       Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_rsa
+        IdentityFile ~/.ssh/id_ed25519
       ```
+
+     {% note %}
+
+     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+
+     {% endnote %}
 
 3. 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
-   $ ssh-add -K ~/.ssh/id_rsa
+   $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 
-  **注：**`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当您将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在您的密钥链中。
+  **注：**`-K` 选项位于 Apple 的 `ssh-add` 标准版本中，当您将 ssh 密钥添加到 ssh-agent 时，它会将密码存储在您的密钥链中。 If you chose not to add a passphrase to your key, run the command without the `-K` option.
 
   如果您没有安装 Apple 的标准版本，可能会收到错误消息。 有关解决此错误的详细信息，请参阅“[错误：ssh-add：非法选项 -- K](/articles/error-ssh-add-illegal-option-k)”。
 

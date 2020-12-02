@@ -34,7 +34,7 @@ The workflow is an automated procedure that you add to your repository. Workflow
 
 #### 이벤트
 
-An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the repository dispatch webhook to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
 
 #### Jobs
 
@@ -42,7 +42,7 @@ A job is a set of steps that execute on the same runner. By default, a workflow 
 
 #### Steps
 
-A step is an individual task that can run commands (known as _actions_). Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
+A step is an individual task that can run commands in a job. A step can be either an _action_ or a shell command. Each step in a job executes on the same runner, allowing the actions in that job to share data with each other.
 
 #### Actions
 
@@ -50,7 +50,7 @@ _Actions_ are standalone commands that are combined into _steps_ to create a _jo
 
 #### Runners
 
-A runner is a server that has the {% data variables.product.prodname_actions %} runner application installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
+A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
 
 {% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS. For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
@@ -197,7 +197,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 
 #### Visualizing the workflow file
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action. Steps 1 and 2 use prebuilt community actions. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action or shell command. Steps 1 and 2 use prebuilt community actions. Steps 3 and 4 run shell commands directly on the runner. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-event.png)
 

@@ -131,7 +131,7 @@ O valor `retention-days` não pode exceder o limite de retenção definido pelo 
 
 Durante a execução de um fluxo de trabalho, você pode usar a ação [`download-artifact`](https://github.com/actions/download-artifact)para fazer o download de artefatos previamente carregados na mesma execução de fluxo de trabalho.
 
-Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazer o download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Remover artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts)" e "[Artefatos da REST API](/v3/actions/artifacts/)".
+Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazer o download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Remover artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts)" e "[Artefatos da REST API](/rest/reference/actions#artifacts)".
 
 #### Fazer o download dos artefatos durante a execução de um fluxo de trabalho
 
@@ -171,12 +171,12 @@ Os trabalhos que são dependentes de artefatos de um trabalho anterior devem agu
 
 O Job 1 (Trabalho 1) executa estas etapas:
 - Realiza um cálculo de correspondência e salva o resultado em um arquivo de texto denominado `math-homework.txt`.
-- Usa a ação `upload-artifact` para fazer upload do arquivo `math-homework.txt` com o nome `homework`. A ação coloca o arquivo em um diretório denominado `homework`.
+- Usa a ação `upload-artifact` para fazer upload do arquivo `math-homework.txt` com o nome do artefato `homework`.
 
 O Job 2 (Trabalho 2) usa o resultado do trabalho anterior:
 - Baixa o artefato `homework` carregado no trabalho anterior. Por padrão, a ação `download-artifact` baixa artefatos no diretório da área de trabalho no qual a etapa está sendo executada. Você pode usar o parâmetro da entrada do `caminho` para especificar um diretório diferente para o download.
-- Lê o valor no arquivo `homework/math-homework.txt`, efetua um cálculo matemático e salva o resultado em `math-homework.txt`.
-- Faz upload do arquivo `math-homework.txt`. Esse upload sobrescreve o upload anterior, pois ambos compartilham o mesmo nome.
+- Lê o valor no arquivo `math-homework.txt`, efetua um cálculo matemático e salva o resultado em `math-homework.txt` novamente, sobrescrevendo o seu conteúdo.
+- Faz upload do arquivo `math-homework.txt`. Este upload sobrescreve o artefato carregado anteriormente porque compartilham o mesmo nome.
 
 O Job 3 (Trabalho 3) mostra o resultado carregado no trabalho anterior:
 - Baixa o artefato `homework`.

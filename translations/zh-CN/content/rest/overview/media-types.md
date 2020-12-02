@@ -21,7 +21,7 @@ API 支持的最基本媒体类型是：
     application/json
     application/vnd.github+json
 
-这两者都没有指定[版本][versions]，因此您总是会获取资源的当前默认 JSON 表示形式。
+Neither of these specify a [version][versions], so you will always get the current default JSON representation of resources.
 
 {% note %}
 
@@ -57,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### 注释正文属性
 
-注释正文可采用 [GitHub Flavored Markdown][gfm] 编写，[议题](/v3/issues/)、[议题注释](/v3/issues/comments/)、[拉取请求注释](/v3/pulls/comments/)和 [gist 注释](/v3/gists/comments/) API 都接受以下媒体类型：
+The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
 
 #### Raw
 
@@ -85,7 +85,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Git blob 属性
 
-[获取 Blob](/v3/git/blobs/#get-a-blob) 时允许使用以下媒体类型：
+The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
 
 #### JSON
 
@@ -102,7 +102,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### 提交、提交比较和拉取请求
 
-[提交 API](/v3/repos/commits/) 和[拉取请求 API](/v3/pulls/) 支持 [diff][git-diff] 和 [patch][git-patch] 格式：
+The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
 #### 差异
 
@@ -147,4 +147,4 @@ Gist 内容在发送前经过 base64 编码。 这在 gist 包含任何无效的
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /v3/versions
+[versions]: /developers/overview/about-githubs-apis

@@ -1,6 +1,6 @@
 ---
 title: 管理全局 web 挂钩
-intro: 'Site administrators can view, add, edit, and delete global webhooks to track events for the enterprise.'
+intro: '站点管理员可以查看、添加、编辑和删除全局 web 挂钩，以跟踪企业的事件。'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
@@ -11,7 +11,7 @@ versions:
 
 ### 关于全局 web 挂钩
 
-You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management for your enterprise. 例如，您可以将 web 挂钩配置为在以下情况下执行：
+您可以使用全局 web 挂钩自动监视、响应或者为企业的用户和组织管理强制执行规则。 例如，您可以将 web 挂钩配置为在以下情况下执行：
 - 创建或删除用户帐户
 - 创建或删除组织
 - 向仓库添加协作者或从仓库中移除协作者

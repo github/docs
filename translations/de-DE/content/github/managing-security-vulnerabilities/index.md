@@ -30,9 +30,9 @@ versions:
     {% link_in_list /about-alerts-for-vulnerable-dependencies %}
     {% link_in_list /configuring-notifications-for-vulnerable-dependencies %}
 <!-- if currentVersion == "free-pro-team@latest" -->
-    {% link_in_list /about-github-dependabot-security-updates %}
-    {% link_in_list /configuring-github-dependabot-security-updates %}
+    {% link_in_list /about-dependabot-security-updates %}
+    {% link_in_list /configuring-dependabot-security-updates %}
     {% link_in_list /viewing-and-updating-vulnerable-dependencies-in-your-repository %}
     {% link_in_list /troubleshooting-the-detection-of-vulnerable-dependencies %}
-    {% link_in_list /troubleshooting-github-dependabot-errors %}
+    {% link_in_list /troubleshooting-dependabot-errors %}
 <!-- endif -->

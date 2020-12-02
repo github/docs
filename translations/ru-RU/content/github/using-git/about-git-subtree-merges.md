@@ -105,5 +105,5 @@ $ git pull -s subtree spoon-knife master
 
 ### Дополнительная литература
 
-- [The "Subtree Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Subtree-Merging)
+- [The "Advanced Merging" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging)
 - "[How to use the subtree merge strategy](https://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html)"

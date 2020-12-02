@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/configuring-webhooks-for-organization-events-in-your-business-account/
   - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

@@ -26,7 +26,7 @@ Os segredos usam [caixas fechadas de Libsodium](https://libsodium.gitbook.io/doc
 Para ajudar a prevenir a divulgação acidental, o {% data variables.product.product_name %} usa um mecanismo que tenta redigir quaisquer segredos que aparecem nos registros de execução. Esta redação procura correspondências exatas de quaisquer segredos configurados, bem como codificações comuns dos valores, como Base64. No entanto, como há várias maneiras de transformar o valor de um segredo, essa anulação não é garantida. Como resultado, existem certas etapas proativas e boas práticas que você deve seguir para ajudar a garantir que os segredos sejam editados, e para limitar outros riscos associados aos segredos:
 
 - **Nunca usar dados estruturados como um segredo**
-    - Os dados não estruturados podem fazer com que ocorra uma falha na redação secreta nos registros, porque a redação depende, em grande parte, de encontrar uma correspondência exata para o valor específico do segredo. Por exemplo, não use um blob de JSON, XML, ou YAML (ou similar) para encapsular o valor de um segredo, já que isso reduz significativamente a probabilidade de os segredos serem devidamente redigidos. Em vez disso, crie segredos individuais para cada valor sensível.
+    - Os dados estruturados podem fazer com que ocorra uma falha nos registros de segredos, pois a redação depende, em grande parte, de encontrar uma correspondência exata para o valor específico do segredo. Por exemplo, não use um blob de JSON, XML, ou YAML (ou similar) para encapsular o valor de um segredo, já que isso reduz significativamente a probabilidade de os segredos serem devidamente redigidos. Em vez disso, crie segredos individuais para cada valor sensível.
 - **Registre todos os segredos usados nos fluxos de trabalho**
     - Se um segredo for usado para gerar outro valor sensível dentro de um fluxo de trabalho, esse valor gerado deve ser formalmente [registrado como um segredo](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret) para que seja reproduzido se alguma vez aparecer nos registros. Por exemplo, se, ao usar uma chave privada para gerar um JWT assinado para acessar uma API web, certifique-se de registrar que JWT é um segredo ou não será redigido se entrar na saída de do registro.
     - O registro de segredos também aplica-se a qualquer tipo de transformação/codificação. Se seu segredo foi transformado de alguma forma (como Base64 ou URL codificada), certifique-se de registrar o novo valor como um segredo também.
@@ -98,7 +98,7 @@ Você também deve considerar o ambiente das máquinas de executores auto-hosped
 
 ### Auditar eventos de {% data variables.product.prodname_actions %}
 
-Você pode usar o log de auditoria para monitorar tarefas administrativas em uma organização. O log de auditoria registra o tipo de ação, quando foi executado e qual conta de usuário realizou a ação.
+Você pode usar o log de auditoria para monitorar tarefas administrativas em uma organização. O log de auditoria registra o tipo de ação, quando foi executado, e qual conta de usuário executou a ação.
 
 Por exemplo, você pode usar o log de auditoria para monitorar o evento de `action:org.update_actions_secret`, que controla as alterações nos segredos da organização: ![Entradas do log de auditoria](/assets/images/help/repository/audit-log-entries.png)
 
@@ -129,6 +129,6 @@ As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_a
 | `action:org.runner_group_removed`         | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                |
 | `action:org.runner_group_renamed`         | Acionado quando um administrador da organização renomeia um grupo de executores auto-hospedados.                                                                                                                                              |
 | `action:org.runner_group_runners_added`   | Acionada quando um administrador da organização [adiciona um executor auto-hospedado a um grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).               |
-| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                                               | 
+| `action:org.runner_group_runners_removed` | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                | 
 
 
