@@ -53,9 +53,9 @@ A URL em que o site está disponível depende da habilitação do isolamento de 
 | Tipo de site | Isolamento de subdomínio habilitado | Isolamento de subdomínio desabilitado |
 | ------------ | ----------------------------------- | ------------------------------------- |
 |              |                                     |                                       |
- User | 
+ Usuário | 
 
-`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Project site owned by user account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Site do projeto pertencente a uma conta do usuário | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site do projeto pertencente a uma conta da organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
 Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" ou contate o administrador do site.
 {% endif %}
@@ -63,7 +63,7 @@ Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Note:** Repositories using the legacy `<username>.github.com` naming scheme will still be published, but visitors will be redirected from `http(s)://<username>.github.com` to `http(s)://<username>.github.io`. Se ambos os repositórios, `<username>.github.com` e `<username>.github.io` existirem, somente o repositório `<username>.github.io` será publicado.
+**Observação:** os repositórios que usam o esquema de nomenclatura `<username>.github.com` herdado ainda são publicados, mas os visitantes serão redirecionados de `http(s)://<username>.github.com` para `http(s)://<username>.github.io`. Se ambos os repositórios, `<username>.github.com` e `<username>.github.io` existirem, somente o repositório `<username>.github.io` será publicado.
 
 {% endnote %}
 {% endif %}
@@ -150,4 +150,4 @@ Embora não seja possível especificar tipos de MIME personalizados por arquivo 
 ### Leia mais
 
 - [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) em {% data variables.product.prodname_learning %}
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

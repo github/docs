@@ -91,7 +91,7 @@ Executores hospedados em {% data variables.product.prodname_dotcom %} têm Power
 
 {% endnote %}
 
-Você também pode memorizar as dependências para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Memorizando dependências para acelerar seu fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)".
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 Por exemplo, o trabalho a seguir instala os módulos `SqlServer` e `PSScriptAnalyzer`:
 
@@ -119,7 +119,7 @@ jobs:
 
 #### Memorizar dependências
 
-Você pode armazenar em cache dependências do PowerShell usando uma chave única, o que lhe permite restaurar as dependências para futuros fluxos de trabalho com a ação [`cache`](https://github.com/marketplace/actions/cache). Para obter mais informações, consulte "[Memorizando dependências para acelerar fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)".
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 O PowerShell armazena suas dependências em diferentes locais, dependendo do sistema operacional do executor. Por exemplo, o `caminho` local usado no exemplo do Ubuntu a seguir será diferente para um sistema operacional Windows.
 

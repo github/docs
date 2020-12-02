@@ -43,7 +43,7 @@ Você pode visualizar a aba **Dependentes** do gráfico de dependências para ve
 
 {% endif %}
 
-Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/v3/repos/releases/)".
+Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/rest/reference/repos#releases)".
 
 {% if currentVersion == "free-pro-team@latest" %}
 

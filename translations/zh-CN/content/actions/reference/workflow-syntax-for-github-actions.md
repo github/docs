@@ -227,7 +227,7 @@ defaults:
 
 在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
-如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/v3/actions/workflow-jobs)”。
+如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/rest/reference/actions#workflow-jobs)”。
 
 ### **`jobs.<job_id>`**
 
@@ -659,7 +659,7 @@ steps:
 
 - `cmd`
   - 除了编写脚本来检查每个错误代码并相应地响应之外，似乎没有办法完全选择快速失败行为。 由于我们默认不能实际提供该行为，因此您需要将此行为写入脚本。
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
+  - `cmd.exe` 在退出时带有其执行的最后一个程序的错误等级，并且会将错误代码返回到运行程序。 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+`entrypoint` 关键词旨在用于 Docker 容器操作，但您也可以将其用于未定义任何输入的 JavaScript 操作。
 
 #### **`jobs.<job_id>.steps.env`**
 
@@ -875,6 +875,12 @@ strategy:
 **注意：**所有 `include` 组合在 `exclude` 后处理。 这允许您使用 `include` 添加回以前排除的组合。
 
 {% endnote %}
+
+##### 在矩阵中使用环境变量
+
+You can add custom environment variables for each test combination by using the `include` key. 然后，您可以在后面的步骤中引用自定义环境变量。
+
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 

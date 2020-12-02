@@ -23,7 +23,7 @@ Para solucionar o problema, verifique se [você está efetuando a autenticação
 
 A maioria das chamadas da API que acessam uma lista de recursos (_por exemplo,_, usuários, issues, _etc._) é compatível com a paginação. Se você está fazendo solicitações e recebendo um conjunto incompleto de resultados, provavelmente você só está vendo a primeira página. Você precisará solicitar as páginas restantes para obter mais resultados.
 
-É importante *não* tentar adivinhar o formato da URL de paginação. Nem todas as chamadas de API usam a mesma estrutura. Em vez disso, extraia as informações de paginação do [Cabeçalho do link](/v3/#pagination), que é enviado com cada solicitação.
+É importante *não* tentar adivinhar o formato da URL de paginação. Nem todas as chamadas de API usam a mesma estrutura. Em vez disso, extraia as informações de paginação do [Cabeçalho do link](/rest#pagination), que é enviado com cada solicitação.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Basic authentication errors

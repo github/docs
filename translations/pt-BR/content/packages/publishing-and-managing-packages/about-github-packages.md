@@ -182,7 +182,7 @@ Para obter mais informações, consulte:
 
 ### Gerenciar pacotes
 
-Você pode excluir uma versão de um pacote privado em {% data variables.product.product_name %} ou usar a API do GraphQL. Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package)" e "[Formando chamadas com GraphQL](/v4/guides/forming-calls/)".
+Você pode excluir uma versão de um pacote privado em {% data variables.product.product_name %} ou usar a API do GraphQL. Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package)" e "[Formando chamadas com GraphQL](/graphql/guides/forming-calls-with-graphql)".
 
 Você pode configurar webhooks para assinar eventos relacionados aos pacotes, como quando um pacote é publicado ou atualizado. Para obter mais informações, consulte o evento de webhook de "[`pacote`](/webhooks/event-payloads/#package)".
 

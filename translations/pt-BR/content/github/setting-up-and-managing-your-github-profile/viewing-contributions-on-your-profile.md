@@ -1,6 +1,6 @@
 ---
 title: Exibir contribuições no perfil
-intro: 'Seu perfil do {% data variables.product.product_name %} mostra os repositórios fixos e um gráfico de contribuições no seu repositório no último ano.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-O gráfico de contribuição mostra a atividade em repositórios públicos. Você pode optar por mostrar a atividade de repositórios públicos e privados, com detalhes específicos da sua atividade em repositórios privados anônimos. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and{% endif %}private repositories, with specific details of your activity in private repositories anonymized. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
 
 {% note %}
 
@@ -33,15 +33,19 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 
 ### Repositórios populares
 
-Esta seção exibe os repositórios com a maioria dos inspetores. Depois que você [fixar os repositórios no seu perfil](/articles/pinning-repositories-to-your-profile), esta seção será alterada para "Repositórios fixos".
+Esta seção exibe os repositórios com a maioria dos inspetores. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![Repositórios populares](/assets/images/help/profile/profile_popular_repositories.png)
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Repositórios fixos
 
 Esta seção exibe até seis repositórios públicos e pode incluir tanto repositórios pertencentes a você como aqueles com os quais você contribuiu. Para ver detalhes importantes sobre os repositórios que você escolheu retratar, cada repositório nesta seção inclui um resumo do trabalho que está sendo feito, o número de [estrelas](/articles/saving-repositories-with-stars/) que ele recebeu e a principal linguagem de programação usada nele. Para obter mais informações, consulte "[Fixar repositórios no seu perfil](/articles/pinning-repositories-to-your-profile)".
 
 ![Repositórios fixos](/assets/images/help/profile/profile_pinned_repositories.png)
+
+{% endif %}
 
 ### Calendário de contribuições
 

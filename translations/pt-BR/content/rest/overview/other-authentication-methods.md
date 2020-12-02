@@ -59,7 +59,7 @@ Por exemplo, se você estiver acessando a API via [cURL][curl], o comando a segu
 ```shell
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
-Se você tem a autenticação de dois fatores ativada, certifique-se de entender como [funciona com a autenticação de dois fatores](/v3/auth/#working-with-two-factor-authentication).
+Se você tem a autenticação de dois fatores ativada, certifique-se de entender como [funciona com a autenticação de dois fatores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
 
 {% endif %}
 
@@ -124,8 +124,8 @@ $ curl --request POST \
 {% endif %}
 
 [curl]: http://curl.haxx.se/
-[oauth-auth]: /v3/#authentication
+[oauth-auth]: /rest#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
 [allowlist]: /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
-[user-issues]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
+[user-issues]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user

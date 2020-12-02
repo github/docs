@@ -11,7 +11,11 @@ versions:
   github-ae: '*'
 ---
 
-Um arquivo README, junto com {% if currentVersion == "free-pro-team@latest" %}a [licença de repositório](/articles/licensing-a-repository), [diretrizes de contribuição](/articles/setting-guidelines-for-repository-contributors) e um [código de conduta](/articles/adding-a-code-of-conduct-to-your-project){% else %}uma [licença de repositório](/articles/licensing-a-repository) e diretrizes de contribuição [](/articles/setting-guidelines-for-repository-contributors){% endif %} ajudam você a comunicar as expectativas e gerenciar contribuições para o seu projeto.
+### Sobre READMEs
+
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+
+For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
 
 Um README, muitas vezes, é o primeiro item que um visitante verá ao visitar seu repositório. Os arquivos README geralmente incluem informações sobre:
 - O que o projeto faz
@@ -26,7 +30,11 @@ Se você colocar o arquivo README na raiz do repositório, `docs`, ou no diretó
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
+
 {% data reusables.profile.profile-readme %}
+
+{% endif %}
 
 ![Arquivo README no nome de usuário/repositório do nome de usuário](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -34,7 +42,7 @@ Se você colocar o arquivo README na raiz do repositório, `docs`, ou no diretó
 
 ### Links de seção nos arquivos README e páginas blob
 
-Muitos projetos usam uma tabela de conteúdo no início de um README para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
+Muitos projetos usam uma tabela de conteúdo no início de um LEIAME para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
 
 ### Links relativos e caminhos de imagem em arquivos README
 

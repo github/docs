@@ -13,10 +13,10 @@ versions:
 
 Aqui estão alguns pontos de extremidade úteis e disponíveis para listagens do Marketplace:
 
-* [Listar planos](/v3/apps/marketplace/#list-plans)
-* [Listar contas de um plano](/v3/apps/marketplace/#list-accounts-for-a-plan)
-* [Obter um plano de assinatura para uma conta](/v3/apps/marketplace/#get-a-subscription-plan-for-an-account)
-* [Listar assinaturas para o usuário autenticado](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)
+* [Listar planos](/rest/reference/apps#list-plans)
+* [Listar contas de um plano](/rest/reference/apps#list-accounts-for-a-plan)
+* [Obter um plano de assinatura para uma conta](/rest/reference/apps#get-a-subscription-plan-for-an-account)
+* [Listar assinaturas para o usuário autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 
 Veja estas páginas para obter informações sobre como efetuar a autenticação ao usar a API do {% data variables.product.prodname_marketplace %}:
 
@@ -25,6 +25,6 @@ Veja estas páginas para obter informações sobre como efetuar a autenticação
 
 {% note %}
 
-**Observação:** [Os limites de taxa para a API REST](/v3/#rate-limiting) aplicam-se a todos os pontos de extremidade da API de {% data variables.product.prodname_marketplace %}.
+**Observação:** [Os limites de taxa para a API REST](/rest#rate-limiting) aplicam-se a todos os pontos de extremidade da API de {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}

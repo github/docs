@@ -103,7 +103,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
     # When the event is triggered, GitHub Actions will run the jobs indicated
     jobs:
       say_hello:
-        # Uses a ubuntu-lates runner to complete the requested steps
+        # Uses a ubuntu-latest runner to complete the requested steps
         runs-on: ubuntu-latest
         steps:
         - run: |

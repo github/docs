@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 ---
 
-Você pode pesquisar globalmente em todo o {% data variables.product.product_name %} ou definir o escopo da sua pesquisa para uma organização ou um repositório específico.
+{% data reusables.search.you-can-search-globally %}
 
 - Para pesquisar globalmente em todo o {% data variables.product.product_name %}, digite o que está procurando no campo de pesquisa que fica na parte superior de qualquer página e escolha "All {% data variables.product.prodname_dotcom %}" (Em todo o GitHub) no menu suspenso da pesquisa.
 - Para pesquisar em uma organização ou um repositório específico, navegue até a página da organização ou do repositório, digite o que está procurando no campo de pesquisa que fica na parte superior da página e pressione **Enter**.
@@ -23,7 +23,8 @@ Você pode pesquisar globalmente em todo o {% data variables.product.product_nam
 
 **Notas:**
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - Os sites do {% data variables.product.prodname_pages %} não são pesquisáveis no {% data variables.product.product_name %}. No entanto, você pode pesquisar o conteúdo da fonte, se ele existir no branch padrão de um repositório, usando a pesquisa de código. Para obter mais informações, consulte "[Pesquisar código](/articles/searching-code)". Para obter mais informações sobre o {% data variables.product.prodname_pages %}, consulte "[O que é o GitHub Pages?](/articles/what-is-github-pages/)"
 - Atualmente, a nossa pesquisa não é compatível com correspondência exata.
 - Sempre que você estiver pesquisando em arquivos de código, serão retornados apenas os dois primeiros resultados de cada arquivo.
@@ -36,7 +37,7 @@ A pesquisa do {% data variables.product.product_name %} usa um cluster do Elasti
 
 ### Tipos de pesquisa no {% data variables.product.prodname_dotcom %}
 
-Você pode pesquisar os seguintes tipos de informação em todos os repositórios públicos do {% data variables.product.product_name %} e em todos os repositórios privados do {% data variables.product.product_name %} aos quais você tem acesso:
+You can search for the following information across all repositories you can access on {% data variables.product.product_location %}.
 
 - [Repositórios](/articles/searching-for-repositories)
 - [Tópicos](/articles/searching-topics)

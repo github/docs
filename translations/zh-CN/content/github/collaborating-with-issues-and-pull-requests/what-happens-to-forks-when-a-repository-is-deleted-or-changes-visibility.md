@@ -16,13 +16,19 @@ versions:
 
 当您删除私有仓库时，其所有私有复刻也将被删除。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 #### 删除公共仓库
 
 当您删除公共仓库时，将选择现有的公共复刻之一作为新的父仓库。 所有其他仓库均从这一新的父仓库复刻，并且后续的拉取请求都转到这一新的父仓库。
 
+{% endif %}
+
 #### 私有复刻和权限
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 #### 将公共仓库更改为私有仓库
 
@@ -46,9 +52,30 @@ versions:
 
 如果将私有仓库设为公共然后删除，其私有复刻将作为单独网络中的独立私有仓库继续存在。
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+#### Changing the visibility of an internal repository
+
+{% note %}
+
+**注：**{% data reusables.gated-features.internal-repos %}
+
+{% endnote %}
+
+If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+
+##### Deleting the internal repository
+
+If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+
+{% endif %}
+
 ### 延伸阅读
 
 - “[设置仓库可见性](/articles/setting-repository-visibility)”
 - "[关于复刻](/articles/about-forks)"
 - "[管理仓库的复刻策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[管理组织的复刻策略](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)"
+- "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

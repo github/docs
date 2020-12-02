@@ -55,7 +55,7 @@ The content attachment flow shows you the relationship between the URL in the is
 }
 ```
 
-**Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/v3/apps/installations/#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+**Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/rest/reference/apps#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
 {% data reusables.pre-release-program.corsair-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
@@ -116,7 +116,7 @@ curl -X "POST" "https://api.github.com/graphql" \
 }'
 ```
 
-For more information on `node_id`, see "[Using Global Node IDs](/v4/guides/using-global-node-ids/)."
+For more information on `node_id`, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
 
 ### Example using Probot and GitHub App Manifests
 
@@ -124,8 +124,8 @@ To quickly setup a GitHub App that can use the {% data variables.product.prodnam
 
 To create a Probot App, follow these steps:
 
-1. [Generate a new GitHub App](https://probot.github.io/docs/development/#generating-a-new-app).
-2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
+1. [生成新的 GitHub 应用程序](https://probot.github.io/docs/development/#generating-a-new-app)。
+2. 打开您创建的项目，自定义 `app.yml` 文件中的设置。 Subscribe to the `content_reference` event and enable `content_references` write permissions:
 
    ``` yml
 
@@ -168,7 +168,7 @@ To create a Probot App, follow these steps:
 
 4. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally). Navigate to [localhost:3000](http://localhost:3000), and click the **Register GitHub App** button:
 
-   ![Register a Probot GitHub App](/assets/images/github-apps/github_apps_probot-registration.png)
+   ![注册 Probot GitHub 应用程序](/assets/images/github-apps/github_apps_probot-registration.png)
 
 5. Install the app on a test repository.
 6. Create an issue in your test repository.

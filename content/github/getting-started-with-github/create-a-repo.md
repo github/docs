@@ -10,13 +10,25 @@ versions:
   github-ae: '*'
 ---
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 You can store a variety of projects in {% data variables.product.product_name %} repositories, including open source projects. With [open source projects](http://opensource.org/about), you can share code to make better, more reliable software.
+
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
 **Note:** You can create public repositories for an open source project. When creating your public repository, make sure to include a [license file](http://choosealicense.com/) that determines how you want your project to be shared with others. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
+
+{% endif %}
 
 {% data reusables.repositories.create_new %}
 2. Type a short, memorable name for your repository. For example, "hello-world".

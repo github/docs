@@ -13,7 +13,7 @@ versions:
 
 Cada esquema de GraphQL tem um tipo de raiz para consultas e mutações. O [tipo de consulta](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System) define operações do GraphQL que recuperam dados do servidor.
 
-Para obter mais informações, consulte "[Sobre consultas](/v4/guides/forming-calls#about-queries)".
+Para obter mais informações, consulte "[Sobre consultas](/graphql/guides/forming-calls-with-graphql#about-queries)".
 
 {% note %}
 

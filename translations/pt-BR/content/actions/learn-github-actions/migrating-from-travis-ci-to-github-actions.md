@@ -163,6 +163,12 @@ git:
 </tr>
 </table>
 
+#### Usando variáveis de ambiente em uma matriz
+
+Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+
 ### Principais recursos em {% data variables.product.prodname_actions %}
 
 Ao fazer a migração do Travis CI, considere os recursos principais a seguir em {% data variables.product.prodname_actions %}:
@@ -181,7 +187,7 @@ Se os seus trabalhos exigirem hardware ou software específico, {% data variable
 
 #### Trabalhos simultâneos e tempo de execução
 
-Os trabalhos simultâneos e os tempos de execução do fluxo de trabalho em {% data variables.product.prodname_actions %} podem variar dependendo do seu plano de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration)."
+Os trabalhos simultâneos e os tempos de execução do fluxo de trabalho em {% data variables.product.prodname_actions %} podem variar dependendo do seu plano de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration)".
 
 #### Usar diferentes linguagens em {% data variables.product.prodname_actions %}
 
@@ -281,7 +287,7 @@ trabalhos:
 
 ### Memorizar dependências
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior. Esse exemplo demonstra a sintaxe do cache para cada sistema. 
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior. Esse exemplo demonstra a sintaxe do cache para cada sistema.
 
 <table>
 <tr>
@@ -316,7 +322,7 @@ cache: npm
 </tr>
 </table>
 
-Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/guides/caching-dependencies-to-speed-up-workflows)".
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 ### Exemplos de tarefas comuns
 

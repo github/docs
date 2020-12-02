@@ -131,7 +131,7 @@ O valor `retention-days` não pode exceder o limite de retenção definido pelo 
 
 Durante a execução de um fluxo de trabalho, você pode usar a ação [`download-artifact`](https://github.com/actions/download-artifact)para fazer o download de artefatos previamente carregados na mesma execução de fluxo de trabalho.
 
-Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazer o download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Remover artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts)" e "[Artefatos da REST API](/v3/actions/artifacts/)".
+Após a conclusão da execução de um fluxo de trabalho, você pode fazer o download ou excluir artefatos em {% data variables.product.prodname_dotcom %} ou usar a API REST. Para obter mais informações, consulte "[Fazer o download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts), "[Remover artefatos do fluxo de trabalho](/actions/managing-workflow-runs/removing-workflow-artifacts)" e "[Artefatos da REST API](/rest/reference/actions#artifacts)".
 
 #### Fazer o download dos artefatos durante a execução de um fluxo de trabalho
 

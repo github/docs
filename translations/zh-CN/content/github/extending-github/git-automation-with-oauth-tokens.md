@@ -43,4 +43,4 @@ versions:
 
 ### 延伸阅读
 
-- "[授权 OAuth 应用程序](/v3/oauth/)"
+- "[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps)"

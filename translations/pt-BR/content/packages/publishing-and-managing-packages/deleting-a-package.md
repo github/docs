@@ -35,10 +35,6 @@ No momento, {% data variables.product.prodname_registry %} em {% data variables.
 
 {% endif %}
 
-### Versões e nomes de pacotes reservados
-
-{% data reusables.package_registry.package-immutability %}
-
 ### Excluir uma versão de um pacote privado no {% data variables.product.product_name %}
 
 Para excluir uma versão privada, você deve ter permissões de administrador no repositório.

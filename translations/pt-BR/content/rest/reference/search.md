@@ -10,7 +10,7 @@ versions:
 
 A API de pesquisa ajuda a pesquisar o item específico que você deseja encontrar. Por exemplo, você pode encontrar um usuário ou um arquivo específico em um repositório. Pense nisso da mesma forma que você pensa em realizar uma pesquisa no Google. Ele é projetado para ajudá-lo a encontrar o resultado que você está procurando (ou talvez os poucos resultados que você está procurando). Assim como pesquisar no Google, às vezes, você quer ver algumas páginas com resultados de pesquisa para que você possa encontrar o item que melhor atenda às suas necessidades. Para atender a essa necessidade, a API de pesquisa do {% data variables.product.product_name %} fornece **até 1.000 resultados para cada pesquisa**.
 
-Você pode restringir sua pesquisa usando as consultas. Para saber mais sobre a sintaxe de consultas de pesquisa, consulte "[Criar uma consulta de pesquisa](/v3/search/#constructing-a-search-query)".
+Você pode restringir sua pesquisa usando as consultas. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
 
 ### Resultados da pesquisa de classificação
 
@@ -18,7 +18,7 @@ A menos que outra opção de ordenamento seja fornecida como um parâmetro de co
 
 ### Limite de taxa
 
-A API de pesquisa tem um limite de taxa personalizado. Para solicitações que usam a [Autenticação Básica](/v3/#authentication)[OAuth ](/v3/#authentication) ou [ID e segredo do cliente e](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), você pode fazer até 30 solicitações por minuto. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
+A API de pesquisa tem um limite de taxa personalizado. For requests using [Basic Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. Para solicitações não autenticadas, o limite de taxa permite que você faça até 10 solicitações por minuto.
 
 {% data reusables.enterprise.rate_limit %}
 

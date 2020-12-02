@@ -14,13 +14,13 @@ Isso descreve os recursos que formam a API REST oficial de {% data variables.pro
 
 ### Versão atual
 
-Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/v3/versions) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/v3/media/#request-specific-version).
+Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/developers/overview/about-githubs-apis) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4](/v4). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST](/v4/guides/migrating-from-rest/)".
+Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4](/graphql). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST](/graphql/guides/migrating-from-rest-to-graphql)".
 
 {% endif %}
 
@@ -171,7 +171,7 @@ $ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "gith
 
 ### IDs de nós globais do GraphQL
 
-Consulte o guia em "[Usar IDs do nó globais ](/v4/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
+Consulte o guia em "[Usar IDs do nó globais ](/graphql/guides/using-global-node-ids)" para obter informações detalhadas sobre como encontrar `node_id`s através da API REST e usá-los em operações do GraphQL.
 
 ### Erros do cliente
 
@@ -268,7 +268,7 @@ Então você pode expandir estes modelos usando algo como o [uri_template][uri] 
 
 ### Paginação
 
-Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `?page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `?per_page`. Observe que, por razões técnicas, nem todos os pontos de extremidade respeitam o parâmetro `?per_page`, veja [eventos](/v3/activity/events/) por exemplo.
+Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `?page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `?per_page`. Observe que, por razões técnicas, nem todos os pontos de extremidade respeitam o parâmetro `?per_page`, veja [eventos](/rest/reference/activity#events) por exemplo.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
@@ -293,7 +293,7 @@ O [cabeçalho do link](http://tools.ietf.org/html/rfc5988) inclui informações 
 
 _O exemplo inclui uma quebra de linha para legibilidade._
 
-Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/v3/#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](http://tools.ietf.org/html/rfc6570).
+Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/rest#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](http://tools.ietf.org/html/rfc6570).
 
 Os valores de `rel` possíveis são:
 
@@ -318,7 +318,7 @@ Para solicitações não autenticadas, o limite de taxa permite até 60 solicita
 
 {% data reusables.enterprise.rate_limit %}
 
-Observe que [a API de pesquisa tem regras de limite de taxa personalizadas](/v3/search/#rate-limit).
+Observe que [a API de pesquisa tem regras de limite de taxa personalizadas](/rest/reference/search#rate-limit).
 
 Os cabeçalhos HTTP retornados de qualquer solicitação de API mostram o seu status atual de limite de taxa:
 
@@ -361,7 +361,7 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 > }
 ```
 
-Você pode [verificar o status do seu limite de taxa](/v3/rate_limit) sem a incorrer em uma consulta da API.
+Você pode [verificar o status do seu limite de taxa](/rest/reference/rate-limit) sem a incorrer em uma consulta da API.
 
 #### Aumentar o limite de taxa não autenticado para aplicativos OAuth
 
@@ -592,9 +592,9 @@ Algumas solicitações que criam novos dados, como a criação de um novo commit
 
 #### Fornecer explicitamente uma marca de tempo ISO 8601 com informações de fuso horário
 
-Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. Um exemplo disso é a [API de Commits](/v3/git/commits).
+Para chamadas de API que permitem que uma marca de tempo seja especificada, usamos essa marca de tempo exata. Um exemplo disso é a [API de Commits](/rest/reference/git#commits).
 
-Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [este exemplo](/v3/git/commits/#example-input) para saber como essas marcas de tempo podem ser especificadas.
+Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [este exemplo](/rest/reference/git#example-input) para saber como essas marcas de tempo podem ser especificadas.
 
 #### Usar o cabeçalho `Time-Zone`
 
@@ -604,7 +604,7 @@ Essas marcas de tempo se parecem com `2014-02-27T15:05:06+01:00`. Veja também [
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. Por exemplo, o [API de Conteúdo](/v3/repos/contents/) gera um commit do git para cada adição ou alteração e usa a hora atual como marca de tempo. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
+Isso significa que geramos uma marca de tempo no momento em que sua chamada de API é feita no fuso horário que este cabeçalho define. Por exemplo, o [API de Conteúdo](/rest/reference/repos#contents) gera um commit do git para cada adição ou alteração e usa a hora atual como marca de tempo. Este cabeçalho determinará o fuso horário usado para gerar essa marca de tempo atual.
 
 #### Usar o último fuso horário conhecido para o usuário
 

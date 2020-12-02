@@ -37,8 +37,8 @@ Por exemplo, o feed de notícias da organização mostra atualizações quando a
  - Envia um comentário de revisão de pull request.
  - Bifurca um repositório.
  - Cria uma página wiki.
- - Faz push de commits.
- - Cria um repositório público.
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### Outras informações
 

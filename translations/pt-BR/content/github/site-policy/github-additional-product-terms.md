@@ -6,7 +6,7 @@ versions:
 
 Entrada em vigor desta versão: 13 de novembro de 2020
 
-Quando você cria uma Conta, tem acesso a vários recursos e produtos diferentes que fazem parte do Serviço. Como muitos desses recursos e produtos oferecem diferentes funcionalidades, eles podem exigir termos e condições adicionais específicos para esse recurso ou produto. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
+Quando você cria uma Conta, tem acesso a vários recursos e produtos diferentes que fazem parte do Serviço. Como muitos desses recursos e produtos oferecem diferentes funcionalidades, eles podem exigir termos e condições adicionais específicos para esse recurso ou produto. Abaixo, listamos esses recursos e produtos, juntamente com os termos adicionais correspondentes que se aplicam ao uso deles.
 
 Sua utilização do Serviço está sujeita a seus termos aplicáveis (o "Contrato"). Ao usar produtos e recursos adicionais, você também concorda com estes Termos de Produtos Adicionais. Qualquer violação dos Termos de Produtos Adicionais significa uma violação do Contrato. Os termos em maiúscula não definidos nos Termos de Produtos Adicionais terão o significado que lhes é atribuído no Contrato.
 

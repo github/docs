@@ -20,7 +20,7 @@ Você pode usar {% data variables.product.prodname_code_scanning %} para encontr
 
 Se {% data variables.product.prodname_code_scanning %} encontrar uma vulnerabilidade potencial ou erro no seu código, {% data variables.product.prodname_dotcom %} exibirá um alerta no repositório. Depois de corrigir o código que desencadeou o alerta, {% data variables.product.prodname_dotcom %} fechará o alerta. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
 
-{% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)".
+{% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}. Para mais informações sobre endpoints de API, consulte  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
 Para começar com {% data variables.product.prodname_code_scanning %}, consulte "[Habilitando {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)."
 

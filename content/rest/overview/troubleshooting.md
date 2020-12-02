@@ -32,7 +32,7 @@ in order to get more results.
 
 It's important to *not* try and guess the format of the pagination URL. Not every
 API call uses the same structure. Instead, extract the pagination information from
-[the Link Header](/v3/#pagination), which is sent with every request.
+[the Link Header](/rest#pagination), which is sent with every request.
 
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 

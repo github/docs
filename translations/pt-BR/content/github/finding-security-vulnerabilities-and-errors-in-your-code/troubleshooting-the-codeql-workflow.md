@@ -64,7 +64,7 @@ Para obter mais informações, consulte a extração de fluxo de trabalho em "[C
    * Criar usando um sistema de compilação distribuído externo às Ações GitHub, usando um processo de daemon.
    * {% data variables.product.prodname_codeql %} não está ciente do compilador específico que você está usando.
 
-  For .NET Framework projects, and for C# projects using either `dotnet build` or `msbuild` that target .NET Core 2, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code. O sinalizador `UseSharedCompilation` não é necessário para o .NET Core 3.0 ou versão superior.
+  Para projetos de .NET Framework, e para projetos de C# que usam `dotnet build` ou `msbuild` que miram .NET Core 2, você deve especificar `/p:UseSharedCompilation=false` na etapa de `executar` do seu fluxo de trabalho quando você construir seu código. O sinalizador `UseSharedCompilation` não é necessário para o .NET Core 3.0 ou versão superior.
 
   Por exemplo, a seguinte configuração para C# irá passar o sinalizador durante a primeira etapa de criação.
 

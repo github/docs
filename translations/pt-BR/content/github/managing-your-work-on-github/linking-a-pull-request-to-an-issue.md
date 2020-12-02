@@ -50,7 +50,7 @@ Você pode vincular uma solicitação de pull a um problema usando uma palavra-c
 * fix
 * fixes
 * fixed
-* resolver
+* resolve
 * resolve
 * resolved
 
