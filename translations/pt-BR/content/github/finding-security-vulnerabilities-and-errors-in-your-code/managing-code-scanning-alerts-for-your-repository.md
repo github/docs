@@ -1,9 +1,9 @@
 ---
 title: Gerenciar alertas de verificação de código para o seu repositório
 shortTitle: Gerenciando alertas
-intro: 'You can view, fix, {% if currentVersion == "enterprise-server@2.22" %}or close{% else %}dismiss, or delete{% endif %} alerts for potential vulnerabilities or errors in your project''s code.'
+intro: 'Da vista da segurança, você pode visualizar, corrigir, {% if currentVersion == "enterprise-server@2. 2" %}ou fechar{% else %}ignorar ou excluir{% endif %} alertas de potenciais vulnerabilidades ou erros no código do seu projeto.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
+permissions: 'Se você tiver permissão de gravação em um repositório, você poderá gerenciar alertas de {% data variables.product.prodname_code_scanning %} para esse repositório.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -30,9 +30,11 @@ Se você habilitar o {% data variables.product.prodname_code_scanning %} usando 
 
 Quando {% data variables.product.prodname_code_scanning %} relata alertas de fluxo de dados, {% data variables.product.prodname_dotcom %} mostra como os dados se movem através do código. {% data variables.product.prodname_code_scanning_capc %} permite que você identifique as áreas do seu código que vazam informações confidenciais que poderia ser o ponto de entrada para ataques de usuários maliciosos.
 
-### Visualizar um alerta
+### Visualizar os alertas de um repositório
 
-Qualquer pessoa com permissão de leitura para um repositório pode ver alertas de {% data variables.product.prodname_code_scanning %} em pull requests. No entanto, você precisa de permissão de gravação para ver um resumo de alertas de repositório na aba **Segurança**. Por padrão, os alertas são exibidos para o branch-padrão.
+Qualquer pessoa com permissão de leitura para um repositório pode ver anotações de {% data variables.product.prodname_code_scanning %} em pull requests. Para obter mais informações, consulte "[Triar alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
+
+Você precisa de permissão de gravação para visualizar um resumo de todos os alertas para um repositório na aba **Segurança**. Por padrão, os alertas são exibidos para o branch-padrão.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -45,7 +47,7 @@ Qualquer pessoa com permissão de leitura para um repositório pode ver alertas 
 
 Qualquer pessoa com permissão de gravação para um repositório pode corrigir um alerta, fazendo o commit de uma correção do código. Se o repositório tiver {% data variables.product.prodname_code_scanning %} agendado para ser executado em pull requests, recomenda-se registrar um pull request com sua correção. Isso ativará a análise de {% data variables.product.prodname_code_scanning %} referente às alterações e irá testar se sua correção não apresenta nenhum problema novo. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" e " "[Testar alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)".
 
-Se você tem permissão de escrita em um repositório, você pode visualizar alertas corrigidos, vendo o resumo de alertas e clicando em **Fechado**. Para obter mais informações, consulte "[Visualizar um alerta](#viewing-an-alert). The "Closed" list shows fixed alerts and alerts that users have {% if currentVersion == "enterprise-server@2.22" %}closed{% else %}dismissed{% endif %}.
+Se você tem permissão de escrita em um repositório, você pode visualizar alertas corrigidos, vendo o resumo de alertas e clicando em **Fechado**. Para obter mais informações, consulte "[Visualizar os alertas de um repositório](#viewing-the-alerts-for-a-repository). A lista "Fechado" mostra os alertas corrigidos e aqueles que os usuários têm {% if currentVersion == "enterprise-server@2.22" %}closed{% else %}dismissed{% endif %}.
 
 Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o menu suspenso "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
@@ -61,7 +63,7 @@ Fechar um alerta é uma maneira de resolver um alerta que você considera que n�
 
 ### Ignorar ou excluir alertas
 
-Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. Alternatively, if you have admin permissions for the repository, you can delete alerts. Excluir alertas é útil em situações em que você habilitou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você habilitou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba **Segurança**.
+Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você habilitou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você habilitou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba **Segurança**.
 
 Ignorar um alerta é uma maneira de fechar um alerta que você considera que não precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Você pode ignorar alertas de anotações de {% data variables.product.prodname_code_scanning %} no código ou da lista de resumo dentro na aba **Segurança**.
 
@@ -89,14 +91,14 @@ Para ignorar ou excluir alertas:
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% if currentVersion == "enterprise-server@2.22" %}
 {% data reusables.code-scanning.click-alert-in-list %}
-1. Select the **Close** drop-down menu and click a reason for closing the alert.    
+1. Selecione o menu suspenso **Fechar** e clique em um motivo para fechar o alerta.    
    ![Escolher o motivo para fechar o alerta no menu suspenso Fechar](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
 {% else %}
 
-1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
+1. Se você tem permissões de administrador para o repositório e deseja excluir alertas para esta ferramenta de {% data variables.product.prodname_code_scanning %}, selecione algumas ou todas as caixas de seleção e clique em **Excluir**.
 
    ![Excluir alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
 

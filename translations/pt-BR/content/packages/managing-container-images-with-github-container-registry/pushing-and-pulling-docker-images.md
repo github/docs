@@ -8,7 +8,7 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-Para fazer push e pull das imagens de contêiner pertencentes a uma organização, um administrador da organização deve habilitar o {% data variables.product.prodname_github_container_registry %} para a organização. Para obter mais informações, consulte "[Habilitar o GitHub Container Registry para sua organização](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)".
+Para fazer push e pull das imagens de contêiner pertencentes a uma organização, um administrador da organização deve habilitar o {% data variables.product.prodname_github_container_registry %} para a organização. Para obter mais informações, consulte "[Habilitar suporte ao contêiner aprimorado](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)".
 
 ### Autenticar-se no {% data variables.product.prodname_github_container_registry %}
 

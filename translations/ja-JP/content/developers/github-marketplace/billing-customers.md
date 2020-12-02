@@ -25,7 +25,7 @@ versions:
 
 明確で一貫性のある支払いプロセスを保つために、アップグレード、ダウングレード、キャンセルについて以下のガイドラインに従ってください。 {% data variables.product.prodname_marketplace %}の購入イベントに関する詳細な手順については「[支払いのフロー](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)」を参照してください。
 
-`marketplace_purchase` webhookの`effective_date`キーを使えば、プランの変更がいつ生じるのかを確認し、定期的に[プランのアカウントのリスト](/v3/apps/marketplace/#list-accounts-for-a-plan)を同期できます。
+`marketplace_purchase` webhookの`effective_date`キーを使えば、プランの変更がいつ生じるのかを確認し、定期的に[プランのアカウントのリスト](/rest/reference/apps#list-accounts-for-a-plan)を同期できます。
 
 #### アップグレード
 

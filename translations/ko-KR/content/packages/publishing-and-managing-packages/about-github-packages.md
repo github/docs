@@ -182,7 +182,7 @@ For more information, see:
 
 ### Managing packages
 
-You can a delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package)" and "[Forming calls with GraphQL](/v4/guides/forming-calls/)."
+You can a delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package)" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
 

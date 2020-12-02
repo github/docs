@@ -227,7 +227,7 @@ defaults:
 
 ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
-ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/v3/actions/workflow-jobs)」を参照してください。
+ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
 
 ### **`jobs.<job_id>`**
 
@@ -878,34 +878,9 @@ strategy:
 
 ##### Using environment variables in a matrix
 
-You can add custom environment variables for each test combination by using `include` with `env`. You can then refer to the custom environment variables in a later step.
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
 
-In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses {% raw %}`env: ${{ matrix.env }}`{% endraw %} to refer to the custom variables:
-
-{% raw %}
-```yaml
-name: Node.js CI
-on: [push]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-       include:
-         - node-version: 10.x
-           site: "prod"
-           datacenter: "site-a"
-         - node-version: 12.x
-           site: "dev"
-           datacenter: "site-b"
-    steps:
-    - name: Echo site details
-      env:
-        SITE: ${{ matrix.site }}
-        DATACENTER: ${{ matrix.datacenter }}
-      run: echo $SITE $DATACENTER
-```
-{% endraw %}
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
