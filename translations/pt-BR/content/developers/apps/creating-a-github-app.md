@@ -32,11 +32,11 @@ versions:
 6. Opcionalmente, em "Descrição", digite uma descrição do aplicativo que os usuários irão ver. ![Campo para uma descrição do seu aplicativo GitHub](/assets/images/github-apps/github_apps_description.png)
 7. Em "URL da página inicial", digite a URL completa do site do seu aplicativo. ![Campo para a URL da página inicial do seu aplicativo GitHub](/assets/images/github-apps/github_apps_homepage_url.png)
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-8. In "Callback URL", type the full URL to redirect to after a user authorizes the installation. Esta URL é usada se o aplicativo precisar identificar e autorizar solicitações de usuário para servidor.
+8. Em "URL de retorno de chamada", digite a URL completa para redirecionar após um usuário autorizar a instalação. Esta URL é usada se o aplicativo precisar identificar e autorizar solicitações de usuário para servidor.
 
-  You can use **Add callback URL** to provide additional callback URLs, up to a maximum of 10.
+  Você pode usar **Adicionar URL de retorno de chamada** para fornecer URLs de retorno de chamadas adicionais até o limite máximo de 10.
 
-  ![Button for 'Add callback URL' and field for callback URL](/assets/images/github-apps/github_apps_callback_url_multiple.png)
+  ![Botão para 'Adicionar URL de retorno de chamada' e campo para URL de retorno de chamada](/assets/images/github-apps/github_apps_callback_url_multiple.png)
 {% else %}
 8. Em "URL de chamada de retorno de autorização do usuário", digite a URL completa para redirecionamento após um usuário autorizar uma instalação. Esta URL é usada se o aplicativo precisar identificar e autorizar solicitações de usuário para servidor. ![Campo para a URL de chamada de retorno de autorização do usuário do seu aplicativo GitHub](/assets/images/github-apps/github_apps_user_authorization.png)
 

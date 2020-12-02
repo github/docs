@@ -24,7 +24,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 ### 端点 URL
 
-REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
+REST API 端点{% if enterpriseServerVersions contains currentVersion %}— [管理控制台](#management-console) API 端点除外—{% endif %} 是以下 URL 的前缀：
 
 ```shell
 http(s)://<em>hostname</em>/api/v3/
@@ -42,14 +42,14 @@ http(s)://<em>hostname</em>/
 
 {% data variables.product.product_name %} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% if enterpriseServerVersions contains currentVersion %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
 
-Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% if enterpriseServerVersions contains currentVersion %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
+企业管理 API 端点只有经过身份验证的 {% data variables.product.product_name %} 站点管理员可以访问{% if enterpriseServerVersions contains currentVersion %}，但[管理控制台](#management-console) API 例外，它需要[管理控制台密码](/enterprise/admin/articles/accessing-the-management-console/){% endif %}。
 
 {% endif %}
 
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### 版本信息
 
-The current version of your enterprise is returned in the response header of every API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
+每个 API 的响应标头中都会返回企业的当前版本：`X-GitHub-Enterprise-Version: {{currentVersion}}.0` 您也可以通过调用[元端点](/rest/reference/meta/)来读取当前版本。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -86,7 +86,7 @@ IdP 必须使用 `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/v3/auth/#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
+**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
 
 {% endnote %}
 
@@ -140,9 +140,9 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% if currentVersion == "github-ae@latest" %}
 
-## Encryption at rest
+## 休息时加密
 
-You can use the encryption at rest API to manage the key that encrypts your data on {% data variables.product.product_name %}. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
+您可以使用休息时加密 API 来管理用于对 {% data variables.product.product_name %} 上的数据进行加密的密钥。 更多信息请参阅“[为企业配置数据加密](/admin/configuration/configuring-data-encryption-for-your-enterprise)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
@@ -163,9 +163,9 @@ You can use the encryption at rest API to manage the key that encrypts your data
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-## Announcements
+## 公告
 
-The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+公告 API 允许您管理企业中的全局公告横幅。 更多信息请参阅“[自定义企业的用户消息](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)”。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'announcement' %}{% include rest_operation %}{% endif %}
@@ -177,7 +177,7 @@ The Announcements API allows you to manage the global announcement banner in you
 
 ## 全局 web 挂钩
 
-Global webhooks are installed on your enterprise. You can use global webhooks to automatically monitor, respond to, or enforce rules for users, organizations, teams, and repositories on your enterprise. 全局 web 挂钩可以订阅[组织](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[用户](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[仓库](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[团队](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[成员](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[成员身份](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[复刻](/developers/webhooks-and-events/webhook-events-and-payloads#fork)和 [ping](/developers/webhooks-and-events/about-webhooks#ping-event) 事件类型。
+全局 web 挂钩安装在企业上。 您可以使用全局 web 挂钩来自动监视、响应或实施针对企业上的用户、组织、团队和仓库的规则。 全局 web 挂钩可以订阅[组织](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[用户](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[仓库](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[团队](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[成员](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[成员身份](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[复刻](/developers/webhooks-and-events/webhook-events-and-payloads#fork)和 [ping](/developers/webhooks-and-events/about-webhooks#ping-event) 事件类型。
 
 *此 API 只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。 要了解如何配置全局 web 挂钩，请参阅[关于全局 web 挂钩](/enterprise/admin/user-management/about-global-webhooks)。
 
@@ -221,7 +221,7 @@ Global webhooks are installed on your enterprise. You can use global webhooks to
 
 {% tip %}
 
-在对管理控制台进行 API 调用时，必须明确设置端口号。 If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
+在对管理控制台进行 API 调用时，必须明确设置端口号。 如果在企业上启用了 TLS，则端口号为 `8443`；否则，端口号为 `8080`。
 
 如果您不想提供端口号，则需要将工具配置为自动遵循重定向。
 
@@ -254,7 +254,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 组织
 
-The Organization Administration API allows you to create organizations on your enterprise. *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
+组织管理 API 允许您在企业上创建组织。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -374,7 +374,7 @@ The Organization Administration API allows you to create organizations on your e
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## 用户
 
-The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
+用户管理 API 允许您暂停{% if enterpriseServerVersions contains currentVersion %}、取消暂停、升级和降级{% endif %}{% if currentversion == "github-ae@latest" %} 以及取消暂停{% endif %} 企业上的用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

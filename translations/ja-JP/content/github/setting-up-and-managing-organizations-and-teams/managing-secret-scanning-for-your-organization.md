@@ -1,6 +1,7 @@
 ---
 title: Organization のシークレットスキャンの管理
 intro: 'Organization のどのリポジトリで {% data variables.product.product_name %} がシークレットをスキャンするかを制御することができます。'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'Organization のオーナーは、Organization のリポジトリに対する {% data variables.product.prodname_secret_scanning %} を管理できます。'
 versions:
   free-pro-team: '*'

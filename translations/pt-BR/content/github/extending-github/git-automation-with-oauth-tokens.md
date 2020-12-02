@@ -43,4 +43,4 @@ Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter 
 
 ### Leia mais
 
-- "[Autorizando aplicativos OAuth](/v3/oauth/)"
+- "[Autorizando aplicativos OAuth](/developers/apps/authorizing-oauth-apps)"

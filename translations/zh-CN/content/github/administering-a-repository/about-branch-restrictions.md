@@ -1,6 +1,6 @@
 ---
 title: 关于分支限制
-intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
+intro: '属于组织的仓库中的分支可配置为仅特定用户、团队或应用程序可推送到分支。'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions

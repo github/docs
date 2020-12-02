@@ -23,9 +23,9 @@ versions:
 
 ### 关于默认分支
 
-{% data reusables.branches.new-repo-default-branch %} 默认分支是任何人访问您的仓库时 {% data variables.product.prodname_dotcom %} 显示的分支。 默认分支也是初始分支，当有人克隆存储库时，Git 会在本地检出该分支。 {% data reusables.branches.default-branch-automatically-base-branch %}
+{% data reusables.branches.new-repo-default-branch %} 默认分支是任何人访问您的仓库时 {% data variables.product.prodname_dotcom %} 显示的分支。 The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %} in any new repository.
+默认情况下，{% data variables.product.product_name %} 将任何新仓库中的默认分支命名为{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %}。
 
 {% data reusables.branches.set-default-branch %}
 
@@ -74,8 +74,8 @@ By default, {% data variables.product.product_name %} names the default branch {
 - 如果对分支启用了必需状态检查，则在所有必需 CI 测试通过之前，无法将更改合并到分支。 更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
 - 如果对分支启用了必需拉取请求审查，则在满足拉取请求审查策略中的所有要求之前，无法将更改合并到分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
 - 如果对分支启用了代码所有者的必需审查，并且拉取请求修改具有所有者的代码，则代码所有者必须批准拉取请求后才可合并。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners)”。
-- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About required commit signing](/articles/about-required-commit-signing)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-- 如果您使用 {% data variables.product.prodname_dotcom %} 的冲突编辑器来解决从受保护分支创建拉取请求的冲突，{% data variables.product.prodname_dotcom %} 可帮助您为拉取请求创建一个备用分支，以解决合并冲突。 更多信息请参阅“[解决 {% data variables.product.prodname_dotcom %} 上的合并冲突](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)”。{% endif %}
+- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”和“[关于必需提交签名](/articles/about-required-commit-signing)”。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+- If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. 更多信息请参阅“[解决 {% data variables.product.prodname_dotcom %} 上的合并冲突](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)”。{% endif %}
 
 ### 延伸阅读
 

@@ -33,7 +33,7 @@ versions:
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %} 更多信息请参阅“[构建 {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)”。
 
-Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) 时在 `payload` 属性中发现的属性相同。 唯一的例外是 [`push` 事件](#push)。 `push` 事件 web 挂钩有效负载的独特属性与 Events API 中的 `payload` 属性不同。 Web 挂钩有效负载包含更详细的信息。
+The unique properties for a webhook event are the same properties you'll find in the `payload` property when using the [Events API](/rest/reference/activity#events). 唯一的例外是 [`push` 事件](#push)。 `push` 事件 web 挂钩有效负载的独特属性与 Events API 中的 `payload` 属性不同。 Web 挂钩有效负载包含更详细的信息。
 
 {% tip %}
 
@@ -45,14 +45,14 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 
 递送到 web 挂钩已配置 URL 端点的 HTTP POST 有效负载将包含几个特殊标头：
 
-| 标头                            | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-GitHub-Event`              | 触发递送的事件名称。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 标头                            | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-GitHub-Event`              | 触发递送的事件名称。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| `X-GitHub-Enterprise-Version` | 发送 HTTP POST 有效负载的 {% data variables.product.prodname_ghe_server %} 实例的版本。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `X-GitHub-Enterprise-Version` | 发送 HTTP POST 有效负载的 {% data variables.product.prodname_ghe_server %} 实例的版本。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "github-ae@latest" %}
-| `X-Hub-Signature`             | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| `X-Hub-Signature-256`         | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
+| `X-Hub-Signature`             | This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `X-Hub-Signature-256`         | This header is sent if the webhook is configured with a [`secret`](/rest/reference/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
 
 此外，请求的 `User-Agent` 将含有前缀 `GitHub-Hookshot/`。
 
@@ -195,7 +195,7 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 
 {% data reusables.webhooks.content_reference_short_desc %}
 
-Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如果您注册了一个子域 (`https://subdomain.example.com`)，则只有该子域的 URL 才会触发此事件。 如果您注册了一个域 (`https://example.com`)，则该域及所有子域的 URL 都会触发此事件。 请参阅“[创建内容附件](/v3/apps/installations/#create-a-content-attachment)”以创建新的内容附件。
+Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如果您注册了一个子域 (`https://subdomain.example.com`)，则只有该子域的 URL 才会触发此事件。 如果您注册了一个域 (`https://example.com`)，则该域及所有子域的 URL 都会触发此事件。 See "[Create a content attachment](/rest/reference/apps#create-a-content-attachment)" to create a new content attachment.
 
 只有 {% data variables.product.prodname_github_app %} 才能接收此事件。 {% data variables.product.prodname_github_app %} 必须具有 `content_references` `write` 权限才能订阅此事件。
 
@@ -715,7 +715,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### package
 
-与 {% data variables.product.prodname_registry %} 有关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[阻止组织用户](/v3/orgs/blocking/)”REST API。 更多信息请参阅“[使用 {% data variables.product.prodname_registry %} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {% data variables.product.prodname_registry %}。
+与 {% data variables.product.prodname_registry %} 有关的活动。 {% data reusables.webhooks.action_type_desc %} For more information, see the "[blocking organization users](/rest/reference/orgs#blocking)" REST API. 更多信息请参阅“[使用 {% data variables.product.prodname_registry %} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {% data variables.product.prodname_registry %}。
 
 #### 可用性
 
@@ -775,7 +775,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `zen`          | `字符串` | GitHub zen 的随机字符串。                                                                                                                                                                                                                                                                          |
 | `hook_id`      | `整数`  | 触发 ping 的 web 挂钩的 ID。                                                                                                                                                                                                                                                                       |
-| `挂钩`           | `对象`  | [web 挂钩配置](/v3/repos/hooks/#get-a-repository-webhook)。                                                                                                                                                                                                                                      |
+| `挂钩`           | `对象`  | The [webhook configuration](/rest/reference/repos#get-a-repository-webhook).                                                                                                                                                                                                                |
 | `hook[app_id]` | `整数`  | 注册新的 {% data variables.product.prodname_github_app %} 时，{% data variables.product.product_name %} 将 ping 事件发送到您在注册过程中指定的 **web 挂钩 URL**。 该事件包含 `app_id`，这是[验证](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)应用程序的必需项。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -969,24 +969,24 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-| 键                          | 类型    | 描述                                                                                                                |
-| -------------------------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `字符串` | 被推送的完整 [`git ref`](/v3/git/refs/)。 Example: `refs/heads/main`.                                                    |
-| `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                           |
-| `after`                    | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                           |
-| `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （该数组最多包含 20 个提交。 如有必要，可使用 [Commits API](/v3/repos/commits/) 获取更多提交。 此限制仅适用于时间表事件，而不适用于 web 挂钩递送。） |
-| `commits[][id]`            | `字符串` | 提交的 SHA。                                                                                                          |
-| `commits[][timestamp]`     | `字符串` | The ISO 8601 timestamp of the commit.                                                                             |
-| `commits[][message]`       | `字符串` | 提交消息.                                                                                                             |
-| `commits[][author]`        | `对象`  | 提交的 Git 作者。                                                                                                       |
-| `commits[][author][name]`  | `字符串` | Git 作者的名称。                                                                                                        |
-| `commits[][author][email]` | `字符串` | Git 作者的电子邮件地址。                                                                                                    |
-| `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                 |
-| `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                |
-| `commits[][added]`         | `数组`  | An array of files added in the commit.                                                                            |
-| `commits[][modified]`      | `数组`  | An array of files modified by the commit.                                                                         |
-| `commits[][removed]`       | `数组`  | An array of files removed in the commit.                                                                          |
-| `pusher`                   | `对象`  | 推送提交的用户。                                                                                                          |
+| 键                          | 类型    | 描述                                                                                                                                                                     |
+| -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ref`                      | `字符串` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.                                                                            |
+| `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                                                                                |
+| `after`                    | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                                                                                |
+| `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （该数组最多包含 20 个提交。 If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. 此限制仅适用于时间表事件，而不适用于 web 挂钩递送。） |
+| `commits[][id]`            | `字符串` | 提交的 SHA。                                                                                                                                                               |
+| `commits[][timestamp]`     | `字符串` | The ISO 8601 timestamp of the commit.                                                                                                                                  |
+| `commits[][message]`       | `字符串` | 提交消息.                                                                                                                                                                  |
+| `commits[][author]`        | `对象`  | 提交的 Git 作者。                                                                                                                                                            |
+| `commits[][author][name]`  | `字符串` | Git 作者的名称。                                                                                                                                                             |
+| `commits[][author][email]` | `字符串` | Git 作者的电子邮件地址。                                                                                                                                                         |
+| `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                                                                      |
+| `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                                                                     |
+| `commits[][added]`         | `数组`  | An array of files added in the commit.                                                                                                                                 |
+| `commits[][modified]`      | `数组`  | An array of files modified by the commit.                                                                                                                              |
+| `commits[][removed]`       | `数组`  | An array of files removed in the commit.                                                                                                                               |
+| `pusher`                   | `对象`  | 推送提交的用户。                                                                                                                                                               |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1022,7 +1022,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### repository_dispatch
 
-当 {% data variables.product.prodname_github_app %} 将 `POST` 请求发送到“[创建仓库分发事件](/v3/repos/#create-a-repository-dispatch-event)”端点时，此事件发生。
+This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)" endpoint.
 
 #### 可用性
 
@@ -1047,7 +1047,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 | 键        | 类型    | 描述                                           |
 | -------- | ----- | -------------------------------------------- |
-| `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。 This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - 仓库被[启用匿名 Git 访问](/v3/previews/#anonymous-git-access-to-repositories)，`anonymous_access_disabled` - 仓库被[禁用匿名 Git 访问](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
+| `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。 This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1060,7 +1060,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest"%}
 ### repository_import
 
-{% data reusables.webhooks.repository_import_short_desc %} 要在个人仓库中接收此事件，必须在导入之前创建一个空仓库。 此事件可使用 [GitHub 导入工具](/articles/importing-a-repository-with-github-importer/)或[来源导入 API](/v3/migrations/source_imports/) 触发。
+{% data reusables.webhooks.repository_import_short_desc %} 要在个人仓库中接收此事件，必须在导入之前创建一个空仓库。 This event can be triggered using either the [GitHub Importer](/articles/importing-a-repository-with-github-importer/) or the [Source imports API](/rest/reference/migrations#source-imports).
 
 #### 可用性
 
@@ -1237,9 +1237,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-| 键    | 类型   | 描述                                                |
-| ---- | ---- | ------------------------------------------------- |
-| `团队` | `对象` | 被修改的[团队](/v3/teams/)。  **注：**较旧的事件可能不会在有效负载中包括此值。 |
+| 键    | 类型   | 描述                                                                               |
+| ---- | ---- | -------------------------------------------------------------------------------- |
+| `团队` | `对象` | The [team](/rest/reference/teams) that was modified.  **注：**较旧的事件可能不会在有效负载中包括此值。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1268,7 +1268,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% data reusables.webhooks.watch_short_desc %}
 
-事件的执行者是标星仓库的[用户](/v3/users/)，并且事件的仓库是被标星的[仓库](/v3/repos/)。
+The event’s actor is the [user](/rest/reference/users) who starred a repository, and the event’s repository is the [repository](/rest/reference/repos) that was starred.
 
 #### 可用性
 
@@ -1288,7 +1288,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.watch.started }}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### workflow_dispatch
 
 This event occurs when someone triggers a workflow run on GitHub or sends a `POST` request to the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)" endpoint. 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
@@ -1302,9 +1302,10 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### workflow_run
 
-When a {% data variables.product.prodname_actions %} workflow run is requested or completed. 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_run)”。
+When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
 
 #### 可用性
 
@@ -1322,3 +1323,4 @@ When a {% data variables.product.prodname_actions %} workflow run is requested o
 #### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.workflow_run }}
+{% endif %}

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar webhooks globais
-intro: 'Site administrators can view, add, edit, and delete global webhooks to track events for the enterprise.'
+intro: 'Administradores do site podem visualizar, adicionar, editar e excluir webhooks globais para acompanhar os eventos da empresa.'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
@@ -11,7 +11,7 @@ versions:
 
 ### Sobre webhooks globais
 
-You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management for your enterprise. Por exemplo, você pode configurar os webhooks para serem executados sempre que:
+Você pode usar webhooks globais para monitorar, responder ou aplicar regras automaticamente para o gerenciamento de usuários e organizações do seu negócio. Por exemplo, você pode configurar os webhooks para serem executados sempre que:
 - Uma conta de usuário for criada ou excluída;
 - Uma organização foi criada ou excluída
 - Um colaborador for adicionado ou removido de um repositório;
