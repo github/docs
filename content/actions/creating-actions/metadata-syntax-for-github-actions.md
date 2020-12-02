@@ -116,7 +116,7 @@ runs:
 ```
 {% endraw %}
 
-#### `outputs.<output_id.value>`
+#### `outputs.<output_id>.value`
 **Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
 For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
