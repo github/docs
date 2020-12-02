@@ -1,5 +1,5 @@
 ---
-title: Creating a template repository
+title: Creating a template for new repositories
 intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, branches,{% endif %} and files.'
 permissions: Anyone with admin permissions to a repository can make the repository a template.
 redirect_from:
