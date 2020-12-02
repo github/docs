@@ -23,7 +23,7 @@ Parent teams cannot synchronize with IdP groups. If the team you want to connect
 
 To manage repository access for any {% data variables.product.prodname_dotcom %} team, including teams connected to an IdP group, you must make changes with {% data variables.product.product_name %}. For more information, see "[About teams](/articles/about-teams)" and "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)."
 
-You can also manage team synchronization with the API. For more information, see "[Team synchronization](/v3/teams/team_sync/)."
+You can also manage team synchronization with the API. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."
 
 ### Requirements for members of synchronized teams
 

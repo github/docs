@@ -1,6 +1,6 @@
 ---
 title: Assinar commits
-intro: You can sign commits locally using GPG or S/MIME.
+intro: Você pode assinar commits localmente usando GPG ou S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/

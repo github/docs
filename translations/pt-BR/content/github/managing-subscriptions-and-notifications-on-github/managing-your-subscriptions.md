@@ -55,6 +55,13 @@ Quando você deixa de inspecionar um repositório, você cancela sua assinatura 
 {% data reusables.notifications.access_notifications %}
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Inspecionar repositórios**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
     - deixar de inspecionar um repositório
     - inspecionar somente versões em um repositório
     - ignorar todas as notificações de um repositório
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+    - deixar de inspecionar um repositório
+    - ignorar todas as notificações de um repositório
+    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
+{% endif %}

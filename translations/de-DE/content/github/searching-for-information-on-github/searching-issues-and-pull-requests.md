@@ -163,7 +163,7 @@ Mit dem Kennzeichner `project` können Sie Issues suchen, die innerhalb eines Re
 
 ### Suche nach Commit-Status
 
-Sie können Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist besonders nützlich, wenn Sie die [Status-API](/v3/repos/statuses/) oder einen CI-Dienst verwenden.
+Sie können Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist besonders nützlich, wenn Sie die [Status-API](/rest/reference/repos#statuses) oder einen CI-Dienst verwenden.
 
 | Qualifizierer    | Beispiel                                                                                                                                                                                                                                                               |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

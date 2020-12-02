@@ -10,7 +10,7 @@ versions:
 
 Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
 
-クエリを使って、検索を絞り込めます。 検索クエリ構文の詳細については、「[検索クエリの構築](/v3/search/#constructing-a-search-query)」を参照してください。
+クエリを使って、検索を絞り込めます。 To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
 
 ### 検索結果を順番づける
 
@@ -18,7 +18,7 @@ Search API は、見つけたい特定の項目を検索するために役立ち
 
 ### レート制限
 
-Search API にはカスタムレート制限があります。 リクエストに[基本認証](/v3/#authentication)、[OAuth](/v3/#authentication)、または[クライアント ID とシークレット](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
+Search API にはカスタムレート制限があります。 For requests using [Basic Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
 
 {% data reusables.enterprise.rate_limit %}
 

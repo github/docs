@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure your enterprise to send email notifications on issue, pull request, and commit comments{% if enterpriseServerVersions contains currentVersion %}, as well as additional settings to allow inbound email replies{% endif %}.'
+intro: 'Para facilitar a resposta rápida dos usuários à atividade em {% data variables.product.product_name %}, você pode configurar sua empresa para enviar notificações por e-mail sobre problemas, pull request e comentários de commit{% if enterpriseServerVersions contains currentVersion %}, bem como configurações adicionais para permitir respostas de e-mail de envio{% endif %}.'
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -15,16 +15,16 @@ versions:
 Os e-mails de notificação serão enviados se houver atividades no repositório em que o usuário estiver participando, se houver atividades em pull requests ou problemas em que ele esteja envolvido, ou se houver @menções ao usuário ou à equipe da qual ele é integrante.
 
 {% if currentVersion == "github-ae@latest" %}
-Your dedicated technical account manager in
-{% data variables.contact.github_support %} can configure email for notifications to be sent through your SMTP server. Make sure you include the following details in your support request.
+O seu gerente de contas técnico dedicado em
+{% data variables.contact.github_support %} pode configurar o e-mail para notificações serem enviadas através de seu servidor SMTP. Certifique-se de incluir os detalhes a seguir na sua solicitação de suporte.
 
-- Your SMTP server address
-- The port your SMTP server uses to send email
-- The domain name that your SMTP server will send with a HELO response, if any
-- The type of encryption used by your SMTP server
-- The no-reply email address to use in the `From` and `To` field for all notifications
+- O endereço do seu servidor SMTP
+- A porta que o seu servidor SMTP usa para enviar e-mail
+- O nome de domínio que o seu servidor SMTP enviará com uma resposta HELO, se houver
+- O tipo de criptografia usado pelo seu servidor SMTP
+- O endereço de e-mail "no-reply" a ser usado nos campos `De` e `Para` para todas as notificações
 
-For more information about contacting support, see "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
+Para obter mais informações sobre como entrar em contato com o suporte, consulte "[Sobre {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)".
 {% else %}
 ### Configurar SMTP
 
@@ -161,7 +161,7 @@ Para processar corretamente os e-mails de entrada, você deve configurar um regi
 Se a {% data variables.product.product_location %} estiver atrás de um firewall ou estiver funcionando com um grupo de segurança do AWS, verifique se a porta 25 está aberta para todos os servidores de e-mail que enviam mensagens para `reply@reply.[hostname]`.
 
 #### Entrar em contato com o suporte
-If you're still unable to resolve the problem, contact
+Se ainda não conseguir resolver o problema, entre em contato
 
 {% data variables.contact.contact_ent_support %}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
 {% endif %}
