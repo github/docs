@@ -12,7 +12,7 @@ In this article:
 
 ## Contributing
 
-### Start contributing right now:
+### Start contributingr right now:
 
 We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
