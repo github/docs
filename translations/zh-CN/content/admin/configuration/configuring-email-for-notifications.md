@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure your enterprise to send email notifications on issue, pull request, and commit comments{% if enterpriseServerVersions contains currentVersion %}, as well as additional settings to allow inbound email replies{% endif %}.'
+intro: '为了让用户轻松地快速响应 {% data variables.product.product_name %} 上的活动，您可以企业在对议题、拉取请求和提交评论发送电子邮件通知{% if enterpriseServerVersions contains currentVersion %}，以及进行其他设置以允许入站电子邮件回复。{% endif %}'
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -15,16 +15,16 @@ versions:
 如果用户关注的仓库或他们参与的拉取请求或问题有活动，或者用户或他们所在的团队在评论中被 @提及，系统将发送通知电子邮件。
 
 {% if currentVersion == "github-ae@latest" %}
-Your dedicated technical account manager in
-{% data variables.contact.github_support %} can configure email for notifications to be sent through your SMTP server. Make sure you include the following details in your support request.
+您在
+{% data variables.contact.github_support %} 中的技术客户经理可以配置通过 SMTP 服务器发送电子邮件通知。 确保在支持请求中包含以下详细信息。
 
-- Your SMTP server address
-- The port your SMTP server uses to send email
-- The domain name that your SMTP server will send with a HELO response, if any
-- The type of encryption used by your SMTP server
-- The no-reply email address to use in the `From` and `To` field for all notifications
+- 您的 SMTP服务器地址
+- SMTP 服务器用于发送电子邮件的端口
+- SMTP 服务器将随 HELO 响应发送的域名（如果有）
+- SMTP 服务器使用的加密类型
+- 要在所有通知的 `From` 和 `To` 字段中使用的无需回复电子邮件地址
 
-For more information about contacting support, see "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)."
+有关联系支持的更多信息，请参阅“[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)”。
 {% else %}
 ### 配置 SMTP
 
@@ -161,7 +161,7 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 如果 {% data variables.product.product_location %} 位于防火墙后或者正在通过 AWS 安全组提供，请确保端口 25 对将电子邮件发送到 `reply@reply.[hostname]` 的所有邮件服务器开放。
 
 #### 联系支持
-If you're still unable to resolve the problem, contact
+如果仍然无法解决问题，请联系
 
 {% data variables.contact.contact_ent_support %}. 请在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，以便帮助我们排查您的问题。
 {% endif %}

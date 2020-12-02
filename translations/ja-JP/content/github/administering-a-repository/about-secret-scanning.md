@@ -1,6 +1,7 @@
 ---
 title: シークレットスキャンニングについて
 intro: '{% data variables.product.product_name %} はリポジトリをスキャンして既知のシークレットのタイプを探し、誤ってコミットされたシークレットの不正使用を防止します。'
+product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -16,6 +17,8 @@ versions:
 サービスプロバイダは {% data variables.product.company_short %} と提携して、スキャンのためのシークレットフォーマットを提供することができます。 詳しい情報については、「[シークレットスキャニング](/partnerships/secret-scanning)」を参照してください。
 
 ### パブリックリポジトリの {% data variables.product.prodname_secret_scanning %} について
+
+ {% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories, where it scans code for secrets, to check for known secret formats. When a match of your secret format is found in a public repository, {% data variables.product.company_short %} doesn't publicly disclose the information as an alert, but instead sends a payload to an HTTP endpoint of your choice. For an overview of how secret scanning works on public repositories, see "[Secret scanning](/developers/overview/secret-scanning)."
 
 パブリックリポジトリにプッシュすると、{% data variables.product.product_name %} がコミットの内容をスキャンしてシークレットを探します。 プライベートリポジトリをパブリックに切り替えると、{% data variables.product.product_name %} はリポジトリ全体をスキャンしてシークレットを探します。
 
@@ -64,6 +67,8 @@ versions:
 
 {% data reusables.secret-scanning.beta %}
 
+If you're a repository administrator or an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for private repositories that are owned by organizations. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization. {% data variables.product.prodname_secret_scanning_caps %} is not available for user account-owned private repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+
 {% data variables.product.prodname_secret_scanning %} が有効化されているプライベートリポジトリにコミットをプッシュすると、{% data variables.product.product_name %} はコミットの内容をスキャンしてシークレットを探します。
 
 {% data variables.product.prodname_secret_scanning %} がプライベートリポジトリでシークレットを検出すると、{% data variables.product.prodname_dotcom %} はアラートを送信します。
@@ -71,6 +76,8 @@ versions:
 - {% data variables.product.prodname_dotcom %} は、リポジトリ管理者と Organizationのオーナーにメールアラートを送信します。
 
 - {% data variables.product.prodname_dotcom %} は、リポジトリにアラートを表示します。 詳しい情報については、「[{% data variables.product.prodname_secret_scanning %} からのアラートを管理する](/github/administering-a-repository/managing-alerts-from-secret-scanning)」を参照してください。
+
+Repository administrators and organization owners can grant users and team access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 現在 {% data variables.product.product_name %} は、プライベートリポジトリをスキャンして、次のサービスプロバイダが発行したシークレットを探します。
 

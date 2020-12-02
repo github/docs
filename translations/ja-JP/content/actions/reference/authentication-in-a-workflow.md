@@ -79,7 +79,7 @@ versions:
 
 ### `GITHUB_TOKEN`の権限
 
-{% data variables.product.prodname_github_apps %} が各権限でアクセできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/v3/apps/permissions/)」を参照してください。
+{% data variables.product.prodname_github_apps %} が各権限でアクセできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/rest/reference/permissions-required-for-github-apps)」を参照してください。
 
 | 権限          | アクセスタイプ   | フォークしたリポジトリからのアクセス |
 | ----------- | --------- | ------------------ |

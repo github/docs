@@ -1,6 +1,7 @@
 ---
 title: Einen Issue aus einem Kommentar öffnen
 intro: Du kannst einen neuen Issue aus einem spezifischen Kommentar in einem Issue oder Pull Request öffnen.
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -8,6 +9,8 @@ versions:
 ---
 
 Wenn Du einen Issue aus einem Kommentar öffnest, wird der Issue ein Ausschnitt enthalten, der zeigt, wo der Kommentar ursprünglich eingestellt wurde.
+
+{% data reusables.repositories.administrators-can-disable-issues %}
 
 1. Navigiere zum Kommentar, aus dem Du einen Issue öffnen möchtest.
 
