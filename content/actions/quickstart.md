@@ -135,7 +135,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 
 ### Next steps
 
-The hello-world workflow you just added is a simple example of a manually triggered workflow. This is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+The hello-world workflow you just added is a simple example of a manually triggered workflow. This is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Keep going! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
 - "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
 - "[Guides](/actions/guides)" for specific uses cases and examples
