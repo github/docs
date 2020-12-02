@@ -28,5 +28,5 @@ versions:
 
 {% link_with_intro /getting-started-with-github-container-registry %}
 {% link_with_intro /managing-container-images-with-github-container-registry %}
-{% link_with_intro /publishing-and-managing-packages %}
+
 {% link_with_intro /using-github-packages-with-your-projects-ecosystem %}
