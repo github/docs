@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-Você pode pesquisar códigos globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. Para pesquisar códigos em todos os repositórios públicos, é necessário ter iniciado a sessão em uma conta do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no GitHub](/articles/about-searching-on-github)".
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
 
 Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de código. Qualificadores de pesquisa específicos para repositórios, usuários ou commits não funcionarão com a pesquisa de códigos.
 
@@ -21,13 +21,13 @@ Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de
 
 Devido à complexidade da pesquisa de códigos, a execução das pesquisas apresenta algumas restrições:
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - O código em [bifurcações](/articles/about-forks) só poderá ser pesquisado se a bifurcação tiver mais estrelas do que o repositório principal. Bifurcações com menos estrelas do que o repositório principal **não** são indexadas para pesquisa de códigos. Para incluir bifurcações com mais estrelas que o repositório principal delas nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/articles/searching-in-forks)".
 - Apenas o _branch-padrão_ é indexado para pesquisa de código.{% if currentVersion == "free-pro-team@latest" %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
 - Somente os primeiros 500 KB de cada arquivo são pesquisados.{% endif %}
 - Somente repositórios com menos de 500.000 arquivos são pesquisados.
-- Os usuários que fizeram login podem pesquisar em todos os repositórios públicos.
 - Com exceção das pesquisas por [`filename`](#search-by-filename), é necessário incluir pelo menos um termo da pesquisa ao pesquisar o código-fonte. Por exemplo, pesquisar [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) não é válido, enquanto pesquisar [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) é.
 - Os resultados da pesquisa exibem no máximo dois fragmentos do mesmo arquivo, mas o arquivo pode ter mais resultados.
 - Não é possível usar os seguintes caracteres-curinga na consulta de pesquisa: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. A pesquisa simplesmente ignora esses símbolos.

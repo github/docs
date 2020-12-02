@@ -28,6 +28,6 @@ versions:
 
 {% note %}
 
-**ノート:** プランの変更がいつ生じるのかを知るために[`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookの`effective_date`を利用し、定期的に[プランのリストアカウント](/v3/apps/marketplace/#list-accounts-for-a-plan)を同期することをおすすめします。 webhookに関する詳しい情報については「[{% data variables.product.prodname_marketplace %}のwebhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
+**ノート:** プランの変更がいつ生じるのかを知るために[`marketplace_purchase`](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) webhookの`effective_date`を利用し、定期的に[プランのリストアカウント](/rest/reference/apps#list-accounts-for-a-plan)を同期することをおすすめします。 webhookに関する詳しい情報については「[{% data variables.product.prodname_marketplace %}のwebhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
 
 {% endnote %}

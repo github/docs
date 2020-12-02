@@ -7,7 +7,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 あなたが所有するか、コントリビュートしたパブリックリポジトリをピン止めできます。 フォークへのコミットはコントリビューションとして扱われないので、所有していないフォークをピン止めすることはできません。 詳細は「[プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)」を参照してください。

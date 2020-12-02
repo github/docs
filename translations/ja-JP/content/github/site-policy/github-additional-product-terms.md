@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-このバージョンの発効日: 2020 年 11 月 1 日
+このバージョンの発効日: 2020 年 11 月 13 日
 
 アカウントを作成すると利用できるようになる各種の機能と製品は、すべて本サービスの一部です。 このような機能と製品の多くは機能性が異なるため、その機能や製品に固有の利用規約が必要になる場合があります。 Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -89,7 +89,7 @@ In order to access GitHub Connect, Customer must have at least one (1) Account o
 
 ### 9. GitHub Advanced Security
 
-GitHub Advanced Security enables you to identify security vulnerabilities through customizable and automated semantic code analysis. GitHub Advanced Security is licensed on a per User basis. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions. Billing for usage of GitHub Actions is usage-based and is subject to the [GitHub Actions terms](/github/site-policy/github-additional-product-terms#c-payment-and-billing-for-actions-and-packages).
+GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions.
 
 ### 10. Dependabot Preview
 
@@ -108,4 +108,3 @@ Your use of Spectrum is governed by the GitHub [Terms of Service](/github/site-p
 #### b. GitHub Advisory Databaseのライセンス
 
 GitHub Advisory Databaseは、[Creative Commons Attribution 4.0ライセンス](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされています。 帰属条件は、<https://github.com/advisories>のGitHub Advisory Databaseまたは使用される個々のGitHub Advisory Databaseレコード（<https://github.com/advisories>で始まる）にリンクすることで満たすことができます。
-

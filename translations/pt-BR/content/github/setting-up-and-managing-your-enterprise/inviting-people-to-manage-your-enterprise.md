@@ -1,5 +1,5 @@
 ---
-title: Inviting people to manage your enterprise
+title: Convidar pessoas para gerenciar sua empresa
 intro: É possível convidar pessoas para se tornarem proprietários ou gerentes de cobrança em sua conta corporativa. Também é possível remover proprietários ou gerentes de cobrança corporativos que não precisam mais acessar a conta corporativa.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
@@ -13,7 +13,7 @@ versions:
 
 ### Sobre convidar pessoas para gerenciar sua conta corporativa
 
-{% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).
+{% data reusables.enterprise-accounts.enterprise-administrators %} Para obter mais informações, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise).
 
 {% tip %}
 

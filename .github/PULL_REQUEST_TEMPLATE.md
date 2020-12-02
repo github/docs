@@ -22,6 +22,6 @@ Thanks again!
 
 ### Check off the following:
 - [ ] All of the tests are passing.
-- [ ] I have reviewed my changes in staging.
+- [ ] I have reviewed my changes in staging. (look for the **deploy-to-heroku** link in your pull request, then click **View deployment**)
 - [ ] For content changes, I have reviewed the [localization checklist](https://github.com/github/docs/blob/main/contributing/localization-checklist.md)
 - [ ] For content changes, I have reviewed the [Content style guide for GitHub Docs](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).

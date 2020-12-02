@@ -1,6 +1,6 @@
 ---
-title: Locking conversations
-intro: 'Repository owners and collaborators, and people with write access to a repository, can lock conversations on issues, pull requests, and commits permanently or temporarily to defuse a heated interaction.'
+title: Bloquear conversas
+intro: 'Proprietários e colaboradores de repositórios e pessoas com acesso de gravação em um repositório podem bloquear permanentemente ou temporariamente conversas sobre problemas, pull requests e commits para neutralizar uma interação acalorada.'
 redirect_from:
   - /articles/locking-conversations
 versions:
@@ -9,32 +9,28 @@ versions:
   github-ae: '*'
 ---
 
-It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. When you lock a conversation, you can also specify a reason, which is publicly visible.
+É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou viola o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou as [diretrizes da comunidade do GitHub](/articles/github-community-guidelines){% endif %}. Quando você bloqueia uma conversa, você também pode especificar o motivo, que é visível publicamente.
 
-Locking a conversation creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who locked the conversation is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
+Bloquear uma conversa cria um evento na linha do tempo visível a qualquer um com acesso de leitura ao repositório. No entanto, o nome de usuário da pessoa que bloqueou a conversa somente pode ser visualizado pelas pessoas com acesso de gravação ao repositório. Para qualquer pessoa sem acesso de gravação, o evento na linha do tempo é anônimo.
 
-![Anonymized timeline event for a locked conversation](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
+![Evento anônimo de linha do tempo de uma conversa bloqueada](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account) can add, hide, and delete comments.
+Quando uma conversa é bloqueada, somente [pessoas com acesso de gravação](/articles/repository-permission-levels-for-an-organization/) e [proprietários e colaboradores de repositórios](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) podem adicionar, ocultar ou excluir comentários.
 
-To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)."
+Para pesquisar conversas bloqueadas em um repositório que não está arquivado, é posível usar os qualificadores de pesquisa `is:locked` e `archived:false`. As conversas são automaticamente bloqueadas em repositórios arquivados. Para obter mais informações, consulte "[Pesquisar problemas e pull requests](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
 
-1. Optionally, write a comment explaining why you're locking the conversation.
-2. In the right margin of the issue or pull request, or above the comment box on the commit page, click **Lock conversation**.
-![Lock conversation link](/assets/images/help/repository/lock-conversation.png)
-3. Optionally, choose a reason for locking the conversation.
-![Reason for locking a conversation menu](/assets/images/help/repository/locking-conversation-reason-menu.png)
-4. Read the information about locking conversations and click **Lock conversation on this issue**, **Lock conversation on this pull request**, or **Lock conversation on this commit**.
-![Confirm lock with a reason dialog box](/assets/images/help/repository/lock-conversation-confirm-with-reason.png)
-5. When you're ready to unlock the conversation, click **Unlock conversation**.
-![Unlock conversation link](/assets/images/help/repository/unlock-conversation.png)
+1. Como opção, escreva um comentário explicando por que você está bloqueando a conversa.
+2. Na margem direita do problema ou pull request ou acima da caixa de comentários na página de commit, clique em **Lock conversation** (Bloquear conversa). ![Link Lock conversation (Bloquear conversa)](/assets/images/help/repository/lock-conversation.png)
+3. Opcionalmente, selecione um motivo para bloquear a conversa. ![Menu Reason for locking a conversation (Motivo para bloquear uma conversa)](/assets/images/help/repository/locking-conversation-reason-menu.png)
+4. Leia as informações sobre bloqueio de conversas e clique em **Lock conversation on this issue** (Bloquear conversa sobre este problema), **Lock conversation on this pull request** (Bloquear conversa sobre esta pull request) ou **Lock conversation on this commit** (Bloquear conversa sobre este commit). ![Caixa de diálogo Confirm lock with a reason (Confirmar bloqueio com um motivo)](/assets/images/help/repository/lock-conversation-confirm-with-reason.png)
+5. Quando você quiser desbloquear a conversa, clique em **Unlock conversation** (Desbloquear conversa). ![Link Unlock conversation (Desbloquear conversa)](/assets/images/help/repository/unlock-conversation.png)
 
-### Further reading
+### Leia mais
 
-- "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
-- "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
-- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
-- "[Limiting interactions in your repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)"
+- "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
+- "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
+- "[Gerenciar comentários disruptivos](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Denunciar abuso ou spam](/articles/reporting-abuse-or-spam)"
+- "[Limitando interações em seu repositório](/github/building-a-strong-community/limiting-interactions-in-your-repository)"
 {% endif %}

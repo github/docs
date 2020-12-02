@@ -150,4 +150,4 @@ While you can't specify custom MIME types on a per-file or per-repository basis,
 ### 더 읽을거리
 
 - [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) on {% data variables.product.prodname_learning %}
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"
