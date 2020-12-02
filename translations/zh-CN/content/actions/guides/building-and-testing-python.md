@@ -152,11 +152,11 @@ jobs:
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
       with:
-        # Python 版本的语义版本范围矩阵或准确的版本
-        python-version: '3.x' 
-        # 可选 - x64 或 x86 架构，默认为 x64
-        architecture: 'x64' 
-    # 您可以打印当前 Python 版本以测试矩阵
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x'
+        # Optional - x64 or x86 architecture, defaults to x64
+        architecture: 'x64'
+    # You can test your matrix by printing the current Python version
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
 ```
@@ -217,7 +217,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 pip 软件包管理器。 在构建和测试代码之前，您可以使用 pip 从 PyPI 软件包注册表安装依赖项。 例如，下面的 YAML 安装或升级 `pip` 软件包安装程序以及 `setuptools` 和 `wheel` 软件包。
 
-您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% raw %}
 
@@ -265,7 +265,7 @@ steps:
 
 #### 缓存依赖项
 
-您可以使用唯一密钥缓存 pip 依赖项，并在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于下面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
 

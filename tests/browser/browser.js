@@ -38,6 +38,8 @@ describe('algolia browser search', () => {
   })
 
   it('sends the correct data to algolia for Enterprise Server', async () => {
+    expect.assertions(12) // 3 assertions x 4 letters ('test')
+
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
 
@@ -61,6 +63,8 @@ describe('algolia browser search', () => {
   })
 
   it('sends the correct data to algolia for GHAE', async () => {
+    expect.assertions(12) // 3 assertions x 4 letters ('test')
+
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
 

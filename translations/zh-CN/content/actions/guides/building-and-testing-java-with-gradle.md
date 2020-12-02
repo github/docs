@@ -91,7 +91,7 @@ steps:
 
 ### 缓存依赖项
 
-您可以缓存依赖项来加快工作流程运行。 运行成功后，您的本地 Gradle 缓存将存储在 GitHub 操作基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. 运行成功后，您的本地 Gradle 缓存将存储在 GitHub 操作基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程包仓库下载依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
 
 {% raw %}
 ```yaml
