@@ -1,6 +1,7 @@
 ---
 title: Criar um problema
 intro: 'Os problemas podem ser usados para acompanhar erros, aprimoramentos ou outras solicitações.'
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 redirect_from:
   - /articles/creating-an-issue
 versions:
@@ -8,8 +9,6 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
-{% data reusables.repositories.create-issue-in-public-repository %}
 
 Você pode abrir um novo problema com base no código de uma pull request existente. Para obter mais informações, consulte "[Abrir um problema a partir de código](/github/managing-your-work-on-github/opening-an-issue-from-code)".
 

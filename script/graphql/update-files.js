@@ -72,12 +72,15 @@ async function main () {
 
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion)
+    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
   }
 
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
   updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
   updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+
+  // Ensure the YAML linter runs before checkinging in files
+  execSync('npx prettier -w "**/*.{yml,yaml}"')
 }
 
 // get latest from github/github

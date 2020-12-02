@@ -13,7 +13,7 @@ Você pode escolher se os integrantes podem criar repositórios na sua organiza�
 
 Os proprietários da organização sempre podem criar qualquer tipo de repositório.
 
-{% if currentVersion == "free-pro-team@latest" %}Os proprietários da empresa{% else %}administradores do site{% endif %} podem restringir as opções disponíveis para você para a política de criação de repositório da sua organização. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account)."{% else %}"[Restricting repository creation in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Os proprietários da empresa{% else %}administradores do site{% endif %} podem restringir as opções disponíveis para você para a política de criação de repositório da sua organização. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" %}"[Aplicar políticas de gerenciamento do repositório na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account).{% else %}"[Restringir a criação do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}
 
 {% warning %}
 

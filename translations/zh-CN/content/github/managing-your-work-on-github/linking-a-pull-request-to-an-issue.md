@@ -50,7 +50,7 @@ You can link a pull request to an issue by using a supported keyword in the pull
 * fix
 * fixes
 * fixed
-* 解决
+* resolve
 * resolves
 * resolved
 

@@ -1,6 +1,6 @@
 ---
 title: Vinculando uma pull request a um problema
-intro: 'You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.'
+intro: 'Você pode vincular um pull request a um problema para mostrar que uma correção está em andamento e para fechar automaticamente o problema quando o pull request for mesclado.'
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -20,7 +20,7 @@ versions:
 
 ### Sobre problemas e pull requests vinculados
 
-You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manually or {% endif %}using a supported keyword in the pull request description.
+Você pode vincular um problema a um pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" ou currentVersion == "github-ae@latest" %}manualmente ou {% endif %}usando uma palavra-chave compatível na descrição do pull request.
 
 Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema. {% if currentVersion ver_lt "enterprise-server@2. 1" %}Se o pull request e o problema estiverem em repositórios diferentes, {% data variables.product.product_name %} mostrará o link após o merge do pull request, se a pessoa que mescla o pull request também tiver permissão para fechar o problema.{% endif %}
 
@@ -50,7 +50,7 @@ Você pode vincular uma solicitação de pull a um problema usando uma palavra-c
 * fix
 * fixes
 * fixed
-* resolver
+* resolve
 * resolve
 * resolved
 
@@ -62,7 +62,7 @@ A sintaxe para fechar palavras-chave depende se o problema está no mesmo reposi
 | Problema em um repositório diferente | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`                                 |
 | Múltiplos problemas                  | Usar sintaxe completa para cada problema      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}Only manually linked pull requests can be manually unlinked. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}Apenas pull requests vinculados manualmente podem ser desvinculados. Para desvincular um problema que você vinculou usando uma palavra-chave, você deve editar a descrição da pull request para remover a palavra-chave.{% endif %}
 
 Você também pode usar palavras-chave de fechamento em uma mensagem de commit. O problema será encerrado quando você mesclar o commit no branch padrão, mas o pull request que contém o commit não será listado como um pull request vinculado.
 

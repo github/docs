@@ -52,16 +52,16 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 ##### GitHub App Manifest のパラメータ
 
- | 名前                    | 種類        | 説明                                                                                                                      |
- | --------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------- |
- | `name`                | `string`  | GitHub App の名前。                                                                                                         |
- | `url`                 | `string`  | **必須。**GitHub App のホームページ。                                                                                              |
- | `hook_attributes`     | `オブジェクト`  | GitHub App の webhook の構成。                                                                                               |
- | `redirect_url`        | `string`  | GitHub App をインストール後にユーザをリダイレクトする完全な URL。                                                                                |
- | `説明`                  | `string`  | GitHub App の説明。                                                                                                         |
- | `public`              | `boolean` | GitHub App を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                |
- | `default_events`      | `array`   | GitHub App がサブスクライブする[イベント](/webhooks/event-payloads)のリスト。                                                              |
- | `default_permissions` | `オブジェクト`  | GitHub App が必要とする[権限](/v3/apps/permissions/)のセット。 オブジェクトのフォーマットでは、キーの権限名 (`issues` など) と、値のアクセスタイプ (`write` など) を使用します。 |
+ | 名前                    | 種類        | 説明                                                                                                                                                     |
+ | --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+ | `name`                | `string`  | GitHub App の名前。                                                                                                                                        |
+ | `url`                 | `string`  | **必須。**GitHub App のホームページ。                                                                                                                             |
+ | `hook_attributes`     | `オブジェクト`  | GitHub App の webhook の構成。                                                                                                                              |
+ | `redirect_url`        | `string`  | GitHub App をインストール後にユーザをリダイレクトする完全な URL。                                                                                                               |
+ | `説明`                  | `string`  | GitHub App の説明。                                                                                                                                        |
+ | `public`              | `boolean` | GitHub App を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                                               |
+ | `default_events`      | `array`   | GitHub App がサブスクライブする[イベント](/webhooks/event-payloads)のリスト。                                                                                             |
+ | `default_permissions` | `オブジェクト`  | GitHub App が必要とする[権限](/rest/reference/permissions-required-for-github-apps)のセット。 オブジェクトのフォーマットでは、キーの権限名 (`issues` など) と、値のアクセスタイプ (`write` など) を使用します。 |
 
 `hook_attributes` オブジェクトは、以下のキーを持っています。
 
@@ -153,13 +153,13 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 #### 3. 一時コードをやり取りして、アプリケーションの構成を取得する
 
-ハンドシェイクを完了するため、`POST` リクエストにある一時的 `code` を [GitHub App をマニフェストから作成する](/v3/apps/#create-a-github-app-from-a-manifest)エンドポイントに送信します。 このレスポンスには `id` (GitHub App ID)、`pem` (秘密鍵)、`webhook_secret` が含まれます。 GitHub はアプリケーションに対する webhook シークレットを自動的に作成します。 これらの値は、アプリケーションのサーバーの環境変数に格納できます。 たとえば、アプリケーションが [dotenv](https://github.com/bkeepers/dotenv) を使用して環境変数を格納する場合、変数をアプリケーションの `.env` ファイルに格納することになるでしょう。
+ハンドシェイクを完了するため、`POST` リクエストにある一時的 `code` を [GitHub App をマニフェストから作成する](/rest/reference/apps#create-a-github-app-from-a-manifest)エンドポイントに送信します。 このレスポンスには `id` (GitHub App ID)、`pem` (秘密鍵)、`webhook_secret` が含まれます。 GitHub はアプリケーションに対する webhook シークレットを自動的に作成します。 これらの値は、アプリケーションのサーバーの環境変数に格納できます。 たとえば、アプリケーションが [dotenv](https://github.com/bkeepers/dotenv) を使用して環境変数を格納する場合、変数をアプリケーションの `.env` ファイルに格納することになるでしょう。
 
 GitHub App Manifest フローのこのステップを、1 時間以内に完了する必要があります。
 
 {% note %}
 
-**注釈:** このエンドポイントはレート制限されます。 現在のレート制限状態を確認する方法については、[レート制限](/v3/rate_limit/)を参照してください。
+**注釈:** このエンドポイントはレート制限されます。 現在のレート制限状態を確認する方法については、[レート制限](/rest/reference/rate-limit)を参照してください。
 
 {% endnote %}
 
@@ -170,7 +170,7 @@ GitHub App Manifest フローのこのステップを、1 時間以内に完了�
 
     POST /app-manifests/:code/conversions
 
-エンドポイントのレスポンスに関する詳しい情報については、[マニフェストから GitHub App を作成する](/v3/apps/#create-a-github-app-from-a-manifest)を参照してください。
+エンドポイントのレスポンスに関する詳しい情報については、[マニフェストから GitHub App を作成する](/rest/reference/apps#create-a-github-app-from-a-manifest)を参照してください。
 
 マニフェストフローの最後のステップをフローからアプリケーションを作成するユーザは、登録した GitHub App の所有者となり、そのユーザの任意の個人用リポジトリにその GitHub App をインストールできます。 所有者は、GitHub API を使用してアプリケーションを拡張したり、所有権を他のユーザに移譲したり、任意の時に削除したりできます。
 
@@ -191,4 +191,4 @@ GitHub App Manifest フローのこのステップを、1 時間以内に完了�
 
 #### Glitch でアプリケーションをホストする
 
-[Probot アプリケーションのサンプル](https://glitch.com/~auspicious-aardwolf)で、[Glitch](https://glitch.com/) でアプリケーションをホストして共有する例を見ることができます。 この例では、[Checks API](/v3/checks/) を使用し、`app.yml` ファイルで、必要な Checks API イベントと権限を選択しています。 Glitch は、既存のアプリケーションを流用して独自のアプリケーションを作成 (リミックス) できるツールです。 アプリケーションをリミックスすると、アプリケーションのコピーが作成され、Glitch はそれをホストしてデプロイします。 Glitch アプリケーションのリミックスについては、「[Glitch について](https://glitch.com/about/)」を参照してください。
+[Probot アプリケーションのサンプル](https://glitch.com/~auspicious-aardwolf)で、[Glitch](https://glitch.com/) でアプリケーションをホストして共有する例を見ることができます。 この例では、[Checks API](/rest/reference/checks) を使用し、`app.yml` ファイルで、必要な Checks API イベントと権限を選択しています。 Glitch は、既存のアプリケーションを流用して独自のアプリケーションを作成 (リミックス) できるツールです。 アプリケーションをリミックスすると、アプリケーションのコピーが作成され、Glitch はそれをホストしてデプロイします。 Glitch アプリケーションのリミックスについては、「[Glitch について](https://glitch.com/about/)」を参照してください。

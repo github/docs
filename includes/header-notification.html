@@ -21,8 +21,20 @@
 {% if currentVersion == "github-ae@latest" %}
   {% assign release_notification_type = "true" %}
   {% assign release_notification = site.data.ui.header.notices.ghae_silent_launch %}
+
+<!-- Release candidate notice -->
+{% elsif currentVersion == site.data.variables.release_candidate.version %}
+  {% assign release_notification_type = "true" %}
+  {% assign release_notification = allVersions[currentVersion].versionTitle | append: site.data.ui.header.notices.release_candidate %}
 {% endif %}
 <!-- END RELEASE NOTICES -->
+
+<!-- ONEOFF EARLY ACCESS NOTICE -->
+{% if page.hidden %}
+{% assign early_access_notification_type = true %}
+{% assign early_access_notification = site.data.ui.header.notices.early_access %}
+{% endif %}
+<!-- END ONEOFF EARLY ACCESS NOTICE -->
 
 {% if translation_notification_type %}
   <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 translation_notice{% if release_notification_type %} border-bottom border-black-fade{% endif %}">
@@ -31,7 +43,13 @@
 {% endif %}
 
 {% if release_notification_type %}
-  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 release_notice">
+  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 release_notice{% if early_access_notification_type %} border-bottom border-black-fade{% endif %}">
     {{ release_notification }}
+  </div>
+{% endif %}
+
+{% if early_access_notification_type %}
+  <div class="header-notifications text-center f5 bg-blue-1 text-gray-dark py-4 px-6 early_access">
+    {{ early_access_notification }}
   </div>
 {% endif %}

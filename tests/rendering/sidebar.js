@@ -1,4 +1,4 @@
-const { getDOM } = require('../helpers')
+const { getDOM } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('sidebar', () => {
@@ -6,7 +6,7 @@ describe('sidebar', () => {
 
   let $homePage, $githubPage, $enterprisePage
   beforeAll(async (done) => {
-    ;[$homePage, $githubPage, $enterprisePage] = await Promise.all([
+    [$homePage, $githubPage, $enterprisePage] = await Promise.all([
       getDOM('/en'),
       getDOM('/en/github'),
       getDOM('/en/enterprise/admin')
