@@ -1,6 +1,6 @@
 ---
 title: 更新 GitHub 访问凭据
-intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. 如果您有需要，可以自行重置所有这些访问凭据。'
+intro: '{% data variables.product.product_name %} 凭据不仅{% if currentVersion != "github-ae@latest" %}包括密码，还{% endif %}包括您用于与 {% data variables.product.product_name %} 通信的访问令牌、SSH 密钥和应用程序 API 令牌。 如果您有需要，可以自行重置所有这些访问凭据。'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/

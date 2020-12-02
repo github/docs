@@ -29,7 +29,7 @@ Para efetuar a autenticação em {% data variables.product.prodname_registry %} 
 Você deve substituir:
 - `USUÁRIO` pelo o nome da sua conta de usuário em {% data variables.product.prodname_dotcom %}.
 - `TOKEN` pelo seu token de acesso pessoal.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
+- `PROPRIETÁRIO` com o nome da conta do usuário ou da organização que é proprietário do repositório que contém o seu projeto.{% if enterpriseServerVersions contains currentVersion %}
 - `HOSTNAME` com o nome de host para sua instância de {% data variables.product.prodname_ghe_server %}.
 
 Se sua instância tem o isolamento de subdomínio habilitado:
@@ -77,7 +77,7 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ### Publicar um pacote
 
-Você pode publicar um pacote no {% data variables.product.prodname_registry %}, efetuando a autenticação com um arquivo *nuget.config*. Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+Você pode publicar um pacote no {% data variables.product.prodname_registry %}, efetuando a autenticação com um arquivo *nuget.config*. Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. Para obter mais informações sobre como criar seu pacote, consulte "[Criar e publicar um pacote](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" na documentação da Microsoft.
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -89,7 +89,7 @@ Você pode publicar um pacote no {% data variables.product.prodname_registry %},
 3. Adicione informações específicas do seu projeto ao arquivo do seu projeto, que termina em *.csproj*.  Você deve substituir:
     - `PROPRIETÁRIO` com o nome do usuário ou conta da organização proprietária do repositório que contém o seu projeto.
     - `REPOSITÓRIO` pelo nome do repositório que contém o pacote que você deseja publicar.
-    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
+    - `1.0.0` com o número da versão do pacote.{% if enterpriseServerVersions contains currentVersion %}
     - `HOSTNAME` com o nome de host para sua instância de {% data variables.product.prodname_ghe_server %} .{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
@@ -159,7 +159,7 @@ Por exemplo, os projetos *OctodogApp* e *OctocatApp* irão publicar no mesmo rep
 
 ### Instalar um pacote
 
-Usar pacotes do {% data variables.product.prodname_dotcom %} no seu projeto é semelhante a usar pacotes do *nuget.org*. Adicione suas dependências de pacote ao seu arquivo *.csproj* especificando o nome e a versão do pacote. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+Usar pacotes do {% data variables.product.prodname_dotcom %} no seu projeto é semelhante a usar pacotes do *nuget.org*. Adicione suas dependências de pacote ao seu arquivo *.csproj* especificando o nome e a versão do pacote. Para obter mais informações sobre como usar um arquivo *.csproj* no seu projeto, consulte "[Trabalhar com pacotes NuGet](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" na documentação da Microsoft.
 
 {% data reusables.package_registry.authenticate-step %}
 

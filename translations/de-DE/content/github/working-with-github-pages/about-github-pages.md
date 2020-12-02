@@ -150,4 +150,4 @@ Zwar können Sie keine benutzerdefinierten MIME-Typen für einzelne Dateien oder
 ### Weiterführende Informationen
 
 - [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) auf {% data variables.product.prodname_learning %}
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

@@ -1,6 +1,7 @@
 ---
 title: Sobre a varredura de segredo
 intro: 'O {% data variables.product.product_name %} verifica repositórios em busca de tipos de segredos conhecidos a fim de impedir o uso fraudulento de segredos que sofreram commit acidentalmente.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -16,6 +17,8 @@ Se alguém verificar um segredo de um parceiro {% data variables.product.company
 Os provedores de serviço podem fazer parceria com o {% data variables.product.company_short %} para fornecer os respectivos formatos de segredo para verificação. Para obter mais informações, consulte "[Verificação de segredo](/partnerships/secret-scanning)".
 
 ### Sobre o {% data variables.product.prodname_secret_scanning %} para repositórios públicos
+
+ {% data variables.product.prodname_secret_scanning_caps %} é automaticamente habilitado em repositórios públicos, em que faz a varredura de código para saber se há segredos, para verificar os formatos de segredos conhecidos. Quando uma correspondência do seu formato de segredo é encontrada em um repositório público, {% data variables.product.company_short %} não divulga publicamente as informações como um alerta, mas envia uma carga para um ponto de extremidade de HTTP da sua escolha. Para uma visão geral de como a varredura de segredo funciona em repositórios públicos, consulte "[Varredura de segredo](/developers/overview/secret-scanning)".
 
 Quando você faz push para um repositório público, o {% data variables.product.product_name %} verifica segredos no conteúdo dos commits. Se você alternar um repositório privado para público, o {% data variables.product.product_name %} verifica segredos em todo o repositório.
 
@@ -64,6 +67,8 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 
 {% data reusables.secret-scanning.beta %}
 
+Se você for um administrador de repositório ou um proprietário da organização, você poderá habilitar {% data variables.product.prodname_secret_scanning %} para repositórios privados que pertençam a organizações. Você pode habilitar {% data variables.product.prodname_secret_scanning %} para todos os seus repositórios ou para todos os novos repositórios da organização. {% data variables.product.prodname_secret_scanning_caps %} não está disponível para repositórios privados de contas de usuário. Para mais informações consulte "[Gerenciar as configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" e "[Gerenciar as configurações de segurança e análise da sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)".
+
 Quando você faz push de commits em um repositório privado com o {% data variables.product.prodname_secret_scanning %} habilitado, o {% data variables.product.product_name %} verifica o conteúdo dos commits em busca de segredos.
 
 Quando o {% data variables.product.prodname_secret_scanning %} detecta um segredo em um repositório privado, o {% data variables.product.prodname_dotcom %} envia alertas.
@@ -71,6 +76,8 @@ Quando o {% data variables.product.prodname_secret_scanning %} detecta um segred
 - O {% data variables.product.prodname_dotcom %} envia um alerta de email para os administradores do repositório e proprietários da organização.
 
 - O {% data variables.product.prodname_dotcom %} exibe um alerta no repositório. Para obter mais informações, consulte "[Gerenciando alertas do {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+
+Os administradores do repositório e proprietários da organização podem conceder acesso a alertas de {% data variables.product.prodname_secret_scanning %} aos usuários e à equipe. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)".
 
 O {% data variables.product.product_name %} atualmente verifica repositórios públicos para encontrar segredos emitidos pelos seguintes provedores de serviços.
 
