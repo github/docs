@@ -13,7 +13,7 @@ versions:
 
 すべてのGraphQLスキーマは、クエリとミューテーションの両方についてルート型を持っています。 [クエリ型](https://graphql.github.io/graphql-spec/June2018/#sec-Type-System)は、サーバーからデータを取り出すGraphQLの操作を定義します。
 
-詳しい情報については「[クエリについて](/v4/guides/forming-calls#about-queries)」を参照してください。
+詳しい情報については「[クエリについて](/graphql/guides/forming-calls-with-graphql#about-queries)」を参照してください。
 
 {% note %}
 

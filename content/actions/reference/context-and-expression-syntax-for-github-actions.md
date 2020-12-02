@@ -75,7 +75,7 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
-#### **`github` context**
+#### `github` context
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
@@ -103,7 +103,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
 | `github.workspace` | `string` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
 
-#### **`env` context**
+#### `env` context
 
 The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
 
@@ -117,7 +117,7 @@ You can only use the `env` context in the value of the `with` and `name` keys, o
 | `env.<env name>` | `string` | The value of a specific environment variable. |
 
 
-#### **`job` context**
+#### `job` context
 
 The `job` context contains information about the currently running job.
 
@@ -133,7 +133,7 @@ The `job` context contains information about the currently running job.
 | `job.services.<service id>.ports` | `object` | The exposed ports of the service container. |
 | `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
 
-#### **`steps` context**
+#### `steps` context
 
 The `steps` context contains information about the steps in the current job that have already run.
 
@@ -145,7 +145,7 @@ The `steps` context contains information about the steps in the current job that
 | `steps.<step id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
 | `steps.<step id>.outputs.<output name>` | `string` | The value of a specific output. |
 
-#### **`runner` context**
+#### `runner` context
 
 The `runner` context contains information about the runner that is executing the current job.
 
@@ -155,7 +155,7 @@ The `runner` context contains information about the runner that is executing the
 | `runner.temp` | `string` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners. |
 | `runner.tool_cache` | `string` | The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
 
-#### **`needs` context**
+#### `needs` context
 
 The `needs` context contains outputs from all jobs that are defined as a dependency of the current job. For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 

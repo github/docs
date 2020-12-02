@@ -1,11 +1,11 @@
 ---
-title: Restricting network traffic to your enterprise
-shortTitle: Restricting network traffic
-intro: 'You can restrict access to your enterprise to connections from specified IP addresses.'
+title: Restringir o tráfego de rede para a sua empresa
+shortTitle: Restringir tráfego de rede
+intro: 'Você pode restringir o acesso a conexões corporativas a partir de endereços IP especificados.'
 versions:
   github-ae: '*'
 ---
 
-By default, authorized users can access your enterprise from any IP address. You can restrict access to specific IP addresses such as your physical office locations by contacting support.
+Por padrão, os usuários autorizados podem acessar sua empresa a partir de qualquer endereço IP. Você pode restringir o acesso a endereços IP específicos, como seus locais físico de escritório, entrando em contato com o suporte.
 
-Contact {% data variables.contact.github_support %} with the IP addresses that should be allowed to access your enterprise. Specify address ranges using the standard CIDR (Classless Inter-Domain Routing) format. {% data variables.contact.github_support %} will configure the appropriate firewall rules for your enterprise to restrict network access over HTTP, SSH, HTTPS, and SMTP. For more information, see "[Receiving help from {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/receiving-help-from-github-support)."
+Entre em contato com {% data variables.contact.github_support %} com os endereços IP que devem ter permissão para acessar a sua empresa. Especifica os intervalos de endereços usando o formato CIDR padrão (Encaminhamento sem Classe entre Domínios). {% data variables.contact.github_support %} irá configurar as regras de firewall apropriadas para sua empresa para restringir o acesso à rede por meio de HTTP, SSH, HTTPS e SMTP. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/receiving-help-from-github-support)".

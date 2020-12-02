@@ -27,13 +27,13 @@ You access all of this information from your Sponsors dashboard.
 
 ### Viewing recent sponsorship activity
 
-1. Go to your your Sponsors dashboard, see [Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard).
+1. Go to your Sponsors dashboard, see [Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard).
 1. In the left sidebar, click **Activity**.
   ![Activity tab](/assets/images/help/sponsors/activity-tab.png)
 
 ### Exporting your sponsorship data
 
-1. Go to your your Sponsors dashboard, see [Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard).
+1. Go to your Sponsors dashboard, see [Viewing your Sponsors dashboard](#viewing-your-sponsors-dashboard).
 {% data reusables.sponsors.navigate-to-sponsors-tab %}
 1. Click **Export all**.
   ![Export all button](/assets/images/help/sponsors/export-all.png)

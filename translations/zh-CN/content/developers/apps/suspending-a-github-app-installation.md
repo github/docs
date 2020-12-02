@@ -24,7 +24,7 @@ People who have installed a GitHub App, also called installation owners, can onl
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Select the
+4. 选择
 {% data variables.product.prodname_github_app %} you want to suspend.
 ![App selection](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
