@@ -64,66 +64,63 @@ versions:
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) は、「performance」という単語があるオープン Issue にマッチします。                                        |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) は、「android」という単語があるクローズされた Issue とプルリクエストにマッチします。                                                |
 
-### リポジトリがパブリックかプライベートかで検索
+### リポジトリの可視性によるフィルタ
 
-[{% data variables.product.product_name %} のすべてにわたって検索](https://github.com/search)する場合、リポジトリがパブリックかプライベートかでフィルタリングすると便利です。 `is:public` および `is:private` を使用して、これができます。
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
-| 修飾子          | サンプル                                                                                                                                                  |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) は、すべてのパブリックなリポジトリの Issue とプルリクエストにマッチします。                                        |
-| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) は、あなたがアクセスできるプライベートなリポジトリにある「cupcake」という単語を含む Issue およびプルリクエストにマッチします。 |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ### 作者で検索
 
 `author` 修飾子によって、特定のユーザまたはインテグレーションアカウントが作成した Issue およびプルリクエストを検索できます。
 
-| 修飾子                       | サンプル                                                                                                                                                            |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues)は、@gjtorikian が作成した「cool」という単語がある Issue とプルリクエストにマッチします。          |
-|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) は、本文に「bootstrap」という単語を含む @mdo が作成した Issue にマッチします。 |
-| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) は、「robot」というインテグレーションアカウントが作成した Issue にマッチします。                             |
+| 修飾子                       | サンプル                                                                                                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) matches issues and pull requests with the word "cool" that were created by @gjtorikian.     |
+|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body. |
+| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) matches issues created by the integration account named "robot."                                      |
 
 ### アサインされた人で検索
 
-`assignee` 修飾子は、特定のユーザにアサインされた Issue およびプルリクエストを表示します。 アサインされた人がいる Issue およびプルリクエストは、_一切_検索できません。 [アサインされた人がいない Issue およびプルリクエスト](#search-by-missing-metadata)は、検索できます。
+`assignee` 修飾子は、特定のユーザにアサインされた Issue およびプルリクエストを表示します。 You cannot search for issues and pull requests that have _any_ assignee, however, you can search for [issues and pull requests that have no assignee](#search-by-missing-metadata).
 
-| 修飾子                       | サンプル                                                                                                                                                                                                       |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) は、@vmg にアサインされた libgit2 のプロジェクト libgit2 の Issue およびプルリクエストにマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                                                                                             |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) matches issues and pull requests in libgit2's project libgit2 that are assigned to @vmg. |
 
 ### メンションで検索
 
 `mentions` 修飾子は、特定のユーザーにメンションしている Issue を表示します。 詳細は「[人およびチームにメンションする](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                                  |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) は、@defunkt にメンションしている「resque」という単語がある Issue にマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
 
 ### Team メンションで検索
 
 あなたが属する Organization および Team について、 `team` 修飾子により、Organization 内の一定の Team に @メンションしている Issue またはプルリクエストを表示します。 検索を行うには、これらのサンプルの名前をあなたの Organization および Team の名前に置き換えてください。
 
-| 修飾子                       | サンプル                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------ |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** は、`@jekyll/owners` Team がメンションされている Issue にマッチします。            |
-|                           | **team:myorg/ops is:open is:pr** は、`@myorg/ops` Team がメンションされているオープンなプルリクエストにマッチします。 |
+| 修飾子                       | サンプル                                                                                                  |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** matches issues where the `@jekyll/owners` team is mentioned.                   |
+|                           | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned. |
 
 ### コメントした人で検索
 
 `commenter` 修飾子は、特定のユーザからのコメントを含む Issue を検索します。
 
-| 修飾子                       | サンプル                                                                                                                                                                                                             |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) は、@defunkt のコメントがあり、「github」という単語がある、GitHub が所有するリポジトリの Issue にマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                                                                                                                      |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) matches issues in repositories owned by GitHub, that contain the word "github," and have a comment by @defunkt. |
 
 ### Issue やプルリクエストに関係したユーザで検索
 
 `involves` 修飾子は、特定のユーザが何らかの方法で関与する Issue を表示します。 `involves` 修飾子は、単一ユーザについて、`author`、`assignee`、`mentions`、および `commenter` を論理 OR でつなげます。 言い換えれば、この修飾子は、特定のユーザが作成した、当該ユーザにアサインされた、当該ユーザをメンションした、または、当該ユーザがコメントした、Issue およびプルリクエストを表示します。
 
-| 修飾子                       | サンプル                                                                                                                                                                          |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** は、@defunkt または @jlord が関与している Issue にマッチします。               |
-|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues)は、本文に「bootstrap」という単語を含まず、@mdo が関与している Issue にマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.                                      |
+|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body. |
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### リンクされた Issue とプルリクエストを検索する
@@ -166,7 +163,7 @@ versions:
 
 ### コミットステータスで検索
 
-コミットのステータスでプルリクエストをフィルタリングできます。 [ステータス API](/v3/repos/statuses/) または CI サービスを使っている場合、特に役立ちます。
+コミットのステータスでプルリクエストをフィルタリングできます。 [ステータス API](/rest/reference/repos#statuses) または CI サービスを使っている場合、特に役立ちます。
 
 | 修飾子              | サンプル                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

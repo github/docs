@@ -163,6 +163,12 @@ git:
 </tr>
 </table>
 
+#### 在矩阵中使用环境变量
+
+Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+
 ### {% data variables.product.prodname_actions %} 中的关键功能
 
 从 Travis CI 迁移时，请考虑 {% data variables.product.prodname_actions %} 中的以下关键功能：
@@ -281,7 +287,7 @@ jobs:
 
 ### 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。 
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -316,7 +322,7 @@ cache: npm
 </tr>
 </table>
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/guides/caching-dependencies-to-speed-up-workflows)”。
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ### 常见任务示例
 

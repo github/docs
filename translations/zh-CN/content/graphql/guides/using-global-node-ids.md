@@ -13,7 +13,7 @@ versions:
 
 {% note %}
 
-**注：**在 REST 中，全局节点 ID 字段被命名为 `node_id`。 在 GraphQL 中，此字段为 `node` 接口上的 `id` 字段。 若要重温“节点”在 GraphQL 中的含义，请参阅“[GraphQL 简介](/v4/guides/intro-to-graphql/#node)。”
+**注：**在 REST 中，全局节点 ID 字段被命名为 `node_id`。 在 GraphQL 中，此字段为 `node` 接口上的 `id` 字段。 For a refresher on what "node" means in GraphQL, see "[Introduction to GraphQL](/graphql/guides/introduction-to-graphql#node)."
 
 {% endnote %}
 
@@ -29,7 +29,7 @@ versions:
 
 ### 1. 调用可返回对象节点 ID 的 REST 端点
 
-如果您[请求经过身份验证的用户](/v3/users/#get-the-authenticated-user)：
+If you [request the authenticated user](/rest/reference/users#get-the-authenticated-user):
 
 ```shell
 $ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
@@ -101,7 +101,7 @@ query {
 
 此查询类型&mdash;即按 ID 查找节点&mdash;被称为“直接节点查找。”
 
-当您运行此查询时，将发现 `__typename` 为 [`User`](/v4/object/user/)。
+When you run this query, you'll see that the `__typename` is [`User`](/graphql/reference/objects#user).
 
 ### 3. 在 GraphQL 中执行直接节点查找
 
@@ -122,4 +122,4 @@ query {
 
 ### 在迁移中使用全局节点 ID
 
-构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。 有关处理 REST 与 GraphQL 之间的转换的更多信息，请参阅“[从 REST 迁移到 GraphQL](/v4/guides/migrating-from-rest/)。”
+构建使用 REST API 或 GraphQL API 的集成时，最佳做法是保留全局节点 ID，以便轻松引用不同 API 版本的对象。 For more information on handling the transition between REST and GraphQL, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."

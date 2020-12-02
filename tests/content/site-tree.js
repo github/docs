@@ -1,7 +1,7 @@
 const revalidator = require('revalidator')
 const schema = require('../../lib/site-tree-schema')
 const latestEnterpriseRelease = require('../../lib/enterprise-server-releases').latest
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const flat = require('flat')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')

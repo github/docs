@@ -37,7 +37,7 @@ People with admin permissions to a repository can choose whether
 リポジトリ内のコードに依存しているリポジトリとパッケージを確認するために、依存関係グラフの [**依存関係**] タブを表示することができますが、それによって、新しいリリースの影響を受ける可能性があります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}
 
-リリースAPIを使用して、リリースアセットがダウンロードされた回数などの情報を収集することもできます。 詳しい情報については、「[リリース](/v3/repos/releases/)」を参照してください。
+リリースAPIを使用して、リリースアセットがダウンロードされた回数などの情報を収集することもできます。 詳しい情報については、「[リリース](/rest/reference/repos#releases)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### ストレージと帯域幅の容量
