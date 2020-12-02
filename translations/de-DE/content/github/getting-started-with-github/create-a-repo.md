@@ -10,13 +10,25 @@ versions:
   github-ae: '*'
 ---
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 Sie können die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln.
+
+{% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+
+You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. Weitere Informationen zu InnerSource finden Sie im Whitepaper „[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)“ (Einführung in InnerSource) von {% data variables.product.company_short %}.
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
 **Hinweis:** Du kannst öffentliche Repositorys für ein Open-Source-Projekt erstellen. Wenn Du ein öffentliches Repository erstellst, musst du unbedingt eine [Lizenzdatei](http://choosealicense.com/) hinzufügen, die bestimmt, wie Dein Projekt für andere Personen freigegeben wird. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
+
+{% endif %}
 
 {% data reusables.repositories.create_new %}
 2. Gib einen kurzen, leicht merkbaren Namen für Dein Repository ein. Beispiel: „hello world“. ![Feld zum Eingeben eines Repository-Namens](/assets/images/help/repository/create-repository-name.png)

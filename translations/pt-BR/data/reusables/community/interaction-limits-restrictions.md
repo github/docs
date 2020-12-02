@@ -1,1 +1,1 @@
-Enabling an interaction limit for a repository restricts certain users from commenting, opening issues, creating pull requests, reacting with emojis, editing existing comments, and editing titles of issues and pull requests.
+Habilitar um limite de interação para um repositório restringe certos usuários de comentar, abrir problemas, criar pull requests, reagir com emojis, editar comentários existentes e editar títulos de problemas e pull requests.

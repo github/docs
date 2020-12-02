@@ -1,5 +1,5 @@
 ---
-title: GitHub AE Product Specific Terms
+title: Termos específicos do produto do GitHub AE
 versions:
   free-pro-team: '*'
 redirect_from:
@@ -8,51 +8,51 @@ redirect_from:
 
 Entrada em vigor desta versão: 1 de novembro de 2020
 
-The Agreement consists of these GitHub AE Product Specific Terms, the General Terms that Customer accepted, and any additional terms GitHub or its Affiliates present when an order is placed.
+O Contrato é composto pelos presentes Termos Específicos de Produto do GitHub AE, pelos Termos Gerais que o Cliente aceitou e por quaisquer termos adicionais que o GitHub ou seus Afiliados apresentem quando um pedido é feito.
 
-### 1. Accounts.
+### 1. Contas.
 
-**Account Responsibility.** Customer controls and is responsible for End User accounts and Content.
+**Responsabilidade da Conta.** O cliente controla e é responsável pelas contas do usuário final e pelo conteúdo.
 
-**Account Security.** Customer is responsible for maintaining the security of its account login credentials.
+**Segurança da conta.** O cliente é responsável por manter a segurança de sua credenciais de login da conta.
 
-**Use Policies.** Customer’s End Users must comply with the Acceptable Use Policy.
+**Use Políticas.** Os usuários finais do cliente devem cumprir a Política de Uso Aceitável.
 
-**Suspension.** GitHub may suspend use of the Online Service during any period of Customer’s material breach.
+**Suspensão.** O GitHub pode suspender o uso do Serviço Online durante qualquer período de violação de material do cliente.
 
-**Access.** GitHub does not access Customer Content unless required for support matters or security purposes.
+**Acesso.** O GitHub não acessa o conteúdo do Cliente a menos que seja necessário para apoiar assuntos ou fins de segurança.
 
-**DMCA.** GitHub has a Digital Millennium Copyright Act (DMCA) Takedown Policy which applies to copyright infringement claims.
+**DMCA.** O GitHub possui uma Digital Millennium Copyright Act (DMCA) praticada como política relacionada a violações de direitos autorais.
 
 ### 2. Conteúdo.
 
-**Ownership of Content.** Customer owns Content it creates and will fully comply with any third-party licenses relating to Content that Customer posts.
+**Propriedade de Conteúdo.** O Cliente é dono do Conteúdo que cria e estará totalmente em conformidade com as licenças de terceiros relacionadas ao Conteúdo que o Cliente postar.
 
-**License Grant to GitHub.** Unless Customer Content comes with a separate license granting GitHub the rights it needs to run the Online Service, Customer grants to GitHub the right to use Customer Content and make incidental copies as necessary to provide the Online Service or support, or for security reasons. In addition, GitHub may be compelled by law to disclose Customer Content.
+**Concessão de Licença ao GitHub.** A menos que o Conteúdo do Cliente venha com uma licença separada que conceda ao GitHub os direitos que ele precisa para executar o Serviço Online, o Cliente concede ao GitHub o direito de utilizar o Conteúdo do Cliente e fazer cópias eventuais, conforme necessário, para fornecer o suporte ou Serviço Online, ou por razões de segurança. Além disso, o GitHub pode ser obrigado por lei a divulgar o Conteúdo do Cliente.
 
-### 3. Non-GitHub Products.
-GitHub may make non-GitHub products available through the Online Service. If Customer uses any non-GitHub products with the Online Service, Customer may not do so in any way that would subject GitHub’s intellectual property to obligations beyond those expressly included in the Agreement. GitHub assumes no responsibility or liability for any non-GitHub products. Customer’s use of non-GitHub products is governed by the terms between Customer and the publisher of the non-GitHub products (if any).
+### 3. Produtos não-GitHub.
+O GitHub pode tornar produtos não-GitHub disponíveis através do Serviço Online. Se o Cliente usar qualquer produto não-GitHub com o Serviço Online, o Cliente não pode fazê-lo de forma que sujeitaria a propriedade intelectual do GitHub a obrigações além das expressamente incluídas no Contrato. O GitHub não assume nenhuma responsabilidade ou responsabilidade por quaisquer produtos que não sejam da GitHub. O uso de produtos não-GitHub pelo Cliente é regido pelos termos entre o Cliente e o editor dos produtos não-GitHub (se houver).
 
-### 4. Support and SLA.
-The Online Service includes Support and the SLA.
+### 4. Suporte e SLA.
+O Serviço Online inclui suporte e SLA.
 
-### 5. Data Protection and Security.
-The terms of the Data Protection Agreement apply to the Online Service.
+### 5. Proteção de Dados e Segurança.
+Os termos do Contrato de Proteção de Dados se aplicam ao Serviço Online.
 
-### 6. Notices.
-Notices to GitHub must be sent to: GitHub, Inc. Attn: Legal Dept., 88 Colin P. Kelly St, San Francisco, CA 94107 USA.
+### 6. Aviso.
+Os avisos para o GitHub devem ser enviados para: GitHub, Inc. Attn: Legal Dept., 88 Colin P. Kelly St, San Francisco, CA 94107 USA.
 
 ### 7. Definições.
-“**Acceptable Use Policy**” means, when purchasing from GitHub, the Acceptable Use Policy available on Site-Policy and when purchasing from Microsoft, the Acceptable Use Policy in the Microsoft Online Services Terms.
+“**Política de Uso Aceitável**" significa, ao comprar no GitHub, a Política de Uso Aceitável disponível na Política do Site e ao comprar na Microsoft, a Política de Uso Aceitável nos Termos de Serviços Online da Microsoft.
 
-“**Content**” means text, data, software, images and any other materials that are displayed or otherwise made available through the Online Service.
+“**Conteúdo**” significa texto, dados, software, imagens e quaisquer outros materiais que sejam exibidos ou disponibilizados através do Serviço Online.
 
-“**Customer Content**” means Content that Customer creates, owns, or to which Customer holds the rights.
+“**"Conteúdo do Cliente"** significa Conteúdo que o Cliente cria, possui ou para o qual o Cliente detém os direitos.
 
-“**Data Protection Agreement**” means the GitHub AE Data Protection Agreement, available on https://docs.github.com/github/site-policy.
+“**Contrato de Proteção de Dados**significa o Contrato de Proteção de Dados da GitHub AE, disponível em https://docs.github.com/github/site-policy.
 
-“**Digital Millennium Copyright Act Takedown Policy**” means GitHub’s process for handling notices of copyright infringement, available on https://docs.github.com/github/site-policy.
+“**Digital Millennium Copyright Act Takedown Policy (Política de Retirada da Lei dos Direitos Autorais do Milênio Digital) **” significa o processo do GitHub para lidar com avisos de violação de direitos autorais, disponível em https://docs.github.com/github/site-policy.
 
-“**SLA**” means GitHub’s uptime commitment for the Online Service, available on https://docs.github.com/github/site-policy.
+“**SLA**” significa o compromisso de tempo de atividade do GitHub para o Serviço Online, disponível em https://docs.github.com/github/site-policy.
 
-“**Support**” means GitHub’s Premium Plus Support program, further described on https://docs.github.com/github/site-policy.
+“**Suporte**” significa o programa de Suporte Premium Plus do GitHub, descrito com mais detalhes em https://docs.github.com/github/site-policy.

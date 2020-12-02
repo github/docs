@@ -302,8 +302,8 @@ updates:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # For Loadash, ignore all updates
-      - dependency-name: "loadash"
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}

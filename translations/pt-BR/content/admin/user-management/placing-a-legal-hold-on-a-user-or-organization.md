@@ -1,6 +1,6 @@
 ---
 title: Impor retenção legal a usuários ou organizações
-intro: 'You can place a legal hold on a user or organization to ensure that repositories they own cannot be permanently removed from your enterprise.'
+intro: 'Você pode colocar uma retenção legal em um usuário ou organização para garantir que os repositórios que ele possui não possam ser removidos permanentemente da sua empresa.'
 redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:

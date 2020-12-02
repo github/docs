@@ -16,13 +16,19 @@ versions:
 
 Quando você exclui um repositório privado, todas as bifurcações privadas dele também são excluídas.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 #### Excluir um repositório público
 
 Quando você exclui um repositório público, uma das bifurcações públicas existentes é escolhida para ser o novo repositório principal. Todos os outros repositórios são bifurcados a partir desse principal e as pull request subsequentes vão para ele também.
 
+{% endif %}
+
 #### Permissões e bifurcações privadas
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 #### Mudar de repositório público para repositório privado
 
@@ -46,9 +52,30 @@ Se um repositório privado passa a ser público, cada uma das bifurcações priv
 
 Se um repositório privado passa a ser público e depois é excluído, as bifurcações privadas dele continuam existindo como repositórios privados autônomos em redes separadas.
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+#### Changing the visibility of an internal repository
+
+{% note %}
+
+**Observação:** {% data reusables.gated-features.internal-repos %}
+
+{% endnote %}
+
+If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+
+##### Deleting the internal repository
+
+If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+
+{% endif %}
+
 ### Leia mais
 
 - "[Definir a visibilidade de um repositório](/articles/setting-repository-visibility)"
 - "[Sobre bifurcações](/articles/about-forks)"
 - "[Gerenciando a política de bifurcação de seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[Gerenciar a política de bifurcação para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)"
+- "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

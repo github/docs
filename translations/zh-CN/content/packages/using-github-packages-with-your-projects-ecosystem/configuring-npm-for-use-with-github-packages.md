@@ -48,12 +48,15 @@ $ npm login --registry=https://npm.pkg.github.com
 
 要通过登录到 npm 进行身份验证，请使用 `npm login` 命令，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *PUBLIC-EMAIL-ADDRESS* 替换为您的电子邮件地址。
 
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+
 {% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```shell
-$ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
@@ -63,9 +66,10 @@ $ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
+$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 {% endif %}
 

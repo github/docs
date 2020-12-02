@@ -101,7 +101,7 @@ GitHub Actions
 </tr>
 </table>
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)”。
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% data variables.product.prodname_actions %} 没有 CircleCI 的 Docker 层缓存（或 DLC）的等效项。
 
