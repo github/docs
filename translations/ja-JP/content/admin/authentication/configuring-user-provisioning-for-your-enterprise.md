@@ -62,7 +62,15 @@ You must have administrative access on your IdP to configure the application for
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM User Provisioning", select **Require SCIM user provisioning**. ![Checkbox for "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
 1. [**Save**] をクリックします。 ![Save button under "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-scim-save.png)
-1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP. The application on your IdP requires two values to provision or deprovision user accounts on {% data variables.product.product_location %}.
+1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP.
+
+  The following IdPs provide documentation about configuring provisioning for {% data variables.product.product_name %}. If your IdP isn't listed, please contact your IdP to request support for {% data variables.product.product_name %}.
+
+  | IdP      | 詳細情報                                                                                                                                                                                                                         |
+  |:-------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Azure AD | [Tutorial: Configure {% data variables.product.prodname_ghe_managed %} for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) in the Microsoft Docs |
+
+  The application on your IdP requires two values to provision or deprovision user accounts on {% data variables.product.product_location %}.
 
   | 値             | Other names                         | 説明                                                                                                          | サンプル                                        |
   |:------------- |:----------------------------------- |:----------------------------------------------------------------------------------------------------------- |:------------------------------------------- |

@@ -1,6 +1,7 @@
 ---
 title: Über „secret scanning" (Durchsuchen nach Geheimnissen)
 intro: '{% data variables.product.product_name %} durchsucht Repositorys nach bekannten Geheimnis-Typen, um die betrügerische Verwendung von Geheimnissen zu verhindern, die versehentlich freigegeben wurden.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -16,6 +17,8 @@ Wenn jemand ein Geheimnis von einem {% data variables.product.company_short %}-P
 Dienstleister können mit {% data variables.product.company_short %} zusammenarbeiten, um ihre geheimen Formate zum Durchsuchen bereitzustellen. For more information, see "[Secret scanning](/partnerships/secret-scanning)."
 
 ### Informationen über {% data variables.product.prodname_secret_scanning %} für öffentliche Repositorys
+
+ {% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories, where it scans code for secrets, to check for known secret formats. When a match of your secret format is found in a public repository, {% data variables.product.company_short %} doesn't publicly disclose the information as an alert, but instead sends a payload to an HTTP endpoint of your choice. For an overview of how secret scanning works on public repositories, see "[Secret scanning](/developers/overview/secret-scanning)."
 
 Wenn Du in ein öffentliches Repository überträgst, wird {% data variables.product.product_name %} den Inhalt des Commit auf Geheimnisse durchsuchen. Wenn Du ein privates Repository auf öffentlich umstellst, wird {% data variables.product.product_name %} das gesamte Repository nach Geheimnissen durchsuchen.
 
@@ -64,6 +67,8 @@ Wenn {% data variables.product.prodname_secret_scanning %} einen Satz von Anmeld
 
 {% data reusables.secret-scanning.beta %}
 
+If you're a repository administrator or an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for private repositories that are owned by organizations. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization. {% data variables.product.prodname_secret_scanning_caps %} is not available for user account-owned private repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+
 Wenn Du Commits in ein privates Repository überträgst, das {% data variables.product.prodname_secret_scanning %} aktiviert hat, wird {% data variables.product.product_name %} den Inhalt des Commits nach Geheimnissen durchsuchen.
 
 Wenn {% data variables.product.prodname_secret_scanning %} ein Geheimnis in einem privaten Repository entdeckt, wird {% data variables.product.prodname_dotcom %} Warnungen senden.
@@ -71,6 +76,8 @@ Wenn {% data variables.product.prodname_secret_scanning %} ein Geheimnis in eine
 - {% data variables.product.prodname_dotcom %} sendet E-Mail-Warnungen zu den Repository-Administratoren und den Organisations-Inhabern.
 
 - {% data variables.product.prodname_dotcom %} zeigt eine Warnung im Repository an. Weitere Informationen findest Du unter „[Warnungen von {% data variables.product.prodname_secret_scanning %} verwalten](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
+
+Repository administrators and organization owners can grant users and team access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
 {% data variables.product.product_name %} durchsucht derzeit private Repositorys nach Geheimnissen, die von den folgenden Dienstanbietern veröffentlicht wurden.
 

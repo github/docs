@@ -1,5 +1,26 @@
 [
   {
+    "date": "2020-11-13",
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Input field `requiresLinearHistory` was added to input object type `UpdateBranchProtectionRuleInput`",
+          "Input field `allowsForcePushes` was added to input object type `UpdateBranchProtectionRuleInput`",
+          "Input field `allowsDeletions` was added to input object type `UpdateBranchProtectionRuleInput`",
+          "Input field `requiresLinearHistory` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Input field `allowsForcePushes` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Input field `allowsDeletions` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `requiresLinearHistory` was added to object type `BranchProtectionRule`",
+          "Field `allowsForcePushes` was added to object type `BranchProtectionRule`",
+          "Field `allowsDeletions` was added to object type `BranchProtectionRule`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": []
+  },
+  {
     "date": "2020-10-12",
     "schemaChanges": [
       {

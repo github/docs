@@ -14,7 +14,7 @@ versions:
   github-ae: '*'
 ---
 
-{% data variables.product.product_name %}全体にわたってグローバルに検索できます。あるいは、検索を特定のリポジトリや Organization に絞ることもできます。
+{% data reusables.search.you-can-search-globally %}
 
 - {% data variables.product.product_name %} 全体にわたってグローバルに検索するには、探している内容を任意のページの上部にある検索フィールドに入力し、[All {% data variables.product.prodname_dotcom %}] を検索ドロップダウンメニューで選択します。
 - 特定のリポジトリあるいは Organization 内で検索するには、そのリポジトリあるいは Organization のページにアクセスし、検索する内容をページの上部にある検索フィールドに入力し、**Enter** を押してください。
@@ -23,7 +23,8 @@ versions:
 
 **ノート:**
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - {% data variables.product.prodname_pages %}サイトは、{% data variables.product.product_name %}上では検索できません。 ただし、コンテンツのソースがリポジトリのデフォルトブランチにある場合は、コード検索を使って検索できます。 詳しい情報については[コードの検索](/articles/searching-code)を参照してください。 {% data variables.product.prodname_pages %}に関する詳しい情報については、[GitHub Pages とは何ですか？ ](/articles/what-is-github-pages/)を参照してください。
 - 現在、GitHub の検索は完全一致をサポートしていません。
 - コードファイルのどこを検索しても、返されるのは各ファイルで最初の 2 つの結果のみです。
@@ -36,7 +37,7 @@ versions:
 
 ### {% data variables.product.prodname_dotcom %}での検索の種類
 
-以下の種類の情報が、すべてのパブリックな {% data variables.product.product_name %}のリポジトリ、およびアクセス権のあるすべてのプライベートな {% data variables.product.product_name %}のリポジトリにわたって検索できます。
+以下の情報は、{% data variables.product.product_location %} でアクセスできるすべてのリポジトリから検索できます。
 
 - [リポジトリ](/articles/searching-for-repositories)
 - [Topics](/articles/searching-topics)
@@ -63,9 +64,9 @@ versions:
 双方の環境にわたる検索は、{% data variables.product.prodname_enterprise %} からしか行えません。 検索の範囲を環境で狭めるには、{% data variables.search.advanced_url %} 上のフィルタオプションを使うか、検索プレフィックス `environment:` を利用できます。 {% data variables.product.prodname_enterprise %} 上のコンテンツだけを検索するには、`environment:local` という検索構文を使います。 {% data variables.product.prodname_dotcom_the_website %} 上のコンテンツだけを検索するには`environment:github` を使います。
 
 {% data variables.product.prodname_enterprise %} サイト管理者は、接続された {% data variables.product.prodname_ghe_cloud %} Organization 中のすべてのパブリックリポジトリ、すべてのプライベートリポジトリ、あるいは特定のプライベートリポジトリのみに対して {% data variables.product.prodname_unified_search %} を有効化できます。
-If your site administrator enables
+サイト管理者が
 
-{% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. あなたの {% data variables.product.prodname_enterprise %} 管理者と、{% data variables.product.prodname_dotcom_the_website %} 上の Organization のオーナーは、あなたのアカウントが所有しているプライベートリポジトリは検索できません。 適用可能なプライベートリポジトリを検索するには、{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_enterprise %} 上のあなたの個人アカウントに対してプライベートリポジトリ検索を有効化しなければなりません。 詳細は「[{% data variables.product.prodname_enterprise %} アカウントでのプライベートな {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。
+プライベートリポジトリで {% data variables.product.prodname_unified_search %} を有効にしている場合は、管理者が {% data variables.product.prodname_unified_search %} を有効にしていて、接続されている {% data variables.product.prodname_dotcom_the_website %} Organization でアクセスできるプライベートリポジトリ内しか検索できません。 あなたの {% data variables.product.prodname_enterprise %} 管理者と、{% data variables.product.prodname_dotcom_the_website %} 上の Organization のオーナーは、あなたのアカウントが所有しているプライベートリポジトリは検索できません。 適用可能なプライベートリポジトリを検索するには、{% data variables.product.prodname_dotcom_the_website %} および {% data variables.product.prodname_enterprise %} 上のあなたの個人アカウントに対してプライベートリポジトリ検索を有効化しなければなりません。 詳細は「[{% data variables.product.prodname_enterprise %} アカウントでのプライベートな {% data variables.product.prodname_dotcom_the_website %} リポジトリの検索を有効化する](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)」を参照してください。
 {% endif %}
 
 ### 参考リンク

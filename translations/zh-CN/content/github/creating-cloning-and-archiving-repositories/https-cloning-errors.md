@@ -71,7 +71,7 @@ $ git remote -v
 
 {% tip %}
 
-**提示**：如果不想在每次与远程仓库交互时都输入用户名和密码，您可以打开[凭据缓存](/github/using-git/caching-your-github-credentials-in-git)。 If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+**提示**：如果不想在每次与远程仓库交互时都输入用户名和密码，您可以打开[凭据缓存](/github/using-git/caching-your-github-credentials-in-git)。 如果已在使用凭据缓存，请确保您的计算机缓存了正确的凭据。 不正确或过期的凭据将导致身份验证失败。
 
 {% endtip %}
 

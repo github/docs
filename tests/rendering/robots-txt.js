@@ -1,7 +1,7 @@
 const languages = require('../../lib/languages')
 const robotsParser = require('robots-parser')
 const robotsMiddleware = require('../../middleware/robots')
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 const MockExpressResponse = require('mock-express-response')
 const products = require('../../lib/all-products')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
@@ -109,5 +109,14 @@ describe('robots.txt', () => {
         expect(robots.isAllowed(path)).toBe(false)
       })
     })
+  })
+
+  it('does not have duplicate lines', () => {
+    const lines = new Set()
+    for (const line of res.text.split('\n')) {
+      if (/^\s*$/.test(line)) continue
+      expect(lines.has(line)).toBe(false)
+      lines.add(line)
+    }
   })
 })
