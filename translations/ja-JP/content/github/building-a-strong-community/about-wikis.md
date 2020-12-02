@@ -15,9 +15,9 @@ versions:
 
 ウィキでは、{% data variables.product.product_name %} のあらゆる他の場所と同じようにコンテンツを書くことができます。 詳細は「[{% data variables.product.prodname_dotcom %} で書き、フォーマットしてみる](/articles/getting-started-with-writing-and-formatting-on-github)」を参照してください。 私たちは、さまざまなフォーマットを HTML に変更するのに[私たちのオープンソースマークアップライブラリ](https://github.com/github/markup)を使っているので、Markdown あるいはその他任意のサポートされているフォーマットで書くことができます。
 
-パブリックリポジトリ内のウィキはパブリックに利用でき、プライベートリポジトリではリポジトリにアクセスできる人々に限定されます。 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}If you create a wiki in a public repository, the wiki is available to {% if enterpriseServerVersions contains currentVersion %}anyone with access to {% data variables.product.product_location %}{% else %}the public{% endif %}. {% endif %}If you create a wiki in an internal or private repository, {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}people{% elsif currentVersion == "github-ae@latest" %}enterprise members{% endif %} with access to the repository can also access the wiki. 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。
 
-ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 デフォルトでは、リポジトリに書き込みアクセスを持っている人だけがウィキを変更できますが、パブリックリポジトリ内のウィキには {% data variables.product.product_name %} 上の誰もがコントリビューションできるようにすることができます。 詳細は「[ウィキへのアクセス権限を変更する](/articles/changing-access-permissions-for-wikis)」を参照してください。
+ウィキは、{% data variables.product.product_name %} 上で直接編集することも、ウィキのファイルをローカルで編集することもできます。 By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.product.product_location %} to contribute to a wiki in {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} repository. 詳細は「[ウィキへのアクセス権限を変更する](/articles/changing-access-permissions-for-wikis)」を参照してください。
 
 ### 参考リンク
 

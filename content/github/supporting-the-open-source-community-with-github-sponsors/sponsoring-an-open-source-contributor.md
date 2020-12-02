@@ -48,7 +48,7 @@ Before you can sponsor a developer, you must have a verified email address. For 
 Before you can sponsor an organization, you must have a verified email address. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."
 
 1. On {% data variables.product.product_name %}, navigate to the page of the organization you want to sponsor.
-2. Next to the the organization's name, click **Sponsor**.
+2. Next to the organization's name, click **Sponsor**.
   ![Sponsor button](/assets/images/help/sponsors/sponsor-org-button.png)
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.select-sponsorship-billing %}

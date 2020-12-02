@@ -33,7 +33,7 @@ Todas as organizações têm um único grupo de executores auto-hospedados padr�
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode mover um executor do grupo- padrão para qualquer grupo que você criar.
 
-Ao criar um grupo, você deverá escolher uma política que defina quais repositórios têm acesso ao grupo do executor. É possível configurar um grupo do executor para ser acessível a uma lista específica de repositórios, todos repositórios privados ou todos os repositórios na organização.
+Ao criar um grupo, você deverá escolher uma política que defina quais repositórios têm acesso ao grupo do executor.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -42,10 +42,23 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)</li>
 1
-Insira um nome para o seu grupo do seu executor e selecione uma política de acesso na lista suspensa **Acesso ao repositório**.
+Enter a name for your runner group, and assign a policy for repository access.
 
-    ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
-1 Clique em **Salvar grupo** para criar o grupo e aplicar a política.</ol>
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
+
+   {% warning %}
+
+   **Aviso**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   {% endwarning %}
+
+   ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+1
+Clique em **Salvar grupo** para criar o grupo e aplicar a política.</ol>
 
 ### Criar um grupo de executor auto-hospedado para uma empresa
 
@@ -53,7 +66,7 @@ As empresas podem adicionar seus executores auto-hospedados a grupos para gerenc
 
 Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão quando criados e só podem ser membros de um grupo por vez. Você pode atribuir o executor a um grupo específico durante o processo de registro, ou você pode mover o executor do grupo-padrão para um grupo personalizado.
 
-Ao criar um grupo, é necessário escolher uma política que conceda acesso a todas as organizações da empresa ou escolher organizações específicas.
+When creating a group, you must choose a policy that defines which organizations have access to the runner group.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -62,7 +75,19 @@ Ao criar um grupo, é necessário escolher uma política que conceda acesso a to
 1. Clique em **Adicionar novo** e, em seguida, **Novo grupo**.
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. Insira um nome para o seu grupo do seu executor e selecione uma política de acesso na lista suspensa **Acesso à organização**.
+1. Enter a name for your runner group, and assign a policy for organization access.
+
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+
+   {% warning %}
+
+   **Aviso**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
+
+   {% endwarning %}
 
     ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. Clique em **Salvar grupo** para criar o grupo e aplicar a política.

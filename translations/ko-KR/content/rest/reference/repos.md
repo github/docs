@@ -29,7 +29,7 @@ versions:
 
 ### Custom media types for commit comments
 
-These are the supported media types for commit comments. You can read more about the use of media types in the API [here](/v3/media/).
+These are the supported media types for commit comments. You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -65,7 +65,7 @@ These API endpoints let you create, modify, and delete Base64 encoded content in
 
 ### Custom media types for repository contents
 
-[READMEs](/v3/repos/contents/#get-a-repository-readme), [files](/v3/repos/contents/#get-repository-content), and [symlinks](/v3/repos/contents/#get-repository-content) support the following custom media types:
+[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -74,13 +74,13 @@ Use the `.raw` media type to retrieve the contents of the file.
 
 For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-[All objects](/v3/repos/contents/#get-repository-content) support the following custom media type:
+[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
 
     application/vnd.github.VERSION.object
 
 Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
-You can read more about the use of media types in the API [here](/v3/media/).
+You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}

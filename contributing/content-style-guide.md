@@ -162,7 +162,7 @@ It’s critical that all of our documentation is inclusive and respectful of our
 | --- | --- |
 | Allowlist | Whitelist |
 | Denylist | Blacklist |
-| Main branch | Default branch |
+| Default/Main branch | Master branch |
 
 ### Resources about inclusive language
 
@@ -218,7 +218,7 @@ When introducing a list, avoid phrasing like “the following” or “these”,
 
 ## Procedural steps
 
-Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
+Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
 
 Each step must include an action. You can also choose to include whether a step is optional, explain the reason or result of the step, and orient the reader by describing the location of the action, before guiding them to complete the action.
 
