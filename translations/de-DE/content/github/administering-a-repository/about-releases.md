@@ -37,7 +37,7 @@ If a release fixes a security vulnerability, you should publish a security advis
 You can view the **Dependents** tab of the dependency graph to see which repositories and packages depend on code in your repository, and may therefore be affected by a new release. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {% endif %}
 
-Du kannst auch das Release-API verwenden, um Informationen zu sammeln, wie zum Beispiel die Anzahl der Downloads eines Release-Objekts. For more information, see "[Releases](/v3/repos/releases/)."
+Du kannst auch das Release-API verwenden, um Informationen zu sammeln, wie zum Beispiel die Anzahl der Downloads eines Release-Objekts. For more information, see "[Releases](/rest/reference/repos#releases)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Speicher- und Bandbreiten-Kontingente

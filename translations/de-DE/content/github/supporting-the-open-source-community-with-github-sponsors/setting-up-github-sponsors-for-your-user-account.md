@@ -54,8 +54,6 @@ Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-Wenn Du nicht in einer unterstützten Region lebst und für die Beta-Phase von {% data variables.product.prodname_sponsors %} akzeptiert wurdest, wirst Du eine E-Mail erhalten mit Anweisungen, wie Du Deine Bankdaten zur Verfügung stellen musst, damit Du Auszahlungen via ACH-Übermittlung oder Banküberweisung erhalten kannst.
-
 {% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 

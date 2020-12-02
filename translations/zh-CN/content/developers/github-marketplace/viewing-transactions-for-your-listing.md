@@ -39,7 +39,7 @@ To access {% data variables.product.prodname_marketplace %} transactions:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the
+4. 选择
 {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Click the **Transactions** tab.

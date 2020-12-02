@@ -32,7 +32,7 @@ Alguns projetos de código aberto oferecem espelhos em {% data variables.product
 
 Seguem aqui alguns repositórios de destaque espelhados em {% data variables.product.prodname_dotcom_the_website %}:
 
-- [Android Open Source Project](https://github.com/aosp-mirror)
+- [Projeto Open Source Android](https://github.com/aosp-mirror)
 - [The Apache Software Foundation](https://github.com/apache)
 - [The Chromium Project](https://github.com/chromium)
 - [Eclipse Foundation](https://github.com/eclipse)
