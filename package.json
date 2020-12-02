@@ -125,7 +125,7 @@
     "object-hash": "^2.0.1",
     "pa11y-ci": "^2.4.0",
     "prettier": "^2.1.2",
-    "puppeteer": "^2.1.1",
+    "puppeteer": "^5.5.0",
     "replace": "^1.2.0",
     "revalidator": "^0.3.1",
     "robots-parser": "^2.1.1",
