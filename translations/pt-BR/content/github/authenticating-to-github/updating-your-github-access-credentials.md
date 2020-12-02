@@ -1,6 +1,6 @@
 ---
 title: Atualizar credenciais de acesso do GitHub
-intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
+intro: 'As credenciais de {% data variables.product.product_name %} incluem{% if currentVersion ! "github-ae@latest" %} não apenas sua senha, mas também{% endif %} os tokens de acesso, Chaves SSH e tokens do aplicativo da API que você usa para se comunicar com {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/

@@ -5,12 +5,11 @@ redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
 versions:
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 在以下情况下，仓库管理员可以更改特定仓库的匿名 Git 读取权限设置：
 - 站点管理员已启用私有模式和匿名 Git 读取权限。
-- The repository is public on the enterprise and is not a fork.
+- 仓库在企业上是公共的，并且不是复刻。
 - 站点管理员尚未禁用仓库的匿名 Git 读取权限。
 
 {% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}

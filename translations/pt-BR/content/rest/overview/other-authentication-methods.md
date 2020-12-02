@@ -37,19 +37,29 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Autenticação Básica, mas você quer aproveitar os recursos de segurança do token de acesso do OAuth.
 
-{% if enterpriseServerVersions contains currentVersion %}
 #### Por meio do nome de usuário e senha
 
-{% data reusables.apps.deprecating_password_auth %}
+{% if currentVersion == "free-pro-team@latest" %}
 
-Para usar a Autenticação Básica com a API do {% data variables.product.product_name %}, basta enviar o nome de usuário e senha associados à conta.
+{% note %}
+
+**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% data variables.product.prodname_dotcom %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+
+{% endnote %}
+
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+To use Basic Authentication with the
+{% data variables.product.product_name %} API, simply send the username and
+password associated with the account.
 
 Por exemplo, se você estiver acessando a API via [cURL][curl], o comando a seguir faria a sua autenticação se substituísse `<username>` pelo seu nome de usuário de {% data variables.product.product_name %}. (cURL solicitará que você insira a senha.)
 
 ```shell
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
-Se você tem a autenticação de dois fatores ativada, certifique-se de entender como [funciona com a autenticação de dois fatores](/v3/auth/#working-with-two-factor-authentication).
+Se você tem a autenticação de dois fatores ativada, certifique-se de entender como [funciona com a autenticação de dois fatores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
 
 {% endif %}
 
@@ -88,14 +98,13 @@ O valor das `organizações` é uma lista de ID de organizações separada por v
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### Trabalhar com autenticação de dois fatores
 
-{% data reusables.apps.deprecating_password_auth %}
+When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token{% if enterpriseServerVersions contains currentVersion %} or OAuth token instead of your username and password{% endif %}.
 
-Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pontos de extremidade na API REST exige que você use um token de acesso pessoal ou token do OAuth em vez de seu nome de usuário e senha.
+You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% if enterpriseServerVersions contains currentVersion %} or with the "\[Create a new authorization\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% data variables.product.prodname_dotcom %} API.{% if enterpriseServerVersions contains currentVersion %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
 
-Você pode gerar um novo token de acesso pessoal {% if currentVersion == "free-pro-team@latest" %}com [configurações do desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %} ou usar o ponto de extremidade [Criar uma nova autorização][create-access]" na API de Autorização do OAuth para gerar um novo token do OAuth. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API do GitHub. A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.
+{% endif %}
 
-
-
+{% if enterpriseServerVersions contains currentVersion %}
 #### Usar a API de Autorização do OAuth com autenticação de dois fatores
 
 Ao fazer chamadas para a API de Autorizações do OAuth, Autenticação básica exigirá que você use uma senha única (OTP) e seu nome de usuário e senha em vez de tokens. Ao tentar efetuar a autenticação com a API de Autorizações do OAuth, o servidor irá responder com `401 Unauthorized` e um desses cabeçalhos para informar que você precisa de um código de autenticação de dois fatores:
@@ -114,10 +123,9 @@ $ curl --request POST \
 ```
 {% endif %}
 
-[create-access]: /v3/oauth_authorizations/#create-a-new-authorization
 [curl]: http://curl.haxx.se/
-[oauth-auth]: /v3/#authentication
+[oauth-auth]: /rest#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
 [allowlist]: /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
-[user-issues]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
+[user-issues]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
