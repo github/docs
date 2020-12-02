@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O {% data variables.product.prodname_dotcom %} oferece produtos grátis e pagos. Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
@@ -83,10 +84,10 @@ O {% data variables.product.prodname_ghe_cloud %} também inclui:
 - {% data variables.contact.enterprise_support %}. Para obter mais informações, consulte "<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} suporte</a>" e "<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %} Adendo</a>"
 - 50.000 {% data variables.product.prodname_actions %} minutos
 - 50GB {% data variables.product.prodname_registry %} de armazenamento
-- Um contrato de nível de serviço para 99,95% do tempo de atividade mensal
+- Um acordo de nível de serviço para tempo de atividade de 99,9% por mês
 - A opção de gerenciar de forma centralizada a política e cobrança para várias organizações {% data variables.product.prodname_dotcom_the_website %} com uma conta corporativa. Para obter mais informações, consulte "<a href="/articles/about-enterprise-accounts" class="dotcom-only">Sobre contas corporativas</a>".
 
-Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}](/articles/setting-up-a-trial-of-github-enterprise-cloud)".
+Você pode configurar uma versão para avaliar o {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}</a>".
 
 Para obter mais informações sobre hospedar sua própria instância do [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), entre em contato com {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
 
@@ -96,7 +97,7 @@ O {% data variables.product.prodname_ghe_one %} inclui [{% data variables.produc
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" e "[Sobre {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta).{% endif %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
+- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" e "[Sobre {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta).{% endif %}{% if enterpriseServerVersions contém currentVersion e currentVersion ver_gt "enterprise-server@2.21" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
 - [{% data variables.product.prodname_learning %} para organizações](https://lab.github.com/organizations)
 
 Para obter mais informações sobre a inscrição em {% data variables.product.prodname_ghe_one %}, entre em contato com a equipe de vendas do [{% data variables.product.product_name %}](https://enterprise.github.com/contact).

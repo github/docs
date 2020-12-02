@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre pull requests
@@ -52,6 +53,13 @@ Quando estiver satisfeito com as alterações propostas, você poderá fazer mer
 Ao criar uma pull request, você pode optar por criar uma que já está pronta para revisão ou uma pull request de rascunho. Não é possível fazer merge das pull requests, e os proprietários do código não são solicitados automaticamente a revisar pull requests de rascunho. Para obter mais informações sobre como criar uma pull request de rascunho, consulte "[Criar uma pull request](/articles/creating-a-pull-request)" e "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)".
 
 {% data reusables.pull_requests.mark-ready-review %} Você pode converter uma pull request em rascunho a qualquer momento. Para obter mais informações, consulte "[Alterar o stage de uma pull request](/articles/changing-the-stage-of-a-pull-request)".
+
+### Diferenças entre commits em páginas de comparação e pull request
+
+As páginas de comparação e pull request usam métodos diferentes para calcular o diff para os arquivos alterados:
+
+- As páginas de comparação mostram a diferença entre a ponta do ref principal e o ancestral comum atual (ou seja, a base de merge) do ref principal e de base.
+- As páginas de pull request mostram a diferença entre a ponta do ref principal e o ancestral comum do ref principal e de base no momento em que o pull request foi criado. Consequentemente, a base de merge utilizada para a comparação pode ser diferente.
 
 ### Leia mais
 

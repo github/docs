@@ -9,11 +9,12 @@ product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.product_name %}](/articles/access-permissions-on-github)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
@@ -49,7 +50,7 @@ Os repositórios de propriedade de uma organização podem conceder mais acesso 
 
 ### Leia mais
 
-- "[Níveis de permissão para um repositório de uma conta de usuário](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)"
+- "[Níveis de permissão para um repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Remover um colaborador de um repositório pessoal](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Remover a si mesmo de um repositório de colaborador](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[Organizar integrantes em equipes](/articles/organizing-members-into-teams)"

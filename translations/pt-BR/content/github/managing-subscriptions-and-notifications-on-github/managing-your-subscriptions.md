@@ -4,6 +4,7 @@ intro: 'Para ajudá-lo a gerenciar suas notificações de forma eficiente, exist
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assinatura, consulte "[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)".
@@ -38,7 +39,7 @@ Ao cancelar a assinatura de notificações em sua caixa de entrada, elas desapar
 
 {% data reusables.notifications.access_notifications %}
 1. Na caixa de entrada de notificações, selecione as notificações das quais você deseja cancelar sua assinatura.
-2. Use o menu suspenso **selecionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para clicar em **Cancelar assinatura**. ![Opção de cancelamento de assinatura da caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Use o menu suspenso **selecionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para clicar em **Cancelar inscrição.** ![Opção de cancelamento de assinatura da caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Cancelar assinatura de notificações na página de assinaturas
 
@@ -54,6 +55,13 @@ Quando você deixa de inspecionar um repositório, você cancela sua assinatura 
 {% data reusables.notifications.access_notifications %}
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Inspecionar repositórios**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
     - deixar de inspecionar um repositório
     - inspecionar somente versões em um repositório
     - ignorar todas as notificações de um repositório
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+    - deixar de inspecionar um repositório
+    - ignorar todas as notificações de um repositório
+    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
+{% endif %}

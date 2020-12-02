@@ -1,52 +1,53 @@
 ---
-title: Removing files from Git Large File Storage
-intro: 'If you''ve set up {% data variables.large_files.product_name_short %} for your repository, you can remove all files or a subset of files from {% data variables.large_files.product_name_short %}.'
+title: ファイルを Git Large File Storage から削除する
+intro: 'リポジトリに {% data variables.large_files.product_name_short %} をセットアップしてあれば、{% data variables.large_files.product_name_short %} からは、すべてのファイルを削除することも、ファイルのサブセットを削除することもできます。'
 redirect_from:
   - /articles/removing-files-from-git-large-file-storage
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Removing a single file
+### 1 つのファイルを削除する
 
-1.  Remove the file from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
-2. Navigate to your *.gitattributes* file.
+1.  `filter-branch` コマンドか BFG Repo-Cleaner を使用して、リポジトリの Git 履歴からファイルを削除します。 これらを使用する詳しい情報については、「[機密データをリポジトリから削除する](/articles/removing-sensitive-data-from-a-repository)」を参照してください。
+2. *.gitattributes* ファイルに移動します。
 
   {% note %}
 
-  **Note:** Your *.gitattributes* file is generally saved within your local repository. In some cases, you may have created a global *.gitattributes* file that contains all of your {% data variables.large_files.product_name_short %} associations.
+  **メモ:** *.gitattributes* ファイルは通常、ローカルリポジトリ内に保存されます。 場合によっては、{% data variables.large_files.product_name_short %} 関連をすべて含むグローバル *.gitattributes* ファイルが作成されている可能性があります。
 
   {% endnote %}
-3. Find and remove the associated {% data variables.large_files.product_name_short %} tracking rule within the *.gitattributes* file.
-4. Save and exit the *.gitattributes* file.
+3. *.gitattributes* ファイル内で、関連付けられている {% data variables.large_files.product_name_short %} 追跡ルールを検索して削除します。
+4. *.gitattributes* ファイルを保存して終了します。
 
-### Removing all files within a {% data variables.large_files.product_name_short %} repository
+### {% data variables.large_files.product_name_short %} リポジトリ内にあるすべてのファイルを削除する
 
-1. Remove the files from the repository's Git history using either the `filter-branch` command or BFG Repo-Cleaner. For detailed information on using these, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
-2. Optionally, to uninstall {% data variables.large_files.product_name_short %} in the repository, run:
+1. `filter-branch` コマンドか BFG Repo-Cleaner のいずれかを使用して、リポジトリの Git 履歴から ファイルを削除します。 これらを使用する詳しい情報については、「[機密データをリポジトリから削除する](/articles/removing-sensitive-data-from-a-repository)」を参照してください。
+2. オプションで、リポジトリにある {% data variables.large_files.product_name_short %} をアンインストールするには、次を実行します:
   ```shell
   $ git lfs uninstall
   ```
-  For {% data variables.large_files.product_name_short %} versions below 1.1.0, run:
+  バージョンが 1.1.0 より前の {% data variables.large_files.product_name_short %} については、次を実行します:
   ```shell
   $ git lfs uninit
   ```
 
-### {% data variables.large_files.product_name_short %} objects in your repository
+### リポジトリにある {% data variables.large_files.product_name_short %}オブジェクト
 
 After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% if currentVersion == "free-pro-team@latest" %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
 
-To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. When you delete a repository, any associated issues, stars, and forks are also deleted. For more information, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)."{% else %}contact your {% data variables.product.prodname_enterprise %} administrator to archive the objects. Archived objects are purged after three months.{% endif %}
+To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. リポジトリを削除すると、関連する Issue、Star、フォークもすべて削除されます。 詳しい情報については、「[リポジトリを削除する](/github/administering-a-repository/deleting-a-repository)」を参照するか、{% else %}{% data variables.product.prodname_enterprise %} 管理者に連絡してオブジェクトをアーカイブします。 アーカイブ化されたオブジェクトは、3 か月後にパージされます。{% endif %}
 
 {% note %}
 
-**Note:** If you removed a single file and have other {% data variables.large_files.product_name_short %} objects that you'd like to keep in your repository, after deleting and recreating your repository, reconfigure your {% data variables.large_files.product_name_short %}-associated files. For more information, see "[Removing a single file](#removing-a-single-file)" and "[Configuring {% data variables.large_files.product_name_long %}](/github/managing-large-files/configuring-git-large-file-storage)."
+**注釈:** ファイルを 1 つ削除しても、それ以外の {% data variables.large_files.product_name_short %} オブジェクトはリポジトリに保持する場合は、リポジトリを削除して再作成してから、{% data variables.large_files.product_name_short %} に関連付けられたファイルを再設定してください。 詳しい情報については、「[1 つのファイルを削除する](#removing-a-single-file)」および「[{% data variables.large_files.product_name_long %}を設定する](/github/managing-large-files/configuring-git-large-file-storage)」を参照してください。
 
 {% endnote %}
 
-### Further reading
+### 参考リンク
 
-- "[About {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)"
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"
-- "[Installing {% data variables.large_files.product_name_long %}](/articles/installing-git-large-file-storage)"
+- [{% data variables.large_files.product_name_long %}について](/articles/about-git-large-file-storage)
+- [{% data variables.large_files.product_name_long %} でのコラボレーション](/articles/collaboration-with-git-large-file-storage/)
+- 「[{% data variables.large_files.product_name_long %}をインストールする](/articles/installing-git-large-file-storage)」

@@ -5,6 +5,7 @@ intro: 查看参考文档以了解 GitHub REST API 中可用的资源。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 目录

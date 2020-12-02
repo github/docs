@@ -1,7 +1,7 @@
 const languages = require('../../lib/languages')
 const robotsParser = require('robots-parser')
 const robotsMiddleware = require('../../middleware/robots')
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 const MockExpressResponse = require('mock-express-response')
 const products = require('../../lib/all-products')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
@@ -88,5 +88,26 @@ describe('robots.txt', () => {
     expect(robots.isAllowed('https://help.github.com/en/actions/overview/intro')).toBe(true)
     expect(robots.isAllowed(`https://help.github.com/en/enterprise/${enterpriseServerReleases.latest}/user/actions`)).toBe(true)
     expect(robots.isAllowed(`https://help.github.com/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`)).toBe(true)
+  })
+
+  it('disallows indexing of deprecated enterprise releases', async () => {
+    enterpriseServerReleases.deprecated.forEach(version => {
+      const blockedPaths = [
+        // English
+        `https://help.github.com/en/enterprise-server@${version}/actions`,
+        `https://help.github.com/en/enterprise/${version}/actions`,
+        `https://help.github.com/en/enterprise-server@${version}/actions/overview`,
+        `https://help.github.com/en/enterprise/${version}/actions/overview`,
+        // Japanese
+        `https://help.github.com/ja/enterprise-server@${version}/actions`,
+        `https://help.github.com/ja/enterprise/${version}/actions`,
+        `https://help.github.com/ja/enterprise-server@${version}/actions/overview`,
+        `https://help.github.com/ja/enterprise/${version}/actions/overview`
+      ]
+
+      blockedPaths.forEach(path => {
+        expect(robots.isAllowed(path)).toBe(false)
+      })
+    })
   })
 })

@@ -1,6 +1,6 @@
 ---
 title: 启用和排定维护模式
-intro: '一些标准维护程序（例如升级 {% data variables.product.product_location_enterprise %} 或还原备份）要求实例进入脱机状态才能正常使用。'
+intro: '一些标准维护程序（例如升级 {% data variables.product.product_location %} 或还原备份）要求实例进入脱机状态才能正常使用。'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -16,7 +16,7 @@ versions:
 
 ### 关于维护模式
 
-某些操作类型要求您让 {% data variables.product.product_location_enterprise %} 进入脱机状态并将其置于维护模式：
+某些操作类型要求您让 {% data variables.product.product_location %} 进入脱机状态并将其置于维护模式：
 - 升级到新版本的 {% data variables.product.prodname_ghe_server %}
 - 增加分配给虚拟机的 CPU、内存或存储资源
 - 将数据从一台虚拟机迁移到另一台虚拟机

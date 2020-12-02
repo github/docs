@@ -1,11 +1,12 @@
 ---
-title: Testing webhooks
+title: webhookのテスト
 intro: 'Review your webhook deliveries on {% data variables.product.prodname_dotcom %}, including the HTTP Request and payload as well as the response.'
 redirect_from:
   - /webhooks/testing
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -13,7 +14,7 @@ Now that you've [configured your local server](/webhooks/configuring/), you migh
 
 ### Listing recent deliveries
 
-Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a deployment was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
+Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a delivery was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
 
 {% data variables.product.product_name %} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
 

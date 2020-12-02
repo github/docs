@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-Wenn sich mehr Benutzer {% data variables.product.product_location_enterprise %} anschließen, müssen Sie die Größe Ihres Storage-Volumes anpassen. Informationen zur Storage-Größenanpassung finden Sie in der Dokumentation für Ihre Virtualisierungsplattform.
+Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließen, müssen Sie die Größe Ihres Storage-Volumes anpassen. Informationen zur Storage-Größenanpassung finden Sie in der Dokumentation für Ihre Virtualisierungsplattform.
 
 ### Anforderungen und Empfehlungen
 
@@ -19,6 +19,8 @@ Wenn sich mehr Benutzer {% data variables.product.product_location_enterprise %}
 **Hinweis:** Versetzen Sie Ihre Instanz in den Wartungsmodus, bevor Sie die Größe des Benutzer-Storage-Volumes anpassen. Weitere Informationen finden Sie unter „[Wartungsmodus aktivieren und planen](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)“.
 
 {% endnote %}
+
+#### Minimum requirements
 
 {% data reusables.enterprise_installation.hardware-rec-table %}
 

@@ -6,17 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ## About the GraphQL Explorer
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-[GraphQL Explorer](/v4/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
+[GraphQL Explorer](/graphql/overview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} has disabled [mutations](/v4/mutation/) in the Explorer, but you can use them in your own GraphiQL instance.
+**Note**: {% data variables.product.prodname_dotcom %} has disabled [mutations](/graphql/reference/mutations) in the Explorer, but you can use them in your own GraphiQL instance.
 
 {% endnote %}
 
@@ -32,7 +33,7 @@ To use the GraphiQL app, download and install it from https://github.com/skevy/g
 
 #### Configuring GraphiQL
 
-1. Get an [OAuth token](/v4/guides/forming-calls#authenticating-with-graphql).
+1. Get an [OAuth token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
 1. Launch GraphiQL.
 1. In the upper-right corner of GraphiQL, click **Edit HTTP Headers**.
 1. In the **Key** field, enter `Authorization`. In the **Value** field, enter `Bearer <token>`, where `<token>` is your generated OAuth token. ![graphiql headers](/assets/images/developer/graphiql-headers.png)
@@ -43,7 +44,7 @@ To use the GraphiQL app, download and install it from https://github.com/skevy/g
 
 {% note %}
 
-**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/v4/guides/forming-calls#communicating-with-graphql)."
+**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
 
 {% endnote %}
 
@@ -65,13 +66,13 @@ All types in a GraphQL schema include a `description` field compiled into docume
 
 {% note %}
 
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/v4/)," though it is formatted differently in places.
+The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql)," though it is formatted differently in places.
 
 {% endnote %}
 
 ### Using the variable pane
 
-Some example calls include [variables](/v4/guides/forming-calls#working-with-variables) written like this:
+Some example calls include [variables](/graphql/guides/forming-calls-with-graphql#working-with-variables) written like this:
 
 ```graphql
 query($number_of_repos:Int!){
@@ -89,7 +90,7 @@ variables {
 }
 ```
 
-This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/v4/guides/forming-calls#communicating-with-graphql)).
+This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
 If you want to run the call in the Explorer, enter the `query` segment in the main pane and the variables in the **Query Variables** pane below it. Omit the word `variables` from the Explorer:
 
@@ -105,12 +106,12 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
 
 ### Troubleshooting errors
 
-Because GraphQL is [introspective](/v4/guides/intro-to-graphql#discovering-the-graphql-api), the Explorer supports:
+Because GraphQL is [introspective](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), the Explorer supports:
 
 * Intelligent typeaheads aware of the current schema
 * Validation error previews as you type
 
-If you enter a query that is not well-formed or does not pass [schema validation](/v4/guides/intro-to-graphql#schema), a popup warns you of an error. If you run the query, the error returns in the response pane.
+If you enter a query that is not well-formed or does not pass [schema validation](/graphql/guides/introduction-to-graphql#schema), a popup warns you of an error. If you run the query, the error returns in the response pane.
 
 A GraphQL response contains several keys: a `data` hash and an `errors` array.
 

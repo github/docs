@@ -8,6 +8,7 @@ intro: 'You can use OAuth tokens to interact with {% data variables.product.prod
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Step 1: Get an OAuth token
@@ -42,4 +43,4 @@ To avoid these prompts, you can use Git password caching. For information, see "
 
 ### Дополнительная литература
 
-- "[Authorizing OAuth Apps](/v3/oauth/)"
+- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

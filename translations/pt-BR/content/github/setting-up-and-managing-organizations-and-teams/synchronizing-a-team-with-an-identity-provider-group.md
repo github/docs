@@ -23,7 +23,7 @@ As equipes principais não podem sincronizar com grupos de IdP. Se a equipe que 
 
 Para gerenciar o acesso ao repositório de qualquer equipe do {% data variables.product.prodname_dotcom %} incluindo equipes conectadas a um grupo de IdP, você deve fazer alterações com o {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)" e "[Gerenciar o acesso da equipe ao repositório de uma organização](/articles/managing-team-access-to-an-organization-repository)".
 
-Você também pode gerenciar a sincronização de equipe com a API. Para obter mais informações, consulte "[Sincronização de equipe](/v3/teams/team_sync/)".
+Você também pode gerenciar a sincronização de equipe com a API. Para obter mais informações, consulte "[Sincronização de equipe](/rest/reference/teams#team-sync)".
 
 ### Requisitos para integrantes de equipes sincronizadas
 
@@ -35,11 +35,11 @@ Um integrante removido da equipe pode ser adicionado de volta a uma equipe autom
 
 Para evitar a remoção involuntária dos integrantes da equipe, recomendamos a aplicar SSO SAML na conta da organização ou da empresa. criar novas equipes para sincronizar dados da associação e verificar a associação de grupo de IdP antes de sincronizar as equipes existentes. Para obter mais informações, consulte "[Aplicando o logon único SAML para a sua organização](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
-Se sua organização pertencer a uma conta corporativa, habilitar a sincronização de equipes para a conta corporativa irá substituir as configurações de sincronização de equipe no nível da organização. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)".
+Se sua organização pertencer a uma conta corporativa, habilitar a sincronização de equipes para a conta corporativa irá substituir as configurações de sincronização de equipe no nível da organização. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
 ### Pré-requisitos
 
-Antes poder conectar uma equipe a um grupo de provedores de identidade, uma organização ou dono da empresa deve habilitar a sincronização de equipes para sua organização ou conta corporativa. Para mais informações consulte "[Gerenciar a sincronização de equipes para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)" e "[Aplicar configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)".
+Antes poder conectar uma equipe a um grupo de provedores de identidade, uma organização ou dono da empresa deve habilitar a sincronização de equipes para sua organização ou conta corporativa. Para mais informações consulte "[Gerenciar a sincronização de equipes para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)" e "[Aplicar configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-team-synchronization-for-organizations-in-your-enterprise-account)".
 
 Para evitar a remoção involuntária dos integrantes da equipe, visite o portal administrativo do seu IdP e confirme se cada integrante atual da equipe está também nos grupos de IdP aos quais você deseja conectar a esta equipe. Se você não tiver acesso ao provedor de identidade, entre em contato com o administrador do IdP.
 

@@ -32,7 +32,7 @@ As licenças de código aberto permitem que outras pessoas usem, alterem e distr
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

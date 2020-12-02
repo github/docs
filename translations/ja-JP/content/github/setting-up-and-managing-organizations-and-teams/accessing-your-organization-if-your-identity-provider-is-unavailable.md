@@ -18,7 +18,7 @@ Organization の管理者は、シングルサインオンをバイパスする�
 
 1. シングルサインオンをバイパスするには、シングルサインオンダイアログの下部で、[**Use a recovery code**] をクリックします。 ![リカバリコードを入力するためのリンク](/assets/images/help/saml/saml_use_recovery_code.png)
 2. [Recovery Code] フィールドにリカバリコードを入力します。 ![リカバリコードを入力するフィールド](/assets/images/help/saml/saml_recovery_code_entry.png)
-3. Click **Verify**. ![リカバリコードを検証するボタン](/assets/images/help/saml/saml_verify_recovery_codes.png)
+3. [**Verify**] をクリックします。 ![リカバリコードを検証するボタン](/assets/images/help/saml/saml_verify_recovery_codes.png)
 
 一度使用したリカバリコードは二度と使用できないということを覚えておいてください。 リカバリコードは再利用できません。
 

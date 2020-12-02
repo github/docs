@@ -6,12 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## Blocking users
 
 The token used to authenticate the call must have the `admin:org` scope in order to make any blocking calls for an organization. Otherwise, the response returns `HTTP 404`.
@@ -19,6 +21,8 @@ The token used to authenticate the call must have the `admin:org` scope in order
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## Mitglieder
 
@@ -34,7 +38,7 @@ The token used to authenticate the call must have the `admin:org` scope in order
 
 ## Webhooks
 
-Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen within the organization. Subscribing to these events makes it possible to build integrations that react to actions on {% data variables.product.prodname_dotcom %}.com. For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen within the organization. Subscribing to these events makes it possible to build integrations that react to events on {% data variables.product.product_name %}. For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
 
 ### Scopes & Restrictions
 
@@ -56,5 +60,5 @@ For more best practices, [see our guide](/guides/best-practices-for-integrators/
 {% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks/event-payloads/#delivery-headers) for details.
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}

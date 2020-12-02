@@ -18,6 +18,9 @@ Enterprise-Konten sind derzeit für {% data variables.product.prodname_enterpris
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
-4. Zeige unter „User licenses“ (Benutzerlizenzen) Deine Gesamtlizenzen, die Anzahl der genutzten Lizenzen und das Ablaufdatum Deines Abonnements an. ![Lizenz- und Abonnementinformationen in Enterprise-Abrechnungseinstellungen](/assets/images/help/business-accounts/billing-license-info.png)
-5. Um Details zu den derzeit verwendeten Benutzerlizenzen zu sehen, klicke auf **View details** (Details anzeigen).
+{% data reusables.enterprise-accounts.license-tab %}
+4. Under "User
+{% if currentVersion == "free-pro-team@latest" %}Licenses{% else %}licenses{% endif %}", view your total licenses, number of consumed licenses, and your subscription expiration date.
+  {% if currentVersion == "free-pro-team@latest" %}![License and subscription information in enterprise billing settings](/assets/images/help/business-accounts/billing-license-info.png){% else %}
+  ![Lizenz- und Abonnementinformationen in Enterprise-Abrechnungseinstellungen](/assets/images/enterprise/enterprises/enterprise-server-billing-license-info.png){% endif %}
+5. To view details of the user licenses currently in use, click **View {% if currentVersion == "free-pro-team@latest" %}details{% else %}users{% endif %}**.

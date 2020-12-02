@@ -1,11 +1,12 @@
 ---
 title: 从 GitHub Support 获得帮助
-intro: '如果您的 {% data variables.product.product_location_enterprise %} 遇到问题，{% data variables.contact.github_support %} 可以帮助您解决。'
+intro: '您可以联系 {% data variables.contact.enterprise_support %} 报告企业的一系列问题。'
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

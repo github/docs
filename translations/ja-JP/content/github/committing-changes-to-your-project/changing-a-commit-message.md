@@ -7,6 +7,7 @@ intro: 'コミットメッセージに不明確、不正確、または機密情
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 直近のコミットメッセージの書き換え

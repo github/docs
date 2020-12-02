@@ -225,9 +225,9 @@ defaults:
 
 それぞれのジョブは、`runs-on`で指定された環境で実行されます。
 
-ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
-ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/v3/actions/workflow-jobs)」を参照してください。
+ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
 
 ### **`jobs.<job_id>`**
 
@@ -289,7 +289,7 @@ jobs:
 ##### **サンプル**
 
 ```yaml
-ランオン:Ubuntu-最新
+runs-on: ubuntu-latest
 ```
 
 詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーの仮想環境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
@@ -389,7 +389,7 @@ jobs:
 
 1つのジョブには、`steps` (ステップ) と呼ばれる一連のタスクがあります。 ステップでは、コマンドを実行する、設定タスクを実行する、あるいはリポジトリやパブリックリポジトリ、Dockerレジストリで公開されたアクションを実行することができます。 すべてのステップでアクションを実行するとは限りませんが、すべてのアクションはステップとして実行されます。 各ステップは、ランナー環境のそれ自体のプロセスで実行され、ワークスペースとファイルシステムにアクセスします。 ステップはそれ自体のプロセスで実行されるため、環境変数を変更しても、ステップ間では反映されません。 {% data variables.product.prodname_dotcom %}には、ジョブを設定して完了するステップが組み込まれています。
 
-ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
 #### サンプル
 
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -491,10 +491,10 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # 公開リポジトリのデフォルトブランチを使用する
-        uses: actions/heroku@master
+        # Uses the default branch of a public repository
+        uses: actions/heroku@1.0.0
       - name: My second step
-        # パブリックリポジトリの特定のバージョンタグを使用する
+        # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
 ```
 
@@ -659,7 +659,7 @@ steps:
 
 - `cmd`
   - 各エラーコードをチェックしてそれぞれに対応するスクリプトを書く以外、フェイルファースト動作を完全にオプトインする方法はないようです。 デフォルトでその動作を指定することはできないため、この動作はスクリプトに記述する必要があります。
-  - `cmd.exe`は、実行した最後のプログラムのエラーレベルで終了し、runnerにそのエラーコードを返します。 この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-この`entrypoint`キーワードはDockerコンテナのアクションを使おうとしていますが、これは入力を定義しないJavaScriptのアクションにも使えます。
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
 #### **`jobs.<job_id>.steps.env`**
 
@@ -876,6 +876,12 @@ strategy:
 
 {% endnote %}
 
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+
+{% data reusables.github-actions.matrix-variable-example %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
 `true`に設定すると、いずれかの`matrix`ジョブが失敗した場合に{% data variables.product.prodname_dotcom %}は進行中のジョブをすべてキャンセルします。 デフォルト: `true`
@@ -946,7 +952,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-アクションを実行するコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+アクションを実行するコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1029,7 +1035,7 @@ services:
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-アクションを実行するサービスコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+アクションを実行するサービスコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

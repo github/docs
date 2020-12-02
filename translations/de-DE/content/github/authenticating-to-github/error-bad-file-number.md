@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Beim Ausführen von Remote-Git-Befehlen oder SSH kann es bei Deiner Verbindung zu einer Zeitüberschreitung kommen:

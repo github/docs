@@ -213,7 +213,7 @@ Você pode fornecer opções-padrão de `shell` e `working-directory` para todas
 #### Exemplo
 
 ```yaml
-padrões:
+defaults:
   run:
     shell: bash
     working-directory: scripts
@@ -227,7 +227,7 @@ Cada trabalho é executado em um ambiente especificado por `runs-on`.
 
 Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
-Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/v3/actions/workflow-jobs)".
+Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/rest/reference/actions#workflow-jobs)".
 
 ### **`jobs.<job_id>`**
 
@@ -237,10 +237,10 @@ Cada trabalho deve ter um id associado. A chave `job_id` é uma string, e seu va
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
-    name: meu primeiro trabalho
-  meu_segundo_trabalho:
-    name: meu segundo trabalho
+  my_first_job:
+    name: My first job
+  my_second_job:
+    name: My second job
 ```
 
 ### **`jobs.<job_id>.name`**
@@ -318,14 +318,14 @@ Para usar as saídas de trabalho em um trabalho dependente, você poderá usar o
 
 {% raw %}
 ```yaml
-trabalhos:
+jobs:
   job1:
     runs-on: ubuntu-latest
-    # Mapeia a saída de uma etapa com a saída de um trabalho
-    saídas:
+    # Map a step output to a job output
+    outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.test }}
-    etapas:
+    steps:
     - id: step1
       run: echo "::set-output name=test::hello"
     - id: step2
@@ -333,7 +333,7 @@ trabalhos:
   job2:
     runs-on: ubuntu-latest
     needs: job1
-    etapas:
+    steps:
     - run: echo ${{needs.job1.outputs.output1}} ${{needs.job1.outputs.output2}}
 ```
 {% endraw %}
@@ -370,11 +370,11 @@ Você pode fornecer as opções-padrão de `shell` e `working-directory` para to
 #### Exemplo
 
 ```yaml
-trabalhos:
+jobs:
   job1:
     runs-on: ubuntu-latest
-    padrões:
-      executar:
+    defaults:
+      run:
         shell: bash
         working-directory: scripts
 ```
@@ -430,10 +430,10 @@ Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja 
  Essa etapa somente é executada quando o tipo de evento é uma `pull_request` e a ação do evento é `unassigned` (não atribuída).
 
  ```yaml
-etapas:
-  - nome: Minha primeira etapa
-    se: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
-    executar: echo Este evento é um pull request cujo responsável foi removido.
+steps:
+  - name: My first step
+    if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
+    run: echo This event is a pull request that had an assignee removed.
 ```
 
 ##### Exemplo usando funções de verificação de status
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@master
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -519,13 +519,13 @@ jobs:
 Caminho para o diretório que contém a ação no repositório do seu fluxo de trabalho. Você deve reservar seu repositório antes de usar a ação.
 
 ```yaml
-trabalhos:
+jobs:
   my_first_job:
-    etapas:
-      - Nome: Verificar repositório
-        usa: actions/checkout@v2
-      - nome: Use local my-action
-        usa: ./.github/actions/my-action
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Use local my-action
+        uses: ./.github/actions/my-action
 ```
 
 ##### Exemplo usando uma ação do Docker Hub
@@ -535,11 +535,11 @@ trabalhos:
 Imagem Docker publicada no [Docker Hub](https://hub.docker.com/).
 
 ```yaml
-empregos:
+jobs:
   my_first_job:
-    passos:
-      - nome: Meu primeiro passo
-        usa: docker://alpine:3.8
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
 ```
 
 ##### Exemplo usando uma ação do registro público do Docker Hub
@@ -550,9 +550,9 @@ Imagem Docker em um registro público.
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
+  my_first_job:
     steps:
-      - name: minha primeira etapa
+      - name: My first step
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
@@ -659,7 +659,7 @@ Para palavras-chave de shell integradas, fornecemos os seguintes padrões usados
 
 - `cmd`
   - Parece não haver uma forma de optar totalmente por um comportamento fail-fast que não seja gravar seu script para verificar cada código de erro e reagir de acordo. Como não podemos fornecer esse comportamento por padrão, você precisa gravá-lo em seu script.
-  - `cmd.exe` sairá com o error level do último programa que executou e retornará o código de erro para o executor. Este comportamento é internamente consistente o padrão de comportamento anterior `sh` e `pwsh`, e é o padrão `cmd.exe`; portanto, ele fica intacto.
+  - `cmd.exe` sairá com o nível de erro do último programa que executou e retornará o código de erro para o executor. Este comportamento é internamente consistente o padrão de comportamento anterior `sh` e `pwsh`, e é o padrão `cmd.exe`; portanto, ele fica intacto.
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -821,15 +821,15 @@ Você pode adicionar opções de configurações para um trabalho de matriz de c
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
-estratégia:
-  matriz:
+strategy:
+  matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    nó: [4, 6, 8, 10]
-    inclui:
-      # incluo uma variável nova do npm com um valor de 2
-      # para o leg da matriz que corresponde ao os e à versão
+    node: [4, 6, 8, 10]
+    include:
+      # includes a new variable of npm with a value of 2
+      # for the matrix leg matching the os and version
       - os: windows-latest
-        nó: 4
+        node: 4
         npm: 2
 ```
 {% endraw %}
@@ -841,14 +841,14 @@ Você pode usar `incluir` para adicionar novos trabalhos a uma matriz de criaç�
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
-estratégia:
-  matriz:
-    nó: [12]
+strategy:
+  matrix:
+    node: [12]
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    inclui:
-      - nó: 13
+    include:
+      - node: 13
         os: ubuntu-18.04
-        experimental: verdadeiro
+        experimental: true
 ```
 {% endraw %}
 
@@ -859,12 +859,12 @@ Você pode remover uma configuração específica definida na matriz de compila�
 {% raw %}
 ```yaml
 runs-on: ${{ matrix.os }}
-estratégia:
-  matriz:
+strategy:
+  matrix:
     os: [macos-latest, windows-latest, ubuntu-18.04]
-    nó: [4, 6, 8, 10]
-    excluir:
-      # exclui o nó 4 no macOS
+    node: [4, 6, 8, 10]
+    exclude:
+      # excludes node 4 on macOS
       - os: macos-latest
         node: 4
 ```
@@ -875,6 +875,12 @@ estratégia:
 **Observação:** Todas as combinações de `incluir` são processadas depois de `excluir`. Isso permite que você use `incluir` para voltar a adicionar combinações que foram excluídas anteriormente.
 
 {% endnote %}
+
+##### Usando variáveis de ambiente em uma matriz
+
+Você pode adicionar variáveis de ambiente personalizadas para cada combinação de testes usando a chave `include`. Em seguida, você pode se referir às variáveis de ambiente personalizadas em um passo posterior.
+
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
@@ -901,16 +907,16 @@ Você pode permitir que as tarefas específicas em uma matriz de tarefas falhem 
 ```yaml
 runs-on: ${{ matrix.os }}
 continue-on-error: ${{ matrix.experimental }}
-estratégia:
-  fail-fast: falso
-  matriz:
-    nó: [11, 12]
+strategy:
+  fail-fast: false
+  matrix:
+    node: [11, 12]
     os: [macos-latest, ubuntu-18.04]
     experimental: [false]
-    incluir:
-      - nó: 13
+    include:
+      - node: 13
         os: ubuntu-18.04
-        experimental: verdadeiro
+        experimental: true
 ```
 {% endraw %}
 
@@ -946,7 +952,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if currentVersion != "free-pro-team@latest" e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro público{% endif %}.
+Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if enterpriseServerVersions contém currentVersion e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro{% endif %} público.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1014,22 +1020,22 @@ Para obter mais informações sobre as diferenças entre os contêineres de serv
 Este exemplo cria dois serviços: nginx e redis. Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta do contêiner será atribuída aleatoriamente a uma porta livre. O {% data variables.product.prodname_dotcom %} define a porta de contêiner atribuída no contexto {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}. Neste exemplo, você pode acessar as portas do contêiner de serviço usando os contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} e {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
 
 ```yaml
-serviços:
+services:
   nginx:
-    imagem: nginx
-    # Mapeia a porta 8080 no host do Docker com a porta 80 no contêiner nginx
-    portas:
+    image: nginx
+    # Map port 8080 on the Docker host to port 80 on the nginx container
+    ports:
       - 8080:80
   redis:
-    imagem: redis
-    # Mapeia a porta  port 6379 TCP no host do Docker com uma porta livre aleatória no contêiner Redis
-    portas:
+    image: redis
+    # Map TCP port 6379 on Docker host to a random free port on the Redis container
+    ports:
       - 6379/tcp
 ```
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if currentVersion != "free-pro-team@latest" e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro público{% endif %}.
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if enterpriseServerVersions contém currentVersion e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro{% endif %} público.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

@@ -3,10 +3,11 @@ title: Which remote URL should I use?
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: 'There are several ways to clone repositories available on {% data variables.product.prodname_dotcom %}.'
+intro: 'There are several ways to clone repositories available on {% data variables.product.product_location %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details:
@@ -15,7 +16,7 @@ For information on setting or changing your remote URL, see "[Changing a remote'
 
 ### Cloning with HTTPS URLs
 
-The `https://` clone URLs are available on all repositories, public and private. These URLs work even if you are behind a firewall or proxy.
+The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
 When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using HTTPS URLs on the command line, Git will ask for your {% data variables.product.product_name %} username and password. {% data reusables.user_settings.password-authentication-deprecation %}
 
@@ -43,11 +44,11 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 {% tip %}
 
-**Tip**: You can use an SSH URL to clone a repository to your computer, or as a secure way of deploying your code to production servers. You can also use SSH agent forwarding with your deploy script to avoid managing keys on the server. For more information, see "[Using SSH Agent Forwarding](/v3/guides/using-ssh-agent-forwarding/)."
+**Tip**: You can use an SSH URL to clone a repository to your computer, or as a secure way of deploying your code to production servers. You can also use SSH agent forwarding with your deploy script to avoid managing keys on the server. For more information, see "[Using SSH Agent Forwarding](/developers/overview/using-ssh-agent-forwarding)."
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 ### Cloning with {% data variables.product.prodname_cli %}
 
@@ -55,11 +56,14 @@ You can also install {% data variables.product.prodname_cli %} to use {% data va
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### Cloning with Subversion
 
 You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[What are the differences between Subversion and Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
+You can also access repositories on
 
-You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients)."
+{% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[Support for Subversion clients](/github/importing-your-projects-to-github/support-for-subversion-clients)."
+{% endif %}
 
 ### Дополнительная литература
 

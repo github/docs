@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Erwartetes Verhalten bei der Anzeige der Commit-Details über die Zeitleiste

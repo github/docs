@@ -1,6 +1,6 @@
 ---
 title: Enabling a link between GitHub Insights and GitHub Enterprise
-intro: 'You can enable a link that will allow users to navigate from {% data variables.product.prodname_ghe_server %} to {{  site.data.variables.product.prodname_insights }}.'
+intro: 'You can enable a link that will allow users to navigate from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_insights %}.'
 product: '{% data reusables.gated-features.github-insights %}'
 permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} can enable a link between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_insights %}.'
 redirect_from:
@@ -19,8 +19,7 @@ After you enable the link, each user can navigate directly from {% data variable
   ```
 3. Return to
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 7. Under
 {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **{% data variables.product.prodname_insights %}**.

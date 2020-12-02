@@ -34,7 +34,7 @@ We also recommend that you monitor virtualization "steal" time to ensure that ot
 
 ### Monitoring memory usage
 
-The amount of physical memory allocated to {% data variables.product.product_location_enterprise %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
+The amount of physical memory allocated to {% data variables.product.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
 | Серьезность        | Threshold                                                 |
 | ------------------ | --------------------------------------------------------- |

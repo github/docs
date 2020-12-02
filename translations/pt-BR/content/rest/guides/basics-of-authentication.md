@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -46,8 +47,9 @@ get '/' do
 end
 ```
 
-O seu ID de cliente e as chaves secretas de cliente vêm da [página de configuração do seu aplicativo][app settings]. Você **nunca __** armazene esses valores em
-{% data variables.product.product_name %} ou qualquer outro lugar público para essa questão. Recomendamos armazená-los como
+O seu ID de cliente e as chaves secretas de cliente vêm da [página de configuração do seu aplicativo][app settings].
+{% if currentVersion == "free-pro-team@latest" %} Você **nunca, __** deve armazenar esses valores em
+{% data variables.product.product_name %}--ou qualquer outro lugar público, para essa questão.{% endif %}Recomendamos armazená-los como
 [Variáveis de ambiente][about env vars]--que é exatamente o que fizemos aqui.
 
 Em seguida, em _views/index.erb_, cole este conteúdo:
@@ -128,7 +130,7 @@ Além disso, uma vez que existe uma relação hierárquica entre os escopos, voc
 
 Verificar escopos apenas antes de fazer solicitações não é suficiente, já que é possível que os usuários mudem os escopos entre a sua verificação e a solicitação real. Caso isso aconteça, as chamadas par a API que você espera ter sucesso podem falhar com o status `404` ou `401` ou retornar um subconjunto diferente de informações.
 
-Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. Além disso, a API de aplicativos OAuth fornece um ponto de extremidade para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} \[verifique se há validez de token\]\[/v3/apps/oauth_applications/#check-a-token\]{% else %}\[verifique se há validade de token\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
+Para ajudá-lo a gerenciar essas situações facilmente, todas as respostas da API para solicitações feitas com tokens válidos também contêm um [`cabeçalho de ` X-OAuth-Scopes][oauth scopes]. Este cabeçalho contém a lista de escopos do token que foi usado para fazer a solicitação. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/rest/reference/apps#check-a-token\]{% else %}\[check a token for validity\]\[/rest/reference/apps#check-an-authorization\]{% endif %}. Use esta informação para detectar alterações no escopo do token e informar os seus usuários sobre mudanças nas funcionalidades do aplicativo disponível.
 
 #### Fazer solicitações autenticadas
 

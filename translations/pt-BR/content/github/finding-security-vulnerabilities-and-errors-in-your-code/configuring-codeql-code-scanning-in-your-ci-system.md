@@ -94,7 +94,7 @@ Se o comando `autobuild` não puder criar o seu código, você poderá executar 
 
 Por padrão, o {% data variables.product.prodname_codeql_runner %} faz o upload dos resultados a partir de {% data variables.product.prodname_code_scanning %} quando você executa o comando de `análise`. Você também pode carregar arquivos do SARIF separadamente, usando o comando `upload`.
 
-Depois de enviar os dados, o {% data variables.product.prodname_dotcom %} exibirá os alertas no seu repositório. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)".
+Depois de enviar os dados, o {% data variables.product.prodname_dotcom %} exibirá os alertas no seu repositório. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)".
 
 ### Comando de referência de {% data variables.product.prodname_codeql_runner %}
 

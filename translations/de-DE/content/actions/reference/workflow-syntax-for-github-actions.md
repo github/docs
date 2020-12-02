@@ -227,7 +227,7 @@ Jeder Job läuft in einer Umgebung, die mit `runs-on` angegeben wird.
 
 Innerhalb der Nutzungsbeschränkungen des Workflows kannst Du unbegrenzt viele Jobs ausführen. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-Wenn Du den eindeutigen Bezeichner eines Jobs finden musst, der in einem Workflowlauf ausgeführt wird, kannst Du die API von {% data variables.product.prodname_dotcom %} verwenden. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
+Wenn Du den eindeutigen Bezeichner eines Jobs finden musst, der in einem Workflowlauf ausgeführt wird, kannst Du die API von {% data variables.product.prodname_dotcom %} verwenden. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
 ### **`jobs.<job_id>`**
 
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@master
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -659,7 +659,7 @@ Für integrierte Shell-Stichwörter gelten die folgenden Standards, die durch au
 
 - `cmd`
   - Wenn Du das Fail-Fast-Verhalten uneingeschränkt nutzen möchtest, hast Du anscheinend keine andere Wahl, als Dein Skript so zu schreiben, dass jeder Fehlercode geprüft und eine entsprechende Reaktion eingeleitet wird. Dieses Verhalten kann nicht standardmäßig bereitgestellt werden; Du musst es explizit in Dein Skript schreiben.
-  - `cmd.exe` wird mit dem Errorlevel des zuletzt ausgeführten Programms beendet, und dieser Fehlercode wird an den Runner übergeben. Dieses Verhalten ist intern mit dem vorherigen Standardverhalten von `sh` und `pwsh` konsistent und ist der Standard für `cmd.exe`, weshalb dieses Verhalten unverändert bleibt.
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. Dieses Verhalten ist intern mit dem vorherigen Standardverhalten von `sh` und `pwsh` konsistent und ist der Standard für `cmd.exe`, weshalb dieses Verhalten unverändert bleibt.
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-Das Schlüsselwort `entrypoint` ist für Docker Container-Aktionen vorgesehen, kann jedoch auch für JavaScript-Aktionen herangezogen werden, in denen keine Eingaben definiert werden.
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
 #### **`jobs.<job_id>.steps.env`**
 
@@ -876,9 +876,15 @@ strategy:
 
 {% endnote %}
 
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+
+{% data reusables.github-actions.matrix-variable-example %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
-Wenn diese Option auf `true` gesetzt ist, bricht {% data variables.product.prodname_dotcom %} alle laufenden Aufträge ab, sobald ein `matrix`-Auftrag fehlschlägt. Standard: `true`
+Wenn diese Option auf `true` gesetzt ist, bricht {% data variables.product.prodname_dotcom %} alle laufenden Jobs ab, sobald ein Job der `matrix` fehlschlägt. Standard: `true`
 
 ### **`jobs.<job_id>.strategy.max-parallel`**
 
@@ -946,7 +952,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1029,7 +1035,7 @@ services:
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wird. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

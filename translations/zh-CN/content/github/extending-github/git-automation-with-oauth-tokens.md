@@ -8,6 +8,7 @@ intro: '你可以使用 OAuth 令牌通过自动化脚本与 {% data variables.p
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 第 1 步：获取 OAuth 令牌
@@ -42,4 +43,4 @@ versions:
 
 ### 延伸阅读
 
-- "[授权 OAuth 应用程序](/v3/oauth/)"
+- "[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps)"

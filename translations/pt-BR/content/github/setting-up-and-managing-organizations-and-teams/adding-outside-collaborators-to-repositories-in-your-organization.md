@@ -6,13 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O {% data reusables.organizations.owners-and-admins-can %} adiciona colaboradores externos em um repositório, a menos que o proprietário da organização tenha restringido a possibilidade de convidar colaboradores. Para obter mais informações, consulte "[Configurar permissões para adicionar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% if currentVersion != "github-ae@latest" %}
 Se sua organização [exigir que integrantes e colaboradores externos usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), eles deverão habilitar a autenticação de dois fatores antes de aceitar seu convite para colaborar no repositório de uma organização.
+{% endif %}
 
 {% data reusables.organizations.outside_collaborator_forks %}
 
