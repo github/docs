@@ -12,11 +12,11 @@ versions:
 
 ### Overview
 
-This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows. 
+This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows.
 
 ### Storing secrets
 
-If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow. 
+If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow.
 
 This example action demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
@@ -57,7 +57,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
@@ -85,7 +85,7 @@ For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/w
 
 ### Caching dependencies
 
-{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository. 
+{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
 This example demonstrates how to cache the ` ~/.npm` directory:
 
@@ -106,7 +106,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)."
+For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ### Using databases and service containers
 
@@ -136,7 +136,7 @@ For more information, see "[Using databases and service containers](/actions/con
 
 ### Using labels to route workflows
 
-This feature helps you assign jobs to a specific self-hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way. 
+This feature helps you assign jobs to a specific self-hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.
 
 This example shows how a workflow can use labels to specify the required runner:
 

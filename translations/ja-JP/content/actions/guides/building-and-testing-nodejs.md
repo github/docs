@@ -129,7 +129,7 @@ Node.jsのバージョンを指定しなかった場合、{% data variables.prod
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、依存関係マネージャーのnpmとYarnがインストールされています。 コードのビルドとテストに先立って、npmやYarnを使ってワークフロー中で依存関係をインストールできます。 Windows及びLinuxの{% data variables.product.prodname_dotcom %}ホストランナーには、Grunt、Gulp、Bowerもインストールされています。
 
-ワークフローの速度を上げるために、依存関係をキャッシュすることもできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 #### npmの利用例
 
@@ -227,7 +227,7 @@ always-auth=true
 
 #### 依存関係のキャッシングの例
 
-`cache`アクションを使って、ユニークキーを使って依存関係をキャッシュし、将来のワークフローの実行で依存関係をリストアできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. 詳しい情報については「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシング</a>」及び[`cache`アクション](https://github.com/marketplace/actions/cache)を参照してください。
 
 {% raw %}
 ```yaml
@@ -240,8 +240,8 @@ steps:
 - name: Cache Node.js modules
   uses: actions/cache@v2
   with:
-    # npm キャッシュファイルは Linux/macOS の「~/.npm」に保存される
-    path: ~/.npm 
+    # npm cache files are stored in `~/.npm` on Linux/macOS
+    path: ~/.npm
     key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
     restore-keys: |
       ${{ runner.OS }}-node-

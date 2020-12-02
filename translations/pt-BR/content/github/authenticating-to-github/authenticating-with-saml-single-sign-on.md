@@ -1,6 +1,6 @@
 ---
 title: Sobre a autenticação com logon único SAML
-intro: 'You can authenticate to {% if currentVersion == "free-pro-team@latest" %}a {% data variables.product.product_name %} organization {% elsif currentVersion == "github-ae@latest" %}{% data variables.product.product_location %} {% endif %}with SAML single sign-on (SSO){% if currentVersion == "free-pro-team@latest" %} and view your active sessions{% endif %}.'
+intro: 'Você pode efetuar a autenticação em {% if currentVersion == "free-pro-team@latest" %}a organização {% data variables.product.product_name %} {% elsif currentVersion == "github-ae@latest" %}{% data variables.product.product_location %} {% endif %}com o logon único SAML (SSO){% if currentVersion == "free-pro-team@latest" %} e visualizar as suas sessões ativas{% endif %}.'
 mapTopic: true
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:

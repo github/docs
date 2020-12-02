@@ -2,7 +2,7 @@ const revalidator = require('revalidator')
 const allVersions = require('../../lib/all-versions')
 const { latest } = require('../../lib/enterprise-server-releases')
 const schema = require('../../lib/versions-schema')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('versions module', () => {

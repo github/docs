@@ -84,7 +84,7 @@ Dadurch können Sie den UUID Ihres Knotens in `cluster.conf` ermitteln.
 Allows you to exempt a list of users from API rate limits. For more information, see "[Rate Limiting](/enterprise/{{ page.version }}/v3/#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -159,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-Dieses Dienstprogramm listet Repositorys auf Ihrer Appliance auf, die {% data variables.product.prodname_dotcom %} Services verwenden. Hierbei handelt es sich um eine Integrationsmethode, die am 1. Oktober 2018 eingestellt wird. Benutzer auf Ihrer Appliance haben {% data variables.product.prodname_dotcom %} Services möglicherweise so eingerichtet, dass für Push-Vorgänge an bestimmte Repositorys Benachrichtigungen erstellt werden. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)." Verwenden Sie das Flag `-h`, um weitere Informationen zu diesem Befehl oder zusätzliche Informationen anzuzeigen.
+Dieses Dienstprogramm listet Repositorys auf Ihrer Appliance auf, die {% data variables.product.prodname_dotcom %} Services verwenden. Hierbei handelt es sich um eine Integrationsmethode, die am 1. Oktober 2018 eingestellt wird. Benutzer auf Ihrer Appliance haben {% data variables.product.prodname_dotcom %} Services möglicherweise so eingerichtet, dass für Push-Vorgänge an bestimmte Repositorys Benachrichtigungen erstellt werden. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." Verwenden Sie das Flag `-h`, um weitere Informationen zu diesem Befehl oder zusätzliche Informationen anzuzeigen.
 
 ```shell
 ghe-legacy-github-services-report

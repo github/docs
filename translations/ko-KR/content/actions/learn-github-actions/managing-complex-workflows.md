@@ -57,7 +57,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
@@ -106,7 +106,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)."
+For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ### Using databases and service containers
 
