@@ -3,7 +3,7 @@ title: どのリモート URL を使うべきですか？
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: '{% data variables.product.prodname_dotcom %} で使用できるリポジトリを複製する方法は複数あります。'
+intro: '{% data variables.product.product_location %} で使用できるリポジトリを複製する方法は複数あります。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,7 +16,7 @@ versions:
 
 ### Cloning with HTTPS URLs
 
-`https://` クローン URL は、パブリックおよびプライベートのすべてのリポジトリで利用できます。 これらの URL は、ファイアウォールまたはプロキシの内側にいる場合でも機能します。
+The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
 コマンドラインで、HTTPS URL を使用してリモートリポジトリに `git clone`、`git fetch`、`git pull` または `git push` を行った場合、{% data variables.product.product_name %} のユーザ名とパスワードの入力を求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
@@ -44,7 +44,7 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% tip %}
 
-**ヒント**: SSH URL は、お使いのコンピュータにリポジトリを作成する際にも、または本番サーバーにコードをデプロイする安全な方法としても使用できます。 デプロイスクリプトで SSH エージェント転送を使用して、サーバー上のキーの管理を回避することもできます。 詳細は「[SSH エージェント転送を使用する](/v3/guides/using-ssh-agent-forwarding/)」を参照してください。
+**ヒント**: SSH URL は、お使いのコンピュータにリポジトリを作成する際にも、または本番サーバーにコードをデプロイする安全な方法としても使用できます。 デプロイスクリプトで SSH エージェント転送を使用して、サーバー上のキーの管理を回避することもできます。 詳細は「[SSH エージェント転送を使用する](/developers/overview/using-ssh-agent-forwarding)」を参照してください。
 
 {% endtip %}
 

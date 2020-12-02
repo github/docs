@@ -23,7 +23,7 @@ As equipes principais não podem sincronizar com grupos de IdP. Se a equipe que 
 
 Para gerenciar o acesso ao repositório de qualquer equipe do {% data variables.product.prodname_dotcom %} incluindo equipes conectadas a um grupo de IdP, você deve fazer alterações com o {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)" e "[Gerenciar o acesso da equipe ao repositório de uma organização](/articles/managing-team-access-to-an-organization-repository)".
 
-Você também pode gerenciar a sincronização de equipe com a API. Para obter mais informações, consulte "[Sincronização de equipe](/v3/teams/team_sync/)".
+Você também pode gerenciar a sincronização de equipe com a API. Para obter mais informações, consulte "[Sincronização de equipe](/rest/reference/teams#team-sync)".
 
 ### Requisitos para integrantes de equipes sincronizadas
 

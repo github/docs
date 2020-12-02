@@ -83,4 +83,4 @@ Sie können eine benutzerdefinierte Meldung erstellen, die gesperrten Benutzern 
   ```
 
 ### Weiterführende Informationen
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"

@@ -37,7 +37,7 @@ O {% data variables.product.prodname_ghe_server %} armazena as credenciais do {%
 
 Habilitar o {% data variables.product.prodname_github_connect %} não permitirá que os usuários do {% data variables.product.prodname_dotcom_the_website %} façam alterações no {% data variables.product.prodname_ghe_server %}.
 
-Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".
+Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)".
 ### Habilitar o {% data variables.product.prodname_github_connect %}
 
 1. Fazer login em
