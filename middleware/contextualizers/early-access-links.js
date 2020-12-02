@@ -16,11 +16,12 @@ module.exports = function earlyAccessContext (req, res, next) {
     // Get links for the current version
     .filter(link => link.includes(req.context.currentVersion))
     .sort()
-    .join('\n')
 
   // Add to the rendering context
   // This is only used in the separate EA repo on local development
-  req.context.earlyAccessPageLinks = earlyAccessPageLinks
+  req.context.earlyAccessPageLinks = earlyAccessPageLinks.length
+    ? earlyAccessPageLinks.join('\n')
+    : `_None for this version!_`
 
   return next()
 }
