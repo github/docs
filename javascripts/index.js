@@ -5,8 +5,6 @@ import explorer from './explorer'
 import search from './search'
 import nav from './nav'
 import browserDateFormatter from 'browser-date-formatter'
-import googleAnalytics from './google-analytics'
-import deprecationBanner from './deprecation-banner'
 import sidebar from './sidebar'
 import wrapCodeTerms from './wrap-code-terms'
 import print from './print'
@@ -16,10 +14,9 @@ import experiment from './experiment'
 import copyCode from './copy-code'
 import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
-import CodeBlock from '../react/CodeBlock'
-import CodeEditor from '../react/CodeEditor'
-
-import 'react-tabs/style/react-tabs.css'
+import filterCodeExamples from './filter-code-examples'
+import allArticles from './all-articles'
+import devToc from './dev-toc'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -27,20 +24,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   search()
   nav()
   browserDateFormatter()
-  googleAnalytics()
-  deprecationBanner()
   sidebar()
   wrapCodeTerms()
   print()
   localization()
-  await fillCsrf() // this must complete before any POST calls
-  helpfulness()
-  experiment()
   copyCode()
-  initializeEvents()
+  filterCodeExamples()
+  allArticles()
+  devToc()
+  await fillCsrf() // this must complete before any POST calls
+  initializeEvents() // requires fillCsrf to complete
+  experiment() // requires fillCsrf to complete
+  helpfulness() // requires fillCsrf to complete
 })
-
-module.export = {
-  CodeBlock,
-  CodeEditor
-}
