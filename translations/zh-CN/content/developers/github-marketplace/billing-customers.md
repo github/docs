@@ -25,7 +25,7 @@ Customers must be able to perform the following actions from your app's website:
 
 Follow these guidelines for upgrades, downgrades, and cancellations to maintain a clear and consistent billing process. For more detailed instructions about the {% data variables.product.prodname_marketplace %} purchase events, see "[Billing flows](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)."
 
-You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/v3/apps/marketplace/#list-accounts-for-a-plan).
+You can use the `marketplace_purchase` webhook's `effective_date` key to determine when a plan change will occur and periodically synchronize the [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan).
 
 #### 升级
 

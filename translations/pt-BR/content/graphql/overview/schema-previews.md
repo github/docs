@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre pré-visualizações de esquemas
 
 Durante o período de pré-visualização, poderemos alterar alguns recursos com base no feedback do desenvolvedor. Se fizermos alterações, iremos anunciá-las no [blogue do desenvolvedor](https://developer.github.com/changes/) sem aviso prévio.
 
-Para acessar uma pré-visualização de esquema, você deverá fornecer um [tipo de mídia personalizado](/v3/media) no cabeçalho `Aceitar` para as suas solicitações. A documentação dos recursos para cada pré-visualização especifica qual tipo de mídia personalizado deve ser fornecido.
+Para acessar uma pré-visualização de esquema, você deverá fornecer um [tipo de mídia personalizado](/rest/overview/media-types) no cabeçalho `Aceitar` para as suas solicitações. A documentação dos recursos para cada pré-visualização especifica qual tipo de mídia personalizado deve ser fornecido.
 
 {% note %}
 

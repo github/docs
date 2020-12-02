@@ -53,13 +53,15 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o mesmo valor:
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 A tabela a seguir mostra quais funções do conjunto de ferramentas estão disponíveis dentro de um fluxo de trabalho:
 
@@ -162,6 +164,25 @@ Cria uma mensagem de erro e a imprime no log. Cria uma mensagem de erro e a impr
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Agrupar linhas dos registros
+
+```
+::group::{title}
+::endgroup::
+```
+
+Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
+
+#### Exemplo
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Grupo dobrável no registro da execução do fluxo de trabalho](/assets/images/actions-log-group.png)
+
 ### Mascarar um valor no registro
 
 `::add-mask::{value}`
@@ -258,6 +279,7 @@ echo "action_state=yellow" >> $GITHUB_ENV
 Executar `$action_state` em uma etapa futura agora retornará `amarelo`
 
 #### Strings de linha múltipla
+
 Para strings linha múltipla, você pode usar um delimitador com a seguinte sintaxe.
 
 ```
@@ -266,7 +288,8 @@ Para strings linha múltipla, você pode usar um delimitador com a seguinte sint
 {delimiter}
 ```
 
-#### Exemplo
+##### Exemplo
+
 Neste exemplo, usamos `EOF` como um delimitador e definimos a variável de ambiente `JSON_RESPONSE` como o valor da resposta de curl.
 ```
 steps:

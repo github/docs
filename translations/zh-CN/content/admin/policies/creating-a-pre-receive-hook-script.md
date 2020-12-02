@@ -70,19 +70,19 @@ versions:
 
    ```shell
    $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
-  ```
-  对于 Windows 用户，确保脚本具有执行权限：
+   ```
+   对于 Windows 用户，确保脚本具有执行权限：
 
-  ```shell
-  git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
-  ```
+   ```shell
+   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
+   ```
 
 2. 提交并推送到 {% data variables.product.prodname_ghe_server %} 实例上指定的预接收挂钩仓库。
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
-  ```
+   ```
 
 3. 在 {% data variables.product.prodname_ghe_server %} 实例上[创建预接收挂钩](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
 
@@ -93,40 +93,40 @@ versions:
 
 2. 创建一个名为 `Dockerfile.dev` 的文件，其中包含：
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN \
-      apk add --no-cache git openssh bash && \
-      ssh-keygen -A && \
-      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-      adduser git -D -G root -h /home/git -s /bin/bash && \
-      passwd -d git && \
-      su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P '' && \
-      mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && \
-      mkdir /home/git/test.git && \
-      git --bare init /home/git/test.git"
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN \
+     apk add --no-cache git openssh bash && \
+     ssh-keygen -A && \
+     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+     adduser git -D -G root -h /home/git -s /bin/bash && \
+     passwd -d git && \
+     su git -c "mkdir /home/git/.ssh && \
+     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+     mkdir /home/git/test.git && \
+     git --bare init /home/git/test.git"
 
-    VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-    WORKDIR /home/git
+   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+   WORKDIR /home/git
 
-    CMD ["/usr/sbin/sshd", "-D"]
-    ```
+   CMD ["/usr/sbin/sshd", "-D"]
+   ```
 
 3. 创建一个名为 `always_reject.sh` 的测试预接收脚本。 此示例脚本将拒绝所有推送，这对于锁定仓库非常有用：
 
-    ```
-    #!/usr/bin/env bash
+   ```
+   #!/usr/bin/env bash
 
-    echo "error: rejecting all pushes"
-    exit 1
-    ```
+   echo "error: rejecting all pushes"
+   exit 1
+   ```
 
 4. 确保 `always_reject.sh` 脚本具有执行权限：
 
    ```shell
    $ chmod +x always_reject.sh
-  ```
+   ```
 
 5. 从包含 `Dockerfile.dev` 的目录中，构建一个镜像：
 
@@ -135,7 +135,7 @@ versions:
    > Sending build context to Docker daemon 3.584 kB
    > Step 1 : FROM gliderlabs/alpine:3.3
    >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P ' && mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
+   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
    >  ---> Running in e9d79ab3b92c
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -143,38 +143,38 @@ versions:
    > OK: 34 MiB in 26 packages
    > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
    > Password for git changed by root
-   > Generating public/private rsa key pair.
-   > Your identification has been saved in /home/git/.ssh/id_rsa.
-   > Your public key has been saved in /home/git/.ssh/id_rsa.pub.
+   > Generating public/private ed25519 key pair.
+   > Your identification has been saved in /home/git/.ssh/id_ed25519.
+   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
    ....truncated output....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
-  ```
+   ```
 
 6. 运行包含生成的 SSH 密钥的数据容器：
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
-  ```
+   ```
 
 7. 将测试预接收挂钩 `always_reject.sh` 复制到数据容器中：
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
-  ```
+   ```
 
 8. 启动一个运行 `sshd` 的应用程序容器并执行挂钩。 记下返回的容器 ID：
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
-  ```
+   ```
 
 9. 将生成的 SSH 密钥从数据容器复制到本地计算机：
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_rsa .
-  ```
+   $ docker cp data:/home/git/.ssh/id_ed25519 .
+   ```
 
 10. 修改远程测试仓库并将其推送到 Docker 容器中的 `test.git` 仓库。 此示例使用了 `git@github.com:octocat/Hello-World.git`，但您可以使用想要的任何仓库。 此示例假定您的本地计算机 (127.0.0.1) 绑定了端口 52311，但如果 docker 在远程计算机上运行，则可以使用不同的 IP 地址。
 
@@ -182,7 +182,7 @@ versions:
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test main
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -193,9 +193,9 @@ versions:
    > To git@192.168.99.100:test.git
    >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
-  ```
+   ```
 
-  请注意，在执行预接收挂钩并回显脚本中的输出后，将拒绝推送。
+   请注意，在执行预接收挂钩并回显脚本中的输出后，将拒绝推送。
 
 ### 延伸阅读
  - 来自 *Pro Git 网站*的“[自定义 Git - Git 强制实施策略示例](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)”

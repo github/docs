@@ -7,11 +7,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Bei Verwendung von LDAP oder der integrierten Authentifizierung wird die Zwei-Faktor-Authentifizierung auf der {% data variables.product.prodname_ghe_server %}-Appliance unterstützt. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.
+When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-Weitere Informationen finden Sie in „[dieser Tabelle zu den Authentifizierungsmethoden, welche die 2FA unterstützen](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)“.
+Weitere Informationen findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/github/authenticating-to-github/about-two-factor-authentication).“
 
 ### Anforderungen für die Erzwingung der Zwei-Faktor-Authentifizierung
 

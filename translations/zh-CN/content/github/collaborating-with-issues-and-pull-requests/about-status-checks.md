@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 状态检查基于针对您每次向仓库的推送而运行的外部流程，例如持续集成构建。 您可以在拉取请求的个别提交旁边看到状态检查的*待处理*、*通过*或*失败*状态。
@@ -28,7 +29,7 @@ versions:
 
 _检查_与_状态_的不同之处在于它们提供行注解、更详细的信息，并且只适用于 {% data variables.product.prodname_github_app %}。
 
-组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 更多信息请参阅“[检查](/v3/checks/)”和“[状态](/v3/repos/statuses/)”。
+组织所有者和能够推送到仓库的用户可使用 {% data variables.product.product_name %} 的 API 创建检查和状态。 更多信息请参阅“[检查](/rest/reference/checks)”和“[状态](/rest/reference/repos#statuses)”。
 
 ### 检查
 

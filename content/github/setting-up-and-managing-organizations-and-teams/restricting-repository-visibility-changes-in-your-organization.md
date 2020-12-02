@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility from private to public or public to private.
+You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
 
 {% warning %}
 
@@ -24,3 +25,7 @@ You can restrict the ability to change repository visibility to organization own
 5. Under "Repository visibility change", deselect **Allow members to change repository visibilities for this organization**.
 ![Checkbox to allow members to change repository visibility](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Click **Save**.
+
+### Further reading
+
+- "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"

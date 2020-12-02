@@ -227,7 +227,7 @@ defaults:
 
 在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
-如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/v3/actions/workflow-jobs)”。
+如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/rest/reference/actions#workflow-jobs)”。
 
 ### **`jobs.<job_id>`**
 
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@master
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -876,6 +876,12 @@ strategy:
 
 {% endnote %}
 
+##### 在矩阵中使用环境变量
+
+You can add custom environment variables for each test combination by using the `include` key. 然后，您可以在后面的步骤中引用自定义环境变量。
+
+{% data reusables.github-actions.matrix-variable-example %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
 设置为 `true` 时，如果任何 `matrix` 作业失败，{% data variables.product.prodname_dotcom %} 将取消所有进行中的作业。 默认值：`true`
@@ -946,7 +952,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-要用作运行操作的容器的 Docker 图像。 值可以是 Docker Hub 映像名称或 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} 注册表名称。
+要用作运行操作的容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1029,7 +1035,7 @@ services:
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} 注册表名称。
+要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

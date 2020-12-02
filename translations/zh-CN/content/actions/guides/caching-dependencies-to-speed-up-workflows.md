@@ -36,9 +36,9 @@ versions:
 
 使用 `cache` 操作的 `v2`，可以访问具有 `GITHUB_REF` 的任何事件所触发的工作流程中的缓存。 如果使用 `cache` 操作的 `v1`，您只能访问由 `push` 和 `pull_request` 事件触发的工作流程中的缓存，`pull_request` `closed` 事件除外。 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)”。
 
-A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
+工作流程可以访问和还原当前分支、基础分支（包括复刻的仓库的基本分支）或默认分支（通常是 `main`）中创建的缓存 例如，在默认分支上创建的缓存可从任何拉取请求访问。 另外，如果分支 `feature-b` 具有基础分支 `feature-a`，则触发于 `feature-b` 的工作流程可以访问默认分支 (`main`)、`feature-a` 和 `feature-b` 中创建的缓存。
 
-访问限制通过在不同工作流程和分支之间创建逻辑边界来提供缓存隔离和安全。 For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
+访问限制通过在不同工作流程和分支之间创建逻辑边界来提供缓存隔离和安全。 例如， 为分支 `feature-a`（具有基础分支 `main`）创建的缓存将无法访问分支 `feature-b`（具有基础分支 `main`）的拉取请求。
 
 ### 使用 `cache` 操作
 
@@ -178,14 +178,14 @@ restore-keys: |
   npm-
 ```
 
-For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
+例如，如果拉取请求包含 `feature` 分支（当前范围）并针对默认分支 (`main`)，操作将按以下顺序搜索 `key` 和 `restore-keys`：
 
 1. `feature` 分支范围中的键值 `npm-feature-d5ea0750`
 1. `feature` 分支范围中的键值 `npm-feature-`
 2. `feature` 分支范围中的键值 `npm-`
-1. Key `npm-feature-d5ea0750` in the `main` branch scope
-3. Key `npm-feature-` in the `main` branch scope
-4. Key `npm-` in the `main` branch scope
+1. `main` 分支范围中的键值 `npm-feature-d5ea0750`
+3. `main` 分支范围中的键值 `npm-feature-`
+4. `main` 分支范围中的键值 `npm`
 
 ### 使用限制和收回政策
 

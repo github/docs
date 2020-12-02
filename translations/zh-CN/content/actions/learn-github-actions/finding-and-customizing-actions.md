@@ -1,7 +1,7 @@
 ---
-title: Finding and customizing actions
-shortTitle: Finding and customizing actions
-intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
+title: 查找和自定义操作
+shortTitle: 查找和自定义操作
+intro: '操作是支持工作流程的构建块。 工作流程可以包含社区创建的操作，您也可以直接在应用程序的仓库中创建您自己的操作。 本指南说明如何发现、使用和自定义操作。'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -17,32 +17,32 @@ versions:
 
 ### 概览
 
-The actions you use in your workflow can be defined in:
+在工作流程中使用的操作可以定义于：
 
 - 公共仓库
-- The same repository where your workflow file references the action
+- 工作流程文件引用操作的同一仓库
 - Docker Hub 上发布的 Docker 容器图像
 
-{% data variables.product.prodname_marketplace %} 是一个中心位置，可供查找由 {% data variables.product.prodname_dotcom %} 社区构建的操作。 [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category.
+{% data variables.product.prodname_marketplace %} 是一个中心位置，可供查找由 {% data variables.product.prodname_dotcom %} 社区构建的操作。 [{% data variables.product.prodname_marketplace %} 页面](https://github.com/marketplace/actions/)允许您按类别过滤操作。
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
-### Browsing Marketplace actions in the workflow editor
+### 在工作流程编辑器中浏览 Marketplace 操作
 
 您可以直接在仓库的工作流程编辑器中搜索和浏览操作。 从边栏可以搜索特定的操作、查看特色操作和浏览特色类别。 您也可以查看操作从 {% data variables.product.prodname_dotcom %} 社区获得的星标数。
 
 1. 在仓库中，浏览至要编辑的工作流程文件。
 1. 要打开工作流程编辑器，在文件视图右上角单击 {% octicon "pencil" aria-label="The edit icon" %}。 ![编辑工作流程文件按钮](/assets/images/help/repository/actions-edit-workflow-file.png)
-1. 在编辑器右侧，使用 {% data variables.product.prodname_marketplace %} 边栏浏览操作。 Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. ![Marketplace 工作流程边栏](/assets/images/help/repository/actions-marketplace-sidebar.png)
+1. 在编辑器右侧，使用 {% data variables.product.prodname_marketplace %} 边栏浏览操作。 带有 {% octicon "verified" aria-label="The verified badge" %} 徽章的操作表示 {% data variables.product.prodname_dotcom %} 已验证操作的创建者为合作伙伴组织。 ![Marketplace 工作流程边栏](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
-### Adding an action to your workflow
+### 添加操作到工作流程
 
-操作的列表页包括操作的版本以及使用操作所需的工作流程语法。 To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
+操作的列表页包括操作的版本以及使用操作所需的工作流程语法。 为使工作流程在操作有更新时也保持稳定，您可以在工作流程文件中指定 Git 或 Docker 标记号以引用所用操作的版本。
 
 1. 导航到要在工作流程中使用的操作。
 1. 在“Installation（安装）”下，单击 {% octicon "clippy" aria-label="The edit icon" %} 复制工作流程语法。 ![查看操作列表](/assets/images/help/repository/actions-sidebar-detailed-view.png)
 1. 将语法粘贴为工作流程中的新步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)”。
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. 如果操作要求您提供输入，请将其设置在工作流程中。 有关操作可能需要的输入的更多信息，请参阅“[对操作使用输入和输出](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -50,48 +50,48 @@ The actions you use in your workflow can be defined in:
 
 {% endif %}
 
-### Using release management for your custom actions
+### 对自定义操作使用发行版管理
 
-The creators of a community action have the option to use tags, branches, or SHA values to manage releases of the action. Similar to any dependency, you should indicate the version of the action you'd like to use based on your comfort with automatically accepting updates to the action.
+社区操作的创建者可以选择使用标记、分支或 SHA 值来管理操作的版本。 与任何依赖项类似，您应该根据自动接受操作更新的舒适程度来指示要使用的操作版本。
 
-You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
+您将在工作流程文件中指定操作的版本。 检查操作的文档，了解其发行版管理方法的信息，并查看要使用的标记、分支或 SHA 值。
 
-#### Using tags
+#### 使用标记
 
-Tags are useful for letting you decide when to switch between major and minor versions, but these are more ephemeral and can be moved or deleted by the maintainer. This example demonstrates how to target an action that's been tagged as `v1.0.1`:
+标记可用于让您决定何时在主要版本和次要版本之间切换，但这只是临时的，可能被维护员移动或删除。 此示例演示如何定位已标记为 `v1.0.1` 的操作：
 
 ```yaml
 steps:
     - uses: actions/javascript-action@v1.0.1
 ```
 
-#### Using SHAs
+#### 使用 SHA
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. This example targets an action's SHA:
+如果需要更可靠的版本控制，应使用与操作版本关联的 SHA 值。 SHA 是不可变的，因此比标记或分支更可靠。 但是，此方法意味着您不会自动接收操作的更新，包括重要的 Bug 修复和安全更新。 此示例针对操作的 SHA：
 
 ```yaml
 steps:
     - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
 ```
 
-#### Using branches
+#### 使用分支
 
-Referring to a specific branch means that the action will always use include the latest updates on the target branch, but can create problems if those updates include breaking changes. This example targets a branch named `@main`:
+引用特定分支意味着操作将始终使用包括目标分支上的最新更新，但如果这些更新包括重大更改，则可能会造成问题。 此示例针对名为 `@main`的分支：
 
 ```yaml
 steps:
     - uses: actions/javascript-action@main
 ```
 
-For more information, see "[Using release management for actions](/actions/creating-actions/about-actions#using-release-management-for-actions)."
+更多信息请参阅“[对操作使用发行版管理](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
 
-### Using inputs and outputs with an action
+### 对操作使用输入和输出
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will uses as part of the action processing.
+操作通常接受或需要输入并生成可以使用的输出。 例如，操作可能要求您指定文件的路径、标签的名称或它将用作操作处理一部分的其他数据。
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
+要查看操作的输入和输出，请检查仓库根目录中的 `action.yml` 或 `action.yaml`。
 
-In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
+在此示例 `.yml` 中， `inputs` 关键字定义名为 `file-path` 的必需输入，并且包括在未指定任何输入时使用的默认值。 `outputs` 关键字定义名为 `results-file` 的输出，告诉您到何处查找结果。
 
 ```yaml
 name: 'Example'
@@ -135,7 +135,7 @@ jobs:
       - uses: ./.github/actions/hello-world-action
 ```
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)"
+`action.yml` 文件用于提供操作的元数据。 要了解此文件的内容，请参阅“[GitHub Actions 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”
 
 ### 引用 Docker Hub 上的容器
 
@@ -153,4 +153,4 @@ jobs:
 
 ### 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Essential features of {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)."
+要继续了解 {% data variables.product.prodname_actions %}，请参阅“[{% data variables.product.prodname_actions %} 的基本功能](/actions/learn-github-actions/essential-features-of-github-actions)”。

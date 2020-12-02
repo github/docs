@@ -6,11 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 After you create issue and pull request templates in your repository, contributors can use the templates to open issues or describe the proposed changes in their pull requests according to the repository's contributing guidelines. For more information about adding contributing guidelines to a repository, see "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)."
 
-You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default issue and pull request templates for your organization or user account. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 ### Issue templates
 
@@ -20,7 +25,7 @@ When you create issue templates for your repository using the issue template bui
 
 Using the template builder, you can specify a title and description for each template, add the template content, and either commit the template to the default branch or open a pull request in the repository. The template builder automatically adds the YAML front matter markup that is required for the template to show on the new issue page. For more information, see "[Configuring issue templates for your repository](/articles/configuring-issue-templates-for-your-repository)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 

@@ -4,6 +4,7 @@ intro: 'Aproveite o {% data variables.product.prodname_dotcom %}, ao fazer a int
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}

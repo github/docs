@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du in Deinem Repository Branch-Schutzmaßnahmen erzwungen hast, kannst Du die obligatorische Commit-Signatur einrichten. Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“
 
-When you enable required commit signing on a branch, contibutors {% if currentVersion == "free-pro-team@latest" %}and bots{% endif %} can only push commits that have been signed and verified to the branch. Weitere Informationen findest Du unter „[Über die Verifikation von Commit-Signaturen](/articles/about-commit-signature-verification)."
+When you enable required commit signing on a branch, contributors {% if currentVersion == "free-pro-team@latest" %}and bots{% endif %} can only push commits that have been signed and verified to the branch. Weitere Informationen findest Du unter „[Über die Verifikation von Commit-Signaturen](/articles/about-commit-signature-verification)."
 
 Du kannst jederzeit lokale Commits zum Branch übertragen, wenn die Commits signiert und verifiziert sind. {% if currentVersion == "free-pro-team@latest" %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% if currentVersion == "free-pro-team@latest" %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."{% if currentVersion == "free-pro-team@latest" %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
 

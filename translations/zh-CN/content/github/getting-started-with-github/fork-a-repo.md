@@ -8,6 +8,7 @@ intro: 复刻是仓库的副本。 通过复刻仓库，您可以自由地尝试
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。
@@ -24,9 +25,15 @@ versions:
 
 开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 更多信息请参阅 Open Source Initiative（开源倡议）上的“[关于开源倡议](http://opensource.org/about)”。
 
+For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense 上的“[选择开源许可](http://choosealicense.com/)”。
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+
+{% endif %}
 
 {% note %}
 
@@ -34,7 +41,7 @@ versions:
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **提示**：您也可以使用 {% data variables.product.prodname_cli %} 复刻仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库复刻`](https://cli.github.com/manual/gh_repo_fork)”。

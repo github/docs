@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you [create a milestone](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), you can [associate it with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests).

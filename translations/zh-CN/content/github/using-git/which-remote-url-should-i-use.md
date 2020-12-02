@@ -3,10 +3,11 @@ title: 我应使用哪个远程 URL？
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: '克隆 {% data variables.product.prodname_dotcom %} 上的仓库有几种方法。'
+intro: '克隆 {% data variables.product.product_location %} 上的仓库有几种方法。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 当您登录到帐户查看仓库时，可以用于将项目克隆到计算机上的 URL 在仓库详细信息下方提供：
@@ -15,7 +16,7 @@ versions:
 
 ### 使用 HTTPS URL 克隆
 
-`https://` 克隆 URL 在所有仓库（公共和私有）中提供。 即使您在防火墙或代理后面，这些 URL 也有效。
+The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
 当您在命令行中使用 HTTPS URL 对远程仓库执行 `git clone`、`git fetch`、`git pull` 或 `git push` 命令时，Git 将要求您输入 {% data variables.product.product_name %} 用户名和密码。 {% data reusables.user_settings.password-authentication-deprecation %}
 
@@ -43,11 +44,11 @@ SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 �
 
 {% tip %}
 
-**提示**：您可以使用 SSH URL 将仓库克隆到计算机，或作为将代码部署到生产服务器的安全方法。 您还可以将 SSH 代理转发与部署脚本一起使用，以避免管理服务器上的密钥。 更多信息请参阅“[使用 SSH 代理转发](/v3/guides/using-ssh-agent-forwarding/)”。
+**提示**：您可以使用 SSH URL 将仓库克隆到计算机，或作为将代码部署到生产服务器的安全方法。 您还可以将 SSH 代理转发与部署脚本一起使用，以避免管理服务器上的密钥。 更多信息请参阅“[使用 SSH 代理转发](/developers/overview/using-ssh-agent-forwarding)”。
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 ### 使用 {% data variables.product.prodname_cli %} 克隆
 
@@ -55,11 +56,14 @@ SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 �
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### 使用 Subversion 克隆
 
 您还可以使用 [Subversion](https://subversion.apache.org/) 客户端访问 {% data variables.product.prodname_dotcom %} 上的任何仓库。 Subversion 提供不同于 Git 的功能集。 更多信息请参阅“[Subversion 与 Git 之间有何差异？](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)”
+You can also access repositories on
 
-您也可以从 Subversion 客户端访问 {% data variables.product.prodname_dotcom %} 上的仓库。 更多信息请参阅“[Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
+{% data variables.product.prodname_dotcom %} from Subversion clients. 更多信息请参阅“[Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
+{% endif %}
 
 ### 延伸阅读
 

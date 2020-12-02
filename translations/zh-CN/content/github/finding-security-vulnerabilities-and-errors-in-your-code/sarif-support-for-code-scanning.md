@@ -20,7 +20,7 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 
 如果您结合使用 {% data variables.product.prodname_actions %} 和 {% data variables.product.prodname_codeql_workflow %}，或者使用 {% data variables.product.prodname_codeql_runner %}，则 {% data variables.product.prodname_code_scanning %} 结果将自动使用受支持的 SARIF 2.1.0 子集。 For more information, see "[Enabling {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)" or "[Running {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 
-{% data variables.product.prodname_dotcom %} 使用 SARIF 文件中的属性来显示警报。 例如，`shortDescription` 和 `fullDescription` 出现在 {% data variables.product.prodname_code_scanning %} 警报的顶部。 `location` 允许 {% data variables.product.prodname_dotcom %} 在代码文件中显示注释。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+{% data variables.product.prodname_dotcom %} 使用 SARIF 文件中的属性来显示警报。 例如，`shortDescription` 和 `fullDescription` 出现在 {% data variables.product.prodname_code_scanning %} 警报的顶部。 `location` 允许 {% data variables.product.prodname_dotcom %} 在代码文件中显示注释。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)”。
 
 如果您是 SARIF 的新用户，想了解更多信息，请参阅 Microsoft 的[`SARIF 教程`](https://github.com/microsoft/sarif-tutorials)库。
 
@@ -35,6 +35,8 @@ SARIF（数据分析结果交换格式）是定义输出文件格式的 [OASIS �
 If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload a SARIF file](/rest/reference/code-scanning#upload-a-sarif-file)."
 
 ### Validating your SARIF file
+
+<!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
 
 You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
 

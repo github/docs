@@ -5,15 +5,13 @@ redirect_from:
   - Adding people to your organization
 versions:
   enterprise-server: '*'
+  github-ae: '*'
+permissions: 'Os proprietários da organização podem adicionar pessoas a uma organização.'
 ---
 
-{% tip %}
-
-**Dicas**:
-- Somente proprietários da organização podem adicionar usuários a uma organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
-- Se sua organização [exige que os integrantes usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), os usuários deverão [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) para que você possa adicioná-los à organização.
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+Se sua organização [exige que os integrantes usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), os usuários deverão [habilitar a autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa) para que você possa adicioná-los à organização.
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

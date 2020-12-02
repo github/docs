@@ -1,1 +1,1 @@
-1. **{% octicon "gear" aria-label="The gear icon" %} Settings（{{ octicon-gear The gear icon }}設定）**の下で**Contributors（コントリビュータ）**をクリックしてください。 ![コントリビュータータブ](/assets/images/help/insights/contributors-tab.png)
+1. Under **{% octicon "gear" aria-label="The gear icon" %} Settings**, click **Contributors**. ![コントリビュータータブ](/assets/images/help/insights/contributors-tab.png)

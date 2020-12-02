@@ -70,19 +70,19 @@ Es wird empfohlen, Hooks in einem einzelnen Repository zu konsolidieren. Wenn da
 
    ```shell
    $ sudo chmod +x <em>SCRIPT_FILE.sh</em>
-  ```
-  Stellen Sie für Windows-Benutzer sicher, dass die Skripts über Ausführungsberechtigungen verfügen:
+   ```
+   Stellen Sie für Windows-Benutzer sicher, dass die Skripts über Ausführungsberechtigungen verfügen:
 
-  ```shell
-  git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
-  ```
+   ```shell
+   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
+   ```
 
 2. Committen und übertragen Sie Ihr vorgesehenes Pre-Receive-Hook-Repository auf der {% data variables.product.prodname_ghe_server %}-Instanz per Push-Vorgang.
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
-  ```
+   ```
 
 3. [Erstellen Sie den Pre-Receive-Hook](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) auf der {% data variables.product.prodname_ghe_server %}-Instanz.
 
@@ -93,40 +93,40 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
 
 2. Erstellen Sie eine Datei namens `Dockerfile.dev`, die Folgendes enthält:
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN \
-      apk add --no-cache git openssh bash && \
-      ssh-keygen -A && \
-      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-      adduser git -D -G root -h /home/git -s /bin/bash && \
-      passwd -d git && \
-      su git -c "mkdir /home/git/.ssh && \
-      ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P '' && \
-      mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && \
-      mkdir /home/git/test.git && \
-      git --bare init /home/git/test.git"
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN \
+     apk add --no-cache git openssh bash && \
+     ssh-keygen -A && \
+     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+     adduser git -D -G root -h /home/git -s /bin/bash && \
+     passwd -d git && \
+     su git -c "mkdir /home/git/.ssh && \
+     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+     mkdir /home/git/test.git && \
+     git --bare init /home/git/test.git"
 
-    VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-    WORKDIR /home/git
+   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+   WORKDIR /home/git
 
-    CMD ["/usr/sbin/sshd", "-D"]
-    ```
+   CMD ["/usr/sbin/sshd", "-D"]
+   ```
 
 3. Erstellen Sie ein Pre-Receive-Testskript namens `always_reject.sh`. Dieses Beispielskript lehnt alle Push-Vorgänge ab, was zum Sperren eines Repositorys nützlich ist:
 
-    ```
-    #!/usr/bin/env bash
+   ```
+   #!/usr/bin/env bash
 
-    echo "error: rejecting all pushes"
-    exit 1
-    ```
+   echo "error: rejecting all pushes"
+   exit 1
+   ```
 
 4. Stellen Sie sicher, dass das Skript `always_reject.sh` über Ausführungsberechtigungen verfügt:
 
    ```shell
    $ chmod +x always_reject.sh
-  ```
+   ```
 
 5. Erstellen Sie im Verzeichnis, in dem die `Dockerfile.dev` enthalten ist, ein Image:
 
@@ -135,7 +135,7 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
    > Sending build context to Docker daemon 3.584 kB
    > Step 1 : FROM gliderlabs/alpine:3.3
    >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t rsa -b 4096 -f /home/git/.ssh/id_rsa -P ' && mv /home/git/.ssh/id_rsa.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
+   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
    >  ---> Running in e9d79ab3b92c
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
    > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
@@ -143,38 +143,38 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
    > OK: 34 MiB in 26 packages
    > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
    > Password for git changed by root
-   > Generating public/private rsa key pair.
-   > Your identification has been saved in /home/git/.ssh/id_rsa.
-   > Your public key has been saved in /home/git/.ssh/id_rsa.pub.
+   > Generating public/private ed25519 key pair.
+   > Your identification has been saved in /home/git/.ssh/id_ed25519.
+   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
    ....truncated output....
    > Initialized empty Git repository in /home/git/test.git/
    > Successfully built dd8610c24f82
-  ```
+   ```
 
 6. Führen Sie einen Datencontainer aus, der einen generierten SSH-Schlüssel enthält:
 
    ```shell
    $ docker run --name data pre-receive.dev /bin/true
-  ```
+   ```
 
 7. Kopieren Sie den Pre-Receive-Hook `always_reject.sh` in den Datencontainer:
 
    ```shell
    $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
-  ```
+   ```
 
 8. Führen Sie einen Anwendungscontainer aus, der `sshd` und den Hook ausführt. Beachten Sie die zurückgegebene Container-ID.
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
-  ```
+   ```
 
 9. Kopieren Sie den generierten SSH-Schlüssel aus dem Datencontainer auf den lokalen Computer:
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_rsa .
-  ```
+   $ docker cp data:/home/git/.ssh/id_ed25519 .
+   ```
 
 10. Ändern Sie die Remote-Instanz eines Test-Repositorys, und übertragen Sie das Repository `test.git` per Push-Vorgang innerhalb des Docker-Containers. In diesem Beispiel wird `git@github.com:octocat/Hello-World.git` verwendet. Sie können jedoch auch andere Repositorys verwenden. In diesem Beispiel wird davon ausgegangen, dass Ihr lokaler Computer (127.0.0.1) den Port 52311 bindet. Sie können jedoch eine andere IP-Adresse verwenden, wenn Docker auf einem Remote-Computer ausgeführt wird.
 
@@ -182,7 +182,7 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test main
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -193,9 +193,9 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
    > To git@192.168.99.100:test.git
    >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
-  ```
+   ```
 
-  Beachten Sie, dass der Push abgelehnt wurde, nachdem Sie den Pre-Receive-Hook ausgeführt und die Ausgabe des Skripts wiedergegeben haben.
+   Beachten Sie, dass der Push abgelehnt wurde, nachdem Sie den Pre-Receive-Hook ausgeführt und die Ausgabe des Skripts wiedergegeben haben.
 
 ### Weiterführende Informationen
  - „[Git anpassen – eine Git-erzwungene Beispielrichtlinie](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)“ von der *Pro Git-Website*

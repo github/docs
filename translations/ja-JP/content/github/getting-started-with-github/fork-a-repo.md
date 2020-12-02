@@ -8,6 +8,7 @@ intro: フォークとはリポジトリのコピーのことです。 リポジ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 一般的にフォークは、他のユーザのプロジェクトへの変更を提案するため、あるいは他のユーザのプロジェクトを自分のアイディアの出発点として活用するために使用します。
@@ -24,9 +25,15 @@ versions:
 
 オープンソースソフトウェアは、コードを共有することで、より優れた、より信頼性の高いソフトウェアを作成可能にするという考えに基づいています。 詳しい情報については、Open Source Initiative の「[Open Source Initiative について](http://opensource.org/about)」を参照してください。
 
+For more information about applying open source principles to your organization's development work on {% data variables.product.product_location %}, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 他のユーザのプロジェクトのフォークからパブリックリポジトリを作成する際は、プロジェクトの他者との共有方法を定義するライセンスファイルを必ず含めてください。 詳しい情報については、choosealicense の「[オープンソースのライセンスを選択する](http://choosealicense.com/)」を参照してください。
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+
+{% endif %}
 
 {% note %}
 
@@ -34,7 +41,7 @@ versions:
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.

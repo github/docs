@@ -1,26 +1,31 @@
 ---
 title: Enterprise アカウントについて
-intro: '{% data variables.product.prodname_ghe_server %} を使用すると、Enterprise アカウントを作成して、管理者に支払いとライセンスの使用に関する単一の表示と管理ポイントを提供できます。'
+intro: 'With {% data variables.product.product_name %}, you can use an enterprise account to give administrators a single point of visibility and management{% if enterpriseServerVersions contains currentVersion %} for billing and license usage{% endif %}.'
 redirect_from:
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
 versions:
-  enterprise-server: '*'
+  enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
-### {% data variables.product.prodname_ghe_server %} の Enterprise アカウントについて
+### {% data variables.product.product_name %} の Enterprise アカウントについて
 
-Enterprise アカウントでは、複数の {% data variables.product.prodname_dotcom %} Organization と {% data variables.product.prodname_ghe_server %} インスタンスを管理できます。 Enterprise アカウントは、{% data variables.product.prodname_dotcom %} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。 Enterprise 管理者は、以下のような設定やプリファレンスを管理できます:
+An enterprise account allows you to manage multiple organizations{% if enterpriseServerVersions contains currentVersion %} and {% data variables.product.prodname_ghe_server %} instances{% else %} on {% data variables.product.product_name %}{% endif %}. Enterprise アカウントは、{% data variables.product.prodname_dotcom %} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。 Enterprise 管理者は、以下のような設定やプリファレンスを管理できます:
 
-- メンバーのアクセスと管理 (Organization のメンバー、外部コラボレーター)
-- 支払いと使用状況 ({% data variables.product.prodname_ghe_server %} インスタンス、ユーザライセンス、{% data variables.large_files.product_name_short %} パック)
-- セキュリティ (シングルサインオン、2 要素認証)
-- {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
+- Member access and management (organization members, outside collaborators){% if enterpriseServerVersions contains currentVersion %}
+- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs){% endif %}
+- Security{% if enterpriseServerVersions contains currentVersion %}(single sign-on, two factor authentication)
+- Requests {% if enterpriseServerVersions contains currentVersion %}and support bundle sharing {% endif %}with {% data variables.contact.enterprise_support %}{% endif %}
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% if enterpriseServerVersions contains currentVersion %}{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." {% endif %}For more information about managing your {% data variables.product.product_name %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについては、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。 {% data variables.product.prodname_enterprise %} にアップグレードする、または Enterprise アカウントを使い始める場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
 ### Enterprise アカウントにリンクされている {% data variables.product.prodname_ghe_server %} ライセンスの管理
 
 {% data reusables.enterprise-accounts.admin-managing-licenses %}
+
+{% endif %}

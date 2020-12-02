@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-Let's walk through core API concepts as we tackle some everyday use cases.
+Let's walk through core API concepts as we tackle some everyday use cases. 
 
 ### Overview
 
@@ -28,7 +29,7 @@ Let's start by testing our setup. Open up a command prompt and enter the
 following command:
 
 ```shell
-$ curl {% data variables.product.api_url_pre %}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -39,7 +40,7 @@ Next, let's `GET` [Chris Wanstrath's][defunkt github] [GitHub profile][users api
 
 ```shell
 # GET /users/defunkt
-$ curl {% data variables.product.api_url_pre %}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
@@ -53,7 +54,7 @@ $ curl {% data variables.product.api_url_pre %}/users/defunkt
 Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
@@ -124,7 +125,13 @@ When authenticating, you should see your rate limit bumped to 5,000 requests an 
 
 You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![Personal Token selection](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![Personal Token selection](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### Get your own user profile
 
@@ -425,33 +432,33 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [create a new authorization API]: /rest/reference/oauth-authorizations#create-a-new-authorization
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[repos-api]: /v3/repos/
+[repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
-[issues-api]: /v3/issues/
-[link-header]: http://www.w3.org/wiki/LinkHeader/
-[conditional-requests]: /v3/#conditional-requests
-[rate-limiting]: /v3/#rate-limiting
-[users api]: /v3/users/#get-a-user
-[auth user api]: /v3/users/#get-the-authenticated-user
+[issues-api]: /rest/reference/issues
+[link-header]: https://www.w3.org/wiki/LinkHeader
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest#rate-limiting
+[users api]: /rest/reference/users#get-a-user
+[auth user api]: /rest/reference/users#get-the-authenticated-user
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
-[authentication]: /v3/#authentication
+[authentication]: /rest#authentication
 [2fa]: /articles/about-two-factor-authentication
 [2fa header]: /rest/overview/other-authentication-methods#working-with-two-factor-authentication
-[oauth section]: /v3/guides/getting-started/#oauth
+[oauth section]: /rest/guides/getting-started-with-the-rest-api#oauth
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
-[pagination]: /v3/#pagination
-[get repo]: /v3/repos/#get-a-repository
-[create repo]: /v3/repos/#create-a-repository-for-the-authenticated-user
-[create issue]: /v3/issues/#create-an-issue
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
 [auth guide]: /guides/basics-of-authentication
-[user repos api]: /v3/repos/#list-repositories-for-the-authenticated-user
-[other user repos api]: /v3/repos/#list-repositories-for-a-user
-[org repos api]: /v3/repos/#list-organization-repositories
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /v3/issues/#list-repository-issues
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag
-[2fa section]: /v3/guides/getting-started/#two-factor-authentication
+[2fa section]: /rest/guides/getting-started-with-the-rest-api#two-factor-authentication

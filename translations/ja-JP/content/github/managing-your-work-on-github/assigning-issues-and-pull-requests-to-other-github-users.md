@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリへの書き込み権限があるユーザなら誰でもIssue およびプルリクエストをアサインできます。
 
-You can assign up to 10 people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+自身、該当する Issue またはプルリクエストにコメントした任意の人、リポジトリへの書き込み権限がある任意の人、およびリポジトリの読み取り権限がある Organization メンバーを含めて、最大 10 人まで各 Issue またはプルリクエストにアサインできます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

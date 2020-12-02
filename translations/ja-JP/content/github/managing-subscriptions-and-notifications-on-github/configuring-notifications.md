@@ -16,20 +16,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### 通知配信オプション
 
-You have three basic options for notification delivery:
-  - the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}
-  - {% data variables.product.product_name %}{% endif %} のインボックスと同期する {% data variables.product.prodname_mobile %} の通知インボックス
-  - an email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
+You can receive notifications for activity on {% data variables.product.product_name %} in the following locations.
+
+  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" %}
+  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
+  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 {% endif %}
 
-{% data reusables.notifications-v2.tip-for-syncing-email-and-your-inbox-on-github %}
+{% data reusables.notifications.shared_state %}
 
 #### 通知インボックスの利点
 
@@ -58,8 +60,21 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ### 参加と Watch 対象の通知について
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. To see repositories that you're watching, see [https://github.com/watching](https://github.com/watching). 詳しい情報については「[GitHub上でのサブスクリプションと通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)」を参照してください。
+When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. 詳しい情報については[Team ディスカッションについて](/github/building-a-strong-community/about-team-discussions)を参照してください。
 
+To see repositories that you're watching, go to your [watching page](https://github.com/watching). 詳しい情報については「[GitHub上でのサブスクリプションと通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)」を参照してください。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+#### 通知を設定する
+{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+
+#### About custom notifications
+{% data reusables.notifications-v2.custom-notifications-beta %}
+You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
+{% endif %} For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)."
+
+#### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
 For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}.
@@ -94,7 +109,9 @@ Choose a default email address where you want to send updates for conversations 
   - プルリクエストのプッシュ。
   - Issue やプルリクエストのオープン、コメント、クローズなどの、自分自身の操作による更新。
 
-Depending on the organization that owns the repository, you can also send notifications to different email addresses for specific repositories. For example, you can send notifications for a specific public repository to a verified personal email address. Your organization may require the email address to be verified for a specific domain. 詳しい情報については、「[Organization のメール通知の送信先を選択する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)」を参照してください。
+Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see "[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+
+You can also send notifications for a specific repository to an email address. For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
@@ -109,9 +126,9 @@ If you believe you're receiving notifications that don't belong to you, examine 
 | ヘッダ                      | 情報                                                                                                                                                                                                                                                                |
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `From` アドレス              | This address will always be {% if currentVersion == "free-pro-team@latest" %}'`notifications@github.com`'{% else %}'the no-reply email address configured by your site administrator'{% endif %}.                                                                 |
-| `To` フィールド               | このフィールドは、直接スレッドに接続します。 メールに返信すると、会話に新しいコメントを追加することになります。                                                                                                                                                                                                          |
-| `Cc` アドレス                | あなたが会話をサブスクライブしていれば、{% data variables.product.product_name %}はあなたに `Cc` します。 2番目の`Cc`メールアドレスは、通知の理由にマッチします。 これらの通知理由に対するサフィックスは{% data variables.notifications.cc_address %}です。 通知の理由には以下のようなものがあります。 <ul><li>`assign`: 受信者はIssueあるいはプルリクエストに割り当てられました。</li><li>`author`: 受信者はIssueあるいはプルリクエストの作者です。</li><li>`comment`: 受信者はIssueあるいはプルリクエストにコメントしました。</li><li>`manual`: 手作業でサブスクライブした Issue あるいはプルリクエストが更新されました。</li><li>`mention`: 受信者は Issue あるいはプルリクエストにメンションされました。</li><li>`push`: 受信者がサブスクライブしているプルリクエストに誰かがコミットしました。</li><li>`review_requested`: 受信者あるいは受信者がメンバーになっている Team にプルリクエストのレビューがリクエストされました。</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} は、受信者がセキュリティのアラートを受け取るリポジトリに脆弱性を検出しました。</li><li>`state_change`: 受信者がサブスクライブしている Issue あるいはプルリクエストがクローズもしくはオープンされました。</li><li>`subscribed`: 受信者が Watch しているリポジトリに更新がありました。</li><li>`team_mention`: 受信者が属している Team が Issue あるいはプルリクエストでメンションされました。</li><li>`your_activity`: 受信者が Issue あるいはプルリクエストをオープン、コメントあるいはクローズしました。</li></ul>                                    |
-| `mailing list` フィールド     | このフィールドはリポジトリの名前とそのオーナーを特定します。 このアドレスのフォーマットは常に`<repository name>.<repository owner>.{% data variables.command_line.backticks %}`となります。 |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" % %}
+| `To` フィールド               | This field connects directly to the thread.{% if currentVersion != "github-ae@latest" %} If you reply to the email, you'll add a new comment to the conversation.{% endif %}
+| `Cc` アドレス                | あなたが会話をサブスクライブしていれば、{% data variables.product.product_name %}はあなたに `Cc` します。 2番目の`Cc`メールアドレスは、通知の理由にマッチします。 これらの通知理由に対するサフィックスは{% data variables.notifications.cc_address %}です。 通知の理由には以下のようなものがあります。 <ul><li>`assign`: 受信者はIssueあるいはプルリクエストに割り当てられました。</li><li>`author`: 受信者はIssueあるいはプルリクエストの作者です。</li><li>`comment`: 受信者はIssueあるいはプルリクエストにコメントしました。</li><li>`manual`: 手作業でサブスクライブした Issue あるいはプルリクエストが更新されました。</li><li>`mention`: 受信者は Issue あるいはプルリクエストにメンションされました。</li><li>`push`: 受信者がサブスクライブしているプルリクエストに誰かがコミットしました。</li><li>`review_requested`: 受信者あるいは受信者がメンバーになっている Team にプルリクエストのレビューがリクエストされました。</li>{% if currentVersion != "github-ae@latest" %}<li>`security_alert`: {% data variables.product.prodname_dotcom %} は、受信者がセキュリティのアラートを受け取るリポジトリに脆弱性を検出しました。</li>{% endif %}<li>`state_change`: 受信者がサブスクライブしている Issue あるいはプルリクエストがクローズもしくはオープンされました。</li><li>`subscribed`: 受信者が Watch しているリポジトリに更新がありました。</li><li>`team_mention`: 受信者が属している Team が Issue あるいはプルリクエストでメンションされました。</li><li>`your_activity`: 受信者が Issue あるいはプルリクエストをオープン、コメントあるいはクローズしました。</li></ul>                                    |
+| `mailing list` フィールド     | このフィールドはリポジトリの名前とそのオーナーを特定します。 このアドレスのフォーマットは常に`<repository name>.<repository owner>.{% data variables.command_line.backticks %}`となります。 |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | `X-GitHub-Severity`フィールド | {% data reusables.repositories.security-alerts-x-github-severity %} 考えられる重大度レベルは次のとおりです。<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 |{% endif %}
 
 ### 通知設定を選択する
@@ -121,7 +138,7 @@ If you believe you're receiving notifications that don't belong to you, examine 
 3. 通知設定ページで、次の場合の通知の受信方法を選択します。
     - Watch しているリポジトリや Team ディスカッション、または参加している会話に更新がある場合。 詳しい情報については、「[参加と Watch 対象の通知について](#about-participating-and-watching-notifications)」を参照してください。
     - 新しいリポジトリにアクセスするか、新しい Team に参加した場合。 For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - リポジトリに新しい{% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %}セキュリティアラート{% endif %}があります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} 通知オプション](#github-dependabot-alerts-notification-options)」を参照してください。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - リポジトリに新しい{% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %}セキュリティアラート{% endif %}があります。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} 通知オプション](#dependabot-alerts-notification-options)」を参照してください。 {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
     - リポジトリに新しいセキュリティアラートがある場合。 There are new security alerts in your repository. {% endif %} {% if currentVersion == "free-pro-team@latest" %}
     - {% data variables.product.prodname_actions %} で設定されたリポジトリにワークフロー実行の更新がある場合。 詳しい情報については、「[{% data variables.product.prodname_actions %} 通知オプション](#github-actions-notification-options)」を参照してください。{% endif %}
 
@@ -157,34 +174,21 @@ If you are a member of more than one organization, you can configure each one to
 5. 検証済みメールアドレスのうち 1 つを選択し、[**Save**] をクリックします。    
    ![Organization ごとのメールアドレス切り替え](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### {% data variables.product.prodname_dependabot_alerts %} の通知オプション
 {% else %}
 ### Security alert options
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. {% if page.version == 'dotcom' %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティアラート{% endif %}は、インボックス、{% data variables.product.product_name %} のバナー、コマンドライン、メール、またはこれらのオプションの組み合わせで受信できます。
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for
 
-If you want to receive {% data variables.product.prodname_dependabot_alerts %} by email, choose whether you want a weekly email summary of vulnerabilities for up 10 repositories or a new email each time a vulnerability is detected. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.21" %}Choose how you want to receive security alerts for repositories that you are watching. You can receive security alerts in your inbox, as a banner on {% data variables.product.product_name %}, on the command line, through email, or some combination of these options.
-
-If you want to receive security alerts by email, choose whether you want a weekly email summary of vulnerabilities for up 10 repositories or a new email each time a vulnerability is detected. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 {% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_short %} アラートオプション](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
-{% else %}
-  ![Security alerts options](/assets/images/help/notifications-v2/security-alerts-options.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
-{% note %}
-
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% if currentVersion == "free-pro-team@latest" %} your verified email addresses{% else %} the email addressed you've added to your {% data variables.product.product_name %} account{% endif %}. 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)」を参照してください。
-
-{% endnote %}
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-
 ### {% data variables.product.prodname_actions %} の通知オプション
 
 Choose how you want to receive workflow run updates for repositories that you are watching that are set up with {% data variables.product.prodname_actions %}. You can also choose to only receive notifications for failed workflow runs.
@@ -194,7 +198,6 @@ Choose how you want to receive workflow run updates for repositories that you ar
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-
 ### {% data variables.product.prodname_mobile %} でプッシュ通知を有効にする
 
 {% data variables.product.prodname_mobile %} をインストールすると、自動的に Web 通知が有効になります。 You can then enable push notifications for direct mentions within the app.
