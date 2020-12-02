@@ -110,4 +110,13 @@ describe('robots.txt', () => {
       })
     })
   })
+
+  it('does not have duplicate lines', () => {
+    const lines = new Set()
+    for (const line of res.text.split('\n')) {
+      if (/^\s*$/.test(line)) continue
+      expect(lines.has(line)).toBe(false)
+      lines.add(line)
+    }
+  })
 })

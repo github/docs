@@ -37,7 +37,7 @@ Wenn Du {% data variables.product.prodname_github_connect %} aktivierst, wird zu
 
 Wenn {% data variables.product.prodname_github_connect %} aktiviert wird, können {% data variables.product.prodname_dotcom_the_website %}-Benutzer keine Änderungen an {% data variables.product.prodname_ghe_server %} vornehmen.
 
-For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 ### {% data variables.product.prodname_github_connect %} aktivieren
 
 1. Sign in to

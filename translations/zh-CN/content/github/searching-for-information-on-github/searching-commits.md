@@ -96,14 +96,11 @@ versions:
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) 匹配 @github 拥有的仓库中含有 "test" 字样的提交消息。                                                   |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) 匹配 @defunkt 的 "gibberish" 仓库中含有 "language" 字样的提交消息。 |
 
-### 过滤公共或私有仓库
+### Filter by repository visibility
 
-`is` 限定符匹配公共或私有提交。
+The `is` qualifier matches commits from repositories with the specified visibility. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| 限定符          | 示例                                                                              |
-| ------------ | ------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配公共提交。   |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配私有提交。 |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
 
 ### 延伸阅读
 

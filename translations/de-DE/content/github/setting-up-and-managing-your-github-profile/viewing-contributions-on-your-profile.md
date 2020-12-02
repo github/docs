@@ -1,6 +1,6 @@
 ---
 title: Beiträge auf Deinem Profil anzeigen
-intro: 'Ihr {% data variables.product.product_name %}-Profil zeigt Ihre angehefteten Repositorys und ein Diagramm mit Ihren Repository-Beiträgen des letzten Jahres an.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-Dein Beteiligungsdiagramm zeigt die Aktivitäten in öffentlichen Repositorys. Du kannst die Aktivitäten in öffentlichen und privaten Repositorys anzeigen, wobei spezifische Details Deiner Aktivität in privaten Repositorys anonymisiert werden. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and{% endif %}private repositories, with specific details of your activity in private repositories anonymized. Weitere Informationen finden Sie unter „[Private Beiträge in Ihrem Profil veröffentlichen oder verbergen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)“.
 
 {% note %}
 
@@ -33,15 +33,19 @@ Bestimmte Aktionen zählen auf Deiner Profilseite als Beiträge:
 
 ### Beliebte Repositorys
 
-Dieser Abschnitt zeigt Deine Repositorys mit den meisten Beobachtern (Watcher) an. Wenn Du [Repositorys an Dein Profil anheftest](/articles/pinning-repositories-to-your-profile), wird dieser Abschnitt in „Pinned repositories“ (Angeheftete Repositorys) geändert.
+Dieser Abschnitt zeigt Deine Repositorys mit den meisten Beobachtern (Watcher) an. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![Beliebte Repositorys](/assets/images/help/profile/profile_popular_repositories.png)
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Angeheftete Repositorys
 
 Dieser Abschnitt zeigt bis zu sechs öffentliche Repositorys an und kann sowohl Deine Repositorys als auch die Repositorys enthalten, an denen Du Dich beteiligt hast. Damit Du ohne Weiteres wichtige Details zu den ausgewählten Repositorys anzeigen kannst, enthält jedes Repository in diesem Abschnitt eine Zusammenfassung der zu erledigenden Arbeit, die Anzahl der [Sterne](/articles/saving-repositories-with-stars/) des Repositorys und die im Repository verwendete Hauptprogrammiersprache. Weitere Informationen findest Du unter „[Repositorys an Dein Profil anheften](/articles/pinning-repositories-to-your-profile).“
 
 ![Angeheftete Repositorys](/assets/images/help/profile/profile_pinned_repositories.png)
+
+{% endif %}
 
 ### Beitragskalender
 
@@ -72,11 +76,11 @@ Zeitstempel werden für Commits und Pull Requests unterschiedlich berechnet:
 
 ![Aktivitätsübersicht im Profil](/assets/images/help/profile/activity-overview-section.png)
 
-Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv Du in der Organisation bist. Wenn Du in Deiner Profil-Bio eine Organisation @erwähnst und Du ein Organisationsmitglied bist, wird diese Organisation in der Aktivitätsübersicht priorisiert. Weitere Informationen findest Du unter „[Personen und Teams erwähnen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)“ oder „[Eine Biografie zu Deinem Profil hinzufügen](/articles/adding-a-bio-to-your-profile/).“
+Die in der Aktivitätsübersicht angezeigten Organisationen werden dementsprechend priorisiert, wie aktiv Sie in der Organisation sind. Wenn Sie in Ihrer Profil-Bio eine Organisation @erwähnen und Sie ein Organisationsmitglied sind, wird diese Organisation in der Aktivitätsübersicht priorisiert. Weitere Informationen finden Sie unter „[Personen und Teams erwähnen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)“ oder „[Eine Biografie zu Ihrem Profil hinzufügen](/articles/adding-a-bio-to-your-profile/)“.
 
 ### Beitragsaktivität
 
-Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste zu Deiner Arbeit. Dazu zählen die von Dir erstellten oder mitverfassten Commits, die von Dir vorgeschlagenen Pull Requests und die von Dir geöffneten Issues. Du kannst Deine über einen gewissen Zeitraum erstellten Beiträge anzeigen. Klicke dazu im unteren Bereich Deiner Beitragsaktivität auf **Show more activity** (Mehr Aktivität anzeigen) oder im rechten Bereich der Seite auf das gewünschte Jahr. Wichtige Momente werden in Deiner Beitragsaktivität hervorgehoben. Dazu zählen Dein Beitrittsdatum zu einer Organisation, Dein erster vorgeschlagener Pull Request oder das Öffnen eines hochrangigen Issues. Wenn Du bestimmte Ereignisse auf Deiner Zeitleiste nicht siehst, solltest Du sicherstellen, dass Du weiterhin auf die Organisation oder das Repository zugreifen kannst, in der respektive in dem das Ereignis auftrat.
+Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste zu Ihrer Arbeit. Dazu zählen die von Ihnen erstellten oder mitverfassten Commits, die von Ihnen vorgeschlagenen Pull Requests und die von Ihnen geöffneten Issues. Du kannst Deine über einen gewissen Zeitraum erstellten Beiträge anzeigen. Klicke dazu im unteren Bereich Deiner Beitragsaktivität auf **Show more activity** (Mehr Aktivität anzeigen) oder im rechten Bereich der Seite auf das gewünschte Jahr. Wichtige Momente werden in Ihrer Beitragsaktivität hervorgehoben. Dazu zählen Ihr Beitrittsdatum zu einer Organisation, Ihr erster vorgeschlagener Pull Request oder das Öffnen eines hochrangigen Issues. Wenn Sie bestimmte Ereignisse auf Ihrer Zeitleiste nicht anzeigen können, sollten Sie sicherstellen, dass Sie weiterhin auf die Organisation oder das Repository zugreifen können, in der bzw. in dem das Ereignis auftrat.
 
 ![Zeitfilter für Beitragsaktivität](/assets/images/help/profile/contributions_activity_time_filter.png)
 
