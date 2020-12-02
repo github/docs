@@ -1,6 +1,6 @@
 ---
 title: Gerenciar configurações do repositório
-intro: 'Administradores de repositórios e proprietários de organziações podem alterar várias configurações, inclusive os nomes e propriedade de um repositório e a visibilidade pública ou privada do repositório. Eles também podem excluir um repositório.'
+intro: 'Repository administrators and organization owners can change settings for a repository, like the name, ownership, and visibility, or delete the repository.'
 mapTopic: true
 redirect_from:
   - /articles/managing-repository-settings

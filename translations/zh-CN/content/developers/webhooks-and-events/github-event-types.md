@@ -40,7 +40,7 @@ The event objects returned from the Events API endpoints have the same structure
 
 #### Example WatchEvent event object
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/v3/activity/events).
+This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
 Status: 200 OK
@@ -198,22 +198,22 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-| 键                          | 类型    | 描述                                                                                                                |
-| -------------------------- | ----- | ----------------------------------------------------------------------------------------------------------------- |
-| `push_id`                  | `整数`  | Unique identifier for the push.                                                                                   |
-| `size`                     | `整数`  | The number of commits in the push.                                                                                |
-| `distinct_size`            | `整数`  | The number of distinct commits in the push.                                                                       |
-| `ref`                      | `字符串` | 被推送的完整 [`git ref`](/v3/git/refs/)。 Example: `refs/heads/main`.                                                    |
-| `头部`                       | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                           |
-| `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                           |
-| `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （该数组最多包含 20 个提交。 如有必要，可使用 [Commits API](/v3/repos/commits/) 获取更多提交。 此限制仅适用于时间表事件，而不适用于 web 挂钩递送。） |
-| `commits[][sha]`           | `字符串` | 提交的 SHA。                                                                                                          |
-| `commits[][message]`       | `字符串` | 提交消息.                                                                                                             |
-| `commits[][author]`        | `对象`  | 提交的 Git 作者。                                                                                                       |
-| `commits[][author][name]`  | `字符串` | Git 作者的名称。                                                                                                        |
-| `commits[][author][email]` | `字符串` | Git 作者的电子邮件地址。                                                                                                    |
-| `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                 |
-| `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                |
+| 键                          | 类型    | 描述                                                                                                                                                                     |
+| -------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `push_id`                  | `整数`  | Unique identifier for the push.                                                                                                                                        |
+| `size`                     | `整数`  | The number of commits in the push.                                                                                                                                     |
+| `distinct_size`            | `整数`  | The number of distinct commits in the push.                                                                                                                            |
+| `ref`                      | `字符串` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.                                                                            |
+| `头部`                       | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                                                                                |
+| `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                                                                                |
+| `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （该数组最多包含 20 个提交。 If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. 此限制仅适用于时间表事件，而不适用于 web 挂钩递送。） |
+| `commits[][sha]`           | `字符串` | 提交的 SHA。                                                                                                                                                               |
+| `commits[][message]`       | `字符串` | 提交消息.                                                                                                                                                                  |
+| `commits[][author]`        | `对象`  | 提交的 Git 作者。                                                                                                                                                            |
+| `commits[][author][name]`  | `字符串` | Git 作者的名称。                                                                                                                                                             |
+| `commits[][author][email]` | `字符串` | Git 作者的电子邮件地址。                                                                                                                                                         |
+| `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                                                                      |
+| `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                                                                     |
 
 ### ReleaseEvent
 

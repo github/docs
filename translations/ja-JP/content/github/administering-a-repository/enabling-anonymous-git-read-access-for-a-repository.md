@@ -5,7 +5,6 @@ redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
 versions:
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 次の場合に、リポジトリの管理者は、特定のリポジトリに対する匿名 Git 読み取りアクセスの設定を変更できます。

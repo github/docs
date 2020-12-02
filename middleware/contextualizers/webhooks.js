@@ -5,7 +5,7 @@ const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-ve
 const allVersions = require('../../lib/all-versions')
 
 module.exports = async (req, res, next) => {
-  if (!req.path.includes('webhooks')) return next()
+  if (!req.path.includes('webhook')) return next()
 
   // Get the name of the dir under lib/webhooks/static
   // For example, free-pro-team@latest corresponds to dotcom,
