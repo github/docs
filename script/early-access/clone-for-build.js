@@ -2,10 +2,9 @@
 
 // [start-readme]
 //
-// This script is run as a postbuild script during staging and deployments on Heroku.
-// If you have access to the PAT, it can also be run locally to clone https://github.com/docs/early-access.
-// The script clones a branch in the early-access repo that matches the current branch in the docs repo;
-// if one can't be found, it clones the `main` branch.
+// This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch
+// in the early-access repo that matches the current branch in the docs repo; if one can't be found, it
+// clones the `main` branch.
 //
 // [end-readme]
 
