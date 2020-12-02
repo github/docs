@@ -958,7 +958,6 @@ The Docker image to use as the container to run the action. The value can be the
 
 ### `jobs.<job_id>.container.credentials`
 
-
 {% data reusables.actions.registry-credentials %}
 
 #### Example
