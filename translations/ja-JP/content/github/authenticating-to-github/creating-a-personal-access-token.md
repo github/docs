@@ -12,7 +12,7 @@ versions:
   github-ae: '*'
 ---
 
-個人アクセストークン（PAT）は、[GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
+個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
 
 {% if currentVersion == "free-pro-team@latest" %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. 詳しい情報については「[SAMLシングルサインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)」及び「[SAMLシングルサインオンで利用する個人アクセストークンの認可](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
 

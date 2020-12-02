@@ -1,6 +1,6 @@
 ---
-title: GitHub event types
-intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+title: GitHubイベントの種類
+intro: '{% data variables.product.prodname_dotcom %} Event APIについて、各イベントの種類、{% data variables.product.prodname_dotcom %}上でのトリガーするアクション、各イベント固有のプロパティについて学んでください。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
@@ -11,7 +11,7 @@ versions:
 ---
 
 
-The Events API can return different types of events triggered by activity on GitHub. Each event response contains shared properties, but has a unique `payload` object determined by its event type. The [Event object common properties](#event-object-common-properties) describes the properties shared by all events, and each event type describes the `payload` properties that are unique to the specific event.
+Events APIは、GitHub上のアクティビティによってトリガーされる様々な種類のイベントを返します。 Each event response contains shared properties, but has a unique `payload` object determined by its event type. The [Event object common properties](#event-object-common-properties) describes the properties shared by all events, and each event type describes the `payload` properties that are unique to the specific event.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -40,7 +40,7 @@ The event objects returned from the Events API endpoints have the same structure
 
 #### Example WatchEvent event object
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/v3/activity/events).
+This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
 Status: 200 OK
@@ -198,22 +198,22 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-| キー                         | 種類        | 説明                                                                                                                                                                                                                                                                                          |
-| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `push_id`                  | `integer` | Unique identifier for the push.                                                                                                                                                                                                                                                             |
-| `size`                     | `integer` | The number of commits in the push.                                                                                                                                                                                                                                                          |
-| `distinct_size`            | `integer` | The number of distinct commits in the push.                                                                                                                                                                                                                                                 |
-| `ref`                      | `string`  | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/main`.                                                                                                                                                                                                            |
-| `head`                     | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
-| `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
-| `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
-| `commits[][sha]`           | `string`  | コミットのSHA。                                                                                                                                                                                                                                                                                   |
-| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                                                                                                                                                  |
-| `commits[][author]`        | `オブジェクト`  | The git author of the commit.                                                                                                                                                                                                                                                               |
-| `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                      |
-| `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                             |
-| `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                 |
-| `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                      |
+| キー                         | 種類        | 説明                                                                                                                                                                                                                                                                                                     |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `push_id`                  | `integer` | Unique identifier for the push.                                                                                                                                                                                                                                                                        |
+| `size`                     | `integer` | The number of commits in the push.                                                                                                                                                                                                                                                                     |
+| `distinct_size`            | `integer` | The number of distinct commits in the push.                                                                                                                                                                                                                                                            |
+| `ref`                      | `string`  | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.                                                                                                                                                                                                            |
+| `head`                     | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                             |
+| `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                            |
+| `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
+| `commits[][sha]`           | `string`  | コミットのSHA。                                                                                                                                                                                                                                                                                              |
+| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                                                                                                                                                             |
+| `commits[][author]`        | `オブジェクト`  | The git author of the commit.                                                                                                                                                                                                                                                                          |
+| `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                                 |
+| `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                                        |
+| `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                            |
+| `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                                 |
 
 ### ReleaseEvent
 

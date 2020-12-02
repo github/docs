@@ -37,6 +37,8 @@ versions:
 
 - 当社従業員、役員、代理店、その他ユーザを含む、あらゆる個人またはグループに対する嫌がらせ、罵倒、脅迫、または暴力の誘発、
 
+- post off-topic content, or interact with platform features, in a way that significantly or repeatedly disrupts the experience of other users;
+
 - あらゆる自動化された過剰な大規模活動 (スパムや暗号通貨のマイニングなど) に当社サーバーを利用すること、自動化された手段により当社サーバーに不当な負荷を加えること、または当社サーバーを経由して、あらゆる未承諾広告や勧誘行為 (攻略法詐欺など) を中継すること、
 
 - 当社サーバーを使用して、何らかのサービス、デバイス、データ、アカウントまたはネットワークを妨害するかあるいはこれを試みること、またはこれらに不正アクセスするかあるいはこれを試みること ([GitHub Bug Bounty program](https://bounty.github.com) により許可されている場合を除く)、
@@ -48,15 +50,17 @@ versions:
 ### 4. サービス利用の制限
 当社が書面により明示的に許可する場合を除き、「サービス」のいずれか一部、「サービス」の使用、または「サービス」へのアクセスを複製、複写、コピー、販売、再販売、または活用してはなりません。
 
-### 5. スクレイピングおよび API 利用の制限
-スクレイピングとは、ボットやウェブクローラーなどの自動的な処理により、当社「サービス」からデータを抽出することを指します。 API を介した情報の収集は指していません。 Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. 本ウェブサイトをスクレイピングできるのは次を理由とする場合のみです。
+### 5. Information Usage Restrictions
+You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
-- 研究者は、公開された研究結果が自由にアクセスできる場合にのみ、非個人的なパブリック情報を「サービス」から研究目的でスクレイピングすることができます。
-- アーキビストは、データを保管する目的で「サービス」のパブリックデータをスクレイピングすることができます。
+-  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
+-  Archivists may use public information from the Service for archival purposes.
 
-(「[GitHub のプライバシーについての声明](/articles/github-privacy-statement)」の定義による) 「ユーザ個人情報」を、人事採用担当者、ヘッドハンター、求人掲示板などに販売する目的を含め、スパム目的で本「サービス」をスクレイピングすることはできません。
+Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms.
 
-スクレイピングにより収集したデータの利用はすべて、「 [GitHub のプライバシーについての声明](/articles/github-privacy-statement)」に従う必要があります。
+You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling User Personal Information (as defined in the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement)), such as to recruiters, headhunters, and job boards.
+
+Your use of information from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
 
 ### 6. プライバシー
 「ユーザ個人情報」の悪用は禁じられています

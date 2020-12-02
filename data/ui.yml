@@ -2,8 +2,7 @@ header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
-    ghae_silent_launch:
-      GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently under limited release as a release candidate.'
@@ -18,6 +17,7 @@ header:
       still in translation. For the most up-to-date and accurate information,
       please visit our
       <a id="to-english-doc" href="/en">English documentation</a>.
+    early_access: 👋 This page contains content about an early access feature. Please do not share this URL publicly.
 search:
   need_help: Need help?
   placeholder: Search topics, products...
@@ -30,7 +30,7 @@ toc:
   guides: Guides
   whats_new: What's new
 pages:
-  article_version: "Article version:"
+  article_version: 'Article version:'
   miniToc: In this article
 errors:
   oops: Ooops!

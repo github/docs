@@ -1,6 +1,6 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers')
+const { get, getDOM, head } = require('../helpers/supertest')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
@@ -53,8 +53,6 @@ describe('server', () => {
     expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
-    expect(csp.get('script-src').includes("'unsafe-eval'")).toBe(true) // exception for Algolia instantsearch
-    expect(csp.get('script-src').includes("'unsafe-inline'")).toBe(true)
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)

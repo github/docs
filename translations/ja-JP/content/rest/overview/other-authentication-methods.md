@@ -37,19 +37,29 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 このアプローチは、ツールが Basic 認証のみをサポートしているが、OAuth アクセストークンのセキュリティ機能を利用したい場合に役立ちます。
 
-{% if enterpriseServerVersions contains currentVersion %}
 #### ユーザ名とパスワードを使用する
 
-{% data reusables.apps.deprecating_password_auth %}
+{% if currentVersion == "free-pro-team@latest" %}
 
-{% data variables.product.product_name %} API で Basic 認証を使用するには、アカウントに関連付けられているユーザ名とパスワードを送信します。
+{% note %}
+
+**Note:** {% data variables.product.prodname_dotcom %} has discontinued password authentication to the API starting on November 13, 2020 for all {% data variables.product.prodname_dotcom_the_website %} accounts, including those on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %} plan. You must now authenticate to the {% data variables.product.prodname_dotcom %} API with an API token, such as an OAuth access token, GitHub App installation access token, or personal access token, depending on what you need to do with the token. For more information, see "[Troubleshooting](/rest/overview/troubleshooting#basic-authentication-errors)."
+
+{% endnote %}
+
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+To use Basic Authentication with the
+{% data variables.product.product_name %} API, simply send the username and
+password associated with the account.
 
 たとえば、[cURL][curl] を介して API にアクセスしている場合、`<username>` を {% data variables.product.product_name %} のユーザ名に置き換えると、次のコマンドで認証されます。 （cURL からパスワードの入力を求められます。）
 
 ```shell
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
-2 要素認証を有効にしている場合は、[2 要素認証の使用方法](/v3/auth/#working-with-two-factor-authentication)を理解した上で行ってください。
+2 要素認証を有効にしている場合は、[2 要素認証の使用方法](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)を理解した上で行ってください。
 
 {% endif %}
 
@@ -88,14 +98,13 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### 2 要素認証を使用する
 
-{% data reusables.apps.deprecating_password_auth %}
+When you have two-factor authentication enabled, [Basic Authentication](#basic-authentication) for _most_ endpoints in the REST API requires that you use a personal access token{% if enterpriseServerVersions contains currentVersion %} or OAuth token instead of your username and password{% endif %}.
 
-2 要素認証を有効にしている場合、REST API の_ほとんど_のエンドポイントの [Basic 認証](#basic-authentication)では、ユーザ名とパスワードの代わりに個人アクセストークンまたは OAuth トークンを使用する必要があります。
+You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}using [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %}{% if enterpriseServerVersions contains currentVersion %} or with the "\[Create a new authorization\]\[/rest/reference/oauth-authorizations#create-a-new-authorization\]" endpoint in the OAuth Authorizations API to generate a new OAuth token{% endif %}. 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 Then you would use these tokens to [authenticate using OAuth token][oauth-auth] with the {% data variables.product.prodname_dotcom %} API.{% if enterpriseServerVersions contains currentVersion %} The only time you need to authenticate with your username and password is when you create your OAuth token or use the OAuth Authorizations API.{% endif %}
 
-You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}with [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %} or use the "[Create a new authorization][create-access]" endpoint in the OAuth Authorizations API to generate a new OAuth token. 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 次に、これらのトークンを使って、GitHub API で [OAuth トークンを使用して認証][oauth-auth]します。 ユーザ名とパスワードで認証する必要があるのは、OAuth トークンを作成するとき、または OAuth Authorizations API を使用するときだけです。
+{% endif %}
 
-
-
+{% if enterpriseServerVersions contains currentVersion %}
 #### 2 要素認証で OAuth Authorizations API を使用する
 
 OAuth Authorizations API を呼び出す場合、Basic 認証では、トークンの代わりにワンタイムパスワード（OTP）とユーザ名とパスワードを使用する必要があります。 OAuth Authorizations API で認証しようとすると、サーバは `401 Unauthorized` とこれらのヘッダの 1 つで応答し、2 要素認証コードが必要であることを通知します。
@@ -114,10 +123,9 @@ $ curl --request POST \
 ```
 {% endif %}
 
-[create-access]: /v3/oauth_authorizations/#create-a-new-authorization
 [curl]: http://curl.haxx.se/
-[oauth-auth]: /v3/#authentication
+[oauth-auth]: /rest#authentication
 [personal-access-tokens]: /articles/creating-a-personal-access-token-for-the-command-line
 [saml-sso]: /articles/about-identity-and-access-management-with-saml-single-sign-on
 [allowlist]: /github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
-[user-issues]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
+[user-issues]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
