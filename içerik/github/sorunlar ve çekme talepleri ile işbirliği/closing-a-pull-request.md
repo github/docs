@@ -1,6 +1,6 @@
 ---
 title: Closing a pull request
-intro: 'You may choose to *close* a pull request without [merging it into the upstream branch](/articles/merging-a-pull-request). This can be handy if the changes proposed in the branch are no longer needed, or if another solution has been proposed in another branch.'
+intro: 'You may choose to *close* a pull request without [merging it into the upstream branch](/articles/merging-a-pull-request). This can be handy if the changes proposed in the branch are no longer needed, or if another solution has been proposed in another branchü
 redirect_from:
   - /articles/closing-a-pull-request
 versions:
