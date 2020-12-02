@@ -9,7 +9,7 @@ intro: 'While you can grant read/write access to collaborators on a personal rep
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-interactive: true
+  github-ae: '*'
 ---
 
 ### Personal user accounts
@@ -18,43 +18,17 @@ A repository owned by a user account has two permission levels: the *repository 
 
 ### Organization accounts
 
-#### Code Block Component
-<!--react-->
-<CodeBlock
-js={`var i;
-for (i = 0; i < cars.length; i++) {
-  text += cars[i] + "<br>";
-}`}
-
-php={`for ($x = 0; $x <= 10; $x++) {
-  echo "The number is: $x <br>";
-}`}
-
-python={`for x in "banana":
-  print(x)
-`}
-/>
-<!--end-react-->
-
 Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
 - "[Permission levels for an organization](/articles/permission-levels-for-an-organization)"
 - "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
 - "[About teams](/articles/about-teams)"
 
-## Code Editor Component
-
-<!--react-->
-<CodeEditor language='javascript' code={`console.log('hello world')`} />
-<!--end-react-->
-
-
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Enterprise accounts
 
-
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles for an enterprise account](/articles/roles-for-an-enterprise-account)."
+*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
 
 {% data reusables.gated-features.enterprise-accounts %}
 
