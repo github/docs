@@ -180,7 +180,6 @@ async function createRedirectPages (permalinks, pages, finalDirectory) {
   console.log('done creating redirect files!\n')
 }
 
-// prior art: https://github.com/github/help-docs-archived-enterprise-versions/blob/master/2.12/user/leave-a-repo/index.html
 // redirect html files already exist in <=2.12 because these versions were deprecated on the old static site
 function getRedirectHtml (newPath) {
   return `<!DOCTYPE html>
