@@ -37,6 +37,8 @@ changelog:
   - title: Self-Hosted Runner Group Access Changes
     date: '2020-10-16'
     href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
+
+product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
   
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/

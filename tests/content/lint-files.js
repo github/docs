@@ -223,6 +223,14 @@ describe('lint-files', () => {
             if (match === '[Contribution guidelines for this project](docs/CONTRIBUTING.md)') {
               return false
             }
+          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/constraints.md') {
+            if (match === '[a-z]([a-z]|-)') {
+              return false
+            }
+          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/overview.md') {
+            if (match === '[A-Z]([a-z]|-)') {
+              return false
+            }
           }
           return true
         })
