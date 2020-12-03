@@ -2,7 +2,7 @@
 
 const path = require('path')
 const { chain, difference } = require('lodash')
-const loadPages = require('../lib/pages')
+const { loadPages } = require('../lib/pages')
 const loadSiteData = require('../lib/site-data')
 const renderContent = require('../lib/render-content')
 const allVersions = require('../lib/all-versions')

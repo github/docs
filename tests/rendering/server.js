@@ -3,7 +3,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head } = require('../helpers/supertest')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-const loadPages = require('../../lib/pages')
+const { loadPages } = require('../../lib/pages')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)

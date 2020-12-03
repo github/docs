@@ -12,7 +12,8 @@ const featureFlags = Object.keys(require('../feature-flags'))
 // Note that additional middleware in middleware/index.js adds to this context object
 module.exports = async function contextualize (req, res, next) {
   // Ensure that we load some data only once on first request
-  const { site, redirects, pages, siteTree } = await warmServer()
+  const { site, redirects, siteTree, pages: pageMap } = await warmServer()
+
   req.context = {}
 
   // make feature flag environment variables accessible in layouts
@@ -39,7 +40,7 @@ module.exports = async function contextualize (req, res, next) {
   req.context.redirects = redirects
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
-  req.context.pages = pages
+  req.context.pages = pageMap
 
   return next()
 }
