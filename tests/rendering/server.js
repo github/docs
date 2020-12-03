@@ -369,9 +369,12 @@ describe('server', () => {
       done()
     })
 
+    test('exist in the set of English pages', async () => {
+      expect(hiddenPages.length).toBeGreaterThan(0)
+    })
+
     test('are listed at /early-access', async () => {
-      // hiddenPages count multiplied by product version count per page
-      expect(hiddenPageHrefs.length).toBeGreaterThanOrEqual(hiddenPages.length)
+      expect(hiddenPageHrefs.length).toBeGreaterThan(0)
     })
 
     test('are not listed at /early-access in production', async () => {
@@ -383,10 +386,8 @@ describe('server', () => {
     })
 
     test('have noindex meta tags', async () => {
-      if (hiddenPageHrefs.length > 0) {
-        const $ = await getDOM(hiddenPageHrefs[0])
-        expect($('meta[content="noindex"]').length).toBe(1)
-      }
+      const $ = await getDOM(hiddenPageHrefs[0])
+      expect($('meta[content="noindex"]').length).toBe(1)
     })
 
     test('public articles do not have noindex meta tags', async () => {
