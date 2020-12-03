@@ -15,7 +15,10 @@ Object.values(languages)
 Object.values(products)
   .filter(product => product.wip || product.hidden)
   .forEach(product => {
-    defaultResponse = defaultResponse.concat(`\nDisallow: /*${product.href}\nDisallow: /*/enterprise/*/user${product.href}`)
+    defaultResponse = defaultResponse.concat(`\nDisallow: /*${product.href}`)
+    product.versions.forEach(version => {
+      defaultResponse = defaultResponse.concat(`\nDisallow: /*${version}/${product.id}`)
+    })
   })
 
 // Disallow crawling of Deprecated enterprise versions
