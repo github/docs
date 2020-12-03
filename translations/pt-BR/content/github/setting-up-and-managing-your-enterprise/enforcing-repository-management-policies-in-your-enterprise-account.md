@@ -6,6 +6,7 @@ redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
@@ -48,8 +49,7 @@ Em todas as organizações pertencentes à conta corporativa, é possível permi
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. Na guia **Repository policies** (Políticas de repositório), em "Repository invitations" (Convites para repositórios), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Em "Repository  invitations" (Convites para repositórios), use o menu suspenso e escolha uma política.  
-   ![Menu suspenso com opções de políticas de convite de colaboradores externos](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+4. Em "Convites para repositórios, use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de convite de colaboradores externos](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
 
 ### Aplicar política sobre como alterar a visibilidade do repositório
 

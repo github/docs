@@ -12,7 +12,7 @@ versions:
 
 ### Introdução
 
-Este guia irá apresentá-lo aos [aplicativos Github](/apps/) e à [API de verificação](/v3/checks/), que você usará para criar um servidor de integração contínua (CI) que executa testes.
+This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/rest/reference/checks), which you'll use to build a continuous integration (CI) server that runs tests.
 
 A CI é uma prática de software que exige o commit do código em um repositório compartilhado. Fazer commits de códigos com frequência detecta erros com mais antecedência e reduz a quantidade de código necessária para depuração quando os desenvolvedores chegam à origem de um erro. As atualizações frequentes de código também facilitam o merge de alterações dos integrantes de uma equipe de desenvolvimento de software. Assim, os desenvolvedores podem se dedicar mais à gravação de códigos e se preocupar menos com erros de depuração ou conflitos de merge. 🙌
 
@@ -22,15 +22,15 @@ Um código de host do servidor de CI que executa testes de CI, como, por exemplo
 
 #### Visão geral da API de verificação
 
-A [API de verificação](/v3/checks/) permite que você configure testes de CI executados automaticamente em cada commit de código em um repositório. A API de verificação relata informações detalhadas sobre cada verificação no GitHub na aba **Verificações** do pull request. Com a API de Verificações, você pode criar anotações com detalhes adicionais para linhas específicas de código. As anotações são visíveis na aba **Verificações**. Ao criar uma anotação para um arquivo que faz parte do pull request, as anotações também são exibidas na aba **Arquivos alterados**.
+The [Checks API](/rest/reference/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. A API de verificação relata informações detalhadas sobre cada verificação no GitHub na aba **Verificações** do pull request. Com a API de Verificações, você pode criar anotações com detalhes adicionais para linhas específicas de código. As anotações são visíveis na aba **Verificações**. Ao criar uma anotação para um arquivo que faz parte do pull request, as anotações também são exibidas na aba **Arquivos alterados**.
 
-Um _conjunto de verificações_ é um grupo de _execuções de verificação _ (testes de CI individuais). Tanto o conjunto quanto a execução contêm _status_ visíveis em um pull request no GitHub. Você pode usar os status para determinar quando um commit de código introduz erros. Usar esses status com [branches protegidos](/v3/repos/branches/) pode impedir que as pessoas mesclem de pull requests prematuramente. Consulte "[Habilitando as verificações de status necessárias](/articles/enabling-required-status-checks/)" para mais detalhes.
+Um _conjunto de verificações_ é um grupo de _execuções de verificação _ (testes de CI individuais). Tanto o conjunto quanto a execução contêm _status_ visíveis em um pull request no GitHub. Você pode usar os status para determinar quando um commit de código introduz erros. Using these statuses with [protected branches](/rest/reference/repos#branches) can prevent people from merging pull requests prematurely. Consulte "[Habilitando as verificações de status necessárias](/articles/enabling-required-status-checks/)" para mais detalhes.
 
-A API de verificações envia o evento do webhook [`check_suite` webhook](/webhooks/event-payloads/#check_suite) para todos os aplicativos GitHub instalados em um repositório sempre que um novo código for enviado para o repositório. Para receber todas as ações do evento de verificações da API, o aplicativo deverá ter a permissão de `checks:write`. O GitHub cria automaticamente eventos `check_suite` para novos códigos de commits em um repositório usando o fluxo-padrão, embora [Atualizar preferências do repositório para o conjunto de verificações](/v3/checks/suites/#update-repository-preferences-for-check-suites) esteja disponível se desejar. Veja como funciona o fluxo-padrão:
+A API de verificações envia o evento do webhook [`check_suite` webhook](/webhooks/event-payloads/#check_suite) para todos os aplicativos GitHub instalados em um repositório sempre que um novo código for enviado para o repositório. Para receber todas as ações do evento de verificações da API, o aplicativo deverá ter a permissão de `checks:write`. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) if you'd like. Veja como funciona o fluxo-padrão:
 
 1. Sempre que alguém fizer push do código para o repositório, o GitHub envia o evento `check_suite` com uma ação de `necessária` a todos os aplicativos GitHub instalados no repositório com a permissão `checks:write`. Este evento permite que os aplicativos saibam que o código foi enviado e que o GitHub criou um novo conjunto de verificações automaticamente.
-1. Quando seu aplicativo recebe este evento, ele pode [adicionar uma verificação executa](/v3/checks/runs/#create-a-check-run) para esse conjunto.
-1. Seus execuções de verificação podem incluir [anotações](/v3/checks/runs/#annotations-object), que são exibidas em linhas específicas de código.
+1. When your app receives this event, it can [add check runs](/rest/reference/checks#create-a-check-run) to that suite.
+1. Your check runs can include [annotations](/rest/reference/checks#annotations-object) that are displayed on specific lines of code.
 
 **Neste guia, você aprenderá:**
 
@@ -49,7 +49,7 @@ Para ter uma ideia do que seu servidor de CI da API de verificações fará quan
 
 ### Pré-requisitos
 
-Antes de começar, é possível que você deseje familiarizar-se com os [aplicativos Github](/apps/), [Webhooks](/webhooks) e a [API de verificação](/v3/checks/), caso você ainda não esteja familiarizado. Você encontrará mais APIs na [documentação da API REST](/v3/). A API de Verificações também está disponível para uso no [GraphQL](/v4/), mas este início rápido foca no REST. Consulte o GraphQL [Conjunto de verificações](/v4/object/checksuite/) e os objetos de [execução de verificação](/v4/object/checkrun/) objetos para obter mais informações.
+Before you get started, you may want to familiarize yourself with [Github Apps](/apps/), [Webhooks](/webhooks), and the [Checks API](/rest/reference/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). A API de Verificações também está disponível para uso no [GraphQL](/graphql), mas este início rápido foca no REST. Consulte o GraphQL [Conjunto de verificações](/graphql/reference/objects#checksuite) e os objetos de [execução de verificação](/graphql/reference/objects#checkrun) objetos para obter mais informações.
 
 Você usará a [linguagem de programação Ruby](https://www.ruby-lang.org/en/), o serviço de entrega de da carga do webhook [Smee](https://smee.io/), a [biblioteca do Ruby Octokit.rb](http://octokit.github.io/octokit.rb/) para a API REST do GitHub e a [estrutura web Sinatra](http://sinatrarb.com/) para criar seu aplicativo do servidor de verificações de CI da API.
 
@@ -140,7 +140,7 @@ Você irá adicionar este novo método como um [Auxiliar do Sinatra](https://git
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /v3/checks/runs/#create-a-check-run
+  # /rest/reference/checks#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -159,7 +159,7 @@ end
 def create_check_run
   # # At the time of writing, Octokit does not support the Checks API yet, but
   # it does provide generic HTTP methods you can use:
-  # /v3/checks/runs/#create-a-check-run
+  # /rest/reference/checks#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
@@ -175,7 +175,7 @@ end
 ```
 {% endif %}
 
-Este código chama o ponto final "[Criar uma execução de verificação](/v3/checks/runs/#create-a-check-run)" que usa o método genérico [HTTP `POST`](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). Este método tem dois parâmetros: a URL do ponto final e os parâmetros de entrada do método.
+This code calls the "[Create a check run](/rest/reference/checks#create-a-check-run)" endpoint using the generic [HTTP `POST` method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). Este método tem dois parâmetros: a URL do ponto final e os parâmetros de entrada do método.
 
 Para criar uma execução de verificação, são necessários apenas dois parâmetros de entrada: `nome` e `head_sha`. Vamos usar o [Rubocop](https://rubocop.readthedocs.io/en/latest/) para implementar o teste CI mais adiante início rápido. Por esse motivo, o nome "Octo Rubocop" é usado aqui, mas você pode escolher qualquer nome que desejar para a execução da verificação.
 
@@ -240,7 +240,7 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /v3/checks/runs/#update-a-check-run
+  # /rest/reference/checks#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -276,7 +276,7 @@ def initiate_check_run
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
-  # /v3/checks/runs/#update-a-check-run
+  # /rest/reference/checks#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
@@ -305,11 +305,11 @@ end
 ```
 {% endif %}
 
-O código acima chama o ponto de extremidade da API "[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run)" usando o método genérico [`patch` HTTP](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) para atualizar a execução de verificação que você já criou.
+The code above calls the "[Update a check run](/rest/reference/checks#update-a-check-run)" API endpoint using the generic [`patch` HTTP method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) to update the check run that you already created.
 
 Veja o que este código está fazendo. Primeiro, ele atualiza o status de verificação de execução para `in_progress` e define o tempo do `started_at` para o tempo atual. Na [Parte 2](#part-2-creating-the-octo-rubocop-ci-test) deste início rápido, você irá adicionar um código que inicia um teste de CI real em `***** EXECUTAR UM TEST DE CI *****`. Por enquanto, você sairá da seção como um espaço reservado, para que o código que o segue apenas simule que o processo de CI seja bem-sucedido e todos os testes sejam aprovados. Finalmente, o código atualiza o status da execução de verificação novamente para `concluído`.
 
-Você observará na documentação "[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run)" que, quando você fornece um status de `concluído`, os parâmetros `conclusão` e `completed_at` são necessários. A conclusão `` resume o resultado de uma verificação de resultado e pode ser `sucesso`, `falha`, `neutro`, `cancelado`, `timed_out` ou `action_required`. Você irá definir a conclusão como `sucesso`, o tempo `completed_at` como a hora atual e o status como `concluído`.
+You'll notice in the "[Update a check run](/rest/reference/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. A conclusão `` resume o resultado de uma verificação de resultado e pode ser `sucesso`, `falha`, `neutro`, `cancelado`, `timed_out` ou `action_required`. Você irá definir a conclusão como `sucesso`, o tempo `completed_at` como a hora atual e o status como `concluído`.
 
 Você também pode fornecer mais informações sobre o que a sua verificação está fazendo, mas você poderá fazer isso na próxima seção. Vamos testar este código de novo executando `template_server.rb` novamente:
 
@@ -435,7 +435,7 @@ O código acima obtém o nome completo do repositório e o SHA principal do comm
 
 ### Etapa 2.3. Executar o RuboCop
 
-Ótimo! Você está clonando o repositório e criando execuções de verificação usando seu servidor de CI. Agora você irá entrar nas informações principais do [RuboCop linter](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) e das [anotações da API de verificação](/v3/checks/runs/#create-a-check-run).
+Ótimo! Você está clonando o repositório e criando execuções de verificação usando seu servidor de CI. Now you'll get into the nitty gritty details of the [RuboCop linter](https://rubocop.readthedocs.io/en/latest/basic_usage/#rubocop-as-a-code-style-checker) and [Checks API annotations](/rest/reference/checks#create-a-check-run).
 
 O código a seguir executa RuboCop e salva os erros do código de estilo no formato JSON. Adicione este código abaixo da chamada para `clone_repository` que você adicionou na [etapa anterior](#step-22-cloning-the-repository) e acima do código que atualiza a execução de verificação para concluir.
 
@@ -523,11 +523,11 @@ Você deve ver os erros de linting na saída de depuração, embora não sejam i
 
 A variável `@output` contém os resultados do JSON analisados do relatório do RuboCop. Conforme mostrado acima, os resultados contêm uma seção `resumo` que seu código pode usar para determinar rapidamente se existem erros. O código a seguir definirá a conclusão de execução de verificação para o `sucesso` quando não houver erros relatados. O RuboCop relata erros para cada arquivo no array dos `arquivos`. Portanto, se houver erros, você deverá extrair alguns dados do objeto arquivo.
 
-A API de verificação permite que você crie anotações para linhas específicas do código. Ao criar ou atualizar uma execução de verificação, você pode adicionar anotações. Neste início rápido, você está [atualizando a execução de verificações](/v3/checks/runs/#update-a-check-run) com anotações.
+A API de verificação permite que você crie anotações para linhas específicas do código. Ao criar ou atualizar uma execução de verificação, você pode adicionar anotações. In this quickstart you are [updating the check run](/rest/reference/checks#update-a-check-run) with annotations.
 
-A API de verificação limita o número de anotações a um máximo de 50 por solicitação de API. Para criar mais de 50 anotações, você deve fazer várias solicitações para o ponto de extremidade [Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run). Por exemplo, para criar 105 anotações você deve chamar o ponto de extremidade[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run) três vezes. Cada uma das duas primeiras solicitações teria 50 anotações e a terceira solicitação incluiria as cinco anotações restantes. Cada vez que você atualizar a execução de verificação, as anotações são anexadas à lista de anotações que já existem para a execução de verificação.
+A API de verificação limita o número de anotações a um máximo de 50 por solicitação de API. To create more than 50 annotations, you have to make multiple requests to the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [Update a check run](/rest/reference/checks#update-a-check-run) endpoint three times. Cada uma das duas primeiras solicitações teria 50 anotações e a terceira solicitação incluiria as cinco anotações restantes. Cada vez que você atualizar a execução de verificação, as anotações são anexadas à lista de anotações que já existem para a execução de verificação.
 
-Uma execução de verificação espera anotações como um array de objetos. Cada objeto de anotação deve incluir o `caminho`, `start_line`,, `end_line`, `annotation_level` e `mensagem`. O RuboCop também fornece `start_column` e `end_column`. Portanto, você pode incluir esses parâmetros opcionais na anotação. As anotações são compatíveis apenas com `start_column` e `end_column` na mesma linha. Para obter mais informações, consulte a documentação de referência do [`objeto` anotações](/v3/checks/runs/#annotations-object-1).
+Uma execução de verificação espera anotações como um array de objetos. Cada objeto de anotação deve incluir o `caminho`, `start_line`,, `end_line`, `annotation_level` e `mensagem`. O RuboCop também fornece `start_column` e `end_column`. Portanto, você pode incluir esses parâmetros opcionais na anotação. As anotações são compatíveis apenas com `start_column` e `end_column` na mesma linha. See the [`annotations` object](/rest/reference/checks#annotations-object-1) reference documentation for details.
 
 Você irá extrair as informações necessárias do RuboCop para criar cada anotação. Acrescente o seguinte código ao código que você adicionou na [seção anterior](#step-23-running-rubocop):
 
@@ -536,7 +536,7 @@ annotations = []
 # You can create a maximum of 50 annotations per request to the Checks
 # API. To add more than 50 annotations, use the "Update a check run" API
 # endpoint. Este código de exemplo limita o número de anotações a 50.
-# See /v3/checks/runs/#update-a-check-run
+# See /rest/reference/checks#update-a-check-run
 # for details.
 max_annotations = 50
 
@@ -836,7 +836,7 @@ Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiv
 
 * **P:** Meu aplicativo não está enviando código para o GitHub. Eu não vejo as correções que o RuboCop faz automaticamente!
 
-    **R:** Certifique-se de que você tem permissões de **Leitura & gravação** para "conteúdo de repositório" e qeu você está clonando o repositório com seu token de instalação. Consulte [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para obter detalhes.
+    **R:** Certifique-se de que você tem permissões de **Leitura & gravação** para "conteúdo de repositório" e que você está clonando o repositório com seu token de instalação. Consulte [Etapa 2.2. Clonar o repositório](#step-22-cloning-the-repository) para obter detalhes.
 
 * **P:** Vejo um erro no saída de depuração de `template_server.rb` relacionado à clonagem do meu repositório.
 
@@ -869,4 +869,4 @@ Depois ler este guia, você aprendeu os princípios básicos para usar a API de 
 Aqui estão algumas ideias do que você pode fazer a seguir:
 
 * Atualmente, o botão "Corrija isso" sempre é exibido. Atualize o código que você escreveu para exibir o botão "Corrija isso" somente quando o RuboCop encontrar erros.
-* Se preferir que RuboCop não comprometa os arquivos diretamente para o branch principal, você pode atualizar o código para [criar um pull request](/v3/pulls/#create-a-pull-request) com um novo branch baseado no branch principal.
+* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/reference/pulls#create-a-pull-request) with a new branch based on the head branch.

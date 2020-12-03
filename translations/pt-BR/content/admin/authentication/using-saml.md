@@ -29,7 +29,7 @@ Cada nome de usuário do {% data variables.product.prodname_ghe_server %} é det
 
 O elemento `NameID` é obrigatório, mesmo que os outros atributos estejam presentes.
 
-É criado um mapeamento entre `NameID` e o nome de usuário do {% data variables.product.prodname_ghe_server %}; assim, `NameID` deve ser persistente, exclusivo e não estar sujeito a alterações no ciclo de vida do usuário.
+É criado um mapeamento entre `NameID` e o nome de usuário do {% data variables.product.prodname_ghe_server %}. Portanto, o `NameID` deve ser persistente, exclusivo e não estar sujeito a alterações no ciclo de vida do usuário.
 
 {% note %}
 

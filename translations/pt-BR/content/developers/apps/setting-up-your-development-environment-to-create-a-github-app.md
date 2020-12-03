@@ -37,7 +37,7 @@ Você pode achar útil ter um entendimento básico do seguinte:
 * [Aplicativos do GitHub](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [Linguagem de programação Ruby](https://www.ruby-lang.org/en/)
-* [APIs REST](/v3)
+* [APIs REST](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 Mas é possível acompanhar o processo em qualquer nível de experiência. Nós vamos nos conectar a informações de que você precisa ao longo do caminho!
@@ -220,7 +220,7 @@ end
 
 #### Defina um gerenciador de encaminhamento
 
-Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. Você não vai escrever este manipulador de eventos neste início rápido, mas veja os outros [guias de início rápido](/apps/quickstart-guides/) para obter exemplos de como estender o aplicativo deste modelo.
+Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
 
 ``` ruby
 post '/event_handler' do
@@ -260,10 +260,10 @@ Antes de usar a biblioteca do Octokit.rb para fazer chamadas de API, você dever
 
 ``` ruby
 # Instancie um cliente do Octokit autenticado como um aplicativo GitHub.
-# A autenticação do aplicativo GitHub App exige que você construa um
-# JWT (https://jwt. o/introduction/) assinado com a chave privada do aplicativo
-# para que o GitHub possa ter certeza de que veio do aplicativo e não foi alterada por
-# terceiros maliciosos.
+# GitHub App authentication requires that you construct a
+# JWT (https://jwt.io/introduction/) signed with the app's private key,
+# so GitHub can be sure that it came from the app an not altered by
+# a malicious third party.
 def authenticate_app
   payload = {
       # The time that this JWT was issued, _i.e._ now.

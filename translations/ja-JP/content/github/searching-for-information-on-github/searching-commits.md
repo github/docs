@@ -96,14 +96,11 @@ versions:
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) は、@github が保有するリポジトリの「test」という単語があるコミットメッセージにマッチします。                                                 |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) は、@defunkt の「gibberish」リポジトリにある「language」という単語があるコミットメッセージにマッチします。 |
 
-### パブリックリポジトリまたはプライベートリポジトリをフィルタリング
+### リポジトリの可視性によるフィルタ
 
-`is` 修飾子は、パブリックまたはプライベートのコミットにマッチします。
+`is` 修飾子は、指定した可視性を持つリポジトリからのコミットにマッチします。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
-| 修飾子          | サンプル                                                                                          |
-| ------------ | --------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) は、パブリックのコミットにマッチします。    |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) は、プライベートのコミットにマッチします。 |
+| 修飾子  | 例 | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) はパブリックリポジトリへのコミットにマッチします。{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) は内部リポジトリへのコミットにマッチします。 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) はプライベートリポジトリへのコミットに一致します。
 
 ### 参考リンク
 

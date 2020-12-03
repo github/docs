@@ -38,7 +38,11 @@ Du kannst alle Reviews eines Pull Requests in der Zeitleiste der Unterhaltung an
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Erforderlicher Review
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
+### Erforderliche Reviews
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 

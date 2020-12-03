@@ -31,13 +31,9 @@ versions:
 
 {% else %}
 
-At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.
+目前，{% data variables.product.prodname_registry %} on {% data variables.product.product_location %} 不支持删除公共包。
 
 {% endif %}
-
-### 保留的包版本和名称
-
-{% data reusables.package_registry.package-immutability %}
 
 ### 在 {% data variables.product.product_name %} 上删除私有包的版本
 

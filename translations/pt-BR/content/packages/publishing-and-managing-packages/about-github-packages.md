@@ -26,6 +26,8 @@ When you create a {% data variables.product.prodname_actions %} workflow, you ca
 
 {% data reusables.package_registry.container-registry-beta %}
 
+![Diagrama que mostra Node, RubyGems, Apache Maven, Gradle, Nuget e o registro do contêiner com suas urls de hospedagem](/assets/images/help/package-registry/packages-overview-diagram.png)
+
 {% endif %}
 
 #### Visualizar pacotes
@@ -34,17 +36,17 @@ You can configure webhooks to subscribe to package-related events, such as when 
 
 #### Sobre permissões e visibilidade de pacotes
 {% if currentVersion == "free-pro-team@latest" %}
-|                      | Registros de pacotes                                                                                                                                                                                                                                                                                                                                                                                                                  | {% data variables.product.prodname_github_container_registry %}
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Locais de hospedagem | Você pode hospedar vários pacotes em um só repositório.                                                                                                                                                                                                                                                                                                                                                                               | Você pode hospedar várias imagens de contêiner em uma organização ou conta de usuário.                                                                                                                    |
-| Permissões           | {{ site.data.reusables.package_registry.public-or-private-packages }} You can use {{ site.data.variables.product.prodname_dotcom }} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. | Para cada imagem de container, você pode escolher o nível de acesso que os outros têm. As permissões para acesso a imagens do contêiner são separadas da sua organização e das permissões do repositório. |
+|                      | Registros de pacotes                                                                                                                                                                                                                                                                                                                                                                                                        | {% data variables.product.prodname_github_container_registry %}
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Locais de hospedagem | Você pode hospedar vários pacotes em um só repositório.                                                                                                                                                                                                                                                                                                                                                                     | Você pode hospedar várias imagens de contêiner em uma organização ou conta de usuário.                                                                                                                    |
+| Permissões           | {% data reusables.package_registry.public-or-private-packages %} You can use {% data variables.product.prodname_dotcom %} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. | Para cada imagem de container, você pode escolher o nível de acesso que os outros têm. As permissões para acesso a imagens do contêiner são separadas da sua organização e das permissões do repositório. |
  Visibilidade | {% data reusables.package_registry.public-or-private-packages %} | Você pode definir a visibilidade de cada uma de suas imagens de contêiner. Uma imagem privada de contêiner só é visível para pessoas e equipes às quais é fornecido acesso na sua organização. Qualquer pessoa pode ver uma imagem pública de contêiner. | acesso anônimo | N/A | Você pode acessar imagens de contêineres públicas anonimamente.
 
 {% else %}
-|                      | Registros de pacotes                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Locais de hospedagem | Você pode hospedar vários pacotes em um só repositório.                                                                                                                                                                                                                                                                                                                                                                               |
-| Permissões           | {{ site.data.reusables.package_registry.public-or-private-packages }} You can use {{ site.data.variables.product.prodname_dotcom }} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. |
+|                      | Registros de pacotes                                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Locais de hospedagem | Você pode hospedar vários pacotes em um só repositório.                                                                                                                                                                                                                                                                                                                                                                     |
+| Permissões           | {% data reusables.package_registry.public-or-private-packages %} You can use {% data variables.product.prodname_dotcom %} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. |
 | Visibilidade         | {% data reusables.package_registry.public-or-private-packages %}
 
 {% endif %}
@@ -83,7 +85,7 @@ Para mais informações sobre o suporte do contêiner oferecido por
 #### Suporte para registros de pacotes
 
 {% if currentVersion == "free-pro-team@latest" %}
-Os registros do pacote usam `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` como a URL do host do pacote, substituindo `PACKAGE-TYPE` pelo espaço de nome do pacote. Por exemplo, o seu Gemfile será hospedado em `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+Os registros do pacote usam `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` como a URL do host do pacote, substituindo `PACKAGE-TYPE` pelo espaço de nome do pacote. Por exemplo, o seu Gemfile será hospedado em `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
 
 {% else %}
 
@@ -98,8 +100,8 @@ Se o {% data variables.product.product_location %} tiver o isolamento de subdom�
 | ---------- | --------------------------------------------------------------------- | ------------------------------------ | ----------------- | ----------------------------------------------------- |
 | JavaScript | Gerenciador de pacotes de nó                                          | `package.json`                       | `npm`             | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | Gerenciador de pacotes de RubyGems                                    | `Gemfile`                            | `gem`             | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Ferramenta de gerenciamento de projetos e compreensão do Apache Maven | `pom.xml`                            | `mvn`             | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Ferramenta de automação do build Gradle para Java                     | `build.gradle` ou `build.gradle.kts` | `gradle`          | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Ferramenta de gerenciamento de projetos e compreensão do Apache Maven | `pom.xml`                            | `mvn`             | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Ferramenta de automação do build Gradle para Java                     | `build.gradle` ou `build.gradle.kts` | `gradle`          | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | Gerenciamento de pacotes NuGet para .NET                              | `nupkg`                              | `dotnet` CLI      | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
@@ -161,15 +163,15 @@ Para obter mais informações, consulte "[Criar um token de acesso pessoal](/git
 To install or publish a package, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
 Por exemplo:
--  Para fazer o download e instalar pacotes a partir de um repositório, seu token deve ter o escopo `read:packages`, e sua conta de usuário deve ter permissões de leitura para o repositório. Se o repositório for privado, seu token também deve ter o escopo `repo`.
+-  Para fazer o download e instalar pacotes a partir de um repositório, seu token deve ter o escopo `read:packages`, e sua conta de usuário deve ter permissões de leitura para o repositório.
 - Para excluir uma versão especificada de um pacote privado no {% data variables.product.product_name %}, seu token deve ter o escopo `delete:packages` e `repo`. Não é possível excluir pacotes públicos. Para obter mais informações, consulte "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package)".
 
-| Escopo            | Descrição                                                                                                                                    | Permissões do repositório          |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| `read:packages`   | Faça o download e instale pacotes do {% data variables.product.prodname_registry %}                                                          | leitura                            |
-| `write:packages`  | Faça o upload e publique os pacotes em {% data variables.product.prodname_registry %}                                                        | gravação                           |
-| `delete:packages` | Excluir versões especificadas de pacotes privados de {% data variables.product.prodname_registry %}                                          | administrador                      |
-| `repo`            | Instalar, fazer upload e excluir certos pacotes em repositórios privados (junto com `read:packages`, `write:packages`, ou `delete:packages`) | leitura, gravação ou administrador |
+| Escopo            | Descrição                                                                                           | Permissões do repositório |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ------------------------- |
+| `read:packages`   | Faça o download e instale pacotes do {% data variables.product.prodname_registry %}                 | leitura                   |
+| `write:packages`  | Faça o upload e publique os pacotes em {% data variables.product.prodname_registry %}               | gravação                  |
+| `delete:packages` | Excluir versões especificadas de pacotes privados de {% data variables.product.prodname_registry %} | administrador             |
+| `repo`            | Faça o upload e exclua os pacotes (junto com `write:packages` ou `delete:packages`)                 | gravação ou admin         |
 
 Ao criar um fluxo de trabalho de {% data variables.product.prodname_actions %}, você pode usar o `GITHUB_TOKEN` para publicar e instalar pacotes no {% data variables.product.prodname_registry %} sem precisar armazenar e gerenciar um token de acesso pessoal.
 
@@ -180,7 +182,7 @@ Para obter mais informações, consulte:
 
 ### Gerenciar pacotes
 
-Você pode excluir uma versão de um pacote privado em {% data variables.product.product_name %} ou usar a API do GraphQL. Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package)" e "[Formando chamadas com GraphQL](/v4/guides/forming-calls/)".
+Você pode excluir uma versão de um pacote privado em {% data variables.product.product_name %} ou usar a API do GraphQL. Ao usar a API do GraphQL para consultar e excluir pacotes privados, você deve usar o mesmo token que você usa para efetuar a autenticação no {% data variables.product.prodname_registry %}. Para obter mais informações, consulte "[Excluir um pacote](/packages/publishing-and-managing-packages/deleting-a-package)" e "[Formando chamadas com GraphQL](/graphql/guides/forming-calls-with-graphql)".
 
 Você pode configurar webhooks para assinar eventos relacionados aos pacotes, como quando um pacote é publicado ou atualizado. Para obter mais informações, consulte o evento de webhook de "[`pacote`](/webhooks/event-payloads/#package)".
 

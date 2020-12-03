@@ -51,7 +51,7 @@ Issue を使用して、プロジェクトにとって重要なアイデア、�
 1. プルリクエストを作成するブランチに切り替えます。 詳しい情報については、「[ブランチの切り替え](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)」を参照してください。
 2. **Create Pull Request**をクリックします {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開いて {% data variables.product.prodname_dotcom %} に移動します。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/mac-create-pull-request.png)
 4. On
-{% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。
+{% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。
   ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
@@ -63,7 +63,7 @@ Issue を使用して、プロジェクトにとって重要なアイデア、�
 1. プルリクエストを作成するブランチに切り替えます。 詳しい情報については、「[ブランチの切り替え](/desktop/contributing-and-collaborating-using-github-desktop/managing-branches#switching-between-branches)」を参照してください。
 2. **Create Pull Request**をクリックします {% data variables.product.prodname_desktop %} はデフォルトのブラウザを開いて {% data variables.product.prodname_dotcom %} に移動します。 ![[Create Pull Request] ボタン](/assets/images/help/desktop/windows-create-pull-request.png)
 3. On
-{% data variables.product.prodname_dotcom %}, confirm that the branch in the **base:** drop-down menu is the branch where you want to merge your changes. **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。
+{% data variables.product.prodname_dotcom %} で、**base:** ドロップダウンメニューのブランチが変更をマージするブランチであることを確認します。 **compare:** ドロップダウンメニューのブランチが、変更を加えたトピックブランチであることを確認します。
   ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/desktop/base-and-compare-branches.png)
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}

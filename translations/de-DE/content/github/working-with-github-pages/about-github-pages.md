@@ -36,9 +36,9 @@ Organization owners can disable the publication of
 
 Es gibt drei Arten von {% data variables.product.prodname_pages %}-Websites: Projekt-, Benutzer- und Organisations-Websites. Projekt-Websites sind mit einem bestimmten Projekt verbunden, das auf {% data variables.product.product_name %} gehostet wird, z. B. einer JavaScript-Bibliothek oder einer Rezeptsammlung. Benutzer- und Organisations-Websites sind mit einem bestimmten {% data variables.product.product_name %}-Konto verbunden.
 
-To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<user>.github.io`{% else %}`<user>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
+To publish a user site, you must create a repository owned by your user account that's named {% if currentVersion == "free-pro-team@latest" %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create a repository owned by an organization that's named {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-Die Quelldateien für eine Projekt-Website werden im selben Repository gespeichert wie das zugehörige Projekt. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<user>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
+Die Quelldateien für eine Projekt-Website werden im selben Repository gespeichert wie das zugehörige Projekt. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 Weitere Informationen dazu, wie sich die URL Ihrer Website bei benutzerdefinierten Domains ändert, finden Sie unter „[Informationen zu benutzerdefinierten Domains und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)“.
@@ -63,7 +63,7 @@ Weitere Informationen findest Du unter „[Subdomänen-Isolation aktivieren](/en
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Hinweis:** Repositorys, die das alte Namensschema `<user>.github.com` verwenden, werden noch veröffentlicht, aber Besucher werden von `http(s)://<username>.github.com` auf `http(s)://<username>.github.io` weitergeleitet. Wenn sowohl ein `<user>.github.com`- als auch ein `<user>.github.io`-Repository vorhanden sind, wird nur das `<user>.github.io`-Repository veröffentlicht.
+**Note:** Repositories using the legacy `<username>.github.com` naming scheme will still be published, but visitors will be redirected from `http(s)://<username>.github.com` to `http(s)://<username>.github.io`. If both a `<username>.github.com` and `<username>.github.io` repository exist, only the `<username>.github.io` repository will be published.
 
 {% endnote %}
 {% endif %}
@@ -150,4 +150,4 @@ Zwar können Sie keine benutzerdefinierten MIME-Typen für einzelne Dateien oder
 ### Weiterführende Informationen
 
 - [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages) auf {% data variables.product.prodname_learning %}
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

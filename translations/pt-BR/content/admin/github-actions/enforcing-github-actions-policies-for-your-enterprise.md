@@ -12,7 +12,7 @@ versions:
 
 ### Sobre as permissões de {% data variables.product.prodname_actions %} para sua empresa
 
-Ao habilitar o {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, ele fica habilitado para todas as organizações da sua empresa. Você pode optar por desativar {% data variables.product.prodname_actions %} para todas as organizações da sua empresa ou permitir apenas organizações específicas. Você também pode limitar o uso de ações públicas, de modo que as pessoas só possam usar ações locais que existem em uma organização.
+Ao habilitar o {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %}, ele fica habilitado para todas as organizações da sua empresa. Você pode optar por desativar {% data variables.product.prodname_actions %} para todas as organizações da sua empresa ou permitir apenas organizações específicas. Você também pode limitar o uso de ações públicas, de modo que as pessoas só possam usar ações locais que existem na sua empresa.
 
 ### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua empresa
 
