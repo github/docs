@@ -12,7 +12,7 @@ on:
       - 'lib/webhooks/**'
 jobs:
   close_unwanted_pull_requests:
-    if: github.repository == 'github/docs'
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9

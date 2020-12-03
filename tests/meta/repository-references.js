@@ -41,6 +41,7 @@ describe('check for repository references', () => {
       'dist',
       'node_modules',
       'translations',
+      'content/early-access',
       'lib/rest/**/*.json',
       'lib/webhooks/**/*.json',
       'ownership.yaml',

@@ -148,7 +148,7 @@ const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old 
 describe('lint-files', () => {
   const mdWalkOptions = {
     globs: ['**/*.md'],
-    ignore: ['**/README.md'],
+    ignore: ['**/README.md', 'early-access'],
     directories: false,
     includeBasePath: true
   }
