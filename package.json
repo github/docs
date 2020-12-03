@@ -61,7 +61,6 @@
     "is-url": "^1.2.4",
     "js-cookie": "^2.2.1",
     "js-yaml": "^3.14.0",
-    "lil-env-thing": "^1.0.0",
     "linkinator": "^2.2.2",
     "liquid": "^5.1.0",
     "lodash": "^4.17.19",
@@ -169,7 +168,8 @@
     "check-deps": "node script/check-deps.js",
     "prevent-pushes-to-main": "node script/prevent-pushes-to-main.js",
     "pa11y-ci": "pa11y-ci",
-    "pa11y-test": "start-server-and-test browser-test-server 4001 pa11y-ci"
+    "pa11y-test": "start-server-and-test browser-test-server 4001 pa11y-ci",
+    "heroku-postbuild": "node script/early-access/clone-for-build.js && npm run build"
   },
   "engines": {
     "node": "12 - 14"
