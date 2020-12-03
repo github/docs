@@ -34,7 +34,8 @@ module.exports = contentSecurityPolicy({
     ],
     frameSrc: [ // exceptions for GraphQL Explorer
       'https://graphql-explorer.githubapp.com', // production env
-      'http://localhost:3000' // development env
+      'http://localhost:3000', // development env
+      'https://www.youtube-nocookie.com'
     ],
     styleSrc: [
       "'self'",
