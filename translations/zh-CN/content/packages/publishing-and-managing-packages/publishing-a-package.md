@@ -18,8 +18,6 @@ versions:
 
 {% data reusables.package_registry.public-or-private-packages %} 一个仓库可包含多个包。 为避免混淆，请确保使用自述文件和说明清楚地阐明每个包的相关信息。
 
-{% data reusables.package_registry.package-immutability %}
-
 {% if currentVersion == "free-pro-team@latest" %}
 如果软件包的新版本修复了安全漏洞，您应该在仓库中发布安全通告。
 {% data variables.product.prodname_dotcom %} 审查每个发布的安全通告，并且可能使用它向受影响的仓库发送 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于 GitHub 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。

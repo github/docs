@@ -40,7 +40,7 @@ Para pull requests, você também pode usar a pesquisa para:
 - Filtrar pull requests nas quais um revisor tenha solicitado alterações: `state:open type:pr review:changes_requested`
 - Filtrar pull requests por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
 - Filtrar pull requests pelo usuário específico [solicitado para revisão](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
-- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+- Filtre os pull requests pela equipe solicitada para revisão: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" ou versão atual == "github-ae@latest" %}
 - Filtro por pull requests que estão vinculadas a um problema que a pull request pode concluir: `linked:issue`{% endif %}
 
 ### Leia mais

@@ -1,7 +1,7 @@
 {% if enterpriseServerVersions contains currentVersion %}
 {% warning %}
 
-**Warning:** If subdomain isolation is disabled, we recommend also disabling {% data variables.product.prodname_pages %} on your enterprise. There will be no way to isolate user-supplied {% data variables.product.prodname_pages %} content from the rest of your enterprise's data. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/)."
+**Aviso:** Se o isolamento de subdomínio estiver desabilitar, recomendamos também desabilitar {% data variables.product.prodname_pages %} na sua empresa. Não haverá forma de isolar o conteúdo {% data variables.product.prodname_pages %} fornecido pelo usuário dos dados da sua empresa. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_pages %} para a sua empresa](/enterprise/admin/guides/installation/configuring-github-pages-for-your-enterprise/)".
 
 {% endwarning %}
 {% endif %}
