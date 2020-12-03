@@ -306,6 +306,6 @@ Prepends a directory to the system `PATH` variable for all subsequent actions in
 #### Example
 
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}
