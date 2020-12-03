@@ -114,11 +114,16 @@ earlyAccessContentAndDataFiles
 console.log('Done! Run "git status" in your docs-early-access checkout to see the changes.\n')
 
 function checkVariable (dataRef) {
-  // Get the data file path from the data reference
+  // Get the data filepath from the data reference,
+  // where the data reference looks like: {% data variables.foo.bar %}
+  // and the data filepath looks like: data/variables/foo.yml with key of 'bar'.
   const variablePathArray = dataRef.match(/{% data (.*?) %}/)[1].split('.')
   // If early access is part of the path, remove it (since the path below already includes it)
     .filter(n => n !== 'early-access')
 
+  // Given a string `variables.foo.bar` split into an array, we want the last segment 'bar', which is the variable key.
+  // Then pop 'bar' off the array because it's not really part of the filepath.
+  // The filepath we want is `variables/foo.yml`.
   const variableKey = last(variablePathArray); variablePathArray.pop()
   const variablePath = path.posix.join(earlyAccessData, `${variablePathArray.join('/')}.yml`)
 
@@ -131,6 +136,9 @@ function checkVariable (dataRef) {
 }
 
 function checkReusable (dataRef) {
+  // Get the data filepath from the data reference,
+  // where the data reference looks like: {% data reusables.foo.bar %}
+  // and the data filepath looks like: data/reusables/foo/bar.md.
   const reusablePath = dataRef.match(/{% data (.*?) %}/)[1].split('.')
     // If early access is part of the path, remove it (since the path below already includes it)
     .filter(n => n !== 'early-access')
