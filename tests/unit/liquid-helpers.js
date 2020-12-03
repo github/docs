@@ -1,17 +1,17 @@
 const { liquid } = require('../../lib/render-content')
-const loadPages = require('../../lib/pages')
+const { loadPageMap } = require('../../lib/pages')
 const entities = new (require('html-entities').XmlEntities)()
 const { set } = require('lodash')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('liquid helper tags', () => {
   const context = {}
-  let pages
+  let pageMap
   beforeAll(async (done) => {
-    pages = await loadPages()
+    pageMap = await loadPageMap()
     context.currentLanguage = 'en'
     context.currentVersion = nonEnterpriseDefaultVersion
-    context.pages = pages
+    context.pages = pageMap
     context.redirects = []
     context.site = {}
     context.page = {
@@ -46,7 +46,7 @@ describe('liquid helper tags', () => {
 
   test('link_with_intro tag', async () => {
     const template = '{% link_with_intro /contributing-and-collaborating-using-github-desktop %}'
-    const page = pages[`/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`]
+    const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`]
     const expected = `<a class="link-with-intro Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
   <h4 class="link-with-intro-title">${page.title}<span class="Bump-link-symbol">→</span></h4>
 </a>
@@ -57,7 +57,7 @@ describe('liquid helper tags', () => {
 
   test('homepage_link_with_intro tag', async () => {
     const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
-    const page = pages[`/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`]
+    const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`]
     const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
   <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
   <p class="link-with-intro-intro f5">${page.intro}</p>
