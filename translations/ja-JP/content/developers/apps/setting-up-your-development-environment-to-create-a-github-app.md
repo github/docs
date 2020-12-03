@@ -37,7 +37,7 @@ You may find it helpful to have a basic understanding of the following:
 * [GitHub Apps](/apps/about-apps)
 * [webhook](/webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/v3)
+* [REST APIs](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
@@ -220,7 +220,7 @@ end
 
 #### Define a route handler
 
-An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You'll won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
+An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
 
 ``` ruby
 post '/event_handler' do
@@ -262,7 +262,7 @@ Before you can use the Octokit.rb library to make API calls, you'll need to init
 # Instantiate an Octokit client authenticated as a GitHub App.
 # GitHub App authentication requires that you construct a
 # JWT (https://jwt.io/introduction/) signed with the app's private key,
-# so GitHub can be sure that it came from the app an not altererd by
+# so GitHub can be sure that it came from the app an not altered by
 # a malicious third party.
 def authenticate_app
   payload = {

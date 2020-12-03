@@ -79,7 +79,7 @@ You can use the `GITHUB_TOKEN` to make authenticated API calls. This example wor
 
 ### Permissions for the `GITHUB_TOKEN`
 
-For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/v3/apps/permissions/)."
+For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/rest/reference/permissions-required-for-github-apps)."
 
 | Permission          | Access type | Access by forked repos |
 | ------------------- | ----------- | ---------------------- |

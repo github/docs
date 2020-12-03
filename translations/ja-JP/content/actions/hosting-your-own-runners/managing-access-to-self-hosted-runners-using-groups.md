@@ -33,7 +33,7 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 ランナーはデフォルトグループから作成した任意のグループに移動できます。
 
-グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。 ランナーグループを設定して、リポジトリの特定のリスト、すべてのプライベートリポジトリ、または Organization 内のすべてのリポジトリにアクセスできます。
+グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -41,9 +41,21 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 1. [**Self-hosted runners**] セクションで、[**Add new**] をクリックし、次に [**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
-1. ランナーグループの名前を入力し、[**Repository access**] ドロップダウンリストからアクセスポリシーを選択します。
+1. Enter a name for your runner group, and assign a policy for repository access.
 
-    ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.{% endif %}
+
+   {% warning %}
+
+   **Warning**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
+
+   {% endwarning %}
+
+   ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。
 
 ### Enterprise のセルフホストランナーグループを作成する
@@ -52,7 +64,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 登録処理中にランナーを特定のグループに割り当てることも、後でランナーをデフォルトグループからカスタムグループに移動することもできます。
 
-グループを作成するときは、Enterprise 内のすべての Organization にアクセスを付与するポリシーを選択するか、特定の Organization を選択する必要があります。
+When creating a group, you must choose a policy that defines which organizations have access to the runner group.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -61,7 +73,19 @@ Enterprise は、セルフホストランナーをグループに追加して、
 1. [**Add new**] をクリックしてから、[**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. ランナーグループの名前を入力し、[**Organization access**] ドロップダウンリストからアクセスポリシーを選択します。
+1. Enter a name for your runner group, and assign a policy for organization access.
+
+   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, public repositories can't access runners in a runner group, but you can use the **Allow public repositories** option to override this.{% else if currentVersion == "enterprise-server@2.22"%}You can configure a runner group to be accessible to all organizations in the enterprise or choose specific organizations.{% endif %}
+
+   {% warning %}
+
+   **Warning**
+
+   {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
+   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
+
+   {% endwarning %}
 
     ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。

@@ -131,7 +131,7 @@ versions:
 
 ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされたアーティファクトをダウンロードできます。
 
-ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/v3/actions/artifacts/)」を参照してください。
+ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/rest/reference/actions#artifacts)」を参照してください。
 
 #### ワークフロー実行中の成果物のダウンロード
 
@@ -170,12 +170,12 @@ versions:
 
 ジョブ1は、以下のステップを実行します。
 - 数式の計算を実行し、その結果を`math-homework.txt`というテキストファイルに保存します。
-- `upload-artifact`アクションを使って、`math-homework.txt`ファイルを`homework`という名前でアップロードします。 このアクションで、ファイルが`homework`という名前のディレクトリに配置されます。
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
 
 ジョブ2は、前のジョブの結果を利用して、次の処理を実行します。
 - 前のジョブでアップロードされた`homework`成果物をダウンロードします。 デフォルトでは、`download-artifact`アクションは、ステップが実行されているワークスペースディレクトリに成果物をダウンロードします。 入力パラメータの`path`を使って、別のダウンロードディレクトリを指定することもできます。
-- `homework/math-homework.txt`ファイル中の値を読み取り、数式の計算を実行し、結果を`math-homework.txt`に保存します。
-- `math-homework.txt`ファイルをアップロードします。 このアップロードは、前のアップロードを上書きします。どちらも同じ名前を使っているからです。
+- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+- `math-homework.txt`ファイルをアップロードします。 This upload overwrites the previously uploaded artifact because they share the same name.
 
 ジョブ3は、前のジョブでアップロードされた結果を表示して、次の処理を実行します。
 - `homework`成果物をダウンロードします。

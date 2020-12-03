@@ -26,6 +26,8 @@ When you create a {% data variables.product.prodname_actions %} workflow, you ca
 
 {% data reusables.package_registry.container-registry-beta %}
 
+![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+
 {% endif %}
 
 #### Pakete anzeigen
@@ -34,17 +36,17 @@ You can configure webhooks to subscribe to package-related events, such as when 
 
 #### About package permissions and visibility
 {% if currentVersion == "free-pro-team@latest" %}
-|                   | Package registries                                                                                                                                                                                                                                                                                                                                                                                                                    | {% data variables.product.prodname_github_container_registry %}
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting locations | You can host multiple packages in one repository.                                                                                                                                                                                                                                                                                                                                                                                     | You can host multiple container images in one organization or user account.                                                                                                            |
-| Permissions       | {{ site.data.reusables.package_registry.public-or-private-packages }} You can use {{ site.data.variables.product.prodname_dotcom }} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. | For each container image, you can choose the access level that others have. The permissions for container image access are separate from your organization and repository permissions. |
+|                   | Package registries                                                                                                                                                                                                                                                                                                                                                                                                          | {% data variables.product.prodname_github_container_registry %}
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting locations | You can host multiple packages in one repository.                                                                                                                                                                                                                                                                                                                                                                           | You can host multiple container images in one organization or user account.                                                                                                            |
+| Permissions       | {% data reusables.package_registry.public-or-private-packages %} You can use {% data variables.product.prodname_dotcom %} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. | For each container image, you can choose the access level that others have. The permissions for container image access are separate from your organization and repository permissions. |
  Visibility | {% data reusables.package_registry.public-or-private-packages %} | You can set the visibility of each of your container images. A private container image is only visible to people and teams who are given access within your organization. A public container image is visible to anyone. | Anonymous access | N/A | You can access public container images anonymously.
 
 {% else %}
-|                   | Package registries                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hosting locations | You can host multiple packages in one repository.                                                                                                                                                                                                                                                                                                                                                                                     |
-| Permissions       | {{ site.data.reusables.package_registry.public-or-private-packages }} You can use {{ site.data.variables.product.prodname_dotcom }} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. |
+|                   | Package registries                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hosting locations | You can host multiple packages in one repository.                                                                                                                                                                                                                                                                                                                                                                           |
+| Permissions       | {% data reusables.package_registry.public-or-private-packages %} You can use {% data variables.product.prodname_dotcom %} roles and teams to limit who can install or publish each package, as packages inherit the permissions of the repository. Anyone with read permissions for a repository can install a package as a dependency in a project, and anyone with write permissions can publish a new package version. |
 | Visibility        | {% data reusables.package_registry.public-or-private-packages %}
 
 {% endif %}
@@ -83,7 +85,7 @@ For more information about the container support offered by
 #### Support for package registries
 
 {% if currentVersion == "free-pro-team@latest" %}
-Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
 
 {% else %}
 
@@ -98,8 +100,8 @@ If {% data variables.product.product_location %} has subdomain isolation disable
 | ---------- | ------------------------------------------------------ | -------------------------------------- | ------------ | ----------------------------------------------------- |
 | JavaScript | Node package manager                                   | `package.json`                         | `npm`        | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | RubyGems package manager                               | `Gemfile`                              | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Apache Maven project management and comprehension tool | `pom.xml`                              | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Gradle-Tool für die Build-Automatisierung für Java     | `build.gradle` oder `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Apache Maven project management and comprehension tool | `pom.xml`                              | `mvn`        | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Gradle-Tool für die Build-Automatisierung für Java     | `build.gradle` oder `build.gradle.kts` | `gradle`     | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | NuGet-Paketmanagement für .NET                         | `nupkg`                                | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
@@ -161,15 +163,15 @@ For more information, see "[Creating a personal access token](/github/authentica
 To install or publish a package, you must use a token with the appropriate scope, and your user account must have appropriate permissions for that repository.
 
 Ein Beispiel:
--  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository. If the repository is private, your token must also have the `repo` scope.
+-  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permissions for the repository.
 - To delete a specified version of a private package on {% data variables.product.prodname_dotcom %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted. Weitere Informationen findest Du unter „[Ein Paket löschen](/packages/publishing-and-managing-packages/deleting-a-package)."
 
-| Scope             | Beschreibung                                                                                                                              | Repository permissions |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `read:packages`   | Download and install packages from {% data variables.product.prodname_registry %}                                                         | Lesen                  |
-| `write:packages`  | Upload and publish packages to {% data variables.product.prodname_registry %}                                                             | schreiben              |
-| `delete:packages` | Delete specified versions of private packages from {% data variables.product.prodname_registry %}                                         | verwalten              |
-| `repo`            | Install, upload, and delete certain packages in private repositories (along with `read:packages`, `write:packages`, or `delete:packages`) | read, write, or admin  |
+| Scope             | Beschreibung                                                                                      | Repository permissions |
+| ----------------- | ------------------------------------------------------------------------------------------------- | ---------------------- |
+| `read:packages`   | Download and install packages from {% data variables.product.prodname_registry %}                 | Lesen                  |
+| `write:packages`  | Upload and publish packages to {% data variables.product.prodname_registry %}                     | schreiben              |
+| `delete:packages` | Delete specified versions of private packages from {% data variables.product.prodname_registry %} | verwalten              |
+| `repo`            | Upload and delete packages (along with `write:packages`, or `delete:packages`)                    | write, or admin        |
 
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
 
@@ -180,7 +182,7 @@ Weitere Informationen findest Du unter:
 
 ### Managing packages
 
-You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package)" and "[Forming calls with GraphQL](/v4/guides/forming-calls/)."
+You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package)" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
 

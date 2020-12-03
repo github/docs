@@ -14,6 +14,21 @@ const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
+const { prependDatedEntry, createChangelogEntry } = require('./build-changelog')
+
+// check for required PAT
+if (!process.env.GITHUB_TOKEN) {
+  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
+  process.exit(1)
+}
+
+// check for required Ruby gems (see note below about why this is needed)
+try {
+  execSync('gem which graphql')
+} catch (err) {
+  console.error('\nYou need to run: bundle install')
+  process.exit(1)
+}
 
 // TODO this step is only required as long as we support GHE versions *OLDER THAN* 2.21
 // as soon as 2.20 is deprecated on 2021-02-11, we can remove all graphql-ruby filtering
@@ -43,6 +58,7 @@ async function main () {
 
     // 2. UPDATE UPCOMING CHANGES
     const upcomingChangesPath = getDataFilepath('upcomingChanges', graphqlVersion)
+    const previousUpcomingChanges = yaml.safeLoad(fs.readFileSync(upcomingChangesPath, 'utf8'))
     const safeForPublicChanges = await getRemoteRawContent(upcomingChangesPath, graphqlVersion)
     updateFile(upcomingChangesPath, safeForPublicChanges)
     upcomingChangesJson[graphqlVersion] = await processUpcomingChanges(safeForPublicChanges)
@@ -50,6 +66,7 @@ async function main () {
     // 3. UPDATE SCHEMAS
     // note: schemas live in separate files per version
     const schemaPath = getDataFilepath('schemas', graphqlVersion)
+    const previousSchemaString = fs.readFileSync(schemaPath, 'utf8')
     const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
     const safeForPublicSchema = removeHiddenMembers(schemaPath, latestSchema)
     updateFile(schemaPath, safeForPublicSchema)
@@ -58,12 +75,30 @@ async function main () {
 
     // 4. PRERENDER OBJECTS HTML
     // because the objects page is too big to render on page load
-    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion)
+    prerenderedObjects[graphqlVersion] = await prerenderObjects(schemaJsonPerVersion, version)
+
+    // 5. UPDATE CHANGELOG
+    if (allVersions[version].nonEnterpriseDefault) {
+      // The Changelog is only build for free-pro-team@latest
+      const changelogEntry = await createChangelogEntry(
+        previousSchemaString,
+        safeForPublicSchema,
+        safeForPublicPreviews,
+        previousUpcomingChanges.upcoming_changes,
+        yaml.safeLoad(safeForPublicChanges).upcoming_changes
+      )
+      if (changelogEntry) {
+        prependDatedEntry(changelogEntry, path.join(process.cwd(), 'lib/graphql/static/changelog.json'))
+      }
+    }
   }
 
   updateStaticFile(previewsJson, path.join(graphqlStaticDir, 'previews.json'))
   updateStaticFile(upcomingChangesJson, path.join(graphqlStaticDir, 'upcoming-changes.json'))
   updateStaticFile(prerenderedObjects, path.join(graphqlStaticDir, 'prerendered-objects.json'))
+
+  // Ensure the YAML linter runs before checkinging in files
+  execSync('npx prettier -w "**/*.{yml,yaml}"')
 }
 
 // get latest from github/github

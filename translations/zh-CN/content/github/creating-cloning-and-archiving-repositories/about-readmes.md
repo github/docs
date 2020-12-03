@@ -11,7 +11,11 @@ versions:
   github-ae: '*'
 ---
 
-自述文件连同 {% if currentVersion == "free-pro-team@latest" %}[仓库许可证](/articles/licensing-a-repository)、[参与指南](/articles/setting-guidelines-for-repository-contributors)和[行为准则](/articles/adding-a-code-of-conduct-to-your-project){% else %}、[仓库许可证](/articles/licensing-a-repository)和[参与指南](/articles/setting-guidelines-for-repository-contributors){% endif %}一起，帮助您,沟通项目要求以及管理对项目的参与。
+### 关于自述文件
+
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+
+For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
 
 自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
 - 项目做什么
@@ -26,7 +30,11 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
+
 {% data reusables.profile.profile-readme %}
+
+{% endif %}
 
 ![用户名/用户名仓库上的自述文件](/assets/images/help/repository/username-repo-with-readme.png)
 

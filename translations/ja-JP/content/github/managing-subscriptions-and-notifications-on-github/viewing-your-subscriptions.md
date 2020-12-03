@@ -32,7 +32,16 @@ When your inbox has too many notifications to manage, consider whether you have 
 
 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)」を参照してください。
 
-To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)."
+{% if currentVersion == "free-pro-team@latest" %}
+{% tip %}
+
+**Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+
+{% endtip %}
+{% endif %}
+
+Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" on {% data variables.product.prodname_blog %} and "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
 ### サブスクリプションのリストを確認する
 
@@ -55,20 +64,38 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 ### Watch しているリポジトリを確認する
 
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンメニューを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
-
-3. Watch しているリポジトリを評価し、それらの更新がまだ関連していて有用であるかどうかを判断します。 リポジトリを Watch すると、そのリポジトリのすべての会話が通知されます。
-
+2. Watch しているリポジトリを評価し、それらの更新がまだ関連していて有用であるかどうかを判断します。 リポジトリを Watch すると、そのリポジトリのすべての会話が通知されます。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
   ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+  ![Watch対象の通知ページ](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% endif %}
 
   {% tip %}
 
-  **ヒント:** リポジトリを Watch する代わりに、リポジトリのリリースのみを Watch するか、リポジトリを完全に Watch 解除することを検討してください。 リポジトリを Watch 解除しても、@メンションされたときやスレッドに参加しているときには通知を受信することができます。 リポジトリのリリースのみを Watch する場合は、新しいリリースがあるとき、スレッドに参加しているとき、または自分または参加している Team が@メンションされたときにのみ通知されます。
+  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" %}when there are updates to issues, pull requests, releases or discussions (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+
+  リポジトリを Watch 解除しても、@メンションされたときやスレッドに参加しているときには通知を受信することができます。 When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
 
   {% endtip %}
 
 ### 個々のリポジトリの Watch 設定を行う
 
-リポジトリごとに Watch するどうかを選択できます。 また、新しいリリースのみの通知を受け取るか、リポジトリごとに無視するかどうかを選択することもできます。
+リポジトリごとに Watch するどうかを選択できます。 You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 右上隅の [Watch] ドロップダウンメニューをクリックして、Watch オプションを選択します。 ![リポジトリのドロップダウンメニューの Watch オプション](/assets/images/help/notifications-v2/watch-repository-options.png)
+2. 右上隅の [Watch] ドロップダウンメニューをクリックして、Watch オプションを選択します。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  ![リポジトリのドロップダウンメニューの Watch オプション](/assets/images/help/notifications-v2/watch-repository-options.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+   ![リポジトリのドロップダウンメニューの Watch オプション](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
+
+   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+
+If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+
+{% endif %}

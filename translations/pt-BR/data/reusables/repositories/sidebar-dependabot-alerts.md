@@ -1,1 +1,1 @@
-1. Na barra lateral de segurança, clique em **alertas de{% data variables.product.prodname_dependabot_short %}**. ![Aba de alertas de {% data variables.product.prodname_dependabot_short %}](/assets/images/help/repository/dependabot-alerts-tab.png)
+1. Na barra lateral de segurança, clique em **{% data variables.product.prodname_dependabot_alerts %}**. ![Aaba {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/repository/dependabot-alerts-tab.png)

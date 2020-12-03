@@ -1,11 +1,11 @@
 ---
 title: GitHub Enterprise Serverで脆弱性のある依存関係に対するアラートを有効化する
-intro: '{% data variables.product.product_location %} を {% data variables.product.prodname_ghe_cloud %} に接続し、インスタンス内のリポジトリの脆弱な依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを有効にすることができます。'
+intro: '{% data variables.product.product_location %} を {% data variables.product.prodname_ghe_cloud %} に接続し、インスタンス内のリポジトリの脆弱な依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}セキュリティ{% endif %}アラートを有効にすることができます。'
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
-permissions: '接続された {% data variables.product.prodname_ghe_cloud %} Organization または Enterprise アカウントの所有者でもある {% data variables.product.prodname_ghe_server %} のサイト管理者は、{% data variables.product.prodname_ghe_server %} の脆弱性のある依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} セキュリティ{% endif %}アラートを有効にできます。'
+permissions: '接続された {% data variables.product.prodname_ghe_cloud %} Organization または Enterprise アカウントの所有者でもある {% data variables.product.prodname_ghe_server %} のサイト管理者は、{% data variables.product.prodname_ghe_server %} の脆弱性のある依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} セキュリティ{% endif %}アラートを有効にできます。'
 versions:
   enterprise-server: '*'
 ---
@@ -14,11 +14,11 @@ versions:
 
 {% data reusables.repositories.tracks-vulnerabilities %} 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続し、脆弱性データをインスタンスに同期して、脆弱性のある依存関係を持つリポジトリで {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを生成できます。
+{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続し、脆弱性データをインスタンスに同期して、脆弱性のある依存関係を持つリポジトリで {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}セキュリティ{% endif %}アラートを生成できます。
 
-{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続し、脆弱性のある依存関係に対して {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを有効化すると、脆弱性データは 1 時間に 1 回 {% data variables.product.prodname_dotcom_the_website %} からインスタンスに同期されます。 また、脆弱性データはいつでも手動で同期することができます。 {% data variables.product.product_location %} からのコードまたはコードに関する情報は、{% data variables.product.prodname_dotcom_the_website %} にアップロードされません。
+{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続し、脆弱性のある依存関係に対して {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}セキュリティ{% endif %}アラートを有効化すると、脆弱性データは 1 時間に 1 回 {% data variables.product.prodname_dotcom_the_website %} からインスタンスに同期されます。 また、脆弱性データはいつでも手動で同期することができます。 {% data variables.product.product_location %} からのコードまたはコードに関する情報は、{% data variables.product.prodname_dotcom_the_website %} にアップロードされません。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate {% data variables.product.prodname_dependabot_short %} alerts. You can customize how you receive {% data variables.product.prodname_dependabot_short %} alerts. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)."
+{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate {% data variables.product.prodname_dependabot_alerts %}. You can customize how you receive {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-dependabot-alerts)."
 {% endif %}
 
 {% if currentVersion == "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate security alerts. You can customize how you receive security alerts. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)."
@@ -28,23 +28,25 @@ versions:
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_ghe_server %} 上の脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot_short %} アラートを有効化にする
+### Enabling {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}
 {% else %}
 ### {% data variables.product.prodname_ghe_server %}で脆弱性のある依存関係に対するアラートを有効化する
 {% endif %}
 
-{% data variables.product.product_location %} 上の脆弱性のある依存関係に対する {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} セキュリティ{% endif %}アラートを有効にする前に、{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続する必要があります。 詳細は、「[{% data variables.product.prodname_ghe_server %}を{% data variables.product.prodname_ghe_cloud %}に接続する](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
+{% data variables.product.product_location %} 上の脆弱性のある依存関係に対する {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} セキュリティ{% endif %}アラートを有効にする前に、{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続する必要があります。 詳細は、「[{% data variables.product.prodname_ghe_server %}を{% data variables.product.prodname_ghe_cloud %}に接続する](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
 
 {% if currentVersion ver_gt "enterprise-server@2.20" %}
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}メールの過負荷を避けるため、最初の数日間は {% data variables.product.prodname_dependabot_short %} アラートを通知なしに設定することをお勧めします。 数日後、通知を有効化すれば、通常どおり {% data variables.product.prodname_dependabot_short %} アラートを受信できます。{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.{% endif %}
 
 {% if currentVersion == "enterprise-server@2.21" %}メールの過負荷を避けるため、最初の数日間はセキュリティアラートを通知なしに設定することをお勧めします。 数日後、通知を有効化すれば、通常どおりセキュリティアラートを受信できます。{% endif %}
 
 {% endif %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. 管理シェルで、{% data variables.product.product_location %} の脆弱性のある依存関係に対する {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを有効にします。
+
+1. 管理シェルで、{% data variables.product.product_location %} の脆弱性のある依存関係に対する {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}セキュリティ{% endif %}アラートを有効にします。
+
  ``` shell
 $ ghe-dep-graph-enable
 ```

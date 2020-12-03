@@ -1,6 +1,6 @@
 ---
 title: Exibir contribuições no perfil
-intro: 'Seu perfil do {% data variables.product.product_name %} mostra os repositórios fixos e um gráfico de contribuições no seu repositório no último ano.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -11,11 +11,11 @@ versions:
   github-ae: '*'
 ---
 
-O gráfico de contribuição mostra a atividade em repositórios públicos. Você pode optar por mostrar a atividade de repositórios públicos e privados, com detalhes específicos da sua atividade em repositórios privados anônimos. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and{% endif %}private repositories, with specific details of your activity in private repositories anonymized. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
+**Observação:** Os commits só aparecerão no seu gráfico de contribuições se o endereço de e-mail que você usou para criar das submissões estiver conectado à sua conta em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
@@ -26,22 +26,26 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 - Fazer commit no branch `gh-pages` ou no branch padrão de um repositório
 - Abrir um problema
 - Propor uma pull request
-- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- Enviar uma revisão de pull request{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Fazer coautoria de commits no branch `gh-pages` ou no branch padrão do repositório{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Repositórios populares
 
-Esta seção exibe os repositórios com a maioria dos inspetores. Depois que você [fixar os repositórios no seu perfil](/articles/pinning-repositories-to-your-profile), esta seção será alterada para "Repositórios fixos".
+Esta seção exibe os repositórios com a maioria dos inspetores. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![Repositórios populares](/assets/images/help/profile/profile_popular_repositories.png)
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Repositórios fixos
 
 Esta seção exibe até seis repositórios públicos e pode incluir tanto repositórios pertencentes a você como aqueles com os quais você contribuiu. Para ver detalhes importantes sobre os repositórios que você escolheu retratar, cada repositório nesta seção inclui um resumo do trabalho que está sendo feito, o número de [estrelas](/articles/saving-repositories-with-stars/) que ele recebeu e a principal linguagem de programação usada nele. Para obter mais informações, consulte "[Fixar repositórios no seu perfil](/articles/pinning-repositories-to-your-profile)".
 
 ![Repositórios fixos](/assets/images/help/profile/profile_pinned_repositories.png)
+
+{% endif %}
 
 ### Calendário de contribuições
 
@@ -82,9 +86,9 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 {% if currentVersion != "github-ae@latest" %}
 ### Exibir contribuições da {% data variables.product.product_location_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
-If your site administrator has enabled
+Se o administrador do site habilitou
 
-{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+{% data variables.product.prodname_unified_contributions %}, você pode enviar contagens de contribuição de {% data variables.product.prodname_enterprise %} para o seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
 {% endif %}
 
 ### Leia mais

@@ -18,7 +18,7 @@ versions:
 
 ### 路由算法
 
-代码审查分配根据两种可能的算法之一自动选择和分配审查者。
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 循环算法根据最近收到最少审查请求的人员选择审查者，侧重于在团队所有成员之间的轮替，而不管他们目前拥有多少未完成的审查。
 

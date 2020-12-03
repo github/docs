@@ -32,9 +32,7 @@ Different server-to-server request rate limits apply to {% data variables.produc
 
 {% endif %}
 
-### User-to-server requests
-
-{% data reusables.apps.deprecating_password_auth %}
+### 用户到服务器请求
 
 {% data variables.product.prodname_github_app %}s can also act [on behalf of a user](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-and-authorizing-users-for-github-apps), making user-to-server requests.
 
@@ -52,7 +50,7 @@ User-to-server requests are rate limited at 5,000 requests per hour and per auth
 
 #### {% data variables.product.prodname_ghe_cloud %} user-to-server rate limits
 
-When a user belongs to a {% data variables.product.prodname_ghe_cloud %} account, user-to-server requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account are rate limited at 15,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
+When a user belongs to a {% data variables.product.prodname_ghe_cloud %} account, user-to-server requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account are rate limited at 15,000 requests per hour and per authenticated user. All OAuth applications authorized by that user, personal access tokens owned by that user, and {% data variables.product.prodname_ghe_cloud %} requests authenticated with that user's username and password share the same quota of 5,000 requests per hour for that user.
 
 {% endif %}
 

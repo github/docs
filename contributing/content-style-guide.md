@@ -12,6 +12,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Code blocks](#code-blocks)
   - [Commands](#commands)
   - [Examples](#examples)
+  - [Indentation](#indentation)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -129,6 +130,21 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### Indentation
+
+In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
+
+- **Use:**
+
+```yaml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+```
+
 ## Headers
 
 Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
@@ -162,7 +178,7 @@ It’s critical that all of our documentation is inclusive and respectful of our
 | --- | --- |
 | Allowlist | Whitelist |
 | Denylist | Blacklist |
-| Main branch | Default branch |
+| Default/Main branch | Master branch |
 
 ### Resources about inclusive language
 
@@ -193,8 +209,8 @@ Introduce links consistently using a standard format that clearly indicates wher
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H3 header.
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization), for applications that are not websites.     
+- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
+- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.     
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -218,7 +234,7 @@ When introducing a list, avoid phrasing like “the following” or “these”,
 
 ## Procedural steps
 
-Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
+Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
 
 Each step must include an action. You can also choose to include whether a step is optional, explain the reason or result of the step, and orient the reader by describing the location of the action, before guiding them to complete the action.
 

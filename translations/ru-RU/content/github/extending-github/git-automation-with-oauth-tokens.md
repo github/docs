@@ -43,4 +43,4 @@ To avoid these prompts, you can use Git password caching. For information, see "
 
 ### Дополнительная литература
 
-- "[Authorizing OAuth Apps](/v3/oauth/)"
+- "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps)"

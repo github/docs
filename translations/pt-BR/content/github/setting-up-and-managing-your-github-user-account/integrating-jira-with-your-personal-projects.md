@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
-3. Na barra lateral esquerda, clique em **{% data variables.product.prodname_oauth_app %}s**. ![{ site.data.variables.product.prodname_oauth_app }}s aba na barra lateral esquerda](/assets/images/help/settings/developer-settings-oauth-apps.png)
+3. Na barra lateral esquerda, clique em **{% data variables.product.prodname_oauth_app %}s**. ![{% data variables.product.prodname_oauth_app %}s tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. Clique em **Register a new application** (Registrar novo aplicativo).
 4. Em **Application name** (Nome do aplicativo), digite "Jira".
 5. Em **Homepage URL** (URL da página inicial), digite a URL completa da sua instância do JIRA.

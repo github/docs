@@ -1,6 +1,7 @@
 ---
 title: Organization の Audit log をレビューする
 intro: 'Audit log により、Organization の管理者は Organization のメンバーによって行われたアクションをすばやくレビューできます。 これには、誰がいつ何のアクションを実行したかなどの詳細が残されます。'
+miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/reviewing-the-audit-log-for-your-organization
 versions:
@@ -11,7 +12,7 @@ versions:
 
 ### Audit log にアクセスする
 
-Audit log には、過去 90 日間に行われた行動が一覧表示されます。 Organization の Audit log にアクセスできるのはオーナーのみです。
+The audit log lists events triggered by activities that affect your organization within the last 90 days. Organization の Audit log にアクセスできるのはオーナーのみです。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -26,73 +27,111 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 特定のイベントを検索するには、クエリで `action` 修飾子を使用します。 Audit log に一覧表示されるアクションは以下のカテゴリに分類されます。
 
-| カテゴリー名                                            | 説明                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| `アカウント`                                           | Organization アカウントに関連するすべてのアクティビティが対象です。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| `支払い`                                             | Organization の支払いに関連するすべてのアクティビティが対象です。{% endif %}
-| `discussion_post`                                 | Team ページに投稿されたディスカッションに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                                                                                      |
-| `discussion_post_reply`                           | Team ページに投稿されたディスカッションへの返答に関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                                                                                  |
-| `フック`                                             | webhookに関連するすべてのアクティビティを含みます。                                                                                                                                                                                                                                                                                                                                                                                     |
-| `integration_installation_request`                | Organization 内で使用するインテグレーションをオーナーが承認するよう求める、 Organization メンバーからのリクエストに関連するすべてのアクティビティが対象です。 |{% if currentVersion == "free-pro-team@latest" %}
-| `marketplace_agreement_signature`                 | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                        |
-| `marketplace_listing`                             | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| `members_can_create_pages`                        | Organization のリポジトリについて {% data variables.product.prodname_pages %} サイトの公開を無効化することに関連するすべてのアクティビティが対象です。 詳細については、「[Organization について {% data variables.product.prodname_pages %} サイトの公開を制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)」を参照してください。                                                                               |{% endif %}
-| `org`                                             | Organization メンバーシップに関連するすべてのアクティビティが対象です。{% if currentVersion == "free-pro-team@latest" %}
-| `org_credential_authorization`                    | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-| `organization_label`                              | Organization のリポジトリのデフォルトラベルに関連するすべてのアクティビティが対象です。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| `payment_method`                                  | Organization の GitHub への支払い方法に関連するすべてのアクティビティが対象です。{% endif %}
-| `profile_picture`                                 | Organization のプロフィール画像に関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                                                                                      |
-| `project`                                         | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                                                                       |
-| `protected_branch`                                | 保護されたブランチ関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                                                                                                    |
-| `repo`                                            | Organization によって所有されていリポジトリに関連するすべてのアクティビティが対象です。{% if currentVersion == "free-pro-team@latest" %}
-| `repository_content_analysis`                     | [プライベート リポジトリに対するデータの使用を有効または無効にする](/articles/about-github-s-use-of-your-data)に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                   |
-| `repository_dependency_graph`                     | Contains all activities related to [enabling or disabling the dependency graph for a private repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository).{% endif %}{% if currentVersion != "github-ae@latest" %}
-| `repository_vulnerability_alert`                  | Contains all activities related to [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors`                                        | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| `Team`                                            | Organization の Team に関連するすべてのアクティビティが対処です。{% endif %}
-| `team_discussions`                                | Organization の Team ディスカッションに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                                                                                |
+| カテゴリ名                                                                                                                                                                                                                                                                                                                               | 説明                                                                                                                                                                                                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
+| [`アカウント`](#account-category-actions)                                                                                                                                                                                                                                                                                                | Contains all activities related to your organization account.                                                                                                                                                                                                                                                                                |
+| [`advisory_credit`](#advisory_credit-category-actions)                                                                                                                                                                                                                                                                              | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."       |
+| [`支払い`](#billing-category-actions)                                                                                                                                                                                                                                                                                                  | Contains all activities related to your organization's billing.                                                                                                                                                                                                                                                                              |
+| [`dependabot_alerts`](#dependabot_alerts-category-actions)                                                                                                                                                                                                                                                                          | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in existing repositories. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。                                                               |
+| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions)                                                                                                                                                                                                                                                      | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot %} alerts in new repositories created in the organization.                                                                                                                                                                            |
+| [`dependabot_security_updates`](#dependabot_security_updates-category-actions)                                                                                                                                                                                                                                                      | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。 |
+| [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions)                                                                                                                                                                                                                                  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.                                                                                                                                                               |
+| [`dependency_graph`](#dependency_graph-category-actions)                                                                                                                                                                                                                                                                            | Contains organization-level configuration activities for dependency graphs for repositories. 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。                                                                                                                                |
+| [`dependency_graph_new_repos`](#dependency_graph_new_repos-category-actions)                                                                                                                                                                                                                                                        | Contains organization-level configuration activities for new repositories created in the organization.{% endif %}
+| [`discussion_post`](#discussion_post-category-actions)                                                                                                                                                                                                                                                                              | Team ページに投稿されたディスカッションに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                 |
+| [`discussion_post_reply`](#discussion_post_reply-category-actions)                                                                                                                                                                                                                                                                  | Team ページに投稿されたディスカッションへの返答に関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                             |
+| [`フック`](#hook-category-actions)                                                                                                                                                                                                                                                                                                     | webhookに関連するすべてのアクティビティを含みます。                                                                                                                                                                                                                                                                                                                |
+| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                                                                                                                                                            | Organization 内で使用するインテグレーションをオーナーが承認するよう求める、 Organization メンバーからのリクエストに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                 |
+| [`Issue`](#issue-category-actions)                                                                                                                                                                                                                                                                                                  | Contains activities related to deleting an issue.                                                                                                                                                                                                                                                                                            |{% if currentVersion == "free-pro-team@latest" %}
+| [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions)                                                                                                                                                                                                                                              | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                                                   |
+| [`marketplace_listing`](#marketplace_listing-category-actions)                                                                                                                                                                                                                                                                      | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| [`members_can_create_pages`](#members_can_create_pages-category-actions)                                                                                                                                                                                                                                                            | Organization のリポジトリについて {% data variables.product.prodname_pages %} サイトの公開を無効化することに関連するすべてのアクティビティが対象です。 詳細については、「[Organization について {% data variables.product.prodname_pages %} サイトの公開を制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)」を参照してください。          |{% endif %}
+| [`org`](#org-category-actions)                                                                                                                                                                                                                                                                                                      | Contains activities related to organization membership.{% if currentVersion == "free-pro-team@latest" %}
+| [`org_credential_authorization`](#org_credential_authorization-category-actions)                                                                                                                                                                                                                                                    | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+| [`organization_label`](#organization_label-category-actions)                                                                                                                                                                                                                                                                        | Contains all activities related to default labels for repositories in your organization.{% endif %}
+| [`oauth_application`](#oauth_application-category-actions)                                                                                                                                                                                                                                                                          | Contains all activities related to OAuth Apps.                                                                                                                                                                                                                                                                                               |{% if currentVersion == "free-pro-team@latest" %}
+| [`payment_method`](#payment_method-category-actions)                                                                                                                                                                                                                                                                                | Organization の GitHub への支払い方法に関連するすべてのアクティビティが対象です。{% endif %}
+| [`profile_picture`](#profile_picture-category-actions)                                                                                                                                                                                                                                                                              | Organization のプロフィール画像に関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                 |
+| [`project`](#project-category-actions)                                                                                                                                                                                                                                                                                              | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                  |
+| [`protected_branch`](#protected_branch-category-actions)                                                                                                                                                                                                                                                                            | 保護されたブランチ関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                                               |
+| [`repo`](#repo-category-actions)                                                                                                                                                                                                                                                                                                    | Contains activities related to the repositories owned by your organization.{% if currentVersion == "free-pro-team@latest" %}
+| [`repository_advisory`](#repository_advisory-category-actions)                                                                                                                                                                                                                                                                      | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."                     |
+| [`repository_content_analysis`](#repository_content_analysis-category-actions)                                                                                                                                                                                                                                                      | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% if currentVersion != "github-ae@latest" %}
+| [`repository_dependency_graph`](#repository_dependency_graph-category-actions)                                                                                                                                                                                                                                                      | Contains repository-level activities related to enabling or disabling the dependency graph for a                                                                                                                                                                                                                                             |
+| {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} |                                                                                                                                                                                                                                                                                                                                              |
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions)                                                                                                                                                                                                                                                        | Contains repository-level activities related to secret scanning. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。                                                                                                                                                                         |{% endif %}{% if currentVersion != "github-ae@latest" %}
+| [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions)                                                                                                                                                                                                                                                | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions)                                                                                                                                                                                                                                              | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts.                                                                                                                                                                                                                              |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+| [`secret_scanning`](#secret_scanning-category-actions)                                                                                                                                                                                                                                                                              | Contains organization-level configuration activities for secret scanning in existing repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。                                                                                                                                       |
+| [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions)                                                                                                                                                                                                                                                          | Contains organization-level configuration activities for secret scanning for new repositories created in the organization.                                                                                                                                                                                                                   |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [`sponsors`](#sponsors-category-actions)                                                                                                                                                                                                                                                                                            | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| [`Team`](#team-category-actions)                                                                                                                                                                                                                                                                                                    | Organization の Team に関連するすべてのアクティビティが対処です。{% endif %}
+| [`team_discussions`](#team_discussions-category-actions)                                                                                                                                                                                                                                                                            | Organization の Team ディスカッションに関連するすべてのアクティビティが対象です。                                                                                                                                                                                                                                                                                           |
 
 次の用語を使用すれば、特定の一連の行動を検索できます。 例:
 
   * `action:team`はteamカテゴリ内でグループ化されたすべてのイベントを検索します。
   * `-action:hook` は webhook カテゴリ内のすべてのイベントを除外します。
 
-各カテゴリには、フィルタリングできる一連の関連イベントがあります。 例:
+Each category has a set of associated actions that you can filter on. 例:
 
   * `action:team.create`はTeamが作成されたすべてのイベントを検索します。
   * `-action:hook.events_changed` は webhook の変更されたすべてのイベントを除外します。
 
-以下リストで、使用できるカテゴリと関連するイベントを説明します。
+#### アクション時間に基づく検索
 
-{% if currentVersion == "free-pro-team@latest" %}- [`account` カテゴリ](#the-account-category)
-- [`billing` カテゴリ](#the-billing-category){% endif %}
-- [`discussion_post` カテゴリ](#the-discussion_post-category)
-- [`discussion_post_reply` カテゴリ](#the-discussion_post_reply-category)
-- [`hook` カテゴリ](#the-hook-category)
-- [`integration_installation_request` カテゴリ](#the-integration_installation_request-category)
-- [`issue` カテゴリ](#the-issue-category){% if currentVersion == "free-pro-team@latest" %}
-- [`marketplace_agreement_signature` カテゴリ](#the-marketplace_agreement_signature-category)
-- [The `marketplace_listing` category](#the-marketplace_listing-category){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-- [`members_can_create_pages` カテゴリ](#the-members_can_create_pages-category){% endif %}
-- [`org` カテゴリ](#the-org-category){% if currentVersion == "free-pro-team@latest" %}
-- [The `org_credential_authorization` category](#the-org_credential_authorization-category){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-- [`organization_label` カテゴリ](#the-organization_label-category){% endif %}
-- [`oauth_application` カテゴリ](#the-oauth_application-category){% if currentVersion == "free-pro-team@latest" %}
-- [`payment_method` カテゴリ](#the-payment_method-category){% endif %}
-- [`profile_picture` カテゴリ](#the-profile_picture-category)
-- [`project` カテゴリ](#the-project-category)
-- [`protected_branch` カテゴリ](#the-protected_branch-category)
-- [`repo` カテゴリ](#the-repo-category){% if currentVersion == "free-pro-team@latest" %}
-- [`repository_content_analysis` カテゴリ](#the-repository_content_analysis-category)
-- [The `repository_dependency_graph` category](#the-repository_dependency_graph-category){% endif %}{% if currentVersion != "github-ae@latest" %}
-- [The `repository_vulnerability_alert` category](#the-repository_vulnerability_alert-category){% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- [The `sponsors` category](#the-sponsors-category){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-- [`team` カテゴリ](#the-team-category){% endif %}
-- [`team_discussions` カテゴリ](#the-team_discussions-category)
+Use the `created` qualifier to filter events in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
+
+{% data reusables.search.date_gt_lt %} 例:
+
+  * `created:2014-07-08` は、2014 年 7 月 8 日に発生したイベントをすべて検索します。
+  * `created:>=2014-07-08` は、2014 年 7 月 8 日かそれ以降に生じたすべてのイベントを検索します。
+  * `created:<=2014-07-08`は、2014 年 7 月 8 日かそれ以前に生じたすべてのイベントを検索します。
+  * `created:2014-07-01..2014-07-31`は、2014 年 7 月に起きたすべてのイベントを検索します。
+
+Audit log には過去 90 日間のデータが存在しますが、`created` 修飾子を使用すればそれより前のイベントを検索できます。
+
+#### 場所に基づく検索
+
+Using the qualifier `country`, you can filter events in the audit log based on the originating country. 国の 2 文字のショートコードまたはフル ネームを使用できます。 名前に空白がある国は引用符で囲む必要があることに注意してください。 例:
+
+  * `country:de` は、ドイツで発生したイベントをすべて検索します。
+  * `country:Mexico` はメキシコで発生したすべてのイベントを検索します。
+  * `country:"United States"` はアメリカ合衆国で発生したすべてのイベントを検索します。
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Audit log をエクスポートする
+
+{% data reusables.audit_log.export-log %}
+{% data reusables.audit_log.exported-log-keys-and-values %}
+{% endif %}
+
+### Audit log API を使用する
+
+{% note %}
+
+**メモ**: Audit log API は、{% data variables.product.prodname_enterprise %} を使用している Organization が利用できます。 {% data reusables.gated-features.more-info-org-products %}
+
+{% endnote %}
+
+IP の安全性を保ち、Organization のコンプライアンスを守るため、Audit log API を使って、Audit log データのコピーを保存し、モニタリングできます。
+* Organization またはリポジトリの設定へのアクセス
+* 権限の変更
+* Organization、リポジトリ、または Team におけるユーザの追加や削除
+* 管理者に昇格しているユーザ
+* GitHub App の権限の変更
+
+GraphQL のレスポンスには、90 日から 120 日までのデータを含めることができます。
+
+たとえば、GraphQL にリクエストして、Organization に新しく追加された Organization メンバー全員を表示できます。 詳細は「[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)」を参照してください。
+
+### Audit log actions
+
+An overview of some of the most common actions that are recorded as events in the audit log.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-##### `account` カテゴリ
+#### `account` category actions
 
 | アクション                         | 説明                                                                                                                                                     |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -101,30 +140,81 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 | `pending_plan_change`         | Organization のオーナーまたは支払いマネージャーが[支払い済みサブスクリプションをキャンセルまたはダウングレードする](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/)ときにトリガーされます。 |
 | `pending_subscription_change` | [{% data variables.product.prodname_marketplace %} の無料トライアルが始まるか期限切れになる](/articles/about-billing-for-github-marketplace/)ときにトリガーされます。                  |
 
-##### `billing` カテゴリ
+#### `advisory_credit` category actions
+
+| アクション     | 説明                                                                                                                                                                               |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `accept`  | Triggered when someone accepts credit for a security advisory. 詳しい情報については、「[セキュリティアドバイザリを編集する](/github/managing-security-vulnerabilities/editing-a-security-advisory)」を参照してください。 |
+| `create`  | Triggered when the administrator of a security advisory adds someone to the credit section.                                                                                      |
+| `decline` | Triggered when someone declines credit for a security advisory.                                                                                                                  |
+| `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.                                                                                 |
+
+#### `billing` category actions
 
 | アクション                 | 説明                                                                                                                                 |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `change_billing_type` | Organization が[{% data variables.product.prodname_dotcom %} の支払い方法を変更する](/articles/adding-or-editing-a-payment-method)ときにトリガーされます。 |
 | `change_email`        | Organization の[支払い請求先メール アドレス](/articles/setting-your-billing-email)が変わるときにトリガーされます。                                               |
 
+#### `dependabot_alerts` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all existing {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
+| `enable`  | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all existing {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.                                                                                                                                                                                                                      |
+
+#### `dependabot_alerts_new_repos` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
+| `enable`  | Triggered when an organization owner enbles {% data variables.product.prodname_dependabot_alerts %} for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.                                                                                                                                                                                                                       |
+
+#### `dependabot_security_updates` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
+| `enable`  | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all existing repositories.                                                                                                                                                                                                                      |
+
+#### `dependabot_security_updates_new_repos` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                                                              |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
+| `enable`  | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_security_updates %} for all new repositories.                                                                                                                                                                                                                      |
+
+#### `dependency_graph` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                    |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables the dependency graph for all existing repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
+| `enable`  | Triggered when an organization owner enables the dependency graph for all existing repositories.                                                                                                                                                                                                                      |
+
+#### `dependency_graph_new_repos` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                               |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables the dependency graph for all new repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)." |
+| `enable`  | Triggered when an organization owner enables the dependency graph for all new repositories.                                                                                                                                                                                                                      |
+
 {% endif %}
 
-##### `discussion_post` カテゴリ
+#### `discussion_post` category actions
 
 | アクション     | 説明                                                                                               |
 | --------- | ------------------------------------------------------------------------------------------------ |
 | `update`  | [Team ディスカッションの投稿が編集される](/articles/managing-disruptive-comments/#editing-a-comment)ときにトリガーされます。  |
 | `destroy` | [Team ディスカッションの投稿が削除される](/articles/managing-disruptive-comments/#deleting-a-comment)ときにトリガーされます。 |
 
-##### `discussion_post_reply` カテゴリ
+#### `discussion_post_reply` category actions
 
 | アクション     | 説明                                                                                                   |
 | --------- | ---------------------------------------------------------------------------------------------------- |
 | `update`  | [Team ディスカッションの投稿への返答が編集される](/articles/managing-disruptive-comments/#editing-a-comment)ときにトリガーされます。  |
 | `destroy` | [Team ディスカッションの投稿への返答が削除される](/articles/managing-disruptive-comments/#deleting-a-comment)ときにトリガーされます。 |
 
-##### `hook` カテゴリ
+#### `hook` category actions
 
 | アクション            | 説明                                                                              |
 | ---------------- | ------------------------------------------------------------------------------- |
@@ -133,14 +223,14 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 | `destroy`        | 既存のフックがリポジトリから削除されたときにトリガーされます。                                                 |
 | `events_changed` | フックでのイベントが変更された場合にトリガーされます。                                                     |
 
-##### `integration_installation_request` カテゴリ
+#### `integration_installation_request` category actions
 
 | アクション    | 説明                                                                                                                                 |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `create` | Organization のメンバーが、Organization 内で使用するために、Organization のオーナーにインテグレーションをインストールすることを要求するときにトリガーされます。                                |
 | `close`  | Organization 内で使用するためにインテグレーションをインストールする要求が、Organization のオーナーにより承認または拒否されるか、あるいは要求を公開した Organization のメンバーによりキャンセルされるときにトリガーされます。 |
 
-##### `issue` カテゴリ
+#### `issue` category actions
 
 | アクション     | 説明                                                                                     |
 | --------- | -------------------------------------------------------------------------------------- |
@@ -148,13 +238,13 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-##### `marketplace_agreement_signature` カテゴリ
+#### `marketplace_agreement_signature` category actions
 
 | アクション    | 説明                                                                                      |
 | -------- | --------------------------------------------------------------------------------------- |
 | `create` | {% data variables.product.prodname_marketplace %} Developer Agreement に署名するときにトリガーされます。 |
 
-##### `marketplace_listing` カテゴリ
+#### `marketplace_listing` category actions
 
 | アクション     | 説明                                                                                  |
 | --------- | ----------------------------------------------------------------------------------- |
@@ -168,7 +258,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
-##### `members_can_create_pages` カテゴリ
+#### `members_can_create_pages` category actions
 
 詳細については、「[Organization について {% data variables.product.prodname_pages %} サイトの公開を制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)」を参照してください。
 
@@ -179,7 +269,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% endif %}
 
-##### `org` カテゴリ
+#### `org` category actions
 
 | アクション                                                                                                          | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest"%}
@@ -222,7 +312,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 | `update_terms_of_service`                                                                                      | Organization が標準利用規約と企業向け利用規約を切り替えるときにトリガーされます。 詳細は「[企業利用規約にアップグレードする](/articles/upgrading-to-the-corporate-terms-of-service)」を参照してください。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### `org_credential_authorization` カテゴリ
+#### `org_credential_authorization` category actions
 
 | アクション          | 説明                                                                                                                                                            |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -233,7 +323,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
-##### `organization_label` カテゴリ
+#### `organization_label` category actions
 
 | アクション     | 説明                         |
 | --------- | -------------------------- |
@@ -243,7 +333,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% endif %}
 
-##### `oauth_application` カテゴリ
+#### `oauth_application` category actions
 
 | アクション           | 説明                                                                                         |
 | --------------- | ------------------------------------------------------------------------------------------ |
@@ -255,7 +345,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-##### `payment_method` カテゴリ
+#### `payment_method` category actions
 
 | アクション    | 説明                                                                   |
 | -------- | -------------------------------------------------------------------- |
@@ -265,12 +355,12 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% endif %}
 
-##### `profile_picture` カテゴリ
+#### `profile_picture` category actions
 | アクション  | 説明                                           |
 | ------ | -------------------------------------------- |
 | update | Organization のプロファイル写真を設定または更新するときにトリガーされます。 |
 
-##### `project` カテゴリ
+#### `project` category actions
 
 | アクション                    | 説明                                                                                     |
 | ------------------------ | -------------------------------------------------------------------------------------- |
@@ -284,7 +374,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 | `update_team_permission` | Team のプロジェクト ボードの権限レベルが変更されるとき、または Team がプロジェクト ボードに追加または削除されるときにトリガーされます。             |
 | `update_user_permission` | Organization のメンバーまたは外部コラボレーターがプロジェクト ボードに追加または削除されるとき、または彼らの権限レベルが変更されている場合にトリガーされます。 |
 
-##### `protected_branch` カテゴリ
+#### `protected_branch` category actions
 
 | アクション                                                 | 説明                                                                                                                                                                                                                                     |
 | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -304,14 +394,14 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 | `update_linear_history_requirement_enforcement_level` | 保護されたブランチについて、必須の直線状のコミット履歴が有効化または無効化されるときにトリガーされます。                                                                                                                                                                                   |
 {% endif %}
 
-##### `repo` カテゴリ
+#### `repo` category actions
 
 | アクション                                 | 説明                                                                                                                                                                                                                                       |
 | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `access`                              | Organization が所有するリポジトリが["プライベート" から "パブリック" に切り替えられる](/articles/making-a-private-repository-public) (またはその逆) ときにトリガーされます。                                                                                                               |
+| `access`                              | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.                                                                                    |
 | `add_member`                          | ユーザーが[リポジトリへのコラボレーションアクセスへの招待](/articles/inviting-collaborators-to-a-personal-repository)を受諾するときにトリガーされます。                                                                                                                               |
 | `add_topic`                           | リポジトリの管理者がリポジトリに[トピックを追加する](/articles/classifying-your-repository-with-topics)ときにトリガーされます。                                                                                                                                               |
-| `archived`                            | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `archived`                            | リポジトリの管理者が[リポジトリをアーカイブする](/articles/about-archiving-repositories)ときにトリガーされます。{% if enterpriseServerVersions contains currentVersion %}
 | `config.disable_anonymous_git_access` | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                         |
 | `config.enable_anonymous_git_access`  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                         |
 | `config.lock_anonymous_git_access`    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                    |
@@ -334,35 +424,80 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-##### `repository_content_analysis` カテゴリ
+#### `repository_advisory` category actions
+
+| アクション              | 説明                                                                                                                                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `close`            | Triggered when someone closes a security advisory. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)." |
+| `cve_request`      | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.                                                                 |
+| `github_broadcast` | Triggered when {% data variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.                                                                       |
+| `github_withdraw`  | Triggered when {% data variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.                                                                                                               |
+| `オープン`             | Triggered when someone opens a draft security advisory.                                                                                                                                                                              |
+| `publish`          | Triggered when someone publishes a security advisory.                                                                                                                                                                                |
+| `さいお`              | Triggered when someone reopens as draft security advisory.                                                                                                                                                                           |
+| `update`           | Triggered when someone edits a draft or published security advisory.                                                                                                                                                                 |
+
+#### `repository_content_analysis` category actions
 
 | アクション     | 説明                                                                                                                                                                                                          |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `enable`  | Organization のオーナーまたはリポジトリへの管理者アクセス権を所有する人が[プライベート リポジトリに対してデータ使用設定を有効にする](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)ときにトリガーされます。 |
 | `disable` | Organization のオーナーまたはリポジトリへの管理者アクセス権を所有する人が[プライベート リポジトリに対してデータ使用設定を無効にする](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)ときにトリガーされます。 |
 
-##### `repository_dependency_graph` カテゴリ
+{% endif %}{% if currentVersion != "github-ae@latest" %}
 
-| アクション     | 説明                                                                                                                                                                                      |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enable`  | リポジトリのオーナーまたはリポジトリへの管理者アクセス権を所有する人が[プライベート リポジトリに対して依存グラフを有効にする](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository)ときにトリガーされます。 |
-| `disable` | リポジトリのオーナーまたはリポジトリへの管理者アクセス権を所有する人が[プライベート リポジトリに対して依存グラフを無効にする](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository)ときにトリガーされます。 |
+#### `repository_dependency_graph` category actions
 
-{% endif %}
-{% if currentVersion != "github-ae@latest" %}
-##### `repository_vulnerability_alert` カテゴリ
+| アクション     | 説明                                                                                                                                                                                                                                                                                                                   |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables the dependency graph for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。 |
+| `enable`  | Triggered when a repository owner or person with admin access to the repository enables the dependency graph for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository.                                                                                                                   |
 
-| アクション                                                                                                                                                                                                                                                                     | 説明                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`                                                                                                                                                                                                                                                                  | {% data variables.product.product_name %} が特定のリポジトリで[脆弱な依存性に対する{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラート](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)を作成するときにトリガーされます。 |
-| `解決`                                                                                                                                                                                                                                                                      | リポジトリへの書き込みアクセス権を所有する人が、プロジェクトの依存関係で、[脆弱性を更新して解決するために変更をプッシュする](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)ときにトリガーされます。                                                                                                                                                                                                 |
-| `却下`                                                                                                                                                                                                                                                                      | Organization のオーナーまたはリポジトリへの管理者アクセス権を所有する人は                                                                                                                                                                                                                                                                                                                     |
-| 脆弱な依存関係についての {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを却下するときにトリガーされます。{% if currentVersion == "free-pro-team@latest" %} |                                                                                                                                                                                                                                                                                                                                                                 |
-| `authorized_users_teams`                                                                                                                                                                                                                                                  | Organization のオーナーまたはリポジトリへの管理者権限を所有するメンバーが、リポジトリ内の脆弱な依存関係に対する[{% data variables.product.prodname_dependabot_short %}{% endif %}アラートを受信する権限が与えられた人または Team のリストを更新する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-github-dependabot-alerts)ときにトリガーされます。                                 |
+{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### `repository_secret_scanning` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                                                 |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
+| `enable`  | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repository.                                                                                                      |
+
+{% endif %}{% if currentVersion != "github-ae@latest" %}
+#### `repository_vulnerability_alert` category actions
+
+| アクション    | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create` | Triggered when {% data variables.product.product_name %} creates a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alert for a repository that uses a vulnerable dependency. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。 |
+| `却下`     | Triggered when an organization owner or person with admin access to the repository dismisses a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}security{% endif %} alert about a vulnerable dependency.                                                                                                                              |
+| `解決`     | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.                                                                                                                                                                                                                                                                                                              |
+
+{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+#### `repository_vulnerability_alerts` category actions
+
+| アクション                    | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `authorized_users_teams` | Triggered when an organization owner or a person with admin permissions to the repository updates the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)." |
+| `disable`                | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                        |
+| `enable`                 | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_dependabot_alerts %}.                                                                                                                                                                                                                                                                                                                                         |
+
+{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### `secret_scanning` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                                    |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables secret scanning for all existing{% if currentVersion == "free-pro-team@latest" %}, private{% endif %} repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
+| `enable`  | Triggered when an organization owner enables secret scanning for all existing{% if currentVersion == "free-pro-team@latest" %}, private{% endif %} repositories.                                                                                                      |
+
+#### `secret_scanning_new_repos` category actions
+
+| アクション     | 説明                                                                                                                                                                                                                                                              |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `disable` | Triggered when an organization owner disables secret scanning for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories. 詳しい情報については、「[シークレットスキャニングについて](/github/administering-a-repository/about-secret-scanning)」を参照してください。 |
+| `enable`  | Triggered when an organization owner enables secret scanning for all new {% if currentVersion == "free-pro-team@latest" %}private {% endif %}repositories.                                                                                                      |
+
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### `sponsors` カテゴリ
+#### `sponsors` category actions
 
 | アクション                               | 説明                                                                                                                              |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -371,7 +506,7 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-##### `team` カテゴリ
+#### `team` category actions
 
 | アクション                | 説明                                                                                                   |
 | -------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -385,59 +520,12 @@ Audit log には、過去 90 日間に行われた行動が一覧表示されま
 | `remove_repository`  | リポジトリが Team の管理下でなくなるときにトリガーされます。                                                                    |
 {% endif %}
 
-##### `team_discussions` カテゴリ
+#### `team_discussions` category actions
 
 | アクション     | 説明                                                                                                                                                                                     |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `disable` | Organization のオーナーが Organization の Team ディスカッションを無効にするときにトリガーされます。 詳しい情報については [Organization の Team ディスカッションの無効化](/articles/disabling-team-discussions-for-your-organization)を参照してください。 |
 | `enable`  | Organization のオーナーが Organization の Team ディスカッションを有効にするときにトリガーされます。                                                                                                                     |
-
-#### アクション時間に基づく検索
-
-`created` 修飾子を使用して、行われた日時に基づいて Audit log 内の行動をフィルタリングします。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
-
-{% data reusables.search.date_gt_lt %} 例:
-
-  * `created:2014-07-08` は、2014 年 7 月 8 日に発生したイベントをすべて検索します。
-  * `created:>=2014-07-08` は、2014 年 7 月 8 日かそれ以降に生じたすべてのイベントを検索します。
-  * `created:<=2014-07-08`は、2014 年 7 月 8 日かそれ以前に生じたすべてのイベントを検索します。
-  * `created:2014-07-01..2014-07-31`は、2014 年 7 月に起きたすべてのイベントを検索します。
-
-Audit log には過去 90 日間のデータが存在しますが、`created` 修飾子を使用すればそれより前のイベントを検索できます。
-
-#### 場所に基づく検索
-
-修飾子 `country` を使用すれば、発信元の国に基づいて Audit log 内の行動をフィルタリングできます。 国の 2 文字のショートコードまたはフル ネームを使用できます。 名前に空白がある国は引用符で囲む必要があることに注意してください。 例:
-
-  * `country:de` は、ドイツで発生したイベントをすべて検索します。
-  * `country:Mexico` はメキシコで発生したすべてのイベントを検索します。
-  * `country:"United States"` はアメリカ合衆国で発生したすべてのイベントを検索します。
-
-{% if currentVersion == "free-pro-team@latest" %}
-### Audit log をエクスポートする
-
-{% data reusables.audit_log.export-log %}
-{% data reusables.audit_log.exported-log-keys-and-values %}
-{% endif %}
-
-### Audit log API を使用する
-
-{% note %}
-
-**メモ**: Audit log API は、{% data variables.product.prodname_enterprise %} を使用している Organization が利用できます。 {% data reusables.gated-features.more-info-org-products %}
-
-{% endnote %}
-
-IP の安全性を保ち、Organization のコンプライアンスを守るため、Audit log API を使って、Audit log データのコピーを保存し、モニタリングできます。
-* Organization またはリポジトリの設定へのアクセス
-* 権限の変更
-* Organization、リポジトリ、または Team におけるユーザの追加や削除
-* 管理者に昇格しているユーザ
-* GitHub App の権限の変更
-
-GraphQL のレスポンスには、90 日から 120 日までのデータを含めることができます。
-
-たとえば、GraphQL にリクエストして、Organization に新しく追加された Organization メンバー全員を表示できます。 詳細は「[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)」を参照してください。
 
 ### 参考リンク
 

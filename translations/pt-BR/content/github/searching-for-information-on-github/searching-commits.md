@@ -96,14 +96,11 @@ Para pesquisar commits em todos os repositórios de um determinado usuário ou o
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) identifica as mensagens do commit com a palavra "test" nos repositórios de @github.                                                  |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) identifica as mensagens do commit com a palavra "language" no repositório "gibberish" de @defunkt. |
 
-### Filtrar repositórios públicos ou privados
+### Filter by repository visibility
 
-O qualificador `is` identifica commits públicos ou privados.
+The `is` qualifier matches commits from repositories with the specified visibility. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| Qualifier    | Exemplo                                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) identifica os commits públicos.   |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) identifica os commits privados. |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
 
 ### Leia mais
 

@@ -27,7 +27,7 @@ prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
   {% if enterpriseServerVersions contains currentVersion %}your GitHub Enterprise Server instance{% elsif currentVersion == "github-ae@latest" %}your enterprise{% else %}GitHub{% endif %}
-  
+
 # Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 # Do not use in other situations!
 product_location_enterprise: 'your GitHub Enterprise Server instance'
@@ -170,8 +170,7 @@ signout_link: >-
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 # GitHub Enterprise Server past versions
-current-340-version:
-  '11.10.354'
+current-340-version: '11.10.354'
 
 # Developer site product variables
 # Use this inside command-line and other code blocks

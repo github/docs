@@ -1,0 +1,1 @@
+5. Em "Limites de interação temporária", à direita do tipo de limite de interação que você deseja definir, use o menu suspenso **Habilitar** e, em seguida, clique na duração que você deseja para o seu limite de interação.

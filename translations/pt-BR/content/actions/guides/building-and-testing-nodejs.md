@@ -34,28 +34,28 @@ Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do
 
 {% raw %}
 ```yaml{:copy}
-Nome: Node.js CI
+name: Node.js CI
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
 
-    estratégia:
-      matriz:
+    strategy:
+      matrix:
         node-version: [8.x, 10.x, 12.x]
 
-    etapas:
-    - usa: actions/checkout@v2
-    - nome: Use Node.js ${{ matrix.node-version }}
-      usa: actions/setup-node@v1
-      com:
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
         node-version: ${{ matrix.node-version }}
-    - executa: npm install
-    - executa: npm run build --if-present
-    - executa: npm test
+    - run: npm install
+    - run: npm run build --if-present
+    - run: npm test
       env:
         CI: true
 ```
@@ -75,15 +75,15 @@ Cada trabalho pode acessar o valor definido na matriz `node-version` usando o co
 
 {% raw %}
 ```yaml
-estratégia:
-  matriz:
+strategy:
+  matrix:
     node-version: [8.x, 10.x, 12.x]
 
-etapas:
-- usa: actions/checkout@v2
-- Nome: Use Node.js ${{ matrix.node-version }}
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js ${{ matrix.node-version }}
+  uses: actions/setup-node@v1
+  with:
     node-version: ${{ matrix.node-version }}
 ```
 {% endraw %}
@@ -91,8 +91,8 @@ etapas:
 Como alternativa, você pode criar e fazes testes com versões exatas do Node.js.
 
 ```yaml
-estratégia:
-  matriz:
+strategy:
+  matrix:
     node-version: [8.16.2, 10.17.0]
 ```
 
@@ -100,24 +100,24 @@ Você também pode criar e testar usando uma versão única do Node.js.
 
 {% raw %}
 ```yaml
-Nome: Node.js CI
+name: Node.js CI
 
-em: [push]
+on: [push]
 
-trabalhos:
-  criar:
+jobs:
+  build:
 
     runs-on: ubuntu-latest
 
-    etapas:
-    - usa: actions/checkout@v2
-    - Nome: Usa o Node.js
-      usa: actions/setup-node@v1
-      com:
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
         node-version: '12.x'
-    - executar: npm install
-    - executar: npm run build --if-present
-    - executar: npm test
+    - run: npm install
+    - run: npm run build --if-present
+    - run: npm test
       env:
         CI: true
 ```
@@ -129,35 +129,35 @@ Se você não especificar uma versão do Node.js, o {% data variables.product.pr
 
 Executores hospedados em {% data variables.product.prodname_dotcom %} têm gerenciadores de dependências npm e Yarn instalados. Você pode usar o npm e o Yarn para instalar dependências no seu fluxo de trabalho antes de criar e testar seu código. Os executores do Windows e Linux hospedados em {% data variables.product.prodname_dotcom %} também têm o Grunt, Gulp, e Bower instalado.
 
-Você também pode memorizar as dependências para acelerar seu fluxo de trabalho. Para obter mais informações, consulte "[Memorizando dependências para acelerar seu fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)".
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 #### Exemplo de uso do npm
 
 Este exemplo instala as dependências definidas no arquivo *package.json*. Para obter mais informações, consulte [`instalação do npm`](https://docs.npmjs.com/cli/install).
 
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     node-version: '12.x'
-- nome: Instalar dependências
-  executar: npm install
+- name: Install dependencies
+  run: npm install
 ```
 
 O uso do `npm ci` instala as versões no arquivo *package-lock.json* ou *npm-shrinkwrap.json* e impede as atualizações do arquivo de bloqueio. Usar `npm ci` geralmente é mais rápido que executar a `instalação do npm`. Para obter mais informações, consulte [`npm ci`](https://docs.npmjs.com/cli/ci.html) e "[Introduzindo `npm` para criações mais rápidas e confiáveis](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)".
 
 {% raw %}
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     node-version: '12.x'
-- nome: Instalar dependências
-  executar: npm ci
+- name: Install dependencies
+  run: npm ci
 ```
 {% endraw %}
 
@@ -166,27 +166,27 @@ etapas:
 Este exemplo instala as dependências definidas no arquivo *package.json*. Para obter mais informações, consulte [`instalação do yarn`](https://yarnpkg.com/en/docs/cli/install).
 
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     node-version: '12.x'
-- nome: Instalar dependências
-  executar: yarn
+- name: Install dependencies
+  run: yarn
 ```
 
 Como alternativa, você pode aprovar o `--frozen-lockfile` para instalar as versões no arquivo *yarn.lock* e impedir atualizações no arquivo *yarn.lock*.
 
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     node-version: '12.x'
-- nome: Instalar dependências
-  executar: yarn --frozen-lockfile
+- name: Install dependencies
+  run: yarn --frozen-lockfile
 ```
 
 #### Exemplo do uso de um registro privado e de criação o arquivo .npmrc
@@ -201,17 +201,17 @@ Antes de instalar as dependências, use a ação `setup-node` para criar o arqui
 
 {% raw %}
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     always-auth: true
     node-version: '12.x'
     registry-url: https://registry.npmjs.org
-    escopo: '@octocat'
-- nome: Instalar dependências
-  executar: npm ci
+    scope: '@octocat'
+- name: Install dependencies
+  run: npm ci
   env:
     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 ```
@@ -227,27 +227,27 @@ always-auth=true
 
 #### Exemplo de memorização de dependências
 
-Você pode memorizar dependências usando uma chave única e restaurar as dependências ao executar fluxos de trabalho futuros usando a ação `cache`. Para obter mais informações, consulte "[Memorizando dependências para acelerar os fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)" e a ação [`cache`](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     node-version: '12.x'
-- nome: Cache Node.js modules
-  usa: actions/cache@v2
-  com:
-    # Os arquivos da cache do npm estão armazenados em `~/.npm` no Linux/macOS
-    caminho: ~/.npm 
-    chave: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+- name: Cache Node.js modules
+  uses: actions/cache@v2
+  with:
+    # npm cache files are stored in `~/.npm` on Linux/macOS
+    path: ~/.npm
+    key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
     restore-keys: |
       ${{ runner.OS }}-node-
       ${{ runner.OS }}-
-- nome: Instalar dependências
-  executar: npm ci
+- name: Install dependencies
+  run: npm ci
 ```
 {% endraw %}
 
@@ -256,15 +256,15 @@ etapas:
 Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Por exemplo, se você executar `criação da execução do npm` para executar os passos de compilação definidos no seu arquivo *package.json* e o `teste do npm` para executar seu conjunto de testes, você adicionaria esses comandos no seu arquivo de fluxo de trabalho.
 
 ```yaml
-etapas:
-- usa: actions/checkout@v2
-- nome: Use Node.js
-  usa: actions/setup-node@v1
-  com:
+steps:
+- uses: actions/checkout@v2
+- name: Use Node.js
+  uses: actions/setup-node@v1
+  with:
     node-version: '12.x'
-- executar: npm install
-- executar: npm run build --if-present
-- executar: npm test
+- run: npm install
+- run: npm run build --if-present
+- run: npm test
 ```
 
 ### Empacotar dados do fluxo de trabalho como artefatos
