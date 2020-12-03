@@ -46,7 +46,10 @@ The content attachment flow shows you the relationship between the URL in the is
     "node_id": "MDE2OkNvbnRlbnRSZWZlcmVuY2UxNjA5",
     "reference": "errors.ai"
   },
-  "repository": {...},
+  "repository": {
+    "full_name":"ORG/REPO",
+    ...
+  },
   "sender": {...},
   "installation": {
     "id": 371641,
@@ -64,7 +67,7 @@ The `body` parameter can contain markdown:
 
     ```shell
     curl -X POST \
-      https://api.github.com/content_references/1512/attachments \
+      https://api.github.com/ORG/REPO/content_references/1512/attachments \
       -H 'Accept: application/vnd.github.corsair-preview+json' \
       -H 'Authorization: Bearer $INSTALLATION_TOKEN' \
       -d '{
