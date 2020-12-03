@@ -3,6 +3,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head } = require('../helpers/supertest')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+const loadPages = require('../../lib/pages')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -352,6 +353,46 @@ describe('server', () => {
     test('is not displayed if article has only one version', async () => {
       const $ = await getDOM('/en/articles/signing-up-for-a-new-github-account')
       expect($('.article-versions').length).toBe(0)
+    })
+  })
+
+  describe('Early Access articles', () => {
+    let hiddenPageHrefs, hiddenPages
+
+    beforeAll(async (done) => {
+      const $ = await getDOM('/early-access')
+      hiddenPageHrefs = $('#article-contents ul > li > a').map((i, el) => $(el).attr('href')).get()
+
+      const allPages = await loadPages()
+      hiddenPages = allPages.filter(page => page.languageCode === 'en' && page.hidden)
+
+      done()
+    })
+
+    test('exist in the set of English pages', async () => {
+      expect(hiddenPages.length).toBeGreaterThan(0)
+    })
+
+    test('are listed at /early-access', async () => {
+      expect(hiddenPageHrefs.length).toBeGreaterThan(0)
+    })
+
+    test('are not listed at /early-access in production', async () => {
+      const oldNodeEnv = process.env.NODE_ENV
+      process.env.NODE_ENV = 'production'
+      const res = await get('/early-access', { followRedirects: true })
+      process.env.NODE_ENV = oldNodeEnv
+      expect(res.statusCode).toBe(404)
+    })
+
+    test('have noindex meta tags', async () => {
+      const $ = await getDOM(hiddenPageHrefs[0])
+      expect($('meta[content="noindex"]').length).toBe(1)
+    })
+
+    test('public articles do not have noindex meta tags', async () => {
+      const $ = await getDOM('/en/articles/set-up-git')
+      expect($('meta[content="noindex"]').length).toBe(0)
     })
   })
 
