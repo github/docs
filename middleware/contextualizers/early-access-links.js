@@ -21,7 +21,7 @@ module.exports = function earlyAccessContext (req, res, next) {
   // This is only used in the separate EA repo on local development
   req.context.earlyAccessPageLinks = earlyAccessPageLinks.length
     ? earlyAccessPageLinks.join('\n')
-    : `_None for this version!_`
+    : '_None for this version!_'
 
   return next()
 }

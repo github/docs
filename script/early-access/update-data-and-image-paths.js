@@ -20,7 +20,7 @@ const earlyAccessImages = path.posix.join(process.cwd(), 'assets/images/early-ac
 
 program
   .description('Update data and image paths.')
-  .option('-p, --path-to-early-access-content-file <PATH>', `Path to a specific content file. Defaults to all Early Access content files if not provided.`)
+  .option('-p, --path-to-early-access-content-file <PATH>', 'Path to a specific content file. Defaults to all Early Access content files if not provided.')
   .option('-a, --add', 'Add "early-access" to data and image paths.')
   .option('-r, --remove', 'Remove "early-access" from data and image paths.')
   .parse(process.argv)
@@ -42,7 +42,7 @@ if (program.pathToEarlyAccessContentFile) {
 } else {
   // Gather the EA content and data files
   earlyAccessContentAndDataFiles = walk(earlyAccessContent, { includeBasePath: true, directories: false })
-  .concat(walk(earlyAccessData, { includeBasePath: true, directories: false }))
+    .concat(walk(earlyAccessData, { includeBasePath: true, directories: false }))
 }
 
 // Update the EA content and data files
