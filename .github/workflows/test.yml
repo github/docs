@@ -85,4 +85,4 @@ jobs:
         if: failure() && github.ref == 'early-access'
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: 'Tests are failing on the `early-access` branch. https://github.com/github/docs-internal/tree/early-access'
+          SLACK_MESSAGE: 'Tests are failing on the `early-access` branch.'
