@@ -91,7 +91,7 @@ describe('server', () => {
     expect($.res.statusCode).toBe(400)
   })
 
-  // see https://github.com/github/docs-internal/issues/12427
+  // see issue 12427
   test('renders a 404 for leading slashes', async () => {
     let $ = await getDOM('//foo.com/enterprise')
     expect($('h1').text()).toBe('Ooops!')
@@ -131,7 +131,7 @@ describe('server', () => {
     expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
   })
 
-  // see https://github.com/github/docs-internal/issues/9678
+  // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM('/en/github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line')
     const articleIntro = $('.lead-mktg').text()
