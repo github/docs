@@ -1,6 +1,6 @@
 ---
 title: Salvar repositórios com estrelas
-intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
+intro: 'Você pode favoritar repositórios e tópicos para acompanhar projetos que você considera interessantes{% if currentVersion == "free-pro-team@latest" %} e descobrir conteúdo relacionado no seu feed de notícias{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/

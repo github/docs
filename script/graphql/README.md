@@ -1,10 +1,9 @@
 # GraphQL scripts
 
 A [scheduled workflow](../.github/workflows/update-graphql-files.yml) runs the following
-scripts on an hourly basis:
+scripts on a daily basis:
 ```
 script/graphql/update-files.js
-script/graphql/build-changelog-from-markdown.js
 ```
 These scripts update the [static JSON files](../../lib/graphql/static) used to
 render GraphQL docs. See the [`lib/graphql/README`](../../lib/graphql/README.md)

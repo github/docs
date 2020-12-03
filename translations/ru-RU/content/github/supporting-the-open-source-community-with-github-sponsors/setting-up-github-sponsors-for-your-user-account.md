@@ -54,8 +54,6 @@ If you live in a supported region, you can follow these instructions to submit y
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-If you live in an unsupported region and are accepted to the beta of {% data variables.product.prodname_sponsors %}, you will receive an email with instructions to provide your bank information so that you can receive payments via ACH transfer or wire transfer.
-
 {% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 

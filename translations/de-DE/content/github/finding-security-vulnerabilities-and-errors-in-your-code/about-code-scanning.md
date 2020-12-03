@@ -20,7 +20,7 @@ You can use {% data variables.product.prodname_code_scanning %} to find, triage,
 
 If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. Nachdem Du den Code korrigiert hast, der die Meldung ausgelöst hat, schließt {% data variables.product.prodname_dotcom %} die Meldung. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{% data variables.product.prodname_codeql %} queries](https://help.semmle.com/QL/learn-ql/writing-queries/writing-queries.html) in the {% data variables.product.prodname_codeql %} documentation.
+You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
 To get started with {% data variables.product.prodname_code_scanning %}, see "[Enabling {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)."
 

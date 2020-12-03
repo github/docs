@@ -12,7 +12,7 @@ versions:
 
 O arquivo de configuração do {% data variables.product.prodname_dependabot %} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança. Para obter mais informações, consulte "[Habilitar e desabilitar as atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)" e "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 
 ### Opções de configuração para *dependabot.yml*
 
