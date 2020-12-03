@@ -30,9 +30,7 @@ module.exports = contentSecurityPolicy({
     ],
     scriptSrc: [
       "'self'",
-      'data:',
-      "'unsafe-eval'", // exception for Algolia instantsearch
-      "'unsafe-inline'"
+      'data:'
     ],
     frameSrc: [ // exceptions for GraphQL Explorer
       'https://graphql-explorer.githubapp.com', // production env
