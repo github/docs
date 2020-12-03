@@ -9,9 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-You can use the stable GitHub API via:
-- [GraphQL API](https://docs.github.com/en/free-pro-team@latest/v4)
-- [REST API](https://docs.github.com/en/free-pro-team@latest/v3) where we encourage you to [request v3 via the `Accept` header.](https://docs.github.com/en/free-pro-team@latest/v3/media/#request-specific-version)
+There are two stable versions of the GitHub API: the [REST API](/v3/) and the [GraphQL API](/v4/). When using the REST API, we encourage you to [request v3 via the `Accept` header](/v3/media/#request-specific-version). For information on using the GraphQL API, see the [v4 docs](/v4/).
 
 ## Deprecated versions
 
