@@ -148,7 +148,7 @@ const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old 
 describe('lint-files', () => {
   const mdWalkOptions = {
     globs: ['**/*.md'],
-    ignore: ['**/README.md', 'early-access'],
+    ignore: ['**/README.md'],
     directories: false,
     includeBasePath: true
   }
@@ -221,6 +221,14 @@ describe('lint-files', () => {
             }
           } else if (markdownRelPath === 'data/reusables/repositories/relative-links.md') {
             if (match === '[Contribution guidelines for this project](docs/CONTRIBUTING.md)') {
+              return false
+            }
+          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/constraints.md') {
+            if (match === '[a-z]([a-z]|-)') {
+              return false
+            }
+          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/overview.md') {
+            if (match === '[A-Z]([a-z]|-)') {
               return false
             }
           }

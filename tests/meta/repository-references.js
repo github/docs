@@ -37,16 +37,18 @@ describe('check for repository references', () => {
   const filenames = walkSync(process.cwd(), {
     directories: false,
     ignore: [
+      '.algolia-cache',
       '.git',
       'dist',
       'node_modules',
       'translations',
-      'content/early-access',
       'lib/rest/**/*.json',
       'lib/webhooks/**/*.json',
       'ownership.yaml',
       'docs/index.yaml',
-      'lib/excluded-links.js'
+      'lib/excluded-links.js',
+      'content/early-access',
+      'data/early-access'
     ]
   })
 
