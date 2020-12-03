@@ -2,7 +2,6 @@
 title: Pré-visualizações da API
 intro: Você pode usar pré-visualizações da API para testar novos recursos e fornecer feedback antes que estes recursos se tornem oficiais.
 redirect_from:
-  - /early-access/
   - /v3/previews
 versions:
   free-pro-team: '*'

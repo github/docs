@@ -8,7 +8,7 @@ ownership:
     team: github/docs-engineering
     maintainer: zeke
     exec_sponsor: danaiszuul
-    product_manager: jwargo
+    product_manager: simpsoka
     mention: github/docs-engineering
     qos: critical
     dependencies: []

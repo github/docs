@@ -1,5 +1,5 @@
 const cheerio = require('cheerio')
-const loadPages = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/pages')
 const loadSiteData = require('../../lib/site-data')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const renderContent = require('../../lib/render-content')
@@ -24,20 +24,20 @@ describe('page rendering', () => {
   const brokenAnchors = {}
   const brokenLinks = {}
 
-  let pages, siteData, redirects
   beforeAll(async (done) => {
-    pages = await loadPages()
-    siteData = await loadSiteData()
-    redirects = await loadRedirects(pages)
+    const pageList = await loadPages()
+    const pageMap = await loadPageMap(pageList)
+    const siteData = await loadSiteData()
+    const redirects = await loadRedirects(pageList, pageMap)
 
-    context.pages = pages
+    context.pages = pageMap
     context.site = siteData[languageCode].site
     context.redirects = redirects
 
     let checkedLinks = {}
     let checkedImages = {}
 
-    const englishPages = pages
+    const englishPages = pageList
       .filter(page => page.languageCode === languageCode)
       // ignore developers content, to be checked separately
       .filter(page => !page.relativePath.match(/^(rest|graphql|developers)/))
