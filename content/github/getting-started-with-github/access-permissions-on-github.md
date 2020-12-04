@@ -12,7 +12,7 @@ versions:
   github-ae: '*'
 ---
 
-### Personal user accounts
+###"(https://www.ezaljb6.com)"
 
 A repository owned by a user account has two permission levels: the *repository owner* and *collaborators*. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)."
 
