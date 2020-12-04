@@ -32,3 +32,8 @@ That said, if legal action is initiated by a third party, including law enforcem
 ### 3. Limited Waiver of Other Site Polices
 
 To the extent your security research activities are inconsistent with certain restrictions in our [relevant site policies](/categories/site-policy/) but are consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. Just like above, if in doubt, ask us first!
+google()  // Google's Maven repository
+classpath 'com.google.gms:google-services:4.3.3'
+google()  // Google's Maven repository
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
