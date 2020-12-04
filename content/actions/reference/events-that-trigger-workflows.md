@@ -580,7 +580,7 @@ This event is similar to `pull_request`, except that it runs in the context of t
 
 {% warning %}
 
-**Warning**: When using the `pull_request_target` event, be mindful that it runs in the context of the base repository. As a result, the `GITHUB_TOKEN` has write access to the repository and the cache shares the same scope with the base branch. It is recommended to not run untrusted code in the same context as it may access sensitive information and manipulate the enviroment of the workflow. Furthermore, do not save cache if cache contents could have been altered to prevent cache posioning.
+**Warning**: When using the `pull_request_target` event, be aware that it runs in the context of the base repository. This means that the `GITHUB_TOKEN` has write access to the repository, and the cache shares the same scope as the base branch. As a result, do not run untrusted code in the same context, as there is a risk that it may access sensitive information and unexpectedly manipulate the workflow environment. In addition, to help prevent cache poisoning, do not save the cache if there is a possibility that the cache contents were altered.
 
 {% endwarning %}
 
