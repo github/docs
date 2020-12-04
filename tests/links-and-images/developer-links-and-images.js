@@ -1,7 +1,7 @@
 const flat = require('flat')
 const { last } = require('lodash')
 const cheerio = require('cheerio')
-const loadPages = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/pages')
 const loadSiteData = require('../../lib/site-data')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const loadRedirects = require('../../lib/redirects/precompile')
@@ -39,15 +39,16 @@ describe('page rendering', () => {
   const brokenLinks = {}
 
   beforeAll(async (done) => {
-    const pages = await loadPages()
+    const pageList = await loadPages()
+    const pageMap = await loadPageMap(pageList)
     const siteData = await loadSiteData()
-    const redirects = await loadRedirects(pages)
+    const redirects = await loadRedirects(pageList, pageMap)
 
-    context.pages = pages
+    context.pages = pageMap
     context.site = siteData[languageCode].site
     context.redirects = redirects
 
-    const developerPages = pages
+    const developerPages = pageList
       .filter(page => page.relativePath.match(developerContentRegex) && page.languageCode === languageCode)
 
     let checkedLinks = {}
