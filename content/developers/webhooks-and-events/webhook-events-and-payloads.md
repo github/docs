@@ -145,7 +145,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -1097,6 +1097,31 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.repository_vulnerability_alert.create }}
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+### secret_scanning_alert
+
+{% data reusables.webhooks.secret_scanning_alert_event_short_desc %}
+
+#### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_app %}s with the `secret_scanning_alerts:read` permission
+
+#### Webhook payload object
+
+{% data reusables.webhooks.secret_scanning_alert_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+`sender` | `object` | If the `action` is `resolved` or `reopened`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
+
+#### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
 ### security_advisory

@@ -1,5 +1,5 @@
 const config = require('../../lib/crowdin-config').read()
-const loadPages = require('../../lib/pages')
+const { loadPages } = require('../../lib/pages')
 const ignoredPagePaths = config.files[0].ignore
 const ignoredDataPaths = config.files[2].ignore
 
