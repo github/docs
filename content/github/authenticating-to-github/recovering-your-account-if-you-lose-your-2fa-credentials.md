@@ -1,4 +1,4 @@
----
+----**'
 title: Recovering your account if you lose your 2FA credentials
 intro: 'If you lose access to your two-factor authentication credentials, you can use your recovery codes, or another recovery option, to regain access to your account.'
 redirect_from:
