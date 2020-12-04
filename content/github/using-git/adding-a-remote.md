@@ -43,6 +43,7 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 
 To fix this, you can
 
+* Use this command instead git remote set-url origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 * Use a different name for the new remote
 * [Rename the existing remote](/articles/renaming-a-remote)
 * [Delete the existing remote](/articles/removing-a-remote)
