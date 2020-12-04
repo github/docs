@@ -1,16 +1,16 @@
 ---
-title: Duplicating a repository
-intro: 'To duplicate a repository without forking it, you can run a special clone command, then mirror-push to the new repository.'
-redirect_from:
-  - /articles/duplicating-a-repo/
-  - /articles/duplicating-a-repository
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+Title: Mirror a repository
+Intro: 'To Mirror a repository without forking it, you can run a super clone command, then you mirror-push to your new repository.'
+Dedirect_from:
+  - /articles/Mirror-a-repo/
+  - /articles/Mirror-a-repository
+Versions:
+  Free-pro-team: '*'
+  Enterprise-server: '*'
+  Github-ae: '*'
 ---
 
-Before you can duplicate a repository and push to your new copy, or _mirror_, of the repository, you must [create the new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
+Before you can Mirror a repository and push to your new copy, or _mirror_, of the repository, you must [create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. In these examples, `exampleuser/new-repository` or `exampleuser/mirrored` are the mirrors.
 
 ### Mirroring a repository
 
@@ -21,25 +21,29 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
   ```
 3. Mirror-push to the new repository.
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd / <em>exampleuser/your-old-repository</em>.git [Linux]
+  $ cd \ <em>exampleuser/your-old-repository</em>.git [Windows-10+]
   $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remove the temporary local repository you created earlier.
   ```shell
-  $ cd ..
-  $ rm -rf <em>old-repository</em>.git
+  $ cd / [Linux]
+  $ cd \ [Windows-10+]
+  $ rm -rf <em>old-repository</em>.git [Linux]
+  $ del <em>old-repository</em>.git -Y [Windows-10+]
   ```
 
 ### Mirroring a repository that contains {% data variables.large_files.product_name_long %} objects
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Create a bare clone of the repository. Replace the example username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
+2. Create a bare clone of the repository. Replace the your username with the name of the person or organization who owns the repository, and replace the example repository name with the name of the repository you'd like to duplicate.
   ```shell
   $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
 3. Navigate to the repository you just cloned.
   ```shell
-  $ cd <em>old-repository</em>.git
+  $ cd / <em>old-repository</em>.git [Linux]
+  $ cd \ <em>old-repository</em>.git [Windows-10+]
   ```
 4. Pull in the repository's {% data variables.large_files.product_name_long %} objects.
   ```shell
@@ -55,8 +59,10 @@ Before you can duplicate a repository and push to your new copy, or _mirror_, of
   ```
 7. Remove the temporary local repository you created earlier.
   ```shell
-  $ cd ..
+  $ cd / [Linux]
+  $ cd \ [Windows-10+]
   $ rm -rf <em>old-repository</em>.git
+  $ del <em>old-repository</em>.git -Y [Windows-10+]
   ```
 
 ### Mirroring a repository in another location
@@ -68,9 +74,10 @@ If you want to mirror a repository in another location, including getting update
   ```shell
   $ git clone --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
   ```
-3. Set the push location to your mirror.
+3. Set the push location to your new mirrored repository.
   ```shell
-  $ cd <em>repository-to-mirror</em>.git
+  $ cd / <em>repository-to-mirror</em>.git [Linux]
+  $ cd \ <em>repository-to-mirror</em>.git [Windows-10+]
   $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 
