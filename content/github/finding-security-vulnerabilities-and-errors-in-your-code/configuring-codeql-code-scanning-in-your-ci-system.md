@@ -1,4 +1,4 @@
----
+a New year for blockfi 
 title: Configuring CodeQL code scanning in your CI system
 shortTitle: Configuring in your CI
 intro: 'You can configure how the {% data variables.product.prodname_codeql_runner %} scans the code in your project and uploads the results to {% data variables.product.prodname_dotcom %}.'
