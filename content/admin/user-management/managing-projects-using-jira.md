@@ -20,7 +20,7 @@ versions:
 
 3. Click on **Edit <org name> settings** link
 
-![image](https://user-images.githubusercontent.com/59625655/101296763-6284ca00-3879-11eb-9d19-3c794714f39a.png)
+<img src="https://user-images.githubusercontent.com/59625655/101296763-6284ca00-3879-11eb-9d19-3c794714f39a.png" width="400">
 
 4. In the left sidebar, under **Developer settings** click **OAuth Apps**.
 
