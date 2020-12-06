@@ -24,14 +24,14 @@ versions:
 
 4. In the left sidebar, under **Developer settings** click **OAuth Apps**.
 
-<img src="https://user-images.githubusercontent.com/59625655/101296854-e8087a00-3879-11eb-8d9e-c9777605c0e0.png" width="300">
+<img src="https://user-images.githubusercontent.com/59625655/101296854-e8087a00-3879-11eb-8d9e-c9777605c0e0.png" width="200">
 
 5. Click on **Register new application** button.
 
 ![image](https://user-images.githubusercontent.com/59625655/101001790-ae9ee880-35b3-11eb-9a05-37343d4d8de4.png)
 
 6. Fill in the application settings:
-    - In the **Application name** field, type "Jira".
+    - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
     - In the **Homepage URL** field, type the full URL of your Jira instance.
     - In the **Authorization callback URL** field, type the full URL of your Jira instance.
 7. Click **Register application**.
