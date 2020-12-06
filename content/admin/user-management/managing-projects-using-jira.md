@@ -24,7 +24,7 @@ versions:
 
 4. In the left sidebar, under **Developer settings** click **OAuth Apps**.
 
-![image](https://user-images.githubusercontent.com/59625655/101296854-e8087a00-3879-11eb-8d9e-c9777605c0e0.png)
+<img src="https://user-images.githubusercontent.com/59625655/101296854-e8087a00-3879-11eb-8d9e-c9777605c0e0.png" width="300">
 
 5. Click on **Register new application** button.
 
