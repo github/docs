@@ -16,7 +16,7 @@ versions:
 1. Sign into your {% data variables.product.prodname_enterprise %} account at http[s]://[hostname]/login. If already signed in, click on GitHub logo in the top left corner.
 2. Click on your profile icon under the GitHub logo and select the organization you would like to connect with Jira.
 
-![image](https://user-images.githubusercontent.com/59625655/101296725-23ef0f80-3879-11eb-9a20-28be17b04481.png)
+<img src="https://user-images.githubusercontent.com/59625655/101296725-23ef0f80-3879-11eb-9a20-28be17b04481.png" width="100">
 
 3. Click on **Edit <org name> settings** link
 
