@@ -14,7 +14,7 @@ versions:
 ### Connecting Jira to a {% data variables.product.prodname_enterprise %} organization
 
 1. Sign into your {% data variables.product.prodname_enterprise %} account at http[s]://[hostname]/login. If already signed in, click on GitHub logo in the top left corner.
-2. Click on your profile icon under Github logo and select the organization you would like to connect with Jira.
+2. Click on your profile icon under the GitHub logo and select the organization you would like to connect with Jira.
 
 ![image](https://user-images.githubusercontent.com/59625655/101296725-23ef0f80-3879-11eb-9a20-28be17b04481.png)
 
@@ -24,7 +24,7 @@ versions:
 
 4. In the left sidebar, under **Developer settings** click **OAuth Apps**.
 
-![image](https://user-images.githubusercontent.com/59625655/101001717-99c25500-35b3-11eb-8fe4-af4692fd5782.png)
+![image](https://user-images.githubusercontent.com/59625655/101296854-e8087a00-3879-11eb-8d9e-c9777605c0e0.png)
 
 5. Click on **Register new application** button.
 
