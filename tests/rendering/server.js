@@ -5,6 +5,8 @@ const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const { loadPages } = require('../../lib/pages')
 
+const describeInternalOnly = process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
+
 describe('server', () => {
   jest.setTimeout(60 * 1000)
 
@@ -356,7 +358,7 @@ describe('server', () => {
     })
   })
 
-  describe.skip('Early Access articles', () => {
+  describeInternalOnly('Early Access articles', () => {
     let hiddenPageHrefs, hiddenPages
 
     beforeAll(async (done) => {
