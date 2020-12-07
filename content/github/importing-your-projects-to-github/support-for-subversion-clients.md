@@ -1,5 +1,5 @@
 ---
-title: Support for Subversion clients
+title: Support for Subversion clientshttps://kemdanangdongybavan.blogspot.com/?m=1
 intro: GitHub repositories can be accessed from both Git and Subversion (SVN) clients. This article covers using a Subversion client on GitHub and some common problems that you might run into.
 redirect_from:
   - /articles/support-for-subversion-clients
@@ -27,7 +27,7 @@ Subversion checkouts are different: they mix the repository data in the working 
   > Checked out revision 1.
   $ cd <em>repo</em>
   ```
-
+https://kemdanangdongybavan.blogspot.com/?m=1
 4. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
   ```shell
   $ svn up trunk
@@ -111,7 +111,7 @@ Then, you can switch to another branch:
 
 ```shell
 $ svn switch https://github.com/<em>user</em>/<em>repo</em>/branches/more_awesome
-```
+```https://kemdanangdongybavan.blogspot.com/?m=1
 
 ### Finding the Git commit SHA for a Subversion commit
 
