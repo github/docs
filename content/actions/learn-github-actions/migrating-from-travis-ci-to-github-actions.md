@@ -39,7 +39,7 @@ Travis CI lets you set environment variables and share them between stages. Simi
 
 Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in "[Default environment variables](/actions/reference/environment-variables#default-environment-variables)."
 
-To help you get started, this table maps some of the common Travis CI environment variables to similar {% data variables.product.prodname_actions %} ones:
+To help you get started, this table maps some of the common Travis CI variables to {% data variables.product.prodname_actions %} variables with similar functionality:
 
 | Travis CI | {% data variables.product.prodname_actions %}| {% data variables.product.prodname_actions %} description |
 | ---------------------|------------ |------------ |
