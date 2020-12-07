@@ -58,4 +58,4 @@ To change the default branch, your repository must have more than one branch. Fo
    ![Default branch dropdown selector](/assets/images/help/repository/repository-options-defaultbranch.png)
 1. Click **Update**.
 
-{% endif %}
+{% endif %} 
