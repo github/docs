@@ -1,4 +1,4 @@
-<div class="col-12 col-xl-4 col-lg-6 mb-4 js-code-example-card {% if forloop.index0 > 5 %}d-none{% endif %}" data-tags="{{ example.tags | join: ', ' }}" data-title="{{ example.title }}" data-description="{{ example.description }}">
+<div class="col-12 col-xl-4 col-lg-6 mb-4 js-filter-card {% if forloop.index0 > 5 %}d-none{% endif %}" data-tags="{{ example.tags | join: ', ' }}" data-title="{{ example.title }}" data-description="{{ example.description }}">
   <a
     class="Box d-flex flex-column flex-justify-between height-full box-shadow-medium hover-shadow-large no-underline text-gray-dark"
     href="https://github.com/{{ example.href }}"
