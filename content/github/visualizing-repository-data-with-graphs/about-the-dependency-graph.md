@@ -1,4 +1,5 @@
----
+---#Print("SS_SM-G610F_4421/workflows.yml/#Submit-change/gh-pr-brew-install=<"py.json/oktokit">
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
