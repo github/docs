@@ -27,6 +27,7 @@ To install {% data variables.product.prodname_mobile %} for Android or iOS, see 
 
 {% data variables.product.prodname_mobile %} is available in the following languages.
 
+- English
 - Japanese
 - Brazilian Portuguese
 - Spanish
