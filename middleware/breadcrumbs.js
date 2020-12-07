@@ -2,10 +2,11 @@ const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
 
 module.exports = async (req, res, next) => {
-  req.context.breadcrumbs = {}
-
   if (!req.context.page) return next()
+  if (req.context.page.hidden) return next()
   if (req.context.page.relativePath === 'index.md') return next()
+
+  req.context.breadcrumbs = {}
 
   const rawPath = getPathWithoutLanguage(req.path)
   const pathParts = rawPath.split('/')
