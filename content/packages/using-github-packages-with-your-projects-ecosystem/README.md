@@ -146,3 +146,8 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 ### Further reading
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+ }
+      }
+    ]
+  }
+  Try fields =% 2Bvalues. *. *. *. * To get an idea what's possible
