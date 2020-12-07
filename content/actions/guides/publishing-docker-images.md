@@ -89,7 +89,7 @@ The `build-push-action` options required for {% data variables.product.prodname_
 * `username`: You can use the {% raw %}`${{ github.actor }}`{% endraw %} context to automatically use the username of the user that triggered the workflow run. For more information, see "[Context and expression syntax for GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 * `password`: You can use the automatically-generated `GITHUB_TOKEN` secret for the password. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)."
 * `registry`: Must be set to `docker.pkg.github.com`.
-* `repository`: Must be set in the format `OWNER/REPOSITORY/IMAGE_NAME`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `repository` option should be set to `octo-org/octo-repo/octo-image`.
+* `repository`: Must be set in the format `OWNER/REPOSITORY/IMAGE_NAME`. For example, for an image named `octo-image` stored on {% data variables.product.prodname_dotcom %} at `http://github.com/octo-org/octo-repo`, the `repository` option should be set to `octo-org/octo-repo/octo-image`.  If your organization or repository contains capital letters, you **must** convert them to lowercase.
 
 {% raw %}
 ```yaml
