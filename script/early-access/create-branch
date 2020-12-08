@@ -32,7 +32,7 @@ cd docs-early-access
 git checkout main
 git pull origin main
 
-# Creat a branch with the current docs-internal branch name
+# Create a branch with the current docs-internal branch name
 git checkout -b $currentBranch
 
 # Go back to the previous working directory
