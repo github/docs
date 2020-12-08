@@ -1,4 +1,5 @@
 const { LinksChecker, buildInitialContext, buildPathContext } = require('../helpers/links-checker')
+const { uniq } = require('lodash')
 const languageCode = 'en'
 
 // TODO set to true when we're ready to report and fix broken anchors
@@ -14,7 +15,7 @@ describe('page rendering', () => {
     // we only want to build these one time
     const context = await buildInitialContext()
 
-    const englishPages = context.pages
+    const englishPages = uniq(Object.values(context.pages))
       .filter(page => page.languageCode === languageCode)
 
     for (const page of englishPages) {
