@@ -107,24 +107,52 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-### Using the Audit log API
+### Using the audit log API
+
+You can interact with the audit log using the GraphQL API{% if currentVersion == "free-pro-team@latest" %} or the REST API{% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### Using the GraphQL API
+
+{% endif %}
 
 {% note %}
 
-**Note**: The Audit log API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
+**Note**: The audit log GraphQL API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
 
 {% endnote %}
 
-To ensure a secure IP and maintain compliance for your organization, you can use the Audit log API to keep copies of your audit log data and monitor:
-* Access to your organization or repository settings.
-* Changes in permissions.
-* Added or removed users in an organization, repository, or team.
-* Users being promoted to admin.
-* Changes to permissions of a GitHub App.
+To ensure a secure IP and maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
+{% data reusables.audit_log.audit-log-api-info %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+Note that you can't retrieve Git events using the GraphQL API.
+{% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.
 
 For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)."
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### Using the REST API
+
+{% note %}
+
+**Note**: The audit log REST API is available as a limited beta for users of {% data variables.product.prodname_ghe_cloud %} only. To join the beta, talk to your services or sales contact at {% data variables.product.company_short %}.
+
+{% endnote %}
+
+To ensure a secure IP and maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
+{% data reusables.audit_log.audit-log-api-info %}
+* Git events, such as cloning, fetching, and pushing
+
+{% data reusables.audit_log.audit-log-git-events-retention %}
+
+For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
+
+{% endif %}
 
 ### Audit log actions
 
@@ -214,6 +242,28 @@ An overview of some of the most common actions that are recorded as events in th
 |------------------|-------------------
 | `update` | Triggered when [a reply to a team discussion post is edited](/articles/managing-disruptive-comments/#editing-a-comment).
 | `destroy` | Triggered when [a reply to a team discussion post is deleted](/articles/managing-disruptive-comments/#deleting-a-comment).
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+#### `git` category actions
+
+{% note %}
+
+**Note:** To access Git events in the audit log, you must use the audit log REST API. This functionality is available as a limited beta for users of {% data variables.product.prodname_ghe_cloud %} only. To join the beta, talk to your services or sales contact at {% data variables.product.company_short %}.
+
+For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)" in the REST API documentation.
+
+{% endnote %}
+
+{% data reusables.audit_log.audit-log-git-events-retention %}
+
+| Action  | Description
+|---------|----------------------------
+| `clone` | Triggered when a repository is cloned.
+| `fetch` | Triggered when changes are fetched from a repository.
+| `push`  | Triggered when changes are pushed to a repository.
+
+{% endif %}
 
 #### `hook` category actions
 
@@ -502,8 +552,20 @@ For more information, see "[Restricting publication of {% data variables.product
 
 | Action | Description
 |------------------|-------------------
-| repo_funding_link_button_toggle | Triggered when you enable or disable a sponsor button in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
-| repo_funding_links_file_action | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
+| `repo_funding_link_button_toggle` | Triggered when you enable or disable a sponsor button in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
+| `repo_funding_links_file_action` | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
+| `sponsor_sponsorship_cancel` | Triggered when you cancel a sponsorship (see "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
+| `sponsor_sponsorship_create` | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")
+| `sponsor_sponsorship_preference_change` | Triggered when you change whether you receive email updates from a sponsored account (see "[Managing your sponsorship](/articles/managing-your-sponsorship)")
+| `sponsor_sponsorship_tier_change` | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")
+| `sponsored_developer_approve` | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_create` | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your organizaion](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_profile_update` | Triggered when you edit your sponsored organization profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")
+| `sponsored_developer_request_approval` | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `sponsored_developer_tier_description_update` | Triggered when you change the description for a sponsorship tier (see "[Changing your sponsorship tiers](/articles/changing-your-sponsorship-tiers)")
+| sponsored_developer_update_newsletter_send | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/articles/contacting-your-sponsors)")
+| `waitlist_invite_sponsored_developer` | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
+| `waitlist_join` | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
