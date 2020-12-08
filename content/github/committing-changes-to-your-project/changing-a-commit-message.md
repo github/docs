@@ -36,7 +36,7 @@ You can change the default text editor for Git by changing the `core.editor` set
 
 {% endtip %}
 
-### Amending older or multiple commit messages
+### Amending order or multiple commit messages
 
 If you have already pushed the commit to {% data variables.product.product_location %}, you will have to force push a commit with an amended message.
 
