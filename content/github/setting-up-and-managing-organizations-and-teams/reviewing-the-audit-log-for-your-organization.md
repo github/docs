@@ -81,7 +81,9 @@ Each category has a set of associated actions that you can filter on. For exampl
 
 Use the `created` qualifier to filter events in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{% data reusables.search.date_gt_lt %} For example:
+{% data reusables.search.date_gt_lt %}
+
+For example:
 
   * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
   * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
