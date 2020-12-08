@@ -30,7 +30,7 @@ Du solltest ein grundlegendes Verständnis von Java und dem Framework Maven habe
 
 ### Einstieg mit einer Maven-Workflow-Vorlage
 
-{% data variables.product.prodname_dotcom %} bietet eine Maven-Workflow-Vorlage, die für die meisten Maven-basierten Java-Projekte funktionieren wird. For more information, see the [Maven workflow template](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} bietet eine Maven-Workflow-Vorlage, die für die meisten Maven-basierten Java-Projekte funktionieren wird. Weitere Informationen findest Du im [Workflow-Template für Maven](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
 
 Um schnell loszulegen, kannst Du beim Erstellen eines neuen Workflows die vorkonfigurierte Maven-Vorlage auswählen. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
 
@@ -91,7 +91,7 @@ steps:
 
 ### Abhängigkeiten „cachen“ (zwischenspeichern)
 
-Du kannst Deine Abhängigkeiten zwischenspeichern, um die Workflow-Ausführungen zu beschleunigen. Nach einem erfolgreichen Lauf wird Dein lokales Maven-Repository in der Aktions-Infrastruktur auf GitHub gespeichert. Bei zukünftigen Workflow-Ausführungen wird der Cache wiederhergestellt, so dass Abhängigkeiten nicht aus entfernten Maven-Repositories heruntergeladen werden müssen. Weitere Informationen findest Du unter „[Caching-Abhängigkeiten zur Beschleunigung von Workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. Nach einem erfolgreichen Lauf wird Dein lokales Maven-Repository in der Aktions-Infrastruktur auf GitHub gespeichert. Bei zukünftigen Workflow-Ausführungen wird der Cache wiederhergestellt, so dass Abhängigkeiten nicht aus entfernten Maven-Repositories heruntergeladen werden müssen. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching-Abhängigkeiten zur Beschleunigung von Workflows</a>“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml

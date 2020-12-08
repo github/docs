@@ -15,7 +15,7 @@ versions:
 
 パーソナルダッシュボードは、{% data variables.product.product_name %}にサインインしたときに最初に表示されるページです。
 
-サインインした後にパーソナルダッシュボードにアクセスするには、{% data variables.product.product_url %} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
+サインインした後にパーソナルダッシュボードにアクセスするには、{% data variables.product.product_name %} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
 
 ### 最近のアクティビティを見つける
 
@@ -39,11 +39,11 @@ The list of top repositories is automatically generated, and can include any rep
 
 ニュースフィードでは、あなたがフォローしているユーザが以下のことをした場合に更新情報が示されます:
 - リポジトリに Star を付ける。
-- 他のユーザをフォローする。
-- パブリックリポジトリを作成
+- Follows another user.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Creates a public repository.{% endif %}
 - あなたが Watch しているリポジトリ上で "help wanted" あるいは "good first issue" のラベルを付けた Issue あるいはプルリクエストをオープンする。
-- あなたが Watch しているリポジトリにコミットをプッシュする。
-- パブリックリポジトリをフォークする。
+- Pushes commits to a repository you watch.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Forks a public repository.{% endif %}
 
 リポジトリへの Star 付けや人のフォローに関する詳細は「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」および「[人をフォローする](/articles/following-people)」を参照してください。
 

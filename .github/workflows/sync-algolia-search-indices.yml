@@ -37,4 +37,4 @@ jobs:
         if: failure()
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: The last Algolia workflow run for ${{github.repository}} failed. See https://github.com/github/docs-internal/actions?query=workflow%3AAlgolia
+          SLACK_MESSAGE: The last Algolia workflow run for ${{github.repository}} failed. Search actions for `workflow:Algolia`

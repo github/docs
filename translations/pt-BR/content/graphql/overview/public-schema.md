@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-Você pode [realizar a introspecção](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) com base na API do GraphQL diretamente.
+Você pode [realizar a introspecção](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api) com base na API do GraphQL diretamente.
 
 Como alternativa, você pode fazer o download da versão mais recente do esquema público aqui:
 

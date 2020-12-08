@@ -23,7 +23,7 @@ Branches allow you to develop features, fix bugs, or safely experiment with new 
 
 ### About the default branch
 
-{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally out when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
+{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
 By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %} in any new repository.
 
@@ -75,7 +75,7 @@ By default, {% data variables.product.product_name %} names the default branch {
 - ブランチでプルリクエストレビュー必須が有効化されている場合、プルリクエストレビューポリシー中のすべての要求が満たされるまでは、ブランチに変更をマージできません。 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
 - ブランチでコードオーナーからの必須レビューが有効化されており、プルリクエストがオーナーを持つコードを変更している場合、コードオーナーがプルリクエストを承認しなければ、そのプルリクエストはマージできません。 詳細は「[コードオーナーについて](/articles/about-code-owners)」を参照してください。
 - ブランチでコミット署名必須が有効化されている場合、署名および検証されていないコミットはブランチにプッシュできません。 For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About required commit signing](/articles/about-required-commit-signing)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-- {% data variables.product.prodname_dotcom %} のコンフリクトエディターを使用して、保護されたブランチから作成したプルリクエストのコンフリクトを修正する場合、{% data variables.product.prodname_dotcom %} はプルリクエストの代替ブランチを作成して、コンフリクトの解決をマージできるようにします。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でマージコンフリクトを解決する](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)」を参照してください。{% endif %}
+- If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でマージコンフリクトを解決する](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)」を参照してください。{% endif %}
 
 ### 参考リンク
 

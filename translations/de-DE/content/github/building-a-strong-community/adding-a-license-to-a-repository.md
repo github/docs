@@ -6,7 +6,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 Wenn Du eine nachweisbare Lizenz in Dein Repository einfügst, wird sie den Benutzern, die Dein Repository besuchen, oben auf der Repository-Seite angezeigt. Um die gesamte Lizenzdatei zu lesen, klicke auf den Namen der Lizenz.

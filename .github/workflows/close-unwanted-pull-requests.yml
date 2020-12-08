@@ -1,0 +1,39 @@
+name: Close unwanted pull requests
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - '.github/CODEOWNERS'
+      - 'translations/**'
+      - 'assets/fonts/**'
+      - 'data/graphql/**'
+      - 'lib/graphql/**'
+      - 'lib/redirects/**'
+      - 'lib/webhooks/**'
+jobs:
+  close_unwanted_pull_requests:
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          script: |
+            await github.issues.createComment({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
+              body:
+            `Thanks for contributing! We do not accept community changes to these files at this time.
+            - '.github/workflows/**'
+            - '.github/CODEOWNERS'
+            - 'translations/**'
+            - 'assets/fonts/**'
+            - 'data/graphql/**'
+            - 'lib/graphql/**'
+            - 'lib/redirects/**'
+            - 'lib/webhooks/**'`
+            })
+            await github.issues.update({
+              ...context.repo,
+              issue_number: context.payload.pull_request.number,
+              state: 'closed'
+            })

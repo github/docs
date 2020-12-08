@@ -57,32 +57,36 @@ versions:
       mysql-master = <em>HOSTNAME</em>
       redis-master = <em>HOSTNAME</em>
       <strong>primary-datacenter = default</strong>
-  ```
+    ```
 
     - （可选）通过编辑 `primary-datacenter` 的值，将主数据中心的名称更改为更具描述性或更准确的值。
 
 4. {% data reusables.enterprise_clustering.configuration-file-heading %} 在每个节点标题下，添加新的键值对，以将节点分配给数据中心。 使用与上述步骤 3 的 `primary-datacenter` 相同的值。 例如，如果要使用默认名称 (`default`)，请将以下键值对添加到每个节点的部分。
 
-      datacenter = default
+    ```
+    datacenter = default
+    ```
 
     完成后，群集配置文件中每个节点的部分应如下所示。 {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
-  ```shell
-  [cluster "<em>HOSTNAME</em>"]
-    <strong>datacenter = default</strong>
-    hostname = <em>HOSTNAME</em>
-    ipv4 = <em>IP ADDRESS</em>
+    ```shell
+    [cluster "<em>HOSTNAME</em>"]
+      <strong>datacenter = default</strong>
+      hostname = <em>HOSTNAME</em>
+      ipv4 = <em>IP ADDRESS</em>
+      ...
     ...
-  ...
-  ```
+    ```
 
-  {% note %}
+    {% note %}
 
-  **注**：如果在步骤 3 中更改了主数据中心的名称，请在每个节点的部分找到 `consul-datacenter` 键值对，然后将值更改为重命名的主数据中心。 例如，如果您将主数据中心命名为 `primary`，则对每个节点使用以下键值对。
+    **注**：如果在步骤 3 中更改了主数据中心的名称，请在每个节点的部分找到 `consul-datacenter` 键值对，然后将值更改为重命名的主数据中心。 例如，如果您将主数据中心命名为 `primary`，则对每个节点使用以下键值对。
 
-      consul-datacenter = primary
+    ```
+    consul-datacenter = primary
+    ```
 
-  {% endnote %}
+    {% endnote %}
 
 {% data reusables.enterprise_clustering.apply-configuration %}
 
@@ -103,31 +107,37 @@ versions:
 
 1. 对于群集中的每个节点，预配规范相同的匹配虚拟机，运行相同版本的 {% data variables.product.prodname_ghe_server %}。 记下每个新群集节点的 IPv4 地址和主机名。 更多信息请参阅“[先决条件](#prerequisites)”。
 
-  {% note %}
+    {% note %}
 
-  **注**：如果在故障转移后重新配置高可用性，可以改为使用主数据中心的旧节点。
+    **注**：如果在故障转移后重新配置高可用性，可以改为使用主数据中心的旧节点。
 
-  {% endnote %}
+    {% endnote %}
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 3. 备份现有群集配置。
-   
-        cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
+
+    ```
+    cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
+    ```
 
 4. 在临时位置创建现有群集配置文件的副本，如 _/home/admin/cluster-passive.conf_。 删除 IP 地址的唯一键值对 (`ipv*`)、UUID (`uuid`) 和 WireGuard 的公钥 (`wireguard-pubkey`)。
-   
-        grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
+
+    ```
+    grep -Ev "(?:|ipv|uuid|vpn|wireguard\-pubkey)" /data/user/common/cluster.conf > ~/cluster-passive.conf
+    ```
 
 5. 从上一步复制的临时群集配置文件中删除 `[cluster]` 部分。
-   
-        git config -f ~/cluster-passive.conf --remove-section cluster
+
+    ```
+    git config -f ~/cluster-passive.conf --remove-section cluster
+    ```
 
 6. 确定在其中预配了被动节点的辅助数据中心的名称，然后使用新的数据中心名称更新临时群集配置文件。 将 `SECONDARY` 替换为您选择的名称。
 
     ```shell
-  sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
-  ```
+    sed -i 's/datacenter = default/datacenter = <em>SECONDARY</em>/g' ~/cluster-passive.conf
+    ```
 
 7. 确定被动节点主机名的模式。
 
@@ -140,7 +150,7 @@ versions:
 8. 在文本编辑器中打开步骤 3 中的临时群集配置文件。 例如，您可以使用 Vim。
 
     ```shell
-        sudo vim ~/cluster-passive.conf
+    sudo vim ~/cluster-passive.conf
     ```
 
 9. 在临时群集配置文件中的每个部分，更新节点的配置。 {% data reusables.enterprise_clustering.configuration-file-heading %}
@@ -150,37 +160,37 @@ versions:
     - 新增键值对 `replica = enabled`。
 
     ```shell
-  [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
+    [cluster "<em>NEW PASSIVE NODE HOSTNAME</em>"]
+      ...
+      hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
+      ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
+      <strong>replica = enabled</strong>
+      ...
     ...
-    hostname = <em>NEW PASSIVE NODE HOSTNAME</em>
-    ipv4 = <em>NEW PASSIVE NODE IPV4 ADDRESS</em>
-    <strong>replica = enabled</strong>
-    ...
-  ...
     ```
 
 10. 将步骤 4 中创建的临时群集配置文件的内容附加到活动的配置文件。
 
     ```shell
-  cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
-  ```
+    cat ~/cluster-passive.conf >> /data/user/common/cluster.conf
+    ```
 
 11. 在辅助数据中心中指定主 MySQL 和 Redis 节点。 将 `REPLICA MYSQL PRIMARY HOSTNAME` 和 `REPLICA REDIS PRIMARY HOSTNAME` 替换为您预配的被动节点的主机名，以匹配您现有的 MySQL 和 Redis 主节点。
 
     ```shell
-  git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
-  git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
-  ```
+    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica <em>REPLICA MYSQL PRIMARY HOSTNAME</em>
+    git config -f /data/user/common/cluster.conf cluster.redis-master-replica <em>REPLICA REDIS PRIMARY HOSTNAME</em>
+    ```
 
 12. 启用 MySQL 在故障转移到被动副本节点时自动故障转移。
 
     ```shell
-  git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
+    git config -f /data/user/common/cluster.conf cluster.mysql-auto-failover true
     ```
 
-  {% warning %}
+    {% warning %}
 
-  **警告**：在继续操作之前查看群集配置文件。
+    **警告**：在继续操作之前查看群集配置文件。
 
     - 在顶层 `[cluster]` 部分中，确保 `mysql-master-replica` 和 `redis-master-replica` 的值，是辅助数据中心中在故障转移后用作 MySQL 和 Redis 主节点的被动节点的正确主机名。
     - 在名为 `[cluster "<em>ACTIVE NODE HOSTNAME</em>"]` 的主动节点的每个部分中，双击以下键值对。
@@ -194,9 +204,9 @@ versions:
       - `replica` 应配置为 `enabled`。
     - 利用机会删除已经不再使用的离线节点的部分。
 
-  要查看示例配置，请参阅“[示例配置](#example-configuration)”。
+    要查看示例配置，请参阅“[示例配置](#example-configuration)”。
 
-  {% endwarning %}
+    {% endwarning %}
 
 13. 初始化新群集配置。 {% data reusables.enterprise.use-a-multiplexer %}
 
@@ -207,7 +217,7 @@ versions:
 14. 初始化完成后，{% data variables.product.prodname_ghe_server %} 将显示以下消息。
 
     ```shell
-        Finished cluster initialization
+    Finished cluster initialization
     ```
 
 {% data reusables.enterprise_clustering.apply-configuration %}
@@ -293,20 +303,28 @@ versions:
 您可以通过 {% data variables.product.prodname_ghe_server %} 系统管理 shell 使用命令行工具监控群集中任何节点的进度。 有关系统管理 shell 的更多信息，请参阅“[访问管理 shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)。”
 
 - 监控数据库的复制：
-  
-      /usr/local/share/enterprise/ghe-cluster-status-mysql
+
+  ```
+  /usr/local/share/enterprise/ghe-cluster-status-mysql
+  ```
 
 - 监控仓库和 Gist 数据的复制：
-  
-      ghe-spokes status
+
+  ```
+  ghe-spokes status
+  ```
 
 - 监控附件和 LFS 数据的复制：
-  
-      ghe-storage replication-status
+
+  ```
+  ghe-storage replication-status
+  ```
 
 - 监控 Pages 数据的复制：
-  
-      ghe-dpages replication-status
+
+  ```
+  ghe-dpages replication-status
+  ```
 
 您可以使用 `ghe-cluster-status` 来审查群集的总体健康状况。 更多信息请参阅“[命令行实用程序](/enterprise/admin/configuration/command-line-utilities#ghe-cluster-status)”。
 

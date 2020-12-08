@@ -4,7 +4,7 @@ const path = require('path')
 describe('check for orphan tests', () => {
   test('all tests are in sub-directories', () => {
     // A known list of exceptions that can live outside of directories
-    const EXCEPTIONS = ['README.md', 'helpers.js']
+    const EXCEPTIONS = ['README.md']
     const pathToTests = path.join(process.cwd(), 'tests')
 
     // Get a list of files/directories in `/tests`

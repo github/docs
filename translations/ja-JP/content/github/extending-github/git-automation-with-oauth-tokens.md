@@ -43,4 +43,4 @@ To avoid these prompts, you can use Git password caching. 詳しい情報につ�
 
 ### 参考リンク
 
-- 「[OAuth App を認証する](/v3/oauth/)」
+- 「[OAuth App を認証する](/developers/apps/authorizing-oauth-apps)」

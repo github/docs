@@ -29,7 +29,7 @@ Es gibt zwei Arten von Statuschecks auf {% data variables.product.product_name %
 
 _Prüfungen_ unterscheiden sich von _Status_ dadurch, dass sie Zeilenanmerkungen und detailliertere Meldungen enthalten und nur für die Verwendung mit {% data variables.product.prodname_github_app %}s verfügbar sind.
 
-Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/v3/checks/)" and "[Statuses](/v3/repos/statuses/)."
+Organisationsinhaber und Benutzer mit Push-Zugriff auf ein Repository können mit der API von {% data variables.product.product_name %} Prüfungen und Status erstellen. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
 
 ### Prüfungen
 
