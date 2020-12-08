@@ -11,4 +11,10 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+* licencias
+unampleaciony aseptaciones de licencias
 
+* seguidad
+implemenarla seguridady labuenas contraseñas
+
+*
