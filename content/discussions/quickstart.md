@@ -10,7 +10,7 @@ versions:
 
 ### Introduction
 
-{% data variables.product.prodname_discussions %} {% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike issues. Discussions enable fluid, open conversation in a public forum.
+{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an open source project. Discussions are for conversations that need to be transparent and accessible but do not need to be tracked on a project board and are not related to code, unlike issues. Discussions enable fluid, open conversation in a public forum.
 
 Discussions give a space for more collaborative conversations by connecting and giving a more centralized area to connect and find information.
 
@@ -57,4 +57,4 @@ People with triage permissions for a repository can help moderate a project's di
 
 ### Next steps
 
-Once there is a clear path to scope work out and move an idea from concept to reality, you can create an issue and start tracking your progress. For more information on creating an issue from a discussion, see, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+Once there is a clear path to scope work out and move an idea from concept to reality, you can create an issue and start tracking your progress. For more information on creating an issue from a discussion, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions)."
