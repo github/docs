@@ -14,18 +14,19 @@
       
           <div class="article-grid-head">
             <div class="d-flex flex-items-baseline flex-justify-between mt-3">
-              <h1 class="border-bottom-0">Enterprise Server Releases</h1>
+              <h1 class="border-bottom-0">{% data ui.enterprise_releases_list.title %}</h1>
             </div>
           </div>
           <div id="article-contents" class="article-grid-body">
-            <h2>Currently supported</h2>
+            <h2>{% data ui.enterprise_releases_list.currently_supported %}</h2>
+            <p>{% data ui.enterprise_releases_list.currently_supported_message %}</p>
             <ul>
             {% for version in enterpriseServerReleases.supported %}
             <li><a href="/{{currentLanguage}}/enterprise-server@{{version}}">Enterprise Server {{version}}</a></li>
             {% endfor %}
             </ul>
-            <h2>Deprecated</h2>
-            <p>These docs remain available but are no longer maintained:</p>
+            <h2>{% data ui.enterprise_releases_list.deprecated %}</h2>
+            <p>{% data ui.enterprise_releases_list.deprecated_message %}</p>
             <ul>
             {% for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
             <li><a href="/{{currentLanguage}}/enterprise-server@{{version}}">Enterprise Server {{version}}</a></li>

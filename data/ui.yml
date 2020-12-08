@@ -66,6 +66,12 @@ contribution_cta:
   button: Make a contribution
   or: Or,
   to_guidelines: learn how to contribute.
+enterprise_releases_list:
+  title: Enterprise Server Releases
+  currently_supported: Currently supported
+  currently_supported_message: See <a href="https://github.com/enterprise">GitHub Enterprise</a> for more information.
+  deprecated: Deprecated
+  deprecated_message: 'These docs remain available but are no longer maintained:'
 products:
   graphql:
     reference:
