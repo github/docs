@@ -1,0 +1,14 @@
+@Release.Keys_https://primer.style/cli/
+https://github.com/Enterprises-Gracida-Veracruz/docs-m.me-enterprises-gracida-veracruz/blob/38f2e06327664188418bd6ca8469bde9a2451b78/.devcontainer.json
+.github/CONTRIBUTING.md
+https://opensource.guide/how-to-contribute
+https://github.com/cli/cli/blob/f4152454f2e2038e87b2516bcd419660945c501f/.github/CODE-OF-CONDUCT.md
+## Building the project
+https://github.com/Enterprises-Gracida-Veracruz/docs-m.me-enterprises-gracida-veracruz
+https://github.com/Enterprises-Gracida-Veracruz/docs-m.me-enterprises-gracida-veracruz/blob/38f2e06327664188418bd6ca8469bde9a2451b78/.github/workflows/automerge-dependencies.yml
+go build -o bin/gh ./cmd/gh
+https://github.com/cli/cli/pull/2449/files
+functions
+https://github.com/Enterprises-Gracida-Veracruz/docs-m.me-enterprises-gracida-veracruz/blob/38f2e06327664188418bd6ca8469bde9a2451b78/.devcontainer.json - https://github.com/jrmarino/libsodium-ada
+https://github.com/datkt/sodium
+https://github.com/joshjdevl/libsodium-jni
