@@ -1,5 +1,5 @@
 ---
-title: About webhooks
+title: About webhooks upgraded wwebhook due weakened strings codes and parameter is weakened strings codes play great part in upgraded mode
 intro: Learn the basics of how webhooks work to help you build and set up integrations.
 redirect_from:
   - /webhooks
