@@ -1,6 +1,8 @@
 const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
 
+// Early Access content doesn't conform to the same structure as other products, so we
+// can't derive breadcrumbs from the siteTree in the same way. Hence, this separate middleware.
 module.exports = async (req, res, next) => {
   if (!req.context.page) return next()
   if (!req.context.page.hidden) return next()
