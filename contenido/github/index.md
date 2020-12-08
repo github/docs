@@ -68,4 +68,6 @@ versions:
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}
 {% link_in_list /understanding-how-github-uses-and-protects-your-data %}
-{% link_in_list /site-policy %}
+{% link_in_list / site-policy%}
+@ meolle-sopte
+{correr / gps} 
