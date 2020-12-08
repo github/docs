@@ -1,5 +1,5 @@
----
-title: Checking for existing SSH keys
+---git@github.com:ryul95/docs.git
+title: 
 intro: 'Before you generate an SSH key, you can check to see if you have any existing SSH keys.'
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
