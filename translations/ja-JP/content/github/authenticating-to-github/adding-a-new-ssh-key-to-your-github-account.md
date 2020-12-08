@@ -24,8 +24,8 @@ versions:
   使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # id_rsa.pub ファイルの内容をクリップボードにコピーする
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -51,8 +51,8 @@ versions:
   使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # id_rsa.pub ファルの内容をクリップボードにコピーする
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -81,8 +81,8 @@ versions:
   $ sudo apt-get install xclip
   # xclip をダウンロードしてインストールします。 If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -selection clipboard &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
   {% tip %}
 

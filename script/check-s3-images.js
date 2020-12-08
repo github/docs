@@ -2,7 +2,7 @@
 
 const path = require('path')
 const { chain, difference } = require('lodash')
-const loadPages = require('../lib/pages')
+const { loadPages } = require('../lib/pages')
 const loadSiteData = require('../lib/site-data')
 const renderContent = require('../lib/render-content')
 const allVersions = require('../lib/all-versions')
@@ -22,7 +22,7 @@ const versionsToCheck = Object.keys(allVersions)
 //
 // Run this script in your branch to check whether any images referenced in content are
 // not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script.
-// Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+// Instructions for the one-time setup are at docs-content/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md
 //
 // [end-readme]
 

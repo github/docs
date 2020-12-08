@@ -1,5 +1,5 @@
 ---
-title: Criar e estar o Java com o Ant
+title: Criar e testar o Java com o Ant
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Ant.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -38,22 +38,22 @@ Você também pode adicionar este fluxo de trabalho manualmente, criando um novo
 
 {% raw %}
 ```yaml
-nome: Java CI
+name: Java CI
 
-em: [push]
+on: [push]
 
-trabalho:
+jobs:
   build:
     runs-on: ubuntu-latest
 
-    etapa:
-      - usa: actions/checkout@v2
-      - nome: Configure JDK 1.
-        uso: actionp-java@v1
-        com:
-          java-version: 1.
-      - nome: Construir com Ant
-        executar: ant -noinput -buildfile build.xml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Build with Ant
+        run: ant -noinput -buildfile build.xml
 ```
 {% endraw %}
 
@@ -79,13 +79,13 @@ Se você usa comandos diferentes para criar seu projeto ou se você quer executa
 
 {% raw %}
 ```yaml
-etapas:
-  - usa: actions/checkout@v2
-  - usa: actions/setup-java@v1
-    com:
+steps:
+  - uses: actions/checkout@v2
+  - uses: actions/setup-java@v1
+    with:
       java-version: 1.8
-  - nome: Executa o alvo do Ant jar
-    executa: ant -noinput -buildfile build-ci.xml jar
+  - name: Run the Ant jar target
+    run: ant -noinput -buildfile build-ci.xml jar
 ```
 {% endraw %}
 

@@ -5,10 +5,7 @@ name: Node.js Tests - Windows
 on:
   workflow_dispatch:
   schedule:
-    - cron: "50 19 * * *" # once a day at 19:50 UTC / 11:50 PST
-
-env:
-  CI: true
+    - cron: '50 19 * * *' # once a day at 19:50 UTC / 11:50 PST
 
 jobs:
   test:
@@ -48,4 +45,4 @@ jobs:
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: '--max_old_space_size=4096'

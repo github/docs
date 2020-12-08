@@ -1,7 +1,8 @@
 const path = require('path')
 const cheerio = require('cheerio')
 const Page = require('../../lib/page')
-const allVersionIds = Object.keys(require('../../lib/all-versions'))
+const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects')
+const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 // get the `free-pro-team` segment of `free-pro-team@latest`
@@ -90,6 +91,28 @@ describe('Page class', () => {
       expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
     })
 
+    test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
+      const graphqlVersion = allVersions[nonEnterpriseDefaultVersion].miscVersionName
+      const $ = cheerio.load(prerenderedObjects[graphqlVersion].html)
+      expect($('a[href^="/graphql/reference/input-objects"]').length).toBe(0)
+      expect($(`a[href^="/en/${nonEnterpriseDefaultVersion}/graphql/reference/input-objects"]`).length).toBeGreaterThan(0)
+    })
+
+    test('rewrites links in the intro to include the current language prefix and version', async () => {
+      const page = new Page(opts)
+      page.rawIntro = '[Pull requests](/articles/about-pull-requests)'
+      const context = {
+        page: { version: nonEnterpriseDefaultVersion },
+        currentVersion: nonEnterpriseDefaultVersion,
+        currentPath: '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
+        currentLanguage: 'en'
+      }
+      await page.render(context)
+      const $ = cheerio.load(page.intro)
+      expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
+      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
+    })
+
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
       const page = new Page({
         relativePath: 'admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md',
@@ -136,7 +159,7 @@ describe('Page class', () => {
       const context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
-        enterpriseServerVersions: allVersionIds.filter(id => id.startsWith('enterprise-server@'))
+        enterpriseServerVersions: Object.keys(allVersions).filter(id => id.startsWith('enterprise-server@'))
       }
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
@@ -366,12 +389,24 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).toThrowError('versions')
   })
 
-  test('page with a version in frontmatter that its parent product is not available in', () => {
+  test('English page with a version in frontmatter that its parent product is not available in', () => {
     function getPage () {
       return new Page({
         relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
         basePath: path.join(__dirname, '../fixtures/products'),
         languageCode: 'en'
+      })
+    }
+
+    expect(getPage).toThrowError(/`versions` frontmatter.*? product is not available in/)
+  })
+
+  test('non-English page with a version in frontmatter that its parent product is not available in', () => {
+    function getPage () {
+      return new Page({
+        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
+        basePath: path.join(__dirname, '../fixtures/products'),
+        languageCode: 'es'
       })
     }
 

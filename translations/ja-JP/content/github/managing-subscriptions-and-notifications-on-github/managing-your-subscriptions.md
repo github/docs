@@ -55,6 +55,13 @@ When you unwatch a repository, you unsubscribe from future updates from that rep
 {% data reusables.notifications.access_notifications %}
 1. 左側のサイドバーの、リポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Watched repositories**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Watch しているリポジトリのページで、Watchしているリポジトリを評価した後、次のいずれかを選択します。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
     - リポジトリの Watch 解除
     - リポジトリのリリースのみを Watch
     - リポジトリのすべての通知を無視
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+    - リポジトリの Watch 解除
+    - リポジトリのすべての通知を無視
+    - customize the types of event you receive notifications for (issues, pull requests, releases or discussions, if enabled)
+{% endif %}

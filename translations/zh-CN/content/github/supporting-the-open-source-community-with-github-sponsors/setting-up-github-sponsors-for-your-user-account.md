@@ -54,8 +54,6 @@ versions:
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-如果您居住在不受支持的区域，并且被接受参加 {% data variables.product.prodname_sponsors %} 公测，您将收到一封电子邮件，其中说明如何提供银行信息，以便您可以通过 ACH 转账或电汇接收付款。
-
 {% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 

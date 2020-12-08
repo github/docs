@@ -19,6 +19,6 @@ With the APIs, you can automate many administrative tasks. 例えば、
 - {% data variables.enterprise.management_console %} に変更を加える。 詳しい情報については、「[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)」を参照してください。
 - LDAP 同期を設定する。 詳しい情報については、「[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)」を参照してください。{% endif %}
 - Collect statistics about your enterprise. For more information, see "[Admin stats](/rest/reference/enterprise-admin#admin-stats)."
-- Enterpriseアカウントの管理。 詳しい情報については「[Enterprise アカウント](/v4/guides/managing-enterprise-accounts)」を参照してください。
+- Enterpriseアカウントの管理。 詳しい情報については「[Enterprise アカウント](/graphql/guides/managing-enterprise-accounts)」を参照してください。
 
 For the complete documentation for {% data variables.product.prodname_enterprise_api %}, see [{% data variables.product.prodname_dotcom %} REST API](/rest) and [{% data variables.product.prodname_dotcom%} GraphQL API](/graphql). 
