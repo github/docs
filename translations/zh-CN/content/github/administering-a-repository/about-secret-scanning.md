@@ -1,6 +1,7 @@
 ---
 title: 关于密码扫描
 intro: '{% data variables.product.product_name %} 扫描仓库查找已知的密码类型，以防止欺诈性使用意外提交的密码。'
+product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -16,6 +17,8 @@ versions:
 服务提供商可与 {% data variables.product.company_short %} 合作提供用于扫描的密码格式。 更多信息请参阅“[密码扫描](/partnerships/secret-scanning)”。
 
 ### 关于公共仓库的 {% data variables.product.prodname_secret_scanning %}
+
+ {% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories, where it scans code for secrets, to check for known secret formats. When a match of your secret format is found in a public repository, {% data variables.product.company_short %} doesn't publicly disclose the information as an alert, but instead sends a payload to an HTTP endpoint of your choice. For an overview of how secret scanning works on public repositories, see "[Secret scanning](/developers/overview/secret-scanning)."
 
 当您推送到公共仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码。 如果将私有仓库切换到公共仓库，{% data variables.product.product_name %} 会扫描整个仓库中的密码。
 
@@ -64,6 +67,8 @@ versions:
 
 {% data reusables.secret-scanning.beta %}
 
+If you're a repository administrator or an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for private repositories that are owned by organizations. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization. {% data variables.product.prodname_secret_scanning_caps %} is not available for user account-owned private repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+
 将提交推送到启用了 {% data variables.product.prodname_secret_scanning %} 的私有仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码：
 
 当 {% data variables.product.prodname_secret_scanning %} 在私有仓库中检测到密码时，{% data variables.product.prodname_dotcom %} 会发送警报。
@@ -71,6 +76,8 @@ versions:
 - {% data variables.product.prodname_dotcom %} 向仓库管理员和组织所有者发送电子邮件警报。
 
 - {% data variables.product.prodname_dotcom %} 在仓库中显示警报。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。
+
+Repository administrators and organization owners can grant users and team access to {% data variables.product.prodname_secret_scanning %} alerts. 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
 
 {% data variables.product.product_name %} 当前会扫描私有仓库，查找以下服务提供商发布的密码。
 

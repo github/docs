@@ -9,20 +9,33 @@
       {% include header %}
 
       <div class="container-xl px-3 px-md-6 pt-3 pb-2">
-        <header class="d-flex gutter mb-6">
-          <div class="col-12 col-lg-7">
+        <header class="d-lg-flex gutter-lg mb-6">
+          <div class="col-12 col-lg-6 mb-2 mb-lg-0">
             <span class="text-mono text-gray">Product</span>
             <h1 class="mb-3 font-mktg">{{ page.shortTitle }}</h1>
             <div class="lead-mktg text-gray">{{ page.intro }}</div>
 
-            <a href="{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3">
+            <a href="{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3 mr-3">
               {% data ui.product_landing.quick_start %}
             </a>
 
-            <a href="{{ page.introLinks.reference }}" class="ml-3 btn-mktg btn-outline-mktg btn-large f4 mt-3">
+            <a href="{{ page.introLinks.reference }}" class="btn-mktg btn-outline-mktg btn-large f4 mt-3">
               {% data ui.product_landing.reference_guides %}
             </a>
           </div>
+
+          {% if page.product_video %}
+            <div class="col-12 col-lg-6">
+              <div class="position-relative" style="padding-bottom:56.25%;">
+                <iframe
+                  class="top-0 left-0 position-absolute box-shadow-large rounded-1 width-full height-full"
+                  src="{{ page.product_video }}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          {% endif %}
         </header>
 
         <!-- Article links -->
@@ -30,13 +43,13 @@
           <div class="col-12 col-lg-4 mb-4 mb-lg-0">
             <div class="featured-links-heading mb-4 d-flex flex-items-baseline">
               <h3 class="f4 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.guides %}</h3>
-              <a href="/{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
+              <a href="{{ currentPath }}/guides" class="ml-4">View all {% octicon "arrow-right" height="14" class="v-align-middle" %}</a>
             </div>
             <ul class="list-style-none">
               {% for link in featuredLinks.guides %}
                 <li class="border-top">
-                  <a class="link-with-intro Bump-link--hover no-underline d-block py-4" href="{{ link.href }}">
-                    <h4 class="link-with-intro-title link-gray-dark mb-1">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
+                  <a class="link-with-intro Bump-link--hover no-underline d-block py-3" href="{{ link.href }}">
+                    <h4 class="link-with-intro-title mb-1">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
                     <p class="link-with-intro-intro color-gray-5 mb-0">{{ link.intro | truncatewords: 12 }}</p>
                   </a>
                 </li>
@@ -52,7 +65,7 @@
               {% for link in featuredLinks.popular %}
                 <li class="border-top">
                   <a class="link-with-intro Bump-link--hover no-underline d-block py-3" href="{{ link.href }}">
-                    <h4 class="link-with-intro-title link-gray-dark">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
+                    <h4 class="link-with-intro-title">{{ link.title }}<span class="Bump-link-symbol">→</span></h4>
                   </a>
                 </li>
               {% endfor %}
@@ -68,11 +81,11 @@
               {% for link in page.changelog %}
                 <li class="border-top">
                   <a href="{{ link.href }}" class="d-block text-gray-dark Bump-link--hover py-3 no-underline">
+                    <h4>{{ link.title }} <span class="Bump-link-symbol">→</span></h4>
                     <time
-                      class="tooltipped tooltipped-n text-gray-light text-mono mb-1"
+                      class="tooltipped tooltipped-n text-gray-light text-mono mt-1"
                       aria-label="{{ link.date | date: '%B %d, %Y' }}"
                     >{{ link.date | date: "%B %d" }}</time>
-                    <h4>{{ link.title }} <span class="Bump-link-symbol">→</span></h4>
                   </a>
                 </li>
               {% endfor %}
@@ -81,6 +94,25 @@
         </div>
 
         {{ renderedPage }}
+      </div>
+
+      {% if featuredLinks.guideCards %}
+        <div class="bg-guides-gradient py-6">
+          <div class="container-xl px-3 px-md-6 my-6">
+            <h2 class="font-mktg h1 mb-2">Guides</h2>
+
+            <div class="d-lg-flex gutter-lg flex-items-stretch">
+              {% assign guideCards = featuredLinks.guideCards %}
+              {% render "guide-card" for guideCards as guide %}
+            </div>
+
+            <a href="{{ currentPath }}/guides" class="btn btn-outline float-right">Explore guides {% octicon "arrow-right" %}</a>
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="container-xl px-3 px-md-6 mt-6">
+        {% include all-articles %}
       </div>
 
       <div class="border-top">

@@ -227,7 +227,7 @@ defaults:
 
 ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
-ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/v3/actions/workflow-jobs)」を参照してください。
+ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/rest/reference/actions#workflow-jobs)」を参照してください。
 
 ### **`jobs.<job_id>`**
 
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -491,10 +491,10 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # 公開リポジトリのデフォルトブランチを使用する
-        uses: actions/heroku@master
+        # Uses the default branch of a public repository
+        uses: actions/heroku@1.0.0
       - name: My second step
-        # パブリックリポジトリの特定のバージョンタグを使用する
+        # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
 ```
 
@@ -659,7 +659,7 @@ steps:
 
 - `cmd`
   - 各エラーコードをチェックしてそれぞれに対応するスクリプトを書く以外、フェイルファースト動作を完全にオプトインする方法はないようです。 デフォルトでその動作を指定することはできないため、この動作はスクリプトに記述する必要があります。
-  - `cmd.exe`は、実行した最後のプログラムのエラーレベルで終了し、runnerにそのエラーコードを返します。 この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
 
 #### **`jobs.<job_id>.steps.with`**
 
@@ -718,7 +718,7 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-この`entrypoint`キーワードはDockerコンテナのアクションを使おうとしていますが、これは入力を定義しないJavaScriptのアクションにも使えます。
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
 #### **`jobs.<job_id>.steps.env`**
 
@@ -875,6 +875,12 @@ strategy:
 **ノート:** すべての`include`の組み合わせは、`exclude`の後に処理されます。 このため、`include`を使って以前に除外された組み合わせを追加し直すことができます。
 
 {% endnote %}
+
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 

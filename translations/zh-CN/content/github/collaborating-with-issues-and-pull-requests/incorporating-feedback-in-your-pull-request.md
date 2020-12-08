@@ -25,7 +25,7 @@ versions:
 4. 在提交消息字段中，输入简短、有意义的提交消息，以描述对文件的更改。 ![提交消息字段](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. 单击 **Commit changes（提交更改）**。 ![提交更改按钮](/assets/images/help/pull_requests/commit-changes-button.png)
 
-### Re-requesting a review
+### 重新请求审核
 
 {% data reusables.pull_requests.re-request-review %}
 

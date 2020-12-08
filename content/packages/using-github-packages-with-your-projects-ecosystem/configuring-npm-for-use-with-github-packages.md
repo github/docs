@@ -45,12 +45,15 @@ If your instance has subdomain isolation disabled:
 
 To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *PUBLIC-EMAIL-ADDRESS* with your email address.
 
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-$ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
@@ -60,7 +63,7 @@ $ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-$ npm login --registry=https://<em>HOSTNAME</em>/_registry/npm/
+$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
@@ -128,14 +131,10 @@ To publish multiple packages to the same repository, you can include the URL of 
 
 To ensure the repository's URL is correct, replace REPOSITORY with the name of the repository containing the package you want to publish, and OWNER with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository.
 
-{% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name. If you store the *package.json* file outside the root directory of your repository, you can use the `directory` field to specify the location where {% data variables.product.prodname_registry %} can find the *package.json* files.
+{% data variables.product.prodname_registry %} will match the repository based on the URL, instead of based on the package name.
 
 ```shell
-"repository" : {
-    "type" : "git",
-    "url": "ssh://git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>.git",
-    "directory": "packages/name"
-  },
+"repository":"https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>",
 ```
 
 ### Installing a package

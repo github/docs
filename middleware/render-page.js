@@ -1,10 +1,10 @@
 const { get } = require('lodash')
-const env = require('lil-env-thing')
 const { liquid } = require('../lib/render-content')
 const patterns = require('../lib/patterns')
 const layouts = require('../lib/layouts')
 const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
+const statsd = require('../lib/statsd')
 
 // We've got lots of memory, let's use it
 // We can eventually throw this into redis
@@ -18,6 +18,7 @@ module.exports = async function renderPage (req, res, next) {
   if (!process.env.CI && process.env.NODE_ENV !== 'test') {
     if (req.method === 'GET' && pageCache[originalUrl]) {
       console.log(`Serving from cached version of ${originalUrl}`)
+      statsd.increment('page.sent_from_cache')
       return res.send(pageCache[originalUrl])
     }
   }
@@ -64,7 +65,7 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // `?json` query param for debugging request context
-  if ('json' in req.query && !env.production) {
+  if ('json' in req.query && process.env.NODE_ENV !== 'production') {
     if (req.query.json.length > 1) {
       // deep reference: ?json=page.permalinks
       return res.json(get(context, req.query.json))

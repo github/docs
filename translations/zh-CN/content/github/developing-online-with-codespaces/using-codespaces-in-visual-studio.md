@@ -46,8 +46,12 @@ versions:
 
 ### 配置 {% data variables.product.prodname_vs %} 的代码空间
 
-通过 {% data variables.product.prodname_vs %} 创建的默认代码空间环境包括流行的框架和工具，例如 .NET Core、Microsoft SQL Server、Python 和 Windows SDK。 使用 {% data variables.product.prodname_vs %} 创建的{% data variables.product.prodname_github_codespaces %} 可通过一组 `devcontainers.json` 属性和 {% data variables.product.prodname_vs %} 随附的新工具 devinit 进行自定义。
+A codespace, created with {% data variables.product.prodname_vs %}, can be customized through a new tool called devinit, a command line tool included with {% data variables.product.prodname_vs %}.
 
 #### devinit
 
-[devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit) 命令行工具允许您将额外的框架和工具安装到 Windows 开发代码空间中，以及运行 PowerShell 脚本或修改环境变量。 devinit 支持名为 [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json) 的配置文件，该文件可添加到您的项目中用于创建自定义和可重复的开发环境。 有关 Windows 代码空间配置和 devinit 的更多信息，请参阅 {% data variables.product.prodname_vs %} 文档中的[自定义代码空间](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces)。
+[devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit) lets you install additional frameworks and tools into your Windows development codespaces, modify environment variables, and more.
+
+devinit supports a configuration file called [devinit.json](https://docs.microsoft.com/visualstudio/devinit/devinit-json). You can add this file to your project if you want to create a customized and repeatable development environment. When you use devinit with a [devcontainer.json](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces#running-devinit-when-creating-a-codespace) file, your codespaces will be automatically configured on creation.
+
+有关 Windows 代码空间配置和 devinit 的更多信息，请参阅 {% data variables.product.prodname_vs %} 文档中的[自定义代码空间](https://docs.microsoft.com/visualstudio/ide/codespaces/customize-codespaces)。 For more information about devinit, see [Getting started with devinit](https://docs.microsoft.com/visualstudio/devinit/getting-started-with-devinit).

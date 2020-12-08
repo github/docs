@@ -21,20 +21,21 @@ module.exports = contentSecurityPolicy({
       'github.githubassets.com',
       'github-images.s3.amazonaws.com',
       'octodex.github.com',
-      'placehold.it'
+      'placehold.it',
+      '*.githubusercontent.com',
+      'github.com'
     ],
     objectSrc: [
       "'self'"
     ],
     scriptSrc: [
       "'self'",
-      'data:',
-      "'unsafe-eval'", // exception for Algolia instantsearch
-      "'unsafe-inline'"
+      'data:'
     ],
     frameSrc: [ // exceptions for GraphQL Explorer
       'https://graphql-explorer.githubapp.com', // production env
-      'http://localhost:3000' // development env
+      'http://localhost:3000', // development env
+      'https://www.youtube-nocookie.com'
     ],
     styleSrc: [
       "'self'",

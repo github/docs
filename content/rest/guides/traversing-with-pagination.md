@@ -25,12 +25,12 @@ in the [platform-samples][platform samples] repository.
 To start with, it's important to know a few facts about receiving paginated items:
 
 1. Different API calls respond with different defaults. For example, a call to
-[List public repositories](/v3/repos/#list-public-repositories)
+[List public repositories](/rest/reference/repos#list-public-repositories)
 provides paginated items in sets of 30, whereas a call to the GitHub Search API
 provides items in sets of 100
 2. You can specify how many items to receive (up to a maximum of 100); but,
 3. For technical reasons, not every endpoint behaves the same. For example,
-[events](/v3/activity/events/) won't let you set a maximum for items to receive.
+[events](/rest/reference/activity#events) won't let you set a maximum for items to receive.
 Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
 Information about pagination is provided in [the Link header](http://tools.ietf.org/html/rfc5988)
@@ -254,9 +254,9 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [hypermedia-relations]: https://github.com/octokit/octokit.rb#pagination
-[listing commits]: /v3/repos/commits/#list-commits
+[listing commits]: /rest/reference/repos#list-commits
