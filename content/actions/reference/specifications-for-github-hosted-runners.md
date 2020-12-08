@@ -1,4 +1,4 @@
----
+---patch-4
 title: Specifications for GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 product: '{% data reusables.gated-features.actions %}'
@@ -75,7 +75,7 @@ Workflow logs include a link to the preinstalled tools on the runner. For more i
 
 If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments).
 
-### IP addresses
+### IP addressesdocs/source/install/central.rst
 
 {% note %}
 
@@ -122,19 +122,19 @@ You can find the supported IP address ranges in the `"addressPrefixes"` object. 
 }
 ```
 
-### File systems
+### File system's https://github.com/cli/cli(/pull[📂]{_;http://_apt-get]_#%{) $( :).gitignore_(.https://) <docs/source/install/central.rst>patch-4 
 
 {% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
 
 | Directory | Environment variable | Description |
 |-----------|----------------------|-------------|
-| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt. |
+| `home` | `HOME` | Contains user-related data. For example, this directory could contain credentials from a login attempt.docs/source/install/central.rst|
 | `workspace` | `GITHUB_WORKSPACE` | Actions and shell commands execute in this directory. An action can modify the contents of this directory, which subsequent actions can access. |
 | `workflow/event.json` | `GITHUB_EVENT_PATH` | The `POST` payload of the webhook event that triggered the workflow. {% data variables.product.prodname_dotcom %} rewrites this each time an action executes to isolate file content between actions.
 
 For a list of the environment variables {% data variables.product.prodname_dotcom %} creates for each workflow, see "[Using environment variables](/github/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-#### Docker container filesystem
+##.gitignore## Docker container filesystem-doc's/source/install/central.rst
 
 Actions that run in Docker containers have static directories under the `/github` path. However, we strongly recommend using the default environment variables to construct file paths in Docker containers.
 
@@ -144,9 +144,21 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" %}_NaCl.cr.yp.to.html
 
 ### Further reading
 - "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
 
-{% endif %}
+{%11 lines (9 sloc)  171 Bytes
+ 
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace <og : fwlink> %}http://nacl.cr.yp.to/LICENSE!_is:open!#_https://github.github.com/gfm/#inlinehttps://github.com/Enterprises-Gracida-Veracruz/docs-m.me-enterprises-gracida-veracruz/blob/38f2e06327664188418bd6ca8469bde9a2451b78/.github/ISSUE_TEMPLATE/improve-the-site.md
