@@ -45,12 +45,13 @@ describe('category pages', () => {
       const contents = fs.readFileSync(productIndex, 'utf8')
       const { content } = matter(contents)
 
+      const productDir = path.dirname(productIndex)
+
       const categoryLinks = getLinks(content)
-        // HACK: I'm not really sure why this file is a one-off but it is...
-        .filter(link => !(productName === 'actions' && link === 'quickstart'))
+        // Only include category directories, not standalone category files like content/actions/quickstart.md
+        .filter(link => fs.existsSync(getPath(productDir, link, 'index')))
 
       // Map those to the Markdown file paths that represent that category page index
-      const productDir = path.dirname(productIndex)
       const categoryPaths = categoryLinks.map(link => getPath(productDir, link, 'index'))
 
       // Make them relative for nicer display in test names
