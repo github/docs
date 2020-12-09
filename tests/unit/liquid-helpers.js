@@ -5,6 +5,8 @@ const { set } = require('lodash')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('liquid helper tags', () => {
+  jest.setTimeout(60 * 1000)
+
   const context = {}
   let pageMap
   beforeAll(async (done) => {
