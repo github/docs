@@ -159,7 +159,7 @@
     "prebrowser-test": "npm run build",
     "browser-test": "start-server-and-test browser-test-server 4001 browser-test-tests",
     "browser-test-server": "cross-env NODE_ENV=production ENABLED_LANGUAGES='en,ja' PORT=4001 node server.js",
-    "browser-test-tests": "BROWSER=1 jest tests/browser/browser.js",
+    "browser-test-tests": "cross-env BROWSER=1 jest tests/browser/browser.js",
     "sync-search": "start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-dry-run": "DRY_RUN=1 npm run sync-search",
     "sync-search-server": "cross-env NODE_ENV=production PORT=4002 node server.js",
