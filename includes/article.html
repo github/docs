@@ -29,7 +29,8 @@
       {% endif %}
 
       {% if page.includesPlatformSpecificContent %}
-        <nav class="UnderlineNav my-3">
+        <nav class="UnderlineNav my-3"
+        {%- if page.defaultPlatform %} data-default-platform="{{ page.defaultPlatform }}"{% endif %}>
           <div class="UnderlineNav-body">
             <a href="#" class="UnderlineNav-item platform-switcher" data-platform="mac">Mac</a>
             <a href="#" class="UnderlineNav-item platform-switcher" data-platform="windows">Windows</a>
