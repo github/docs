@@ -126,7 +126,7 @@ describe('developer redirects', () => {
       )
     })
 
-    // TODO temprarily ensure we redirect old links using the new enterprise format
+    // TODO temporarily ensure we redirect old links using the new enterprise format
     // for currently supported enterprise releases only
     // EXAMPLE: /en/enterprise-server@2.20/v3/pulls/comments -> /en/enterprise-server@2.20/rest/reference/pulls#comments
     // We can remove test after we update all the old `/v3` links to point to `/rest`
@@ -165,7 +165,7 @@ describe('developer redirects', () => {
       )
     })
 
-    // TODO temprarily ensure we redirect old links using the new enterprise format
+    // TODO temporarily ensure we redirect old links using the new enterprise format
     // for currently supported enterprise releases only
     // EXAMPLE: /en/enterprise-server@2.20/v4/interface/actor -> /en/enterprise-server@2.20/graphql/reference/interfaces#actor
     // We can remove test after we update all the old `/v4` links to point to `/graphql`
