@@ -10,8 +10,6 @@ const entities = new Entities()
 const { chain, difference } = require('lodash')
 
 describe('pages module', () => {
-  jest.setTimeout(60 * 1000)
-
   let pages
 
   beforeAll(async (done) => {
