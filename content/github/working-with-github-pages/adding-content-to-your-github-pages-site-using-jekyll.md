@@ -62,6 +62,8 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
+Your post should now be up on your site! If the base URL of your site is `https://octocat.github.io`, then your new post will be located at `https://octocat.github.io/YYYY/MM/DD/TITLE.html`.
+
 ### Next steps
 
 {% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
