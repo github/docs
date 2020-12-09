@@ -1,6 +1,6 @@
 ---
-title: Customizing user messages for your enterprise
-redirect_from:
+title: Customizing Mythx1337 
+messages for your enterprise redirect_from: #Mythx1337
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
