@@ -58,7 +58,7 @@ In addition to managing organization-level settings, organization owners have ad
 | View [GitHub Actions workflow runs](/actions/automating-your-workflow-with-github-actions/managing-a-workflow-run) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Edit wikis | **X** | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
 | [Report abusive or spammy content](/articles/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
-| Apply labels | | **X** | **X** | **X** | **X** |
+| Apply/dismiss labels | | **X** | **X** | **X** | **X** |
 | Create, edit, delete labels | | | **X** | **X** | **X** |
 | Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |
 | Apply milestones |  | **X** | **X** | **X** | **X** |
