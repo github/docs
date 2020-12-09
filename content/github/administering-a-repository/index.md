@@ -22,7 +22,8 @@ versions:
     {% link_in_list /viewing-deployment-activity-for-your-repository %}
     {% link_in_list /managing-the-forking-policy-for-your-repository %}
     {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository %}
-    {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}
+    {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}{% if currentVersion == "free-pro-team@latest" %}
+    {% link_in_list /enabling-or-disabling-github-discussions-for-a-repository %}{% endif %}
     {% link_in_list /managing-git-lfs-objects-in-archives-of-your-repository %}
     {% link_in_list /enabling-anonymous-git-read-access-for-a-repository %}
     {% link_in_list /configuring-autolinks-to-reference-external-resources %}
@@ -65,7 +66,7 @@ versions:
     {% link_in_list /about-securing-your-repository %}
     {% link_in_list /about-secret-scanning %}
     {% link_in_list /configuring-secret-scanning-for-private-repositories %}
-    {% link_in_list /managing-alerts-from-secret-scanning %} 
+    {% link_in_list /managing-alerts-from-secret-scanning %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-repository %}
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}
     {% link_in_list /about-dependabot-version-updates %}
