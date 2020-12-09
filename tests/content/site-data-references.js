@@ -7,8 +7,6 @@ const fs = require('fs').promises
 const path = require('path')
 
 describe('data references', () => {
-  jest.setTimeout(60 * 1000)
-
   let data, pages
 
   beforeAll(async (done) => {

@@ -4,8 +4,6 @@ const ignoredPagePaths = config.files[0].ignore
 const ignoredDataPaths = config.files[2].ignore
 
 describe('crowdin.yml config file', () => {
-  jest.setTimeout(60 * 1000)
-
   let pages
   beforeAll(async (done) => {
     pages = await loadPages()
