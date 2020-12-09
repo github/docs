@@ -79,7 +79,7 @@ function detectPlatforms (el) {
 }
 
 function getDefaultPlatform () {
-  const el = document.querySelector("[data-default-platform]")
+  const el = document.querySelector('[data-default-platform]')
   if (el) return el.dataset.defaultPlatform
 }
 

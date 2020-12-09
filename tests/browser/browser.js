@@ -174,7 +174,7 @@ describe('platform specific content', () => {
   const userAgents = [
     { name: 'Mac', id: 'mac', ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9' },
     { name: 'Windows', id: 'windows', ua: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36' },
-    { name: 'Linux', id: 'linux', ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1' },
+    { name: 'Linux', id: 'linux', ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1' }
   ]
   const userAgentLinux = userAgents[2]
 
@@ -193,7 +193,7 @@ describe('platform specific content', () => {
       await page.setUserAgent(agent.ua)
       await page.goto('http://localhost:4001/en/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners')
       const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate( el => el.textContent, selectedPlatformElement)
+      const selectedPlatform = await page.evaluate(el => el.textContent, selectedPlatformElement)
       expect(selectedPlatform).toBe(agent.name)
     }
   })
@@ -204,7 +204,7 @@ describe('platform specific content', () => {
       await page.goto('http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service')
       const defaultPlatform = await page.$eval('[data-default-platform]', el => el.dataset.defaultPlatform)
       const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
-      const selectedPlatform = await page.evaluate( el => el.textContent, selectedPlatformElement)
+      const selectedPlatform = await page.evaluate(el => el.textContent, selectedPlatformElement)
       expect(defaultPlatform).toBe(userAgentLinux.id)
       expect(selectedPlatform).toBe(userAgentLinux.name)
     }
