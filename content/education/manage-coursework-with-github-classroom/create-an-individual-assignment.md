@@ -4,6 +4,7 @@ intro: You can create an assignment for students in your course to complete indi
 versions:
   free-pro-team: '*'
 redirect_from:
+  - /education/manage-coursework-with-github-classroom/creating-an-individual-assignment
   - /education/manage-coursework-with-github-classroom/create-an-individual-assignment
 ---
 
