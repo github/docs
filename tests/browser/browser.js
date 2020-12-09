@@ -3,8 +3,6 @@ const sleep = require('await-sleep')
 const querystring = require('querystring')
 
 describe('homepage', () => {
-  jest.setTimeout(60 * 1000)
-
   test('should be titled "GitHub Documentation"', async () => {
     await page.goto('http://localhost:4001')
     await expect(page.title()).resolves.toMatch('GitHub Documentation')
@@ -12,8 +10,6 @@ describe('homepage', () => {
 })
 
 describe('algolia browser search', () => {
-  jest.setTimeout(60 * 1000)
-
   it('works on the homepage', async () => {
     await page.goto('http://localhost:4001/en')
     await page.click('#search-input-container input[type="search"]')
