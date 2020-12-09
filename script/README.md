@@ -73,7 +73,7 @@ This script is run automatically when you run the server locally. It checks whet
 
 ### [`check-s3-images.js`](check-s3-images.js)
 
-Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script. Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+Run this script in your branch to check whether any images referenced in content are not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script.
 
 ---
 
@@ -127,6 +127,13 @@ Run this script during the Enterprise deprecation process to download static cop
 ---
 
 
+### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
+
+This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
+
+---
+
+
 ### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
 
 Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
@@ -137,6 +144,13 @@ Run this script after an Enterprise deprecation to remove Liquid statements and 
 ### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
 
 This script creates the static GraphQL files for a new version.
+
+---
+
+
+### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
+
+This script creates new static openAPI files for a new version and modifies the info.version.
 
 ---
 
@@ -178,12 +192,6 @@ Examples:
 Given: /github/getting-started-with-github/using-github Returns: /free-pro-team@latest/github/getting-started-with-github/using-github
 
 Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /enterprise-server@2.22/admin/installation/upgrading-github-enterprise
-
----
-
-
-### [`graphql/build-changelog-from-markdown.js`](graphql/build-changelog-from-markdown.js)
-
 
 
 ---
@@ -294,23 +302,16 @@ This script is run as a git precommit hook (installed by husky after npm install
 ---
 
 
-### [`preview-openapi-changes`](preview-openapi-changes)
-
-
-
----
-
-
 ### [`purge-fastly`](purge-fastly)
 
-Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn). Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
+Run this script to manually purge the Fastly cache. Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
 
 ---
 
 
 ### [`purge-fastly-by-url.js`](purge-fastly-by-url.js)
 
-Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn) for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
+Run this script to manually purge the Fastly cache for all language variants of a single URL or for a batch of URLs in a file. This script does not require authentication.
 
 ---
 
@@ -361,11 +362,46 @@ Examples:
 
 reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
 
-reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
+reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs/translations/es-XL/content/actions/index.md
 
 reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
 
-reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs/data/ui.yml
+
+---
+
+
+### [`rest/update-files.js`](rest/update-files.js)
+
+Run this script to pull openAPI files from github/github, dereference them, and decorate them.
+
+---
+
+
+### [`rest/utils/create-code-samples.js`](rest/utils/create-code-samples.js)
+
+
+
+---
+
+
+### [`rest/utils/get-operations.js`](rest/utils/get-operations.js)
+
+
+
+---
+
+
+### [`rest/utils/operation-schema.js`](rest/utils/operation-schema.js)
+
+
+
+---
+
+
+### [`rest/utils/operation.js`](rest/utils/operation.js)
+
+
 
 ---
 
@@ -386,7 +422,7 @@ Starts the local development server with all of the available languages enabled.
 
 ### [`standardize-frontmatter-order.js`](standardize-frontmatter-order.js)
 
-Run this script to standardize frontmatter fields in all content files, per the order decided in https://github.com/github/docs-internal/issues/9658#issuecomment-485536265.
+Run this script to standardize frontmatter fields in all content files.
 
 ---
 
@@ -407,7 +443,7 @@ List all the TODOs in our JavaScript files and stylesheets.
 
 ### [`update-enterprise-dates.js`](update-enterprise-dates.js)
 
-Run this script during Enterprise releases and deprecations. It uses the GitHub API to get dates from [`enterprise-releases`](https://github.com/github/enterprise-releases/blob/master/releases.json) and updates `lib/enterprise-dates.json`. The help site uses this JSON to display dates at the top of some Enterprise versions.
+Run this script during Enterprise releases and deprecations. It uses the GitHub API to get dates from `enterprise-releases` and updates `lib/enterprise-dates.json`. The help site uses this JSON to display dates at the top of some Enterprise versions.
 
 This script requires that you have a GitHub Personal Access Token in a `.env` file. If you don't have a token, get one [here](https://github.com/settings/tokens/new?scopes=repo&description=docs-dev). If you don't have an `.env` file in your docs checkout, run this command in Terminal:
 
@@ -429,7 +465,7 @@ This script crawls the script directory, hooks on special comment markers in eac
 
 ### [`update-s3cmd-config.js`](update-s3cmd-config.js)
 
-This script is used by other scripts to update temporary AWS credentials and authenticate to S3. See docs at [Setting up awssume and S3cmd](https://github.com/github/product-documentation/tree/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+This script is used by other scripts to update temporary AWS credentials and authenticate to S3.
 
 ---
 
@@ -446,5 +482,3 @@ This script is used by other scripts to update temporary AWS credentials and aut
 Use this script to upload individual or batched asset files to a versioned S3 bucket. Run `upload-images-to-s3.js --help` for usage details.
 
 ---
-
-

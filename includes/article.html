@@ -67,7 +67,7 @@
 
     <div class="d-block border-top border-gray-light mt-4 markdown-body">
       {% include helpfulness %}
-      {% include contribution %}
+      {% unless page.hidden %}{% include contribution %}{% endunless %}
     </div>
   </article>
 </main>

@@ -111,6 +111,7 @@ Library name | Repository
 
 Library name | Repository
 |---|---|
+**ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi)
 **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
 **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas)
 **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py)

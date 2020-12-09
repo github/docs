@@ -14,13 +14,13 @@ versions:
 
 ### 当前版本
 
-默认情况下，对 `{% data variables.product.api_url_code %}` 的所有请求都会收到 REST API 的 **v3** [版本](/v3/versions)。 我们建议您[通过 `Accept` 标头明确请求此版本](/v3/media/#request-specific-version)。
+默认情况下，对 `{% data variables.product.api_url_code %}` 的所有请求都会收到 REST API 的 **v3** [版本](/developers/overview/about-githubs-apis)。 我们建议您[通过 `Accept` 标头明确请求此版本](/rest/overview/media-types#request-specific-version)。
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-有关 GitHub GraphQL API 的信息，请参阅 [v4 文档](/v4)。 有关迁移到 GraphQL 的信息，请参阅“[从 REST 迁移](/v4/guides/migrating-from-rest/)”。
+有关 GitHub GraphQL API 的信息，请参阅 [v4 文档](/graphql)。 有关迁移到 GraphQL 的信息，请参阅“[从 REST 迁移](/graphql/guides/migrating-from-rest-to-graphql)”。
 
 {% endif %}
 
@@ -171,7 +171,7 @@ $ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "gith
 
 ### GraphQL 全局节点 ID
 
-请参阅“[使用全局节点 ID](/v4/guides/using-global-node-ids)”指南，详细了解如何通过 REST API 查找 `node_id` 以及如何在 GraphQL 操作中使用它们。
+请参阅“[使用全局节点 ID](/graphql/guides/using-global-node-ids)”指南，详细了解如何通过 REST API 查找 `node_id` 以及如何在 GraphQL 操作中使用它们。
 
 ### 客户端错误
 
@@ -262,7 +262,7 @@ API v3 尽可能对每个操作使用适当的 HTTP 请求方法。
 
 ### 分页
 
-默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `?page` 参数指定更多页面。 对于某些资源，您还可以使用 `?per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `?per_page` 参数，相关示例请参阅[事件](/v3/activity/events/)。
+默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `?page` 参数指定更多页面。 对于某些资源，您还可以使用 `?per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `?per_page` 参数，相关示例请参阅[事件](/rest/reference/activity#events)。
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
@@ -287,7 +287,7 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 _该示例包括换行符，以提高可读性。_
 
-此 `Link` 响应标头包含一个或多个[超媒体](/v3/#hypermedia)链接关系，其中一些可能需要扩展为 [URI 模板](http://tools.ietf.org/html/rfc6570)。
+此 `Link` 响应标头包含一个或多个[超媒体](/rest#hypermedia)链接关系，其中一些可能需要扩展为 [URI 模板](http://tools.ietf.org/html/rfc6570)。
 
 可能的 `rel` 值为：
 
@@ -312,7 +312,7 @@ _该示例包括换行符，以提高可读性。_
 
 {% data reusables.enterprise.rate_limit %}
 
-请注意[搜索 API 具有自定义速率限制规则](/v3/search/#rate-limit)。
+请注意[搜索 API 具有自定义速率限制规则](/rest/reference/search#rate-limit)。
 
 任何 API 请求返回的 HTTP 标头都显示当前速率限制状态：
 
@@ -355,7 +355,7 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-您可以[检查速率限制状态](/v3/rate_limit)，而不会引发 API 命中。
+您可以[检查速率限制状态](/rest/reference/rate-limit)，而不会引发 API 命中。
 
 #### 提高 OAuth 应用程序的未经验证速率限制
 
@@ -586,9 +586,9 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 
 #### 明确提供带有时区信息的 ISO 8601 时间戳
 
-对于允许指定时间戳的 API 调用，我们使用这种明确的时间戳。 这方面的示例是[提交 API](/v3/git/commits)。
+对于允许指定时间戳的 API 调用，我们使用这种明确的时间戳。 这方面的示例是[提交 API](/rest/reference/git#commits)。
 
-这些时间戳看起来像 `2014-02-27T15:05:06+01:00`。 另请参阅[本示例](/v3/git/commits/#example-input)，了解如何指定这些时间戳。
+这些时间戳看起来像 `2014-02-27T15:05:06+01:00`。 另请参阅[本示例](/rest/reference/git#example-input)，了解如何指定这些时间戳。
 
 #### 使用 `Time-Zone` 标头
 
@@ -598,7 +598,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-这意味着当您在这个标题定义的时区做出 API 调用时，我们会生成一个时间戳。 例如，[内容 API](/v3/repos/contents/)为每个添加或更改生成 git 提交，并使用当前时间作为时间戳。 此标头将确定用于生成当前时间戳的时区。
+这意味着当您在这个标题定义的时区做出 API 调用时，我们会生成一个时间戳。 例如，[内容 API](/rest/reference/repos#contents)为每个添加或更改生成 git 提交，并使用当前时间作为时间戳。 此标头将确定用于生成当前时间戳的时区。
 
 #### 使用用户的最后一个已知时区
 

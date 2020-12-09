@@ -10,7 +10,7 @@ versions:
 
 ### パート 1: {% data variables.product.prodname_desktop %} のインストール方法
 
-You can install {% data variables.product.prodname_desktop %} on any supported operating system. 詳しい情報については、「[サポートされているオペレーティングシステム](/desktop/getting-started-with-github-desktop/supported-operating-systems)」を参照してください。
+{% data variables.product.prodname_desktop %} は、サポートされている任意のオペレーティングシステムにインストールできます。 詳しい情報については、「[サポートされているオペレーティングシステム](/desktop/getting-started-with-github-desktop/supported-operating-systems)」を参照してください。
 
 {% data variables.product.prodname_desktop %} をインストールするには、[https://desktop.github.com/](https://desktop.github.com/) に移動し、オペレーティングシステムに適したバージョンの {% data variables.product.prodname_desktop %} をダウンロードします。 プロンプトに従って、インストールを完了します。 詳しい情報については「[{% data variables.product.prodname_desktop %}のインストール](/desktop/getting-started-with-github-desktop/installing-github-desktop)」を参照してください。
 
@@ -37,7 +37,7 @@ Git をインストールしたら、{% data variables.product.prodname_desktop 
 デフォルトや設定を変更して、{% data variables.product.prodname_desktop %} をニーズに合わせて調整できます。
 
 #### デフォルトのテキストエディタを選択する
-{% data variables.product.prodname_desktop %} からテキストエディタを開いて、ファイルとリポジトリを操作できます。 {% data variables.product.prodname_desktop %} は、Windows および macOS 用のさまざまなテキストエディタと統合開発環境 (IDE) をサポートしています。 {% data variables.product.prodname_desktop %} 設定でデフォルトのエディタを選択できます。 For more information, see "[Configuring a default editor](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)."
+{% data variables.product.prodname_desktop %} からテキストエディタを開いて、ファイルとリポジトリを操作できます。 {% data variables.product.prodname_desktop %} は、Windows および macOS 用のさまざまなテキストエディタと統合開発環境 (IDE) をサポートしています。 {% data variables.product.prodname_desktop %} 設定でデフォルトのエディタを選択できます。 詳しい情報については、「[デフォルトエディタを設定する](/desktop/getting-started-with-github-desktop/configuring-a-default-editor)」を参照してください。
 
 #### テーマを選択する
 {% data variables.product.prodname_desktop %} には、アプリの見た目をカスタマイズする際に利用できる複数のテーマがあります。 {% data variables.product.prodname_desktop %} 設定でテーマを選択できます。 詳しい情報については、「[{% data variables.product.prodname_desktop %} のテーマを設定する](/desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)」を参照してください。

@@ -5,7 +5,7 @@ const got = require('got')
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
-// https://github.com/github/help-docs-archived-enterprise-versions
+// help-docs-archived-enterprise-versions
 //
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 

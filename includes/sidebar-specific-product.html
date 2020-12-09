@@ -9,7 +9,9 @@
 {% assign product = siteTree[currentLanguage][currentVersion].products[currentProduct] %}
 {% include all-products-link %}
 <li title="{{product.title}}" class="sidebar-product mb-2">
+  {% unless page.hidden %}
   <a href="/{{currentLanguage}}{{product.href}}" class="pl-4 pr-5 pb-1 f4">{{ product.title }}</a>
+  {% endunless %}
 </li>
 <ul class="sidebar-categories list-style-none">
   {% for category in product.categories %}
