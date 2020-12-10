@@ -1,0 +1,651 @@
+2020-12-10T19:28:07.7257464Z ##[section]Starting: Request a runner to run this job
+2020-12-10T19:28:08.6879728Z Can't find any online and idle self-hosted runner in current repository that matches the required labels: 'ubuntu-latest'
+2020-12-10T19:28:08.7191517Z Can't find any online and idle self-hosted runner in current repository's organization account that matches the required labels: 'ubuntu-latest'
+2020-12-10T19:28:08.8082768Z Found online and idle hosted runner in current repository's organization account that matches the required labels: 'ubuntu-latest'
+2020-12-10T19:28:08.9080018Z ##[section]Finishing: Request a runner to run this job
+2020-12-10T19:28:18.9002563Z Current runner version: '2.274.2'
+2020-12-10T19:28:18.9027341Z ##[group]Operating System
+2020-12-10T19:28:18.9028197Z Ubuntu
+2020-12-10T19:28:18.9028561Z 18.04.5
+2020-12-10T19:28:18.9029010Z LTS
+2020-12-10T19:28:18.9029389Z ##[endgroup]
+2020-12-10T19:28:18.9029789Z ##[group]Virtual Environment
+2020-12-10T19:28:18.9030297Z Environment: ubuntu-18.04
+2020-12-10T19:28:18.9030718Z Version: 20201129.1
+2020-12-10T19:28:18.9031497Z Included Software: https://github.com/actions/virtual-environments/blob/ubuntu18/20201129.1/images/linux/Ubuntu1804-README.md
+2020-12-10T19:28:18.9032227Z ##[endgroup]
+2020-12-10T19:28:18.9034633Z Prepare workflow directory
+2020-12-10T19:28:18.9602309Z Prepare all required actions
+2020-12-10T19:28:18.9612422Z Getting action download info
+2020-12-10T19:28:19.1601529Z Download action repository 'actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f'
+2020-12-10T19:28:21.2445251Z ##[group]Run actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+2020-12-10T19:28:21.2446206Z with:
+2020-12-10T19:28:21.2446824Z   repository: github/docs
+2020-12-10T19:28:21.2447704Z   token: ***
+2020-12-10T19:28:21.2448141Z   ssh-strict: true
+2020-12-10T19:28:21.2448709Z   persist-credentials: true
+2020-12-10T19:28:21.2449233Z   clean: true
+2020-12-10T19:28:21.2449677Z   fetch-depth: 1
+2020-12-10T19:28:21.2450121Z   lfs: false
+2020-12-10T19:28:21.2450558Z   submodules: false
+2020-12-10T19:28:21.2451026Z ##[endgroup]
+2020-12-10T19:28:22.1116579Z Syncing repository: github/docs
+2020-12-10T19:28:22.1117273Z ##[group]Getting Git version info
+2020-12-10T19:28:22.1118164Z Working directory is '/home/runner/work/docs/docs'
+2020-12-10T19:28:22.1118953Z [command]/usr/bin/git version
+2020-12-10T19:28:22.1119809Z git version 2.29.2
+2020-12-10T19:28:22.1125752Z ##[endgroup]
+2020-12-10T19:28:22.1126782Z Deleting the contents of '/home/runner/work/docs/docs'
+2020-12-10T19:28:22.1128367Z ##[group]Initializing the repository
+2020-12-10T19:28:22.1129233Z [command]/usr/bin/git init /home/runner/work/docs/docs
+2020-12-10T19:28:22.1130173Z Initialized empty Git repository in /home/runner/work/docs/docs/.git/
+2020-12-10T19:28:22.1131324Z [command]/usr/bin/git remote add origin https://github.com/github/docs
+2020-12-10T19:28:22.1132135Z ##[endgroup]
+2020-12-10T19:28:22.1132935Z ##[group]Disabling automatic garbage collection
+2020-12-10T19:28:22.1133793Z [command]/usr/bin/git config --local gc.auto 0
+2020-12-10T19:28:22.1134386Z ##[endgroup]
+2020-12-10T19:28:22.1136018Z ##[group]Setting up auth
+2020-12-10T19:28:22.1137035Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2020-12-10T19:28:22.1138482Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2020-12-10T19:28:22.1139928Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2020-12-10T19:28:22.1141659Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2020-12-10T19:28:22.1172385Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2020-12-10T19:28:22.1178429Z ##[endgroup]
+2020-12-10T19:28:22.1179137Z ##[group]Fetching the repository
+2020-12-10T19:28:22.1180944Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +26529c0722118c1d0c44e3c622db8858d0ac871c:refs/remotes/origin/repo-sync
+2020-12-10T19:28:22.1259598Z remote: Enumerating objects: 23961, done.        
+2020-12-10T19:28:22.2128840Z remote: Counting objects:   0% (1/23961)        
+2020-12-10T19:28:22.2130601Z remote: Counting objects:   1% (240/23961)        
+2020-12-10T19:28:22.2131797Z remote: Counting objects:   2% (480/23961)        
+2020-12-10T19:28:22.2136124Z remote: Counting objects:   3% (719/23961)        
+2020-12-10T19:28:22.2137858Z remote: Counting objects:   4% (959/23961)        
+2020-12-10T19:28:22.2139671Z remote: Counting objects:   5% (1199/23961)        
+2020-12-10T19:28:22.2182694Z remote: Counting objects:   6% (1438/23961)        
+2020-12-10T19:28:22.2184318Z remote: Counting objects:   7% (1678/23961)        
+2020-12-10T19:28:22.2186095Z remote: Counting objects:   8% (1917/23961)        
+2020-12-10T19:28:22.2187234Z remote: Counting objects:   9% (2157/23961)        
+2020-12-10T19:28:22.2188335Z remote: Counting objects:  10% (2397/23961)        
+2020-12-10T19:28:22.2189455Z remote: Counting objects:  11% (2636/23961)        
+2020-12-10T19:28:22.2190559Z remote: Counting objects:  12% (2876/23961)        
+2020-12-10T19:28:22.2191672Z remote: Counting objects:  13% (3115/23961)        
+2020-12-10T19:28:22.2192771Z remote: Counting objects:  14% (3355/23961)        
+2020-12-10T19:28:22.2201168Z remote: Counting objects:  15% (3595/23961)        
+2020-12-10T19:28:22.2208541Z remote: Counting objects:  16% (3834/23961)        
+2020-12-10T19:28:22.2209178Z remote: Counting objects:  17% (4074/23961)        
+2020-12-10T19:28:22.2209759Z remote: Counting objects:  18% (4313/23961)        
+2020-12-10T19:28:22.2210353Z remote: Counting objects:  19% (4553/23961)        
+2020-12-10T19:28:22.2210931Z remote: Counting objects:  20% (4793/23961)        
+2020-12-10T19:28:22.2211507Z remote: Counting objects:  21% (5032/23961)        
+2020-12-10T19:28:22.2212130Z remote: Counting objects:  22% (5272/23961)        
+2020-12-10T19:28:22.2212630Z remote: Counting objects:  23% (5512/23961)        
+2020-12-10T19:28:22.2213145Z remote: Counting objects:  24% (5751/23961)        
+2020-12-10T19:28:22.2213648Z remote: Counting objects:  25% (5991/23961)        
+2020-12-10T19:28:22.2214163Z remote: Counting objects:  26% (6230/23961)        
+2020-12-10T19:28:22.2225534Z remote: Counting objects:  27% (6470/23961)        
+2020-12-10T19:28:22.2227593Z remote: Counting objects:  28% (6710/23961)        
+2020-12-10T19:28:22.2228726Z remote: Counting objects:  29% (6949/23961)        
+2020-12-10T19:28:22.2229436Z remote: Counting objects:  30% (7189/23961)        
+2020-12-10T19:28:22.2230165Z remote: Counting objects:  31% (7428/23961)        
+2020-12-10T19:28:22.2230860Z remote: Counting objects:  32% (7668/23961)        
+2020-12-10T19:28:22.2233738Z remote: Counting objects:  33% (7908/23961)        
+2020-12-10T19:28:22.2246117Z remote: Counting objects:  34% (8147/23961)        
+2020-12-10T19:28:22.2246779Z remote: Counting objects:  35% (8387/23961)        
+2020-12-10T19:28:22.2247413Z remote: Counting objects:  36% (8626/23961)        
+2020-12-10T19:28:22.2248455Z remote: Counting objects:  37% (8866/23961)        
+2020-12-10T19:28:22.2249092Z remote: Counting objects:  38% (9106/23961)        
+2020-12-10T19:28:22.2249890Z remote: Counting objects:  39% (9345/23961)        
+2020-12-10T19:28:22.2251370Z remote: Counting objects:  40% (9585/23961)        
+2020-12-10T19:28:22.2252144Z remote: Counting objects:  41% (9825/23961)        
+2020-12-10T19:28:22.2257458Z remote: Counting objects:  42% (10064/23961)        
+2020-12-10T19:28:22.2260720Z remote: Counting objects:  43% (10304/23961)        
+2020-12-10T19:28:22.2261382Z remote: Counting objects:  44% (10543/23961)        
+2020-12-10T19:28:22.2261988Z remote: Counting objects:  45% (10783/23961)        
+2020-12-10T19:28:22.2265405Z remote: Counting objects:  46% (11023/23961)        
+2020-12-10T19:28:22.2270566Z remote: Counting objects:  47% (11262/23961)        
+2020-12-10T19:28:22.2272352Z remote: Counting objects:  48% (11502/23961)        
+2020-12-10T19:28:22.2273014Z remote: Counting objects:  49% (11741/23961)        
+2020-12-10T19:28:22.2273599Z remote: Counting objects:  50% (11981/23961)        
+2020-12-10T19:28:22.2274984Z remote: Counting objects:  51% (12221/23961)        
+2020-12-10T19:28:22.2275631Z remote: Counting objects:  52% (12460/23961)        
+2020-12-10T19:28:22.2276239Z remote: Counting objects:  53% (12700/23961)        
+2020-12-10T19:28:22.2284934Z remote: Counting objects:  54% (12939/23961)        
+2020-12-10T19:28:22.2296117Z remote: Counting objects:  55% (13179/23961)        
+2020-12-10T19:28:22.2296726Z remote: Counting objects:  56% (13419/23961)        
+2020-12-10T19:28:22.2297313Z remote: Counting objects:  57% (13658/23961)        
+2020-12-10T19:28:22.2307238Z remote: Counting objects:  58% (13898/23961)        
+2020-12-10T19:28:22.2308862Z remote: Counting objects:  59% (14137/23961)        
+2020-12-10T19:28:22.2309479Z remote: Counting objects:  60% (14377/23961)        
+2020-12-10T19:28:22.2310057Z remote: Counting objects:  61% (14617/23961)        
+2020-12-10T19:28:22.2311369Z remote: Counting objects:  62% (14856/23961)        
+2020-12-10T19:28:22.2311999Z remote: Counting objects:  63% (15096/23961)        
+2020-12-10T19:28:22.2312595Z remote: Counting objects:  64% (15336/23961)        
+2020-12-10T19:28:22.2313388Z remote: Counting objects:  65% (15575/23961)        
+2020-12-10T19:28:22.2315944Z remote: Counting objects:  66% (15815/23961)        
+2020-12-10T19:28:22.2317848Z remote: Counting objects:  67% (16054/23961)        
+2020-12-10T19:28:22.2318451Z remote: Counting objects:  68% (16294/23961)        
+2020-12-10T19:28:22.2320775Z remote: Counting objects:  69% (16534/23961)        
+2020-12-10T19:28:22.2323663Z remote: Counting objects:  70% (16773/23961)        
+2020-12-10T19:28:22.2324376Z remote: Counting objects:  71% (17013/23961)        
+2020-12-10T19:28:22.2325163Z remote: Counting objects:  72% (17252/23961)        
+2020-12-10T19:28:22.2327517Z remote: Counting objects:  73% (17492/23961)        
+2020-12-10T19:28:22.2329806Z remote: Counting objects:  74% (17732/23961)        
+2020-12-10T19:28:22.2335230Z remote: Counting objects:  75% (17971/23961)        
+2020-12-10T19:28:22.2348074Z remote: Counting objects:  76% (18211/23961)        
+2020-12-10T19:28:22.2349655Z remote: Counting objects:  77% (18450/23961)        
+2020-12-10T19:28:22.2350322Z remote: Counting objects:  78% (18690/23961)        
+2020-12-10T19:28:22.2350948Z remote: Counting objects:  79% (18930/23961)        
+2020-12-10T19:28:22.2361746Z remote: Counting objects:  80% (19169/23961)        
+2020-12-10T19:28:22.2362398Z remote: Counting objects:  81% (19409/23961)        
+2020-12-10T19:28:22.2362995Z remote: Counting objects:  82% (19649/23961)        
+2020-12-10T19:28:22.2363573Z remote: Counting objects:  83% (19888/23961)        
+2020-12-10T19:28:22.2364159Z remote: Counting objects:  84% (20128/23961)        
+2020-12-10T19:28:22.2365558Z remote: Counting objects:  85% (20367/23961)        
+2020-12-10T19:28:22.2366225Z remote: Counting objects:  86% (20607/23961)        
+2020-12-10T19:28:22.2366825Z remote: Counting objects:  87% (20847/23961)        
+2020-12-10T19:28:22.2376400Z remote: Counting objects:  88% (21086/23961)        
+2020-12-10T19:28:22.2377014Z remote: Counting objects:  89% (21326/23961)        
+2020-12-10T19:28:22.2377615Z remote: Counting objects:  90% (21565/23961)        
+2020-12-10T19:28:22.2379163Z remote: Counting objects:  91% (21805/23961)        
+2020-12-10T19:28:22.2380780Z remote: Counting objects:  92% (22045/23961)        
+2020-12-10T19:28:22.2387605Z remote: Counting objects:  93% (22284/23961)        
+2020-12-10T19:28:22.2389241Z remote: Counting objects:  94% (22524/23961)        
+2020-12-10T19:28:22.2389891Z remote: Counting objects:  95% (22763/23961)        
+2020-12-10T19:28:22.2390471Z remote: Counting objects:  96% (23003/23961)        
+2020-12-10T19:28:22.2391048Z remote: Counting objects:  97% (23243/23961)        
+2020-12-10T19:28:22.2391687Z remote: Counting objects:  98% (23482/23961)        
+2020-12-10T19:28:22.2392262Z remote: Counting objects:  99% (23722/23961)        
+2020-12-10T19:28:22.2392853Z remote: Counting objects: 100% (23961/23961)        
+2020-12-10T19:28:22.2393450Z remote: Counting objects: 100% (23961/23961), done.        
+2020-12-10T19:28:23.2794805Z remote: Compressing objects:   0% (1/18895)        
+2020-12-10T19:28:24.4533182Z remote: Compressing objects:   0% (59/18895)        
+2020-12-10T19:28:24.7080157Z remote: Compressing objects:   0% (79/18895)        
+2020-12-10T19:28:24.7407148Z remote: Compressing objects:   1% (189/18895)        
+2020-12-10T19:28:24.7979281Z remote: Compressing objects:   2% (378/18895)        
+2020-12-10T19:28:24.7983241Z remote: Compressing objects:   3% (567/18895)        
+2020-12-10T19:28:24.7987017Z remote: Compressing objects:   4% (756/18895)        
+2020-12-10T19:28:24.7989949Z remote: Compressing objects:   5% (945/18895)        
+2020-12-10T19:28:24.7992840Z remote: Compressing objects:   6% (1134/18895)        
+2020-12-10T19:28:24.7995951Z remote: Compressing objects:   7% (1323/18895)        
+2020-12-10T19:28:24.7999536Z remote: Compressing objects:   8% (1512/18895)        
+2020-12-10T19:28:24.8002366Z remote: Compressing objects:   9% (1701/18895)        
+2020-12-10T19:28:24.8005546Z remote: Compressing objects:  10% (1890/18895)        
+2020-12-10T19:28:24.8008920Z remote: Compressing objects:  11% (2079/18895)        
+2020-12-10T19:28:24.8011711Z remote: Compressing objects:  12% (2268/18895)        
+2020-12-10T19:28:24.8014081Z remote: Compressing objects:  13% (2457/18895)        
+2020-12-10T19:28:24.8016112Z remote: Compressing objects:  14% (2646/18895)        
+2020-12-10T19:28:24.8018134Z remote: Compressing objects:  15% (2835/18895)        
+2020-12-10T19:28:25.5960232Z remote: Compressing objects:  16% (3024/18895)        
+2020-12-10T19:28:25.5964256Z remote: Compressing objects:  17% (3213/18895)        
+2020-12-10T19:28:25.5967362Z remote: Compressing objects:  18% (3402/18895)        
+2020-12-10T19:28:25.5969528Z remote: Compressing objects:  19% (3591/18895)        
+2020-12-10T19:28:25.5971669Z remote: Compressing objects:  20% (3779/18895)        
+2020-12-10T19:28:25.5973944Z remote: Compressing objects:  21% (3968/18895)        
+2020-12-10T19:28:25.5976547Z remote: Compressing objects:  22% (4157/18895)        
+2020-12-10T19:28:25.5978590Z remote: Compressing objects:  23% (4346/18895)        
+2020-12-10T19:28:25.5980557Z remote: Compressing objects:  24% (4535/18895)        
+2020-12-10T19:28:25.5983396Z remote: Compressing objects:  25% (4724/18895)        
+2020-12-10T19:28:25.5985982Z remote: Compressing objects:  26% (4913/18895)        
+2020-12-10T19:28:25.5987424Z remote: Compressing objects:  27% (5102/18895)        
+2020-12-10T19:28:25.5988810Z remote: Compressing objects:  28% (5291/18895)        
+2020-12-10T19:28:25.5990086Z remote: Compressing objects:  28% (5391/18895)        
+2020-12-10T19:28:25.5991379Z remote: Compressing objects:  29% (5480/18895)        
+2020-12-10T19:28:25.5992647Z remote: Compressing objects:  30% (5669/18895)        
+2020-12-10T19:28:25.5993915Z remote: Compressing objects:  31% (5858/18895)        
+2020-12-10T19:28:25.5995230Z remote: Compressing objects:  32% (6047/18895)        
+2020-12-10T19:28:25.5996491Z remote: Compressing objects:  33% (6236/18895)        
+2020-12-10T19:28:25.5997967Z remote: Compressing objects:  34% (6425/18895)        
+2020-12-10T19:28:25.5999269Z remote: Compressing objects:  35% (6614/18895)        
+2020-12-10T19:28:25.6000545Z remote: Compressing objects:  36% (6803/18895)        
+2020-12-10T19:28:25.6409757Z remote: Compressing objects:  37% (6992/18895)        
+2020-12-10T19:28:25.6568480Z remote: Compressing objects:  38% (7181/18895)        
+2020-12-10T19:28:25.6766444Z remote: Compressing objects:  39% (7370/18895)        
+2020-12-10T19:28:25.7298201Z remote: Compressing objects:  40% (7558/18895)        
+2020-12-10T19:28:25.8835548Z remote: Compressing objects:  41% (7747/18895)        
+2020-12-10T19:28:25.9126428Z remote: Compressing objects:  42% (7936/18895)        
+2020-12-10T19:28:25.9295019Z remote: Compressing objects:  43% (8125/18895)        
+2020-12-10T19:28:25.9432397Z remote: Compressing objects:  44% (8314/18895)        
+2020-12-10T19:28:25.9611332Z remote: Compressing objects:  45% (8503/18895)        
+2020-12-10T19:28:25.9812755Z remote: Compressing objects:  46% (8692/18895)        
+2020-12-10T19:28:26.0088140Z remote: Compressing objects:  47% (8881/18895)        
+2020-12-10T19:28:26.0150119Z remote: Compressing objects:  48% (9070/18895)        
+2020-12-10T19:28:26.0614963Z remote: Compressing objects:  49% (9259/18895)        
+2020-12-10T19:28:26.0838709Z remote: Compressing objects:  50% (9448/18895)        
+2020-12-10T19:28:26.1237933Z remote: Compressing objects:  51% (9637/18895)        
+2020-12-10T19:28:26.1429479Z remote: Compressing objects:  52% (9826/18895)        
+2020-12-10T19:28:26.1917493Z remote: Compressing objects:  53% (10015/18895)        
+2020-12-10T19:28:26.2139585Z remote: Compressing objects:  54% (10204/18895)        
+2020-12-10T19:28:26.2406374Z remote: Compressing objects:  55% (10393/18895)        
+2020-12-10T19:28:26.2541196Z remote: Compressing objects:  55% (10522/18895)        
+2020-12-10T19:28:26.2734824Z remote: Compressing objects:  56% (10582/18895)        
+2020-12-10T19:28:26.2993659Z remote: Compressing objects:  57% (10771/18895)        
+2020-12-10T19:28:26.3546122Z remote: Compressing objects:  58% (10960/18895)        
+2020-12-10T19:28:26.3824431Z remote: Compressing objects:  59% (11149/18895)        
+2020-12-10T19:28:26.3902024Z remote: Compressing objects:  60% (11337/18895)        
+2020-12-10T19:28:26.4116116Z remote: Compressing objects:  61% (11526/18895)        
+2020-12-10T19:28:26.4265722Z remote: Compressing objects:  62% (11715/18895)        
+2020-12-10T19:28:26.4309534Z remote: Compressing objects:  63% (11904/18895)        
+2020-12-10T19:28:26.5291070Z remote: Compressing objects:  64% (12093/18895)        
+2020-12-10T19:28:26.5633037Z remote: Compressing objects:  65% (12282/18895)        
+2020-12-10T19:28:26.5838427Z remote: Compressing objects:  66% (12471/18895)        
+2020-12-10T19:28:26.7919732Z remote: Compressing objects:  67% (12660/18895)        
+2020-12-10T19:28:26.7922991Z remote: Compressing objects:  68% (12849/18895)        
+2020-12-10T19:28:26.7924104Z remote: Compressing objects:  69% (13038/18895)        
+2020-12-10T19:28:26.7925242Z remote: Compressing objects:  70% (13227/18895)        
+2020-12-10T19:28:26.7926328Z remote: Compressing objects:  71% (13416/18895)        
+2020-12-10T19:28:26.7927437Z remote: Compressing objects:  72% (13605/18895)        
+2020-12-10T19:28:26.7928523Z remote: Compressing objects:  73% (13794/18895)        
+2020-12-10T19:28:26.8066342Z remote: Compressing objects:  74% (13983/18895)        
+2020-12-10T19:28:26.8468239Z remote: Compressing objects:  75% (14172/18895)        
+2020-12-10T19:28:26.8579615Z remote: Compressing objects:  76% (14361/18895)        
+2020-12-10T19:28:26.8900957Z remote: Compressing objects:  77% (14550/18895)        
+2020-12-10T19:28:26.9206461Z remote: Compressing objects:  78% (14739/18895)        
+2020-12-10T19:28:26.9332325Z remote: Compressing objects:  79% (14928/18895)        
+2020-12-10T19:28:26.9466500Z remote: Compressing objects:  80% (15116/18895)        
+2020-12-10T19:28:26.9785816Z remote: Compressing objects:  81% (15305/18895)        
+2020-12-10T19:28:27.0179133Z remote: Compressing objects:  82% (15494/18895)        
+2020-12-10T19:28:27.0294499Z remote: Compressing objects:  83% (15683/18895)        
+2020-12-10T19:28:27.0363527Z remote: Compressing objects:  84% (15872/18895)        
+2020-12-10T19:28:27.0691157Z remote: Compressing objects:  85% (16061/18895)        
+2020-12-10T19:28:27.0772403Z remote: Compressing objects:  86% (16250/18895)        
+2020-12-10T19:28:27.1005864Z remote: Compressing objects:  87% (16439/18895)        
+2020-12-10T19:28:27.1277635Z remote: Compressing objects:  88% (16628/18895)        
+2020-12-10T19:28:27.1983475Z remote: Compressing objects:  89% (16817/18895)        
+2020-12-10T19:28:27.2244583Z remote: Compressing objects:  90% (17006/18895)        
+2020-12-10T19:28:27.2272031Z remote: Compressing objects:  91% (17195/18895)        
+2020-12-10T19:28:27.2287516Z remote: Compressing objects:  92% (17384/18895)        
+2020-12-10T19:28:27.2410895Z remote: Compressing objects:  93% (17573/18895)        
+2020-12-10T19:28:27.2411684Z remote: Compressing objects:  94% (17762/18895)        
+2020-12-10T19:28:27.2537772Z remote: Compressing objects:  94% (17783/18895)        
+2020-12-10T19:28:27.2736650Z remote: Compressing objects:  95% (17951/18895)        
+2020-12-10T19:28:27.2937258Z remote: Compressing objects:  96% (18140/18895)        
+2020-12-10T19:28:27.3066230Z remote: Compressing objects:  97% (18329/18895)        
+2020-12-10T19:28:27.3185723Z remote: Compressing objects:  98% (18518/18895)        
+2020-12-10T19:28:27.3290603Z remote: Compressing objects:  99% (18707/18895)        
+2020-12-10T19:28:27.3291790Z remote: Compressing objects: 100% (18895/18895)        
+2020-12-10T19:28:27.3292955Z remote: Compressing objects: 100% (18895/18895), done.        
+2020-12-10T19:28:27.5860261Z Receiving objects:   0% (1/23961)
+2020-12-10T19:28:27.9307265Z Receiving objects:   1% (240/23961)
+2020-12-10T19:28:28.1045657Z Receiving objects:   2% (480/23961), 18.57 MiB | 37.12 MiB/s
+2020-12-10T19:28:28.3351387Z Receiving objects:   3% (719/23961), 18.57 MiB | 37.12 MiB/s
+2020-12-10T19:28:28.3901718Z Receiving objects:   3% (898/23961), 45.30 MiB | 45.29 MiB/s
+2020-12-10T19:28:28.5713928Z Receiving objects:   4% (959/23961), 45.30 MiB | 45.29 MiB/s
+2020-12-10T19:28:28.6777163Z Receiving objects:   5% (1199/23961), 45.30 MiB | 45.29 MiB/s
+2020-12-10T19:28:28.8702851Z Receiving objects:   6% (1438/23961), 45.30 MiB | 45.29 MiB/s
+2020-12-10T19:28:29.0951034Z Receiving objects:   7% (1678/23961), 73.96 MiB | 49.30 MiB/s
+2020-12-10T19:28:29.3001195Z Receiving objects:   8% (1917/23961), 73.96 MiB | 49.30 MiB/s
+2020-12-10T19:28:29.3351434Z Receiving objects:   9% (2157/23961), 73.96 MiB | 49.30 MiB/s
+2020-12-10T19:28:29.3958407Z Receiving objects:   9% (2232/23961), 73.96 MiB | 49.30 MiB/s
+2020-12-10T19:28:29.7361721Z Receiving objects:  10% (2397/23961), 100.77 MiB | 50.38 MiB/s
+2020-12-10T19:28:29.8011078Z Receiving objects:  11% (2636/23961), 100.77 MiB | 50.38 MiB/s
+2020-12-10T19:28:29.8086673Z Receiving objects:  12% (2876/23961), 100.77 MiB | 50.38 MiB/s
+2020-12-10T19:28:29.8160332Z Receiving objects:  13% (3115/23961), 100.77 MiB | 50.38 MiB/s
+2020-12-10T19:28:29.8280605Z Receiving objects:  14% (3355/23961), 100.77 MiB | 50.38 MiB/s
+2020-12-10T19:28:29.8355577Z Receiving objects:  15% (3595/23961), 100.77 MiB | 50.38 MiB/s
+2020-12-10T19:28:29.8416797Z Receiving objects:  16% (3834/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.8488678Z Receiving objects:  17% (4074/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.8567397Z Receiving objects:  18% (4313/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.8621280Z Receiving objects:  19% (4553/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.8747542Z Receiving objects:  20% (4793/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.8850633Z Receiving objects:  21% (5032/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.8937219Z Receiving objects:  22% (5272/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9078578Z Receiving objects:  23% (5512/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9099715Z Receiving objects:  24% (5751/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9121954Z Receiving objects:  25% (5991/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9146713Z Receiving objects:  26% (6230/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9169911Z Receiving objects:  27% (6470/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9198174Z Receiving objects:  28% (6710/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9219301Z Receiving objects:  29% (6949/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:29.9243918Z Receiving objects:  30% (7189/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:30.2010877Z Receiving objects:  31% (7428/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:30.3587980Z Receiving objects:  32% (7668/23961), 126.88 MiB | 50.75 MiB/s
+2020-12-10T19:28:31.4187645Z Receiving objects:  32% (7674/23961), 131.00 MiB | 43.34 MiB/s
+2020-12-10T19:28:31.6701673Z Receiving objects:  32% (7684/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.7176425Z Receiving objects:  33% (7908/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.7468825Z Receiving objects:  34% (8147/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.7718920Z Receiving objects:  35% (8387/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.7960182Z Receiving objects:  36% (8626/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8198093Z Receiving objects:  37% (8866/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8611908Z Receiving objects:  38% (9106/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8798477Z Receiving objects:  39% (9345/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8822644Z Receiving objects:  40% (9585/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8875963Z Receiving objects:  41% (9825/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8903020Z Receiving objects:  42% (10064/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8931468Z Receiving objects:  43% (10304/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.8966820Z Receiving objects:  44% (10543/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.9311615Z Receiving objects:  45% (10783/23961), 132.26 MiB | 32.41 MiB/s
+2020-12-10T19:28:31.9654225Z Receiving objects:  46% (11023/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:31.9904985Z Receiving objects:  47% (11262/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0134165Z Receiving objects:  48% (11502/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0374044Z Receiving objects:  49% (11741/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0682714Z Receiving objects:  50% (11981/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0760128Z Receiving objects:  51% (12221/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0788668Z Receiving objects:  52% (12460/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0811916Z Receiving objects:  53% (12700/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0835241Z Receiving objects:  54% (12939/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.0858593Z Receiving objects:  55% (13179/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.1157891Z Receiving objects:  56% (13419/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.1485641Z Receiving objects:  57% (13658/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.1750329Z Receiving objects:  58% (13898/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2005628Z Receiving objects:  59% (14137/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2475173Z Receiving objects:  60% (14377/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2725546Z Receiving objects:  61% (14617/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2784147Z Receiving objects:  62% (14856/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2832008Z Receiving objects:  63% (15096/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2861256Z Receiving objects:  64% (15336/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2912719Z Receiving objects:  65% (15575/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.2975612Z Receiving objects:  66% (15815/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3021542Z Receiving objects:  67% (16054/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3050096Z Receiving objects:  68% (16294/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3074198Z Receiving objects:  69% (16534/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3094882Z Receiving objects:  70% (16773/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3117138Z Receiving objects:  71% (17013/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3133652Z Receiving objects:  72% (17252/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3145593Z Receiving objects:  73% (17492/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3172762Z Receiving objects:  74% (17732/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3354901Z Receiving objects:  75% (17971/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3566820Z Receiving objects:  75% (18074/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.3922230Z Receiving objects:  76% (18211/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.4196162Z Receiving objects:  77% (18450/23961), 134.82 MiB | 29.43 MiB/s
+2020-12-10T19:28:32.4445127Z Receiving objects:  78% (18690/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.4948489Z Receiving objects:  79% (18930/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5184839Z Receiving objects:  80% (19169/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5220371Z Receiving objects:  81% (19409/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5282119Z Receiving objects:  82% (19649/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5310347Z Receiving objects:  83% (19888/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5339777Z Receiving objects:  84% (20128/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5367447Z Receiving objects:  85% (20367/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5390709Z Receiving objects:  86% (20607/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5670528Z Receiving objects:  87% (20847/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.5891273Z Receiving objects:  88% (21086/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.6130066Z Receiving objects:  89% (21326/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.6320745Z Receiving objects:  90% (21565/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.6454013Z Receiving objects:  91% (21805/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.6825715Z Receiving objects:  92% (22045/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7003721Z Receiving objects:  93% (22284/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7038821Z Receiving objects:  94% (22524/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7084888Z Receiving objects:  95% (22763/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7126729Z Receiving objects:  96% (23003/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7165586Z Receiving objects:  97% (23243/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7197021Z Receiving objects:  98% (23482/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7251559Z Receiving objects:  99% (23722/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7255442Z remote: Total 23961 (delta 6962), reused 13676 (delta 4876), pack-reused 0        
+2020-12-10T19:28:32.7256239Z Receiving objects: 100% (23961/23961), 139.91 MiB | 26.49 MiB/s
+2020-12-10T19:28:32.7256864Z Receiving objects: 100% (23961/23961), 143.16 MiB | 26.56 MiB/s, done.
+2020-12-10T19:28:32.7562460Z Resolving deltas:   0% (0/6962)
+2020-12-10T19:28:32.7596988Z Resolving deltas:   1% (70/6962)
+2020-12-10T19:28:32.7625049Z Resolving deltas:   2% (140/6962)
+2020-12-10T19:28:32.7645547Z Resolving deltas:   3% (209/6962)
+2020-12-10T19:28:32.7663235Z Resolving deltas:   4% (279/6962)
+2020-12-10T19:28:32.7681423Z Resolving deltas:   5% (349/6962)
+2020-12-10T19:28:32.7695814Z Resolving deltas:   6% (418/6962)
+2020-12-10T19:28:32.7712616Z Resolving deltas:   7% (488/6962)
+2020-12-10T19:28:32.7725150Z Resolving deltas:   8% (557/6962)
+2020-12-10T19:28:32.7736876Z Resolving deltas:   9% (628/6962)
+2020-12-10T19:28:32.7748772Z Resolving deltas:  10% (697/6962)
+2020-12-10T19:28:32.7766563Z Resolving deltas:  11% (766/6962)
+2020-12-10T19:28:32.7777022Z Resolving deltas:  12% (836/6962)
+2020-12-10T19:28:32.7787858Z Resolving deltas:  13% (906/6962)
+2020-12-10T19:28:32.7807665Z Resolving deltas:  14% (975/6962)
+2020-12-10T19:28:32.7836697Z Resolving deltas:  15% (1045/6962)
+2020-12-10T19:28:32.7849255Z Resolving deltas:  16% (1114/6962)
+2020-12-10T19:28:32.7868438Z Resolving deltas:  17% (1184/6962)
+2020-12-10T19:28:32.7889086Z Resolving deltas:  18% (1254/6962)
+2020-12-10T19:28:32.7903743Z Resolving deltas:  19% (1323/6962)
+2020-12-10T19:28:32.7914870Z Resolving deltas:  20% (1393/6962)
+2020-12-10T19:28:32.7925247Z Resolving deltas:  21% (1463/6962)
+2020-12-10T19:28:32.7941087Z Resolving deltas:  22% (1532/6962)
+2020-12-10T19:28:32.7952157Z Resolving deltas:  23% (1602/6962)
+2020-12-10T19:28:32.7961807Z Resolving deltas:  24% (1671/6962)
+2020-12-10T19:28:32.7970941Z Resolving deltas:  25% (1741/6962)
+2020-12-10T19:28:32.7980458Z Resolving deltas:  26% (1811/6962)
+2020-12-10T19:28:32.7988822Z Resolving deltas:  27% (1880/6962)
+2020-12-10T19:28:32.8001050Z Resolving deltas:  28% (1950/6962)
+2020-12-10T19:28:32.8021781Z Resolving deltas:  29% (2019/6962)
+2020-12-10T19:28:32.8037543Z Resolving deltas:  30% (2089/6962)
+2020-12-10T19:28:32.8046290Z Resolving deltas:  31% (2159/6962)
+2020-12-10T19:28:32.8054381Z Resolving deltas:  32% (2228/6962)
+2020-12-10T19:28:32.8065927Z Resolving deltas:  33% (2298/6962)
+2020-12-10T19:28:32.8083191Z Resolving deltas:  34% (2368/6962)
+2020-12-10T19:28:32.8092828Z Resolving deltas:  35% (2437/6962)
+2020-12-10T19:28:32.8101713Z Resolving deltas:  36% (2507/6962)
+2020-12-10T19:28:32.8125532Z Resolving deltas:  37% (2576/6962)
+2020-12-10T19:28:32.8133359Z Resolving deltas:  38% (2646/6962)
+2020-12-10T19:28:32.8145971Z Resolving deltas:  39% (2716/6962)
+2020-12-10T19:28:32.8155650Z Resolving deltas:  40% (2785/6962)
+2020-12-10T19:28:32.8165675Z Resolving deltas:  41% (2855/6962)
+2020-12-10T19:28:32.8198689Z Resolving deltas:  42% (2925/6962)
+2020-12-10T19:28:32.8209859Z Resolving deltas:  43% (2994/6962)
+2020-12-10T19:28:32.8218474Z Resolving deltas:  44% (3064/6962)
+2020-12-10T19:28:32.8229069Z Resolving deltas:  45% (3133/6962)
+2020-12-10T19:28:32.8239575Z Resolving deltas:  46% (3203/6962)
+2020-12-10T19:28:32.8286354Z Resolving deltas:  47% (3273/6962)
+2020-12-10T19:28:32.8303806Z Resolving deltas:  48% (3342/6962)
+2020-12-10T19:28:32.8312795Z Resolving deltas:  49% (3412/6962)
+2020-12-10T19:28:32.8321858Z Resolving deltas:  50% (3481/6962)
+2020-12-10T19:28:32.8335718Z Resolving deltas:  51% (3551/6962)
+2020-12-10T19:28:32.8347002Z Resolving deltas:  52% (3621/6962)
+2020-12-10T19:28:32.8358509Z Resolving deltas:  53% (3690/6962)
+2020-12-10T19:28:32.8366514Z Resolving deltas:  54% (3760/6962)
+2020-12-10T19:28:32.8384824Z Resolving deltas:  55% (3830/6962)
+2020-12-10T19:28:32.8399472Z Resolving deltas:  56% (3899/6962)
+2020-12-10T19:28:32.8415808Z Resolving deltas:  57% (3969/6962)
+2020-12-10T19:28:32.8441135Z Resolving deltas:  58% (4038/6962)
+2020-12-10T19:28:32.8464062Z Resolving deltas:  59% (4108/6962)
+2020-12-10T19:28:32.8525688Z Resolving deltas:  60% (4178/6962)
+2020-12-10T19:28:32.8531317Z Resolving deltas:  61% (4247/6962)
+2020-12-10T19:28:32.8536478Z Resolving deltas:  62% (4317/6962)
+2020-12-10T19:28:32.8542459Z Resolving deltas:  63% (4387/6962)
+2020-12-10T19:28:32.8547295Z Resolving deltas:  64% (4456/6962)
+2020-12-10T19:28:32.8551915Z Resolving deltas:  65% (4526/6962)
+2020-12-10T19:28:32.8558039Z Resolving deltas:  66% (4595/6962)
+2020-12-10T19:28:32.8563816Z Resolving deltas:  67% (4665/6962)
+2020-12-10T19:28:32.8569199Z Resolving deltas:  68% (4735/6962)
+2020-12-10T19:28:32.8574801Z Resolving deltas:  69% (4804/6962)
+2020-12-10T19:28:32.8580118Z Resolving deltas:  70% (4874/6962)
+2020-12-10T19:28:32.8586129Z Resolving deltas:  71% (4944/6962)
+2020-12-10T19:28:32.8591491Z Resolving deltas:  72% (5013/6962)
+2020-12-10T19:28:32.8596183Z Resolving deltas:  73% (5083/6962)
+2020-12-10T19:28:32.8600878Z Resolving deltas:  74% (5152/6962)
+2020-12-10T19:28:32.8605849Z Resolving deltas:  75% (5222/6962)
+2020-12-10T19:28:32.8612446Z Resolving deltas:  76% (5292/6962)
+2020-12-10T19:28:32.8778252Z Resolving deltas:  77% (5361/6962)
+2020-12-10T19:28:33.0717758Z Resolving deltas:  78% (5431/6962)
+2020-12-10T19:28:33.0763980Z Resolving deltas:  79% (5500/6962)
+2020-12-10T19:28:33.0814223Z Resolving deltas:  80% (5570/6962)
+2020-12-10T19:28:33.0850056Z Resolving deltas:  81% (5640/6962)
+2020-12-10T19:28:33.0881199Z Resolving deltas:  82% (5709/6962)
+2020-12-10T19:28:33.0900784Z Resolving deltas:  83% (5779/6962)
+2020-12-10T19:28:33.0928853Z Resolving deltas:  84% (5849/6962)
+2020-12-10T19:28:33.0946208Z Resolving deltas:  85% (5918/6962)
+2020-12-10T19:28:33.0964833Z Resolving deltas:  86% (5988/6962)
+2020-12-10T19:28:33.0998143Z Resolving deltas:  87% (6057/6962)
+2020-12-10T19:28:33.1012134Z Resolving deltas:  88% (6127/6962)
+2020-12-10T19:28:33.1021470Z Resolving deltas:  89% (6197/6962)
+2020-12-10T19:28:33.1031486Z Resolving deltas:  90% (6266/6962)
+2020-12-10T19:28:33.1062467Z Resolving deltas:  91% (6336/6962)
+2020-12-10T19:28:33.1082659Z Resolving deltas:  92% (6406/6962)
+2020-12-10T19:28:33.1109750Z Resolving deltas:  93% (6475/6962)
+2020-12-10T19:28:33.1142237Z Resolving deltas:  94% (6545/6962)
+2020-12-10T19:28:33.1174421Z Resolving deltas:  95% (6614/6962)
+2020-12-10T19:28:33.1199879Z Resolving deltas:  96% (6684/6962)
+2020-12-10T19:28:33.1224415Z Resolving deltas:  97% (6754/6962)
+2020-12-10T19:28:33.1245168Z Resolving deltas:  98% (6823/6962)
+2020-12-10T19:28:33.1349478Z Resolving deltas:  99% (6893/6962)
+2020-12-10T19:28:33.1350283Z Resolving deltas: 100% (6962/6962)
+2020-12-10T19:28:33.1351004Z Resolving deltas: 100% (6962/6962), done.
+2020-12-10T19:28:35.2521087Z From https://github.com/github/docs
+2020-12-10T19:28:35.2523779Z  * [new ref]           26529c0722118c1d0c44e3c622db8858d0ac871c -> origin/repo-sync
+2020-12-10T19:28:35.2545327Z ##[endgroup]
+2020-12-10T19:28:35.2546785Z ##[group]Determining the checkout info
+2020-12-10T19:28:35.2547940Z ##[endgroup]
+2020-12-10T19:28:35.2548979Z ##[group]Checking out the ref
+2020-12-10T19:28:35.2552637Z [command]/usr/bin/git checkout --progress --force -B repo-sync refs/remotes/origin/repo-sync
+2020-12-10T19:28:36.4505592Z Updating files:  21% (5859/27309)
+2020-12-10T19:28:36.4569854Z Updating files:  22% (6008/27309)
+2020-12-10T19:28:36.4718626Z Updating files:  23% (6282/27309)
+2020-12-10T19:28:36.4848029Z Updating files:  24% (6555/27309)
+2020-12-10T19:28:36.4951729Z Updating files:  25% (6828/27309)
+2020-12-10T19:28:36.5062964Z Updating files:  26% (7101/27309)
+2020-12-10T19:28:36.5179100Z Updating files:  27% (7374/27309)
+2020-12-10T19:28:36.5317228Z Updating files:  28% (7647/27309)
+2020-12-10T19:28:36.5413086Z Updating files:  29% (7920/27309)
+2020-12-10T19:28:36.5476581Z Updating files:  30% (8193/27309)
+2020-12-10T19:28:36.5546201Z Updating files:  31% (8466/27309)
+2020-12-10T19:28:36.5612269Z Updating files:  32% (8739/27309)
+2020-12-10T19:28:36.5676049Z Updating files:  33% (9012/27309)
+2020-12-10T19:28:36.5779098Z Updating files:  34% (9286/27309)
+2020-12-10T19:28:36.5903469Z Updating files:  35% (9559/27309)
+2020-12-10T19:28:36.5997191Z Updating files:  36% (9832/27309)
+2020-12-10T19:28:36.6094794Z Updating files:  37% (10105/27309)
+2020-12-10T19:28:36.6223206Z Updating files:  38% (10378/27309)
+2020-12-10T19:28:36.6338085Z Updating files:  39% (10651/27309)
+2020-12-10T19:28:36.6394903Z Updating files:  40% (10924/27309)
+2020-12-10T19:28:36.6456023Z Updating files:  41% (11197/27309)
+2020-12-10T19:28:36.6522492Z Updating files:  42% (11470/27309)
+2020-12-10T19:28:36.6580260Z Updating files:  43% (11743/27309)
+2020-12-10T19:28:36.6696301Z Updating files:  44% (12016/27309)
+2020-12-10T19:28:36.6811676Z Updating files:  45% (12290/27309)
+2020-12-10T19:28:36.6914640Z Updating files:  46% (12563/27309)
+2020-12-10T19:28:36.7006532Z Updating files:  47% (12836/27309)
+2020-12-10T19:28:36.7121378Z Updating files:  48% (13109/27309)
+2020-12-10T19:28:36.7234376Z Updating files:  49% (13382/27309)
+2020-12-10T19:28:36.7306162Z Updating files:  50% (13655/27309)
+2020-12-10T19:28:36.7369024Z Updating files:  51% (13928/27309)
+2020-12-10T19:28:36.7432121Z Updating files:  52% (14201/27309)
+2020-12-10T19:28:36.7490041Z Updating files:  53% (14474/27309)
+2020-12-10T19:28:36.7549093Z Updating files:  54% (14747/27309)
+2020-12-10T19:28:36.7664183Z Updating files:  55% (15020/27309)
+2020-12-10T19:28:36.7797465Z Updating files:  56% (15294/27309)
+2020-12-10T19:28:36.7899595Z Updating files:  57% (15567/27309)
+2020-12-10T19:28:36.8011448Z Updating files:  58% (15840/27309)
+2020-12-10T19:28:36.8137137Z Updating files:  59% (16113/27309)
+2020-12-10T19:28:36.8250759Z Updating files:  60% (16386/27309)
+2020-12-10T19:28:36.8312288Z Updating files:  61% (16659/27309)
+2020-12-10T19:28:36.8376484Z Updating files:  62% (16932/27309)
+2020-12-10T19:28:36.8436747Z Updating files:  63% (17205/27309)
+2020-12-10T19:28:36.8490958Z Updating files:  64% (17478/27309)
+2020-12-10T19:28:36.8551722Z Updating files:  65% (17751/27309)
+2020-12-10T19:28:36.8616517Z Updating files:  66% (18024/27309)
+2020-12-10T19:28:36.8744901Z Updating files:  67% (18298/27309)
+2020-12-10T19:28:36.8862658Z Updating files:  68% (18571/27309)
+2020-12-10T19:28:36.8966646Z Updating files:  69% (18844/27309)
+2020-12-10T19:28:36.9060670Z Updating files:  70% (19117/27309)
+2020-12-10T19:28:36.9199707Z Updating files:  71% (19390/27309)
+2020-12-10T19:28:36.9290163Z Updating files:  72% (19663/27309)
+2020-12-10T19:28:36.9343265Z Updating files:  73% (19936/27309)
+2020-12-10T19:28:36.9403306Z Updating files:  74% (20209/27309)
+2020-12-10T19:28:36.9466177Z Updating files:  75% (20482/27309)
+2020-12-10T19:28:36.9525433Z Updating files:  76% (20755/27309)
+2020-12-10T19:28:36.9593713Z Updating files:  77% (21028/27309)
+2020-12-10T19:28:36.9676662Z Updating files:  78% (21302/27309)
+2020-12-10T19:28:36.9737872Z Updating files:  79% (21575/27309)
+2020-12-10T19:28:36.9810937Z Updating files:  80% (21848/27309)
+2020-12-10T19:28:36.9878612Z Updating files:  81% (22121/27309)
+2020-12-10T19:28:36.9964919Z Updating files:  82% (22394/27309)
+2020-12-10T19:28:37.0038980Z Updating files:  83% (22667/27309)
+2020-12-10T19:28:37.0099562Z Updating files:  84% (22940/27309)
+2020-12-10T19:28:37.0161188Z Updating files:  85% (23213/27309)
+2020-12-10T19:28:37.0221868Z Updating files:  86% (23486/27309)
+2020-12-10T19:28:37.0275631Z Updating files:  87% (23759/27309)
+2020-12-10T19:28:37.0324900Z Updating files:  88% (24032/27309)
+2020-12-10T19:28:37.0459818Z Updating files:  89% (24306/27309)
+2020-12-10T19:28:37.0576045Z Updating files:  90% (24579/27309)
+2020-12-10T19:28:37.0683997Z Updating files:  91% (24852/27309)
+2020-12-10T19:28:37.0774394Z Updating files:  92% (25125/27309)
+2020-12-10T19:28:37.0904434Z Updating files:  93% (25398/27309)
+2020-12-10T19:28:37.1018163Z Updating files:  94% (25671/27309)
+2020-12-10T19:28:37.1078879Z Updating files:  95% (25944/27309)
+2020-12-10T19:28:37.1132708Z Updating files:  96% (26217/27309)
+2020-12-10T19:28:37.1191517Z Updating files:  97% (26490/27309)
+2020-12-10T19:28:37.1245671Z Updating files:  98% (26763/27309)
+2020-12-10T19:28:37.1303897Z Updating files:  99% (27036/27309)
+2020-12-10T19:28:37.1304564Z Updating files: 100% (27309/27309)
+2020-12-10T19:28:37.1305100Z Updating files: 100% (27309/27309), done.
+2020-12-10T19:28:37.1696736Z Switched to a new branch 'repo-sync'
+2020-12-10T19:28:37.1698283Z Branch 'repo-sync' set up to track remote branch 'repo-sync' from 'origin'.
+2020-12-10T19:28:37.1752552Z ##[endgroup]
+2020-12-10T19:28:37.1804380Z [command]/usr/bin/git log -1 --format='%H'
+2020-12-10T19:28:37.1838006Z '26529c0722118c1d0c44e3c622db8858d0ac871c'
+2020-12-10T19:28:37.1996762Z ##[group]Run npm ci
+2020-12-10T19:28:37.1997270Z [36;1mnpm ci[0m
+2020-12-10T19:28:37.2037025Z shell: /bin/bash -e {0}
+2020-12-10T19:28:37.2037465Z ##[endgroup]
+2020-12-10T19:29:01.4049047Z 
+2020-12-10T19:29:01.4051188Z > core-js@2.6.12 postinstall /home/runner/work/docs/docs/node_modules/core-js
+2020-12-10T19:29:01.4052338Z > node -e "try{require('./postinstall')}catch(e){}"
+2020-12-10T19:29:01.4052960Z 
+2020-12-10T19:29:01.7615176Z 
+2020-12-10T19:29:01.7616624Z > puppeteer@5.5.0 install /home/runner/work/docs/docs/node_modules/puppeteer
+2020-12-10T19:29:01.7617415Z > node install.js
+2020-12-10T19:29:01.7617874Z 
+2020-12-10T19:29:02.6075141Z 
+2020-12-10T19:29:07.1997416Z Chromium (818858) downloaded to /home/runner/work/docs/docs/node_modules/puppeteer/.local-chromium/linux-818858
+2020-12-10T19:29:07.2252001Z 
+2020-12-10T19:29:07.2253971Z > puppeteer@1.20.0 install /home/runner/work/docs/docs/node_modules/pa11y-ci/node_modules/puppeteer
+2020-12-10T19:29:07.2255285Z > node install.js
+2020-12-10T19:29:07.2255846Z 
+2020-12-10T19:29:08.0230516Z 
+2020-12-10T19:29:12.2652647Z Chromium downloaded to /home/runner/work/docs/docs/node_modules/pa11y-ci/node_modules/puppeteer/.local-chromium/linux-686378
+2020-12-10T19:29:12.2803181Z 
+2020-12-10T19:29:12.2804052Z > puppeteer@1.20.0 install /home/runner/work/docs/docs/node_modules/pa11y/node_modules/puppeteer
+2020-12-10T19:29:12.2804904Z > node install.js
+2020-12-10T19:29:12.2839887Z 
+2020-12-10T19:29:13.6091066Z 
+2020-12-10T19:29:17.1735489Z Chromium downloaded to /home/runner/work/docs/docs/node_modules/pa11y/node_modules/puppeteer/.local-chromium/linux-686378
+2020-12-10T19:29:17.1993310Z 
+2020-12-10T19:29:17.1995035Z > npm-merge-driver-install@2.0.0 install /home/runner/work/docs/docs/node_modules/npm-merge-driver-install
+2020-12-10T19:29:17.1995923Z > node src/install.js
+2020-12-10T19:29:17.1996162Z 
+2020-12-10T19:29:17.2526681Z npm-merge-driver-install: CI detected, skipping install.
+2020-12-10T19:29:17.2726243Z 
+2020-12-10T19:29:17.2727307Z > nodemon@2.0.4 postinstall /home/runner/work/docs/docs/node_modules/nodemon
+2020-12-10T19:29:17.2728273Z > node bin/postinstall || exit 0
+2020-12-10T19:29:17.2728855Z 
+2020-12-10T19:29:17.3347634Z [32mLove nodemon? You can now support the project via the open collective:[22m[39m
+2020-12-10T19:29:17.3349041Z  > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+2020-12-10T19:29:17.3349690Z 
+2020-12-10T19:29:20.8790321Z 
+2020-12-10T19:29:20.8791596Z > husky@4.2.1 install /home/runner/work/docs/docs/node_modules/husky
+2020-12-10T19:29:20.8792315Z > node husky install
+2020-12-10T19:29:20.8792753Z 
+2020-12-10T19:29:20.9409402Z husky > Setting up git hooks
+2020-12-10T19:29:20.9554679Z CI detected, skipping Git hooks installation.
+2020-12-10T19:29:20.9556799Z husky > Done
+2020-12-10T19:29:20.9620054Z 
+2020-12-10T19:29:20.9621199Z > husky@4.2.1 postinstall /home/runner/work/docs/docs/node_modules/husky
+2020-12-10T19:29:20.9622920Z > opencollective-postinstall || exit 0
+2020-12-10T19:29:20.9623928Z 
+2020-12-10T19:29:21.1167872Z added 2715 packages in 43.035s
+2020-12-10T19:29:21.1353576Z ##[group]Run script/rest/update-files.js --decorate-only
+2020-12-10T19:29:21.1354499Z [36;1mscript/rest/update-files.js --decorate-only[0m
+2020-12-10T19:29:21.1396043Z shell: /bin/bash -e {0}
+2020-12-10T19:29:21.1396458Z ##[endgroup]
+2020-12-10T19:29:21.6046056Z 
+2020-12-10T19:29:21.6049078Z 🎄 Decorating the OpenAPI schema files in lib/rest/static/dereferenced.
+2020-12-10T19:29:21.6050029Z 
+2020-12-10T19:29:29.5533825Z Wrote lib/rest/static/decorated/api.github.com.json
+2020-12-10T19:29:33.9591391Z Wrote lib/rest/static/decorated/ghes-2.18.json
+2020-12-10T19:29:38.4129077Z Wrote lib/rest/static/decorated/ghes-2.19.json
+2020-12-10T19:29:42.6161303Z Wrote lib/rest/static/decorated/ghes-2.20.json
+2020-12-10T19:29:47.4182418Z Wrote lib/rest/static/decorated/ghes-2.21.json
+2020-12-10T19:29:52.8141421Z Wrote lib/rest/static/decorated/ghes-2.22.json
+2020-12-10T19:29:56.9853760Z Wrote lib/rest/static/decorated/github.ae.json
+2020-12-10T19:29:56.9855414Z 
+2020-12-10T19:29:56.9858900Z 🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*.
+2020-12-10T19:29:56.9860856Z 
+2020-12-10T19:29:56.9861634Z 
+2020-12-10T19:29:57.0492845Z ##[group]Run .github/actions-scripts/openapi-schema-branch.js
+2020-12-10T19:29:57.0494282Z [36;1m.github/actions-scripts/openapi-schema-branch.js[0m
+2020-12-10T19:29:57.0545102Z shell: /bin/bash -e {0}
+2020-12-10T19:29:57.0545581Z ##[endgroup]
+2020-12-10T19:29:58.4233621Z All good 👍
+2020-12-10T19:29:58.4375453Z Post job cleanup.
+2020-12-10T19:29:58.5246481Z [command]/usr/bin/git version
+2020-12-10T19:29:58.5306822Z git version 2.29.2
+2020-12-10T19:29:58.5341831Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2020-12-10T19:29:58.5379912Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :
+2020-12-10T19:29:58.5666323Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2020-12-10T19:29:58.5695595Z http.https://github.com/.extraheader
+2020-12-10T19:29:58.5706245Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2020-12-10T19:29:58.5740378Z [command]/usr/bin/git submodule foreach --recursive git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :
+2020-12-10T19:29:58.6102514Z Cleaning up orphan processes
