@@ -73,6 +73,7 @@ module.exports = function (app) {
   app.use(require('./contextualizers/rest'))
   app.use(require('./contextualizers/webhooks'))
   app.use(require('./breadcrumbs'))
+  app.use(require('./early-access-breadcrumbs'))
   app.use(require('./dev-toc'))
   app.use(require('./featured-links'))
 
