@@ -2,9 +2,12 @@ const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
 
 module.exports = async (req, res, next) => {
+  if (!req.context.page) return next()
+  if (req.context.page.hidden) return next()
+
   req.context.breadcrumbs = {}
 
-  if (!req.context.page) return next()
+  // Return an empty object on the landing page
   if (req.context.page.relativePath === 'index.md') return next()
 
   const rawPath = getPathWithoutLanguage(req.path)
