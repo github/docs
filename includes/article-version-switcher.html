@@ -1,5 +1,5 @@
 {% if page.permalinks and page.permalinks.length > 1 %}
-  <details class="dropdown-withArrow d-inline-block details details-reset mb-4 position-relative close-when-clicked-outside article-versions">
+  <details class="dropdown-withArrow d-inline-block details details-reset mb-1 position-relative close-when-clicked-outside article-versions">
     <summary class="d-flex flex-items-center flex-justify-between f4 h5-mktg btn-outline-mktg btn-mktg p-2">
       <!-- GitHub.com, Enterprise Server 2.16, etc -->
       <span class="d-md-none d-xl-inline-block mr-1">{% data ui.pages.article_version %}</span> {{ allVersions[currentVersion].versionTitle }}
@@ -14,6 +14,7 @@
       >
       {{ allVersions[permalink.pageVersion].versionTitle }}</a>
       {% endfor %}
+      <a class="f6 no-underline text-gray-light pt-1" href="/enterprise-server-releases">See all Enterprise releases</a>
     </div>
   </details>
 {% endif %}
