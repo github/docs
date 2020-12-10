@@ -7,6 +7,7 @@
 name: Repo Sync
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '*/15 * * * *' # every 15 minutes
 
@@ -70,11 +71,10 @@ jobs:
           number: ${{ steps.find-pull-request.outputs.number }}
 
       - name: Send Slack notification if workflow fails
-        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
-        if: ${{ failure() }}
-        env:
-          SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_USERNAME: docs-repo-sync
-          SLACK_ICON_EMOJI: ':ohno:'
-          SLACK_COLOR: '#B90E0A' # Crimson
-          SLACK_MESSAGE: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: failure()
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
