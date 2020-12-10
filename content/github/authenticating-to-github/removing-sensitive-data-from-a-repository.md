@@ -40,7 +40,7 @@ To replace all text listed in `passwords.txt` wherever it can be found in your r
 $ bfg --replace-text passwords.txt
 ```
 
-At the end, force push the changes:
+After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
 
 ```shell
 $ git push --force
