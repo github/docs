@@ -150,6 +150,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.js",
     "dev": "npm start",
+    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.js",
     "rest-dev": "script/rest/update-files.js && npm run dev",
     "build": "cross-env NODE_ENV=production npx webpack --mode production",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",
