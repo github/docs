@@ -32,24 +32,24 @@ Para responder un comentario en la línea que ya existe, deberás ir hasta el co
 {% tip %}
 
 **Sugerencias:**
-- Los comentarios de las solicitudes de extracción soportan el mismo [ formato](/categories/writing-on-github) que los comentarios regulares en {{ site.data.variables.product.product_name }}, como @menciones, emojis y referencias.
+- Los comentarios de las solicitudes de extracción soportan el mismo [ formato](/categories/writing-on-github) que los comentarios regulares en {% data variables.product.product_name %}, como @menciones, emojis y referencias.
 - Puedes [agregar reacciones](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) a los comentarios en las solicitudes de extracción en la pestaña **Files changed** (Archivos cambiados).
 
 {% endtip %}
 
 ### Agregar comentarios en la línea a una solicitud de extracción
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción en la que deseas dejar los comentarios en la línea.
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. Cuando hayas terminado, haz clic en **Add single comment** (Agregar comentario único). ![Ventana de comentario en línea](/assets/images/help/commits/inline-comment.png)
 
 Cualquier persona que observe la solicitud de extracción o el repositorio recibirá una notificación de tu comentario.
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Leer más
 

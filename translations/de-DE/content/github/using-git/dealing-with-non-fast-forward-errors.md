@@ -6,15 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn ein anderer Benutzer einen Push zum selben Branch durchgeführt hat wie Du, kann Git Deine Änderungen nicht überführen:
 
 ```shell
-$ git push origin master
-> To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
->  ! [rejected]        master -> master (non-fast-forward)
-> error: failed to push some refs to 'https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git'
+$ git push origin main
+> To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+>  ! [rejected]        main -> main (non-fast-forward)
+> error: failed to push some refs to 'https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git'
 > To prevent you from losing history, non-fast-forward updates were rejected
 > Merge the remote changes (e.g. 'git pull') before pushing again.  See the
 > 'Note about fast-forwards' section of 'git push --help' for details.

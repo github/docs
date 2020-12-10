@@ -1,6 +1,6 @@
 ---
 title: 支持 SMS 身份验证的国家/地区
-intro: '考虑到短信传送成功率，{{ site.data.variables.product.product_name }} 只支持在某些国家/地区通过 SMS 进行双重身份验证。'
+intro: '考虑到短信传送成功率，{% data variables.product.product_name %} 只支持在某些国家/地区通过 SMS 进行双重身份验证。'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:

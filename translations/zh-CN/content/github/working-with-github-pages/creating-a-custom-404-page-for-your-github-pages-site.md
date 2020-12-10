@@ -4,15 +4,16 @@ intro: 您可以自定义在人们尝试访问您站点上不存在的页面时�
 redirect_from:
   - /articles/custom-404-pages/
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.pages.navigate-site-repo }}
-{{ site.data.reusables.pages.navigate-publishing-source }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.pages.navigate-publishing-source %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中，键入 `404.html` 或 `404.md`。 ![文件名字段](/assets/images/help/pages/404-file-name.png)
 4. 如果将文件命名为 `404.md`，请将以下 YAML 前页添加到文件的开头：
   ```
@@ -21,10 +22,10 @@ versions:
   ---
   ```
 5. 在 YAML 前页（如果存在）下方添加要在 404 页面上显示的内容。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### 延伸阅读
 

@@ -20,10 +20,10 @@ You can create a default code of conduct for your organization or user account. 
 
 ### Adding a code of conduct using a template
 
-{{ site.data.variables.product.product_name }} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
+{% data variables.product.product_name %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field, type *CODE_OF_CONDUCT.md*.
 4. Click **Choose a code of conduct template**.
   ![Button to choose a code of conduct template](/assets/images/help/repository/code-of-conduct-tool.png)
@@ -33,22 +33,22 @@ You can create a default code of conduct for your organization or user account. 
 7. Click **Review and submit**.
   ![Review and submit code of conduct to project](/assets/images/help/repository/code-of-conduct-tool-review.png)
 8. Review the contents of the code of conduct that's in the text area.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Adding a code of conduct manually
 
 If the code of conduct you want to use isn't available in the provided templates, you can manually add a code of conduct.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field, type the name and extension for the file.
   ![New code of conduct file name](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - To make your code of conduct visible in the repository's root directory, type *CODE_OF_CONDUCT* in the file name field.
     - To make your code of conduct visible in the repository's `docs` directory, type *docs/CODE_OF_CONDUCT*.
     - To make your code of conduct visible in the respository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
 4. In the new file, add your custom code of conduct.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

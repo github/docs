@@ -39,13 +39,13 @@ Andernfalls können Sie das SSL Converter-Tool verwenden, um Ihr Zertifikat in d
 
 ### Nicht antwortende Installation nach dem Hochladen eines Schlüssels
 
-Wenn {{ site.data.variables.product.product_location_enterprise }} nach dem Hochladen eines SSL-Schlüssels nicht mehr antwortet, [kontaktieren Sie den {{ site.data.variables.product.prodname_enterprise }}-Support](https://enterprise.github.com/support) mit den entsprechenden Details, einschließlich einer Kopie Ihres SSL-Zertifikats.
+Wenn {% data variables.product.product_location %} nach dem Hochladen eines SSL-Schlüssels nicht mehr antwortet, [kontaktieren Sie den {% data variables.product.prodname_enterprise %}-Support](https://enterprise.github.com/support) mit den entsprechenden Details, einschließlich einer Kopie Ihres SSL-Zertifikats.
 
 ### Zertifizierungsgültigkeitsfehler
 
 Clients wie Webbrowser und die Git-Befehlszeile zeigen eine Fehlermeldung an, wenn die Gültigkeit eines SSL-Zertifikats nicht verifiziert werden kann. Dies ist oftmals bei selbstsignierten Zertifikaten und bei „verketteten Root“-Zertifikaten der Fall, die von einem Root-Zwischenzertifikat ausgestellt wurden, das vom Client nicht anerkannt wird.
 
-Wenn Sie ein von einer Zertifizierungsstelle (CA) signiertes Zertifikat verwenden, muss die von Ihnen auf {{ site.data.variables.product.prodname_ghe_server }} hochgeladene Zertifikatsdatei eine Zertifikatskette mit dem Root-Zertifikat der CA enthalten. Verketten Sie zum Erstellen einer solchen Datei Ihre gesamte Zertifikatskette (oder „Zertifikats-Bundle“) am Ende Ihres Zertifikats, um sicherzustellen, dass das Hauptzertifikat mit Ihrem Hostnamen zuerst angezeigt wird. Auf den meisten Systemen können Sie dazu einen Befehl ausführen, der folgendem ähnelt:
+Wenn Sie ein von einer Zertifizierungsstelle (CA) signiertes Zertifikat verwenden, muss die von Ihnen auf {% data variables.product.prodname_ghe_server %} hochgeladene Zertifikatsdatei eine Zertifikatskette mit dem Root-Zertifikat der CA enthalten. Verketten Sie zum Erstellen einer solchen Datei Ihre gesamte Zertifikatskette (oder „Zertifikats-Bundle“) am Ende Ihres Zertifikats, um sicherzustellen, dass das Hauptzertifikat mit Ihrem Hostnamen zuerst angezeigt wird. Auf den meisten Systemen können Sie dazu einen Befehl ausführen, der folgendem ähnelt:
 
 ```shell
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
@@ -55,14 +55,14 @@ Sie sollten ein Zertifikats-Bundle (z. B. `bundle-certificates.crt`) von Ihrer Z
 
 ### Selbstsignierte oder Root-Zertifikate von nicht vertrauenswürdigen Zertifizierungsstellen (CA) installieren
 
-Wenn Ihre {{ site.data.variables.product.prodname_ghe_server }}-Appliance mit anderen Maschinen in Ihrem Netzwerk interagiert, die ein selbstsigniertes oder nicht vertrauenswürdiges Zertifikat verwenden, müssen Sie das Root-Zertifikat der signierenden CA in den systemweiten Zertifikatsspeicher importieren, um über HTTPS auf diese Systeme zugreifen zu können.
+Wenn Ihre {% data variables.product.prodname_ghe_server %}-Appliance mit anderen Maschinen in Ihrem Netzwerk interagiert, die ein selbstsigniertes oder nicht vertrauenswürdiges Zertifikat verwenden, müssen Sie das Root-Zertifikat der signierenden CA in den systemweiten Zertifikatsspeicher importieren, um über HTTPS auf diese Systeme zugreifen zu können.
 
 1. Rufen Sie das Root-Zertifikat der CA von Ihrer lokalen Zertifizierungsstelle ab, und stellen Sie sicher, dass es im PEM-Format vorliegt.
-2. Kopieren Sie über die SSH als der Benutzer „admin“ auf Port 122 die Datei auf Ihre {{ site.data.variables.product.prodname_ghe_server }}-Appliance.
+2. Kopieren Sie über die SSH als der Benutzer „admin“ auf Port 122 die Datei auf Ihre {% data variables.product.prodname_ghe_server %}-Appliance.
   ```shell
   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
   ```
-3. Stellen Sie über die SSH als der Benutzer „admin“ auf Port 122 eine Verbindung zur {{ site.data.variables.product.prodname_ghe_server }}-Verwaltungsshell her.
+3. Stellen Sie über die SSH als der Benutzer „admin“ auf Port 122 eine Verbindung zur {% data variables.product.prodname_ghe_server %}-Verwaltungsshell her.
   ```shell
   $ ssh -p 122 admin@HOSTNAME
   ```

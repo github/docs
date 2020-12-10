@@ -1,6 +1,6 @@
 ---
 title: Issue とプルリクエストでのコラボレーション
-intro: '{{ site.data.variables.product.prodname_dotcom }} フローを使用して Issue の変更を追跡およびディスカッションし、プルリクエストの変更を提案してレビューします。'
+intro: '{% data variables.product.prodname_dotcom %} フローを使用して Issue の変更を追跡およびディスカッションし、プルリクエストの変更を提案してレビューします。'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -28,7 +29,7 @@ versions:
     {% link_in_list /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility %}
 {% topic_link_in_list /collaborating-on-repositories-with-code-quality-features %}
     {% link_in_list /about-status-checks %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /working-with-pre-receive-hooks %}
 <!-- endif -->
 {% topic_link_in_list /proposing-changes-to-your-work-with-pull-requests %}

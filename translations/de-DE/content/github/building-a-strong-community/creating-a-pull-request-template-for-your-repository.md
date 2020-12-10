@@ -6,18 +6,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/articles/about-issue-and-pull-request-templates)“
 
 Du kannst in einem der unterstützten Ordner ein Unterverzeichnis *PULL_REQUEST_TEMPLATE* erstellen, um mehrere Pull-Request-Vorlagen zu speichern. Mit dem Abfrageparameter `template` kannst Du die Vorlage wählen, mit der der Pull-Request-Text ausgefüllt werden soll. Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Issues und Pull Requests mit Abfrageparametern](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters).“
 
-Du kannst Standardvorlagen für Pull Request für Deine Organisation{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 ### Eine Pull-Request-Vorlage hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Gib Folgendes im Feld für den Dateinamen ein:
     -  Um Deine Pull-Request-Vorlage im Root-Verzeichnis des Repositorys sichtbar zu machen, benenne diese Vorlage `pull_request_template.md`. ![Root-VerzeichnisName der neuen Pull-Request-Vorlage im Root-Verzeichnis](/assets/images/help/repository/pr-template-file-name.png)
     - Um Deine Pull-Request-Vorlage im `docs`-Verzeichnis des Repositorys sichtbar zu machen, benenne diese Vorlage `docs/pull_request_template.md`. ![Neue Pull-Request-Vorlage im docs-Verzeichnis](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +32,9 @@ Du kannst Standardvorlagen für Pull Request für Deine Organisation{% if curren
     - Einen [Verweis auf einen ähnlichen Issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in Deinem Repository.
     - Eine Beschreibung der Änderungen, die im Pull Request vorgeschlagen werden.
     - [@Erwähnung](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) der Person oder des Teams, die bzw. das für den Review der vorgeschlagenen Änderungen zuständig ist.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
+{% data reusables.files.propose_new_file %}
 
 ### Weiterführende Informationen
 

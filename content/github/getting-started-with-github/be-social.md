@@ -3,17 +3,18 @@ title: Be social
 redirect_from:
   - /be-social/
   - /articles/be-social
-intro: 'You can interact with people, repositories, and organizations on {{ site.data.variables.product.prodname_dotcom }}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 To learn about accessing your personal dashboard, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 ### Following people
 
-When you follow someone on {{ site.data.variables.product.product_location }}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+When you follow someone on {% data variables.product.product_location %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
 Click **Follow** on a person's profile page to follow them.
 
@@ -21,7 +22,7 @@ Click **Follow** on a person's profile page to follow them.
 
 ### Watching a repository
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Click **Watch** at the top of a repository to watch it.
 
@@ -29,7 +30,7 @@ Click **Watch** at the top of a repository to watch it.
 
 ### Joining the conversation
 
-{{ site.data.reusables.support.ask-and-answer-forum }}
+{% data reusables.support.ask-and-answer-forum %}
 
 ### Doing even more
 
@@ -51,13 +52,13 @@ Organizations are shared accounts where businesses and open-source projects can 
 
 ![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-#### Exploring other projects on {{ site.data.variables.product.prodname_dotcom }}
+#### Exploring other projects on {% data variables.product.prodname_dotcom %}
 
-Discover interesting projects using {{ site.data.variables.explore.explore_github }}, [Explore repositories](https://github.com/explore), and the {{ site.data.variables.explore.trending_page }}. Star interesting projects and come back to them later. Visit your {{ site.data.variables.explore.your_stars_page }} to see all your starred projects.  For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard/)." 
+Discover interesting projects using {% data variables.explore.explore_github %}, [Explore repositories](https://github.com/explore), and the {% data variables.explore.trending_page %}. Star interesting projects and come back to them later. Visit your {% data variables.explore.your_stars_page %} to see all your starred projects.  For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard/)." 
 
 ### Celebrate
 
-You're now connected to the {{ site.data.variables.product.product_name }} community. What do you want to do next?
+You're now connected to the {% data variables.product.product_name %} community. What do you want to do next?
 
 ![Star a project](/assets/images/help/stars/star-a-project.png)
 
@@ -65,4 +66,4 @@ You're now connected to the {{ site.data.variables.product.product_name }} commu
 - [Create a repository](/articles/create-a-repo)
 - [Fork a repository](/articles/fork-a-repo)
 - **Be social**
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

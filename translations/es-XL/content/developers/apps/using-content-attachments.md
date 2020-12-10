@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pre-release-program.content-attachments-public-beta}}
+{% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ### Acerca de los adjuntos de contenido
 
 Una GitHub App puede registrar dominios que activarán los eventos de `content_reference`. Cuando alguien incluye una URL que vincule a un dominio registrado en el cuerpo o en el comentario de un informe de problemas o de una solicitud de extracción, la app recibe el [webhook de `content_reference`](/webhooks/event-payloads/#content_reference). Puedes utilizar los adjuntos de contenido para proporcionar visualmente más contenido o datos para la URL que se agregó a un informe de problemas o a una solicitud de extracción. La URL debe estar completamente calificada, comenzando ya sea con `http://` o con `https://`. Las URL que sean parte de un enlace de markdown se ignorarán y no activarán el evento de `content_reference`.
 
-Antes de que puedas utilizar la API de {{ site.data.variables.product.prodname_unfurls }}, necesitarás configurar las referencias de contenido para tu GitHub App:
+Antes de que puedas utilizar la API de {% data variables.product.prodname_unfurls %}, necesitarás configurar las referencias de contenido para tu GitHub App:
 * Concede los permisos de `Read & write` a tu app para "Referencias de contenido".
 * Registra hasta 5 dominios válidos y accesibles al público cuando configures el permiso de "Referencias de contenido". No utilices direcciones IP cuando configures dominios con referencias de contenido. Puedes registrar un nombre de dominio (ejemplo.com) o un subdominio (subdominio.ejemplo.com).
 * Suscribe a tu app al evento de "Referencia de contenido".
@@ -56,8 +56,8 @@ El flujo de los adjuntos de contenido te muestra la relación entre la URL en el
 
 **Paso 4.** La app utiliza la `id` de `content_reference`, para [Crear un adjunto de contenido](/v3/apps/installations/#create-a-content-attachment) utilizando la API de REST. También necesitas la `id` de la `installation` para autenticarte como una [Instalación de una GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
-{{ site.data.reusables.pre-release-program.corsair-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.corsair-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
 El parámetro `body` puede contener lenguaje de markdown:
 
@@ -81,8 +81,8 @@ Para obtener más información acerca de crear un token de instalación, consult
 ### Utilizar adjuntos de contenido en GraphQL
 Proporcionamos la `node_id` en el evento de [Webhook de `content_reference` ](/webhooks/event-payloads/#content_reference) para que puedas referirte a la mutación `createContentAttachment` en la API de GraphQL.
 
-{{ site.data.reusables.pre-release-program.corsair-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.corsair-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
 Por ejemplo:
 
@@ -119,7 +119,7 @@ Para obtener más información aacerca de `node_id`, consulta la sección "[Util
 
 ### Ejemplo de uso con Probot y Manifiestos de GitHub Apps
 
-Para configurar rápidamente una GitHub App que pueda utilizar la API de {{ site.data.variables.product.prodname_unfurls }}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear Github Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
+Para configurar rápidamente una GitHub App que pueda utilizar la API de {% data variables.product.prodname_unfurls %}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear Github Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
 
 Para crear una App de Probot, sigue estos pasos:
 

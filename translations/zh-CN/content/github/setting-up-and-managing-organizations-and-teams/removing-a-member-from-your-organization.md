@@ -1,11 +1,12 @@
 ---
 title: 从组织中删除成员
-intro: 如果组织的成员不再需要访问组织拥有的任何仓库，则可以从组织中删除他们。
+intro: '如果组织的成员不再需要访问组织拥有的任何仓库，则可以从组织中删除他们。'
 redirect_from:
   - /articles/removing-a-member-from-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 只有组织所有者才能从组织中删除成员。
@@ -39,13 +40,13 @@ versions:
 
 {% endif %}
 
-{{ site.data.reusables.organizations.data_saved_for_reinstating_a_former_org_member }}
+{% data reusables.organizations.data_saved_for_reinstating_a_former_org_member %}
 
 ### 撤销用户的成员身份
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. 选择您想要从组织中删除的成员。 ![选择了两名成员的成员列表](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. 在成员列表上方，使用下拉菜单，然后单击 **Remove from organization（从组织中删除）**。 ![包含删除成员选项的下拉菜单](/assets/images/help/teams/user-bulk-management-options.png)
 6. 查看将从组织中删除的一个或多个成员，然后单击 **Remove members（删除成员）**。 ![将被删除的成员列表和删除成员按钮](/assets/images/help/teams/confirm-remove-members-bulk.png)

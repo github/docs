@@ -16,9 +16,9 @@ versions:
 
 作業が完了したら、プルリクエストを作成して、現在のブランチの変更を別のブランチにマージできます。 詳しい情報については、「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」および「[プルリクエストについて](/articles/about-pull-requests)」を参照してください。
 
-リポジトリへの読み取りアクセスがある場合は、常に {{ site.data.variables.product.prodname_desktop }} でブランチを作成できますが、リポジトリへの書き込みアクセスがある場合のみ、ブランチを {{ site.data.variables.product.prodname_dotcom }} にプッシュできます。
+リポジトリへの読み取りアクセスがある場合は、常に {% data variables.product.prodname_desktop %} でブランチを作成できますが、リポジトリへの書き込みアクセスがある場合のみ、ブランチを {% data variables.product.prodname_dotcom %} にプッシュできます。
 
-{{ site.data.reusables.desktop.protected-branches }}
+{% data reusables.desktop.protected-branches %}
 
 ### ブランチの作成
 
@@ -30,37 +30,37 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![ブランチメニュー内の [New Branch] オプション](/assets/images/help/desktop/new-branch-button-mac.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![新しいブランチの名前を作成するフィールド](/assets/images/help/desktop/create-branch-name-mac.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![ベースブランチのオプション](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![Create Branchボタン](/assets/images/help/desktop/create-branch-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![ブランチメニュー内の [New Branch] オプション](/assets/images/help/desktop/new-branch-button-win.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![新しいブランチの名前を作成するフィールド](/assets/images/help/desktop/create-branch-name-win.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![ベースブランチのオプション](/assets/images/help/desktop/create-branch-choose-branch-win.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![Create branchボタン](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
 
 ### ブランチを公開する
 
-{{ site.data.variables.product.product_name }} にブランチを作成する場合は、ブランチを公開して、{{ site.data.variables.product.prodname_dotcom }} でのコラボレーションに使用できるようにする必要があります。
+{% data variables.product.product_name %} にブランチを作成する場合は、ブランチを公開して、{% data variables.product.prodname_dotcom %} でのコラボレーションに使用できるようにする必要があります。
 
 1. アプリの上部で、{% octicon "git-branch" aria-label="The branch icon" %} [**Current Branch**] をクリックし、公開するブランチをクリックします。 ![公開するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 2. [**Publish branch**] をクリックします。 ![[Publish branch] ボタン](/assets/images/help/desktop/publish-branch-button.png)
@@ -74,16 +74,16 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 保存していて、まだコミットしていない変更がある場合は、[**Leave my changes**] または [**Bring my changes**] を選択してから、[**Switch Branch**] をクリックしてください。 ![[Switch branch] と変更オプション](/assets/images/help/desktop/stash-changes-options.png)
 
 ### stash した変更を取得する
 他のブランチで stash した変更にアクセスするには、変更を stash したブランチに切り替えます。
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 左サイドバーで [**Stashed Changes**] をクリックします。 ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
 4. stash した変更を削除するには、[**Discard**] をクリックします。stash した変更を利用するには、[**Restore**] をクリックします。 ![stash した変更の [Discard] または [Restore]](/assets/images/help/desktop/discard-restore-stash-buttons.png)
@@ -94,25 +94,25 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-branch-to-delete}}
+{% data reusables.desktop.select-branch-to-delete %}
   ![削除するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-to-delete.png)
-{{ site.data.reusables.desktop.delete-branch-mac }}
+{% data reusables.desktop.delete-branch-mac %}
   ![ブランチメニュー内の [Delete...] オプション](/assets/images/help/desktop/delete-branch-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-branch-to-delete}}
+{% data reusables.desktop.select-branch-to-delete %}
   ![削除するブランチを選択するドロップダウンメニュー](/assets/images/help/desktop/select-branch-to-delete.png)
-{{ site.data.reusables.desktop.delete-branch-win}}
+{% data reusables.desktop.delete-branch-win %}
   ![ブランチメニュー内の [Delete...] オプション](/assets/images/help/desktop/delete-branch-win.png)
 
 {% endwindows %}
 
 ### 参考リンク
 
-- 「[{{ site.data.variables.product.prodname_desktop }}からのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」
-- {{ site.data.variables.product.prodname_dotcom }} 用語集中の[ブランチ](/articles/github-glossary/#branch)
+- 「[{% data variables.product.prodname_desktop %}からのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」
+- {% data variables.product.prodname_dotcom %} 用語集中の[ブランチ](/articles/github-glossary/#branch)
 - [ブランチについて](/articles/about-branches)
 - Gitのドキュメンテーション中の[ブランチの要約](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)

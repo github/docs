@@ -10,16 +10,16 @@ versions:
 
 The dependency graph is available for every{% if currentVersion == "free-pro-team@latest" %} public{% endif %} repository that defines dependencies in a supported package ecosystem using a supported file format.{% if currentVersion == "free-pro-team@latest" %} Repository administrators can also set up the dependency graph for private repositories.{% endif %}
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 ### About the dependency graph
 
 The dependency graph is a summary of the manifest and lock files stored in a repository. For each repository, it shows{% if currentVersion == "free-pro-team@latest" %}:
 
 - Dependencies, the ecosystems and packages it depends on
-- Dependents, the repositories and packages that depend on it{% else %} dependencies, that is, the ecosystems and packages it depends on. {{ site.data.variables.product.prodname_ghe_server }} does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}
+- Dependents, the repositories and packages that depend on it{% else %} dependencies, that is, the ecosystems and packages it depends on. {% data variables.product.prodname_ghe_server %} does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}
 
-When you push a commit to {{ site.data.variables.product.product_name }} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% if currentVersion == "free-pro-team@latest" %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
+When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% if currentVersion == "free-pro-team@latest" %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
 
 ### Dependencies included
 
@@ -45,12 +45,11 @@ You can use the dependency graph to:
 
 ### Enabling the dependency graph
 
-{% if currentVersion == "free-pro-team@latest" %}To generate a dependency graph, {{ site.data.variables.product.product_name }} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}If the dependency graph is not available in your system, your site administrator can enable the dependency graph and {{ site.data.variables.product.prodname_dependabot_short }} alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %} If the dependency graph is not available in your system, your site administrator can enable the dependency graph and security alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %} If the dependency graph is not available in your system, your site administrator can enable the dependency graph and security alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
 
 {% endif %}
 
@@ -62,7 +61,7 @@ The recommended formats explicitly define which versions are used for all direct
 
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}| Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |{% endif %}
+| Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|

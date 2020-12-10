@@ -1,20 +1,21 @@
 ---
 title: Adding a new SSH key to your GitHub account
-intro: 'To configure your {{ site.data.variables.product.product_name }} account to use your new (or existing) SSH key, you''ll also need to add it to your {{ site.data.variables.product.product_name }} account.'
+intro: 'To configure your {% data variables.product.product_name %} account to use your new (or existing) SSH key, you''ll also need to add it to your {% data variables.product.product_name %} account.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Before adding a new SSH key to your {{ site.data.variables.product.product_name }} account, you should have:
+Before adding a new SSH key to your {% data variables.product.product_name %} account, you should have:
 * [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
 * [Generated a new SSH key and added it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-After adding a new SSH key to your {{ site.data.variables.product.product_name }} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)."
+After adding a new SSH key to your {% data variables.product.product_name %} account, you can reconfigure any local repositories to use SSH. For more information, see "[Switching remote URLs from HTTPS to SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)."
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
 {% mac %}
 
@@ -23,8 +24,8 @@ After adding a new SSH key to your {{ site.data.variables.product.product_name }
   If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -33,13 +34,13 @@ After adding a new SSH key to your {{ site.data.variables.product.product_name }
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**. ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
 6. Paste your key into the "Key" field. ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**. ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-{{ site.data.reusables.user_settings.sudo-mode-popup }}
+{% data reusables.user_settings.sudo-mode-popup %}
 
 {% endmac %}
 
@@ -50,8 +51,8 @@ After adding a new SSH key to your {{ site.data.variables.product.product_name }
   If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -60,13 +61,13 @@ After adding a new SSH key to your {{ site.data.variables.product.product_name }
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**. ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
 6. Paste your key into the "Key" field. ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**. ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, confirm your {{ site.data.variables.product.product_name }} password. ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
+8. If prompted, confirm your {% data variables.product.product_name %} password. ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endwindows %}
 
@@ -80,8 +81,8 @@ After adding a new SSH key to your {{ site.data.variables.product.product_name }
   $ sudo apt-get install xclip
   # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
   {% tip %}
 
@@ -89,13 +90,13 @@ After adding a new SSH key to your {{ site.data.variables.product.product_name }
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Click **New SSH key** or **Add SSH key**. ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal Mac, you might call this key "Personal MacBook Air".
 6. Paste your key into the "Key" field. ![The key field](/assets/images/help/settings/ssh-key-paste.png)
 7. Click **Add SSH key**. ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
-8. If prompted, confirm your {{ site.data.variables.product.product_name }} password. ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
+8. If prompted, confirm your {% data variables.product.product_name %} password. ![Sudo mode dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endlinux %}
 

@@ -1,6 +1,6 @@
 ---
 title: Site admin dashboard
-intro: 'The site admin dashboard provides a number of tools to help you manage {{ site.data.variables.product.product_location_enterprise }}.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-the-site-admin-dashboard %}'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard/
   - /enterprise/admin/installation/site-admin-dashboard
@@ -22,13 +22,13 @@ Refer to this section of the site admin dashboard to search for users and reposi
 
 ### License info & search
 
-Refer to this section of the site admin dashboard to check your current {{ site.data.variables.product.prodname_enterprise }} license; to search for users and repositories; and to query the [audit log](#audit-log).
+Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
 
 {% endif %}
 
-### {{ site.data.variables.enterprise.management_console }}
+### {% data variables.enterprise.management_console %}
 
-Here you can launch the {{ site.data.variables.enterprise.management_console }} to manage virtual appliance settings such as the domain, authentication, and SSL.
+Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
 
 ### Explore
 
@@ -38,7 +38,7 @@ Data for GitHub's [trending page][] is calculated into daily, weekly, and monthl
 
 ### Audit log
 
-{{ site.data.variables.product.prodname_enterprise }} keeps a running log of audited actions that you can query.
+{% data variables.product.prodname_enterprise %} keeps a running log of audited actions that you can query.
 
 By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
 
@@ -46,7 +46,7 @@ For more information on audit logging in general, see "[Audit logging](/enterpri
 
 ### Reports
 
-If you need to get information on the users, organizations, and repositories in {{ site.data.variables.product.product_location_enterprise }}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
+If you need to get information on the users, organizations, and repositories in {% data variables.product.product_location %}, you would ordinarily fetch JSON data through the [GitHub API](/rest). Unfortunately, the API may not provide all of the data that you want and it requires a bit of technical expertise to use. The site admin dashboard offers a **Reports** section as an alternative, making it easy for you to download CSV reports with most of the information that you are likely to need for users, organizations, and repositories.
 
 Specifically, you can download CSV reports that list
 
@@ -142,7 +142,7 @@ This controls how the code search index is repaired. You can
 - start a new index repair job
 - reset all index repair state
 
-{{ site.data.variables.product.prodname_enterprise }} uses repair jobs to reconcile the state of the search index with data stored in a database (issues, pull requests, repositories, and users) and data stored in Git repositories (source code). This happens when
+{% data variables.product.prodname_enterprise %} uses repair jobs to reconcile the state of the search index with data stored in a database (issues, pull requests, repositories, and users) and data stored in Git repositories (source code). This happens when
 
 - a new search index is created;
 - missing data needs to be backfilled; or
@@ -152,7 +152,7 @@ In other words, repair jobs are started as needed and run in the background—th
 
 Furthermore, repair jobs use a "repair offset" for parallelization. This is an offset into the database table for the record being reconciled. Multiple background jobs can synchronize work based on this offset.
 
-A progress bar shows the current status of a repair job across all of its background workers. It is the percentage difference of the repair offset with the highest record ID in the database. Don't worry about the value shown in the progress bar after a repair job has completed: because it shows the difference between the repair offset and the highest record ID in the database, it will decrease as more repositories are added to {{ site.data.variables.product.product_location_enterprise }} even though those repositories are actually indexed.
+A progress bar shows the current status of a repair job across all of its background workers. It is the percentage difference of the repair offset with the highest record ID in the database. Don't worry about the value shown in the progress bar after a repair job has completed: because it shows the difference between the repair offset and the highest record ID in the database, it will decrease as more repositories are added to {% data variables.product.product_location %} even though those repositories are actually indexed.
 
 You can start a new code-search index repair job at any time. It will use a single CPU as it reconciles the search index with database and Git repository data. To minimize the effects this will have on I/O performance and reduce the chances of operations timing out, try to run a repair job during off-peak hours first. Monitor your system's load averages and CPU usage with a utility like `top`; if you don't notice any significant changes, it should be safe to run an index repair job during peak hours, as well.
 
@@ -176,30 +176,30 @@ Refer to this section of the site admin dashboard to manage organizations, peopl
 
 ### Repositories
 
-This is a list of the repositories on {{ site.data.variables.product.product_location_enterprise }}. You can click on a repository name and access functions for administering the repository.
+This is a list of the repositories on {% data variables.product.product_location %}. You can click on a repository name and access functions for administering the repository.
 
 - [Blocking force pushes to a repository](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [Configuring {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [Configuring {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [Archiving and unarchiving repositories](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
 ### All users
 
-Here you can see all of the users on {{ site.data.variables.product.product_location_enterprise }}—, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users on {% data variables.product.product_location %}—, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ### Site admins
 
-Here you can see all of the administrators on {{ site.data.variables.product.product_location_enterprise }}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the administrators on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ### Dormant users
 
-Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {{ site.data.variables.product.product_location_enterprise }}. A user account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
 
-- Has existed for longer than the dormancy threshold that's set for {{ site.data.variables.product.product_location_enterprise }}.
+- Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
 - Has not generated any activity within that time period.
 - Is not a site administrator.
 
-{{ site.data.reusables.enterprise_site_admin_settings.dormancy-threshold }} For more information, see "[Managing dormant users](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} For more information, see "[Managing dormant users](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
 
 ### Suspended users
 
-Here you can see all of the users who have been suspended on {{ site.data.variables.product.product_location_enterprise }}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Here you can see all of the users who have been suspended on {% data variables.product.product_location %}, and [initiate an SSH key audit](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).

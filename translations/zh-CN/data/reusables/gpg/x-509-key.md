@@ -3,10 +3,10 @@
 
 您可以使用 [smimesign](https://github.com/github/smimesign) 以 S/MIME 代替 GPG 对提交和标记签名。
 
-{{ site.data.reusables.gpg.smime-git-version }}
+{% data reusables.gpg.smime-git-version %}
 
 1. 安装 [smimesign](https://github.com/github/smimesign#installation)。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 配置 Git 使用 S/MIME 对提交和标记签名。 在 Git 2.19 或更高版本中，使用 `git config gpg.x509.program` 和 `git config gpg.form` 命令：
   - 要使用 S/MIME 对所有仓库签名：
   ```shell

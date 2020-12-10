@@ -1,15 +1,16 @@
 ---
 title: GitHub 上のコード間を移動する
-intro: '{{ site.data.variables.product.product_name }} で直接コードを移動することにより、リポジトリ内およびリポジトリ間の関係について理解できます。'
+intro: '{% data variables.product.product_name %} で直接コードを移動することにより、リポジトリ内およびリポジトリ間の関係について理解できます。'
 redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
 ---
 
-### {{ site.data.variables.product.prodname_dotcom }} のナビゲーションコードについて
+### {% data variables.product.prodname_dotcom %} のナビゲーションコードについて
 
 コードナビゲーションの機能は、オープンソースの ライブラリ[`semantic`](https://github.com/github/semantic)を使用しています。 以下の言語がサポートされています:
+- C#
 - CodeQL
 - Go
 - Java

@@ -1,11 +1,12 @@
 ---
 title: Deleting files
-intro: 'You can delete any file within your repositories on {{ site.data.variables.product.product_name }}.'
+intro: 'You can delete any file within your repositories on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -17,10 +18,10 @@ versions:
 1. Browse to the file in your repository that you want to delete.
 2. At the top of the file, click
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 {% danger %}
 

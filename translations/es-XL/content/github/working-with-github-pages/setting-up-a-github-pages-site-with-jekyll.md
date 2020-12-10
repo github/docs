@@ -1,11 +1,11 @@
 ---
 title: Configurar un sitio de Páginas de GitHub con Jekyll
-intro: 'Puedes usar Jekyll, un generador de sitio estático popular, para personalizar aún más tu sitio de {{ site.data.variables.product.prodname_pages }}.'
+intro: 'Puedes usar Jekyll, un generador de sitio estático popular, para personalizar aún más tu sitio de {% data variables.product.prodname_pages %}.'
 redirect_from:
   - /articles/using-jekyll-with-pages/
   - /articles/using-jekyll-as-a-static-site-generator-with-github-pages
   - /articles/setting-up-a-github-pages-site-with-jekyll
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 mapTopic: true
 versions:
   free-pro-team: '*'

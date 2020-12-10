@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const path = require('path')
 const { isPlainObject } = require('lodash')
 const supertest = require('supertest')
@@ -6,7 +5,7 @@ const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -18,8 +17,8 @@ describe('redirects', () => {
     done()
   })
 
-  test('page.redirects is an array', () => {
-    const page = new Page({
+  test('page.redirects is an array', async () => {
+    const page = await Page.init({
       relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
@@ -27,38 +26,27 @@ describe('redirects', () => {
     expect(isPlainObject(page.redirects)).toBe(true)
   })
 
-  test('dotcom homepage page.redirects', () => {
-    const page = new Page({
+  test('dotcom homepage page.redirects', async () => {
+    const page = await Page.init({
       relativePath: 'github/index.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
-    if (process.env.FEATURE_NEW_VERSIONS) {
-      expect(page.redirects['/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-      expect(page.redirects['/en/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-      expect(page.redirects['/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-      expect(page.redirects['/en/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-      expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
-      expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
-    } else {
-      expect(page.redirects['/articles']).toBe('/en/github')
-      expect(page.redirects['/en/articles']).toBe('/en/github')
-      expect(page.redirects['/common-issues-and-questions']).toBe('/en/github')
-      expect(page.redirects['/en/common-issues-and-questions']).toBe('/en/github')
-      expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise/${enterpriseServerReleases.latest}/user/github`)
-      expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise/${enterpriseServerReleases.latest}/user/github`)
-    }
+    expect(page.redirects['/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(page.redirects['/en/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(page.redirects['/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(page.redirects['/en/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
+    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
-    const page = new Page({
+    const page = await Page.init({
       relativePath: 'github/collaborating-with-issues-and-pull-requests/about-conversations-on-github.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
-    const expected = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
-      : '/en/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github'
+    const expected = `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
     expect(page.redirects['/en/articles/about-discussions-in-issues-and-pull-requests']).toBe(expected)
   })
 
@@ -66,34 +54,26 @@ describe('redirects', () => {
     test('are preserved in redirected URLs', async () => {
       const res = await get('/enterprise/admin?query=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-        : `/en/enterprise/${enterpriseServerReleases.latest}/admin?query=pulls`
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 
     test('have q= converted to query=', async () => {
       const res = await get('/en/enterprise/admin?q=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
-        : `/en/enterprise/${enterpriseServerReleases.latest}/admin?query=pulls`
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 
     test('work with redirected search paths', async () => {
       const res = await get('/en/enterprise/admin/search?utf8=%E2%9C%93&query=pulls')
       expect(res.statusCode).toBe(301)
-      const expected = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?utf8=%E2%9C%93&query=pulls`
-        : `/en/enterprise/${enterpriseServerReleases.latest}/admin?utf8=%E2%9C%93&query=pulls`
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin?utf8=%E2%9C%93&query=pulls`
       expect(res.headers.location).toBe(expected)
     })
 
     test('do not work on other paths that include "search"', async () => {
-      const reqPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
-        : `/en/enterprise/${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
+      const reqPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/configuration/enabling-unified-search-between-github-enterprise-server-and-githubcom`
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
@@ -142,18 +122,13 @@ describe('redirects', () => {
     test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
-      const expected = process.env.FEATURE_NEW_VERSIONS
-        ? `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop`
-        : '/ja/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop'
+      const expected = `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop`
       expect(res.headers.location).toBe(expected)
     })
   })
 
   describe('enterprise home page', () => {
-    const enterpriseHome = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}`
-      : `/en/enterprise/${enterpriseServerReleases.latest}`
-
+    const enterpriseHome = `/en/enterprise-server@${enterpriseServerReleases.latest}`
     const japaneseEnterpriseHome = enterpriseHome.replace('/en/', '/ja/')
 
     test('/enterprise', async () => {
@@ -210,10 +185,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise admin', () => {
-    const enterpriseAdmin = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
-      : `/en/enterprise/${enterpriseServerReleases.latest}/admin`
-
+    const enterpriseAdmin = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
     const japaneseEnterpriseAdmin = enterpriseAdmin.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
@@ -245,9 +217,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       const redirectRes = await get(res.headers.location)
       expect(redirectRes.statusCode).toBe(200)
-      const expected = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/upgrading-github-enterprise-server`
-        : `/en/enterprise/${enterpriseServerReleases.latest}/admin/enterprise-management/upgrading-github-enterprise-server`
+      const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/upgrading-github-enterprise-server`
       expect(res.headers.location).toBe(expected)
     })
 
@@ -265,10 +235,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user homepage', () => {
-    const enterpriseUser = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}/github`
-      : `/en/enterprise/${enterpriseServerReleases.latest}/user/github`
-
+    const enterpriseUser = `/en/enterprise-server@${enterpriseServerReleases.latest}/github`
     const japaneseEnterpriseUser = enterpriseUser.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product', async () => {
@@ -297,10 +264,7 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article', () => {
-    const userArticle = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`
-      : `/en/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github/set-up-git`
-
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
@@ -335,11 +299,8 @@ describe('redirects', () => {
   })
 
   describe('enterprise user article with frontmatter redirect', () => {
-    const userArticle = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/access-permissions-on-github`
-      : `/en/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github/access-permissions-on-github`
+    const userArticle = `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/access-permissions-on-github`
     const redirectFromPath = '/articles/what-are-the-different-access-permissions'
-
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {
@@ -368,10 +329,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = process.env.FEATURE_NEW_VERSIONS
-      ? `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request`
-      : '/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
-
+    const desktopGuide = `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request`
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {

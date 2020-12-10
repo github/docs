@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.variables.product.product_name }}は、*.stl* 拡張子の 3D ファイルをホストしてレンダリングできます。
+{% data variables.product.product_name %}は、*.stl* 拡張子の 3D ファイルをホストしてレンダリングできます。
 
-STLファイルを直接{{ site.data.variables.product.product_name }}で見る場合、以下のことができます。
+STLファイルを直接{% data variables.product.product_name %}で見る場合、以下のことができます。
 
 * クリックしてドラッグすることでモデルを回転させる。
 * 右クリックしてからドラッグすることでビューを変換する。

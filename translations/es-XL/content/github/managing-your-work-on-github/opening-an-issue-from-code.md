@@ -12,19 +12,19 @@ Cuando abres una propuesta desde el código, la propuesta contiene un fragmento 
 
 ![Fragmento de código representado en una propuesta abierta desde el código](/assets/images/help/repository/issue-opened-from-code.png)
 
-{{ site.data.reusables.repositories.create-issue-in-public-repository }}
+{% data reusables.repositories.create-issue-in-public-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Ubica el código que deseas hacer referencia en una propuesta:
     - Para abrir una propuesta acerca de un código en un archivo, navega hasta el archivo.
     - Para abrir una propuesta acerca de un código en una solicitud de extracción, navega hasta la solicitud de extracción y haz clic en {% octicon "diff" aria-label="The file diff icon" %} **Files changed (Archivos modificados)**. Luego, desplázate hasta el archivo que contiene el código que deseas incluir en tu comentario y haz clic en **Ver**.
-{{ site.data.reusables.repositories.choose-line-or-range }}
+{% data reusables.repositories.choose-line-or-range %}
 4. To the left of the code range, click
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. En el menú desplegable, da clic en **Referenciar en nuevo informe de problemas**.
   ![Menú Kebab con opción para abrir una propuesta nueva desde una línea seleccionada](/assets/images/help/repository/open-new-issue-specific-line.png)
-{{ site.data.reusables.repositories.type-issue-title-and-description }}
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
-{{ site.data.reusables.repositories.submit-new-issue }}
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
 
 ### Leer más
 

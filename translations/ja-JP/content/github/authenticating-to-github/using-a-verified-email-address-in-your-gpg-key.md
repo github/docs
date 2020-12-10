@@ -1,11 +1,12 @@
 ---
 title: GPG キーで検証済みのメールアドレスを使う
-intro: '署名を検証するとき、{{ site.data.variables.product.product_name }} は、コミッターまたはタガーのメールアドレスが GPG キーの ID からのメールアドレスと一致し、ユーザアカウントの確認済みメールアドレスであることを確認します。 これにより、キーが自分のものであり、自分がコミットまたはタグを作成したことが保証されます。'
+intro: '署名を検証するとき、{% data variables.product.product_name %} は、コミッターまたはタガーのメールアドレスが GPG キーの ID からのメールアドレスと一致し、ユーザアカウントの確認済みメールアドレスであることを確認します。 これにより、キーが自分のものであり、自分がコミットまたはタグを作成したことが保証されます。'
 redirect_from:
   - /articles/using-a-verified-email-address-in-your-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

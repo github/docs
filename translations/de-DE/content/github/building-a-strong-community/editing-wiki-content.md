@@ -1,6 +1,6 @@
 ---
 title: Wiki-Inhalte bearbeiten
-intro: Du kannst Bilder und Links zu Inhalten zu Deinem Wiki hinzufügen und unterstützte MediaWiki-Formate verwenden.
+intro: 'Du kannst Bilder und Links zu Inhalten zu Deinem Wiki hinzufügen und unterstützte MediaWiki-Formate verwenden.'
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/
@@ -10,10 +10,11 @@ redirect_from:
   - /articles/adding-images-to-wikis/
   - /articles/supported-mediawiki-formats/
   - /articles/editing-wiki-content
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Links hinzufügen
@@ -27,8 +28,8 @@ In Wikis kannst Du Links mit dem standardmäßig von Deiner Webseite unterstütz
 
 Wikis können Bilder im PNG-, JPEG- und GIF-Format anzeigen.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Navigiere über die Wiki-Seitenleiste zu der Seite, die Du ändern möchtest, und klicke dann auf **Edit** (Bearbeiten).
 4. Klicke auf der Wiki-Symbolleiste auf **Image** (Bild). ![Schaltfläche „Wiki Add image" (Bild zu Wiki hinzufügen)](/assets/images/help/wiki/wiki_add_image.png)
 5. Gib im Dialogfeld „Insert Image“ (Bild einfügen) die Bild-URL und den alt-Text ein. Letzterer wird von Suchmaschinen und Bildschirmlesern genutzt werden.
@@ -36,7 +37,7 @@ Wikis können Bilder im PNG-, JPEG- und GIF-Format anzeigen.
 
 #### Auf Bilder in einem Repository verknüpfen
 
-Du kannst auf ein Bild verknüpfen, das in einem Repository auf {{ site.data.variables.product.product_name }} gespeichert ist, indem Du die URL im Browser kopierst und sie als Pfad für das Bild verwendest. Die Einbindung eines Bildes in einem Wiki mit Markdown sieht in etwa wie folgt aus:
+Du kannst auf ein Bild verknüpfen, das in einem Repository auf {% data variables.product.product_name %} gespeichert ist, indem Du die URL im Browser kopierst und sie als Pfad für das Bild verwendest. Die Einbindung eines Bildes in einem Wiki mit Markdown sieht in etwa wie folgt aus:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 

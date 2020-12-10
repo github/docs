@@ -1,11 +1,12 @@
 ---
 title: プルリクエストでのフィードバックを取り込む
-intro: レビュー担当者がプルリクエストの変更を提案する場合、変更をプルリクエストに自動的に組み込むか、Issue をオープンしてスコープ外の提案を追跡できます。
+intro: 'レビュー担当者がプルリクエストの変更を提案する場合、変更をプルリクエストに自動的に組み込むか、Issue をオープンしてスコープ外の提案を追跡できます。'
 redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 提案された変更を適用する
@@ -16,13 +17,17 @@ versions:
 
 コミットに含まれる変更を提案した各ユーザがそのコミットの共作者になり、 提案された変更を適用したユーザは、共作者兼そのコミットのコミッターになります。 Git におけるコミッターという用語については、_Pro Git_ ブック サイトで「[Git の基礎 - コミット履歴を表示する](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)」を参照してください。
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、提案された変更を適用する対象のプルリクエストをクリックします。
 3. 適用する最初の変更提案に移動します。
     - それ自体のコミットで変更を適用する場合は、[**Commit suggestion**] をクリックします。 ![[Commit suggestion] ボタン](/assets/images/help/pull_requests/commit-suggestion-button.png)
     - 変更のバッチに提案を追加するには、[**Add suggestion to batch**] をクリックします。 これを繰り返して、1 つのコミットに取り込む変更を追加します。 提案された変更の追加が終わったら、[**Commit suggestions**] をクリックします。 ![[Add suggestion to batch] ボタン](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. コミットメッセージのフィールドに、ファイルに対する変更内容を説明する、短くわかりやすいコミットメッセージを入力します。 ![Commit messageフィールド](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. [**Commit changes**] をクリックします。 ![[Commit changes] ボタン](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### スコープ外の提案に対する Issue のオープン
 

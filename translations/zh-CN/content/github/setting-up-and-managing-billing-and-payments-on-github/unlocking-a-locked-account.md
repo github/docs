@@ -15,7 +15,7 @@ versions:
 
 通过更新组织的付款方式和恢复付费状态，您可以解锁并访问自己的帐户。 我们不会要求您为锁定模式经过的时间付款。
 
-您可以将组织降级到 {{ site.data.variables.product.prodname_free_team }}，以继续使用公共仓库中相同的高级功能。 更多信息请参阅“[降级您的 {{ site.data.variables.product.product_name }} 订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)”。
+您可以将组织降级到 {% data variables.product.prodname_free_team %}，以继续使用公共仓库中相同的高级功能。 更多信息请参阅“[降级您的 {% data variables.product.product_name %} 订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)”。
 
 ### 解锁组织因拒绝付款而锁定的功能
 

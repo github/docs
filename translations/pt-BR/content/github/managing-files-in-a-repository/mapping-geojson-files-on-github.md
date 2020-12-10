@@ -5,9 +5,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-O {{ site.data.variables.product.product_name }} é compatível com a renderização de arquivos de mapas geoJSON e topoJSON nos repositórios do {{ site.data.variables.product.product_name }}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Depois, navegue para o caminho do arquivo geoJSON em GitHub.com.
+O {% data variables.product.product_name %} é compatível com a renderização de arquivos de mapas geoJSON e topoJSON nos repositórios do {% data variables.product.product_name %}. Simplesmente faça o commit do arquivo como você faria normalmente usando uma extensão `.geojson` ou `.topojson`. Arquivos com a extensão `.json` também são compatíveis, mas somente se o `type` (tipo) for configurado para `FeatureCollection` (Coleção de elementos gráficos), `GeometryCollection` (Coleções geométricas) ou `topology` (topologia). Depois, navegue para o caminho do arquivo geoJSON em GitHub.com.
 
 Quando você clicar no ícone de folha de papel à direita, também verá as alterações feitas naquele arquivo como parte de um commit.
 
@@ -15,7 +16,7 @@ Quando você clicar no ícone de folha de papel à direita, também verá as alt
 
 ### Tipos geométricos
 
-Os mapas no {{ site.data.variables.product.product_name }} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topology" (Topologia) e estar de acordo com as [especificações topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
+Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topology" (Topologia) e estar de acordo com as [especificações topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
 ### Estilos de elementos gráficos
 
@@ -34,7 +35,7 @@ Consulte a [ versão 1.1.0 do simplestyle especificações de código aberto](ht
 
 ### Incorporar o mapa em outro lugar
 
-Você quer deixar o seu mapa geoJSON disponível em outro lugar além do {{ site.data.variables.product.product_name }}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com javascript (por exemplo, [{{ site.data.variables.product.prodname_pages }}](http://pages.github.com)):
+Você quer deixar o seu mapa geoJSON disponível em outro lugar além do {% data variables.product.product_name %}? Simplesmente modifique este modelo e coloque-o em qualquer página HTML compatível com javascript (por exemplo, [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -64,7 +65,7 @@ Os dados do mapa de base (nomes de ruas, estradas etc) são determinados pelo [O
 
 ### Solução de Problemas
 
-Se você está com problemas para renderizar arquivos geoJSON, certifique-se de que tem um arquivo geoJSON válido, executando-o por meio de um [linter geoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {{ site.data.variables.product.product_name }} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
+Se você está com problemas para renderizar arquivos geoJSON, certifique-se de que tem um arquivo geoJSON válido, executando-o por meio de um [linter geoJSON](http://geojsonlint.com/). Se os pontos não estão aparecendo onde deveriam (<em>por exemplo</em>, no meio do oceano), é provável que os dados estejam em uma projeção que não é compatível atualmente. No momento, o {% data variables.product.product_name %} somente é compatível com a projeção `urn:ogc:def:crs:OGC:1.3:CRS84`.
 
 Além disso, se o seu arquivo `.geojson` for particularmente grande (acima de 10 MB), não é possível renderizar no navegador. Se esse for o caso, você normalmente verá uma mensagem parecida com esta:
 

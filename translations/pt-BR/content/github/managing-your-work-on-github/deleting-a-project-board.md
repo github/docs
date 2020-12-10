@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -16,8 +17,8 @@ versions:
 {% endtip %}
 
 1. Navegue até o quadro de projeto que deseja excluir.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Clique em **Delete project** (Excluir projeto). ![Botão Delete project (Excluir projeto)](/assets/images/help/projects/delete-project-button.png)
 5. Para confirmar que você deseja excluir o quadro de projeto, clique em **OK**.
 

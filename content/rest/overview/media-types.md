@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -15,7 +16,7 @@ the following types to the `Accept` header when you make a request. Media types
 are specific to resources, allowing them to change independently and support
 formats that other resources don't.
 
-All {{ site.data.variables.product.product_name }} media types look like this:
+All {% data variables.product.product_name %} media types look like this:
 
     application/vnd.github[.version].param[+json]
 
@@ -49,16 +50,16 @@ You can check the current version through every response's headers.  Look
 for the `X-GitHub-Media-Type` header:
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
@@ -66,7 +67,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Comment body properties
 
-The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/v3/issues/), [issue comments](/v3/issues/comments/), [pull request comments](/v3/pulls/comments/), and the [gist comments](/v3/gists/comments/) APIs all accept these same media types:
+The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
 
 #### Raw
 
@@ -98,7 +99,7 @@ Return raw, text and HTML representations. Response will include `body`,
 
 ### Git blob properties
 
-The following media types are allowed when [getting a blob](/v3/git/blobs/#get-a-blob):
+The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
 
 #### JSON
 
@@ -116,7 +117,7 @@ Return the raw blob data.
 
 ### Commits, commit comparison, and pull requests
 
-The [commits API](/v3/repos/commits/) and [pull requests API](/v3/pulls/) support
+The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support
 [diff][git-diff] and [patch][git-patch] formats:
 
 #### diff
@@ -162,5 +163,5 @@ The gist contents are base64-encoded before being sent out. This can be useful i
 [gfm]:http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[hypermedia]: /v3/#hypermedia
-[versions]: /v3/versions
+[hypermedia]: /rest#hypermedia
+[versions]: /developers/overview/about-githubs-apis

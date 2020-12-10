@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
 3. Dentro de "Backup email address" (Dirección de correo electrónico de respaldo), selecciona la dirección que deseas configurar como tu dirección de correo electrónico de respaldo utilizando el menú desplegable. ![Dirección de correo electrónico de respaldo](/assets/images/help/settings/backup-email-address.png)
 4. Haz clic en **Save (Guardar)**.
 

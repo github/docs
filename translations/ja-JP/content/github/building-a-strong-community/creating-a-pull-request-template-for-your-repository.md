@@ -1,23 +1,28 @@
 ---
 title: リポジトリ用のプルリクエストテンプレートの作成
-intro: リポジトリにプルリクエストのテンプレートを追加すると、プロジェクトのコントリビューターはプルリクエストの本体にテンプレートの内容を自動的に見ることになります。
+intro: 'リポジトリにプルリクエストのテンプレートを追加すると、プロジェクトのコントリビューターはプルリクエストの本体にテンプレートの内容を自動的に見ることになります。'
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 詳しい情報については[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 
 サポートしているどのフォルダにでも *PULL_REQUEST_TEMPLATE/* サブディレクトリを作成し、プルリクエストテンプレートを複数含めることができます。また、`template` クエリパラメータでプルリクエストの本文に使用するテンプレートを指定できます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。
 
-Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}またはユーザアカウント{% endif %}のデフォルトのプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+
+{% endif %}
 
 ### プルリクエストテンプレートの追加
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名フィールドで:
     -  プルリクエストテンプレートをリポジトリのルートディレクトリで表示するには、プルリクエストテンプレートに `.github/pull_request_template.md` という名前を付けます。 ![ルートディレクトリの新しいプルリクエストテンプレート名](/assets/images/help/repository/pr-template-file-name.png)
     - プルリクエストテンプレートをリポジトリの `docs` ディレクトリで表示するには、プルリクエストテンプレートに `docs/pull_request_template.md`という名前を付けます。 ![docs ディレクトリの新しいプルリクエストテンプレート](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +32,9 @@ Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ve
     - リポジトリ内の[関連する Issue への参照](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。
     - プルリクエストで提案された変更の説明。
     - 提案された変更のレビューを担当する個人やチームの[@メンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
+{% data reusables.files.propose_new_file %}
 
 ### 参考リンク
 

@@ -15,9 +15,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. En el ángulo superior derecho, haz clic en **Label** (Etiqueta), luego comienza a escribir el nombre de una etiqueta existente. Haz clic en el nombre de la etiqueta para asociarla con los elementos seleccionados. ![Desplegable de la asignación de hitos de propuestas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
 ### Leer más

@@ -1,16 +1,17 @@
 ---
 title: Fortschritt in Deinem Projektboard verfolgen
-intro: 'Wenn für ein Projektboard die Automatisierung aktiviert ist, wird der Gesamtfortschritt des Projekts in der Fortschrittsanzeige angezeigt.'
+intro: You can see the overall progress of your project in a progress bar.
 redirect_from:
   - /articles/tracking-progress-on-your-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.project-management.project-progress-locations }}
+{% data reusables.project-management.project-progress-locations %}
 
-1. Navigiere zum Projektboard, in dem die Projektfortschrittsverfolgung deaktiviert werden soll.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-4. Deaktiviere **Track project progress** (Projektfortschritt verfolgen).
+1. Navigate to the project board where you want to enable or disable project progress tracking.
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
+4. Select or deselect **Track project progress**.

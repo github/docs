@@ -1,102 +1,130 @@
 ---
 title: Sobre o Suporte do GitHub Enterprise
-intro: 'O Suporte do {{ site.data.variables.product.prodname_ghe_server }} pode ajudar você a resolver os problemas do seu appliance do {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: '{% data variables.contact.github_support %} pode ajudar você a resolver problemas que surgem em {% data variables.product.product_name %}.'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Observação**: {{ site.data.reusables.support.data-protection-and-privacy }}
+**Observação**: {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-### Sobre o {{ site.data.variables.contact.enterprise_support }}
+### Sobre o {% data variables.contact.enterprise_support %}
 
-O {{ site.data.variables.product.prodname_ghe_server }} inclui {{ site.data.variables.contact.enterprise_support }} em inglês e japonês.
+{% data variables.product.product_name %} inclui {% data variables.contact.enterprise_support %} em inglês{% if enterpriseServerVersions contains currentVersion %}e japonês{% endif %}.
 
-Você pode entrar em contato com o {{ site.data.variables.contact.enterprise_support }} pelo portal de suporte para obter ajuda com as seguintes ações:
- - Instalar e usar o {{ site.data.variables.product.prodname_ghe_server }};
+{% if enterpriseServerVersions contains currentVersion %}
+Você pode entrar em contato com
+{% data variables.contact.enterprise_support %} por meio de {% data variables.contact.contact_enterprise_portal %} para obter ajuda com:
+ - Instalar e usar o {% data variables.product.product_name %};
  - Identificar e verificar as causas dos erros.
+{% endif %}
 
-Além de todos os benefícios do {{ site.data.variables.contact.enterprise_support }}, o {{ site.data.variables.contact.premium_support }} oferece:
+Além de todos os benefícios de {% data variables.contact.enterprise_support %}, {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.premium_support %}{% else %}o suporte para {% data variables.product.product_name %}{% endif %} oferece:
   - Suporte gravado por meio de nosso portal de suporte 24 horas por dias, 7 dias por semana
   - Suporte por telefone 24 horas por dia, 7 dias por semana
-  - Um Contrato de nível de serviço (SLA, Service Level Agreement) com tempos de resposta inicial garantidos
+  - Um{% if currentVersion == "github-ae@latest" %}n melhorou{% endif %} Contrato de Nível de Serviço (SLA) {% if enterpriseServerVersions contains currentVersion %}com tempo de resposta inicial garantido{% endif %}
+{% if currentVersion == "github-ae@latest" %}
+  - Um gerente de conta de serviço técnico atribuído
+  - Revisões de suporte trimestrais
+  - Serviços de administração gerenciados
+{% else if enterpriseServerVersions contains currentVersion %}
+  - Gerentes técnicos de conta
   - Acesso a conteúdo premium
   - Verificação de integridade agendadas
-  - Serviços gerenciados
+  - Horas administrativas gerenciadas
+{% endif %}
 
-Para obter mais informações, consulte a seção "[Sobre o {{ site.data.variables.contact.premium_support }} para {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
+{% data reusables.support.government-response-times-may-vary %}
 
-{{ site.data.reusables.support.scope-of-support }}
+{% if enterpriseServerVersions contains currentVersion %}
+Para obter mais informações, consulte a seção "[Sobre o {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)".
+{% endif %}
 
-### Entrar em contato com o {{ site.data.variables.contact.enterprise_support }}
+{% data reusables.support.scope-of-support %}
 
-Os clientes {{ site.data.variables.contact.enterprise_support }} podem usar o {{ site.data.variables.contact.contact_enterprise_portal }} para reportar problemas na escrita.
+### Entrar em contato com o {% data variables.contact.enterprise_support %}
+
+Você pode entrar em contato com {% data variables.contact.enterprise_support %} através de {% if enterpriseServerVersions contains currentVersion %}{% data variables.contact.contact_enterprise_portal %}{% elsif currentVersion == "github-ae@latest" %} o {% data variables.contact.ae_azure_portal %}{% endif %} para relatar problemas por escrito. Para obter mais informações, consulte "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)".
 
 ### Horas de operação
 
+{% if enterpriseServerVersions contains currentVersion %}
 #### Suporte em inglês
+{% endif %}
 
+{% if enterpriseServerVersions contains currentVersion %}
 Para problemas não urgentes, oferecemos suporte em inglês 24 horas por dia e 5 dias por semana, exceto nos fins de semana e feriados nacionais dos EUA. feriados. O tempo padrão de resposta é de 24 horas.
 
-Para problemas urgentes, estamos disponíveis 24 horas por dia, 7 dias por semana, mesmo durante os feriados nacionais nos EUA. feriados.
+Para problemas urgentes, nós {% else %}Nós{% endif %} estamos disponíveis 24 horas por dia, 7 dias por semana, mesmo durante feriados nacionais nos EUA. feriados.
 
+{% data reusables.support.government-response-times-may-vary %}
+
+{% if enterpriseServerVersions contains currentVersion  %}
 #### Suporte em japonês
 
 Para problemas não urgentes, o suporte em japonês está disponível de segunda-feira à sexta-feira, das 9h às 17h JST, exceto durante os feriados nacionais no Japão. Para problemas urgentes, oferecemos suporte em inglês 24 horas por dia, 7 dias por semana, mesmo durante os feriados nacionais nos EUA. feriados.
 
-Para obter uma lista completa dos EUA. Para ver a lista completa de feriados nacionais dos EUA e do Japão segundo o {{ site.data.variables.contact.enterprise_support }}, consulte o "[Calendário de feriados](#holiday-schedules)".
+Para obter uma lista completa dos EUA. Para ver uma lista de feriados nacionais no Japão observados por {% data variables.contact.enterprise_support %}, consulte "[Cronogramas de feriados](#holiday-schedules){% endif %}
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Calendário de feriados
 
-Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias por semana, incluindo nos EUA. e feriados japoneses.
+Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias por semana, incluindo nos EUA. {% if enterpriseServerVersions contains currentVersion  %}e{% endif %} feriados japoneses.
 
 #### Feriados nos Estados Unidos
 
-O {{ site.data.variables.contact.enterprise_support }} observa esses feriados dos EUA. O {{ site.data.variables.contact.enterprise_support }} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
+O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. feriados{% if enterpriseServerVersions contains currentVersion  %}, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes{% endif %}.
 
-| EUA Feriado             | Data observada em {{ "now"    | date: "%Y" }} |
-| ----------------------- | ----------------------------- | ------------- |
-| Fraternidade Universal  | 1º de janeiro                 |               |
-| Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |               |
-| Dia dos Presidentes     | 3ª segunda-feira de fevereiro |               |
-| Dia do Memorial         | Última segunda-feira de maio  |               |
-| Dia da Independência    | 4 de julho                    |               |
-| Dia do Trabalho         | 1ª segunda-feira de setembro  |               |
-| Dia dos Veteranos       | 12 de novembro                |               |
-| Ação de Graças (Dia 1)  | 4ª quinta-feira de novembro   |               |
-| Ação de Graças (Dia 2)  | 4ª sexta-feira de novembro    |               |
-| Natal (Dia 1)           | 24 de dezembro                |               |
-| Natal (Dia 2)           | 25 de dezembro                |               |
-| Natal (Dia 3)           | 26 de dezembro                |               |
-| Ano-Novo                | 31 de dezembro                |               |
+| EUA Feriado             | Data de observação            |
+| ----------------------- | ----------------------------- |
+| Fraternidade Universal  | 1º de janeiro                 |
+| Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |
+| Dia dos Presidentes     | 3ª segunda-feira de fevereiro |
+| Dia do Memorial         | Última segunda-feira de maio  |
+| Dia da Independência    | 4 de julho                    |
+| Dia do Trabalho         | 1ª segunda-feira de setembro  |
+| Dia dos Veteranos       | 12 de novembro                |
+| Ação de Graças (Dia 1)  | 4ª quinta-feira de novembro   |
+| Ação de Graças (Dia 2)  | 4ª sexta-feira de novembro    |
+| Natal (Dia 1)           | 24 de dezembro                |
+| Natal (Dia 2)           | 25 de dezembro                |
+| Natal (Dia 3)           | 26 de dezembro                |
+| Ano-Novo                | 31 de dezembro                |
 
 #### Feriados no Japão
 
-O {{ site.data.variables.contact.enterprise_support }} não oferece suporte na língua japonesa no período de 28 de dezembro a 3 de janeiro, nem nos feriados listados em [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
+O {% data variables.contact.enterprise_support %} não oferece suporte na língua japonesa no período de 28 de dezembro a 3 de janeiro, nem nos feriados listados em [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html).
 
-{{ site.data.reusables.enterprise_enterprise_support.installing-releases }}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
+{% endif %}
 
 ### Atribuindo uma prioridade a um tíquete de suporte
 
-Ao entrar em contato com {{ site.data.variables.contact.enterprise_support }}, você pode escolher uma das quatro prioridades para o tíquete: {{ site.data.variables.product.support_ticket_priority_urgent }}, {{ site.data.variables.product.support_ticket_priority_high }}, {{ site.data.variables.product.support_ticket_priority_normal }} ou {{ site.data.variables.product.support_ticket_priority_low }}.
+Ao entrar em contato com {% data variables.contact.enterprise_support %}, você pode escolher uma das quatro prioridades para o tíquete: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
 
-{{ site.data.reusables.support.github-can-modify-ticket-priority }}
+{% data reusables.support.github-can-modify-ticket-priority %}
 
-{{ site.data.reusables.support.ghes-priorities }}
+{% if enterpriseServerVersions contains currentVersion  %}
+{% data reusables.support.ghes-priorities %}
+{% elsif currentVersion == "github-ae@latest" %}
+{% data reusables.support.ghae-priorities %}
+{% endif %}
 
 ### Resolução e fechamento de tíquete de suporte
 
-{{ site.data.reusables.support.enterprise-resolving-and-closing-tickets }}
+{% data reusables.support.enterprise-resolving-and-closing-tickets %}
 
 ### Leia mais
 
-- [Perguntas frequentes sobre o {{ site.data.variables.product.prodname_ghe_server }}](https://enterprise.github.com/faq)
-- Seção 10 sobre Suporte no "[Contrato de licença do {{ site.data.variables.product.prodname_ghe_server }}](https://enterprise.github.com/license)"
-- [Entrar em contato com o {{ site.data.variables.contact.github_support }}](/enterprise/admin/guides/enterprise-support/reaching-github-support)
-- [Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)
+{% if enterpriseServerVersions contains currentVersion %}
+- [Perguntas frequentes sobre o {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/faq)
+- Seção 10 sobre suporte no Contrato de Licença de "[{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/license)"{% endif %}
+- "[Receber ajuda de {% data variables.contact.github_support %}](/admin/enterprise-support/receiving-help-from-github-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)"{% endif %}
 - [Enviar um tíquete](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)

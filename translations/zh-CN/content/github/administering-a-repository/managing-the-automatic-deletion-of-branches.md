@@ -5,13 +5,14 @@ redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 对仓库具有管理员权限的任何人都可启用或禁用分支的自动删除。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在“Merge（合并）”按钮下，选择或取消选择 **Automatically delete head branches（自动删除头部分支）**。 ![启用或禁用分支自动删除的复选框](/assets/images/help/repository/automatically-delete-branches.png)
 
 ### 延伸阅读

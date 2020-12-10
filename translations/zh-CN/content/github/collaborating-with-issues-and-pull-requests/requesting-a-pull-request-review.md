@@ -1,16 +1,17 @@
 ---
 title: 请求拉取请求审查
-intro: 创建拉取请求后，您可以请求特定人员审查您提议的更改。 如果您是组织成员，还可以请求特定团队审查您的更改。
+intro: '创建拉取请求后，您可以请求特定人员审查您提议的更改。 如果您是组织成员，还可以请求特定团队审查您的更改。'
 redirect_from:
   - /articles/requesting-a-pull-request-review
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 用户帐户拥有的仓库的所有者和协作者可以分配拉取请求审查。 拥有仓库查验漏洞权限的组织成员可以分配拉取请求审查。
 
-所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
+所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
 {% note %}
 
@@ -20,7 +21,7 @@ versions:
 
 您可以向建议的或特定的人员请求审查。 建议的审查者基于 [git 追溯数据](/articles/tracking-changes-in-a-file/)。 如果您请求审查，则具有仓库读取权限的其他人仍可审查您的拉取请求。 在有人审查您的拉取请求后您做了必要的更改，您可以重新请求同一审查者再次审查。 如果请求的审查者未提交审查，并且拉取请求满足仓库的[可合并性要求](/articles/defining-the-mergeability-of-pull-requests)，则您仍然可以合并该拉取请求。
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在拉取请求列表中，单击您想要请求特定人员或团队审查的拉取请求。
 3. 导航到右侧边栏中的 **Reviewers（审查者）**。
 4. 要向建议的人员请求审查，在 **Reviewers（审查者）**下其用户名旁边，单击 **Request（请求）**。 ![右侧边栏中的审查者请求图标](/assets/images/help/pull_requests/request-suggested-review.png)

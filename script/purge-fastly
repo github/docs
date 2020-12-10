@@ -2,7 +2,7 @@
 
 # [start-readme]
 #
-# Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn).
+# Run this script to manually purge the Fastly cache.
 # Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
 #
 # [end-readme]

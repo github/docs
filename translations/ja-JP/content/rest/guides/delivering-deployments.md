@@ -1,6 +1,6 @@
 ---
 title: デプロイメントを配信する
-intro: Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。
+intro: 'Deployment REST APIを使用すると、サーバーおよびサードパーティアプリケーションとやり取りするカスタムツールを構築できます。'
 redirect_from:
   - /guides/delivering-deployments/
   - /guides/automating-deployments-to-integrators/
@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+ 
+  
 
-
-
-[Deployment API][deploy API]は、{{ site.data.variables.product.product_name }}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 [Status API][status API]と組み合わせれば、コードが`master`に到着してからすぐにデプロイメントを調整できるようになります。
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on the default branch.
 
 このAPIでは、ステータスAPIを使って、利用できる設定を示します。 このシナリオでは、以下を行います。
 
@@ -54,7 +55,7 @@ end
 * デプロイメントステータス
 * プルリクエスト
 
-これらは、関係するアクションが発生するごとに{{ site.data.variables.product.product_name }}がこのサーバーに送信するイベントです。 ここではプルリクエストがマージされたときの処理*だけ*を処理するようサーバーを設定します。
+これらは、関係するアクションが発生するごとに{% data variables.product.product_name %}がこのサーバーに送信するイベントです。 ここではプルリクエストがマージされたときの処理*だけ*を処理するようサーバーを設定します。
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +70,7 @@ post '/event_handler' do
 end
 ```
 
-さて、ここで起こっていることを説明しましょう。 {{ site.data.variables.product.product_name }}が送信するすべてのイベントには、`X-GitHub-Event` HTTPヘッダが添付されています。 ここではPRイベントのみに注目しましょう。 プルリクエストがマージされると (ステータスが`closed`となり、`merged`が`true`になると)、デプロイメントを開始します。
+さて、ここで起こっていることを説明しましょう。 {% data variables.product.product_name %}が送信するすべてのイベントには、`X-GitHub-Event` HTTPヘッダが添付されています。 ここではPRイベントのみに注目しましょう。 プルリクエストがマージされると (ステータスが`closed`となり、`merged`が`true`になると)、デプロイメントを開始します。
 
 この概念実証を試すため、テストリポジトリのブランチで何か変更を行い、プルリクエストを開いてマージします。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
 
@@ -144,7 +145,7 @@ GitHubでは長年、デプロイメントを管理するため[Heaven][heaven]�
 
 これで完了です。 この例を使用するために、独自のデプロイメントを構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

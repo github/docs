@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Herausfinden, wo der Schlüssel verwendet wurde
@@ -13,13 +14,13 @@ versions:
 Um herauszufinden, wo der Schlüssel bereits verwendet wurde, öffne ein Terminal und gib den Befehl `ssh` ein. Mit dem Flag `-i` gibst Du den Pfad zu dem Schlüssel ein, den Du überprüfen möchtest:
 
 ```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{{ site.data.variables.command_line.codeblock }}
-# Stellt mit einem bestimmten SSH-Key eine Verbindung mit {{ site.data.variables.product.product_location }} her
+$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+# Stellt mit einem bestimmten SSH-Key eine Verbindung mit {% data variables.product.product_location %} her
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-Der *username* (Benutzername) in der Antwort ist das {{ site.data.variables.product.product_name }}-Konto, an das der Schlüssel derzeit angehängt ist. Wenn die Antwort ähnlich wie „username/repo“ aussieht, wurde der Schlüssel als [*Deployment-Schlüssel*](/guides/managing-deploy-keys#deploy-keys) an ein Repository angehängt.
+Der *username* (Benutzername) in der Antwort ist das {% data variables.product.product_name %}-Konto, an das der Schlüssel derzeit angehängt ist. Wenn die Antwort ähnlich wie „username/repo“ aussieht, wurde der Schlüssel als [*Deployment-Schlüssel*](/guides/managing-deploy-keys#deploy-keys) an ein Repository angehängt.
 
 ### Das Problem beheben
 

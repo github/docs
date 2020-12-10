@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### Ciclo de versões do {{ site.data.variables.product.prodname_dotcom }}
+### Ciclo de versões do {% data variables.product.prodname_dotcom %}
 
-Os produtos e recursos do {{ site.data.variables.product.product_name }} podem passar por várias fases de versão.
+Os produtos e recursos do {% data variables.product.product_name %} podem passar por várias fases de versão.
 
 | Fase                       | Descrição                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -21,5 +21,5 @@ Os produtos e recursos do {{ site.data.variables.product.product_name }} podem p
 
 Você pode ver uma lista de recursos disponíveis na versão beta e uma breve descrição de cada um deles. Cada recurso inclui um link para dar feedback.
 
-1. No canto superior direito de qualquer página, clique na sua foto do perfil e depois em **Feature preview** (Visualização de recursos). ![Botão Feature preview (Visualização de recursos)](/assets/images/help/settings/feature-preview-button.png)
+{% data reusables.feature-preview.feature-preview-setting  %}
 2. Outra opção é clicar em **Enable** (Habilitar) ou **Disable** (Desabilitar) à direita de um recurso. ![Botão Enable (Habilitar) na visualização de recursos](/assets/images/help/settings/enable-feature-button.png)

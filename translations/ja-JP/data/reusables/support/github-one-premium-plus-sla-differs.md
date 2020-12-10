@@ -1,1 +1,0 @@
-{{ site.data.variables.product.prodname_ghe_one }}を購入したお客様については、{{ site.data.variables.contact.premium_support }}による初期返信時間のSLAは、{{ site.data.variables.product.prodname_actions }}、{{ site.data.variables.product.prodname_insights }}、{{ site.data.variables.product.prodname_learning }}、{{ site.data.variables.product.prodname_registry }}のチケットには適用されません。

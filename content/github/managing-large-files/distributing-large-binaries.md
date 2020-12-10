@@ -6,14 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-If you need to distribute large files within your repository, you can create releases on {{site.data.variables.product.product_location }}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.product.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {{ site.data.variables.large_files.max_lfs_size }}.
+We don't limit the total size of the binary files in the release or the bandwidth used to deliver them. However, each individual file must be smaller than {% data variables.large_files.max_lfs_size %}.
 
 {% endif %}
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}

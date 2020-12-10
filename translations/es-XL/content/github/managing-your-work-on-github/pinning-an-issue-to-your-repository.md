@@ -12,7 +12,7 @@ versions:
 
 Para anclar una propuesta, debes tener permisos de escritura para el repositorio dentro del cual se encuentra la propuesta.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. En la lista de propuestas, haz clic en la propuesta que deseas anclar.
 4. En la barra lateral derecha, haz clic **Pin issue (Anclar una propuesta)**. ![Botón para anclar una propuesta](/assets/images/help/repository/pin-issue.png)

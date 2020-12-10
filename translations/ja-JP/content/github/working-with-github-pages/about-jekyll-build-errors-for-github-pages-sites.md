@@ -1,26 +1,27 @@
 ---
 title: GitHub PagesサイトのJekyllビルドエラーについて
-intro: 'ローカルで、または{{ site.data.variables.product.product_name }}上で{{ site.data.variables.product.prodname_pages }}サイトをビルド中にJekyllでエラーが発生した場合には、詳細情報を伴うエラーメッセージが示されます。'
+intro: 'ローカルで、または{% data variables.product.product_name %}上で{% data variables.product.prodname_pages %}サイトをビルド中にJekyllでエラーが発生した場合には、詳細情報を伴うエラーメッセージが示されます。'
 redirect_from:
   - /articles/viewing-jekyll-build-error-messages/
   - /articles/generic-jekyll-build-failures/
   - /articles/about-jekyll-build-errors-for-github-pages-sites
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Jekyllのビルドエラーについて
 
-サイトの公開元に変更をプッシュした後で、{{ site.data.variables.product.prodname_pages }}がサイトのビルドを試行しない場合があります。{% if currentVersion == "free-pro-team@latest" %}
+Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
 - 変更をプッシュしたユーザーがメールアドレスを検証していない。 詳しい情報については、「[メールアドレスの検証](/articles/verifying-your-email-address)」を参照してください。{% endif %}
-- デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/v3/guides/managing-deploy-keys/#machine-users)」を参照してください。
+- デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/developers/overview/managing-deploy-keys#machine-users)」を参照してください。
 - 公開元をビルドするようにCIサービスを設定していない。 たとえば、Travis CIは`gh-pages`ブランチを、セーフリストに追加しない限りビルドしません。 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。
 
 {% note %}
 
-**メモ:** サイトに対する変更は、その変更を{{ site.data.variables.product.product_name }}にプッシュしてから公開されるまでに、最大20分かかることがあります。
+**メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
 
 {% endnote %}
 
@@ -28,19 +29,17 @@ Jekyllがサイトのビルドを試行せず、エラーが発生した場合�
 - 「Page build warning」メッセージは、ビルドは成功したものの、今後問題が生じないようにするために変更を行なう必要がある可能性が存在することを意味します。
 - 「Page build failed」メッセージは、ビルドが完了できなかったことを意味します。 Jekyll が失敗の理由を検出できた場合、説明を含むエラーメッセージが表示されます。
 
-ビルドエラーのトラブルシューティングに関する詳しい情報については、「[{{ site.data.variables.product.prodname_pages }} サイトの Jekyll ビルドエラーのトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)」を参照してください。
+ビルドエラーのトラブルシューティングに関する詳しい情報については、「[{% data variables.product.prodname_pages %} サイトの Jekyll ビルドエラーのトラブルシューティング](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites)」を参照してください。
 
 ### Jekyll ビルドエラーメッセージを表示する
 
-サイトのテストをローカルで行なうことをお勧めします。それにより、ビルドエラーメッセージをコマンドラインで表示でき、変更を {{ site.data.variables.product.product_name }} にプッシュする前に、あらゆるビルドエラーに対処できます。 詳しい情報については、「[Jekyll を使用して {{ site.data.variables.product.prodname_pages }} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
+サイトのテストをローカルで行なうことをお勧めします。それにより、ビルドエラーメッセージをコマンドラインで表示でき、変更を {% data variables.product.product_name %} にプッシュする前に、あらゆるビルドエラーに対処できます。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-{{ site.data.variables.product.product_name }} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
-{% endif %}
+{% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
 
-{{ site.data.variables.product.product_name }} の公開元に変更をプッシュする際、{{ site.data.variables.product.prodname_pages }} はサイトのビルドを試みます。 ビルドが失敗すると、プライマリメールアドレスにメールが送信されます。 また、ビルドの警告についてのメールも送信されます。 {{ site.data.reusables.pages.build-failure-email-server }}
+{% data variables.product.product_name %} の公開元に変更をプッシュする際、{% data variables.product.prodname_pages %} はサイトのビルドを試みます。 ビルドが失敗すると、プライマリメールアドレスにメールが送信されます。 また、ビルドの警告についてのメールも送信されます。 {% data reusables.pages.build-failure-email-server %}
 
-{{ site.data.variables.product.product_name }} 上のビルドの失敗については、サイトのリポジトリの、[**Settings**] タブに表示されます。(ただし、ビルドの警告については表示されません。)
+{% data variables.product.product_name %} 上のビルドの失敗については、サイトのリポジトリの、[**Settings**] タブに表示されます。(ただし、ビルドの警告については表示されません。)
 
 各コミット後にエラーメッセージを表示するように、[Travis CI](https://travis-ci.org/) などのサードパーティサービスを設定できます。
 

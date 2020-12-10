@@ -1,7 +1,7 @@
 ---
 title: Autenticar a GitHub
 shortTitle: Autenticación
-intro: 'Puedes acceder de forma segura a los recursos de tu cuenta en {{ site.data.variables.product.prodname_desktop }} si te autenticas con {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Puedes acceder de forma segura a los recursos de tu cuenta en {% data variables.product.prodname_desktop %} si te autenticas con {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
@@ -11,72 +11,72 @@ versions:
 
 ### Acerca de la autenticación
 
-Para mantener la seguridad de tu cuenta, debes autenticarte antes de que puedas utilizar {{ site.data.variables.product.prodname_desktop }} para acceder a los recursos en {{ site.data.variables.product.prodname_dotcom }}.
+Para mantener la seguridad de tu cuenta, debes autenticarte antes de que puedas utilizar {% data variables.product.prodname_desktop %} para acceder a los recursos en {% data variables.product.prodname_dotcom %}.
 
-Antes de realizar la autenticación, {{ site.data.reusables.desktop.get-an-account }}
+Antes de realizar la autenticación, {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-### Autenticar una cuenta en {{ site.data.variables.product.prodname_dotcom }}
+### Autenticar una cuenta en {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.mac-select-accounts }}
-3. A la derecha de "{{ site.data.variables.product.prodname_dotcom_the_website }}", da clic en **Iniciar sesión**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-github.png)
-4. En el recuadro de "Iniciar sesión", da clic en **Iniciar sesión utilizando tu buscador**. {{ site.data.variables.product.prodname_desktop }} abrirá tu buscador predeterminado. ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/mac-sign-in-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.mac-select-accounts %}
+3. A la derecha de "{% data variables.product.prodname_dotcom_the_website %}", da clic en **Iniciar sesión**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-github.png)
+4. En el recuadro de "Iniciar sesión", da clic en **Iniciar sesión utilizando tu buscador**. {% data variables.product.prodname_desktop %} abrirá tu buscador predeterminado. ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/mac-sign-in-browser.png)
 
-  {{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.authenticate-in-browser }}
-{{ site.data.reusables.desktop.2fa-in-browser }}
-7. Después de que {{ site.data.variables.product.prodname_dotcom }} autentique tu cuenta, sigue las indicaciones para regresar a {{ site.data.variables.product.prodname_desktop }}.
+{% data reusables.desktop.authenticate-in-browser %}
+{% data reusables.desktop.2fa-in-browser %}
+7. Después de que {% data variables.product.prodname_dotcom %} autentique tu cuenta, sigue las indicaciones para regresar a {% data variables.product.prodname_desktop %}.
 
-### Autenticar una cuenta en {{ site.data.variables.product.prodname_enterprise }}
+### Autenticar una cuenta en {% data variables.product.prodname_enterprise %}
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.mac-select-accounts }}
-{{ site.data.reusables.desktop.choose-product-authenticate }}
-4. Para agregar una cuenta de {{ site.data.variables.product.prodname_enterprise }}, teclea tus credenciales bajo el campo "Dirección de Enterprise Server", y luego da clic en **Continuar**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{{ site.data.reusables.desktop.retrieve-2fa }}
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.mac-select-accounts %}
+{% data reusables.desktop.choose-product-authenticate %}
+4. Para agregar una cuenta de {% data variables.product.prodname_enterprise %}, teclea tus credenciales bajo el campo "Dirección de Enterprise Server", y luego da clic en **Continuar**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+{% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
 
 {% windows %}
 
-### Autenticar una cuenta en {{ site.data.variables.product.prodname_dotcom }}
+### Autenticar una cuenta en {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.windows-select-accounts }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-select-accounts %}
 3. A la derecha de "GitHub.com", da clic en **Iniciar sesión**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-github.png)
 4. En el panel de inicio de sesión, haz clic en **Sign in using your browser** (Iniciar sesión usando el navegador). ![Inicio de sesión mediante el enlace de su navegador](/assets/images/help/desktop/windows-sign-in-browser.png)
 
-  {{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.authenticate-in-browser }}
-{{ site.data.reusables.desktop.2fa-in-browser }}
-7. Después de que {{ site.data.variables.product.prodname_dotcom }} autentique tu cuenta, sigue las indicaciones para regresar a {{ site.data.variables.product.prodname_desktop }}.
+{% data reusables.desktop.authenticate-in-browser %}
+{% data reusables.desktop.2fa-in-browser %}
+7. Después de que {% data variables.product.prodname_dotcom %} autentique tu cuenta, sigue las indicaciones para regresar a {% data variables.product.prodname_desktop %}.
 
-### Autenticar una cuenta en {{ site.data.variables.product.prodname_enterprise }}
+### Autenticar una cuenta en {% data variables.product.prodname_enterprise %}
 
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.windows-select-accounts }}
-{{ site.data.reusables.desktop.choose-product-authenticate }}
-4. Para agregar una cuenta de {{ site.data.variables.product.prodname_enterprise }}, teclea tus credenciales bajo el campo "Dirección de Enterprise Server", y luego da clic en **Continuar**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{{ site.data.reusables.desktop.retrieve-2fa }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-select-accounts %}
+{% data reusables.desktop.choose-product-authenticate %}
+4. Para agregar una cuenta de {% data variables.product.prodname_enterprise %}, teclea tus credenciales bajo el campo "Dirección de Enterprise Server", y luego da clic en **Continuar**. ![El botón Sign In (Iniciar sesión) para GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+{% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
 ### Solucionar problemas de autenticación
 
-Si {{ site.data.variables.product.prodname_desktop }} encuentra un error de autenticación, puedes utilizar los mensajes de error para solucionar los problemas.
+Si {% data variables.product.prodname_desktop %} encuentra un error de autenticación, puedes utilizar los mensajes de error para solucionar los problemas.
 
-Si te encuentras con un error de autenticación, primero intenta salir y entrar nuevamente a tu cuenta en {{ site.data.variables.product.prodname_desktop }}.
+Si te encuentras con un error de autenticación, primero intenta salir y entrar nuevamente a tu cuenta en {% data variables.product.prodname_desktop %}.
 
-En el caso de algunos errores, {{ site.data.variables.product.prodname_desktop }} te solicitará que indiques el mensaje de error. Si no se te solicita esto, o si quieres encontrar información adicional sobre cualquier error, consulta los archivos de bitácora de {{ site.data.variables.product.prodname_desktop }} siguiendo estos pasos.
+En el caso de algunos errores, {% data variables.product.prodname_desktop %} te solicitará que indiques el mensaje de error. Si no se te solicita esto, o si quieres encontrar información adicional sobre cualquier error, consulta los archivos de bitácora de {% data variables.product.prodname_desktop %} siguiendo estos pasos.
 
 {% mac %}
 
@@ -102,7 +102,7 @@ Error: Bad credentials
 
 Este error significa que hay un problema con las credenciales almacenadas de tu cuenta.
 
-Para solucionar este problema, sal de tu cuenta en {{ site.data.variables.product.prodname_desktop }} y vuelve a firmarte.
+Para solucionar este problema, sal de tu cuenta en {% data variables.product.prodname_desktop %} y vuelve a firmarte.
 
 #### Token vacío
 
@@ -110,9 +110,9 @@ Para solucionar este problema, sal de tu cuenta en {{ site.data.variables.produc
 info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
 ```
 
-Este error significa que {{ site.data.variables.product.prodname_desktop }} no puede encontrar el token de acceso que creó en la cadena de llaves del sistema.
+Este error significa que {% data variables.product.prodname_desktop %} no puede encontrar el token de acceso que creó en la cadena de llaves del sistema.
 
-Para solucionar este problema, sal de tu cuenta en {{ site.data.variables.product.prodname_desktop }} y vuelve a firmarte.
+Para solucionar este problema, sal de tu cuenta en {% data variables.product.prodname_desktop %} y vuelve a firmarte.
 
 #### No se encuentra el repositorio
 
@@ -168,7 +168,7 @@ fatal: could not read Username for 'https://github.com': terminal prompts disabl
 
 Este error se puede presentar a causa de varios eventos.
 
-Si se modifican las entradas del registro de `Command Processor`, {{ site.data.variables.product.prodname_desktop }} responderá con un error de `Authentication failed`. Para verificar si estas entradas de registro se modifcaron, sigue estos pasos.
+Si se modifican las entradas del registro de `Command Processor`, {% data variables.product.prodname_desktop %} responderá con un error de `Authentication failed`. Para verificar si estas entradas de registro se modifcaron, sigue estos pasos.
 
 1. Abre el editor de registro (`regedit.exe`) y navega hasta las siguientes ubicaciones. `` HKEY_CURRENT_USER\Software\Microsoft\Command Processor\` ``HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
 2. Revisa para ver si hay un valor de `Autorun` en cualquiera de las ubicaciones.

@@ -2,7 +2,7 @@
 title: GitHub Actionsのメタデータ構文
 shortTitle: メタデータ構文
 intro: リポジトリでタスクを実行するアクションを作成できます。 アクションには、YAML構文を使うメタデータファイルが必要です。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -13,10 +13,10 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
-### {{ site.data.variables.product.prodname_actions }}のYAML構文について
+### {% data variables.product.prodname_actions %}のYAML構文について
 
 Docker及びJavaScriptアクションにはメタデータファイルが必要です。 このメタデータのファイル名は`action.yml`もしくは`action.yaml`でなければなりません。 メタデータファイル中のデータは、アクションの入力、出力、メインエントリポイントを定義します。
 
@@ -24,7 +24,7 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 ### **`name`**
 
-**必須**アクションの名前。 {{ site.data.variables.product.prodname_dotcom }}は`name`を**Actions**タブに表示して、それぞれのジョブのアクションを見て区別しやすくします。
+**必須**アクションの名前。 {% data variables.product.prodname_dotcom %}は`name`を**Actions**タブに表示して、それぞれのジョブのアクションを見て区別しやすくします。
 
 ### **`作者`**
 
@@ -36,12 +36,11 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 ### **`inputs`**
 
-**オプション** inputsパラメーターを使うと、アクションが実行時に使うデータを指定できます。 {{ site.data.variables.product.prodname_dotcom }}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
+**オプション** inputsパラメーターを使うと、アクションが実行時に使うデータを指定できます。 {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
 
 #### サンプル
 
-この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使うワークフローのファイルは、`with`キーワードを使ってoctocatEyeColorの入力値を設定しなければなりません。 `with`構文に関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
-
+この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使うワークフローのファイルは、`with`キーワードを使ってoctocatEyeColorの入力値を設定しなければなりません。 `with`構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
 
 ```yaml
 inputs:
@@ -54,8 +53,7 @@ inputs:
     required: true
 ```
 
-
-ワークフローファイル内で、あるいはデフォルトの入力値を使ってアクションに入力を指定すると、{{ site.data.variables.product.prodname_dotcom }}はその入力に対応して`INPUT_<VARIABLE_NAME>`という名前の環境変数を生成します。 生成される環境変数では、入力の名前を大文字にして、空白を`_`に変換します。
+ワークフローファイル内で、あるいはデフォルトの入力値を使ってアクションに入力を指定すると、{% data variables.product.prodname_dotcom %}はその入力に対応して`INPUT_<VARIABLE_NAME>`という名前の環境変数を生成します。 生成される環境変数では、入力の名前を大文字にして、空白を`_`に変換します。
 
 たとえば、ワークフローがnumOctocats及びoctocatEyeColorという入力を定義すると、アクションのコードはこれらの入力の値を`INPUT_NUMOCTOCATS`及び`INPUT_OCTOCATEYECOLOR`という環境変数で読み取れます。
 
@@ -79,7 +77,7 @@ inputs:
 
 **オプション** アクションが設定するデータを宣言できる出力パラメータ。 ワークフローで後に実行されるアクションは、先行して実行されたアクションが設定した出力データを利用できます。  たとえば、2つの入力を加算(x + y = z)するアクションがあれば、そのアクションは他のアクションが入力として利用できる合計値(z)を出力できます。
 
-メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクション中での出力の設定に関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
+メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクション中での出力の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
 
 #### サンプル
 
@@ -99,7 +97,7 @@ outputs:
 
 ### 複合実行ステップアクションのための **`outputs`**
 
-**オプション** `outputs` `outputs.<output_id>` および `outputs.<output_id>.description`（「[{{ site.data.variables.product.prodname_actions }} の `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)」を参照）と同じパラメーターを使用しますが、`value` トークンも含まれます。
+**オプション** `outputs` `outputs.<output_id>` および `outputs.<output_id>.description`（「[{% data variables.product.prodname_actions %} の `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)」を参照）と同じパラメーターを使用しますが、`value` トークンも含まれます。
 
 #### サンプル
 
@@ -121,7 +119,7 @@ runs:
 #### **`outputs.<output_id.value>`**
 **必須** 出力パラメーターがマップされる値。 これを `string` またはコンテキスト付きの式に設定できます。 たとえば、`steps` コンテキストを使用して、出力の `value` をステップの出力値に設定できます。
 
-コンテキストと式の構文の使用方法について詳しくは、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式の構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+コンテキストと式の構文の使用方法について詳しくは、「[{% data variables.product.prodname_actions %} のコンテキストと式の構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 ### JavaScriptアクションのための**`runs`**
 
@@ -239,11 +237,11 @@ runs:
 
 ##### **`runs.steps.id`**
 
-**オプション** ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+**オプション** ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 ##### **`runs.steps.env`**
 
-**オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで `echo "::set-env name={name}::{value}"` を使用します。
+**オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで {% if currentVersion == "free-pro-team@latest" または currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} を使用します。
 
 ##### **`runs.steps.working-directory`**
 
@@ -275,7 +273,7 @@ runs:
 
 #### **`pre-entrypoint`**
 
-**オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {{ site.data.variables.product.prodname_actions }}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 `pre-entrypoint:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
+**オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {% data variables.product.prodname_actions %}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 `pre-entrypoint:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
 
 [`using`](#runsusing)構文を使って指定されたアプリケーションがこのファイルを実行します。
 
@@ -303,11 +301,11 @@ runs:
 
 **オプション** `Dockerfile`中のDockerの`ENTRYPOINT`をオーバーライドします。あるいは、もしそれが指定されていなかった場合に設定します。 `entrypoint`は、`Dockerfile`で`ENTRYPOINT`が指定されていない場合や、`ENTRYPOINT`命令をオーバーライドしたい場合に使ってください。 `entrypoint`を省略すると、Dockerの`ENTRYPOINT`命令で指定されたコマンドが実行されます。 Dockerの`ENTRYPOINT`命令には、_shell_形式と_exec_形式があります。 Dockerの`ENTRYPOINT`のドキュメンテーションは、`ENTRYPOINT`の_exec_形式を使うことを勧めています。
 
-`entrypoint`の実行に関する詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}のDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)」を参照してください。
+`entrypoint`の実行に関する詳しい情報については、「[{% data variables.product.prodname_actions %}のDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)」を参照してください。
 
 #### **`post-entrypoint`**
 
-**オプション** `run.entrypoint`アクションが完了した後に、クリーンアップスクリプトを実行できるようにしてくれます。 {{ site.data.variables.product.prodname_actions }}はこのアクションを起動するのに`docker run`を使います。 {{ site.data.variables.product.prodname_actions }}はスクリプトを同じベースイメージを使って新しいコンテナ内で実行するので、ランタイムの状態はメインの`entrypoint`コンテナとは異なります。 必要な状態には、ワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスできます。 `post-entrypoint:`アクションはデフォルトで常に実行されますが、[`post-if`](#post-if)を使ってこれをオーバーライドすることができます。
+**オプション** `run.entrypoint`アクションが完了した後に、クリーンアップスクリプトを実行できるようにしてくれます。 {% data variables.product.prodname_actions %}はこのアクションを起動するのに`docker run`を使います。 {% data variables.product.prodname_actions %}はスクリプトを同じベースイメージを使って新しいコンテナ内で実行するので、ランタイムの状態はメインの`entrypoint`コンテナとは異なります。 必要な状態には、ワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスできます。 `post-entrypoint:`アクションはデフォルトで常に実行されますが、[`post-if`](#post-if)を使ってこれをオーバーライドすることができます。
 
 ```yaml
 runs:
@@ -321,15 +319,15 @@ runs:
 
 #### **`runs.args`**
 
-**オプション** Dockerコンテナへの入力を定義する文字列の配列。 入力には、ハードコードされた文字列を含めることができます。 {{ site.data.variables.product.prodname_dotcom }}は、コンテナの起動時にコンテナの`ENTRYPOINT`に`args`を渡します。
+**オプション** Dockerコンテナへの入力を定義する文字列の配列。 入力には、ハードコードされた文字列を含めることができます。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。
 
 `args`は、`Dockerfile`中の`CMD`命令の場所で使われます。 `Dockerfile`中で`CMD`を使うなら、以下の優先順位順のガイドラインを利用してください。
 
-{{ site.data.reusables.github-actions.dockerfile-guidelines }}
+{% data reusables.github-actions.dockerfile-guidelines %}
 
 環境変数をアクションに渡す必要がある場合は、変数置換を行えるようアクションがコマンドシェルで実行されていることを確認してください。 たとえば、`entrypoint`属性が`"sh -c"`に設定されているなら、`args`はコマンドシェル内で実行されます。 あるいは、`Dockerfile`が`ENTRYPOINT`を使って同じコマンド（`"sh -c"`）を実行しているなら、`args`はコマンドシェル内で実行されます。
 
-{{ site.data.variables.product.prodname_actions }}での`CMD`命令の利用に関する詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}のDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)」を参照してください。
+{% data variables.product.prodname_actions %}での`CMD`命令の利用に関する詳しい情報については、「[{% data variables.product.prodname_actions %}のDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)」を参照してください。
 
 ##### サンプル
 
@@ -347,7 +345,7 @@ runs:
 
 ### **`branding`**
 
-アクションをパーソナライズして見分けられるようにするために、カラーと[Feather](https://feathericons.com/)アイコンを使ってバッジを作ることができます。 バッジは、[{{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace?type=actions)内のアクション名の隣に表示されます。
+アクションをパーソナライズして見分けられるようにするために、カラーと[Feather](https://feathericons.com/)アイコンを使ってバッジを作ることができます。 バッジは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)内のアクション名の隣に表示されます。
 
 #### サンプル
 

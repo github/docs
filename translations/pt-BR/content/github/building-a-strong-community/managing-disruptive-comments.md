@@ -1,6 +1,6 @@
 ---
 title: Gerenciar comentários conflituosos
-intro: 'Você pode {% if currentVersion == "free-pro-team@latest" %}ocultar, editar,{% else %}editar{% endif %} ou excluir comentários sobre problemas, pull request e commits.'
+intro: 'Podes {% if currentVersion == "free-pro-team@latest" %}hide, editar,{% else %}edit{% endif %} ou excluir comentários em problemas, pull requests e commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Ocultar um comentário
@@ -39,7 +40,7 @@ Qualquer pessoa com acesso de gravação em um repositório pode reexibir coment
 
 Qualquer pessoa com acesso de gravação em um repositório pode editar comentários sobre problemas, pull requests e commits.
 
-É apropriado editar um comentário e remover conteúdo que não contribui para a conversa e infringe o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou as [Diretrizes da comunidade](/articles/github-community-guidelines) do GitHub{% endif %}.
+Considera-se apropriado editar um comentário e remover o conteúdo que não contribui para a conversa e viole o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou as diretrizes [da Comunidade do GitHub](/articles/github-community-guidelines){% endif %}.
 
 Quando editar um comentário, anote a localização de onde o comentário foi removido e, opcionalmente, os motivos para a remoção.
 
@@ -59,7 +60,7 @@ Autores do comentário e pessoas com acesso de gravação a um repositório pode
 
 Qualquer pessoa com acesso de gravação em um repositório pode excluir comentários sobre problemas, pull requests e commits. Proprietários de organização, mantenedores de equipes e o autor do comentário também podem excluir um comentário na página da equipe.
 
-Excluir um comentário é o seu último recurso como moderador. É adequado excluir um comentário se o comentário em sua totalidade não contribui com conteúdo construtivo para uma conversa e infringe o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou as [Diretrizes da comunidade](/articles/github-community-guidelines) do GitHub{% endif %}.
+Excluir um comentário é o seu último recurso como moderador. É apropriado excluir um comentário se todo o comentário não adicionar conteúdo construtivo a uma conversa e violar o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou [Diretrizes da Comunidade](/articles/github-community-guidelines){% endif %}.
 
 Excluir um comentário cria um evento na linha do tempo visível a qualquer um com acesso de leitura no repositório. No entanto, o nome de usuário da pessoa que excluiu o comentário somente pode ser visualizado pelas pessoas com acesso de gravação ao repositório. Para qualquer pessoa sem acesso de gravação, o evento na linha do tempo é anônimo.
 

@@ -58,7 +58,7 @@ Estos son sólo algunos ejemplos de la complejidad de la legislación sobre dere
 
 ### Cómo enviar tu contra notificación
 
-La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {{ site.data.variables.contact.contact_dmca }}.
+La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {% data variables.contact.contact_dmca %}.
 
 También puedes enviar una notificación por correo electrónico a <copyright@github.com>. Puedes incluir un archivo adjunto si lo deseas, pero por favor incluye una versión de texto simple de tu carta en el cuerpo de tu mensaje.
 

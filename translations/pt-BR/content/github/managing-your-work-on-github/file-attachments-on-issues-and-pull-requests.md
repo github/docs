@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
 
-**Aviso:** caso você inclua uma imagem para uma pull request ou comentário de problemas, qualquer pessoa poderá ver a URL anônima de imagem sem autenticação, mesmo se a pull request estiver em um repositório privado{% if currentVersion != "free-pro-team@latest" %} ou se o modo privado estiver habilitado{% endif %}. Para manter imagens confidenciais privadas, use uma rede privada ou um servidor que requer autenticação. {% if currentVersion == "free-pro-team@latest" %}Para obter mais informações sobre URLs anônimas, consulte "[Sobre URLs anônimos de imagem](/articles/about-anonymized-image-urls)".{% endif %}
+**Aviso:** caso você inclua uma imagem para uma pull request ou comentário de problemas, qualquer pessoa poderá ver a URL anônima de imagem sem autenticação, mesmo se a pull request estiver em um repositório privado{% if enterpriseServerVersions contains currentVersion %} ou se o modo privado estiver habilitado{% endif %}. Para manter imagens confidenciais privadas, use uma rede privada ou um servidor que requer autenticação. {% if currentVersion == "free-pro-team@latest" %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs de imagem anônima](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -21,7 +22,7 @@ Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste
 
 {% tip %}
 
-**Dica:** se estiver usando o Chrome, também é possível copiar e colar imagens diretamente na caixa.
+**Dica:** Em muitos navegadores, você pode copiar e colar imagens diretamente na caixa.
 
 {% endtip %}
 

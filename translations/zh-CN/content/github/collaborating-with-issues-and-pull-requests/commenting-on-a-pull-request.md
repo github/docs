@@ -5,10 +5,11 @@ redirect_from:
   - /articles/commenting-on-the-diff-of-a-pull-request/
   - /articles/commenting-on-differences-between-files/
   - /articles/commenting-on-a-pull-request
-intro: 在仓库中打开拉取请求后，协作者或团队成员可以评论两个指定分支之间的文件比较，或者对整个项目做出总体评论。
+intro: '在仓库中打开拉取请求后，协作者或团队成员可以评论两个指定分支之间的文件比较，或者对整个项目做出总体评论。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于拉取请求评论
@@ -32,27 +33,27 @@ versions:
 {% tip %}
 
 **提示：**
-- 拉取请求评论支持与 {{ site.data.variables.product.product_name }} 上的一般评论相同的[格式](/categories/writing-on-github)，例如 @提及、表情符号和引用。
+- 拉取请求评论支持与 {% data variables.product.product_name %} 上的一般评论相同的[格式](/categories/writing-on-github)，例如 @提及、表情符号和引用。
 - 您可以在 **Files changed（已更改文件）**选项卡中向拉取请求的评论[添加反应](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)。
 
 {% endtip %}
 
 ### 向拉取请求添加行注释
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 1. 在拉取请求列表中，单击要留下行注释的拉取请求。
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. 完成后，单击 **Add single comment（添加单个评论）**。 ![内联评论窗口](/assets/images/help/commits/inline-comment.png)
 
 任何关注拉取请求或仓库的人都会收到有关您评论的通知。
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### 延伸阅读
 
 - “[创建指向代码段的永久链接](/articles/creating-a-permanent-link-to-a-code-snippet/)”
-{% if currentVersion == "free-pro-team@latest" %}-“[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”
+{% if currentVersion == "free-pro-team@latest" %}- "[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”
 {% endif %}

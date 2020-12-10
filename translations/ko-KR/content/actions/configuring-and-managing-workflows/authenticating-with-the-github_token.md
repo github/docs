@@ -1,7 +1,7 @@
 ---
 title: Authenticating with the `GITHUB_TOKEN`
-intro: '{{ site.data.variables.product.prodname_dotcom }} provides a token that you can use to authenticate on behalf of {{ site.data.variables.product.prodname_actions }}.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '{% data variables.product.prodname_dotcom %} provides a token that you can use to authenticate on behalf of {% data variables.product.prodname_actions %}.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -10,26 +10,26 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Anyone with `write` access to a repository can create, read, and use secrets.
 
 ### About the `GITHUB_TOKEN` secret
 
-{{ site.data.variables.product.prodname_dotcom }} automatically creates a `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
+{% data variables.product.prodname_dotcom %} automatically creates a `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
 
-When you enable {{ site.data.variables.product.prodname_actions }}, {{ site.data.variables.product.prodname_dotcom }} installs a {{ site.data.variables.product.prodname_github_app }} on your repository. The `GITHUB_TOKEN` secret is a {{ site.data.variables.product.prodname_github_app }} installation access token. You can use the installation access token to authenticate on behalf of the {{ site.data.variables.product.prodname_github_app }} installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
+When you enable {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} installs a {% data variables.product.prodname_github_app %} on your repository. The `GITHUB_TOKEN` secret is a {% data variables.product.prodname_github_app %} installation access token. You can use the installation access token to authenticate on behalf of the {% data variables.product.prodname_github_app %} installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
-Before each job begins, {{ site.data.variables.product.prodname_dotcom }} fetches an installation access token for the job. The token expires when the job is finished.
+Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. The token expires when the job is finished.
 
-The token is also available in the `github.token` context. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+The token is also available in the `github.token` context. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 ### Using the `GITHUB_TOKEN` in a workflow
 
-To use the `GITHUB_TOKEN` secret, you must reference it in your workflow file. Using a token might include passing the token as an input to an action that requires it, or making authenticated {{ site.data.variables.product.prodname_dotcom }} API calls.
+To use the `GITHUB_TOKEN` secret, you must reference it in your workflow file. Using a token might include passing the token as an input to an action that requires it, or making authenticated {% data variables.product.prodname_dotcom %} API calls.
 
-{{ site.data.reusables.github-actions.actions-do-not-trigger-workflows }}
+{% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
 #### Example passing `GITHUB_TOKEN` as an input
 
@@ -52,7 +52,7 @@ This example workflow uses the [labeler action](https://github.com/actions/label
 
 #### Example calling the REST API
 
-You can use the `GITHUB_TOKEN` to make authenticated API calls. This example workflow creates an issue using the {{ site.data.variables.product.prodname_dotcom }} REST API:
+You can use the `GITHUB_TOKEN` to make authenticated API calls. This example workflow creates an issue using the {% data variables.product.prodname_dotcom %} REST API:
 
   {% raw %}
   ```yaml
@@ -78,7 +78,7 @@ You can use the `GITHUB_TOKEN` to make authenticated API calls. This example wor
 
 ### Permissions for the `GITHUB_TOKEN`
 
-For information about the API endpoints {{ site.data.variables.product.prodname_github_apps }} can access with each permission, see "[{{ site.data.variables.product.prodname_github_app }} Permissions](/v3/apps/permissions/)."
+For information about the API endpoints {% data variables.product.prodname_github_apps %} can access with each permission, see "[{% data variables.product.prodname_github_app %} Permissions](/v3/apps/permissions/)."
 
 | Permission          | Access type | Access by forked repos |
 | ------------------- | ----------- | ---------------------- |

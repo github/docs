@@ -1,15 +1,16 @@
 ---
 title: 返信テンプレートを使う
-intro: Issue またはプルリクエストにコメントするときは、すでに設定した 返信テンプレートを追加できます。 返信テンプレートをコメント全体にすることも、カスタマイズしたい場合はコンテンツを追加または削除することもできます。
+intro: 'Issue またはプルリクエストにコメントするときは、すでに設定した 返信テンプレートを追加できます。 返信テンプレートをコメント全体にすることも、カスタマイズしたい場合はコンテンツを追加または削除することもできます。'
 redirect_from:
   - /articles/using-saved-replies
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. 希望する Issue またはプルリクエストをクリックします。
 3. 返信テンプレートを追加するには、コメントフィールドで、{% octicon "reply" aria-label="The mail reply" %} をクリックします。 ![[Saved replies] ボタン](/assets/images/help/writing/saved-replies-button.png)
 4. リストから、コメントに追加したい返信テンプレートを選択します。 ![返信テンプレート](/assets/images/help/settings/saved-replies.png)

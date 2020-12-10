@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Eine Pre-Receive-Umgebung für {{ site.data.variables.product.prodname_ghe_server }} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 
+Eine Pre-Receive-Umgebung für {% data variables.product.prodname_ghe_server %} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 
 
-{{ site.data.variables.product.prodname_ghe_server }} bietet eine Standardumgebung. Diese enthält die folgenden Pakete: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
+{% data variables.product.prodname_ghe_server %} bietet eine Standardumgebung. Diese enthält die folgenden Pakete: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
 
 Wenn eine bestimmte Anforderung vorliegt, die von dieser Umgebung nicht erfüllt wird, beispielsweise die Unterstützung einer bestimmten Sprache, können Sie Ihre eigene 64-Bit-Linux-`chroot`-Umgebung erstellen und hochladen.
 
@@ -20,16 +20,16 @@ Wenn eine bestimmte Anforderung vorliegt, die von dieser Umgebung nicht erfüllt
 
 Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-Hook-Umgebung verwenden. In diesem Beispiel werden [Alpine Linux](http://www.alpinelinux.org/) und [Docker](https://www.docker.com/) verwendet.
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 
 2. Erstellen Sie die Datei `Dockerfile.alpine-3.3`, welche die folgenden Informationen enthält: 
    
    
 
-    ```
-    FROM gliderlabs/alpine:3.3
-    RUN apk add --no-cache git bash
-    ```
+   ```
+   FROM gliderlabs/alpine:3.3
+   RUN apk add --no-cache git bash
+   ```
 
 
 3. Erstellen Sie im Verzeichnis, in dem die `Dockerfile.alpine-3.3` enthalten ist, ein Image: 
@@ -45,7 +45,7 @@ Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-H
    >  ---> Using cache
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
-  ```
+   ```
 
 
 4. Erstellen Sie einen Container: 
@@ -54,7 +54,7 @@ Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-H
 
    ```shell
    $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
-  ```
+   ```
 
 
 5. Exportieren Sie den Docker-Container in eine `gzip`-komprimierte `TAR`-Datei: 
@@ -63,10 +63,10 @@ Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-H
 
    ```shell
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
-  ```
+   ```
 
 
-Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {{ site.data.variables.product.prodname_ghe_server }} hochgeladen werden.
+Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {% data variables.product.prodname_ghe_server %} hochgeladen werden.
 
 
 
@@ -76,9 +76,9 @@ Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {{ site.data.variables.pr
 2. Erstellen Sie eine `gzip`-komprimierte `TAR`-Datei des Verzeichnisses `chroot`. 
    
    
-  ```shell
-  $ cd /path/to/chroot
-  $ tar -czf /path/to/pre-receive-environment.tar.gz .
+   ```shell
+   $ cd /path/to/chroot
+   $ tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
 
@@ -86,30 +86,27 @@ Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {{ site.data.variables.pr
 
 **Hinweise:**
 
-    - Schließe keine führenden Verzeichnispfade von Dateien innerhalb des tar-Archivs ein, wie beispielsweise `/path/to/chroot`.
-    - `/bin/sh` muss existieren und als Einstiegspunkt in die chroot-Umgebung ausführbar sein.
-    - Im Gegensatz zu herkömmlichen Chroots ist das Verzeichnis `dev` für Vorempfang-Hooks nicht erforderlich.
-{% endnote %}
+   - Schließe keine führenden Verzeichnispfade von Dateien innerhalb des tar-Archivs ein, wie beispielsweise `/path/to/chroot`.
+   - `/bin/sh` muss existieren und als Einstiegspunkt in die chroot-Umgebung ausführbar sein.
+   - Im Gegensatz zu herkömmlichen Chroots ist das Verzeichnis `dev` für Vorempfang-Hooks nicht erforderlich.
+     
+     {% endnote %}
 
 Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[Chroot](https://wiki.debian.org/chroot)“ aus dem *Debian-Wiki*, „[BasicChroot](https://help.ubuntu.com/community/BasicChroot)“ aus dem *Hilfe-Wiki der Ubuntu-Community* oder „[Installing Alpine Linux in a chroot (Alpine Linux in einem chroot installieren](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)“ aus dem *Alpine Linux-Wiki*.
 
 
 
-### Pre-Receive-Hook-Umgebung auf {{ site.data.variables.product.prodname_ghe_server }} hochladen
+### Pre-Receive-Hook-Umgebung auf {% data variables.product.prodname_ghe_server %} hochladen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-
-
-
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 
 
 
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
 
 
 
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise-accounts.hooks-tab %}
 
 5. Klicken Sie auf **Manage environments** (Umgebungen verwalten). ![Umgebungen verwalten](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
 
@@ -125,7 +122,7 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
 
 ### Pre-Receive-Hook-Umgebung über die Verwaltungsshell hochladen
 
-1. Laden Sie eine lesbare `*.tar.gz`-Datei, die Ihre Umgebung enthält, auf einen Webhost hoch, und kopieren Sie die URL, oder übertragen Sie die Datei über `scp` an die {{ site.data.variables.product.prodname_ghe_server }}-Appliance. Wenn Sie `scp` verwenden, müssen Sie die `*.tar.gz`-Dateiberechtigungen ggf. anpassen, damit die Datei allgemein lesbar ist.
+1. Laden Sie eine lesbare `*.tar.gz`-Datei, die Ihre Umgebung enthält, auf einen Webhost hoch, und kopieren Sie die URL, oder übertragen Sie die Datei über `scp` an die {% data variables.product.prodname_ghe_server %}-Appliance. Wenn Sie `scp` verwenden, müssen Sie die `*.tar.gz`-Dateiberechtigungen ggf. anpassen, damit die Datei allgemein lesbar ist.
 1.  Stellen Sie eine Verbindung zur Verwaltungsshell her.
 2.  Führen Sie den Befehl `ghe-hook-env-create` aus, und geben Sie den gewünschten Namen für die Umgebung als das erste Argument und den vollständigen lokalen Pfad oder die URL einer `*.tar.gz`-Datei, die Ihre Umgebung enthält, als das zweite Argument ein. 
    
@@ -133,4 +130,4 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz
    > Pre-receive hook environment 'AlpineTestEnv' (2) has been created.
-  ```
+   ```

@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Encontre a versão com a qual você deseja se vincular e clique no número da versão. ![Tag de informação de versões](/assets/images/help/releases/release_tag_name.png)
 3. Como alternativa, clique com o botão direito em **Última versão** e copie a URL para compartilhá-la. O sufixo dessa URL será sempre `/releases/latest`. ![Tag última versão](/assets/images/help/releases/release_latest_release_tag.png)
 

@@ -4,10 +4,11 @@ intro: You can use a CODEOWNERS file to define individuals or teams that are res
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 People with admin or owner permissions can set up a CODEOWNERS file in a repository.
@@ -20,9 +21,9 @@ Code owners are automatically requested for review when someone opens a pull req
 
 When someone with admin or owner permissions has enabled required reviews, they also can optionally require approval from a code owner before the author can merge a pull request in the repository. For more information, see "[Enabling required reviews for pull requests](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. For more information, see "[Managing code review assignment for your team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. For more information, see "[Managing code review assignment for your team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 
@@ -33,15 +34,15 @@ If a file has a code owner, you can see who the code owner is before you open a 
 
 To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
 
-Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {{ site.data.variables.product.prodname_pages }} site on the `gh-pages` branch.
+Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
 ### CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {{ site.data.variables.product.prodname_dotcom }} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {{ site.data.variables.product.product_name }} account, for example `user@example.com`.
+A CODEOWNERS file uses a pattern that follows the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {{ site.data.variables.product.product_name }}.
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
 #### Example of a CODEOWNERS file
 ```
 # This is a comment.
@@ -79,7 +80,8 @@ docs/*  docs@example.com
 apps/ @octocat
 
 # In this example, @doctocat owns any file in the `/docs`
-# directory in the root of your repository.
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote rename` 命令使用两个参数：
@@ -15,21 +16,21 @@ versions:
 
 ### 示例
 
-These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
+以下示例假设您[使用 HTTPS 克隆](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)，即推荐使用的方法。
 
 ```shell
 $ git remote -v
 # 查看现有远程
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 
 $ git remote rename origin destination
 # 将远程名称从 'origin' 更改为 'destination'
 
 $ git remote -v
 # 验证远程的新名称
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
 ### 疑难解答
@@ -45,8 +46,8 @@ $ git remote -v
 ```shell
 $ git remote -v
 # 查看现有远程
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
 #### 远程 [new name] 已存在。

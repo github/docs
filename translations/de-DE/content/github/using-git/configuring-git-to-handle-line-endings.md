@@ -9,11 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jedes Mal, wenn Du auf der Tastatur die <kbd>Eingabetaste</kbd> drückst, fügst Du ein unsichtbares Zeichen ein, nämlich einen Zeilenabschluss. Verschiedene Betriebssysteme handhaben Zeilenenden unterschiedlich.
 
-Wenn Du mit Git und {{ site.data.variables.product.product_name }} an Projekten zusammenarbeitest, könnte Git unerwartete Ergebnisse produzieren, wenn Du beispielsweise an einem Windows-PC arbeitest und Dein Mitarbeiter eine Änderungen unter OS X vorgenommen hat.
+Wenn Du mit Git und {% data variables.product.product_name %} an Projekten zusammenarbeitest, könnte Git unerwartete Ergebnisse produzieren, wenn Du beispielsweise an einem Windows-PC arbeitest und Dein Mitarbeiter eine Änderungen unter OS X vorgenommen hat.
 
 Du kannst Git so konfigurieren, dass es Zeilenenden automatisch setzt, so dass Du effektiv mit Leuten zusammenarbeiten kannst, die verschiedene Betriebssysteme verwenden.
 

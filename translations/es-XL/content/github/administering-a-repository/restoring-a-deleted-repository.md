@@ -13,7 +13,7 @@ Cualquier usuario puede restaurar repositorios eliminados que le pertenecieron a
 
 Un repositorio eliminado se puede restaurar en un plazo de 90 días, a menos que el repositorio haya sido parte de una red de bifurcaciones que actualmente no está vacía. Una red de bifurcaciones consiste en un repositorio padre, las bifurcaciones del repositorio y las bifurcaciones de las bifurcaciones del repositorio. Si tu repositorio forma parte de una red de bifurcaciones, no se puede restaurar a menos que se elimine cualquier otro repositorio de la red o que se haya separado de la red. Para obtener más información acerca de las bifurcaciones, consulta "[Acerca de las bifurcaciones](/articles/about-forks)".
 
-Si quieres restaurar un repositorio que era parte de una red de bifurcaciones que actualmente no está vacía, te puedes contactar con {{ site.data.variables.contact.contact_support }}.
+Si quieres restaurar un repositorio que era parte de una red de bifurcaciones que actualmente no está vacía, te puedes contactar con {% data variables.contact.contact_support %}.
 
 Puede tardar hasta una hora después de que se elimine un repositorio antes de que ese repositorio esté disponible para la restauración.
 
@@ -21,20 +21,20 @@ Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o l
 
 ### Restaurar un repositorio eliminado que le pertenecía a una cuenta de usuario
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.repo-tab }}
-{{ site.data.reusables.user_settings.deleted-repos }}
-{{ site.data.reusables.user_settings.restore-repo }}
-{{ site.data.reusables.user_settings.restore-confirmation }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.repo-tab %}
+{% data reusables.user_settings.deleted-repos %}
+{% data reusables.user_settings.restore-repo %}
+{% data reusables.user_settings.restore-confirmation %}
 
 ### Restaurar un repositorio eliminado que le pertenecía a una organización
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.deleted-repos }}
-{{ site.data.reusables.user_settings.restore-repo }}
-{{ site.data.reusables.user_settings.restore-confirmation }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.deleted-repos %}
+{% data reusables.user_settings.restore-repo %}
+{% data reusables.user_settings.restore-confirmation %}
 
 ### Leer más
 

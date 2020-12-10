@@ -1,21 +1,22 @@
 ---
 title: Limits for viewing content and diffs in a repository
-intro: 'Certain types of resources can be quite large, requiring excessive processing on {{ site.data.variables.product.product_name }}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.'
+intro: 'Certain types of resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.'
 redirect_from:
   - /articles/what-are-the-limits-for-viewing-content-and-diffs-in-my-repository/
   - /articles/limits-for-viewing-content-and-diffs-in-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Most of the limits below affect both {{ site.data.variables.product.product_name }} and the API.
+Most of the limits below affect both {% data variables.product.product_name %} and the API.
 
 ### Text limits
 
 Text files over **1 MB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, *etc.*).
 
-Text files over **5 MB** are only available through their raw URLs, which are served through `{{ site.data.variables.product.raw_github_com }}`; for example, `https://{{ site.data.variables.product.raw_github_com }}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
+Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
 ### Diff limits
 

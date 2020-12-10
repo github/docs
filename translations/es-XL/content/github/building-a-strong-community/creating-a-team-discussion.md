@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-permissions }}Para obtener más información, consulta "[Acerca de los debates del equipo](/articles/about-team-discussions)".
+{% data reusables.organizations.team-discussions-permissions %}Para obtener más información, consulta "[Acerca de los debates del equipo](/articles/about-team-discussions)".
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 6. Escribe un título para el debate del equipo y agrega un comentario para iniciar una conversación. ![Nuevo comentario de los debates del equipo](/assets/images/help/projects/team-discussions-comment.png)
 7. También puedes seleccionar si deseas que tu publicación sea privada o pública usando el menú desplegable.![Menú de parámetros de privacidad de los debates del equipo](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Click **Comment**. ![Botón Crear nuevo comentario de los debates del equipo](/assets/images/help/projects/team-discussions-comment-button.png)

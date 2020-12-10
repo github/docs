@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントからのユーザのブロック
-intro: ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。
+intro: 'ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### ユーザのブロックについて
 
-自分のアカウント設定、もしくはユーザのプロファイルからユーザをブロックできます。 {{ site.data.variables.product.prodname_dotcom }}は、ユーザをブロックしてもユーザに通知しません。 ブロックした人と同じプロジェクトへのコントリビューションをしたくない場合には、ブロックしたユーザから以前にコントリビューションされているリポジトリで[警告を表示するように選択](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings)できます。 共有スペースでブロックされたユーザのアクティビティが引き続き表示される場合があり、ブロックされたユーザは既存のコンテンツを削除できます。
+自分のアカウント設定、もしくはユーザのプロファイルからユーザをブロックできます。 {% data variables.product.prodname_dotcom %}は、ユーザをブロックしてもユーザに通知しません。 ブロックした人と同じプロジェクトへのコントリビューションをしたくない場合には、ブロックしたユーザから以前にコントリビューションされているリポジトリで[警告を表示するように選択](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings)できます。 共有スペースでブロックされたユーザのアクティビティが引き続き表示される場合があり、ブロックされたユーザは既存のコンテンツを削除できます。
 
 {% tip %}
 
@@ -20,6 +20,7 @@ versions:
 ユーザをブロックすると、以下のようになります:
 - そのユーザによるあなたのフォローは止まります
 - ユーザがリポジトリの Watch を停止し、リポジトリのピン留めを解除します
+- The user is not able to join any organizations you are an owner of
 - そのユーザによる Star 付けや Issue 割り当てはリポジトリから削除されます。
 - リポジトリのユーザのフォークが削除されます
 - ユーザのリポジトリのフォークを削除します
@@ -51,20 +52,20 @@ versions:
 
 ### アカウント設定でのユーザのブロック
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. \[Block a user\] (ユーザをブロック) の下で、ブロックしたいユーザのユーザ名を入力し、[**Block user**] をクリックしてます。 ![ユーザ名フィールドとブロックボタン](/assets/images/help/settings/user-settings-block-user.png)
 4. ブロックされたユーザがコントリビュータになっているリポジトリにアクセスした際に警告を表示させることもできます。それには [**Warn me when a blocked user is a prior contributor to a repository**] を選択します。 ![ブロックされたユーザについての警告オプション](/assets/images/help/settings/warn-block-user.png)
 
 ### プロフィールページでのユーザのブロック
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
-{{ site.data.reusables.profile.user_profile_page_block_or_report }}
+{% data reusables.profile.user_profile_page_navigation %}
+{% data reusables.profile.user_profile_page_block_or_report %}
 3. [**Block user**] (ユーザをブロック) をクリックします。 ![ユーザのブロックあるいは悪用のレポートの選択肢を持つモーダルボックス](/assets/images/help/profile/profile-blockuser.png)
 
 {% note %}
 
-嫌がらせを受けた場合は、 {{ site.data.variables.contact.report_abuse }} を使用してご連絡ください。 {{ site.data.reusables.policies.abuse }}
+嫌がらせを受けた場合は、 {% data variables.contact.report_abuse %} を使用してご連絡ください。 {% data reusables.policies.abuse %}
 
 {% endnote %}
 

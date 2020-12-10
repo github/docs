@@ -1,6 +1,6 @@
 ---
 title: Searching code
-intro: 'You can search for code on {{ site.data.variables.product.product_name }} and narrow the results using these code search qualifiers in any combination.'
+intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -8,25 +8,26 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can search for code globally across all of {{ site.data.variables.product.product_name }}, or search for code within a particular repository or organization. To search for code across all public repositories, you must be signed in to a {{ site.data.variables.product.product_name }} account. For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
 
 You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Considerations for code search
 
 Due to the complexity of searching code, there are some restrictions on how searches are performed:
 
-- {{ site.data.reusables.search.required_login }}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - Code in [forks](/articles/about-forks) is only searchable if the fork has more stars than the parent repository. Forks with fewer stars than the parent repository are **not** indexed for code search. To include forks with more stars than their parent in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/articles/searching-in-forks)."
 - Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
 - Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
 - Only the first 500 KB of each file is searchable.{% endif %}
 - Only repositories with fewer than 500,000 files are searchable.
-- Users who are signed in can search all public repositories.
 - Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
 - At most, search results can show two fragments from the same file, but there may be more results within the file.
 - You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. The search will simply ignore these symbols.
@@ -102,4 +103,4 @@ The `extension` qualifier matches code files with a certain file extension.
 
 - "[Sorting search results](/articles/sorting-search-results/)"
 - "[Searching in forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Navigating code on {{ site.data.variables.product.prodname_dotcom }}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- "[Navigating code on {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

@@ -1,8 +1,8 @@
 ---
 title: 设置操作的退出代码
 shortTitle: 设置退出代码
-intro: '您可以使用退出代码来设置操作的状态。 {{ site.data.variables.product.prodname_dotcom }} 显示状态以指示操作通过还是失败。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '您可以使用退出代码来设置操作的状态。 {% data variables.product.prodname_dotcom %} 显示状态以指示操作通过还是失败。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
@@ -10,12 +10,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于退出代码
 
-{{ site.data.variables.product.prodname_dotcom }} 使用退出代码设置操作的检查运行状态，可以是 `success` 或 `failure`。
+{% data variables.product.prodname_dotcom %} 使用退出代码设置操作的检查运行状态，可以是 `success` 或 `failure`。
 
 | 退出状态 | 检查运行状态    | 描述                                                                          |
 | ---- | --------- | --------------------------------------------------------------------------- |
@@ -24,7 +24,7 @@ versions:
 
 ### 在 JavaScript 操作中设置失败退出代码
 
-如果要创建 JavaScript 操作，您可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) 包来记录消息并设置失败退出代码。 例如：
+如果要创建 JavaScript 操作，您可以使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包来记录消息并设置失败退出代码。 例如：
 
 ```javascript
 try {

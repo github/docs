@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Saved replies](/assets/images/help/settings/saved-replies.png)
@@ -16,7 +17,7 @@ Once you've added a saved reply, it can be used in both issues and pull requests
 
 You can create a maximum of 100 saved replies. If you've reached the maximum limit, you can delete saved replies that you no longer use or edit existing saved replies.
 
-You can also use the {{ site.data.variables.product.product_name }}-provided "Duplicate issue" saved reply to mark an issue as a duplicate and track it with a similar issue.
+You can also use the {% data variables.product.product_name %}-provided "Duplicate issue" saved reply to mark an issue as a duplicate and track it with a similar issue.
 
 ### Дополнительная литература
 

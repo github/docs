@@ -1,6 +1,6 @@
 ---
 title: 'Criar, clonar e arquivar repositórios'
-intro: 'Você pode escolher entre uma variedade de opções de configuração ao criar ou clonar um repositório. Também é possível usar repositórios para arquivar conteúdo e dados no {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Você pode escolher entre uma variedade de opções de configuração ao criar ou clonar um repositório. Também é possível usar repositórios para arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/repositories/
   - /categories/24/articles/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

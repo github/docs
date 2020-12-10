@@ -1,7 +1,7 @@
 ---
 title: Persisting workflow data using artifacts
 intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -11,12 +11,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About workflow artifacts
 
-Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. For pushes and pull requests, {{ site.data.variables.product.product_name }} stores artifacts for 90 days. The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. For pushes and pull requests, {% data variables.product.product_name %} stores artifacts for 90 days. The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
 
 These are some of the common artifacts that you can upload:
 
@@ -27,28 +27,28 @@ These are some of the common artifacts that you can upload:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Storing artifacts uses storage space on {{ site.data.variables.product.product_name }}. {{ site.data.reusables.github-actions.actions-billing }} For more information, see "[Managing billing for {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)."
+Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)."
 
 {% else %}
 
-Artifacts consume storage space on the external blob storage that is configured for {{ site.data.variables.product.prodname_actions }} on {{ site.data.variables.product.product_location }}.
+Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.product_location %}.
 
 {% endif %}
 
-Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {{ site.data.variables.product.product_name }} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
+Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {% data variables.product.product_name %} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
 
-{{ site.data.variables.product.product_name }} provides two actions that you can use to upload and download build artifacts. For more information, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {{ site.data.variables.product.product_location }}{% endif %}.
+{% data variables.product.product_name %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
 
 To share data between jobs:
 
 * **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
 * **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
 
-The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[Metadata syntax for {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions)."
+The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
 
 ### Passing data between jobs in a workflow
 
-You can use the `upload-artifact` and `download-artifact` actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {{ site.data.variables.product.product_location }}{% endif %}.
+You can use the `upload-artifact` and `download-artifact` actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.product_location %}{% endif %}.
 
 Jobs that are dependent on a previous job's artifacts must wait for the dependent job to complete successfully. This workflow uses the `needs` keyword to ensure that `job_1`, `job_2`, and `job_3` run sequentially. For example, `job_2` requires `job_1` using the `needs: job_1` syntax.
 
@@ -125,17 +125,17 @@ jobs:
 
 ### Sharing data between workflow runs
 
-After a workflow ends, you can download a compressed file of the uploaded artifacts on {{ site.data.variables.product.product_name }} by finding the workflow run in the **Actions** tab. You can also use the {{ site.data.variables.product.prodname_dotcom }} REST API to download artifacts. For more information, see "[Artifacts](/v3/actions/artifacts/)."
+After a workflow ends, you can download a compressed file of the uploaded artifacts on {% data variables.product.product_name %} by finding the workflow run in the **Actions** tab. You can also use the {% data variables.product.prodname_dotcom %} REST API to download artifacts. For more information, see "[Artifacts](/v3/actions/artifacts/)."
 
-If you need to access artifacts from a previous workflow run, you can use the {{ site.data.variables.product.product_name }} REST API to retrieve artifacts. For more information, see "[Get an artifact](/rest/reference/actions#artifacts)."
+If you need to access artifacts from a previous workflow run, you can use the {% data variables.product.product_name %} REST API to retrieve artifacts. For more information, see "[Get an artifact](/rest/reference/actions#artifacts)."
 
 ### Uploading build and test artifacts
 
-You can create a continuous integration (CI) workflow to build and test your code. For more information about using {{ site.data.variables.product.prodname_actions }} to perform CI, see "[About continuous integration](/articles/about-continuous-integration)."
+You can create a continuous integration (CI) workflow to build and test your code. For more information about using {% data variables.product.prodname_actions %} to perform CI, see "[About continuous integration](/articles/about-continuous-integration)."
 
 The output of building and testing your code often produces files you can use to debug test failures and production code that you can deploy. You can configure a workflow to build and test the code pushed to your repository and report a success or failure status. You can upload the build and test output to use for deployments, debugging failed tests or crashes, and viewing test suite coverage.
 
-You can use the `upload-artifact` action to upload artifacts. When uploading an artifact, you can specify a single file or directory, or multiple files or directories. You can also exclude certain files or directories, and use wildcard patterns. We recommend that you provide a name for an artifact, but if no name is provided then `artifact` will be used as the default name. For more information on syntax, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {{ site.data.variables.product.product_location }}{% endif %}.
+You can use the `upload-artifact` action to upload artifacts. When uploading an artifact, you can specify a single file or directory, or multiple files or directories. You can also exclude certain files or directories, and use wildcard patterns. We recommend that you provide a name for an artifact, but if no name is provided then `artifact` will be used as the default name. For more information on syntax, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 #### 예시
 
@@ -221,11 +221,11 @@ You can also download all artifacts in a workflow run by not specifying a name. 
 
 If you download all a workflow run's artifacts, a directory for each artifact is created using its name.
 
-For more information on syntax, see the {% if currentVersion == "free-pro-team@latest" %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {{ site.data.variables.product.product_location }}{% endif %}.
+For more information on syntax, see the {% if currentVersion == "free-pro-team@latest" %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 #### Downloading and deleting artifacts after a workflow run is complete
 
-Artifacts automatically expire after 90 days, but you can always reclaim used {{ site.data.variables.product.prodname_actions }} storage by deleting artifacts before they expire on {{ site.data.variables.product.product_name }}.
+Artifacts automatically expire after 90 days, but you can always reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.product_name %}.
 
 {% warning %}
 
@@ -233,10 +233,10 @@ Artifacts automatically expire after 90 days, but you can always reclaim used {{
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
-{{ site.data.reusables.repositories.navigate-to-workflow }}
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. To download artifacts, use the **Artifacts** drop-down menu, and select the artifact you want to download. ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
 1. To delete artifacts, use the **Artifacts** drop-down menu, and click {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
 
@@ -244,6 +244,6 @@ Artifacts automatically expire after 90 days, but you can always reclaim used {{
 
 ### 더 읽을거리
 
-- "[Managing billing for {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% endif %}

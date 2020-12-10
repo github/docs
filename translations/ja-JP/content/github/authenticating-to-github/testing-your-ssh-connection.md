@@ -1,11 +1,12 @@
 ---
 title: SSH 接続をテストする
-intro: 'SSH キーをセットアップして {{ site.data.variables.product.product_name }} のアカウントに追加した後、接続をテストします。'
+intro: 'SSH キーをセットアップして {% data variables.product.product_name %} のアカウントに追加した後、接続をテストします。'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH 接続をテストする前に、次のことを済ませておく必要があります:
@@ -15,25 +16,17 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
 
 接続をテストするとき、先立って作成した SSH キーパスフレーズのパスワードを使ってこのアクションを認証する必要があります。 SSH キーのパスフレーズの利用の詳しい情報については、「[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)」を参照してください。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 以下を入力します。
   ```shell
-  $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
-  # {{ site.data.variables.product.product_name }} に ssh を試行する
+  $ ssh -T git@{% data variables.command_line.codeblock %}
+  # {% data variables.product.product_name %} に ssh を試行する
   ```
 
   以下のような警告が表示される場合があります:
 
   ```shell
-  > The authenticity of host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  > Are you sure you want to continue connecting (yes/no)?
-  ```
-
-  また、以下のように表示される場合もあります:
-
-  ```shell
-  > The authenticity of host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)' can't be established.
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Are you sure you want to continue connecting (yes/no)?
   ```

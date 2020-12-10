@@ -1,6 +1,6 @@
 ---
 title: 個人リポジトリからコラボレーターを削除する
-intro: コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。
+intro: 'コラボレータをプロジェクトから削除すると、そのコラボレータはリポジトリに対する読み取り/書き込みアクセスを失います。 リポジトリがプライベートであり、その個人がフォークを作成している場合、そのフォークも削除されます。'
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator/
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository/
@@ -8,10 +8,11 @@ redirect_from:
   - /articles/deleting-a-private-fork-of-a-private-user-repository/
   - /articles/how-do-i-delete-a-fork-of-my-private-repository/
   - /articles/removing-a-collaborator-from-a-personal-repository
-product: '{{ site.data.reusables.gated-features.user-repo-collaborators }}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プライベートリポジトリのフォークを削除する
@@ -20,10 +21,10 @@ versions:
 
 ### リポジトリへのコントリビューションがある個人からコラボレーター権限を削除する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
+{% data reusables.repositories.navigate-to-manage-access %}
 4. To the right of the collaborator you want to remove, click
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
   ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)

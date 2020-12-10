@@ -66,7 +66,7 @@ Here is a non-exhaustive list of the kinds of data we maintain about users and p
   - Security access logs
   - Data about interactions with private repositories
 
-  To get a sense of the type of private account information that GitHub collects, you can visit your {{ site.data.reusables.user_settings.personal_dashboard }} and browse through the sections in the left-hand menubar.
+  To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user_settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
 
 - <a name="organization-account-data"></a>
 **Organization account data** — Information about organizations, their administrative users and repositories is publicly available on GitHub. Organization profiles can be found at a URL such as `https://github.com/organization`. Public organization profiles can also include additional information that the owners have chosen to share publicly. All organization public profiles display:
@@ -141,7 +141,8 @@ Please note that the information available will vary from case to case. Some of 
   - Communications or documentation (such as Issues or Wikis) in private repositories
   - Any security keys used for authentication or encryption
 
-- <a name="in-exigent-circumstances"></a>**Under exigent circumstances** — If we receive a request for information under certain exigent circumstances (where we believe the disclosure is necessary to prevent an emergency involving danger of death or serious physical injury to a person), we may disclose limited information that we determine necessary to enable law enforcement to address the emergency. For any information beyond that, we would require a subpoena, search warrant, or court order, as described above. For example, we will not disclose contents of private repositories without a search warrant. Before disclosing information, we confirm that the request came from a law enforcement agency, an authority sent an official notice summarizing the emergency, and how the information requested will assist in addressing the emergency.
+- <a name="in-exigent-circumstances"></a>
+**Under exigent circumstances** — If we receive a request for information under certain exigent circumstances (where we believe the disclosure is necessary to prevent an emergency involving danger of death or serious physical injury to a person), we may disclose limited information that we determine necessary to enable law enforcement to address the emergency. For any information beyond that, we would require a subpoena, search warrant, or court order, as described above. For example, we will not disclose contents of private repositories without a search warrant. Before disclosing information, we confirm that the request came from a law enforcement agency, an authority sent an official notice summarizing the emergency, and how the information requested will assist in addressing the emergency.
 
 ### Cost reimbursement
 
@@ -181,4 +182,4 @@ As a United States company based in California, GitHub is not required to provid
 
 ### Questions
 
-Do you have other questions, comments or suggestions? Please contact {{ site.data.variables.contact.contact_support }}.
+Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.

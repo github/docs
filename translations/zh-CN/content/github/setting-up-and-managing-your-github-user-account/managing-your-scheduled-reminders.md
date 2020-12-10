@@ -15,34 +15,34 @@ versions:
 
 ### 为您的用户帐户创建预定提醒
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![预定提醒按钮](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. 在要预定提醒的组织旁边，单击 **Edit（编辑）**。 ![预定提醒编辑按钮](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.add-reminder }}
-{{ site.data.reusables.reminders.authorize-slack }}
-{{ site.data.reusables.reminders.days-dropdown }}
-{{ site.data.reusables.reminders.times-dropdowns }}
+{% data reusables.reminders.add-reminder %}
+{% data reusables.reminders.authorize-slack %}
+{% data reusables.reminders.days-dropdown %}
+{% data reusables.reminders.times-dropdowns %}
 8. （可选）要对分配给您的审查接收预定提醒，请选择 **Review requests assigned to you（审查分配给您的请求）**。 ![审查分配给您的请求复选框](/assets/images/help/profile/scheduled-reminders-your-requests.png)
 9. （可选）要对分配给您所在团队的审查接收预定提醒，请选择 **Review requests assigned to your team（审查分配给您的团队的请求）**。 ![审查分配给团队的请求复选框](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
-{{ site.data.reusables.reminders.real-time-alerts }}
+{% data reusables.reminders.real-time-alerts %}
 ![启用实时警报复选框](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
-{{ site.data.reusables.reminders.create-reminder }}
+{% data reusables.reminders.create-reminder %}
 
 ### 管理用户帐户的预定提醒
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![预定提醒按钮](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. 在要编辑预定提醒的组织旁边，单击 **Edit（编辑）**。 ![预定提醒编辑按钮](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.edit-page }}
-{{ site.data.reusables.reminders.update-buttons }}
+{% data reusables.reminders.edit-page %}
+{% data reusables.reminders.update-buttons %}
 
 ### 删除用户帐户的预定提醒
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![预定提醒按钮](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. 在要删除提醒的组织旁边，单击 **Edit（编辑）**。 ![预定提醒编辑按钮](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.delete }}
+{% data reusables.reminders.delete %}
 
 ### 延伸阅读
 

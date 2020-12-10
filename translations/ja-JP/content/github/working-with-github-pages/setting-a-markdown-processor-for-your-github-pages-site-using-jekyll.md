@@ -1,32 +1,33 @@
 ---
 title: Jekyll を使用して、GitHub Pages サイトの Markdown プロセッサを設定する
-intro: 'Markdown プロセッサを選択して、{{ site.data.variables.product.prodname_pages }} サイトで Markdown をどのようにレンダリングするかを決めることができます。'
+intro: 'Markdown プロセッサを選択して、{% data variables.product.prodname_pages %} サイトで Markdown をどのようにレンダリングするかを決めることができます。'
 redirect_from:
   - /articles/migrating-your-pages-site-from-maruku/
   - /articles/updating-your-markdown-processor-to-kramdown/
   - /articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-リポジトリへの書き込み権限があるユーザは、{{ site.data.variables.product.prodname_pages }} サイトに対して Markdown プロセッサを設定できます。
+リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトに対して Markdown プロセッサを設定できます。
 
-{{ site.data.variables.product.prodname_pages }} は 2 つの Markdown プロセッサをサポートしています。[kramdown](http://kramdown.gettalong.org/) と {{ site.data.variables.product.prodname_dotcom }} 独自の拡張 [CommonMark](https://commonmark.org/) プロセッサで、後者は {{ site.data.variables.product.product_name }} を通じ {{ site.data.variables.product.prodname_dotcom }} フレーバーの Markdown をレンダリングする際に使用されます。 詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }}での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github)」を参照してください。
+{% data variables.product.prodname_pages %} supports two Markdown processors: [kramdown](http://kramdown.gettalong.org/) and {% data variables.product.prodname_dotcom %}'s own extended [CommonMark](https://commonmark.org/) processor, which is used to render {% data variables.product.prodname_dotcom %} Flavored Markdown throughout {% data variables.product.product_name %}. 詳しい情報については、「[{% data variables.product.prodname_dotcom %}での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github)」を参照してください。
 
-{{ site.data.variables.product.prodname_dotcom }} フレーバーの Markdown はどちらのプロセッサでも使用できますが、{{ site.data.variables.product.product_name }} に表示される結果と一致するのは常に CommonMark プロセッサのみです。
+{% data variables.product.prodname_dotcom %} フレーバーの Markdown はどちらのプロセッサでも使用できますが、{% data variables.product.product_name %} に表示される結果と一致するのは常に CommonMark プロセッサのみです。
 
-{{ site.data.reusables.pages.navigate-site-repo }}
+{% data reusables.pages.navigate-site-repo %}
 2. リポジトリの *_config.yml* ファイルを開きます。
-{{ site.data.reusables.repositories.edit-file }}
+{% data reusables.repositories.edit-file %}
 4. `markdown` で始まる行を見つけ、値を `kramdown` または `GFM`に変更します。 ![config.yml での Markdown 設定](/assets/images/help/pages/config-markdown-value.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### 参考リンク
 
 - [kramdown のドキュメント](https://kramdown.gettalong.org/documentation.html)
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown の仕様](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)

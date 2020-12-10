@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
+You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
-**Nota:** Este artículo aplica a {{ site.data.variables.product.prodname_ghe_cloud }}. Si quieres ver la versión para {{ site.data.variables.product.prodname_ghe_server }}, utiliza el menú desplegable de **{{ site.data.ui.pages.article_version }}**.
+**Nota:** Este artículo aplica a {% data variables.product.prodname_ghe_cloud %}. Si quieres ver la versión para {% data variables.product.prodname_ghe_server %}, utiliza el menú desplegable de **{% data ui.pages.article_version %}**.
 
 {% endnote %}
 
@@ -39,13 +39,13 @@ http(s)://<em>hostname</em>/
 
 ### Autenticación
 
-Las terminales de la API para tu instalación de {{ site.data.variables.product.product_name }} acceptan [los mismos métodos de autenticación](/rest/overview/resources-in-the-rest-api#authentication) que los de la API de GitHub.com. Puedes autenticarte con **[Tokens de OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (que se pueden crear utilizando la [API de Autorizaciones](/rest/reference/oauth-authorizations#create-a-new-authorization)) o con **[autenticación básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if currentVersion != "free-pro-team@latest" %} Los tokens de OAuth deben tener el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) de `site_admin` cuando se utilicen con las terminales específicas de la empresa. {% endif %}
+Las terminales de la API para tu instalación de {% data variables.product.product_name %} acceptan [los mismos métodos de autenticación](/rest/overview/resources-in-the-rest-api#authentication) que los de la API de GitHub.com. Puedes autenticarte con **[Tokens de OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (que se pueden crear utilizando la [API de Autorizaciones](/rest/reference/oauth-authorizations#create-a-new-authorization)) o con **[autenticación básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if currentVersion != "free-pro-team@latest" %} Los tokens de OAuth deben tener el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) de `site_admin` cuando se utilicen con las terminales específicas de la empresa. {% endif %}
 
-Solo puede accederse a las terminales de la API para la administración empresarial si se trata de administradores de sitio de {{ site.data.variables.product.product_name }}, excepto por la API de [Consola de Administración](#management-console), la cual requiere la [contraseña de la Consola de Administración](/enterprise/admin/articles/accessing-the-management-console/).
+Solo puede accederse a las terminales de la API para la administración empresarial si se trata de administradores de sitio de {% data variables.product.product_name %}, excepto por la API de [Consola de Administración](#management-console), la cual requiere la [contraseña de la Consola de Administración](/enterprise/admin/articles/accessing-the-management-console/).
 
 ### Información de la versión
 
-La versión actual de una instancia de {{ site.data.variables.product.product_name }} se devuelve en el encabezado de respuesta de todas las API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` También puedes leer la versión actual si llamas a la [terminal de meta](/rest/reference/meta/).
+La versión actual de una instancia de {% data variables.product.product_name %} se devuelve en el encabezado de respuesta de todas las API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` También puedes leer la versión actual si llamas a la [terminal de meta](/rest/reference/meta/).
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -77,27 +77,27 @@ La versión actual de una instancia de {{ site.data.variables.product.product_na
 
 ### Aprovisionamiento de SCIM para Empresas
 
-Los Proveedores de Identidad (IdPs) con SCIM habilitado pueden utilizar la API de SCIM para automatizar el aprovisionamiento de la membresía empresarial. La API de {{ site.data.variables.product.product_name }} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/).
+Los Proveedores de Identidad (IdPs) con SCIM habilitado pueden utilizar la API de SCIM para automatizar el aprovisionamiento de la membresía empresarial. La API de {% data variables.product.product_name %} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/).
 
-El IdP debe utilizar `{{ site.data.variables.product.api_url_code }}/scim/v2/enterprises/{enterprise}/` como la terminal de SCIM.
+El IdP debe utilizar `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` como la terminal de SCIM.
 
 {% note %}
 
-**Nota:** La API empresarial de SCIM solo se encuentra disponible para las empresas en [{{ site.data.variables.product.prodname_ghe_cloud }}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que cuenten con el [SSO de SAML](/v3/auth/#authenticating-for-saml-sso) habilitado. Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
+**Nota:** La API empresarial de SCIM solo se encuentra disponible para las empresas en [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que cuenten con el [SSO de SAML](/v3/auth/#authenticating-for-saml-sso) habilitado. Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
 
 {% endnote %}
 
 ### Autenticar las llamadas a la API de SCIM
 
-Debes autenticarte como un propietario de una empresa de {{ site.data.variables.product.product_name }} para utilizar su API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También podrías utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu SSO empresarial de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+Debes autenticarte como un propietario de una empresa de {% data variables.product.product_name %} para utilizar su API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También podrías utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu SSO empresarial de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
 ### Mapeo de los datos de SAML y de SCIM
 
 El IdP de SAML y el cliente de SCIM deben utilizar valores coincidentes de `NameID` y `userName` para cada usuario. Esto le permite al usuario que se autentica mediante SAML el poder enlazarse con su identidad aprovisionada de SCIM.
 
-Los grupos de SCIM se empatan con las organizaciones de {{ site.data.variables.product.product_name }} que tienen exactamente el mismo nombre, y que son propiedad de la cuenta empresarial.
+Los grupos de SCIM se empatan con las organizaciones de {% data variables.product.product_name %} que tienen exactamente el mismo nombre, y que son propiedad de la cuenta empresarial.
 
-El IdP de SAML y el cliente de SCIM deben configurarse para empatar exactamente el `displayName` del grupo de SCIM con el nombre correspondiente de la organización de {{ site.data.variables.product.product_name }}. Esto le permite a {{ site.data.variables.product.product_name }} enlazar el grupo de SCIM con la membrecía organizacional de {{ site.data.variables.product.product_name }}.
+El IdP de SAML y el cliente de SCIM deben configurarse para empatar exactamente el `displayName` del grupo de SCIM con el nombre correspondiente de la organización de {% data variables.product.product_name %}. Esto le permite a {% data variables.product.product_name %} enlazar el grupo de SCIM con la membrecía organizacional de {% data variables.product.product_name %}.
 
 ### Atributos de Usuario de SCIM compatibles
 
@@ -126,7 +126,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 | Nombre        | Tipo        | Descripción                                                                                                                                                                                                                                                                            |
 | ------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `secuencia` | El nombre del grupo de SCIM, el cual debe empatar exactamente con el nombre de la organización de {{ site.data.variables.product.product_name }} correspondiente. Por ejemplo, si la URL de la organización es `https://github.com/octo-org`, el nombre del grupo debe ser `octo-org`. |
+| `displayName` | `secuencia` | El nombre del grupo de SCIM, el cual debe empatar exactamente con el nombre de la organización de {% data variables.product.product_name %} correspondiente. Por ejemplo, si la URL de la organización es `https://github.com/octo-org`, el nombre del grupo debe ser `octo-org`. |
 | `members`     | `array`     | Lista de IDs de usuario de SCIM que son miembros del grupo.                                                                                                                                                                                                                            |
 
 
@@ -148,7 +148,7 @@ La API de estadísticas de los administradores proporciona diversas métricas so
 
 ## Webhooks globales
 
-Los webhooks globales se instalan en una instancia de {{ site.data.variables.product.prodname_enterprise }}. Puedes utilizar los webhooks globales para controlar, responder o aplicar reglas automáticamente para la administración de usuarios, organizaciones, equipos y repositorios en tu instancia. Los webhooks globales se pueden suscribir a los tipos de evento para [organizaciones](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [usuarios](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repositorios](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [equipos](/developers/webhooks-and-events/webhook-events-and-payloads#team), [miembros](/developers/webhooks-and-events/webhook-events-and-payloads#member), [membrecías](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [bifuraciones](/developers/webhooks-and-events/webhook-events-and-payloads#fork), y [pings](/developers/webhooks-and-events/about-webhooks#ping-event).
+Los webhooks globales se instalan en una instancia de {% data variables.product.prodname_enterprise %}. Puedes utilizar los webhooks globales para controlar, responder o aplicar reglas automáticamente para la administración de usuarios, organizaciones, equipos y repositorios en tu instancia. Los webhooks globales se pueden suscribir a los tipos de evento para [organizaciones](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [usuarios](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repositorios](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [equipos](/developers/webhooks-and-events/webhook-events-and-payloads#team), [miembros](/developers/webhooks-and-events/webhook-events-and-payloads#member), [membrecías](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [bifuraciones](/developers/webhooks-and-events/webhook-events-and-payloads#fork), y [pings](/developers/webhooks-and-events/about-webhooks#ping-event).
 
 *Esta API solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella. Para aprender cómo configurar los webhooks globales, consulta la sección [Acerca de los webhooks globales](/enterprise/admin/user-management/about-global-webhooks).
 
@@ -158,9 +158,9 @@ Los webhooks globales se instalan en una instancia de {{ site.data.variables.pro
 
 ## LDAP
 
-Puedes utilizar la API de LDAP para actualizar las relaciones de cuenta entre un usuario de {{ site.data.variables.product.prodname_ghe_server }} o un equipo y su entrada enlazada de LDAP o poner en cola una sincronización nueva.
+Puedes utilizar la API de LDAP para actualizar las relaciones de cuenta entre un usuario de {% data variables.product.prodname_ghe_server %} o un equipo y su entrada enlazada de LDAP o poner en cola una sincronización nueva.
 
-Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN, por sus siglas en inglés) al cual mapea un usuario o equipo. Nota que las terminales de LDAP generalmente solo son efectivas si tu aplicativo de {{ site.data.variables.product.prodname_ghe_server }} [habilitó la sincronización con LDAP](/enterprise/admin/authentication/using-ldap). La terminal de [mapeo de LDAP para actualización para un usuario](#update-ldap-mapping-for-a-user) puede utilizarse cuando se habilita LDAP, aún si la sincronización con LDAP está inhabilitada.
+Con las terminales de mapeo de LDAP, puedes actualizar el Nombre Distintivo (DN, por sus siglas en inglés) al cual mapea un usuario o equipo. Nota que las terminales de LDAP generalmente solo son efectivas si tu aplicativo de {% data variables.product.prodname_ghe_server %} [habilitó la sincronización con LDAP](/enterprise/admin/authentication/using-ldap). La terminal de [mapeo de LDAP para actualización para un usuario](#update-ldap-mapping-for-a-user) puede utilizarse cuando se habilita LDAP, aún si la sincronización con LDAP está inhabilitada.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
@@ -176,7 +176,7 @@ La API de licencias proporciona información sobre tu licencia empresarial. *Sol
 
 ## Consola de administración
 
-La API de la Consola de Administración te ayuda a administrar tu {{ site.data.variables.product.prodname_ghe_server }} instalación.
+La API de la Consola de Administración te ayuda a administrar tu {% data variables.product.prodname_ghe_server %} instalación.
 
 {% tip %}
 
@@ -184,7 +184,7 @@ Debes configurar el número de puerto explícitamente cuando haces llamadas de l
 
 Si no quieres proporcionar un número de puerto, necesitarás configurar tu herramienta para seguir automáticamente las redirecciones.
 
-También necesitas agregar el [marcador `-k`](http://curl.haxx.se/docs/manpage.html#-k) cuando utilices `curl`, ya que {{ site.data.variables.product.prodname_ghe_server }} utiliza un certificado auto-firmado antes de que [agregues tu propio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
+También necesitas agregar el [marcador `-k`](http://curl.haxx.se/docs/manpage.html#-k) cuando utilices `curl`, ya que {% data variables.product.prodname_ghe_server %} utiliza un certificado auto-firmado antes de que [agregues tu propio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
@@ -210,7 +210,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 ## Organizaciones
 
-La API de Administración de la organización te permite crear organizaciones en un aplicativo de {{ site.data.variables.product.prodname_ghe_server }}. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
+La API de Administración de la organización te permite crear organizaciones en un aplicativo de {% data variables.product.prodname_ghe_server %}. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `404` si intentan acceder a ella.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -249,7 +249,7 @@ La API de Ambientes de Pre-recepción te permite crear, listar, actualizar y bor
 | --------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
 | `name (nombre)`       | `secuencia` | El nombre del ambiente como se muestra en la IU.                                                                  |
 | `image_url`           | `secuencia` | La URL del tarball que se descargará y extraerá.                                                                  |
-| `default_environment` | `boolean`   | Si este es el ambiente predeterminado que viene con {{ site.data.variables.product.prodname_ghe_server }} o no. |
+| `default_environment` | `boolean`   | Si este es el ambiente predeterminado que viene con {% data variables.product.prodname_ghe_server %} o no. |
 | `descargar`           | `objeto`    | El estado de descarga de este ambiente.                                                                           |
 | `hooks_count`         | `número`    | La cantidad de ganchos de pre-recepción que utilizan este ambiente.                                               |
 
@@ -320,7 +320,7 @@ La API de Búsqueda en los índices te permite poner en cola varias tareas de b�
 
 ## Usuarios
 
-La API de Administración de usuarios te permite promover, degradar, suspender y dejar de suspender a los usuarios en un aplicativo de {{ site.data.variables.product.prodname_ghe_server }}. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `403` si intentan acceder a ella.
+La API de Administración de usuarios te permite promover, degradar, suspender y dejar de suspender a los usuarios en un aplicativo de {% data variables.product.prodname_ghe_server %}. *Solo se encuentra disponible para los administradores de sitio [autenticados.](/rest/overview/resources-in-the-rest-api#authentication)* Los usuarios normales recibirán una respuesta `403` si intentan acceder a ella.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

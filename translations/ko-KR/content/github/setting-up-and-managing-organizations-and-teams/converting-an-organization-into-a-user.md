@@ -12,7 +12,7 @@ versions:
 
 1. [Sign up](/articles/signing-up-for-a-new-github-account) for a new GitHub user account.
 2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).
-3. {{ site.data.variables.product.signin_link }} to the new user account.
+3. {% data variables.product.signin_link %} to the new user account.
 4. [Transfer each organization repository](/articles/how-to-transfer-a-repository) to the new user account.
 5. [Delete the organization](/articles/deleting-an-organization-account).
 6. [Rename the user](/articles/changing-your-github-username) to the organization's name.
@@ -21,7 +21,7 @@ versions:
 
 1. Sign up for a new GitHub Enterprise user account.
 2. [Have the user's role changed to an owner](/articles/changing-a-person-s-role-to-owner).
-3. {{ site.data.variables.product.signin_link }} to the new user account.
+3. {% data variables.product.signin_link %} to the new user account.
 4. [Transfer each organization repository](/articles/how-to-transfer-a-repository) to the new user account.
 5. [Delete the organization](/articles/deleting-an-organization-account).
 6. [Rename the user](/articles/changing-your-github-username) to the organization's name.

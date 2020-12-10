@@ -19,24 +19,24 @@ You can create a default security policy for your organization or user account. 
 
 {% endtip %}
 
-After someone reports a security vulnerability in your project, you can use {{ site.data.variables.product.prodname_security_advisories }} to disclose, fix, and publish information about the vulnerability. For more information, see "[About {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
 ### Adding a security policy to your repository
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
 3. In the left sidebar, click **Policy**. ![Policy tab](/assets/images/help/security/policy-tab.png)
 4. Click **Start setup**. ![Start setup button](/assets/images/help/security/start-setup-policy-button.png)
 5. In the new _SECURITY.md_ file, add information about supported versions of your project and how to report a vulnerability.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 ### 더 읽을거리
 
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
 - "[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
-- [{{ site.data.variables.product.prodname_security }}]({{ site.data.variables.product.prodname_security_link }})
+- [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

@@ -1,6 +1,6 @@
 ---
 title: Renombrar un archivo
-intro: 'Puedes renombrar cualquier archivo de tus repositorios directamente en {{ site.data.variables.product.product_name }}. Renombrar un archivo también te da la posibilidad de [mover el archivo a una ubicación nueva](/articles/moving-a-file-to-a-new-location).'
+intro: 'Puedes renombrar cualquier archivo de tus repositorios directamente en {% data variables.product.product_name %}. Renombrar un archivo también te da la posibilidad de [mover el archivo a una ubicación nueva](/articles/moving-a-file-to-a-new-location).'
 redirect_from:
   - /articles/renaming-a-file
 versions:
@@ -21,6 +21,6 @@ versions:
 1. En tu repositorio, busca el archivo que quieres renombrar.
 2. En la esquina superior derecha de la vista del archivo, haz clic en {% octicon "pencil" aria-label="The edit icon" %} para abrir el editor de archivos. ![Icono Edit file (Editar archivo)](/assets/images/help/repository/edit-file-icon.png)
 3. En el campo de nombre del archivo, cambia el nombre del archivo con el nombre de archivo nuevo que quieras. También puedes actualizar los contenidos de tu archivo en el mismo momento. ![Editar el nombre del archivo](/assets/images/help/repository/changing-file-name.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

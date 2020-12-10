@@ -1,25 +1,26 @@
 ---
 title: Sobre conversas no GitHub
-intro: 'Você pode discutir alterações e projetos específicos, bem como projetos maiores ou metas de equipe, usando diferentes tipos de discussão no {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode discutir alterações e projetos específicos, bem como projetos maiores ou metas de equipe, usando diferentes tipos de discussão no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Discussões no {{ site.data.variables.product.product_name }}
+### Discussões no {% data variables.product.product_name %}
 
 É possível criar problemas e participar deles, pull requests e discussões em equipe, dependendo do tipo de conversa que você deseja ter.
 
 Os problemas são úteis para discutir detalhes específicos de um projeto, como relatórios de erros e melhorias planejadas. Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)". As pull requests permitem comentar diretamente nas alterações propostas. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)" e "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)".
 
-{{ site.data.reusables.organizations.team-discussions-purpose }} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
 
 ### Reagir às ideias nos comentários
 
-Você pode concordar ou discordar de uma ideia em uma conversa. Quando você adiciona uma reação a um comentário ou ao texto de uma discussão de equipe, de um problema ou de uma pull request, as pessoas inscritas na conversa não receberão uma notificação. Para obter mais informações sobre assinaturas, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Cadastrando-se e descadastrando-se de notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"{% endif %}."
+Você pode concordar ou discordar de uma ideia em uma conversa. Quando você adiciona uma reação a um comentário ou ao texto de uma discussão de equipe, de um problema ou de uma pull request, as pessoas inscritas na conversa não receberão uma notificação. Para obter mais informações sobre assinaturas, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Assinar e cancelar a assinatura das notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}".
 
 ![Exemplo de um problema com reações](/assets/images/help/repository/issue-reactions.png)
 
@@ -43,4 +44,4 @@ Semelhante às diretrizes de contribuição, o mantenedor de repositório pode t
 - "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Moderar comentários e conversas](/articles/moderating-comments-and-conversations)"
-- "[Gravar no {{ site.data.variables.product.prodname_dotcom }}](/articles/writing-on-github)"
+- "[Gravar no {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

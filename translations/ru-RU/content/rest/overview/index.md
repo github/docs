@@ -1,10 +1,11 @@
 ---
 title: REST API overview
 shortTitle: Обзор
-intro: 'Learn about resources, libraries, previews and troubleshooting for {{ site.data.variables.product.prodname_dotcom }}''s REST API.'
+intro: 'Learn about resources, libraries, previews and troubleshooting for {% data variables.product.prodname_dotcom %}''s REST API.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Table of Contents
@@ -15,4 +16,5 @@ versions:
 {% link_in_list /troubleshooting %}
 {% link_in_list /api-previews %}
 {% link_in_list /libraries %}
+{% link_in_list /openapi-description %}
 {% link_in_list /endpoints-available-for-github-apps %}

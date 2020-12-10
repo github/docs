@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const fs = require('fs')
 const path = require('path')
 const { get, isPlainObject, has } = require('lodash')
@@ -46,11 +45,11 @@ describe('siteData module (English)', () => {
   // TODO: re-enable once Janky flakyness is resolved
   test.skip('backfills missing translated site data with English values', async () => {
     const newFile = path.join(__dirname, '../../data/newfile.yml')
-    fs.writeFileSync(newFile, 'newvalue: bar')
+    await fs.writeFile(newFile, 'newvalue: bar')
     const data = await loadSiteData()
     expect(get(data, 'en.site.data.newfile.newvalue')).toEqual('bar')
     expect(get(data, 'ja.site.data.newfile.newvalue')).toEqual('bar')
-    fs.unlinkSync(newFile)
+    await fs.unlink(newFile)
   })
 
   test('all Liquid templating is valid', async () => {

@@ -1,6 +1,6 @@
 ---
 title: プロフィールにアイテムをピン止めする
-intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}Gist および{% endif %}リポジトリを自分のプロフィールにピン止めして、他の人があなたの最も優れた作業を素早く見つけられるようにできます。'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
@@ -17,7 +17,7 @@ You can pin any public gist you own.
 
 [Pinned] セクションでは、アイテムを並べ替えることができます。 ピンの右上隅で {% octicon "grabber" aria-label="The grabber symbol" %} をクリックして、ピンを新しい場所にドラッグしてください。
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. [Popular repositories] または [Pinned] セクションで、[**Customize your pins**] をクリックします。 ![[Customize your pins] ボタン](/assets/images/help/profile/customize-pinned-repositories.png)
 3. ピン止めするアイテムを検索できるリストで、[Repositories] か [Gists]、または両方を選択します。![表示するアイテムの種類を選択するチェックボックス](/assets/images/help/profile/pinned-repo-picker.png)
 4. オプションで、特定のアイテムを探しやすいように、フィールドフィールドでユーザ、Organization、リポジトリ、Gist の名前を入力します。![アイテムをフィルタリング](/assets/images/help/profile/pinned-repo-search.png)

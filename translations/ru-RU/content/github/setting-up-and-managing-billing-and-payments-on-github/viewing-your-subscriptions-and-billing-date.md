@@ -13,20 +13,20 @@ versions:
 
 ### Finding your personal account's next billing date
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.next_billing_date }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.next_billing_date %}
 
 ### Finding your organization's next billing date
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.next_billing_date }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.next_billing_date %}
 
 ### Дополнительная литература
 
-- "[About billing for {{ site.data.variables.product.product_name }} accounts](/articles/about-billing-for-github-accounts)"
+- "[About billing for {% data variables.product.product_name %} accounts](/articles/about-billing-for-github-accounts)"

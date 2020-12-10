@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {{ site.data.variables.product.product_name }} Search API provides **up to 1,000 results for each search**.
+The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
 
-You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/v3/search/#constructing-a-search-query)."
+You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
 
 ### Ranking search results
 
@@ -17,26 +18,32 @@ Unless another sort option is provided as a query parameter, results are sorted 
 
 ### Rate limit
 
-The Search API has a custom rate limit. For requests using [Basic Authentication](/v3/#authentication), [OAuth](/v3/#authentication), or [client ID and secret](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
+The Search API has a custom rate limit. For requests using [Basic Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
 See the [rate limit documentation](/rest/reference/rate-limit) for details on determining your current rate limit status.
 
 ### Constructing a search query
 
-Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {{ site.data.variables.product.product_name }}. See the individual endpoint in the Search API for an example that includes the endpoint and query parameters.
+Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {% data variables.product.product_name %}. See the individual endpoint in the Search API for an example that includes the endpoint and query parameters.
 
-A query can contain any combination of search qualifiers supported on GitHub.com. The format of the search query is:
+A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 For example, if you wanted to search for all _repositories_ owned by `defunkt` that contained the word `GitHub` and `Octocat` in the README file, you would use the following query with the _search repositories_ endpoint:
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. 예시:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 See "[Searching on GitHub](/articles/searching-on-github/)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax/)."
@@ -57,11 +64,11 @@ Reaching a timeout does not necessarily mean that search results are incomplete.
 
 ### Access errors or missing search results
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessible Entry` error with a "Validation Failed" message. For example, your search will fail if your query includes `repo:`, `user:`, or `org:` qualifiers that request resources that you don't have access to when you sign in on {{ site.data.variables.product.prodname_dotcom }}.
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessible Entry` error with a "Validation Failed" message. For example, your search will fail if your query includes `repo:`, `user:`, or `org:` qualifiers that request resources that you don't have access to when you sign in on {% data variables.product.prodname_dotcom %}.
 
 When your search query requests multiple resources, the response will only contain the resources that you have access to and will **not** provide an error message listing the resources that were not returned.
 
-For example, if your search query searches for the `octocat/test` and `codertocat/test` repositories, but you only have access to `octocat/test`, your response will show search results for `octocat/test` and nothing for `codertocat/test`. This behavior mimics how search works on {{ site.data.variables.product.prodname_dotcom }}.
+For example, if your search query searches for the `octocat/test` and `codertocat/test` repositories, but you only have access to `octocat/test`, your response will show search results for `octocat/test` and nothing for `codertocat/test`. This behavior mimics how search works on {% data variables.product.prodname_dotcom %}.
 
 {% include rest_operations_at_current_path %}
 
@@ -96,7 +103,7 @@ Using cURL, and the [example issue search](#search-issues-and-pull-requests) abo
 
 ``` shell
 curl -H 'Accept: application/vnd.github.v3.text-match+json' \
-'{{ site.data.variables.product.api_url_pre }}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 
 The response will include a `text_matches` array for each search result. In the JSON below, we have two objects in the `text_matches` array.

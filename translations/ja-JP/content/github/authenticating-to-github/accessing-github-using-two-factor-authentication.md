@@ -1,6 +1,6 @@
 ---
 title: 2 要素認証を利用した GitHub へのアクセス
-intro: '2FA を有効にすると、{{ site.data.variables.product.product_name }} にサインインするときに、2FA 認証コードとパスワードを入力するように求められます。'
+intro: '2FA を有効にすると、{% data variables.product.product_name %} にサインインするときに、2FA 認証コードとパスワードを入力するように求められます。'
 redirect_from:
   - /articles/providing-your-2fa-security-code/
   - /articles/providing-your-2fa-authentication-code/
@@ -11,17 +11,17 @@ versions:
   enterprise-server: '*'
 ---
 
-2 要素認証を有効にすると、ブラウザから {{ site.data.variables.product.product_name }} にアクセスするときに認証コードを入力する必要があります。 API やコマンドラインなどの他の方法を使用して {{ site.data.variables.product.product_name }} にアクセスする場合は、別の形式の認証を使用する必要があります。 詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }} への認証について](/github/authenticating-to-github/about-authentication-to-github)」を参照してください。
+2 要素認証を有効にすると、ブラウザから {% data variables.product.product_name %} にアクセスするときに認証コードを入力する必要があります。 API やコマンドラインなどの他の方法を使用して {% data variables.product.product_name %} にアクセスする場合は、別の形式の認証を使用する必要があります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} への認証について](/github/authenticating-to-github/about-authentication-to-github)」を参照してください。
 
 ### Web サイトへのサインインの際に 2FA コードを提供
 
-パスワードを使用して {{ site.data.variables.product.product_name }}にサインインした後、{% if currentVersion == "free-pro-team@latest" %}テキストメッセージまたは {% endif %}TOTP アプリケーションから、認証コードを入力するよう求められます。
+After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% if currentVersion == "free-pro-team@latest" %}a text message or{% endif %} your TOTP app.
 
-{{ site.data.variables.product.product_name }}が 2FA 認証コードを再度求めるのは、ログアウトした場合、新しいデバイスを使う場合、またはセッションが期限切れになった場合のみです。
+{% data variables.product.product_name %}が 2FA 認証コードを再度求めるのは、ログアウトした場合、新しいデバイスを使う場合、またはセッションが期限切れになった場合のみです。
 
 #### TOTP アプリケーションでのコード生成
 
-スマートフォン上の TOTP アプリケーションを使用して 2 要素認証をセットアップすることにした場合は、いつでも {{ site.data.variables.product.product_name }}のための認証コードを生成できます。 多くの場合、アプリケーションを起動するだけで新しいコードが生成されます。 個別の手順についてはアプリケーションのドキュメンテーションを参照してください。
+スマートフォン上の TOTP アプリケーションを使用して 2 要素認証をセットアップすることにした場合は、いつでも {% data variables.product.product_name %}のための認証コードを生成できます。 多くの場合、アプリケーションを起動するだけで新しいコードが生成されます。 個別の手順についてはアプリケーションのドキュメンテーションを参照してください。
 
 2 要素認証を設定した後にモバイルアプリケーションを削除した場合、アカウントにアクセスする際にリカバリコードを入力しなければなりません。 詳しい情報については[2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。
 
@@ -29,25 +29,25 @@ versions:
 
 #### テキストメッセージの受信
 
-テキストメッセージで 2 要素認証をセットアップする場合、{{ site.data.variables.product.product_name }}は認証コードが記されたテキストメッセージを送信します。
+テキストメッセージで 2 要素認証をセットアップする場合、{% data variables.product.product_name %}は認証コードが記されたテキストメッセージを送信します。
 
 {% endif %}
 
 ### コマンドラインでの 2 要素認証の使用
 
-2 要素認証を有効化した後は、{{ site.data.variables.product.product_name }} にコマンドラインからアクセスする際に、パスワードの代わりに個人アクセストークンまたは SSH キーを使わなければなりません。
+2 要素認証を有効化した後は、{% data variables.product.product_name %} にコマンドラインからアクセスする際に、パスワードの代わりに個人アクセストークンまたは SSH キーを使わなければなりません。
 
 #### HTTPS を利用したコマンドラインでの認証
 
-2FA を有効化した後は、コマンドライン上で HTTPS の URL を使って {{ site.data.variables.product.product_name }}の認証を受けるために、パスワードとして使うための個人アクセストークンを作成しなければなりません。
+2FA を有効化した後は、コマンドライン上で HTTPS の URL を使って {% data variables.product.product_name %}の認証を受けるために、パスワードとして使うための個人アクセストークンを作成しなければなりません。
 
-コマンドラインでユーザ名とパスワードを求められたら、{{ site.data.variables.product.product_name }}のユーザ名と個人アクセストークンを入力してください。 コマンドラインプロンプトがパスワードを要求する際には、個人アクセストークンを入力すべきだということを示しません。
+コマンドラインでユーザ名とパスワードを求められたら、{% data variables.product.product_name %}のユーザ名と個人アクセストークンを入力してください。 コマンドラインプロンプトがパスワードを要求する際には、個人アクセストークンを入力すべきだということを示しません。
 
 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 #### SSH を利用したコマンドラインでの認証
 
-2 要素認証を有効化しても、コマンドライン上で SSH URL を使って {{ site.data.variables.product.product_name }} の認証を受けるやり方は変わりません。 SSH キーのセットアップと利用に関する詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }} に SSH で接続する](/articles/connecting-to-github-with-ssh/)」を参照してください。
+2 要素認証を有効化しても、コマンドライン上で SSH URL を使って {% data variables.product.product_name %} の認証を受けるやり方は変わりません。 SSH キーのセットアップと利用に関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} に SSH で接続する](/articles/connecting-to-github-with-ssh/)」を参照してください。
 
 ### Subversion を使ったリポジトリへのアクセスでの 2 要素認証の利用
 

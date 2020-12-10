@@ -1,12 +1,13 @@
 ---
 title: Tipos de verificações de status obrigatórias
 intro: Você pode configurar as verificações de status obrigatórias como "flexível" ou "rígida". O tipo de verificação de status obrigatória que você escolher determinará se o branch precisará ser atualizado com o branch base antes do merge.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/types-of-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 | Tipo de verificação de status obrigatória | Configuração                                                                                                                                                  | Requisitos de merge                                                    | Considerações                                                                                                                                                                                                                                                                                |

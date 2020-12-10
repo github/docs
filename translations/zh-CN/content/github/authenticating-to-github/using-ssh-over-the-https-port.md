@@ -25,20 +25,20 @@ $ ssh -T -p 443 git@ssh.github.com
 
 ### 启用通过 HTTPS 的 SSH 连接
 
-如果您能在端口 443 上通过 SSH 连接到 `git@ssh.{{ site.data.variables.command_line.backticks }}`，则可以覆盖您的 SSH 设置以强制与 {{ site.data.variables.product.product_location }} 的任何连接均通过该服务器和端口运行。
+如果您能在端口 443 上通过 SSH 连接到 `git@ssh.{% data variables.command_line.backticks %}`，则可以覆盖您的 SSH 设置以强制与 {% data variables.product.product_location %} 的任何连接均通过该服务器和端口运行。
 
 要在您的 ssh 配置中设置此项，编辑位于 `~/.ssh/config` 的文件，添加以下部分：
 
 ```
-Host {{ site.data.variables.command_line.codeblock }}
-  Hostname ssh.{{ site.data.variables.command_line.codeblock }}
+Host {% data variables.command_line.codeblock %}
+  Hostname ssh.{% data variables.command_line.codeblock %}
   Port 443
 ```
 
-您可以通过再次连接到 {{ site.data.variables.product.product_location }} 测试此项是否有效：
+您可以通过再次连接到 {% data variables.product.product_location %} 测试此项是否有效：
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```

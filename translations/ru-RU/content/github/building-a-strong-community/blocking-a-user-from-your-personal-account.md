@@ -9,7 +9,7 @@ versions:
 
 ### About blocking users
 
-You can block a user in your account settings or from the user's profile. {{ site.data.variables.product.prodname_dotcom }} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can [choose to display a warning](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) on any repositories with prior contributions from a blocked user. You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
+You can block a user in your account settings or from the user's profile. {% data variables.product.prodname_dotcom %} will not notify the user when you block them. If you want to avoid contributing to the same project as someone you've blocked, you can [choose to display a warning](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) on any repositories with prior contributions from a blocked user. You may still see the activity of blocked users in shared spaces and blocked users can delete their existing content.
 
 {% tip %}
 
@@ -20,6 +20,7 @@ You can block a user in your account settings or from the user's profile. {{ sit
 When you block a user:
 - The user stops following you
 - The user stops watching and unpins your repositories
+- The user is not able to join any organizations you are an owner of
 - The user's stars and issue assignments are removed from your repositories
 - The user's forks of your repositories are deleted
 - You delete any forks of the user's repositories
@@ -51,20 +52,20 @@ In repositories you own, blocked users also cannot:
 
 ### Blocking a user in your account settings
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. Under "Block a user", type the username of the user you'd like to block, then click **Block user**. ![Username field and block button](/assets/images/help/settings/user-settings-block-user.png)
 4. Optionally, to display a warning when you visit a repository where a blocked user is a contributor, select **Warn me when a blocked user is a prior contributor to a repository**. ![Warn about blocked users option](/assets/images/help/settings/warn-block-user.png)
 
 ### Blocking a user from their profile page
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
-{{ site.data.reusables.profile.user_profile_page_block_or_report }}
+{% data reusables.profile.user_profile_page_navigation %}
+{% data reusables.profile.user_profile_page_block_or_report %}
 3. Click **Block user**. ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-blockuser.png)
 
 {% note %}
 
-Use {{ site.data.variables.contact.report_abuse }} to contact us if you're being harassed. {{ site.data.reusables.policies.abuse }}
+Use {% data variables.contact.report_abuse %} to contact us if you're being harassed. {% data reusables.policies.abuse %}
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: Sobre migrações
-intro: 'Migração é o processo de transferência de dados de um local de *origem* (organização do {{ site.data.variables.product.prodname_dotcom_the_website }} ou uma instância do {{ site.data.variables.product.prodname_ghe_server }}) para uma instância de *destino* do {{ site.data.variables.product.prodname_ghe_server }}. É possível usar as migrações para transferir os dados ao alterar plataformas ou atualizar o hardware na sua instância.'
+intro: 'Migração é o processo de transferência de dados de um local de *origem* (organização do {% data variables.product.prodname_dotcom_the_website %} ou uma instância do {% data variables.product.prodname_ghe_server %}) para uma instância de *destino* do {% data variables.product.prodname_ghe_server %}. É possível usar as migrações para transferir os dados ao alterar plataformas ou atualizar o hardware na sua instância.'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -12,9 +12,9 @@ versions:
 
 Você pode fazer três tipos de migração:
 
-- Migração de uma instância do {{ site.data.variables.product.prodname_ghe_server }} para outra do {{ site.data.variables.product.prodname_ghe_server }}: você pode migrar qualquer número de repositórios pertencentes a qualquer usuário ou organização na instância. Para executar a migração, você deve ter acesso de administrador do site a ambas as instâncias.
-- Migração de uma organização do {{ site.data.variables.product.prodname_dotcom_the_website }} para uma instância do {{ site.data.variables.product.prodname_ghe_server }}: você pode migrar qualquer número de repositórios pertencentes à organização. Para fazer a migração, você deve ter [acesso administrativo](/enterprise/user/articles/permission-levels-for-an-organization/) à organização do {{ site.data.variables.product.prodname_dotcom_the_website }} e acesso de administrador do site na instância de destino.
-- *Execuções de experiência* são migrações que importam dados para uma [instância de preparo](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Elas podem ser úteis para ver o que *aconteceria* se uma migração fosse aplicada à {{ site.data.variables.product.product_location_enterprise }}. **É altamente recomendável fazer uma execução de experiência em uma instância de preparo antes de importar dados para a sua instância de produção.**
+- Migração de uma instância do {% data variables.product.prodname_ghe_server %} para outra do {% data variables.product.prodname_ghe_server %}: você pode migrar qualquer número de repositórios pertencentes a qualquer usuário ou organização na instância. Para executar a migração, você deve ter acesso de administrador do site a ambas as instâncias.
+- Migração de uma organização do {% data variables.product.prodname_dotcom_the_website %} para uma instância do {% data variables.product.prodname_ghe_server %}: você pode migrar qualquer número de repositórios pertencentes à organização. Para fazer a migração, você deve ter [acesso administrativo](/enterprise/user/articles/permission-levels-for-an-organization/) à organização do {% data variables.product.prodname_dotcom_the_website %} e acesso de administrador do site na instância de destino.
+- *Execuções de experiência* são migrações que importam dados para uma [instância de preparo](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Elas podem ser úteis para ver o que *aconteceria* se uma migração fosse aplicada à {% data variables.product.product_location %}. **É altamente recomendável fazer uma execução de experiência em uma instância de preparo antes de importar dados para a sua instância de produção.**
 
 ### Dados migrados
 
@@ -22,7 +22,7 @@ Durante uma migração, tudo gira em torno do repositório. A maioria dos dados 
 
 Os itens na tabela abaixo podem ser migrados com um repositório. Não é possível migrar os itens que não constam na lista.
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
 | Dados associados a um repositório migrado     | Observações                                                                                                                                                                             |
 | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

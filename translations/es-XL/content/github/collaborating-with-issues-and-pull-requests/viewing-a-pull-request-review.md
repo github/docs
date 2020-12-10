@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 Cuando ves una revisión completa, verás la misma versión de la solicitud de extracción como el revisor lo hizo al momento de la revisión.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
 3. En la pestaña "Conversation" (Conversación), desplázate hasta la revisión que deseas ver y luego haz clic en **View changes (Ver cambios)**. ![Encabezado de revisión con el vínculo de revisión completa](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
 ### Leer más

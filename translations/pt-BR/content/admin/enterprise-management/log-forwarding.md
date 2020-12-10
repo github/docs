@@ -1,6 +1,6 @@
 ---
 title: Encaminhamento de logs
-intro: 'O {{ site.data.variables.product.prodname_enterprise }} usa `syslog-ng` para encaminhar logs do sistema e de aplicativos para o servidor especificado nas configurações do {{ site.data.variables.enterprise.management_console }}.'
+intro: 'O {% data variables.product.prodname_enterprise %} usa `syslog-ng` para encaminhar logs do sistema e de aplicativos para o servidor especificado nas configurações do {% data variables.enterprise.management_console %}.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -13,7 +13,7 @@ Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog
 
 ### Habilitar o encaminhamento de logs
 
-1. Na página de configurações do {{ site.data.variables.enterprise.management_console }}, na barra lateral esquerda, clique em **Monitoring** (Monitoramento).
+1. Na página de configurações do {% data variables.enterprise.management_console %}, na barra lateral esquerda, clique em **Monitoring** (Monitoramento).
 1. Selecione **Enable log forwarding** (Habilitar encaminhamento de logs).
 1. No campo **Server address** (Endereço do servidor), digite o endereço do servidor para o qual você pretende encaminhar os logs. É possível especificar vários endereços em uma lista separada por vírgulas.
 1. No menu suspenso Protocol (Protocolo), selecione o protocolo a ser usado para comunicação com o servidor de logs. O protocolo será aplicado a todos os destinos de log especificados.
@@ -22,4 +22,4 @@ Qualquer sistema de coleta de logs com suporte a fluxos de logs do estilo syslog
 
 ### Solução de Problemas
 
-Em caso de problemas com o encaminhamento de logs, entre em contato com o {{ site.data.variables.contact.contact_ent_support }} e anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
+Em caso de problemas com o encaminhamento de logs, entre em contato com o {% data variables.contact.contact_ent_support %} e anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.

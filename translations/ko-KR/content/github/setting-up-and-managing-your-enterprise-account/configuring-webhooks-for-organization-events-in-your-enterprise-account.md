@@ -1,7 +1,7 @@
 ---
 title: Configuring webhooks for organization events in your enterprise account
 intro: Enterprise owners can configure webhooks for events in organizations owned by an enterprise account.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/configuring-webhooks-for-organization-events-in-your-business-account/
   - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
@@ -11,9 +11,9 @@ versions:
 
 You can configure webhooks to receive events from organizations owned by your enterprise account. For more information about webhooks, see "[Webhooks](/webhooks/)."
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 4. Next to "Webhooks", click **Add webhook**. ![Add webhook button in the Webhooks sidebar](/assets/images/help/business-accounts/add-webhook-button.png)
 5. Type a payload URL, then optionally customize the configuration. For more information, see "[Creating webhooks](/webhooks/creating/#creating-webhooks)." ![Fields for payload URL and other customization options](/assets/images/help/business-accounts/webhook-payload-url-and-customization-options.png)
 6. Under "Which events would you like to trigger this webhook?", select **Let me select individual events**. ![Selecting individual events](/assets/images/help/business-accounts/webhook-let-me-select-individual-events.png)

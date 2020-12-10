@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-誤ってセキュリティアドバイザリを公開した場合は、{{ site.data.variables.contact.contact_support }} に連絡するとセキュリティアドバイザリを撤回できます。
+誤ってセキュリティアドバイザリを公開した場合は、{% data variables.contact.contact_support %} に連絡するとセキュリティアドバイザリを撤回できます。
 
 ### 参考リンク
 

@@ -1,18 +1,19 @@
 ---
 title: Searching commits
-intro: 'You can search for commits on {{ site.data.variables.product.product_name }} and narrow the results using these commit search qualifiers in any combination.'
+intro: 'You can search for commits on {% data variables.product.product_name %} and narrow the results using these commit search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-commits
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can search for commits globally across all of {{ site.data.variables.product.product_name }}, or search for commits within a particular repository or organization. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+You can search for commits globally across all of {% data variables.product.product_name %}, or search for commits within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
 When you search for commits, only the [default branch](/articles/about-branches) of a repository is searched.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Search within commit messages
 
@@ -45,7 +46,7 @@ The `author-email` and `committer-email` qualifiers match commits by the author'
 
 Use the `author-date` and `committer-date` qualifiers to match commits authored or committed within the specified date range.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | 예시                                                                                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -95,14 +96,11 @@ To search commits in all repositories owned by a certain user or organization, u
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) matches commit messages with the word "test" in repositories owned by @github.                                           |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) matches commit messages with the word "language" in @defunkt's "gibberish" repository. |
 
-### Filter public or private repositories
+### Filter by repository visibility
 
-The `is` qualifier matches public or private commits.
+The `is` qualifier matches commits from repositories with the specified visibility. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| Qualifier    | 예시                                                                                               |
-| ------------ | ------------------------------------------------------------------------------------------------ |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches public commits.    |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches private commits. |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
 
 ### 더 읽을거리
 

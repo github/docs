@@ -9,14 +9,14 @@ versions:
 
 También puedes implementar tu configuración por defecto en todos los miembros actuales de la organización en tu instancia usando una utilidad de línea de comandos. Por ejemplo, si quieres solicitar que la visibilidad de cada miembro de la organización sea pública, puedes establecer la configuración predeterminada como pública e implementar la predeterminada para todos los nuevos miembros en los parámetros de administración, y luego usar la utilidad de línea de comandos para implementar la configuración pública en los miembros existentes.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
+{% data reusables.enterprise-accounts.options-tab %}
 3. En "Visibilidad predeterminada de los miembros de la organización", usa el menú desplegable y haz clic en **Private (Privada)** o **Public (Pública)**. ![Menú desplegable con opción para configurar la visibilidad predeterminada de los miembros de la organización como pública o privada](/assets/images/enterprise/site-admin-settings/default-organization-membership-visibility-drop-down-menu.png)
 4. Opcionalmente, para evitar que los miembros modifiquen la visibilidad de su membresía respecto de la predeterminada, selecciona **Implementar en los miembros de la organización**. ![Casilla de verificación para implementar la configuración predeterminada en todos los miembros](/assets/images/enterprise/site-admin-settings/enforce-default-org-membership-visibility-setting.png)
 5. Si quieres implementar tu nueva configuración de visibilidad en todos los miembros existentes, usa la utilidad de línea de comandos `ghe-org-membership-update`. Para obtener más información, consulta "[Utilidades de línea de comandos](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-membership-update)."

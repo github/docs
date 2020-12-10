@@ -1,6 +1,6 @@
 ---
 title: Representar y comparar imágenes
-intro: '{{ site.data.variables.product.product_name }} puede mostrar varios formatos de imagen comunes, incluidos PNG, JPG, GIF, PSD y SVG. Asimismo, para simplificar mostrarlas, existen diversas formas de comparar las diferencias entre las versiones de esos formatos de imagen.'
+intro: '{% data variables.product.product_name %} puede mostrar varios formatos de imagen comunes, incluidos PNG, JPG, GIF, PSD y SVG. Asimismo, para simplificar mostrarlas, existen diversas formas de comparar las diferencias entre las versiones de esos formatos de imagen.'
 redirect_from:
   - /articles/rendering-and-diffing-images
 versions:
@@ -10,13 +10,13 @@ versions:
 
 {% note %}
 
-**Nota:** Si estás utilizando el navegador Firefox, puede que los SVG en {{ site.data.variables.product.prodname_dotcom }} no se representen.
+**Nota:** Si estás utilizando el navegador Firefox, puede que los SVG en {% data variables.product.prodname_dotcom %} no se representen.
 
 {% endnote %}
 
 ### Ver imágenes
 
-Puedes navegar y ver imágenes directamente en tu {{ site.data.variables.product.product_name }} repositorio:
+Puedes navegar y ver imágenes directamente en tu {% data variables.product.product_name %} repositorio:
 
 ![imagen alineada](/assets/images/help/images/view.png)
 

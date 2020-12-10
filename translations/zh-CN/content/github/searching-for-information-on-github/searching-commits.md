@@ -1,18 +1,19 @@
 ---
 title: 搜索提交
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索提交，并使用这些提交搜索限定符的任意组合缩小结果范围。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索提交，并使用这些提交搜索限定符的任意组合缩小结果范围。'
 redirect_from:
   - /articles/searching-commits
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-您可以在所有 {{ site.data.variables.product.product_name }} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {{ site.data.variables.product.company_short }} 上搜索](/articles/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
 
 当您搜索提交时，仅搜索仓库的[默认分支](/articles/about-branches)。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### 在提交消息内搜索
 
@@ -45,7 +46,7 @@ versions:
 
 使用 `author-date` 和 `committer-date` 限定符可匹配指定日期范围内创作或提交的提交。
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                       | 示例                                                                                                                                      |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,14 +96,11 @@ versions:
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) 匹配 @github 拥有的仓库中含有 "test" 字样的提交消息。                                                   |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) 匹配 @defunkt 的 "gibberish" 仓库中含有 "language" 字样的提交消息。 |
 
-### 过滤公共或私有仓库
+### Filter by repository visibility
 
-`is` 限定符匹配公共或私有提交。
+The `is` qualifier matches commits from repositories with the specified visibility. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| 限定符          | 示例                                                                              |
-| ------------ | ------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) 匹配公共提交。   |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) 匹配私有提交。 |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) matches commits to private repositories.
 
 ### 延伸阅读
 

@@ -10,24 +10,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### {{ site.data.variables.product.prodname_dotcom }}を使ったセルフホストランナーのステータスのチェック
 
-{{ site.data.reusables.github-actions.self-hosted-runner-management-permissions-required }}
+{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-navigate-repo-and-org }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. "Self-hosted runners（セルフホストランナー）"の下で、ランナーの名前、ラベル、ステータスを含む、登録されたランナーのリストを見ることができます。
 
     ![ランナーのリスト](/assets/images/help/settings/actions-runner-list.png)
 
     ステータスは以下のいずれかです。
 
-    * **Idle**: ランナーは{{ site.data.variables.product.product_name }}に接続されており、ジョブを実行する準備ができています。
+    * **Idle**: ランナーは{% data variables.product.product_name %}に接続されており、ジョブを実行する準備ができています。
     * **Active**: ランナーは現在ジョブを実行しています。
-    * **Offline**: ランナーは{{ site.data.variables.product.product_name }}に接続されていません。 これは、マシンがオフラインになっているか、マシン上でセルフホストランナーアプリケーションが動作していないか、セルフホストランナーアプリケーションが{{ site.data.variables.product.product_name }}と通信できていないかです。
+    * **Offline**: ランナーは{% data variables.product.product_name %}に接続されていません。 これは、マシンがオフラインになっているか、マシン上でセルフホストランナーアプリケーションが動作していないか、セルフホストランナーアプリケーションが{% data variables.product.product_name %}と通信できていないかです。
 
 
 ### セルフホストランナーアプリケーションのログファイルのレビュー

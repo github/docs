@@ -17,7 +17,7 @@ versions:
  - 您将**不再**能够登录被转换的用户帐户。
  - 您将**不再**能够创建或修改被转换的用户帐户所拥有的 Gist。
  - **无法**将组织转换回用户。
- - SSH 密钥、OAuth 令牌、作业档案、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} 反应、{% endif %}及关联的用户信息**不会**传输到组织。 这只适用于被转换的用户帐户，而不适用于该用户帐户的任何协作者。
+ - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. 这只适用于被转换的用户帐户，而不适用于该用户帐户的任何协作者。
  - 使用被转换用户帐户进行的任何提交**将不再链接**到该帐户。 提交本身**将**保持原状。
 
 {% endwarning %}
@@ -35,12 +35,12 @@ versions:
 也可以将个人用户帐户直接转换为组织。 转换帐户：
  - 按原样保留仓库，无需手动将其转让给另一个帐户
  - 自动邀请协作者加入与他们以前的权限相当的团队
- {% if currentVersion == "free-pro-team@latest" %}-对 {{ site.data.variables.product.prodname_pro }} 上的用户帐户，自动将帐单转移到[付费 {{ site.data.variables.product.prodname_team }}](/articles/about-billing-for-github-accounts)，任何时候都无需重新输入付款信息、调整结算周期或双重付费{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
 1. 创建新的个人帐户，转换后您将用它来登录 GitHub 以及访问组织和仓库。
 2.  [离开](/articles/removing-yourself-from-an-organization)要转换的用户帐户此前加入的任何组织。
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
 5. 在“Transform account（转换帐户）”下，单击 **Turn <username> into an organization（将 <username> 转换为组织）**。 ![组织转换按钮](/assets/images/help/settings/convert-to-organization.png)
 6. 在 Account Transformation Warning（帐户转换警告）对话框中，查看并确认转换。 请注意，此框中的信息与本文顶部的警告信息相同。 ![转换警告](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. 在“Transform your user into an organization（将用户转换为组织）”页面的“Choose an organization owner（选择组织所有者）”下，选择您在前面创建的备用个人帐户或您信任的其他用户来管理组织。 ![添加组织所有者页面](/assets/images/help/organizations/organization-add-owner.png)
@@ -56,5 +56,5 @@ versions:
 
 ### 延伸阅读
 - "[设置团队](/articles/setting-up-teams)"
-{% if currentVersion == "free-pro-team@latest" %}- "[邀请用户加入您的组织](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - “[访问组织](/articles/accessing-an-organization)”

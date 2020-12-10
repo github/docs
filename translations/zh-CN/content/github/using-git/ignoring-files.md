@@ -4,10 +4,11 @@ redirect_from:
   - /git-ignore/
   - /ignore-files/
   - /articles/ignoring-files
-intro: '您可以配置 Git 忽略您不想检入 {{ site.data.variables.product.product_name }} 的文件。'
+intro: '您可以配置 Git 忽略您不想检入 {% data variables.product.product_name %} 的文件。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 为单个仓库配置忽略的文件
@@ -16,7 +17,7 @@ versions:
 
 GitHub 在 `github/gitignore` 公共仓库中维护建议用于许多常用操作系统、环境及语言的 *.gitignore* 文件正式列表。 您也可以使用 gitignore.io 创建 *.gitignore* 文件，以用于操作系统、编程语言或 IDE。 更多信息请参阅“[github/gitignore](https://github.com/github/gitignore)”和“[gitignore.io](https://www.gitignore.io/)”网站。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 导航到 Git 仓库的位置。
 3. 为仓库创建 *.gitignore* 文件。
    ```shell
@@ -35,7 +36,7 @@ $ git rm --cached <em>FILENAME</em>
 
 您也可以创建全局 *.gitignore* 文件，以定义忽略计算机上每个 Git 仓库中文件的规则列表。 例如，在 *~/.gitignore_global* 中创建文件并加入一些规则。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 配置 Git 对所有 Git 仓库使用排除文件 *~/.gitignore_global*。
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
@@ -47,7 +48,7 @@ $ git rm --cached <em>FILENAME</em>
 
 使用您常用的文本编辑器打开 Git 仓库根目录中的文件 *.git/info/exclude*。 您在此处添加的任何规则都不会检入，并且只会对您的本地仓库忽略文件。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 导航到 Git 仓库的位置。
 3. 使用您常用的文本编辑器打开文件 *.git/info/exclude*。
 

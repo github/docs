@@ -1,11 +1,12 @@
 ---
 title: Glossário do GitHub
-intro: 'Segue abaixo uma lista de alguns termos específicos do Git e {{ site.data.variables.product.prodname_dotcom }} que usamos em nossos sites e documentações.'
+intro: 'Segue abaixo uma lista de alguns termos específicos do Git e {% data variables.product.prodname_dotcom %} que usamos em nossos sites e documentações.'
 redirect_from:
   - /articles/github-glossary
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for term in site.data.glossaries.external %}

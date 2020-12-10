@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'Para agilizar a resposta dos usuários em relação às atividades no {{ site.data.variables.product.prodname_ghe_server }}, você pode configurar a sua instância para enviar notificações por e-mail sobre problemas, pull requests e comentários de commit, além de configurações adicionais para permitir respostas a e-mails recebidos. Os e-mails de notificação serão enviados se houver atividades no repositório em que o usuário estiver participando, se houver atividades em pull requests ou problemas em que ele esteja envolvido, ou se houver @menções ao usuário ou à equipe da qual ele é integrante.'
+intro: 'Para agilizar a resposta dos usuários em relação às atividades no {% data variables.product.prodname_ghe_server %}, você pode configurar a sua instância para enviar notificações por e-mail sobre problemas, pull requests e comentários de commit, além de configurações adicionais para permitir respostas a e-mails recebidos. Os e-mails de notificação serão enviados se houver atividades no repositório em que o usuário estiver participando, se houver atividades em pull requests ou problemas em que ele esteja envolvido, ou se houver @menções ao usuário ou à equipe da qual ele é integrante.'
 versions:
   enterprise-server: '*'
 ---
 
 ### Configurar SMTP
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 2. Na parte superior da página, clique em **Settings** (Configurações). ![Guia Settings (Configurações)](/assets/images/enterprise/management-console/settings-tab.png)
 3. Na barra lateral esquerda, clique em **Email**. ![Guia E-mail](/assets/images/enterprise/management-console/email-sidebar.png)
 4. Selecione **Enable email** (Habilitar e-mail). Fazer isso vai habilitar os e-mails enviados (saída) e recebidos (entrada). No entanto, para que o recebimento de e-mails funcione, você terá que definir suas configurações de DNS conforme descrito em "[Configurar o DNS e o firewall para o recebimento de e-mails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Habilitar e-mail de saída](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -44,7 +44,7 @@ Se quiser permitir o recebimento de respostas para os e-mails de notificação, 
 1. A porta 25 da instância deve estar acessível para o seu servidor SMTP.
 2. Crie um registro A que aponte para `reply.[hostname]`. Dependendo do provedor DNS e da configuração do host da instância, você poderá criar um único registro A que aponte para `*.[hostname]`.
 3. Crie um registro MX que aponte para `reply.[hostname]`, de forma que os e-mails desse domínio sejam roteados para a instância.
-4. Crie um registro MX que aponte `noreply.[hostname]` para `[hostname]`, de forma que as respostas ao endereço `cc` nos e-mails de notificação sejam roteadas para a instância. Para obter mais informações, consulte {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications)"{% endif %}."
+4. Crie um registro MX que aponte `noreply.[hostname]` para `[hostname]`, de forma que as respostas ao endereço `cc` nos e-mails de notificação sejam roteadas para a instância. Para obter mais informações, consulte {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}".
 
 Com essas definições de DNS, agora você pode testar se a configuração funciona.
 
@@ -68,7 +68,7 @@ Com essas definições de DNS, agora você pode testar se a configuração funci
 
 #### Criar um pacote de suporte
 
-Se não conseguir determinar o que houve de errado na mensagem de erro exibida, você pode baixar um [pacote de suporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {{ site.data.variables.product.prodname_ghe_server }}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas SMTP com os erros relacionados.
+Se não conseguir determinar o que houve de errado na mensagem de erro exibida, você pode baixar um [pacote de suporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) com toda a conversa SMTP entre o seu servidor de e-mail e o {% data variables.product.prodname_ghe_server %}. Depois de fazer o download e extrair o pacote, verifique as entradas em *enterprise-manage-logs/unicorn.log* e veja o log completo de conversas SMTP com os erros relacionados.
 
 O log unicorn mostrará uma transação semelhante a esta:
 
@@ -109,7 +109,7 @@ Esse log mostra que o appliance:
 * A autenticação de `login` foi feita (`<- "AUTH LOGIN\r\n"`);
 * O servidor SMTP rejeitou a autenticação como inválida (`-> "535-5.7.1 Nome de usuário e senha não aceitos.`).
 
-#### Consultar logs da {{ site.data.variables.product.product_location_enterprise }}
+#### Consultar logs da {% data variables.product.product_location_enterprise %}
 
 Se você tiver que verificar o funcionamento do recebimento de e-mails, examine dois arquivos de log na sua instância: */var/log/mail.log* e */var/log/mail-replies/metroplex.log*.
 
@@ -143,8 +143,8 @@ Para processar corretamente os e-mails de entrada, você deve configurar um regi
 
 #### Verificar as configurações de firewall ou grupo de segurança do AWS
 
-Se a {{ site.data.variables.product.product_location_enterprise }} estiver atrás de um firewall ou estiver funcionando com um grupo de segurança do AWS, verifique se a porta 25 está aberta para todos os servidores de e-mail que enviam mensagens para `reply@reply.[hostname]`.
+Se a {% data variables.product.product_location_enterprise %} estiver atrás de um firewall ou estiver funcionando com um grupo de segurança do AWS, verifique se a porta 25 está aberta para todos os servidores de e-mail que enviam mensagens para `reply@reply.[hostname]`.
 
 #### Entrar em contato com o suporte
 
-Se você não conseguir resolver o problema, entre em contato com o {{ site.data.variables.contact.contact_ent_support }}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.
+Se você não conseguir resolver o problema, entre em contato com o {% data variables.contact.contact_ent_support %}. Para nos ajudar a resolver a questão, anexe o arquivo de saída de `http(s)://[hostname]/setup/diagnostics` ao seu e-mail.

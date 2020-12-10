@@ -1,6 +1,6 @@
 ---
 title: Bloquear usuário da conta pessoal
-intro: É possível bloquear um usuário para negar a ele acesso aos seus repositórios e atividades e para impedi-lo de enviar notificações a você.
+intro: 'É possível bloquear um usuário para negar a ele acesso aos seus repositórios e atividades e para impedi-lo de enviar notificações a você.'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### Sobre o bloqueio de usuários
 
-Você pode bloquear um usuário nas configurações da sua conta ou no perfil do usuário. {{ site.data.variables.product.prodname_dotcom }} não notificará o usuário quando você bloqueá-lo. Se quiser evitar contribuir com o mesmo projeto da pessoa que foi bloqueada, você pode [optar por exibir um aviso](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) em todos os repositórios com contribuições anteriores de um usuário bloqueado. Você ainda pode ver a atividade dos usuários bloqueados em espaços compartilhados e os usuários bloqueados podem excluir seu conteúdo existente.
+Você pode bloquear um usuário nas configurações da sua conta ou no perfil do usuário. {% data variables.product.prodname_dotcom %} não notificará o usuário quando você bloqueá-lo. Se quiser evitar contribuir com o mesmo projeto da pessoa que foi bloqueada, você pode [optar por exibir um aviso](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings) em todos os repositórios com contribuições anteriores de um usuário bloqueado. Você ainda pode ver a atividade dos usuários bloqueados em espaços compartilhados e os usuários bloqueados podem excluir seu conteúdo existente.
 
 {% tip %}
 
@@ -20,6 +20,7 @@ Você pode bloquear um usuário nas configurações da sua conta ou no perfil do
 Quando você bloqueia um usuário:
 - O usuário para de seguir você
 - O usuário para de inspecionar e deixa de fixar seus repositórios
+- O usuário não pode participar de nenhuma organização da qual você é proprietário
 - As estrelas e atribuições de problema do usuário são removidas dos repositórios
 - As bifurcações dos seus repositórios são excluídas
 - Você exclui qualquer bifurcação dos repositórios do usuário
@@ -51,20 +52,20 @@ Nos repositórios que você possui, os usuários bloqueados também não podem:
 
 ### Bloquear um usuário nas configurações da conta
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. Em "Block a user" (Bloquear um usuário), digite o nome de usuário que deseja bloquear e clique em **Block user** (Bloquear usuário). ![Campo Username (Nome de usuário) e botão Block (Bloquear)](/assets/images/help/settings/user-settings-block-user.png)
 4. Se desejar, para exibir um aviso quando você visitar um repositório onde um usuário bloqueado é um contribuidor, selecione **Warn me when a blocked user is a prior contributor to a repository** (Avisar-me quando um usuário bloqueado for um contribuidor anterior em um repositório). ![Opção de avisar sobre usuários bloqueados](/assets/images/help/settings/warn-block-user.png)
 
 ### Bloquear um usuário na página de perfil dele
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
-{{ site.data.reusables.profile.user_profile_page_block_or_report }}
+{% data reusables.profile.user_profile_page_navigation %}
+{% data reusables.profile.user_profile_page_block_or_report %}
 3. Clique em **Block user** (Bloquear usuário). ![Caixa de diálogo modal com opções para bloquear o usuário ou denunciar um abuso](/assets/images/help/profile/profile-blockuser.png)
 
 {% note %}
 
-Use o {{ site.data.variables.contact.report_abuse }} para entrar em contato conosco se estiver sendo assediado. {{ site.data.reusables.policies.abuse }}
+Use o {% data variables.contact.report_abuse %} para entrar em contato conosco se estiver sendo assediado. {% data reusables.policies.abuse %}
 
 {% endnote %}
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Aufgabenlisten werden mit anklickbaren Kontrollkästchen in Kommentaren dargestellt. Du kannst die Kontrollkästchen aktivieren oder deaktivieren, um Elemente als abgeschlossen oder nicht abgeschlossen zu kennzeichnen.
@@ -18,7 +19,7 @@ Du kannst zusammenfassende Informationen zu Aufgabenlisten in Issue- und Pull-Re
 
 ### Eine Aufgabenliste erstellen
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### Aufgaben neu anordnen
 

@@ -1,6 +1,6 @@
 ---
 title: 发起到副本设备的故障转移
-intro: '您可以使用命令行故障转移到 {{ site.data.variables.product.prodname_ghe_server }} 副本设备以进行维护和测试，也可以在主设备发生故障时进行故障转移。'
+intro: '您可以使用命令行故障转移到 {% data variables.product.prodname_ghe_server %} 副本设备以进行维护和测试，也可以在主设备发生故障时进行故障转移。'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -10,7 +10,7 @@ versions:
 
 故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 1. 要允许复制在切换设备之前完成，请将主设备置于维护模式：
     - 要使用 Management Console，请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
@@ -30,6 +30,15 @@ versions:
 5. 将 DNS 记录更新为指向副本的 IP 地址。 流量会在经过 TTL 周期后定向到副本。 如果您要使用负载均衡器，请务必将其配置为向副本发送流量。
 6. 通知用户他们可以恢复正常操作。
 7. 如有需要，请设置从新的主设备复制到现有设备和之前的主设备。 更多信息请参阅“[关于高可用性配置](/enterprise/{{ currentVersion }}/admin/guides/installation/about-high-availability-configuration/#utilities-for-replication-management)”。
+8. 您不打算在故障转移之前将复制设置为高可用性配置一部分的设备需由 UUID 从高可用性配置中删除。
+    - 在以前的设备上，通过 `cat /data/user/common/uuid` 获取其 UUID。
+      ```shell
+      $ cat /data/user/common/uuid
+      ```
+    - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 *`UUID`* 替换为您在上一步中检索到的 UUID。
+      ```shell
+      $ ghe-repl-teardown -u <em>UUNID</em>
+      ```
 
 ### 延伸阅读
 

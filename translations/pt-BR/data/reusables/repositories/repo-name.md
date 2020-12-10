@@ -1,1 +1,1 @@
-1. Type a name for your repository, and an optional description. ![Campo Create repository (Criar repositório)](/assets/images/help/repository/create-repository-name.png)
+1. Digite um nome para o seu repositório e uma descrição opcional. ![Campo Create repository (Criar repositório)](/assets/images/help/repository/create-repository-name.png)

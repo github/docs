@@ -1,16 +1,16 @@
 ---
 title: 依存関係の更新をカスタマイズする
-intro: '{{ site.data.variables.product.prodname_dependabot }} が依存関係を維持する方法をカスタマイズできます。'
-permissions: 'リポジトリへの書き込み権限を持つユーザは、リポジトリの {{ site.data.variables.product.prodname_dependabot }} を設定できます。'
+intro: '{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。'
+permissions: 'リポジトリへの書き込み権限を持つユーザは、リポジトリの {% data variables.product.prodname_dependabot %} を設定できます。'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dependabot.beta-note }}
+{% data reusables.dependabot.beta-note %}
 
 ### 依存関係の更新のカスタマイズについて
 
-バージョン更新を有効にしてから、*dependabot.yml* ファイルにさらにオプションを追加することで、{{ site.data.variables.product.prodname_dependabot }} が依存関係を維持する方法をカスタマイズできます。 たとえば、次のような方法を使用します。
+バージョン更新を有効にしてから、*dependabot.yml* ファイルにさらにオプションを追加することで、{% data variables.product.prodname_dependabot %} が依存関係を維持する方法をカスタマイズできます。 たとえば、次のような方法を使用します。
 
 - `schedule.day`: バージョン更新のプルリクエストをオープンする曜日を指定する
 - `reviewers`、 `assignees`、`labels`: 各パッケージマネージャーのレビュー担当者、アサインされた人、およびラベルを設定する
@@ -20,19 +20,19 @@ versions:
 
 設定オプションの詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates) 」を参照してください。
 
-リポジトリ内の *dependabot.yml* ファイルを更新すると、{{ site.data.variables.product.prodname_dependabot }} は新しい設定で即座にチェックを実行します。 数分以内に、[**{{ site.data.variables.product.prodname_dependabot_short }}**] タブに更新された依存関係のリストが表示されます。リポジトリに多くの依存関係がある場合、表示までにさらに時間がかかることがあります。 バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/github/administering-a-repository/listing-dependencies-configured-for-version-updates) 」を参照してください。
+リポジトリ内の *dependabot.yml* ファイルを更新すると、{% data variables.product.prodname_dependabot %} は新しい設定で即座にチェックを実行します。 Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. バージョン更新に関する新しいプルリクエストが表示されることもあります。 詳しい情報については、「[バージョン更新用に設定された依存関係を一覧表示する](/github/administering-a-repository/listing-dependencies-configured-for-version-updates) 」を参照してください。
 
 ### 設定変更によるセキュリティアップデートへの影響
 
-*dependabot.yml* ファイルをカスタマイズすると、セキュリティアップデートのために発行されたプルリクエストにいくつかの変更が見られる場合があります。 これらのプルリクエストは、{{ site.data.variables.product.prodname_dependabot }} スケジュールではなく、常に依存関係のセキュリティアドバイザリによってトリガーされます。 ただし、バージョンの更新に別のターゲットブランチを指定しない限り、これらは *dependabot.yml* ファイルから関連する設定を継承します。
+*dependabot.yml* ファイルをカスタマイズすると、セキュリティアップデートのために発行されたプルリクエストにいくつかの変更が見られる場合があります。 これらのプルリクエストは、{% data variables.product.prodname_dependabot %} スケジュールではなく、常に依存関係のセキュリティアドバイザリによってトリガーされます。 ただし、バージョンの更新に別のターゲットブランチを指定しない限り、これらは *dependabot.yml* ファイルから関連する設定を継承します。
 
 例については、後述の「[カスタムラベルを設定する](#setting-custom-labels)」を参照してください。
 
 ### スケジュールを変更する
 
-更新スケジュールを `daily` で設定すると、デフォルトで {{ site.data.variables.product.prodname_dependabot }} は 5:00 (UTC) に新しいバージョンをチェックします。 `schedule.time` を使用して、更新をチェックする別の時刻を指定します（形式: `hh:mm`）。
+更新スケジュールを `daily` で設定すると、デフォルトで {% data variables.product.prodname_dependabot %} は 5:00 (UTC) に新しいバージョンをチェックします。 `schedule.time` を使用して、更新をチェックする別の時刻を指定します（形式: `hh:mm`）。
 
-次の *dependabot.yml* ファイルの例では、npm 設定を拡張して、{{ site.data.variables.product.prodname_dependabot }} がいつ依存関係のバージョン更新をチェックするかを指定しています。
+次の *dependabot.yml* ファイルの例では、npm 設定を拡張して、{% data variables.product.prodname_dependabot %} がいつ依存関係のバージョン更新をチェックするかを指定しています。
 
 ```yaml
 # バージョン更新のスケジュールが
@@ -51,7 +51,7 @@ updates:
 
 ### レビュー担当者とアサインされた人を設定する
 
-デフォルトでは、{{ site.data.variables.product.prodname_dependabot }} は、レビュー担当者やアサインされた人なしでプルリクエストを発行します。
+デフォルトでは、{% data variables.product.prodname_dependabot %} は、レビュー担当者やアサインされた人なしでプルリクエストを発行します。
 
 `reviewers` および `assignees` を使用して、パッケージマネージャーに対して発行されたすべてのプルリクエストの特定のレビュー担当者とアサインされた人を指定できます。 Team を指定するときは、Team（Organizationを含む）を@メンションしている場合と同じように、完全な Team 名を使用する必要があります。
 
@@ -79,7 +79,7 @@ updates:
 
 ### カスタムラベルを設定する
 
-{{ site.data.reusables.dependabot.default-labels}}
+{% data reusables.dependabot.default-labels %}
 
 `labels` を使用してデフォルトのラベルを上書きし、パッケージマネージャーに対して発行されたすべてのプルリクエストに代替のラベルを指定します。 *dependabot.yml* ファイル内で新しいラベルを作成することはできないため、代替ラベルはリポジトリ内に既存である必要があります。
 

@@ -10,14 +10,14 @@ versions:
 
 ### Acerca de los archivos FUNDING
 
-Puedes configurar tu botón de patrocinador editando un archivo _FUNDING.yml_ en la carpeta `.github` de tu repositorio, o bien en la rama predeterminada. Puedes configurar el botón para que incluya programadores patrocinados en {{ site.data.variables.product.prodname_sponsors }}, plataformas de financiamiento externo o URL de financiamiento personalizadas. Para obtener mas información acerca de {{ site.data.variables.product.prodname_sponsors }}, consulta "[Acerca de los patrocinadores de GitHub](/articles/about-github-sponsors)".
+Puedes configurar tu botón de patrocinador editando un archivo _FUNDING.yml_ en la carpeta `.github` de tu repositorio, o bien en la rama predeterminada. Puedes configurar el botón para que incluya programadores patrocinados en {% data variables.product.prodname_sponsors %}, plataformas de financiamiento externo o URL de financiamiento personalizadas. Para obtener mas información acerca de {% data variables.product.prodname_sponsors %}, consulta "[Acerca de los patrocinadores de GitHub](/articles/about-github-sponsors)".
 
-Puedes agregar un nombre de usuario, un nombre de paquete o un nombre de proyecto por plataforma de financiamiento externo y hasta cuatro URL personalizadas. Puedes añadir hasta cuatro organizaciones o desarrolladores patrocinadores en {{ site.data.variables.product.prodname_sponsors }}. Agrega cada plataforma en una línea nueva, usando la siguiente sintaxis:
+Puedes agregar un nombre de usuario, un nombre de paquete o un nombre de proyecto por plataforma de financiamiento externo y hasta cuatro URL personalizadas. Puedes añadir hasta cuatro organizaciones o desarrolladores patrocinadores en {% data variables.product.prodname_sponsors %}. Agrega cada plataforma en una línea nueva, usando la siguiente sintaxis:
 
 | Plataforma                                                                         | Sintaxis                                                                |
 | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: PROJECT-NAME`                                        |
-| [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors) | `github: USERNAME` o `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
+| [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` o `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
 | [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: USERNAME`                                                   |
 | [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: USERNAME`                                                       |
 | [Liberapay](https://en.liberapay.com/)                                             | `liberapay: USERNAME`                                                   |
@@ -56,7 +56,7 @@ Puedes crear un botón patrocinador predeterminado para tu organización o cuent
 
 {% note %}
 
-Los enlaces de financiamiento permiten que los proyectos de código abierto reciban apoyo financiero directo de su comunidad. El uso de enlaces de financiamiento para otros fines, como la publicidad o el apoyo a grupos solidarios, comunitarios o políticos no está admitido. Si tienes consultas acerca de si los fines con que deseas usar estos enlaces está admitido, comunícate con {{ site.data.variables.contact.contact_support }}.
+Los enlaces de financiamiento permiten que los proyectos de código abierto reciban apoyo financiero directo de su comunidad. El uso de enlaces de financiamiento para otros fines, como la publicidad o el apoyo a grupos solidarios, comunitarios o políticos no está admitido. Si tienes consultas acerca de si los fines con que deseas usar estos enlaces está admitido, comunícate con {% data variables.contact.contact_support %}.
 
 {% endnote %}
 
@@ -64,15 +64,15 @@ Los enlaces de financiamiento permiten que los proyectos de código abierto reci
 
 Cualquier usuario que cuente con permisos de administración puede habilitar un botón de patrocinador en un repositorio.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En Características, selecciona **Patrocinios**. ![Casilla de verificación para habilitar Patrocinios](/assets/images/help/sponsors/sponsorships-checkbox.png)
 4. Da clic en **Configurar botón de patrocinador** o **Invalidad enlaces de financiamiento** debajo de la opción "Patrocionios". ![Botón para configurar el botón del patrocinador](/assets/images/help/sponsors/sponsor-set-up-button.png)
 5. En el editor de archivos, sigue la instrucciones en el archivo _FUNDING.yml_ para agregar enlaces a las ubicaciones de tus fuentes de financiamiento. ![Edita el archivo FUNDING para añadir enlaces a ubicaciones de fondeo](/assets/images/help/sponsors/funding-yml-file.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Leer más
-- "[Acerca de {{ site.data.variables.product.prodname_sponsors }} para colaboradores de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
-- "[Preguntas frecuentes con el equipo {{ site.data.variables.product.prodname_sponsors }} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {{ site.data.variables.product.prodname_blog}}
+- "[Acerca de {% data variables.product.prodname_sponsors %} para colaboradores de código abierto](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)"
+- "[Preguntas frecuentes con el equipo {% data variables.product.prodname_sponsors %} ](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)" en {% data variables.product.prodname_blog %}

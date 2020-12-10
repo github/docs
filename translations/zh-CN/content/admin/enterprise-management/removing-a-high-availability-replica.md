@@ -1,6 +1,6 @@
 ---
 title: 移除高可用性副本
-intro: '您可以暂时停止对 {{ site.data.variables.product.prodname_ghe_server }} 副本的复制，也可以永久地移除复制。'
+intro: '您可以暂时停止对 {% data variables.product.prodname_ghe_server %} 副本的复制，也可以永久地移除复制。'
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica

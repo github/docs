@@ -10,7 +10,7 @@ versions:
 
 Antes de sincronizar una bifurcación con un repositorio ascendente, debes [configurar un remoto que apunte al repositorio ascendente ](/articles/configuring-a-remote-for-a-fork) en Git.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Cambiar el directorio de trabajo actual en tu proyecto local.
 3. Extrae las ramas y sus respectivas confirmaciones desde el repositorio ascendente. Las confirmaciones de `master` (principal) se almacenarán en una rama local, `upstream/master`.
   ```shell
@@ -19,7 +19,7 @@ Antes de sincronizar una bifurcación con un repositorio ascendente, debes [conf
   > remoto: Comprimiendo objetos: 100 % (53/53), realizado.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      master     -> upstream/master
   ```
 4. Revisa tus ramas `master` (principales) locales de la bifurcación.
@@ -48,6 +48,6 @@ Antes de sincronizar una bifurcación con un repositorio ascendente, debes [conf
 
 {% tip %}
 
-**Sugerencia:**: sincronizar tu bifurcación únicamente actualiza tu copia local del repositorio. Para actualizar tu bifurcación en {{ site.data.variables.product.product_location }}, debes [subir tus cambios](/articles/pushing-commits-to-a-remote-repository/).
+**Sugerencia:**: sincronizar tu bifurcación únicamente actualiza tu copia local del repositorio. Para actualizar tu bifurcación en {% data variables.product.product_location %}, debes [subir tus cambios](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

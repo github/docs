@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**Dica:** somente proprietários da organização podem renomear a organização. {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**Dica:** somente proprietários da organização podem renomear a organização. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
@@ -21,22 +22,22 @@ Depois que você altera o nome da organização, o nome antigo da organização 
 
 #### Alterações que ocorrem automaticamente
 
-- O {{ site.data.variables.product.prodname_dotcom }} redireciona automaticamente as referências aos seus repositórios.  Os links da web para os **repositórios** da organização continuarão a funcionar. Esse processo pode demorar alguns minutos após a alteração.
+- O {% data variables.product.prodname_dotcom %} redireciona automaticamente as referências aos seus repositórios.  Os links da web para os **repositórios** da organização continuarão a funcionar. Esse processo pode demorar alguns minutos após a alteração.
 - Você pode continuar a fazer push dos repositórios locais para a URL de controle do remote antigo sem atualizá-lo. No entanto, recomendamos que você atualize todas as URLs do repositório remoto depois de alterar o nome da organização. Como o nome antigo da organização ficou disponível para uso por qualquer pessoa após a alteração, o proprietário da nova organização pode criar repositórios que sobrescrevem as entradas de redirecionamento para o seu repositório. Para obter mais informações, consulte "[Alterar o URL de um remote](/articles/changing-a-remote-s-url)".
 - Os Git commits anteriores também serão atribuídos corretamente ao usuários na sua organização.
 
 #### Alterações que não são automáticas
 
 Depois de alterar o nome da organização:
-- Os links para a página de perfil da organização anterior, como `https://{{ site.data.variables.command_line.backticks }}/previousorgname`, retornarão um erro 404. Recomendamos que você atualize os links para a organização de outros sites{% if currentVersion == "free-pro-team@latest" %}, como os perfis do LinkedIn ou do Twitter{% endif %}.
+- Os links para a página de perfil da organização anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, retornarão um erro 404. Recomendamos que você atualize os links para a sua organização a partir de outros sites{% if currentVersion == "free-pro-team@latest" %}, como, por exemplo, os seus perfis do LinkedIn ou do Twitter{% endif %}.
 - As solicitações de API que usam o nome antigo da organização retornarão um erro 404. Recomendamos que você atualize o nome da organização nas solicitações de API.
 - Não há nenhum redirecionamento automático da [@menção](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) para equipes que usam o nome antigo da organização.
 
 ### Alterar o nome da organização
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Perto da parte inferior da página de configuração, em "Rename organization" (Renomear organização), clique em **Rename Organization** (Renomear organização). ![Botão Rename organization (Renomear organização)](/assets/images/help/settings/settings-rename-organization.png)
 
 ### Leia mais

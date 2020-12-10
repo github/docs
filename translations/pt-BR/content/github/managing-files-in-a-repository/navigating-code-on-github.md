@@ -1,15 +1,16 @@
 ---
 title: Navegar por códigos no GitHub
-intro: 'Você pode entender as relações de dentro e entre os repositórios navegando por códigos diretamente no {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode entender as relações de dentro e entre os repositórios navegando por códigos diretamente no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
 ---
 
-### Sobre a navegação do código no {{ site.data.variables.product.prodname_dotcom }}
+### Sobre a navegação do código no {% data variables.product.prodname_dotcom %}
 
 As funções de navegar por código usam a biblioteca de código aberto [`semântica`](https://github.com/github/semantic). As linguagens a seguir são compatíveis:
+- C#
 - CodeQL
 - Go
 - Java

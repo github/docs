@@ -1,6 +1,6 @@
 ---
 title: Unterstützung für Subversion-Clients
-intro: 'Der Zugriff auf GitHub-Repositorys kann von Git- und Subversion (SVN)-Clients erfolgen. In diesem Artikel erhältst Du Informationen zur Ausführung eines Subversion-Clients auf GitHub sowie zu einigen häufigen Problemen, die in Verbindung mit Subversion auftreten können.'
+intro: Der Zugriff auf GitHub-Repositorys kann von Git- und Subversion (SVN)-Clients erfolgen. In diesem Artikel erhältst Du Informationen zur Ausführung eines Subversion-Clients auf GitHub sowie zu einigen häufigen Problemen, die in Verbindung mit Subversion auftreten können.
 redirect_from:
   - /articles/support-for-subversion-clients
 versions:
@@ -18,8 +18,8 @@ Dein erster Schritt in Verbindung mit Subversion ist der Checkout.  Da das Arbei
 
 Subversion-Checkouts unterscheiden sich hier: In Subversion sind die Repository-Daten in den Arbeitsverzeichnissen enthalten, weswegen es für jeden Branch und jedes Tag, das Du ausgecheckt hast, ein eigenes Arbeitsverzeichnis gibt.  Bei Repositorys mit vielen Branches und Tags kann das Auschecken zu einem Bandbreitenproblem werden. In diesem Fall empfiehlt sich zunächst ein teilweiser Checkout.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. Erstelle einen leeren Checkout des Repositorys:
   ```shell
@@ -47,7 +47,7 @@ Subversion-Checkouts unterscheiden sich hier: In Subversion sind die Repository-
 
 Zur Erstellung der Branches kannst Du auch die Subversion-Bridge für GitHub verwenden.
 
-Stelle auf Deinem SVN-Client sicher, dass „master“ der aktuelle Branch ist. Aktualisiere hierzu `trunk`:
+From your svn client, make sure the default branch is current by updating `trunk`:
 ```shell
 $ svn up trunk
 > At revision 1.

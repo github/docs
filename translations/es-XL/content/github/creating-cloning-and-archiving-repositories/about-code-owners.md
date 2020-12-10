@@ -4,7 +4,7 @@ intro: Puedes usar un archivo CODEOWNERS para definir individuos o equipos que s
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -33,15 +33,15 @@ Si un archivo tiene un propietario del código, puedes ver quién es éste antes
 
 Para usar un archivo CODEOWNERS, crea un archivo nuevo llamado `CODEOWNERS` en la raíz, `docs/`, o en el directorio `.github/` del repositorio, en la rama en la que quieras agregar los propietarios del código.
 
-Cada archivo CODEOWNERS asigna los propietarios del código para una única rama en el repositorio. Por lo tanto, puedes asignar propietarios diferentes para el código en ramas diferentes, tal como `@octo-org/codeowners-team` para una base de código en la rama predeterminada y `@octocat` para un sitio de {{ site.data.variables.product.prodname_pages }} en la rama de `gh-pages`.
+Cada archivo CODEOWNERS asigna los propietarios del código para una única rama en el repositorio. Por lo tanto, puedes asignar propietarios diferentes para el código en ramas diferentes, tal como `@octo-org/codeowners-team` para una base de código en la rama predeterminada y `@octocat` para un sitio de {% data variables.product.prodname_pages %} en la rama de `gh-pages`.
 
 Para que los propietarios del código reciban las solicitudes de revisión, el archivo CODEOWNERS debe estar en la rama base de la solicitud de extracción. Por ejemplo, si asignas `@octocat` como el propietario del código para los archivos *.js* en la rama `gh-pages` de tu repositorio, `@octocat` recibirá las solicitudes de revisión cuando una solicitud de extracción con cambios en los archivos *.js* se abra entre la rama de encabezado y `gh-pages`.
 
 ### Sintáxis de CODEOWNERS
 
-Un archivo CODEOWNERS usa un patrón que sigue las mismas reglas usadas en los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format). El patrón es seguido por uno o más nombres de usuarios o nombres de equipos de {{ site.data.variables.product.prodname_dotcom }} usando el formato estándar `@username` o `@org/team-name`. También puedes hacer referencia a un usuario mediante una dirección de correo electrónico que haya sido agregada a su cuenta de {{ site.data.variables.product.product_name }}, por ejemplo `user@example.com`.
+Un archivo CODEOWNERS usa un patrón que sigue las mismas reglas usadas en los archivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format). El patrón es seguido por uno o más nombres de usuarios o nombres de equipos de {% data variables.product.prodname_dotcom %} usando el formato estándar `@username` o `@org/team-name`. También puedes hacer referencia a un usuario mediante una dirección de correo electrónico que haya sido agregada a su cuenta de {% data variables.product.product_name %}, por ejemplo `user@example.com`.
 
-Si cualquier línea de tu archivo de CODEOWNERS contiene una sintaxi inválida, el archivo no se detectará y no se utilizará para solicitar revisiones. Las sintaxis inválidas contemplan a los comentarios dentro de las líneas y a los nombres de usuario o equipo que no existen en {{ site.data.variables.product.product_name }}.
+Si cualquier línea de tu archivo de CODEOWNERS contiene una sintaxi inválida, el archivo no se detectará y no se utilizará para solicitar revisiones. Las sintaxis inválidas contemplan a los comentarios dentro de las líneas y a los nombres de usuario o equipo que no existen en {% data variables.product.product_name %}.
 #### Ejemplo de un archivo CODEOWNERS
 ```
 # Este es un comentario.

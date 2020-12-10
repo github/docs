@@ -1,16 +1,17 @@
 ---
 title: 'Error: Repository not found'
-intro: '{% if currentVersion == "free-pro-team@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it. There are a few solutions to this error, depending on the cause.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or your GitHub Enterprise instance is in private mode. There are a few solutions to this error, depending on the cause.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.product.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Check your spelling
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 
@@ -30,10 +31,10 @@ Make sure that you have access to the repository in one of these ways:
 
 In rare circumstances, you may not have the proper SSH access to a repository.
 
-You should ensure that the SSH key you are using is attached to your {{ site.data.variables.product.product_name }} user account. You can check this by typing the following into the command line:
+You should ensure that the SSH key you are using is attached to your {% data variables.product.product_name %} user account. You can check this by typing the following into the command line:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -42,14 +43,12 @@ If the repository belongs to an organization and you're using an SSH key generat
 
 For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-{% if currentVersion != "free-pro-team@latest" %}
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### Check if your instance is in private mode
 
 If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.
-
 {% endif %}
 
 ### Check that the repository really exists
 
-If all else fails, make sure that the repository really exists on {{ site.data.variables.product.product_location }}! If you're trying to push to a repository that doesn't exist, you'll get this error.
+If all else fails, make sure that the repository really exists on {% data variables.product.product_location %}! If you're trying to push to a repository that doesn't exist, you'll get this error.

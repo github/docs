@@ -1,22 +1,23 @@
 ---
 title: GPG キーとメールの関連付け
-intro: 'GPG キーは、コミッタのアイデンティティとマッチする {{ site.data.variables.product.product_name }} が検証済みのメールと関連づけられなければなりません。'
+intro: 'GPG キーは、コミッタのアイデンティティとマッチする {% data variables.product.product_name %} が検証済みのメールと関連づけられなければなりません。'
 redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-コミッタのアイデンティティと {{ site.data.variables.product.product_name }}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッタのアイデンティティと {% data variables.product.product_name %}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 4. `gpg --edit-key GPG key ID` と入力してください。GPG key ID は使いたいキーの ID で置き換えてください。 以下の例では、GPG キー ID は `3AA5C34371567BD2` です。
   ```shell
   $ gpg --edit-key <em>3AA5C34371567BD2</em>
@@ -25,7 +26,7 @@ versions:
   ```shell
   $ gpg> adduid
   ```
-6. プロンプトに従って、本名、メールアドレス、あればコメントを入力してください。 エントリーは、`N`、`C`、`E` を選択して変更できます。 {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %}詳細は「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
+6. プロンプトに従って、本名、メールアドレス、あればコメントを入力してください。 エントリーは、`N`、`C`、`E` を選択して変更できます。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

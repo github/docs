@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Vorgeschlagene Änderungen anwenden
@@ -16,13 +17,17 @@ Um schnell mehrere vorgeschlagene Änderungen in einem einzigen Commit zu implem
 
 Jede Person, die eine der Änderungen des Commits vorgeschlagen hat, wird Co-Autor des Commits. Die Person, die die vorgeschlagenen Änderungen übernimmt, wird Co-Autor und Beitragender des Commits. Weitere Informationen zum Begriff des Beitragenden in Git findest Du unter „[Git-Grundlagen – Verwalten des Commit-Verlaufs](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)“ auf der Website zum _Pro Git_-Buch.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, auf den Du eine vorgeschlagene Änderung anwenden möchtest.
 3. Navigiere zur ersten vorgeschlagenen Änderung, die Du anwenden möchtest.
     - Um die Änderung in ihrem eigenen Commit anzuwenden, klicke auf **Commit suggestion** (Vorschlag freigeben). ![Schaltfläche „Commit suggestion“ (Vorschlag freigeben)](/assets/images/help/pull_requests/commit-suggestion-button.png)
     - Um den Vorschlag zu einem Stapel an Änderungen hinzuzufügen, klicke auf **Add suggestion to batch** (Vorschlag zu Stapel hinzufügen). Füge alle anderen vorgeschlagenen Änderungen hinzu, die Du in einen einzelnen Commit einfügen möchtest. Wenn Du mit dem Hinzufügen der vorgeschlagenen Änderungen fertig bist, klicke auf **Commit suggestions** (Vorschläge freigeben). ![Schaltfläche „Add suggestion to batch“ (Vorschlag zu Stapel hinzufügen)](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. Gib im Feld für die Commit-Mitteilung eine kurze, aussagekräftige Commit-Mitteilung ein, die die Änderung beschreibt, die Du an der Datei oder den Dateien vorgenommen hast. ![Feld für Commit-Mitteilung](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Klicke auf **Commit changes** (Änderungen freigeben). ![Schaltfläche „Commit changes“ (Änderungen freigeben)](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### Öffnen eines Issue für Vorschläge außerhalb des Geltungsbereichs
 

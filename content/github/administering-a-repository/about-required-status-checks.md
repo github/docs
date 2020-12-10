@@ -1,12 +1,13 @@
 ---
 title: About required status checks
 intro: Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About required status checks
@@ -19,7 +20,7 @@ After enabling required status checks, all required status checks must pass befo
 
 {% tip %}
 
-**Note:** Any person or integration with write permissions to a repository can set the state of any status check in the repository. {{ site.data.variables.product.product_name }} does not verify that the author of a check is authorized to create a check with a certain name or modify an existing status. Before merging a pull request, you should verify that the author of each status, listed in the merge box, is expected.
+**Note:** Any person or integration with write permissions to a repository can set the state of any status check in the repository. {% data variables.product.product_name %} does not verify that the author of a check is authorized to create a check with a certain name or modify an existing status. Before merging a pull request, you should verify that the author of each status, listed in the merge box, is expected.
 
 {% endtip %}
 
@@ -35,7 +36,7 @@ You can set up either loose or strict status checks, depending on whether you wa
 
 ### Troubleshooting required status checks
 
-If you have a check and a status with the same name and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/v3/checks/)."
+If you have a check and a status with the same name and you select that name as a required status check, both the check and the status are required. For more information, see "[Checks](/rest/reference/checks)."
 
 Once you've set up required status checks, your branch must be up to date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch.  
 
@@ -59,9 +60,9 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, it must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pull Requests](/v3/pulls/#response-1)."
+Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, it must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pull Requests](/rest/reference/pulls#response-1)."
 
 ![Branch with conflicting merge commits](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

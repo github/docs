@@ -1,1 +1,1 @@
-If you are migrating your project from CodePlex, read the [migration guide](https://aka.ms/codeplex-guide) for more information.
+Se você estiver migrando seu projeto do CodePlex, leia o [guia de migração](https://aka.ms/codeplex-guide) para obter mais informações.

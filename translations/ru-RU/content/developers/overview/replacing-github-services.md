@@ -1,6 +1,6 @@
 ---
 title: Replacing GitHub Services
-intro: 'If you''re still relying on the deprecated {{ site.data.variables.product.prodname_dotcom }} Services, learn how to migrate your service hooks to webhooks.'
+intro: 'If you''re still relying on the deprecated {% data variables.product.prodname_dotcom %} Services, learn how to migrate your service hooks to webhooks.'
 redirect_from:
   - /guides/replacing-github-services/
   - /v3/guides/automating-deployments-to-integrators/
@@ -19,7 +19,6 @@ As an alternative to the email service, you can now start using email notificati
 
 {% endnote %}
 
-
 ### Deprecation timeline
 
 - **October 1, 2018**: GitHub discontinued allowing users to install services. We removed GitHub Services from the GitHub.com user interface.
@@ -30,7 +29,7 @@ As an alternative to the email service, you can now start using email notificati
 
 GitHub Services (sometimes referred to as Service Hooks) is the legacy method of integrating where GitHub hosted a portion of our integrator’s services via [the `github-services` repository](https://github.com/github/github-services). Actions performed on GitHub trigger these services, and you can use these services to trigger actions outside of GitHub.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 ### Finding repositories that use GitHub Services
 We provide a command-line script that helps you identify which repositories on your appliance use GitHub Services. For more information, see [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 
@@ -55,12 +54,12 @@ To replace GitHub Services with Webhooks:
 
 3. Move additional configuration from outside of GitHub. Some GitHub Services require additional, custom configuration on the configuration page within GitHub. If your service does this, you will need to move this functionality into your application or rely on GitHub or OAuth Apps where applicable.
 
-### Supporting {{ site.data.variables.product.prodname_ghe_server }}
+### Supporting {% data variables.product.prodname_ghe_server %}
 
-- **{{ site.data.variables.product.prodname_ghe_server }} 2.17**: {{ site.data.variables.product.prodname_ghe_server }} release 2.17 and higher will discontinue allowing admins to install services. Admins will continue to be able to modify existing service hooks and receive service hooks in {{ site.data.variables.product.prodname_ghe_server }} release 2.17 through 2.19. As an alternative to the email service, you will be able to use email notifications for pushes to your repository in {{ site.data.variables.product.prodname_ghe_server }} 2.17 and higher. See [this blog post](https://developer.github.com/changes/2019-01-29-life-after-github-services) to learn more.
-- **{{ site.data.variables.product.prodname_ghe_server }} 2.20**: {{ site.data.variables.product.prodname_ghe_server }} release 2.20 and higher will stop delivering all installed services' events.
+- **{% data variables.product.prodname_ghe_server %} 2.17**: {% data variables.product.prodname_ghe_server %} release 2.17 and higher will discontinue allowing admins to install services. Admins will continue to be able to modify existing service hooks and receive service hooks in {% data variables.product.prodname_ghe_server %} release 2.17 through 2.19. As an alternative to the email service, you will be able to use email notifications for pushes to your repository in {% data variables.product.prodname_ghe_server %} 2.17 and higher. See [this blog post](https://developer.github.com/changes/2019-01-29-life-after-github-services) to learn more.
+- **{% data variables.product.prodname_ghe_server %} 2.20**: {% data variables.product.prodname_ghe_server %} release 2.20 and higher will stop delivering all installed services' events.
 
-The {{ site.data.variables.product.prodname_ghe_server }} 2.17 release will be the first release that does not allow admins to install GitHub Services. We will only support existing GitHub Services until the {{ site.data.variables.product.prodname_ghe_server }} 2.20 release. We will also accept any critical patches for your GitHub Service running on {{ site.data.variables.product.prodname_ghe_server }} until October 1, 2019.
+The {% data variables.product.prodname_ghe_server %} 2.17 release will be the first release that does not allow admins to install GitHub Services. We will only support existing GitHub Services until the {% data variables.product.prodname_ghe_server %} 2.20 release. We will also accept any critical patches for your GitHub Service running on {% data variables.product.prodname_ghe_server %} until October 1, 2019.
 
 ### Migrating with our help
 
@@ -69,4 +68,4 @@ Please [contact us](https://github.com/contact?form%5Bsubject%5D=GitHub+Services
 As a high-level overview, the process of migration typically involves:
   - Identifying how and where your product is using GitHub Services.
   - Identifying the corresponding webhook events you need to configure in order to move to plain webhooks.
-  - Implementing the design using either [{{ site.data.variables.product.prodname_oauth_app }}s](/apps/building-oauth-apps/) or [{{ site.data.variables.product.prodname_github_app }}s. {{ site.data.variables.product.prodname_github_app }}s](/apps/building-github-apps/) are preferred. To learn more about why {{ site.data.variables.product.prodname_github_app }}s are preferred, see "[Reasons for switching to {{ site.data.variables.product.prodname_github_app }}s](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."
+  - Implementing the design using either [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/) or [{% data variables.product.prodname_github_app %}s. {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) are preferred. To learn more about why {% data variables.product.prodname_github_app %}s are preferred, see "[Reasons for switching to {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)."

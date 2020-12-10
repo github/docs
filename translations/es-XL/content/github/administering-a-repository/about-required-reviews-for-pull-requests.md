@@ -1,7 +1,7 @@
 ---
 title: Acerca de las revisiones requeridas para las solicitudes de extracción
 intro: Las revisiones requeridas garantizan que las solicitudes de extracción tengan una cantidad específica de revisiones aprobadas antes de que los colaboradores puedan realizar cambios en una rama protegida.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-reviews-for-pull-requests
 versions:
@@ -11,7 +11,7 @@ versions:
 
 Si has implementado protecciones de rama en tu repositorio, puedes configurar las revisiones requeridas. Para obtener más información acerca de la implementación de las protecciones de rama, consulta "[Configurar ramas protegidas](/articles/configuring-protected-branches/)". Para obtener más información acerca de la configuración de las revisiones requeridas, consulta "[Activar las revisiones requeridas para las solicitudes de extracción](/articles/enabling-required-reviews-for-pull-requests)".
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 Si una persona con permisos de *administrador* elige la opción **Solicitar cambios** en una revisión, entonces esa persona debe aprobar la solicitud de extracción antes de que se pueda fusionar. Si un revisor que solicita los cambios en una solicitud de extracción no está disponible, cualquiera con permiso de *administrador* o de *escritura* para el repositorio puede descartar la revisión que bloquea la solicitud de extracción. Para obtener más información, consulta "[Descartar una revisión de solicitud de extracción](/articles/dismissing-a-pull-request-review)".
 
@@ -25,7 +25,7 @@ Si subes una confirmación de modificación de código a la rama de una solicitu
 
 A menos de que se configuren las revisiones requeridas para que incluyan a los administradores del repositorio, las personas con permisos de *administrador* pueden fusionar una solicitud de extracción sin importar las revisiones de otros administradores.
 
-{{ site.data.reusables.repositories.review-policy-overlapping-commits }}
+{% data reusables.repositories.review-policy-overlapping-commits %}
 
 No puedes fusionar una solicitud de extracción en una rama protegida hasta que alguien con permisos de *escritura* o de *administración* la apruebe. Si hay revisiones pendientes o rechazadas, recibirás un mensaje de error:
 

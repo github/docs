@@ -1,12 +1,13 @@
 ---
 title: Commits in einem Repository visualisieren
-intro: 'Im Commit-Diagramm kannst Du mit Ausnahme von Merge-Commits alle Commits anzeigen, die im vergangenen Jahr an einem Repository vorgenommen wurden.'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+intro: Im Commit-Diagramm kannst Du mit Ausnahme von Merge-Commits alle Commits anzeigen, die im vergangenen Jahr an einem Repository vorgenommen wurden.
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/visualizing-commits-in-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Das obere Diagramm zeigt Commits für das gesamte Jahr nach Woche.
@@ -19,6 +20,6 @@ Im folgenden Diagramm wird die durchschnittliche Anzahl an Commits nach Wochenta
 
 ### Auf das Commit-Diagramm zugreifen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. Klicke in der linken Seitenleiste auf **Commits**. ![Registerkarte „Commits“](/assets/images/help/graphs/commits_tab.png)

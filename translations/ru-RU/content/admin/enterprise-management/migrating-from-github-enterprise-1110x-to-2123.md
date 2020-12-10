@@ -9,23 +9,22 @@ redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
-  - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
-intro: 'To migrate from {{ site.data.variables.product.prodname_enterprise }} 11.10.x to 2.1.23, you''ll need to set up a new appliance instance and migrate data from the previous instance.'
+intro: 'To migrate from {% data variables.product.prodname_enterprise %} 11.10.x to 2.1.23, you''ll need to set up a new appliance instance and migrate data from the previous instance.'
 versions:
   enterprise-server: '*'
 ---
 
-Migrations from {{ site.data.variables.product.prodname_enterprise }} 11.10.348 and later are supported. Migrating from {{ site.data.variables.product.prodname_enterprise }} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
+Migrations from {% data variables.product.prodname_enterprise %} 11.10.348 and later are supported. Migrating from {% data variables.product.prodname_enterprise %} 11.10.348 and earlier is not supported. You must first upgrade to 11.10.348 in several upgrades. For more information, see the 11.10.348 upgrading procedure, "[Upgrading to the latest release](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
 
-To upgrade to the latest version of {{ site.data.variables.product.prodname_enterprise }}, you must first migrate to {{ site.data.variables.product.prodname_ghe_server }} 2.1, then you can follow the normal upgrade process. For more information, see "[Upgrading {{ site.data.variables.product.prodname_enterprise }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
+To upgrade to the latest version of {% data variables.product.prodname_enterprise %}, you must first migrate to {% data variables.product.prodname_ghe_server %} 2.1, then you can follow the normal upgrade process. For more information, see "[Upgrading {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
 
 ### Prepare for the migration
 
-1. Review the Provisioning and Installation guide and check that all prerequisites needed to provision and configure {{ site.data.variables.product.prodname_enterprise }} 2.1.23 in your environment are met. For more information, see "[Provisioning and Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)."
+1. Review the Provisioning and Installation guide and check that all prerequisites needed to provision and configure {% data variables.product.prodname_enterprise %} 2.1.23 in your environment are met. For more information, see "[Provisioning and Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)."
 2. Verify that the current instance is running a supported upgrade version.
-3. Set up the latest version of the {{ site.data.variables.product.prodname_enterprise_backup_utilities }}. For more information, see [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils).
-    - If you have already configured scheduled backups using {{ site.data.variables.product.prodname_enterprise_backup_utilities }}, make sure you have updated to the latest version.
-    - If you are not currently running scheduled backups, set up {{ site.data.variables.product.prodname_enterprise_backup_utilities }}.
+3. Set up the latest version of the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils).
+    - If you have already configured scheduled backups using {% data variables.product.prodname_enterprise_backup_utilities %}, make sure you have updated to the latest version.
+    - If you are not currently running scheduled backups, set up {% data variables.product.prodname_enterprise_backup_utilities %}.
 4. Take an initial full backup snapshot of the current instance using the `ghe-backup` command. If you have already configured scheduled backups for your current instance, you don't need to take a snapshot of your instance.
 
    {% tip %}
@@ -41,8 +40,8 @@ To upgrade to the latest version of {{ site.data.variables.product.prodname_ente
 
 ### Perform the migration
 
-1. Provision a new {{ site.data.variables.product.prodname_enterprise }} 2.1 instance. For more information, see the "[Provisioning and Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" guide for your target platform.
-2. In a browser, navigate to the new replica appliance's IP address and upload your {{ site.data.variables.product.prodname_enterprise }} license.
+1. Provision a new {% data variables.product.prodname_enterprise %} 2.1 instance. For more information, see the "[Provisioning and Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" guide for your target platform.
+2. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 3. Set an admin password.
 5. Click **Migrate**. ![Choosing install type](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. Paste your backup host access SSH key into "Add new SSH key". ![Authorizing backup](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
@@ -89,4 +88,4 @@ To upgrade to the latest version of {{ site.data.variables.product.prodname_ente
   {% endnote %}
 
 15. Switch user network traffic from the old instance to the new instance using either DNS or IP address assignment.
-16. Upgrade to the latest patch release of {{ currentVersion }}. For more information, see "[Upgrading {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+16. Upgrade to the latest patch release of {{ currentVersion }}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."

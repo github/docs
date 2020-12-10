@@ -1,22 +1,23 @@
 ---
 title: Renderizar e comparar imagens
-intro: 'O {{ site.data.variables.product.product_name }} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.'
+intro: 'O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.'
 redirect_from:
   - /articles/rendering-and-diffing-images
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Observação:** os arquivos SVGs no {{ site.data.variables.product.prodname_dotcom }} podem não renderizar no navegador Firefox.
+**Observação:** os arquivos SVGs no {% data variables.product.prodname_dotcom %} podem não renderizar no navegador Firefox.
 
 {% endnote %}
 
 ### Exibir imagens
 
-Você pode procurar e exibir imagens diretamente no repositório do {{ site.data.variables.product.product_name }}:
+Você pode procurar e exibir imagens diretamente no repositório do {% data variables.product.product_name %}:
 
 ![imagem inline](/assets/images/help/images/view.png)
 

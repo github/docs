@@ -1,9 +1,8 @@
 ---
 title: Removing a high availability replica
-intro: 'You can stop replication to a {{ site.data.variables.product.prodname_ghe_server }} replica temporarily, or permanently remove replication.'
+intro: 'You can stop replication to a {% data variables.product.prodname_ghe_server %} replica temporarily, or permanently remove replication.'
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
-  - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
 versions:
   enterprise-server: '*'

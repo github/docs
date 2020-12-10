@@ -24,24 +24,24 @@ Built-in authentication for a specific IdP is disabled by default.
 
 ### Configuring built-in authentication for users outside your identity provider
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.authentication }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
 4. Select your identity provider. ![Select identity provider option](/assets/images/enterprise/management-console/identity-provider-select.gif)
 5. Select **Allow creation of accounts with built-in authentication**. ![Select built-in authentication option](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
 6. Read the warning, then click **Ok**.
 
-{{ site.data.reusables.enterprise_user_management.two_factor_auth_header }}
-{{ site.data.reusables.enterprise_user_management.2fa_is_available }}
+{% data reusables.enterprise_user_management.two_factor_auth_header %}
+{% data reusables.enterprise_user_management.2fa_is_available %}
 
 ### Inviting users outside your identity provider to authenticate to your instance
 
 When a user accepts the invitation, they can use their username and password to sign in rather than signing in through the IdP.
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-sidebar-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-reset-link }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
+{% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
 ### Дополнительная литература
 

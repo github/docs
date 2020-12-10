@@ -13,10 +13,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} usa la [biblioteca lingüista](https://github.com/github/linguist) de código abierto para determinar los idiomas del archivo para el resaltado de la sintaxis y las estadísticas del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.
+{% data variables.product.product_name %} usa la [biblioteca lingüista](https://github.com/github/linguist) de código abierto para determinar los idiomas del archivo para el resaltado de la sintaxis y las estadísticas del repositorio. Las estadísticas de lenguaje se actualizarán después de que subas los cambios a tu rama predeterminada.
 
 Algunos archivos son difíciles de identificar y, a veces, los proyectos contienen más archivos de biblioteca y de proveedor que su código primario. Si estás recibiendo resultados incorrectos, consulta la [Guía de solución de problemas](https://github.com/github/linguist#troubleshooting) del Lingüista para obtener ayuda.
 
 ### Lenguaje Markup
 
-Los lenguajes Markup están representados para HTML y mostrados en línea usando nuestra [Biblioteca Markup](https://github.com/github/markup) de código abierto. En este momento, no estamos aceptando nuevos lenguajes para mostrar dentro de {{ site.data.variables.product.product_name }}. Sin embargo, mantenemos activamente nuestros lengujes Markup actuales. Si encuentras un problema, [crea una propuesta](https://github.com/github/markup/issues/new).
+Los lenguajes Markup están representados para HTML y mostrados en línea usando nuestra [Biblioteca Markup](https://github.com/github/markup) de código abierto. En este momento, no estamos aceptando nuevos lenguajes para mostrar dentro de {% data variables.product.product_name %}. Sin embargo, mantenemos activamente nuestros lengujes Markup actuales. Si encuentras un problema, [crea una propuesta](https://github.com/github/markup/issues/new).

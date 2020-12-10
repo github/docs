@@ -1,20 +1,21 @@
 ---
 title: Transferring ownership of a GitHub App
-intro: '{{ site.data.reusables.shortdesc.transferring_ownership_of_github_apps }}'
+intro: '{% data reusables.shortdesc.transferring_ownership_of_github_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/transferring-ownership-of-a-github-app/
   - /apps/managing-github-apps/transferring-ownership-of-a-github-app
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
 4. Select the GitHub App whose ownership you want to transfer.
 ![App selection](/assets/images/github-apps/github_apps_select-app.png)
-{{ site.data.reusables.user-settings.github_apps_advanced }}
+{% data reusables.user-settings.github_apps_advanced %}
 6. Click **Transfer ownership**.
 ![Button to transfer ownership](/assets/images/github-apps/github_apps_transfer_ownership.png)
 7. Type the name of the GitHub App you want to transfer.

@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} puede alojar y representar archivos 3D con la extensión *.stl*.
+{% data variables.product.product_name %} puede alojar y representar archivos 3D con la extensión *.stl*.
 
-Al buscar directamente en un archivo STL en {{ site.data.variables.product.product_name }} puedes:
+Al buscar directamente en un archivo STL en {% data variables.product.product_name %} puedes:
 
 * Hacer clic y arrastrar para girar el modelo.
 * Hacer clic con el botón derecho y arrastrar para traducir la vista.

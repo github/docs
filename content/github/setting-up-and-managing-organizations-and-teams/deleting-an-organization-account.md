@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {{ site.data.variables.product.prodname_free_team }}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) instead of deleting the organization and its content.
 
 {% endtip %}
 
@@ -19,12 +20,12 @@ versions:
 
 ### 1. Back up your organization content
 
-Once you delete an organization, GitHub **cannot restore your content**. Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, and issues from the account.
+Once you delete an organization, GitHub **cannot restore your content**. Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
 ### 2. Delete the organization
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Near the bottom of the organization's settings page, click **Delete this Organization**.
    ![Delete this organization button](/assets/images/help/settings/settings-organization-delete.png)

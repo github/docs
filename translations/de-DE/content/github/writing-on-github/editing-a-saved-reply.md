@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.saved_replies }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.saved_replies %}
 3. Klicken Sie unter „Saved replies“ (Gespeicherte Antworten) neben der gespeicherten Antwort, die Sie bearbeiten möchten, auf {% octicon "pencil" aria-label="The pencil" %}.  
    ![Eine gespeicherte Antwort bearbeiten](/assets/images/help/settings/saved-replies-edit-existing.png)
 4. Unter „Edit saved reply“ (Gespeicherte Antwort bearbeiten) kannst Du den Titel und den Inhalt der gespeicherten Antwort bearbeiten. ![Titel und Inhalt bearbeiten](/assets/images/help/settings/saved-replies-edit-existing-content.png)

@@ -3,7 +3,7 @@ title: Cambiar un mensaje de confirmación
 redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
-intro: 'Si un mensaje de confirmación contiene información poco clara, incorrecta o confidencial, puedes modificarlo localmente y subir una nueva confirmación con un nuevo mensaje para {{ site.data.variables.product.product_name }}. También puedes cambiar un mensaje de confirmación para agregar la información faltante.'
+intro: 'Si un mensaje de confirmación contiene información poco clara, incorrecta o confidencial, puedes modificarlo localmente y subir una nueva confirmación con un nuevo mensaje para {% data variables.product.product_name %}. También puedes cambiar un mensaje de confirmación para agregar la información faltante.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,7 +21,7 @@ En Git, el texto del mensaje de confirmación es parte de la confirmación. Si c
 
 #### La confirmación no ha sido subida en línea
 
-Si la confirmación solo existe en tu repositorio local y no ha sido subida a {{ site.data.variables.product.product_location }} puedes modificar el mensaje de confirmación con el comando `git commit --amend`.
+Si la confirmación solo existe en tu repositorio local y no ha sido subida a {% data variables.product.product_location %} puedes modificar el mensaje de confirmación con el comando `git commit --amend`.
 
 1. En la línea de comando, desplázate hasta el repositorio que contiene la confirmación que deseas modificar.
 2. Escribe `git commit --amend` y presiona **Enter** (Intro).
@@ -31,7 +31,7 @@ Si la confirmación solo existe en tu repositorio local y no ha sido subida a {{
     - Puedes crear confirmaciones en nombre de tu organización agregando una introducción al mensaje de la confirmación. Para obtener más información, consulta "[Crear una confirmación en nombre de una organización](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
-El nuevo mensaje y la confirmación aparecerán en {{ site.data.variables.product.product_location }} la próxima vez que subas un cambio.
+El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio.
 
 {% tip %}
 
@@ -41,7 +41,7 @@ Puedes cambiar el editor de texto predeterminado para Git al cambiar el parámet
 
 #### Modificar mensajes de confirmación múltiples o más antiguos
 
-Si ya has subido la confirmación a {{ site.data.variables.product.product_location }}, deberás realizar un empuje forzado de la confirmación con un mensaje modificado.
+Si ya has subido la confirmación a {% data variables.product.product_location %}, deberás realizar un empuje forzado de la confirmación con un mensaje modificado.
 
 {% warning %}
 
@@ -116,7 +116,7 @@ Tal como mencionamos anteriormente, si modificas el mensaje de confirmación se 
 
 {% warning %}
 
-Si incluiste información confidencial en un mensaje de confirmación, el empuje forzado de la confirmación con una confirmación modificada no eliminará la confirmación original de {{ site.data.variables.product.product_name }}. La confirmación anterior no será parte de una clonación posterior; sin embargo, es posible que siga almacenada en la memoria caché de {{ site.data.variables.product.product_name }} y que esté accesible mediante la ID de confirmación. Debes ponerte en contacto con {{ site.data.variables.contact.contact_support }} con la ID de confirmación antigua para purgarla del repositorio remoto.
+Si incluiste información confidencial en un mensaje de confirmación, el empuje forzado de la confirmación con una confirmación modificada no eliminará la confirmación original de {% data variables.product.product_name %}. La confirmación anterior no será parte de una clonación posterior; sin embargo, es posible que siga almacenada en la memoria caché de {% data variables.product.product_name %} y que esté accesible mediante la ID de confirmación. Debes ponerte en contacto con {% data variables.contact.contact_support %} con la ID de confirmación antigua para purgarla del repositorio remoto.
 
 {% endwarning %}
 

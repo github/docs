@@ -1,12 +1,13 @@
 ---
 title: Commits per Push-Vorgang an ein Remote-Repository übertragen
-intro: 'Mit „git push“ kannst Du Commits, die auf Deinem lokalen Branch erstellt wurden, an ein Remote-Repository pushen.'
+intro: Mit „git push“ kannst Du Commits, die auf Deinem lokalen Branch erstellt wurden, an ein Remote-Repository pushen.
 redirect_from:
   - /articles/pushing-to-a-remote/
   - /articles/pushing-commits-to-a-remote-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Der Befehl `git push` hat zwei Argumente:
@@ -83,7 +84,7 @@ git fetch upstream
 > remote: Compressing objects: 100% (53/53), done.
 > remote: Total 62 (delta 27), reused 44 (delta 9)
 > Unpacking objects: 100% (62/62), done.
-> From https://{{ site.data.variables.command_line.codeblock }}/<em>octocat</em>/<em>repo</em>
+> From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
 >  * [new branch]      master     -> upstream/master
 ```
 
@@ -97,3 +98,4 @@ Weitere Informationen zur Arbeit mit Forks findest Du unter „[Fork synchronisi
 - [„`git remote`"-Handbuch-Seiten](https://git-scm.com/docs/git-remote.html)
 - „[Git-Merkzettel](/articles/git-cheatsheet)“
 - „[Git-Workflows](/articles/git-workflows)“
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

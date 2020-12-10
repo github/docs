@@ -1,6 +1,6 @@
 ---
 title: Entender la sintaxis de búsqueda
-intro: 'Cuando buscas {{ site.data.variables.product.product_name }}, puedes construir consultas que coincidan con números y palabras específicas.'
+intro: 'Cuando buscas {% data variables.product.product_name %}, puedes construir consultas que coincidan con números y palabras específicas.'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
@@ -37,7 +37,7 @@ Puedes utilizar la sintaxis de rango <code><em>n</em>..<em>n</em></code> para bu
 
 ### Consulta por fechas
 
-Puedes buscar fechas que sean anteriores o posteriores a otra fecha o que entren en un rango de fechas, utilizando `>`, `>=`, `<`, `<=` y [consultas por rango](#query-for-values-between-a-range). {{ site.data.reusables.time_date.date_format }}
+Puedes buscar fechas que sean anteriores o posteriores a otra fecha o que entren en un rango de fechas, utilizando `>`, `>=`, `<`, `<=` y [consultas por rango](#query-for-values-between-a-range). {% data reusables.time_date.date_format %}
 
 | Consulta                   | Ejemplo                                                                                                                                                                                                                                                   |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ Puedes buscar fechas que sean anteriores o posteriores a otra fecha o que entren
 | <code><em>AAAA</em>-<em>MM</em>-<em>DD</em>..*</code> | **[gatos creados:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** busca propuestas que se hayan creado después del 30 de abril de 2012 y contengan la palabra "gatos".                               |
 | <code>*..<em>AAAA</em>-<em>MM</em>-<em>DD</em></code> | **[gatos creados:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** busca propuestas creadas antes del 4 de julio de 2012 que contengan la palabra "gatos".                                            |
 
-{{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.time_format %}
 
 | Consulta                   | Ejemplo                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ Algunos símbolos que no son alfanuméricos, como los espacios, se quitan de las
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 ### Consultas con nombres de usuario
 
-Si tu consulta de búsqueda contiene un calificador que requiere un nombre de usuario, tal como `user`, `actor`, o `assignee`, puedes utilizar cualquier nombre de usuario de {{ site.data.variables.product.product_name }} para especificar una persona en concreto, o utilizar `@me`, para especificar el usuario actual.
+Si tu consulta de búsqueda contiene un calificador que requiere un nombre de usuario, tal como `user`, `actor`, o `assignee`, puedes utilizar cualquier nombre de usuario de {% data variables.product.product_name %} para especificar una persona en concreto, o utilizar `@me`, para especificar el usuario actual.
 
 | Consulta             | Ejemplo                                                                                                                                                                                       |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

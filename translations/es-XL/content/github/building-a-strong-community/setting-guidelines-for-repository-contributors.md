@@ -29,8 +29,8 @@ Puedes crear lineamientos de contribución predeterminados para tu organización
 
 ### Agregar un archivo *CONTRIBUTING*
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Decide si almacenar tus pautas de contribución en la raíz de tu repositorio, el directorio `docs`, o el directorio `.github`. Después, en el campo nombre de archivo, escribe el nombre y la extensión del archivo. Los nombres de archivos de las pautas de contribución no distinguen entre mayúsculas y minúsculas y pueden tener una extensión *.md* o *.txt*. ![Nombre del nuevo archivo](/assets/images/help/repository/new-file-name.png)
     - Para hacer visibles tus pautas de contribución en el directorio raíz del repositorio, escribe *CONTRIBUTING*.
     - Para hacer visibles tus pautas de contribución en el directorio `docs` del repositorio, escribe *docs/* para crear el nuevo directorio, y luego *CONTRIBUTING*.
@@ -38,9 +38,9 @@ Puedes crear lineamientos de contribución predeterminados para tu organización
     - Pasos para crear buenas propuestas o solicitudes de extracción.
     - Enlaces a la documentación externa, listas de correos o un código de conducta.
     - Expectativas de comportamiento y de la comunidad.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Ejemplos de pautas de contribución
 
@@ -52,5 +52,5 @@ Si estás confundido, aquí hay algunos buenos ejemplos de pautas de contribuci�
 
 ### Leer más
 - La sección de la Guía de código abierto "[Iniciar un proyecto de código abierto](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - "[Agregar una licencia a un repositorio](/articles/adding-a-license-to-a-repository)"

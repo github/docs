@@ -1,6 +1,6 @@
 ---
 title: リポジトリのライセンス
-intro: GitHub のパブリックリポジトリは、オープンソース ソフトウェアの共有にも頻繁に利用されています。 リポジトリを真にオープンソースにしたければ、他のユーザが自由にそのソフトウェアを使用でき、変更や配布もできるように、ライセンスを付与する必要があります。
+intro: 'GitHub のパブリックリポジトリは、オープンソース ソフトウェアの共有にも頻繁に利用されています。 リポジトリを真にオープンソースにしたければ、他のユーザが自由にそのソフトウェアを使用でき、変更や配布もできるように、ライセンスを付与する必要があります。'
 redirect_from:
   - /articles/open-source-licensing/
   - /articles/licensing-a-repository
@@ -17,7 +17,7 @@ versions:
 
 {% note %}
 
-**メモ:** ソースコードを GitHub のパブリックリポジトリで公開する場合、{% if currentVersion == "free-pro-team@latest" %}[利用規約に従って、](/articles/github-terms-of-service){% endif %}他の GitHub ユーザは GitHub サイト内でリポジトリを閲覧し、フォークする権利を有します。 すでにパブリックリポジトリを作成しており、ユーザによるアクセスを禁止したい場合には、リポジトリをプライベートにすることができます。 パブリックリポジトリをプライベートリポジトリに変換しても、他のユーザが作成した既存のフォークやローカル コピーは存続します。 詳細は「[パブリックリポジトリをプライベートにする](/articles/making-a-public-repository-private)」を参照してください。
+**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. 詳細は「[リポジトリの可視性を設定する](/github/administering-a-repository/setting-repository-visibility)」を参照してください。
 
 {% endnote %}
 
@@ -49,6 +49,7 @@ versions:
 |       | Do What The F*ck You Want To Public License | `wtfpl`         |
 |       | Educational Community License v2.0 | `ecl-2.0`                |
 |       | Eclipse Public License 1.0 | `epl-1.0`                        |
+|       | Eclipse Public License 2.0 | `epl-2.0`                        |
 |       | European Union Public License 1.1 | `eupl-1.1`                |
 |       | GNU Affero General Public License v3.0 | `agpl-3.0`           |
 |       | GNU General Public License ファミリー | `gpl`                      |
@@ -73,7 +74,7 @@ versions:
 
 ### ライセンスを見つけてもらう
 
-[オープンソースの Ruby Gem Licensee](https://github.com/benbalter/licensee) は、リポジトリの *LICENSE* ファイルを、既知のライセンスの候補リストと比較します。 Licensee には [ライセンス API](/v3/licenses/) も用意されており、 {{ site.data.variables.product.product_name }} のリポジトリがどのようにライセンスされているかを[深く理解できます](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 自分のリポジトリで使用しているライセンスが、[ライセンス選択のウェブサイト](http://choosealicense.com/appendix/)にリストされていない場合は、[ライセンスの追加をリクエストする](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)ことができます。
+[オープンソースの Ruby Gem Licensee](https://github.com/benbalter/licensee) は、リポジトリの *LICENSE* ファイルを、既知のライセンスの候補リストと比較します。 Licensee には [ライセンス API](/rest/reference/licenses) も用意されており、 {% data variables.product.product_name %} のリポジトリがどのようにライセンスされているかを[深く理解できます](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 自分のリポジトリで使用しているライセンスが、[ライセンス選択のウェブサイト](http://choosealicense.com/appendix/)にリストされていない場合は、[ライセンスの追加をリクエストする](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)ことができます。
 
 自分のリポジトリで使用しているライセンスが、ライセンス選択のウェブサイトにはリストされていて、リポジトリ ページのトップに明示的に表示されていない場合には、複数のライセンスが含まれるなど、複雑な状況が考えられます。 ライセンスを見つけてもらうために、*LICENSE* ファイルは単純にし、リポジトリの *README* ファイルなど、どこかでその複雑さに言及してください。
 
@@ -89,5 +90,5 @@ GitHub がオープンソース ライセンスへの取り組みで目指して
 
 ### 参考リンク
 
-- オープンソース ガイドの「[オープンソースの法的な側面](https://opensource.guide/legal/)」セクションをお読みください。{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

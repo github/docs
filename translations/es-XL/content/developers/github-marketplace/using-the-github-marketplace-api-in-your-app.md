@@ -1,6 +1,6 @@
 ---
 title: Utilizar la API de GitHub Marketplace en tu app
-intro: 'Aprende cómo integrar la API y eventos de webhook de {{ site.data.variables.product.prodname_marketplace }} en tu app para {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Aprende cómo integrar la API y eventos de webhook de {% data variables.product.prodname_marketplace %} en tu app para {% data variables.product.prodname_marketplace %}.'
 mapTopic: true
 redirect_from:
   - /apps/marketplace/setting-up-github-marketplace-webhooks/

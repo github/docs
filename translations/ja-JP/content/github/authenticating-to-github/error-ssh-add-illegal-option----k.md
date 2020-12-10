@@ -1,12 +1,13 @@
 ---
 title: 'Error: ssh-add: illegal option -- K'
-intro: このエラーは、「ssh-add」のバージョンが、パスフレーズをキーチェーンに保管できる機能である、macOS のキーチェーンインテグレーションをサポートしていないことを意味しています。
+intro: 'このエラーは、「ssh-add」のバージョンが、パスフレーズをキーチェーンに保管できる機能である、macOS のキーチェーンインテグレーションをサポートしていないことを意味しています。'
 redirect_from:
   - /articles/error-ssh-add-illegal-option-k
   - /articles/error-ssh-add-illegal-option----k
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `-K` オプションは、`ssh-add` の Apple の標準バージョン内にあり、ssh-agent に SSH キーを追加する際にキーチェーンにパスフレーズを保存します。 `ssh-add` の別のバージョンをインストールした場合は、`-K` がサポートされていない可能性があります。
@@ -21,7 +22,7 @@ SSH プライベートキーを ssh-agent に追加するには、`ssh-add` の 
 
 {% note %}
 
-**メモ:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**メモ:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

@@ -9,9 +9,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Elige una de las siguientes opciones:
     - Para crear un nuevo hito, haz clic en **Nuevo hito**. ![Botón Nuevo hito](/assets/images/help/repository/new-milestone.png)
     - Para editar un hito, haz clic en **Editar** junto al hito que deseas editar. ![Opción Editar hito](/assets/images/help/repository/edit-milestone.png)
@@ -21,9 +21,9 @@ versions:
 
 Cuando eliminas hitos, las propuestas y las solicitudes de extracción no se ven afectadas.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Junto al hito que deseas eliminar, haz clic en **Eliminar**. ![Opción Eliminar hito](/assets/images/help/repository/delete-milestone.png)
 
 ### Leer más

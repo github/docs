@@ -1,1 +1,1 @@
-1. Klicke auf der linken Seitenleiste auf **{{ site.data.variables.product.prodname_github_app }}**. ![Einstellungen für {{ site.data.variables.product.prodname_github_app }}](/assets/images/help/organizations/github-apps-settings-sidebar.png)
+1. Klicke auf der linken Seitenleiste auf **{% data variables.product.prodname_github_app %}**. ![Einstellungen für {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/github-apps-settings-sidebar.png)

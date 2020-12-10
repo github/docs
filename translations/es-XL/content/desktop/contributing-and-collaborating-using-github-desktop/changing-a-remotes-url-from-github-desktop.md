@@ -1,6 +1,6 @@
 ---
 title: Cambiar una URL remota desde el GitHub Desktop
-intro: 'Puedes cambiar la URL remota para un repositorio en el que estés trabajando {{ site.data.variables.product.prodname_desktop }}. Es posible que puedas hacerlo si se ha cambiado el nombre, o si el nombre de usuario o la organización que posee el repositorio ha cambiado.'
+intro: 'Puedes cambiar la URL remota para un repositorio en el que estés trabajando {% data variables.product.prodname_desktop %}. Es posible que puedas hacerlo si se ha cambiado el nombre, o si el nombre de usuario o la organización que posee el repositorio ha cambiado.'
 redirect_from:
   - /desktop/contributing-to-projects/changing-a-remotes-url-from-github-desktop
   - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop

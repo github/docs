@@ -1,30 +1,32 @@
 ---
 title: Abrir um problema a partir de código
 intro: É possível abrir um problema novo a partir de uma linha ou linhas específicas de código em um arquivo ou pull request.
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você abre um problema de código, o problema contém um trecho mostrando a linha ou intervalo de código que você escolheu. Você pode abrir somente um problema no mesmo repositório onde o código é armazenado.
 
 ![Trecho de código fornecido em um problema aberto de código](/assets/images/help/repository/issue-opened-from-code.png)
 
-{{ site.data.reusables.repositories.create-issue-in-public-repository }}
+{% data reusables.repositories.administrators-can-disable-issues %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Localize o código que deseja referenciar em um problema:
     - Para abrir um problema sobre código em um arquivo, navegue até o arquivo.
     - Para abrir um problema sobre código em uma pull request, navegue até a pull request e clique em {% octicon "diff" aria-label="The file diff icon" %} **Files changed** (Arquivos alterados). Depois, vá até o arquivo que contém o código que você quer incluir em seu comentário e clique em **View** (Visualizar).
-{{ site.data.reusables.repositories.choose-line-or-range }}
+{% data reusables.repositories.choose-line-or-range %}
 4. À esquerda do intervalo de código, clique em
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. No menu suspenso, clique em **Referência em um novo problema**.
   ![Menu kebab com opção para abrir um novo problema a partir de uma linha selecionada](/assets/images/help/repository/open-new-issue-specific-line.png)
-{{ site.data.reusables.repositories.type-issue-title-and-description }}
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
-{{ site.data.reusables.repositories.submit-new-issue }}
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
 
 ### Leia mais
 

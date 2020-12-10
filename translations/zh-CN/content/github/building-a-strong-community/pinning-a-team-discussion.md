@@ -1,17 +1,18 @@
 ---
 title: 固定团队讨论
-intro: 您可以将重要的讨论固定到组织的团队页面，以便于参考，也可取消固定不再相关的讨论。
+intro: '您可以将重要的讨论固定到组织的团队页面，以便于参考，也可取消固定不再相关的讨论。'
 redirect_from:
   - /articles/pinning-a-team-discussion
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 5. 单击要固定的团队讨论旁边的 {% octicon "pin" aria-label="The pin icon" %}。 单击该图标也可以取消固定讨论。 ![固定讨论](/assets/images/help/projects/pin-discussion-button.png)
 
 ### 延伸阅读

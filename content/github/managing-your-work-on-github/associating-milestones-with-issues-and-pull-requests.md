@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Select the checkbox next to the items you want associated with a milestone.
   ![Issues metadata checkbox](/assets/images/help/issues/issues_assign_checkbox.png)
 4. In the upper-right corner, click **Milestone**, then start typing the name of [an existing milestone](/articles/creating-and-editing-milestones-for-issues-and-pull-requests). Click the milestone's name to associate it with the item.

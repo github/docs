@@ -1,6 +1,6 @@
 ---
 title: Agregar información a tus recibos
-intro: 'Puedes agregar información adicional a tus recibos de {{ site.data.variables.product.product_name }}, como información fiscal o contable solicitada por tu empresa o país.'
+intro: 'Puedes agregar información adicional a tus recibos de {% data variables.product.product_name %}, como información fiscal o contable solicitada por tu empresa o país.'
 redirect_from:
   - /articles/can-i-add-my-credit-card-number-to-my-receipts/
   - /articles/can-i-add-extra-information-to-my-receipts--2/
@@ -15,7 +15,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Tus recibos incluyen tu suscripción de {{ site.data.variables.product.prodname_dotcom }} así como otras suscripciones para [otras funciones y productos remunerados](/articles/about-billing-on-github).
+Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotcom %} así como otras suscripciones para [otras funciones y productos remunerados](/articles/about-billing-on-github).
 
 {% warning %}
 
@@ -25,22 +25,22 @@ Tus recibos incluyen tu suscripción de {{ site.data.variables.product.prodname_
 
 ### Agregar información a tus recibos de cuenta personal
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.payment-info-tab }}
-{{ site.data.reusables.dotcom_billing.extra_info_receipt }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.dotcom_billing.extra_info_receipt %}
 
 ### Agregar información a los recibos de tu organización
 
 {% note %}
 
-**Nota**: {{ site.data.reusables.dotcom_billing.org-billing-perms }}
+**Nota**: {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.user_settings.payment-info-tab }}
-{{ site.data.reusables.dotcom_billing.extra_info_receipt }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.dotcom_billing.extra_info_receipt %}

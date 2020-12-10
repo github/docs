@@ -8,6 +8,6 @@ versions:
   free-pro-team: '*'
 ---
 
-Puede añadir {{ site.data.variables.product.prodname_dotcom }} logos a tu sitio web o aplicación de terceros en algunos escenarios. Para obtener más información y directrices específicas, consulta la[{{ site.data.variables.product.prodname_dotcom }} página de Logos y Uso](https://github.com/logos).
+Puede añadir {% data variables.product.prodname_dotcom %} logos a tu sitio web o aplicación de terceros en algunos escenarios. Para obtener más información y directrices específicas, consulta la[{% data variables.product.prodname_dotcom %} página de Logos y Uso](https://github.com/logos).
 
-También puedes usar un octocat como tu avatar personal o en tu sitio web para vincular a tu cuenta, {{ site.data.variables.product.prodname_dotcom }} pero no para tu empresa o un producto que estás construyendo. {{ site.data.variables.product.prodname_dotcom }} tiene una extensa colección de octocats en el [Octodex](https://octodex.github.com/). Para obtener más información sobre cómo usar los octocats de Octodex, consulta las [preguntas frecuentes de Octodex](https://octodex.github.com/faq/).
+También puedes usar un octocat como tu avatar personal o en tu sitio web para vincular a tu cuenta, {% data variables.product.prodname_dotcom %} pero no para tu empresa o un producto que estás construyendo. {% data variables.product.prodname_dotcom %} tiene una extensa colección de octocats en el [Octodex](https://octodex.github.com/). Para obtener más información sobre cómo usar los octocats de Octodex, consulta las [preguntas frecuentes de Octodex](https://octodex.github.com/faq/).

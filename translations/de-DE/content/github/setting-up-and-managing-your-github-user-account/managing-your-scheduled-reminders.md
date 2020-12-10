@@ -1,6 +1,6 @@
 ---
 title: Verwalten Deiner geplanten Erinnerungen
-intro: 'Du kannst in Slack Erinnerungen erhalten, wenn für Dich oder Dein Team Pull Requests auf einen Review warten.'
+intro: Du kannst in Slack Erinnerungen erhalten, wenn für Dich oder Dein Team Pull Requests auf einen Review warten.
 versions:
   free-pro-team: '*'
 ---
@@ -15,34 +15,34 @@ Du kannst geplante Erinnerungen für persönliche oder für Team-Review-Anfragen
 
 ### Geplante Erinnerungen für Dein Benutzerkonto erstellen
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Neben der Organisation, für die Du Erinnerungen planen möchtest, klicke auf **Edit** (Bearbeiten). ![Schaltfläche „Scheduled reminders edit" (geplante Erinnerungen bearbeiten)](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.add-reminder }}
-{{ site.data.reusables.reminders.authorize-slack }}
-{{ site.data.reusables.reminders.days-dropdown }}
-{{ site.data.reusables.reminders.times-dropdowns }}
+{% data reusables.reminders.add-reminder %}
+{% data reusables.reminders.authorize-slack %}
+{% data reusables.reminders.days-dropdown %}
+{% data reusables.reminders.times-dropdowns %}
 8. Um optional geplante Erinnerungen für Reviews zu erhalten, die Dir zugewiesen wurden, wähle **Review requests assigned to you** (Review-Anforderungen, die Dir zugewiesen wurden). ![Kontrollfeld „Review requests assigned to you" (Dir zugewiesene Review-Anforderungen)](/assets/images/help/profile/scheduled-reminders-your-requests.png)
 9. Um optional geplante Erinnerungen für Reviews zu erhalten, die einem Team zugewiesen wurden, in dem Du Mitglied bist, wähle **Review requests assigned to your team** (Review-Anforderungen, die Deinem Team zugewiesen wurden). ![Kontrollfeld „Review requests assigned to your team" (Deinem Team zugewiesene Review-Anforderungen)](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
-{{ site.data.reusables.reminders.real-time-alerts }}
+{% data reusables.reminders.real-time-alerts %}
 ![Kontrollfeld „Enable real-time alerts" (Echtzeit-Alarme aktivieren)](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
-{{ site.data.reusables.reminders.create-reminder }}
+{% data reusables.reminders.create-reminder %}
 
 ### Geplante Erinnerungen für Dein Benutzerkonto verwalten
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Klicke neben der Organisation, für die Du geplante Erinnerungen bearbeiten möchtest, auf **Edit** (Bearbeiten). ![Schaltfläche „Scheduled reminders edit" (geplante Erinnerungen bearbeiten)](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.edit-page }}
-{{ site.data.reusables.reminders.update-buttons }}
+{% data reusables.reminders.edit-page %}
+{% data reusables.reminders.update-buttons %}
 
 ### Geplante Erinnerungen für Dein Benutzerkonto löschen
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Schaltfläche „Scheduled reminders" (Geplante Erinnerungen)](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Klicke neben der Organisation, für die Du geplante Erinnerungen löschen möchtest, auf **Edit** (Bearbeiten). ![Schaltfläche „Scheduled reminders edit" (geplante Erinnerungen bearbeiten)](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.delete }}
+{% data reusables.reminders.delete %}
 
 ### Weiterführende Informationen
 

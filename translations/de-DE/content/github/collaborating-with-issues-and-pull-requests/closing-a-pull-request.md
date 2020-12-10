@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -14,7 +15,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste „Pull Requests“ auf den Pull Request, den Du schließen möchtest.
 3. Klicke unten im Pull Request unter dem Kommentarfeld auf **Close pull request** (Pull Request schließen). ![Schaltfläche „Close Pull Request“ (Pull Request schließen)](/assets/images/help/pull_requests/pullrequest-closebutton.png)
 4. Optional kannst Du auch [den Branch löschen](/articles/deleting-unused-branches). So bleibt die Liste der Branches in Ihrem Repository ordentlich.

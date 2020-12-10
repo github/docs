@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du noch keinen SSH-Schlüssel besitzt, musst Du [einen neuen SSH-Schlüssel erzeugen](#generating-a-new-ssh-key). Wenn Du unsicher bist, ob Du bereits einen SSH-Schlüssel besitzt, suche nach [vorhandenen Schlüssel](/articles/checking-for-existing-ssh-keys).
@@ -16,21 +17,29 @@ Wenn Du bei der Verwendung Deines SSH-Schlüssels Deine Passphrase nicht jedes m
 
 ### Einen neuen SSH-Schlüssel erzeugen
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-2. Füge den folgenden Text ein, und ersetzte dabei Deine {{ site.data.variables.product.product_name }}-E-Mail-Adresse.
+{% data reusables.command_line.open_the_multi_os_terminal %}
+2. Füge den folgenden Text ein, und ersetzte dabei Deine {% data variables.product.product_name %}-E-Mail-Adresse.
   ```shell
-  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
+  {% note %}
+
+  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  ```shell
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+  ```
+
+  {% endnote %}
   Dadurch wird ein neuer SSH-Schlüssel erzeugt und die angegebene E-Mail-Adresse als Kennzeichnung verwendet.
   ```shell
-  > Generating public/private rsa key pair.
+  > Generating public/private ed25519 key pair.
   ```
 3. Wenn die Aufforderung „Enter a file in which to save the key“ (Datei angeben, in der der Schlüssel gespeichert werden soll) angezeigt wird, drücke die Eingabetaste. Dadurch wird der Standard-Speicherort akzeptiert.
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -38,7 +47,7 @@ Wenn Du bei der Verwendung Deines SSH-Schlüssels Deine Passphrase nicht jedes m
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_rsa):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -46,7 +55,7 @@ Wenn Du bei der Verwendung Deines SSH-Schlüssels Deine Passphrase nicht jedes m
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endlinux %}
@@ -63,7 +72,7 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 {% mac %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
 2. Wenn Sie macOS Sierra 10.12.2 oder höher verwenden, müssen Sie die Datei `~/.ssh/config` bearbeiten, damit automatisch Schlüssel in den ssh-agent geladen und Passphrasen in der Keychain gespeichert werden.
 
@@ -80,22 +89,28 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
       $ touch ~/.ssh/config
       ```
 
-    * Öffne deine `~/.ssh/config`-Datei. Wenn Du nicht den Standardspeicherort und den Standardnamen für Deinen `id_rsa` Schlüssel verwendest, ändere die Datei und ersetze `~/.ssh/id_rsa`.
+    * Open your `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
 
       ```
       Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_rsa
+        IdentityFile ~/.ssh/id_ed25519
       ```
 
-3. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu, und speichern Sie Ihre Passphrase in der Keychain. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+     {% note %}
+
+     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+
+     {% endnote %}
+
+3. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu, und speichern Sie Ihre Passphrase in der Keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
-   $ ssh-add -K ~/.ssh/id_rsa
+   $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 
-  **Hinweis:** Die Option `-K` ist die Standardversion von `ssh-add` von Apple, bei der die Passphrase für das Hinzufügen eines SSH-Schlüssels zum SSH-Agenten in Deiner Keychain gespeichert wird.
+  **Hinweis:** Die Option `-K` ist die Standardversion von `ssh-add` von Apple, bei der die Passphrase für das Hinzufügen eines SSH-Schlüssels zum SSH-Agenten in Deiner Keychain gespeichert wird. If you chose not to add a passphrase to your key, run the command without the `-K` option.
 
   Wenn Sie die Standardversion von Apple nicht installiert haben, tritt möglicherweise ein Fehler auf. Weitere Informationen zum Beheben dieses Fehlers finden Sie unter [Fehler: „ssh-add: illegal option -- K“](/articles/error-ssh-add-illegal-option-k)“.
 
@@ -107,7 +122,7 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
 1. Stellen Sie sicher, dass ssh-agent ausgeführt wird. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
@@ -116,8 +131,8 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
   > Agent pid 59566
   ```
 
-2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [Fügen Sie den SSH-Schlüssel zu Ihrem GitHub-Konto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account).
 
@@ -125,10 +140,10 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 {% linux %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
-2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [Fügen Sie den SSH-Schlüssel zu Ihrem GitHub-Konto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account).
 

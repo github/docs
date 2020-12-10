@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
@@ -22,7 +23,7 @@ Organization への参加の招待を受諾すると、Organization のオーナ
 - リクエストの origin の国
 - あなたの IP アドレス
 
-詳細は「<a href="/articles/github-privacy-statement/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }} のプライバシーについての声明</a>」を参照してください。
+詳細は「<a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} のプライバシーについての声明</a>」を参照してください。
 
   {% note %}
 

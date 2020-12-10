@@ -1,7 +1,7 @@
 ---
 title: Encrypted secrets
 intro: Encrypted secrets allow you to store sensitive information in your repository or organization.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -11,14 +11,14 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About encrypted secrets
 
-Secrets are encrypted environment variables that you create in a repository or organization. The secrets you create are available to use in {{ site.data.variables.product.prodname_actions }} workflows. {{ site.data.variables.product.prodname_dotcom }} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {{ site.data.variables.product.prodname_dotcom }}, and remain encrypted until you use them in a workflow.
+Secrets are encrypted environment variables that you create in a repository or organization. The secrets you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %}, and remain encrypted until you use them in a workflow.
 
-{{ site.data.reusables.github-actions.secrets-org-level-overview }}
+{% data reusables.github-actions.secrets-org-level-overview %}
 
 #### Naming your secrets
 
@@ -29,33 +29,33 @@ The following rules apply to secret names:
 * Secret names must not start with a number.
 * Secret names must be unique at the level they are created at. For example, a secret created at the organization-level must have a unique name at that level, and a secret created at the repository-level must have a unique name in that repository. If an organization-level secret has the same name as a repository-level secret, then the repository-level secret takes precedence.
 
-To help ensure that {{ site.data.variables.product.prodname_dotcom }} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
+To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
 
 #### Accessing your secrets
 
-To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
+To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
-You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[Access permissions on {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/access-permissions-on-github)."
+You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
 {% warning %}
 
-**Warning:** {{ site.data.variables.product.prodname_dotcom }} automatically redacts secrets printed to the log, but you should avoid printing secrets to the log intentionally.
+**Warning:** {% data variables.product.prodname_dotcom %} automatically redacts secrets printed to the log, but you should avoid printing secrets to the log intentionally.
 
 {% endwarning %}
 
-You can also manage secrets using the REST API. For more information, see "[Secrets](/v3/actions/secrets/)."
+You can also manage secrets using the REST API. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
 #### Limiting credential permissions
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/v3/guides/managing-deploy-keys/#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a personal access token (PAT), select the fewest scopes necessary.
 
 ### Creating encrypted secrets for a repository
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-repository }}
+{% data reusables.github-actions.permissions-statement-secrets-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Click **Add a new secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the value for your secret.
@@ -67,11 +67,11 @@ If your repository can access secrets from the parent organization, then those s
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-organization }}
+{% data reusables.github-actions.permissions-statement-secrets-organization %}
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Click **New secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
@@ -82,9 +82,9 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 You can check which access policies are being applied to a secret in your organization.
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. The list of secrets includes any configured permissions and policies. For example:
 ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.
@@ -93,7 +93,7 @@ You can check which access policies are being applied to a secret in your organi
 
 With the exception of `GITHUB_TOKEN`, secrets are not passed to the runner when a workflow is triggered from a forked repository.
 
-To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)" and "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" and "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 {% raw %}
 ```yaml
@@ -106,7 +106,7 @@ steps:
 ```
 {% endraw %}
 
-Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). To help protect secrets, consider using environment variables, `STDIN`, or other mechanisms supported by the target process.
+Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). To help protect secrets, consider using environment variables, `STDIN`, or other mechanisms supported by the target process.
 
 If you must pass secrets within a command line, then enclose them within the proper quoting rules. Secrets often contain special characters that may unintentionally affect your shell. To escape these special characters, use quoting with your environment variables. For example:
 
@@ -153,11 +153,11 @@ steps:
 
 Your workflow can have up to 100 secrets. The names of secret environment variables must be unique in a repository.
 
-Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB, you can store encrypted secrets in your repository and save the decryption passphrase as a secret on {{ site.data.variables.product.prodname_dotcom }}. For example, you can use `gpg` to encrypt your credentials locally before checking the file in to your repository on {{ site.data.variables.product.prodname_dotcom }}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
+Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB, you can store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt your credentials locally before checking the file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
 
 {% warning %}
 
-**Warning**: Be careful that your secrets do not get printed when your action runs. When using this workaround, {{ site.data.variables.product.prodname_dotcom }} does not redact secrets that are printed in logs.
+**Warning**: Be careful that your secrets do not get printed when your action runs. When using this workaround, {% data variables.product.prodname_dotcom %} does not redact secrets that are printed in logs.
 
 {% endwarning %}
 
@@ -167,7 +167,7 @@ Secrets are limited to 64 KB in size. To use secrets that are larger than 64 KB,
  $ gpg --symmetric --cipher-algo AES256 my_secret.json
  ```
 
-1. You will be prompted to enter a passphrase. Remember the passphrase, because you'll need to create a new secret on {{ site.data.variables.product.prodname_dotcom }} that uses the passphrase as the value.
+1. You will be prompted to enter a passphrase. Remember the passphrase, because you'll need to create a new secret on {% data variables.product.prodname_dotcom %} that uses the passphrase as the value.
 
 1. Create a new secret that contains the passphrase. For example, create a new secret with the name `LARGE_SECRET_PASSPHRASE` and set the value of the secret to the passphrase you selected in the step above.
 

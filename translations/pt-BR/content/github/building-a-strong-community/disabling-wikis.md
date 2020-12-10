@@ -1,18 +1,19 @@
 ---
 title: Desabilitar wikis
 intro: É possível desabilitar wikis do repositório.
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/disabling-wikis
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando um wiki é desativado, o conteúdo dele é oculto, mas não apagado. Se você optar por tornar a habilitar os wikis posteriormente, as páginas anteriores serão restauradas.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Em Features (Recursos), desmarque **Wiki**. ![Caixa de seleção Wiki disable (Desabilitação de wikis)](/assets/images/help/wiki/wiki_enable_disable.png)
 
 ### Leia mais

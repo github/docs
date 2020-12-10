@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.access_applications }}
-{{ site.data.reusables.user_settings.access_authorized_oauth_apps }}
-{{ site.data.reusables.user_settings.review-oauth-apps }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.access_applications %}
+{% data reusables.user_settings.access_authorized_oauth_apps %}
+{% data reusables.user_settings.review-oauth-apps %}
 
 ### Weiterführende Informationen
 {% if currentVersion == "free-pro-team@latest" %}

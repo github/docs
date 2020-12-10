@@ -1,24 +1,25 @@
 ---
 title: Sobre quadros de projeto
-intro: 'Os quadros de projeto no {{ site.data.variables.product.product_name }} ajudam você a organizar e priorizar seu trabalho. É possível criar quadros de projeto para trabalho de recurso específico, roteiros abrangentes ou, até mesmo, checklists de versão. Com os quadros de projeto, você tem a flexibilidade de criar fluxos de trabalho personalizados adequados às suas necessidades.'
+intro: 'Os quadros de projeto no {% data variables.product.product_name %} ajudam você a organizar e priorizar seu trabalho. É possível criar quadros de projeto para trabalho de recurso específico, roteiros abrangentes ou, até mesmo, checklists de versão. Com os quadros de projeto, você tem a flexibilidade de criar fluxos de trabalho personalizados adequados às suas necessidades.'
 redirect_from:
   - /articles/about-projects/
   - /articles/about-project-boards
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os quadros de projeto são compostos por problemas, pull requests e observações que são categorizados como cartões em colunas de sua escolha. É possível arrastar e soltar ou usar atalhos de teclado para reordenar cartões em uma coluna, mover cartões de coluna para coluna e alterar a ordem das colunas.
 
-Os cartões do quadro de projeto contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, o status e quem os abriu. {{ site.data.reusables.project-management.edit-in-project }}
+Os cartões do quadro de projeto contêm metadados relevantes para problemas e pull requests, como etiquetas, responsáveis, o status e quem os abriu. {% data reusables.project-management.edit-in-project %}
 
-Você pode criar observações dentro de colunas para servirem de lembretes de tarefa, fazer referência a problemas e pull requests de qualquer repositório no {{ site.data.variables.product.product_name }} ou adicionar informações relacionadas ao quadro de projeto. É possível criar um cartão de referência para outro quadro de projeto adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações de quadro de projeto em problemas, consulte "[Adicionar observações a um quadro de projeto](/articles/adding-notes-to-a-project-board)".
+Você pode criar observações dentro de colunas para servirem de lembretes de tarefa, fazer referência a problemas e pull requests de qualquer repositório no {% data variables.product.product_name %} ou adicionar informações relacionadas ao quadro de projeto. É possível criar um cartão de referência para outro quadro de projeto adicionando um link a uma observação. Se a observação não for suficiente para suas necessidades, você poderá convertê-la em um problema. Para obter mais informações sobre como converter observações de quadro de projeto em problemas, consulte "[Adicionar observações a um quadro de projeto](/articles/adding-notes-to-a-project-board)".
 
 Tipos de quadros de projeto:
 
 - Os **quadros de projeto possuídos pelo usuário** podem conter problemas e pull requests de qualquer repositório pessoal.
-- Os **quadros de projeto de toda a organização** podem conter problemas e pull requests de qualquer repositório que pertença a uma organização.  {{ site.data.reusables.project-management.link-repos-to-project-board }} Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)."
+- Os **quadros de projeto de toda a organização** podem conter problemas e pull requests de qualquer repositório que pertença a uma organização.  {% data reusables.project-management.link-repos-to-project-board %} Para obter mais informações, consulte "[Vincular um repositório a um quadro de projeto](/articles/linking-a-repository-to-a-project-board)."
 - Os **quadros de projeto do repositório** abrangem problemas ou pull requests dentro de um único repositório. Eles também podem incluir observações que fazem referência a problemas e pull requests em outros repositórios.
 
 ### Criar e exibir quadros de projeto
@@ -37,7 +38,7 @@ Se você concluiu todas as tarefas do quadro de projeto ou não precisar mais us
 
 Também é possível [desabilitar quadros de projeto em um repositório](/articles/disabling-project-boards-in-a-repository) ou [desabilitar quadros de projeto em sua organização](/articles/disabling-project-boards-in-your-organization), se preferir rastrear o trabalho de maneira diferente.
 
-{{ site.data.reusables.project-management.project-board-import-with-api }}
+{% data reusables.project-management.project-board-import-with-api %}
 
 ### Modelos para quadros de projeto
 
@@ -54,7 +55,7 @@ Para obter mais informações sobre automação para quadros de projeto, consult
 
 ![Quadro de projeto com modelo de kanban básico](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 ### Leia mais
 

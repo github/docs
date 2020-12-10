@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -40,7 +41,7 @@ versions:
 
 {% tip %}
 
-**提示：**在成功地将项目转换为 Git 后，您可以[将其推送到 {{ site.data.variables.product.prodname_dotcom }}](/articles/pushing-commits-to-a-remote-repository/)。
+**提示：**在成功地将项目转换为 Git 后，您可以[将其推送到 {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}
 
@@ -50,6 +51,6 @@ versions:
 
 - “[关于 GitHub 导入工具](/articles/about-github-importer)”
 - "[使用 GitHub 导入工具导入仓库](/articles/importing-a-repository-with-github-importer)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

@@ -1,7 +1,7 @@
 ---
 title: GitHub Page を使う
 shortTitle: GitHub Pages
-intro: '{{ site.data.variables.product.product_name }} リポジトリから、ウェブサイトを直接作成できます。'
+intro: '{% data variables.product.product_name %} リポジトリから、ウェブサイトを直接作成できます。'
 redirect_from:
   - /categories/20/articles/
   - /categories/95/articles/
@@ -10,10 +10,11 @@ redirect_from:
   - /categories/96/articles/
   - /categories/github-pages-troubleshooting/
   - /categories/working-with-github-pages
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

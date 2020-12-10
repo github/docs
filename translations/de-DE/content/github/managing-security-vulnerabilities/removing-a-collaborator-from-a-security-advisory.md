@@ -9,11 +9,11 @@ Personen mit Administratorberechtigungen für einen Sicherheitshinweis können M
 
 ### Einen Mitarbeiter aus einem Sicherheitshinweis entfernen
 
-{{ site.data.reusables.repositories.security-advisory-collaborators-public-repositories }}
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Klicke in der Liste „Security Advisories“ (Sicherheitshinweise) auf den Hinweis, von dem Du einen Mitarbeiter entfernen möchtest. ![Sicherheitshinweis in der Liste](/assets/images/help/security/security-advisory-in-list.png)
 5. Suche auf der rechten Seite unter "Collaborators" (Mitarbeiter) den Namen des Benutzers oder Teams, das Du aus dem Sicherheitshinweis entfernen möchtest. ![Mitarbeiter im Sicherheitshinweis](/assets/images/help/security/security-advisory-collaborator.png)
 6. Klicke auf das **X** neben dem Mitarbeiter, den Du entfernen möchtest. ![X-Symbol zum Entfernen von Mitarbeitern in Sicherheitshinweisen](/assets/images/help/security/security-advisory-remove-collaborator-x.png)

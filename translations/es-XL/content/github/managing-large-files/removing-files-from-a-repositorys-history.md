@@ -1,6 +1,6 @@
 ---
 title: Eliminar archivos del historial de un repositorio
-intro: 'Para eliminar un archivo grande de tu repositorio, debes eliminarlo por completo de tu repositorio local y de {{ site.data.variables.product.product_location }}.'
+intro: 'Para eliminar un archivo grande de tu repositorio, debes eliminarlo por completo de tu repositorio local y de {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/removing-files-from-a-repository-s-history
   - /articles/removing-files-from-a-repositorys-history
@@ -11,7 +11,7 @@ versions:
 
 {% warning %}
 
-**Advertencia**: Estos procedimientos eliminarán archivos de manera permanente del repositorio de tu computadora y de {{ site.data.variables.product.product_location }}. Si el archivo es importante, haz una copia de seguridad local en un directorio por fuera del repositorio.
+**Advertencia**: Estos procedimientos eliminarán archivos de manera permanente del repositorio de tu computadora y de {% data variables.product.product_location %}. Si el archivo es importante, haz una copia de seguridad local en un directorio por fuera del repositorio.
 
 {% endwarning %}
 
@@ -21,10 +21,10 @@ Si añadiste un archivo en una confirmación previa, necesitas eliminarlo del hi
 
 ### Eliminar un archivo agregado en la confirmación más reciente no subida
 
-Si el archivo se agregó con tu confirmación más reciente, y no lo subiste a {{ site.data.variables.product.product_location }}, puedes eliminar el archivo y modificar la confirmación:
+Si el archivo se agregó con tu confirmación más reciente, y no lo subiste a {% data variables.product.product_location %}, puedes eliminar el archivo y modificar la confirmación:
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.switching_directories_procedural }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
 3. Para eliminar el archivo, ingresa a `git rm --cached`:
   ```shell
   $ git rm --cached <em>giant_file</em>
@@ -37,7 +37,7 @@ Si el archivo se agregó con tu confirmación más reciente, y no lo subiste a {
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Sube tus confirmaciones a {{ site.data.variables.product.product_location }}:
+5. Sube tus confirmaciones a {% data variables.product.product_location %}:
   ```shell
   $ git push
   # Push our rewritten, smaller commit

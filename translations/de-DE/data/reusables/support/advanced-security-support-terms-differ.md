@@ -1,1 +1,0 @@
-Die Bedingungen dieses Artikels gelten nicht für die Unterstützung für {{ site.data.variables.product.prodname_advanced_security }}. Weitere Informationen findest Du unter „[Unterstützung für {{ site.data.variables.product.prodname_advanced_security }}](/enterprise/admin/enterprise-support/about-support-for-advanced-security)."

@@ -20,31 +20,31 @@ Você pode criar um código de conduta padrão para sua organização ou conta d
 
 ### Adicionar um código de conduta usando um modelo
 
-O {{ site.data.variables.product.product_name }} fornece modelos para códigos de conduta comuns de modo a ajudar você a adicionar rapidamente um código de conduta ao seu projeto.
+O {% data variables.product.product_name %} fornece modelos para códigos de conduta comuns de modo a ajudar você a adicionar rapidamente um código de conduta ao seu projeto.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo de nome do arquivo, digite *CODE_OF_CONDUCT.md*.
 4. Clique em **Choose a code of conduct template** (Escolher um modelo de código de conduta). ![Botão para escolher um modelo de código de conduta](/assets/images/help/repository/code-of-conduct-tool.png)
 5. No lado esquerdo da página, selecione um código de conduta a ser visualizado e adicionado ao seu projeto. ![Seleção de um modelo de código de conduta](/assets/images/help/repository/code-of-conduct-tool-picker.png)
 6. No lado direito da página, complete os campos para preencher o código de conduta selecionado com as informações apropriadas.
 7. Clique em **Review and submit** (Revisar e enviar). ![Revisar e enviar código de conduta ao projeto](/assets/images/help/repository/code-of-conduct-tool-review.png)
 8. Revise o conteúdo do código de conduta que está na área de texto.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Adicionar um código de conduta manualmente
 
 Se o código de conduta que você deseja usar não estiver disponível nos modelos fornecidos, você pode adicionar um código de conduta manualmente.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo do nome de arquivo, digite o nome e a extensão do arquivo. ![Nome do arquivo do novo código de conduta](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - Para tornar seu código de conduta visível no diretório raiz do repositório, digite *CODE_OF_CONDUCT* no campo do nome do arquivo.
     - Para tornar seu código de conduta visível no diretório `docs` do repositório, digite *docs/CODE_OF_CONDUCT*.
     - Para tornar seu código de conduta visível no diretório `.github` do repositório, digite *.github/CODE_OF_CONDUCT*.
 4. No novo arquivo, adicione seu código de conduta personalizado.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

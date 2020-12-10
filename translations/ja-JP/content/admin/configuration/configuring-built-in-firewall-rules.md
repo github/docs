@@ -1,6 +1,6 @@
 ---
 title: 組み込みファイアウォールのルール設定
-intro: '{{ site.data.variables.product.product_location_enterprise }}のデフォルトのファイアウォールのルールとカスタマイズされたルールを見ることができます。'
+intro: '{% data variables.product.product_location %}のデフォルトのファイアウォールのルールとカスタマイズされたルールを見ることができます。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -9,17 +9,17 @@ versions:
   enterprise-server: '*'
 ---
 
-### {{ site.data.variables.product.product_location_enterprise }}のファイアウォールについて
+### {% data variables.product.product_location %}のファイアウォールについて
 
-{{ site.data.variables.product.prodname_ghe_server }} は、仮想アプライアンスで Ubuntu の Uncomplicated Firewall (UFW) を使用します。 詳しい情報についてはUbuntuのドキュメンテーションの"[UFW](https://help.ubuntu.com/community/UFW)"を参照してください。 {{ site.data.variables.product.prodname_ghe_server }} は、許可されたサービスのファイアウォールのホワイトリストをリリースごとに自動的に更新します。
+{% data variables.product.prodname_ghe_server %} は、仮想アプライアンスで Ubuntu の Uncomplicated Firewall (UFW) を使用します。 詳しい情報についてはUbuntuのドキュメンテーションの"[UFW](https://help.ubuntu.com/community/UFW)"を参照してください。 {% data variables.product.prodname_ghe_server %} は、許可されたサービスのファイアウォールのホワイトリストをリリースごとに自動的に更新します。
 
-{{ site.data.variables.product.prodname_ghe_server }} をインストールすると、接続を受け入れるために必要なすべてのネットワークポートが自動的に開かれます。 不必要なすべてのポートは自動的に`deny`に設定され、デフォルトの送信ポリシーは`allow`に設定されます。 ステートフルな追跡は、任意の新しいコネクションに対して有効化されます。それらは通常、`SYN`ビットが立てられているネットワークパケットです。 詳しい情報については"[ネットワークポート](/enterprise/admin/guides/installation/network-ports)"を参照してください。
+{% data variables.product.prodname_ghe_server %} をインストールすると、接続を受け入れるために必要なすべてのネットワークポートが自動的に開かれます。 不必要なすべてのポートは自動的に`deny`に設定され、デフォルトの送信ポリシーは`allow`に設定されます。 ステートフルな追跡は、任意の新しいコネクションに対して有効化されます。それらは通常、`SYN`ビットが立てられているネットワークパケットです。 詳しい情報については"[ネットワークポート](/enterprise/admin/guides/installation/network-ports)"を参照してください。
 
-UFW ファイアウォールは、{{ site.data.variables.product.prodname_ghe_server }} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFWのルールセットに関する詳しい情報については[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)を参照してください。
+UFW ファイアウォールは、{% data variables.product.prodname_ghe_server %} が正しく動作するのに必要となる他のいくつかのポートも開きます。 UFWのルールセットに関する詳しい情報については[the UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)を参照してください。
 
 ### デフォルトのファイアウォールルールの表示
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. デフォルトのファイアウォールルールを表示するには、`sudo ufw status` コマンドを使用します。 以下と同じような出力が表示されるでしょう:
   ```shell
   $ sudo ufw status
@@ -52,7 +52,7 @@ UFW ファイアウォールは、{{ site.data.variables.product.prodname_ghe_se
 
 {% warning %}
 
-**警告:** 既知の作業状態にリセットする必要が生じた場合に備えて、カスタムのファイアウォールルールを追加する前に、現在のルールをバックアップしてください。 サーバーからロックアウトされている場合には、{{ site.data.variables.contact.contact_ent_support }}に問い合わせて、元のファイアウォールルールを再設定してください。 元のファイアウォールルールを復元すると、サーバーでダウンタイムが発生します。
+**警告:** 既知の作業状態にリセットする必要が生じた場合に備えて、カスタムのファイアウォールルールを追加する前に、現在のルールをバックアップしてください。 サーバーからロックアウトされている場合には、{% data variables.contact.contact_ent_support %}に問い合わせて、元のファイアウォールルールを再設定してください。 元のファイアウォールルールを復元すると、サーバーでダウンタイムが発生します。
 
 {% endwarning %}
 
@@ -66,7 +66,7 @@ UFW ファイアウォールは、{{ site.data.variables.product.prodname_ghe_se
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-{{ site.data.variables.product.product_location_enterprise }}をアップグレードした後は、カスタムのファイアウォールルールを再適用しなければなりません。 ファイアウォールのカスタムルールを再適用するためのスクリプトを作成することをお勧めします。
+{% data variables.product.product_location %}をアップグレードした後は、カスタムのファイアウォールルールを再適用しなければなりません。 ファイアウォールのカスタムルールを再適用するためのスクリプトを作成することをお勧めします。
 
 ### デフォルトのファイアウォールルールのリストア
 
@@ -74,11 +74,11 @@ UFW ファイアウォールは、{{ site.data.variables.product.prodname_ghe_se
 
 {% warning %}
 
-**警告:** ファイアウォールに変更を加える前にオリジナルのルールをバックアップしていなかった場合は、{{ site.data.variables.contact.contact_ent_support }} にお問い合わせください。
+**警告:** ファイアウォールに変更を加える前にオリジナルのルールをバックアップしていなかった場合は、{% data variables.contact.contact_ent_support %} にお問い合わせください。
 
 {% endwarning %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. 以前のバックアップルールを復元するには、`cp` コマンドでそれらをファイアウォールにコピーして戻します。
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /lib/ufw

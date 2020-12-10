@@ -1,23 +1,24 @@
 ---
 title: Informationen zu Merge-Methoden auf GitHub
-intro: 'Du kannst Mitarbeitern mit Push-Zugriff auf Dein Repository erlauben, ihre Pull Requests auf {{ site.data.variables.product.product_location }} mit verschiedenen Merge-Optionen zusammenzuführen, oder eine bestimmte Merge-Methode für alle Pull Requests Deines Repositorys erzwingen.'
+intro: 'Sie können Mitarbeitern mit Push-Zugriff auf Ihr Repository erlauben, ihre Pull Requests auf {% data variables.product.product_location %} mit verschiedenen Merge-Optionen zu mergen, oder eine bestimmte Merge-Methode für alle Pull Requests Ihres Repositorys erzwingen.'
 redirect_from:
   - /articles/about-merge-methods-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.pull_requests.configure_pull_request_merges_intro }} Du kannst eine Art von Merge-Methode erzwingen, beispielsweise Commit-Squashing oder -Rebasing, indem Du nur die gewünschte Methode für Dein Repository aktivierst.
+{% data reusables.pull_requests.configure_pull_request_merges_intro %} Sie können eine Art von Merge-Methode, beispielsweise Commit-Squashing oder Rebasing, erzwingen, indem Sie nur die gewünschte Methode für Ihr Repository aktivieren.
 
-{{ site.data.reusables.pull_requests.default_merge_option }}
+{% data reusables.pull_requests.default_merge_option %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 Die Standard-Mergemethode erzeugt einen Merge-Commit. Du kannst verhindern, dass Merge-Commits an einen geschützten Branch übertragen werden, indem Du einen linearen Commit-Verlauf erzwingst. Weitere Informationen findest Du unter „[Einen linearen Commit-Verlauf verlangen](/github/administering-a-repository/requiring-a-linear-commit-history)."{% endif %}
 
 ### Deine Merge-Commits squashen
 
-{{ site.data.reusables.pull_requests.squash_and_merge_summary }}
+{% data reusables.pull_requests.squash_and_merge_summary %}
 
 Bevor Du das Commit-Squashing aktivierst, solltest Du diese Nachteile berücksichtigen:
 - Du verlierst Informationen darüber, wann bestimmte Änderungen ursprünglich vorgenommen wurden und wer die Squash-Commits erstellt hat.
@@ -28,9 +29,9 @@ Weitere Informationen findest Du unter „[Commit-Squashing für Pull Requests k
 
 ### Rebasing und Zusammenführen Deiner Commits
 
-{{ site.data.reusables.pull_requests.rebase_and_merge_summary }}
+{% data reusables.pull_requests.rebase_and_merge_summary %}
 
 Bevor Du das Commit-Rebasing aktivierst, sollten Du diese Nachteile berücksichtigen:
-- Repository-Mitarbeiter müssen unter Umständen ein Rebasing in der Befehlszeile durchführen, Konflikte beheben und ihre Änderungen an den Themen-Branch (oder remote Head-Branch) des Pull Requests erzwingen und übertragen, bevor sie die Option **Rebase and merge** (Rebasing und Zusammenführen) auf {{ site.data.variables.product.product_location }} verwenden können. Das Erzwingen eines Push muss mit Vorsicht durchgeführt werden, damit die Mitarbeiter die Arbeit nicht überschreiben, auf der andere ihre Arbeit aufgebaut haben. Weitere Informationen dazu, wann die Option **Rebase and merge** (Rebase und Merge) auf {{ site.data.variables.product.product_location }} deaktiviert ist, sowie zum Workflow, um sie wieder zu aktivieren, findest Du unter „[Informationen zum Zusammenführen von Pull Requests](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits).“
+- Repository-Mitarbeiter müssen unter Umständen ein Rebasing in der Befehlszeile durchführen, Konflikte beheben und ihre Änderungen an den Themen-Branch (oder remote Head-Branch) des Pull Requests erzwingen und übertragen, bevor sie die Option **Rebase and merge** (Rebasing und Zusammenführen) auf {% data variables.product.product_location %} verwenden können. Das Erzwingen eines Push muss mit Vorsicht durchgeführt werden, damit die Mitarbeiter die Arbeit nicht überschreiben, auf der andere ihre Arbeit aufgebaut haben. Weitere Informationen dazu, wann die Option **Rebase and merge** (Rebase und Merge) auf {% data variables.product.product_location %} deaktiviert ist, sowie zum Workflow, um sie wieder zu aktivieren, findest Du unter „[Informationen zum Zusammenführen von Pull Requests](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits).“
 
 Weitere Informationen findest Du unter „[Commit-Rebasing für Pull Requests konfigurieren](/articles/configuring-commit-rebasing-for-pull-requests).“

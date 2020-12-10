@@ -1,6 +1,6 @@
 ---
 title: Migrating to internal repositories
-intro: 'You can migrate to internal repositories to unify the innersource experience for developers using both {{ site.data.variables.product.prodname_ghe_server }} and {{ site.data.variables.product.prodname_ghe_cloud }}.'
+intro: 'You can migrate to internal repositories to unify the innersource experience for developers using both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
@@ -11,9 +11,9 @@ versions:
 
 ### About internal repositories
 
-Internal repositories are available in {{ site.data.variables.product.prodname_ghe_server }} 2.20+. {{ site.data.reusables.repositories.about-internal-repos }} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)."
+Internal repositories are available in {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)."
 
-In future releases of {{ site.data.variables.product.prodname_ghe_server }}, we will adjust how repository visibility works so that the terms public, internal, and private have a uniform meaning for developers on {{ site.data.variables.product.prodname_ghe_server }} and {{ site.data.variables.product.prodname_ghe_cloud }}.
+In future releases of {% data variables.product.prodname_ghe_server %}, we will adjust how repository visibility works so that the terms public, internal, and private have a uniform meaning for developers on {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.
 
 To prepare for these changes, if you have private mode enabled, you can run a migration on your instance to convert public repositories to internal. This migration is currently optional, to allow you to test the changes on a non-production instance. The migration will become mandatory in the future.
 
@@ -23,7 +23,7 @@ All public repositories owned by user accounts on your instance will become priv
 
 Anonymous Git read access will be disabled for each public repository that becomes internal or private.
 
-If your current default visibility for repositories is public, the default will become internal. If the current default is private, the default will not change. You can change the default at any time. For more information, see "[Configuring the default visibility of new repositories on your appliance](/enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance)."
+If your current default visibility for repositories is public, the default will become internal. If the current default is private, the default will not change. You can change the default at any time. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)."
 
 The repository creation policy for the instance will change to disable public repositories and allow private and internal repositories. You can update the policy at any time. For more information, see "[Restricting repository creation in your instances](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)."
 

@@ -7,10 +7,10 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.block_users}}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.block_users %}
 5. Under "Blocked users", review the list of users who are blocked from your organization. ![List of blocked users](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
 ### Дополнительная литература

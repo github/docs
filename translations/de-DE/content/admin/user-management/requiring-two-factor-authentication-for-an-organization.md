@@ -7,11 +7,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Bei Verwendung von LDAP oder der integrierten Authentifizierung wird die Zwei-Faktor-Authentifizierung auf der {{ site.data.variables.product.prodname_ghe_server }}-Appliance unterstützt. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.
+When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organisationsadministratoren können festlegen, dass Mitglieder die Zwei-Faktor-Authentifizierung aktivieren müssen.
 
-{{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-Weitere Informationen finden Sie in „[dieser Tabelle zu den Authentifizierungsmethoden, welche die 2FA unterstützen](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)“.
+Weitere Informationen findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/github/authenticating-to-github/about-two-factor-authentication).“
 
 ### Anforderungen für die Erzwingung der Zwei-Faktor-Authentifizierung
 
@@ -29,20 +29,20 @@ Bevor Sie festlegen können, dass Organisationsmitglieder und externe Mitarbeite
 
 Bevor Sie festlegen können, dass die Zwei-Faktor-Authentifizierung verwendet werden muss, sollten Sie die Organisationsmitglieder und externen Mitarbeiter benachrichtigen und sie auffordern, die Zwei-Faktor-Authentifizierung für ihre Konten einzurichten. Auf der Registerkarte „People“ (Personen) einer Organisation können Sie [anzeigen, ob die Mitglieder und externen Mitarbeiter die Zwei-Faktor-Authentifizierung bereits verwenden](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
-{{ site.data.reusables.profile.enterprise_access_profile}}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 
 ### Aus Deiner Organisation entfernte Personen anzeigen
 
 Um Personen anzuzeigen, die automatisch aus Ihrer Organisation entfernt wurden, weil sie die erforderliche Zwei-Faktor-Authentifizierung nicht verwendet haben, können Sie mit `reason:two_factor_requirement_non_compliance` im Suchfeld das [Auditprotokoll durchsuchen](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/).
 
-{{ site.data.reusables.audit_log.octicon_icon }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_site_admins }}
+{% data reusables.audit_log.octicon_icon %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
 4. Geben Sie Ihre Suchabfrage ein. Verwenden Sie dazu `reason:two_factor_requirement_non_compliance`. ![Das Personaltools-Auditprotokollereignis zeigt, dass ein Benutzer wegen Nichteinhaltung der 2FA entfernt wurde](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png) Zum Eingrenzen Ihrer Suche nach:
     - Geben Sie entfernte Organisationsmitglieder `action:org.remove_member AND reason:two_factor_requirement_non_compliance` ein.
     - Geben Sie entfernte externe Mitarbeiter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance` ein.

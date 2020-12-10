@@ -6,21 +6,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Reviewing your authorized {{ site.data.variables.product.prodname_oauth_app }}s
+### Reviewing your authorized {% data variables.product.prodname_oauth_app %}s
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.access_applications }}
-{{ site.data.reusables.user_settings.access_authorized_oauth_apps }}
-{{ site.data.reusables.user_settings.review-oauth-apps }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.access_applications %}
+{% data reusables.user_settings.access_authorized_oauth_apps %}
+{% data reusables.user_settings.review-oauth-apps %}
 
-### Reviewing your authorized {{ site.data.variables.product.prodname_github_app }}s
+### Reviewing your authorized {% data variables.product.prodname_github_app %}s
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.access_applications }}
-3. Click the **Authorized {{ site.data.variables.product.prodname_github_app }}s** tab. ![Authorized {{ site.data.variables.product.prodname_github_app }}s tab](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
-3. Review the {{ site.data.variables.product.prodname_github_app }}s that have access to your account. For those that you don't recognize or that are out of date, click **Revoke**. To revoke all {{ site.data.variables.product.prodname_github_app }}s, click **Revoke all**. ![List of authorized {{ site.data.variables.product.prodname_github_app }}](/assets/images/help/settings/revoke-github-app.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.access_applications %}
+3. Click the **Authorized {% data variables.product.prodname_github_app %}s** tab. ![Authorized {% data variables.product.prodname_github_app %}s tab](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
+3. Review the {% data variables.product.prodname_github_app %}s that have access to your account. For those that you don't recognize or that are out of date, click **Revoke**. To revoke all {% data variables.product.prodname_github_app %}s, click **Revoke all**. ![List of authorized {% data variables.product.prodname_github_app %}](/assets/images/help/settings/revoke-github-app.png)
 
 ### 더 읽을거리
 {% if currentVersion == "free-pro-team@latest" %}

@@ -1,11 +1,12 @@
 ---
 title: Dateien löschen
-intro: 'Du kannst jede beliebige Datei in Deinen Repositorys auf {{ site.data.variables.product.product_name }} löschen.'
+intro: 'Sie können jede beliebige Datei in Ihren Repositorys auf {% data variables.product.product_name %} löschen.'
 redirect_from:
   - /articles/deleting-files
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -17,10 +18,10 @@ versions:
 1. Navigiere zu der Datei in Deinem Repository, die Du löschen möchtest.
 2. At the top of the file, click
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 {% danger %}
 

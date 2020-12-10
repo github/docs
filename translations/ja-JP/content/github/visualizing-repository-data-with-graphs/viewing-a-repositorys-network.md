@@ -1,13 +1,14 @@
 ---
 title: リポジトリのネットワークを表示する
-intro: ネットワークグラフには、ルートリポジトリのブランチとネットワークに固有のコミットを含むフォークのブランチを含む、リポジトリネットワーク全体のブランチ履歴が表示されます。
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+intro: 'ネットワークグラフには、ルートリポジトリのブランチとネットワークに固有のコミットを含むフォークのブランチを含む、リポジトリネットワーク全体のブランチ履歴が表示されます。'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![リポジトリネットワークグラフ](/assets/images/help/graphs/repo_network_graph.png)
@@ -20,6 +21,6 @@ versions:
 
 ### ネットワークグラフにアクセスする
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. 左サイドバーで [**Network**] をクリックします。 ![[Network] タブ](/assets/images/help/graphs/network_tab.png)

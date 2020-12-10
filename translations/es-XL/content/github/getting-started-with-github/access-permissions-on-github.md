@@ -29,10 +29,10 @@ Los miembros de la organización pueden tener roles de *propietario*{% if curren
 
 Los *propietarios de empresa* tienen máximo poder sobre la cuenta de la empresa y pueden tomar medidas en la cuenta de la empresa. Los *gerentes de facturación* pueden administrar los parámetros de facturación de la cuenta de la empresa. Los miembros y colaboradores externos de las organizaciones que son propiedad de tu cuenta empresarial automáticamente son miembros de la cuenta empresarial, si bien no tienen acceso a la cuenta empresarial en sí o a sus parámetros. Para obtener más información, consulta "[Roles para una cuenta empresarial](/articles/roles-for-an-enterprise-account)".
 
-{{ site.data.reusables.gated-features.enterprise-accounts }}
+{% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Leer más
 
-- [Tipos de cuentas de {{ site.data.variables.product.prodname_dotcom }}](/articles/types-of-github-accounts)"
+- [Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

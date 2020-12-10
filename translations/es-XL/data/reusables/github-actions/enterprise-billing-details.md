@@ -1,1 +1,1 @@
-El uso incluye los minutos totales que utiliza cada organización. El resumen combinado de {{ site.data.variables.product.prodname_actions }} y {{ site.data.variables.product.prodname_registry }} no lista los minutos incluidos, minutos pagados, o un estimado de precio por GB de almacenamiento.
+El uso incluye los minutos totales que utiliza cada organización. El resumen combinado de {% data variables.product.prodname_actions %} y {% data variables.product.prodname_registry %} no lista los minutos incluidos, minutos pagados, o un estimado de precio por GB de almacenamiento.

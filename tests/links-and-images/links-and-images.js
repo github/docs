@@ -1,11 +1,12 @@
-require('../../lib/feature-flags')
 const cheerio = require('cheerio')
-const loadPages = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/pages')
 const loadSiteData = require('../../lib/site-data')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-links')
+const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
+  .filter(version => version.startsWith('enterprise-server@'))
 const flat = require('flat')
 const { last } = require('lodash')
 
@@ -23,20 +24,20 @@ describe('page rendering', () => {
   const brokenAnchors = {}
   const brokenLinks = {}
 
-  let pages, siteData, redirects
   beforeAll(async (done) => {
-    pages = await loadPages()
-    siteData = await loadSiteData()
-    redirects = await loadRedirects(pages)
+    const pageList = await loadPages()
+    const pageMap = await loadPageMap(pageList)
+    const siteData = await loadSiteData()
+    const redirects = await loadRedirects(pageList, pageMap)
 
-    context.pages = pages
+    context.pages = pageMap
     context.site = siteData[languageCode].site
     context.redirects = redirects
 
     let checkedLinks = {}
     let checkedImages = {}
 
-    const englishPages = pages
+    const englishPages = pageList
       .filter(page => page.languageCode === languageCode)
       // ignore developers content, to be checked separately
       .filter(page => !page.relativePath.match(/^(rest|graphql|developers)/))
@@ -50,15 +51,14 @@ describe('page rendering', () => {
       const brokenLinksPerPage = {}
 
       // get an array of the pages product versions
-      const pageVersions = process.env.FEATURE_NEW_VERSIONS
-        ? getApplicableVersions(page.versions, page.relativePath)
-        : getApplicableVersions(page.productVersions, page.relativePath)
+      const pageVersions = getApplicableVersions(page.versions, page.relativePath)
 
       for (const pageVersion of pageVersions) {
         // attach page-specific properties to context
         page.version = pageVersion
         context.page = page
         context.currentVersion = pageVersion
+        context.enterpriseServerVersions = enterpriseServerVersions
 
         // collect elements of the page that may contain links
         const pageContent = page.intro + page.permissions + page.markdown

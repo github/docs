@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -14,7 +15,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在“Pull Requests（拉取请求）”列表中，单击要关闭的拉取请求。
 3. 在拉取请求的底部，在评论框下方单击 **Close pull request（关闭拉取请求）**。 ![关闭拉取请求按钮](/assets/images/help/pull_requests/pullrequest-closebutton.png)
 4. （可选）[删除分支](/articles/deleting-unused-branches)。 这有助于仓库的分支列表保持整洁。

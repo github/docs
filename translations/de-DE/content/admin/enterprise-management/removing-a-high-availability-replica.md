@@ -1,6 +1,6 @@
 ---
 title: Hochverfügbarkeitsreplikat entfernen
-intro: 'Sie können die Replikation zu einem {{ site.data.variables.product.prodname_ghe_server }}-Replikat temporär stoppen oder die Replikation dauerhaft entfernen.'
+intro: 'Sie können die Replikation zu einem {% data variables.product.prodname_ghe_server %}-Replikat temporär stoppen oder die Replikation dauerhaft entfernen.'
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica

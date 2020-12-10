@@ -7,16 +7,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-### 创建议题模板
+{% data reusables.repositories.default-issue-templates %}
+
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+### 创建议题模板
+
+{% endif %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在“Features（功能）”部分的“Issues（议题）”下，单击 **Set up templates（设置模板）**。 ![开始模板设置按钮](/assets/images/help/repository/set-up-templates.png)
 4. 使用 Add template（添加模板）下拉菜单，单击要创建的模板类型。 ![添加模板下拉菜单](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. 要在提交到仓库之前预览或编辑模板，请单击 **Preview and edit（预览和编辑）**。 ![预览和编辑按钮](/assets/images/help/repository/preview-and-edit-button.png)
@@ -24,13 +31,13 @@ versions:
 7. 要自动设置默认的议题标题、将议题分配给对仓库有读取权限的人或者对议题模板应用标签，请在“Optional additional information（可选附加信息）”下输入这些详细信息。 还可以通过 YAML 前页格式中的 `title`、`labels` 或 `assignees` 为议题模板添加这些详细信息。 ![议题模板的其他信息](/assets/images/help/repository/additional-issue-template-info.png)
 8. 完成编辑和预览模板后，请单击页面右上角的 **Propose changes（提议更改）**。 ![提议更改按钮](/assets/images/help/repository/propose-changes-button.png)
 9. 输入提交消息，描述您的更改。 ![议题模板提交消息字段](/assets/images/help/repository/issue-template-commit-message-field.png)
-10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。 ![选择将议题模板提交到 master 或打开拉取请求](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
+10. 在提交消息字段的下方，决定是直接将模板提交到默认分支，还是创建新分支并打开拉取请求。 有关拉取请求的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests)”。 ![选择将议题模板提交到主要或打开的拉取请求](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. 单击 **Commit changes（提交更改）**。 将这些更改合并到默认分支后，贡献者在仓库中打开新议题时便可使用该模板。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### 配置模板选择器
 
-{{ site.data.reusables.repositories.issue-template-config }}
+{% data reusables.repositories.issue-template-config %}
 
 您可以通过将 `blank_issues_enabled` 设置为 `false`，鼓励贡献者使用议题模板。 如果您将 `blank_issues_enabled` 设置为 `true`，人们可以选择打开空白议题。
 
@@ -40,30 +47,30 @@ versions:
 
 {% endnote %}
 
-如果您愿意在 {{ site.data.variables.product.product_name }} 之外接收某些报告，您可以使用 `contact_links` 将用户引导到外部站点。
+如果您愿意在 {% data variables.product.product_name %} 之外接收某些报告，您可以使用 `contact_links` 将用户引导到外部站点。
 
 以下是 *config.yml* 文件的一个例子：
 
 ```shell
 blank_issues_enabled: false
 contact_links:
-  - name: {{ site.data.variables.product.prodname_gcf }}
+  - name: {% data variables.product.prodname_gcf %}
     url: https://github.community/
     about: Please ask and answer questions here.
-  - name: {{ site.data.variables.product.prodname_dotcom }} Security Bug Bounty
+  - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
 当文件合并到仓库的默认分支时，您的配置文件将自定义模板选择器。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中，键入 `.github/ISSUE_TEMPLATE/config.yml`。 ![配置文件名](/assets/images/help/repository/template-config-file-name.png)
 4. 在新文件的正文中，键入配置文件的内容。 ![配置文件内容](/assets/images/help/repository/template-config-file-content.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 {% endif %}
 
 ### 延伸阅读

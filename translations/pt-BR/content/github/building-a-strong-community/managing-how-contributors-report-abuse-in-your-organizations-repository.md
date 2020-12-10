@@ -9,9 +9,9 @@ Qualquer pessoa com permissões de administrador em um repositório pode gerenci
 
 Você pode ativar ou desativar o conteúdo denunciado para repositórios públicos pertencentes a uma organização.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-moderation-reported-content }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-moderation-reported-content %}
 4. Em "Conteúdo denunciado", selecione ou desmarque **Aceitar relatórios de conteúdo de colaboradores e contribuidores anteriores** ![Caixa de seleção para opt-in ou opt-out do conteúdo denunciado para um repositório](/assets/images/help/repository/reported-content-opt-in-checkbox.png)
 
 ### Leia mais

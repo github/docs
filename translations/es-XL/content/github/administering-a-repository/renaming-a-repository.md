@@ -15,7 +15,7 @@ Cuando cambias el nombre de un repositorio, toda la información existente, a ex
 * Estrellas
 * Seguidores
 
-Para obtener más información sobre los sitios del proyecto, consulta "[Acerca de {{ site.data.variables.product.prodname_pages }}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)"
+Para obtener más información sobre los sitios del proyecto, consulta "[Acerca de {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)"
 
 Adicionalmente a redirigir el tráfico web, todas las operaciones de `git clone`, `git fetch`, o`git push` que apunten a la ubicación anterior seguirán funcionando como si se hubieran hecho en la nueva. Sin embargo, para evitar la confusión, recomendamos ampliamente actualizar cualquier clon local para que lleve a la URL del nuevo repositorio. Puedes hacer esto utilizando `git remote` en la línea de comandos:
 
@@ -27,13 +27,13 @@ Para obtener más información, consulta "[Cambiar la URL de un remoto](/github/
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Si planeas renombrar un repositorio que tenga un sitio {{ site.data.variables.product.prodname_pages }}, recomendamos utilizar un dominio personalizado para el mismo. Esto garantiza que la URL del sitio no se vea impactada cuando se renombre el repositorio. Para obtener más información, consulta "[Acerca de los dominios personalizados y sitio de {{ site.data.variables.product.prodname_pages }} ](/github/working-with-github-pages/about-custom-domains-and-github-pages)."
+Si planeas renombrar un repositorio que tenga un sitio {% data variables.product.prodname_pages %}, recomendamos utilizar un dominio personalizado para el mismo. Esto garantiza que la URL del sitio no se vea impactada cuando se renombre el repositorio. Para obtener más información, consulta "[Acerca de los dominios personalizados y sitio de {% data variables.product.prodname_pages %} ](/github/working-with-github-pages/about-custom-domains-and-github-pages)."
 
 {% endif %}
 
 {% tip %}
 
-**Sugerencia:** {{ site.data.reusables.organizations.owners-and-admins-can }} renombra un repositorio. {{ site.data.reusables.organizations.new-repo-permissions-more-info }}
+**Sugerencia:** {% data reusables.organizations.owners-and-admins-can %} renombra un repositorio. {% data reusables.organizations.new-repo-permissions-more-info %}
 
 {% endtip %}
 
@@ -43,7 +43,7 @@ Si planeas renombrar un repositorio que tenga un sitio {{ site.data.variables.pr
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En **Repository Name** (Nombre del repositorio), escribe el nombre nuevo de tu repositorio. ![Renombrar repositorio](/assets/images/help/repository/repository-name-change.png)
 4. Haz clic en **Rename** (renombrar). ¡Lo has hecho!

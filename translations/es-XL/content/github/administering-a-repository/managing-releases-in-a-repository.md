@@ -16,24 +16,24 @@ versions:
 
 ### Acerca de la administración de lanzamientos
 
-También puedes publicar una acción para un lanzamiento específico en {{ site.data.variables.product.prodname_marketplace }}. Para obtener más información, consulta la sección "[Publicar una acción en {{ site.data.variables.product.prodname_marketplace }}](/actions/creating-actions/publishing-actions-in-github-marketplace)".
+También puedes publicar una acción para un lanzamiento específico en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Publicar una acción en {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Puedes elegir si los objetos de {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) se incluirán en los archivos ZIP y .tar que cree {{ site.data.variables.product.product_name }} para cada lanzamiento. Para obtener más información, consulta la sección "[Administrar los objetos de {{ site.data.variables.large_files.product_name_short }} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
+Puedes elegir si los objetos de {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) se incluirán en los archivos ZIP y .tar que cree {% data variables.product.product_name %} para cada lanzamiento. Para obtener más información, consulta la sección "[Administrar los objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### Crear un lanzamiento
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Haz clic en **Borrador de un nuevo lanzamiento**. ![Botón Borrador de lanzamientos](/assets/images/help/releases/draft_release_button.png)
 4. Escribe un número de versión para tu lanzamiento. Las versiones se basan en [etiquetas Git](https://git-scm.com/book/en/Git-Basics-Tagging). Te recomendamos darles a las etiquetas nombres que se adapten al [control semántico de versiones](http://semver.org/). ![Versión de lanzamientos con etiquetas](/assets/images/help/releases/releases-tag-version.png)
 5. Utiliza el menú desplegable para seleccionar la rama que contiene el proyecto que quieres lanzar. ![Rama de lanzamientos con etiquetas](/assets/images/help/releases/releases-tag-branch.png)
@@ -46,8 +46,8 @@ También puedes crear un lanzamiento automáticamente desde la línea de comando
 
 ### Editar un lanzamiento
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. En la parte derecha de la página, junto al lanzamiento que quieres editar, da clic en **Editar lanzamiento**. ![Editar un lanzamiento](/assets/images/help/releases/edit-release.png)
 4. Edita los detalles del lanzamiento en el formato, después, da clic en **Actualizar lanzamiento**. ![Actualizar un lanzamiento](/assets/images/help/releases/update-release.png)
 
@@ -55,8 +55,8 @@ También puedes crear un lanzamiento automáticamente desde la línea de comando
 
 Debes eliminar todos los archivos binarios adjuntos a un lanzamiento antes de poder eliminarlo.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Da clic en el nombre del lanzamiento que quieres eliminar. ![Enlace para ver el lanzamiento](/assets/images/help/releases/release-name-link.png)
 4. En la esquina superior derecha de la página, haz clic en **Eliminar**. ![Botón para eliminar lanzamiento](/assets/images/help/releases/delete-release.png)
 5. Da clic en **Eliminar este lanzamiento**. ![Confirmar la eliminación del lanzamiento](/assets/images/help/releases/confirm-delete-release.png)

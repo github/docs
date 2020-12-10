@@ -15,15 +15,15 @@ versions:
 
 ### 编辑安全通告
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. 在“Security Advisories（安全通告）”列表中，单击您要编辑的安全通告。
-5. In the upper-right corner of the details for the security advisory, click
+5. 在安全通告详细信息的右上角，单击
 {% octicon "pencil" aria-label="The edit icon" %}.
   ![安全通告的编辑按钮](/assets/images/help/security/security-advisory-edit-button.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. （可选）编辑安全通告的“Credits（积分）”。 ![安全通告的积分](/assets/images/help/security/security-advisory-credits.png)
 9. 单击 **Update security advisory（更新安全通告）**。 ![添加按钮](/assets/images/help/security/update-advisory-button.png)
 10. “Credits（积分）”部分列出的人员将会收到邀请他们接受积分的电子邮件或 web 通知。 如果某人接受，则其用户名将在安全通告发布后公开可见。

@@ -1,6 +1,6 @@
 ---
 title: Configuração de rede de cluster
-intro: 'O funcionamento correto do clustering do {{ site.data.variables.product.prodname_ghe_server }} depende da resolução adequada de nome DNS, do balanceamento de carga e da comunicação entre os nós.'
+intro: 'O funcionamento correto do clustering do {% data variables.product.prodname_ghe_server %} depende da resolução adequada de nome DNS, do balanceamento de carga e da comunicação entre os nós.'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -12,7 +12,7 @@ versions:
 
 A composição de rede mais simples para o clustering é deixar os nós em uma única LAN. Se um cluster abranger sub-redes, não recomendamos configurar quaisquer regras de firewall entre as redes. A latência entre os nós deve ser inferior a 1 milissegundo.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}Para alta disponibilidade, a latência entre a rede com os nós ativos e a rede com os nós passivos deve ser inferior a 70 milissegundos. Não recomendamos configurar um firewall entre as duas redes.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2. 1" %}Para alta disponibilidade, a latência entre a rede com os nós ativos e a rede com os nós passivos deve ser inferior a 70 milissegundos. Não recomendamos configurar um firewall entre as duas redes.{% endif %}
 
 #### Portas de aplicativo para usuários finais
 
@@ -71,7 +71,6 @@ Se houver um firewall no nível da rede entre os nós, essas portas terão que e
 | 8302/UDP  | Consul                                |
 | 25827/UDP | Collectd                              |
 
-
 ### Configurar um balanceador de carga
 
  É recomendável usar um balanceador de carga baseado em TCP compatível com o protocolo PROXY para distribuir o tráfego entre os nós. Veja estas configurações de balanceador de carga:
@@ -79,17 +78,17 @@ Se houver um firewall no nível da rede entre os nós, essas portas terão que e
  - Portas TCP (abaixo) devem ser encaminhadas para nós que executem o serviço `web-server`; são os únicos nós que funcionam com solicitações de clientes externos.
  - Sessões temporárias não devem ser habilitadas.
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### Informações de conexão do cliente
 
 Como as conexões do cliente com o cluster vêm do balanceador de carga, pode ocorrer a perda do endereço IP do cliente. Para captar as informações de conexão do cliente de maneira adequada, é preciso fazer considerações adicionais.
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Habilitar o suporte PROXY no {{ site.data.variables.product.prodname_ghe_server }}
+#### Habilitar o suporte PROXY no {% data variables.product.prodname_ghe_server %}
 
 É altamente recomendável ativar o suporte PROXY para sua instância e o balanceador de carga.
 
@@ -99,11 +98,11 @@ Como as conexões do cliente com o cluster vêm do balanceador de carga, pode oc
   ```
   - No balanceador de carga, siga as instruções do seu fornecedor.
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Habilitar o suporte X-Forwarded-For no {{ site.data.variables.product.prodname_ghe_server }}
+#### Habilitar o suporte X-Forwarded-For no {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 Para habilitar o header `X-Fowarded-For`, use este comando:
 
@@ -111,14 +110,14 @@ Para habilitar o header `X-Fowarded-For`, use este comando:
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### Configurar verificações de integridade
 As verificações de integridade permitem que um balanceador de carga pare de enviar tráfego para um nó que não responde em caso de falha na verificação pré-configurada do nó em questão. Em caso de falha em um nó do cluster, as verificações de integridade emparelhadas com nós redundantes fornecerão alta disponibilidade.
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### Requisitos de DNS
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

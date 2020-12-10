@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-[状态 API][status API] 负责将提交与测试服务绑定在一起，使您进行的每次推送都可以得到测试并表现在 {{ site.data.variables.product.product_name }} 拉取请求中。
+[状态 API][status API] 负责将提交与测试服务绑定在一起，使您进行的每次推送都可以得到测试并表现在 {% data variables.product.product_name %} 拉取请求中。
 
 本指南将使用该 API 来演示您可以使用的设置。 在我们的场景中，我们将：
 
@@ -51,7 +52,7 @@ end
 * 状态
 * 拉取请求
 
-在发生相关操作时，{{ site.data.variables.product.product_name }} 会将这些事件发送到我们的服务器。 我们来将服务器更新为*仅*立即处理拉取请求场景：
+在发生相关操作时，{% data variables.product.product_name %} 会将这些事件发送到我们的服务器。 我们来将服务器更新为*仅*立即处理拉取请求场景：
 
 ``` ruby
 post '/event_handler' do
@@ -72,7 +73,7 @@ helpers do
 end
 ```
 
-发生了什么？ {{ site.data.variables.product.product_name }} 发送的每个事件都附有 `X-GitHub-Event` HTTP 标头。 我们现在只关注拉取请求事件。 我们将从其中获取信息的有效负载，并返回标题字段。 在理想情况下，我们的服务器会关注每次更新拉取请求时的情况（而不仅仅是打开时的情况）。 这将确保每个新推送都通过 CI 测试。 但就此演示而言，我们只需关注它被打开时的情况。
+发生了什么？ {% data variables.product.product_name %} 发送的每个事件都附有 `X-GitHub-Event` HTTP 标头。 我们现在只关注拉取请求事件。 我们将从其中获取信息的有效负载，并返回标题字段。 在理想情况下，我们的服务器会关注每次更新拉取请求时的情况（而不仅仅是打开时的情况）。 这将确保每个新推送都通过 CI 测试。 但就此演示而言，我们只需关注它被打开时的情况。
 
 要测试此概念验证，请在测试仓库的分支中进行一些更改，然后打开拉取请求。 您的服务器应该会做出相应的响应！
 
@@ -80,7 +81,7 @@ end
 
 服务器就位后，我们就可以开始实现第一个要求，即设置（和更新）CI 状态。 请注意，无论何时更新服务器，都可以单击 **Redeliver（重新交付）**以发送相同的有效负载。 不需要每次进行更改时都发出新的拉取请求！
 
-由于我们在与 {{ site.data.variables.product.product_name }} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb] 来管理我们的交互。 我们将配置该客户端：
+由于我们在与 {% data variables.product.product_name %} API 进行交互，因此我们将使用 [Octokit.rb][octokit.rb] 来管理我们的交互。 我们将配置该客户端：
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -92,7 +93,7 @@ before do
 end
 ```
 
-之后，我们只需要在 {{ site.data.variables.product.product_name }} 上更新拉取请求以明确表示我们正在处理 CI：
+之后，我们只需要在 {% data variables.product.product_name %} 上更新拉取请求以明确表示我们正在处理 CI：
 
 ``` ruby
 def process_pull_request(pull_request)
@@ -128,7 +129,7 @@ end
 
 所有这些通信都会流回我们的聊天室。 使用此示例并不需要构建自己的 CI 设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
-[status API]: /v3/repos/statuses/
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

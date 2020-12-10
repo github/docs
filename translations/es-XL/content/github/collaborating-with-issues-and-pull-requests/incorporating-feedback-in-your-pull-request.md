@@ -16,7 +16,7 @@ Para incorporar rápidamente más de una de las modificaciones sugeridas en una 
 
 Cada una de las personas que sugirieron alguna de las modificaciones incluidas en la confirmación será coautora de la confirmación. La persona que aplica las modificaciones sugeridas será coautora y persona que confirma el cambio de la confirmación. Para obtener más información acerca del término "persona que confirma el cambio en Git", consulta "[Principios de Git - Ver el historial de confirmaciones](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)" desde el sitio del libro _Pro Git_.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción a la que quieras aplicarle una modificación sugerida.
 3. Navega hasta la primera modificación sugerida que quieras aplicar.
     - Para aplicar la modificación en su propia confirmación, haz clic en **Commit suggestion** (Confirmar sugerencia). ![Botón Commit suggestion (Confirmar sugerencia)](/assets/images/help/pull_requests/commit-suggestion-button.png)

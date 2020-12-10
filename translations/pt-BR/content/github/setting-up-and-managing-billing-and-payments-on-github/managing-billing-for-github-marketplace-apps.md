@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a cobrança dos apps do GitHub Marketplace
-intro: 'Você pode atualizar, fazer downgrade ou cancelar apps do {{ site.data.variables.product.prodname_marketplace }} a qualquer momento.'
+intro: 'Você pode atualizar, fazer downgrade ou cancelar apps do {% data variables.product.prodname_marketplace %} a qualquer momento.'
 redirect_from:
   - /articles/managing-your-personal-account-s-apps/
   - /articles/managing-your-organization-s-apps/

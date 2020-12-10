@@ -16,11 +16,11 @@ Como um mantenedor de repositório, use a checklist do perfil de comunidade para
 
 Se um projeto não tiver um arquivo recomendado, você poderá clicar em **Adicionar** para rascunhar e enviar uma arquivo.
 
-{{ site.data.reusables.repositories.valid-community-issues }}Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".
+{% data reusables.repositories.valid-community-issues %}Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".
 
 ![Checklist do perfil de comunidade com padrões recomendados da comunidade para mantenedores](/assets/images/help/repository/add-button-community-profile.png)
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Usar a checklist do perfil de comunidade como integrante ou colaborador da comunidade
 
@@ -37,4 +37,4 @@ Se um projeto não tiver um arquivo recomendado, você poderá clicar em **Propo
 - "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"
 - "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)"
 - "[Guias de código aberto](https://opensource.guide/)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

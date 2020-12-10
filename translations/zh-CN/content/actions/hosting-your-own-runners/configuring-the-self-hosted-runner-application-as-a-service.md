@@ -8,12 +8,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. 如果自托管的运行器应用程序正在运行，请停止它。{% endcapture %}
 {% capture service_non_windows_intro_shell %}在运行器机器上，在安装了自托管运行器应用程序的目录中打开 shell。 使用以下命令安装和管理自托管的运行器服务。{% endcapture %}
-{% capture service_nonwindows_intro %}将自托管的运行器应用程序配置为服务之前，您必须添加运行器到 {{ site.data.variables.product.product_name }}。 更多信息请参阅“[添加自托管的运行器](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”。{% endcapture %}
+{% capture service_nonwindows_intro %}将自托管的运行器应用程序配置为服务之前，您必须添加运行器到 {% data variables.product.product_name %}。 更多信息请参阅“[添加自托管的运行器](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”。{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -31,7 +31,7 @@ versions:
 
 {% note %}
 
-**注意：** 在 Windows 上将自托管运行器应用程序配置为服务是应用程序配置过程的一部分。 如果已配置自托管运行器应用程序，但没有选择将其配置为服务，则必须从 {{ site.data.variables.product.prodname_dotcom }} 中删除运行器并重新配置应用程序。 当您重新配置应用程序时，选择将应用程序配置为服务的选项。
+**注意：** 在 Windows 上将自托管运行器应用程序配置为服务是应用程序配置过程的一部分。 如果已配置自托管运行器应用程序，但没有选择将其配置为服务，则必须从 {% data variables.product.prodname_dotcom %} 中删除运行器并重新配置应用程序。 当您重新配置应用程序时，选择将应用程序配置为服务的选项。
 
 更多信息请参阅“[删除自托管的运行器](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)”和“[添加自托管的运行器](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)”。
 

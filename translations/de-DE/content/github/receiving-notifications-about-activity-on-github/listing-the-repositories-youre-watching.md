@@ -1,11 +1,11 @@
 ---
 title: Die von Dir beobachteten Repositorys auflisten
-intro: 'Du kannst eine Übersicht aller Repositorys anzeigen, die Du beobachtest. So kannst Du leichter Repositorys entfernen, zu denen Du keine Benachrichtigungen mehr erhalten möchtest.'
+intro: Du kannst eine Übersicht aller Repositorys anzeigen, die Du beobachtest. So kannst Du leichter Repositorys entfernen, zu denen Du keine Benachrichtigungen mehr erhalten möchtest.
 versions:
   enterprise-server: <2.21
 ---
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. Klicke auf **Watching** (Beobachtet), um die Liste der Repositorys anzuzeigen, die Du beobachtest. ![Auflistung der beobachteten Repositorys](/assets/images/help/notifications/notifications-watching-tab.png)
 3. Klicke neben dem Repository, zu dem Du keine Benachrichtigungen mehr erhalten möchtest, auf **Unwatch** (Beobachtung beenden) oder **Unwatch releases** (Beobachtung von Releases beenden).
 

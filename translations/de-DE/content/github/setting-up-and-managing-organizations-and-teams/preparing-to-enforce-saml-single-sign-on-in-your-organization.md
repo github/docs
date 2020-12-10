@@ -1,7 +1,7 @@
 ---
 title: Auf die Erzwingung von SAML Single Sign-On in Deiner Organisation vorbereiten
 intro: 'Bevor Du SAML Single Sign-On in Deiner Organisation erzwingen, solltest Du die Mitgliedschaft Deiner Organisation überprüfen und die Verbindungseinstellungen zu Deinem Identitätsanbieter konfigurieren.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
@@ -16,7 +16,7 @@ Bevor Du SAML SSO in Deiner Organisation erzwingst, solltest Du Folgendes tun:
 - Deinen IdP mit Deiner Organisation verbinden, sofern dies noch nicht getan wurde. Weitere Informationen findest Du unter „[Deinen Identitätsanbieter mit Deiner Organisation verbinden](/articles/connecting-your-identity-provider-to-your-organization).“
 - Sicherstellen, dass Deine Organisationsmitglieder sich angemeldet und ihre Konten mit dem IdP verknüpft haben.
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 ### Weiterführende Informationen
 

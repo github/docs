@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 Du kannst in einem der unterstützten Ordner ein Unterverzeichnis *ISSUE_TEMPLATE* erstellen, um mehrere Issuevorlagen zu speichern. Mit dem Abfrageparameter `template` kannst Du die Vorlage festlegen, mit der der Issue-Text ausgefüllt werden soll. Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Issues und Pull Requests mit Abfrageparametern](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters).“
 
@@ -28,22 +29,26 @@ assignees: octocat
 ```
 {% note %}
 
-**Hinweis:** Du musst reserviert YAML-Zeichen wie beispielsweise `:` in Anführungszeichen setzen. Beispiel: `":bug: Bug"`.
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+{% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Eine Issuevorlage hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Gib Folgendes im Feld für den Dateinamen ein:
     -  Wenn die Issuevorlage im Stammverzeichnis des Repositorys sichtbar sein soll, gib den Namen Deiner *issue_template* ein. Beispiel: `issue_template.md`. ![Name der neuen Issuevorlage im Root-Verzeichnis](/assets/images/help/repository/issue-template-file-name.png)
     - Wenn die Issuevorlage im `docs`-Verzeichnis des Repositorys sichtbar sein soll, gib *docs/* ein, gefolgt vom Namen der *issue_template*. Beispiel: `docs/issue_template.md`, ![Neue Issuevorlage im docs-Verzeichnis](/assets/images/help/repository/issue-template-file-name-docs.png)
@@ -54,9 +59,9 @@ assignees: octocat
     - Erwartetes und tatsächliches Verhalten
     - Schritte zum Reproduzieren des Problems
     - Spezifikationen wie die Version des Projektes, das Betriebssystem oder die Hardware
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
+{% data reusables.files.propose_new_file %}
 
 ### Weiterführende Informationen
 

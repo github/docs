@@ -1,5 +1,5 @@
 ---
-title: 'Überprüfen, ob die Benutzer Deiner Organisation die 2FA aktiviert haben'
+title: Überprüfen, ob die Benutzer Deiner Organisation die 2FA aktiviert haben
 intro: 'Du kannst anzeigen, welche Organisationsinhaber, Mitglieder und externen Mitarbeiter die Zwei-Faktor-Authentifizierung aktiviert haben.'
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
@@ -10,13 +10,13 @@ versions:
 
 {% note %}
 
-**Hinweis:** Du kannst festlegen, dass alle Mitglieder{% if currentVersion == "free-pro-team@latest" %}einschließlich Inhabern, Abrechnungsmanagern und{% else %} und{% endif %} externen Mitarbeiter in Deiner Organisation die Zwei-Faktor-Authentifizierung aktiviert haben müssen. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
+**Note:** You can require that all members{% if currentVersion == "free-pro-team@latest" %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Um die Organisationsmitglieder, einschließlich der Organisationsinhaber, anzuzeigen, welche die Zwei-Faktor-Authentifizierung aktiviert oder deaktiviert haben, klicke auf der rechten Seite auf **2FA** (Zwei-Faktor-Authentifizierung), und wähle **Enabled** (Aktiviert) oder **Disabled** (Deaktiviert). ![Organisationsmitglieder nach Zwei-Faktor-Authentifizierung filtern](/assets/images/help/2fa/filter-org-members-by-2fa.png)
 5. Wenn Du externe Mitarbeiter in Deiner Organisation anzeigen möchtest, klicke unter der Registerkarte „People“ (Personen) auf **Outside collaborators** (Externe Mitarbeiter). ![Auswahl von externen Mitarbeitern](/assets/images/help/organizations/select-outside-collaborators.png)
 6. Um anzuzeigen, welche externen Mitarbeiter die Zwei-Faktor-Authentifizierung aktiviert oder deaktiviert haben, klicke auf der rechten Seite auf **2FA** (Zwei-Faktor-Authentifizierung), und wähle **Enabled** (Aktiviert) oder **Disabled** (Deaktiviert). ![Externe Mitarbeiter nach Zwei-Faktor-Authentifizierung filtern](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)

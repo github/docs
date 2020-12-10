@@ -1,1 +1,1 @@
-ユーザは、{{ site.data.variables.large_files.product_name_short }} がアプライアンスもしくはリポジトリで無効になっている場合、{{ site.data.variables.large_files.product_name_short }} アセットを {{ site.data.variables.product.prodname_ghe_server }} へプッシュすることはできません。
+Users cannot push {% data variables.large_files.product_name_short %} assets to {% data variables.product.product_name %} if {% data variables.large_files.product_name_short %} is disabled on the enterprise or repository.

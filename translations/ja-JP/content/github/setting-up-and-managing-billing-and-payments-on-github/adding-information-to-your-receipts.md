@@ -1,6 +1,6 @@
 ---
 title: 領収書に情報を追加する
-intro: '{{ site.data.variables.product.product_name }} の領収書には、税金や会社あるいは国が求める会計情報などの情報を加えることができます。'
+intro: '{% data variables.product.product_name %} の領収書には、税金や会社あるいは国が求める会計情報などの情報を加えることができます。'
 redirect_from:
   - /articles/can-i-add-my-credit-card-number-to-my-receipts/
   - /articles/can-i-add-extra-information-to-my-receipts--2/
@@ -15,7 +15,7 @@ versions:
   free-pro-team: '*'
 ---
 
-領収書には、{{ site.data.variables.product.prodname_dotcom }} プランと合わせて[他の有料の機能や製品](/articles/about-billing-on-github)のプランが含まれます。
+領収書には、{% data variables.product.prodname_dotcom %} プランと合わせて[他の有料の機能や製品](/articles/about-billing-on-github)のプランが含まれます。
 
 {% warning %}
 
@@ -25,22 +25,22 @@ versions:
 
 ### 個人アカウントの領収書への情報の追加
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.payment-info-tab }}
-{{ site.data.reusables.dotcom_billing.extra_info_receipt }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.dotcom_billing.extra_info_receipt %}
 
 ### Organization の領収書への情報の追加
 
 {% note %}
 
-**メモ**: {{ site.data.reusables.dotcom_billing.org-billing-perms }}
+**メモ**: {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.user_settings.payment-info-tab }}
-{{ site.data.reusables.dotcom_billing.extra_info_receipt }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.dotcom_billing.extra_info_receipt %}

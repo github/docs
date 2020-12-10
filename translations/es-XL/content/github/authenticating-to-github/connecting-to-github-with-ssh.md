@@ -1,6 +1,6 @@
 ---
 title: Conectar a GitHub con SSH
-intro: 'Puedes conectarte con {{ site.data.variables.product.product_name }} mediante SSH.'
+intro: 'Puedes conectarte con {% data variables.product.product_name %} mediante SSH.'
 redirect_from:
   - /key-setup-redirect/
   - /linux-key-setup/

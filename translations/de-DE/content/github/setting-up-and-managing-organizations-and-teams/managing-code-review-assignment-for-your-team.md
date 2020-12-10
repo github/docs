@@ -1,10 +1,11 @@
 ---
 title: Code-Review-Zuweisung für Dein Team verwalten
-intro: 'Die Zuweisung von Code-Reviews zeigt deutlich an, welche Mitglieder eines Teams einen Review für einen Pull Request einreichen sollen.'
-product: '{{ site.data.reusables.gated-features.code-review-assignment }}'
+intro: Die Zuweisung von Code-Reviews zeigt deutlich an, welche Mitglieder eines Teams einen Review für einen Pull Request einreichen sollen.
+product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Team-Betreuer und Organisationsinhaber können Code-Review-Zuweisungen konfigurieren.
@@ -17,17 +18,17 @@ Wenn Codeinhaber automatisch zum Review aufgefordert werden, wird das Team trotz
 
 ### Routing-Algorithmen
 
-Code-Review-Zuweisungen wählen und weisen Prüfer automatisch aufgrund einem von zwei möglichen Algorithmen zu.
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 Der Round-Robin-Algorithmus wählt die Prüfer basierend auf den Empfängern der letzten Review-Anforderungen aus, und fokussiert auf der abwechselnden Auswahl der Mitarbeiter des Teams, unabhängig von der Anzahl ausstehenden Reviews, die die Teammitglieder momentan haben.
 
 Der Lastenausgleich-Algorithmus (load balance algorithm) wählt Prüfer basierend auf der Gesamtzahl ihrer neuesten Review-Anforderungen aus und berücksichtigt die Anzahl der ausstehenden Reviews jedes Mitglieds. Der Lastenausgleich-Algorithmus versucht sicherzustellen, dass jedes Teammitglied eine gleiche Anzahl von Pull Requests innerhalb eines Zeitraums von 30 Tagen überprüft.
 
 ### Code-Review-Zuweisungen konfigurieren
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Klicke in der linken Seitenleiste auf **Code review assignment** (Code-Review-Zuweisung). ![Schaltfläche „Code review assignment" (Code-Review-Zuweisung)](/assets/images/help/teams/review-assignment-button.png)
 6. Wähle **Enable auto assignment** (Automatische Zuweisung aktivieren). ![Schaltfläche „Code review assignment" (Code-Review-Zuweisung)](/assets/images/help/teams/review-assignment-enable.png)
 7. Benutze unter „How many team members should be assigned to review?" (Wie viele Teammitglieder sollen dem Review zugewiesen werden?) das Dropdownmenü und wähle die Anzahl der Prüfer, die jedem Pull Request zugewiesen werden sollen. ![Dropdownmenü „Number of reviewers" (Anzahl der Prüfer)](/assets/images/help/teams/review-assignment-number.png)
@@ -37,9 +38,9 @@ Der Lastenausgleich-Algorithmus (load balance algorithm) wählt Prüfer basieren
 11. Klicke auf **Save changes** (Änderungen speichern).
 
 ### Code-Review-Zuweisungen deaktivieren
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Wähle **Enable auto assignment** (automatische Zuweisung aktivieren) um das Häkchen zu entfernen. ![Schaltfläche „Code review assignment" (Code-Review-Zuweisung)](/assets/images/help/teams/review-assignment-enable.png)
 6. Klicke auf **Save changes** (Änderungen speichern).

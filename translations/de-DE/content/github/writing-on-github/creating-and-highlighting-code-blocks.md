@@ -1,11 +1,12 @@
 ---
 title: Codeblöcke erstellen und markieren
-intro: 'Gib Codebeispiele mit Fenced-Code-Blöcken frei, und aktiviere die Syntaxmarkierung.'
+intro: Gib Codebeispiele mit Fenced-Code-Blöcken frei, und aktiviere die Syntaxmarkierung.
 redirect_from:
   - /articles/creating-and-highlighting-code-blocks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Fenced-Code-Blöcke
@@ -47,5 +48,5 @@ Wir nutzen [Linguist](https://github.com/github/linguist), um die Spracherkennun
 
 ### Weiterführende Informationen
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
 - „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)“

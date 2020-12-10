@@ -1,16 +1,17 @@
 ---
-title: 错误：未找到仓库
-intro: '{% if currentVersion == "free-pro-team@latest" %}如果在克隆仓库时看到此错误，则意味着仓库不存在或您无权访问仓库。 有一些针对此错误的解决方案，具体根据原因而定。{% else %}如果在克隆仓库时看到此错误，则意味着仓库不存在，您无权访问仓库，或者您的 GitHub Enterprise 实例处于私有模式。 有一些针对此错误的解决方案，具体根据原因而定。{% endif %}'
+title: '错误：未找到仓库'
+intro: '{% if currentversion == "free-proteam@latest" or currentversion == "github-ae@latest" %}如果您在克隆仓库时看到这个错误，意味着仓库不存在或您没有权限访问它。{% else %}如果您在克隆仓库时看到此错误，意味着仓库不存在、您没有访问权限，或者 {% data variables.product.product_location %} 处于隐私模式。{% endif %} 对此错误有一些解决办法，具体取决于错误原因。'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 检查拼写
 
-拼写错误可能发生，并且仓库名称区分大小写。  如果您尝试克隆 `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git`，但仓库实际被命名为 `User/Repo`，您会收到此错误。
+拼写错误可能发生，并且仓库名称区分大小写。  如果您尝试克隆 `git@{% data variables.command_line.codeblock %}:user/repo.git`，但仓库实际被命名为 `User/Repo`，您会收到此错误。
 
 要避免此错误，克隆时，始终从仓库页面复制和粘贴克隆 URL。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
@@ -30,10 +31,10 @@ versions:
 
 在极少数情况下，您可能没有仓库的适当 SSH 访问权限。
 
-您应确保正在使用的 SSH 密钥已连接到您的 {{ site.data.variables.product.product_name }} 用户帐户。 您可以通过在命令行中输入以下内容检查此项：
+您应确保正在使用的 SSH 密钥已连接到您的 {% data variables.product.product_name %} 用户帐户。 您可以通过在命令行中输入以下内容检查此项：
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -42,14 +43,12 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 更多信息请参阅[添加 SSH 密钥到 GitHub 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### 检查实例是否处于私有模式
 
 如果您的站点管理员已对您的 GitHub Enterprise 实例启用私有模式，将禁用通过 `git://` 进行匿名克隆。 如果您无法克隆仓库，请联系您的站点管理员。
-
 {% endif %}
 
 ### 检查仓库是否确实存在
 
-如果所有其他内容失败，确保仓库在 {{ site.data.variables.product.product_location }} 上确实存在！ 如果您尝试推送不存在的仓库，您将收到此错误。
+如果所有其他内容失败，确保仓库在 {% data variables.product.product_location %} 上确实存在！ 如果您尝试推送不存在的仓库，您将收到此错误。

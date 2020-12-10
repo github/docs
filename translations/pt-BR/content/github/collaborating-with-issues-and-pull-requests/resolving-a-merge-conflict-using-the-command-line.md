@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os conflitos de merge ocorrem quando alterações concorrentes são feitas na mesma linha de um arquivo ou quando uma pessoa edita um arquivo e outra pessoa exclui o mesmo arquivo. Para obter mais informações, consulte "[Sobre conflitos de merge](/articles/about-merge-conflicts/)".
 
 {% tip %}
 
-**Dica:** você pode usar o editor de conflitos no {{ site.data.variables.product.product_name }} para resolver conflitos de merge de alterações diferentes na linha entre branches que fazem parte de uma pull request. Para obter mais informações, consulte "[Revolver um conflito de merge no GitHub](/articles/resolving-a-merge-conflict-on-github)".
+**Dica:** você pode usar o editor de conflitos no {% data variables.product.product_name %} para resolver conflitos de merge de alterações diferentes na linha entre branches que fazem parte de uma pull request. Para obter mais informações, consulte "[Revolver um conflito de merge no GitHub](/articles/resolving-a-merge-conflict-on-github)".
 
 {% endtip %}
 
@@ -23,7 +24,7 @@ Para resolver um conflito de merge causado por alterações diferentes na linha,
 
 Por exemplo, se você e outra pessoa editarem as mesmas linhas do arquivo _styleguide.md_ em branches diferentes do mesmo repositório Git, você receberá um erro de conflito de merge quando tentar fazer merge desses branches. Você deve resolver esse conflito de merge com um novo commit antes de fazer merge desses branches.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navegue até o repositório Git local que tem o conflito de merge.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -53,7 +54,7 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
   ```
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }} Neste exemplo, as duas alterações são incorporadas ao merge final:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} Neste exemplo, as duas alterações são incorporadas ao merge final:
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
@@ -67,7 +68,7 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/articles/pushing-commits-to-a-remote-repository/) no {{ site.data.variables.product.product_name }} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
+Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/articles/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
 
 ### Conflitos de merge de arquivo removido
 
@@ -75,7 +76,7 @@ Para resolver um conflito de merge causado por alterações concorrentes em um a
 
 Por exemplo, se você editou um arquivo, como o *README.md*, e outra pessoa removeu o mesmo arquivo em outro branch no mesmo repositório Git, você receberá um erro de conflito de merge quando tentar fazer merge desses branches. Você deve resolver esse conflito de merge com um novo commit antes de fazer merge desses branches.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navegue até o repositório Git local que tem o conflito de merge.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -116,7 +117,7 @@ Por exemplo, se você editou um arquivo, como o *README.md*, e outra pessoa remo
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/articles/pushing-commits-to-a-remote-repository/) no {{ site.data.variables.product.product_name }} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
+Agora você pode fazer merge dos branches na linha de comando ou [fazer push das alterações para o repositório remoto](/articles/pushing-commits-to-a-remote-repository/) no {% data variables.product.product_name %} e [fazer merge das alterações](/articles/merging-a-pull-request/) em uma pull request.
 
 ### Leia mais
 

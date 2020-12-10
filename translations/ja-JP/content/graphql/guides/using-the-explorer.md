@@ -1,22 +1,23 @@
 ---
 title: Explorerの利用
-intro: 'ブラウザ内で動作する統合開発環境であるGraphQL Explorerを使って、本物の{{ site.data.variables.product.prodname_dotcom }}のデータに対してクエリを実行できます。GraphQL Explorerには、ドキュメント、シンタックスハイライト、検証エラーが含まれています。'
+intro: 'ブラウザ内で動作する統合開発環境であるGraphQL Explorerを使って、本物の{% data variables.product.prodname_dotcom %}のデータに対してクエリを実行できます。GraphQL Explorerには、ドキュメント、シンタックスハイライト、検証エラーが含まれています。'
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ## GraphQL Explorerについて
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-[GraphQL Explorer](/v4/explorer)は、「グラフィカルでインタラクティブなブラウザ内のGraphQL IDE」である[ GraphiQL](https://github.com/graphql/graphiql)のインスタンスです。
+[GraphQL Explorer](/graphql/overview/explorer)は、「グラフィカルでインタラクティブなブラウザ内のGraphQL IDE」である[ GraphiQL](https://github.com/graphql/graphiql)のインスタンスです。
 
 {% note %}
 
-**ノート**: {{ site.data.variables.product.prodname_dotcom }}はExplorer内での[ミューテーション](/v4/mutation/)を無効化していますが、独自のGraphiQLのインスタンスではミューテーションが利用できます。
+**ノート**: {% data variables.product.prodname_dotcom %}はExplorer内での[ミューテーション](/graphql/reference/mutations)を無効化していますが、独自のGraphiQLのインスタンスではミューテーションが利用できます。
 
 {% endnote %}
 
@@ -32,18 +33,18 @@ GraphiQLアプリケーションを使うには、https://github.com/skevy/graph
 
 #### GraphiQLの設定
 
-1. [OAuthトークン](/v4/guides/forming-calls#authenticating-with-graphql)を取得してください。
+1. [OAuthトークン](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)を取得してください。
 1. GraphiQLを起動してください。
 1. GraphiQLの右上で、**Edit HTTP Headers（HTTPヘッダの編集）**をクリックしてください。
 1. **Key**フィールドに、`Authorization`と入力してください。 **Value**フィールドには`Bearer <token>`と入力してください。ここで、`<token>`は生成したOAuthトークンです。 ![graphiqlのヘッダー](/assets/images/developer/graphiql-headers.png)
 1. トークンの右のチェックマークをクリックして保存してください。
 1. エディタに戻るには、**Edit HTTP Headers（HTTPヘッダの編集）**モーダルの外をクリックしてください。
-1. **GraphQL Endpoint**フィールドに、`{{ site.data.variables.product.graphql_url_pre }}`を入力してください。
+1. **GraphQL Endpoint**フィールドに、`{% data variables.product.graphql_url_pre %}`を入力してください。
 1. **Method（メソッド）**ドロップダウンメニューで、**POST**を選択してください。
 
 {% note %}
 
-**ノート**: メソッドが`POST`である理由に関する詳しい情報については「[GraphQLでの通信](/v4/guides/forming-calls#communicating-with-graphql)」を参照してください。
+**ノート**: メソッドが`POST`である理由に関する詳しい情報については「[GraphQLでの通信](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)」を参照してください。
 
 {% endnote %}
 
@@ -65,13 +66,13 @@ GraphQLスキーマ内のすべての型には、ドキュメントに編集さ�
 
 {% note %}
 
-**Docs**サイドバーには、「[リファレンス](/v4/)」の下にあるスキーマから自動的に生成されるものと同じ内容が含まれていますが、所々形式が異なっています。
+**Docs**サイドバーには、「[リファレンス](/graphql)」の下にあるスキーマから自動的に生成されるものと同じ内容が含まれていますが、所々形式が異なっています。
 
 {% endnote %}
 
 ### 変数ペインの利用
 
-サンプルの呼び出しの中には、以下のように書かれる[変数](/v4/guides/forming-calls#working-with-variables)を含むものがあります。
+サンプルの呼び出しの中には、以下のように書かれる[変数](/graphql/guides/forming-calls-with-graphql#working-with-variables)を含むものがあります。
 
 ```graphql
 query($number_of_repos:Int!){
@@ -89,7 +90,7 @@ variables {
 }
 ```
 
-これは、cURLの`POST`で呼び出しをサブミットするための正しいフォーマットです（[改行をエスケープ](/v4/guides/forming-calls#communicating-with-graphql)するかぎりにおいて）。
+これは、cURLの`POST`で呼び出しをサブミットするための正しいフォーマットです（[改行をエスケープ](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)するかぎりにおいて）。
 
 この呼び出しをExplorerで実行したい場合は、メインペインに`query`セグメントを入力し、その下の**Query Variables（クエリ変数）**ペインに変数を入力してください。 Explorerからは`variable`という語は省略してください。
 
@@ -101,16 +102,16 @@ variables {
 
 ### サポートのリクエスト
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}
 
 ### エラーのトラブルシューティング
 
-GraphQLは[イントロスペクション](/v4/guides/intro-to-graphql#discovering-the-graphql-api)可能なので、Explorerは以下をサポートしています。
+GraphQLは[イントロスペクション](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)可能なので、Explorerは以下をサポートしています。
 
 * インテリジェントに現在のスキーマを先行して認識
 * 入力中の検証エラープレビュー
 
-正しい形式ではない、あるいは[スキーマ検証](/v4/guides/intro-to-graphql#schema)をパスしないクエリを入力すると、ポップアップがエラーを警告します。 そのクエリを実行すると、レスポンスペインにエラーが返されます。
+正しい形式ではない、あるいは[スキーマ検証](/graphql/guides/introduction-to-graphql#schema)をパスしないクエリを入力すると、ポップアップがエラーを警告します。 そのクエリを実行すると、レスポンスペインにエラーが返されます。
 
 GraphQLのレスポンスには、`data`ハッシュや`errors`配列といったいくつかのキーが含まれます。
 
@@ -146,6 +147,6 @@ GraphQLのレスポンスには、`data`ハッシュや`errors`配列といっ�
 
 {% note %}
 
-**ノート:** {{ site.data.variables.product.prodname_dotcom }}は、データを実働環境で使う前にエラーをチェックしておくことをおすすめします。 GraphQLでは、失敗は全体的なものではありません。GraphQLクエリの一部が成功し、その他の部分が失敗しているということもあります。
+**ノート:** {% data variables.product.prodname_dotcom %}は、データを実働環境で使う前にエラーをチェックしておくことをおすすめします。 GraphQLでは、失敗は全体的なものではありません。GraphQLクエリの一部が成功し、その他の部分が失敗しているということもあります。
 
 {% endnote %}

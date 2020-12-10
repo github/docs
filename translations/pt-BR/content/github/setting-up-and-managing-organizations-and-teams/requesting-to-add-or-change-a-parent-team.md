@@ -6,22 +6,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você solicita a adição ou alteração da equipe principal, uma solicitação é enviada aos mantenedores da equipe principal. Quando um mantenedor da nova equipe principal aprova a solicitação, sua equipe é aninhada como uma equipe secundária abaixo da equipe principal na hierarquia da organização.
 
 Se você for proprietário da organização ou tiver permissões de mantenedor de equipe na equipe secundária e na equipe principal, poderá adicionar a equipe principal sem solicitar aprovação ou alterar a equipe principal na página de configurações da equipe. Para obter mais informações, consulte "[Mover uma equipe na hierarquia da sua organização](/articles/moving-a-team-in-your-organization-s-hierarchy)".
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Na lista de equipes, clique no nome da equipe que deseja aninhar abaixo de uma equipe principal. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.organizations.team_settings %}
 6. Em "Parent team" (Equipe principal), use o menu suspenso "Select parent team" (Selecionar equipe principal) e clique no nome da nova equipe principal. ![Menu suspenso listando as equipes da organização](/assets/images/help/teams/choose-parent-team.png)
 7. Clique em **Save changes** (Salvar alterações).
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Clique em **Confirm changes** (Confirmar alterações) para enviar uma solicitação de adição ou alteração da equipe principal. ![Caixa de diálogo modal com informações sobre as alterações nas permissões de acesso ao repositório](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### Leia mais

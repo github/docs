@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Após a desabilitação dos quadros de projeto em toda a organização, não é mais possível criar quadros de projeto no nível da organização nem acessar os quadros de projeto no nível de organização já existentes pelas URLs anteriores. Os quadros de projeto em repositórios não são afetados.
@@ -14,15 +15,15 @@ Após a desabilitação dos quadros de projeto de repositório em uma organizaç
 
 Quando você desabilita quadros de projeto, deixa de ver informações relacionadas a eles em linhas do tempo ou [logs de auditoria](/articles/reviewing-the-audit-log-for-your-organization/).
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Decida se deseja desabilitar quadros de projeto em toda a organização, desabilitar quadros de projeto de repositório na organização ou ambos. Em seguida, em "Projects" (Projetos):
     - Para desabilitar quadros de projeto em toda a organização, desmarque **Enable projects for the organization** (Habilitar projetos da organização).
     - Para desabilitar quadros de projeto de repositório na organização, desmarque **Enable projects for all repositories** (Habilitar projetos de todos os repositórios). ![Caixas de seleção para desabilitar projetos de uma organização ou de todos os repositórios de uma organização](/assets/images/help/projects/disable-org-projects-checkbox.png)
 5. Clique em **Salvar**.
 
-{{ site.data.reusables.organizations.disable_project_board_results }}
+{% data reusables.organizations.disable_project_board_results %}
 
 ### Leia mais
 

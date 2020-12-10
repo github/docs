@@ -1,0 +1,5 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+1. Klicke in der linken Seitenleiste auf den Auftrag, den Du sehen willst. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
+{% else %}
+1. Klicke in der linken Seitenleiste auf den Auftrag, den Du sehen willst. ![Select a workflow job](/assets/images/help/repository/workflow-job.png)
+{% endif %}

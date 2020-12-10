@@ -1,7 +1,7 @@
 ---
 title: Administrar una tarea de revisión de código para tu equipo
 intro: Las tareas de revisión de código indican claramente qué miembros de un equipo se espera emitan una revisión para una solicitud de extracción.
-product: '{{ site.data.reusables.gated-features.code-review-assignment }}'
+product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -24,10 +24,10 @@ El algoritmo de round robin (turno rotativo) escoge revisores basándose en qui�
 El algoritmo de balanceo de carga escoge a los revisores basándose en la cantidad total de solicitudes de revisión recientes para cada miembro, y considera el número de revisiones pendientes para cada uno de ellos. El algoritmo de balanceo de carga intenta asegurarse de que cada miembro del equipo revise una cantidad igual de solicitudes de extracción en cualquier periodo de 30 días.
 
 ### Configurar una tarea de revisión de código
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. En la barra lateral izquierda, da clic en **Tarea de revisión de código** ![Botón de tarea de revisión de código](/assets/images/help/teams/review-assignment-button.png)
 6. Selecciona **Habilitar auto asignación**. ![Botón de tarea de revisión de código](/assets/images/help/teams/review-assignment-enable.png)
 7. Debajo de "¿Cuántos miembros del equipo deberán asignarse para revisión?", utiliza el menú desplegable y elije el número de revisores que se asignarán a cada solicitud de extracción. ![Menú desplegable de cantidad de revisores](/assets/images/help/teams/review-assignment-number.png)
@@ -37,9 +37,9 @@ El algoritmo de balanceo de carga escoge a los revisores basándose en la cantid
 11. Haz clic en **Guardar cambios**.
 
 ### Inhabilitar una tarea de revisión de código
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Selecciona **Habilitar auto asignación** para eliminar la marca. ![Botón de tarea de revisión de código](/assets/images/help/teams/review-assignment-enable.png)
 6. Haz clic en **Guardar cambios**.

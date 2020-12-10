@@ -1,6 +1,6 @@
 ---
 title: 'Crear, clonar y archivar repositorios'
-intro: 'Puedes elegir de entre diversas opciones de configuración cuando creas o clonas un repositorio. También puedes utilizar repositorios para archivar contenido y datos en {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Puedes elegir de entre diversas opciones de configuración cuando creas o clonas un repositorio. También puedes utilizar repositorios para archivar contenido y datos en {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/repositories/
   - /categories/24/articles/

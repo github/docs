@@ -10,14 +10,14 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'SSH access allows you to run the {{ site.data.variables.product.prodname_ghe_server }} command line utilities and is useful for troubleshooting, running backups, and configuring replication.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
 ---
 
 ### About administrative shell access
 
-If you have SSH access to the administrative shell, you can run {{ site.data.variables.product.prodname_ghe_server }}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
+If you have SSH access to the administrative shell, you can run {% data variables.product.prodname_ghe_server %}'s command line utilities. SSH access is also useful for troubleshooting, running backups, and configuring replication. Administrative SSH access is managed separately from Git SSH access and is accessible only via port 122.
 
 ### Enabling access to the administrative shell via SSH
 
@@ -29,11 +29,11 @@ To enable administrative SSH access, you must add your SSH public key to your in
 
 {% endtip %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 3. Under "SSH access", paste your key into the text box, then click **Add key**.
   ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ### Connecting to the administrative shell over SSH
 
@@ -47,7 +47,7 @@ admin@github-example-com:~$ █
 
 #### Troubleshooting SSH connection problems
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {{ site.data.variables.product.product_location_enterprise }} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
@@ -66,8 +66,8 @@ Host <em>hostname</em>
 
 ### Accessing the administrative shell using the local console
 
-In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {{ site.data.variables.product.prodname_ghe_server }}.
+In an emergency situation, for example if SSH is unavailable, you can access the administrative shell locally. Sign in as the `admin` user and use the password established during initial setup of {% data variables.product.prodname_ghe_server %}.
 
 ### Access limitations for the administrative shell
 
-Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {{ site.data.variables.contact.contact_ent_support }} if you have a question about the activities allowed by your support contract.
+Administrative shell access is permitted for troubleshooting and performing documented operations procedures only. Modifying system and application files, running programs, or installing unsupported software packages may void your support contract. Please contact {% data variables.contact.contact_ent_support %} if you have a question about the activities allowed by your support contract.

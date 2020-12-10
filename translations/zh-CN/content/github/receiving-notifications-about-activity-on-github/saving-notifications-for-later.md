@@ -9,17 +9,17 @@ versions:
 
 ### 保存通知以供稍后使用
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. 在通知列表中，找到您想要保存以供稍后使用的通知。
-1. On the right side of the notification, click
+1. 在通知的右侧，单击
 {% octicon "bookmark" aria-label="The bookmark button" %}.
 ![用于保存通知的按钮](/assets/images/help/notifications/save_notification.png)
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.saved_for_late_sidebar %}
 
 ### 删除保存的通知
 
-{{ site.data.reusables.notifications.access_notifications }}
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.access_notifications %}
+{% data reusables.notifications.saved_for_late_sidebar %}
 1. 在保存的通知列表中，找到您想要删除的已保存通知。
 1. 在保存的通知右侧，单击 {% octicon "bookmark" aria-label="The bookmark button" %}。 ![用于删除已保存通知的按钮](/assets/images/help/notifications/remove-saved-notification.png)
 

@@ -3,24 +3,24 @@ title: Wie lautet mein Disk-Kontingent?
 redirect_from:
   - /articles/what-is-the-size-limit-for-a-repository/
   - /articles/what-is-my-disk-quota
-intro: '{{ site.data.variables.product.product_name }} versucht genügend Speicher für alle Git-Repositories bereitzustellen, obwohl es harte Grenzen für Datei- und Repository-Größen gibt.'
+intro: '{% data variables.product.product_name %} versucht genügend Speicher für alle Git-Repositories bereitzustellen, obwohl es harte Grenzen für Datei- und Repository-Größen gibt.'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}
 
 ### Größenbeschränkungen für Dateien und Repositorys
 
 Um die Leistungsfähigkeit und Zuverlässigkeit für unsere Benutzer zu gewährleisten, überwachen wir aktiv die Signale des gesamtheitlichen Repository-Zustands. Der Repository-Zustand ist eine Funktion verschiedener zusammenhängender Faktoren wie Größe, Commit-Frequenz, Inhalte und Strukturen.
 
-Wir empfehlen, dass Repositories klein bleiben, idealerweise weniger als 1 GB, und weniger als 5 GB wird dringend empfohlen. Kleinere Repositorys sind schneller zu klonen und einfacher zu bearbeiten und zu pflegen. Einzelne Dateien in einem Repository sind streng auf eine maximale Größe von {{ site.data.variables.large_files.max_github_size }} beschränkt. Weitere Informationen findest Du unter „[Mit großen Dateien arbeiten](/github/managing-large-files/working-with-large-files).“
+Wir empfehlen, dass Repositories klein bleiben, idealerweise weniger als 1 GB, und weniger als 5 GB wird dringend empfohlen. Kleinere Repositorys sind schneller zu klonen und einfacher zu bearbeiten und zu pflegen. Einzelne Dateien in einem Repository sind streng auf eine maximale Größe von {% data variables.large_files.max_github_size %} beschränkt. Weitere Informationen findest Du unter „[Mit großen Dateien arbeiten](/github/managing-large-files/working-with-large-files).“
 
-Wenn Dein Repository unsere Infrastruktur übermäßig belastet, wirst Du allenfalls eine E-Mail von {{ site.data.variables.contact.github_support }} erhalten, in der Du um Korrekturmaßnahmen gebeten wirst. Wir versuchen flexibel zu sein, speziell mit großen Projekten mit vielen Mitarbeitern, und wir werden wenn immer möglich gemeinsam einen Lösung finden. Du kannst verhindern, dass Dein Repository unsere Infrastruktur beeinträchtigt, indem Du die Größe und den Zustand Deines Repository effektiv verwaltest. Ratschläge und ein Werkzeug für die Analyse Deiner Repositorys findest du im [`github/git-sizer`](https://github.com/github/git-sizer)-Repository.
+Wenn Dein Repository unsere Infrastruktur übermäßig belastet, wirst Du allenfalls eine E-Mail von {% data variables.contact.github_support %} erhalten, in der Du um Korrekturmaßnahmen gebeten wirst. Wir versuchen flexibel zu sein, speziell mit großen Projekten mit vielen Mitarbeitern, und wir werden wenn immer möglich gemeinsam einen Lösung finden. Du kannst verhindern, dass Dein Repository unsere Infrastruktur beeinträchtigt, indem Du die Größe und den Zustand Deines Repository effektiv verwaltest. Ratschläge und ein Werkzeug für die Analyse Deiner Repositorys findest du im [`github/git-sizer`](https://github.com/github/git-sizer)-Repository.
 
 {% note %}
 
-**Hinweis:** Falls Du über einen Browser einem Repository eine Datei hinzufügst, darf die Datei nicht größer als {{ site.data.variables.large_files.max_github_browser_size }} sein. Weitere Informationen findest Du unter „[Eine Datei zu einem Repository hinzufügen](/github/managing-files-in-a-repository/adding-a-file-to-a-repository).“
+**Hinweis:** Falls Du über einen Browser einem Repository eine Datei hinzufügst, darf die Datei nicht größer als {% data variables.large_files.max_github_browser_size %} sein. Weitere Informationen findest Du unter „[Eine Datei zu einem Repository hinzufügen](/github/managing-files-in-a-repository/adding-a-file-to-a-repository).“
 
 {% endnote %}
 

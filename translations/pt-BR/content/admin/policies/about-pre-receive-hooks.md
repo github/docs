@@ -1,6 +1,6 @@
 ---
 title: Sobre hooks pre-receive
-intro: '*Hooks pre-receive* são scripts executados no appliance do {{ site.data.variables.product.prodname_ghe_server }} que você pode usar para implementar verificações de qualidade.'
+intro: '*Hooks pre-receive* são scripts executados no appliance do {% data variables.product.prodname_ghe_server %} que você pode usar para implementar verificações de qualidade.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -23,4 +23,4 @@ Exemplos de uso dos hooks pre-receive:
 ### Fluxos de trabalho e impacto no desempenho
 O impacto para os desenvolvedores e seus fluxos de trabalho pode ser significativo e deve ser considerado atentamente. Hooks pre-receive baseados nas demandas corporativas e implementados com cuidado trarão mais benefícios para a organização como um todo.
 
-Os hooks pre-receive podem ter efeitos indesejados no desempenho do {{ site.data.variables.product.product_location_enterprise }}, devendo ser implementados e analisados com atenção.
+Os hooks pre-receive podem ter efeitos indesejados no desempenho do {% data variables.product.product_location %}, devendo ser implementados e analisados com atenção.

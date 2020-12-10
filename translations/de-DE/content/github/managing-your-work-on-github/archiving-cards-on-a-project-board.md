@@ -1,11 +1,12 @@
 ---
 title: Tickets auf einem Projektboard archivieren
-intro: 'Du kannst Projektboard-Tickets archivieren, um Deinen Workflow übersichtlich zu halten, ohne die Verlaufsinformationen eines Projekts zu verlieren.'
+intro: Du kannst Projektboard-Tickets archivieren, um Deinen Workflow übersichtlich zu halten, ohne die Verlaufsinformationen eines Projekts zu verlieren.
 redirect_from:
   - /articles/archiving-cards-on-a-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Die Automatisierung in Deinem Projektboard gilt nicht für archivierte Projektboard-Tickets. Wenn Du beispielsweise einen Issue im Archiv eines Projektboards schließt, wird das archivierte Ticket nicht automatisch in die Spalte „Done“ (Abgeschlossen) verschoben. Wenn Du ein Ticket aus dem Projektboard-Archiv wiederherstellst, befindet sich das Ticket wieder in der Spalte, aus der es archiviert wurde.
@@ -17,6 +18,6 @@ Die Automatisierung in Deinem Projektboard gilt nicht für archivierte Projektbo
 
 ### Tickets auf einem Projektboard über die Seitenleiste wiederherstellen
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **View archive** (Archiv anzeigen). ![Option zum Anzeigen des Archivs aus Menü auswählen](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Klicke oberhalb des Projektboard-Tickets, dessen Archivierung Du aufheben möchtest, auf **Restore** (Wiederherstellen). ![Wiederherstellung des Projektboard-Tickets auswählen](/assets/images/help/projects/restore-card.png)

@@ -1,6 +1,6 @@
 ---
 title: Creating an issues-only repository
-intro: '{{ site.data.variables.product.product_name }} does not provide issues-only access permissions, but you can accomplish this using a second repository which contains only the issues.'
+intro: '{% data variables.product.product_name %} does not provide issues-only access permissions, but you can accomplish this using a second repository which contains only the issues.'
 redirect_from:
   - /articles/issues-only-access-permissions/
   - /articles/is-there-issues-only-access-to-organization-repositories/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. Create a **private** repository to host the source code from your project.

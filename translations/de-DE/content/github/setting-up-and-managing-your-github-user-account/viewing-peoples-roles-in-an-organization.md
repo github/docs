@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -15,7 +16,7 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Es wird eine Liste der Personen in Deiner Organisation angezeigt. Klicke zum Filtern der Liste nach Rolle auf **Role** (Rolle), und wähle die gewünschte Rolle aus. ![Auswahl der Rolle per Klick](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)

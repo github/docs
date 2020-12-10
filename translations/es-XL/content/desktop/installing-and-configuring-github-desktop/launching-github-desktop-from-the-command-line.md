@@ -10,9 +10,9 @@ versions:
 
 {% mac %}
 
-1. En la barra de menú, selecciona el menú de **{{ site.data.variables.product.prodname_desktop }}** y luego da clic en **Instalar la Herramienta de Línea de Comandos**. ![Opción para Instalar la Herramienta de Línea de Comandos en el menú desplegable de {{ site.data.variables.product.prodname_desktop }}](/assets/images/help/desktop/mac-install-command-line-tool.png)
+1. En la barra de menú, selecciona el menú de **{% data variables.product.prodname_desktop %}** y luego da clic en **Instalar la Herramienta de Línea de Comandos**. ![Opción para Instalar la Herramienta de Línea de Comandos en el menú desplegable de {% data variables.product.prodname_desktop %}](/assets/images/help/desktop/mac-install-command-line-tool.png)
 2. Abre Terminal.
-3. {{ site.data.reusables.desktop.launch-desktop-from-command-line }}
+3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
   $ github <em>/path/to/repo</em>
@@ -30,7 +30,7 @@ versions:
 {% windows %}
 
 1. Abre un símbolo del sistema.
-2. {{ site.data.reusables.desktop.launch-desktop-from-command-line }}
+2. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
   C:\Users\octocat> github <em>path\to\repo</em>

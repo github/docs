@@ -1,20 +1,21 @@
 ---
 title: Limitações de recursos
-intro: 'A API do GraphQL de {{ site.data.variables.product.prodname_dotcom }} tem limitações de proteção contra chamadas excessivas ou abusivas para os servidores de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'A API do GraphQL de {% data variables.product.prodname_dotcom %} tem limitações de proteção contra chamadas excessivas ou abusivas para os servidores de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ## Limite de nó
 
-Para passar a validação do [esquema](/v4/guides/intro-to-graphql#schema), todas as [chamadas ](/v4/guides/forming-calls) da API v4 do GraphQL devem atender a esses padrões:
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
-* Os clientes devem fornecer um `primeiro` ou `último` argumento [conexão](/v4/guides/intro-to-graphql#connection).
+* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
 * Os valores de `primeiro` e `último` devem ser entre 1 e 100.
-* As chamadas individuais não podem solicitar mais de 500.000 [nós](/v4/guides/intro-to-graphql#node)no total.
+* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
 
 #### Calcular nós em uma chamada
 
@@ -120,7 +121,7 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
 O [limite de taxas](/rest/overview/resources-in-the-rest-api#rate-limiting) do GraphQL API v4 é diferente dos limites de taxa do REST API v3.
 
-Por que os limites de taxa de API são diferentes? Com o [GraphQL](/v4/), uma chamada do GraphQL pode substituir [várias chamadas de REST](/v4/guides/migrating-from-rest/). Uma chamada única e complexa do GraphQL poderia ser o equivalente a milhares de solicitações de REST. Embora uma única chamada GraphQL fique bem abaixo do limite de taxa de API REST, a consulta pode ser muito cara para os servidores do GitHub calcularem.
+Por que os limites de taxa de API são diferentes? With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). Uma chamada única e complexa do GraphQL poderia ser o equivalente a milhares de solicitações de REST. Embora uma única chamada GraphQL fique bem abaixo do limite de taxa de API REST, a consulta pode ser muito cara para os servidores do GitHub calcularem.
 
 Para representar com precisão o custo de servidor de uma consulta, a API v4 do GraphQL calcula a **pontuação de um limite de taxa** de uma chamada com base em uma escala normalizada de pontos. Os fatores de pontuação de uma consulta no primeiro e último argumentos em uma conexão principal e suas conexões auxiliares.
 
@@ -131,7 +132,7 @@ O limite de taxa de câmbio da API v4 do GraphQL é **5.000 pontos por hora**.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Para {{ site.data.variables.product.prodname_github_apps }} ou {{ site.data.variables.product.prodname_oauth_app }} que pertencem a uma conta do {{ site.data.variables.product.prodname_ghe_cloud }}, pedidos de recursos pertencentes à mesma conta {{ site.data.variables.product.prodname_ghe_cloud }} tem um limite ampliado de 15.000 pontos por hora.
+Para {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_app %} que pertencem a uma conta do {% data variables.product.prodname_ghe_cloud %}, pedidos de recursos pertencentes à mesma conta {% data variables.product.prodname_ghe_cloud %} tem um limite ampliado de 15.000 pontos por hora.
 
 {% endif %}
 

@@ -16,7 +16,7 @@
 
 [Markdown](http://daringfireball.net/projects/markdown/) is a human-friendly syntax for formatting plain text. Our documentation is written with [GitHub Flavored Markdown](https://docs.github.com/en/github/writing-on-github/about-writing-and-formatting-on-github), a custom version of Markdown used across GitHub.
 
-This site's Markdown rendering is powered by the [`@github-docs/render-content`](https://github.com/docs/render-content) and [`hubdown`](https://github.com/electron/hubdown) npm packages, which are in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
+This site's Markdown rendering is powered by the [`/lib/render-content`](/lib/render-content) and [`hubdown`](https://github.com/electron/hubdown) npm packages, which are in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
 
 ## Callout tags
 
@@ -40,13 +40,21 @@ To render syntax highlighting in command line instructions, we use triple backti
 
 ### Usage  
   
-\`\`\`shell  
-git init <em>YOUR_REPO</em>  
-\`\`\`
+    ```shell  
+    git init <em>YOUR_REPO</em>  
+    ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
 Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name.
+
+**Copy-able code blocks**
+
+You can also add a header that includes the name of the language and a button to copy the contents of the code block:
+
+    ```js{:copy}
+    const copyMe = true
+    ```
 
 ## Octicons
 
@@ -56,7 +64,7 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 
 `{% octicon "<name of octicon>" %}`  
 `{% octicon "plus" %}`
-`{% octicon "plus" aria-label="The plus icon"}`
+`{% octicon "plus" aria-label="The plus icon" %}`
 
 ## Operating system tags
 

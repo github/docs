@@ -1,1 +1,1 @@
-1. Sign in to {{ site.data.variables.product.prodname_dotcom }} or {{ site.data.variables.product.prodname_enterprise }}.
+1. Sign in to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.

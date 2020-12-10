@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Die Diagramme eines Repositorys geben Dir Informationen über {% if currentVersion == "free-pro-team@latest" %}Traffic, vom Repository abhängige Projekte, {% endif %}Mitarbeiter und Commits des Repositorys sowie die Forks und das Netzwerk eines Repositorys. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
+A repository's graphs give you information on {% if currentVersion == "free-pro-team@latest" %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {{ site.data.variables.product.prodname_free_user }} verfügbar:
+Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {% data variables.product.prodname_free_user %} verfügbar:
 - Pulse
 - Mitarbeiter
 - Traffic
@@ -21,7 +22,7 @@ Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {{ site.da
 - Code-Verlauf
 - Netzwerk
 
-Alle anderen Repository-Diagramme sind in allen Repositorys verfügbar. Jedes Repository-Diagramm ist in öffentlichen und privaten Repositorys mit {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_team }} und {{ site.data.variables.product.prodname_ghe_cloud }} verfügbar. {{ site.data.reusables.gated-features.more-info }}
+Alle anderen Repository-Diagramme sind in allen Repositorys verfügbar. Jedes Repository-Diagramm ist in öffentlichen und privaten Repositorys mit {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} und {% data variables.product.prodname_ghe_cloud %} verfügbar. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

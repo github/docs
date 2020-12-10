@@ -1,22 +1,23 @@
 ---
 title: 添加或编辑 wiki 页面
-intro: '您可以直接在 {{ site.data.variables.product.product_name }} 或者本地使用命令行添加和编辑 wiki 页面。'
+intro: '您可以直接在 {% data variables.product.product_name %} 或者本地使用命令行添加和编辑 wiki 页面。'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface/
   - /articles/editing-wiki-pages-via-the-online-interface/
   - /articles/adding-and-editing-wik-pages-locally/
   - /articles/adding-and-editing-wiki-pages-locally/
   - /articles/adding-or-editing-wiki-pages
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 添加 wiki 页面
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. 在页面的右上角，单击 **New Page（新页面）**。 ![Wiki 新页面按钮](/assets/images/help/wiki/wiki_new_page_button.png)
 4. 或者，要以 Markdown 以外的格式，请使用 Edit（编辑）模式下拉菜单，并单击不同的格式。 ![Wiki 标记选择](/assets/images/help/wiki/wiki_dropdown_markup.gif)
 5. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
@@ -25,8 +26,8 @@ versions:
 
 ### 编辑 wiki 页面
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 4. 使用 wiki 侧栏，导航到您要更改的页面。 在页面的右上角，单击 **Edit（编辑）**。 ![Wiki 编辑页面按钮](/assets/images/help/wiki/wiki_edit_page_button.png)
 5. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. 输入提交消息，描述您的更改。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
@@ -45,7 +46,7 @@ $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.w
 # Clones the wiki locally
 ```
 
-在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+在克隆 wiki 后，可以添加新文件、编辑现有文件以及提交更改。 您与协作者在操作 wiki 时可以创建分支，但只有推送到默认分支的更改才会生效并供读者使用。
 
 ### 关于 wiki 文件名
 

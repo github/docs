@@ -1,6 +1,6 @@
 ---
 title: Die Anwendung für selbst-gehostete Runner als Dienst konfigurieren
-intro: 'Du kannst die Anwendung für selbst-gehostete Runner als Dienst konfigurieren, um die Runner-Anwendung automatisch zu starten, wenn der Rechner hochfährt.'
+intro: Du kannst die Anwendung für selbst-gehostete Runner als Dienst konfigurieren, um die Runner-Anwendung automatisch zu starten, wenn der Rechner hochfährt.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service
 versions:
@@ -8,12 +8,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Beende die Anwendung für selbst-gehostete Runner, falls sie gerade läuft.{% endcapture %}
 {% capture service_non_windows_intro_shell %}Öffne auf der Runner-Maschine eine Shell in dem Verzeichnis, in dem Du die Anwendung für selbst-gehostete Runner installiert hast. Verwende die folgenden Befehle, um den Dienst für selbst-gehosteten Runner zu installieren und zu verwalten.{% endcapture %}
-{% capture service_nonwindows_intro %}Du musst einen Runner zu {{ site.data.variables.product.product_name }} hinzufügen, bevor du die Anwendung für selbst-gehostete Runner als Dienst konfigurieren kannst. Weitere Informationen findest Du unter "[selbst-gehostete Runner hinzufügen](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
+{% capture service_nonwindows_intro %}Du musst einen Runner zu {% data variables.product.product_name %} hinzufügen, bevor du die Anwendung für selbst-gehostete Runner als Dienst konfigurieren kannst. Weitere Informationen findest Du unter "[selbst-gehostete Runner hinzufügen](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -31,7 +31,7 @@ Für Linux-Systeme mit `systemd` kannst Du das Skript `svc.sh` verwenden, das mi
 
 {% note %}
 
-**Hinweis:** Die Konfiguration der Anwendung für selbst-gehostete Runner als Windows-Dienst ist Teil des Anwendungs-Konfigurationsprozesses. Wenn Du die Anwendung für selbst-gehostete Runner bereits konfiguriert hast, aber nicht als Dienst, dann musst Du den Runner aus {{ site.data.variables.product.prodname_dotcom }} entfernen und die Anwendung neu konfigurieren. Wenn Du die Anwendung neu konfigurierst, wähle die Option, die Anwendung als Dienst zu konfigurieren.
+**Hinweis:** Die Konfiguration der Anwendung für selbst-gehostete Runner als Windows-Dienst ist Teil des Anwendungs-Konfigurationsprozesses. Wenn Du die Anwendung für selbst-gehostete Runner bereits konfiguriert hast, aber nicht als Dienst, dann musst Du den Runner aus {% data variables.product.prodname_dotcom %} entfernen und die Anwendung neu konfigurieren. Wenn Du die Anwendung neu konfigurierst, wähle die Option, die Anwendung als Dienst zu konfigurieren.
 
 Weitere Informationen findest Du unter „[selbst-gehostete Runner entfernen](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)“ und „[selbst-gehostete Runner hinzufügen](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)“.
 

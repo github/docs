@@ -7,19 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst Dateien in einem Pull-Request nach Dateierweiterungstyp filtern, wie zum Beispiel  `.html` oder `.js`, keine Erweiterung,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} Code Inhaberschaft, {% endif %} oder Punktdateien.
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
 
 {% tip %}
 
-**Tipp:** Um die Ansicht Deines Pull-Requests-Diffs zu vereinfachen, kannst Du temporär auch gelöschte Dateien{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} oder Dateien, die Du bereits angezeigt hast, {% endif %}in dem Pull-Request-Diff über das Dateifilter-Dropdownmenü ausblenden.
+**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, nach dem Du filtern möchtest.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. Im Dropdownmenü „File filter“ (Dateifilter) kannst Du die gewünschten Filter auswählen, deaktivieren oder anklicken. ![Dateifilter-Option oberhalb des Pull-Request-Diff](/assets/images/help/pull_requests/file-filter-option.png)
 5. Um die Filterauswahl zu löschen, kannst Du optional auch auf der Registerkarte **Files changed** (Geänderte Dateien) auf **Clear** (Löschen) klicken. ![Dateifilter-Auswahl löschen](/assets/images/help/pull_requests/clear-file-filter.png)
 

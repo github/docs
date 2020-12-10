@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. Click the desired issue or pull request.
 3. To add a saved reply, in the comment field, click {% octicon "reply" aria-label="The mail reply" %}. ![Saved replies button](/assets/images/help/writing/saved-replies-button.png)
 4. From the list, select the saved reply you'd like to add to your comment. ![Saved replies](/assets/images/help/settings/saved-replies.png)

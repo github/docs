@@ -1,6 +1,6 @@
 ---
 title: Iniciar una tolerancia de fallos a tu aparato de réplica
-intro: 'Puedes tener tolerancia de fallos en un aparato de réplica {{ site.data.variables.product.prodname_ghe_server }} por medio de la línea de comando para mantenimiento y pruebas, o si falla el aparato principal.'
+intro: 'Puedes tener tolerancia de fallos en un aparato de réplica {% data variables.product.prodname_ghe_server %} por medio de la línea de comando para mantenimiento y pruebas, o si falla el aparato principal.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -10,7 +10,7 @@ versions:
 
 El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para impulsar la réplica y redireccionar el tráfico de forma manual. El tiempo promedio varía entre 2 y 10 minutos.
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 1. Para permitir que la replicación finalice antes de cambiar aparatos, pon el aparato principal en modo mantenimiento:
     - Para usar el administrador de consola, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"

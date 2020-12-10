@@ -9,7 +9,7 @@ versions:
 
 Las confirmaciones y solicitudes de extracción que incluyen documentos en prosa tienen la capacidad de representar esos documentos con vistas *de origen* y *representadas*.
 
-La vista de origen muestra el texto en bruto que se escribió, mientras que la vista representada muestra la manera en que ese texto se vería una vez que se represente en {{ site.data.variables.product.product_name }}. Por ejemplo, esto puede ser la diferencia entre mostrar `**negrita**` en Markdown y **negrita** en la vista representada.
+La vista de origen muestra el texto en bruto que se escribió, mientras que la vista representada muestra la manera en que ese texto se vería una vez que se represente en {% data variables.product.product_name %}. Por ejemplo, esto puede ser la diferencia entre mostrar `**negrita**` en Markdown y **negrita** en la vista representada.
 
 Se admite la representación en prosa para documentos representados compatibles con [github/markup](https://github.com/github/markup):
 
@@ -45,7 +45,7 @@ Como con [otros documentos en prosa representados](/articles/about-readmes), des
 
 ### Ver diferencias complejas
 
-Algunas solicitudes de extracción incluyen una gran cantidad de cambios con documentos grandes y complejos. When the changes take too long to analyze, {{ site.data.variables.product.product_name }} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+Algunas solicitudes de extracción incluyen una gran cantidad de cambios con documentos grandes y complejos. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
 ![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
 
@@ -53,6 +53,6 @@ Aún puedes utilizar la vista de origen para analizar y comentar cambios.
 
 ### Ver elementos HTML
 
-No admitimos directamente vistas representadas de confirmaciones en documentos HTML. Algunos formatos, como Markdown, te permiten insertar HTML arbitrarios en un documento. Cuando estos documentos se muestran en {{ site.data.variables.product.product_name }}, algunos de esos HTML insertados pueden aparecer en una vista previa, mientras que con otros no es posible hacerlo (como un video de YouTube insertado).
+No admitimos directamente vistas representadas de confirmaciones en documentos HTML. Algunos formatos, como Markdown, te permiten insertar HTML arbitrarios en un documento. Cuando estos documentos se muestran en {% data variables.product.product_name %}, algunos de esos HTML insertados pueden aparecer en una vista previa, mientras que con otros no es posible hacerlo (como un video de YouTube insertado).
 
-En general, las vistas representadas de los cambios en un documento que contiene HTML insertados mostrarán los cambios en los elementos que se admiten en la vista del documento de {{ site.data.variables.product.product_name }}. Los cambios en los documentos que contienen HTML insertados siempre se deben verificar en las vistas de origen y representada para corroborar que estén todos.
+En general, las vistas representadas de los cambios en un documento que contiene HTML insertados mostrarán los cambios en los elementos que se admiten en la vista del documento de {% data variables.product.product_name %}. Los cambios en los documentos que contienen HTML insertados siempre se deben verificar en las vistas de origen y representada para corroborar que estén todos.

@@ -1,6 +1,6 @@
 ---
 title: Sobre a configuração de alta disponibilidade
-intro: 'Na configuração de alta disponibilidade, um appliance do {{ site.data.variables.product.prodname_ghe_server }} secundário totalmente redundante é mantido em sincronização com o appliance primário pela replicação de todos os principais armazenamentos de dados.'
+intro: 'Na configuração de alta disponibilidade, um appliance do {% data variables.product.prodname_ghe_server %} secundário totalmente redundante é mantido em sincronização com o appliance primário pela replicação de todos os principais armazenamentos de dados.'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
@@ -10,13 +10,13 @@ versions:
 
 Quando você configura alta disponibilidade, há uma configuração automatizada de replicação assíncrona e unidirecional de todos os armazenamentos de dados (repositórios do Git, MySQL, Redis e Elasticsearch) do appliance primário para o appliance réplica.
 
-O {{ site.data.variables.product.prodname_ghe_server }} dá suporte a uma configuração ativa/passiva, em que o appliance réplica é executado em espera com os serviços de banco de dados em execução no modo de replicação, mas os serviços de aplicativos são interrompidos.
+O {% data variables.product.prodname_ghe_server %} dá suporte a uma configuração ativa/passiva, em que o appliance réplica é executado em espera com os serviços de banco de dados em execução no modo de replicação, mas os serviços de aplicativos são interrompidos.
 
 ### Cenários de falha
 
 Use a configuração de alta disponibilidade para proteção contra:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 A configuração de alta disponibilidade não é uma boa solução para:
 
@@ -30,7 +30,7 @@ Durante o failover, você deve configurar e gerenciar separadamente o redirecion
 
 #### Failover DNS
 
-Com o failover DNS, use valores curtos de TTL nos registros DNS que apontam para o appliance primário {{ site.data.variables.product.prodname_ghe_server }}. Recomenda-se um TTL entre 60 segundos e cinco minutos.
+Com o failover DNS, use valores curtos de TTL nos registros DNS que apontam para o appliance primário {% data variables.product.prodname_ghe_server %}. Recomenda-se um TTL entre 60 segundos e cinco minutos.
 
 Durante o failover, você deve deixar o appliance primário no modo de manutenção e redirecionar seus registros DNS para o endereço IP do appliance réplica. O tempo para redirecionar o tráfego do appliance primário para o de réplica dependerá da configuração do TTL e do tempo necessário para atualizar os registros DNS.
 
@@ -38,21 +38,21 @@ Se estiver usando replicação geográfica, você deverá configurar o DNS de lo
 
 #### Balanceador de carga
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_intro }} {{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-Durante o failover, você deve deixar o appliance principal em modo de manutenção. É possível configurar o balanceador de carga para detectar automaticamente quando o de réplica for promovido a primário, ou ele pode exigir uma alteração manual na configuração. Antes que o de réplica responda ao tráfego do usuário, você deve promovê-lo manualmente a primário. Para obter mais informações, consulte "[Usar o {{ site.data.variables.product.prodname_ghe_server }} com balanceador de carga](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)".
+Durante o failover, você deve deixar o appliance principal em modo de manutenção. É possível configurar o balanceador de carga para detectar automaticamente quando o de réplica for promovido a primário, ou ele pode exigir uma alteração manual na configuração. Antes que o de réplica responda ao tráfego do usuário, você deve promovê-lo manualmente a primário. Para obter mais informações, consulte "[Usar o {% data variables.product.prodname_ghe_server %} com balanceador de carga](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)".
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### Utilitários para o gerenciamento de replicações
 
-Para gerenciar a replicação no {{ site.data.variables.product.prodname_ghe_server }}, use estes utilitários de linha de comando ao se conectar ao appliance réplica usando SSH.
+Para gerenciar a replicação no {% data variables.product.prodname_ghe_server %}, use estes utilitários de linha de comando ao se conectar ao appliance réplica usando SSH.
 
 #### ghe-repl-setup
 
-O comando `ghe-repl-setup` deixa o appliance do {{ site.data.variables.product.prodname_ghe_server }} em modo de espera de réplica.
+O comando `ghe-repl-setup` deixa o appliance do {% data variables.product.prodname_ghe_server %} em modo de espera de réplica.
 
- - Um túnel criptografado {% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %} é configurado para a comunicação entre os dois appliances.
+ - Um túnel VPN WireGuard criptografado é configurado para comunicação entre os dois aparelhos.
  - Os serviços de banco de dados são configurados para replicação e iniciados.
  - Os serviços de aplicativos ficam desabilitados. As tentativas de acessar o appliance réplica por HTTP, Git ou outros protocolos com suporte levarão a uma página de manutenção "appliance em modo de réplica" ou a uma mensagem de erro.
 
@@ -71,8 +71,7 @@ Execute `ghe-repl-start' para começar a replicar em relação ao primário rec�
 O comando `ghe-repl-start` habilita a replicação ativa de todos os armazenamentos de dados.
 
 ```shell
-admin@169-254-1-2:~$ ghe-repl-start{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Starting OpenVPN tunnel ... {% endif %}
+admin@169-254-1-2:~$ ghe-repl-start
 Starting MySQL replication ...
 Iniciando replicação Redis...
 Iniciando replicação Elasticsearch...
@@ -144,8 +143,7 @@ Parando replicação Pages...
 Parando replicação Git...
 Parando replicação MySQL...
 Parando replicação Redis...
-Parando replicação Elasticsearch...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-Parando túnel OpenVPN...{% endif %}
+Parando replicação Elasticsearch...
 Sucesso: replicação parada em todos os serviços.
 ```
 
@@ -153,7 +151,7 @@ Sucesso: replicação parada em todos os serviços.
 
 O comando `ghe-repl-promote` desativa a replicação e converte o appliance réplica em appliance primário. O appliance é configurado com as mesmas configurações do primário original, e todos os serviços ficam ativados.
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-promote
@@ -163,8 +161,7 @@ Parando replicação...
   | Parando replicação Git...
   | Parando replicação MySQL...
   | Parando replicação Redis...
-  | Parando replicação Elasticsearch...{% if currentVersion ver_lt "enterprise-server@2.18" %}
-  | Parando túnel OpenVPN...{% endif %}
+  | Parando replicação Elasticsearch...
   | Sucesso: replicação parada em todos os serviços.
 Alternando modo réplica...
   | Sucesso: configuração de replicação removida.

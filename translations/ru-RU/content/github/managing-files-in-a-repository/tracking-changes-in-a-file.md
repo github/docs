@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 With the blame view, you can view the line-by-line revision history for an entire file, or view the revision history of a single line within a file by clicking {% octicon "versions" aria-label="The prior blame icon" %}. Each time you click {% octicon "versions" aria-label="The prior blame icon" %}, you'll see the previous revision information for that line, including who committed the change and when.
@@ -24,7 +25,7 @@ In a file or pull request, you can also use the {% octicon "kebab-horizontal" ar
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Click to open the file whose line history you want to view.
 3. In the upper-right corner of the file view, click **Blame** to open the blame view. ![Blame button](/assets/images/help/repository/blame-button.png)
 4. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="The prior blame icon" %} until you've found the changes you're interested in viewing. ![Prior blame button](/assets/images/help/repository/prior-blame-button.png)

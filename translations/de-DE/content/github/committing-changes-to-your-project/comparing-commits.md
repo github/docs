@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst den Status Deines Repositorys über Branches, Tags, Commits und Daten hinweg vergleichen. Um verschiedene Versionen Deines Repositorys zu vergleichen, füge `/compare` (vergleichen) zum Pfad Deines Repository hinzu.
@@ -26,19 +27,19 @@ Hier siehst Du ein Beispiel für einen [Vergleich zwischen zwei Branches](https:
 
 ### Tags vergleichen
 
-Ein Vergleich der Release-Tags zeigt Dir die Änderungen an Deinem Repository seit dem letzten Release. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Weitere Informationen findest Du unter „[Releases vergleichen](/github/administering-a-repository/comparing-releases)."{% endif %}
+Ein Vergleich der Release-Tags zeigt Dir die Änderungen an Deinem Repository seit dem letzten Release. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Um Tags zu vergleichen, kannst Du einen Tagnamen aus dem Dropdownmenü `compare` (vergleichen) oben auf der Seite auswählen.{% else %} Anstatt einen Branchnamen einzugeben, gib den Namen Deines Tags im Dropdownmenü `compare` (vergleichen) ein.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
 
 Hier siehst Du ein Beispiel für einen [Vergleich zwischen zwei Tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 
 ### Commits vergleichen
 
-Du kannst auch zwei beliebige Commits in Deinem Repository oder seinen Forks auf {{ site.data.variables.product.prodname_dotcom }} mit einem Two-Dot-Diff vergleichen.
+Du kannst auch zwei beliebige Commits in Deinem Repository oder seinen Forks auf {% data variables.product.prodname_dotcom %} mit einem Two-Dot-Diff vergleichen.
 
-Um schnell zwei Commits oder Git Object-IDs (OIDs) direkt miteinander in einem Two-Dot-Diff auf {{ site.data.variables.product.prodname_dotcom }} zu vergleichen, bearbeite die URL der Seite „Comparing changes“ (Änderungen vergleichen) Deines Repositorys.
+Um schnell zwei Commits oder Git Object-IDs (OIDs) direkt miteinander in einem Two-Dot-Diff auf {% data variables.product.prodname_dotcom %} zu vergleichen, bearbeite die URL der Seite „Comparing changes“ (Änderungen vergleichen) Deines Repositorys.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 Weitere Informationen zu anderen Vergleichsoptionen findest Du unter „[Three-Dot-Diff- und Two-Dot-Diff-Vergleiche](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons).“
 

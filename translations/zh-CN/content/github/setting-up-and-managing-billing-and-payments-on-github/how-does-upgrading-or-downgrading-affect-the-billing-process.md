@@ -1,19 +1,19 @@
 ---
 title: 升级或降级对结算过程有何影响？
-intro: 升级个人帐户或组织的订阅时，更改会立即应用。 降级订阅时，更改会在当前结算周期结束时应用。
+intro: '升级个人帐户或组织的订阅时，更改会立即应用。 降级订阅时，更改会在当前结算周期结束时应用。'
 redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
 ---
 
-对付费用户帐户或组织订阅的更改不影响其他付费 {{ site.data.variables.product.prodname_dotcom }} 功能的订阅或付款，例如 {{ site.data.variables.large_files.product_name_long }} 或在 {{ site.data.variables.product.prodname_marketplace }} 中购买的付费应用程序。
+对付费用户帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款，例如 {% data variables.large_files.product_name_long %} 或在 {% data variables.product.prodname_marketplace %} 中购买的付费应用程序。
 
-更多信息请参阅“[{{ site.data.variables.product.prodname_dotcom }} 的产品](/articles/github-s-products)”和“[关于 {{ site.data.variables.product.prodname_dotcom }} 的计费](/articles/about-billing-on-github)”。
+更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”和“[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”。
 
 #### 取消个人帐户或组织订阅的示例
 
-Kumiko 在每个月的第 5 日支付月度订阅。 如果 Kumiko 在 10 月 10 日将订阅从付费降级到 {{ site.data.variables.product.prodname_free_user }}，则她的付费订阅有效性将保持到当前结算周期结束（11 月 4 日）。 11 月 5 日，她的帐户将转到 {{ site.data.variables.product.prodname_free_user }}。
+Kumiko 在每个月的第 5 日支付月度订阅。 如果 Kumiko 在 10 月 10 日将订阅从付费降级到 {% data variables.product.prodname_free_user %}，则她的付费订阅有效性将保持到当前结算周期结束（11 月 4 日）。 11 月 5 日，她的帐户将转到 {% data variables.product.prodname_free_user %}。
 
 #### 个人帐户或组织的年度或月度订阅更改示例
 
@@ -29,7 +29,7 @@ Stefan 的组织在每年 5 月 20 日支付 50 个席位。 如果 Stefan 在 9
 
 ### 延伸阅读
 
-- "[管理 {{ site.data.variables.product.prodname_dotcom }} 帐户的计费](/articles/managing-billing-for-your-github-account)"
-- "[管理 {{ site.data.variables.product.prodname_marketplace }} 应用程序的计费](/articles/managing-billing-for-github-marketplace-apps)"
-- "[管理 {{ site.data.variables.large_files.product_name_long }} 的计费](/articles/managing-billing-for-git-large-file-storage)"
+- "[管理 {% data variables.product.prodname_dotcom %} 帐户的计费](/articles/managing-billing-for-your-github-account)"
+- "[管理 {% data variables.product.prodname_marketplace %} 应用程序的计费](/articles/managing-billing-for-github-marketplace-apps)"
+- "[管理 {% data variables.large_files.product_name_long %} 的计费](/articles/managing-billing-for-git-large-file-storage)"
 - “[关于每用户定价](/articles/about-per-user-pricing)”

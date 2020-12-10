@@ -1,6 +1,6 @@
 ---
 title: Crear acciones
-intro: 'Puedes crear tus propias acciones, usar y personalizar acciones compartidas por la comunidad {{ site.data.variables.product.prodname_dotcom }} o escribir y compartir las acciones que construyes.'
+intro: 'Puedes crear tus propias acciones, usar y personalizar acciones compartidas por la comunidad {% data variables.product.prodname_dotcom %} o escribir y compartir las acciones que construyes.'
 redirect_from:
   - /articles/building-actions
   - /github/automating-your-workflow-with-github-actions/building-actions
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% link_in_list /about-actions %}
 {% link_in_list /creating-a-docker-container-action %}

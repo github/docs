@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under Features, unselect the **Issues** checkbox. ![Remove Issues checkbox](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 If you decide to enable issues again in the future, any issues that were previously added will be available.
@@ -17,9 +18,10 @@ If you decide to enable issues again in the future, any issues that were previou
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
+Please contact
 
-Please contact {{ site.data.variables.contact.contact_support }} if you want to turn off issues because of abuse from strangers.
-{{ site.data.reusables.policies.abuse }}
+{% data variables.contact.contact_support %} if you want to turn off issues because of abuse from strangers.
+{% data reusables.policies.abuse %}
 
 {% endtip %}
 

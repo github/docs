@@ -16,11 +16,11 @@ Como mantenedor del repositorio, usa la lista de verificación del perfil de com
 
 Si un proyecto no tiene un archivo recomendado, puedes hacer clic en **Agregar** para redactar y enviar un archivo.
 
-{{ site.data.reusables.repositories.valid-community-issues }} Para obtener más información, consulta "[Acerca de las plantillas de propuestas y solicitudes de extracción](/articles/about-issue-and-pull-request-templates)".
+{% data reusables.repositories.valid-community-issues %} Para obtener más información, consulta "[Acerca de las plantillas de propuestas y solicitudes de extracción](/articles/about-issue-and-pull-request-templates)".
 
 ![Lista de verificación del perfil de comunidad con estándares de comunidad recomendados para mantenedores](/assets/images/help/repository/add-button-community-profile.png)
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Usar la lista de verificación del perfil de comunidad como colaborador o miembro de la comunidad
 
@@ -37,4 +37,4 @@ Si un proyecto no tiene un archivo recomendado, puedes hacer clic en **Proponer*
 - "[Agregar una licencia a un repositorio](/articles/adding-a-license-to-a-repository)"
 - "[Acerca de las plantillas de propuestas y de solicitudes de extracción](/articles/about-issue-and-pull-request-templates)"
 - "[Guías de código abierto](https://opensource.guide/)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

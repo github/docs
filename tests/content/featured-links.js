@@ -1,13 +1,9 @@
-require('../../lib/feature-flags')
-const { getDOM, getJSON } = require('../helpers')
+const { getDOM, getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
-const testFeatureNewVersions = process.env.FEATURE_NEW_VERSIONS ? test : test.skip
-const testFeatureOldVersions = process.env.FEATURE_NEW_VERSIONS ? test.skip : test
-
-describe('gettingStartedLinks and popularLinks', () => {
+describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   describe('rendering', () => {
@@ -16,7 +12,7 @@ describe('gettingStartedLinks and popularLinks', () => {
       expect($('.featured-links')).toHaveLength(0)
     })
 
-    testFeatureNewVersions('landing page intro links have expected properties', async () => {
+    test('landing page intro links have expected properties', async () => {
       const $ = await getDOM('/en')
       const $featuredLinks = $('.featured-links a')
       expect($featuredLinks).toHaveLength(9)
@@ -25,19 +21,6 @@ describe('gettingStartedLinks and popularLinks', () => {
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(true)
 
       expect($featuredLinks.eq(8).attr('href')).toBe(`/en/${nonEnterpriseDefaultVersion}/github/working-with-github-pages`)
-      expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
-      expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(true)
-    })
-
-    testFeatureOldVersions('landing page intro links have expected properties', async () => {
-      const $ = await getDOM('/en')
-      const $featuredLinks = $('.featured-links a')
-      expect($featuredLinks).toHaveLength(9)
-      expect($featuredLinks.eq(0).attr('href')).toBe('/en/github/getting-started-with-github/set-up-git')
-      expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
-      expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(true)
-
-      expect($featuredLinks.eq(8).attr('href')).toBe('/en/github/working-with-github-pages')
       expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
       expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(true)
     })
@@ -51,7 +34,7 @@ describe('gettingStartedLinks and popularLinks', () => {
       expect(japaneseCharacters.presentIn($featuredLinks.eq(0).children('p').text())).toBe(true)
     })
 
-    testFeatureNewVersions('Enterprise user intro links have expected values', async () => {
+    test('Enterprise user intro links have expected values', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/insights`)
       const $featuredLinks = $('.featured-links a')
       expect($featuredLinks).toHaveLength(6)
@@ -60,19 +43,11 @@ describe('gettingStartedLinks and popularLinks', () => {
       expect($featuredLinks.eq(0).children('p').text().startsWith('GitHub Insights provides metrics')).toBe(true)
     })
 
-    testFeatureOldVersions('Enterprise user intro links have expected values', async () => {
-      const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/insights`)
-      const $featuredLinks = $('.featured-links a')
-      expect($featuredLinks).toHaveLength(6)
-      expect($featuredLinks.eq(0).attr('href')).toBe(`/en/enterprise/${enterpriseServerReleases.latest}/user/insights/installing-and-configuring-github-insights/about-github-insights`)
-      expect($featuredLinks.eq(0).children('h4').text().startsWith('About GitHub Insights')).toBe(true)
-      expect($featuredLinks.eq(0).children('p').text().startsWith('GitHub Insights provides metrics')).toBe(true)
-    })
-
     test('featured links respect versioning', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/packages`)
-      const $featuredLinks = $('.featured-links a')
+      const $featuredLinks = $('.all-articles-list a')
       expect($featuredLinks.length).toBeGreaterThan(2)
+      expect($featuredLinks.text().includes('Package client guides for GitHub Packages')).toBe(true)
       // does not include dotcom-only links
       expect($featuredLinks.text().includes('About GitHub Container Registry')).toBe(false)
       expect($featuredLinks.text().includes('Getting started with GitHub Container Registry')).toBe(false)
@@ -80,8 +55,8 @@ describe('gettingStartedLinks and popularLinks', () => {
   })
 
   describe('context.page object', () => {
-    testFeatureNewVersions('returns modified array of links', async () => {
-      const gettingStartedLinks = await getJSON('/en?json=gettingStartedLinks')
+    test('returns modified array of links', async () => {
+      const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
       const expectedFirstLink = {
         href: `/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/set-up-git`,
         title: 'Set up Git'
@@ -91,19 +66,8 @@ describe('gettingStartedLinks and popularLinks', () => {
       expect(gettingStartedLinks[0].intro.startsWith('At the heart of GitHub')).toBe(true)
     })
 
-    testFeatureOldVersions('returns modified array of links', async () => {
-      const gettingStartedLinks = await getJSON('/en?json=gettingStartedLinks')
-      const expectedFirstLink = {
-        href: '/en/github/getting-started-with-github/set-up-git',
-        title: 'Set up Git'
-      }
-      expect(gettingStartedLinks[0].href).toEqual(expectedFirstLink.href)
-      expect(gettingStartedLinks[0].title).toEqual(expectedFirstLink.title)
-      expect(gettingStartedLinks[0].intro.startsWith('At the heart of GitHub')).toBe(true)
-    })
-
     test('returns raw array of links on the page object', async () => {
-      const rawGettingStartedLinks = await getJSON('/en?json=page.rawGettingStartedLinks')
+      const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
       expect(rawGettingStartedLinks[0]).toEqual('/github/getting-started-with-github/set-up-git')
     })
   })

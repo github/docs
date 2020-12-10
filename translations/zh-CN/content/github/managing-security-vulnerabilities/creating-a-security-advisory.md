@@ -10,18 +10,18 @@ versions:
 
 任何对仓库有管理员权限的人都可以创建安全通告。
 
-{{ site.data.reusables.security-advisory.security-researcher-cannot-create-advisory }}
+{% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ### 创建安全通告
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. 单击 **New draft security advisory（新建安全通告草稿）**。 ![打开通告草稿按钮](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. 键入安全通告的标题。 ![标题字段](/assets/images/help/security/security-advisory-title.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
-8. Click **Create security advisory**. ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
+8. 单击 **Create security advisory（创建安全通告）**。 ![创建安全通告按钮。](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### 后续步骤
 

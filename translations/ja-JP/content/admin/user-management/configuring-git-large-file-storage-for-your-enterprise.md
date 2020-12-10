@@ -1,6 +1,6 @@
 ---
 title: Configuring Git Large File Storage for your enterprise
-intro: '{{ site.data.reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description }}'
+intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %}'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise/
   - /enterprise/admin/installation/configuring-git-large-file-storage-on-github-enterprise-server
@@ -14,59 +14,60 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### {{ site.data.variables.large_files.product_name_long }}について
+### {% data variables.large_files.product_name_long %}について
 
-{{ site.data.reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description }} {{ site.data.variables.large_files.product_name_long }} は、単一のリポジトリ、個人または Organization のすべてのリポジトリ、あるいは {{ site.data.variables.product.product_location_enterprise }} 内のあらゆるリポジトリで使用できます。 アプライアンスに対して {{ site.data.variables.large_files.product_name_short }} を事前に有効にしなければ、特定のリポジトリまたは Organization に対して {{ site.data.variables.large_files.product_name_short }} を有効にすることはできません。
+{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} You can use {% data variables.large_files.product_name_long %} with a single repository, all of your personal or organization repositories, or with every repository in your enterprise. Before you can enable {% data variables.large_files.product_name_short %} for specific repositories or organizations, you need to enable {% data variables.large_files.product_name_short %} for your enterprise.
 
-{{ site.data.reusables.large_files.storage_assets_location }}
-{{ site.data.reusables.large_files.rejected_pushes }}
+{% data reusables.large_files.storage_assets_location %}
+{% data reusables.large_files.rejected_pushes %}
 
-詳しい情報については"[{{ site.data.variables.large_files.product_name_long }}について](/articles/about-git-large-file-storage)"、"[大きなファイルのバージョニング](/enterprise/user/articles/versioning-large-files/)" 、[{{ site.data.variables.large_files.product_name_long }}プロジェクトサイト](https://git-lfs.github.com/)を参照してください。
+詳しい情報については"[{% data variables.large_files.product_name_long %}について](/articles/about-git-large-file-storage)"、"[大きなファイルのバージョニング](/enterprise/user/articles/versioning-large-files/)" 、[{% data variables.large_files.product_name_long %}プロジェクトサイト](https://git-lfs.github.com/)を参照してください。
 
-{{ site.data.reusables.large_files.can-include-lfs-objects-archives }}
+{% data reusables.large_files.can-include-lfs-objects-archives %}
 
-### アプライアンス用に {{ site.data.variables.large_files.product_name_long }} を設定する
+### Configuring {% data variables.large_files.product_name_long %} for your enterprise
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
-4. [{{ site.data.variables.large_files.product_name_short }} access]で、ドロップダウンメニューを使用して [**Enabled**] または [**Disabled**] をクリックします。 ![Git LFSアクセス](/assets/images/enterprise/site-admin-settings/git-lfs-admin-center.png)
+{% data reusables.enterprise-accounts.options-tab %}
+4. [{% data variables.large_files.product_name_short %} access]で、ドロップダウンメニューを使用して [**Enabled**] または [**Disabled**] をクリックします。 ![Git LFSアクセス](/assets/images/enterprise/site-admin-settings/git-lfs-admin-center.png)
 
-### 個々のリポジトリ用に {{ site.data.variables.large_files.product_name_long }} を設定する
+### 個々のリポジトリ用に {% data variables.large_files.product_name_long %} を設定する
 
-{{ site.data.reusables.enterprise_site_admin_settings.override-policy }}
+{% data reusables.enterprise_site_admin_settings.override-policy %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.git-lfs-toggle }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
+{% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-### ユーザーアカウントまたは Organization が所有するすべてのリポジトリ用に {{ site.data.variables.large_files.product_name_long }} を設定する
+### ユーザーアカウントまたは Organization が所有するすべてのリポジトリ用に {% data variables.large_files.product_name_long %} を設定する
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.search-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.git-lfs-toggle }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.search-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.click-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
+{% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### サードパーティのサーバを使うGit Large File Storageの設定
 
-{{ site.data.reusables.large_files.storage_assets_location }}
-{{ site.data.reusables.large_files.rejected_pushes }}
+{% data reusables.large_files.storage_assets_location %}
+{% data reusables.large_files.rejected_pushes %}
 
-1. {{ site.data.variables.product.prodname_ghe_server }} アプライアンスで {{ site.data.variables.large_files.product_name_short }} を無効にします。 詳しい情報については"[{{ site.data.variables.large_files.product_name_long }}の設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage#configuring-git-large-file-storage-for-your-appliance)"を参照してください。
+1. Disable {% data variables.large_files.product_name_short %} on {% data variables.product.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
 
-2. サードパーティのサーバーを指し示す {{ site.data.variables.large_files.product_name_short }} の設定ファイルを作成します。
+2. サードパーティのサーバーを指し示す {% data variables.large_files.product_name_short %} の設定ファイルを作成します。
   ```shell
   # Show default configuration
   $ git lfs env
@@ -89,16 +90,16 @@ versions:
   lfsurl = https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo
   ```
 
-3. 各ユーザーに対して同じ {{ site.data.variables.large_files.product_name_short }} の設定を維持するには、カスタムの `.lfsconfig` ファイルをリポジトリにコミットします。
+3. 各ユーザーに対して同じ {% data variables.large_files.product_name_short %} の設定を維持するには、カスタムの `.lfsconfig` ファイルをリポジトリにコミットします。
   ```shell
   $ git add .lfsconfig
   $ git commit -m "Adding LFS config file"
   ```
-3. 既存の {{ site.data.variables.large_files.product_name_short }} アセットを移行します。 For more information, see "[Migrating to a different {{ site.data.variables.large_files.product_name_long }} server](#migrating-to-a-different-git-large-file-storage-server)."
+3. 既存の {% data variables.large_files.product_name_short %} アセットを移行します。 詳しい情報については、「[異なる {% data variables.large_files.product_name_long %} サーバーへ移行する](#migrating-to-a-different-git-large-file-storage-server)」を参照してください。
 
 ### 異なるGit Large File Storageサーバへの移行
 
-異なる{{ site.data.variables.large_files.product_name_long }}サーバに移行する前に、サードパーティサーバを使うよう{{ site.data.variables.large_files.product_name_short }}を設定しなければなりません。 For more information, see "[Configuring {{ site.data.variables.large_files.product_name_long }} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
+Before migrating to a different {% data variables.large_files.product_name_long %} server, you must configure {% data variables.large_files.product_name_short %} to use a third party server. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
 
 1. 2 番目のリモートでリポジトリを設定します。
   ```shell
@@ -129,7 +130,8 @@ versions:
   > Pushing objects...
   > Git LFS: (16 of 16 files) 48.00 MB / 48.85 MB, 879.10 KB skipped
   ```
+{% endif %}
 
 ### 参考リンク
 
-- [{{ site.data.variables.large_files.product_name_long }}プロジェクトサイト](https://git-lfs.github.com/)
+- [{% data variables.large_files.product_name_long %}プロジェクトサイト](https://git-lfs.github.com/)

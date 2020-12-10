@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 ### はじめに
@@ -20,7 +20,7 @@ This project will walk you through the following:
 * Programming your app to listen for events
 * Using the Octokit.rb library to do REST API operations
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
 
@@ -31,7 +31,7 @@ You may find it helpful to have a basic understanding of the following:
 * [GitHub Apps](/apps/about-apps)
 * [webhook](/webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/v3)
+* [REST APIs](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
@@ -43,7 +43,7 @@ Before you begin, you'll need to do the following:
     $ git clone https://github.com/github-developer/using-the-github-api-in-your-app.git
   ```
 
-  Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
+  ディレクトリの中には、このクイックスタートで使用する `template_server.rb` ファイルと、完成したプロジェクトコードである `server.rb` ファイルがあります。
 
 1. Follow the steps in the [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/) quickstart to configure and run the `template_server.rb` app server. If you've previously completed a GitHub App quickstart other than [Setting up your development environment](/apps/quickstart-guides/setting-up-your-development-environment/), you should register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
 
@@ -74,24 +74,24 @@ These are the steps you'll complete to create your first GitHub App:
 
 ### ステップ 1. Update app permissions
 
-When you [first registered your app](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read issues and write labels.
+[最初にアプリケーションを登録](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)した際は、デフォルトの権限を受け入れています。これは、アプリケーションがほとんどのリソースにアクセスできないことを意味します。 For this example, your app will need permission to read issues and write labels.
 
-To update your app's permissions:
+アプリケーションの権限を更新するには、以下の手順に従います。
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
+1. [アプリケーションの設定ページ](https://github.com/settings/apps)からアプリケーションを選択肢、サイドバーの [**Permissions & Webhooks**] をクリックします。
 1. In the "Permissions" section, find "Issues," and select **Read & Write** in the "Access" dropdown next to it. The description says this option grants access to both issues and labels, which is just what you need.
 1. In the "Subscribe to events" section, select **Issues** to subscribe to the event.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
-これでうまくいきました。 Your app has permission to do the tasks you want it to do. Now you can add the code to make it work.
+これでうまくいきました。 アプリケーションは必要なタスクを実行する権限を所有しています。 Now you can add the code to make it work.
 
 ### ステップ 2. Add event handling
 
 The first thing your app needs to do is listen for new issues that are opened. Now that you've subscribed to the **Issues** event, you'll start receiving the [`issues`](/webhooks/event-payloads/#issues) webhook, which is triggered when certain issue-related actions occur. You can filter this event type for the specific action you want in your code.
 
-GitHub sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost/event_handler:3000`, your server will receive the `POST` request payloads in the `post '/event_handler'` route.
+GitHub は webhook ペイロードを `POST` リクエストとして送信します。 Because you forwarded your Smee webhook payloads to `http://localhost/event_handler:3000`, your server will receive the `POST` request payloads in the `post '/event_handler'` route.
 
-An empty `post '/event_handler'` route is already included in the `template_server.rb` file, which you downloaded in the [prerequisites](#prerequisites) section. The empty route looks like this:
+空の `post '/event_handler'` ルートは、[必要な環境](#prerequisites)セクションでダウンロードした `template_server.rb` ファイルに既に含まれています。 空のルートは次のようになっています。
 
 ``` ruby
   post '/event_handler' do
@@ -115,7 +115,7 @@ when 'issues'
 end
 ```
 
-Every event that GitHub sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in `issues` event types. Each event has an additional `action` field that indicates the type of action that triggered the events. For `issues`, the `action` field can be `assigned`, `unassigned`, `labeled`, `unlabeled`, `opened`, `edited`, `milestoned`, `demilestoned`, `closed`, or `reopened`.
+GitHub が送信する全てのイベントには、`HTTP_X_GITHUB_EVENT` というリクエストヘッダが含まれており、これは `POST` リクエストのイベントの型を示します。 Right now, you're only interested in `issues` event types. 各イベントには、アクションをトリガーしたイベントのタイプを示す `action` フィールドが付いています。 For `issues`, the `action` field can be `assigned`, `unassigned`, `labeled`, `unlabeled`, `opened`, `edited`, `milestoned`, `demilestoned`, `closed`, or `reopened`.
 
 To test your event handler, try adding a temporary helper method. You'll update later when you [Add label handling](#step-4-add-label-handling). For now, add the following code inside the `helpers do` section of the code. You can put the new method above or below any of the other helper methods. Order doesn't matter.
 
@@ -129,7 +129,7 @@ This method receives a JSON-formatted event payload as an argument. This means y
 
 これでうまくいきました。 It's time to test the changes.
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 In your browser, visit the repository where you installed your app. Open a new issue in this repository. The issue can say anything you like. It's just for testing.
 
@@ -143,11 +143,11 @@ Before the label can be _added_ anywhere, you'll need to _create_ the custom lab
 
 {% tip %}
 
-**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/v3/issues/labels/#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
+**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/rest/reference/issues#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
 
 {% endtip %}
 
-Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/v3/issues/labels/#add-labels-to-an-issue).
+Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/rest/reference/issues#add-labels-to-an-issue).
 
 ### ステップ 4. Add label handling
 
@@ -198,7 +198,7 @@ See "[Next steps](#next-steps)" for ideas about where you can go from here.
 
 ### トラブルシューティング
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
 
 * **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm sending events on GitHub.com by opening new issues, but I don't see any output in the Terminal window where I'm running the server.
 
@@ -231,5 +231,5 @@ Here are some ideas for what you can do next:
 * When the bot successfully adds the label, show a message in the Terminal. (Hint: compare the `needs-response` label ID with the ID of the label in the payload as a condition for your message, so that the message only displays when the relevant label is added and not some other label.)
 * Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
 * Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
-* Share your project or get advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}{% if currentVersion == "free-pro-team@latest" %}
+* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
 * Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

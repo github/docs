@@ -1,6 +1,6 @@
 ---
 title: Limites de alerta recomendados
-intro: 'É possível configurar um alerta para receber notificações sobre os problemas de recursos do sistema antes que eles afetem o desempenho do appliance do {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'É possível configurar um alerta para receber notificações sobre os problemas de recursos do sistema antes que eles afetem o desempenho do appliance do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
   - /enterprise/admin/installation/about-recommended-alert-thresholds
@@ -34,7 +34,7 @@ Também é recomendável monitorar o tempo de "roubo" da virtualização para ga
 
 ### Monitorar o uso de memória
 
-A quantidade de memória física alocada para a {{ site.data.variables.product.product_location_enterprise }} pode ter um grande impacto no desempenho geral e na capacidade de resposta do aplicativo. O sistema é projetado para fazer uso intenso do cache de disco do kernel a fim de acelerar as operações do Git. Recomendamos que o conjunto de trabalho RSS normal caiba em 50% do total de RAM disponível no uso máximo.
+A quantidade de memória física alocada para a {% data variables.product.product_location %} pode ter um grande impacto no desempenho geral e na capacidade de resposta do aplicativo. O sistema é projetado para fazer uso intenso do cache de disco do kernel a fim de acelerar as operações do Git. Recomendamos que o conjunto de trabalho RSS normal caiba em 50% do total de RAM disponível no uso máximo.
 
 | gravidade   | Limite                                                           |
 | ----------- | ---------------------------------------------------------------- |

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -17,8 +18,8 @@ versions:
 {% endtip %}
 
 1. 导航到要编辑的项目板。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. 根据需要修改项目板名称和说明，然后单击 **Save project（保存项目）**。 ![带有项目板名称和说明的字段，以及保存项目按钮](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ### 延伸阅读

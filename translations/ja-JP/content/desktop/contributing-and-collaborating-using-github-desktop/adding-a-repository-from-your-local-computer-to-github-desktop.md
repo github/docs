@@ -1,6 +1,6 @@
 ---
 title: ローカルコンピュータからGitHubデスクトップへのリポジトリの追加
-intro: '{{ site.data.variables.product.prodname_dotcom }}リポジトリでない場合でも、{{ site.data.variables.product.prodname_desktop }}にGitリポジトリを追加できます。'
+intro: '{% data variables.product.prodname_dotcom %}リポジトリでない場合でも、{% data variables.product.prodname_desktop %}にGitリポジトリを追加できます。'
 redirect_from:
   - /desktop/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:
@@ -9,7 +9,7 @@ versions:
 
 {% tip %}
 
-**ヒント：**フォルダを{{ site.data.variables.product.prodname_desktop }}ウィンドウにドラッグすることで、GitリポジトリをローカルコンピュータからGitHub Desktopに追加することができます。 {{ site.data.variables.product.prodname_desktop }}に同時に複数のフォルダをドラッグする場合、各フォルダが別々のGitリポジトリとして追加されます。
+**ヒント：**フォルダを{% data variables.product.prodname_desktop %}ウィンドウにドラッグすることで、GitリポジトリをローカルコンピュータからGitHub Desktopに追加することができます。 {% data variables.product.prodname_desktop %}に同時に複数のフォルダをドラッグする場合、各フォルダが別々のGitリポジトリとして追加されます。
 
 {% endtip %}
 

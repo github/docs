@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}  
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}  
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 4. Select the person or people you'd like to remove.
   ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
 5. Above the list of team members, use the drop-down menu and click **Remove from team**.

@@ -1,11 +1,13 @@
+import { sendEvent } from './events'
 const instantsearch = require('instantsearch.js').default
-const { searchBox, hits } = require('instantsearch.js/es/widgets')
+const { searchBox, hits, configure, analytics } = require('instantsearch.js/es/widgets')
 const algoliasearch = require('algoliasearch')
 const searchWithYourKeyboard = require('search-with-your-keyboard')
 const querystring = require('querystring')
 const truncate = require('html-truncate')
-const patterns = require('../lib/patterns')
 const languages = require('../lib/languages')
+const allVersions = require('../lib/all-versions')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 
 const languageCodes = Object.keys(languages)
 const maxContentLength = 300
@@ -13,7 +15,7 @@ const maxContentLength = 300
 const hasStandaloneSearch = () => document.getElementById('landing') || document.querySelector('body.error-404') !== null
 
 const resultTemplate = (item) => {
-  // Attach an `algolia-query` param to each result link so Google Analytics
+  // Attach an `algolia-query` param to each result link so analytics
   // can track the search query that led the user to this result
   const input = document.querySelector('#search-input-container input')
   if (input) {
@@ -61,6 +63,8 @@ const resultTemplate = (item) => {
 }
 
 export default function () {
+  if (!document.querySelector('#search-results-container')) return
+
   window.initialPageLoad = true
   const opts = {
 
@@ -131,34 +135,48 @@ export default function () {
 
   const search = instantsearch(opts)
 
-  search.addWidget(
-    hits({
-      container: '#search-results-container',
-      templates: {
-        empty: 'No results',
-        item: resultTemplate
-      },
-      // useful for debugging template context, if needed
-      transformItems: items => {
-        // console.log(`transformItems`, items)
-        return items
-      }
-    })
-  )
-
   // Find search placeholder text in a <meta> tag, falling back to a default
   const placeholderMeta = document.querySelector('meta[name="site.data.ui.search.placeholder"]')
   const placeholder = placeholderMeta ? placeholderMeta.content : 'Search topics, products...'
 
-  search.addWidget(
-    searchBox({
-      container: '#search-input-container',
-      placeholder,
-      // only autofocus on the homepage, and only if no #hash is present in the URL
-      autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
-      showReset: false,
-      showSubmit: false
-    })
+  search.addWidgets(
+    [
+      hits({
+        container: '#search-results-container',
+        templates: {
+          empty: 'No results',
+          item: resultTemplate
+        },
+        // useful for debugging template context, if needed
+        transformItems: items => {
+          // console.log(`transformItems`, items)
+          return items
+        }
+      }),
+      configure({
+        analyticsTags: [
+          'site:docs.github.com',
+          `env:${process.env.NODE_ENV}`
+        ]
+      }),
+      searchBox({
+        container: '#search-input-container',
+        placeholder,
+        // only autofocus on the homepage, and only if no #hash is present in the URL
+        autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
+        showReset: false,
+        showSubmit: false
+      }),
+      analytics({
+        pushFunction (params, state, results) {
+          sendEvent({
+            type: 'search',
+            search_query: results.query
+            // search_context
+          })
+        }
+      })
+    ]
   )
 
   // enable for debugging
@@ -174,12 +192,12 @@ export default function () {
   searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
   toggleSearchDisplay()
 
-  // delay removal of the query param so Google Analytics client code has a chance to track it
+  // delay removal of the query param so analytics client code has a chance to track it
   setTimeout(() => { removeAlgoliaQueryTrackingParam() }, 500)
 }
 
-// When a user performs an in-site search an `agolia-query` param is
-// added to the URL so Google Analytics can track the queries and the pages
+// When a user performs an in-site search an `algolia-query` param is
+// added to the URL so analytics can track the queries and the pages
 // they lead to. This function strips the query from the URL after page load,
 // so the bare article URL can be copied/bookmarked/shared, sans tracking param
 function removeAlgoliaQueryTrackingParam () {
@@ -257,11 +275,15 @@ function deriveLanguageCodeFromPath () {
   return languageCode
 }
 
-// TODO use the new versions once we update the index names
-// note we can't use the old-versions-utils or path-utils
-// to derive these values because they require modules that use fs :/
 function deriveVersionFromPath () {
-  const enterpriseRegex = patterns.getEnterpriseServerNumber
-  const enterprise = location.pathname.match(enterpriseRegex)
-  return enterprise ? enterprise[1] : 'dotcom'
+  // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
+  const version = location.pathname.split('/')[2] || nonEnterpriseDefaultVersion
+  const versionObject = allVersions[version] || allVersions[nonEnterpriseDefaultVersion]
+
+  // if GHES, returns the release number like 2.21, 2.22, etc.
+  // if FPT, returns 'dotcom'
+  // if GHAE, returns 'ghae'
+  return versionObject.plan === 'enterprise-server'
+    ? versionObject.currentRelease
+    : versionObject.miscBaseName
 }

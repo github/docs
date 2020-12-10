@@ -3,21 +3,24 @@ require('./lib/handle-exceptions')
 require('./lib/feature-flags')
 
 const express = require('express')
-const isPortAvailable = require('is-port-available')
+const portUsed = require('port-used')
 const warmServer = require('./lib/warm-server')
 const port = Number(process.env.PORT) || 4000
 const app = express()
 
 require('./middleware')(app)
 
-// prevent the app from starting up durings tests
+// prevent the app from starting up during tests
 /* istanbul ignore next */
 if (!module.parent) {
   // check that the development server is not already running
-  isPortAvailable(port).then(async status => {
-    if (status) {
-      // If in production, warm the server at the start
-      if (process.env.NODE_ENV === 'production') await warmServer()
+  portUsed.check(port).then(async status => {
+    if (status === false) {
+      // If in a deployed environment, warm the server at the start
+      if (process.env.NODE_ENV === 'production') {
+        // If in a production environment, wait for the cache to be fully warmed.
+        await warmServer()
+      }
 
       // workaround for https://github.com/expressjs/express/issues/1101
       const server = require('http').createServer(app)

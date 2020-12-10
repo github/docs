@@ -99,7 +99,7 @@ This may include:
   - Security access logs
   - Data about interactions with private repositories
 
-  To get a sense of the type of private account information that GitHub collects, you can visit your {{ site.data.reusables.user_settings.personal_dashboard }} and browse through the sections in the left-hand menubar.
+  To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user_settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
 
 - <a name="organization-account-data"></a>
 **Organization account data** —
@@ -194,7 +194,6 @@ In addition to the non-public user account information and account access logs m
   - Any security keys used for authentication or encryption
 
 - <a name="in-exigent-circumstances"></a>
-
 **Under exigent circumstances** —
 If we receive a request for information under certain exigent circumstances (where we believe the disclosure is necessary to prevent an emergency involving danger of death or serious physical injury to a person), we may disclose limited information that we determine necessary to enable law enforcement to address the emergency. For any information beyond that, we would require a subpoena, search warrant, or court order, as described above. For example, we will not disclose contents of private repositories without a search warrant. Before disclosing information, we confirm that the request came from a law enforcement agency, an authority sent an official notice summarizing the emergency, and how the information requested will assist in addressing the emergency.
 
@@ -238,4 +237,4 @@ GitHub will promptly respond to requests that are issued via U.S. court by way o
 
 ### Questions
 
-Do you have other questions, comments or suggestions? Please contact {{ site.data.variables.contact.contact_support }}.
+Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.

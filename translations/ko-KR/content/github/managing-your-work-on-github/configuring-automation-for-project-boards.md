@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.project-management.automate-project-board-permissions }} For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
+{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
 
-{{ site.data.reusables.project-management.use-automated-template }}
+{% data reusables.project-management.use-automated-template %}
 
-{{ site.data.reusables.project-management.resync-automation }}
+{% data reusables.project-management.resync-automation %}
 
 {% tip %}
 

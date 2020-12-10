@@ -1,5 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}
-
-{{ site.data.variables.product.prodname_actions }} ist verfügbar mit {{ site.data.variables.product.prodname_free_user }}, {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_free_team }} für Organisationen, {{ site.data.variables.product.prodname_team }}, {{ site.data.variables.product.prodname_ghe_cloud }}, und {{ site.data.variables.product.prodname_ghe_one }}. {{ site.data.variables.product.prodname_actions }} ist nicht verfügbar für private Repositorys, die im Besitz von Konten mit älteren Pro-Repository-Plänen sind. {% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.gated-features.more-info }}{% endif %}
-
-{% endif %}

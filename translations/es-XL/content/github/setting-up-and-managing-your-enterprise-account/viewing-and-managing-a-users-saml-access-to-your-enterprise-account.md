@@ -2,47 +2,47 @@
 title: Visualizar y administrar el acceso de SAML de un usuario a tu cuenta empresarial
 intro: 'Puedes ver y revocar la identidad vinculada de un miembro de la empresa, sesiones activas y credenciales autorizadas.'
 permissions: Los propietarios de empresa pueden ver y administrar el acceso de SAML para los miembros en las organizaciones.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:
   free-pro-team: '*'
 ---
 
 ### Acerca del acceso de SAML a tu cuenta empresarial
 
-Cuando habilitas el inicio de sesión único de SAML para tu cuenta empresarial, cada miembro de la empresa puede vincular su identidad externa en tu proveedor de identidad (IdP) para su cuenta existente de {{ site.data.variables.product.product_name }}. {{ site.data.reusables.saml.about-saml-access-enterprise-account }}
+Cuando habilitas el inicio de sesión único de SAML para tu cuenta empresarial, cada miembro de la empresa puede vincular su identidad externa en tu proveedor de identidad (IdP) para su cuenta existente de {% data variables.product.product_name %}. {% data reusables.saml.about-saml-access-enterprise-account %}
 
 ### Visualizar y revocar una identidad vinculada
 
-{{ site.data.reusables.saml.about-linked-identities }}
+{% data reusables.saml.about-linked-identities %}
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.saml.click-person-revoke-identity }}
-{{ site.data.reusables.saml.saml-identity-linked }}
-{{ site.data.reusables.saml.view-sso-identity }}
-{{ site.data.reusables.saml.revoke-sso-identity }}
-{{ site.data.reusables.saml.confirm-revoke-identity }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.saml.click-person-revoke-identity %}
+{% data reusables.saml.saml-identity-linked %}
+{% data reusables.saml.view-sso-identity %}
+{% data reusables.saml.revoke-sso-identity %}
+{% data reusables.saml.confirm-revoke-identity %}
 
 ### Ver y revocar una sesión activa de SAML
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.saml.click-person-revoke-session }}
-{{ site.data.reusables.saml.saml-identity-linked }}
-{{ site.data.reusables.saml.view-saml-sessions }}
-{{ site.data.reusables.saml.revoke-saml-session }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.saml.click-person-revoke-session %}
+{% data reusables.saml.saml-identity-linked %}
+{% data reusables.saml.view-saml-sessions %}
+{% data reusables.saml.revoke-saml-session %}
 
 ### Visualizar y revocar credenciales autorizadas
 
-{{ site.data.reusables.saml.about-authorized-credentials }}
+{% data reusables.saml.about-authorized-credentials %}
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.saml.click-person-revoke-credentials }}
-{{ site.data.reusables.saml.saml-identity-linked }}
-{{ site.data.reusables.saml.view-authorized-credentials }}
-{{ site.data.reusables.saml.revoke-authorized-credentials }}
-{{ site.data.reusables.saml.confirm-revoke-credentials }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.saml.click-person-revoke-credentials %}
+{% data reusables.saml.saml-identity-linked %}
+{% data reusables.saml.view-authorized-credentials %}
+{% data reusables.saml.revoke-authorized-credentials %}
+{% data reusables.saml.confirm-revoke-credentials %}
 
 ### Leer más
 

@@ -17,7 +17,7 @@ Los elementos fijados incluyen información importante sobre ellos, como el núm
 
 Puedes reordenar los elementos en la sección "Anclados". En el ángulo superior derecho de un elemento anclado, haz clic en {% octicon "grabber" aria-label="The grabber symbol" %} y arrastra el anclado a una nueva ubicación.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. En la sección "Repositorios populares" o "Anclados", haz clic en **Customize your pins (Personalizar tus anclados)**. ![Botón para personalizar tus elementos anclados](/assets/images/help/profile/customize-pinned-repositories.png)
 3. Para mostrar una lista de búsqueda de elementos por anclar, selecciona "Repositories" (Repositorios), "Gists" o ambos. ![Casillas de verificación para seleccionar los tipos de elementos a mostrar](/assets/images/help/profile/pinned-repo-picker.png)
 4. Como opción, para que sea más sencillo encontrar un elemento específico, en el campo de filtro, escribe el nombre de un usuario, una organización, un repositorio o un gist. ![Filtrar elementos](/assets/images/help/profile/pinned-repo-search.png)

@@ -10,8 +10,8 @@ versions:
 
 ### Criar réplica de alta disponibilidade
 
-1. Configure um novo appliance do {{ site.data.variables.product.prodname_ghe_server }} na plataforma desejada. O appliance réplica deve refletir as configurações de CPU, RAM e armazenamento do appliance primário. É recomendável instalar o appliance réplica em um ambiente independente. Hardware, software e componentes de rede subjacentes devem ser isolados dos do appliance primário. Se estiver em um provedor de nuvem, use uma região ou zona separada. Para obter mais informações, consulte [Configurar uma instância do {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
-2. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {{ site.data.variables.product.prodname_enterprise }}.
+1. Configure um novo appliance do {% data variables.product.prodname_ghe_server %} na plataforma desejada. O appliance réplica deve refletir as configurações de CPU, RAM e armazenamento do appliance primário. É recomendável instalar o appliance réplica em um ambiente independente. Hardware, software e componentes de rede subjacentes devem ser isolados dos do appliance primário. Se estiver em um provedor de nuvem, use uma região ou zona separada. Para obter mais informações, consulte [Configurar uma instância do {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+2. Em um navegador, vá até o novo endereço IP do appliance réplica e faça o upload da sua licença do {% data variables.product.prodname_enterprise %}.
 3. Defina uma senha de administrador correspondente à senha no appliance primário e continue.
 4. Clique em **Configure as Replica** (Configurar como réplica). ![Opções de instalação com link para configurar a nova instância como réplica](/assets/images/enterprise/management-console/configure-as-replica.png)
 5. Em "Add new SSH key" (Adicionar nova chave SSH), digite a chave SSH. ![Adicionar chave SSH](/assets/images/enterprise/management-console/add-ssh-key.png)
@@ -24,12 +24,12 @@ versions:
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. Para verificar a conexão com o primário e habilitar o modo de réplica para a nova réplica, execute `ghe-repl-setup` novamente.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}
 11. Para verificar o status do canal de replicação de cada armazenamento de dados, use o comando `ghe-repl-status`.
   ```shell
   $ ghe-repl-status
@@ -49,7 +49,7 @@ Este exemplo de configuração usa um primário e duas réplicas, localizados em
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. Por padrão, as réplicas são configuradas no mesmo datacenter{% if currentVersion ver_gt "enterprise-server@2.17" %} e agora vão tentar propagar a partir de um nó existente no mesmo datacenter{% endif %}. Configure as réplicas para datacenters diferentes definindo outros valores na opção do datacenter. Você pode especificar os valores que preferir, desde que sejam diferentes uns dos outros. Execute o comando `ghe-repl-node` em cada nó e especifique o datacenter.
+3. Por padrão, as réplicas são configuradas no mesmo centro de dados e agora tentarão propagar a partir de um nó existente no mesmo centro de dados. Configure as réplicas para datacenters diferentes definindo outros valores na opção do datacenter. Você pode especificar os valores que preferir, desde que sejam diferentes uns dos outros. Execute o comando `ghe-repl-node` em cada nó e especifique o datacenter.
 
   No primário:
   ```shell

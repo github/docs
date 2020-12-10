@@ -1,6 +1,6 @@
 ---
 title: SMS 認証がサポートされている国
-intro: '配信の成功率との兼ね合いで、{{ site.data.variables.product.product_name }} は SMS による 2 要素認証を特定の国においてのみサポートしています。'
+intro: '配信の成功率との兼ね合いで、{% data variables.product.product_name %} は SMS による 2 要素認証を特定の国においてのみサポートしています。'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:

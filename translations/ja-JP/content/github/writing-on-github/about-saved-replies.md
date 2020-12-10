@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![返信テンプレート](/assets/images/help/settings/saved-replies.png)
@@ -16,7 +17,7 @@ versions:
 
 返信テンプレートは最大で 100 個作成できます。 上限に達した場合、使わなくなった返信テンプレートを削除したり、既存の返信テンプレートを編集したりすることができます。
 
-また、{{ site.data.variables.product.product_name }}が提供する "Duplicate issue" 返信テンプレートを使い、Issue を重複としてマークして、類似 Issue と合わせて追跡できます。
+また、{% data variables.product.product_name %}が提供する "Duplicate issue" 返信テンプレートを使い、Issue を重複としてマークして、類似 Issue と合わせて追跡できます。
 
 ### 参考リンク
 

@@ -12,7 +12,7 @@ versions:
 
 
 
-La [API de Despliegues][deploy API] le proporciona a tus proyectos hospedados en {{ site.data.variables.product.product_name }} la capacidad de lanzarlos a un servidor que te pertenezca. En combinación con [la API de Estados][status API], podrás coordinar tus despliegues en el momento en que tu código llegue a `master`.
+La [API de Despliegues][deploy API] le proporciona a tus proyectos hospedados en {% data variables.product.product_name %} la capacidad de lanzarlos a un servidor que te pertenezca. En combinación con [la API de Estados][status API], podrás coordinar tus despliegues en el momento en que tu código llegue a `master`.
 
 Esta guía utilizará esa API para ejemplificar una configuración que puedes utilizar. En nuestro escenario, nosotros:
 
@@ -54,7 +54,7 @@ Haz clic en **Actualizar webhook**. Deberás ver una respuesta en el cuerpo que 
 * Estado del despliegue
 * Solicitud de Extracción
 
-Estos son los eventos que {{ site.data.variables.product.product_name }} enviará a nuestro servidor cuando ocurra cualquier acción relevante. Configuraremos nuestro servidor para que *solo* gestione cuando las solicitudes de extracción se fusionen ahora mismo:
+Estos son los eventos que {% data variables.product.product_name %} enviará a nuestro servidor cuando ocurra cualquier acción relevante. Configuraremos nuestro servidor para que *solo* gestione cuando las solicitudes de extracción se fusionen ahora mismo:
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +69,7 @@ post '/event_handler' do
 end
 ```
 
-¿Qué está pasando? Cada evento que {{ site.data.variables.product.product_name }} envía adjunta un encabezado de HTTP de `X-GitHub-Event`. Solo nos interesan los eventos de Solicitud de Extracción por el momento. Cuando una solicitud de extracción se fusiona (su estado es `closed`, y `merged` se encuentra como `true`), iniciaremos un despliegue.
+¿Qué está pasando? Cada evento que {% data variables.product.product_name %} envía adjunta un encabezado de HTTP de `X-GitHub-Event`. Solo nos interesan los eventos de Solicitud de Extracción por el momento. Cuando una solicitud de extracción se fusiona (su estado es `closed`, y `merged` se encuentra como `true`), iniciaremos un despliegue.
 
 Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repositorio de pruebas, y abre una solicitud de extracción y fusiónala. ¡Tu servidor deberá responder de acuerdo con los casos!
 

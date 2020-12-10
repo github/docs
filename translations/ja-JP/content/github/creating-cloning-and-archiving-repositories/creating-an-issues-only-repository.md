@@ -1,6 +1,6 @@
 ---
 title: Issue だけのリポジトリの作成
-intro: '{{ site.data.variables.product.product_name }}では Issue に限定されたアクセス権限は存在しませんが、Issue 専用のリポジトリを作成すれば、実質的にそのようなアクセス権限を設定できます。'
+intro: '{% data variables.product.product_name %}では Issue に限定されたアクセス権限は存在しませんが、Issue 専用のリポジトリを作成すれば、実質的にそのようなアクセス権限を設定できます。'
 redirect_from:
   - /articles/issues-only-access-permissions/
   - /articles/is-there-issues-only-access-to-organization-repositories/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. **private** リポジトリを作成し、プロジェクトのソースコードをホストします。

@@ -1,1 +1,1 @@
-1. Melde Dich bei {{ site.data.variables.product.prodname_dotcom }} oder {{ site.data.variables.product.prodname_enterprise }} an.
+1. Melde Dich bei {% data variables.product.prodname_dotcom %} oder {% data variables.product.prodname_enterprise %} an.

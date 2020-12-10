@@ -11,18 +11,18 @@ versions:
   enterprise-server: '*'
 ---
 
-Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas para la autenticación en {{ site.data.variables.product.product_name }} cuando utilizas la [API de GitHub](/v3/auth/#via-oauth-and-personal-access-tokens) o la [línea de comandos](#using-a-token-on-the-command-line).
+Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas para la autenticación en {% data variables.product.product_name %} cuando utilizas la [API de GitHub](/v3/auth/#via-oauth-and-personal-access-tokens) o la [línea de comandos](#using-a-token-on-the-command-line).
 
 {% if currentVersion == "free-pro-team@latest" %}Si quieres utilizar un PAT para acceder a los recursos que pertenecen a una organización que utiliza el SSO de SAML, debes autorizarlo. Para obtener más información, consulta las secciónes "[Acerca de la autenticación, con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)" y "[Autorizar un token de acceso personal para su uso con el inicio de sesión único de SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)".{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### Crear un token
 
 {% if currentVersion == "free-pro-team@latest" %}1. [Verifica tu dirección de correo electrónico](/articles/verifying-your-email-address), si aún no ha sido verificada.{% endif %}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 4. Haz clic en **Generar un nuevo token**. ![Generar el botón para el nuevo token](/assets/images/help/settings/generate_new_token.png)
 5. Asígnale a tu token un nombre descriptivo. ![Campo para la descripción del token](/assets/images/help/settings/token_description.png)
 6. Selecciona los alcances o permisos que deseas otorgarle a este token. Para usar tu token para acceder a repositorios desde la línea de comando, selecciona **repo**. ![Seleccionar los alcances del token](/assets/images/help/settings/token_scopes.gif)
@@ -39,7 +39,7 @@ Los tokens de acceso personal (PAT) son una alternativa al uso de contraseñas p
 
 ### Usar un token en la línea de comando
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 Los tokens de acceso personal solo se pueden usar para operaciones HTTPS Git. Si tu repositorio usa una URL SSH remota, necesitarás [pasar de la URL SSH remota a HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https).
 

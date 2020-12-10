@@ -9,7 +9,7 @@ versions:
 
 ### Issuing a persistent identifier for your repository with Zenodo
 
-To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a {{ site.data.variables.product.product_name }} repository and issue a DOI for the archive.
+To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://zenodo.org/about) to archive a {% data variables.product.product_name %} repository and issue a DOI for the archive.
 
 {% tip %}
 
@@ -27,7 +27,7 @@ To make your repositories easier to reference in academic literature, you can cr
 5. Navigate to the [Zenodo GitHub page](https://zenodo.org/account/settings/github/). ![Zenodo GitHub page](/assets/images/help/repository/zenodo_github_page.png)
 6. To the right of the name of the repository you want to archive, toggle the button from **Off** to **On** to enable it for archiving. ![Enable Zenodo archiving on repository](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo archives your repository and issues a new DOI each time you create a new {{ site.data.variables.product.product_name }} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
+Zenodo archives your repository and issues a new DOI each time you create a new {% data variables.product.product_name %} [release](/articles/about-releases/). Follow the steps at "[Creating releases](/articles/creating-releases/)" to create a new one.
 
 ### Publicizing and citing research material with Figshare
 

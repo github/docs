@@ -13,7 +13,7 @@ Los conflictos de fusión ocurren cuando se hacen cambios contrapuestos en la mi
 
 {% tip %}
 
-**Sugerencia:** Puedes utilizar el editor de conflictos en {{ site.data.variables.product.product_name }} para resolver conflictos de fusión de cambios de líneas contrapuestos entre ramas que son parte de una solicitud de extracción. Para obtener más información, consulta "[Resolver un conflicto de fusión en GitHub](/articles/resolving-a-merge-conflict-on-github)".
+**Sugerencia:** Puedes utilizar el editor de conflictos en {% data variables.product.product_name %} para resolver conflictos de fusión de cambios de líneas contrapuestos entre ramas que son parte de una solicitud de extracción. Para obtener más información, consulta "[Resolver un conflicto de fusión en GitHub](/articles/resolving-a-merge-conflict-on-github)".
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ Para resolver un conflicto de fusión causado por cambios de líneas contrapuest
 
 Por ejemplo, si usted y otra persona editaron el archivo _styleguide.md_ en las mismas líneas de diferentes ramas del mismo repositorio de Git, recibirás un error de conflicto de fusión cuando trates de fusionar estas ramas. Debes resolver este conflicto de fusión con una confirmación nueva antes de que puedas fusionar estas ramas.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navega en el repositorio de Git local que tiene el conflicto de fusión.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -53,7 +53,7 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
   ```
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }}En este ejemplo, ambos cambios se incorporaron en la fusión final:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}En este ejemplo, ambos cambios se incorporaron en la fusión final:
 
   ```shell
   Si tienes preguntas, abre una propuesta o consulta en nuestro canal IRC si es más urgente.
@@ -67,7 +67,7 @@ ask your question in IRC.
   $ git commit -m "Conflicto de fusión resuelto incorporando ambas sugerencias".
   ```
 
-Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/articles/pushing-commits-to-a-remote-repository/) en {{ site.data.variables.product.product_name }} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
+Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/articles/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
 
 ### Conflictos de fusión de archivos eliminados
 
@@ -75,7 +75,7 @@ Para resolver un conflicto de fusión causado por cambios contrapuestos en un ar
 
 Por ejemplo, si editaste un archivo, como *README.md*, y otra persona eliminó el mismo archivo en otra rama del mismo repositorio de Git, recibirás un error de conflicto de fusión cuando trates de fusionar estas ramas. Debes resolver este conflicto de fusión con una confirmación nueva antes de que puedas fusionar estas ramas.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navega en el repositorio de Git local que tiene el conflicto de fusión.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -116,7 +116,7 @@ Por ejemplo, si editaste un archivo, como *README.md*, y otra persona eliminó e
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/articles/pushing-commits-to-a-remote-repository/) en {{ site.data.variables.product.product_name }} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
+Ahora puedes fusionar las ramas en la línea de comando o [subir tus cambios a tu repositorio remoto](/articles/pushing-commits-to-a-remote-repository/) en {% data variables.product.product_name %} y [fusionar tus cambios](/articles/merging-a-pull-request/) en una solicitud de extracción.
 
 ### Leer más
 

@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.saved_replies }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.saved_replies %}
 3. 使用位于要编辑已保存回复旁边的“Saved replies”（已保存回复），单击 {% octicon "pencil" aria-label="The pencil" %}。  
    ![编辑已保存回复](/assets/images/help/settings/saved-replies-edit-existing.png)
 4. 在“ Edit saved reply”（已保存回复）下，您可以编辑已保存回复的标题和内容。 ![编辑标题和内容](/assets/images/help/settings/saved-replies-edit-existing-content.png)

@@ -1,12 +1,13 @@
 ---
 title: GitHub event types
-intro: 'For the {{ site.data.variables.product.prodname_dotcom }} Events API, learn about each event type, the triggering action on {{ site.data.variables.product.prodname_dotcom }}, and each event''s unique properties.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -15,7 +16,6 @@ The Events API can return different types of events triggered by activity on Git
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
-
 
 ### Event object common properties
 
@@ -29,18 +29,18 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.id`               | The unique identifier for the actor.                                                                                                                                                          |
 | `actor.login`            | The username of the actor.                                                                                                                                                                    |
 | `actor.display_login`    | The specific display format of the username.                                                                                                                                                  |
-| `actor.gravatar_id`      | The unique indentifier of the Gravatar profile for the actor.                                                                                                                                 |
+| `actor.gravatar_id`      | The unique identifier of the Gravatar profile for the actor.                                                                                                                                  |
 | `actor.url`              | The REST API URL used to retrieve the user object, which includes additional user information.                                                                                                |
 | `actor.avatar_url`       | The URL of the actor's profile image.                                                                                                                                                         |
 | `repo`                   | The repository object where the event occurred.                                                                                                                                               |
 | `repo.id`                | The unique identifier of the repository.                                                                                                                                                      |
 | `repo.name`              | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url`               | The REST API URL used to retrive the repository object, which includes additional repository information.                                                                                     |
+| `repo.url`               | The REST API URL used to retrieve the repository object, which includes additional repository information.                                                                                    |
 | `payload`                | The event payload object is unique to the event type. See the event type below for the event API `payload` object.                                                                            |
 
 #### Example WatchEvent event object
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/v3/activity/events).
+This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
 
 ```
 Status: 200 OK
@@ -81,90 +81,90 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 ### CommitCommentEvent
 
-{{ site.data.reusables.webhooks.commit_comment_short_desc }}
+{% data reusables.webhooks.commit_comment_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.commit_comment_properties }}
+{% data reusables.webhooks.commit_comment_properties %}
 
 ### CreateEvent
 
-{{ site.data.reusables.webhooks.create_short_desc }}
+{% data reusables.webhooks.create_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.create_properties }}
+{% data reusables.webhooks.create_properties %}
 
 ### DeleteEvent
 
-{{ site.data.reusables.webhooks.delete_short_desc }}
+{% data reusables.webhooks.delete_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.delete_properties }}
+{% data reusables.webhooks.delete_properties %}
 
 ### ForkEvent
 
-{{ site.data.reusables.webhooks.fork_short_desc }}
+{% data reusables.webhooks.fork_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.fork_properties }}
+{% data reusables.webhooks.fork_properties %}
 
 ### GollumEvent
 
-{{ site.data.reusables.webhooks.gollum_short_desc }}
+{% data reusables.webhooks.gollum_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.gollum_properties }}
+{% data reusables.webhooks.gollum_properties %}
 
 ### IssueCommentEvent
 
-{{ site.data.reusables.webhooks.issue_comment_short_desc }}
+{% data reusables.webhooks.issue_comment_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.issue_comment_webhook_properties }}
-{{ site.data.reusables.webhooks.issue_comment_properties }}
+{% data reusables.webhooks.issue_comment_webhook_properties %}
+{% data reusables.webhooks.issue_comment_properties %}
 
 ### IssuesEvent
 
-{{ site.data.reusables.webhooks.issues_short_desc }}
+{% data reusables.webhooks.issues_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.issue_event_api_properties }}
-{{ site.data.reusables.webhooks.issue_properties }}
+{% data reusables.webhooks.issue_event_api_properties %}
+{% data reusables.webhooks.issue_properties %}
 
 ### MemberEvent
 
-{{ site.data.reusables.webhooks.member_short_desc }}
+{% data reusables.webhooks.member_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.member_event_api_properties }}
-{{ site.data.reusables.webhooks.member_properties }}
+{% data reusables.webhooks.member_event_api_properties %}
+{% data reusables.webhooks.member_properties %}
 
 ### PublicEvent
 
-{{ site.data.reusables.webhooks.public_short_desc }}
+{% data reusables.webhooks.public_short_desc %}
 
 #### Event `payload` object
 
@@ -172,77 +172,77 @@ This event returns an empty `payload` object.
 
 ### PullRequestEvent
 
-{{ site.data.reusables.webhooks.pull_request_short_desc }}
+{% data reusables.webhooks.pull_request_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.pull_request_event_api_properties }}
-{{ site.data.reusables.webhooks.pull_request_properties }}
+{% data reusables.webhooks.pull_request_event_api_properties %}
+{% data reusables.webhooks.pull_request_properties %}
 
 ### PullRequestReviewCommentEvent
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_short_desc }}
+{% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_event_api_properties }}
-{{ site.data.reusables.webhooks.pull_request_review_comment_properties }}
+{% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
+{% data reusables.webhooks.pull_request_review_comment_properties %}
 
 ### PushEvent
 
-{{ site.data.reusables.webhooks.push_short_desc }}
+{% data reusables.webhooks.push_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
-| Schlüssel                  | Typ       | Beschreibung                                                                                                                                                                                                                                                                                |
-| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `push_id`                  | `integer` | Unique identifier for the push.                                                                                                                                                                                                                                                             |
-| `size`                     | `integer` | The number of commits in the push.                                                                                                                                                                                                                                                          |
-| `distinct_size`            | `integer` | The number of distinct commits in the push.                                                                                                                                                                                                                                                 |
-| `ref`                      | `string`  | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/master`.                                                                                                                                                                                                          |
-| `Head`                     | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
-| `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
-| `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
-| `commits[][sha]`           | `string`  | The SHA of the commit.                                                                                                                                                                                                                                                                      |
-| `commits[][message]`       | `string`  | The commit message.                                                                                                                                                                                                                                                                         |
-| `commits[][author]`        | `Objekt`  | The git author of the commit.                                                                                                                                                                                                                                                               |
-| `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                      |
-| `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                             |
-| `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                 |
-| `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                      |
+| Schlüssel                  | Typ       | Beschreibung                                                                                                                                                                                                                                                                                           |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `push_id`                  | `integer` | Unique identifier for the push.                                                                                                                                                                                                                                                                        |
+| `size`                     | `integer` | The number of commits in the push.                                                                                                                                                                                                                                                                     |
+| `distinct_size`            | `integer` | The number of distinct commits in the push.                                                                                                                                                                                                                                                            |
+| `ref`                      | `string`  | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.                                                                                                                                                                                                            |
+| `Head`                     | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                             |
+| `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                            |
+| `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
+| `commits[][sha]`           | `string`  | The SHA of the commit.                                                                                                                                                                                                                                                                                 |
+| `commits[][message]`       | `string`  | The commit message.                                                                                                                                                                                                                                                                                    |
+| `commits[][author]`        | `Objekt`  | The git author of the commit.                                                                                                                                                                                                                                                                          |
+| `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                                 |
+| `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                                        |
+| `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                            |
+| `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                                 |
 
 ### ReleaseEvent
 
-{{ site.data.reusables.webhooks.release_short_desc }}
+{% data reusables.webhooks.release_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.release_event_api_properties }}
-{{ site.data.reusables.webhooks.release_properties }}
+{% data reusables.webhooks.release_event_api_properties %}
+{% data reusables.webhooks.release_properties %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### SponsorshipEvent
 
-{{ site.data.reusables.webhooks.sponsorship_short_desc }}
+{% data reusables.webhooks.sponsorship_short_desc %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.sponsorship_event_api_properties }}
-{{ site.data.reusables.webhooks.sponsorship_properties}}
+{% data reusables.webhooks.sponsorship_event_api_properties %}
+{% data reusables.webhooks.sponsorship_properties %}
 {% endif %}
 
 ### WatchEvent
 
-{{ site.data.reusables.webhooks.watch_short_desc }}
+{% data reusables.webhooks.watch_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.watch_properties }}
+{% data reusables.webhooks.watch_properties %}

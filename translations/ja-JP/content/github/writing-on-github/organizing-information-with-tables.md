@@ -1,11 +1,12 @@
 ---
 title: 情報を表に編成する
-intro: 表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。
+intro: '表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。'
 redirect_from:
   - /articles/organizing-information-with-tables
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 表を作成する
@@ -72,5 +73,5 @@ versions:
 
 ### 参考リンク
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown の仕様](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)

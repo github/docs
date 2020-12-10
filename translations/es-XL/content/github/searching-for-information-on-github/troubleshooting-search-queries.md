@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de consultas de búsqueda
-intro: 'Si encuentras resultados inesperados cuando buscas en {{ site.data.variables.product.product_name }}, puedes solucionar los problemas revisando los problemas comunes y las limitaciones.'
+intro: 'Si encuentras resultados inesperados cuando buscas en {% data variables.product.product_name %}, puedes solucionar los problemas revisando los problemas comunes y las limitaciones.'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
@@ -16,7 +16,7 @@ Llegar a una interrupción no necesariamente significa que los resultados de bú
 
 ### Limitaciones sobre la longitud de la consulta
 
-Existen algunos límites en la longitud de las consultas cuando se busca en {{ site.data.variables.product.product_name }}:
+Existen algunos límites en la longitud de las consultas cuando se busca en {% data variables.product.product_name %}:
 
 * No se admiten consultas que superen los 256 caracteres
 * No puede elaborar una consulta que utilice más de cinco operadores `AND`, `OR` o `NOT`

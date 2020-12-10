@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Os parâmetros de consulta são partes opcionais de um URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa, um modelo de problema ou a página de formulário da versão no {{ site.data.variables.product.prodname_dotcom }}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
+Os parâmetros de consulta são partes opcionais de um URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa, um modelo de problema ou a página de formulário da versão no {% data variables.product.prodname_dotcom %}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
 
 Você deve ter as permissões adequadas para qualquer ação para usar o parâmetro de consulta equivalente. Por exemplo, é preciso ter permissão para criar versões que preencham previamente o formulário de versões. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository)."
 

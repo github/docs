@@ -1,6 +1,6 @@
 ---
 title: コミットに署名する
-intro: 'GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} や S/MIME{% endif %} を使って、ローカルでコミットに署名できます。'
+intro: You can sign commits locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +35,14 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
   # 署名済みのコミットを作成する
   ```
 2. コミットの作成後にGPGを使っている場合、設定したパスフレーズをGPGキーを作成する時に提供します。
-3. ローカルでのコミット作成が完了したら、{{ site.data.variables.product.product_name }} 上のリモートリポジトリにプッシュします。
+3. ローカルでのコミット作成が完了したら、{% data variables.product.product_name %} 上のリモートリポジトリにプッシュします。
   ```shell
   $ git push
   # ローカルコミットをリモートリポジトリにプッシュする
   ```
-4. {{ site.data.variables.product.product_name }}上で、プルリクエストに移動します。
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. On
+{% data variables.product.product_name %}, navigate to your pull request.
+{% data reusables.repositories.review-pr-commits %}
 5. ベリファイされた署名の詳しい情報を見るには、Verifiedをクリックします。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### 参考リンク

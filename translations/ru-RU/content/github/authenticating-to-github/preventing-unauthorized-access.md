@@ -1,6 +1,6 @@
 ---
 title: Preventing unauthorized access
-intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {{ site.data.variables.product.product_location }}. In such cases, changing your password prevents any unintended future access to your account and projects.'
+intro: 'You may be alerted to a security incident in the media, such as the discovery of the [Heartbleed bug](http://heartbleed.com/), or your computer could be stolen while you''re signed in to {% data variables.product.product_location %}. In such cases, changing your password prevents any unintended future access to your account and projects.'
 redirect_from:
   - /articles/preventing-unauthorized-access
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
+{% data variables.product.product_name %} requires a password to perform sensitive actions, such as adding new SSH keys, authorizing applications, or modifying team members.
 
 After changing your password, you should perform these actions to make sure that your account is secure:
 

@@ -5,13 +5,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O GitHub oferece suporte à renderização de dados tabulares na forma de arquivos *.csv* (separados por vírgula) e .*tsv* (separados por tubulação).
 
 ![Arquivo CSV de amostra renderizado](/assets/images/help/repository/rendered_csv.png)
 
-Quando visualizados, os arquivos _.csv_ ou _.tsv_ presentes em um commit para um repositório do {{ site.data.variables.product.product_name }} são renderizados como uma tabela interativa completa, com cabeçalhos e numeração da linha. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
+Quando visualizados, os arquivos _.csv_ ou _.tsv_ presentes em um commit para um repositório do {% data variables.product.product_name %} são renderizados como uma tabela interativa completa, com cabeçalhos e numeração da linha. Por padrão, vamos sempre presumir que a primeira linha é a linha de cabeçalho.
 
 Você pode criar um link para uma linha específica clicando no número da linha ou selecionar várias linhas mantendo a tecla Shift pressionada. Copie e envie a URL para um amigo.
 

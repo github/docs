@@ -10,8 +10,8 @@ versions:
 
 ### Creating a high availability replica
 
-1. Set up a new {{ site.data.variables.product.prodname_ghe_server }} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {{ site.data.variables.product.prodname_ghe_server }} instance"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
-2. In a browser, navigate to the new replica appliance's IP address and upload your {{ site.data.variables.product.prodname_enterprise }} license.
+1. Set up a new {% data variables.product.prodname_ghe_server %} appliance on your desired platform. The replica appliance should mirror the primary appliance's CPU, RAM, and storage settings. We recommend that you install the replica appliance in an independent environment. The underlying hardware, software, and network components should be isolated from those of the primary appliance. If you are a using a cloud provider, use a separate region or zone. For more information, see ["Setting up a {% data variables.product.prodname_ghe_server %} instance"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+2. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 3. Set an admin password that matches the password on the primary appliance and continue.
 4. Click **Configure as Replica**. ![Installation options with link to configure your new instance as a replica](/assets/images/enterprise/management-console/configure-as-replica.png)
 5. Under "Add new SSH key", type your SSH key. ![Add SSH key](/assets/images/enterprise/management-console/add-ssh-key.png)
@@ -24,12 +24,12 @@ versions:
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}
 11. To verify the status of each datastore's replication channel, use the `ghe-repl-status` command.
   ```shell
   $ ghe-repl-status
@@ -49,7 +49,7 @@ This example configuration uses a primary and two replicas, which are located in
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. By default, replicas are configured to the same datacenter{% if currentVersion ver_gt "enterprise-server@2.17" %}, and will now attempt to seed from an existing node in the same datacenter{% endif %}. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
+3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
 
   On the primary:
   ```shell

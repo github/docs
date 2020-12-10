@@ -9,22 +9,22 @@ redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
-intro: '{{ site.data.variables.product.prodname_enterprise }}11.10.xから2.1.23へ移行するには、新しいアプライアンスのインスタンスをセットアップし、以前のインスタンスからデータを移行しなければなりません。'
+intro: '{% data variables.product.prodname_enterprise %}11.10.xから2.1.23へ移行するには、新しいアプライアンスのインスタンスをセットアップし、以前のインスタンスからデータを移行しなければなりません。'
 versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.prodname_enterprise }}11.10.348以降からの移行がサポートされています。 {{ site.data.variables.product.prodname_enterprise }}11.10.348以前からの移行はサポートされていません。 いくつかのアップグレードを経て、まず11.10.348にアップグレードしなければなりません。 詳しい情報については11.10.348のアップグレード手順"[最新リリースへのアップグレード](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)"を参照してください。
+{% data variables.product.prodname_enterprise %}11.10.348以降からの移行がサポートされています。 {% data variables.product.prodname_enterprise %}11.10.348以前からの移行はサポートされていません。 いくつかのアップグレードを経て、まず11.10.348にアップグレードしなければなりません。 詳しい情報については11.10.348のアップグレード手順"[最新リリースへのアップグレード](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)"を参照してください。
 
-最新バージョンの {{ site.data.variables.product.prodname_enterprise }} にアップグレードするには、まず {{ site.data.variables.product.prodname_ghe_server }} 2.1 に移行する必要があります。その後、通常のアップグレードプロセスに従うことができます。 詳細は「[{{ site.data.variables.product.prodname_enterprise }} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」参照してください。
+最新バージョンの {% data variables.product.prodname_enterprise %} にアップグレードするには、まず {% data variables.product.prodname_ghe_server %} 2.1 に移行する必要があります。その後、通常のアップグレードプロセスに従うことができます。 詳細は「[{% data variables.product.prodname_enterprise %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」参照してください。
 
 ### 移行の準備
 
-1. プロビジョニング及びインストールガイドをレビューし、{{ site.data.variables.product.prodname_enterprise }}2.1.23を自分の環境にプロビジョニングして設定するのに必要な条件が満たされているかを確認してください。 詳しい情報については"[プロビジョニングとインストール](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)"を参照してください。
+1. プロビジョニング及びインストールガイドをレビューし、{% data variables.product.prodname_enterprise %}2.1.23を自分の環境にプロビジョニングして設定するのに必要な条件が満たされているかを確認してください。 詳しい情報については"[プロビジョニングとインストール](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)"を参照してください。
 2. 現在のインスタンスがサポートされているアップグレードバージョンを動作させていることを確認してください。
-3. 最新バージョンの {{ site.data.variables.product.prodname_enterprise_backup_utilities }} をセットアップします。 詳細は [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils) を参照してください。
-    - {{ site.data.variables.product.prodname_enterprise_backup_utilities }}を使ってすでにスケジューリングされたバックアップを設定しているなら、最新バージョンにアップデートしたことを確認してください。
-    - 現時点でスケジューリングされたバックアップを動作させていないなら、{{ site.data.variables.product.prodname_enterprise_backup_utilities }}をセットアップしてください。
+3. 最新バージョンの {% data variables.product.prodname_enterprise_backup_utilities %} をセットアップします。 詳細は [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils) を参照してください。
+    - {% data variables.product.prodname_enterprise_backup_utilities %}を使ってすでにスケジューリングされたバックアップを設定しているなら、最新バージョンにアップデートしたことを確認してください。
+    - 現時点でスケジューリングされたバックアップを動作させていないなら、{% data variables.product.prodname_enterprise_backup_utilities %}をセットアップしてください。
 4. `ghe-backup`コマンドを使って、現在のインスタンスの初めてのフルバックアップスナップショットを取ってください。 現在のインスタンスですでにスケジューリングされたバックアップを設定しているなら、インスタンスのスナップショットを取る必要はありません。
 
    {% tip %}
@@ -40,8 +40,8 @@ versions:
 
 ### 移行の実施
 
-1. 新しい{{ site.data.variables.product.prodname_enterprise }}2.1インスタンスをプロビジョニングしてください。 詳しい情報については、ターゲットのプラットフォームの"[プロビジョニングとインストール](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)"ガイドを参照してください。
-2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{{ site.data.variables.product.prodname_enterprise }}のライセンスをアップロードしてください。
+1. 新しい{% data variables.product.prodname_enterprise %}2.1インスタンスをプロビジョニングしてください。 詳しい情報については、ターゲットのプラットフォームの"[プロビジョニングとインストール](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)"ガイドを参照してください。
+2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
 3. 管理者パスワードを設定してください。
 5. **Migrate（移行）**をクリックしてください。 ![インストールタイプの選択](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. バックアップホストへのアクセス用のSSHキーを"Add new SSH key（新しいSSHキーの追加）"に貼り付けてください。 ![バックアップの認証](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
@@ -88,4 +88,4 @@ versions:
   {% endnote %}
 
 15. DNS または IP アドレスの割り当てのどちらかを使用して、ユーザーのネットワークトラフィックを古いインスタンスから新しいインスタンスに切り替えます。
-16. 最新のパッチリリース {{ currentVersion }} にアップグレードします。 詳細は「[{{ site.data.variables.product.prodname_ghe_server }} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
+16. 最新のパッチリリース {{ currentVersion }} にアップグレードします。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。

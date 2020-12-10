@@ -1,1 +1,0 @@
-对于购买 {{ site.data.variables.product.prodname_ghe_one }} 的客户，{{ site.data.variables.contact.premium_support }} 的初始响应时间 SLA 不适用于 {{ site.data.variables.product.prodname_actions }}、{{ site.data.variables.product.prodname_insights }}、{{ site.data.variables.product.prodname_learning }} 或 {{ site.data.variables.product.prodname_registry }} 事件单。

@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-リポジトリグラフは、{% if currentVersion == "free-pro-team@latest" %}トラフィック、リポジトリに依存するプロジェクト、{% endif %}リポジトリのコントリビューターとコミット、そしてリポジトリのフォークやネットワークに関する情報を提供します。 自分が管理しているリポジトリがある場合、このデータを使用すれば、リポジトリを誰が使っているのか、なぜ使っているのかをよりよく知ることができます。
+A repository's graphs give you information on {% if currentVersion == "free-pro-team@latest" %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. 自分が管理しているリポジトリがある場合、このデータを使用すれば、リポジトリを誰が使っているのか、なぜ使っているのかをよりよく知ることができます。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-リポジトリグラフの中には {{ site.data.variables.product.prodname_free_user }} のパブリックリポジトリでしか利用できないものもあります。
+リポジトリグラフの中には {% data variables.product.prodname_free_user %} のパブリックリポジトリでしか利用できないものもあります。
 - パルス
 - コントリビューター
 - トラフィック
@@ -21,7 +22,7 @@ versions:
 - コードの更新頻度
 - ネットワーク
 
-その他のリポジトリグラフは、すべてのリポジトリで利用できます。 {{ site.data.variables.product.prodname_pro }}、{{ site.data.variables.product.prodname_team }}、および {{ site.data.variables.product.prodname_ghe_cloud }} では、パブリックおよびプライベートリポジトリですべてのリポジトリグラフを利用できます。 {{ site.data.reusables.gated-features.more-info }}
+その他のリポジトリグラフは、すべてのリポジトリで利用できます。 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、および {% data variables.product.prodname_ghe_cloud %} では、パブリックおよびプライベートリポジトリですべてのリポジトリグラフを利用できます。 {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

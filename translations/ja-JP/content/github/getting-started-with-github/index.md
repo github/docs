@@ -1,7 +1,7 @@
 ---
 title: GitHub を使ってみる
 shortTitle: はじめましょう
-intro: '{{ site.data.variables.product.prodname_dotcom }} の製品について学び、アカウントにサインアップして、{{ site.data.variables.product.prodname_dotcom }} コミュニティを探索してみてください。'
+intro: '{% data variables.product.prodname_dotcom %} の製品について学び、アカウントにサインアップして、{% data variables.product.prodname_dotcom %} コミュニティを探索してみてください。'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/
@@ -15,6 +15,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

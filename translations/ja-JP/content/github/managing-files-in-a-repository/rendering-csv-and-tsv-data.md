@@ -5,13 +5,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 GitHub では、*.csv* (カンマ区切り) 形式および *.tsv* (タブ区切り) 形式のファイルのレンダリングがサポートされています。
 
 ![レンダリングされた CSV のサンプル](/assets/images/help/repository/rendered_csv.png)
 
-{{ site.data.variables.product.product_name }}リポジトリにコミットされた _.csv_ ファイルや _.tsv_ ファイルを開くと、自動的にレンダリングされ、ヘッダや行番号を備えたインタラクティブな表として表示されます。 デフォルトでは、常に 1 番目の行がヘッダ行であるとみなされます。
+{% data variables.product.product_name %}リポジトリにコミットされた _.csv_ ファイルや _.tsv_ ファイルを開くと、自動的にレンダリングされ、ヘッダや行番号を備えたインタラクティブな表として表示されます。 デフォルトでは、常に 1 番目の行がヘッダ行であるとみなされます。
 
 行番号をクリックして特定の行にリンクすることも、Shift キーを押して複数行を選択することもできます。 あとは URL をコピーして送るだけです。
 

@@ -9,6 +9,7 @@ intro: 'Wenn Du einen Pull Request in einem Repository geöffnet hast, können M
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Pull Requests
@@ -32,27 +33,27 @@ Um auf einen vorhandenen Zeilenkommentar zu antworten, navigiere auf der Registe
 {% tip %}
 
 **Tipps:**
-- Pull-Request-Kommentare unterstützen dieselbe [Formatierung](/categories/writing-on-github) wie reguläre Kommentare auf {{ site.data.variables.product.product_name }}, z. B. @Erwähnungen, Emojis und Verweise.
+- Pull-Request-Kommentare unterstützen dieselbe [Formatierung](/categories/writing-on-github) wie reguläre Kommentare auf {% data variables.product.product_name %}, z. B. @Erwähnungen, Emojis und Verweise.
 - Du kannst auf der Registerkarte **Files changed** (Dateien geändert) [Reaktionen](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) zu Kommentaren in Pull Requests hinzufügen.
 
 {% endtip %}
 
 ### Zeilenkommentare zu einem Pull Request hinzufügen
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, bei dem Du Zeilenkommentare einfügen möchtest.
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. Wenn Du fertig bist, klicke auf **Add single comment** (Einzelnen Kommentar hinzufügen). ![Inline-Kommentarfenster](/assets/images/help/commits/inline-comment.png)
 
 Alle, die den Pull Request oder das Repository beobachten, erhalten eine Benachrichtigung über Deinen Kommentar.
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Weiterführende Informationen
 
 - „[Einen Permalink zu einem Code-Ausschnitt erstellen](/articles/creating-a-permanent-link-to-a-code-snippet/)“
-{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
 {% endif %}

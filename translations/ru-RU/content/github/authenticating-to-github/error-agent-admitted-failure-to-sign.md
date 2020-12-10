@@ -1,18 +1,19 @@
 ---
 title: 'Error: Agent admitted failure to sign'
-intro: 'In rare circumstances, connecting to {{ site.data.variables.product.product_name }} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
+intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key/
   - /articles/error-agent-admitted-failure-to-sign
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-When trying to SSH into {{ site.data.variables.product.product_location }} on a Linux computer, you may see the following message in your terminal:
+When trying to SSH into {% data variables.product.product_location %} on a Linux computer, you may see the following message in your terminal:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > Agent admitted failure to sign using the key.
 > debug1: No more authentication methods to try.

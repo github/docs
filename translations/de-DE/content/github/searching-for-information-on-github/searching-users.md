@@ -1,16 +1,17 @@
 ---
 title: Benutzer durchsuchen
-intro: 'Auf {{ site.data.variables.product.product_name }} kannst Du Benutzer durchsuchen und die Suchergebnisse mit den nachfolgenden Qualifizierern der Benutzersuche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie Benutzer durchsuchen und die Suchergebnisse mit den folgenden Kennzeichnern der Benutzersuche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-users
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst auf {{ site.data.variables.product.product_name }} global nach Benutzern suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github).“
+Sie können auf {% data variables.product.product_name %} global nach Benutzern suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Suche nur nach Benutzern oder nur nach Organisationen
 
@@ -64,9 +65,9 @@ Mit dem Qualifizierer `language` kannst Du Benutzer auf Basis der Programmierspr
 
 ### Suche nach dem Erstellungsdatum eines Benutzerkontos
 
-Mit dem Qualifizierer `created` kannst Du Benutzer nach dem Datum ihres Beitritts zu {{ site.data.variables.product.product_name }} filtern. Der Qualifizierer verwendet als Parameter ein Datum. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Mit dem Qualifizierer `created` kannst Du Benutzer nach dem Datum ihres Beitritts zu {% data variables.product.product_name %} filtern. Der Qualifizierer verwendet als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer             | Beispiel                                                                                                                                                                                                                                       |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

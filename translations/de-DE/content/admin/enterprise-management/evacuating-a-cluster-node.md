@@ -24,7 +24,7 @@ Wenn Sie einen Knoten offline nehmen, der Datendienste aufweist (wie Git, Pages 
     ```
     ghe-spokes evac-status
     ```
-    Für {{ site.data.variables.product.prodname_pages }}
+    Für {% data variables.product.prodname_pages %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
@@ -39,7 +39,7 @@ Wenn Sie einen Knoten offline nehmen, der Datendienste aufweist (wie Git, Pages 
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
-    Für {{ site.data.variables.product.prodname_pages }}
+    Für {% data variables.product.prodname_pages %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```

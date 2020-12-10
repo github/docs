@@ -1,11 +1,12 @@
 ---
-title: 'Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork erstellt wurde'
-intro: 'Du kannst Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork Deines Repositorys erstellt wurde, wenn die Erlaubnis des Pull-Request-Erstellers vorliegt.'
+title: Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork erstellt wurde
+intro: Du kannst Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork Deines Repositorys erstellt wurde, wenn die Erlaubnis des Pull-Request-Erstellers vorliegt.
 redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits sind nur an Pull-Request-Branches möglich, auf die Folgendes zutrifft:
@@ -18,16 +19,18 @@ Nur der Benutzer, der den Pull Request erstellt hat, kann Dir die Erlaubnis erte
 
 {% note %}
 
-**Hinweis:** Du kannst auch Commits an einen Pull-Request-Branch von einem Fork Deines Repositorys über {{ site.data.variables.product.product_location }} machen, indem Du Deine eigene Kopie (oder Fork) des Forks Deines Repositorys erstellst und die Änderungen an denselben Head-Branch freigibst, auf dem die ursprünglichen Pull-Request-Änderungen vorgenommen wurden. Allgemeine Anleitungen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork).“
+**Hinweis:** Du kannst auch Commits an einen Pull-Request-Branch von einem Fork Deines Repositorys über {% data variables.product.product_location %} machen, indem Du Deine eigene Kopie (oder Fork) des Forks Deines Repositorys erstellst und die Änderungen an denselben Head-Branch freigibst, auf dem die ursprünglichen Pull-Request-Änderungen vorgenommen wurden. Allgemeine Anleitungen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork).“
 
 {% endnote %}
 
-1. Navigiere auf {{ site.data.variables.product.product_name }} zur Hauptseite des Forks (oder der Kopie Deines Repositorys), auf dem der Pull-Request-Branch erstellt wurde.
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. On
+
+{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **Tipp:** Wenn Du den Fork lieber mit {{ site.data.variables.product.prodname_desktop }} klonen möchtest, findest Du weitere Informationen unter „[Ein Repository zum {{ site.data.variables.product.prodname_desktop }} klonen](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop).“
+ **Tipp:** Wenn Du den Fork lieber mit {% data variables.product.prodname_desktop %} klonen möchtest, findest Du weitere Informationen unter „[Ein Repository zum {% data variables.product.prodname_desktop %} klonen](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop).“
 
  {% endtip %}
 4. Ändern Sie das aktuelle Arbeitsverzeichnis in den Speicherort, zu dem Sie das geklonte Verzeichnis herunterladen möchten.
@@ -36,11 +39,11 @@ Nur der Benutzer, der den Pull Request erstellt hat, kann Dir die Erlaubnis erte
   ```
 5. Geben Sie `git clone` ein, und fügen Sie dann die in Schritt 3 kopierte URL ein.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
 6. Drücke die **Eingabetaste**. Der lokale Klon wird erstellt.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -75,11 +78,11 @@ Nur der Benutzer, der den Pull Request erstellt hat, kann Dir die Erlaubnis erte
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
   > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-Deine neuen Commits werden auf dem ursprünglichen Pull Request auf {{ site.data.variables.product.product_location }} entsprechend wiedergegeben.
+Deine neuen Commits werden auf dem ursprünglichen Pull Request auf {% data variables.product.product_location %} entsprechend wiedergegeben.
 
 ### Weiterführende Informationen
 

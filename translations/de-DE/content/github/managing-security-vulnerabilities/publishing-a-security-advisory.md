@@ -1,6 +1,6 @@
 ---
 title: Einen Sicherheitshinweis veröffentlichen
-intro: 'Du kannst einen Sicherheitshinweis veröffentlichen, um Deine Community über eine Sicherheitslücke in Deinem Projekt zu informieren.'
+intro: Du kannst einen Sicherheitshinweis veröffentlichen, um Deine Community über eine Sicherheitslücke in Deinem Projekt zu informieren.
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory
@@ -20,7 +20,7 @@ Wenn Du einen Sicherheitshinweis erstellt hast, aber noch keine Details über di
 
 Wenn Du einen Sicherheitshinweis veröffentlichst, informierst Du Deine Community über die Sicherheitslücke, die im Sicherheitshinweis adressiert wird. Die Veröffentlichung eines Sicherheitshinweises erleichtert es Deiner Community, die Paket-Abhängigkeiten zu aktualisieren und die Auswirkungen der Sicherheitslücke zu untersuchen.
 
-{{ site.data.reusables.repositories.security-advisories-republishing }}
+{% data reusables.repositories.security-advisories-republishing %}
 
 Bevor Du einen Sicherheitshinweis veröffentlichst, kannst Du privat mit anderen zusammenarbeiten, um die Sicherheitslücke in einem temporären privaten Fork zu beheben. Weitere Informationen findest Du unter „[In einem temporären privaten Fork zusammenarbeiten, um eine Sicherheitslücke zu beheben](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability).“
 
@@ -43,11 +43,11 @@ Wenn Du Informationen in einem von Dir veröffentlichten Sicherheitshinweis aktu
 
 Personen mit Administratorberechtigungen auf einem Sicherheitshinweis können einen CVE-Identifikationsnummer für den Hinweis anfordern.
 
-{{ site.data.reusables.repositories.request-security-advisory-cve-id }} Weitere Informationen findest Du unter „[Über {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Klicke in der Liste „Security Advisories" (Sicherheitshinweise) auf den Hinweis für den Du eine CVE-Identifikationsnummer anfordern möchtest. ![Sicherheitshinweis in der Liste](/assets/images/help/security/security-advisory-in-list.png)
 5. Benutze das **Publish advisory** (Hinweis veröffentlichen) Dropdownmenü und klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![CVE-Identifikationsnummer im Dropdownmenü anfordern](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. Klicke auf **Request CVE** (CVE-Identifikationsnummer anfordern). ![Dropdownmenü „Request CVE" (CVE-Identifikationsnummer anfordern)](/assets/images/help/security/security-advisory-request-cve-button.png)
@@ -56,15 +56,15 @@ Personen mit Administratorberechtigungen auf einem Sicherheitshinweis können ei
 
 Die Veröffentlichung eines Sicherheitshinweises löscht den temporären privaten Fork für den Sicherheitshinweis.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Klicke in der Liste „Security Advisories“ (Sicherheitshinweise) auf den Hinweis, den Du veröffentlichen möchtest. ![Sicherheitshinweis in der Liste](/assets/images/help/security/security-advisory-in-list.png)
 5. Klicke unten auf der Seite auf **Publish advisory** (Hinweis veröffentlichen). ![Schaltfläche „Publish advisory“ (Hinweis veröffentlichen)](/assets/images/help/security/publish-advisory-button.png)
 
-### {{ site.data.variables.product.prodname_dependabot_alerts }} for published security advisories
+### {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
-{{ site.data.reusables.repositories.github-reviews-security-advisories }}
+{% data reusables.repositories.github-reviews-security-advisories %}
 
 ### Weiterführende Informationen
 

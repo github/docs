@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote rm` コマンドは 1 つの引数を取ります:
@@ -14,22 +15,22 @@ versions:
 
 ### サンプル
 
-These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
+次の例は (推奨されるとおり) [HTTPS を使用してクローンを作成](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)したと想定しています。
 
 ```shell
 $ git remote -v
 # 現在のリモートの表示
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー/リポジトリ</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー/リポジトリ</em>.git (push)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>フォーカー/リポジトリ</em>.git (fetch)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>フォーカー/リポジトリ</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>フォーカー/リポジトリ</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>フォーカー/リポジトリ</em>.git (push)
 
 $ git remote rm destination
 # リモートの削除
 $ git remote -v
 # 削除されていることの検証
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー/リポジトリ</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー/リポジトリ</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>オーナー/リポジトリ</em>.git (push)
 ```
 
 {% warning %}

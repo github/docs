@@ -1,6 +1,6 @@
 ---
 title: High Availabilityレプリカの削除
-intro: '{{ site.data.variables.product.prodname_ghe_server }} レプリカへのレプリケーションを一時的に停止することも、レプリケーションを恒久的に削除することもできます。'
+intro: '{% data variables.product.prodname_ghe_server %} レプリカへのレプリケーションを一時的に停止することも、レプリケーションを恒久的に削除することもできます。'
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica

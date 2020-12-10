@@ -1,1 +1,0 @@
-{{ site.data.variables.product.prodname_github_app }}s must have the `security_events` read permission to use this endpoint.

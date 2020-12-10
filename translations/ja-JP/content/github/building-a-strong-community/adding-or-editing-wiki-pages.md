@@ -1,22 +1,23 @@
 ---
 title: ウィキページを追加または編集する
-intro: 'ウィキページは、{{ site.data.variables.product.product_name }} 上で直接、あるいはコマンドラインを使ってローカルで追加および編集できます。'
+intro: 'ウィキページは、{% data variables.product.product_name %} 上で直接、あるいはコマンドラインを使ってローカルで追加および編集できます。'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface/
   - /articles/editing-wiki-pages-via-the-online-interface/
   - /articles/adding-and-editing-wik-pages-locally/
   - /articles/adding-and-editing-wiki-pages-locally/
   - /articles/adding-or-editing-wiki-pages
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ウィキページを追加する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. ページの右上にある [**New Page**] をクリックします。 ![ウィキの新規ページボタン](/assets/images/help/wiki/wiki_new_page_button.png)
 4. Markdown 以外のフォーマットで書くために、[Edit mode] ドロップダウンメニューを使い、他のフォーマットをクリックすることもできます。 ![ウィキのマークアップの選択](/assets/images/help/wiki/wiki_dropdown_markup.gif)
 5. テキストエディタを使って、ページの内容を追加してください。 ![ウィキの WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
@@ -25,8 +26,8 @@ versions:
 
 ### ウィキページを編集する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 4. ウィキサイドバーを使用して、変更したいページに移動してください。 ページの右上にある [**Edit**] をクリックしてください。 ![ウィキのページ編集ボタン](/assets/images/help/wiki/wiki_edit_page_button.png)
 5. テキストエディタを使って、ページの内容を編集します。 ![ウィキの WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. 変更内容を説明するコミットメッセージを入力します。 ![ウィキのコミットメッセージ](/assets/images/help/wiki/wiki_commit_message.png)

@@ -1,7 +1,7 @@
 ---
 title: Translated TOC
-productVersions:
-  dotcom: '*'
+versions:
+  free-pro-team: '*'
 ---
 
 ### 目次

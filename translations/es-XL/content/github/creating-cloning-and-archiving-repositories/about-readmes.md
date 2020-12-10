@@ -19,13 +19,13 @@ Un archivo README suele ser el primer elemento que verá un visitante cuando ent
 - Dónde pueden recibir ayuda los usuarios con tu proyecto
 - Quién mantiene y contribuye con el proyecto.
 
-Si colocas tu archivo README en la raíz de tu repositorio, `docs`, o en el directorio oculto `.github`, {{ site.data.variables.product.product_name }} lo reconocerá y automáticamente expondrá tu archivo README a los visitantes del repositorio.
+Si colocas tu archivo README en la raíz de tu repositorio, `docs`, o en el directorio oculto `.github`, {% data variables.product.product_name %} lo reconocerá y automáticamente expondrá tu archivo README a los visitantes del repositorio.
 
 ![Página principal del repositorio github/scientist y su archivo README](/assets/images/help/repository/repo-with-readme.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![El archivo de README en tu nombre de usuario/repositorio de nombre de usuario](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -33,11 +33,11 @@ Si colocas tu archivo README en la raíz de tu repositorio, `docs`, o en el dire
 
 ### Enlaces de sección en los archivos README y las páginas blob
 
-Muchos proyectos usan un índice al comienzo de un archivo README para dirigir a los usuarios a diferentes secciones del archivo. {{ site.data.reusables.repositories.section-links }}
+Muchos proyectos usan un índice al comienzo de un archivo README para dirigir a los usuarios a diferentes secciones del archivo. {% data reusables.repositories.section-links %}
 
 ### Enlaces relativos y rutas con imágenes en los archivos README
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Leer más
 

@@ -1,14 +1,14 @@
 ---
 title: Criando uma ação de etapas de execução compostas
 intro: 'Neste guia, você aprenderá a construir uma ação de etapas de execução compostas.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introdução
 
@@ -18,9 +18,9 @@ Ao terminar esse projeto, você saberá como criar sua própria ação de etapas
 
 ### Pré-requisitos
 
-Antes de começar, você criará um repositório {{ site.data.variables.product.product_name }}.
+Antes de começar, você criará um repositório {% data variables.product.product_name %}.
 
-1. Crie um repositório público novo no {{ site.data.variables.product.product_location }}. Você pode escolher qualquer nome de repositório, ou usar o exemplo `hello-world-composite-run-steps-action`. É possível adicionar esses arquivos após push do projeto no {{ site.data.variables.product.product_name }}. Para obter mais informações, consulte "[Criar um repositório novo](/articles/creating-a-new-repository)".
+1. Crie um repositório público novo no {% data variables.product.product_location %}. Você pode escolher qualquer nome de repositório, ou usar o exemplo `hello-world-composite-run-steps-action`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Criar um repositório novo](/articles/creating-a-new-repository)".
 
 1. Clone o repositório para seu computador. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
 
@@ -36,7 +36,7 @@ Antes de começar, você criará um repositório {{ site.data.variables.product.
   echo "Goodbye"
   ```
 
-1. No seu terminal, torne o `goodbye.sh` executável e marque-o no seu repositório.
+3. No seu terminal, torne `goodbye.sh` executável.
 
   ```shell
   chmod +x goodbye.sh
@@ -85,13 +85,26 @@ Antes de começar, você criará um repositório {{ site.data.variables.product.
 
   Para obter mais informações sobre como usar `github.action_path`, consulte "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-1. Criar nova etiqueta. Esse exemplo usa uma etiqueta chamada `v1` para o branch principal. Para obter mais informações, consulte "[Criar uma etiqueta](/github/managing-your-work-on-github/creating-a-label)".
+1. No seu terminal, verifique o seu arquivo `action.yml`.
+
+  ```shell
+  git add action.yml
+  git commit -m "Add action"
+  git push
+  ```
+
+1. No seu terminal, adicione uma tag. Este exemplo usa uma tag denominada `v1`. Para obter mais informações, consulte "[Sobre ações](/actions/creating-actions/about-actions#using-release-management-for-actions)".
+
+  ```shell
+  git tag -a -m "Description of this release" v1
+  git push --follow-tags
+  ```
 
 ### Testar sua ação em um fluxo de trabalho
 
 O código de fluxo de trabalho a seguir usa a ação hello world completa que você fez em "[Criando uma ação arquivo de metadados](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)".
 
-Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` em outro repositório, mas substitua `actions/hello-world-composite-run-steps-action@v1` pelo repositório e a etiqueta que você criou. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
+Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` em outro repositório, mas substitua `actions/hello-world-composite-run-steps-action@v1` pelo repositório e a tag que você criou. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
 {% raw %}
 **.github/workflows/main.yml**

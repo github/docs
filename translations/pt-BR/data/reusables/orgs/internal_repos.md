@@ -1,1 +1,0 @@
-Se sua organização está associada a uma conta corporativa usando {{ site.data.variables.product.prodname_ghe_cloud }} ou {{ site.data.variables.product.prodname_ghe_server }} 2.20+, `visibility` também pode ser `internal`.

@@ -11,11 +11,11 @@ versions:
 
 Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales o cambios de Git cuando divides una carpeta en un repositorio separado.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Cambia el directorio de trabajo actual a la ubicación donde deseas crear tu nuevo repositorio.
 3. Clona el repositorio que contiene la subcarpeta.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY-NAME</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY-NAME</em>
   ```
 4. Cambia el directorio de trabajo actual por tu repositorio clonado.
   ```shell
@@ -42,8 +42,8 @@ Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales 
     ```
   El repositorio debería ahora únicamente contener archivos que estuvieron en tu subcarpeta.
 
-6. [Crea un nuevo repositorio](/articles/creating-a-new-repository/) en {{ site.data.variables.product.product_name }}.
-7. En la parte superior de la página nueva Quick Setup del repositorio {{ site.data.variables.product.product_name }}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+6. [Crea un nuevo repositorio](/articles/creating-a-new-repository/) en {% data variables.product.product_name %}.
+7. En la parte superior de la página nueva Quick Setup del repositorio {% data variables.product.product_name %}, haz clic en {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar la URL del repositorio remoto. ![Copiar el campo de URL de repositorio remoto](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 
@@ -54,22 +54,22 @@ Si creas un nuevo clon del repositorio, no perderás ninguno de tus historiales 
 8. Verifica el nombre remoto existente para tu repositorio. Por ejemplo, `origin` o `upstream` son dos de las opciones comunes.
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY-NAME</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY-NAME</em>.git (push)
   ```
 
 9. Configura una URL remota nueva para tu nuevo repositorio utilizando el nombre remoto existente y la URL del repositorio remoto que copiaste en el paso 7.
   ```shell
-  git remote set-url origin https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
+  git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git
   ```
 10. Verifica que la URL remota haya cambiado con el nombre de tu nuevo repositorio.
   ```shell
   $ git remote -v
   # Verify new remote URL
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/NEW-REPOSITORY-NAME</em>.git (push)
   ```
-11. Sube tus cambios al nuevo repositorio en {{ site.data.variables.product.product_name }}.
+11. Sube tus cambios al nuevo repositorio en {% data variables.product.product_name %}.
   ```shell
   git push -u origin <em>BRANCH-NAME</em>
   ```

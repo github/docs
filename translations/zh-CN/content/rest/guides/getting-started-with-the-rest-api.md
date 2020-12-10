@@ -1,14 +1,14 @@
 ---
 title: REST API 入门指南
-intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
+intro: '从身份验证和一些端点示例开始，了解使用 REST API 的基础。'
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 让我们逐步了解在处理一些日常用例时涉及的核心 API 概念。
@@ -17,14 +17,14 @@ versions:
 
 大多数应用程序将使用您选择的语言 中现有的 [wrapper 库][wrappers]，但您必须先熟悉基础 API HTTP 方法。
 
-没有比使用 [cURL][curl] 更容易的入手方式了。{% if currentVersion == "free-pro-team@latest" %} 如果您使用其他客户的，请注意，您需要在请求中发送有效的 [用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
+没有比使用 [cURL][curl] 更容易的入手方式了。{% if currentVersion == "free-pro-team@latest" %} 如果您使用其他客户端，请注意，您需要在请求中发送有效的 [用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
 
 #### Hello World
 
 让我们先测试设置。 打开命令提示符并输入以下命令：
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -35,12 +35,12 @@ $ curl {{ site.data.variables.product.api_url_pre }}/zen
 
 ```shell
 # GET /users/defunkt
-$ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -49,13 +49,12 @@ $ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
 嗯，有点像 [JSON][json]。 我们来添加 `-i` 标志以包含标头：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -71,7 +70,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -86,16 +85,16 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 
 ### 身份验证
 
-未经身份验证的客户端每小时可以发出 60 个请求。 要每小时发出更多请求，我们需要进行_身份验证_。 事实上，使用 {{ site.data.variables.product.product_name }} API 做任何有意义的事情需要[身份验证][authentication]。
+未经身份验证的客户端每小时可以发出 60 个请求。 要每小时发出更多请求，我们需要进行_身份验证_。 事实上，使用 {% data variables.product.product_name %} API 做任何有意义的事情需要[身份验证][authentication]。
 
 #### 使用个人访问令牌
 
-使用 {{ site.data.variables.product.product_name }} API 进行身份验证的最简单和最佳的方式是[通过 OAuth 令牌](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)使用基本身份验证。 OAuth 令牌包括[个人访问令牌][personal token]。
+使用 {% data variables.product.product_name %} API 进行身份验证的最简单和最佳的方式是[通过 OAuth 令牌](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)使用基本身份验证。 OAuth 令牌包括[个人访问令牌][personal token]。
 
 使用 `-u` 标志设置您的用户名：
 
 ```shell
-$ curl -i -u <em>your_username</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -104,7 +103,7 @@ $ curl -i -u <em>your_username</em> {{ site.data.variables.product.api_url_pre }
 您可以使用 `-u "username:$token"` 并为 `token` 设置一个变量，以避免您的令牌留在 shell 历史记录中，这种情况应尽量避免。
 
 ```shell
-$ curl -i -u <em>username:$token</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -112,14 +111,20 @@ $ curl -i -u <em>username:$token</em> {{ site.data.variables.product.api_url_pre
 
 您可以使用[个人访问令牌设置页面][tokens settings]轻松[创建**个人访问令牌**][personal token]。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![个人令牌选择](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![个人令牌选择](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### 获取自己的用户个人资料
 
-经过正确的身份验证后，您可以利用与您的 {{ site.data.variables.product.product_name }} 帐户相关联的权限。 例如，尝试获取
+经过正确的身份验证后，您可以利用与您的 {% data variables.product.product_name %} 帐户相关联的权限。 例如，尝试获取
 
 ```shell
-$ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
 
 > {
 >   ...
@@ -133,7 +138,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.p
 > }
 ```
 
-此时，除了先前为 [@defunkt][defunkt github] 检索到的公共信息集之外，您还可以查看您的用户个人资料的非公共信息。 例如，您将在响应中看到 `plan` 对象，它提供有关帐户的 {{ site.data.variables.product.product_name }} 计划的详细信息。
+此时，除了先前为 [@defunkt][defunkt github] 检索到的公共信息集之外，您还可以查看您的用户个人资料的非公共信息。 例如，您将在响应中看到 `plan` 对象，它提供有关帐户的 {% data variables.product.product_name %} 计划的详细信息。
 
 #### 对应用程序使用 OAuth 令牌
 
@@ -144,7 +149,7 @@ OAuth 使用_令牌_。 令牌具有两大特点：
 * **可撤销访问权限**：用户可以随时撤销对第三方应用程序的授权
 * **有限访问权限**：用户可以在授权第三方应用程序前审查令牌将提供的具体访问权限。
 
-令牌应通过 [web 工作流程][webflow]进行创建。 应用程序将用户发送到 {{ site.data.variables.product.product_name }} 进行登录。 {{ site.data.variables.product.product_name }} 随后显示一个对话框，指示应用程序的名称以及应用程序经用户授权后具有的权限级别。 经用户授权访问后，{{ site.data.variables.product.product_name }} 将用户重定向到应用程序：
+令牌应通过 [web 工作流程][webflow]进行创建。 应用程序将用户发送到 {% data variables.product.product_name %} 进行登录。 {% data variables.product.product_name %} 随后显示一个对话框，指示应用程序的名称以及应用程序经用户授权后具有的权限级别。 经用户授权访问后，{% data variables.product.product_name %} 将用户重定向到应用程序：
 
 ![GitHub 的 OAuth 提示](/assets/images/oauth_prompt.png)
 
@@ -154,29 +159,29 @@ OAuth 使用_令牌_。 令牌具有两大特点：
 
 ### 仓库
 
-几乎任何有意义的使用 {{ site.data.variables.product.product_name }} 都会涉及到某种程度的仓库信息。 我们可以像之前获取用户详细信息一样 [`GET` 仓库详细信息][get repo]：
+几乎任何有意义的使用 {% data variables.product.product_name %} 都会涉及到某种程度的仓库信息。 我们可以像之前获取用户详细信息一样 [`GET` 仓库详细信息][get repo]：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/twbs/bootstrap
+$ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
 同样，我们可以查看[经身份验证用户的仓库][user repos api]：
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 或者，我们可以[列出其他用户的仓库][other user repos api]：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/repos
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
 或者，我们可以[列出组织的仓库][org repos api]：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/orgs/octo-org/repos
+$ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
 从这些调用返回的信息将取决于我们进行身份验证时令牌所具有的作用域：
@@ -187,7 +192,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/orgs/octo-org/repos
 如[文档][repos-api]所示，这些方法采用 `type` 参数，可根据用户对仓库的访问权限类型来过滤返回的仓库。 这样，我们可以只获取直接拥有的仓库、组织仓库或用户通过团队进行协作的仓库。
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/users/octocat/repos?type=owner"
+$ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
 在此示例中，我们只获取 octocat 拥有的仓库，而没有获取她协作的仓库。 请注意上面的引用 URL。 根据您的 shell 设置，cURL 有时需要一个引用 URL，否则它会忽略查询字符串。
@@ -195,7 +200,8 @@ $ curl -i "{{ site.data.variables.product.api_url_pre }}/users/octocat/repos?typ
 #### 创建仓库
 
 获取现有仓库的信息是一种常见的用例，但
-{{ site.data.variables.product.product_name }} API 也支持创建新的仓库。 要[创建仓库][create repo]，我们需要 `POST` 一些包含详细信息和配置选项的 JSON。
+{% data variables.product.product_name %} API 也支持创建新仓库。 要[创建仓库][create repo]，
+我们需要 `POST` 一些包含详细信息和配置选项的JSON。
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
@@ -205,7 +211,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
         "private": true, \
         "gitignore_template": "nanoc" \
       }' \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 在这个最小的示例中，我们为博客（也许要在 [GitHub Pages][pages] 上提供）创建了一个新仓库。 尽管博客将会公开，但我们将仓库设为私有。 在这一步中，我们还将使用自述文件和 [nanoc][nanoc] 风格的 [.gitignore 模板][gitignore templates]对其进行初始化。
@@ -215,7 +221,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 接下来，我们将获取新创建的仓库：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
+$ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
 > HTTP/1.1 404 Not Found
 
@@ -224,31 +230,31 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
 > }
 ```
 
-哦，不！ 它去哪儿了？ 因为我们创建仓库为 _私有_，所以需要经过身份验证才能看到它。 如果您是一位资深的 HTTP 用户，您可能会预期返回 `403`。 但由于我们不想泄露有关私有仓库的信息，因此在本例中，{{ site.data.variables.product.product_name }} API 返回 `404`，就好像说“我们既不能确认也不能否认这个仓库的存在”。
+哦，不！ 它去哪儿了？ 因为我们创建仓库为 _私有_，所以需要经过身份验证才能看到它。 如果您是一位资深的 HTTP 用户，您可能会预期返回 `403`。 但由于我们不想泄露有关私有仓库的信息，因此在本例中，{% data variables.product.product_name %} API 返回 `404`，就好像说“我们既不能确认也不能否认这个仓库的存在”。
 
 ### 议题
 
-{{ site.data.variables.product.product_name }} 上的议题 UI 旨在提供“恰到好处”的工作流程，不会妨碍您的其他工作。 通过 {{ site.data.variables.product.product_name }} [议题 API][issues-api]，您可以利用其他工具来提取数据或创建议题，以打造适合您的团队的工作流程。
+{% data variables.product.product_name %} 上的议题 UI 旨在提供“恰到好处”的工作流程，不会妨碍您的其他工作。 通过 {% data variables.product.product_name %} [议题 API][issues-api]，您可以利用其他工具来提取数据或创建议题，以打造适合您的团队的工作流程。
 
 与 github.com 一样，API 为经过身份验证的用户提供了一些查看议题的方法。 要 [查看您的所有议题][get issues api]，请调用 `GET /issues`：
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/issues
+    {% data variables.product.api_url_pre %}/issues
 ```
 
-要仅获取[您的某个 {{ site.data.variables.product.product_name }} 组织下的议题][get issues api]，请调用 `GET
+要仅获取[您的某个 {% data variables.product.product_name %} 组织下的议题][get issues api]，请调用 `GET
 /orgs/<org>/issues`：
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/orgs/rails/issues
+    {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
 我们还可以获取[单个仓库下的所有议题][repo issues api]：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
 #### 分页
@@ -256,12 +262,12 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
 一个 Rails 规模的项目有数千个议题。 我们需要[分页][pagination]，进行多次 API 调用来获取数据。 我们来重复上次调用，这次请注意响应标头：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
 > HTTP/1.1 200 OK
 
 > ...
-> Link: &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=30&gt;; rel="last"
+> Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
 > ...
 ```
 
@@ -280,10 +286,10 @@ $         "title": "New logo", \
 $         "body": "We should have one", \
 $         "labels": ["design"] \
 $       }' \
-$    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues
+$    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
 > HTTP/1.1 201 Created
-> Location: {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17
+> Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
 > {
@@ -302,7 +308,7 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     "gravatar_id": "7e19cd5486b5d6dc1ef90e671ba52ae0",
 >     "avatar_url": "https://secure.gravatar.com/avatar/7e19cd5486b5d6dc1ef90e671ba52ae0?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
 >     "id": 865,
->     "url": "{{ site.data.variables.product.api_url_pre }}/users/pengwynn"
+>     "url": "{% data variables.product.api_url_pre %}/users/pengwynn"
 >   },
 >   "closed_at": null,
 >   "updated_at": "2012-11-14T15:25:33Z",
@@ -313,13 +319,13 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     {
 >       "color": "ededed",
 >       "name": "design",
->       "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/labels/design"
+>       "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/labels/design"
 >     }
 >   ],
 >   "id": 8356941,
 >   "assignee": null,
 >   "state": "open",
->   "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17"
+>   "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17"
 > }
 ```
 
@@ -330,7 +336,7 @@ JSON 响应的 `Location` 响应标头和 `url` 字段为我们提供了一些�
 通过缓存未更改的信息来遵守速率限制，是成为一个良好 API 公民的重要特质。 API 支持[条件请求][conditional-requests]并帮助您正确行事。 请注意我们为获取 defunkt 的个人资料而进行的第一个调用：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
@@ -340,14 +346,14 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 
 ```shell
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
-$    {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$    {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 304 Not Modified
 ```
 
 `304` 状态表示该资源自上次请求以来没有发生改变，该响应将不包含任何正文。 另外，`304` 响应不计入您的[速率限制][rate-limiting]。
 
-耶！ 选择您已经了解 {{ site.data.variables.product.product_name }} API 的基础知识！
+耶！ 选择您已经了解 {% data variables.product.product_name %} API 的基础知识！
 
 * 基本 & OAuth 身份验证
 * 获取和创建仓库及议题
@@ -361,33 +367,33 @@ $    {{ site.data.variables.product.api_url_pre }}/users/defunkt
 [oauth]: /apps/building-integrations/setting-up-and-registering-oauth-apps/
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[repos-api]: /v3/repos/
-[repos-api]: /v3/repos/
+[repos-api]: /rest/reference/repos
+[repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
-[issues-api]: /v3/issues/
+[issues-api]: /rest/reference/issues
 [link-header]: http://www.w3.org/wiki/LinkHeader/
-[conditional-requests]: /v3/#conditional-requests
-[rate-limiting]: /v3/#rate-limiting
-[rate-limiting]: /v3/#rate-limiting
-[users api]: /v3/users/#get-a-user
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest#rate-limiting
+[users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
-[authentication]: /v3/#authentication
+[authentication]: /rest#authentication
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
-[pagination]: /v3/#pagination
-[get repo]: /v3/repos/#get-a-repository
-[create repo]: /v3/repos/#create-a-repository-for-the-authenticated-user
-[create issue]: /v3/issues/#create-an-issue
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
 [auth guide]: /guides/basics-of-authentication
-[user repos api]: /v3/repos/#list-repositories-for-the-authenticated-user
-[other user repos api]: /v3/repos/#list-repositories-for-a-user
-[org repos api]: /v3/repos/#list-organization-repositories
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /v3/issues/#list-repository-issues
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag

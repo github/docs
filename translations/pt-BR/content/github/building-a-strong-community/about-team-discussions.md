@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}
+{% data reusables.organizations.team-discussions-purpose %}
 
-Qualquer integrante da organização pode postar na página da equipe ou participar de uma discussão pública. {{ site.data.reusables.organizations.team-discussions-permissions }}
+Qualquer integrante da organização pode postar na página da equipe ou participar de uma discussão pública. {% data reusables.organizations.team-discussions-permissions %}
 
 ![Guia Discussions (Discussões) da página de equipe com discussões públicas e privadas](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -18,7 +19,7 @@ Você pode se vincular a qualquer discussão de equipe para fazer referência a 
 
 ![Guia de discussões fixada da página de equipe com discussão fixada](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{{ site.data.reusables.organizations.team-discussions-default }} Os proprietários podem desabilitar as discussões de equipe para a organização inteira. Para obter mais informações, consulte "[Desabilitar discussões de equipe para sua organização](/articles/disabling-team-discussions-for-your-organization)".
+{% data reusables.organizations.team-discussions-default %} Os proprietários podem desabilitar as discussões de equipe para a organização inteira. Para obter mais informações, consulte "[Desabilitar discussões de equipe para sua organização](/articles/disabling-team-discussions-for-your-organization)".
 
 ### Notificações para discussões de equipe
 
@@ -26,7 +27,7 @@ Quando alguém posta ou responde a uma discussão pública na página de uma equ
 
 {% tip %}
 
-**Dica:** dependendo das suas configurações de notificação, você receberá atualizações por e-mail, pela página de notificações da web no {{ site.data.variables.product.product_name }}, ou por ambos. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" e "[Sobre notificações da web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Dica:** dependendo das suas configurações de notificação, você receberá atualizações por e-mail, pela página de notificações da web no {% data variables.product.product_name %}, ou por ambos. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[Sobre notificações de e-mail](/github/receiving-notifications-about-activity-on-github/about-email-notifications)e "[Sobre notificações da web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
 
 {% endtip %}
 
@@ -34,11 +35,11 @@ Por padrão, se seu nome de usuário for mencionado em uma discussão de equipe,
 
 Para desativar notificações de discussões de equipe, você pode cancelar a assinatura de uma postagem de discussão específica ou alterar as configurações de notificação para cancelar a inspeção ou ignorar completamente discussões de uma equipe específica. É possível assinar para receber notificações de uma postagem de discussão específica se você estiver cancelando a inspeção de discussões dessa equipe.
 
-Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Cadastrar-se e descadastrar-se para receber notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" e "[Equipes aninhadas](/articles/about-teams/#nested-teams)."
+Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Visualizar suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Assinar e cancelar a assinatura das notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" e "[Equipes aninhadas](/articles/about-teams/#nested-teams)".
 
 ### Leia mais
 
-- "[Sobre conversas no {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github)"
+- "[Sobre conversas no {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
 - "[Sobre equipes](/articles/about-teams)"
 - "[Criar uma discussão de equipe](/articles/creating-a-team-discussion)"
 - "[Editar ou excluir uma discussão de equipe](/articles/editing-or-deleting-a-team-discussion)"

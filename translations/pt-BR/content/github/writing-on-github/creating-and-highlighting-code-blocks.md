@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Blocos de código isolados
@@ -47,5 +48,5 @@ Usamos [Linguist](https://github.com/github/linguist) para executar a detecção
 
 ### Leia mais
 
-- [Especificações de markdown em estilo {{ site.data.variables.product.prodname_dotcom }}](https://github.github.com/gfm/)
+- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
 - "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"

@@ -1,19 +1,19 @@
 ---
 title: アップグレードやダウングレードは支払い処理にどのように影響しますか?
-intro: 個人アカウントまたは Organization のプランをアップグレードした場合、すぐに変更が適用されます。 プランをダウングレードした場合、現在の支払いサイクルの終了時に変更が適用されます。
+intro: '個人アカウントまたは Organization のプランをアップグレードした場合、すぐに変更が適用されます。 プランをダウングレードした場合、現在の支払いサイクルの終了時に変更が適用されます。'
 redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:
   free-pro-team: '*'
 ---
 
-有料ユーザアカウントまたは Organization のプランを変更しても、{{ site.data.variables.large_files.product_name_long }} など他の有料 {{ site.data.variables.product.prodname_dotcom }} 機能や、{{ site.data.variables.product.prodname_marketplace }} で購入した有料アプリケーションには影響しません。
+有料ユーザアカウントまたは Organization のプランを変更しても、{% data variables.large_files.product_name_long %} など他の有料 {% data variables.product.prodname_dotcom %} 機能や、{% data variables.product.prodname_marketplace %} で購入した有料アプリケーションには影響しません。
 
-詳細は「[{{ site.data.variables.product.prodname_dotcom }} の製品](/articles/github-s-products)」および「[{{ site.data.variables.product.prodname_dotcom }} の支払いについて](/articles/about-billing-on-github)」を参照してください。
+詳細は「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」および「[{% data variables.product.prodname_dotcom %} の支払いについて](/articles/about-billing-on-github)」を参照してください。
 
 #### 個人アカウントまたは Organization の有償プランのキャンセル例
 
-久美子さんは、毎月 5 日に月次プランの支払いを行っています。 久美子さんが 10 月 10 日に有料プランから {{ site.data.variables.product.prodname_free_user }} にダウングレードした場合、有料プランは現在の支払いサイクルが終了する 11 月 4 日までは有効のままになります。 11 月 5 日に、久美子さんのアカウントは {{ site.data.variables.product.prodname_free_user }} に移行します。
+久美子さんは、毎月 5 日に月次プランの支払いを行っています。 久美子さんが 10 月 10 日に有料プランから {% data variables.product.prodname_free_user %} にダウングレードした場合、有料プランは現在の支払いサイクルが終了する 11 月 4 日までは有効のままになります。 11 月 5 日に、久美子さんのアカウントは {% data variables.product.prodname_free_user %} に移行します。
 
 #### 個人アカウントまたは Organization の年次プランから月次プランへの変更例
 
@@ -29,7 +29,7 @@ versions:
 
 ### 参考リンク
 
-- 「[{{ site.data.variables.product.prodname_dotcom }} アカウントの支払いを管理する](/articles/managing-billing-for-your-github-account)」
-- 「[{{ site.data.variables.product.prodname_marketplace }} アプリケーションの支払いを管理する](/articles/managing-billing-for-github-marketplace-apps)」
-- 「[{{ site.data.variables.large_files.product_name_long }} の支払いを管理する](/articles/managing-billing-for-git-large-file-storage)」
+- 「[{% data variables.product.prodname_dotcom %} アカウントの支払いを管理する](/articles/managing-billing-for-your-github-account)」
+- [{% data variables.product.prodname_marketplace %} アプリの支払いを管理する](/articles/managing-billing-for-github-marketplace-apps)
+- 「[{% data variables.large_files.product_name_long %} の支払いを管理する](/articles/managing-billing-for-git-large-file-storage)」
 - [ユーザごとの価格付けについて](/articles/about-per-user-pricing)

@@ -1,35 +1,38 @@
 ---
 title: Managing complex workflows
 shortTitle: Managing complex workflows
-intro: 'This guide shows you how to use the advanced features of {{ site.data.variables.product.prodname_actions }}, with secret management, dependent jobs, caching, build matrices, and labels.'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, and labels.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Overview
 
-This article describes some of the advanced features of {{ site.data.variables.product.prodname_actions }} that help you work create more complex workflows. 
+This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows.
 
 ### Storing secrets
 
-If your workflows use sensitive data, such as passwords or certificates, you can save these in {{ site.data.variables.product.prodname_dotcom }} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow. 
+If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow.
 
 This example action demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
+{% raw %}
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
         env:
           super_secret: ${{ secrets.SUPERSECRET }}
         run: |
-          example-command "$SUPER_SECRET"
+          example-command "$super_secret"
 ```
+{% endraw %}
 
 For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
@@ -47,13 +50,14 @@ jobs:
       - run: ./setup_server.sh
   build:
     needs: setup
+    runs-on: ubuntu-latest
     steps:
       - run: ./build_server.sh
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
@@ -62,6 +66,7 @@ For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-sy
 
 You can use a build matrix if you want your workflow to run tests across multiple combinations of operating systems, platforms, and languages. The build matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this build matrix will run the job multiple times, using different versions of Node.js:
 
+{% raw %}
 ```yaml
 jobs:
   build:
@@ -74,15 +79,17 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 ```
+{% endraw %}
 
 For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 ### Caching dependencies
 
-{{ site.data.variables.product.prodname_dotcom }}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository. 
+{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
 This example demonstrates how to cache the ` ~/.npm` directory:
 
+{% raw %}
 ```yaml
 jobs:
   example-job:
@@ -97,8 +104,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
 ```
+{% endraw %}
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)."
+For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 ### Using databases and service containers
 
@@ -128,18 +136,18 @@ For more information, see "[Using databases and service containers](/actions/con
 
 ### Using labels to route workflows
 
-This feature helps you assign jobs to a specific self-hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way. 
+This feature helps you assign jobs to a specific self-hosted runner. If you want to be sure that a particular type of runner will process your job, you can use labels to control where jobs are executed. You can assign labels to a self-hosted runner, and then refer to these labels in your YAML workflow, ensuring that the job is routed in a predictable way.
 
 This example shows how a workflow can use labels to specify the required runner:
 
 ```yaml
 jobs:
   example-job:
-      runs-on: [self-hosted, linux, x64, gpu]
+    runs-on: [self-hosted, linux, x64, gpu]
 ```
 
 For more information, see  ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
 ### Next steps
 
-To continue learning about {{ site.data.variables.product.prodname_actions }}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."

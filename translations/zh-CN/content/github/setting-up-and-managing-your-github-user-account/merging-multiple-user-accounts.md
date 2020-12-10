@@ -1,6 +1,6 @@
 ---
 title: 合并多个用户帐户
-intro: 如果工作和个人分别使用不同的帐户，您可以合并这些帐户。
+intro: '如果工作和个人分别使用不同的帐户，您可以合并这些帐户。'
 redirect_from:
   - /articles/can-i-merge-two-accounts/
   - /articles/keeping-work-and-personal-repositories-separate/
@@ -21,4 +21,4 @@ versions:
 
 ### 延伸阅读
 
-- "[{{ site.data.variables.product.prodname_dotcom }} 帐户的类型](/articles/types-of-github-accounts)"
+- "[{% data variables.product.prodname_dotcom %} 帐户的类型](/articles/types-of-github-accounts)"

@@ -1,1 +1,0 @@
-对于购买 {{ site.data.variables.product.prodname_ghe_one }} 的客户，{{ site.data.variables.product.premium_plus_support_plan }} 的支持条款不同于 {{ site.data.variables.product.prodname_actions }}、{{ site.data.variables.product.prodname_insights }}、{{ site.data.variables.product.prodname_learning }} 和 {{ site.data.variables.product.prodname_registry }} 的支持条款。

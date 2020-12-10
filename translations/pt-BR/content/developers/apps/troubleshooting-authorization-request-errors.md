@@ -1,12 +1,13 @@
 ---
 title: Solucionar problemas de erros de solicitação de autorização
-intro: '{{ site.data.reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps }}'
+intro: '{% data reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors/
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Aplicativo suspenso
@@ -18,7 +19,7 @@ Se o aplicativo OAuth que você configurou foi suspenso (em razão de abusos, sp
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23application-suspended
       &state=xyz
 
-Para resolver problemas com aplicativos suspensos, entre em contato com {{ site.data.variables.contact.contact_support }}.
+Para resolver problemas com aplicativos suspensos, entre em contato com {% data variables.contact.contact_support %}.
 
 ### Erro no redirecionamento do URI
 

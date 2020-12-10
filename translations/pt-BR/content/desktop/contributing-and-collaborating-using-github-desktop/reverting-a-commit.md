@@ -17,16 +17,16 @@ Ao reverter para um commit anterior, a reversão também passa a ser um commit. 
 
 {% mac %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![Opção Revert (Reverter) acima da exibição diff](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![Opção Revert (Reverter) acima da exibição diff](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

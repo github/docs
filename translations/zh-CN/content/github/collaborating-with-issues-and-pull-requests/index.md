@@ -1,6 +1,6 @@
 ---
 title: 使用议题和拉取请求进行协作
-intro: '使用 {{ site.data.variables.product.prodname_dotcom }} 流跟踪和讨论议题中的更改，然后提出和审查拉取请求中的更改。'
+intro: '使用 {% data variables.product.prodname_dotcom %} 流跟踪和讨论议题中的更改，然后提出和审查拉取请求中的更改。'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -28,7 +29,7 @@ versions:
     {% link_in_list /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility %}
 {% topic_link_in_list /collaborating-on-repositories-with-code-quality-features %}
     {% link_in_list /about-status-checks %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /working-with-pre-receive-hooks %}
 <!-- endif -->
 {% topic_link_in_list /proposing-changes-to-your-work-with-pull-requests %}

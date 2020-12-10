@@ -1,19 +1,20 @@
 ---
 title: Pesquisar vulnerabilidades de segurança no banco de dados de consultoria do GitHub
-intro: 'O {{ site.data.variables.product.prodname_advisory_database }} permite que você pesquise vulnerabilidades que afetam projetos de código aberto no {{ site.data.variables.product.company_short }}.'
+intro: 'O {% data variables.product.prodname_advisory_database %} permite que você pesquise vulnerabilidades que afetam projetos de código aberto no {% data variables.product.company_short %}.'
+shortTitle: Navegar no banco de dados da consultoria
 versions:
   free-pro-team: '*'
 ---
 
 ### Sobre vulnerabilidades de segurança
 
-{{ site.data.reusables.repositories.a-vulnerability-is }}
+{% data reusables.repositories.a-vulnerability-is %}
 
-O {{ site.data.variables.product.product_name }} enviará {{ site.data.variables.product.prodname_dependabot_alerts }} se detectarmos que qualquer uma das vulnerabilidades do {{ site.data.variables.product.prodname_advisory_database }} afetam os pacotes dos quais seu repositório depende. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
+O {% data variables.product.product_name %} enviará {% data variables.product.prodname_dependabot_alerts %} se detectarmos que qualquer uma das vulnerabilidades do {% data variables.product.prodname_advisory_database %} afetam os pacotes dos quais seu repositório depende. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
 
-### Sobre o {{ site.data.variables.product.prodname_advisory_database }}
+### Sobre o {% data variables.product.prodname_advisory_database %}
 
-O {{ site.data.variables.product.prodname_advisory_database }} contém uma lista curada de vulnerabilidades de segurança que foram mapeadas para pacotes monitorados pelo gráfico de dependências de {{ site.data.variables.product.company_short }}. {{ site.data.reusables.repositories.tracks-vulnerabilities }}
+O {% data variables.product.prodname_advisory_database %} contém uma lista curada de vulnerabilidades de segurança que foram mapeadas para pacotes monitorados pelo gráfico de dependências de {% data variables.product.company_short %}. {% data reusables.repositories.tracks-vulnerabilities %}
 
 Cada consultoria de segurança contém informações sobre a vulnerabilidade, incluindo descrição, gravidade, pacote afetado. ecossistema de pacote, versões afetadas e versões de patch, impacto e informações opcionais como, por exemplo, referências, soluções alternativas e créditos. Além disso, a consultoria da lista de Bancos de Vulnerabilidade Nacional contêm um link para o registro CVE, onde você pode ler mais detalhes sobre a vulnerabilidade, suas pontuações CVSS e seu nível de gravidade qualitativa. Para obter mais informações, consulte a "[Base de Dados de Vulnerabilidade Nacional](https://nvd.nist.gov/)" do Instituto Nacional de Padrões e Tecnologia.
 
@@ -23,11 +24,11 @@ O nível de gravidade é um dos quatro níveis possíveis definidos no [Sistema 
 - Alto
 - Crítico
 
-O {{ site.data.variables.product.prodname_advisory_database }} usa padrões a versão 3.0 do CVSS e os níveis de CVSS descritos acima. {{ site.data.variables.product.product_name }} não publica pontuações de CVSS.
+O {% data variables.product.prodname_advisory_database %} usa padrões a versão 3.0 do CVSS e os níveis de CVSS descritos acima. {% data variables.product.product_name %} não publica pontuações de CVSS.
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
-### Acessar uma consultoria no {{ site.data.variables.product.prodname_advisory_database }}
+### Acessar uma consultoria no {% data variables.product.prodname_advisory_database %}
 
 1. Navegue até https://github.com/advisories.
 2. Opcionalmente, para filtrar a lista, use qualquer um dos menus suspensos. ![Filtros do menu suspenso](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -39,12 +40,12 @@ O banco de dados também pode ser acessado usando a API do GraphQL. Para obter m
 
 {% endnote %}
 
-### Pesquisar em {{ site.data.variables.product.prodname_advisory_database }}
+### Pesquisar em {% data variables.product.prodname_advisory_database %}
 Você pode pesquisar no banco de dados e usar qualificadores para restringir sua pesquisa com consultorias criadas em uma determinada data, em um ecossistema específico ou em uma biblioteca específica.
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier             | Exemplo                                                                                                                                                                    |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

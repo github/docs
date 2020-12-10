@@ -8,9 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
+### About READMEs
+
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+
+For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
 
 A README is often the first item a visitor will see when visiting your repository. README files typically include information on:
 - What the project does
@@ -19,13 +24,17 @@ A README is often the first item a visitor will see when visiting your repositor
 - Where users can get help with your project
 - Who maintains and contributes to the project
 
-If you put your README file in your repository's root, `docs`, or hidden `.github` directory, {{ site.data.variables.product.product_name }} will recognize and automatically surface your README to repository visitors.
+If you put your README file in your repository's root, `docs`, or hidden `.github` directory, {% data variables.product.product_name %} will recognize and automatically surface your README to repository visitors.
 
 ![Main page of the github/scientist repository and its README file](/assets/images/help/repository/repo-with-readme.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
+
+{% data reusables.profile.profile-readme %}
+
+{% endif %}
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -33,11 +42,11 @@ If you put your README file in your repository's root, `docs`, or hidden `.githu
 
 ### Section links in README files and blob pages
 
-Many projects use a table of contents at the start of a README to direct users to different sections of the file. {{ site.data.reusables.repositories.section-links }}
+Many projects use a table of contents at the start of a README to direct users to different sections of the file. {% data reusables.repositories.section-links %}
 
 ### Relative links and image paths in README files
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Дополнительная литература
 

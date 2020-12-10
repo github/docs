@@ -12,7 +12,7 @@ versions:
 
 Los propietarios de la organización pueden cambiar el padre de cualquier equipo. Los mantenedores del equipo pueden cambiar el equipo padre de un equipo si son mantenedores tanto en el equipo hijo como en el equipo padre. Los mantenedores del equipo sin permisos de mantenedor en el equipo hijo puede solicitar agregar un equipo padre o hijo. Para obtener más información, consulta "[Solicitar agregar o cambiar un equipo padre](/articles/requesting-to-add-or-change-a-parent-team)" y "[Solicitar agregar un equipo hijo](/articles/requesting-to-add-a-child-team)."
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
@@ -22,14 +22,14 @@ Los propietarios de la organización pueden cambiar el padre de cualquier equipo
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. En la lista de equipos, haz clic en el nombre del equipo cuyo padre deseas cambiar. ![Lista de los equipos de la organización](/assets/images/help/teams/click-team-name.png)
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.organizations.team_settings %}
 6. Utiliza el menú desplegable para elegir un equipo padre, o para eliminar un equipo padre existente, selecciona **Clear selected value (Borrar el valor seleccionado)**. ![Menú desplegable que detalla los equipos de la organización](/assets/images/help/teams/choose-parent-team.png)
 7. Da clic en **Actualizar**.
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Haz clic en **Confirm new parent team (Confirmar nuevo equipo padre)**. ![Casilla modal con información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### Leer más

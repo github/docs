@@ -27,19 +27,19 @@ Un revisión tiene tres posibles estado:
 
 ![Imagen de los estados de revisión](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 Puedes ver todas las revisiones que ha recibido una solicitud de extracción en la cronología de conversaciones y puedes ver las revisiones realizadas por los colaboradores y los propietarios del repositorio en la casilla de fusión de la solicitud de extracción.
 
 ![Imagen de las revisiones en una casilla de fusión](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Revisiones requeridas
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 Para obtener más información, consulta "[Acerca de las revisiones requeridas para las solicitudes de extracción](/articles/about-required-reviews-for-pull-requests)".
 

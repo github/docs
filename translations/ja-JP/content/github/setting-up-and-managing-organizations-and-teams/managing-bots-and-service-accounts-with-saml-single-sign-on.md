@@ -1,7 +1,7 @@
 ---
 title: SAML シングルサインオンでボットおよびサービスアカウントを管理する
 intro: SAML シングルサインオンを有効にしている Organization は、ボットおよびサービスアカウントへのアクセスを維持できます。
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:

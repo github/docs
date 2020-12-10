@@ -3,17 +3,18 @@ title: ソーシャル機能
 redirect_from:
   - /be-social/
   - /articles/be-social
-intro: '{{ site.data.variables.product.prodname_dotcom }} 上で、人々、リポジトリ、Organization と関わることができます。 個人ダッシュボードから、他の人々がどんな作業をしていて、何とつながっているのかを見てください。'
+intro: '{% data variables.product.prodname_dotcom %} 上で、人々、リポジトリ、Organization と関わることができます。 個人ダッシュボードから、他の人々がどんな作業をしていて、何とつながっているのかを見てください。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
 
 ### 人をフォローする
 
-{{ site.data.variables.product.product_location }} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
+{% data variables.product.product_location %} 上で人をフォローすれば、その人のアクティビティについてパーソナルダッシュボードで通知を受けられます。 詳しい情報については[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard)を参照してください。
 
 人をフォローするには、その人のプロフィールページで [**Follow**] をクリックします。
 
@@ -21,7 +22,7 @@ versions:
 
 ### リポジトリを Watch する
 
-リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[サブスクリプションを表示する](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}「[リポジトリを Watch および Watch 解除する](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}」を参照してください。
+リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 リポジトリを Watch するには、リポジトリの上部で [**Watch**] をクリックします。
 
@@ -29,7 +30,7 @@ versions:
 
 ### 会話に参加する
 
-{{ site.data.reusables.support.ask-and-answer-forum }}
+{% data reusables.support.ask-and-answer-forum %}
 
 ### さらなる活動
 
@@ -51,13 +52,13 @@ Organizationは、企業やオープンソースプロジェクトが多くの�
 
 ![アカウントのコンテキストの切り替えのドロップダウン](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-#### {{ site.data.variables.product.prodname_dotcom }} 上の他のプロジェクトを調べる
+#### {% data variables.product.prodname_dotcom %} 上の他のプロジェクトを調べる
 
-{{ site.data.variables.explore.explore_github }}、[リポジトリを調べる](https://github.com/explore)、そして {{ site.data.variables.explore.trending_page }} を使って、興味深いプロジェクトを見つけてください。 興味深いプロジェクトに Star を付け、後から戻っていってください。 {{ site.data.variables.explore.your_stars_page }} にアクセスすれば、Star を付けたすべてのプロジェクトを見ることができます。  詳細は「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard/)」を参照してください。
+{% data variables.explore.explore_github %}、[リポジトリを調べる](https://github.com/explore)、そして {% data variables.explore.trending_page %} を使って、興味深いプロジェクトを見つけてください。 興味深いプロジェクトに Star を付け、後から戻っていってください。 {% data variables.explore.your_stars_page %} にアクセスすれば、Star を付けたすべてのプロジェクトを見ることができます。  詳細は「[パーソナルダッシュボードについて](/articles/about-your-personal-dashboard/)」を参照してください。
 
 ### おめでとうございます
 
-これで、{{ site.data.variables.product.product_name }} コミュニティにつながりました。 次に何をしたいですか?
+これで、{% data variables.product.product_name %} コミュニティにつながりました。 次に何をしたいですか?
 
 ![プロジェクトに Star を付ける](/assets/images/help/stars/star-a-project.png)
 
@@ -65,4 +66,4 @@ Organizationは、企業やオープンソースプロジェクトが多くの�
 - [リポジトリの作成](/articles/create-a-repo)
 - [リポジトリのフォーク](/articles/fork-a-repo)
 - **ソーシャル機能**
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

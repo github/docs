@@ -4,10 +4,11 @@ intro: CODEOWNERS ファイルを使い、リポジトリ中のコードに対�
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 管理者あるいはオーナー権限を持つ人は、リポジトリ中に CODEOWNERS ファイルをセットアップできます。
@@ -20,9 +21,9 @@ versions:
 
 管理者あるいはオーナー権限を持つ誰かがレビュー必須を有効化した場合、作者がリポジトリ中でプルリクエストをマージできるための条件としてコードオーナーからの承認を必須とすることもできます。 詳しい情報については、「[プルリクエストの必須レビューを有効にする](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Team がコードレビューの割り当てを有効にしている場合、個々の承認は、保護されたブランチでのコードオーナーの承認要件を満たしません。 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. 詳しい情報については、「[Team のコードレビューの割り当てを管理する](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ファイルにコードオーナーがいる場合、プルリクエストをオープンする前にコードオーナーを確認できます。 In the repository, you can browse to the file and hover over
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 
@@ -33,15 +34,15 @@ versions:
 
 CODEOWNERS ファイルを使うためには、コードオーナーを追加したいブランチで、リポジトリのルート、`docs/`、`.github/` のいずれかのディレクトリに `CODEOWNERS` という新しいファイルを作成してください。
 
-各CODEOWNERSファイルは、リポジトリ内の単一のブランチにコードオーナーを割り当てます。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {{ site.data.variables.product.prodname_pages }} site on the `gh-pages` branch.
+各CODEOWNERSファイルは、リポジトリ内の単一のブランチにコードオーナーを割り当てます。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 コードオーナーがレビューのリクエストを受け取るためには、CODEOWNERS ファイルがプルリクエストの base ブランチになければなりません。 たとえばリポジトリ中の`gh-pages`ブランチの、*.js*ファイルのコードオーナーとして`@octocat`を割り当てたなら、*.js*に変更を加えるプルリクエストがheadブランチと`gh-pages`の間でオープンされると、`@octocat`はレビューのリクエストを受けることになります。
 
 ### CODEOWNERSの構文
 
-CODEOWNERS ファイルは、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使われているのと同じルールに従うパターンを利用します。 パターンの後には1つ以上の{{ site.data.variables.product.prodname_dotcom }}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 たとえば `user@example.com` のような、ユーザの {{ site.data.variables.product.product_name }} アカウントに追加されたメールアドレスでユーザを参照することもできます。
+CODEOWNERS ファイルは、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使われているのと同じルールに従うパターンを利用します。 パターンの後には1つ以上の{% data variables.product.prodname_dotcom %}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 たとえば `user@example.com` のような、ユーザの {% data variables.product.product_name %} アカウントに追加されたメールアドレスでユーザを参照することもできます。
 
-CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。 無効な構文には、{{ site.data.variables.product.product_name }} に存在しないインラインコメントとユーザ名または Team 名が含まれます。
+CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。 無効な構文には、{% data variables.product.product_name %} に存在しないインラインコメントとユーザ名または Team 名が含まれます。
 #### CODEOWNERS ファイルの例
 ```
 # これはコメントです。
@@ -78,8 +79,9 @@ docs/*  docs@example.com
 # appsディレクトリ内のすべてのファイルのオーナーになります。
 apps/ @octocat
 
-# この例では、@doctocatはリポジトリのルートにある`/docs`
-# ディレクトリ中のすべてのファイルのオーナーになります。
+# In this example, @doctocat owns any file in the `/docs`
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
 

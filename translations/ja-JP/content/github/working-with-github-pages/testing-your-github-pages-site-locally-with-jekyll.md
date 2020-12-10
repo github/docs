@@ -1,32 +1,33 @@
 ---
 title: Jekyll を使用して GitHub Pages サイトをローカルでテストする
-intro: '{{ site.data.variables.product.prodname_pages }} サイトをローカルでビルドすると、サイトに対する変更のプレビューとテストを行うことができます。'
+intro: '{% data variables.product.prodname_pages %} サイトをローカルでビルドすると、サイトに対する変更のプレビューとテストを行うことができます。'
 redirect_from:
   - /articles/setting-up-your-pages-site-locally-with-jekyll/
   - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
   - /articles/testing-your-github-pages-site-locally-with-jekyll
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-リポジトリへの書き込み権限があるユーザは、{{ site.data.variables.product.prodname_pages }} サイトをローカルでテストできます。
+リポジトリへの書き込み権限があるユーザは、{% data variables.product.prodname_pages %} サイトをローカルでテストできます。
 
 ### 必要な環境
 
 Jekyll を使用してサイトをテストする前に、以下の操作が必要です。
   - [Jekyll](https://jekyllrb.com/docs/installation/) をインストールする。
-  - Jekyll サイトを作成する。 詳しい情報については、「[Jekyll を使用して {{ site.data.variables.product.prodname_pages }} サイトを作成する](/articles/creating-a-github-pages-site-with-jekyll)」を参照してください。
+  - Jekyll サイトを作成する。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する](/articles/creating-a-github-pages-site-with-jekyll)」を参照してください。
 
-{{ site.data.reusables.pages.recommend-bundler }}
+{% data reusables.pages.recommend-bundler %}
 
-{{ site.data.reusables.pages.jekyll-install-troubleshooting }}
+{% data reusables.pages.jekyll-install-troubleshooting %}
 
 ### サイトをローカルでビルドする
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.pages.navigate-publishing-source }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.pages.navigate-publishing-source %}
 3. ローカルで Jekyll サイトを実行します.
   ```shell
   $ bundle exec jekyll serve
@@ -43,15 +44,15 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
   ```
 3. サイトをプレビューするには、ウェブブラウザで `http://localhost:4000` を開きます。
 
-### {{ site.data.variables.product.prodname_pages }} gem の更新
+### {% data variables.product.prodname_pages %} gem の更新
 
-Jekyll は、頻繁に更新されているアクティブなオープンソースプロジェクトです。 お使いのコンピュータ上の `github-pages` gem が {{ site.data.variables.product.prodname_pages }} サーバー上の `github-pages` gem と比較して古くなっている場合は、ローカルでビルドしたときと {{ site.data.variables.product.product_name }} に公開したときで、サイトの見え方が異なることがあります。 こうならないように、お使いのコンピュータ上の `github-pages` gem は常にアップデートしておきましょう。
+Jekyll は、頻繁に更新されているアクティブなオープンソースプロジェクトです。 お使いのコンピュータ上の `github-pages` gem が {% data variables.product.prodname_pages %} サーバー上の `github-pages` gem と比較して古くなっている場合は、ローカルでビルドしたときと {% data variables.product.product_name %} に公開したときで、サイトの見え方が異なることがあります。 こうならないように、お使いのコンピュータ上の `github-pages` gem は常にアップデートしておきましょう。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. `github-pages` gem をアップデートします。
     - Bundler をインストールしている場合は、`bundle update github-pages` を実行します。
     - Bundler をインストールしていない場合は、`gem update github-pages` を実行します。
 
 ### 参考リンク
 
-- Jekyll ドキュメンテーションの [{{ site.data.variables.product.prodname_pages }}](http://jekyllrb.com/docs/github-pages/)
+- Jekyll ドキュメンテーションの [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/)

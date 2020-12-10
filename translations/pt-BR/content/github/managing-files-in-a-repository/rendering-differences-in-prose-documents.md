@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits e pull requests que incluem documentos de prosa podem representar esses documentos com as exibições *source* (original) e *rendered* (renderizada).
 
-A exibição original mostra o texto bruto que foi inserido, enquanto a exibição renderizada mostra como o texto será exibido após a renderização no {{ site.data.variables.product.product_name }}. Por exemplo, há uma diferença na exibição do `**bold**` no Markdown e do **bold** in na visualização renderizada.
+A exibição original mostra o texto bruto que foi inserido, enquanto a exibição renderizada mostra como o texto será exibido após a renderização no {% data variables.product.product_name %}. Por exemplo, há uma diferença na exibição do `**bold**` no Markdown e do **bold** in na visualização renderizada.
 
 A renderização da prosa é possível para documentos renderizados compatíveis com o [github/markup](https://github.com/github/markup):
 
@@ -45,7 +46,7 @@ Assim como ocorre em [outros documentos de prosa renderizados](/articles/about-r
 
 ### Exibir diffs complexos
 
-Algumas pull requests envolvem um grande número de alterações e documentos grandes e complexos. Quando as mudanças levam muito tempo para serem analisadas, {{ site.data.variables.product.product_name }} não pode produzir uma visão renderizada das alterações. Se isso acontecer, você verá uma mensagem de erro ao clicar no botão renderizado.
+Algumas pull requests envolvem um grande número de alterações e documentos grandes e complexos. Quando as mudanças levam muito tempo para serem analisadas, {% data variables.product.product_name %} não pode produzir uma visão renderizada das alterações. Se isso acontecer, você verá uma mensagem de erro ao clicar no botão renderizado.
 
 ![Mensagem quando a visualização não pode ser renderizada](/assets/images/help/repository/prose_diff_rendering.png)
 
@@ -53,6 +54,6 @@ Você ainda pode usar a exibição original para analisar e comentar as alteraç
 
 ### Exibir elementos HTML
 
-Não oferecemos suporte direto a exibições renderizadas de commits para documentos HTML. Alguns formatos, como o Markdown, permite a inclusão de HTML arbitrário no documento. Quando esses documentos são mostrados no {{ site.data.variables.product.product_name }}, parte do HTML integrado pode ser mostrado em uma pré-visualização, enquanto outra parte (como um vídeo integrado do YouTube) não.
+Não oferecemos suporte direto a exibições renderizadas de commits para documentos HTML. Alguns formatos, como o Markdown, permite a inclusão de HTML arbitrário no documento. Quando esses documentos são mostrados no {% data variables.product.product_name %}, parte do HTML integrado pode ser mostrado em uma pré-visualização, enquanto outra parte (como um vídeo integrado do YouTube) não.
 
-Em geral, as exibições renderizadas de alterações em um documento que contém HTML integrado mostrarão as alterações nos elementos que são compatíveis com a exibição do {{ site.data.variables.product.product_name }} do documento. As alterações em documentos que contém HTML integrado devem sempre ser confirmadas nas exibições original e renderizada.
+Em geral, as exibições renderizadas de alterações em um documento que contém HTML integrado mostrarão as alterações nos elementos que são compatíveis com a exibição do {% data variables.product.product_name %} do documento. As alterações em documentos que contém HTML integrado devem sempre ser confirmadas nas exibições original e renderizada.

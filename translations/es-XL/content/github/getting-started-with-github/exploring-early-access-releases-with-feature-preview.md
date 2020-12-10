@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### ciclo de lanzamiento de {{ site.data.variables.product.prodname_dotcom }}
+### ciclo de lanzamiento de {% data variables.product.prodname_dotcom %}
 
-Los productos y características de {{ site.data.variables.product.product_name }}pueden pasar por varias fases de lanzamiento.
+Los productos y características de {% data variables.product.product_name %}pueden pasar por varias fases de lanzamiento.
 
 | Fase                        | Descripción                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

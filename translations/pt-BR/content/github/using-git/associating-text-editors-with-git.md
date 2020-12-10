@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}
@@ -16,7 +17,7 @@ versions:
 ### Usar o Atom como seu editor
 
 1. Instale o [Atom](https://atom.io/). Para obter mais informações, consulte "[Instalar o Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" na documentação do Atom.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "atom --wait"
@@ -25,7 +26,7 @@ versions:
 ### Usando o Visual Studio Code como seu editor
 
 1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "code --wait"
@@ -34,7 +35,7 @@ versions:
 ### Usar o Sublime Text como seu editor
 
 1. Instale o [Sublime Text](https://www.sublimetext.com/). Para obter mais informações, consulte "[Instalação](https://docs.sublimetext.io/guide/getting-started/installation.html)" na documentação do Sublime Text.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "subl -n -w"
@@ -44,7 +45,7 @@ versions:
 
 1. Instale o [TextMate](https://macromates.com/).
 2. Instale o utilitário do shell `mate`. Para obter mais informações, consulte "[mate e rmate](https://macromates.com/blog/2011/mate-and-rmate/)" na documentação do TextMate.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 4. Digite este comando:
   ```shell
   $ git config --global core.editor "mate -w"
@@ -64,7 +65,7 @@ versions:
 ### Usando o Visual Studio Code como seu editor
 
 1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "code --wait"
@@ -73,7 +74,7 @@ versions:
 ### Usar o Sublime Text como seu editor
 
 1. Instale o [Sublime Text](https://www.sublimetext.com/). Para obter mais informações, consulte "[Instalação](https://docs.sublimetext.io/guide/getting-started/installation.html)" na documentação do Sublime Text.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
@@ -82,7 +83,7 @@ versions:
 ### Usar o Notepad++ como seu editor
 
 1. Instale o Notepad++ em https://notepad-plus-plus.org/. Para obter mais informações, consulte "[Primeiros passos](https://npp-user-manual.org/docs/getting-started/)" na documentação do Notepad++.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
@@ -94,7 +95,7 @@ versions:
 ### Usar o Atom como seu editor
 
 1. Instale o [Atom](https://atom.io/). Para obter mais informações, consulte "[Instalar o Atom](https://flight-manual.atom.io/getting-started/sections/installing-atom/)" na documentação do Atom.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "atom --wait"
@@ -103,7 +104,7 @@ versions:
 ### Usando o Visual Studio Code como seu editor
 
 1. Instale o [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Para obter mais informações, consulte "[Configurar o Visual Studio Code](https://code.visualstudio.com/Docs/setup/setup-overview)" na documentação do VS Code.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "code --wait"
@@ -112,7 +113,7 @@ versions:
 ### Usar o Sublime Text como seu editor
 
 1. Instale o [Sublime Text](https://www.sublimetext.com/). Para obter mais informações, consulte "[Instalação](https://docs.sublimetext.io/guide/getting-started/installation.html)" na documentação do Sublime Text.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Digite este comando:
   ```shell
   $ git config --global core.editor "subl -n -w"

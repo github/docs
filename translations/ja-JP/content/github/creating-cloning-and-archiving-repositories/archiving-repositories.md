@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. "Danger Zone" の下で [** Archive this repository**] (このリポジトリをアーカイブ) または [** Unarchive this repository**] (このリポジトリをアーカイブ解除) をクリックします。 ![[Archive this repository] ボタン](/assets/images/help/repository/archive-repository.png)
 4. 警告を読んでください。
 5. アーカイブあるいはアーカイブを解除したいリポジトリの名前を入力してください。 ![リポジトリのアーカイブの警告](/assets/images/help/repository/archive-repository-warnings.png)

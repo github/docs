@@ -25,7 +25,7 @@ GitHub のコンテンツがあなたが所有する有効な著作権を侵害�
 - 会社のアイデンティティ、名前、ブランド、ドメイン名など、GitHub 上のファイル内で単に会社に言及しているだけの場合。 当社がこのポリシーに基づいて措置を講じる前に、あなたは会社のアイデンティティの使用が会社のセキュリティ体制に対する脅威となる理由を明確にする必要があります。
 - プライバシーに関する苦情。 自身のプライバシーについて懸念がある場合や、プライバシーの懸念について従業員に代わってお問い合わせいただく場合（たとえば、プライベートなメールアドレスやその他の個人情報が投稿されている場合）は、[プライバシー連絡フォーム](https://github.com/contact/privacy)からご連絡ください。
 - 特定のセキュリティリスクをもたらすことはないが、それ以外の理由で好ましくないと考えられるファイルやリポジトリ全体。
-- マルウェアや汎用ツールなど、[コミュニティガイドライン](/articles/github-community-guidelines/)で管理されているコンテンツ。 If you have questions about our Community Guidelines or believe that content on GitHub might violate our guidelines, you can use {{ site.data.variables.contact.report_content }} to contact us.
+- マルウェアや汎用ツールなど、[コミュニティガイドライン](/articles/github-community-guidelines/)で管理されているコンテンツ。 If you have questions about our Community Guidelines or believe that content on GitHub might violate our guidelines, you can use {% data variables.contact.report_content %} to contact us.
 
 ### 知っておくべきこと
 
@@ -76,7 +76,7 @@ GitHub がホストするコンテンツの種類（主にソフトウェアコ�
 
 ### リクエストの提出方法
 
-機密データの削除リクエストは、[連絡フォーム](https://support.github.com/contact)から提出できます。 メッセージの本文には平文版のリクエストを含めてください。 添付ファイルでリクエストを送信した場合、処理に時間がかかる場合があります。
+機密データの削除リクエストは、[連絡フォーム](https://support.github.com/contact?tags=docs-sensitive-data)から提出できます。 メッセージの本文には平文版のリクエストを含めてください。 添付ファイルでリクエストを送信した場合、処理に時間がかかる場合があります。
 
 ### 異議申し立て
 

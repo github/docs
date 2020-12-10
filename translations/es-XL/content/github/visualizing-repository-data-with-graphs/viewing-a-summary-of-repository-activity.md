@@ -1,7 +1,7 @@
 ---
 title: Ver un resumen de la actividad de un repositorio
 intro: 'Puedes ver un resumen de la actividad de un repositorio a través de Pulse. Pulse incluye una lista de solicitudes de extracción abiertas y fusionadas, propuestas abiertas y cerradas y un gráfico que muestra la actividad de confirmación de los 15 usuarios principales que confirmaron la rama por defecto del proyecto en el [período de tiempo] seleccionado [time period](/articles/viewing-a-summary-of-repository-activity#filtering-by-time).'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
 versions:
@@ -13,8 +13,8 @@ Los coautores de confirmación están incluidos en el resumen de actividad de co
 
 ### Acceder a Pulse
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 
 ### Filtrar por tiempo
 

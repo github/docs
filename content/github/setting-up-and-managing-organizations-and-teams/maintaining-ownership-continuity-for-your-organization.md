@@ -9,19 +9,20 @@ permissions: Organization owners can promote any member of an organization to an
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About maintaining ownership continuity for your organization
 
-{{ site.data.reusables.organizations.org-ownership-recommendation }}
+{% data reusables.organizations.org-ownership-recommendation %}
 
-Organization owners have full administrative access to the organization. {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+Organization owners have full administrative access to the organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
 ### Appointing an organization owner
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Select the person or people you'd like to promote to owner.
   ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Above the list of members, use the drop-down menu and click **Change role**.

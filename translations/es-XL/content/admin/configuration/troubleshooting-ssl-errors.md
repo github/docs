@@ -39,13 +39,13 @@ De lo contrario, puedes utilizar la herramienta SSL Converter para convertir tu 
 
 ### Instalación sin respuesta después de cargar una clave
 
-Si {{ site.data.variables.product.product_location_enterprise }} no tiene respuesta después de cargar una clave SSL, contacta [al {{ site.data.variables.product.prodname_enterprise }} Soporte](https://enterprise.github.com/support) con detalles específicos, incluida una copia de tu certificado SSL.
+Si {% data variables.product.product_location_enterprise %} no tiene respuesta después de cargar una clave SSL, contacta [al {% data variables.product.prodname_enterprise %} Soporte](https://enterprise.github.com/support) con detalles específicos, incluida una copia de tu certificado SSL.
 
 ### Errores de validez de certificado
 
 Los clientes como navegadores web y líneas de comando Git mostrarán un mensaje de error si no pueden verificar la validez de un certificado SSL. Esto sucede con frecuencia con los certificados autofirmados y los certificados de "raíz encadenada" emitidos por un certificado raíz intermedio que no es reconocido por el cliente.
 
-Si estás usando un certificado firmado por una autoridad de certificación (CA), el archivo del certificado que cargaste a {{ site.data.variables.product.prodname_ghe_server }} debe incluir una cadena de certificado con ese certificado raíz de CA. Para crear dicho archivo, concatena tu cadena de certificado entera (o "paquete de certificado") al final de tu certificado, garantizando que el certificado principal con tu nombre del host aparezca primero. En la mayoría de los sistemas puedes hacer esto con un comando similar a:
+Si estás usando un certificado firmado por una autoridad de certificación (CA), el archivo del certificado que cargaste a {% data variables.product.prodname_ghe_server %} debe incluir una cadena de certificado con ese certificado raíz de CA. Para crear dicho archivo, concatena tu cadena de certificado entera (o "paquete de certificado") al final de tu certificado, garantizando que el certificado principal con tu nombre del host aparezca primero. En la mayoría de los sistemas puedes hacer esto con un comando similar a:
 
 ```shell
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
@@ -55,14 +55,14 @@ Deberías poder descargar un paquete de certificado (por ejemplo, `bundle-certif
 
 ### Instalar certificados raíz de autoridad de certificación (CA) autofirmados o que no son de confianza
 
-Si tu aparato {{ site.data.variables.product.prodname_ghe_server }} interactúa con otras máquinas en tu red que utilizan un certificado autofirmado o que no es de confianza, deberás importar el certificado raíz de la CA firmante en el almacenamiento de certificado de todo el sistema para poder acceder a estos sistemas por HTTPS.
+Si tu aparato {% data variables.product.prodname_ghe_server %} interactúa con otras máquinas en tu red que utilizan un certificado autofirmado o que no es de confianza, deberás importar el certificado raíz de la CA firmante en el almacenamiento de certificado de todo el sistema para poder acceder a estos sistemas por HTTPS.
 
 1. Obtén el certificado raíz de la CA de tu autoridad de certificación local y asegúrate que esté en formato PEM.
-2. Copia el archivo a tu aparato {{ site.data.variables.product.prodname_ghe_server }} por SSH como el usuario "administrador" en el puerto 122.
+2. Copia el archivo a tu aparato {% data variables.product.prodname_ghe_server %} por SSH como el usuario "administrador" en el puerto 122.
   ```shell
   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
   ```
-3. Conecta a la shell administrativa {{ site.data.variables.product.prodname_ghe_server }} por SSH como el usuario "administrador" en el puerto 122.
+3. Conecta a la shell administrativa {% data variables.product.prodname_ghe_server %} por SSH como el usuario "administrador" en el puerto 122.
   ```shell
   $ ssh -p 122 admin@HOSTNAME
   ```

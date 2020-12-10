@@ -1,19 +1,20 @@
 ---
 title: Informar ao Git sobre a chave de assinatura
-intro: 'Para assinar commits localmente, é preciso informar ao Git que há uma chave GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} ou X.509{% endif %} que você deseja usar.'
+intro: "Para assinar commits localmente, você precisa informar ao Git que há uma chave GPG ou X.509 que você gostaria de usar."
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}
 
 ### Informar ao Git sobre a chave GPG
 
-Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {{ site.data.variables.product.product_name }}, você poderá começar a assinar commits e tags.
+Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {% data variables.product.product_name %}, você poderá começar a assinar commits e tags.
 
 {% note %}
 
@@ -23,10 +24,10 @@ Se você não tiver uma chave GPG que corresponda à identidade do committer, pr
 
 Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usada.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Se você não estiver usando o conjunto de GPG, cole o texto abaixo para adicionar a chave GPG ao seu perfil de bash:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
@@ -38,7 +39,7 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 
   {% endnote %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endmac %}
 
@@ -46,7 +47,7 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 
 ### Informar ao Git sobre a chave GPG
 
-Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {{ site.data.variables.product.product_name }}, você poderá começar a assinar commits e tags.
+Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {% data variables.product.product_name %}, você poderá começar a assinar commits e tags.
 
 {% note %}
 
@@ -56,12 +57,12 @@ Se você não tiver uma chave GPG que corresponda à identidade do committer, pr
 
 Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usada.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endwindows %}
 
@@ -69,13 +70,13 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 
 {% note %}
 
-**Observação:** as chaves X.509 não são compatíveis com Linux. Embora seja possível configurar gpgsm para fornecer serviços de assinatura e criptografia, não há suporte para isso no {{ site.data.variables.product.product_name }}. Para obter mais informações, consulte o tópico [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) na documentação do GnuPG.
+**Observação:** as chaves X.509 não são compatíveis com Linux. Embora seja possível configurar gpgsm para fornecer serviços de assinatura e criptografia, não há suporte para isso no {% data variables.product.product_name %}. Para obter mais informações, consulte o tópico [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) na documentação do GnuPG.
 
 {% endnote %}
 
 ### Informar ao Git sobre a chave GPG
 
-Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {{ site.data.variables.product.product_name }}, você poderá começar a assinar commits e tags.
+Se você estiver usando uma chave GPG que corresponda à identidade do committer (autor do commit) e ao endereço de e-mail associado à conta do {% data variables.product.product_name %}, você poderá começar a assinar commits e tags.
 
 {% note %}
 
@@ -85,10 +86,10 @@ Se você não tiver uma chave GPG que corresponda à identidade do committer, pr
 
 Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usada.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Para adicionar a chave GPG ao seu perfil de bash, cole o texto abaixo:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile

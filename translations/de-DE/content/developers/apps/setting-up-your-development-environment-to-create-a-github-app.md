@@ -1,13 +1,13 @@
 ---
 title: Setting up your development environment to create a GitHub App
-intro: 'Learn the foundations for extending and building new {{ site.data.variables.product.prodname_github_apps }}.'
+intro: 'Learn the foundations for extending and building new {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 ### Einführung
@@ -28,7 +28,7 @@ Here are the steps you'll take to configure the template GitHub App:
 1. [Start the server](#step-6-start-the-server)
 1. [Install the app on your account](#step-7-install-the-app-on-your-account)
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 ### Vorrausetzungen
 
@@ -37,7 +37,7 @@ You may find it helpful to have a basic understanding of the following:
 * [GitHub Apps](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/v3)
+* [REST APIs](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
@@ -220,7 +220,7 @@ end
 
 #### Define a route handler
 
-An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You'll won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
+An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
 
 ``` ruby
 post '/event_handler' do
@@ -262,7 +262,7 @@ Before you can use the Octokit.rb library to make API calls, you'll need to init
 # Instantiate an Octokit client authenticated as a GitHub App.
 # GitHub App authentication requires that you construct a
 # JWT (https://jwt.io/introduction/) signed with the app's private key,
-# so GitHub can be sure that it came from the app an not altererd by
+# so GitHub can be sure that it came from the app an not altered by
 # a malicious third party.
 def authenticate_app
   payload = {
@@ -382,7 +382,7 @@ If you're wondering where the Terminal output above is coming from, it's written
 
 ### Problemlösungen
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
 
 * **Q:** When I try to install the Smee command-line client, I get the following error:
 

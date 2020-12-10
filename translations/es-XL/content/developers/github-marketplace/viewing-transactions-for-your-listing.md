@@ -1,6 +1,6 @@
 ---
 title: Visualizar las transacciones para tu listado
-intro: 'La página de transacciones de {{ site.data.variables.product.prodname_marketplace }} te permite descargar y visualizar todas las transacciones de tu listado de {{ site.data.variables.product.prodname_marketplace }}. Puedes ver las transacciones del día anterior (24 horas), de la semana, el mes, o de la duración total de tiempo que ha estado listada tu {{ site.data.variables.product.prodname_github_app }}.'
+intro: 'La página de transacciones de {% data variables.product.prodname_marketplace %} te permite descargar y visualizar todas las transacciones de tu listado de {% data variables.product.prodname_marketplace %}. Puedes ver las transacciones del día anterior (24 horas), de la semana, el mes, o de la duración total de tiempo que ha estado listada tu {% data variables.product.prodname_github_app %}.'
 redirect_from:
   - /marketplace/github-marketplace-transactions
 versions:
@@ -32,14 +32,14 @@ Puedes visualizar o descargar los datos de las transacciones para dar seguimient
 
 ![Perspectivas de Marketplace](/assets/images/marketplace/marketplace_transactions.png)
 
-### Acceder a las transacciones de {{ site.data.variables.product.prodname_marketplace }}
+### Acceder a las transacciones de {% data variables.product.prodname_marketplace %}
 
-Para acceder a las transacciones de {{ site.data.variables.product.prodname_marketplace }}:
+Para acceder a las transacciones de {% data variables.product.prodname_marketplace %}:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.marketplace_apps }}
-4. Selecciona la {{ site.data.variables.product.prodname_github_app }} para la cual quieras visualizar las transacciones.
-{{ site.data.reusables.user-settings.edit_marketplace_listing }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.marketplace_apps %}
+4. Selecciona la {% data variables.product.prodname_github_app %} para la cual quieras visualizar las transacciones.
+{% data reusables.user-settings.edit_marketplace_listing %}
 6. Da clic en la pestaña de **Transacciones**.
 7. Opcionalmente, selecciona un periodo de tiempo diferente dando clic en el menú desplegable de "Periodo" en la esquina superior derecha de la página de Transacciones. ![Periodo de tiempo de Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)

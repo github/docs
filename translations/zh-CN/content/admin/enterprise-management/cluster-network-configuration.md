@@ -1,6 +1,6 @@
 ---
 title: 群集网络配置
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 集群依靠正确的 DNS 名称解析、负载均衡以及节点之间的通信来正常运行。'
+intro: '{% data variables.product.prodname_ghe_server %} 集群依靠正确的 DNS 名称解析、负载均衡以及节点之间的通信来正常运行。'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -10,9 +10,9 @@ versions:
 
 ### 网络考虑因素
 
-对于集群而言，最简单的网络设计是将节点置于单个 LAN 上。 If a cluster must span subnets, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
+对于集群而言，最简单的网络设计是将节点置于单个 LAN 上。 如果群集必须跨子网，我们不建议在网络之间配置任何防火墙规则。 节点之间的延迟应小于 1 毫秒。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}为获取高可用性，具有主动节点的网络与具有被动节点的网络之间的延迟必须小于 70 毫秒。 我们不建议在两个网络之间配置防火墙。{% endif %}
 
 #### 最终用户的应用程序端口
 
@@ -71,7 +71,6 @@ versions:
 | 8302/UDP  | Consul         |
 | 25827/UDP | Collectd       |
 
-
 ### 配置负载均衡器
 
  我们建议使用基于 TCP 的外部负载均衡器，它支持 PROXY 协议来跨节点分配流量。 请考虑以下负载均衡器配置：
@@ -79,17 +78,17 @@ versions:
  - 应将 TCP 端口（如下所示）转发到运行 `web-server` 服务的节点。 这些是提供外部客户端请求的唯一节点。
  - 不应启用粘性会话。
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### 处理客户端连接信息
 
 由于客户端与集群的连接来自负载均衡器，因此客户端 IP 地址可能会丢失。 要正确捕获客户端连接信息，需要考虑其他因素。
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### 在 {{ site.data.variables.product.prodname_ghe_server }} 上启用 PROXY 支持
+#### 在 {% data variables.product.prodname_ghe_server %} 上启用 PROXY 支持
 
 我们强烈建议您为实例和负载均衡器启用 PROXY 支持。
 
@@ -99,11 +98,11 @@ versions:
   ```
   - 对于负载均衡器，请使用供应商提供的说明。
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### 在 {{ site.data.variables.product.prodname_ghe_server }} 上启用 X-Forwarded-For 支持
+#### 在 {% data variables.product.prodname_ghe_server %} 上启用 X-Forwarded-For 支持
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 要启用 `X-Fowarded-For` 标头，请使用以下命令：
 
@@ -111,14 +110,14 @@ versions:
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### 配置状态检查
 如果预配置的检查在该节点上失败，则状态检查允许负载均衡器停止向未响应的节点发送流量。 如果集群节点出现故障，则与冗余节点配对的状态检查可提供高可用性。
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### DNS 要求
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

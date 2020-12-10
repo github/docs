@@ -1,24 +1,25 @@
 ---
 title: RESTからGraphQLへの移行
-intro: '{{ site.data.variables.product.prodname_dotcom }}のREST APIから{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIへの移行に関するベストプラクティスと考慮点について学んでください。'
+intro: '{% data variables.product.prodname_dotcom %}のREST APIから{% data variables.product.prodname_dotcom %}のGraphQL APIへの移行に関するベストプラクティスと考慮点について学んでください。'
 redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### APIのロジックに関する差異
 
 RESTからGraphQLへの移行は、APIロジックの大きな変化を示します。 スタイルとしてのRESTと仕様としてのGraphQLとの違いのために、REST APIの呼び出しをGraphQL APIのクエリに1対1で置き換えることは難しく、しばしば望ましくないことになります。 移行の具体的な例を以下に示しました。
 
-コードを [REST API](/v3) から GraphQL API に移行するには、以下を行います。
+To migrate your code from the [REST API](/rest) to the GraphQL API:
 
 - [GraphQL仕様](https://graphql.github.io/graphql-spec/June2018/)のレビュー
-- GitHubの[GraphQLスキーマ](/v4/reference/)のレビュー
+- Review GitHub's [GraphQL schema](/graphql/reference)
 - 現在のコードによるGitHub REST APIとのやりとりの考慮
-- [グローバルノードID](/v4/guides/using-global-node-ids)を使ったAPIバージョン間でのオブジェクトの参照
+- Use [Global Node IDs](/graphql/guides/using-global-node-ids) to reference objects between API versions
 
 GraphQLによる重要な利点には以下があります。
 
@@ -32,7 +33,7 @@ GraphQLによる重要な利点には以下があります。
 
 1つのREST API呼び出しで、Organizationのメンバーのリストを取得します。
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/orgs/:org/members
+curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
 ```
 
 目的がメンバー名とアバターへのリンクの取得だけなのであれば、このRESTのペイロードには過剰なデータが含まれています。 しかし、GraphQLのクエリでは指定した内容だけが返されます。
@@ -52,14 +53,14 @@ query {
 }
 ```
 
-別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 REST APIの呼び出しは、プルリクエストとその[サマリ表現](/v3/#summary-representations)のリストを取得します。
+別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 A call to the REST API retrieves a list of pull requests and their [summary representations](/rest#summary-representations):
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
-プルリクエストがマージ可能かを判断するためには、個別にそれぞれのプルリクエストの[詳細な表現](/v3/#detailed-representations)（大きなペイロード）を取得し、その`mergeable`属性がtrueかfalse下をチェックしなければなりません。
+Determining if a pull request is mergeable requires retrieving each pull request individually for its [detailed representation](/rest#detailed-representations) (a large payload) and checking whether its `mergeable` attribute is true or false:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
 GraphQLでは、それぞれのプルリクエストについて`number`と`mergeable`属性だけを取得できます。
@@ -83,10 +84,10 @@ query {
 
 入れ子になったフィールドにクエリを行うことで、複数のRESTの呼び出しを少数のGraphQLクエリに置き換えられます。 たとえば、プルリクエストをコミット、非レビューコメント、レビューを**REST API**を使って取得するには、4つの別々の呼び出しが必要になります。
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/commits
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/issues/:number/comments
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/reviews
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:number/comments
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
 **GraphQL API**を使えば、入れ子のフィールドを利用して単一のクエリでこのデータを取得できます。
@@ -127,13 +128,13 @@ curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:
 }
 ```
 
-プルリクエストの番号で[変数を置き換える](/v4/guides/forming-calls/#working-with-variables)ことで、このクエリの力を拡張することもできます。
+You can also extend the power of this query by [substituting a variable](/graphql/guides/forming-calls-with-graphql#working-with-variables) for the pull request number.
 
 ## 例：強力な型付け
 
 GraphQLスキーマは強く型付けされており、データの扱いが安全になっています。
 
-IssueもしくはプルリクエストにGraphQLの[ミューテーション](/v4/mutation)を使ってコメントを追加する例で、間違って[`clientMutationId`](/v4/mutation/addcomment/)の値に文字列ではなく整数値を指定してしまったとしましょう。
+Consider an example of adding a comment to an issue or pull request using a GraphQL [mutation](/graphql/reference/mutations), and mistakenly specifying an integer rather than a string for the value of [`clientMutationId`](/graphql/reference/mutations#addcomment):
 
 ```graphql
 mutation {

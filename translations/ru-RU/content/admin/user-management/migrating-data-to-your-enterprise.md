@@ -1,6 +1,6 @@
 ---
 title: Migrating data to your enterprise
-intro: 'After generating a migration archive, you can import the data to your target {{ site.data.variables.product.prodname_ghe_server }} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
+intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -15,9 +15,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Applying the imported data on {{ site.data.variables.product.prodname_ghe_server }}
+### Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Using the `ghe-migrator import` command, start the import process. You'll need:
     * Your Migration GUID.
@@ -30,7 +30,7 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### Reviewing migration data
 
@@ -51,13 +51,13 @@ The record types match those found in the [migrated data](/enterprise/admin/guid
 | Teams                                    | `команда`                     |
 | Milestones                               | `контрольная точка`           |
 | Project boards                           | `проект`                      |
-| Вопросы                                  | `задача`                      |
+| Вопросы                                  | `проблема`                    |
 | Issue comments                           | `issue_comment`               |
 | Pull requests                            | `pull_request`                |
 | Pull request reviews                     | `pull_request_review`         |
 | Commit comments                          | `commit_comment`              |
 | Pull request review comments             | `pull_request_review_comment` |
-| Релизы                                   | `релиз`                       |
+| Релизы                                   | `версия`                      |
 | Actions taken on pull requests or issues | `issue_event`                 |
 | Protected branches                       | `protected_branch`            |
 
@@ -104,22 +104,22 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-If you have any concerns about failed imports, contact {{ site.data.variables.contact.contact_ent_support }}.
+If you have any concerns about failed imports, contact {% data variables.contact.contact_ent_support %}.
 
-### Completing the import on {{ site.data.variables.product.prodname_ghe_server }}
+### Completing the import on {% data variables.product.prodname_ghe_server %}
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Before deleting your source data we recommend waiting around two weeks to ensure that everything is functioning as expected.
 
 ### Unlocking repositories on the target instance
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### Unlocking repositories on the source
 
-#### Unlocking repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-To unlock the repositories on a {{ site.data.variables.product.prodname_dotcom_the_website }} organization, you'll send a `DELETE` request to <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">the migration unlock endpoint</a>. You'll need:
+To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">the migration unlock endpoint</a>. You'll need:
   * Your access token for authentication
   * The unique `id` of the migration
   * The name of the repository to unlock
@@ -129,15 +129,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {{ site.data.variables.product.prodname_dotcom_the_website }} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). You'll need your access token for authentication:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). You'll need your access token for authentication:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Unlocking repositories from a {{ site.data.variables.product.prodname_ghe_server }} instance
+#### Unlocking repositories from a {% data variables.product.prodname_ghe_server %} instance
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

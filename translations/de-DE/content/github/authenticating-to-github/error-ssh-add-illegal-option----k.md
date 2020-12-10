@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Die Option `-K` ist die Standardversion von `ssh-add` von Apple, bei der die Passphrase für das Hinzufügen eines SSH-Schlüssels zum SSH-Agenten in Deiner Keychain (Schlüsselkette) gespeichert wird. Wenn Du eine andere Version von `ssh-add` installiert hast, fehlt möglicherweise die Unterstützung von `-K`.
@@ -21,7 +22,7 @@ Um Deinen privaten SSH-Schlüssel zum SSH-Agenten hinzuzufügen, kannst Du den P
 
 {% note %}
 
-**Hinweis:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**Hinweis:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

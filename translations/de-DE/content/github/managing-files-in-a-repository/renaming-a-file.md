@@ -1,11 +1,12 @@
 ---
 title: Datei umbenennen
-intro: 'Du kannst jede Datei Deines Repositorys direkt in {{ site.data.variables.product.product_name }} umbenennen. Dabei kannst Du die Datei nicht nur umbenennen, sondern auch [an einen anderen Speicherort verschieben](/articles/moving-a-file-to-a-new-location).'
+intro: 'Sie können jede Datei Ihrer Repositorys direkt in {% data variables.product.product_name %} umbenennen. Dabei kannst Du die Datei nicht nur umbenennen, sondern auch [an einen anderen Speicherort verschieben](/articles/moving-a-file-to-a-new-location).'
 redirect_from:
   - /articles/renaming-a-file
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -21,6 +22,6 @@ versions:
 1. Navigiere innerhalb des Repositorys zu der Datei, die Du umbenennen möchtest.
 2. Klicken Sie in der oberen rechten Ecke der Dateiansicht auf {% octicon "pencil" aria-label="The edit icon" %}, um den Datei-Editor zu öffnen. ![Symbol „Edit file" (Bearbeiten einer Datei)](/assets/images/help/repository/edit-file-icon.png)
 3. Gib im Feld „Filename“ (Dateiname) den neuen Namen für die Datei ein. Gleichzeitig kannst Du auch den Inhalt der Datei ändern. ![Einen Dateinamen bearbeiten](/assets/images/help/repository/changing-file-name.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

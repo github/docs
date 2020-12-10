@@ -1,1 +1,1 @@
-1. In {{ site.data.variables.product.prodname_desktop }}, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**. ![現在のブランチのドロップダウンメニュー](/assets/images/help/desktop/current-branch-menu.png)
+1. In {% data variables.product.prodname_desktop %}, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**. ![現在のブランチのドロップダウンメニュー](/assets/images/help/desktop/current-branch-menu.png)

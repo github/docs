@@ -1,6 +1,6 @@
 ---
 title: Instalar el servidor de GitHub Enterprise en Google Cloud Platform
-intro: 'Para instalar {{ site.data.variables.product.prodname_ghe_server }} en Google Cloud Platform, debes implementar un tipo de máquina soportado y utilizar un disco estándar persistente o un SSD persistente.'
+intro: 'Para instalar {% data variables.product.prodname_ghe_server %} en Google Cloud Platform, debes implementar un tipo de máquina soportado y utilizar un disco estándar persistente o un SSD persistente.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-google-cloud-platform/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-google-cloud-platform
@@ -10,21 +10,21 @@ versions:
 
 ### Prerrequisitos
 
-- {{ site.data.reusables.enterprise_installation.software-license }}
+- {% data reusables.enterprise_installation.software-license %}
 - Debes tener una cuenta de Google Cloud Platform capaz de iniciar instancias de la máquina virtual (VM) de Google Compute Engine (GCE). Para obtener más información, consulta el [Sitio web de Google Cloud Platform](https://cloud.google.com/) y la [Documentación de Google Cloud Platform](https://cloud.google.com/docs/).
 - La mayoría de las acciones necesarias para iniciar tu instancia pueden también realizarse utilizando la [Consola de Google Cloud Platform](https://cloud.google.com/compute/docs/console). Sin embargo, recomendamos instalar la herramienta de línea de comando de gcloud compute para la configuración inicial. Se incluyen abajo ejemplos que utilizan la herramienta de línea de comando de gcloud compute. Para obtener más información, consulta la guía de instalación y configuración en la documentación de Google de "[gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/)".
 
 ### Consideraciones relativas al hardware
 
-{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+{% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ### Determinar el tipo de máquina
 
-Antes de iniciar {{ site.data.variables.product.product_location_enterprise }} en Google Cloud Platform, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización.
+Antes de iniciar {% data variables.product.product_location_enterprise %} en Google Cloud Platform, deberás determinar el tipo de máquina que mejor se adapte a las necesidades de tu organización.
 
 #### Tipos de máquinas admitidas
 
-{{ site.data.variables.product.prodname_ghe_server }} es compatible en los siguientes tipo de máquinas de Google Compute Engine (GCE). Para obtener más información, consulta el [artículo sobre tipos de máquinas de Google Cloud Platform](https://cloud.google.com/compute/docs/machine-types). |
+{% data variables.product.prodname_ghe_server %} es compatible en los siguientes tipo de máquinas de Google Compute Engine (GCE). Para obtener más información, consulta el [artículo sobre tipos de máquinas de Google Cloud Platform](https://cloud.google.com/compute/docs/machine-types). |
 {% if currentVersion != "free-pro-team@latest" %}
 |  | Memoria alta  |
 |  | ------------- |
@@ -48,20 +48,20 @@ Recomendamos estos tipos de máquina con base en la cantidad de licencias que te
 |               5000 - 8000                |  n1-highmem-16   |
 |              8000 - 10000+               |  n1-highmem-32   |
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
-### Seleccionar la imagen {{ site.data.variables.product.prodname_ghe_server }}
+### Seleccionar la imagen {% data variables.product.prodname_ghe_server %}
 
-1. Utilizando la herramienta de línea de comando de [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/), enumera las imágenes públicas{{ site.data.variables.product.prodname_ghe_server }}:
+1. Utilizando la herramienta de línea de comando de [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/), enumera las imágenes públicas{% data variables.product.prodname_ghe_server %}:
    ```shell
    $ gcloud compute images list --project github-enterprise-public --no-standard-images
   ```
 
-2. Toma nota del nombre de la imagen para la última imagen de GCE de {{ site.data.variables.product.prodname_ghe_server }}.
+2. Toma nota del nombre de la imagen para la última imagen de GCE de {% data variables.product.prodname_ghe_server %}.
 
 ### Configurar el firewall
 
-Las máquinas virtuales de GCE se crean como un miembro de la red, que tiene un firewall. Para la red asociada con la VM {{ site.data.variables.product.prodname_ghe_server }}, deberás configurar el firewall para permitir los puertos requeridos en la tabla de abajo. Para obtener más información sobre las reglas de firewall en Google Cloud Platform, consulta la guía de Google "[Descripción de las reglas de firewall](https://cloud.google.com/vpc/docs/firewalls)."
+Las máquinas virtuales de GCE se crean como un miembro de la red, que tiene un firewall. Para la red asociada con la VM {% data variables.product.prodname_ghe_server %}, deberás configurar el firewall para permitir los puertos requeridos en la tabla de abajo. Para obtener más información sobre las reglas de firewall en Google Cloud Platform, consulta la guía de Google "[Descripción de las reglas de firewall](https://cloud.google.com/vpc/docs/firewalls)."
 
 1. Crea la red utilizando la herramienta de línea de comando de gcloud compute. Para obtener más información, consulta "[crea redes de gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" en la documentación de Google.
   ```shell
@@ -75,24 +75,24 @@ Las máquinas virtuales de GCE se crean como un miembro de la red, que tiene un 
   ```
   Esta tabla identifica los puertos requeridos y para qué se usa cada puerto.
 
-  {{ site.data.reusables.enterprise_installation.necessary_ports }}
+  {% data reusables.enterprise_installation.necessary_ports %}
 
 ### Asignar una IP estática y atribuirla a una VM
 
-Si es un aparato de producción, recomendamos firmemente reservar una dirección de IP estática externa y asignarla a la VM {{ site.data.variables.product.prodname_ghe_server }}. En caso contrario, la dirección de IP pública de la VM no se mantendrá después de que se reinicie. Para obtener más información, consulta la guía de Google "[Reservar una dirección estática de IP externa](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)."
+Si es un aparato de producción, recomendamos firmemente reservar una dirección de IP estática externa y asignarla a la VM {% data variables.product.prodname_ghe_server %}. En caso contrario, la dirección de IP pública de la VM no se mantendrá después de que se reinicie. Para obtener más información, consulta la guía de Google "[Reservar una dirección estática de IP externa](https://cloud.google.com/compute/docs/configure-instance-ip-addresses)."
 
 En las configuraciones de alta disponibilidad de producción, tantos en el aparato principal como en la réplica deberían asignarse direcciones estáticas de IP separadas.
 
-### Crear la instancia de {{ site.data.variables.product.prodname_ghe_server }}
+### Crear la instancia de {% data variables.product.prodname_ghe_server %}
 
-Para crear la instancia {{ site.data.variables.product.prodname_ghe_server }}, deberás crear una instancia de GCE con tu imagen {{ site.data.variables.product.prodname_ghe_server }} y adjuntarle volumen de almacenamiento adicional para los datos de tu instancia. Para obtener más información, consulta "[Consideraciones relativas al hardware](#hardware-considerations)."
+Para crear la instancia {% data variables.product.prodname_ghe_server %}, deberás crear una instancia de GCE con tu imagen {% data variables.product.prodname_ghe_server %} y adjuntarle volumen de almacenamiento adicional para los datos de tu instancia. Para obtener más información, consulta "[Consideraciones relativas al hardware](#hardware-considerations)."
 
 1. Crea un disco de datos para utilizar como un volumen de almacenamiento adjunto para tu instancia de datos utilizando la herramienta de línea de comandos para cálculo gcloud y configura el tamaño con base en la cantidad de licencias que tengas. Para obtener más información, consulta "[crea discos de gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" en la documentación de Google.
   ```shell
   $ gcloud compute disks create <em>DATA-DISK-NAME</em> --size <em>DATA-DISK-SIZE</em> --type <em>DATA-DISK-TYPE</em> --zone <em>ZONE</em>
   ```
 
-2. Después crea una instancia utilizando el nombre de la imagen {{ site.data.variables.product.prodname_ghe_server }} que seleccionaste, y adjunta el disco de datos. Para obtener más información, consulta "[crea instancias de gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" en la documentación de Google.
+2. Después crea una instancia utilizando el nombre de la imagen {% data variables.product.prodname_ghe_server %} que seleccionaste, y adjunta el disco de datos. Para obtener más información, consulta "[crea instancias de gcloud compute](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" en la documentación de Google.
   ```shell
   $ gcloud compute instances create <em>INSTANCE-NAME</em> \
   --machine-type n1-standard-8 \
@@ -106,11 +106,11 @@ Para crear la instancia {{ site.data.variables.product.prodname_ghe_server }}, d
 
 ### Configurar la instancia
 
-{{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
-{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }} Para obtener más información, consulta "[Configurar el aparato del {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
-{{ site.data.reusables.enterprise_installation.visit-your-instance }}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para obtener más información, consulta "[Configurar el aparato del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+{% data reusables.enterprise_installation.visit-your-instance %}
 
 ### Leer más
 

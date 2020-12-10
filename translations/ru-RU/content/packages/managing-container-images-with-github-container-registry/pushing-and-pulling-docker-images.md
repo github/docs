@@ -1,24 +1,26 @@
 ---
 title: Pushing and pulling Docker images
-intro: 'You can store and manage Docker images in {{ site.data.variables.product.prodname_github_container_registry }}.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'You can store and manage Docker images in {% data variables.product.prodname_github_container_registry %}.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.package_registry.container-registry-beta }}
+{% data reusables.package_registry.container-registry-beta %}
 
-To push and pull container images owned by an organization, an organization admin must enable {{ site.data.variables.product.prodname_github_container_registry }} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
-### Authenticating to {{ site.data.variables.product.prodname_github_container_registry }}
+### Authenticating to {% data variables.product.prodname_github_container_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-to-container-registry }}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Pushing container images
 
 This example pushes the latest version of `IMAGE-NAME`.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 This example pushes the `2.5` version of the image.
@@ -40,7 +42,7 @@ To ensure you're always using the same image, you can specify the exact containe
   ```
 2. Remove image locally as needed.
   ```shell
-  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.

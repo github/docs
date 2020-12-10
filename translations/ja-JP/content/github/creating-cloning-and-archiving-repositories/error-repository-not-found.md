@@ -1,16 +1,17 @@
 ---
 title: 'Error: Repository not found'
-intro: '{% if currentVersion == "free-pro-team@latest" %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないかリポジトリへのアクセス権がないことを意味します。 このエラーの解決策は、原因によっていくつかあります。{% else %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないか、リポジトリへのアクセス権がないか、 GitHub Enterprise のインスタンスがプライベートモードであることを意味します。 このエラーには、原因別にいくつかの解決策があります。{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it.{% else %}If you see this error when cloning a repository, it means that the repository does not exist, you do not have permission to access it, or {% data variables.product.product_location %} is in private mode.{% endif %} There are a few solutions to this error, depending on the cause.'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### スペルを確認する
 
-入力ミスは起こるものです。また、リポジトリ名は大文字と小文字を区別します。  `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git` をクローンしようとしたが、リポジトリの実際の名前は `User/Repo` である場合、このエラーが表示されます。
+入力ミスは起こるものです。また、リポジトリ名は大文字と小文字を区別します。  `git@{% data variables.command_line.codeblock %}:user/repo.git` をクローンしようとしたが、リポジトリの実際の名前は `User/Repo` である場合、このエラーが表示されます。
 
 このエラーを回避するには、クローン時は常にリポジトリのページからクローン URL をコピーして貼り付けるようにします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
@@ -30,10 +31,10 @@ versions:
 
 ごくまれに、リポジトリへの正しい SSH アクセス権がない場合があります。
 
-使用している SSH キーが {{ site.data.variables.product.product_name }} ユーザアカウントに添付されていることを確認する必要があります。 以下をコマンドラインに入力してこれをチェックできます:
+使用している SSH キーが {% data variables.product.product_name %} ユーザアカウントに添付されていることを確認する必要があります。 以下をコマンドラインに入力してこれをチェックできます:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -42,14 +43,12 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 詳細は「[GitHub アカウントに新しい GPG キーを追加する](/articles/adding-a-new-gpg-key-to-your-github-account)」を参照してください。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### インスタンスがプライベートモードであるかを確認する
 
 サイト管理者が GitHub Enterprise インスタンスでプライベートモードを有効にしている場合は、`git://` を介した匿名のクローンは無効化されます。 リポジトリをクローンできない場合は、サイト管理者にお問い合わせください。
-
 {% endif %}
 
 ### リポジトリが実際に存在することを確認する
 
-すべて失敗した場合は、リポジトリが {{ site.data.variables.product.product_location }} に実際に存在していることを確認してください。 存在しないリポジトリにプッシュを試みると、このエラーが表示されます。
+すべて失敗した場合は、リポジトリが {% data variables.product.product_location %} に実際に存在していることを確認してください。 存在しないリポジトリにプッシュを試みると、このエラーが表示されます。

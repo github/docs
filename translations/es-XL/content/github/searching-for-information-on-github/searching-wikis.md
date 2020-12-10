@@ -1,6 +1,6 @@
 ---
 title: Buscar wikis
-intro: 'Puedes buscar wikis en {{ site.data.variables.product.product_name }} y acotar los resultados utilizando estos calificadores de búsqueda de wiki en cualquier combinación.'
+intro: 'Puedes buscar wikis en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de wiki en cualquier combinación.'
 redirect_from:
   - /articles/searching-wikis
 versions:
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes buscar wikis globalmente a través de todos los {{ site.data.variables.product.product_name }}, o buscar wikis dentro de un repositorio u organización particular. Para obtener más información, consulta "[Acerca de buscar en {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)".
+Puedes buscar wikis globalmente a través de todos los {% data variables.product.product_name %}, o buscar wikis dentro de un repositorio u organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Buscar dentro de los repositorios de un usuario u organización
 
@@ -35,7 +35,7 @@ El calificador `in` acota la búsqueda al título o al texto del cuerpo de la p�
 
 El calificador `updated` (actualizada) empareja páginas wiki que fueron actualizadas por última vez dentro de un rango específico de fechas.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Ejemplo                                                                                                                                                                                                                |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

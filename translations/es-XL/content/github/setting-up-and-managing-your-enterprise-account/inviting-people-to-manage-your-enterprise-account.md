@@ -1,7 +1,7 @@
 ---
 title: Invitar a personas a administrar tu cuenta de empresa
 intro: Puedes invitar a personas a que se vuelvan propietarios de empresa o administradores de facturación en tu cuenta de empresa. También puedes eliminar propietarios de empresa o administradores de facturación que no necesiten seguir teniendo acceso a la cuenta de empresa.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/inviting-people-to-collaborate-in-your-business-account/
   - /articles/inviting-people-to-manage-your-enterprise-account
@@ -12,7 +12,7 @@ versions:
 
 ### Acerca de invitar a personas a administrar tu cuenta de empresa
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }} Para obtener más información, consulta "[Roles de una cuenta de empresa](/articles/roles-for-an-enterprise-account)".
+{% data reusables.enterprise-accounts.enterprise-administrators %} Para obtener más información, consulta "[Roles de una cuenta de empresa](/articles/roles-for-an-enterprise-account)".
 
 {% tip %}
 
@@ -26,8 +26,8 @@ Solo los propietarios de empresa pueden invitar a otras personas a que se convie
 
 Después de que invites a alguna persona a que se una a la cuenta de empresa, esta debe aceptar la invitación enviada por correo electrónico antes de poder acceder a la cuenta de empresa.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. En la barra lateral izquierda, haz clic en **Administrators** (Administradores). ![Pestaña Administrators (Administradores) en la barra lateral izquierda](/assets/images/help/business-accounts/administrators-tab.png)
 4. Arriba de la lista de administradores, haz clic en **Invite admin** (Invitar administrador). ![Botón Invite admin (Invitar administrador) arriba de la lista de propietarios de empresa](/assets/images/help/business-accounts/invite-admin-button.png)
 5. Escribe el nombre de usuario, el nombre completo o la dirección de correo electrónico de la persona a la que quieres invitar a que se convierta en administrador de empresa, luego selecciona la persona adecuada en los resultados. ![Casilla modal con campo para escribir el nombre de usuario, el nombre completo o la dirección de correo electrónico de una persona y botón Invite (Invitar)](/assets/images/help/business-accounts/invite-admins-modal-button.png)
@@ -38,8 +38,8 @@ Después de que invites a alguna persona a que se una a la cuenta de empresa, es
 
 Solo los propietarios de empresa pueden eliminar a otros administradores de empresa de la cuenta de empresa.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. Junto al nombre de usuario de la persona que quieres eliminar, haz clic en {% octicon "gear" aria-label="The Settings gear" %}, luego haz clic en **Remove owner** (Eliminar propietario) o **Remove billing manager** (Eliminar gerente de facturación). ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/remove-admin.png)
 
 ### Leer más

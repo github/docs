@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プルリクエストのブランチが以下の条件を満たす場合にのみ、コミットを実行できます:
@@ -18,16 +19,18 @@ versions:
 
 {% note %}
 
-**注釈:** リポジトリのフォークの、コピー (またはフォーク) を作成して、プルリクエストの変更元と同じ head ブランチに変更をコミットすることにより、{{ site.data.variables.product.product_location }} を通じて、リポジトリのフォークからプルリクエストのブランチへコミットすることも可能です。 一般的なガイドラインについては、「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」を参照してください。
+**注釈:** リポジトリのフォークの、コピー (またはフォーク) を作成して、プルリクエストの変更元と同じ head ブランチに変更をコミットすることにより、{% data variables.product.product_location %} を通じて、リポジトリのフォークからプルリクエストのブランチへコミットすることも可能です。 一般的なガイドラインについては、「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」を参照してください。
 
 {% endnote %}
 
-1. {{ site.data.variables.product.product_name }}で、プルリクエストのブランチを作成したフォーク (またはリポジトリのコピー) のメインページに移動します。
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. On
+
+{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **ヒント:** {{ site.data.variables.product.prodname_desktop }}を使ってフォークをクローンしたい場合、「[{{ site.data.variables.product.prodname_desktop }}にリポジトリをクローンする](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)」を参照してください。
+ **ヒント:** {% data variables.product.prodname_desktop %}を使ってフォークをクローンしたい場合、「[{% data variables.product.prodname_desktop %}にリポジトリをクローンする](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)」を参照してください。
 
  {% endtip %}
 4. カレントワーキングディレクトリを、クローンしたディレクトリをダウンロードしたい場所に変更します。
@@ -36,11 +39,11 @@ versions:
   ```
 5. `git clone` と入力し、ステップ 3 でコピーした URL を貼り付けます。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
 6. **Enter** を押します。 これで、ローカルにクローンが作成されます。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -75,11 +78,11 @@ versions:
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
   > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-新しいコミットが、{{ site.data.variables.product.product_location }} の元のプルリクエストに反映されます。
+新しいコミットが、{% data variables.product.product_location %} の元のプルリクエストに反映されます。
 
 ### 参考リンク
 

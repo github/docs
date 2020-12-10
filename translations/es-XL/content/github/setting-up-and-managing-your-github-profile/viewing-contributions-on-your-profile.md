@@ -1,6 +1,6 @@
 ---
 title: Ver contribuciones en tu perfil
-intro: 'Tu perfil {{ site.data.variables.product.product_name }} muestra tus repositorios anclados y el gráfico de las contribuciones de tu repositorio durante el último año.'
+intro: 'Tu perfil {% data variables.product.product_name %} muestra tus repositorios anclados y el gráfico de las contribuciones de tu repositorio durante el último año.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -14,7 +14,7 @@ Tu gráfico de contribución muestra la actividad de los repositorios públicos.
 
 {% note %}
 
-**Nota:** las confirmaciones únicamente aparecerán en tu gráfico de contribución si has agregado [ la dirección de correo electrónico que utilizaste en tu configuración local de Git para configurar el correo electrónico de {{ site.data.variables.product.product_name }}](/articles/adding-an-email-address-to-your-github-account). Para obtener más información, consulta"[¿Por qué mis contribuciones no se muestran en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Nota:** las confirmaciones únicamente aparecerán en tu gráfico de contribución si has agregado [ la dirección de correo electrónico que utilizaste en tu configuración local de Git para configurar el correo electrónico de {% data variables.product.product_name %}](/articles/adding-an-email-address-to-your-github-account). Para obtener más información, consulta"[¿Por qué mis contribuciones no se muestran en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ En tu página de perfil, determinadas acciones cuentan como contribuciones:
 - Enviar una revisión de solicitud de extracción{% if currentVersion != "free-pro-team@latest" %}
 - Confirmar como coautor en la rama por defecto de un repositorio o en la rama `gh-pages`{% endif %}
 
-{{ site.data.reusables.pull_requests.pull_request_merges_and_contributions }}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Repositorios populares
 
@@ -63,11 +63,11 @@ Tu calendario de contribuciones muestra tu actividad de contribuciones.
 
 Las marcas horarias se calculan de forma diferente para las confirmaciones y las solicitudes de extracción:
 - **Confirmaciones** utilizan la información de la zona horaria en la marca de tiempo de la confirmación. Para obtener más información, consulta "[Solución de problemas con confirmaciones en tu cronología](/articles/troubleshooting-commits-on-your-timeline)."
-- **Las solicitudes de extracción** y **las propuestas** abiertas en {{ site.data.variables.product.product_name }} utilizan la zona horaria de tu navegador. Aquellas abiertas a través de API utilizan la marca horaria o la zona horaria [especificada en la llamada de API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+- **Las solicitudes de extracción** y **las propuestas** abiertas en {% data variables.product.product_name %} utilizan la zona horaria de tu navegador. Aquellas abiertas a través de API utilizan la marca horaria o la zona horaria [especificada en la llamada de API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ### Resumen de la actividad
 
-{{ site.data.reusables.profile.activity-overview-summary }} Para obtener más información, consulta "[Mostrar un resumen de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} Para obtener más información, consulta "[Mostrar un resumen de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)."
 
 ![Sección de resumen de actividad en el perfil](/assets/images/help/profile/activity-overview-section.png)
 
@@ -79,9 +79,9 @@ La sección de actividad de contribuciones incluye una cronología detallada de 
 
 ![Filtro de tiempo de actividad de contribuciones](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### Ver contribuciones de {{ site.data.variables.product.product_location_enterprise }} en {{ site.data.variables.product.prodname_dotcom_the_website }}
+### Ver contribuciones de {% data variables.product.product_location_enterprise %} en {% data variables.product.prodname_dotcom_the_website %}
 
-Si el administrador de tu sitio ha habilitado {{ site.data.variables.product.prodname_unified_contributions }}, puedes enviar conteos de contribuciones {{ site.data.variables.product.prodname_enterprise }} a tu perfil {{ site.data.variables.product.prodname_dotcom_the_website }}. Para obtener más información, consulta "[Enviar tus contribuciones {{ site.data.variables.product.prodname_ghe_server }} a tu {{ site.data.variables.product.prodname_dotcom_the_website }}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+Si el administrador de tu sitio ha habilitado {% data variables.product.prodname_unified_contributions %}, puedes enviar conteos de contribuciones {% data variables.product.prodname_enterprise %} a tu perfil {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta "[Enviar tus contribuciones {% data variables.product.prodname_ghe_server %} a tu {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
 
 ### Leer más
 

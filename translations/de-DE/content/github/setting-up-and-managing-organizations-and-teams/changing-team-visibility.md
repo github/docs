@@ -1,14 +1,15 @@
 ---
 title: Sichtbarkeit eines Teams ändern
-intro: 'Team-Betreuer und Organisationsinhaber können festlegen, ob ein Team *sichtbar* oder *geheim* ist.'
+intro: Team-Betreuer und Organisationsinhaber können festlegen, ob ein Team *sichtbar* oder *geheim* ist.
 redirect_from:
   - /articles/changing-team-visibility
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 {% tip %}
 
@@ -16,9 +17,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 3. Wähle die Teams aus, deren Sichtbarkeit Du ändern möchtest. ![Liste der Teams mit zwei ausgewählten Teams](/assets/images/help/teams/list-of-teams-selected.png)
 4. Klicke im Dropdownmenü über der Liste der Teams auf **Change visibility** (Sichtbarkeit ändern). ![Dropdownmenü mit Option zum Ändern der Teamsichtbarkeit](/assets/images/help/teams/team-bulk-management-options.png)
 5. Lege fest, ob die Teams sichtbar oder geheim sein sollen, und klicke dann auf **Change visibility** (Sichtbarkeit ändern). ![Optionsfelder, um ein Team als sichtbar oder geheim festzulegen, und Schaltfläche „Change visibility“ (Sichtbarkeit ändern)](/assets/images/help/teams/select-and-confirm-new-visibility.png)

@@ -1,1 +1,1 @@
-If the commits you make in {{ site.data.variables.product.prodname_desktop }} are associated with the wrong account on {{ site.data.variables.product.product_name }}, update the email address in your Git configuration using {{ site.data.variables.product.prodname_desktop }}.
+Se os commits que você cria em {% data variables.product.prodname_desktop %} estiverem associados à conta errada no {% data variables.product.product_name %}, atualize o endereço de e-mail na configuração do Git usando {% data variables.product.prodname_desktop %}.

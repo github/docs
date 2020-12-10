@@ -5,10 +5,11 @@ redirect_from:
   - /categories/49/articles/
   - /categories/wiki/
   - /articles/documenting-your-project-with-wikis
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

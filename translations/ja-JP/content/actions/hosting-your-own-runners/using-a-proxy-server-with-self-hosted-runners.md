@@ -1,6 +1,6 @@
 ---
 title: セルフホストランナーとプロキシサーバーを使う
-intro: '{{ site.data.variables.product.product_name }}との通信にプロキシサーバーを使うよう、セルフホストランナーを設定できます。'
+intro: '{% data variables.product.product_name %}との通信にプロキシサーバーを使うよう、セルフホストランナーを設定できます。'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### 環境変数を利用したプロキシサーバーの設定
 

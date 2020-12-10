@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En Características, quita la marca de selección de la casilla de verificación **Propuestas**. ![Casilla de verificación Eliminar propuestas](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 Si decides habilitar las propuestas nuevamente en el futuro, todas las propuestas que se hayan agregado previamente estarán disponibles.
@@ -18,8 +18,8 @@ Si decides habilitar las propuestas nuevamente en el futuro, todas las propuesta
 
 {% tip %}
 
-Comunícate con {{ site.data.variables.contact.contact_support }} si deseas desactivar las propuestas para evitar el abuso de extraños.
-{{ site.data.reusables.policies.abuse }}
+Comunícate con {% data variables.contact.contact_support %} si deseas desactivar las propuestas para evitar el abuso de extraños.
+{% data reusables.policies.abuse %}
 
 {% endtip %}
 

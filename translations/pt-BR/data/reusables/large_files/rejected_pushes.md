@@ -1,1 +1,1 @@
-Os usuários não poderão fazer push de ativos do {{ site.data.variables.large_files.product_name_short }} para o {{ site.data.variables.product.prodname_ghe_server }} se {{ site.data.variables.large_files.product_name_short }} estiver desabilitado no appliance ou no repositório.
+Os usuários não podem fazer push de ativos de {% data variables.large_files.product_name_short %} para {% data variables.product.product_name %} se {% data variables.large_files.product_name_short %} estiver desabilitado na empresa ou no repositório.

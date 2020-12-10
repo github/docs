@@ -25,10 +25,10 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 
 ### Eliminar colaboradores externos de todos los repositorios de una organización
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. Selecciona el colaborador externo o los colaboradores externos que quieres eliminar de la organización. ![Lista de colaboradores externos con dos colaboradores externos seleccionados](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
 6. Arriba de la lista de colaboradores externos, usa el menú desplegable y haz clic en **Remove from all repositories** (Eliminar de todos los repositorios). ![Menú desplegable con la opción para eliminar colaboradores externos ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
 7. Revisa el colaborador externo o los colaboradores externos que se eliminarán de la organización, luego haz clic en **Remove outside collaborators** (Eliminar colaboradores externos). ![Lista de colaboradores externos que se eliminarán y botón Remove outside collaborators (Eliminar colaboradores externos)](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
@@ -37,10 +37,10 @@ Aunque se borren las bifurcaciones de los repositorios privados cuando se elimin
 
 Si solo quieres eliminar un colaborador externo de determinados repositorios de tu organización, puedes eliminar el acceso de esa persona a un repositorio específico por vez.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. A la derecha del nombre de usuario de la persona que quieres eliminar, utiliza el menú desplegable {% octicon "gear" aria-label="The Settings gear" %} y haz clic en **Manage** (Administrar). ![Botón Manage access (Administrar acceso)](/assets/images/help/organizations/member-manage-access.png)
 6. A la derecha del repositorio del que quieres eliminar al colaborador externo, haz clic en **Manage access** (Administrar acceso). ![Selecciona el botón Manage access (Administrar acceso) al lado del repositorio al que tiene acceso el colaborador externo](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
 7. Para eliminar por completo el acceso del colaborador externo al repositorio, en la esquina superior derecha, haz clic en **Remove access to this repository** (Eliminar acceso a este repositorio). ![Botón Remove access to this repository (Eliminar acceso a este repositorio)](/assets/images/help/organizations/remove-access-to-this-repository.png)

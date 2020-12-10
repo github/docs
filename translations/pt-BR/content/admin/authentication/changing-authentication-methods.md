@@ -1,6 +1,6 @@
 ---
 title: Alterar os métodos de autenticação
-intro: 'A qualquer momento, você pode alterar a forma como o {{ site.data.variables.product.prodname_ghe_server }} se autentica com as contas existentes.'
+intro: 'A qualquer momento, você pode alterar a forma como o {% data variables.product.prodname_ghe_server %} se autentica com as contas existentes.'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-As contas de usuário no {{ site.data.variables.product.product_location_enterprise }} são preservadas quando você altera o método de autenticação, e os usuários continuarão fazendo login na mesma conta (desde que não haja alteração nos nomes de usuário).
+As contas de usuário no {% data variables.product.product_location %} são preservadas quando você altera o método de autenticação, e os usuários continuarão fazendo login na mesma conta (desde que não haja alteração nos nomes de usuário).
 
-Se o novo método de autenticação alterar nomes de usuários, serão criadas novas contas. Como administrador, você pode renomear os usuários nas configurações de administração do site ou usando a [a API de administração do usuário](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user).
+Se o novo método de autenticação alterar nomes de usuários, serão criadas novas contas. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/rest/reference/enterprise-admin#update-the-username-for-a-user).
 
 Veja outras questões que você deve manter em mente:
 
@@ -20,7 +20,7 @@ Veja outras questões que você deve manter em mente:
 
 * **Associação a equipes:** somente o LDAP permite [controlar associações a equipes](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance) no servidor do diretório.
 
-* **Suspensão de usuários:** quando você usa o LDAP para fazer a autenticação, o acesso ao {{ site.data.variables.product.prodname_ghe_server }} pode ser controlado pelos _grupos restritos_. Depois de alternar para o LDAP, se os grupos restritos estiverem configurados, os usuários que não estiverem nesses grupos serão suspensos. A suspensão ocorrerá quando eles fizerem login ou durante a próxima sincronização LDAP.
+* **Suspensão de usuários:** quando você usa o LDAP para fazer a autenticação, o acesso ao {% data variables.product.prodname_ghe_server %} pode ser controlado pelos _grupos restritos_. Depois de alternar para o LDAP, se os grupos restritos estiverem configurados, os usuários que não estiverem nesses grupos serão suspensos. A suspensão ocorrerá quando eles fizerem login ou durante a próxima sincronização LDAP.
 
 * **Associação a grupos:** quando você usa o LDAP para fazer a autenticação, os usuários passam automaticamente por [suspensão e cancelamento de suspensão](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users) com base em associações a grupos restritos e no status da conta no Active Directory.
 
@@ -28,6 +28,6 @@ Veja outras questões que você deve manter em mente:
 
 * **Autenticação de API:** o SAML e o CAS dão suporte à autenticação de API somente usando um [token de acesso pessoal](/articles/creating-an-access-token-for-command-line-use). Não há suporte para a autenticação básica.
 
-* **Autenticação de dois fatores:** {{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+* **Autenticação de dois fatores:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Autenticação integrada para usuários de fora do provedor de identidade:** você pode convidar os usuários para se autenticarem na {{ site.data.variables.product.product_location_enterprise }} sem adicioná-los ao seu provedor de identidade. Para obter mais informações, consulte "[Permitir a autenticação integrada para usuários de fora do provedor de identidade](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)".
+* **Autenticação integrada para usuários de fora do provedor de identidade:** você pode convidar os usuários para se autenticarem na {% data variables.product.product_location %} sem adicioná-los ao seu provedor de identidade. Para obter mais informações, consulte "[Permitir a autenticação integrada para usuários de fora do provedor de identidade](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)".

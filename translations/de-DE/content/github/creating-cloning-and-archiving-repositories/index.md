@@ -1,6 +1,6 @@
 ---
 title: 'Repositorys erstellen, klonen und archivieren'
-intro: 'Du kannst aus einer Vielzahl von Konfigurationsoptionen wählen, wenn Du ein Repository erstellst oder klonst. Du kannst Repositorys auch verwenden, um Inhalt und Daten auf {{ site.data.variables.product.prodname_dotcom }} zu archivieren.'
+intro: 'Du kannst aus einer Vielzahl von Konfigurationsoptionen wählen, wenn Du ein Repository erstellst oder klonst. Du kannst Repositorys auch verwenden, um Inhalt und Daten auf {% data variables.product.prodname_dotcom %} zu archivieren.'
 redirect_from:
   - /categories/repositories/
   - /categories/24/articles/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

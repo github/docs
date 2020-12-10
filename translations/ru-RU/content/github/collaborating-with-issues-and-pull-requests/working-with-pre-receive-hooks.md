@@ -21,10 +21,10 @@ Total 3 (delta 0), reused 0 (delta 0)
 remote: always_reject.sh: failed with exit status 1
 remote: error: rejecting all pushes
 To https://54.204.174.51/hodor/nope.git
- ! [remote rejected] master -> master (pre-receive hook declined)
+ ! [remote rejected] main -> main (pre-receive hook declined)
 error: failed to push some refs to 'https://54.204.174.51/hodor/nope.git'
 ```
 
 ![Error message for failed pre-receive hook](/assets/images/help/pull_requests/pre-receive-hook-failed-error.png)
 
-Your {{ site.data.variables.product.product_name }} site administrator can create and remove pre-receive hooks for your organization or repository, and may allow organization or repository administrators to enable or disable pre-receive hooks. For more information, see "[Using pre-receive hooks to enforce policy](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)."
+Your {% data variables.product.product_name %} site administrator can create and remove pre-receive hooks for your organization or repository, and may allow organization or repository administrators to enable or disable pre-receive hooks. For more information, see "[Using pre-receive hooks to enforce policy](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/using-pre-receive-hooks-to-enforce-policy)."

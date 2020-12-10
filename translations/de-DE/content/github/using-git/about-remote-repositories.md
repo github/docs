@@ -8,14 +8,15 @@ intro: 'Der kooperative Ansatz von GitHub in der Entwicklung hängt von der Ver�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Eine Remote-URL ist die offizielle Ausdrucksweise von Git für „der Ort, an dem Dein Code gespeichert ist“. Diese URL kann Dein Repository auf GitHub oder der Fork eines anderen Benutzers sein oder sich sogar auf einem völlig anderen Server befinden.
 
 Du kannst nur an zwei Arten von URL-Adressen übertragen:
 
-* Eine HTTPS-URL wie `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
-* Eine SSH-URL wie `git@{{ site.data.variables.command_line.backticks }}:user/repo.git`
+* Eine HTTPS-URL wie `https://{% data variables.command_line.backticks %}/user/repo.git`
+* Eine SSH-URL wie `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 Git verknüpft eine Remote-URL mit einem Namen, und Dein Standard-Remote wird in der Regel `origin` genannt.
 

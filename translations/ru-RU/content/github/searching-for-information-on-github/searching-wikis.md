@@ -1,16 +1,17 @@
 ---
 title: Searching wikis
-intro: 'You can search wikis on {{ site.data.variables.product.product_name }} and narrow the results using these wiki search qualifiers in any combination.'
+intro: 'You can search wikis on {% data variables.product.product_name %} and narrow the results using these wiki search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-wikis
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can search wikis globally across all of {{ site.data.variables.product.product_name }}, or search wikis within a particular repository or organization. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+You can search wikis globally across all of {% data variables.product.product_name %}, or search wikis within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Search within a user's or organization's repositories
 
@@ -35,7 +36,7 @@ The `in` qualifier limits the search to the wiki page title or body text. Withou
 
 The `updated` qualifier matches wiki pages that were last updated within the specified date range.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Пример                                                                                                                                                                                |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

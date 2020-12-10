@@ -1,7 +1,7 @@
 ---
 title: Personen zur Verwaltung Deines Enterprise-Kontos einladen
-intro: 'Du kannst Personen dazu einladen, Enterprise-Inhaber oder Abrechnungsmanager in Deinem Enterprise-Konto zu werden. Du kannst auch Enterprise-Inhaber und Abrechnungsmanager entfernen, die nicht mehr auf Dein Enterprise-Konto zugreifen müssen.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: Du kannst Personen dazu einladen, Enterprise-Inhaber oder Abrechnungsmanager in Deinem Enterprise-Konto zu werden. Du kannst auch Enterprise-Inhaber und Abrechnungsmanager entfernen, die nicht mehr auf Dein Enterprise-Konto zugreifen müssen.
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/inviting-people-to-collaborate-in-your-business-account/
   - /articles/inviting-people-to-manage-your-enterprise-account
@@ -12,7 +12,7 @@ versions:
 
 ### Informationen zum Einladen von Personen zur Verwaltung Deines Enterprise-Kontos
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }} Weitere Informationen findest Du unter „[Rollen für ein Enterprise-Konto](/articles/roles-for-an-enterprise-account).“
+{% data reusables.enterprise-accounts.enterprise-administrators %} Weitere Informationen findest Du unter „[Rollen für ein Enterprise-Konto](/articles/roles-for-an-enterprise-account).“
 
 {% tip %}
 
@@ -26,8 +26,8 @@ Nur Enterprise-Inhaber können andere Personen dazu einladen, Enterprise-Adminis
 
 Wenn Du jemanden zum Enterprise-Konto eingeladen hast, muss diese Person die per E-Mail erhaltene Einladung annehmen, bevor sie auf das Enterprise-Konto zugreifen kann.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. Klicke auf der linken Seitenleiste auf **Administrators** (Administratoren). ![Registerkarte „Administrators“ (Administratoren) in der linken Seitenleiste](/assets/images/help/business-accounts/administrators-tab.png)
 4. Klicke oberhalb der Liste der Administratoren auf **Invite admin** (Administrator einladen). ![Schaltfläche „Invite admin“ (Administrator einladen) über der Liste der Enterprise-Inhaber](/assets/images/help/business-accounts/invite-admin-button.png)
 5. Gib den Benutzernamen, den vollständigen Namen oder die E-Mail-Adresse der Person ein, die Du dazu einladen möchtest, Enterprise-Administrator zu werden. Wähle dann die gewünschte Person aus den Ergebnissen aus. ![Modales Feld mit Feld für die Eingabe des Benutzernamens, vollständigen Namens oder der E-Mail-Adresse und Schaltfläche zum Einladen](/assets/images/help/business-accounts/invite-admins-modal-button.png)
@@ -38,8 +38,8 @@ Wenn Du jemanden zum Enterprise-Konto eingeladen hast, muss diese Person die per
 
 Nur Enterprise-Inhaber können andere Enterprise-Administratoren aus dem Enterprise-Konto entfernen.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. Klicke neben dem Benutzernamen der Person, die Du entfernen möchtest, auf {% octicon "gear" aria-label="The Settings gear" %} und anschließend auf **Remove owner** (Inhaber entfernen) oder **Remove billing manager** (Abrechnungsmanager entfernen). ![Zahnradsymbol für Einstellungen mit Menüoption zum Entfernen eines Enterprise-Administrators](/assets/images/help/business-accounts/remove-admin.png)
 
 ### Weiterführende Informationen

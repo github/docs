@@ -1,6 +1,6 @@
 ---
 title: Acerca de las migraciones
-intro: 'Una migración es un proceso de transferencia de datos desde una ubicación *origen* (ya sea una organización {{ site.data.variables.product.prodname_dotcom_the_website }} o una instancia {{ site.data.variables.product.prodname_ghe_server }}) a una instancia *objetivo* {{ site.data.variables.product.prodname_ghe_server }}. Las migraciones se pueden utilizar para la transferencia de datos al cambiar de plataforma o actualizar el hardware en la instancia.'
+intro: 'Una migración es un proceso de transferencia de datos desde una ubicación *origen* (ya sea una organización {% data variables.product.prodname_dotcom_the_website %} o una instancia {% data variables.product.prodname_ghe_server %}) a una instancia *objetivo* {% data variables.product.prodname_ghe_server %}. Las migraciones se pueden utilizar para la transferencia de datos al cambiar de plataforma o actualizar el hardware en la instancia.'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -12,9 +12,9 @@ versions:
 
 Existen tres tipos de migraciones que se pueden realizar:
 
-- Una migración de una instancia {{ site.data.variables.product.prodname_ghe_server }} a otra instancia {{ site.data.variables.product.prodname_ghe_server }}. Puedes migrar la cantidad de repositorios que desees de cualquier usuario u organización en la instancia. Antes de hacer una migración, debes tener acceso de administrador del sitio en ambas instancias.
-- Una migración de una organización {{ site.data.variables.product.prodname_dotcom_the_website }} a una instancia {{ site.data.variables.product.prodname_ghe_server }}. Puedes migrar la cantidad de repositorios de la organización que desees. Antes de efectuar una migración, debes tener [ acceso administrativo ](/enterprise/user/articles/permission-levels-for-an-organization/) a la organización {{ site.data.variables.product.prodname_dotcom_the_website }}, así como acceso de administrador del sitio a la instancia de destino.
-- *Las ejecuciones de prueba *son migraciones que importan datos a una [instancia de preparación](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Estas pueden ser útiles para ver qué *sucedería* si se aplicara una migración {{ site.data.variables.product.product_location_enterprise }}. **Se recomienda encarecidamente que se lleve a cabo una ejecución de prueba en una instancia de preparación antes de importar datos a la instancia de producción.**
+- Una migración de una instancia {% data variables.product.prodname_ghe_server %} a otra instancia {% data variables.product.prodname_ghe_server %}. Puedes migrar la cantidad de repositorios que desees de cualquier usuario u organización en la instancia. Antes de hacer una migración, debes tener acceso de administrador del sitio en ambas instancias.
+- Una migración de una organización {% data variables.product.prodname_dotcom_the_website %} a una instancia {% data variables.product.prodname_ghe_server %}. Puedes migrar la cantidad de repositorios de la organización que desees. Antes de efectuar una migración, debes tener [ acceso administrativo ](/enterprise/user/articles/permission-levels-for-an-organization/) a la organización {% data variables.product.prodname_dotcom_the_website %}, así como acceso de administrador del sitio a la instancia de destino.
+- *Las ejecuciones de prueba *son migraciones que importan datos a una [instancia de preparación](/enterprise/admin/guides/installation/setting-up-a-staging-instance/). Estas pueden ser útiles para ver qué *sucedería* si se aplicara una migración {% data variables.product.product_location_enterprise %}. **Se recomienda encarecidamente que se lleve a cabo una ejecución de prueba en una instancia de preparación antes de importar datos a la instancia de producción.**
 
 ### Datos migrados
 
@@ -22,7 +22,7 @@ En una migración, todo gira en torno a un repositorio. La mayoría de los datos
 
 Los elementos de la tabla a continuación se pueden migrar con un repositorio. Los elementos que no se muestren en la lista de datos migrados no se pueden migrar.
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
 | Datos asociados con un repositorio migrado                      | Notas                                                                                                                                                                                                                              |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -22,7 +22,7 @@ Cuando aceptas una invitación para unirte a una organización, el propietario d
 - País del origen de la solicitud.
 - Tu dirección IP.
 
-Para obtener más información, consulta la <a href="/articles/github-privacy-statement/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }} Declaración de privacidad</a>.
+Para obtener más información, consulta la <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} Declaración de privacidad</a>.
 
   {% note %}
 

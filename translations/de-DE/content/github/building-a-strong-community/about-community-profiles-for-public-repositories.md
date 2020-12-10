@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Community-Profilen für öffentliche Repositorys
-intro: 'Repository-Betreuer können einen Review des Community-Profils ihres öffentlichen Repositorys durchführen, um zu erfahren, wie sie dazu beitragen können, ihre Community zu vergrößern und Mitarbeiter zu unterstützen. Mitarbeiter können das Community-Profil eines öffentlichen Repositorys einsehen, um zu überprüfen, ob sie an dem Projekt mitwirken möchten.'
+intro: Repository-Betreuer können einen Review des Community-Profils ihres öffentlichen Repositorys durchführen, um zu erfahren, wie sie dazu beitragen können, ihre Community zu vergrößern und Mitarbeiter zu unterstützen. Mitarbeiter können das Community-Profil eines öffentlichen Repositorys einsehen, um zu überprüfen, ob sie an dem Projekt mitwirken möchten.
 redirect_from:
   - /articles/viewing-your-community-profile/
   - /articles/about-community-profiles-for-public-repositories
@@ -16,11 +16,11 @@ Verwende als Repository-Betreuer die Checkliste für Community-Profile, um zu ü
 
 Wenn ein Projekt eine empfohlene Datei nicht enthält, kannst Du auf **Add** (Hinzufügen) klicken, um eine Datei zu entwerfen und abzusenden.
 
-{{ site.data.reusables.repositories.valid-community-issues }} Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/articles/about-issue-and-pull-request-templates).“
+{% data reusables.repositories.valid-community-issues %} Weitere Informationen findest Du unter „[Informationen zu Vorlagen für Issues und Pull Requests](/articles/about-issue-and-pull-request-templates).“
 
 ![Checkliste für Community-Profile mit empfohlenen Community-Standards für Betreuer](/assets/images/help/repository/add-button-community-profile.png)
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Checkliste für Community-Profile als Community-Mitglied oder -Mitarbeiter verwenden
 
@@ -37,4 +37,4 @@ Wenn ein Projekt eine empfohlene Datei nicht enthält, kannst Du auf **Propose**
 - „[Eine Lizenz zu einem Repository hinzufügen](/articles/adding-a-license-to-a-repository)“
 - „[Informationen zu Vorlagen für Issues und Pull-Requests](/articles/about-issue-and-pull-request-templates)“
 - „[Open-Source-Leitfäden](https://opensource.guide/)“
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

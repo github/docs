@@ -1,16 +1,17 @@
 ---
 title: GitHub Desktop
-intro: '{{ site.data.variables.product.prodname_desktop }} は、ビジュアルインターフェースを使用して、Git および {{ site.data.variables.product.prodname_dotcom }} のワークフローを拡張し簡略化します。'
+intro: '{% data variables.product.prodname_desktop %} は、ビジュアルインターフェースを使用して、Git および {% data variables.product.prodname_dotcom %} のワークフローを拡張し簡略化します。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### {{ site.data.variables.product.prodname_desktop }}について
+### {% data variables.product.prodname_desktop %} について
 
-{{ site.data.reusables.desktop.about-github-desktop }}
+{% data reusables.desktop.about-github-desktop %}
 
-For more information about {{ site.data.variables.product.prodname_desktop }}, see "[Installing and configuring {{ site.data.variables.product.prodname_desktop }}](/desktop/installing-and-configuring-github-desktop)" in the {{ site.data.variables.product.prodname_desktop }} documentation.
+For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
 
 ### フィードバックを送る
 

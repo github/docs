@@ -1,14 +1,15 @@
 ---
 title: 人をフォローする
-intro: '{{ site.data.variables.product.product_name }} のユーザをフォローして、アクティビティに関する通知を受け取ることができます。{% if currentVersion == "free-pro-team@latest" %}また、それらのユーザのコミュニティ内でプロジェクトを見つけることもできます。{% endif %}'
+intro: 'You can follow people on {% data variables.product.product_name %} to receive notifications about their activity{% if currentVersion == "free-pro-team@latest" %} and discover projects in their communities{% endif %}.'
 redirect_from:
   - /articles/following-people
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-ユーザをフォローすると、ニュースフィードのアクティビティビューに、公開されたアクティビティが表示されます。{% if currentVersion == "free-pro-team@latest" %}フォローしているユーザがパブリックリポジトリに Star を付けると、ニュースフィードのディスカバリービューで {{ site.data.variables.product.product_name }} によっておすすめのリポジトリが紹介されます。{% endif %}ユーザをフォローするには、ユーザのプロフィールページにアクセスし、プロフィール画像の下にある [**Follow**] をクリックします。
+When you follow people, you'll see their public activity in the activity view of your news feed.{% if currentVersion == "free-pro-team@latest" %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %} To follow someone, visit their profile page and click **Follow** under their profile image.
 
 ![ユーザのフォローボタン](/assets/images/help/profile/follow-user-button.png)
 
@@ -18,5 +19,5 @@ versions:
 ### 参考リンク
 
 - [Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)
-- 「[{{ site.data.variables.product.prodname_dotcom }} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」
+- 「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」
 {% endif %}

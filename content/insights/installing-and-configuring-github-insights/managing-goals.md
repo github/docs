@@ -1,10 +1,10 @@
 ---
 title: Managing goals
 intro: You can use goals to set targets for key metrics and measure success reaching those targets.
-product: '{{ site.data.reusables.gated-features.github-insights }}'
+product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
-permissions: 'Anyone with access to {{ site.data.variables.product.prodname_insights }} can manage goals.'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can manage goals.'
 versions:
   enterprise-server: '*'
 ---
@@ -15,12 +15,12 @@ Goals are targets that you can set for key metrics to measure your team's succes
 
 Goals are only available in key metrics. Some reports also show which work, such as individual pull requests, did not meet your goal. For more information, see "[Viewing key metrics and reports](/insights/exploring-your-usage-of-github-enterprise/viewing-key-metrics-and-reports)."
 
-Goals cannot be created or deleted. When you edit a goal, the new goal applies to everyone using your {{ site.data.variables.product.prodname_insights }} application.
+Goals cannot be created or deleted. When you edit a goal, the new goal applies to everyone using your {% data variables.product.prodname_insights %} application.
 
 ### Editing a goal
 
-{{ site.data.reusables.github-insights.navigate-to-key-metrics }}
-{{ site.data.reusables.github-insights.choose-key-metric }}
+{% data reusables.github-insights.navigate-to-key-metrics %}
+{% data reusables.github-insights.choose-key-metric %}
 1. To the right of the goal, click {% octicon "gear" aria-label="The gear icon" %}.
   ![Gear icon to edit goal](/assets/images/help/insights/edit-goal.png)
 2. In the text field, type a new goal value.

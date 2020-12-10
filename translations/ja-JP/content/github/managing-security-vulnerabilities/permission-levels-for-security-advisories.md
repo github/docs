@@ -10,7 +10,7 @@ versions:
 
 ### 権限の概要
 
-{{ site.data.reusables.repositories.security-advisory-admin-permissions }}セキュリティアドバイザリへのコラボレータの追加についての詳細については、「[セキュリティアドバイザリからコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)」を参照してください。
+{% data reusables.repositories.security-advisory-admin-permissions %}セキュリティアドバイザリへのコラボレータの追加についての詳細については、「[セキュリティアドバイザリからコラボレータを追加する](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)」を参照してください。
 
 | アクション                                                                                                                                                                                                   | Write 権限 | Admin 権限 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |

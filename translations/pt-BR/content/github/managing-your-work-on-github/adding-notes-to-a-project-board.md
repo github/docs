@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
 **Dicas:**
 - É possível formatar a observação usando a sintaxe markdown. Por exemplo, você pode usar títulos, links, listas de tarefas ou emojis. Para obter mais informações, consulte "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)".
-- Você pode arrastar e soltar ou usar atalhos de teclado para reordenar observações e movê-las entre colunas. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+- Você pode arrastar e soltar ou usar atalhos de teclado para reordenar observações e movê-las entre colunas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 - Seu quadro de projeto deve ter pelo menos uma coluna para que seja possível adicionar observações. Para obter mais informações, consulte "[Criar um quadro de projeto](/articles/creating-a-project-board)".
 
 {% endtip %}
@@ -42,12 +43,12 @@ Quando você converte uma observação em um problema, o problema é criado auto
 
 {% tip %}
 
-**Dica:** é possível adicionar conteúdo no texto da observação para fazer @menção a alguém, vinculá-la a outro problema ou pull request e adicionar emoji. Esses recursos markdown em estilo {{ site.data.variables.product.prodname_dotcom }} não são aceitos em observações do quadro de projeto, mas depois que a observação for convertida em um problema, ela será exibida corretamente. Para obter mais informações sobre o uso desses recursos, consulte "[Sobre escrita e formatação no {{ site.data.variables.product.prodname_dotcom }}](/articles/about-writing-and-formatting-on-github)".
+**Dica:** é possível adicionar conteúdo no texto da observação para fazer @menção a alguém, vinculá-la a outro problema ou pull request e adicionar emoji. Esses recursos markdown em estilo {% data variables.product.prodname_dotcom %} não são aceitos em observações do quadro de projeto, mas depois que a observação for convertida em um problema, ela será exibida corretamente. Para obter mais informações sobre o uso desses recursos, consulte "[Sobre escrita e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github)".
 
 {% endtip %}
 
 1. Navegue para a observação que deseja converter em um problema.
-{{ site.data.reusables.project-management.project-note-more-options }}
+{% data reusables.project-management.project-note-more-options %}
 3. Clique em **Convert to issue** (Converter em problema). ![Botão Convert to issue (Converter em problema)](/assets/images/help/projects/convert-to-issue.png)
 4. Se o cartão estiver em um quadro de projeto em toda a organização, no menu suspenso, escolha o repositório ao qual deseja adicionar o problema. ![Menu suspenso listando repositórios onde é possível criar o problema](/assets/images/help/projects/convert-note-choose-repository.png)
 5. Se desejar, edite o título do problema previamente preenchido e digite um texto para o problema. ![Campos para título e texto do problema](/assets/images/help/projects/convert-note-issue-title-body.png)
@@ -57,7 +58,7 @@ Quando você converte uma observação em um problema, o problema é criado auto
 ### Editar e remover uma observação
 
 1. Navegue para a observação que deseja editar ou remover.
-{{ site.data.reusables.project-management.project-note-more-options }}
+{% data reusables.project-management.project-note-more-options %}
 3. Para editar o conteúdo da observação, clique em **Edit note** (Editar observação). ![Botão Edit note (Editar observação)](/assets/images/help/projects/edit-note.png)
 4. Para excluir o conteúdo das observações, clique em **Delete note** (Excluir observação). ![Botão Delete note (Excluir observação)](/assets/images/help/projects/delete-note.png)
 

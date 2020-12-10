@@ -1,7 +1,7 @@
 ---
 title: Rollen für ein Enterprise-Kontos
-intro: Zur Steuerung des Zugriffs auf die Einstellungen und Daten Deines Enterprise-Kontos kannst Du den Benutzern Deines Enterprise-Kontos verschiedene Rollen zuweisen.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'Zur Steuerung des Zugriffs auf die Einstellungen und Daten Deines Enterprise-Kontos kannst Du den Benutzern Deines Enterprise-Kontos verschiedene Rollen zuweisen.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/
   - /articles/roles-for-an-enterprise-account
@@ -16,7 +16,7 @@ Weitere Informationen zum Hinzufügen von Personen zu Deinem Enterprise-Konto fi
 
 Enterprise-Konten beinhalten eine Reihe von Administratorrollen, die Du den Benutzern Deines Unternehmens zuweisen kannst. Die einzelnen Administratorrollen sind spezifischen Geschäftsfunktionen zugeordnet und beinhalten Berechtigungen für bestimmte Aufgaben innerhalb des Enterprise-Kontos.
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }}
+{% data reusables.enterprise-accounts.enterprise-administrators %}
 
 ### Enterprise-Inhaber
 
@@ -29,7 +29,7 @@ Enterprise-Inhaber haben vollständige Kontrolle über das Enterprise-Konto und 
 
 Keinen Zugriff haben Enterprise-Inhaber auf die Einstellungen und Inhalte der einzelnen Organisationen, es sei denn, sie sind auch Inhaber einer Organisation oder ihnen wird direkter Zugriff auf das Repository einer Organisation erteilt. Umgekehrt haben die Inhaber einer Organisation innerhalb eines Enterprise-Kontos keinen Zugriff auf das Enterprise-Konto selbst, es sei denn, sie sind auch Enterprise-Inhaber.
 
-Du kannst Deinem Enterprise-Konto beliebig viele Enterprise-Inhaber hinzufügen. Enterprise-Inhaber müssen über ein persönliches Konto auf {{ site.data.variables.product.prodname_dotcom }} verfügen. Zum Schutz des Geschäfts hat sich als Best Practice bewährt, nur wenigen Personen innerhalb eines Unternehmens die Berechtigungen eines Enterprise-Inhabers zu erteilen.
+Du kannst Deinem Enterprise-Konto beliebig viele Enterprise-Inhaber hinzufügen. Enterprise-Inhaber müssen über ein persönliches Konto auf {% data variables.product.prodname_dotcom %} verfügen. Zum Schutz des Geschäfts hat sich als Best Practice bewährt, nur wenigen Personen innerhalb eines Unternehmens die Berechtigungen eines Enterprise-Inhabers zu erteilen.
 
 ### Enterprise-Mitglieder
 
@@ -44,11 +44,11 @@ Externe Mitarbeiter mit Zugriff auf Repositorys Deiner Organisation werden ebenf
 ### Abrechnungsmanager
 
 Abrechnungsmanager haben lediglich Zugriff auf die Abrechnungseinstellungen des Enterprise-Kontos. Abrechnungsmanager eines Enterprise-Kontos können folgende Aufgaben durchführen:
-- Benutzerlizenzen, {{ site.data.variables.large_files.product_name_short }}-Pakete und andere Abrechnungseinstellungen anzeigen und verwalten
+- Benutzerlizenzen, {% data variables.large_files.product_name_short %}-Pakete und andere Abrechnungseinstellungen anzeigen und verwalten
 - Liste der Abrechnungsmanager anzeigen
 - Andere Abrechnungsmanager hinzufügen oder entfernen
 
-Abrechnungsmanager haben keinen Zugriff auf die Organisationen und Repositorys Deines Enterprise-Kontos. Sie können auch keine Enterprise-Inhaber hinzufügen oder entfernen. Abrechnungsmanager müssen über ein persönliches Konto auf {{ site.data.variables.product.prodname_dotcom }} verfügen.
+Abrechnungsmanager haben keinen Zugriff auf die Organisationen und Repositorys Deines Enterprise-Kontos. Sie können auch keine Enterprise-Inhaber hinzufügen oder entfernen. Abrechnungsmanager müssen über ein persönliches Konto auf {% data variables.product.prodname_dotcom %} verfügen.
 
 ### Weiterführende Informationen
 

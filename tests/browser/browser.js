@@ -1,23 +1,19 @@
-/* global page */
-require('../../lib/feature-flags')
+/* global page, browser */
 const sleep = require('await-sleep')
-
-const testFeatureNewVersions = process.env.FEATURE_NEW_VERSIONS ? test : test.skip
-const testFeatureOldVersions = process.env.FEATURE_NEW_VERSIONS ? test.skip : test
+const querystring = require('querystring')
 
 describe('homepage', () => {
-  testFeatureNewVersions('should be titled "GitHub Documentation"', async () => {
+  jest.setTimeout(60 * 1000)
+
+  test('should be titled "GitHub Documentation"', async () => {
     await page.goto('http://localhost:4001')
     await expect(page.title()).resolves.toMatch('GitHub Documentation')
-  })
-
-  testFeatureOldVersions('should be titled "GitHub.com Help"', async () => {
-    await page.goto('http://localhost:4001')
-    await expect(page.title()).resolves.toMatch('GitHub.com Help')
   })
 })
 
 describe('algolia browser search', () => {
+  jest.setTimeout(60 * 1000)
+
   it('works on the homepage', async () => {
     await page.goto('http://localhost:4001/en')
     await page.click('#search-input-container input[type="search"]')
@@ -43,6 +39,56 @@ describe('algolia browser search', () => {
     await page.waitForSelector('.ais-Hits')
     const hits = await page.$$('.ais-Hits-item')
     expect(hits.length).toBeGreaterThan(5)
+  })
+
+  it('sends the correct data to algolia for Enterprise Server', async () => {
+    expect.assertions(12) // 3 assertions x 4 letters ('test')
+
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', interceptedRequest => {
+      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+        const data = JSON.parse(interceptedRequest.postData())
+        const { indexName, params } = data.requests[0]
+        const parsedParams = querystring.parse(params)
+        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
+        expect(indexName).toBe('github-docs-2.22-ja')
+        expect(analyticsTags).toHaveLength(2)
+        // browser tests are run against production build, so we are expecting env:production
+        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('#search-input-container input[type="search"]')
+    await newPage.type('#search-input-container input[type="search"]', 'test')
+  })
+
+  it('sends the correct data to algolia for GHAE', async () => {
+    expect.assertions(12) // 3 assertions x 4 letters ('test')
+
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', interceptedRequest => {
+      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+        const data = JSON.parse(interceptedRequest.postData())
+        const { indexName, params } = data.requests[0]
+        const parsedParams = querystring.parse(params)
+        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
+        expect(indexName).toBe('github-docs-ghae-en')
+        expect(analyticsTags).toHaveLength(2)
+        // browser tests are run against production build, so we are expecting env:production
+        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('#search-input-container input[type="search"]')
+    await newPage.type('#search-input-container input[type="search"]', 'test')
   })
 
   it('removes `algolia-query` query param after page load', async () => {
@@ -77,28 +123,6 @@ describe('algolia browser search', () => {
   })
 })
 
-describe('google analytics', () => {
-  it('is set on page load with expected properties', async () => {
-    await page.goto('http://localhost:4001/en/actions')
-
-    // check that GA global object exists and is a function
-    const gaObjectType = await page.evaluate(() => typeof window.ga)
-    expect(gaObjectType).toBe('function')
-
-    // check that default tracker is set
-    // https://developers.google.com/analytics/devguides/collection/analyticsjs/ga-object-methods-reference#getByName
-    const gaDefaultTracker = await page.evaluate(() => window.ga.getByName('t0'))
-    expect('filters' in gaDefaultTracker).toBe(true)
-    expect(Object.keys(gaDefaultTracker)).toHaveLength(3)
-
-    // check that default cookies are set
-    // https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage#analyticsjs
-    const cookies = await page.cookies()
-    expect(cookies.some(cookie => cookie.name === '_gat')).toBe(true)
-    expect(cookies.some(cookie => cookie.name === '_gid')).toBe(true)
-  })
-})
-
 describe('helpfulness', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
@@ -107,8 +131,8 @@ describe('helpfulness', () => {
     // Track network requests
     await page.setRequestInterception(true)
     page.on('request', request => {
-      // Ignore GET to google analytics
-      if (!/\/events/.test(request.method())) return request.continue()
+      // Ignore GET requests
+      if (!/\/events$/.test(request.url())) return request.continue()
       expect(request.method()).toMatch(/POST|PUT/)
       request.respond({
         contentType: 'application/json',
@@ -118,20 +142,20 @@ describe('helpfulness', () => {
     })
 
     // When I click the "Yes" button
-    await page.click('#helpfulness-sm [for=helpfulness-yes-sm]')
+    await page.click('.js-helpfulness [for=helpfulness-yes]')
     // (sent a POST request to /events)
     // I see the request for my email
-    await page.waitForSelector('#helpfulness-sm [type="email"]')
+    await page.waitForSelector('.js-helpfulness [type="email"]')
 
     // When I fill in my email and submit the form
-    await page.type('#helpfulness-sm [type="email"]', 'test@example.com')
+    await page.type('.js-helpfulness [type="email"]', 'test@example.com')
 
     await sleep(1000)
 
-    await page.click('#helpfulness-sm [type="submit"]')
+    await page.click('.js-helpfulness [type="submit"]')
     // (sent a PUT request to /events/{id})
     // I see the feedback
-    await page.waitForSelector('#helpfulness-sm [data-help-end]')
+    await page.waitForSelector('.js-helpfulness [data-help-end]')
   })
 })
 

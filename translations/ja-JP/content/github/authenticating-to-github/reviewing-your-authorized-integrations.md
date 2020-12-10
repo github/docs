@@ -6,21 +6,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### 許可された {{ site.data.variables.product.prodname_oauth_app }} をレビューする
+### 許可された {% data variables.product.prodname_oauth_app %} をレビューする
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.access_applications }}
-{{ site.data.reusables.user_settings.access_authorized_oauth_apps }}
-{{ site.data.reusables.user_settings.review-oauth-apps }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.access_applications %}
+{% data reusables.user_settings.access_authorized_oauth_apps %}
+{% data reusables.user_settings.review-oauth-apps %}
 
-### 許可された {{ site.data.variables.product.prodname_github_app }} をレビューする。
+### 許可された {% data variables.product.prodname_github_app %} をレビューする。
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.access_applications }}
-3. [**Authorized {{ site.data.variables.product.prodname_github_app }}s**] タブをクリックします。 ![[Authorized {{ site.data.variables.product.prodname_github_app }}s] タブ](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
-3. 自分のアカウントへのアクセス権がある {{ site.data.variables.product.prodname_github_app }} をレビューします。 覚えていないか古くなっている場合は、[**Revoke**] をクリックします。 {{ site.data.variables.product.prodname_github_app }} をすべて取り消すには、[**Revoke all**] をクリックします。 ![許可された {{ site.data.variables.product.prodname_github_app }} のリスト](/assets/images/help/settings/revoke-github-app.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.access_applications %}
+3. [**Authorized {% data variables.product.prodname_github_app %}s**] タブをクリックします。 ![[Authorized {% data variables.product.prodname_github_app %}s] タブ](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
+3. 自分のアカウントへのアクセス権がある {% data variables.product.prodname_github_app %} をレビューします。 覚えていないか古くなっている場合は、[**Revoke**] をクリックします。 {% data variables.product.prodname_github_app %} をすべて取り消すには、[**Revoke all**] をクリックします。 ![許可された {% data variables.product.prodname_github_app %} のリスト](/assets/images/help/settings/revoke-github-app.png)
 
 ### 参考リンク
 {% if currentVersion == "free-pro-team@latest" %}

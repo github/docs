@@ -1,5 +1,5 @@
 Based on your user license count, we recommend the following instance types. |
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 | User licenses                  | Recommended type |
 |:------------------------------ | ----------------:|
 | Trial, demo, or 10 light users |         r4.large |

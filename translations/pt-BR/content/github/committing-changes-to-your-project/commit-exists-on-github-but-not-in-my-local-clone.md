@@ -1,11 +1,12 @@
 ---
-title: 'O commit aparece no GitHub, mas não no meu clone local'
-intro: 'Às vezes, um commit poderá ser visto no {{ site.data.variables.product.product_name }}, mas não existirá no clone local do repositório.'
+title: O commit aparece no GitHub, mas não no meu clone local
+intro: 'Às vezes, um commit poderá ser visto no {% data variables.product.product_name %}, mas não existirá no clone local do repositório.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você usa `git show` para exibir um commit específico na linha de comando, é possível que veja um erro fatal.
@@ -17,7 +18,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-No entanto, ao exibir o commit no {{ site.data.variables.product.product_location }}, você poderá vê-lo sem qualquer problema:
+No entanto, ao exibir o commit no {% data variables.product.product_location %}, você poderá vê-lo sem qualquer problema:
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
@@ -47,9 +48,9 @@ Isso copia informações com segurança do repositório remote para o clone loca
 
 Se um colaborador no repositório tiver excluído o brach contendo o commit ou tiver forçado o push no branch, o commit ausente poderá ter ficado órfão (isto é, não poderá ser alcançado de qualquer referência) e, portanto, o fetch dele não poderá ser feito no clone local.
 
-Felizmente, se algum colaborador tiver um clone local do repositório com o commit ausente, ele poderá fazer push dele de volta no {{ site.data.variables.product.product_name }}.  Ele precisa ter certeza de que o commit é referenciado por um branch local e, em seguida, fazer push dele como um novo branch para o {{ site.data.variables.product.product_name }}.
+Felizmente, se algum colaborador tiver um clone local do repositório com o commit ausente, ele poderá fazer push dele de volta no {% data variables.product.product_name %}.  Ele precisa ter certeza de que o commit é referenciado por um branch local e, em seguida, fazer push dele como um novo branch para o {% data variables.product.product_name %}.
 
-Vamos dizer que a pessoa ainda tem um branch local (chame-o de `B`) que contém o commit.  Isso pode estar rastreando o branch que teve push forçado ou excluído e ele simplesmente ainda não foi atualizado.  Para preservar o commit, ele pode fazer push desse branch local em um novo branch (chame-o de `recover-B`) no {{ site.data.variables.product.product_name }}.  Para este exemplo, vamos supor que ele tenha um remote chamado `upstream` pelo qual ele tem acesso push a `github.com/$account/$repository`.
+Vamos dizer que a pessoa ainda tem um branch local (chame-o de `B`) que contém o commit.  Isso pode estar rastreando o branch que teve push forçado ou excluído e ele simplesmente ainda não foi atualizado.  Para preservar o commit, ele pode fazer push desse branch local em um novo branch (chame-o de `recover-B`) no {% data variables.product.product_name %}.  Para este exemplo, vamos supor que ele tenha um remote chamado `upstream` pelo qual ele tem acesso push a `github.com/$account/$repository`.
 
 A outra pessoa executa:
 

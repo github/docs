@@ -1,7 +1,7 @@
 ---
 title: Publicar e gerenciar pacotes
 shortTitle: Publicar e gerenciar pacotes
-intro: 'Você pode publicar novos pacotes no {{ site.data.variables.product.prodname_registry }}, visualizar e instalar pacotes existentes e, em circunstâncias especiais, excluir pacotes existentes.'
+intro: 'Você pode publicar novos pacotes no {% data variables.product.prodname_registry %}, visualizar e instalar pacotes existentes e, em circunstâncias especiais, excluir pacotes existentes.'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_in_list /about-github-packages %}
 {% link_in_list /publishing-a-package %}

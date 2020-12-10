@@ -1,13 +1,14 @@
 ---
 title: Viewing a wiki's history of changes
 intro: 'Because wikis are Git repositories, every change you make is a commit that you can view.'
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Viewing wiki history
@@ -17,8 +18,8 @@ Wiki history includes:
 - The commit message they provided
 - When the change was made
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Using the wiki sidebar, navigate to the page whose history you want to view.
 4. At the top of the wiki, click the revision link. ![Wiki revision link](/assets/images/help/wiki/wiki_revision_link.png)
 

@@ -1,10 +1,11 @@
 ---
 title: Team のコードレビューの割り当てを管理する
 intro: コードレビューの割り当てには、Team のどのメンバーがプルリクエストのレビューをサブミットするかが明確に指定されます。
-product: '{{ site.data.reusables.gated-features.code-review-assignment }}'
+product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 チームメンテナと Organization のオーナーは、コードレビューの割り当てを設定できます。
@@ -17,17 +18,17 @@ versions:
 
 ### ルーティングアルゴリズム
 
-コードレビューの割り当ては、2 つのアルゴリズム候補のいずれかに基づいて自動的にレビュー担当者を選択して割り当てます。
+Code review assignments automatically choose and assign reviewers based on one of two possible algorithms.
 
 ラウンドロビンアルゴリズムは、現在未処理のレビューの数とは関係なく、Team のすべてのメンバー間で交互に、最も新しいレビューリクエストを誰が受け取ったかに基づいてレビュー担当者を選択します。
 
 ロードバランスアルゴリズムは、各メンバーの最近のレビューリクエスト合計数に基づいてレビュー担当者を選択し、メンバーごとの未処理レビューの数を考慮します。 ロードバランスアルゴリズムは、各 Teamメンバーが 30 日間に等しい数のプルリクエストをレビューすることを保証しようとします。
 
 ### コードレビューの割り当ての設定
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. 左サイドバーで [**Code review assignment**] をクリックします。 ![[Code review assignment] ボタン](/assets/images/help/teams/review-assignment-button.png)
 6. [**Enable auto assignment**] を選択します。 ![[Code review assignment] ボタン](/assets/images/help/teams/review-assignment-enable.png)
 7. [How many team members should be assigned to review?] でドロップダウンメニューを使用し、各プルリクエストに割り当てるレビュー担当者の数を選択します。 ![[Number of reviewers] ドロップダウン](/assets/images/help/teams/review-assignment-number.png)
@@ -37,9 +38,9 @@ versions:
 11. [**Save changes**] をクリックします。
 
 ### コードレビューの割り当てを無効化する
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. [**Enable auto assignment**] を選択してチェックマークを外します。 ![[Code review assignment] ボタン](/assets/images/help/teams/review-assignment-enable.png)
 6. [**Save changes**] をクリックします。

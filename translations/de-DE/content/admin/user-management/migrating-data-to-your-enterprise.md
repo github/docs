@@ -1,6 +1,6 @@
 ---
 title: Migrating data to your enterprise
-intro: 'Nachdem Sie ein Migrationsarchiv generiert haben, können Sie die Daten auf Ihrer {{ site.data.variables.product.prodname_ghe_server }}-Zielinstanz importieren. Sie können die Änderungen auf potenzielle Konflikte überprüfen, bevor Sie die Änderungen dauerhaft auf Ihre Zielinstanz anwenden.'
+intro: 'Nachdem Sie ein Migrationsarchiv generiert haben, können Sie die Daten auf Ihrer {% data variables.product.prodname_ghe_server %}-Zielinstanz importieren. Sie können die Änderungen auf potenzielle Konflikte überprüfen, bevor Sie die Änderungen dauerhaft auf Ihre Zielinstanz anwenden.'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -15,9 +15,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Applying the imported data on {{ site.data.variables.product.prodname_ghe_server }}
+### Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Führen Sie den Befehl `ghe-migrator import` aus, um den Importprozess zu starten. Sie benötigen Folgendes:
     * Ihren Migrations-GUID.
@@ -30,7 +30,7 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### Migrationsdaten überprüfen
 
@@ -104,22 +104,22 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-Kontaktieren Sie {{ site.data.variables.contact.contact_ent_support }}, wenn Sie Bedenken in Bezug auf fehlgeschlagene Importvorgänge haben.
+Kontaktieren Sie {% data variables.contact.contact_ent_support %}, wenn Sie Bedenken in Bezug auf fehlgeschlagene Importvorgänge haben.
 
-### Completing the import on {{ site.data.variables.product.prodname_ghe_server }}
+### Completing the import on {% data variables.product.prodname_ghe_server %}
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. Vor dem Löschen Ihrer Quelldaten sollten Sie etwa zwei Wochen warten, um sicherzugehen, dass alles erwartungsgemäß funktioniert.
 
 ### Repositorys auf der Zielinstanz entsperren
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### Repositorys auf der Quellinstanz entsperren
 
-#### Unlocking repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-Um die Repositorys in einer {{ site.data.variables.product.prodname_dotcom_the_website }}-Organisation zu entsperren, senden Sie eine `DELETE`-Anforderung an den <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">Endpunkt zum Entsperren der Migration</a>. Sie benötigen Folgendes:
+Um die Repositorys in einer {% data variables.product.prodname_dotcom_the_website %}-Organisation zu entsperren, senden Sie eine `DELETE`-Anforderung an den <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">Endpunkt zum Entsperren der Migration</a>. Sie benötigen Folgendes:
   * Ihr Zugriffstoken für die Authentifizierung
   * die eindeutige `ID` der Migration
   * den Namen des zu entsperrenden Repositorys
@@ -129,15 +129,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {{ site.data.variables.product.prodname_dotcom_the_website }} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). Sie benötigen Ihr Zugriffstoken für die Authentifizierung:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Repositorys auf einer {{ site.data.variables.product.prodname_ghe_server }}-Instanz entsperren
+#### Repositorys auf einer {% data variables.product.prodname_ghe_server %}-Instanz entsperren
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

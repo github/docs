@@ -1,7 +1,7 @@
 ---
 title: Eine JavaScript-Aktion erstellen
 intro: 'In diesem Handbuch erfährst Du, wie Du mit dem Toolkit für Aktionen eine JavaScript-Aktion erstellen kannst.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -12,18 +12,18 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
 In dieser Anleitung erfährst Du mehr über die grundlegenden Komponenten, die benötigt werden, um eine paketierte Docker-Container-Aktion zu erstellen und zu verwenden. Diese Anleitung fokussiert jene Komponenten, welche zum Paketieren der Aktion benötigt werden. Daher hat der Aktions-Code nur minimale Funktionalität. Die Aktion schreibt „Hello World“ in die Logs oder "Hello [who-to-greet]" wenn du einen benutzerdefinierten Namen angibst.
 
-Diese Anleitung verwendet das Node.js Modul des {{ site.data.variables.product.prodname_actions }}-Toolkits, um die Entwicklung zu beschleunigen. Weitere Informationen findest Du im Repository [actions/toolkit](https://github.com/actions/toolkit).
+Diese Anleitung verwendet das Node.js Modul des {% data variables.product.prodname_actions %}-Toolkits, um die Entwicklung zu beschleunigen. Weitere Informationen findest Du im Repository [actions/toolkit](https://github.com/actions/toolkit).
 
 Nach dem Abschluss dieses Projekts sollten Sie verstehen, wie Sie Ihre eigene JavaScript-Aktion erstellen und sie in einem Workflow testen können.
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
 ### Vorrausetzungen
 
@@ -33,7 +33,7 @@ Als Erstes müssen Sie die Anwendung Node.js herunterladen und ein GitHub-Reposi
 
   https://nodejs.org/de/download/current/
 
-1. Erstellen Sie ein neues Repository auf {{ site.data.variables.product.product_location }}. Du kannst einen beliebigen Repository-Namen auswählen oder wie in diesem Beispiel „hello-world-javascript-action“ verwenden. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {{ site.data.variables.product.product_name }} übergeben wurde. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
+1. Erstellen Sie ein neues Repository auf {% data variables.product.product_location %}. Du kannst einen beliebigen Repository-Namen auswählen oder wie in diesem Beispiel „hello-world-javascript-action“ verwenden. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
 
 1. Clone Dein Repository auf Deinen Computer. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 
@@ -51,7 +51,7 @@ Als Erstes müssen Sie die Anwendung Node.js herunterladen und ein GitHub-Reposi
 
 ### Eine Datei für die Metadaten der Aktion erstellen
 
-Erstelle eine neue Datei `action.yml` im Verzeichnis `hello-world-javascript-action` mit dem folgenden Beispielcode: Weitere Informationen findest Du unter „[Metadaten-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions)“.
+Erstelle eine neue Datei `action.yml` im Verzeichnis `hello-world-javascript-action` mit dem folgenden Beispielcode: Weitere Informationen findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)“.
 
 
 **action.yml**
@@ -77,9 +77,9 @@ Diese Datei definiert die Eingabe `who-to-greet` und die Ausgabe `time`. Sie gib
 
 Das Toolkit für Aktionen ist eine Node.js-Paketsammlung, mit der Sie JavaScript-Aktionen schnell und konsistenter erstellen können.
 
-Das Toolkit-Paket [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) enthält eine Schnittstelle für die Workflow-Befehle, Eingabe- und Ausgabevariablen, Exit-Status und Debugging-Meldungen.
+Das Toolkit-Paket [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) enthält eine Schnittstelle für die Workflow-Befehle, Eingabe- und Ausgabevariablen, Exit-Status und Debugging-Meldungen.
 
-Das Toolkit enthält zudem das Paket [`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github), das einen authentifizierten Octokit REST-Client und Zugriff auf GitHub Aktions-Kontexte bietet.
+Das Toolkit enthält zudem das Paket [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github), das einen authentifizierten Octokit REST-Client und Zugriff auf GitHub Aktions-Kontexte bietet.
 
 Das Toolkit bietet mehr als die Pakete `core` und `github`. Weitere Informationen findest Du im Repository [actions/toolkit](https://github.com/actions/toolkit).
 
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-Wenn im o. g. `index.js`-Beispiel ein Fehler ausgegeben wird, nutzt `core.setFailed(error.message);` das Aktions-Toolkit-Paket [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core), um eine Meldung zu protokollieren und einen Fehler-Exit-Code festzulegen. Weitere Informationen findest Du unter "[Exit Codes für Aktionen setzen](/actions/creating-actions/setting-exit-codes-for-actions)."
+Wenn im o. g. `index.js`-Beispiel ein Fehler ausgegeben wird, nutzt `core.setFailed(error.message);` das Aktions-Toolkit-Paket [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core), um eine Meldung zu protokollieren und einen Fehler-Exit-Code festzulegen. Weitere Informationen findest Du unter "[Exit Codes für Aktionen setzen](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
 ### Eine README erstellen
@@ -162,7 +162,7 @@ mit:
 
 ### Committe, tagge und pushe Deine Aktion auf GitHub
 
-{{ site.data.variables.product.product_name }} lädt jede Aktion, die in einem Workflow während der Laufzeit ausgeführt wird, herunter und führt sie als komplettes Codepaket aus, bevor Du Workflow-Befehle wie `run` zur Interaktion mit der Runner-Maschine verwenden kannst. Folglich musst Du alle zum Ausführen des JavaScript-Codes erforderlichen Paketabhängigkeiten einschließen. Sie müssen die Pakete `core` und `github` in das Repository Ihrer Aktion einchecken.
+{% data variables.product.product_name %} lädt jede Aktion, die in einem Workflow während der Laufzeit ausgeführt wird, herunter und führt sie als komplettes Codepaket aus, bevor Du Workflow-Befehle wie `run` zur Interaktion mit der Runner-Maschine verwenden kannst. Folglich musst Du alle zum Ausführen des JavaScript-Codes erforderlichen Paketabhängigkeiten einschließen. Sie müssen die Pakete `core` und `github` in das Repository Ihrer Aktion einchecken.
 
 Committen Sie in Ihrem Terminal Ihre Dateien `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json` und `README.md`. Falls Sie eine `.gitignore`-Datei hinzugefügt haben, die `node_modules` auflistet, müssen Sie diese Zeile entfernen, um das Verzeichnis `node_modules` zu committen.
 
@@ -200,7 +200,7 @@ git push --follow-tags
 
 Nun sind Sie bereit, Ihre Aktion in einem Workflow zu testen. Wenn eine Aktion in einem privaten Repository vorliegt, kann die Aktion nur in Workflows im selben Repository verwendet werden. Öffentliche Aktionen können von Workflows aus jedem Repository verwendet werden.
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### Beispiel mit einer öffentlichen Aktion
 
@@ -258,4 +258,8 @@ Jobs:
 
 Klicke in Deinem Repository auf die Registerkarte **Actions** (Aktionen), und wähle die neueste Workflow-Ausführung aus. Es sollten „Hello Mona the Octocat“ oder der von Dir für die Eingabe `who-to-greet` verwendete Name und der im Protokoll ausgegebene Zeitstempel angezeigt werden.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![Ein Screenshot zur Verwendung Deiner Aktion in einem Workflow](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}

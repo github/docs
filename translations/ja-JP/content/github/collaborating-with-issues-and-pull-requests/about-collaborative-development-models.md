@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プルリクエストを使う開発モデルには、主に2つのタイプがあります。 *フォークとプルモデル*では、誰でも既存のリポジトリをフォークして、個人のフォークに変更をプッシュできます。 ユーザが所有するフォークにプッシュする際に、ソースリポジトリへのアクセス許可は必要ありません。 プロジェクトのメンテナーは、その変更をソースリポジトリにプルできます。 ユーザが所有するフォークのブランチからソース（上流）のリポジトリのブランチへの変更を提案するプルリクエストをオープンすると、上流のリポジトリへのプッシュアクセスを持つすべてのユーザがプルリクエストに変更を加えられるようにすることができます。  このモデルは、新しいコントリビュータにとって摩擦が減り、事前に調整することなく人々が独立して作業できることから、オープンソースプロジェクトでよく使われます。
 
 {% tip %}
 
-**ヒント：**{{ site.data.reusables.open-source.open-source-guide-general }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**ヒント：**{% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 

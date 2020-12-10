@@ -11,9 +11,9 @@ versions:
 
 
 
-La API de {{ site.data.variables.product.product_name }} proporciona una gran cantidad de información para el consumo de los desarrolladores. La mayoría de las veces incluso podrías encontrar que estás pidiendo _demasiada_ información y, para mantener felices a nuestros servidores, la API [paginará los elementos solicitados][pagination] automáticamente.
+La API de {% data variables.product.product_name %} proporciona una gran cantidad de información para el consumo de los desarrolladores. La mayoría de las veces incluso podrías encontrar que estás pidiendo _demasiada_ información y, para mantener felices a nuestros servidores, la API [paginará los elementos solicitados][pagination] automáticamente.
 
-En esta guía haremos algunos llamados a la API de Búsqueda de {{ site.data.variables.product.product_name }} e iteraremos sobre los resultados utilizando la paginación. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
+En esta guía haremos algunos llamados a la API de Búsqueda de {% data variables.product.product_name %} e iteraremos sobre los resultados utilizando la paginación. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
 
 ### Fundamentos de la Paginación
 
@@ -26,13 +26,13 @@ Para empezar, es importante saber algunos hechos acerca de recibir elementos pag
 Te proporcionamos la información sobre la paginación en [el encabezado de enlace](http://tools.ietf.org/html/rfc5988) de una llamada a la API. Por ejemplo, vamos a hacer una solicitud de curl a la API de búsqueda para saber cuántas veces se utiliza la frase `addClass` en los proyectos de Mozilla:
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
 ```
 
 El parámetro `-I` indica que solo nos interesan los encabezados y no el contenido en sí. Al examinar el resultado, notarás alguna información en el encabezado de enlace, la cual se ve así:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 Vamos a explicarlo. `rel="next"` dice que la siguiente página es la `page=2`. Esto tiene sentido ya que, predeterminadamente, todas las consultas paginadas inician en la página `1.` y `rel="last"` proporciona más información, lo cual nos dice que la última página de los resultados es la `34`. Por lo tanto, tenemos otras 33 páginas de información que podemos consumir acerca de `addClass`. ¡Excelente!
 
@@ -43,15 +43,15 @@ Confía **siempre** en estas relaciones de enlace que se te proporcionan. No int
 Ahora que sabescuántas páginas hay para recibir, puedes comenzar a navegar a través de ellas para consumir los resultados. Esto se hace pasando un parámetro de `page`. Predeterminadamente, la `page` siempre comienza en `1`. Vamos a saltar a la página 14 para ver qué pasa:
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 Aquí está el encabezado de enlace una vez más:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 Como era de esperarse, la `rel="next"` está en 15, y la `rel="last"` es aún 34. Pero ahora tenemos más información: `rel="first"` indica la URL de la _primera_ página, y lo que es más importante, `rel="prev"` te dice el número de página de la página anterior. Al utilizar esta información, puedes construir alguna IU que le permita a los usuarios saltar entre la lista de resultados principal, previa o siguiente en una llamada a la API.
 
@@ -60,13 +60,13 @@ Como era de esperarse, la `rel="next"` está en 15, y la `rel="last"` es aún 34
 Al pasar el parámetro `per_page`, puedes especificar cuantos elementos quieres que devuelva cada página, hasta un máximo de 100 de ellos. Vamos a comenzar pidiendo 50 elementos acerca de `addClass`:
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 Nota lo que hace en la respuesta del encabezado:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 Como habrás adivinado, la información de la `rel="last"` dice que la última página ahora es la 20. Esto es porque estamos pidiendo más información por página acerca de nuestros resultados.
 

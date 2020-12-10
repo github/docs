@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Eine Tabelle erstellen
@@ -72,5 +73,5 @@ Wenn Du einen senkrechten Strich (`|`) als Inhalt einer Zelle einfügen möchtes
 
 ### Weiterführende Informationen
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
 - „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)“

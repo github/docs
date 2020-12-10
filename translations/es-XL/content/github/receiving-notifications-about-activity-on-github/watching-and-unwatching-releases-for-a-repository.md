@@ -7,12 +7,12 @@ versions:
 
 ### Ver lanzamientos en un repositorio
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. En el ángulo superior derecho, haz clic en **Releases only (Solo lanzamientos)** desde el menú desplegable "Watch" (Ver). ![Ver opciones en un menú desplegable para lanzamientos](/assets/images/help/notifications/watch-releases.png)
 
 ### Dejar de ver lanzamientos en un repositorio
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. En el ángulo superior derecho, haz clic en **Not watching (Dejar de ver)** desde el menú desplegable "Watch" (Ver). ![Ver opciones en un menú desplegable para lanzamientos](/assets/images/help/notifications/unwatch-repository.png)
 
 ### Leer más

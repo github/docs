@@ -1,7 +1,7 @@
 ---
 title: Getting started with GitHub
 shortTitle: 시작하기
-intro: 'Learn about {{ site.data.variables.product.prodname_dotcom }}''s products, sign up for an account, and explore the {{ site.data.variables.product.prodname_dotcom }} community.'
+intro: 'Learn about {% data variables.product.prodname_dotcom %}''s products, sign up for an account, and explore the {% data variables.product.prodname_dotcom %} community.'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/
@@ -15,6 +15,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

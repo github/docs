@@ -21,15 +21,15 @@ Para obtener más información, consulta:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-También puedes usar la sincronización LDAP para sincronizar los roles del equipo y los miembros del equipo de {{ site.data.variables.product.product_location_enterprise }} con tus grupos de LDAP establecidos. Esto te permite establecer un control de acceso para usuarios basado en roles desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro de {{ site.data.variables.product.product_location_enterprise }}. Para obtener más información, consulta "[Activar sincronización LDAP](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+También puedes usar la sincronización LDAP para sincronizar los roles del equipo y los miembros del equipo de {% data variables.product.product_location_enterprise %} con tus grupos de LDAP establecidos. Esto te permite establecer un control de acceso para usuarios basado en roles desde tu servidor LDAP, en lugar de hacerlo de forma manual dentro de {% data variables.product.product_location_enterprise %}. Para obtener más información, consulta "[Activar sincronización LDAP](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### Visibilidad del equipo
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### Paginas del equipo
 
@@ -41,7 +41,7 @@ Los miembros de la organización pueden crear y participar en debates con el equ
 
 ### Equipos anidados
 
-Puedes reflejar la jerarquía de tu grupo o empresa dentro de tu organización de {{ site.data.variables.product.product_name }} con varios niveles de equipos anidados. Un equipo padre puede tener varios equipos hijo, mientras que cada equipo hijo solo tiene un equipo padre. No puedes anidar equipos secretos.
+Puedes reflejar la jerarquía de tu grupo o empresa dentro de tu organización de {% data variables.product.product_name %} con varios niveles de equipos anidados. Un equipo padre puede tener varios equipos hijo, mientras que cada equipo hijo solo tiene un equipo padre. No puedes anidar equipos secretos.
 
 Los equipos hijo heredan los permisos de acceso del padre, lo que simplifica la administración de permisos para los grupos grandes. Los miembros de los equipos hijo también reciben notificaciones cuando se hace una @mención al equipo padre, simplificando la comunicación con varios grupos de personas.
 
@@ -57,7 +57,7 @@ Puedes elegir un padre cuando creas el equipo o puedes mover un equipo más tard
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% endif %}
 

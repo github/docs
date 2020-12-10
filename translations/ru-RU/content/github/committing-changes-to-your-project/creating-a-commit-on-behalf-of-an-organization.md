@@ -1,6 +1,6 @@
 ---
 title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {{ site.data.variables.product.product_name }}.'
+intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
@@ -26,7 +26,7 @@ Organization's can use the `name@organization.com` email as a public point of co
 
 ### Creating commits with an `on-behalf-of` badge on the command line
 
-{{ site.data.reusables.pull_requests.commit-message-with-trailer-beginning }}
+{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
 
 2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
@@ -37,11 +37,11 @@ Organization's can use the `name@organization.com` email as a public point of co
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-The new commit, message, and badge will appear on {{ site.data.variables.product.product_location }} the next time you push. For more information, see "[Pushing changes to a remote repository](/articles/pushing-commits-to-a-remote-repository/)."
+The new commit, message, and badge will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/articles/pushing-commits-to-a-remote-repository/)."
 
-### Creating commits with an `on-behalf-of` badge on {{ site.data.variables.product.product_name }}
+### Creating commits with an `on-behalf-of` badge on {% data variables.product.product_name %}
 
-After you've made changes in a file using the web editor on {{ site.data.variables.product.product_name }}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
+After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
 
 1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made. ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
@@ -50,7 +50,7 @@ After you've made changes in a file using the web editor on {{ site.data.variabl
   ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
 4. Click **Commit changes** or **Propose changes**.
 
-The new commit, message, and badge will appear on {{ site.data.variables.product.product_location }}.
+The new commit, message, and badge will appear on {% data variables.product.product_location %}.
 
 ### Дополнительная литература
 

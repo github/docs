@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 People with admin permissions can manage the access of organization members and outside collaborators to an organization repository.
@@ -16,13 +17,13 @@ People with admin permissions can manage the access of organization members and 
 
 When you remove a collaborator from a repository in your organization, the collaborator loses read and write access to the repository. If the repository is private and the collaborator has forked the repository, then their fork is also deleted, but the collaborator will still retain any local clones of your repository.
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ### Managing an individual's access to an organization repository
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Click either **Members** or **Outside collaborators** to manage people with different types of access. ![Button to invite members or outside collaborators to an organization](/assets/images/help/organizations/select-outside-collaborators.png)
 5. To the right of the name of the person you'd like to manage, use the {% octicon "gear" aria-label="The Settings gear" %} drop-down menu, and click **Manage**. ![The manage access link](/assets/images/help/organizations/member-manage-access.png)
 6. On the "Manage access" page, next to the repository, click **Manage access**. ![Manage access button for a repository](/assets/images/help/organizations/repository-manage-access.png)

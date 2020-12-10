@@ -1,11 +1,12 @@
 ---
 title: Updating an expired GPG key
-intro: 'When verifying a signature, {{ site.data.variables.product.product_name }} checks that the key is not revoked or expired. If your signing key is revoked or expired, {{ site.data.variables.product.product_name }} cannot verify your signatures. If your key is revoked, use the primary key or another key that is not revoked to sign your commits.'
+intro: 'When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures. If your key is revoked, use the primary key or another key that is not revoked to sign your commits.'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If your key is expired, you must [update the expiration](https://www.gnupg.org/gph/en/manual/c235.html#AEN328), export the new key, delete the expired key in your GitHub account, and [upload the new key to GitHub](/articles/adding-a-new-gpg-key-to-your-github-account/). Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.

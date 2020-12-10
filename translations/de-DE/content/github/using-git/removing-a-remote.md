@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Der Befehl `git remote rm` hat ein Argument:
@@ -14,22 +15,22 @@ Der Befehl `git remote rm` hat ein Argument:
 
 ### Beispiel
 
-These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
+Bei diesen Beispielen wird davon ausgegangen, dass Du wie empfohlen [Klone mit HTTPS erstellst](/articles/which-remote-url-should-i-use/#cloning-with-https-urls).
 
 ```shell
 $ git remote -v
 # Zeigt die aktuellen Remote-Repositorys an
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (push)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>FORKER/REPOSITORY</em>.git (fetch)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>FORKER/REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (push)
 
 $ git remote rm destination
 # Entfernt das Remote-Repository
 $ git remote -v
 # Überprüft, ob das Remote-Repository entfernt wurde
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
 ```
 
 {% warning %}

@@ -74,7 +74,7 @@ The matching period begins after GitHub accepts an individual Sponsored Develope
 
 * If GitHub discovers a potential policy violation, prior to payment of any matching funds granted during the matching period, GitHub may disable payouts until an investigation has been completed, and matched funds contributed to the sponsored developer may be revoked if they are found to be in violation of this policy.
 
-* {{ site.data.reusables.sponsors.github-contact-applicants }}
+* {% data reusables.sponsors.github-contact-applicants %}
 
 ### 3. Sponsored Developer Obligations.
 

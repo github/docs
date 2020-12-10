@@ -1,14 +1,15 @@
 ---
 title: Sichtbarkeit des Projektboards ändern
-intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du ein Projektboard als öffentlich oder privat festlegen.
+intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du ein Projektboard als öffentlich oder privat festlegen.'
 redirect_from:
   - /articles/changing-project-board-visibility
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.project-management.project-board-visibility }}
+{% data reusables.project-management.project-board-visibility %}
 
 {% tip %}
 
@@ -17,6 +18,6 @@ versions:
 {% endtip %}
 
 1. Navigiere zu dem Projektboard, das Du als öffentlich oder privat festlegen möchtest.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Wähle unter „Visibility“ (Sichtbarkeit) **Public** (Öffentlich) oder **Private** (Privat) aus. Klicke anschließend auf **Save** (Speichern). ![Optionsfelder „Public“ (Öffentlich) und „Private“ (Privat)](/assets/images/help/projects/project-board-visibility-options.png)

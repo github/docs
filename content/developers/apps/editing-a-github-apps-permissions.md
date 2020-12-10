@@ -1,12 +1,13 @@
 ---
 title: Editing a GitHub App's permissions
-intro: '{{ site.data.reusables.shortdesc.editing_permissions_for_github_apps }}'
+intro: '{% data reusables.shortdesc.editing_permissions_for_github_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/editing-a-github-app-s-permissions/
   - /apps/managing-github-apps/editing-a-github-app-s-permissions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -15,9 +16,9 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
 4. Select the GitHub App whose permissions you want to change.
 ![App selection](/assets/images/github-apps/github_apps_select-app.png)
 5. In the left sidebar, click **Permissions & webhooks**.

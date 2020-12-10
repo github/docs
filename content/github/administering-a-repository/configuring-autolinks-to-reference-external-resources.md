@@ -1,20 +1,21 @@
 ---
 title: Configuring autolinks to reference external resources
 intro: You can add autolinks to external resources like JIRA issues and Zendesk tickets to help streamline your workflow.
-product: '{{ site.data.reusables.gated-features.autolinks }}'
+product: '{% data reusables.gated-features.autolinks %}'
 redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} commit messages, and release descriptions{% else %} and commit messages{% endif %} to external third-party services.
+Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests,{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %} commit messages, and release descriptions{% else %} and commit messages{% endif %} to external third-party services.
 
 If you use Zendesk to track user-reported tickets, for example, you can reference a ticket number in the pull request you open to fix the issue.  
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. In the left sidebar, click **Autolink references**.
 ![Autolink references tab in the left sidebar](/assets/images/help/repository/autolink-references-tab.png)
 4. Click **Add autolink reference**.

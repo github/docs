@@ -1,6 +1,6 @@
 ---
 title: 添加电子邮件地址到 GitHub 帐户
-intro: '{{ site.data.variables.product.product_name }} 允许您根据需要为帐户添加多个电子邮件地址。 如果在本地 Git 配置中设置电子邮件地址，您需要将其添加到帐户设置，以将提交连接到帐户。 有关电子邮件地址和提交的更多信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address/)”。'
+intro: '{% data variables.product.product_name %} 允许您根据需要为帐户添加多个电子邮件地址。 如果在本地 Git 配置中设置电子邮件地址，您需要将其添加到帐户设置，以将提交连接到帐户。 有关电子邮件地址和提交的更多信息，请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address/)”。'
 redirect_from:
   - /articles/adding-an-email-address-to-your-github-account
 versions:
@@ -12,16 +12,16 @@ versions:
 
 {% note %}
 
-**注**：{{ site.data.reusables.user_settings.no-verification-disposable-emails }}
+**注**：{% data reusables.user_settings.no-verification-disposable-emails %}
 
 {% endnote %}
 
 {% endif %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
-{{ site.data.reusables.user_settings.add_and_verify_email }}
-{{ site.data.reusables.user_settings.select_primary_email }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
+{% data reusables.user_settings.add_and_verify_email %}
+{% data reusables.user_settings.select_primary_email %}
 
 ### 延伸阅读
 

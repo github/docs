@@ -1,33 +1,35 @@
 ---
 title: Searching for packages
-intro: 'You can search for packages on {{ site.data.variables.product.product_name }} and narrow the results using search qualifiers.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'You can search for packages on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
+product: '{% data reusables.gated-features.packages %}'
 permissions: Anyone can search for packages they have access to.
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 ### About searching for packages
 
-You can search for packages globally across all of {{ site.data.variables.product.product_name }}, or search for packages within a particular organization. For more information, see "[About searching on {{ site.data.variables.product.prodname_dotcom }}](/articles/about-searching-on-github)."
+You can search for packages globally across all of {% data variables.product.product_name %}, or search for packages within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
 
-{% if currentVersion != "free-pro-team@latest" %}
-You can only search for packages on {{ site.data.variables.product.product_location_enterprise }}, not {{ site.data.variables.product.prodname_dotcom_the_website }}, even if {{ site.data.variables.product.prodname_github_connect }} is enabled.
+{% if enterpriseServerVersions contains currentVersion %}
+You can only search for packages on
+{% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
 {% endif %}
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Searching within a user's or organization's packages
 
 To find packages owned by a certain user or organization, use the `user` or `org` qualifier.
 
-| Qualifier                 | 예시                                                                                                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat                                              |
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {{ site.data.variables.product.prodname_dotcom }} organization |
+| Qualifier                 | 예시                                                                                                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat                                         |
+| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization |
 
 ### Filtering by package visibility
 

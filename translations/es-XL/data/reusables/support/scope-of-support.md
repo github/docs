@@ -1,7 +1,7 @@
 
 ### Alcance del soporte técnico
 
-Si tu solicitud de soporte técnico está fuera del alcance de lo que puede hacer nuestro equipo para ayudarte, podemos recomendarte los siguientes pasos para resolver el problema por fuera del {{ site.data.variables.contact.github_support }}. Es probable que tu solicitud de soporte técnico esté fuera del alcance del {{ site.data.variables.contact.github_support }} si se trata principalmente de lo siguiente:
+Si tu solicitud de soporte técnico está fuera del alcance de lo que puede hacer nuestro equipo para ayudarte, podemos recomendarte los siguientes pasos para resolver el problema por fuera del {% data variables.contact.github_support %}. Es probable que tu solicitud de soporte técnico esté fuera del alcance del {% data variables.contact.github_support %} si se trata principalmente de lo siguiente:
 - Integraciones de terceros
 - Configuración del hardware
 - CI/CD, como Jenkins

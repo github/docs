@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在分支、标记、提交和日期之间比较仓库的状态。 要比较仓库的不同版本，请在仓库路径中附加 `/compare`。
@@ -26,19 +27,19 @@ versions:
 
 ### 比较标记
 
-比较发行版标记将显示自上次发布以来您对仓库的更改。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。{% endif %}
+比较发行版标记将显示自上次发布以来您对仓库的更改。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 更多信息请参阅“[比较发行版](/github/administering-a-repository/comparing-releases)”。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}要比较标记，可以从页面顶部的 `compare` 下拉菜单选择标记名称。{% else %} 不是键入分支名称，而是键入 `compare` 下拉菜单中的标记名称。{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}要比较标记，可以从页面顶部的 `compare` 下拉菜单选择标记名称。{% else %} 不是键入分支名称，而是键入 `compare` 下拉菜单中的标记名称。{% endif %}
 
 此处是[在两个标记之间进行比较](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)的示例。
 
 ### 比较提交
 
-您还可以在 {{ site.data.variables.product.prodname_dotcom }} 上通过两点差异比较来比较仓库或其复刻中的任意两个提交。
+您还可以在 {% data variables.product.prodname_dotcom %} 上通过两点差异比较来比较仓库或其复刻中的任意两个提交。
 
-要在 {{ site.data.variables.product.prodname_dotcom }} 上通过两点差异比较来快速比较两个提交或直接比较 Git 对象 ID (OID)，请编辑仓库“Comparing changes（比较更改）”页面的 URL。
+要在 {% data variables.product.prodname_dotcom %} 上通过两点差异比较来快速比较两个提交或直接比较 Git 对象 ID (OID)，请编辑仓库“Comparing changes（比较更改）”页面的 URL。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 有关其他比较选项的更多信息，请参阅“[三点和两点差异比较](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)”。
 

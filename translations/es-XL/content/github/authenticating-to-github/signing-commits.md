@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +34,13 @@ Si tienes múltiples llaves o estás intentando firmar confirmaciones o etiqueta
   # Creates a signed commit
   ```
 2. Si estás utilizando GPG, después de crear tu confirmación, proporciona la contraseña que configuraste cuando [generaste tu llave GPG](/articles/generating-a-new-gpg-key).
-3. Cuando terminaste de crear confirmaciones de forma local, súbelas a tu repositorio remoto en {{ site.data.variables.product.product_name }}:
+3. Cuando terminaste de crear confirmaciones de forma local, súbelas a tu repositorio remoto en {% data variables.product.product_name %}:
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. En {{ site.data.variables.product.product_name }}, desplázate hasta la solicitud de extracción.
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. En {% data variables.product.product_name %}, desplázate hasta la solicitud de extracción.
+{% data reusables.repositories.review-pr-commits %}
 5. Para ver información más detallada acerca de la firma verificada, haz clic en Verified (Verificada). ![Confirmación firmada](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### Leer más

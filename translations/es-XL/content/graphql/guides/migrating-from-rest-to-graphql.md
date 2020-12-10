@@ -1,6 +1,6 @@
 ---
 title: Migrar desde Rest hacia GraphQL
-intro: 'Aprende las mejores prácticas y consideraciones para migrar desde la API de Rest de {{ site.data.variables.product.prodname_dotcom }} hacia la API de GrpahQL de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprende las mejores prácticas y consideraciones para migrar desde la API de Rest de {% data variables.product.prodname_dotcom %} hacia la API de GrpahQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
@@ -32,7 +32,7 @@ Aquí hay algunos ejemplos de cada una.
 
 Una sola llamada de la API de REST recupera una lista de los miembros de tu organización:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/orgs/:org/members
+curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
 ```
 
 La carga útil de REST contiene datos en exceso si tu meta es recuperar únicamente los nombres y enlaces a los avatares. Sin embargo, la consulta de GraphQL recupera únicamente lo que especificas:
@@ -54,12 +54,12 @@ query {
 
 Considera otro ejemplo: recuperar una lista de solicitudes de extracción y revisar si cada una es fusionable. Un llamado a la API de REST recupera un listado de solicitudes de extracción y sus [resúmenes de representación](/v3/#summary-representations):
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
 El determinar si una solicitud de extracción es fusionable requiere que recuperes cada solicitud individualmente de acuerdo con su [representación detallada](/v3/#detailed-representations) (una carga útil grande) y que revises si el atributo `mergeable` es verdadero o falso:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
 Con GraphQL, puedes recuperar únicamente los atributos `number` y `mergeable` para cada solicitud de extracción:
@@ -83,10 +83,10 @@ query {
 
 Hacer consultas con campos anidados te permite reemplazar varios llamados de REST con menos consultas de GraphQL. Por ejemplo, recuperar una solicitud de extracción junto con sus confirmaciones, comentarios no revisados, y revisiones utilizando la **API de REST** requiere de cuatro llamados por separado:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/commits
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/issues/:number/comments
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/reviews
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:number/comments
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
 Utilizando la **API de GraphQL**, puedes recuperar los datos con una sola consulta utilizando los campos anidados:

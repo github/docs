@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 A opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent. Caso você tenha instalado uma versão diferente do `ssh-add`, pode não ter suporte para `-K`.
@@ -21,7 +22,7 @@ Para adicionar sua chave SSH privada ao ssh-agent, especifique o caminho para a 
 
 {% note %}
 
-**Observação:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**Observação:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

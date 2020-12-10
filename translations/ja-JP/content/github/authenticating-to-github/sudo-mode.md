@@ -1,6 +1,6 @@
 ---
 title: Sudo モード
-intro: '{{ site.data.variables.product.product_name }} は、メールアドレスの修正、第三者のアプリケーションの許可や新しい公開鍵の追加前、または、sudo でプロテクトされたアクションを開始する前に、パスワードを尋ねます。'
+intro: '{% data variables.product.product_name %} は、メールアドレスの修正、第三者のアプリケーションの許可や新しい公開鍵の追加前、または、sudo でプロテクトされたアクションを開始する前に、パスワードを尋ねます。'
 redirect_from:
   - /articles/sudo-mode
 versions:

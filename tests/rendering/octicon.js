@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const renderContent = require('../../lib/render-content')
 
 describe('octicon tag', () => {

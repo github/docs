@@ -1,7 +1,7 @@
 ---
 title: Roles para una cuenta de empresa
 intro: 'Para controlar el acceso a los parámetros y los datos de tu cuenta de empresa, les puedes otorgar diferentes roles a las personas de la cuenta de empresa.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/
   - /articles/roles-for-an-enterprise-account
@@ -16,7 +16,7 @@ Para obtener más información acerca de agregar personas a tu cuenta de empresa
 
 Las cuentas de empresa vienen con un conjunto de roles de administrador que puedes asignarles a los usuarios de tu empresa. Cada rol de administrador se mapea con las funciones comerciales y proporciona permisos para hacer tareas específicas dentro de la cuenta de empresa.
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }}
+{% data reusables.enterprise-accounts.enterprise-administrators %}
 
 ### Propietario de empresa
 
@@ -29,7 +29,7 @@ Los propietarios de empresa tienen control total sobre la cuenta de empresa y pu
 
 Los propietarios de empresa no pueden acceder a los parámetros o el contenido de la organización, a menos que se conviertan en propietarios de la organización o que se les otorgue acceso directo al repositorio que le pertenece a una organización. Del mismo modo, los propietarios de organizaciones en tu cuenta de empresa no tienen acceso a la cuenta de empresa en sí misma, a menos que los conviertas en propietarios de la empresa.
 
-Puedes agregar a tantos propietarios de empresa como desees para tu cuenta de empresa. Los propietarios de empresa deben tener una cuenta personal en {{ site.data.variables.product.prodname_dotcom }}. Como buena práctica, recomendamos que conviertas solo a algunas personas de tu empresa en propietarios de empresa para reducir el riesgo al que se expone tu negocio.
+Puedes agregar a tantos propietarios de empresa como desees para tu cuenta de empresa. Los propietarios de empresa deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}. Como buena práctica, recomendamos que conviertas solo a algunas personas de tu empresa en propietarios de empresa para reducir el riesgo al que se expone tu negocio.
 
 ### Miembros de empresa
 
@@ -44,11 +44,11 @@ Las personas con acceso de colaborador externo a los repositorios que le pertene
 ### Gerente de facturación
 
 Los gerentes de facturación solo tienen acceso a los parámetros de facturación de tu cuenta de empresa. Los gerentes de facturación de tu cuenta de empresa pueden hacer lo siguiente:
-- Ver y administrar las licencias de usuario, {{ site.data.variables.large_files.product_name_short }} los paquetes y otros parámetros de facturación
+- Ver y administrar las licencias de usuario, {% data variables.large_files.product_name_short %} los paquetes y otros parámetros de facturación
 - Ver una lista de gerentes de facturación
 - Agregar o eliminar otros gerentes de facturación
 
-Los gerentes de facturación no tienen acceso a las organizaciones o repositorios de tu cuenta de empresa y no pueden agregar o eliminar propietarios de empresa. Los gerentes de facturación deben tener una cuenta personal en {{ site.data.variables.product.prodname_dotcom }}.
+Los gerentes de facturación no tienen acceso a las organizaciones o repositorios de tu cuenta de empresa y no pueden agregar o eliminar propietarios de empresa. Los gerentes de facturación deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.
 
 ### Leer más
 

@@ -15,34 +15,34 @@ Você pode definir lembretes agendados para solicitações de revisão no nível
 
 ### Criar lembretes agendados para a sua conta de usuário
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Ao lado da organização para a qual você gostaria de agendar lembretes, clique em **Editar**. ![Botão editar lembretes agendados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.add-reminder }}
-{{ site.data.reusables.reminders.authorize-slack }}
-{{ site.data.reusables.reminders.days-dropdown }}
-{{ site.data.reusables.reminders.times-dropdowns }}
+{% data reusables.reminders.add-reminder %}
+{% data reusables.reminders.authorize-slack %}
+{% data reusables.reminders.days-dropdown %}
+{% data reusables.reminders.times-dropdowns %}
 8. Opcionalmente, para receber lembretes agendados para revisões às quais você foi atribuído, selecione **Revisar solicitações atribuídas a você**. ![Caixa de seleção para revisar as solicitações atribuías a você](/assets/images/help/profile/scheduled-reminders-your-requests.png)
 9. Opcionalmente, para receber lembretes agendados para revisões atribuídas a uma equipe da qual você é integrante, selecione **Revisar solicitações atribuídas à sua equipe**. ![Caixa de seleção para revisar as solicitações atribuídas à sua equipe](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
-{{ site.data.reusables.reminders.real-time-alerts }}
+{% data reusables.reminders.real-time-alerts %}
 ![Caixa de seleção para habilitar alertas em tempo real](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
-{{ site.data.reusables.reminders.create-reminder }}
+{% data reusables.reminders.create-reminder %}
 
 ### Gerenciar lembretes agendados para sua conta de usuário
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Ao lado da organização para a qual você deseja editar lembretes agendados, clique em **Editar**. ![Botão editar lembretes agendados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.edit-page }}
-{{ site.data.reusables.reminders.update-buttons }}
+{% data reusables.reminders.edit-page %}
+{% data reusables.reminders.update-buttons %}
 
 ### Excluir lembretes agendados para a sua conta de usuário
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botão de lembretes agendados](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Ao lado da organização para a qual você gostaria de excluir lembretes, clique em **Editar**. ![Botão editar lembretes agendados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.delete }}
+{% data reusables.reminders.delete %}
 
 ### Leia mais
 

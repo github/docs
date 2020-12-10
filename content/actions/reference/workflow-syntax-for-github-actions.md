@@ -2,7 +2,7 @@
 title: Workflow syntax for GitHub Actions
 shortTitle: Workflow syntax
 intro: A workflow is a configurable automated process made up of one or more jobs. You must create a YAML file to define your workflow configuration.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About YAML syntax for workflows
 
@@ -21,17 +21,17 @@ Workflow files use YAML syntax, and must have either a `.yml` or `.yaml` file ex
 
 You must store workflow files in the `.github/workflows` directory of your repository.
 
-### **`name`**
+### `name`
 
-The name of your workflow. {{ site.data.variables.product.prodname_dotcom }} displays the names of your workflows on your repository's actions page. If you omit `name`, {{ site.data.variables.product.prodname_dotcom }} sets it to the workflow file path relative to the root of the repository.
+The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's actions page. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
 
-### **`on`**
+### `on`
 
-**Required** The name of the {{ site.data.variables.product.prodname_dotcom }} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
+**Required** The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
 
-{{ site.data.reusables.github-actions.actions-on-examples }}
+{% data reusables.github-actions.actions-on-examples %}
 
-### **`on.<event_name>.types`**
+### `on.<event_name>.types`
 
 Selects the types of activity that will trigger a workflow run. Most GitHub events are triggered by more than one type of activity.  For example, the event for the release resource is triggered when a release is `published`, `unpublished`, `created`, `edited`, `deleted`, or `prereleased`. The `types` keyword enables you to narrow down activity that causes the workflow to run. When only one activity type triggers a webhook event, the `types` keyword is unnecessary.
 
@@ -45,7 +45,7 @@ on:
     types: [published, created, edited]
 ```
 
-### **`on.<push|pull_request>.<branches|tags>`**
+### `on.<push|pull_request>.<branches|tags>`
 
 When using the `push` and `pull_request` events, you can configure a workflow to run on specific branches or tags. For a `pull_request` event, only branches and tags on the base are evaluated. If you define only `tags` or only `branches`, the workflow won't run for events affecting the undefined Git ref.
 
@@ -60,8 +60,8 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:    
-      # Push events on master branch
-      - master
+      # Push events on main branch
+      - main
       # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
       # Push events to branches matching refs/heads/releases/10
@@ -112,7 +112,7 @@ on:
     - '!releases/**-alpha'
 ```
 
-### **`on.<push|pull_request>.paths`**
+### `on.<push|pull_request>.paths`
 
 When using the `push` and `pull_request` events, you can configure a workflow to run when at least one file does not match `paths-ignore` or at least one modified file matches the configured `paths`. Path filters are not evaluated for pushes to tags.
 
@@ -120,7 +120,7 @@ The `paths-ignore` and `paths` keywords accept glob patterns that use the `*` an
 
 #### Example ignoring paths
 
-Anytime a path name matches a pattern in `paths-ignore`, the workflow will not run. {{ site.data.variables.product.prodname_dotcom }} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
+Anytime a path name matches a pattern in `paths-ignore`, the workflow will not run. {% data variables.product.prodname_dotcom %} evaluates patterns defined in `paths-ignore` against the path name. A workflow with the following path filter will only run on `push` events that include at least one file outside the `docs` directory at the root of the repository.
 
 ```yaml
 on:
@@ -166,30 +166,30 @@ on:
 
 {% note %}
 
-**Note:** If you push more than 1,000 commits, or if {{ site.data.variables.product.prodname_dotcom }} does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.
+**Note:** If you push more than 1,000 commits, or if {% data variables.product.prodname_dotcom %} does not generate the diff due to a timeout (diffs that are too large diffs), the workflow will always run.
 
 {% endnote %}
 
 The filter determines if a workflow should run by evaluating the changed files and running them against the `paths-ignore` or `paths` list. If there are no files changed, the workflow will not run.
 
-{{ site.data.variables.product.prodname_dotcom }} generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:
+{% data variables.product.prodname_dotcom %} generates the list of changed files using two-dot diffs for pushes and three-dot diffs for pull requests:
 - **Pull requests:** Three-dot diffs are a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
 - **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
 - **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
 
 For more information, see "[About comparing branches in pull requests](/articles/about-comparing-branches-in-pull-requests)."
 
-### **`on.schedule`**
+### `on.schedule`
 
-{{ site.data.reusables.repositories.actions-scheduled-workflow-example }}
+{% data reusables.repositories.actions-scheduled-workflow-example %}
 
 For more information about cron syntax, see "[Events that trigger workflows](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
 
-### **`env`**
+### `env`
 
 A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### Example
 
@@ -198,17 +198,17 @@ env:
   SERVER: production
 ```
 
-### **`defaults`**
+### `defaults`
 
 A `map` of default settings that will apply to all jobs in the workflow. You can also set default settings that are only available to a job. For more information, see [`jobs.<job_id>.defaults`](#jobsjob_iddefaults).
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
-### **`defaults.run`**
+### `defaults.run`
 
 You can provide default `shell` and `working-directory` options for all [`run`](#jobsjob_idstepsrun) steps in a workflow. You can also set default settings for `run` that are only available to a job. For more information, see [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun). You cannot use contexts or expressions in this keyword.
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### Example
 
@@ -219,17 +219,17 @@ defaults:
     working-directory: scripts
 ```
 
-### **`jobs`**
+### `jobs`
 
 A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
 
 Each job runs in an environment specified by `runs-on`.
 
-You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {{ site.data.variables.product.prodname_dotcom }}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-If you need to find the unique identifier of a job running in a workflow run, you can use the {{ site.data.variables.product.prodname_dotcom }} API. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
+If you need to find the unique identifier of a job running in a workflow run, you can use the {% data variables.product.prodname_dotcom %} API. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
-### **`jobs.<job_id>`**
+### `jobs.<job_id>`
 
 Each job must have an id to associate with the job. The key `job_id` is a string and its value is a map of the job's configuration data. You must replace `<job_id>` with a string that is unique to the `jobs` object. The `<job_id>` must start with a letter or `_` and contain only alphanumeric characters, `-`, or `_`.
 
@@ -243,11 +243,11 @@ jobs:
     name: My second job
 ```
 
-### **`jobs.<job_id>.name`**
+### `jobs.<job_id>.name`
 
-The name of the job displayed on {{ site.data.variables.product.prodname_dotcom }}.
+The name of the job displayed on {% data variables.product.prodname_dotcom %}.
 
-### **`jobs.<job_id>.needs`**
+### `jobs.<job_id>.needs`
 
 Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional statement that causes the job to continue.
 
@@ -270,35 +270,35 @@ The jobs in this example run sequentially:
 2. `job2`
 3. `job3`
 
-### **`jobs.<job_id>.runs-on`**
+### `jobs.<job_id>.runs-on`
 
-**Required** The type of machine to run the job on. The machine can be either a {{ site.data.variables.product.prodname_dotcom }}-hosted runner or a self-hosted runner.
+**Required** The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### {{ site.data.variables.product.prodname_dotcom }}-hosted runners
+#### {% data variables.product.prodname_dotcom %}-hosted runners
 
-If you use a {{ site.data.variables.product.prodname_dotcom }}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
+If you use a {% data variables.product.prodname_dotcom %}-hosted runner, each job runs in a fresh instance of a virtual environment specified by `runs-on`.
 
-Available {{ site.data.variables.product.prodname_dotcom }}-hosted runner types are:
+Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 
-{{ site.data.reusables.github-actions.supported-github-runners }}
+{% data reusables.github-actions.supported-github-runners %}
 
-{{ site.data.reusables.github-actions.ubuntu-runner-preview }}
+{% data reusables.github-actions.ubuntu-runner-preview %}
 
-##### **Example**
+##### Example
 
 ```yaml
 runs-on: ubuntu-latest
 ```
 
-For more information, see "[Virtual environments for {{ site.data.variables.product.prodname_dotcom }}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 
 #### Self-hosted runners
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-##### **Example**
+##### Example
 
 ```yaml
 runs-on: [self-hosted, linux]
@@ -306,15 +306,15 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### **`jobs.<jobs_id>.outputs`**
+### `jobs.<job_id>.outputs`
 
 A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
 
-Job outputs are strings, and job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {{ site.data.variables.product.prodname_actions }}.
+Job outputs are strings, and job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
 
-To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)."
+To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)."
 
-#### **Example**
+#### Example
 
 {% raw %}
 ```yaml
@@ -338,13 +338,13 @@ jobs:
 ```
 {% endraw %}
 
-### **`jobs.<job_id>.env`**
+### `jobs.<job_id>.env`
 
 A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
-#### **Example**
+#### Example
 
 ```yaml
 jobs:
@@ -353,19 +353,19 @@ jobs:
       FIRST_NAME: Mona
 ```
 
-### **`jobs.<job_id>.defaults`**
+### `jobs.<job_id>.defaults`
 
 A `map` of default settings that will apply to all steps in the job. You can also set default settings for the entire workflow. For more information, see [`defaults`](#defaults).
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
-### **`jobs.<job_id>.defaults.run`**
+### `jobs.<job_id>.defaults.run`
 
 Provide default `shell` and `working-directory` to all `run` steps in the job. Context and expression are not allowed in this section.
 
 You can provide default `shell` and `working-directory` options for all [`run`](#jobsjob_idstepsrun) steps in a job. You can also set default settings for `run` for the entire workflow. For more information, see [`jobs.defaults.run`](#defaultsrun). You cannot use contexts or expressions in this keyword.
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### Example
 
@@ -379,17 +379,17 @@ jobs:
         working-directory: scripts
 ```
 
-### **`jobs.<job_id>.if`**
+### `jobs.<job_id>.if`
 
 You can use the `if` conditional to prevent a job from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-### **`jobs.<job_id>.steps`**
+### `jobs.<job_id>.steps`
 
-A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {{ site.data.variables.product.prodname_dotcom }} provides built-in steps to set up and complete a job.
+A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {{ site.data.variables.product.prodname_dotcom }}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
+You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 #### Example
 
@@ -415,17 +415,17 @@ jobs:
 ```
 {% endraw %}
 
-#### **`jobs.<job_id>.steps.id`**
+### `jobs.<job_id>.steps.id`
 
-A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-#### **`jobs.<job_id>.steps.if`**
+### `jobs.<job_id>.steps.if`
 
 You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-##### Example using contexts
+#### Example using contexts
 
  This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
@@ -436,37 +436,37 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-##### Example using status check functions
+#### Example using status check functions
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
+The `my backup step` only runs when the previous step of a job fails. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
-#### **`jobs.<job_id>.steps.name`**
+### `jobs.<job_id>.steps.name`
 
-A name for your step to display on {{ site.data.variables.product.prodname_dotcom }}.
+A name for your step to display on {% data variables.product.prodname_dotcom %}.
 
-#### **`jobs.<job_id>.steps.uses`**
+### `jobs.<job_id>.steps.uses`
 
 Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
 - Using the commit SHA of a released action version is the safest for stability and security.
 - Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the `master` branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
 Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
-##### Example using versioned actions
+#### Example using versioned actions
 
 ```yaml
 steps:    
@@ -477,42 +477,42 @@ steps:
   # Reference a minor version of a release
   - uses: actions/setup-node@v1.2
   # Reference a branch
-  - uses: actions/setup-node@master
+  - uses: actions/setup-node@main
 ```
 
-##### Example using a public action
+#### Example using a public action
 
 `{owner}/{repo}@{ref}`
 
-You can specific branch, ref, or SHA in a public {{ site.data.variables.product.prodname_dotcom }} repository.
+You can specific branch, ref, or SHA in a public {% data variables.product.prodname_dotcom %} repository.
 
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: My first step
-        # Uses the master branch of a public repository
-        uses: actions/heroku@master
+        # Uses the default branch of a public repository
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
 ```
 
-##### Example using a public action in a subdirectory
+#### Example using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
-A subdirectory in a public {{ site.data.variables.product.prodname_dotcom }} repository at a specific branch, ref, or SHA.
+A subdirectory in a public {% data variables.product.prodname_dotcom %} repository at a specific branch, ref, or SHA.
 
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/aws/ec2@master
+        uses: actions/aws/ec2@main
 ```
 
-##### Example using action in the same repository as the workflow
+#### Example using action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -528,7 +528,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-##### Example using a Docker Hub action
+#### Example using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -542,7 +542,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-##### Example using a Docker public registry action
+#### Example using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -556,7 +556,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### **`jobs.<job_id>.steps.run`**
+### `jobs.<job_id>.steps.run`
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
@@ -588,20 +588,20 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
-##### Using a specific shell
+#### Using a specific shell
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options.
 
 | Supported platform | `shell` parameter | Description | Command run internally |
 |--------------------|-------------------|-------------|------------------------|
 | All | `bash` | The default shell on non-Windows platforms with a fallback to `sh`. When specifying a bash shell on Windows, the bash shell included with Git for Windows is used. | `bash --noprofile --norc -eo pipefail {0}` |
-| All | `pwsh` | The PowerShell Core. {{ site.data.variables.product.prodname_dotcom }} appends the extension `.ps1` to your script name. | `pwsh -command "& '{0}'"` |
+| All | `pwsh` | The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `pwsh -command ". '{0}'"` |
 | All | `python` | Executes the python command. | `python {0}` |
 | Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
-| Windows | `cmd` | {{ site.data.variables.product.prodname_dotcom }} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {{ site.data.variables.product.prodname_dotcom }} appends the extension `.ps1` to your script name. | `powershell -command "& '{0}'"`. |
+| Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
-##### Example running a script using bash
+#### Example running a script using bash
 
 ```yaml
 steps:
@@ -610,7 +610,7 @@ steps:
     shell: bash
 ```
 
-##### Example running a script using Windows `cmd`
+#### Example running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -619,7 +619,7 @@ steps:
     shell: cmd
 ```
 
-##### Example running a script using PowerShell Core
+#### Example running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -628,7 +628,7 @@ steps:
     shell: pwsh
 ```
 
-##### Example running a python script
+#### Example running a python script
 
 ```yaml
 steps:
@@ -639,13 +639,13 @@ steps:
     shell: python
 ```
 
-##### Custom shell
+#### Custom shell
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {{ site.data.variables.product.prodname_dotcom }} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
 
-##### Exit codes and error action preference
+#### Exit codes and error action preference
 
-For built-in shell keywords, we provide the following defaults that are executed by {{ site.data.variables.product.prodname_dotcom }}-hosted runners. You should use these guidelines when running shell scripts.
+For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
 - `bash`/`sh`:
   - Fail-fast behavior using `set -e o pipefail`: Default for `bash` and built-in `shell`. It is also the default when you don't provide an option on non-Windows platforms.
@@ -659,13 +659,13 @@ For built-in shell keywords, we provide the following defaults that are executed
 
 - `cmd`
   - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
-  - `cmd.exe` will exit with the error level of the last program it executed, and it will and return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
+  - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
-#### **`jobs.<job_id>.steps.with`**
+### `jobs.<job_id>.steps.with`
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
-##### Example
+#### Example
 
 Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
 
@@ -674,24 +674,24 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/hello_world@master
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
           last_name: Octocat      
 ```
 
-#### **`jobs.<job_id>.steps.with.args`**
+### `jobs.<job_id>.steps.with.args`
 
-A `string` that defines the inputs for a Docker container. {{ site.data.variables.product.prodname_dotcom }} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
+A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
 
-##### Example
+#### Example
 
 {% raw %}
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -704,32 +704,31 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 1. Use defaults that allow using the action without specifying any `args`.
 1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
-
-#### **`jobs.<job_id>.steps.with.entrypoint`**
+### `jobs.<job_id>.steps.with.entrypoint`
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
 
-##### Example
+#### Example
 
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to use with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-#### **`jobs.<job_id>.steps.env`**
+### `jobs.<job_id>.steps.env`
 
 Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-##### Example
+#### Example
 
 {% raw %}
 ```yaml
@@ -742,33 +741,33 @@ steps:
 ```
 {% endraw %}
 
-#### **`jobs.<job_id>.steps.continue-on-error`**
+### `jobs.<job_id>.steps.continue-on-error`
 
 Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
 
-#### **`jobs.<job_id>.steps.timeout-minutes`**
+### `jobs.<job_id>.steps.timeout-minutes`
 
 The maximum number of minutes to run the step before killing the process.
 
-### **`jobs.<job_id>.timeout-minutes`**
+### `jobs.<job_id>.timeout-minutes`
 
-The maximum number of minutes to let a job run before {{ site.data.variables.product.prodname_dotcom }} automatically cancels it. Default: 360
+The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-### **`jobs.<job_id>.strategy`**
+### `jobs.<job_id>.strategy`
 
 A strategy creates a build matrix for your jobs. You can define different variations of an environment to run each job in.
 
-#### **`jobs.<job_id>.strategy.matrix`**
+### `jobs.<job_id>.strategy.matrix`
 
 You can define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job's configuration and creates a job for each matrix you configure.
 
-{{ site.data.reusables.github-actions.usage-matrix-limits }}
+{% data reusables.github-actions.usage-matrix-limits %}
 
-Each option you define in the `matrix` has a key and value. The keys you define become properties in the `matrix` context and you can reference the property in other areas of your workflow file. For example, if you define the key `os` that contains an array of operating systems, you can use the `matrix.os` property as the value of the `runs-on` keyword to create a job for each operating system. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+Each option you define in the `matrix` has a key and value. The keys you define become properties in the `matrix` context and you can reference the property in other areas of your workflow file. For example, if you define the key `os` that contains an array of operating systems, you can use the `matrix.os` property as the value of the `runs-on` keyword to create a job for each operating system. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
 The order that you define a `matrix` matters. The first option you define will be the first job that runs in your workflow.
 
-##### Example running with more than one version of Node.js
+#### Example running with more than one version of Node.js
 
 You can specify a matrix by supplying an array for the configuration options. For example, if the runner supports Node.js versions 6, 8, and 10, you could specify an array of those versions in the `matrix`.
 
@@ -788,16 +787,16 @@ steps:
 ```
 {% endraw %}
 
-The `setup-node` action is the recommended way to configure a Node.js version when using {{ site.data.variables.product.prodname_dotcom }}-hosted runners. For more information, see the [`setup-node`](https://github.com/actions/setup-node) action.
+The `setup-node` action is the recommended way to configure a Node.js version when using {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see the [`setup-node`](https://github.com/actions/setup-node) action.
 
-##### Example running with more than one operating system
+#### Example running with more than one operating system
 
 You can create a matrix to run workflows on more than one runner operating system. You can also specify more than one matrix configuration. This example creates a matrix of 6 jobs:
 
 - 2 operating systems specified in the `os` array
 - 3 Node.js versions specified in the `node` array
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -813,9 +812,9 @@ steps:
 ```
 {% endraw %}
 
-To find supported configuration options for {{ site.data.variables.product.prodname_dotcom }}-hosted runners, see "[Virtual environments for {{ site.data.variables.product.prodname_dotcom }}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+To find supported configuration options for {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 
-##### Example including additional values into combinations
+#### Example including additional values into combinations
 
 You can add additional configuration options to a build matrix job that already exists. For example, if you want to use a specific version of `npm` when the job that uses `windows-latest` and version 4 of `node` runs, you can use `include` to specify that additional option.
 
@@ -835,10 +834,9 @@ strategy:
 ```
 {% endraw %}
 
-##### Example including new combinations
+#### Example including new combinations
 
 You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use `include` to specify that additional job.
-
 
 {% raw %}
 ```yaml
@@ -854,7 +852,7 @@ strategy:
 ```
 {% endraw %}
 
-##### Example excluding configurations from a matrix
+#### Example excluding configurations from a matrix
 
 You can remove a specific configurations defined in the build matrix using the `exclude` option. Using `exclude` removes a job defined by the build matrix. The number of jobs is the cross product of the number of operating systems (`os`) included in the arrays you provide, minus any subtractions (`exclude`).
 
@@ -878,20 +876,26 @@ strategy:
 
 {% endnote %}
 
-### **`jobs.<job_id>.strategy.fail-fast`**
+##### Using environment variables in a matrix
 
-When set to `true`, {{ site.data.variables.product.prodname_dotcom }} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
 
-### **`jobs.<job_id>.strategy.max-parallel`**
+{% data reusables.github-actions.matrix-variable-example %}
 
-The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. By default, {{ site.data.variables.product.prodname_dotcom }} will maximize the number of jobs run in parallel depending on the available runners on {{ site.data.variables.product.prodname_dotcom }}-hosted virtual machines.
+### `jobs.<job_id>.strategy.fail-fast`
+
+When set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs if any `matrix` job fails. Default: `true`
+
+### `jobs.<job_id>.strategy.max-parallel`
+
+The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. By default, {% data variables.product.prodname_dotcom %} will maximize the number of jobs run in parallel depending on the available runners on {% data variables.product.prodname_dotcom %}-hosted virtual machines.
 
 ```yaml
 strategy:
   max-parallel: 2
 ```
 
-### **`jobs.<job_id>.continue-on-error`**
+### `jobs.<job_id>.continue-on-error`
 
 Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
 
@@ -916,7 +920,7 @@ strategy:
 ```
 {% endraw %}
 
-### **`jobs.<job_id>.container`**
+### `jobs.<job_id>.container`
 
 A container to run any steps in a job that don't already specify a container. If you have steps that use both script and container actions, the container actions will run as sibling containers on the same network with the same volume mounts.
 
@@ -946,19 +950,38 @@ jobs:
     container: node:10.16-jessie
 ```
 
-#### **`jobs.<job_id>.container.image`**
+### `jobs.<job_id>.container.image`
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a public docker registry name.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.container.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
+### `jobs.<job_id>.container.credentials`
+
+{% data reusables.actions.registry-credentials %}
+
+#### Example
+
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
+
+### `jobs.<job_id>.container.env`
 
 Sets a `map` of environment variables in the container.
 
-#### **`jobs.<job_id>.container.ports`**
+### `jobs.<job_id>.container.ports`
 
 Sets an `array` of ports to expose on the container.
 
-#### **`jobs.<job_id>.container.volumes`**
+### `jobs.<job_id>.container.volumes`
 
 Sets an `array` of volumes for the container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
 
@@ -968,7 +991,7 @@ To specify a volume, you specify the source and destination path:
 
 The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-##### Example
+#### Example
 
 ```yaml
 volumes:
@@ -977,13 +1000,13 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.container.options`**
+### `jobs.<job_id>.container.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
-### **`jobs.<job_id>.services`**
+### `jobs.<job_id>.services`
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
 
@@ -995,7 +1018,7 @@ For more information about the differences between networking service containers
 
 #### Example using localhost
 
-This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {{ site.data.variables.product.prodname_dotcom }} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
 ```yaml
 services:
@@ -1011,19 +1034,44 @@ services:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+### `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker base image name or a public docker Hub or registry.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
+### `jobs.<job_id>.services.<service_id>.credentials`
+
+{% data reusables.actions.registry-credentials %}
+
+#### Example
+
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
+
+### `jobs.<job_id>.services.<service_id>.env`
 
 Sets a `map` of environment variables in the service container.
 
-#### **`jobs.<job_id>.services.ports`**
+### `jobs.<job_id>.services.<service_id>.ports`
 
 Sets an `array` of ports to expose on the service container.
 
-#### **`jobs.<job_id>.services.volumes`**
+### `jobs.<job_id>.services.<service_id>.volumes`
 
 Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
 
@@ -1033,7 +1081,7 @@ To specify a volume, you specify the source and destination path:
 
 The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-##### Example
+#### Example
 
 ```yaml
 volumes:
@@ -1042,7 +1090,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+### `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
@@ -1076,8 +1124,8 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push|
 |---------|------------------------|---------|
 | `feature/*` | The `*` wildcard matches any character, but does not match slash (`/`). |  -`feature/my-branch`<br/>-`feature/your-branch` |
 | `feature/**` | The `**` wildcard matches any character including slash (`/`) in branch and tag names. | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name. | -`master`<br/>-`releases/mona-the-octocat` |
-| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`master`<br/>-`releases` |
+| -`main`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name. | -`main`<br/>-`releases/mona-the-octocat` |
+| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`main`<br/>-`releases` |
 | `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | -`all/the/branches`<br/>-`every/tag` |
 | `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature` |
 | `v2*` | Matches branch and tag names that start with `v2`. | -`v2`<br/>-`v2.0`<br/>-`v2.9` |

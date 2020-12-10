@@ -1,11 +1,12 @@
 ---
 title: Renaming a file
-intro: 'You can rename any file in your repositories directly in {{ site.data.variables.product.product_name }}. Renaming a file also gives you the opportunity to [move the file to a new location](/articles/moving-a-file-to-a-new-location).'
+intro: 'You can rename any file in your repositories directly in {% data variables.product.product_name %}. Renaming a file also gives you the opportunity to [move the file to a new location](/articles/moving-a-file-to-a-new-location).'
 redirect_from:
   - /articles/renaming-a-file
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -21,6 +22,6 @@ versions:
 1. In your repository, browse to the file you want to rename.
 2. In the upper right corner of the file view, click {% octicon "pencil" aria-label="The edit icon" %} to open the file editor. ![Edit file icon](/assets/images/help/repository/edit-file-icon.png)
 3. In the filename field, change the name of the file to the new filename you want. You can also update the contents of your file at the same time. ![Editing a file name](/assets/images/help/repository/changing-file-name.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

@@ -4,10 +4,11 @@ redirect_from:
   - /git-ignore/
   - /ignore-files/
   - /articles/ignoring-files
-intro: 'Você pode configurar o Git para ignorar arquivos dos quais você não deseja fazer o check-in para {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode configurar o Git para ignorar arquivos dos quais você não deseja fazer o check-in para {% data variables.product.product_name %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Configurar arquivos ignorados para um único repositório
@@ -16,7 +17,7 @@ Você pode criar um arquivo *.gitignore* arquivo no diretório-raiz do seu repos
 
 O GitHub mantém uma lista oficial de arquivos *.gitignore* recomendados para muitos sistemas operacionais populares, ambientes e linguagens no repositório público `github/gitignore`. É possível usar gitignore.io para criar um arquivo *.gitignore* para seu sistema operacional, linguagem de programação ou Ambiente de Desenvolvimento Integrado (IDE, Integrated Development Environment). Para obter mais informações, consulte "[github/gitignore](https://github.com/github/gitignore)" e o site "[gitignore.io](https://www.gitignore.io/)".
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navegue para o local do seu repositório do Git.
 3. Crie um arquivo de *.gitignore* para o seu repositório.
    ```shell
@@ -35,7 +36,7 @@ $ git rm --cached <em>FILENAME</em>
 
 Você também pode criar um arquivo global *.gitignore* para definir uma lista de regras para ignorar arquivos em cada repositório do Git no seu computador. Por exemplo, você deverá criar o arquivo em *~/.gitignore_global* e adicionar algumas regras a ele.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Configure o Git para usar o arquivo de exclusão *~/.gitignore_global* para todos os repositórios do Git.
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
@@ -47,7 +48,7 @@ Se você não quiser criar um arquivo *.gitignore* para compartilhar com outras 
 
 Use seu editor de textos preferido para abrir o arquivo *.git/info/exclude* dentro da raiz do repositório Git. Qualquer regra que você adicionar aqui não será verificada e ignorará arquivos somente em seu repositório local.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navegue para o local do seu repositório do Git.
 3. Abra o arquivo *.git/info/exclude* com seu editor de texto preferido.
 

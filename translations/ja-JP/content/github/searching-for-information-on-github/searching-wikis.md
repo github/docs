@@ -1,16 +1,17 @@
 ---
 title: ウィキを検索する
-intro: '{{ site.data.variables.product.product_name }} 上のウィキを検索できます。また、これらのウィキの検索修飾子の組み合わせを使って、結果を絞り込むことができます。'
+intro: '{% data variables.product.product_name %} 上のウィキを検索できます。また、これらのウィキの検索修飾子の組み合わせを使って、結果を絞り込むことができます。'
 redirect_from:
   - /articles/searching-wikis
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 全体にわたってグローバルにウィキを検索できます。あるいは、特定のリポジトリや Organization のみのウィキの検索もできます。 詳細は「[{{ site.data.variables.product.company_short }} での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルにウィキを検索できます。あるいは、特定のリポジトリや Organization のみのウィキの検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### ユーザまたは Organization のリポジトリ内の検索
 
@@ -35,7 +36,7 @@ versions:
 
 `updated` 修飾子は、特定の日付範囲内に最終更新されたウィキページにマッチします。
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                       | サンプル                                                                                                                                                          |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |

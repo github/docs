@@ -1,13 +1,13 @@
 ---
 title: Marketing-E-Mails von GitHub verwalten
-intro: 'Neben Benachrichtigungen und Konto-E-Mails versendet {{ site.data.variables.product.prodname_dotcom }} gelegentlich auch Marketing-E-Mails mit Neuigkeiten und Informationen zu unseren Produkten. Wenn Du die Marketing-E-Mails kündigst, bist Du von zukünftigen Kampagnen ausgeschlossen, sofern Du Deine {{ site.data.variables.product.prodname_dotcom }}-E-Mail-Einstellungen nicht wieder änderst.'
+intro: 'Neben Benachrichtigungen und Konto-E-Mails versendet {% data variables.product.prodname_dotcom %} gelegentlich auch Marketing-E-Mails mit Neuigkeiten und Informationen zu unseren Produkten. Wenn Sie die Marketing-E-Mails kündigen, sind Sie von zukünftigen Kampagnen ausgeschlossen, sofern Sie Ihre {% data variables.product.prodname_dotcom %}-E-Mail-Einstellungen nicht entsprechend ändern.'
 redirect_from:
   - /articles/managing-marketing-emails-from-github
 versions:
   free-pro-team: '*'
 ---
 
-### Marketing-E-Mails von {{ site.data.variables.product.prodname_dotcom }} kündigen
+### Marketing-E-Mails von {% data variables.product.prodname_dotcom %} kündigen
 
 {% tip %}
 
@@ -15,8 +15,8 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
 3. Wähle unter *Email preferences* (E-Mail-Voreinstellungen) **Only receive account related emails, and those I subscribe to** (Nur kontobezogene und abonnierte E-Mails erhalten) aus. ![Screenshot vom Abwählen der Marketing-E-Mails](/assets/images/help/notifications/email_preferences.png)
 4. Klicke auf **Save email preferences** (E-Mail-Voreinstellungen speichern). ![Schaltfläche „Save email preferences“ (E-Mail-Voreinstellungen speichern)](/assets/images/help/notifications/save_email_preferences.png)
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Um proprietário da organização pode convidar você para ingressar na organização dele como um integrante, gerente de cobrança ou proprietário. Um proprietário da organização ou integrante com privilégios administrativos para um repositório pode convidar você para colaborar em um ou mais repositórios como um colaborador externo. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
@@ -22,7 +23,7 @@ Quando você aceita um convite para ingressar em uma organização, os propriet�
 - País de origem da solicitação
 - Seu endereço IP
 
-Para obter mais informações, consulte "<a href="/articles/github-privacy-statement/" class="dotcom-only">Declaração de privacidade do {{ site.data.variables.product.prodname_dotcom }}</a>.
+Para obter mais informações, consulte "<a href="/articles/github-privacy-statement/" class="dotcom-only">Declaração de privacidade do {% data variables.product.prodname_dotcom %}</a>.
 
   {% note %}
 

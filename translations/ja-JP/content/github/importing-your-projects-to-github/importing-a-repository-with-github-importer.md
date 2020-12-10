@@ -1,6 +1,6 @@
 ---
 title: GitHub Importer でリポジトリをインポートする
-intro: 他のバージョン管理システムにホストされているプロジェクトがある場合は、GitHub Importer ツールを使って自動的に GitHub にインポートすることができます。
+intro: '他のバージョン管理システムにホストされているプロジェクトがある場合は、GitHub Importer ツールを使って自動的に GitHub にインポートすることができます。'
 redirect_from:
   - /articles/importing-from-other-version-control-systems-to-github/
   - /articles/importing-a-repository-with-github-importer
@@ -16,9 +16,9 @@ versions:
 
 インポート中に、自分のリポジトリでのコミットを作者の GitHub ユーザ アカウントに一致させたい場合は、インポートを始める前に、リポジトリのコントリビューター全員が GitHub アカウントを持っていることを確認してください。
 
-{{ site.data.reusables.repositories.migrating-from-codeplex }}
+{% data reusables.repositories.migrating-from-codeplex %}
 
-{{ site.data.reusables.repositories.repo-size-limit }}
+{% data reusables.repositories.repo-size-limit %}
 
 1. ページの右上角で {% octicon "plus" aria-label="Plus symbol" %} をクリックし、[**Import repository**] を選択します。 ![[New repository] メニューの [Import repository] オプション](/assets/images/help/importer/import-repository.png)
 2. [Your old repository's clone URL] に、インポートするプロジェクトの URL を入力します。 ![インポートするリポジトリの URL を入力するテキスト フィールド](/assets/images/help/importer/import-url.png)

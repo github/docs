@@ -1,4 +1,4 @@
-{{ site.data.variables.product.prodname_ghe_server }} は、次の EC2インスタンスタイプでサポートされています。 詳しい情報については[AWS EC2インスタンスタイプの概要ページ](http://aws.amazon.com/ec2/instance-types/)を参照してください。
+{% data variables.product.prodname_ghe_server %} は、次の EC2インスタンスタイプでサポートされています。 詳しい情報については[AWS EC2インスタンスタイプの概要ページ](http://aws.amazon.com/ec2/instance-types/)を参照してください。
 
 | EC2インスタンスタイプ | モデル                                |
 | ------------ | ---------------------------------- |
@@ -28,10 +28,9 @@
 | ------------ | -------------------------------------------------------------------- |
 | R4           | r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge |
 
-| EC2インスタンスタイプ | モデル                                                                   |
-| ------------ | --------------------------------------------------------------------- |
-| R5           | r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.12xlarge, r5.24xlarge |
-
+| EC2インスタンスタイプ | モデル                                                                                                                                                                                                                                                                                                                                                    |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| R5           | r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.12xlarge, r5.24xlarge{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.19" %}, r5n.large, r5n.xlarge, r5n.2xlarge, r5n.4xlarge, r5n.12xlarge, r5n.24xlarge, r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.12xlarge, r5a.24xlarge{% endif %}
 
 | EC2インスタンスタイプ | モデル                      |
 | ------------ | ------------------------ |

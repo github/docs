@@ -1,6 +1,6 @@
 ---
 title: Cluster network configuration
-intro: '{{ site.data.variables.product.prodname_ghe_server }} clustering relies on proper DNS name resolution, load balancing, and communication between nodes to operate properly.'
+intro: '{% data variables.product.prodname_ghe_server %} clustering relies on proper DNS name resolution, load balancing, and communication between nodes to operate properly.'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -71,7 +71,6 @@ If a network level firewall is in place between nodes, these ports will need to 
 | 8302/UDP | Consul |
 | 25827/UDP | Collectd |
 
-
 ### Configuring a load balancer
 
  We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
@@ -79,17 +78,17 @@ If a network level firewall is in place between nodes, these ports will need to 
  - TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
  - Sticky sessions shouldn't be enabled.
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### Handling client connection information
 
 Because client connections to the cluster come from the load balancer, the client IP address can be lost. To properly capture the client connection information, additional consideration is required.
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Enabling PROXY support on {{ site.data.variables.product.prodname_ghe_server }}
+#### Enabling PROXY support on {% data variables.product.prodname_ghe_server %}
 
 We strongly recommend enabling PROXY support for both your instance and the load balancer.
 
@@ -99,11 +98,11 @@ We strongly recommend enabling PROXY support for both your instance and the load
   ```
   - For the load balancer, use the instructions provided by your vendor.
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Enabling X-Forwarded-For support on {{ site.data.variables.product.prodname_ghe_server }}
+#### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 To enable the `X-Fowarded-For` header, use this command:
 
@@ -111,14 +110,14 @@ To enable the `X-Fowarded-For` header, use this command:
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### Configuring Health Checks
 Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### DNS Requirements
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

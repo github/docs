@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-For any Pull Request, {{ site.data.variables.product.product_name }} provides three kinds of comment views: [comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request, and [comments on a specific commit][commit comment] within the Pull Request.
+For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views: [comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request, and [comments on a specific commit][commit comment] within the Pull Request.
 
-Each of these types of comments goes through a different portion of the {{ site.data.variables.product.product_name }} API. In this guide, we'll explore how you can access and manipulate each one. For every example, we'll be using [this sample Pull Request made][sample PR] on the "octocat" repository. As always, samples can be found in [our platform-samples repository][platform-samples].
+Each of these types of comments goes through a different portion of the {% data variables.product.product_name %} API. In this guide, we'll explore how you can access and manipulate each one. For every example, we'll be using [this sample Pull Request made][sample PR] on the "octocat" repository. As always, samples can be found in [our platform-samples repository][platform-samples].
 
 ### Pull Request Comments
 
@@ -96,8 +97,8 @@ Note that this API call will retrieve single line comments, as well as comments 
 [commit comment]: https://github.com/octocat/Spoon-Knife/commit/cbc28e7c8caee26febc8c013b0adfb97a4edd96e#commitcomment-4049848
 [sample PR]: https://github.com/octocat/Spoon-Knife/pull/1176
 [platform-samples]: https://github.com/github/platform-samples/tree/master/api/ruby/working-with-comments
-[issues]: /v3/issues/comments/
+[issues]: /rest/reference/issues#comments
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[PR Review API]: /v3/pulls/comments/
-[commit comment API]: /v3/repos/comments/#get-a-commit-comment
+[PR Review API]: /rest/reference/pulls#comments
+[commit comment API]: /rest/reference/repos#get-a-commit-comment

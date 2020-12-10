@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![ピン止めした Issue](/assets/images/help/issues/pinned-issues.png)
 
 Issue をピン止めするには、その Issue があるリポジトリへの書き込み権限が必要です。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Issue のリストで、ピン止めする Issue をクリックします。
 4. 右のサイドバーで、[**Pin issue**] をクリックします。 ![Issue をピン止めするボタン](/assets/images/help/repository/pin-issue.png)

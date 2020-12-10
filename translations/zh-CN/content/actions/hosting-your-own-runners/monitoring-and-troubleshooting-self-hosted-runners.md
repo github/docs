@@ -10,24 +10,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 使用 {{ site.data.variables.product.prodname_dotcom }} 检查自托管运行器的状态
 
-{{ site.data.reusables.github-actions.self-hosted-runner-management-permissions-required }}
+{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-navigate-repo-and-org }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. 在“Self-hosted runners（自托管运行器）”下，您可以查看已注册的运行器列表，包括运行器的名称、标签和状态。
 
     ![运行器列表](/assets/images/help/settings/actions-runner-list.png)
 
     可以是以下状态之一：
 
-    * **空闲**：运行器已连接到 {{ site.data.variables.product.product_name }} 并准备执行作业。
+    * **空闲**：运行器已连接到 {% data variables.product.product_name %} 并准备执行作业。
     * **活动**：运行器正在执行作业。
-    * **脱机**：运行器未连接到 {{ site.data.variables.product.product_name }}。 这可能是因为机器处于离线状态，自托管运行器应用程序未在机器上运行，或者自托管运行器应用程序无法与 {{ site.data.variables.product.product_name }} 通信。
+    * **脱机**：运行器未连接到 {% data variables.product.product_name %}。 这可能是因为机器处于离线状态，自托管运行器应用程序未在机器上运行，或者自托管运行器应用程序无法与 {% data variables.product.product_name %} 通信。
 
 
 ### 查阅自托管运行应用程序日志文件

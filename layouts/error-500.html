@@ -5,11 +5,11 @@
 
     <div class="container-xl p-responsive py-9">
       <article class="markdown-body col-md-10 col-lg-7 mx-auto">
-        <h1>{{ site.data.ui.errors.oops }}</h1>
+        <h1>{% data ui.errors.oops %}</h1>
 
         <div class="lead-mktg mb-5">
-          {{ site.data.ui.errors.something_went_wrong }}
-          {{ site.data.ui.errors.we_track_errors }}
+          {% data ui.errors.something_went_wrong %}
+          {% data ui.errors.we_track_errors %}
         </div>
 
         {% if error %}
@@ -22,6 +22,6 @@
 
     <!-- {{ content }} -->
     {% include support %}
-    {% include footer %}
+    {% include small-footer %}
   </body>
 </html>

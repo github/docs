@@ -1,7 +1,7 @@
 ---
 title: Configuring Docker for use with GitHub Packages
-intro: 'You can configure the Docker client to use {{ site.data.variables.product.prodname_registry }} to publish and retrieve docker images.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'You can configure the Docker client to use {% data variables.product.prodname_registry %} to publish and retrieve docker images.'
+product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-docker-for-use-with-github-package-registry
@@ -11,35 +11,33 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
-{{ site.data.reusables.package_registry.admins-can-configure-package-types }}
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### About Docker and {{ site.data.variables.product.prodname_registry }}
+### About Docker and {% data variables.product.prodname_registry %}
 
-{% warning %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
-**Note:** The {{ site.data.variables.product.prodname_registry }} Docker registry will be superseded by {{ site.data.variables.product.prodname_github_container_registry }}{% if currentVersion != "free-pro-team@latest" %} in a future {{ site.data.variables.product.product_name }} release{% endif %}.{% if currentVersion == "free-pro-team@latest" %} To learn how to migrate your existing Docker images and any workflows using them, see "[Migrating to {{ site.data.variables.product.prodname_github_container_registry }} for Docker images](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images)" and "[Getting started with {{ site.data.variables.product.prodname_github_container_registry }}](/packages/getting-started-with-github-container-registry)."{% endif %}
+When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
-{% endwarning %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-When installing or publishing a docker image, {{ site.data.variables.product.prodname_registry }} does not currently support foreign layers, such as Windows images.
-
-{% if currentVersion != "free-pro-team@latest" %}
-
-Before you can use the Docker registry on {{ site.data.variables.product.prodname_registry }}, the site administrator for {{ site.data.variables.product.product_location_enterprise }} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
+Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location %} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
 
 {% endif %}
 
-### Authenticating to {{ site.data.variables.product.prodname_registry }}
+### Authenticating to {% data variables.product.prodname_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-packages }}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
+
+{% data reusables.package_registry.authenticate-packages %}
 
 #### Authenticating with a personal access token
 
-{{ site.data.reusables.package_registry.required-scopes }}
+{% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {{ site.data.variables.product.prodname_registry }} with Docker using the `docker` login command.
+You can authenticate to {% data variables.product.prodname_registry %} with Docker using the `docker` login command.
 
 To keep your credentials secure, we recommend you save your personal access token in a local file on your computer and use Docker's `--password-stdin` flag, which reads your token from a local file.
 
@@ -51,7 +49,7 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% endraw %}
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 {% raw %}
  ```shell
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
@@ -59,21 +57,27 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {{ site.data.variables.product.product_name }} username{% if currentVersion != "free-pro-team@latest" %}, `HOSTNAME` with the URL for {{ site.data.variables.product.product_location_enterprise }},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {{ site.data.variables.product.product_name }}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
 #### Authenticating with the `GITHUB_TOKEN`
 
-{{ site.data.reusables.package_registry.package-registry-with-github-tokens }}
+{% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publishing a package
+### Publishing an image
 
-{{ site.data.variables.product.prodname_registry }} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
-{{ site.data.reusables.package_registry.lowercase-name-field }}
+{% note %}
 
-{{ site.data.reusables.package_registry.viewing-packages }}
+**Note:** Image names must only use lowercase letters.
+
+{% endnote %}
+
+{% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
+
+{% data reusables.package_registry.viewing-packages %}
 
 1. Determine the image name and ID for your docker image using `docker images`.
   ```shell
@@ -83,7 +87,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {{ site.data.variables.product.product_location_enterprise }},{% endif %} and *VERSION* with package version at build time.
+{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -94,7 +98,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   ```
   {% endif %}
 3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {{ site.data.variables.product.product_location_enterprise }},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
+{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -104,7 +108,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
-4. Publish the image to {{ site.data.variables.product.prodname_registry }}.
+4. Publish the image to
+{% data variables.product.prodname_registry %}.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -122,6 +127,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
 #### Example publishing a Docker image
 
+{% data reusables.package_registry.docker_registry_deprecation_status %}
+
 You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -134,7 +141,7 @@ $ docker images
 # Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
-# Push the image to {{ site.data.variables.product.prodname_registry }}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
@@ -149,7 +156,7 @@ $ docker images
 # Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
 $ docker tag c75bebcdd211 docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
-# Push the image to {{ site.data.variables.product.prodname_registry }}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 
@@ -163,7 +170,7 @@ You can publish a new Docker image for the first time and name it `monalisa`.
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
-# Push the image to {{ site.data.variables.product.prodname_registry }}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
@@ -173,15 +180,16 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0 .
 
-# Push the image to {{ site.data.variables.product.prodname_registry }}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-### Installing a package
+### Downloading an image
 
-You can use the `docker pull` command to install a docker image from {{ site.data.variables.product.prodname_registry }}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {{ site.data.variables.product.prodname_ghe_server }} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {{ site.data.reusables.package_registry.lowercase-name-field }}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -198,7 +206,6 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 **Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 {% endnote %}
-
 
 ### 더 읽을거리
 

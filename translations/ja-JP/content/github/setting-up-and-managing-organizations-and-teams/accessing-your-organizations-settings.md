@@ -8,22 +8,23 @@ redirect_from:
   - /articles/managing-an-organization-s-settings/
   - /articles/accessing-your-organization-s-settings
   - /articles/accessing-your-organizations-settings
-intro: Organization アカウントの設定ページには、支払い、Team のメンバーシップ、リポジトリ設定など、アカウントを管理するいくつかの方法があります。
+intro: 'Organization アカウントの設定ページには、支払い、Team のメンバーシップ、リポジトリ設定など、アカウントを管理するいくつかの方法があります。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
 
-**ヒント:** Organization の支払い情報とアカウント設定を見て変更できるのは、Organization のオーナーと支払いマネージャーのみです。 {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**ヒント:** Organization の支払い情報とアカウント設定を見て変更できるのは、Organization のオーナーと支払いマネージャーのみです。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}

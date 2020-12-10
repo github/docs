@@ -1,18 +1,19 @@
 ---
 title: Organization のプロジェクトボード権限
-intro: Organization のオーナーと、プロジェクトボード管理者権限を持つユーザーは、Organization のプロジェクトボードに対する読み取り、書き込み、管理の各権限を誰が持つかをカスタマイズすることができます。
+intro: 'Organization のオーナーと、プロジェクトボード管理者権限を持つユーザーは、Organization のプロジェクトボードに対する読み取り、書き込み、管理の各権限を誰が持つかをカスタマイズすることができます。'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 権限の概要
 
 ユーザーと Team のプロジェクトボードに対する権限には、次の 3 つのレベルがあります:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 Organization のオーナーと、管理者権限を持つユーザーは、外部コラボレーターまたは Organization メンバーとして、または Team や Organization のメンバーシップを通じて、Organization のプロジェクトボードに対するユーザーのアクセス権を個々に付与することができます。 外部コラボレーターとは、Organization のメンバーではないが、Organization でコラボレーションの権限を付与されたユーザーのことです。
 
@@ -23,13 +24,13 @@ Organization のオーナーと、プロジェクトボードに対する管理�
 
 ### プロジェクトボードに対するカスケード権限
 
-{{ site.data.reusables.project-management.cascading-permissions }}
+{% data reusables.project-management.cascading-permissions %}
 
 たとえば、Organization のオーナーが、あるプロジェクトボードに対する読み取り権限を Organization のすべてのメンバーに付与しており、プロジェクトボードの管理者が個別のコラボレーターとして、同じボードに対する書き込み権限を Organization のメンバーに付与している場合、そのユーザーはそのプロジェクトボードに対する書き込み権限を持つことになります。
 
 ### プロジェクトボードの可視性
 
-{{ site.data.reusables.project-management.project-board-visibility }}プロジェクトボードの可視性を、プライベートからパブリックへ、またその逆に変更することができます。 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
+{% data reusables.project-management.project-board-visibility %}プロジェクトボードの可視性を、プライベートからパブリックへ、またその逆に変更することができます。 詳細は「[プロジェクトボードの可視性を変更する](/articles/changing-project-board-visibility)」を参照してください。
 
 ### 参考リンク
 

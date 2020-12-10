@@ -1,1 +1,1 @@
-Pode levar alguns dias para o {{ site.data.variables.product.prodname_dotcom }} revisar sua solicitação. Depois que sua solicitação for aprovada, seu perfil automaticamente estará ativo em [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors).
+Pode levar alguns dias para o {% data variables.product.prodname_dotcom %} revisar sua solicitação. Depois que sua solicitação for aprovada, seu perfil automaticamente estará ativo em [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors).

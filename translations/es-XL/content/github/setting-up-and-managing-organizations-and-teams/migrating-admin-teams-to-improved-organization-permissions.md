@@ -25,16 +25,16 @@ Para obtener más información, consulta "[Niveles de permiso del repositorio pa
 
 ### Migrar todos tus equipos de administradores heredados de tu organización
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.teams_sidebar }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.teams_sidebar %}
 1. Revisa tus equipos de administradores heredados de la organización, después haz clic en **Migrate all teams (Migrar todos los equipos)**. ![Botón Migrar todos los equipos](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. Lee la información sobre los posibles cambios en permisos para los miembros de estos equipos, después haz clic en **Migrate all teams (Migrar todos los equipos).** ![Botón Confirmar migración](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
 ### Migrar un equipo de administradores único
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 1. En la casilla de descripción de equipo, haz clic en **Migrate team (Migrar equipo)**. ![Botón Migrar equipo](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

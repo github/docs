@@ -7,35 +7,35 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Sobre as ações de configuração incluídas e o cache da ferramenta do executor
 
-{{ site.data.reusables.actions.enterprise-no-internet-actions }}
+{% data reusables.actions.enterprise-no-internet-actions %}
 
-As maioria das oficiais de autoria de {{ site.data.variables.product.prodname_dotcom }}mais são automaticamente agrupadas com {{ site.data.variables.product.prodname_ghe_server }}. No entanto, os executores auto-hospedados sem acesso à internet precisarão de alguma configuração antes de poderem usar as ações `actions/setup-LANGUAGE` inclusas como, por exemplo, `setup-node`.
+As maioria das oficiais de autoria de {% data variables.product.prodname_dotcom %}mais são automaticamente agrupadas com {% data variables.product.prodname_ghe_server %}. No entanto, os executores auto-hospedados sem acesso à internet precisarão de alguma configuração antes de poderem usar as ações `actions/setup-LANGUAGE` inclusas como, por exemplo, `setup-node`.
 
 As ações `actions/setup-LANGUAGE` normalmente precisam de acesso à internet para fazer o download os binários do ambiente necessário para o cache de ferramentas do executor. Os executores auto-hospedados sem acesso à internet não podem fazer o download dos binários. Portanto, você deve preencher manualmente o cache de ferramentas no executor.
 
-Você pode preencher o cache da ferramenta do executor, executando um fluxo de trabalho de {{ site.data.variables.product.prodname_actions }} no {{ site.data.variables.product.prodname_dotcom_the_website }} que faz o upload de um cache de ferramenta do executor hospedado em {{ site.data.variables.product.prodname_dotcom }} como um artefato, que você pode transferir e extrair no seu executor auto-hospedado sem conexão à internet.
+Você pode preencher o cache da ferramenta do executor, executando um fluxo de trabalho de {% data variables.product.prodname_actions %} no {% data variables.product.prodname_dotcom_the_website %} que faz o upload de um cache de ferramenta do executor hospedado em {% data variables.product.prodname_dotcom %} como um artefato, que você pode transferir e extrair no seu executor auto-hospedado sem conexão à internet.
 
 {% note %}
 
-**Observação:** Você só pode usar um cache de ferramenta do executor hospedado em {{ site.data.variables.product.prodname_dotcom }} para um executor auto-hospedado que possua um sistema operacional e arquitetura idênticos. Por exemplo, se você estiver usando uma `ubuntu-18. 4` do executor hospedado em {{ site.data.variables.product.prodname_dotcom }} para gerar um cache de ferramentas, seu executor auto-hospedado deverá ser uma máquina Ubuntu 18.04 de 64 bits. Para mais informações sobre executores hospedados no {{ site.data.variables.product.prodname_dotcom }}, consulte "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Ambientes virtuais para executores hospedados no GitHub</a>".
+**Observação:** Você só pode usar um cache de ferramenta do executor hospedado em {% data variables.product.prodname_dotcom %} para um executor auto-hospedado que possua um sistema operacional e arquitetura idênticos. Por exemplo, se você estiver usando uma `ubuntu-18. 4` do executor hospedado em {% data variables.product.prodname_dotcom %} para gerar um cache de ferramentas, seu executor auto-hospedado deverá ser uma máquina Ubuntu 18.04 de 64 bits. Para mais informações sobre executores hospedados no {% data variables.product.prodname_dotcom %}, consulte "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Ambientes virtuais para executores hospedados no GitHub</a>".
 
 {% endnote %}
 
 ### Pré-requisitos
 
 * Determinar quais ambientes de desenvolvimento seus executores auto-hospedados precisarão. O exemplo a seguir demonstra como preencher um cache de ferramentas para a ação `setup-node`, usando as versões 10 e 12 do Node.js.
-* Acesso a um repositório no {{ site.data.variables.product.prodname_dotcom_the_website }} que pode ser usado para executar um fluxo de trabalho.
+* Acesso a um repositório no {% data variables.product.prodname_dotcom_the_website %} que pode ser usado para executar um fluxo de trabalho.
 * Acesso ao sistema de arquivos do executor auto-hospedado para preencher a pasta de cache da ferramenta.
 
 ### Preencher o cache de ferramentas para um executor auto-hospedado
 
-1. Em {{ site.data.variables.product.prodname_dotcom_the_website }}, navegue até um repositório que você pode usar para executar um fluxo de trabalho de {{ site.data.variables.product.prodname_actions }}.
-1. Crie um novo arquivo de fluxo de trabalho na pasta `.github/workflows` do repositório que faz o upload de um artefato que contém o cache da ferramenta do executor armazenado em {{ site.data.variables.product.prodname_dotcom }}.
+1. Em {% data variables.product.prodname_dotcom_the_website %}, acesse um repositório que você pode usar para executar um fluxo de trabalho de {% data variables.product.prodname_actions %}.
+1. Crie um novo arquivo de fluxo de trabalho na pasta `.github/workflows` do repositório que faz o upload de um artefato que contém o cache da ferramenta do executor armazenado em {% data variables.product.prodname_dotcom %}.
 
    O exemplo a seguir demonstra um fluxo de trabalho que faz o upload do cache da ferramenta para um ambiente do Ubuntu 18.04, usando a ação `setup-node` com as versões 10 e 12 do Node.js.
 
@@ -69,7 +69,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```
    {% endraw %}
-1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Persistindo dados de fluxo de trabalho usando artefatos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts#downloading-and-deleting-artifacts-after-a-workflow-run-is-complete)".
+1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Fazer download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 1. Transfira o artefato de cache das ferramentas para o seu executor hospedado e extraia-o para o diretório de cache das ferramentas locais. O diretório de cache da ferramenta padrão é `RUNNER_DIR/_work/_tool`. Se o executor ainda não processou nenhum trabalho, você pode precisar criar os diretórios `_work/_tool`.
 
     Após extrair o artefato de cache da ferramenta carregado no exemplo acima, você deve ter uma estrutura de diretório no seu executor auto-hospedado semelhante ao exemplo a seguir:

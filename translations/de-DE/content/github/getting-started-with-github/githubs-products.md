@@ -6,58 +6,59 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.variables.product.prodname_dotcom }} bietet kostenlose und kostenpflichtige Produkte an. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {{ site.data.variables.product.pricing_url }}. {{ site.data.reusables.products.product-roadmap }}
+{% data variables.product.prodname_dotcom %} bietet kostenlose und kostenpflichtige Produkte an. Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}. {% data reusables.products.product-roadmap %}
 
-### {{ site.data.variables.product.prodname_free_user }} für Benutzerkonten
+### {% data variables.product.prodname_free_user %} für Benutzerkonten
 
-Mit {{ site.data.variables.product.prodname_free_team }} für Benutzerkonten kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten, und an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang.
+Mit {% data variables.product.prodname_free_team %} für Benutzerkonten kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten, und an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang.
 
-Mit {{ site.data.variables.product.prodname_free_user }} umfasst Dein Benutzerkonto folgendes:
-- {{ site.data.variables.product.prodname_gcf }}
-- {{ site.data.variables.product.prodname_dependabot_alerts }}
+Mit {% data variables.product.prodname_free_user %} umfasst Dein Benutzerkonto folgendes:
+- {% data variables.product.prodname_gcf %}
+- {% data variables.product.prodname_dependabot_alerts %}
 - Erzwingung der Zwei-Faktor-Authentifizierung,
-- 2.000 {{ site.data.variables.product.prodname_actions }}-Minuten
-- 500 MB {{ site.data.variables.product.prodname_registry }}-Speicher
+- 2.000 {% data variables.product.prodname_actions %}-Minuten
+- 500 MB {% data variables.product.prodname_registry %}-Speicher
 
-### {{ site.data.variables.product.prodname_pro }}
+### {% data variables.product.prodname_pro %}
 
-Zusätzlich zu den mit {{ site.data.variables.product.prodname_free_user }} verfügbaren Funktionen für Benutzerkonten enthält {{ site.data.variables.product.prodname_pro }} noch folgendes:
-- {{ site.data.variables.contact.github_support }} via email
-- 3.000 {{ site.data.variables.product.prodname_actions }}-Minuten
-- 2 GB {{ site.data.variables.product.prodname_registry }}-Speicher
+Zusätzlich zu den mit {% data variables.product.prodname_free_user %} verfügbaren Funktionen für Benutzerkonten enthält {% data variables.product.prodname_pro %} noch folgendes:
+- {% data variables.contact.github_support %} via email
+- 3.000 {% data variables.product.prodname_actions %}-Minuten
+- 2 GB {% data variables.product.prodname_registry %}-Speicher
 - Erweiterte Tools und Einblicke in private Repositorys:
   - Erforderliche Pull-Request-Reviewer
   - Mehrfache Pull-Request-Reviewer
   - Automatisch verknüpfte Referenzen
-  - {{ site.data.variables.product.prodname_pages }}
+  - {% data variables.product.prodname_pages %}
   - Wikis
   - geschützte Branches
   - Codeinhaber
   - Repository-Insights-Diagramm: Pulse, Mitarbeiter, Traffic, Commits, Code-Verlauf, Netzwerk und Forks
 
-### {{ site.data.variables.product.prodname_free_team }} für Organisationen
+### {% data variables.product.prodname_free_team %} für Organisationen
 
-Mit {{ site.data.variables.product.prodname_free_team }} für und Organisationen kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten oder an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang.
+Mit {% data variables.product.prodname_free_team %} für und Organisationen kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten oder an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang.
 
-Zusätzlich zu den mit {{ site.data.variables.product.prodname_free_user }} für Benutzerkonten verfügbaren Funktionen enthält {{ site.data.variables.product.prodname_free_team }} für Organisationen noch folgendes:
-- {{ site.data.variables.product.prodname_gcf }}
+Zusätzlich zu den mit {% data variables.product.prodname_free_user %} für Benutzerkonten verfügbaren Funktionen enthält {% data variables.product.prodname_free_team %} für Organisationen noch folgendes:
+- {% data variables.product.prodname_gcf %}
 - Teamdiskussionen,
 - Team-Zugriffskontrollen für die Verwaltung von Gruppen
-- 2.000 {{ site.data.variables.product.prodname_actions }}-Minuten
-- 500 MB {{ site.data.variables.product.prodname_registry }}-Speicher
+- 2.000 {% data variables.product.prodname_actions %}-Minuten
+- 500 MB {% data variables.product.prodname_registry %}-Speicher
 
-### {{ site.data.variables.product.prodname_team }}
+### {% data variables.product.prodname_team %}
 
-Zusätzlich zu den mit {{ site.data.variables.product.prodname_free_team }} verfügbaren Funktionen für Organisationen enthält {{ site.data.variables.product.prodname_team}} noch folgendes:
-- {{ site.data.variables.contact.github_support }} via email
-- 3.000 {{ site.data.variables.product.prodname_actions }}-Minuten
-- 2 GB {{ site.data.variables.product.prodname_registry }}-Speicher
+Zusätzlich zu den mit {% data variables.product.prodname_free_team %} verfügbaren Funktionen für Organisationen enthält {% data variables.product.prodname_team %} noch folgendes:
+- {% data variables.contact.github_support %} via email
+- 3.000 {% data variables.product.prodname_actions %}-Minuten
+- 2 GB {% data variables.product.prodname_registry %}-Speicher
 - Erweiterte Tools und Einblicke in private Repositorys:
   - Erforderliche Pull-Request-Reviewer
   - Mehrfache Pull-Request-Reviewer
-  - {{ site.data.variables.product.prodname_pages }}
+  - {% data variables.product.prodname_pages %}
   - Wikis
   - geschützte Branches
   - Codeinhaber
@@ -66,37 +67,37 @@ Zusätzlich zu den mit {{ site.data.variables.product.prodname_free_team }} verf
   - Team-Pull-Request-Reviewer
   - Geplante Erinnerungen
 
-{{ site.data.reusables.github-actions.actions-billing }}
+{% data reusables.github-actions.actions-billing %}
 
-### {{ site.data.variables.product.prodname_enterprise }}
+### {% data variables.product.prodname_enterprise %}
 
-{{ site.data.variables.product.prodname_enterprise }} bietet zwei Bereitstellungsoptionen: in der Cloud gehostet und selbst gehostet.
+{% data variables.product.prodname_enterprise %} bietet zwei Bereitstellungsoptionen: in der Cloud gehostet und selbst gehostet.
 
-Zusätzlich zu den mit {{ site.data.variables.product.prodname_team }} verfügbaren Funktionen enthält {{ site.data.variables.product.prodname_enterprise }} noch folgendes:
-- {{ site.data.variables.contact.enterprise_support }}
+Zusätzlich zu den mit {% data variables.product.prodname_team %} verfügbaren Funktionen enthält {% data variables.product.prodname_enterprise %} noch folgendes:
+- {% data variables.contact.enterprise_support %}
 - zusätzliche Steuerungsoptionen für Sicherheit, Compliance und Bereitstellung
 - Authentifizierung mit SAML Single Sign-On
 - Zugriffsbereitstellung mit SAML oder SCIM
-- {{ site.data.variables.product.prodname_github_connect }}
+- {% data variables.product.prodname_github_connect %}
 
-{{ site.data.variables.product.prodname_ghe_cloud }} umfasst außerdem
-- {{ site.data.variables.contact.enterprise_support }}. Weitere Informationen findest Du unter „<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{{ site.data.variables.product.prodname_ghe_cloud }}-Support</a>“ und „<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{{ site.data.variables.product.prodname_ghe_cloud }}-Nachtrag</a>.“
-- 50.000 {{ site.data.variables.product.prodname_actions }}-Minuten
-- 50 GB {{ site.data.variables.product.prodname_registry }}-Speicher
-- Ein Service Level Agreement über eine monatliche Verfügbarkeit von 99,95 %,
-- Die Option, die Richtlinien und Abrechnungen für mehrere {{ site.data.variables.product.prodname_dotcom_the_website }}-Organisationen mit Enterprise-Konto zentral zu verwalten. Weitere Informationen findest Du unter "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>" (Über Enterprise-Konten).
+{% data variables.product.prodname_ghe_cloud %} umfasst außerdem
+- {% data variables.contact.enterprise_support %}. Weitere Informationen findest Du unter „<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Support</a>“ und „<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{% data variables.product.prodname_ghe_cloud %}-Nachtrag</a>.“
+- 50.000 {% data variables.product.prodname_actions %}-Minuten
+- 50 GB {% data variables.product.prodname_registry %}-Speicher
+- A service level agreement for 99.9% monthly uptime
+- Die Option, die Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %}-Organisationen mit Enterprise-Konto zentral zu verwalten. Weitere Informationen findest Du unter "<a href="/articles/about-enterprise-accounts" class="dotcom-only">About enterprise accounts</a>" (Über Enterprise-Konten).
 
-Du kannst eine Testversion einrichten, um {{ site.data.variables.product.prodname_ghe_cloud }} zu testen. Weitere Informationen finden Sie unter „[Eine Testversion von {{ site.data.variables.product.prodname_ghe_cloud }} einrichten](/articles/setting-up-a-trial-of-github-enterprise-cloud)“.
+Du kannst eine Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} zu testen. Weitere Informationen findest Du unter „<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Eine Testversion von {% data variables.product.prodname_ghe_cloud %} einrichten</a>.“
 
-Um weitere Informationen über das Hosten Deiner eigenen [{{ site.data.variables.product.prodname_ghe_server }}](https://enterprise.github.com)-Instanz zu erhalten, kontaktiere bitte {{ site.data.variables.contact.contact_enterprise_sales }}. {{ site.data.reusables.enterprise_installation.request-a-trial }}
+Um weitere Informationen über das Hosten Deiner eigenen [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com)-Instanz zu erhalten, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
 
-### {{ site.data.variables.product.prodname_ghe_one }}
+### {% data variables.product.prodname_ghe_one %}
 
-{{ site.data.variables.product.prodname_ghe_one }} enthält [{{ site.data.variables.product.prodname_enterprise }}](#github-enterprise) sowie:
+{% data variables.product.prodname_ghe_one %} enthält [{% data variables.product.prodname_enterprise %}](#github-enterprise) sowie:
 
-- {{ site.data.variables.contact.github_support }} {{ site.data.variables.product.premium_plus_support_plan }}
-- {{ site.data.variables.product.prodname_insights }}
-- {{ site.data.variables.product.prodname_advanced_security }}
-- [{{ site.data.variables.product.prodname_learning }} für Organisationen](https://lab.github.com/organizations)
+- {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
+- {% data variables.product.prodname_insights %}
+- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" and "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
+- [{% data variables.product.prodname_learning %} für Organisationen](https://lab.github.com/organizations)
 
-Weitere Informationen zur Anmeldung für {{ site.data.variables.product.prodname_ghe_one }} erhältst Du beim [{{ site.data.variables.product.product_name }}-Vertriebsteam](https://enterprise.github.com/contact).
+Weitere Informationen zur Anmeldung für {% data variables.product.prodname_ghe_one %} erhältst Du beim [{% data variables.product.product_name %}-Vertriebsteam](https://enterprise.github.com/contact).

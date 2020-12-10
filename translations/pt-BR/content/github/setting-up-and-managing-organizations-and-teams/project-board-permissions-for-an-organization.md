@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visão geral das permissões
 
 Existem três níveis de permissões em um quadro de projeto para pessoas e equipes:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 Os proprietários da organização e pessoas com permissões de administrador podem conceder acesso a alguém a um quadro de projeto da organização individualmente, como colaborador externo ou integrante da organização, ou ainda, por meio da associação dele a uma equipe ou organização. Um colaborador externo é uma pessoa que não é integrante da organização mas recebeu permissões para colaborar na organização.
 
@@ -23,13 +24,13 @@ Proprietários da organização e pessoas com permissões de administrador em um
 
 ### Permissões de acesso em cascata para quadros de projeto
 
-{{ site.data.reusables.project-management.cascading-permissions }}
+{% data reusables.project-management.cascading-permissions %}
 
 Por exemplo, se um proprietário da organização concedeu a todos os integrantes de uma equipe permissões de leitura em um quadro de projeto e um administrador de quadro de projeto concede permissões de gravação a um integrante da equipe naquele quadro de projeto como um colaborador individual, essa pessoa teria permissões de gravação no quadro de projeto.
 
 ### Visibilidade do quadro de projeto
 
-{{ site.data.reusables.project-management.project-board-visibility }} Você pode alterar a visibilidade do quadro de projeto de privada para pública e vice-versa. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
+{% data reusables.project-management.project-board-visibility %} Você pode alterar a visibilidade do quadro de projeto de privada para pública e vice-versa. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
 
 ### Leia mais
 

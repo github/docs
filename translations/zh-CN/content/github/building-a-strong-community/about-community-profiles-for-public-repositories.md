@@ -16,11 +16,11 @@ versions:
 
 如果项目没有建议的文件，可以单击 **Add（添加）**草拟并提交文件。
 
-{{ site.data.reusables.repositories.valid-community-issues }} 更多信息请参阅“[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
+{% data reusables.repositories.valid-community-issues %} 更多信息请参阅“[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
 
 ![包含建议的社区标准的社区资料检查列表（适用于维护员）](/assets/images/help/repository/add-button-community-profile.png)
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### 社区成员或协作者使用社区资料检查列表
 
@@ -37,4 +37,4 @@ versions:
 - "[添加许可到仓库](/articles/adding-a-license-to-a-repository)"
 - "[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)"
 - "[开源指南](https://opensource.guide/)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

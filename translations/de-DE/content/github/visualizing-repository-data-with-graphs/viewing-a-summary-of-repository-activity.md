@@ -1,20 +1,21 @@
 ---
 title: Eine Zusammenfassung der Repository-Aktivitäten anzeigen
 intro: 'In Pulse kannst Du eine Übersicht der Aktivitäten eines Repositorys anzeigen. Pulse umfasst eine Liste der offenen und gemergten Pull Requests, der offenen und geschlossenen Issues und ein Diagramm, in dem die Commit-Aktivität für die Top-15-Benutzer angezeigt wird, die sich im ausgewählten [Zeitraum](/articles/viewing-a-summary-of-repository-activity#filtering-by-time) am Standardbranch des Projekts beteiligt haben.'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits mit Co-Autoren sind in der Commit-Aktivitätsübersicht enthalten, falls ihre Commits in den Standardbranch des Repositorys zusammengeführt wurden und sie sich unter den Top-15-Benutzern befinden, welche die meisten Commits beigesteuert haben.
 
 ### Auf Pulse zugreifen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 
 ### Nach der Zeit filtern
 

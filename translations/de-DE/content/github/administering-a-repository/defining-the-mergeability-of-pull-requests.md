@@ -5,10 +5,11 @@ redirect_from:
   - /articles/defining-the-mergeability-of-a-pull-request/
   - /articles/defining-the-mergeability-of-pull-requests
   - /enterprise/admin/developer-workflow/establishing-pull-request-merge-conditions
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

@@ -1,21 +1,22 @@
 ---
 title: リポジトリでコンテンツと diff の表示を制限する
-intro: 'ある種のリソースはきわめて大きくなり、{{ site.data.variables.product.product_name }} で負荷の大きな処理が必要になる場合があります。 そのため、リクエストが妥当な時間で終わるように、制限が設けられています。'
+intro: 'ある種のリソースはきわめて大きくなり、{% data variables.product.product_name %} で負荷の大きな処理が必要になる場合があります。 そのため、リクエストが妥当な時間で終わるように、制限が設けられています。'
 redirect_from:
   - /articles/what-are-the-limits-for-viewing-content-and-diffs-in-my-repository/
   - /articles/limits-for-viewing-content-and-diffs-in-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-以下の制限の多くは {{ site.data.variables.product.product_name }}と API の両方に影響します。
+以下の制限の多くは {% data variables.product.product_name %}と API の両方に影響します。
 
 ### テキストの制限
 
 **1 MB** を超えるテキスト ファイルは常にプレーン テキストとして表示されます。 コードの構文は強調表示されず、prose ファイルは HTML (Markdown、AsciiDoc、*その他*) に変換されません。
 
-**5 MB** を超えるテキスト ファイルは raw URL を介してしか使用できません。これは `{{ site.data.variables.product.raw_github_com }}` を通じて、たとえば `https://{{ site.data.variables.product.raw_github_com }}/octocat/Spoon-Knife/master/index.html` のように提供されます。 ファイルの raw URL を取得するには、[**Raw**] ボタンを押します。
+**5 MB** を超えるテキスト ファイルは raw URL を介してしか使用できません。これは `{% data variables.product.raw_github_com %}` を通じて、たとえば `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html` のように提供されます。 ファイルの raw URL を取得するには、[**Raw**] ボタンを押します。
 
 ### diff の制限
 

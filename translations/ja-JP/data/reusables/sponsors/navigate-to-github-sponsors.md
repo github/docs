@@ -1,1 +1,1 @@
-1. [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors)にアクセスしてください。
+1. [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)にアクセスしてください。

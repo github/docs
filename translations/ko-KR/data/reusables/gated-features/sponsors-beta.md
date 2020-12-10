@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_sponsors }} for organizations is currently in beta and subject to change.
+**Note:** {% data variables.product.prodname_sponsors %} for organizations is currently in beta and subject to change.
 
 {% endnote %}

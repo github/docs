@@ -1,42 +1,43 @@
 ---
 title: Git Large File Storage (Git Große Dateien Speicher) konfigurieren
-intro: 'Sobald [{{ site.data.variables.large_files.product_name_short }} installiert wurde](/articles/installing-git-large-file-storage/), musst Du es mit einer großen Datei in Deinem Repository verknüpfen.'
+intro: 'Sobald [{% data variables.large_files.product_name_short %} installiert wurde](/articles/installing-git-large-file-storage/), musst Du es mit einer großen Datei in Deinem Repository verknüpfen.'
 redirect_from:
   - /articles/configuring-large-file-storage/
   - /articles/configuring-git-large-file-storage
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Wenn in Deinem Repository bereits Dateien vorhanden sind, für die Du {{ site.data.variables.product.product_name }} verwenden möchtest, musst Du sie zuerst aus dem Repository entfernen und sie dann lokal zu {{ site.data.variables.large_files.product_name_short }} hinzufügen. Weitere Informationen findest Du unter „[Eine Datei in Deinem Repository zu {{ site.data.variables.large_files.product_name_short }} verschieben](/articles/moving-a-file-in-your-repository-to-git-large-file-storage).“
+Wenn in Ihrem Repository bereits Dateien vorhanden sind, für die Sie {% data variables.product.product_name %} verwenden möchten, müssen Sie sie zunächst aus dem Repository entfernen und lokal zu {% data variables.large_files.product_name_short %} hinzufügen. Weitere Informationen findest Du unter „[Eine Datei in Deinem Repository zu {% data variables.large_files.product_name_short %} verschieben](/articles/moving-a-file-in-your-repository-to-git-large-file-storage).“
 
-{{ site.data.reusables.large_files.resolving-upload-failures }}
+{% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% tip %}
 
-**Hinweis:** Bevor Du versuchst, eine große Datei zu {{ site.data.variables.product.product_name }} zu übertragen, stelle sicher, dass Du {{ site.data.variables.large_files.product_name_short }} auf Deiner Appliance aktiviert hast. Weitere Informationen findest Du unter „[Git Large File Storage auf GitHub Enterprise Server konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/).“
+**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. Weitere Informationen findest Du unter „[Git Large File Storage auf GitHub Enterprise Server konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/).“
 
 {% endtip %}
 
 {% endif %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-2. Ändere das aktuelle Arbeitsverzeichnis in ein vorhandenes Repository, das Du mit {{ site.data.variables.large_files.product_name_short }} verwenden möchtest.
-3. Um eine Datei in Deinem Repository mit {{ site.data.variables.large_files.product_name_short }} zu verknüpfen, gib `git {{ site.data.variables.large_files.command_name }} track` ein, gefolgt vom Namen der Dateierweiterung, die Du automatisch zu {{ site.data.variables.large_files.product_name_short }} hochladen möchtest.
+{% data reusables.command_line.open_the_multi_os_terminal %}
+2. Ändern Sie das aktuelle Arbeitsverzeichnis in ein vorhandenes Repository, das Sie mit {% data variables.large_files.product_name_short %} verwenden möchten.
+3. Um eine Datei in Ihrem Repository mit {% data variables.large_files.product_name_short %} zu verknüpfen, geben Sie `git {% data variables.large_files.command_name %} track` gefolgt vom Namen der Dateierweiterung ein, die Sie automatisch zu {% data variables.large_files.product_name_short %} hochladen möchten.
 
   Um beispielsweise eine _.psd_-Datei zu verknüpfen, gib den folgenden Befehl ein:
   ```shell
-  $ git {{ site.data.variables.large_files.command_name }} track "*.psd"
+  $ git {% data variables.large_files.command_name %} track "*.psd"
   > Adding path *.psd
   ```
-  Du musst jeden Dateityp, den Du mit {{ site.data.variables.large_files.product_name_short }} verknüpfen möchtest, mit `git {{ site.data.variables.large_files.command_name }} track` hinzufügen. Dieser Befehl ergänzt die Datei *.gitattributes* Deines Repositorys und verknüpft große Dateien mit {{ site.data.variables.large_files.product_name_short }}.
+  Du musst jeden Dateityp, den Du mit {% data variables.large_files.product_name_short %} verknüpfen möchtest, mit `git {% data variables.large_files.command_name %} track` hinzufügen. Dieser Befehl ergänzt die Datei *.gitattributes* Deines Repositorys und verknüpft große Dateien mit {% data variables.large_files.product_name_short %}.
 
   {% tip %}
 
-  **Tipp:** Wir empfehlen dringend, die lokale Datei *.gitattributes* in Dein Repository freizugeben. Die Nutzung einer globalen *.gitattributes*-Datei, die mit {{ site.data.variables.large_files.product_name_short }} verknüpft ist, kann bei der Mitarbeit an anderen Git-Projekten Konflikte verursachen.
+  **Tipp:** Wir empfehlen dringend, die lokale Datei *.gitattributes* in Dein Repository freizugeben. Die Nutzung einer globalen *.gitattributes*-Datei, die mit {% data variables.large_files.product_name_short %} verknüpft ist, kann bei der Mitarbeit an anderen Git-Projekten Konflikte verursachen.
 
   {% endtip %}
 
@@ -44,10 +45,10 @@ Wenn in Deinem Repository bereits Dateien vorhanden sind, für die Du {{ site.da
   ```shell
   $ git add path/to/file.psd
   ```
-5. Gib die Datei frei und übertrage sie zu {{ site.data.variables.product.product_name }}:
+5. Gib die Datei frei und übertrage sie zu {% data variables.product.product_name %}:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   Du solltest Diagnoseinformationen zum Hochladen der Datei sehen:
   ```shell
@@ -58,5 +59,5 @@ Wenn in Deinem Repository bereits Dateien vorhanden sind, für die Du {{ site.da
 
 ### Weiterführende Informationen
 
-- "[Collaboration with {{ site.data.variables.large_files.product_name_long }}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-- "[Managing {{ site.data.variables.large_files.product_name_short }} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+- "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

@@ -8,17 +8,17 @@ versions:
 
 ### 组织的 SCIM 预配
 
-SCIM API 由 SCIM 启用的身份提供程序 (IdP) 用来自动预配 {{ site.data.variables.product.product_name }} 组织成员身份。 {{ site.data.variables.product.product_name }} API 基于[SCIM 标准](http://www.simplecloud.info/)的 2.0 版本。 IdP 应使用的 {{ site.data.variables.product.product_name }} SCIM 端点是：`{{ site.data.variables.product.api_url_code }}/scim/v2/organisation/{org}/`。
+SCIM API 由 SCIM 启用的身份提供程序 (IdP) 用来自动预配 {% data variables.product.product_name %} 组织成员身份。 {% data variables.product.product_name %} API 基于[SCIM 标准](http://www.simplecloud.info/)的 2.0 版本。 IdP 应使用的 {% data variables.product.product_name %} SCIM 端点是：`{% data variables.product.api_url_code %}/scim/v2/organisation/{org}/`。
 
 {% note %}
 
-**注：**SCIM API 仅适用于 [{{ site.data.variables.product.prodname_ghe_cloud }}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/v3/auth/#authenticating-for-saml-sso) 的组织。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
+**注：**SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的组织。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
 
 {% endnote %}
 
 ### 向 SCIM API 验证调用
 
-您必须验证为 {{ site.data.variables.product.product_name }} 组织的所有者才可使用其 SCIM API。 API 预期 [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) 令牌包含在`授权`标头中。 您也可以使用个人访问令牌，但必须先[授权它与您的 SAML SSO 组织一起使用](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。
+您必须验证为 {% data variables.product.product_name %} 组织的所有者才可使用其 SCIM API。 API 预期 [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) 令牌包含在`授权`标头中。 您也可以使用个人访问令牌，但必须先[授权它与您的 SAML SSO 组织一起使用](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。
 
 ### SAML 和 SCIM 数据的映射
 

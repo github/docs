@@ -12,17 +12,17 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes buscar, clasificar y filtrar tus repositorios y temas marcados con estrella en tu {{ site.data.variables.explore.your_stars_page }}.'
+Puedes buscar, clasificar y filtrar tus repositorios y temas marcados con estrella en tu {% data variables.explore.your_stars_page %}.'
 
 ### Acerca de las estrellas
 
-Marcar con estrellas tus repositorios y temas favoritos te facilitará encontrarlos posteriormente. Puedes ver todos los repositorios y temas que has marcado con estrellas visitando tu {{ site.data.variables.explore.your_stars_page }}.
+Marcar con estrellas tus repositorios y temas favoritos te facilitará encontrarlos posteriormente. Puedes ver todos los repositorios y temas que has marcado con estrellas visitando tu {% data variables.explore.your_stars_page %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Puedes marcar repositorios y temas con estrellas para descubrir proyectos similares en {{ site.data.variables.product.product_name }}. Cuando marcas repositorios o temas con estrellas, {{ site.data.variables.product.product_name }} puede recomendar contenido relacionado en la vista de tus noticias. Para obtener más información, consulta "[Encontrar formas de contribuir al código abierto en {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+Puedes marcar repositorios y temas con estrellas para descubrir proyectos similares en {% data variables.product.product_name %}. Cuando marcas repositorios o temas con estrellas, {% data variables.product.product_name %} puede recomendar contenido relacionado en la vista de tus noticias. Para obtener más información, consulta "[Encontrar formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 {% endif %}
 
-Marcar un repositorio con estrella también muestra reconocimiento al mantenedor del repositorio por su trabajo. Muchas de las clasificaciones de los repositorios de {{ site.data.variables.product.prodname_dotcom }} dependen de la cantidad de estrellas que tiene un repositorio. Además, [Explore](https://github.com/explore) muestra repositorios populares en base a la cantidad de estrellas que tienen.
+Marcar un repositorio con estrella también muestra reconocimiento al mantenedor del repositorio por su trabajo. Muchas de las clasificaciones de los repositorios de {% data variables.product.prodname_dotcom %} dependen de la cantidad de estrellas que tiene un repositorio. Además, [Explore](https://github.com/explore) muestra repositorios populares en base a la cantidad de estrellas que tienen.
 
 ### Buscar estrellas
 

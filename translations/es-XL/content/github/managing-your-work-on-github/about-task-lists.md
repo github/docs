@@ -18,7 +18,7 @@ Puedes ver la información del resúmen de la lista de tareas en las listas de u
 
 ### Crear listas de tareas
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### Volver a ordenar tareas
 

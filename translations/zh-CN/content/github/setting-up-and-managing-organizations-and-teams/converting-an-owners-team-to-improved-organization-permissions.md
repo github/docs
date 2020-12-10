@@ -1,6 +1,6 @@
 ---
 title: 将所有者团队转换为改进的组织权限
-intro: 如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 “所有者”现在是赋予组织中个别成员的管理角色。 旧所有者团队的成员自动获得所有者权限。
+intro: '如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 “所有者”现在是赋予组织中个别成员的管理角色。 旧所有者团队的成员自动获得所有者权限。'
 redirect_from:
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/
@@ -23,10 +23,10 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. 在团队名称字段中，为所有者团队选择一个新名称。 例如：
     - 如果组织中只有极少数成员是所有者团队的成员，您可以将该团队命名为“核心”。
     - 如果组织中的所有成员都是所有者团队的成员（以便他们能够 [@提及团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)），您可以将该团队命名为“员工”。 ![在团队名称字段将所有者团队重命名为核心](/assets/images/help/teams/owners-team-new-name.png)
@@ -41,8 +41,8 @@ versions:
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. 在页面底部，查看警告，然后单击 **Delete the Owners team（删除所有者团队）**。 ![删除所有者团队的链接](/assets/images/help/teams/owners-team-delete.png)

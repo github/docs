@@ -10,31 +10,31 @@ versions:
   free-pro-team: '*'
 ---
 
-Al cambiar la duración de tu ciclo de facturación, tu suscripción a {{ site.data.variables.product.prodname_dotcom }}, junto con otras características y productos remunerados, se moverán al nuevo ciclo de facturación en tu próxima fecha de facturación.
+Al cambiar la duración de tu ciclo de facturación, tu suscripción a {% data variables.product.prodname_dotcom %}, junto con otras características y productos remunerados, se moverán al nuevo ciclo de facturación en tu próxima fecha de facturación.
 
 ### Cambiar la duración del ciclo de facturación de tu cuenta personal
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.change_plan_duration }}
-{{ site.data.reusables.dotcom_billing.confirm_duration_change }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.change_plan_duration %}
+{% data reusables.dotcom_billing.confirm_duration_change %}
 
 ### Cambiar la duración del ciclo de facturación de tu organización
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
 #### Cambiar la duración de una suscripción por usuario
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.change_plan_duration }}
-{{ site.data.reusables.dotcom_billing.confirm_duration_change }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.change_plan_duration %}
+{% data reusables.dotcom_billing.confirm_duration_change %}
 
 #### Cambiar la duración de un plan heredado por repositorio
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.billing %}
 4. En "Billing overview" (Resumen de facturación), haz clic en **Change plan** (Cambiar plan). ![Botón para cambiar el plan del resumen de facturación](/assets/images/help/billing/billing_overview_change_plan.png)
 5. En el ángulo superior derecho, haz clic en **Switch to monthly billing** (Cambiar a facturación mensual)</strong> o **Switch to yearly billing** (Cambiar a facturación mensual). ![Sección de información de facturación](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

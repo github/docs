@@ -1,28 +1,29 @@
 ---
 title: リモートの追加
-intro: 新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。
+intro: '新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。'
 redirect_from:
   - /articles/adding-a-remote
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote add` コマンドは 2 つの引数を取ります:
 
 * リモート名。たとえば `origin`
-* リモート URL。たとえば `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
+* リモート URL。たとえば `https://{% data variables.command_line.backticks %}/user/repo.git`
 
 例:
 
 ```shell
-$ git remote add origin https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git remote add origin https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # 新しいリモートの設定
 
 $ git remote -v
 # 新しいリモートの検証
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (push)
 ```
 
 どの URL を使うべきかわかりませんか？  [どのリモート URL を使うべきか](/articles/which-remote-url-should-i-use)を参照してください。
@@ -36,7 +37,7 @@ $ git remote -v
 このエラーは、ローカルのリポジトリにすでに存在している名前でリモートを追加しようとしたということです。
 
 ```shell
-$ git remote add origin https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: remote origin already exists.
 ```
 

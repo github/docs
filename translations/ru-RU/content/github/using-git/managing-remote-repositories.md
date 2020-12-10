@@ -1,6 +1,6 @@
 ---
 title: Managing remote repositories
-intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {{ site.data.variables.product.product_name }}.'
+intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.product_name %}.'
 mapTopic: true
 redirect_from:
   - /categories/18/articles/
@@ -10,5 +10,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

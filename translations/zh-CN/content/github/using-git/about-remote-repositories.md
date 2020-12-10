@@ -4,18 +4,19 @@ redirect_from:
   - /articles/working-when-github-goes-down/
   - /articles/sharing-repositories-without-github/
   - /articles/about-remote-repositories
-intro: GitHub 的协作开发方法取决于从您的本地仓库发布提交，以供其他人查看、提取和更新。
+intro: 'GitHub 的协作开发方法取决于从您的本地仓库发布提交，以供其他人查看、提取和更新。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 远程 URL 是 Git 一种指示“您的代码存储位置”的绝佳方式。 该 URL 可能是您在 GitHub 上的仓库，也可以是另一个用户的复刻，甚至在完全不同的服务器上。
 
 您只能推送到两类 URL 地址：
 
-* HTTPS URL，如 `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
-* SSH URL，如 `git@{{ site.data.variables.command_line.backticks }}:user/repo.git`
+* HTTPS URL，如 `https://{% data variables.command_line.backticks %}/user/repo.git`
+* SSH URL，如 `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 Git 将远程 URL 与名称相关联，您的默认远程通常名为 `origin`。
 

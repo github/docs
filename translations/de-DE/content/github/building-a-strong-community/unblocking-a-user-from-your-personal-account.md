@@ -1,6 +1,6 @@
 ---
 title: Sperre eines Benutzers für Dein persönliches Konto aufheben
-intro: 'Wenn Du den Konflikt mit einem von Dir gesperrten {{ site.data.variables.product.prodname_dotcom }}-Benutzer gelöst hast, kannst Du sein Konto entsperren.'
+intro: 'Wenn Sie einen {% data variables.product.prodname_dotcom %}-Benutzer blockiert haben, um dessen Benachrichtigungen, Einladungen und Beiträge abzuwehren, können Sie die Blockierung dieses Benutzers wieder aufheben.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
@@ -15,14 +15,14 @@ Du kannst eines Benutzers in Deinen Kontoeinstellungen oder auf der Profilseite 
 
 ### Sperre eines Benutzers in Deinen Kontoeinstellungen aufheben
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. Klicke unter „Blocked users“ (Blockierte Benutzer) neben dem Benutzer, dessen Sperre Du aufheben möchtest, auf **Unblock** (Entsperren). ![Schaltfläche „Unblock User" (Sperre des Benutzers aufheben)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ### Sperre eines Benutzers auf seiner Profilseite aufheben
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
-2. Klicke in der linken Seitenleiste unter dem Profilbild des Benutzers auf **Unblock or report user** (Benutzer entsperren oder melden). ![Link „Unblock or report user" (Benutzer entsperren oder melden)](/assets/images/help/profile/profile-unblock-or-report-user.png)
+{% data reusables.profile.user_profile_page_navigation %}
+2. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click  **Unblock or report user**. ![Link „Unblock or report user" (Benutzer entsperren oder melden)](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. Klicke auf **Unblock user** (Benutzer entsperren). ![Modales Feld mit Option zum Entsperren eines Benutzers oder Melden von Missbrauch](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}

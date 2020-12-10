@@ -1,19 +1,20 @@
 ---
 title: GitHub Advisory Database のセキュリティ脆弱性を参照する
-intro: '{{ site.data.variables.product.prodname_advisory_database }} を使用すると、{{ site.data.variables.product.company_short }} のオープンソースプロジェクトに影響を与える脆弱性を参照または検索できます。'
+intro: '{% data variables.product.prodname_advisory_database %} を使用すると、{% data variables.product.company_short %} のオープンソースプロジェクトに影響を与える脆弱性を参照または検索できます。'
+shortTitle: Browsing the Advisory Database
 versions:
   free-pro-team: '*'
 ---
 
 ### セキュリティの脆弱性について
 
-{{ site.data.reusables.repositories.a-vulnerability-is }}
+{% data reusables.repositories.a-vulnerability-is %}
 
-{{ site.data.variables.product.product_name }} will send you {{ site.data.variables.product.prodname_dependabot_alerts }} if we detect that any of the vulnerabilities from the {{ site.data.variables.product.prodname_advisory_database }} affect the packages that your repository depends on. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+{% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-### {{ site.data.variables.product.prodname_advisory_database }} について
+### {% data variables.product.prodname_advisory_database %} について
 
-{{ site.data.variables.product.prodname_advisory_database }} には、{{ site.data.variables.product.company_short }} の依存関係グラフによって追跡されるパッケージにマップされたセキュリティの脆弱性のキュレーションされたリストが含まれています。 {{ site.data.reusables.repositories.tracks-vulnerabilities }}
+{% data variables.product.prodname_advisory_database %} には、{% data variables.product.company_short %} の依存関係グラフによって追跡されるパッケージにマップされたセキュリティの脆弱性のキュレーションされたリストが含まれています。 {% data reusables.repositories.tracks-vulnerabilities %}
 
 各セキュリティアドバイザリには、説明、重要度、影響するパッケージ、パッケージエコシステム、影響するバージョンとパッチを適用したバージョン、影響、およびリファレンス、回避策、クレジットなどのオプション情報を含む、脆弱性に関する情報が含まれています。 さらに、National Vulnerability Database リストのアドバイザリには、CVE レコードへのリンクが含まれており、脆弱性、その CVSS スコア、その定性的な重要度レベルの詳細を確認できます。 詳しい情報については、アメリカ国立標準技術研究所の「[National Vulnerability Database](https://nvd.nist.gov/)"」を参照してください。
 
@@ -23,11 +24,11 @@ versions:
 - High
 - Critical
 
-{{ site.data.variables.product.prodname_advisory_database }} は、CVSS バージョン 3.0 標準と上記の CVSS レベルを使用します。 {{ site.data.variables.product.product_name }} は CVSS スコアを公開しません。
+{% data variables.product.prodname_advisory_database %} は、CVSS バージョン 3.0 標準と上記の CVSS レベルを使用します。 {% data variables.product.product_name %} は CVSS スコアを公開しません。
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
-### {{ site.data.variables.product.prodname_advisory_database }} のアドバイザリにアクセスする
+### {% data variables.product.prodname_advisory_database %} のアドバイザリにアクセスする
 
 1. Https://github.com/advisories にアクセスします。
 2. 必要に応じて、リストをフィルタするには、ドロップダウンメニューを使用します。 ![ドロップダウンフィルタ](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -39,12 +40,12 @@ versions:
 
 {% endnote %}
 
-### {{ site.data.variables.product.prodname_advisory_database }} を検索する
+### {% data variables.product.prodname_advisory_database %} を検索する
 データベースを検索し、修飾子を使用して、特定の日付、特定のエコシステム、または特定のライブラリで作成されたアドバイザリに検索を絞り込むことができます。
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                   | サンプル                                                                                                                         |
 | --------------------- | ---------------------------------------------------------------------------------------------------------------------------- |

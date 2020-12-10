@@ -20,7 +20,7 @@ If you've created a security advisory but haven't yet provided details about the
 
 When you publish a security advisory, you notify your community about the security vulnerability that the security advisory addresses. Publishing a security advisory makes it easier for your community to update package dependencies and research the impact of the security vulnerability.
 
-{{ site.data.reusables.repositories.security-advisories-republishing }}
+{% data reusables.repositories.security-advisories-republishing %}
 
 Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a security vulnerability](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)."
 
@@ -43,11 +43,11 @@ If you need to update or correct information in a security advisory that you've 
 
 Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
 
-{{ site.data.reusables.repositories.request-security-advisory-cve-id }} For more information, see "[About {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. In the "Security Advisories" list, click the security advisory you'd like to request a CVE identification number for. ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
 5. Use the **Publish advisory** drop-down menu, and click **Request CVE**. ![Request CVE in drop-down](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. Click **Request CVE**. ![Request CVE button](/assets/images/help/security/security-advisory-request-cve-button.png)
@@ -56,15 +56,15 @@ Anyone with admin permissions to a security advisory can request a CVE identific
 
 Publishing a security advisory deletes the temporary private fork for the security advisory.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. In the "Security Advisories" list, click the security advisory you'd like to publish. ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
 5. At the bottom of the page, click **Publish advisory**. ![Publish advisory button](/assets/images/help/security/publish-advisory-button.png)
 
-### {{ site.data.variables.product.prodname_dependabot_alerts }} for published security advisories
+### {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
-{{ site.data.reusables.repositories.github-reviews-security-advisories }}
+{% data reusables.repositories.github-reviews-security-advisories %}
 
 ### 더 읽을거리
 

@@ -1,16 +1,17 @@
 ---
 title: マイルストーンの進捗状況を表示する
-intro: マイルストーンを追跡するためには、未解決の Issue とプルリクエストがいくつ残っているかをよく理解しておく必要があります。
+intro: 'マイルストーンを追跡するためには、未解決の Issue とプルリクエストがいくつ残っているかをよく理解しておく必要があります。'
 redirect_from:
   - /articles/viewing-your-milestone-s-progress
   - /articles/viewing-your-milestones-progress
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 左上隅にある [**Milestones**] をクリックします。 ![Issue マイルストーンボタン](/assets/images/help/issues/issues_milestone_button.png)
 4. 詳細を表示したいマイルストーンを選択します。
 

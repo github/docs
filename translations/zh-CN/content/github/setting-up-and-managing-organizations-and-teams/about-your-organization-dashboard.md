@@ -1,22 +1,23 @@
 ---
 title: 关于组织仪表板
-intro: 作为组织成员，您可以全天访问组织仪表板，以了解近期活动的最新信息，跟踪您参与的议题和拉取请求，或者关注组织。
+intro: '作为组织成员，您可以全天访问组织仪表板，以了解近期活动的最新信息，跟踪您参与的议题和拉取请求，或者关注组织。'
 redirect_from:
   - /articles/about-your-organization-dashboard
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 访问组织仪表板
 
-{{ site.data.reusables.dashboard.access-org-dashboard }}
+{% data reusables.dashboard.access-org-dashboard %}
 
 ### 查找近期活动
 
 在消息馈送的“Recent activity（最近活动）”部分，您可以快速找到并跟进组织中最近更新的议题和拉取请求。
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### 查找组织中的仓库
 
@@ -28,7 +29,7 @@ versions:
 
 在消息馈送的“All activity（所有活动）”部分，您可以查看来自组织中其他团队和仓库的更新。
 
-“All activity（所有活动）”部分显示组织中所有最近的活动，包括您未订阅的仓库中以及您未关注的人员的活动。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}”[关注和取消关注仓库](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}”和“[关注人员](/articles/following-people)”。
+“All activity（所有活动）”部分显示组织中所有最近的活动，包括您未订阅的仓库中以及您未关注的人员的活动。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
 
 例如，当组织中有人执行以下操作时，组织消息馈送会显示更新：
  - 创建新分支。
@@ -36,8 +37,8 @@ versions:
  - 提交拉取请求审查评论。
  - 对仓库复刻。
  - 创建 wiki 页面。
- - 推送提交。
- - 创建公共仓库。
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### 更多信息
 

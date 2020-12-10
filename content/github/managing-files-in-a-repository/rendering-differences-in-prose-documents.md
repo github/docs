@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
 
 The source view shows the raw text that has been typed, while the rendered
-view shows how that text would look once it's rendered on {{ site.data.variables.product.product_name }}. For example,
+view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
 this might be the difference between showing `**bold**` in Markdown, and **bold** in the rendered view.
 
 Prose rendering is supported for rendered documents supported by [github/markup](https://github.com/github/markup):
@@ -51,7 +52,7 @@ of your rendered prose diff to specific sections.
 
 ### Viewing complex diffs
 
-Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {{ site.data.variables.product.product_name }} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
 ![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
 
@@ -59,6 +60,6 @@ You can still use the source view to analyze and comment on changes.
 
 ### Viewing HTML elements
 
-We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {{ site.data.variables.product.product_name }}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
+We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.product_name %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
 
-In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {{ site.data.variables.product.product_name }}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.
+In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {% data variables.product.product_name %}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.

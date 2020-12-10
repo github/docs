@@ -12,28 +12,32 @@ permissions: 'Repository collaborators and people with write access to a reposit
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion ver_gt "github-ae@latest" %}
 
 ### About release management
 
-You can also publish an action from a specific release in {{ site.data.variables.product.prodname_marketplace }}. For more information, see "[Publishing an action in the {{ site.data.variables.product.prodname_marketplace }}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can choose whether {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) objects are included in the ZIP files and tarballs that {{ site.data.variables.product.product_name }} creates for each release. For more information, see "[Managing {{ site.data.variables.large_files.product_name_short }} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+{% if currentVersion == "free-pro-team@latest" %}
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publishing an action in the {% data variables.product.prodname_marketplace %}</a>."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### Creating a release
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Click **Draft a new release**.
    ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
 4. Type a version number for your release. Versions are based on [Git tags](https://git-scm.com/book/en/Git-Basics-Tagging). We recommend naming tags that fit within [semantic versioning](http://semver.org/).
@@ -49,12 +53,12 @@ You can choose whether {{ site.data.variables.large_files.product_name_long }} (
 9. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
    ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
 
-You can also automatically create a release from the command line or in a script. For more information, see "[Releases](/v3/repos/releases/#create-a-release)."
+You can also automatically create a release from the command line or in a script. For more information, see "[Releases](/rest/reference/repos/#create-a-release)."
 
 ### Editing a release
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. On the right side of the page, next to the release you want to edit, click **Edit release**.
   ![Edit a release](/assets/images/help/releases/edit-release.png)
 4. Edit the details for the release in the form, then click **Update release**.
@@ -64,8 +68,8 @@ You can also automatically create a release from the command line or in a script
 
 You must remove all binary files attached to a release before you can delete a release.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Click the name of the release you wish to delete.
   ![Link to view release](/assets/images/help/releases/release-name-link.png)
 4. In the upper-right corner of the page, click **Delete**.

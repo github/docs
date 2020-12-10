@@ -1,16 +1,17 @@
 ---
 title: Searching topics
-intro: 'You can search for topics associated with repositories on {{ site.data.variables.product.product_name }}.'
+intro: 'You can search for topics associated with repositories on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/searching-topics
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Search {{ site.data.variables.product.product_name }} for topics
+### Search {% data variables.product.product_name %} for topics
 
-You can search for topics on {{ site.data.variables.product.product_name }}, explore related topics, and see how many repositories are associated with a certain topic.
+You can search for topics on {% data variables.product.product_name %}, explore related topics, and see how many repositories are associated with a certain topic.
 
 1. Navigate to https://github.com/search.
 2. Type a topic keyword. ![search field](/assets/images/help/search/search-field.png)
@@ -21,17 +22,17 @@ You can search for topics on {{ site.data.variables.product.product_name }}, exp
 
 ### Narrowing your search with search qualifiers
 
-If you want to explore repositories about a certain topic, find projects to contribute to, or learn which topics are most popular on {{ site.data.variables.product.product_name }}, you can search topics with the search qualifiers `is:featured`, `is:curated`, `repositories:n` and `created:YYYY-MM-DD`.
+If you want to explore repositories about a certain topic, find projects to contribute to, or learn which topics are most popular on {% data variables.product.product_name %}, you can search topics with the search qualifiers `is:featured`, `is:curated`, `repositories:n` and `created:YYYY-MM-DD`.
 
-The `is:featured` search qualifier will narrow search results to the topics with the most repositories on {{ site.data.variables.product.product_name }}. These topics are also featured at https://github.com/topics/.
+The `is:featured` search qualifier will narrow search results to the topics with the most repositories on {% data variables.product.product_name %}. These topics are also featured at https://github.com/topics/.
 
 The `is:curated` search qualifier will narrow search results to topics that community members have added extra information to. For more information, see the explore repository at https://github.com/github/explore.
 
 You can filter topics based when they were created using the date parameter and `created:` or based on how many repositories are associated with this topic using `repositories:n`. Both of these qualifiers can use the [greater than and less than range qualifiers](/articles/understanding-the-search-syntax).
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | 예시                                                                                                                                                                                                                                      |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

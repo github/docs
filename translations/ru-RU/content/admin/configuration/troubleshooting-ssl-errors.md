@@ -6,8 +6,6 @@ redirect_from:
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
-  - /enterprise/admin/configuration/troubleshooting-ssl-errors
-  - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
 ---
@@ -41,13 +39,13 @@ Otherwise, you can use the SSL Converter tool to convert your certificate into t
 
 ### Unresponsive installation after uploading a key
 
-If {{ site.data.variables.product.product_location_enterprise }} is unresponsive after uploading an SSL key, please [contact {{ site.data.variables.product.prodname_enterprise }} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
 
 ### Certificate validity errors
 
 Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an SSL certificate. This often occurs with self-signed certificates as well as "chained root" certificates issued from an intermediate root certificate that is not recognized by the client.
 
-If you are using a certificate signed by a certificate authority (CA), the certificate file that you upload to {{ site.data.variables.product.prodname_ghe_server }} must include a certificate chain with that CA's root certificate. To create such a file, concatenate your entire certificate chain (or "certificate bundle") onto the end of your certificate, ensuring that the principal certificate with your hostname comes first. On most systems you can do this with a command similar to:
+If you are using a certificate signed by a certificate authority (CA), the certificate file that you upload to {% data variables.product.prodname_ghe_server %} must include a certificate chain with that CA's root certificate. To create such a file, concatenate your entire certificate chain (or "certificate bundle") onto the end of your certificate, ensuring that the principal certificate with your hostname comes first. On most systems you can do this with a command similar to:
 
 ```shell
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
@@ -57,14 +55,14 @@ You should be able to download a certificate bundle (for example, `bundle-certif
 
 ### Installing self-signed or untrusted certificate authority (CA) root certificates
 
-If your {{ site.data.variables.product.prodname_ghe_server }} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
+If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
 
 1. Obtain the CA's root certificate from your local certificate authority and ensure it is in PEM format.
-2. Copy the file to your {{ site.data.variables.product.prodname_ghe_server }} appliance over SSH as the "admin" user on port 122.
+2. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
   ```shell
   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
   ```
-3. Connect to the {{ site.data.variables.product.prodname_ghe_server }} administrative shell over SSH as the "admin" user on port 122.
+3. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
   ```shell
   $ ssh -p 122 admin@HOSTNAME
   ```

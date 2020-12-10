@@ -1,17 +1,17 @@
 ---
 title: GitHub ActionsのためのDockerfileサポート
 shortTitle: Docker
-intro: Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
-  - /アクション/ビルディングアクション/ドッカーファイルサポート-githubアクション
+  - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### Dockerfileの命令について
 
@@ -19,7 +19,7 @@ versions:
 
 ### Dockerfileの命令とオーバーライド
 
-Dockerの命令の中にはGitHub Actionと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{{ site.data.variables.product.prodname_actions }}とどのように関わるかについて馴染んでおいてください。
+Dockerの命令の中にはGitHub Actionと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
 
 #### USER
 
@@ -37,11 +37,11 @@ DockerアクションはデフォルトのDockerユーザ（root）で実行さ�
 
 #### WORKDIR
 
-{{ site.data.variables.product.product_name }}は、ワーキングディレクトリのパスを環境変数の`GITHUB_WORKSPACE`に設定します。 `Dockerfile`中では`WORKDIR`命令を使わないことをおすすめします。 アクションが実行される前に、{{ site.data.variables.product.product_name }}は`GITHUB_WORKSPACE`ディレクトリを、Dockerイメージ内にあったその場所になにがあってもその上にマウントし、`GITHUB_WORKSPACE`をワーキングディレクトリとして設定します。 詳しい情報については「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」と、Dockerのドキュメンテーション中の[WORKDIRのリファレンス](https://docs.docker.com/engine/reference/builder/#workdir)を参照してください。
+{% data variables.product.product_name %}は、ワーキングディレクトリのパスを環境変数の`GITHUB_WORKSPACE`に設定します。 `Dockerfile`中では`WORKDIR`命令を使わないことをおすすめします。 アクションが実行される前に、{% data variables.product.product_name %}は`GITHUB_WORKSPACE`ディレクトリを、Dockerイメージ内にあったその場所になにがあってもその上にマウントし、`GITHUB_WORKSPACE`をワーキングディレクトリとして設定します。 詳しい情報については「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」と、Dockerのドキュメンテーション中の[WORKDIRのリファレンス](https://docs.docker.com/engine/reference/builder/#workdir)を参照してください。
 
 #### ENTRYPOINT
 
-アクションのメタデータファイル中で`entrypoint`を定義すると、それは`Dockerfile`中で定義された`ENTRYPOINT`をオーバーライドします。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)」を参照してください。
+アクションのメタデータファイル中で`entrypoint`を定義すると、それは`Dockerfile`中で定義された`ENTRYPOINT`をオーバーライドします。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)」を参照してください。
 
 Dockerの`ENTRYPOINT`命令には、_shell_形式と_exec_形式があります。 Dockerの`ENTRYPOINT`のドキュメンテーションは、`ENTRYPOINT`の_exec_形式を使うことを勧めています。 _exec_および_shell_形式に関する詳しい情報については、Dockerのドキュメンテーション中の[ENTRYPOINTのリファレンス](https://docs.docker.com/engine/reference/builder/#entrypoint)を参照してください。
 
@@ -73,7 +73,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ##### *entrypoint.sh*ファイルの例
 
-上のDockerfileを使って、{{ site.data.variables.product.product_name }}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 `#!/bin/sh`[シバン](https://ja.wikipedia.org/wiki/シバン_(Unix))を`entrypoint.sh`ファイルの先頭に追加し、システムの[POSIX](https://ja.wikipedia.org/wiki/POSIX)準拠のシェルを明示的に使ってください。
+上のDockerfileを使って、{% data variables.product.product_name %}はアクションのメタデータファイルに設定された`args`を、`entrypoint.sh`の引数として送ります。 `#!/bin/sh`[シバン](https://ja.wikipedia.org/wiki/シバン_(Unix))を`entrypoint.sh`ファイルの先頭に追加し、システムの[POSIX](https://ja.wikipedia.org/wiki/POSIX)準拠のシェルを明示的に使ってください。
 
 ``` sh
 #!/bin/sh
@@ -96,12 +96,12 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 #### CMD
 
-アクションのメタデータファイル中で`args`を定義すると、`args`は`Dockerfile`中で指定された`CMD`命令をオーバーライドします。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)」を参照してください。
+アクションのメタデータファイル中で`args`を定義すると、`args`は`Dockerfile`中で指定された`CMD`命令をオーバーライドします。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)」を参照してください。
 
 `Dockerfile`中で`CMD`を使っているなら、以下のガイドラインに従ってください。
 
-{{ site.data.reusables.github-actions.dockerfile-guidelines }}
+{% data reusables.github-actions.dockerfile-guidelines %}
 
 ### サポートされているLinuxの機能
 
-{{ site.data.variables.product.prodname_actions }}は、DockerがサポートするデフォルトのLinuxの機能をサポートします。 機能の追加や削除はできません。 DockerがサポートするデフォルトのLinuxの機能に関する詳しい情報については、Dockerのドキュメンテーション中の「[ Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)」を参照してください。 Linuxの機能についてさらに学ぶには、Linuxのman-pageの"[ Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)"を参照してください。
+{% data variables.product.prodname_actions %}は、DockerがサポートするデフォルトのLinuxの機能をサポートします。 機能の追加や削除はできません。 DockerがサポートするデフォルトのLinuxの機能に関する詳しい情報については、Dockerのドキュメンテーション中の「[ Runtime privilege and Linux capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)」を参照してください。 Linuxの機能についてさらに学ぶには、Linuxのman-pageの"[ Overview of Linux capabilities](http://man7.org/linux/man-pages/man7/capabilities.7.html)"を参照してください。

@@ -1,6 +1,6 @@
 ---
 title: Migrating data to your enterprise
-intro: '移行アーカイブを作成すると、ターゲットの {{ site.data.variables.product.prodname_ghe_server }} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
+intro: '移行アーカイブを作成すると、ターゲットの {% data variables.product.prodname_ghe_server %} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -15,9 +15,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Applying the imported data on {{ site.data.variables.product.prodname_ghe_server }}
+### インポートしたデータを {% data variables.product.prodname_ghe_server %} に適用する
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. `ghe-migrator import`コマンドを使ってインポートのプロセスを開始してください。 以下が必要です:
     * 移行 GUID.
@@ -30,7 +30,7 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### 移行データのレビュー
 
@@ -104,22 +104,22 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-失敗したインポートに関する懸念があるなら、{{ site.data.variables.contact.contact_ent_support }}に連絡してください。
+失敗したインポートに関する懸念があるなら、{% data variables.contact.contact_ent_support %}に連絡してください。
 
-### Completing the import on {{ site.data.variables.product.prodname_ghe_server }}
+### {% data variables.product.prodname_ghe_server %} でインポートを完了する
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. ソースデータを削除する前に、すべてが期待どおりに機能していることを確認するため2週間ほど待つことをおすすめします。
 
 ### ターゲットインスタンス上でのリポジトリのアンロック
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### ソース上でのリポジトリのアンロック
 
-#### Unlocking repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリのロックを解除する
 
-{{ site.data.variables.product.prodname_dotcom_the_website }} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
   * 認証のためのアクセストークン
   * 移行のユニーク`id`
   * アンロックするリポジトリの名前
@@ -129,15 +129,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### {% data variables.product.prodname_dotcom_the_website %} で Organization からリポジトリを削除する
 
-After unlocking the {{ site.data.variables.product.prodname_dotcom_the_website }} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). 認証のためのアクセストークンが必要になります。
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). 認証のためのアクセストークンが必要になります。
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### {{ site.data.variables.product.prodname_ghe_server }} インスタンスからリポジトリをアンロックする
+#### {% data variables.product.prodname_ghe_server %} インスタンスからリポジトリをアンロックする
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

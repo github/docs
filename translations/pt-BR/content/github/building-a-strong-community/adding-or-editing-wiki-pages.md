@@ -1,22 +1,23 @@
 ---
 title: Adicionar ou editar páginas wiki
-intro: 'Você pode adicionar e editar páginas wiki diretamente no {{ site.data.variables.product.product_name }} ou localmente usando a linha de comando.'
+intro: 'Você pode adicionar e editar páginas wiki diretamente no {% data variables.product.product_name %} ou localmente usando a linha de comando.'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface/
   - /articles/editing-wiki-pages-via-the-online-interface/
   - /articles/adding-and-editing-wik-pages-locally/
   - /articles/adding-and-editing-wiki-pages-locally/
   - /articles/adding-or-editing-wiki-pages
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Adicionar páginas wiki
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. No canto superior direito da página, clique em **New Page** (Nova página). ![Botão Wiki new page (Nova página wiki)](/assets/images/help/wiki/wiki_new_page_button.png)
 4. Se preferir escrever em um formato diferente do markdown, use o menu suspenso Edite mode (Editar modo) e clique em outro formato. ![Seleção de markup do wiki](/assets/images/help/wiki/wiki_dropdown_markup.gif)
 5. Use o editor de texto para adicionar o conteúdo da página. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
@@ -25,8 +26,8 @@ versions:
 
 ### Editar páginas wiki
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 4. Usando a barra lateral do wiki, navegue até a página que deseja alterar. No canto superior direito da página, clique em **Edit** (Editar). ![Botão Wiki edit page (Editar página wiki)](/assets/images/help/wiki/wiki_edit_page_button.png)
 5. Use o editor de texto para editar o conteúdo da página. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Digite uma mensagem do commit descrevendo as alterações. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)

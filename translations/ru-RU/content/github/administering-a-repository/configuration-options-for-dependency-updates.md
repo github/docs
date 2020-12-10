@@ -1,18 +1,18 @@
 ---
 title: Configuration options for dependency updates
-intro: 'Detailed information for all the options you can use to customize how {{ site.data.variables.product.prodname_dependabot }} maintains your repositories.'
-permissions: 'People with write permissions to a repository can configure {{ site.data.variables.product.prodname_dependabot }} for the repository.'
+intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
+permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dependabot.beta-note }}
+{% data reusables.dependabot.beta-note %}
 
 ### About the *dependabot.yml* file
 
-The {{ site.data.variables.product.prodname_dependabot }} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request with for security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 ### Configuration options for *dependabot.yml*
 
@@ -37,17 +37,18 @@ The *dependabot.yml* file must start with `version: 2` followed by an array of `
 | [`schedule.time`](#scheduletime)                                           |          | Time of day to check for updates (hh:mm)               |
 | [`schedule.timezone`](#scheduletimezone)                                   |          | Timezone for time of day (zone identifier)             |
 | [`target-branch`](#target-branch)                                          |          | Branch to create pull requests against                 |
+| [`vendor`](#vendor)                                                        |          | Update vendored or cached dependencies                 |
 | [`versioning-strategy`](#versioning-strategy)                              |          | How to update manifest version requirements            |
 
 These options fit broadly into the following categories.
 
 - Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
 - Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore).
+- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
-In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option changes the maximum number of pull requests for version updates that {{ site.data.variables.product.prodname_dependabot }} can open.
+In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option changes the maximum number of pull requests for version updates that {% data variables.product.prodname_dependabot %} can open.
 
 {% note %}
 
@@ -55,15 +56,15 @@ In addition, the [`open-pull-requests-limit`](#open-pull-requests-limit) option 
 
 Security updates are raised for vulnerable package manifests only on the default branch. When configuration options are set for the same branch (true unless you use `target-branch`), and specify a `package-ecosystem` and `directory` for the vulnerable manifest, then pull requests for security updates use relevant options.
 
-In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[Configuring {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+In general, security updates use any configuration options that affect pull requests, for example, adding metadata or changing their behavior. For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Required** You add one `package-ecosystem` element for each one package manager that you want {{ site.data.variables.product.prodname_dependabot }} to monitor for new versions. The repository must also contain a dependency manifest or lock file each of these package managers.
+**Required** You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
 
-{{ site.data.reusables.dependabot.supported-package-managers }}
+{% data reusables.dependabot.supported-package-managers %}
 
 ```yaml
 # Basic set up for three package managers
@@ -148,7 +149,7 @@ updates:
 
 ### `allow`
 
-{{ site.data.reusables.dependabot.default-dependencies-allow-ignore}}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Use the `allow` option to customize which dependencies are updated. This has no impact on security updates for vulnerable dependencies. You can use the following options:
 
@@ -204,7 +205,7 @@ updates:
 
 Use `assignees` to specify individual assignees for all pull requests raised for a package manager.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify assignees for pull requests
@@ -222,7 +223,7 @@ updates:
 
 ### `commit-message`
 
-By default, {{ site.data.variables.product.prodname_dependabot }} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly.
+By default, {% data variables.product.prodname_dependabot %} attempts to detect your commit message preferences and use similar patterns. Use the `commit-message` option to specify your preferences explicitly.
 
 Supported options
 
@@ -230,7 +231,7 @@ Supported options
 - `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 - `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Customizing commit messages
@@ -269,24 +270,24 @@ updates:
 
 ### `ignore`
 
-{{ site.data.reusables.dependabot.warning-ignore-option }}
+{% data reusables.dependabot.warning-ignore-option %}
 
 #### Checking for existing ignore preferences
 
-Before you add an `ignore` option to the configuration file, check whether you've previously used any of the `@dependabot ignore` commands on a security update or version update pull request. {{ site.data.variables.product.prodname_dependabot }} stores these preferences for each package manager centrally and this information is overwritten by the `ignore` option. For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+Before you add an `ignore` option to the configuration file, check whether you've previously used any of the `@dependabot ignore` commands on a security update or version update pull request. {% data variables.product.prodname_dependabot %} stores these preferences for each package manager centrally and this information is overwritten by the `ignore` option. For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
 
 You can check whether a repository has stored preferences by searching the repository for `"@dependabot ignore" in:comments`. If you review any pull requests in the results, you can decide whether or not to specify those ignored dependencies or versions in the configuration file.
 
 #### Specifying dependencies and versions to ignore
 
-{{ site.data.reusables.dependabot.default-dependencies-allow-ignore}}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
 - `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
 - `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager (for example: `^1.0.0` for npm, or `~> 2.0` for Bundler).
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Customizing the dependencies to maintain with `ignore`
@@ -307,17 +308,17 @@ updates:
 
 {% note %}
 
-{{ site.data.variables.product.prodname_dependabot_version_updates }} can't run version updates for any dependencies in manifests containing private git dependencies or private git registries, even if you add the private dependencies to the `ignore` option of your configuration file. For more information, see "[About {{ site.data.variables.product.prodname_dependabot_version_updates }}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)."
+{% data variables.product.prodname_dependabot_version_updates %} can't run version updates for any dependencies in manifests containing private git dependencies or private git registries, even if you add the private dependencies to the `ignore` option of your configuration file. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)."
 
 {% endnote %}
 
 ### `labels`
 
-{{ site.data.reusables.dependabot.default-labels}}
+{% data reusables.dependabot.default-labels %}
 
 Use `labels` to override the default labels and specify alternative labels for all pull requests raised for a package manager. If any of these labels is not defined in the repository, it is ignored. To disable all labels, including the default labels, use `labels: [ ]`.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify labels for pull requests
@@ -338,7 +339,7 @@ updates:
 
 Use `milestone` to associate all pull requests raised for a package manager with a milestone. You need to specify the numeric identifier of the milestone and not its label. If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify a milestone for pull requests
@@ -355,7 +356,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-By default, {{ site.data.variables.product.prodname_dependabot }} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
+By default, {% data variables.product.prodname_dependabot %} opens a maximum of five pull requests for version updates. Once there are five open pull requests, new requests are blocked until you merge or close some of the open requests. Use `open-pull-requests-limit` to change this limit. This also provides a simple way to temporarily disable version updates for a package manager.
 
 This option has no impact on security updates, which have a separate, internal limit of ten open pull requests.
 
@@ -381,11 +382,11 @@ updates:
 
 ### `pull-request-branch-name.separator`
 
-{{ site.data.variables.product.prodname_dependabot }} generates a branch for each pull request. Each branch name includes `dependabot`, and the package manager and dependency that are updated. By default, these parts are separated by a `/` symbol, for example: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
+{% data variables.product.prodname_dependabot %} generates a branch for each pull request. Each branch name includes `dependabot`, and the package manager and dependency that are updated. By default, these parts are separated by a `/` symbol, for example: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
 
 Use `pull-request-branch-name.separator` to specify a different separator. This can be one of: `"-"`, `_` or `/`. The hyphen symbol must be quoted because otherwise it's interpreted as starting an empty YAML list.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specifying a different separator for branch names
@@ -404,14 +405,14 @@ updates:
 
 ### `rebase-strategy`
 
-By default, {{ site.data.variables.product.prodname_dependabot }} automatically rebases open pull requests when it detects conflicts. Use `rebase-strategy` to disable this behavior.
+By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects conflicts. Use `rebase-strategy` to disable this behavior.
 
 Available rebase strategies
 
 - `disabled` to disable automatic rebasing.
 - `auto` to use the default behavior and rebase open pull requests when conflicts are detected.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Disabling automatic rebasing
@@ -430,7 +431,7 @@ updates:
 
 Use `reviewers` to specify individual reviewers or teams of reviewers for all pull requests raised for a package manager. You must use the full team name, including the organization, as if you were @mentioning the team.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify reviewers for pull requests
@@ -450,7 +451,7 @@ updates:
 
 ### `schedule.day`
 
-When you set a `weekly` update schedule, by default, {{ site.data.variables.product.prodname_dependabot }} checks for new versions on Monday at 05:00 UTC. Use `schedule.day` to specify an alternative day to check for updates.
+When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at 05:00 UTC. Use `schedule.day` to specify an alternative day to check for updates.
 
 Supported values
 
@@ -477,7 +478,7 @@ updates:
 
 ### `schedule.time`
 
-By default, {{ site.data.variables.product.prodname_dependabot }} checks for new versions at 05:00 UTC. Use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
+By default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. Use `schedule.time` to specify an alternative time of day to check for updates (format: `hh:mm`).
 
 ```yaml
 # Set a time for checks
@@ -493,7 +494,7 @@ updates:
 
 ### `schedule.timezone`
 
-By default, {{ site.data.variables.product.prodname_dependabot }} checks for new versions at 05:00 UTC. Use `schedule.timezone` to specify an alternative time zone. The time zone identifier must be from the Time Zone database maintained by [iana](https://www.iana.org/time-zones). For more information, see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+By default, {% data variables.product.prodname_dependabot %} checks for new versions at 05:00 UTC. Use `schedule.timezone` to specify an alternative time zone. The time zone identifier must be from the Time Zone database maintained by [iana](https://www.iana.org/time-zones). For more information, see [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Specify the timezone for checks
@@ -511,7 +512,7 @@ updates:
 
 ### `target-branch`
 
-By default, {{ site.data.variables.product.prodname_dependabot }} checks for manifest files on the default branch and raises pull requests for version updates against this branch. Use `target-branch` to specify a different branch for manifest files and for pull requests. When you use this option, the settings for this package manager will no longer affect any pull requests raised for security updates.
+By default, {% data variables.product.prodname_dependabot %} checks for manifest files on the default branch and raises pull requests for version updates against this branch. Use `target-branch` to specify a different branch for manifest files and for pull requests. When you use this option, the settings for this package manager will no longer affect any pull requests raised for security updates.
 
 ```yaml
 # Specify a non-default branch for pull requests for pip
@@ -540,16 +541,41 @@ updates:
       - "npm dependencies"
 ```
 
+### `vendor`
+
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot %} to vendor dependencies when updating them.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot %} only updates the vendored dependencies located in specific directories in a repository.
+
+| Package manager | Required file path for vendored dependencies                                                      | More information                                                           |
+| --------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `bundler`       | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`         | No path requirement (dependencies are usually located in the _vendor_ directory)                  | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor)  |
+
+
 ### `versioning-strategy`
 
-When {{ site.data.variables.product.prodname_dependabot }} edits a manifest file to update a version, it uses the following overall strategies:
+When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, it uses the following overall strategies:
 
 - For apps, the version requirements are increased, for example: npm, pip and Composer.
 - For libraries, the range of versions is widened, for example: Bundler and Cargo.
 
 Use the `versioning-strategy` option to change this behavior for supported package managers.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 Available update strategies
 

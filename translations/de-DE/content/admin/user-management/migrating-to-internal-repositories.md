@@ -1,6 +1,6 @@
 ---
 title: Zu internen Repositorys migrieren
-intro: 'Du kannst zu internen Repositorys migrieren, um für Entwickler, die sowohl {{ site.data.variables.product.prodname_ghe_server }} als auch {{ site.data.variables.product.prodname_ghe_cloud }} verwenden, das Erlebnis mit Inner Source zu vereinheitlichen.'
+intro: 'Du kannst zu internen Repositorys migrieren, um für Entwickler, die sowohl {% data variables.product.prodname_ghe_server %} als auch {% data variables.product.prodname_ghe_cloud %} verwenden, das Erlebnis mit Inner Source zu vereinheitlichen.'
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
@@ -11,9 +11,9 @@ versions:
 
 ### Informationen zu internen Repositorys
 
-Interne Repositorys sind in {{ site.data.variables.product.prodname_ghe_server }} 2.20+ verfügbar. {{ site.data.reusables.repositories.about-internal-repos }} Weitere Informationen findest Du unter „[Informationen zur Sichtbarkeit von Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)."
+Interne Repositorys sind in {% data variables.product.prodname_ghe_server %} 2.20+ verfügbar. {% data reusables.repositories.about-internal-repos %} Weitere Informationen findest Du unter „[Informationen zur Sichtbarkeit von Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)."
 
-In zukünftigen Releases von {{ site.data.variables.product.prodname_ghe_server }} werden wir die Sichtbarkeit des Repositorys so einstellen, dass die Begriffe „öffentlich“, „intern“ und „privat“ für Entwickler auf {{ site.data.variables.product.prodname_ghe_server }} und {{ site.data.variables.product.prodname_ghe_cloud }} eine einheitliche Bedeutung haben.
+In zukünftigen Releases von {% data variables.product.prodname_ghe_server %} werden wir die Sichtbarkeit des Repositorys so einstellen, dass die Begriffe „öffentlich“, „intern“ und „privat“ für Entwickler auf {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %} eine einheitliche Bedeutung haben.
 
 Wenn der private Modus aktiviert ist, kannst Du eine Migration auf Deiner Instanz durchführen, um öffentliche Repositories nach intern zu konvertieren und Dich so auf diese Änderungen vorzubereiten. Diese Migration ist derzeit optional, damit Du die Änderungen an einer nicht-produktiven Instanz testen kannst. In Zukunft wird die Migration unumgänglich.
 
@@ -23,7 +23,7 @@ Alle öffentlichen Repositories im Besitz von Benutzerkonten in Deiner Instanz w
 
 Der anonyme Git-Lesezugriff wird für jedes öffentliche Repository deaktiviert, das intern oder privat wird.
 
-Wenn Deine aktuelle Standardsichtbarkeit für Repositorys öffentlich ist, wird die Standardeinstellung intern. Wenn der aktuelle Standardwert privat ist, ändert er sich nicht. Du kannst den Standardwert jederzeit ändern. Weitere Informationen findest Du unter "[Die Standardsichtbarkeit neuer Repositorys auf Deinem Gerät konfigurieren](/enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance)."
+Wenn Deine aktuelle Standardsichtbarkeit für Repositorys öffentlich ist, wird die Standardeinstellung intern. Wenn der aktuelle Standardwert privat ist, ändert er sich nicht. Du kannst den Standardwert jederzeit ändern. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-the-default-visibility-of-new-repositories-in-your-enterprise)."
 
 Die Repository-Erstellungsrichtlinie für die Instanz wird dahingehend geändert, dass öffentliche Repositorys verhindert und private und interne Repositories ermöglicht werden. Du kannst die Richtlinie jederzeit aktualisieren. Weitere Informationen findest Du unter „[Repository-Erstellung in Deinen Instanzen beschränken](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance).“
 

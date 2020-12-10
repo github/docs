@@ -1,6 +1,6 @@
 ---
 title: Fehlerbehebung bei einer abgelehnten Kreditkartenbelastung
-intro: 'Wenn die Kreditkarte abgelehnt wird, die Du für die Zahlung der Nutzung von {{ site.data.variables.product.product_name }} angegeben hast, hast Du verschiedene Möglichkeiten um sicherzustellen, dass die Zahlung erfolgt und Dein Konto nicht gesperrt wird.'
+intro: 'Wenn die Kreditkarte, die Sie für die Zahlung der Nutzung von {% data variables.product.product_name %} angegeben haben, abgelehnt wird, haben Sie verschiedene Möglichkeiten, sicherzustellen, dass die Zahlung erfolgt und Ihr Konto nicht gesperrt wird.'
 redirect_from:
   - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
@@ -25,7 +25,7 @@ Wir unterstützen auch die Zahlung per PayPal. Weitere Informationen finden Sie 
 Deine Bank kann Dir genau sagen, weshalb eine Zahlung abgelehnt wurde. Frage sie bei einer nicht durchgeführten Transaktion nach dem spezifischen Grund. Falls für Deine Karte Einschränkungen gelten, bereite vor einem Anruf bei Deiner Bank die folgenden Informationen vor:
 
 - **Die Höhe der Belastung:** Deine Abonnementgebühr ist in den Quittungen Deines Kontos aufgeführt. Weitere Informationen findest Du unter „[Zahlungsverlauf und Quittungen anzeigen](/articles/viewing-your-payment-history-and-receipts).“
-- **Das Datum der Rechnungsstellung durch {{ site.data.variables.product.product_name }}:** Das Abrechnungsdatum Deines Kontos findest Du auf Deinen Quittungen.
+- **Das Datum der Rechnungsstellung durch {% data variables.product.product_name %}:** Das Abrechnungsdatum Deines Kontos findest Du auf Deinen Quittungen.
 - **Die Transaktions-ID:** Die Transaktions-ID Deines Kontos findest Du auf Deinen Quittungen.
-- **Der Verkäufername:** Der Name des Verkäufers lautet {{ site.data.variables.product.prodname_dotcom }}.
+- **Der Verkäufername:** Der Name des Verkäufers lautet {% data variables.product.prodname_dotcom %}.
 - **Die Fehlermeldung, die Deine Bank mit der Ablehnung der Transaktion gesendet hat:** Die Fehlermeldung Deiner Bank entnimmst Du der E-Mail-Nachricht, die wir Dir bei der Ablehnung einer Belastung zusenden.

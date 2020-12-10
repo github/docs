@@ -1,9 +1,10 @@
 ---
 title: 概要
-intro: 'Learn about {{ site.data.variables.product.prodname_dotcom }}''s APIs, secure your deployments, and join {{ site.data.variables.product.prodname_dotcom }}''s Developer Program.'
+intro: '{% data variables.product.prodname_dotcom %}のAPIに付いて学び、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}デプロイメントをセキュアにしてください。{% else %}デプロイメントをセキュアにし、{% data variables.product.prodname_dotcom %}の開発者プログラムに参加してください。{% endif %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 目次

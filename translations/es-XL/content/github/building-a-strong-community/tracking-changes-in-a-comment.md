@@ -13,7 +13,7 @@ versions:
 Cualquier persona con acceso de lectura a un repositorio puede ver el historial de edición del comentario.
 
 1. Navega hasta el comentario del que quieres ver el historial de edición.
-{{ site.data.reusables.repositories.edited-comment-list }}
+{% data reusables.repositories.edited-comment-list %}
 
 ### Eliminar información confidencial del historial de un comentario
 
@@ -22,7 +22,7 @@ Los autores de los comentarios y cualquiera con acceso de escritura aun reposito
 Cuando eliminas información confidencial del historial de edición del comentario, la persona que hizo la edición y el momento en que la hizo siguen visibles en el historial del comentario, pero el contenido de la edición deja de estar disponible.
 
 1. Navega hasta el comentario del que quieres eliminar la información confidencial del historial de edición.
-{{ site.data.reusables.repositories.edited-comment-list }}
+{% data reusables.repositories.edited-comment-list %}
 3. En el margen superior derecho de la ventana del historial de edición, haz clic en **Options** (Opciones). Luego haz clic en **Delete revision from history** (Eliminar revisión del historial) para eliminar la diferencia que muestra el contenido que se agrega. ![Eliminar detalles de edición de un comentario](/assets/images/help/repository/delete-comment-edit-details.png)
 4. Para confirmar la eliminación, haz clic en **OK**.
 

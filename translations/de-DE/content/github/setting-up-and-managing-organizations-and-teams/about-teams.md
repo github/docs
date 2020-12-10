@@ -1,11 +1,12 @@
 ---
 title: Informationen zu Teams
-intro: 'Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.'
+intro: Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.
 redirect_from:
   - /articles/about-teams
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Liste der Teams in einer Organisation](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,17 +20,17 @@ Weitere Informationen findest Du unter:
 
 ![Bild einer Teamerwähnung](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-Du kannst außerdem mit LDAP Sync {{ site.data.variables.product.product_location_enterprise }}-Teammitglieder und -Teamrollen mit Deinen bestehenden LDAP-Gruppen synchronisieren. Dadurch kannst Du eine rollenbasierte Zugriffskontrolle für Benutzer von Deinem LDAP-Server aus einrichten statt manuell innerhalb von {{ site.data.variables.product.product_location_enterprise }}. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
+Sie können außerdem mit LDAP Sync {% data variables.product.product_location %}-Teammitglieder und -Teamrollen mit Ihren bestehenden LDAP-Gruppen synchronisieren. Dadurch können Sie eine rollenbasierte Zugriffskontrolle für Benutzer von Ihrem LDAP-Server aus statt manuell innerhalb von {% data variables.product.product_location %} einrichten. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### Sichtbarkeit eines Teams
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### Teamseiten
 
@@ -41,7 +42,7 @@ Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran te
 
 ### Verschachtelte Teams
 
-Du kannst die Hierarchie Deiner Gruppe oder Deines Unternehmens innerhalb Deiner {{ site.data.variables.product.product_name }}-Organisation mit mehreren Ebenen von verschachtelten Teams abbilden. Ein übergeordnetes Team kann mehrere untergeordnete Teams haben, wohingegen jedes untergeordnete Team nur ein übergeordnetes Team hat. Nicht öffentliche Teams können nicht verschachtelt werden.
+Du kannst die Hierarchie Deiner Gruppe oder Deines Unternehmens innerhalb Deiner {% data variables.product.product_name %}-Organisation mit mehreren Ebenen von verschachtelten Teams abbilden. Ein übergeordnetes Team kann mehrere untergeordnete Teams haben, wohingegen jedes untergeordnete Team nur ein übergeordnetes Team hat. Nicht öffentliche Teams können nicht verschachtelt werden.
 
 Für untergeordnete Teams gelten die Zugriffsberechtigungen des übergeordneten Teams, wodurch die Verwaltung von Berechtigungen für große Gruppen vereinfacht wird. Mitglieder von untergeordneten Teams erhalten außerdem Benachrichtigungen, wenn das übergeordnete Team @erwähnt wird, was die Kommunikation mit mehreren Personengruppen vereinfacht.
 
@@ -55,17 +56,13 @@ Um zu verstehen, wer die Berechtigungen und Erwähnungen eines übergeordneten T
 
 Du kannst beim Erstellen des Teams ein übergeordnetes Team auswählen oder ein Team in der Hierarchie Deiner Organisation später verschieben. Weitere Informationen findest Du unter „[Team innerhalb der Hierarchie Deiner Organisation verschieben](/articles/moving-a-team-in-your-organization-s-hierarchy).“
 
-{% if currentVersion != "free-pro-team@latest" %}
-
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
-
-{% endif %}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 ### Die Verschachtelung von Teams in Deiner Organisation vorbereiten
 
-Wenn in Deiner Organisation bereits Teams vorhanden sind, solltest Du die Zugriffsberechtigungen für das Repository jedes Teams überprüfen, bevor Du Teams über- oder unterordnest. Du solltest außerdem die neue Struktur berücksichtigen, die Du für Deine Organisation implementieren möchtest.
+Wenn in Ihrer Organisation bereits Teams vorhanden sind, sollten Sie die Zugriffsberechtigungen für das Repository jedes Teams überprüfen, bevor Sie Teams über- oder unterordnen. Sie sollten außerdem die neue Struktur berücksichtigen, die Sie für Ihre Organisation implementieren möchten.
 
-An der Spitze der Teamhierarchie solltest Du den übergeordneten Teams nur Zugriffsberechtigungen für Repositorys erteilen, die für jedes Mitglied des übergeordneten Teams und seine untergeordneten Teams sicher sind. Wenn Du Dich in der Hierarchie nach unten bewegst, kannst Du untergeordneten Teams zusätzlichen, detaillierteren Zugriff auf sensiblere Repositorys gewähren.
+An der Spitze der Teamhierarchie sollten Sie den übergeordneten Teams Zugriffsberechtigungen für das Repository erteilen, die für jedes Mitglied des übergeordneten Teams und seine untergeordneten Teams sicher sind. Wenn Sie sich in der Hierarchie nach unten bewegen, können Sie untergeordneten Teams zusätzlichen, detaillierteren Zugriff auf sensiblere Repositorys gewähren.
 
 1. Entferne alle Mitglieder aus vorhandenen Teams
 2. Überprüfe und bearbeite die Zugriffsrechte für Repositorys für jedes Team, und weise jedem Team ein übergeordnetes Team zu

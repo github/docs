@@ -21,4 +21,4 @@ versions:
 
 ### Leia mais
 
-- "[Tipos de conta do {{ site.data.variables.product.prodname_dotcom }}](/articles/types-of-github-accounts)"
+- "[Tipos de conta do {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

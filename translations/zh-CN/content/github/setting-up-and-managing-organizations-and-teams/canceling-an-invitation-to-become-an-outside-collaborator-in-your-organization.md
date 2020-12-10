@@ -10,10 +10,10 @@ versions:
 
 对于每个待定协作者，您可以同时取消加入组织仓库的所有邀请。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. 单击 **X pending collaborators（删除待定协作者）**。 !["待定协作者" 按钮](/assets/images/help/organizations/pending-collaborator-list.png)
 6. 在您要取消邀请的人员的右侧，单击 **Cancel invitations（取消邀请）**。 !["取消邀请" 按钮](/assets/images/help/organizations/cancel-pending-collaborators.png)
 7. 单击 **Cancel invitations for pending collaborators（取消对待定协作者的邀请）**。 ![确认取消按钮](/assets/images/help/organizations/confirm-cancelation-of-pending-collaborators.png)

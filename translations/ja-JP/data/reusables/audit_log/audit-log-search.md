@@ -6,9 +6,8 @@
 * アクションが実行された国
 * アクションが発生した日時
 
-テキストを使用してエントリを検索することはできません。 ただし、さまざまなフィルターを使用すれば検索クエリを作成できます。 ログを検索するときに使用される多くの演算子 (`-`、`>`、`<` など) は、{{ site.data.variables.product.product_name }} 全体で検索するものと同じ形式です。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} での検索](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
+テキストを使用してエントリを検索することはできません。 ただし、さまざまなフィルターを使用すれば検索クエリを作成できます。 ログを検索するときに使用される多くの演算子 (`-`、`>`、`<` など) は、{% data variables.product.product_name %} 全体で検索するものと同じ形式です。 詳細は「[{% data variables.product.prodname_dotcom %} での検索](/github/searching-for-information-on-github/about-searching-on-github)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 #### 操作に基づく検索
 
 `operation`修飾子は、アクションを特定の操作の種類に限定するときに使ってください。 例:
@@ -20,7 +19,6 @@
   * `operation:remove`は、既存のリソースが削除されたすべてのイベントを見つけます。
   * `operation:restore`は、既存のリソースがリストアされたすべてのイベントを見つけます。
   * `operation:transfer`は既存のリソースが移譲されたすべてのイベントを見つけます。
-{% endif %}
 
 #### リポジトリに基づく検索
 
@@ -40,4 +38,4 @@
   * `actor:octocat actor:hubot`は、`octocat`及び`hubot`が行ったすべてのイベントを検索します。
   * `-actor:hubot`は、`hubot`が行ったすべてのイベントを除外します。
 
-使用できるのは {{ site.data.variables.product.product_name }} のユーザー名のみであり、個人の実名ではないことに注意してください。
+使用できるのは {% data variables.product.product_name %} のユーザー名のみであり、個人の実名ではないことに注意してください。

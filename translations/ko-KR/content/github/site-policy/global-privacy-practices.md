@@ -33,7 +33,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
   - We let you know when we're collecting your personal information.
   - We let you know, in our [Privacy Statement](/articles/github-privacy-statement/), what purposes we have for collecting and using your information, who we share that information with and under what restrictions, and what access you have to your data.
   - We let you know that we're participating in the Privacy Shield framework, and what that means to you.
-  - We have a {{ site.data.variables.contact.contact_privacy }} where you can contact us with questions about your privacy.
+  - We have a {% data variables.contact.contact_privacy %} where you can contact us with questions about your privacy.
   - We let you know about your right to invoke binding arbitration, provided at no cost to you, in the unlikely event of a dispute.
   - We let you know that we are subject to the jurisdiction of the Federal Trade Commission.
 - **Choice**
@@ -51,7 +51,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
 - **액세스**
   - You are always able to access the data we have about you in your [user profile](https://github.com/settings/profile). You may access, update, alter, or delete your information there.
 - **Recourse, Enforcement and Liability**
-  - If you have questions about our privacy practices, you can reach us with our {{ site.data.variables.contact.contact_privacy }} and we will respond within 45 days at the latest.
+  - If you have questions about our privacy practices, you can reach us with our {% data variables.contact.contact_privacy %} and we will respond within 45 days at the latest.
   - In the unlikely event of a dispute that we cannot resolve, you have access to binding arbitration at no cost to you. Please see our [Privacy Statement](/articles/github-privacy-statement/) for more information.
   - We will conduct regular audits of our relevant privacy practices to verify compliance with the promises we have made.
   - We require our employees to respect our privacy promises, and violation of our privacy policies is subject to disciplinary action up to and including termination of employment.

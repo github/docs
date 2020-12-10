@@ -4,10 +4,11 @@ redirect_from:
   - /articles/git-over-https-using-oauth-token/
   - /articles/git-over-http-using-oauth-token/
   - /articles/git-automation-with-oauth-tokens
-intro: 'OAuthトークンを使用して、自動化されたスクリプトを介して {{ site.data.variables.product.product_name }} を操作できます。'
+intro: 'OAuthトークンを使用して、自動化されたスクリプトを介して {% data variables.product.product_name %} を操作できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ステップ 1: OAuth トークンを取得する
@@ -19,18 +20,18 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 **参考:**
 - You must verify your email address before you can create a personal access token. 詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
-- {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+- {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
-**ヒント:** {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+**ヒント:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% endif %}
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### ステップ 2: リポジトリをクローンする
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 To avoid these prompts, you can use Git password caching. 詳しい情報については、「[Git に GitHub 認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
 
@@ -42,4 +43,4 @@ To avoid these prompts, you can use Git password caching. 詳しい情報につ�
 
 ### 参考リンク
 
-- 「[OAuth App を認証する](/v3/oauth/)」
+- 「[OAuth App を認証する](/developers/apps/authorizing-oauth-apps)」

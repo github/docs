@@ -7,11 +7,11 @@ versions:
   enterprise-server: '*'
 ---
 
-When using LDAP or built-in authentication, two-factor authentication is supported on the {{ site.data.variables.product.prodname_ghe_server }} appliance. Organization administrators can require members to have two-factor authentication enabled.
+When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organization administrators can require members to have two-factor authentication enabled.
 
-{{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-For more information, see [this chart on authentication methods that support 2FA](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa).
+For more information, see "[About two-factor authentication](/github/authenticating-to-github/about-two-factor-authentication)."
 
 ### Requirements for enforcing two-factor authentication
 
@@ -29,20 +29,20 @@ Before you can require organization members and outside collaborators to use 2FA
 
 Before you require use of two-factor authentication, we recommend notifying organization members and outside collaborators and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) on an organization's People tab.
 
-{{ site.data.reusables.profile.enterprise_access_profile}}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 
 ### Viewing people who were removed from your organization
 
 To view people who were automatically removed from your organization for non-compliance when you required two-factor authentication, you can [search the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/) using `reason:two_factor_requirement_non_compliance` in the search field.
 
-{{ site.data.reusables.audit_log.octicon_icon }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_site_admins }}
+{% data reusables.audit_log.octicon_icon %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
 4. Enter your search query using `reason:two_factor_requirement_non_compliance`. ![Staff tools audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png) To narrow your search for:
     - Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
     - Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`

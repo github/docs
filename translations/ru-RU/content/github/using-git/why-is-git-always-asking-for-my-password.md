@@ -6,17 +6,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Using an HTTPS remote URL has some advantages compared with using SSH. It's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your GitHub credentials every time you pull or push a repository.
+Using an HTTPS remote URL has some advantages compared with using SSH. It's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository.
 
-You can avoid being prompted for your password by configuring Git to [cache your credentials](/github/using-git/caching-your-github-credentials-in-git) for you. {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+{% data reusables.user_settings.password-authentication-deprecation %}
 
-Once you've configured credential caching, Git automatically uses your cached personal access token in place of a password when you pull or push a repository using HTTPS.
-
+You can avoid being prompted for your password by configuring Git to [cache your credentials](/github/using-git/caching-your-github-credentials-in-git) for you. Once you've configured credential caching, Git automatically uses your cached personal access token when you pull or push a repository using HTTPS.
 
 ### Дополнительная литература
 
 * "[Which remote URL should I use](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)"
-* "[About authentication to {{ site.data.variables.product.prodname_dotcom }}](/github/authenticating-to-github/about-authentication-to-github)"
+* "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)"
 * "[Adding your SSH key to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"

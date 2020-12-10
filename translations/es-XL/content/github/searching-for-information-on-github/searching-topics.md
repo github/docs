@@ -1,6 +1,6 @@
 ---
 title: Buscar temas
-intro: 'Puedes buscar temas asociados con los repositorios en {{ site.data.variables.product.product_name }}.'
+intro: 'Puedes buscar temas asociados con los repositorios en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/searching-topics
 versions:
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Buscar temas en {{ site.data.variables.product.product_name }}
+### Buscar temas en {% data variables.product.product_name %}
 
-Puedes buscar temas en {{ site.data.variables.product.product_name }}, explorar temas relacionados y ver cuántos repositorios están asociados con un tema determinado.
+Puedes buscar temas en {% data variables.product.product_name %}, explorar temas relacionados y ver cuántos repositorios están asociados con un tema determinado.
 
 1. Navega hasta https://github.com/search.
 2. Escribe una palabra clave del tema. ![campo buscar](/assets/images/help/search/search-field.png)
@@ -21,17 +21,17 @@ Puedes buscar temas en {{ site.data.variables.product.product_name }}, explorar 
 
 ### Acotar tu búsqueda con calificadores de búsqueda
 
-Si deseas explorar repositorios sobre un determinado tema, encontrar proyectos en los que contribuir, o conocer qué temas son más populares en {{ site.data.variables.product.product_name }}, puedes buscar temas con los calificadores de búsqueda `is:featured`, `is:curated`, `repositories:n` y `created:YYYY-MM-DD`.
+Si deseas explorar repositorios sobre un determinado tema, encontrar proyectos en los que contribuir, o conocer qué temas son más populares en {% data variables.product.product_name %}, puedes buscar temas con los calificadores de búsqueda `is:featured`, `is:curated`, `repositories:n` y `created:YYYY-MM-DD`.
 
-El calificador de búsqueda `is:featured` acotará los resultados de búsqueda a los temas con la mayor cantidad de repositorios en {{ site.data.variables.product.product_name }}. Estos temas también se muestran en https://github.com/topics/.
+El calificador de búsqueda `is:featured` acotará los resultados de búsqueda a los temas con la mayor cantidad de repositorios en {% data variables.product.product_name %}. Estos temas también se muestran en https://github.com/topics/.
 
 El calificador de búsqueda de `is:curated` acotará los resultados de búsqueda en los temas a los que los miembros de la comunidad han agregado información adicional. Para obtener más información, consulta el repositorio explore en https://github.com/github/explore.
 
 Puedes filtrar temas en base a cuándo se crearon utilizando el parámetro de fecha y `created:` o en base a cuántos repositorios están asociados con este tema utilizando `repositories:n`. Estos dos calificadores pueden utilizar los calificadores de rango mayor que y menor que [](/articles/understanding-the-search-syntax).
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Ejemplo                                                                                                                                                                                                                                       |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

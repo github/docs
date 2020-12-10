@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Automation in your project board does not apply to archived project board cards. For example, if you close an issue in a project board's archive, the archived card does not automatically move to the "Done" column. When you restore a card from the project board archive, the card will return to the column where it was archived.
@@ -17,6 +18,6 @@ Automation in your project board does not apply to archived project board cards.
 
 ### Restoring cards on a project board from the sidebar
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **View archive**. ![Select view archive option from menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Above the project board card you want to unarchive, click **Restore**. ![Select restore project board card](/assets/images/help/projects/restore-card.png)

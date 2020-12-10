@@ -1,6 +1,6 @@
 ---
 title: GitHub がサポートする Subversion プロパティ
-intro: '{{ site.data.variables.product.product_name }} 上の既存の機能に類似したいくつかの Subversion ワークフローやプロパティがあります。'
+intro: '{% data variables.product.product_name %} 上の既存の機能に類似したいくつかの Subversion ワークフローやプロパティがあります。'
 redirect_from:
   - /articles/subversion-properties-supported-by-github
 versions:
@@ -14,12 +14,12 @@ Git リポジトリに追加する前に、ファイルモードを直接更新�
 
 ### MIME タイプ (svn:mime-type)
 
-{{ site.data.variables.product.product_name }}は、ファイルの MIME タイププロパティ、およびそれを追加したコミットを追跡します。
+{% data variables.product.product_name %}は、ファイルの MIME タイププロパティ、およびそれを追加したコミットを追跡します。
 
 ### バージョンのないアイテムを無視する (svn:ignore)
 
-Subversion で無視されるようにファイルとディレクトリを設定している場合、{{ site.data.variables.product.product_name }} はそれらを内部的に追跡します。 Subversion のクライアントで無視されたファイルは、*.gitignore* ファイルのエントリとは全く別のものです。
+Subversion で無視されるようにファイルとディレクトリを設定している場合、{% data variables.product.product_name %} はそれらを内部的に追跡します。 Subversion のクライアントで無視されたファイルは、*.gitignore* ファイルのエントリとは全く別のものです。
 
 ### 現在サポートされていないプロパティ
 
-現在は、{{ site.data.variables.product.product_name }} は、`svn:externals`、`svn:global-ignores`、カスタムプロパティ、その他上記にないプロパティをサポートしていません。
+現在は、{% data variables.product.product_name %} は、`svn:externals`、`svn:global-ignores`、カスタムプロパティ、その他上記にないプロパティをサポートしていません。

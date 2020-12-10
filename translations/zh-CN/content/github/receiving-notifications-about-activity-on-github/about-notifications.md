@@ -1,6 +1,6 @@
 ---
 title: 关于通知
-intro: '通知提供您感兴趣的活动和对话的更新。 您可以在 {{ site.data.variables.product.product_name }} 上或通过电子邮件客户端接收通知。'
+intro: '通知提供您感兴趣的活动和对话的更新。 您可以在 {% data variables.product.product_name %} 上或通过电子邮件客户端接收通知。'
 versions:
   enterprise-server: <2.21
 ---
@@ -13,13 +13,13 @@ versions:
 - "[关于电子邮件通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
 - "[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
 
-{{ site.data.reusables.notifications.outbound_email_tip }}
+{% data reusables.notifications.outbound_email_tip %}
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 #### 参与通知
 
-当您直接参与仓库或所在团队的活动或对话时，{{ site.data.variables.product.product_name }} 会发送*参与*通知。 您在以下情况下会收到通知：
+当您直接参与仓库或所在团队的活动或对话时，{% data variables.product.product_name %} 会发送*参与*通知。 您在以下情况下会收到通知：
   - 您或您所在的团队被提及。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)”。
   - 您所在子团队的父团队被提及。 更多信息请参阅“[关于团队](/articles/about-teams)”。
   - 您被分配到某个议题或拉取请求。
@@ -33,9 +33,8 @@ versions:
 
 #### 查看通知
 
-您查看的仓库或团队讨论如有更新，{{ site.data.variables.product.product_name }} 会发送*查看*通知。 {% if currentVersion ver_gt "enterprise-server@2.17" %} {{ site.data.reusables.notifications.auto-watch }}更多信息请参阅“[关注和取消关注仓库](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)”。
-
-{% endif %}您在以下情况下会收到通知：
+您查看的仓库或团队讨论如有更新，{% data variables.product.product_name %} 会发送*查看*通知。  {% data reusables.notifications.auto-watch %}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
+您在以下情况下会收到通知：
   - 新开了一个议题。
   - 打开的议题新增了评论。
   - 新开了一个拉取请求。

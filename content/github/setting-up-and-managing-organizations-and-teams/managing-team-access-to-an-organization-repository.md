@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 People with admin access to a repository can manage team access to the repository. Team maintainers can remove a team's access to a repository.
@@ -21,10 +22,10 @@ People with admin access to a repository can manage team access to the repositor
 
 ### Giving a team access to a repository
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-repositories-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-repositories-tab %}
 5. Above the list of repositories, click **Add repository**.
   ![The Add repository button](/assets/images/help/organizations/add-repositories-button.png)
 6. Type the name of a repository, then click **Add repository to team**.
@@ -36,12 +37,12 @@ People with admin access to a repository can manage team access to the repositor
 
 You can remove a team's access to a repository if the team has direct access to a repository. If a team's access to the repository is inherited from a parent team, you must remove the repository from the parent team in order to remove the repository from child teams.
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-repositories-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-repositories-tab %}
 5. Select the repository or repositories you'd like to remove from the team.
   ![List of team repositories with the checkboxes for some repositories selected](/assets/images/help/teams/select-team-repositories-bulk.png)
 6. Above the list of repositories, use the drop-down menu, and click **Remove from team**.

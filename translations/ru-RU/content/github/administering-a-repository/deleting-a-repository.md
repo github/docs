@@ -8,28 +8,28 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {{ site.data.reusables.organizations.new-repo-permissions-more-info }}
+{% data reusables.organizations.owners-and-admins-can %} delete an organization repository. If **Allow members to delete or transfer repositories for this organization** has been disabled, only organization owners can delete organization repositories. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+
 {% warning %}
 
-**Warning**: Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+**Warnings**:
+
+- Deleting a repository will **permanently** delete release attachments and team permissions. This action **cannot** be undone.
+- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
 
 {% endwarning %}
-{% endif %}
-
-Please also keep in mind that:
-- Deleting a private repository will delete all of its forks.
-- Deleting a public repository will not delete its forks.
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can restore some deleted repositories within 90 days. For more information, see "[Restoring a deleted repository](/articles/restoring-a-deleted-repository)."
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 2. Under Danger Zone, click **Delete this repository**. ![Repository deletion button](/assets/images/help/repository/repo-delete.png)
 3. **Read the warnings**.
 4. To verify that you're deleting the correct repository, type the name of the repository you want to delete. ![Deletion labeling](/assets/images/help/repository/repo-delete-confirmation.png)

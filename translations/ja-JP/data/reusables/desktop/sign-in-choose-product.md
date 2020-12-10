@@ -1,1 +1,1 @@
-1. {{ site.data.variables.product.prodname_dotcom }}または{{ site.data.variables.product.prodname_enterprise }}にサインインしてください。
+1. {% data variables.product.prodname_dotcom %}または{% data variables.product.prodname_enterprise %}にサインインしてください。

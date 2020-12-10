@@ -6,7 +6,7 @@ intro: Remove liquid only
 ## 1
 <div class="example1">
 
-{% if page.version != 'dotcom' and page.version ver_gt "2.13" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
 
 Alpha
 
@@ -17,7 +17,7 @@ Alpha
 ## 2
 <div class="example2">
 
-{% if page.version != 'dotcom' and page.version ver_gt "2.13" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
 
 Alpha
 
@@ -32,7 +32,7 @@ Bravo
 ## 3
 <div class="example3">
 
-{% if page.version ver_gt "2.16" %}
+{% if currentVersion ver_gt "enterprise-server@2.16" %}
 
 Alpha
 
@@ -40,7 +40,7 @@ Alpha
 
 Bravo
 
-{% if page.version != 'dotcom' and page.version ver_gt "2.13" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
 
 Charlie
 
@@ -52,11 +52,11 @@ Charlie
 ## 4
 <div class="example4">
 
-{% if page.version ver_lt "2.16" %}
+{% if currentVersion ver_lt "enterprise-server@2.16" %}
 
 Alpha
 
-{% if page.version != 'dotcom' and page.version ver_gt "2.13" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
 
 Bravo
 
@@ -73,11 +73,11 @@ Charlie
 ## 5
 <div class="example5">
 
-{% if page.version != 'dotcom' and page.version ver_gt "2.13" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.13" %}
 
 Alpha
 
-{% if page.version ver_gt "2.16" %}
+{% if currentVersion ver_gt "enterprise-server@2.16" %}
 
 Bravo
 

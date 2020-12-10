@@ -1,9 +1,10 @@
 ---
 title: Обзор
-intro: 'Learn about the {{ site.data.variables.product.prodname_dotcom }} GraphQL API, previews for upcoming changes, breaking changes, and limitations. You can also use the GraphQL Explorer to interact with the API on real {{ site.data.variables.product.prodname_dotcom }} data.'
+intro: 'Learn about the {% data variables.product.prodname_dotcom %} GraphQL API, previews for upcoming changes, breaking changes, and limitations. You can also use the GraphQL Explorer to interact with the API on real {% data variables.product.prodname_dotcom %} data.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /about-the-graphql-api %}

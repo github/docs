@@ -1,15 +1,15 @@
 ---
-title: 'Developing online with {{ site.data.variables.product.prodname_codespaces }}'
+title: 'Developing online with {% data variables.product.prodname_codespaces %}'
 shortTitle: Codespaces
-intro: 'You can develop entirely in the cloud using {{ site.data.variables.product.prodname_codespaces }}, an integrated development environment (IDE) on {{ site.data.variables.product.prodname_dotcom }}.'
-product: '{{ site.data.reusables.gated-features.codespaces }}'
+intro: 'You can develop entirely in the cloud using {% data variables.product.prodname_codespaces %}, an integrated development environment (IDE) on {% data variables.product.prodname_dotcom %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.codespaces.release-stage }}
+{% data reusables.codespaces.release-stage %}
 
 ### Table of Contents
 

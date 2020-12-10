@@ -6,19 +6,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリに対する読み取り権限があるユーザなら誰でもプルリクエストを作成できますが、ブランチの作成には書き込み権限が必要です。 プルリクエストのための新しいブランチを作成したいけれども、リポジトリへの書き込み権限がない場合は、まずリポジトリをフォークできます。 詳細は「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」および「[フォークについて](/articles/about-forks)」を参照してください。
 
 プルリクエストを作成するとき、変更をどのブランチにマージするかを指定できます。 2 つのブランチ間で違いがある場合にのみ、プルリクエストをオープンできます。
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### ブランチの範囲と宛先リポジトリの変更
 
-デフォルトでは、プルリクエストは親リポジトリの[デフォルトブランチ](/articles/setting-the-default-branch)に基づいています。
+デフォルトでは、プルリクエストは親リポジトリの[デフォルトブランチ](/articles/setting-the-default-branch)に基づいています。 詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
 デフォルトの親リポジトリが正しくない場合、親リポジトリとブランチをどちらもドロップダウンリストで変更できます。 また、基準点間の差分を確認するために、ドロップダウンリストで head ブランチと base ブランチを入れ替えることもできます。 ここで言う基準は GitHub リポジトリにあるブランチ名でなければなりません。
 
@@ -42,18 +43,18 @@ base リポジトリを変更するとき、プルリクエストの通知も変
 
 {% tip %}
 
-**ヒント**: {{ site.data.variables.product.prodname_desktop }} を使用してプルリクエストを作成することもできます。 詳しい情報については、{{ site.data.variables.product.prodname_desktop }} ドキュメントにある「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」を参照してください。
+**ヒント**: {% data variables.product.prodname_desktop %} を使用してプルリクエストを作成することもできます。 詳しい情報については、{% data variables.product.prodname_desktop %} ドキュメントにある「[Issue またはプルリクエストを作成する](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)」を参照してください。
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. [Branch] メニューで、自分のコミットが含まれるブランチを選択します。 ![ブランチのドロップダウンメニュー](/assets/images/help/pull_requests/branch-dropdown.png)
-{{ site.data.reusables.repositories.new-pull-request }}
+{% data reusables.repositories.new-pull-request %}
 4. 変更をマージする対象のブランチを [_base_] ブランチドロップダウンメニューで選択し、次に変更を行ったトピックブランチを [_compare_] ブランチドロップダウンメニューで選択します。 ![ベースを選択し、ブランチを比較するドロップダウンメニュー](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
-{{ site.data.reusables.repositories.pr-title-description }}
-{{ site.data.reusables.repositories.create-pull-request }}
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 プルリクエストのレビューが済むと、そのプルリクエストを[リポジトリにマージ](/articles/merging-a-pull-request)できます。
 

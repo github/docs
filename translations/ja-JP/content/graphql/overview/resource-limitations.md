@@ -1,20 +1,21 @@
 ---
 title: リソース制限
-intro: '{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIは、{{ site.data.variables.product.prodname_dotcom }}のサービスに対する過剰な呼び出し、あるいは悪用の呼び出しに対する保護としてかけられている制限があります。'
+intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIは、{% data variables.product.prodname_dotcom %}のサービスに対する過剰な呼び出し、あるいは悪用の呼び出しに対する保護としてかけられている制限があります。'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ## ノードの制限
 
-[スキーマ](/v4/guides/intro-to-graphql#schema)検証をパスするため、すべてのGraphQL API v4の[呼び出し](/v4/guides/forming-calls)は以下の標準を満たさなければなりません。
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
-* クライアントはすべての[コネクション](/v4/guides/intro-to-graphql#connection)で引数として`first`もしくは`last`を渡さなければなりません。
+* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
 * `first`及び`last`の値は1から100の間でなければなりません。
-* 個々の呼び出しは合計500,000以上の[ノード](/v4/guides/intro-to-graphql#node)を要求してはなりません。
+* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
 
 #### 呼び出し中のノードの計算
 
@@ -120,7 +121,7 @@ versions:
 
 GraphQL API v4 の制限は、REST API v3 の[レート制限](/rest/overview/resources-in-the-rest-api#rate-limiting)とは異なります。
 
-APIのレート制限が異なっているのはなぜでしょうか？ [GraphQL](/v4/)では、一つのGraphQLの呼び出しで[複数のRESTの呼び出し](/v4/guides/migrating-from-rest/)を置き換えることができます。 単一の複雑なGraphQLの呼び出しが、数千のRESTリクエストと等価なこともあります。 単一の GraphQL 呼び出しは REST API レート制限を大幅に下回りますが、クエリはGitHub のサーバーが演算するのと同等の負荷になる可能性があります。
+APIのレート制限が異なっているのはなぜでしょうか？ With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). 単一の複雑なGraphQLの呼び出しが、数千のRESTリクエストと等価なこともあります。 単一の GraphQL 呼び出しは REST API レート制限を大幅に下回りますが、クエリはGitHub のサーバーが演算するのと同等の負荷になる可能性があります。
 
 クエリのサーバーにとってのコストを正確に表すために、GraphQL API v4は呼び出しの**レート制限スコア**を正規化されたポイントのスケールに基づいて計算します。 クエリのスコアは、親のコネクションやその子のfirst及びlast引数を計算に入れます。
 
@@ -131,7 +132,7 @@ GraphQL API v4のレート制限は、**1時間あたり5,000ポイント**で�
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.variables.product.prodname_ghe_cloud }} アカウントに属する {{ site.data.variables.product.prodname_github_apps }} または{{ site.data.variables.product.prodname_oauth_app }} の場合、同じ {{ site.data.variables.product.prodname_ghe_cloud }} アカウントが所有するリソースへのリクエストの制限が 1 時間あたり 15,000 ポイントに増加しました。
+{% data variables.product.prodname_ghe_cloud %} アカウントに属する {% data variables.product.prodname_github_apps %} または{% data variables.product.prodname_oauth_app %} の場合、同じ {% data variables.product.prodname_ghe_cloud %} アカウントが所有するリソースへのリクエストの制限が 1 時間あたり 15,000 ポイントに増加しました。
 
 {% endif %}
 

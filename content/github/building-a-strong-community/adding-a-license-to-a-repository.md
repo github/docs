@@ -17,8 +17,8 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 <!--Dotcom version uses the license tool-->
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
 4. To the right of the file name field, click **Choose a license template**.
   ![Choose a license template button](/assets/images/help/repository/license-tool.png)
@@ -26,23 +26,23 @@ Open source licenses enable others to freely use, change, and distribute the pro
   ![List of available licenses](/assets/images/help/repository/license-tool-picker.png)
 6. Click **Review and submit**.
   ![Review and submit button](/assets/images/help/repository/license-review-tool.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.choose-commit-email %}
 10. Click **Commit new file**.
   ![Commit license to branch](/assets/images/help/repository/license-submit-tool.png)
 
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
 4. On the **Edit new file** tab, paste the full text of the license you want to use.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
 7. Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[Creating a pull request](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)".
 ![Commit branch options](/assets/images/help/repository/choose-commit-branch.png)
 8. Click **Commit new file**.

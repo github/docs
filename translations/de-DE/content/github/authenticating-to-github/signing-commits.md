@@ -1,6 +1,6 @@
 ---
 title: Commits signieren
-intro: 'Du kannst Commits lokal mit GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} oder S/MIME{% endif %} signieren.'
+intro: You can sign commits locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +35,14 @@ Wenn Du über mehrere Schlüssel verfügst oder versuchst, Commits oder Tags mit
   # Erstellt einen signierten Commit
   ```
 2. Wenn Du GPG verwendest, gib nach der Erstellung Deines Commits die Passphrase ein, die Du bei der [Generierung Deines GPG-Schlüssels](/articles/generating-a-new-gpg-key) eingerichtet hast.
-3. Übertrage Deine Commits, nachdem Du sie lokal erstellt hast, mittels Push auf Dein Remote-Repository auf {{ site.data.variables.product.product_name }}:
+3. Übertrage Deine Commits, nachdem Du sie lokal erstellt hast, mittels Push auf Dein Remote-Repository auf {% data variables.product.product_name %}:
   ```shell
   $ git push
   # lokale Commits zum remote Repository pushen
   ```
-4. Navigieren Sie auf {{ site.data.variables.product.product_name }} zu Ihrem Pull Request.
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. On
+{% data variables.product.product_name %}, navigate to your pull request.
+{% data reusables.repositories.review-pr-commits %}
 5. Wenn Du ausführliche Informationen zur verifizierten Signatur sehen möchtest, klicke auf „Verified“ (Verifiziert). ![Signierter Commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### Weiterführende Informationen

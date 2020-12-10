@@ -10,31 +10,31 @@ versions:
   free-pro-team: '*'
 ---
 
-支払いサイクル期間を変更すると、{{ site.data.variables.product.prodname_dotcom }}のプランおよびその他の有料機能、有料製品は、次の支払日から新しい支払いサイクルに移行します。
+支払いサイクル期間を変更すると、{% data variables.product.prodname_dotcom %}のプランおよびその他の有料機能、有料製品は、次の支払日から新しい支払いサイクルに移行します。
 
 ### 個人アカウントの支払いサイクル期間の変更
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.change_plan_duration }}
-{{ site.data.reusables.dotcom_billing.confirm_duration_change }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.change_plan_duration %}
+{% data reusables.dotcom_billing.confirm_duration_change %}
 
 ### Organization の支払いサイクル期間の変更
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
 #### ユーザ単位プランの期間の変更
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.change_plan_duration }}
-{{ site.data.reusables.dotcom_billing.confirm_duration_change }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.change_plan_duration %}
+{% data reusables.dotcom_billing.confirm_duration_change %}
 
 #### 過去のリポジトリ単位プランの期間の変更
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.billing %}
 4. [Billing overview] で、[**Change plan**] をクリックします。 ![[Billing overview] の [Change plan] ボタン](/assets/images/help/billing/billing_overview_change_plan.png)
 5. ページの右上で [**Switch to monthly billing**] または [**Switch to yearly billing**] をクリックします。 ![支払い情報セクション](/assets/images/help/billing/settings_billing_organization_plans_switch_to_yearly.png)

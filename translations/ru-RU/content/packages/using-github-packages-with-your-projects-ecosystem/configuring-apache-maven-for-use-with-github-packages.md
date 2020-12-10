@@ -1,7 +1,7 @@
 ---
 title: Configuring Apache Maven for use with GitHub Packages
-intro: 'You can configure Apache Maven to publish packages to {{ site.data.variables.product.prodname_registry }} and to use packages stored on {{ site.data.variables.product.prodname_registry }} as dependencies in a Java project.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry
@@ -11,29 +11,29 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
-{{ site.data.reusables.package_registry.admins-can-configure-package-types }}
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Authenticating to {{ site.data.variables.product.prodname_registry }}
+### Authenticating to {% data variables.product.prodname_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-packages }}
+{% data reusables.package_registry.authenticate-packages %}
 
 #### Authenticating with a personal access token
 
-{{ site.data.reusables.package_registry.required-scopes }}
+{% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {{ site.data.variables.product.prodname_registry }} with Apache Maven by editing your *~/.m2/settings.xml* file to include your personal access token. Create a new *~/.m2/settings.xml* file if one doesn't exist.
+You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your personal access token. Create a new *~/.m2/settings.xml* file if one doesn't exist.
 
-In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {{ site.data.variables.product.prodname_dotcom }} username, and *TOKEN* with your personal access token.
+In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your personal access token.
 
-In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {{ site.data.variables.product.prodname_ghe_server }} instance, {% endif %}*REPOSITORY* with the name of the repository you'd like to publish a package to or install a package from, and *OWNER* with the name of the user or organization account that owns the repository. {{ site.data.reusables.package_registry.lowercase-name-field }}
+In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}*REPOSITORY* with the name of the repository you'd like to publish a package to or install a package from, and *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
 
-{{ site.data.reusables.package_registry.apache-maven-snapshot-versions-supported }}
+{% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
@@ -76,7 +76,7 @@ If your instance has subdomain isolation enabled:
 </settings>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
 ```
@@ -121,20 +121,20 @@ If your instance has subdomain isolation disabled:
 
 #### Authenticating with the `GITHUB_TOKEN`
 
-{{ site.data.reusables.package_registry.package-registry-with-github-tokens }}
+{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### Publishing a package
 
-{{ site.data.reusables.package_registry.default-name }} For example, {{ site.data.variables.product.prodname_dotcom }} will publish a package named `com.example:test` in a repository called `OWNER/test`.
+{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
 
-If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {{ site.data.variables.product.prodname_dotcom }} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
+If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
 
 For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
 
 1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing
 
-{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {{ site.data.variables.product.prodname_ghe_server }} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
-  {% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
+  {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation enabled:
   {% endif %}
   ```
@@ -146,7 +146,7 @@ For more information on creating a package, see the [maven.apache.org documentat
      </repository>
   </distributionManagement>
   ```
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation disabled:
   ```
   <distributionManagement>
@@ -164,13 +164,13 @@ For more information on creating a package, see the [maven.apache.org documentat
    $ mvn deploy
   ```
 
-{{ site.data.reusables.package_registry.viewing-packages }}
+{% data reusables.package_registry.viewing-packages %}
 
 ### Installing a package
 
-To install an Apache Maven package from {{ site.data.variables.product.prodname_registry }}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
+To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
 
-{{ site.data.reusables.package_registry.authenticate-step}}
+{% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
 
   ```
@@ -190,5 +190,5 @@ To install an Apache Maven package from {{ site.data.variables.product.prodname_
 
 ### Дополнительная литература
 
-- "[Configuring Gradle for use with {{ site.data.variables.product.prodname_registry }}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
+- "[Configuring Gradle for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"

@@ -1,22 +1,23 @@
 ---
 title: Wiki-Seiten hinzufügen oder bearbeiten
-intro: 'Du kannst Wiki-Seiten direkt auf {{ site.data.variables.product.product_name }} oder lokal über die Befehlszeile hinzufügen und bearbeiten.'
+intro: 'Sie können Wiki-Seiten direkt auf {% data variables.product.product_name %} oder lokal über die Befehlszeile hinzufügen und bearbeiten.'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface/
   - /articles/editing-wiki-pages-via-the-online-interface/
   - /articles/adding-and-editing-wik-pages-locally/
   - /articles/adding-and-editing-wiki-pages-locally/
   - /articles/adding-or-editing-wiki-pages
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Wiki-Seiten hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Klicke in der oberen rechten Ecke der Seite auf **New Page** (Neue Seite). ![Schaltfläche „New Page“ (Neue Seite) für Wiki](/assets/images/help/wiki/wiki_new_page_button.png)
 4. Wenn Du ein anderes Format als Markdown nutzen möchtest, kannst Du optional im Bearbeitungsmodus über das Dropdownmenü ein anderes Format auswählen. ![Wiki-Markup-Auswahl](/assets/images/help/wiki/wiki_dropdown_markup.gif)
 5. Verwende den Texteditor, um den Inhalt Deiner Seite einzufügen. ![Wiki-WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
@@ -25,8 +26,8 @@ versions:
 
 ### Wiki-Seiten bearbeiten
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 4. Navigiere über die Wiki-Seitenleiste zu der Seite, die Du ändern möchtest. Klicke in der oberen rechte Ecke der Seite auf **Edit** (Bearbeiten). ![Schaltfläche „Edit“ (Bearbeiten) für Wiki-Seite](/assets/images/help/wiki/wiki_edit_page_button.png)
 5. Verwende den Texteditor, um den Inhalt der Seite zu bearbeiten. ![Wiki-WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Erstelle eine Commit-Mitteilung, in der Du Deine Änderungen beschreibst. ![Wiki-Commit-Mitteilung](/assets/images/help/wiki/wiki_commit_message.png)

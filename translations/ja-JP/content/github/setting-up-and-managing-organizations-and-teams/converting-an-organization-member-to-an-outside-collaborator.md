@@ -1,16 +1,17 @@
 ---
 title: Organization メンバーを外部コラボレーターに変換する
-intro: Organization の現在のメンバーが、コンサルタントや一時的な雇用者などで、特定のリポジトリへのアクセスのみが必要な場合は、そのメンバーを「外部コラボレーター」に変換できます。
+intro: 'Organization の現在のメンバーが、コンサルタントや一時的な雇用者などで、特定のリポジトリへのアクセスのみが必要な場合は、そのメンバーを「外部コラボレーター」に変換できます。'
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }}Organization メンバーを外部コラボレーターに変換できます。
+{% data reusables.organizations.owners-and-admins-can %}Organization メンバーを外部コラボレーターに変換できます。
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }} {{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
 Organization のメンバーが外部コラボレーターに変換された後は、現在の Team メンバーシップによって許可されるリポジトリにしかアクセスできません。 Organization の明示的なメンバーではなくなり、以下のことができなくなります:
 
@@ -25,9 +26,9 @@ Organization のメンバーが外部コラボレーターに変換された後�
 
 Organization のメンバーを外部コラボレーターに変換する際、Organization メンバーとしての権限は 3 か月保存されるので、この期間内に、そのユーザを Organization に{% if currentVersion == "free-pro-team@latest" %}再参加するよう招待{% else %}再追加{% endif %}すれば、メンバーとしての権限を回復できます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. 外部コラボレーターに変換したい人を選択します。 ![2 人のメンバーを選択した状態のメンバーリスト](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. メンバーのリストの上のドロップダウンメニューで、[**Convert to outside collaborator**] をクリックします。 ![メンバーを外部コラボレーターに変換するオプションのあるドロップダウンメニュー](/assets/images/help/teams/user-bulk-management-options.png)
 6. メンバーの外部コラボレーターへの変換に関する情報を読み、[**Convert to outside collaborator**] をクリックします。 ![外部コラボレーターの権限に関する情報および [Convert to outside collaborator] ボタン](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)

@@ -5,12 +5,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Tipos de reação
 
 Ao criar uma reação, os valores permitidos para o parâmetro `conteúdo` são os seguintes (com o emoji correspondente para referência):
 
-{{ site.data.reusables.repositories.reaction_list }}
+{% data reusables.repositories.reaction_list %}
 
 {% include rest_operations_at_current_path %}

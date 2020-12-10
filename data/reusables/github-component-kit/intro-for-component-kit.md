@@ -1,1 +1,0 @@
-The {{ site.data.variables.product.prodname_component_kit }} uses {{ site.data.variables.product.prodname_github_app }}s and {{ site.data.variables.product.prodname_actions }} to power interactive elements within the {{ site.data.variables.product.prodname_dotcom }} UI. For example, you can guide repository users with next steps or prompt them to accept license agreements.

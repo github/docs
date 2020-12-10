@@ -9,11 +9,12 @@ intro: Web 挂钩是一种通知方式，只要仓库或组织上发生特定操
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**提示：** {{ site.data.reusables.organizations.owners-and-admins-can }} 为组织管理 web 挂钩。 {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**提示：** {% data reusables.organizations.owners-and-admins-can %} 为组织管理 web 挂钩。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
@@ -21,9 +22,9 @@ versions:
 
 * 推送到仓库
 * 打开拉取请求
-* 构建 {{ site.data.variables.product.prodname_pages }} 网站
+* 构建 {% data variables.product.prodname_pages %} 网站
 * 团队新增成员
 
-使用 {{ site.data.variables.product.product_name }} API 可以让这些 web 挂钩更新外部议题跟踪器、触发 CI 构建、更新备份镜像，甚至部署到生产服务器。
+使用 {% data variables.product.product_name %} API 可以让这些 web 挂钩更新外部议题跟踪器、触发 CI 构建、更新备份镜像，甚至部署到生产服务器。
 
 要设置新的 web 挂钩，您需要访问外部服务器并熟悉所涉及的技术程序。 有关构建 web 挂钩的帮助，包括可以关联的完整操作列表，请参阅“[web 挂钩](/webhooks)”。

@@ -1,23 +1,24 @@
 ---
 title: Sobre métodos de merge no GitHub
-intro: 'Você pode permitir que contribuidores com acesso push ao seu repositório façam merge das respectivas pull requests no {{ site.data.variables.product.product_location }} com diferentes opções de merge ou apliquem um método de merge específico para todas as pull requests do seu repositório.'
+intro: 'Você pode permitir que contribuidores com acesso push ao seu repositório façam merge das respectivas pull requests no {% data variables.product.product_location %} com diferentes opções de merge ou apliquem um método de merge específico para todas as pull requests do seu repositório.'
 redirect_from:
   - /articles/about-merge-methods-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.pull_requests.configure_pull_request_merges_intro }} É possível aplicar um tipo de método de merge, como combinação por squash ou rebase de commit, apena habilitando o método desejado para o repositório.
+{% data reusables.pull_requests.configure_pull_request_merges_intro %} É possível aplicar um tipo de método de merge, como combinação por squash ou rebase de commit, apena habilitando o método desejado para o repositório.
 
-{{ site.data.reusables.pull_requests.default_merge_option }}
+{% data reusables.pull_requests.default_merge_option %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 O método de merge padrão cria um commit de mesclagem. Você pode impedir que uma pessoa faça pushing com commits por merge em um branch protegido aplicando um histórico de commit linear. Para obter mais informações, consulte "[Exigindo um histórico de commit linear](/github/administering-a-repository/requiring-a-linear-commit-history)".{% endif %}
 
 ### Combinar por squash os commits de merge
 
-{{ site.data.reusables.pull_requests.squash_and_merge_summary }}
+{% data reusables.pull_requests.squash_and_merge_summary %}
 
 Antes de habilitar a combinação de commits por squash, considere estas desvantagens:
 - Você perde informações sobre quando alterações específicas foram originalmente feitas e quem criou os commits combinados por squash.
@@ -28,9 +29,9 @@ Para obter mais informações, consulte "[Configurar combinação de commits por
 
 ### Fazer rebase e merge de seus commits
 
-{{ site.data.reusables.pull_requests.rebase_and_merge_summary }}
+{% data reusables.pull_requests.rebase_and_merge_summary %}
 
 Antes de habilitar o rebase de commit, leve em consideração estas desvantagens:
-- Os contribuidores do repositório podem ter que fazer rebase na linha de comando, resolver conflitos e forçar push de suas alterações no branch de tópico da pull request (ou branch de head remoto) para que possam usar a opção **rebase and merge** (fazer rebase e merge) no {{ site.data.variables.product.product_location }}. O push forçado deve ser feito com cuidado para que os contribuidores não substituam o trabalho que outras pessoas usaram como base para o respectivo trabalho. Para saber mais sobre quando a opção **Rebase and merge** (Fazer rebase e merge) é desabilitada no {{ site.data.variables.product.product_location }} e sobre o fluxo de trabalho para reabilitá-la, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
+- Os contribuidores do repositório podem ter que fazer rebase na linha de comando, resolver conflitos e forçar push de suas alterações no branch de tópico da pull request (ou branch de head remoto) para que possam usar a opção **rebase and merge** (fazer rebase e merge) no {% data variables.product.product_location %}. O push forçado deve ser feito com cuidado para que os contribuidores não substituam o trabalho que outras pessoas usaram como base para o respectivo trabalho. Para saber mais sobre quando a opção **Rebase and merge** (Fazer rebase e merge) é desabilitada no {% data variables.product.product_location %} e sobre o fluxo de trabalho para reabilitá-la, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)".
 
 Para obter mais informações, consulte "[Configurar rebase de commit para pull requests](/articles/configuring-commit-rebasing-for-pull-requests)".

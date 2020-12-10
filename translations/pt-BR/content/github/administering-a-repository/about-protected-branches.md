@@ -1,20 +1,21 @@
 ---
 title: Sobre branches protegidos
 intro: 'Os branches protegidos garantem que colaboradores no seu repositório não possam fazer alterações irreversíveis nos branches. Habilitar branches protegidos também permite habilitar outros requisitos e verificações opcionais, como verificação de status obrigatória e revisões obrigatórias.'
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.pull_requests.about-protected-branches }} Você pode optar por aplicar restrições sobre como um pull request é mesclado no seu repositório.
+{% data reusables.pull_requests.about-protected-branches %} Você pode optar por aplicar restrições sobre como um pull request é mesclado no seu repositório.
 
 Os proprietários de repositório e as pessoas com permissões de administrador para um repositório podem impor determinados fluxos de trabalho ou requisitos, antes que um colaborador possa fazer merge em seu repositório criando regras de branch protegido.
 
-{{ site.data.reusables.repositories.branch-rules-example }} Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)."
+{% data reusables.repositories.branch-rules-example %} Para obter mais informações, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)."
 
 ### Priorização de regras de branches protegidos
 
@@ -24,7 +25,7 @@ As regras de branch protegido que mencionam um caractere especial, como `*`, `?`
 
 ### Configurações de proteção de branch
 
-Quando você cria uma regra de proteção de branch em um repositório, colaboradores não podem forçar push para o branch protegido ou excluir o branch{% if currentVersion == "free-pro-team@latest" %} por padrão{% endif %}. Você pode habilitar outras configurações de proteção de branch. Para obter informações, consulte "[Definir a possibilidade de mesclagem de pull requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)".
+Ao criar uma regra de proteção de branch em um repositório, os colaboradores não podem fazer push forçado no branch protegido ou excluir o branch{% if currentVersion == "free-pro-team@latest" %} por padrão{% endif %}. Você pode habilitar outras configurações de proteção de branch. Para obter informações, consulte "[Definir a possibilidade de mesclagem de pull requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)".
 
 ### Leia mais
 

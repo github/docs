@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+{% data reusables.two_fa.auth_methods_2fa %}
 
 ### Requisitos para aplicar la autenticación de dos factores
 
@@ -26,12 +26,12 @@ Antes de que puedas requerir que los {% if currentVersion == "free-pro-team@late
 
 Antes de que requieras el uso de autenticación de dos factores, recomendamos que se lo notifiques a los {% if currentVersion == "free-pro-team@latest" %}miembros de la organización, colaboradores externos y gerentes de facturación{% else %}miembros de la organización y colaboradores externos{% endif %} y les solicites que configuren la 2FA para sus cuentas. Puedes [ver si los miembros y colaboradores externos ya utilizan la 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) en la página de Personas de tu organización.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. Si algún miembro o colaborador externo se elimina de tu organización, te recomendamos enviarle una invitación para reinstalar sus privilegios antiguos y el acceso a tu organización. Deben habilitar la autenticación de dos factores para poder aceptar la invitación.
 {% endif %}
@@ -42,9 +42,9 @@ Para ver las personas que se eliminaron automáticamente de tu organización por
 
 ![Evento de registro de auditoría que muestra un usuario eliminado por no cumplir con la 2FA](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Ingresa tu consulta de búsqueda. Para buscar por:
     - Miembros de la organización eliminados, utiliza `action:org.remove_member` en tu consulta de búsqueda
     - Colaboradores externos eliminados, utiliza `action:org.remove_outside_collaborator` en tu consulta de búsqueda{% if currentVersion == "free-pro-team@latest" %}

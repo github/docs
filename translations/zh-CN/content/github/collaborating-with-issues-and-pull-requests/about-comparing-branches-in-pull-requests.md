@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -38,19 +39,19 @@ versions:
 
 ![差异查看选项菜单](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-为简化审查大型拉取请求中的更改，您可以过滤差异，只显示所选的文件类型{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、显示您是其代码所有者的文件、隐藏您查看过的文件{% endif %}或隐藏已删除的文件。 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
+为简化审查大型拉取请求中的更改，您可以过滤差异，只显示所选的文件类型、显示您是其代码所有者的文件、隐藏您查看过的文件或隐藏已删除的文件。 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
 
   ![文件过滤器下拉菜单](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ### 三点和两点 Git 差异比较
 
-默认情况下，{{ site.data.variables.product.prodname_dotcom }} 上的拉取请求显示三点差异，或者比较主题分支的最近版本与其中使用基本分支最新同步主题分支的提交。
+默认情况下，{% data variables.product.prodname_dotcom %} 上的拉取请求显示三点差异，或者比较主题分支的最近版本与其中使用基本分支最新同步主题分支的提交。
 
-要在 {{ site.data.variables.product.prodname_dotcom }} 上查看两点差异比较中的两个 committish 参考，可以编辑仓库的“比较更改”页面的 URL。 更多信息请参阅 _Pro Git_ 书籍网站中的 ["committish" 的 Git 词汇](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish)。
+要在 {% data variables.product.prodname_dotcom %} 上查看两点差异比较中的两个 committish 参考，可以编辑仓库的“比较更改”页面的 URL。 更多信息请参阅 _Pro Git_ 书籍网站中的 ["committish" 的 Git 词汇](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish)。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-两点差异直接互相比较两个 Git committish 参考，如 SHA 或 OID（对象 ID）。 在 {{ site.data.variables.product.prodname_dotcom }} 上，两点差异比较中的 Git committish 参考必须推送到同一仓库或其复刻。
+两点差异直接互相比较两个 Git committish 参考，如 SHA 或 OID（对象 ID）。 在 {% data variables.product.prodname_dotcom %} 上，两点差异比较中的 Git committish 参考必须推送到同一仓库或其复刻。
 
 如果要模拟拉取请求中的两点差异并查看每个分支最新版本之间的比较结果，可以将基本分支合并到主题分支，以更新分支之间最新的共同原型。
 

@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+ 
+  
 
-
-
-A [API de Implantações][deploy API] fornece seus projetos hospedados em {{ site.data.variables.product.product_name }} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você poderá coordenar suas implantações no momento em que seu código chegar a `mestre`.
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combinado com [a API de Status][status API], você será capaz de coordenar suas implantações no momento em que seu código chegar ao branch-padrão.
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 
@@ -54,7 +55,7 @@ Clique em **Update webhook** (Atualizar webhook). Você deve ver uma resposta de
 * Status da implantação
 * Pull Request
 
-Esses são os eventos que {{ site.data.variables.product.product_name }} serão enviados ao nosso servidor sempre que ocorrer a ação relevante. Vamos configurar nosso servidor para o manipular *apenas* quando pull requests forem mesclados neste momento:
+Esses são os eventos que {% data variables.product.product_name %} serão enviados ao nosso servidor sempre que ocorrer a ação relevante. Vamos configurar nosso servidor para o manipular *apenas* quando pull requests forem mesclados neste momento:
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +70,7 @@ post '/event_handler' do
 end
 ```
 
-O que está acontecendo? Cada evento que {{ site.data.variables.product.product_name }} envia, anexa um cabeçalho de HTTP de `X-GitHub-Event`. Por enquanto, nos importaremos apenas com os eventos do PR. Quando um pull request é mesclado (seu estado é `fechado` e `mesclado` é `verdadeiro`), vamos iniciar uma implantação.
+O que está acontecendo? Cada evento que {% data variables.product.product_name %} envia, anexa um cabeçalho de HTTP de `X-GitHub-Event`. Por enquanto, nos importaremos apenas com os eventos do PR. Quando um pull request é mesclado (seu estado é `fechado` e `mesclado` é `verdadeiro`), vamos iniciar uma implantação.
 
 Para testar esta validação de conceito, faça algumas alterações em um branch no repositório de testes, abra um pull request e faça o merge. Seu servidor deve responder de acordo!
 
@@ -144,7 +145,7 @@ No GitHub, usamos uma versão do [Heavan][heaven] para gerenciar nossas implanta
 
 Pronto! Você não precisa criar sua própria configuração de implantação para usar este exemplo. Você sempre pode confiar nas [Integrações do GitHub][integrations].
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

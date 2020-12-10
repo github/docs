@@ -1,29 +1,30 @@
 ---
 title: Adicionar uma nova chave GPG à sua conta do GitHub
-intro: 'Para configurar sua conta do {{ site.data.variables.product.product_name }} para usar a chave GPG nova (ou a existente), você também precisará adicioná-la à sua conta do {{ site.data.variables.product.product_name }}.'
+intro: 'Para configurar sua conta do {% data variables.product.product_name %} para usar a chave GPG nova (ou a existente), você também precisará adicioná-la à sua conta do {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Antes de adicionar uma nova chave GPG à suas conta do {{ site.data.variables.product.product_name }}, você deve ter:
+Antes de adicionar uma nova chave GPG à suas conta do {% data variables.product.product_name %}, você deve ter:
 - [Verificado a existência de chaves GPG](/articles/checking-for-existing-gpg-keys)
 - [Gerado e copiado uma nova chave GPG](/articles/generating-a-new-gpg-key)
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
-Ao verificar uma assinatura, extraímos a assinatura e tentamos analisar sua key-id. Fazemos a correspondência da key-id com as chaves carregadas no {{ site.data.variables.product.product_name }}. Enquanto não for feito upload da chave GPG no {{ site.data.variables.product.product_name }}, não podemos verificar suas assinaturas.
+Ao verificar uma assinatura, extraímos a assinatura e tentamos analisar sua key-id. Fazemos a correspondência da key-id com as chaves carregadas no {% data variables.product.product_name %}. Enquanto não for feito upload da chave GPG no {% data variables.product.product_name %}, não podemos verificar suas assinaturas.
 
 ### Adicionar uma chave GPG
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. Clique em **New GPG key** (Nova chave GPG). ![Botão GPG Key (Chave GPG)](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. No campo "Key" (Chave), cole a chave GPG que você copiou quando [gerou sua chave GPG](/articles/generating-a-new-gpg-key). ![O campo de chave](/assets/images/help/settings/gpg-key-paste.png)
 5. Clique em **Add GPG key** (Adicionar chave GPG). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/gpg-add-key.png)
-6. Para confirmar a ação, insira sua senha do {{ site.data.variables.product.product_name }}.
+6. Para confirmar a ação, insira sua senha do {% data variables.product.product_name %}.
 
 ### Leia mais
 

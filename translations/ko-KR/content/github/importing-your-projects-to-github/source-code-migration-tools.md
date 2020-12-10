@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -40,7 +41,7 @@ We recommend these tools for moving changes between Team Foundation Server and G
 
 {% tip %}
 
-**Tip:** After you've successfully converted your project to Git, you can [push it to {{ site.data.variables.product.prodname_dotcom }}](/articles/pushing-commits-to-a-remote-repository/).
+**Tip:** After you've successfully converted your project to Git, you can [push it to {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 
@@ -50,6 +51,6 @@ We recommend these tools for moving changes between Team Foundation Server and G
 
 - "[About GitHub Importer](/articles/about-github-importer)"
 - "[Importing a repository with GitHub Importer](/articles/importing-a-repository-with-github-importer)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

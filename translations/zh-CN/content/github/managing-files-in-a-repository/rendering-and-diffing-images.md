@@ -1,22 +1,23 @@
 ---
 title: 呈现图像和比较差异
-intro: '{{ site.data.variables.product.product_name }} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 除了简单地显示这些图像以外，还有几种方法可以比较这些图像格式版本之间的差异。'
+intro: '{% data variables.product.product_name %} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 除了简单地显示这些图像以外，还有几种方法可以比较这些图像格式版本之间的差异。'
 redirect_from:
   - /articles/rendering-and-diffing-images
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**注：**如果您使用 Firefox 浏览器，则 {{ site.data.variables.product.prodname_dotcom }} 上的 SVG 可能无法呈现。
+**注：**如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
 
 {% endnote %}
 
 ### 查看图像
 
-您可以在 {{ site.data.variables.product.product_name }} 仓库中直接浏览和查看图像：
+您可以在 {% data variables.product.product_name %} 仓库中直接浏览和查看图像：
 
 ![内联图像](/assets/images/help/images/view.png)
 

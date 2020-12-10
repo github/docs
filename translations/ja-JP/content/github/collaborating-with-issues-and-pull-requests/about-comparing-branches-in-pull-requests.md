@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -38,23 +39,23 @@ diff の見方には複数の選択肢があります。
 
 ![Diff の表示のオプションメニュー](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-大きなプルリクエスト中の変更のレビューをシンプルにするために、選択されたファイルタイプだけを表示、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}コードオーナーであるファイルを表示、表示したことのあるファイルを非表示、{% endif %}または削除されたファイルを非表示にするように diff をフィルタリングできます。 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
 
   ![ファイルフィルタのドロップダウンメニュー](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ### スリードットおよびツードット Git diff での比較
 
-デフォルトでは、{{ site.data.variables.product.prodname_dotcom }} のプルリクエストはスリードットdiff、すなわちトピックブランチの最新バージョンと、トピックブランチが最後に base ブランチと同期されたコミットとの比較を表示します。
+デフォルトでは、{% data variables.product.prodname_dotcom %} のプルリクエストはスリードットdiff、すなわちトピックブランチの最新バージョンと、トピックブランチが最後に base ブランチと同期されたコミットとの比較を表示します。
 
-{{ site.data.variables.product.prodname_dotcom }} 上で、ツードット diff を比較する際に 2 つの committish のリファレンスを見たい場合には、リポジトリの [Comparing changes] ページの URL を編集できます。 詳しい情報については _Pro Git_ ブックサイトの [Git 用語集の "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) を参照してください。
+{% data variables.product.prodname_dotcom %} 上で、ツードット diff を比較する際に 2 つの committish のリファレンスを見たい場合には、リポジトリの [Comparing changes] ページの URL を編集できます。 詳しい情報については _Pro Git_ ブックサイトの [Git 用語集の "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) を参照してください。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-ツードット diff は SHA あるいは OID (Object ID) など、2 つの Git の committish 参照を直接互いに比較します。 {{ site.data.variables.product.prodname_dotcom }} では、ツードット diff での比較中の Git の committish 参照は、同じリポジトリあるいはそのフォークにプッシュされなければなりません。
+ツードット diff は SHA あるいは OID (Object ID) など、2 つの Git の committish 参照を直接互いに比較します。 {% data variables.product.prodname_dotcom %} では、ツードット diff での比較中の Git の committish 参照は、同じリポジトリあるいはそのフォークにプッシュされなければなりません。
 
 プルリクエスト中でツードット diff をシミュレートし、各ブランチの最新バージョン同士の比較を見たい場合には、ベースブランチをトピックブランチにマージできます。そうすれば、ブランチ間の最後の共通の祖先が更新されます。
 
-変更を比較するための Git コマンドに関する詳しい情報については、_Pro Git_ ブックサイトの「[Git diff のオプション](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)」を参照してください。
+For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
 ### diffが表示されない理由
 - ファイルあるいは特定のファイルタイプの合計での制限を超えた。 詳しい情報については[リポジトリ中のコンテンツとdiffの表示の制限](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)を参照してください。

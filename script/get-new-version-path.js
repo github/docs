@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-require('../lib/feature-flags')
 const path = require('path')
 const assert = require('assert')
 const patterns = require('../lib/patterns')

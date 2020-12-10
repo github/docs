@@ -1,6 +1,6 @@
 ---
 title: About notifications
-intro: 'Notifications provide updates about the activities and conversations you''re interested in. You can receive notifications on {{ site.data.variables.product.product_name }} or through your email client.'
+intro: 'Notifications provide updates about the activities and conversations you''re interested in. You can receive notifications on {% data variables.product.product_name %} or through your email client.'
 versions:
   enterprise-server: <2.21
 ---
@@ -13,13 +13,13 @@ The notifications you receive will either be *participating* notifications or *w
 - "[About email notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
 - "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
 
-{{ site.data.reusables.notifications.outbound_email_tip }}
+{% data reusables.notifications.outbound_email_tip %}
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 #### Participating notifications
 
-{{ site.data.variables.product.product_name }} sends *participating* notifications when you're directly involved in activities or conversations within a repository or a team you're a member of. You'll receive a notification when:
+{% data variables.product.product_name %} sends *participating* notifications when you're directly involved in activities or conversations within a repository or a team you're a member of. You'll receive a notification when:
   - You, or a team you're a member of, are mentioned. For more information, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)."
   - The parent team of a child team you're a member of is mentioned. For more information, see "[About teams](/articles/about-teams)."
   - You're assigned to an issue or pull request.
@@ -33,9 +33,8 @@ The notifications you receive will either be *participating* notifications or *w
 
 #### Watching notifications
 
-{{ site.data.variables.product.product_name }} sends *watching* notifications for updates in repositories or team discussions that you're watching. {% if currentVersion ver_gt "enterprise-server@2.17" %} {{ site.data.reusables.notifications.auto-watch }}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
-
-{% endif %}You'll receive a notification when:
+{% data variables.product.product_name %} sends *watching* notifications for updates in repositories or team discussions that you're watching.  {% data reusables.notifications.auto-watch %}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
+You'll receive a notification when:
   - An issue is opened.
   - A comment is added to an open issue.
   - A pull request is opened.

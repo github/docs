@@ -1,6 +1,6 @@
 ---
 title: Auditar usuarios a través de tu instancia
-intro: 'El tablero de registro de auditoría {{ site.data.variables.product.prodname_ghe_server }} le muestra a los administradores del sitio las acciones realizadas por todos los usuarios y organizaciones a través de {{ site.data.variables.product.product_location_enterprise }} dentro de los últimos 90 días. Incluye detalles como quién realizó la acción, de qué acción se trata y cuándo se realizó.'
+intro: 'El tablero de registro de auditoría {% data variables.product.prodname_ghe_server %} le muestra a los administradores del sitio las acciones realizadas por todos los usuarios y organizaciones a través de {% data variables.product.product_location_enterprise %} dentro de los últimos 90 días. Incluye detalles como quién realizó la acción, de qué acción se trata y cuándo se realizó.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-### Acceder al registro de auditoría {{ site.data.variables.product.prodname_ghe_server }}
+### Acceder al registro de auditoría {% data variables.product.prodname_ghe_server %}
 
-El tablero de registro de auditoría te brinda una presentación visual de los datos de auditoría a través de {{ site.data.variables.product.product_location_enterprise }}.
+El tablero de registro de auditoría te brinda una presentación visual de los datos de auditoría a través de {% data variables.product.product_location_enterprise %}.
 
 ![Tablero de registro de auditoría en toda la instancia](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 
 Dentro del mapa, puedes usar panorámica y zoom para ver eventos en todo el mundo. Mantén el puntero sobre un país para ver un recuento rápido de los eventos de ese país.
 
 ### Buscar eventos a través de tu instancia
 
-El registro de auditoría detalla la siguiente información acerca de las acciones realizadas dentro de {{ site.data.variables.product.product_location_enterprise }}:
+El registro de auditoría detalla la siguiente información acerca de las acciones realizadas dentro de {% data variables.product.product_location_enterprise %}:
 
 * [El repositorio](#search-based-on-the-repository) en el cual una acción fue realizada.
 * [El usuario](#search-based-on-the-user) que realizó la acción.
@@ -36,7 +36,7 @@ El registro de auditoría detalla la siguiente información acerca de las accion
 
 **Notas:**
 
-- Si bien no puedes utilizar texto para buscar entradas de auditoría, puedes crear consultas de búsqueda usando una variedad de filtros. Se admiten muchos operadores para [buscar a través de {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/user/articles/searching-github).
+- Si bien no puedes utilizar texto para buscar entradas de auditoría, puedes crear consultas de búsqueda usando una variedad de filtros. Se admiten muchos operadores para [buscar a través de {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/searching-github).
 - Para buscar eventos de más de 90 días, usa el calificador `created`.
 
 {% endwarning %}
@@ -59,7 +59,7 @@ El calificador `actor` examina eventos basados en el miembro de tu organización
 * `actor:octocat actor:hubot` encuentra todos los eventos realizados tanto por `octocat` como por `hubot`.
 * `-actor:hubot` excluye todos los eventos realizados por `hubot`.
 
-Solo puedes usar un nombre de usuario {{ site.data.variables.product.prodname_ghe_server }}, no el nombre real de un individuo.
+Solo puedes usar un nombre de usuario {% data variables.product.prodname_ghe_server %}, no el nombre real de un individuo.
 
 #### Búsqueda basada en la organización
 

@@ -12,18 +12,18 @@ versions:
 
 ### 查看个人帐户的收据
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.view-payment-history }}
-{{ site.data.reusables.dotcom_billing.download_receipt }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.view-payment-history %}
+{% data reusables.dotcom_billing.download_receipt %}
 
 ### 查看组织的收据
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.view-payment-history }}
-{{ site.data.reusables.dotcom_billing.download_receipt }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.view-payment-history %}
+{% data reusables.dotcom_billing.download_receipt %}

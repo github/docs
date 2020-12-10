@@ -10,14 +10,14 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-intro: 'SSH 访问允许用户运行 {{ site.data.variables.product.prodname_ghe_server }} 命令行实用程序，可用于故障排查、运行备份和配置复制。'
+intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   enterprise-server: '*'
 ---
 
 ### 关于管理 shell 访问
 
-如果您有权限通过 SSH 访问管理 shell，可运行 {{ site.data.variables.product.prodname_ghe_server }} 的命令行实用程序。 SSH 访问也可用于故障排查、运行备份和配置复制。 管理 SSH 访问与 Git SSH 访问分开管理，仅可通过端口 122 访问。
+如果您有权限通过 SSH 访问管理 shell，可运行 {% data variables.product.prodname_ghe_server %} 的命令行实用程序。 SSH 访问也可用于故障排查、运行备份和配置复制。 管理 SSH 访问与 Git SSH 访问分开管理，仅可通过端口 122 访问。
 
 ### 允许通过 SSH 访问管理 shell
 
@@ -29,10 +29,10 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 3. 在“SSH access”下，将密钥粘贴到文本框中，然后单击 **Add key**。 ![添加 SSH 密钥的文本框和按钮](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ### 通过 SSH 连接到管理 shell
 
@@ -46,7 +46,7 @@ admin@github-example-com:~$ █
 
 #### 排查 SSH 连接问题
 
-如果在尝试通过 SSH 连接到 {{ site.data.variables.product.product_location_enterprise }} 时发生 `Permission denied (publickey)` 错误，请确认您是否是通过端口 122 连接的。 您可能需要明确指定要使用的 SSH 私钥。
+如果在尝试通过 SSH 连接到 {% data variables.product.product_location %} 时发生 `Permission denied (publickey)` 错误，请确认您是否是通过端口 122 连接的。 您可能需要明确指定要使用的 SSH 私钥。
 
 要使用命令行指定 SSH 私钥，请运行包含 `-i` 参数的 `ssh`。
 
@@ -65,8 +65,8 @@ Host <em>hostname</em>
 
 ### 使用本地控制台访问管理 shell
 
-在 SSH 不可用等紧急情况下，您可以在本地访问管理 shell。 以 `admin` 用户身份登录，并使用在 {{ site.data.variables.product.prodname_ghe_server }} 初始设置期间确定的密码。
+在 SSH 不可用等紧急情况下，您可以在本地访问管理 shell。 以 `admin` 用户身份登录，并使用在 {% data variables.product.prodname_ghe_server %} 初始设置期间确定的密码。
 
 ### 管理 shell 的访问限制
 
-管理 shell 访问仅可用于故障排查和执行记录的操作程序。 修改系统和应用程序文件、运行程序或安装不受支持的软件包可能导致支持合约失效。 如果您对支持合约允许的活动有任何疑问，请联系 {{ site.data.variables.contact.contact_ent_support }}。
+管理 shell 访问仅可用于故障排查和执行记录的操作程序。 修改系统和应用程序文件、运行程序或安装不受支持的软件包可能导致支持合约失效。 如果您对支持合约允许的活动有任何疑问，请联系 {% data variables.contact.contact_ent_support %}。

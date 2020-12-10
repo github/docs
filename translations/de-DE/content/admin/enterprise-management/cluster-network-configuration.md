@@ -1,6 +1,6 @@
 ---
 title: Clusternetzwerk-Konfiguration
-intro: '{{ site.data.variables.product.prodname_ghe_server }} Clustering basiert auf der richtigen DNS-Namensauflösung, dem Lastausgleich und der Kommunikation zwischen den Knoten, um ordnungsgemäß zu funktionieren.'
+intro: '{% data variables.product.prodname_ghe_server %} Clustering basiert auf der richtigen DNS-Namensauflösung, dem Lastausgleich und der Kommunikation zwischen den Knoten, um ordnungsgemäß zu funktionieren.'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -71,7 +71,6 @@ Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen dies
 | 8302/UDP  | Consul                       |
 | 25827/UDP | Collectd                     |
 
-
 ### Load-Balancer konfigurieren
 
  Sie sollten einen externen TCP-basierten Load-Balancer verwenden, der das PROXY-Protokoll unterstützt, um den Traffic auf die Knoten zu verteilen. Beachten Sie die folgenden Load-Balancer-Konfigurationen:
@@ -79,17 +78,17 @@ Wenn sich zwischen Knoten eine Firewall auf Netzwerkebene befindet, müssen dies
  - TCP-Ports (siehe unten) sollten an Knoten weitergeleitet werden, auf denen der Dienst `web-server` ausgeführt wird. Dies sind die einzigen Knoten, die externe Clientanfragen verarbeiten.
  - Sticky Sessions sollten nicht aktiviert werden.
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### Clientverbindungsinformationen verarbeiten
 
 Da Clientverbindungen zum Cluster vom Load-Balancer stammen, kann die Client-IP-Adresse verloren gehen. Zum entsprechenden Erfassen der Clientverbindungsinformationen sind zusätzliche Überlegungen nötig.
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### PROXY-Unterstützung auf {{ site.data.variables.product.prodname_ghe_server }} aktivieren
+#### PROXY-Unterstützung auf {% data variables.product.prodname_ghe_server %} aktivieren
 
 Es wird dringend empfohlen, die PROXY-Unterstützung für Ihre Instanz und für den Load-Balancer zu aktivieren.
 
@@ -99,11 +98,11 @@ Es wird dringend empfohlen, die PROXY-Unterstützung für Ihre Instanz und für 
   ```
   - Verwenden Sie für den Load-Balancer die von Ihrem Anbieter bereitgestellten Anweisungen.
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### X-Forwarded-For-Unterstützung für {{ site.data.variables.product.prodname_ghe_server }} aktivieren
+#### X-Forwarded-For-Unterstützung für {% data variables.product.prodname_ghe_server %} aktivieren
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 Führen Sie zum Aktivieren des Headers `X-Fowarded-For` den folgenden Befehl aus:
 
@@ -111,14 +110,14 @@ Führen Sie zum Aktivieren des Headers `X-Fowarded-For` den folgenden Befehl aus
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### Zustandsprüfungen konfigurieren
 Zustandsprüfungen ermöglichen einem Load-Balancer, das Senden von Traffic an einen nicht antwortenden Knoten zu stoppen, wenn eine vorkonfigurierte Prüfung auf diesem Knoten fehlschlägt. Wenn ein Clusterknoten fehlschlägt, bieten die mit den redundanten Knoten gekoppelten Zustandsprüfungen Hochverfügbarkeit.
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### DNS-Anforderungen
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

@@ -21,4 +21,4 @@ versions:
 
 ### Дополнительная литература
 
-- "[Types of {{ site.data.variables.product.prodname_dotcom }} accounts](/articles/types-of-github-accounts)"
+- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Finding where the key has been used
@@ -13,13 +14,13 @@ versions:
 To determine where the key has already been used, open a terminal and type the `ssh` command. Use the `-i` flag to provide the path to the key you want to check:
 
 ```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{{ site.data.variables.command_line.codeblock }}
-# Connect to {{ site.data.variables.product.product_location }} using a specific ssh key
+$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+# Connect to {% data variables.product.product_location %} using a specific ssh key
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-The *username* in the response is the {{ site.data.variables.product.product_name }} account that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
+The *username* in the response is the {% data variables.product.product_name %} account that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/guides/managing-deploy-keys#deploy-keys).
 
 ### Fixing the issue
 

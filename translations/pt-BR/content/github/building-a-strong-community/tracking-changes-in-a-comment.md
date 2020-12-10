@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visualizar detalhes do histórico de edição de um comentário
@@ -13,7 +14,7 @@ versions:
 Qualquer pessoa com acesso de leitura em um repositório pode visualizar o histórico de edição do comentário.
 
 1. Navegue até o comentário cujo histórico de edição você deseja visualizar.
-{{ site.data.reusables.repositories.edited-comment-list }}
+{% data reusables.repositories.edited-comment-list %}
 
 ### Excluir informações confidenciais do histórico de um comentário
 
@@ -22,11 +23,11 @@ Autores do comentário e pessoas com acesso de gravação a um repositório pode
 Quando você exclui informações confidenciais do histórico de edição do comentário, a pessoa que fez a edição e quando ela fez a edição continuam visíveis no histórico do comentário, mas o conteúdo da edição não está mais disponível.
 
 1. Navegue até o comentário em que você deseja excluir informações confidenciais do histórico de edição.
-{{ site.data.reusables.repositories.edited-comment-list }}
+{% data reusables.repositories.edited-comment-list %}
 3. Na parte superior da janela do histórico de edição, clique em **Options** (Opções). Em seguida, clique em **Delete revision from history** (Excluir revisão do histórico) para excluir o diff que mostra o conteúdo que está sendo adicionado. ![Excluir detalhes de edição do comentário](/assets/images/help/repository/delete-comment-edit-details.png)
 4. Para confirmar a exclusão, clique em **OK**.
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Denunciar abuso ou spam](/articles/reporting-abuse-or-spam)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Relatar abuso ou spam](/articles/reporting-abuse-or-spam)"{% endif %}
 - "[Editar um comentário](/articles/editing-a-comment)"

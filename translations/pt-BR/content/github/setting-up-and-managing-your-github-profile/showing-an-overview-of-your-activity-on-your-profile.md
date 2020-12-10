@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.profile.activity-overview-summary }} Para obter mais informações, consulte "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)".
+{% data reusables.profile.activity-overview-summary %} Para obter mais informações, consulte "[Exibir contribuições no perfil](/articles/viewing-contributions-on-your-profile)".
 
 ![Seção Visão geral de atividade no perfil](/assets/images/help/profile/activity-overview-section.png)
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Acima do gráfico de contribuições, use o menu suspenso **Configurações de contribuição** e selecione ou desmarque **Visão geral da atividade**. ![Habilitar a visão geral das atividades no menu suspenso de configurações de contribuição](/assets/images/help/profile/activity-overview.png)

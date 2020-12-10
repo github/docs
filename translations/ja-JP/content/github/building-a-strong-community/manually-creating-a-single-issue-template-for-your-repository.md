@@ -1,15 +1,16 @@
 ---
 title: リポジトリ用の単一 Issue テンプレートを手動で作成する
-intro: 手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。
+intro: '手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。'
 redirect_from:
   - /articles/creating-an-issue-template-for-your-repository/
   - /articles/manually-creating-a-single-issue-template-for-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 サポートしているどのフォルダーにでも *ISSUE_TEMPLATE/* サブディレクトリを作成し、Issue テンプレートを複数含めることができます。また、`template` クエリパラメータで Issue の本文に使用するテンプレートを指定できます。 詳細は「[クエリパラメータによる Issue およびプルリクエストの自動化について](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)」を参照してください。
 
@@ -28,22 +29,26 @@ assignees: octocat
 ```
 {% note %}
 
-**注釈:** YAML で予約済みの文字を `:` などの引用符で囲む必要があります。 たとえば、`":bug: Bug"` です。
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+{% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Issue テンプレートを追加する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名フィールドで:
     -  Issue テンプレートをリポジトリのルートディレクトリで表示するには、*issue_template* の名前を入力します。 たとえば、`issue_template.md` です。 ![ルートディレクトリの新しい Issue テンプレート名](/assets/images/help/repository/issue-template-file-name.png)
     - リポジトリの `docs` ディレクトリに Issue テンプレートを表示するには、*docs/* に続けて *issue_template* の名前を入力します。 たとえば、`docs/issue_template.md` です。 ![docs ディレクトリの新しい Issue テンプレート](/assets/images/help/repository/issue-template-file-name-docs.png)
@@ -54,9 +59,9 @@ assignees: octocat
     - 予測される動作と実際の動作
     - 問題の再現手順
     - プロジェクトのベンダー、オペレーティング システム、ハードウェアなどの仕様
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
+{% data reusables.files.propose_new_file %}
 
 ### 参考リンク
 

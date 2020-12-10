@@ -1,6 +1,6 @@
 ---
 title: 使用 SSH 连接到 GitHub
-intro: '您可以使用 SSH 连接到 {{ site.data.variables.product.product_name }}。'
+intro: '您可以使用 SSH 连接到 {% data variables.product.product_name %}。'
 redirect_from:
   - /key-setup-redirect/
   - /linux-key-setup/
@@ -14,5 +14,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

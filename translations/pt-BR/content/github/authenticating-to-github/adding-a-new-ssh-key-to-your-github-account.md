@@ -1,20 +1,21 @@
 ---
 title: Adicionar uma nova chave SSH à sua conta do GitHub
-intro: 'Para configurar sua conta do {{ site.data.variables.product.product_name }} para usar a chave SSH nova (ou a existente), você também precisará adicioná-la à sua conta do {{ site.data.variables.product.product_name }}.'
+intro: 'Para configurar sua conta do {% data variables.product.product_name %} para usar a chave SSH nova (ou a existente), você também precisará adicioná-la à sua conta do {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Antes de adicionar uma nova chave SSH à suas conta do {{ site.data.variables.product.product_name }}, você deve ter:
+Antes de adicionar uma nova chave SSH à suas conta do {% data variables.product.product_name %}, você deve ter:
 * [Verificado se há chaves SSH existentes](/articles/checking-for-existing-ssh-keys)
 * [Gerado uma nova chave SSH e adicionado-a ao ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.product.product_name }}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)".
+Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product.product_name %}, você pode configurar qualquer repositório local para usar SSH. Para obter mais informações, consulte "[Alternar URLs remotos de HTTPS para SSH](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh)".
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
 {% mac %}
 
@@ -23,8 +24,8 @@ Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.pr
   Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -33,13 +34,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.pr
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
 7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-{{ site.data.reusables.user_settings.sudo-mode-popup }}
+{% data reusables.user_settings.sudo-mode-popup %}
 
 {% endmac %}
 
@@ -50,8 +51,8 @@ Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.pr
   Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -60,13 +61,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.pr
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
 7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-8. Se solicitado, confirme sua senha do {{ site.data.variables.product.product_name }}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
+8. Se solicitado, confirme sua senha do {% data variables.product.product_name %}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endwindows %}
 
@@ -78,10 +79,10 @@ Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.pr
 
   ```shell
   $ sudo apt-get install xclip
-  # Baixa e instala xclip. Se você não tiver `apt-get`, talvez seja necessário usar outro instalador (como o `yum`)
+  # Baixa e instala xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
   {% tip %}
 
@@ -89,13 +90,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {{ site.data.variables.pr
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Clique em **New SSH key** (Nova chave SSH) ou **Add SSH key** (Adicionar chave SSH). ![Botão SSH Key (Chave SSH)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. No campo "Title" (Título), adicione uma etiqueta descritiva para a nova chave. Por exemplo, se estiver usando um Mac pessoal, você poderá chamar essa chave de "Personal MacBook Air".
 6. Cole sua chave no campo "Key" (Chave). ![O campo de chave](/assets/images/help/settings/ssh-key-paste.png)
 7. Clique em **Add SSH key** (Adicionar chave SSH). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/ssh-add-key.png)
-8. Se solicitado, confirme sua senha do {{ site.data.variables.product.product_name }}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
+8. Se solicitado, confirme sua senha do {% data variables.product.product_name %}.![Caixa de diálogo Sudo mode (Modo sudo)](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endlinux %}
 

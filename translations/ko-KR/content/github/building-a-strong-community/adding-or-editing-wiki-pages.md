@@ -1,22 +1,23 @@
 ---
 title: Adding or editing wiki pages
-intro: 'You can add and edit wiki pages directly on {{ site.data.variables.product.product_name }} or locally using the command line.'
+intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface/
   - /articles/editing-wiki-pages-via-the-online-interface/
   - /articles/adding-and-editing-wik-pages-locally/
   - /articles/adding-and-editing-wiki-pages-locally/
   - /articles/adding-or-editing-wiki-pages
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Adding wiki pages
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. In the upper-right corner of the page, click **New Page**. ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
 4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format. ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
 5. Use the text editor to add your page's content. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
@@ -25,8 +26,8 @@ versions:
 
 ### Editing wiki pages
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**. ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
 5. Use the text editor edit the page's content. ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
 6. Type a commit message describing your changes. ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)

@@ -7,14 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-4. In the left sidebar, click **Installed {{ site.data.variables.product.prodname_github_app }}s**. ![Installed {{ site.data.variables.product.prodname_github_app }}s tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
-5. Next to the {{ site.data.variables.product.prodname_github_app }} you'd like to review, click **Configure**. ![Configure button](/assets/images/help/organizations/configure-installed-integration-button.png)
-6. Review the {{ site.data.variables.product.prodname_github_app }}'s permissions and repository access. ![Option to give the {{ site.data.variables.product.prodname_github_app }} access to all repositories or specific repositories](/assets/images/help/organizations/toggle-integration-repo-access.png)
-    - To give the {{ site.data.variables.product.prodname_github_app }} access to all of your organization's repositories, select **All repositories**.
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+4. In the left sidebar, click **Installed {% data variables.product.prodname_github_app %}s**. ![Installed {% data variables.product.prodname_github_app %}s tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
+5. Next to the {% data variables.product.prodname_github_app %} you'd like to review, click **Configure**. ![Configure button](/assets/images/help/organizations/configure-installed-integration-button.png)
+6. Review the {% data variables.product.prodname_github_app %}'s permissions and repository access. ![Option to give the {% data variables.product.prodname_github_app %} access to all repositories or specific repositories](/assets/images/help/organizations/toggle-integration-repo-access.png)
+    - To give the {% data variables.product.prodname_github_app %} access to all of your organization's repositories, select **All repositories**.
     - To choose specific repositories to give the application access to, select **Only select repositories**, then type a repository name.
 7. Click **Save**.

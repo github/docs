@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 重命名仓库时，除项目网站 URL 外，所有现有信息将自动重定向到新名称，包括：
@@ -15,7 +16,7 @@ versions:
 * 星标
 * 关注者
 
-有关项目网站的更多信息，请参阅“[关于 {{ site.data.variables.product.prodname_pages }}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
+有关项目网站的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)”。
 
 除了重定向 Web 流量以外，所有目标为之前位置的 `git clone`、`git fetch` 或 `git push` 操作都将继续正常工作，如同在新位置进行一样。 不过，为了减少混淆，我们强烈建议将任何现有的本地克隆更新为指向新仓库 URL。 您可以通过在命令行中使用 `git remote` 来执行此操作：
 
@@ -27,13 +28,13 @@ $ git remote set-url origin <em>new_url</em>
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-如果计划重命名具有 {{ site.data.variables.product.prodname_pages }} 网站的仓库，建议对网站使用自定义域。 这可确保重命名仓库不会影响网站的 URL。 更多信息请参阅“[关于自定义域和 {{ site.data.variables.product.prodname_pages }} 网站](/github/working-with-github-pages/about-custom-domains-and-github-pages)”。
+如果计划重命名具有 {% data variables.product.prodname_pages %} 网站的仓库，建议对网站使用自定义域。 这可确保重命名仓库不会影响网站的 URL。 更多信息请参阅“[关于自定义域和 {% data variables.product.prodname_pages %} 网站](/github/working-with-github-pages/about-custom-domains-and-github-pages)”。
 
 {% endif %}
 
 {% tip %}
 
-**提示：**{{ site.data.reusables.organizations.owners-and-admins-can }}重命名仓库。 {{ site.data.reusables.organizations.new-repo-permissions-more-info }}
+**提示：**{% data reusables.organizations.owners-and-admins-can %}重命名仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
 {% endtip %}
 
@@ -43,7 +44,7 @@ $ git remote set-url origin <em>new_url</em>
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在 **Repository Name（仓库名称）**标题下，输入仓库的新名称。 ![仓库重命名](/assets/images/help/repository/repository-name-change.png)
 4. 单击 **Rename（重命名）**。 您已完成！

@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. En la pestaña (People) Personas, haz clic en **Pending invitation** (Invitación pendiente). ![Enlace a invitación pendiente](/assets/images/help/organizations/pending-invitation-link.png)
 5. Junto al nombre de usuario o la dirección de correo electrónico de la persona cuya invitación deseas editar o cancelar, haz clic en **Edit invitation** (Editar invitación). ![Botón Edit invitation (Editar invitación)](/assets/images/help/organizations/edit-invitation-button.png)
 

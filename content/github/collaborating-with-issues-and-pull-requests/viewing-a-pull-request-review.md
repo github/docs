@@ -6,14 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 When you view a full review, you'll see the same version of the pull request as the reviewer did at the time of the review.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
 3. On the "Conversation" tab, scroll to the review you'd like to see, then click **View changes**.
   ![Review header with link to full review](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 

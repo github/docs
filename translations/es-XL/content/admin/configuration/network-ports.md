@@ -14,13 +14,13 @@ versions:
 
 ### Puertos administrativos
 
-Se requieren algunos puertos administrativos para configurar {{ site.data.variables.product.product_location_enterprise }} y ejecutar determinadas funciones. No se requieren puertos administrativos para el uso de la aplicación básica por parte de los usuarios finales.
+Se requieren algunos puertos administrativos para configurar {% data variables.product.product_location_enterprise %} y ejecutar determinadas funciones. No se requieren puertos administrativos para el uso de la aplicación básica por parte de los usuarios finales.
 
 | Port (Puerto) | Servicio | Descripción                                                                                                                                                                                                                                                                                            |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 8443          | HTTPS    | {{ site.data.variables.enterprise.management_console }} segura basada en la web. Requerida para la instalación y la configuración básicas.                                                                                                                                                             |
-| 8080          | HTTP     | {{ site.data.variables.enterprise.management_console }} basada en la web de texto simple. No se requiere excepto que el SSL esté inhabilitado de forma manual.                                                                                                                                         |
-| 122           | SSH      | Acceso shell para {{ site.data.variables.product.product_location_enterprise }}. Se requiere para abrir las conexiones entrantes de todos los otros nodos en la configuración de alta disponibilidad. El puerto SSH predeterminado (22) está destinado al tráfico de red de la aplicación SSH y Git. |
+| 8443          | HTTPS    | {% data variables.enterprise.management_console %} segura basada en la web. Requerida para la instalación y la configuración básicas.                                                                                                                                                             |
+| 8080          | HTTP     | {% data variables.enterprise.management_console %} basada en la web de texto simple. No se requiere excepto que el SSL esté inhabilitado de forma manual.                                                                                                                                         |
+| 122           | SSH      | Acceso shell para {% data variables.product.product_location_enterprise %}. Se requiere para abrir las conexiones entrantes de todos los otros nodos en la configuración de alta disponibilidad. El puerto SSH predeterminado (22) está destinado al tráfico de red de la aplicación SSH y Git. |
 | 1194/UDP      | VPN      | Túnel de red de replicación segura en la configuración de alta disponibilidad. Se requiere que esté abierto para todos los otros nodos en la configuración.                                                                                                                                            |
 | 123/UDP       | NTP      | Se requiere para operar el protocolo de tiempo.                                                                                                                                                                                                                                                        |
 | 161/UDP       | SNMP     | Se requiere para operar el protocolo de revisión de red.                                                                                                                                                                                                                                               |
@@ -36,7 +36,7 @@ Los puertos de la aplicación permiten que los usuarios finales accedan a Git y 
 | 22            | SSH      | Acceso a Git por SSH. Admite las operaciones clonar, extraer y subir a los repositorios privados y públicos.                          |
 | 9418          | Git      | El puerto de protocolo Git admite las operaciones clonar y extraer a los repositorios públicos con comunicación de red desencriptada. |
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### Puertos de correo electrónico
 

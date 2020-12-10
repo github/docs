@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see "[Requesting to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)" and "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)."
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
@@ -22,16 +23,16 @@ Organization owners can change the parent of any team. Team maintainers can chan
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team whose parent you'd like to change.
   ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.organizations.team_settings %}
 6. Use the drop-down menu to choose a parent team, or to remove an existing parent, select **Clear selected value**.
   ![Drop-down menu listing the organization's teams](/assets/images/help/teams/choose-parent-team.png)
 7. Click **Update**.
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Click **Confirm new parent team**.
   ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 

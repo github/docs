@@ -10,8 +10,8 @@ versions:
 
 ### Hochverfügbarkeitsreplikat erstellen
 
-1. Richten Sie eine neue {{ site.data.variables.product.prodname_ghe_server }}-Appliance auf Ihrer gewünschten Plattform ein. Die Replikat-Appliance sollte die CPU-, RAM- und Speichereinstellungen der primären Appliance spiegeln. Sie sollten die Replikat-Appliance in einer unabhängigen Umgebung installieren. Die zugrunde liegenden Hardware-, Software und Netzwerkkomponenten sollten von denen der primären Appliance isoliert sein. Wenn Sie einen Cloud-Anbieter verwenden, sollten Sie eine separate Region oder Zone verwenden. Weitere Informationen finden Sie unter „[{{ site.data.variables.product.prodname_ghe_server }}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
-2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {{ site.data.variables.product.prodname_enterprise }}-Lizenz hoch.
+1. Richten Sie eine neue {% data variables.product.prodname_ghe_server %}-Appliance auf Ihrer gewünschten Plattform ein. Die Replikat-Appliance sollte die CPU-, RAM- und Speichereinstellungen der primären Appliance spiegeln. Sie sollten die Replikat-Appliance in einer unabhängigen Umgebung installieren. Die zugrunde liegenden Hardware-, Software und Netzwerkkomponenten sollten von denen der primären Appliance isoliert sein. Wenn Sie einen Cloud-Anbieter verwenden, sollten Sie eine separate Region oder Zone verwenden. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
+2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz hoch.
 3. Legen Sie ein Administratorpasswort fest, das dem Passwort auf der primären Appliance entspricht, und setzen Sie den Vorgang fort.
 4. Klicken Sie auf **Configure as Replica** (Als Replikat konfigurieren). ![Installationsoptionen mit einem Link zum Konfigurieren Ihrer neuen Instanz als ein Replikat](/assets/images/enterprise/management-console/configure-as-replica.png)
 5. Geben Sie unter „Add new SSH key“ (Neuen SSH-Schlüssel hinzufügen) Ihren SSH-Schlüssel ein.![Option zum Hinzufügen eines SSH-Schlüssels](/assets/images/enterprise/management-console/add-ssh-key.png)
@@ -24,12 +24,12 @@ versions:
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. Führen Sie den Befehl `ghe-repl-setup` erneut aus, um die Verbindung zur primären Instanz zu verifizieren und um den Replikatmodus für das neue Replikat zu aktivieren.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}
 11. Führen Sie den Befehl `ghe-repl-status` aus, um den Status des Replikationskanals jedes Datenspeichers zu verifizieren.
   ```shell
   $ ghe-repl-status
@@ -49,7 +49,7 @@ Diese Beispielkonfiguration verwendet eine primäre Instanz und zwei Replikate, 
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. Standardmäßig sind Replikate für das gleiche Rechenzentrum konfiguriert{% if currentVersion ver_gt "enterprise-server@2.17" %} und versuchen nun, ein Seeding von einem vorhandenen Knoten im gleichen Rechenzentrum aus auszuführen{% endif %}. Konfigurieren Sie die Replikate für unterschiedliche Rechenzentren, indem Sie für die Rechenzentrumsoption einen anderen Wert festlegen. Die entsprechenden Werte sind beliebig, sie müssen sich nur voneinander unterscheiden. Führen Sie den Befehl `ghe-repl-node` auf jedem Knoten aus, und geben Sie das Rechenzentrum an.
+3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Konfigurieren Sie die Replikate für unterschiedliche Rechenzentren, indem Sie für die Rechenzentrumsoption einen anderen Wert festlegen. Die entsprechenden Werte sind beliebig, sie müssen sich nur voneinander unterscheiden. Führen Sie den Befehl `ghe-repl-node` auf jedem Knoten aus, und geben Sie das Rechenzentrum an.
 
   Auf der primären Instanz:
   ```shell

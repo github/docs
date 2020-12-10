@@ -10,7 +10,7 @@ versions:
 
 ### About the default branch
 
-{{ site.data.reusables.branches.new-repo-default-branch }} {{ site.data.reusables.branches.default-branch-automatically-base-branch }} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
+{% data reusables.branches.new-repo-default-branch %} {% data reusables.branches.default-branch-automatically-base-branch %} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
 
 ### Setting the default branch
 
@@ -20,13 +20,13 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
 4. In the default branch drop-down, choose the new default branch. ![Default branch dropdown selector](/assets/images/help/repository/repository-options-defaultbranch.png)
 5. Click **Update**.
 
-You can only switch between branches that already exist on {{ site.data.variables.product.product_location }}. To create a new branch through the UI, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)".
+You can only switch between branches that already exist on {% data variables.product.product_location %}. To create a new branch through the UI, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 

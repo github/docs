@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 当对文件的同一行进行竞争更改时，或者当一个人编辑文件而另一个人删除同一文件时，会发生合并冲突。 更多信息请参阅“[关于合并冲突](/articles/about-merge-conflicts/)”。
 
 {% tip %}
 
-**提示：**您可以使用冲突编辑器在 {{ site.data.variables.product.product_name }} 上解决作为拉取请求组成部分的各分支之间的竞争行更改合并冲突。 更多信息请参阅“[在 GitHub 上解决合并冲突](/articles/resolving-a-merge-conflict-on-github)”。
+**提示：**您可以使用冲突编辑器在 {% data variables.product.product_name %} 上解决作为拉取请求组成部分的各分支之间的竞争行更改合并冲突。 更多信息请参阅“[在 GitHub 上解决合并冲突](/articles/resolving-a-merge-conflict-on-github)”。
 
 {% endtip %}
 
@@ -23,7 +24,7 @@ versions:
 
 例如，如果您和另一个人都在同一 Git 仓库不同分支的同一行中编辑了 _styleguide.md_ 文件，则在尝试合并这些分支时会发生合并冲突错误。 必须使用新提交解决这一合并冲突，然后才能合并这些分支。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 导航到有合并冲突的本地 Git 仓库中。
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -53,7 +54,7 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
   ```
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }} 在本例中，两个更改均整合到最终合并：
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} 在本例中，两个更改均整合到最终合并：
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
@@ -67,7 +68,7 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-现在，您可以在命令行上合并分支，或在 {{ site.data.variables.product.product_name }} 上 [将更改推送到远程仓库](/articles/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
+现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/articles/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
 ### 删除的文件合并冲突
 
@@ -75,7 +76,7 @@ ask your question in IRC.
 
 例如，如果您编辑一个文件（如 *README.md*），而另一个人在同一 Git 仓库的另一个分支中删除同一文件，当您尝试合并这些分支时将发生合并冲突错误。 必须使用新提交解决这一合并冲突，然后才能合并这些分支。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 导航到有合并冲突的本地 Git 仓库中。
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -83,8 +84,8 @@ ask your question in IRC.
 2. 生成受合并冲突影响的文件列表。 在此例中，文件 *README.md* 存在合并冲突。
   ```shell
   $ git status
-  > # On branch master
-  > # Your branch and 'origin/master' have diverged,
+  > # On branch main
+  > # Your branch and 'origin/main' have diverged,
   > # and have 1 and 2 different commits each, respectively.
   > #  (use "git pull" to merge the remote branch into yours)
   > # You have unmerged paths.
@@ -117,7 +118,7 @@ ask your question in IRC.
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-现在，您可以在命令行上合并分支，或在 {{ site.data.variables.product.product_name }} 上 [将更改推送到远程仓库](/articles/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
+现在，您可以在命令行上合并分支，或在 {% data variables.product.product_name %} 上 [将更改推送到远程仓库](/articles/pushing-commits-to-a-remote-repository/)和在拉取请求中[合并更改](/articles/merging-a-pull-request/)。
 
 ### 延伸阅读
 

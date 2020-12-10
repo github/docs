@@ -65,7 +65,7 @@ You may also choose to communicate the reasons why you believe there was a mista
 
 ### How to Submit Your Counter Notice
 
-The fastest way to get a response is to enter your information and answer all the questions on our {{ site.data.variables.contact.contact_dmca }}.
+The fastest way to get a response is to enter your information and answer all the questions on our {% data variables.contact.contact_dmca %}.
 
 You can also send an email notification to <copyright@github.com>. You may include an attachment if you like, but please also include a plain-text version of your letter in the body of your message.
 

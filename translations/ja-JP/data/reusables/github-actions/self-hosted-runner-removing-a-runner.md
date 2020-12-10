@@ -8,8 +8,8 @@
 
         この削除コマンドは、以下のタスクを実行します。
 
-        * {{ site.data.variables.product.product_name }}からのランナーの削除。
+        * {% data variables.product.product_name %}からのランナーの削除。
         * マシン上のセルフホストランナーアプリケーションの設定ファイルの削除。
         * インタラクティブモードで動作していないのであれば設定されているサービスの削除。
 
-    * **マシンにアクセスできない場合：** **Yes, force remove this runner（はい、強制的にこのランナーを削除します）**をクリックして、強制的に{{ site.data.variables.product.product_name }}にランナーを削除させます。
+    * **マシンにアクセスできない場合：** **Yes, force remove this runner（はい、強制的にこのランナーを削除します）**をクリックして、強制的に{% data variables.product.product_name %}にランナーを削除させます。

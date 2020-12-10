@@ -7,6 +7,7 @@ intro: You can create guidelines to communicate how people should contribute to 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 To help your project contributors do good work, you can add a file with contribution guidelines to your project repository's root, `docs`, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file.
@@ -19,7 +20,11 @@ For contributors, the guidelines help them verify that they're submitting well-f
 
 For both owners and contributors, contribution guidelines save time and hassle caused by improperly created pull requests or issues that have to be rejected and re-submitted.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 {% tip %}
 
@@ -29,8 +34,8 @@ You can create default contribution guidelines for your organization{% if curren
 
 ### Adding a *CONTRIBUTING* file
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive, and can have an extension such as *.md* or *.txt*.
   ![New file name](/assets/images/help/repository/new-file-name.png)
     - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
@@ -39,9 +44,9 @@ You can create default contribution guidelines for your organization{% if curren
     - Steps for creating good issues or pull requests.
     - Links to external documentation, mailing lists, or a code of conduct.
     - Community and behavioral expectations.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Examples of contribution guidelines
 
@@ -53,5 +58,5 @@ If you're stumped, here are some good examples of contribution guidelines:
 
 ### Further reading
 - The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}

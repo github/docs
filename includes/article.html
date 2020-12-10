@@ -48,37 +48,26 @@
     <div class="article-grid-toc border-bottom border-xl-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
       <div class="article-grid-toc-content">
         {% if miniTocItems.size > 1 %}
-        <h3 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">{{ site.data.ui.pages.miniToc }}</a></h3>
+        <h3 id="in-this-article" class="f5 mb-2"><a class="link-gray-dark" href="#in-this-article">{% data ui.pages.miniToc %}</a></h3>
         <ul class="list-style-none pl-0 f5 mb-0">
           {% for item in miniTocItems %}
           <li class="ml-{{ item.indentationLevel | times: 3 }} {{ item.platform }} mb-2 lh-condensed">{{ item.contents }}</li>
           {% endfor %}
         </ul>
         {% endif %}
-        <div class="d-none d-xl-block{% if miniTocItems.size > 1 %} border-top border-gray-light mt-4{% endif %}">
-          {% assign helpId = 'xl' %}
-          {% include helpfulness %}
-          {% comment %}
-            <!-- TODO: comment this out after the repo becomes public -->
-            {% include contribution %}
-          {% endcomment %}
-        </div>
       </div>
     </div>
     <div id="article-contents" class="article-grid-body">
-      {% if gettingStartedLinks and popularLinks %}
+      {% if featuredLinks.gettingStarted and featuredLinks.popular %}
       {% include featured-links %}
       {% endif %}
       {{ renderedPage }}
     </div>
     </div>
+
+    <div class="d-block border-top border-gray-light mt-4 markdown-body">
+      {% include helpfulness %}
+      {% unless page.hidden %}{% include contribution %}{% endunless %}
+    </div>
   </article>
-  <div class="d-block d-xl-none border-top border-gray-light mt-4 markdown-body">
-    {% assign helpId = 'sm' %}
-    {% include helpfulness %}
-    {% comment %}
-      <!-- TODO: comment this out after the repo becomes public -->
-      {% include contribution %}
-    {% endcomment %}
-  </div>
 </main>

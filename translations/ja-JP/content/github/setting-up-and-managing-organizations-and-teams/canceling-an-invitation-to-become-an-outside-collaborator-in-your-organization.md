@@ -10,10 +10,10 @@ Organization が所有しているリポジトリで外部のコラボレータ�
 
 保留中のコラボレーターごとに、Organization のリポジトリに参加する招待をすべて同時にキャンセルできます。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. [**X pending collaborators**] をクリックします。 ![[Pending collaborators] ボタン](/assets/images/help/organizations/pending-collaborator-list.png)
 6. 招待をキャンセルする人の隣で、[**Cancel invitations**] をクリックします。 ![[Cancel invitation] ボタン](/assets/images/help/organizations/cancel-pending-collaborators.png)
 7. [**Cancel invitations for pending collaborators**] をクリックします。 ![キャンセルの確認ボタン](/assets/images/help/organizations/confirm-cancelation-of-pending-collaborators.png)

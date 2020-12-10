@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![组织中的团队列表](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,17 +20,17 @@ versions:
 
 ![团队提及图像](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {{ site.data.variables.product.product_location_enterprise }} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {{ site.data.variables.product.product_location_enterprise }} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
+您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### 团队可见性
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### 团队页面
 
@@ -41,7 +42,7 @@ versions:
 
 ### 嵌套团队
 
-您可以在 {{ site.data.variables.product.product_name }} 组织中通过多级嵌套团队反映您的组或公司的层级。 一个父团队可有多个子团队，而每个子团队只能有一个父团队。 您无法嵌套机密团队。
+您可以在 {% data variables.product.product_name %} 组织中通过多级嵌套团队反映您的组或公司的层级。 一个父团队可有多个子团队，而每个子团队只能有一个父团队。 您无法嵌套机密团队。
 
 子团队继承父团队的访问权限，简化大组的权限管理。 当父团队被 @提及时，子团队的成员也会收到通知，因此简化与多组人员的沟通。
 
@@ -55,11 +56,7 @@ versions:
 
 在创建团队时您可以选择父团队，或者以后在组织的层次结构中移动团队。 更多信息请参阅“[在组织的层次结构中移动团队](/articles/moving-a-team-in-your-organization-s-hierarchy)”。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
-
-{% endif %}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 ### 准备在组织中嵌套团队
 

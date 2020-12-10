@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:
@@ -15,7 +16,7 @@ When you rename a repository, all existing information, with the exception of pr
 * Stars
 * Followers
 
-For more information on project sites, see "[About {{ site.data.variables.product.prodname_pages }}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git push` operations targeting the previous location will continue to function as if made on the new location. However, to reduce confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using  `git remote` on the command line:
 
@@ -27,13 +28,13 @@ For more information, see "[Changing a Remote's URL](/github/using-git/changing-
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-If you plan to rename a repository that has a {{ site.data.variables.product.prodname_pages }} site, we recommend using a custom domain for your site. This ensures that the site's URL isn't impacted by renaming the repository. For more information, see "[About custom domains and {{ site.data.variables.product.prodname_pages }} site](/github/working-with-github-pages/about-custom-domains-and-github-pages)."
+If you plan to rename a repository that has a {% data variables.product.prodname_pages %} site, we recommend using a custom domain for your site. This ensures that the site's URL isn't impacted by renaming the repository. For more information, see "[About custom domains and {% data variables.product.prodname_pages %} site](/github/working-with-github-pages/about-custom-domains-and-github-pages)."
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.organizations.owners-and-admins-can }} rename a repository. {{ site.data.reusables.organizations.new-repo-permissions-more-info }}
+**Tip:** {% data reusables.organizations.owners-and-admins-can %} rename a repository. {% data reusables.organizations.new-repo-permissions-more-info %}
 
 {% endtip %}
 
@@ -43,7 +44,7 @@ If you plan to rename a repository that has a {{ site.data.variables.product.pro
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under the **Repository Name** heading, type the new name of your repository. ![Repository rename](/assets/images/help/repository/repository-name-change.png)
 4. Click **Rename**. You're done!

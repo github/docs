@@ -1,7 +1,7 @@
 ---
 title: 创建 JavaScript 操作
-intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -12,18 +12,18 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 简介
 
 在本指南中，您将了解创建和使用打包的 JavaScript 操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 操作将在日志文件中打印“Hello World”或“Hello [who-to-greet]”（如果您提供自定义名称）。
 
-本指南使用 {{ site.data.variables.product.prodname_actions }} 工具包 Node.js 模块来加快开发速度。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
+本指南使用 {% data variables.product.prodname_actions %} 工具包 Node.js 模块来加快开发速度。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
 完成此项目后，您应了解如何构建自己的 JavaScript 操作和在工作流程测试该操作。
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
 ### 基本要求
 
@@ -33,7 +33,7 @@ versions:
 
   https://nodejs.org/en/download/current/
 
-1. 在 {{ site.data.variables.product.product_location }} 上创建新仓库 您可以选择任何仓库名称或如本例一样使用 "hello-world-javascript-action"。 您可以在项目推送到 {{ site.data.variables.product.product_name }} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+1. 在 {% data variables.product.product_location %} 上创建新仓库 您可以选择任何仓库名称或如本例一样使用 "hello-world-javascript-action"。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
 1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
@@ -51,7 +51,7 @@ versions:
 
 ### 创建操作元数据文件
 
-使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
+使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
 
 
 **action.yml**
@@ -77,9 +77,9 @@ runs:
 
 操作工具包是 Node.js 包的集合，可让您以更高的一致性快速构建 JavaScript 操作。
 
-工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) 包提供一个接口，用于工作流程命令、输入和输出变量、退出状态以及调试消息。
+工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包提供一个接口，用于工作流程命令、输入和输出变量、退出状态以及调试消息。
 
-工具包还提供 [`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github) 包，用于返回经验证的 Octokit REST 客户端和访问 GitHub 操作上下文。
+工具包还提供 [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) 包，用于返回经验证的 Octokit REST 客户端和访问 GitHub 操作上下文。
 
 工具包不止提供 `core` 和 `github` 包。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
+如果在上述 `index.js` 示例中出现错误 `core.setFailed(error.message);`，请使用操作工具包 [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) 包记录消息并设置失败退出代码。 更多信息请参阅“[设置操作的退出代码](/actions/creating-actions/setting-exit-codes-for-actions)”。
 
 
 ### 创建自述文件
@@ -153,16 +153,16 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 我们问候您的时间。
 
-## 示例
+## Example usage
 
-使用： 操作 / hello - world - javascript - action@v1
-：
-  谁问候： '莫娜的八角形'
+uses: actions/hello-world-javascript-action@v1.1
+with:
+  who-to-greet: 'Mona the Octocat'
 ```
 
 ### 提交、标记和推送操作到 GitHub
 
-{{ site.data.variables.product.product_name }} 下载运行时在工作流程中运行的每个操作，并将其作为完整的代码包执行，然后才能使用 `run` 等工作流程命令与运行器机器交互。 这意味着您必须包含运行 JavaScript 代码所需的所有包依赖项。 您需要将工具包 `core` 和 `github` 包检入到操作的仓库中。
+{% data variables.product.product_name %} 下载运行时在工作流程中运行的每个操作，并将其作为完整的代码包执行，然后才能使用 `run` 等工作流程命令与运行器机器交互。 这意味着您必须包含运行 JavaScript 代码所需的所有包依赖项。 您需要将工具包 `core` 和 `github` 包检入到操作的仓库中。
 
 从您的终端，提交 `action.yml`、`index.js`、`node_modules`、`package.json`、`package-lock.json` 和 `README.md` 文件。 如果您添加了列有 `node_modules` 的 `.gitignore` 文件，则需要删除该行才能提交 `node_modules` 目录。
 
@@ -200,7 +200,7 @@ git push --follow-tags
 
 现在，您已准备好在工作流程中测试您的操作。 如果操作位于私有仓库，则该操作只能在同一仓库的工作流程中使用。 公共操作可供任何仓库中的工作流程使用。
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### 使用公共操作的示例
 
@@ -209,21 +209,21 @@ git push --follow-tags
 {% raw %}
 **.github/workflows/main.yml**
 ```yaml
-上： [push]
+on: [push]
 
-：
-  hello_world_job：
-    运行： ubuntu 最新
-    名称： 一个工作打招呼
-    步：
-    - 名称： 你好世界行动步骤
-      id： 你好
-      使用： 行动 / 你好世界 - javascript - action@v1.1
-      ：
-        谁问候： 'Mona 的 Octocat'
-    [ 使用输出从 '你好' 步骤
-    - 名称： 获取输出时间
-      运行： 回声 "时间是 ${{ steps.hello.outputs.time }}"
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Hello world action step
+      id: hello
+      uses: actions/hello-world-javascript-action@v1.1
+      with:
+        who-to-greet: 'Mona the Octocat'
+    # Use the output from the `hello` step
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
 {% endraw %}
 
@@ -258,4 +258,8 @@ jobs:
 
 从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}

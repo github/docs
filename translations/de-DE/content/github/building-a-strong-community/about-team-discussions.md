@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}
+{% data reusables.organizations.team-discussions-purpose %}
 
-Jedes Organisationsmitglied kann Beiträge auf der Seite Deines Teams veröffentlichen oder an einer öffentlichen Diskussion teilnehmen. {{ site.data.reusables.organizations.team-discussions-permissions }}
+Jedes Organisationsmitglied kann Beiträge auf der Seite Deines Teams veröffentlichen oder an einer öffentlichen Diskussion teilnehmen. {% data reusables.organizations.team-discussions-permissions %}
 
 ![Registerkarte mit Diskussionen auf einer Teamseite mit öffentlichen und privaten Diskussionen](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -18,7 +19,7 @@ Du kannst auf jede Teamdiskussion verknüpfen, um sie an anderer Stelle zu refer
 
 ![Registerkarte mit angehefteten Diskussionen auf einer Teamseite mit angehefteter Diskussion](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{{ site.data.reusables.organizations.team-discussions-default }}-Inhaber können Teamdiskussionen für die gesamte Organisation deaktivieren. Weitere Informationen findest Du unter „[Teamdiskussionen innerhalb Deiner Organisation deaktivieren](/articles/disabling-team-discussions-for-your-organization).“
+{% data reusables.organizations.team-discussions-default %}-Inhaber können Teamdiskussionen für die gesamte Organisation deaktivieren. Weitere Informationen findest Du unter „[Teamdiskussionen innerhalb Deiner Organisation deaktivieren](/articles/disabling-team-discussions-for-your-organization).“
 
 ### Benachrichtigungen für Teamdiskussionen
 
@@ -26,7 +27,7 @@ Wenn jemand eine öffentliche Diskussion auf der Seite eines Teams veröffentlic
 
 {% tip %}
 
-**Tipp:** Abhängig von Deinen Benachrichtigungseinstellungen erhältst Du Updates per E-Mail, über die Seite mit den Webbenachrichtigungen auf {{ site.data.variables.product.product_name }} oder beide. Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}„[Über E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" und „[Über Webbenachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Tipp:** Abhängig von Deinen Benachrichtigungseinstellungen erhältst Du Updates per E-Mail, über die Seite mit den Webbenachrichtigungen auf {% data variables.product.product_name %} oder beide. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
 
 {% endtip %}
 
@@ -34,11 +35,11 @@ Wenn Dein Benutzername in einer Teamdiskussion erwähnt wird, erhältst Du stand
 
 Um Benachrichtigungen für Teamdiskussionen zu deaktivieren, kannst Du einen bestimmten Diskussionsbeitrag kündigen oder Deine Benachrichtigungseinstellungen so ändern, dass Du die Diskussionen eines bestimmten Teams nicht mehr beobachtest oder vollständig ignorierst. Du kannst Benachrichtigungen für einen bestimmten Diskussionsbeitrag abonnieren, auch wenn Du die Diskussionen dieses Teams nicht beobachtest.
 
-Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Deine Abonnements anschauen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)"{% else %}„[Benachrichtigungen abonnieren oder kündigen](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"{% endif %} und „[Verschachtelte Teams](/articles/about-teams/#nested-teams)."
+For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
 
 ### Weiterführende Informationen
 
-- „[Informationen zu Unterhaltungen auf {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github)“
+- „[Informationen zu Unterhaltungen auf {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)“
 - „[Informationen zu Teams](/articles/about-teams)“
 - „[Eine Teamdiskussion erstellen](/articles/creating-a-team-discussion)“
 - „[Eine Teamdiskussion bearbeiten oder löschen](/articles/editing-or-deleting-a-team-discussion)“

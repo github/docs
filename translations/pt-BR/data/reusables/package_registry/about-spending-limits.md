@@ -1,1 +1,0 @@
-Por padrão, sua conta terá um limite de gastos de $0 para o seu uso combinado de {{ site.data.variables.product.prodname_registry }} e {{ site.data.variables.product.prodname_actions }}. Para permitir superações, você pode aumentar o limite de gastos ou permitir gastos ilimitados.

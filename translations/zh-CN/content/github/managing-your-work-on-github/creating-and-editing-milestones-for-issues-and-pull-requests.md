@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. 选择以下选项之一：
     - 要创建新里程碑，请单击 **New Milestone（新建里程碑）**。 ![新建里程碑按钮](/assets/images/help/repository/new-milestone.png)
     - 要编辑里程碑，请在要编辑的里程碑旁边，单击 **Edit（编辑）**。 ![编辑里程碑选项](/assets/images/help/repository/edit-milestone.png)
@@ -21,9 +22,9 @@ versions:
 
 删除里程碑时，议题和提取请求不会受到影响。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. 在要删除的里程碑旁边，单击 **Delete（删除）**。 ![删除里程碑选项](/assets/images/help/repository/delete-milestone.png)
 
 ### 延伸阅读

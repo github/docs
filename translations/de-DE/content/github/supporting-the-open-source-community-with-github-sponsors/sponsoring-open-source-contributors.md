@@ -1,6 +1,6 @@
 ---
 title: Open-Source-Mitwirkende unterstützen
-intro: 'Du kannst Mitwirkende unterstützen, Aktualisierungen von Entwicklern und Organisationen erhalten, die Du unterstützt, und auf {{ site.data.variables.product.product_name }} durchgängig einen Sponsoren-Badge anzeigen.'
+intro: 'Du kannst Mitwirkende unterstützen, Aktualisierungen von Entwicklern und Organisationen erhalten, die Du unterstützt, und auf {% data variables.product.product_name %} durchgängig einen Sponsoren-Badge anzeigen.'
 mapTopic: true
 redirect_from:
   - /articles/sponsoring-open-source-developers

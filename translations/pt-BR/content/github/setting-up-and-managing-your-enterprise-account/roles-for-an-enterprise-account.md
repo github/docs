@@ -1,7 +1,7 @@
 ---
 title: Funções da conta corporativa
 intro: 'Para controlar o acesso às configurações e aos dados da conta corporativa, você pode atribuir diferentes funções para pessoas na conta corporativa.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/
   - /articles/roles-for-an-enterprise-account
@@ -16,7 +16,7 @@ Para obter mais informações sobre como incluir pessoas na conta corporativa, c
 
 As contas corporativas têm um conjunto de funções de administrador que podem ser atribuídas aos usuários da sua empresa. Cada função de administrador está associada a uma função empresarial e fornece permissão para a execução de tarefas específicas na conta corporativa.
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }}
+{% data reusables.enterprise-accounts.enterprise-administrators %}
 
 ### Proprietário corporativo
 
@@ -29,7 +29,7 @@ Os proprietários corporativos têm controle total da conta corporativa e podem 
 
 Os proprietários corporativos não podem acessar as configurações ou o conteúdo da organização, a menos que sejam incluídos como proprietário da organização ou recebam acesso direto a um repositório de propriedade da organização. De forma similar, os proprietário das organizações na conta da empresa não têm acesso à conta corporativa, a menos que sejam incluídos como proprietários corporativos.
 
-Você pode adicionar quantos proprietários corporativos desejar na conta corporativa. Os proprietários corporativos devem ter uma conta pessoal no {{ site.data.variables.product.prodname_dotcom }}. Como uma prática recomendada, inclua apenas algumas pessoas como proprietários corporativos para reduzir o risco para a empresa.
+Você pode adicionar quantos proprietários corporativos desejar na conta corporativa. Os proprietários corporativos devem ter uma conta pessoal no {% data variables.product.prodname_dotcom %}. Como uma prática recomendada, inclua apenas algumas pessoas como proprietários corporativos para reduzir o risco para a empresa.
 
 ### Integrantes da empresa
 
@@ -44,11 +44,11 @@ Embora estejam listadas na guia People (Pessoas) da conta corporativa, as pessoa
 ### Gerente de cobrança
 
 Os gerentes de cobrança podem acessar somente as configurações de cobrança da conta corporativa. Os gerentes de cobrança da conta corporativa podem:
-- Visualizar e gerenciar licenças de usuário, pacotes do {{ site.data.variables.large_files.product_name_short }} e outras configurações de cobrança
+- Visualizar e gerenciar licenças de usuário, pacotes do {% data variables.large_files.product_name_short %} e outras configurações de cobrança
 - Exibir uma lista dos gerentes de cobrança
 - Adicionar ou remover outros gerentes de cobrança
 
-Os gerentes de cobrança não têm acesso às organizações ou aos repositórios da conta corporativa, nem podem adicionar ou remover proprietários corporativos. Os gerentes de cobrança devem ter uma conta pessoal no {{ site.data.variables.product.prodname_dotcom }}.
+Os gerentes de cobrança não têm acesso às organizações ou aos repositórios da conta corporativa, nem podem adicionar ou remover proprietários corporativos. Os gerentes de cobrança devem ter uma conta pessoal no {% data variables.product.prodname_dotcom %}.
 
 ### Leia mais
 

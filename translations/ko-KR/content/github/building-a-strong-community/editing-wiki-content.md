@@ -10,10 +10,11 @@ redirect_from:
   - /articles/adding-images-to-wikis/
   - /articles/supported-mediawiki-formats/
   - /articles/editing-wiki-content
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Adding links
@@ -27,8 +28,8 @@ You can create links in wikis using the standard markup supported by your page, 
 
 Wikis can display PNG, JPEG, and GIF images.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Using the wiki sidebar, navigate to the page you want to change, and then click **Edit**.
 4. On the wiki toolbar, click **Image**. ![Wiki Add image button](/assets/images/help/wiki/wiki_add_image.png)
 5. In the "Insert Image" dialog box, type the image URL and the alt text (which is used by search engines and screen readers).
@@ -36,7 +37,7 @@ Wikis can display PNG, JPEG, and GIF images.
 
 #### Linking to images in a repository
 
-You can link to an image in a repository on {{ site.data.variables.product.product_name }} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
+You can link to an image in a repository on {% data variables.product.product_name %} by copying the URL in your browser and using that as the path to the image. For example, embedding an image in your wiki using Markdown might look like this:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 

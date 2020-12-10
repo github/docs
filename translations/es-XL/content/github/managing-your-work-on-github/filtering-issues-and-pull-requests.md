@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 Puedes filtrar propuestas y solicitudes de extracción para buscar:
 - Todas las propuestas y solicitudes de extracción abiertas
@@ -16,10 +16,10 @@ Puedes filtrar propuestas y solicitudes de extracción para buscar:
 - Las propuestas y solicitudes de extracción que se te han asignado
 - Las propuestas y solicitudes de extracción en las que eres [**@mencionado**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Haz clic en **Filtros** para elegir el tipo de filtro que te interesa. ![Usar el menú desplegable Filtros](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ### Leer más

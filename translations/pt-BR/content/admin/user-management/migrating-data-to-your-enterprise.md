@@ -1,6 +1,6 @@
 ---
 title: Migrar dados para a sua empresa
-intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {{ site.data.variables.product.prodname_ghe_server }}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
+intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {% data variables.product.prodname_ghe_server %}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -15,9 +15,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Aplicar os dados importados em {{ site.data.variables.product.prodname_ghe_server }}
+### Aplicar os dados importados em {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Usando o comando `ghe-migrator import`, comece o processo de importação. Você precisará do seguinte:
     * Seu Migration GUID.
@@ -30,7 +30,7 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### Revisar dados de migração
 
@@ -104,22 +104,22 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-Em caso de problemas com falhas na importação, entre em contato com o {{ site.data.variables.contact.contact_ent_support }}.
+Em caso de problemas com falhas na importação, entre em contato com o {% data variables.contact.contact_ent_support %}.
 
-### Concluir a importação em {{ site.data.variables.product.prodname_ghe_server }}
+### Concluir a importação em {% data variables.product.prodname_ghe_server %}
 
 Depois que sua migração for aplicada à sua instância de destino e você tiver revisado a migração, você desbloqueará os repositórios e os excluirá da fonte. Antes de excluir os dados da origem, é recomendável aguardar cerca de duas semanas para garantir o funcionamento adequado de todos os procedimentos.
 
 ### Desbloquear repositórios na instância de destino
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### Desbloquear repositórios na origem
 
-#### Desbloquear repositórios de uma organização no {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Desbloquear repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Para desbloquear repositórios em uma organização do {{ site.data.variables.product.prodname_dotcom_the_website }}, você enviará uma solicitação `DELETE` para o <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">ponto de extremidade de desbloqueio da migração</a>. Você precisará do seguinte:
+Para desbloquear repositórios em uma organização do {% data variables.product.prodname_dotcom_the_website %}, você enviará uma solicitação `DELETE` para o <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">ponto de extremidade de desbloqueio da migração</a>. Você precisará do seguinte:
   * Token de acesso para autenticação.
   * `id` exclusivo da migração;
   * Nome do repositório a ser desbloqueado.
@@ -129,15 +129,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Excluir repositórios de uma organização no {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Excluir repositórios de uma organização no {% data variables.product.prodname_dotcom_the_website %}
 
-Depois de desbloquear os repositórios da organização do {{ site.data.variables.product.prodname_dotcom_the_website }}, você deve excluir todos os repositórios migrados anteriormente usando o [endpoint de exclusão de repositórios](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). Você precisará do token de acesso para autenticação:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Desbloquear repositórios de uma instância do {{ site.data.variables.product.prodname_ghe_server }}
+#### Desbloquear repositórios de uma instância do {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

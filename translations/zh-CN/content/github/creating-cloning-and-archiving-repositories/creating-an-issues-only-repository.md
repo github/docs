@@ -1,6 +1,6 @@
 ---
 title: 创建仅含议题的仓库
-intro: '{{ site.data.variables.product.product_name }} 不提供仅限议题的访问权限，但您可以通过仅含议题的第二仓库来实现此目的。'
+intro: '{% data variables.product.product_name %} 不提供仅限议题的访问权限，但您可以通过仅含议题的第二仓库来实现此目的。'
 redirect_from:
   - /articles/issues-only-access-permissions/
   - /articles/is-there-issues-only-access-to-organization-repositories/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. 创建一个**私有**仓库来托管项目的源代码。

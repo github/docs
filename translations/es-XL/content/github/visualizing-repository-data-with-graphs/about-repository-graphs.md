@@ -13,7 +13,7 @@ Los gráficos de un repositorio te dan información sobre el tráfico de {% if c
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Algunos gráficos del repositorio solo están disponibles en repositorios públicos con {{ site.data.variables.product.prodname_free_user }}:
+Algunos gráficos del repositorio solo están disponibles en repositorios públicos con {% data variables.product.prodname_free_user %}:
 - Pulso
 - Colaboradores
 - Tráfico
@@ -21,7 +21,7 @@ Algunos gráficos del repositorio solo están disponibles en repositorios públi
 - Frecuencia de código
 - Red
 
-Todos los otros gráficos del repositorio están disponibles en todos los repositorios. Cada gráfico del repositorio está disponible en repositorios públicos y privados con {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_team }} y {{ site.data.variables.product.prodname_ghe_cloud }}. {{ site.data.reusables.gated-features.more-info }}
+Todos los otros gráficos del repositorio están disponibles en todos los repositorios. Cada gráfico del repositorio está disponible en repositorios públicos y privados con {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} y {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

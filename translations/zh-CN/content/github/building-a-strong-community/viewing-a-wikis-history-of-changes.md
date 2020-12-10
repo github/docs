@@ -1,13 +1,14 @@
 ---
 title: 查看 wiki 的更改历史记录
-intro: 由于 wiki 是 Git 仓库，因此您进行的每个更改均为可查看的提交。
-product: '{{ site.data.reusables.gated-features.wikis }}'
+intro: '由于 wiki 是 Git 仓库，因此您进行的每个更改均为可查看的提交。'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 查看 wiki 历史记录
@@ -17,8 +18,8 @@ Wiki 历史记录包括：
 - 其提供的提交消息
 - 进行更改的时间
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. 使用 wiki 边栏，导航到您要查看其历史记录的页面。
 4. 在 wiki 顶部，单击修订链接。 ![Wiki 修订链接](/assets/images/help/wiki/wiki_revision_link.png)
 

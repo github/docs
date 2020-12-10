@@ -1,11 +1,12 @@
 ---
 title: 自分のリポジトリにアクセスできる人を表示する
-intro: 'Organization のオーナーは、Organization 内のリポジトリへの人のアクセスを表示できます。 {{ site.data.variables.product.prodname_ghe_cloud }} または {{ site.data.variables.product.prodname_ghe_server }} を使用して、Organization のオーナーは、リポジトリにアクセスできる人の CSV リストをエクスポートすることもできます。'
+intro: 'Organization のオーナーは、Organization 内のリポジトリへの人のアクセスを表示できます。 {% data variables.product.prodname_ghe_cloud %} または {% data variables.product.prodname_ghe_server %} を使用して、Organization のオーナーは、リポジトリにアクセスできる人の CSV リストをエクスポートすることもできます。'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 管理者はこの情報を使用して、社外の人の支援、コンプライアンスのためのデータ収集、およびその他の一般的なセキュリティチェックを行うことができます。
@@ -22,15 +23,15 @@ versions:
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.accessing-repository-people }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
 
 ### リポジトリへのアクセス権を持つ人のリストをエクスポートする
 
-{{ site.data.variables.product.prodname_ghe_cloud }} または {{ site.data.variables.product.prodname_ghe_server }} の Organization のオーナーは、リポジトリにアクセスできる人の CSV リストをエクスポートできます。
+{% data variables.product.prodname_ghe_cloud %} または {% data variables.product.prodname_ghe_server %} の Organization のオーナーは、リポジトリにアクセスできる人の CSV リストをエクスポートできます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.accessing-repository-people }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
 4. [**Export CSV**] をクリックします。 ![リポジトリサイドバーの人タブ](/assets/images/help/repository/export-repository-permissions.png)

@@ -9,6 +9,7 @@ intro: 'After you open a pull request in a repository, collaborators or team mem
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About pull request comments
@@ -32,25 +33,25 @@ To reply to an existing line comment, you'll need to navigate to the comment on 
 {% tip %}
 
 **Tips:**
-- Pull request comments support the same [formatting](/categories/writing-on-github) as regular comments on {{ site.data.variables.product.product_name }}, such as @mentions, emoji, and references.
+- Pull request comments support the same [formatting](/categories/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
 - You can [add reactions](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 
 ### Adding line comments to a pull request
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request where you'd like to leave line comments.
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. When you're done, click **Add single comment**.
   ![Inline comment window](/assets/images/help/commits/inline-comment.png)
 
 Anyone watching the pull request or repository will receive a notification of your comment.
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Further reading
 

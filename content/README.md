@@ -1,13 +1,13 @@
 # Content <!-- omit in toc -->
-
+:octocat:
 The `/content` directory is where all the site's (English) Markdown content lives!
 
-See the [markup reference guide](contribution/content-markup-reference.md) for more information about supported Markdown features.
+See the [markup reference guide](/contributing/content-markup-reference.md) for more information about supported Markdown features.
 
-See the repository's top-level [README](../README.md) for general information about how the site works.
+See the [contributing docs](/CONTRIBUTING.md) for general information about working with the docs.
 
 - [Frontmatter](#frontmatter)
-  - [`productVersions`](#productversions)
+  - [`versions`](#versions)
   - [`redirect_from`](#redirect_from)
   - [`title`](#title)
   - [`shortTitle`](#shorttitle)
@@ -16,7 +16,7 @@ See the repository's top-level [README](../README.md) for general information ab
   - [`product`](#product)
   - [`layout`](#layout)
   - [`mapTopic`](#maptopic)
-  - [`gettingStartedLinks` and `popularLinks`](#gettingstartedlinks-and-popularlinks)
+  - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
@@ -38,48 +38,39 @@ The following frontmatter values have special meanings and requirements for this
 There's also a schema that's used by the test suite to validate every page's frontmatter.
 See [`lib/frontmatter.js`](../lib/frontmatter.js).
 
-### `productVersions`
+### `versions`
 
-- Purpose: Indicates the products and product versions to which a page applies.
+- Purpose: Indicates the [versions](../lib/all-versions.js) to which a page applies.
 See [Versioning](#versioning) for more info.
-- Type: `Object`. Allowable keys map to product names and can be found in the `productVersions` object in [`lib/frontmatter.js`](../lib/frontmatter.js).
+- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](../lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
+- The `*` is used to denote all releases for the version.
 
-Example that applies to GitHub.com and recent versions of GitHub Enterprise:
+Example that applies to GitHub.com and recent versions of GitHub Enterprise Server:
 
 ```yml
 title: About your personal dashboard
-productVersions:
-  dotcom: '*'
-  enterprise: '>=2.14'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.20'
 ```
 
-Example that applies to all supported versions of GitHub enterprise
+Example that applies to all supported versions of GitHub Enterprise Server:
 (but not GitHub.com):
 
 ```yml
 title: Downloading your license
-productVersions:
-  enterprise: '*'
+versions:
+  enterprise-server: '*'
 ```
-
-Example that applies to GitHub Actions:
-
-```yml
-title: Building actions
-productVersions:
-  actions: '*'
-```
-
-Note: Every product except `enterprise` is an evergreen product without specific versions, so the `*` is used to denote all versions.
 
 ### `redirect_from`
 
 - Purpose: List URLs that should redirect to this page.
-- Type: `Array` (for multiple redirects) or `String` (for just one)
+- Type: `Array`
 - Optional
 
-Example with multiple redirects:
+Example:
 
 ```yml
 title: Getting started with GitHub Desktop
@@ -89,14 +80,7 @@ redirect_from:
   - /articles/getting-started-with-github-for-windows/
 ```
 
-Example with a single redirect:
-
-```yml
-title: Denying access to a previously approved OAuth App for your organization
-redirect_from: /articles/denying-access-to-a-previously-approved-application-for-your-organization/
-```
-
-See [README#redirects](../README.md#redirects) for more info.
+See [`contributing/redirects`](contributing/redirects.md) for more info.
 
 ### `title`
 
@@ -108,7 +92,7 @@ See [README#redirects](../README.md#redirects) for more info.
 
 - Purpose: An abbreviated variant of the page title for use in breadcrumbs.
 - Type: `String`
-- Optional. If omitted, `title` will be used. Used only for map topic and category pages.
+- Optional. If omitted, `title` will be used.
 
 Example:
 
@@ -148,11 +132,21 @@ For a layout named `layouts/article.html`, the value would be `article`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
-### `gettingStartedLinks` and `popularLinks`
+### `featuredLinks`
 
-- Purpose: Renders the linked articles' titles and intros under `Getting started` and `Popular articles` headings, respectively. See site homepage for an example.
-- Type: `Array`.
+- Purpose: Renders the linked articles' titles and intros on product landing pages and the homepage.
+- Type: `Object`.
 - Optional.
+
+Example:
+
+```yaml
+featuredLinks:
+  gettingStarted:
+    - /path/to/page
+  guides:
+    - /guides/example
+```
 
 ### `showMiniToc`
 
@@ -163,13 +157,19 @@ For a layout named `layouts/article.html`, the value would be `article`.
 ### `miniTocMaxHeadingLevel`
 
 - Purpose: Indicates the maximum heading level to include in an article's mini TOC. See [Autogenerated mini TOCs](#autogenerated-mini-tocs) for more info.
-- Type: `Number`. Default is `3`. Minimum is `2`. Maximum is `4` for now. (If we need to add more levels, we can revisit this. We will need to add CSS to do deeper nesting.)
+- Type: `Number`. Default is `3`. Minimum is `2`. Maximum is `4`.
 - Optional.
 
 ### `allowTitleToDifferFromFilename`
 
 - Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `script/reconcile-ids-with-filenames.js`.
 - Type: `Boolean`. Default is `false`.
+- Optional.
+
+### `changelog`
+
+- Purpose: Render a list of changelog items with timestamps on product pages (ex: `layouts/product-landing.html`)
+- Type: `Array`, items are objects `{ href: string, title: string, date: 'YYYY-MM-DD' }`
 - Optional.
 
 ### Escaping single quotes
@@ -193,56 +193,16 @@ Make sure not to add hardcoded "In this article" sections in the Markdown source
 
 ## Versioning
 
-Versioning for any content file lives in **two** places:
+A content file can have **two** types of versioning:
 
-* The file's [`productVersions`](#productversions) frontmatter.
-* Liquid conditionals in the file's parent [index page](#index-pages).
-
-For example, an article with this frontmatter:
-
-```yml
-title: About your personal dashboard
-productVersions:
-  dotcom: '*'
-  enterprise: '>=2.14'
-```
-
-should be referenced in the parent index page like this:
-
-```
-{%- if page.version == 'dotcom' or page.version ver_gt "2.13" %}
-- About your personal dashboard
-{%- endif %}
-```
+* [`versions`](#versions) frontmatter (**required**)
+    * Determines in which the versions the page is available. See [contributing/permalinks](../contributing/permalinks.md) for more info.
+* Liquid statements in content (**optional**)
+    * Conditionally render content depending on the current version being viewed. See [contributing/liquid-helpers](../contributing/liquid-helpers.md) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
 ## Filenames
 
-The site automatically creates links to articles in index pages. For example, this block in `content/index.md`:
-
-```
-## Bootcamp
-
-- Set up git
-- Create a repo
-- Fork a repo
-- Be social
-```
-
-renders with links to each article.
-
-If you're adding a new article, make sure the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) version of the title you use in both the article and the parent index. This can get tricky when a title has punctuation (such as "GitHub's Billing Plans"). If you're not sure what the filename should be based on the title, you can find out by adding the title to the TOC. For example:
-
-```
-## Bootcamp
-
-- Set up git
-- Create a repo
-- Fork a repo
-- Be social
-- I'm a new article
-```
-
-Then just run the site locally and see what the link is. In this example, the filename would be: `im-a-new-article`
+When adding a new article, make sure the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) version of the title you use in the article's [`title`](#title) frontmatter. This can get tricky when a title has punctuation (such as "GitHub's Billing Plans"). A test will flag any discrepancies between title and filename. To override this requirement for a given article, you can add [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename) frontmatter.
 
 ## Whitespace control
 
@@ -258,31 +218,31 @@ These characters are especially important in [index pages](#index-pages) compris
 
 ## Links and image paths
 
-Any local links (like those starting with `/articles/`)  and image paths (starting with `/assets`) that you include in content and data files will undergo some transformations on the server side to match the current page's language and Enterprise version (if applicable). The handling for these transformations lives in [`lib/rewrite-local-links`](lib/rewrite-local-links.js) and [`lib/rewrite-asset-paths-to-s3`](lib/rewrite-asset-paths-to-s3.js).
+Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. These links undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/rewrite-local-links`](lib/rewrite-local-links.js) and [`lib/rewrite-asset-paths-to-s3`](lib/rewrite-asset-paths-to-s3.js).
 
 For example, if you include the following link in a content file:
 
 ```
-/articles/creating-a-saved-reply
+/github/writing-on-github/creating-a-saved-reply
 ```
-When viewed on Dotcom, the link gets rendered with the language code:
+When viewed on GitHub.com docs, the link gets rendered with the language code and version:
 ```
-/en/articles/creating-a-saved-reply
+/en/free-pro-team@latest/github/writing-on-github/creating-a-saved-reply
 ```
-and when viewed on GHE, the version is included as well:
+and when viewed on GitHub Enterprise Server docs, the version is included as well:
 ```
-/en/enterprise/2.16/user/articles/creating-a-saved-reply
+/en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-The transformation is a little simpler for image paths. If you include the following image path in a content file:
+The transformation is a little different for image paths. If you include the following image path in a content file:
 
 ```
 /assets/images/help/profile/follow-user-button.png
 ```
-when viewed on GHE, the path gets rewritten to include S3:
+when viewed on GitHub Enterprise Server docs, the path gets rewritten to include S3:
 
 ```
-https://github-images.s3.amazonaws.com/enterprise/2.16/assets/images/help/profile/follow-user-button.png
+https://github-images.s3.amazonaws.com/enterprise/2.20/assets/images/help/profile/follow-user-button.png
 ```
 
 ### Preventing transformations
@@ -290,7 +250,7 @@ https://github-images.s3.amazonaws.com/enterprise/2.16/assets/images/help/profil
 Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
 
 ```
-<a href="/articles/github-terms-of-service/" class="dotcom-only">GitHub's Terms of Service</a>
+<a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
 ```
 
-Sometimes the canonical home of content moves outside the help site. None of the links included in [`lib/external-redirects.json`](lib/external-redirects.json) get rewritten. See the top-level [README](../README.md#external-redirects) for more info about this type of redirect.
+Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.

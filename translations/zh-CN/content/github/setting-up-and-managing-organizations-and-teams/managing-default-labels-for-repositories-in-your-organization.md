@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 组织所有者可以管理组织中仓库的默认标签。
@@ -14,48 +15,48 @@ versions:
 
 ### 创建默认标签
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% data reusables.organizations.repository-defaults %}
 {% else %}
-{{ site.data.reusables.organizations.repository-labels }}
+{% data reusables.organizations.repository-labels %}
 {% endif %}
 5. 在“Repository labels（仓库标签）”下，单击 **New label（新标签）**。 ![新标签按钮](/assets/images/help/organizations/new-label-button.png)
-{{ site.data.reusables.project-management.name-label }}
-{{ site.data.reusables.project-management.label-description }}
-{{ site.data.reusables.project-management.label-color-randomizer }}
-{{ site.data.reusables.project-management.create-label }}
+{% data reusables.project-management.name-label %}
+{% data reusables.project-management.label-description %}
+{% data reusables.project-management.label-color-randomizer %}
+{% data reusables.project-management.create-label %}
 
 ### 编辑默认标签
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% data reusables.organizations.repository-defaults %}
 {% else %}
-{{ site.data.reusables.organizations.repository-labels }}
+{% data reusables.organizations.repository-labels %}
 {% endif %}
-{{ site.data.reusables.project-management.edit-label }}
-{{ site.data.reusables.project-management.name-label }}
-{{ site.data.reusables.project-management.label-description }}
-{{ site.data.reusables.project-management.label-color-randomizer }}
-{{ site.data.reusables.project-management.save-label }}
+{% data reusables.project-management.edit-label %}
+{% data reusables.project-management.name-label %}
+{% data reusables.project-management.label-description %}
+{% data reusables.project-management.label-color-randomizer %}
+{% data reusables.project-management.save-label %}
 
 ### 删除默认标签
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% data reusables.organizations.repository-defaults %}
 {% else %}
-{{ site.data.reusables.organizations.repository-labels }}
+{% data reusables.organizations.repository-labels %}
 {% endif %}
-{{ site.data.reusables.project-management.delete-label }}
-{{ site.data.reusables.project-management.confirm-label-deletion }}
+{% data reusables.project-management.delete-label %}
+{% data reusables.project-management.confirm-label-deletion %}
 
 ### 延伸阅读
 

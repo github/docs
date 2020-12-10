@@ -1,12 +1,13 @@
 ---
 title: Grundlagen der Suchsyntax
-intro: 'Für Suchen auf {{ site.data.variables.product.product_name }} kannst Du Abfragen erstellen, die nach bestimmten alphanumerischen Zeichenfolgen suchen.'
+intro: 'Für Suchen auf {% data variables.product.product_name %} können Sie Abfragen erstellen, die nach bestimmten alphanumerischen Zeichenfolgen suchen.'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Abfrage nach Werten mit einem Vergleichsoperator
@@ -37,7 +38,7 @@ Mit der Bereichssyntax <code><em>n</em>..<em>n</em></code> kannst Du nach Werten
 
 ### Abfrage nach Datums- und Zeitangaben
 
-Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-range) kannst Du nach Datums- und Zeitangaben vor oder nach einem bestimmten Datum/Uhrzeit oder innerhalb eines Datums-/Zeitbereichs suchen. {{ site.data.reusables.time_date.date_format }}
+Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-range) kannst Du nach Datums- und Zeitangaben vor oder nach einem bestimmten Datum/Uhrzeit oder innerhalb eines Datums-/Zeitbereichs suchen. {% data reusables.time_date.date_format %}
 
 | Abfrage                    | Beispiel                                                                                                                                                                                                                                                                    |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +50,7 @@ Mit `>`, `>=`, `<`, `<=` und [Bereichsabfragen](#query-for-values-between-a-rang
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und nach dem 30. April 2012 erstellt wurden.                                                              |
 | <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** sucht Issues, die das Wort „cats“ enthalten und vor dem 30. April 2012 erstellt wurden.                                                               |
 
-{{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.time_format %}
 
 | Abfrage                    | Beispiel                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,10 +81,10 @@ Wenn Deine Suchabfrage Leerzeichen enthält, musst du die gesuchte Zeichenfolge 
 
 Bei Suchabfragen innerhalb von Code werden einige nicht alphanumerische Zeichen, so auch Leerzeichen, ignoriert, selbst wenn der Suchstring in Anführungszeichen steht. Dies führt oft nicht zum erwünschten Ergebnis.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Abfragen mit Benutzernamen
 
-Wenn Deine Abfrage einen Qualifizierer verwendet, der einen Benutzernamen verlangt, beispielsweise `user`, `actor`, oder `assignee`, kannst du jeden {{ site.data.variables.product.product_name }}-Benutzernamen verwenden, um eine spezifische Person anzugeben oder `@me` benutzen, um den aktuellen Benutzer anzugeben.
+Wenn Deine Abfrage einen Qualifizierer verwendet, der einen Benutzernamen verlangt, beispielsweise `user`, `actor`, oder `assignee`, kannst du jeden {% data variables.product.product_name %}-Benutzernamen verwenden, um eine spezifische Person anzugeben oder `@me` benutzen, um den aktuellen Benutzer anzugeben.
 
 | Abfrage              | Beispiel                                                                                                                                                                     |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

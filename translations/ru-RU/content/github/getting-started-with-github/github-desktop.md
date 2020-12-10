@@ -1,16 +1,17 @@
 ---
 title: GitHub Desktop
-intro: '{{ site.data.variables.product.prodname_desktop }} extends and simplifies your Git and {{ site.data.variables.product.prodname_dotcom }} workflow using a visual interface.'
+intro: '{% data variables.product.prodname_desktop %} extends and simplifies your Git and {% data variables.product.prodname_dotcom %} workflow using a visual interface.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### About {{ site.data.variables.product.prodname_desktop }}
+### About {% data variables.product.prodname_desktop %}
 
-{{ site.data.reusables.desktop.about-github-desktop }}
+{% data reusables.desktop.about-github-desktop %}
 
-For more information about {{ site.data.variables.product.prodname_desktop }}, see "[Installing and configuring {{ site.data.variables.product.prodname_desktop }}](/desktop/installing-and-configuring-github-desktop)" in the {{ site.data.variables.product.prodname_desktop }} documentation.
+For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
 
 ### Sharing feedback
 

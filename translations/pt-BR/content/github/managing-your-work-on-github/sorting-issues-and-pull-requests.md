@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode ordenar qualquer exibição filtrada por:
@@ -18,8 +19,8 @@ Você pode ordenar qualquer exibição filtrada por:
 * Prolemas ou pull requests com data de atualização mais antiga
 * Problemas ou pull requests com mais [reações](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. No canto superior direito, selecione o menu suspenso Sort (Ordenar). ![Usar a aba suspensa Sort (Ordenar)](/assets/images/help/issues/issues_sort_dropdown.png)
 
 Para limpar a seleção da ordenação, clique em **Sort** (Ordenar) > **Newest** (Mais recente).

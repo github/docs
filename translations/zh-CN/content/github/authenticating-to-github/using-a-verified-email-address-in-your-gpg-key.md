@@ -1,11 +1,12 @@
 ---
 title: 在 GPG 密钥中使用经验证的电子邮件地址
-intro: '验证签名时，{{ site.data.variables.product.product_name }} 会检查提交者或标记者电子邮件地址是否匹配 GPG 密钥身份的电子邮件地址，并且是用户帐户中经验证的电子邮件地址。 这可确保密钥属于您且您已创建提交或标记。'
+intro: '验证签名时，{% data variables.product.product_name %} 会检查提交者或标记者电子邮件地址是否匹配 GPG 密钥身份的电子邮件地址，并且是用户帐户中经验证的电子邮件地址。 这可确保密钥属于您且您已创建提交或标记。'
 redirect_from:
   - /articles/using-a-verified-email-address-in-your-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

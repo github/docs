@@ -1,25 +1,26 @@
 ---
 title: 添加组织成员到团队
-intro: '拥有所有者或团队维护员权限的人员可以添加成员到团队。 具有所有者权限的人员也可{% if currentVersion == "free-pro-team@latest" %}邀请非成员加入{% else %}添加非成员到{% endif %}团队和组织。'
+intro: '拥有所有者或团队维护员权限的人员可以添加成员到团队。 People with owner permissions can also {% if currentVersion == "free-pro-team@latest" %}invite non-members to join{% else %}add non-members to{% endif %} a team and the organization.'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_members_tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_members_tab %}
 6. 在团队成员列表上方，单击 **Add a member（添加成员）**。 ![添加成员按钮](/assets/images/help/teams/add-member-button.png)
-{{ site.data.reusables.organizations.invite_to_team }}
-{{ site.data.reusables.organizations.review-team-repository-access }}
+{% data reusables.organizations.invite_to_team %}
+{% data reusables.organizations.review-team-repository-access %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.organizations.cancel_org_invite }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
 ### 延伸阅读
 

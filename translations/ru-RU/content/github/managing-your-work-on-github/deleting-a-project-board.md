@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -16,8 +17,8 @@ versions:
 {% endtip %}
 
 1. Navigate to the project board you want to delete.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Click **Delete project**. ![Delete project button](/assets/images/help/projects/delete-project-button.png)
 5. To confirm that you want to delete the project board, click **OK**.
 

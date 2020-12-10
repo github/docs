@@ -1,24 +1,25 @@
 ---
 title: プロジェクトボードについて
-intro: '{{ site.data.variables.product.product_name }}のプロジェクトボードは、作業を整理して優先順位付けするための役に立ちます。 プロジェクトボードは、特定の機能の作業、包括的なロードマップ、さらにはリリースのチェックリストのためにも作成できます。 プロジェクトボードを使うと、要求に適したカスタマイズされたワークフローを作成する柔軟性が得られます。'
+intro: '{% data variables.product.product_name %}のプロジェクトボードは、作業を整理して優先順位付けするための役に立ちます。 プロジェクトボードは、特定の機能の作業、包括的なロードマップ、さらにはリリースのチェックリストのためにも作成できます。 プロジェクトボードを使うと、要求に適したカスタマイズされたワークフローを作成する柔軟性が得られます。'
 redirect_from:
   - /articles/about-projects/
   - /articles/about-project-boards
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プロジェクトボードは、Issue、プルリクエスト、選択した列内でカードとして分類されるノートから構成されます。 列内のカードの並び替え、列から列へのカードの移動、および列の順序の変更には、ドラッグアンドドロップまたはキーボードショートカットが利用できます。
 
-プロジェクトボードのカードには、ラベル、アサインされた人、スタータス、オープンした人など、Issueやプルリクエストに関連するメタデータが含まれます。 {{ site.data.reusables.project-management.edit-in-project }}
+プロジェクトボードのカードには、ラベル、アサインされた人、スタータス、オープンした人など、Issueやプルリクエストに関連するメタデータが含まれます。 {% data reusables.project-management.edit-in-project %}
 
-タスクのリマインダとして機能するノートを列内に作成し、{{ site.data.variables.product.product_name }} 上の任意のリポジトリからの Issue やプルリクエストを参照させたり、プロジェクトボードに関係する情報を追加したりすることができます。 ノートにリンクを追加することで、他のプロジェクトを参照するカードを作成することもできます。 ノートでは要求を満たせない場合、ノートを Issue に変換することができます。 プロジェクトボードのノートのIssueへの変換に関する詳しい情報については[プロジェクトボードへのノートの追加](/articles/adding-notes-to-a-project-board)を参照してください。
+タスクのリマインダとして機能するノートを列内に作成し、{% data variables.product.product_name %} 上の任意のリポジトリからの Issue やプルリクエストを参照させたり、プロジェクトボードに関係する情報を追加したりすることができます。 ノートにリンクを追加することで、他のプロジェクトを参照するカードを作成することもできます。 ノートでは要求を満たせない場合、ノートを Issue に変換することができます。 プロジェクトボードのノートのIssueへの変換に関する詳しい情報については[プロジェクトボードへのノートの追加](/articles/adding-notes-to-a-project-board)を参照してください。
 
 プロジェクトボードには以下の種類があります:
 
 - **ユーザが所有するプロジェクトボード**には、任意の個人リポジトリからの Issue およびプルリクエストを含めることができます。
-- **Organization内プロジェクトボード**は、Organizationに属する任意のリポジトリからのIssueやプルリクエストを含むことができます。  {{ site.data.reusables.project-management.link-repos-to-project-board }}詳細は「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
+- **Organization内プロジェクトボード**は、Organizationに属する任意のリポジトリからのIssueやプルリクエストを含むことができます。  {% data reusables.project-management.link-repos-to-project-board %}詳細は「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
 - **リポジトリプロジェクトボード**は、単一のリポジトリ内の Issue とプルリクエストを対象とします。 他のリポジトリの Issue やプルリクエストを参照するノートも含まれます。
 
 ### プロジェクトボードの作成と表示
@@ -37,7 +38,7 @@ Organization が所有するプロジェクトボードに、あなたが表示�
 
 また、別の方法で作業を追跡したい場合は、[リポジトリ中でプロジェクトボードを無効化する](/articles/disabling-project-boards-in-a-repository)、あるいは[Organization 内でプロジェクトボードを無効化する](/articles/disabling-project-boards-in-your-organization)こともできます。
 
-{{ site.data.reusables.project-management.project-board-import-with-api }}
+{% data reusables.project-management.project-board-import-with-api %}
 
 ### プロジェクトボードのテンプレート
 
@@ -54,12 +55,12 @@ Organization が所有するプロジェクトボードに、あなたが表示�
 
 ![basic kanban テンプレートでのプロジェクトボード](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 ### 参考リンク
 
 - [プロジェクトボードの作成](/articles/creating-a-project-board)
-- [プロジェクトボードの編集](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)

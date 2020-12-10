@@ -1,6 +1,6 @@
 ---
 title: Enabling subdomain isolation
-intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {{ site.data.variables.product.prodname_ghe_server }} appliance.'
+intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation/
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -11,14 +11,14 @@ versions:
 
 ### About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {{ site.data.variables.product.product_location_enterprise }}.
+Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
 
-When subdomain isolation is enabled, {{ site.data.variables.product.prodname_ghe_server }} replaces several paths with subdomains.
+When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-To use Docker with {{ site.data.variables.product.prodname_registry }}, you must also enable subdomain isolation. For more information, see "[Configuring Docker for use with {{ site.data.variables.product.prodname_registry }}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)."
+To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Configuring Docker for use with {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)."
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% endif %}
 
@@ -34,7 +34,7 @@ To use Docker with {{ site.data.variables.product.prodname_registry }}, you must
 | `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
 | `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
 | `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-|  N/A, Docker with {{ site.data.variables.product.prodname_registry }} will not work with subdomain isolation disabled. | `http(s)://docker.HOSTNAME/` |
+|  N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled. | `http(s)://docker.HOSTNAME/` |
 | `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
 | `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
@@ -42,13 +42,13 @@ To use Docker with {{ site.data.variables.product.prodname_registry }}, you must
 
 ### Prerequisites
 
-{{ site.data.reusables.enterprise_installation.disable-github-pages-warning }}
+{% data reusables.enterprise_installation.disable-github-pages-warning %}
 
 Before you enable subdomain isolation, you must configure your network settings for your new domain.
 
 - Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)."
 
-{{ site.data.reusables.enterprise_installation.changing-hostname-not-supported }}
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 - Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
 - Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
@@ -56,9 +56,9 @@ Before you enable subdomain isolation, you must configure your network settings 
 
 ### Enabling subdomain isolation
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.hostname-menu-item }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.hostname-menu-item %}
 4. Select **Subdomain isolation (recommended)**.
   ![Checkbox to enable subdomain isolation](/assets/images/enterprise/management-console/subdomain-isolation.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}

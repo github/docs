@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de un pago de tarjeta de crédito rechazado
-intro: 'Si se rechaza la tarjeta de crédito que utilizas para pagar {{ site.data.variables.product.product_name }}, puedes tomar varias medidas para asegurarte de que tus pagos se concreten y de no estar bloqueado de tu cuenta.'
+intro: 'Si se rechaza la tarjeta de crédito que utilizas para pagar {% data variables.product.product_name %}, puedes tomar varias medidas para asegurarte de que tus pagos se concreten y de no estar bloqueado de tu cuenta.'
 redirect_from:
   - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
@@ -25,7 +25,7 @@ También admitimos pagos por PayPal. Para obtener más información, consulta "[
 Tu banco puede proporcionar más información acerca de los pagos rechazados si, específicamente, preguntas por la transacción que se intentó realizar. Si existen restricciones sobre tu tarjeta, y debes llamar al banco, proporciona la siguiente información:
 
 - **El monto que se te cobra.** El monto de tu suscripción aparece en tus recibos de cuenta. Para obtener más información, consulta "[Ver tu historial de pagos y tus recibos](/articles/viewing-your-payment-history-and-receipts)".
-- **La fecha en que {{ site.data.variables.product.product_name }} te factura.** La fecha de facturación de tu cuenta aparece en tus recibos.
+- **La fecha en que {% data variables.product.product_name %} te factura.** La fecha de facturación de tu cuenta aparece en tus recibos.
 - **El número de Id. de tu transacción.** El Id. de transacción de tu cuenta aparece en tus recibos.
-- **El nombre del vendedor.** El nombre del vendedor es {{ site.data.variables.product.prodname_dotcom }}.
+- **El nombre del vendedor.** El nombre del vendedor es {% data variables.product.prodname_dotcom %}.
 - **El mensaje de error que te envió el banco con el pago rechazado.** Puedes encontrar el mensaje de error del banco en el correo electrónico que te enviamos cuando se rechaza un pago.

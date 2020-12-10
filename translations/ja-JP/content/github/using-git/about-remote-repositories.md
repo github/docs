@@ -4,18 +4,19 @@ redirect_from:
   - /articles/working-when-github-goes-down/
   - /articles/sharing-repositories-without-github/
   - /articles/about-remote-repositories
-intro: GitHub のコラボレーティブな開発へのアプローチは、ローカルリポジトリからコミットを公開して、他者が見たり、フェッチしたり、更新したりできるようにすることに依存しています。
+intro: 'GitHub のコラボレーティブな開発へのアプローチは、ローカルリポジトリからコミットを公開して、他者が見たり、フェッチしたり、更新したりできるようにすることに依存しています。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リモート URL は、「コードがここに保存されています」ということを表現する Git のしゃれた方法です。 その URL は、GitHub 上のあなたのリポジトリや、他のユーザーのフォーク、さらにはまったく異なるサーバーだったりします。
 
 プッシュできるのは、2 種類の URL アドレスに対してのみです。
 
-* `https://{{ site.data.variables.command_line.backticks }}/user/repo.git` のような HTTPS URL
-* `git@{{ site.data.variables.command_line.backticks }}:user/repo.git` のような SSH URL
+* `https://{% data variables.command_line.backticks %}/user/repo.git` のような HTTPS URL
+* `git@{% data variables.command_line.backticks %}:user/repo.git` のような SSH URL
 
 Git はリモート URL に名前を関連付けます。デフォルトのリモートは通常 `origin` と呼ばれます。
 

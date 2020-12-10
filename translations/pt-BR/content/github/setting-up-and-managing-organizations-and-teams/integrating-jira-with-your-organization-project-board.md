@@ -5,9 +5,10 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 2. Na barra lateral esquerda, em **Organization settings** (Configurações da organização) clique no nome de sua organização. ![Barra lateral organization name (nome da organização)](/assets/images/help/settings/organization-settings-from-sidebar.png)
 3. Na barra lateral esquerda, em **Developer settings** (Configurações do desenvolvedor), clique em **OAuth applications** (Aplicativos OAuth) ![Aba OAuth applications (aplicativos OAuth) na barra lateral esquerda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 4. Clique em **Register a new application** (Registrar novo aplicativo).
@@ -16,7 +17,7 @@ versions:
 7. Em **Authorization callback URL** (URL de revogação de autorização), digite a URL completa da sua instância do JIRA.
 8. Clique em **Register application** (Registrar aplicativo). ![Botão Register application (registrar aplicativo)](/assets/images/help/oauth/register-application-button.png)
 9. Em **Organization owned applications** (Aplicativos de propriedade da organização), anote os valores "Client ID" (ID do cliente) e "Client Secret" (Chave secreta do cliente). ![Client ID (ID do cliente) e Client Secret (Chave secreta do cliente)](/assets/images/help/oauth/client-id-and-secret.png)
-{{ site.data.reusables.user_settings.jira_help_docs }}
+{% data reusables.user_settings.jira_help_docs %}
 
 ### Leia mais
 

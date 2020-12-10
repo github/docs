@@ -6,21 +6,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} externe Mitarbeiter zu einem Repository hinzufügen, es sei denn, ein Organisationsinhaber hat die Möglichkeit zum Einladen von Mitarbeitern eingeschränkt. Weitere Informationen findest Du unter „[Berechtigungen zum Hinzufügen von externen Mitarbeitern festlegen](/articles/setting-permissions-for-adding-outside-collaborators)."
+{% data reusables.organizations.owners-and-admins-can %} externe Mitarbeiter zu einem Repository hinzufügen, es sei denn, ein Organisationsinhaber hat die Möglichkeit zum Einladen von Mitarbeitern eingeschränkt. Weitere Informationen findest Du unter „[Berechtigungen zum Hinzufügen von externen Mitarbeitern festlegen](/articles/setting-permissions-for-adding-outside-collaborators)."
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }}
+{% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% if currentVersion != "github-ae@latest" %}
 Wenn Deine Organisation [die Zwei-Faktor-Authentifizierung für Mitglieder und externe Mitarbeiter vorschreibt](/articles/requiring-two-factor-authentication-in-your-organization), müssen die Benutzer die Zwei-Faktor-Authentifizierung aktivieren, bevor sie Deine Einladung zur Zusammenarbeit an einem Repository der Organisation annehmen können.
+{% endif %}
 
-{{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside_collaborator_forks %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
-{{ site.data.reusables.organizations.invite-teams-or-people }}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
 5. Beginne im Suchfeld den Namen der Person einzugeben, die Du einladen möchtest, dann klicke in der Liste der Übereinstimmungen auf einen Namen. ![Suchfeld für die Eingabe des Namens der Person, die Du zu einem Repository einladen willst](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Wähle unter „Choose a role" (Wähle eine Rolle) die zu gewährenden Berechtigungen für die Person, dann klicke auf **Add NAME to REPOSITORY** (Füge NAME zum REPOSITORY hinzu). ![Berechtigungen für die Person auswählen](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 {% else %}

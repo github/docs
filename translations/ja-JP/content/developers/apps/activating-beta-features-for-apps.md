@@ -1,26 +1,26 @@
 ---
-title: Activating beta features for apps
-intro: 'You can test new app features released in public beta for your {{ site.data.variables.product.prodname_github_apps }} and {{ site.data.variables.product.prodname_oauth_app }}s.'
+title: アプリケーションのベータ版機能を有効化する
+intro: 'パブリックベータでリリースたれた新しいアプリケーションの機能を、{% data variables.product.prodname_github_apps %} および {% data variables.product.prodname_oauth_app %} でテストできます。'
 versions:
   free-pro-team: '*'
 ---
 
 {% warning %}
 
-**Warning:** Features available in public beta are subject to change.
+**警告:** パブリックベータで利用できる機能は変更される場合があります。
 
 {% endwarning %}
 
-### Activating beta features for {{ site.data.variables.product.prodname_github_apps }}
+### {% data variables.product.prodname_github_apps %} でベータ版機能を有効化する
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-3. Select the {{ site.data.variables.product.prodname_github_app }} you want to enable a beta feature for.
-{{ site.data.reusables.apps.beta_feature_activation }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+3. ベータ版機能を有効化する {% data variables.product.prodname_github_app %} を選択します。
+{% data reusables.apps.beta_feature_activation %}
 
-### Activating beta features for {{ site.data.variables.product.prodname_oauth_app }}s
+### {% data variables.product.prodname_oauth_app %} でベータ版機能を有効化する
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.oauth_apps }}
-{{ site.data.reusables.apps.beta_feature_activation }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+{% data reusables.apps.beta_feature_activation %}

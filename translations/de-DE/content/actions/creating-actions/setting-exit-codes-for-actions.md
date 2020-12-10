@@ -1,8 +1,8 @@
 ---
 title: Exitcodes für Aktionen setzen
 shortTitle: Exitcodes setzen
-intro: 'Du kannst mittels Exitcodes den Status einer Aktion setzen. {{ site.data.variables.product.prodname_dotcom }} zeigt Status, um erfolgreiche oder fehlgeschlagene Aktionen kenntlich zu machen.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Du kannst mittels Exitcodes den Status einer Aktion setzen. {% data variables.product.prodname_dotcom %} zeigt Status, um erfolgreiche oder fehlgeschlagene Aktionen kenntlich zu machen.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
@@ -10,12 +10,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu Exitcodes
 
-{{ site.data.variables.product.prodname_dotcom }} uses the exit code to set the action's check run status, which can be `success` or `failure`.
+{% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
 
 | Exit-Status    | Prüflaufstatus         | Beschreibung                                                                                                                                                                                                                                                                          |
 | -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -24,7 +24,7 @@ versions:
 
 ### Fehler-Exit-Code in einer JavaScript-Aktion festlegen
 
-Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
+Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
 
 ```javascript
 try {

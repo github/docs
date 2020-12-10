@@ -6,21 +6,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} 外部コラボレーターをリポジトリに追加できます。ただし、Organization のオーナーがコラボレーターの招待を禁じていない場合に限ります。 詳しい情報については、「[外部のコラボレーターを追加するための権限を設定する](/articles/setting-permissions-for-adding-outside-collaborators)」を参照してください。
+{% data reusables.organizations.owners-and-admins-can %} 外部コラボレーターをリポジトリに追加できます。ただし、Organization のオーナーがコラボレーターの招待を禁じていない場合に限ります。 詳しい情報については、「[外部のコラボレーターを追加するための権限を設定する](/articles/setting-permissions-for-adding-outside-collaborators)」を参照してください。
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }}
+{% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% if currentVersion != "github-ae@latest" %}
 Organization が[メンバーおよび外部コラボレーターに 2 要素認証を使うことを求める](/articles/requiring-two-factor-authentication-in-your-organization)なら、メンバーおよび外部コラボレーターはあなたからの Organization のリポジトリでのコラボレーションの招待を受諾する前に、2 要素認証を有効化しなければなりません。
+{% endif %}
 
-{{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside_collaborator_forks %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
-{{ site.data.reusables.organizations.invite-teams-or-people }}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
 5. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. [Choose a role] で、人に付与する権限を選択し、[**Add NAME to REPOSITORY**] をクリックします。 ![人の権限を選択する](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 {% else %}

@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-A [API de Status][status API] é responsável por unir commits com um serviço de teste. para que cada push que você fizer possa ser testado e representado em um pull request do {{ site.data.variables.product.product_name }}.
+A [API de Status][status API] é responsável por unir commits com um serviço de teste. para que cada push que você fizer possa ser testado e representado em um pull request do {% data variables.product.product_name %}.
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 
@@ -51,7 +52,7 @@ Clique em **Update webhook** (Atualizar webhook). Você deve ver uma resposta de
 * Status
 * Pull Request
 
-Esses são os eventos que {{ site.data.variables.product.product_name }} serão enviados ao nosso servidor sempre que ocorrer a ação relevante. Vamos atualizar nosso servidor para *apenas* lidar com o cenário de pull request agora:
+Esses são os eventos que {% data variables.product.product_name %} serão enviados ao nosso servidor sempre que ocorrer a ação relevante. Vamos atualizar nosso servidor para *apenas* lidar com o cenário de pull request agora:
 
 ``` ruby
 post '/event_handler' do
@@ -72,7 +73,7 @@ helpers do
 end
 ```
 
-O que está acontecendo? Cada evento que {{ site.data.variables.product.product_name }} envia, anexa um cabeçalho de HTTP de `X-GitHub-Event`. Por enquanto, nos importaremos apenas com os eventos do PR. De lá, nós usaremos a carga das informações e retornaremos o campo de título. Em um cenário ideal, nosso servidor ficaria preocupado com cada vez que um pull request é atualizado, e não apenas quando ele é aberto. Isso asseguraria que todos os novos pushes passassem pelos testes de CI. Mas, para essa demonstração, nós nos preocuparemos quando ela for aberta.
+O que está acontecendo? Cada evento que {% data variables.product.product_name %} envia, anexa um cabeçalho de HTTP de `X-GitHub-Event`. Por enquanto, nos importaremos apenas com os eventos do PR. De lá, nós usaremos a carga das informações e retornaremos o campo de título. Em um cenário ideal, nosso servidor ficaria preocupado com cada vez que um pull request é atualizado, e não apenas quando ele é aberto. Isso asseguraria que todos os novos pushes passassem pelos testes de CI. Mas, para essa demonstração, nós nos preocuparemos quando ela for aberta.
 
 Para testar esta prova de conceito, faça algumas alterações em um branch no repositório de teste e abra um pull request. Seu servidor deve responder de acordo!
 
@@ -80,7 +81,7 @@ Para testar esta prova de conceito, faça algumas alterações em um branch no r
 
 Já que configuramos o nosso servidor, estamos prontos para iniciar nosso primeiro requisito, que é configurar (e atualizar) os status de CI. Observe que a sempre que você atualizar o seu servidor, você poderá clicar em **Entregar novamente** para enviar a mesma carga. Não há necessidade de fazer um novo pull request toda vez que você fizer uma alteração!
 
-Uma vez que estamos interagindo com a API de {{ site.data.variables.product.product_name }} , usaremos [Octokit.rb][octokit.rb] para gerenciar nossas interações. Vamos configurar esse cliente com
+Uma vez que estamos interagindo com a API de {% data variables.product.product_name %} , usaremos [Octokit.rb][octokit.rb] para gerenciar nossas interações. Vamos configurar esse cliente com
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -92,7 +93,7 @@ before do
 end
 ```
 
-Em seguida, vamos precisar atualizar o pull request no {{ site.data.variables.product.product_name }} para deixar claro que estamos processando na CI:
+Em seguida, vamos precisar atualizar o pull request no {% data variables.product.product_name %} para deixar claro que estamos processando na CI:
 
 ``` ruby
 def process_pull_request(pull_request)
@@ -128,7 +129,7 @@ No GitHub, usamos uma versão do [Janky][janky] para gerenciar a nossa CI durant
 
 Toda esta comunicação é canalizada de volta para nossas salas de bate-papo. Você não precisa construir sua própria configuração de CI para usar este exemplo. Você sempre pode confiar nas[Integrações do GitHub][integrations].
 
-[status API]: /v3/repos/statuses/
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

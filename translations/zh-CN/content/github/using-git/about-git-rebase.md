@@ -8,6 +8,7 @@ intro: '`git rebase` 命令用于轻松更改一系列提交，修改仓库的�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -20,7 +21,7 @@ versions:
 
 {% warning %}
 
-**警告**：由于更改您的提交历史记录可能会给其他人使用仓库造成困难，因此如果提交已经推送到仓库，提交变基被视为一种坏习惯。 要了解如何在 {{ site.data.variables.product.product_location }} 上安全地变基，请参阅“[关于拉取请求合并](/articles/about-pull-request-merges)”。
+**警告**：由于更改您的提交历史记录可能会给其他人使用仓库造成困难，因此如果提交已经推送到仓库，提交变基被视为一种坏习惯。 要了解如何在 {% data variables.product.product_location %} 上安全地变基，请参阅“[关于拉取请求合并](/articles/about-pull-request-merges)”。
 
 {% endwarning %}
 
@@ -106,4 +107,4 @@ pick 7b36971 something to move before patch B
 - [_Pro Git_ 书籍中的“Git 分支”一章](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [_Pro Git_ 书籍中的“交互式变基”一章](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[使用变基压缩提交](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- {{ site.data.variables.product.prodname_desktop }} 文档中的“[同步分支](/desktop/contributing-to-projects/syncing-your-branch)”
+- {% data variables.product.prodname_desktop %} 文档中的“[同步分支](/desktop/contributing-to-projects/syncing-your-branch)”

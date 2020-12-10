@@ -4,10 +4,11 @@ redirect_from:
   - /articles/git-over-https-using-oauth-token/
   - /articles/git-over-http-using-oauth-token/
   - /articles/git-automation-with-oauth-tokens
-intro: 'Você pode usar tokens OAuth para interagir com {{ site.data.variables.product.product_name }} por meio de scripts automatizados.'
+intro: 'Você pode usar tokens OAuth para interagir com {% data variables.product.product_name %} por meio de scripts automatizados.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Etapa 1: Obtenha um token OAuth
@@ -19,18 +20,18 @@ Crie um token de acesso pessoal na página de configurações do seu aplicativo.
 {% if currentVersion == "free-pro-team@latest" %}
 **Dicas:**
 - Você deve verificar seu endereço de e-mail antes de criar um token de acesso pessoal. Para obter mais informações, consulte "[Verificar o endereço de e-mail](/articles/verifying-your-email-address)".
-- {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+- {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
-**Dica:** {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+**Dica:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% endif %}
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### Etapa 2: Clone um repositório
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter informações, consulte "[Armazenar suas credenciais no GitHub no Git](/github/using-git/caching-your-github-credentials-in-git)".
 
@@ -42,4 +43,4 @@ Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter 
 
 ### Leia mais
 
-- "[Autorizando aplicativos OAuth](/v3/oauth/)"
+- "[Autorizando aplicativos OAuth](/developers/apps/authorizing-oauth-apps)"

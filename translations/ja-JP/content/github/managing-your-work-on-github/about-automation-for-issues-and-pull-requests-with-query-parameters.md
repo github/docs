@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-クエリパラメータはカスタマイズ可能なURLのオプション部分で、{{ site.data.variables.product.prodname_dotcom }}上の検索フィルタの結果やIssueテンプレートといった特定のWebページビューを共有できます。 独自のクエリパラメータを作成するには、キーと値のペアをマッチさせなければなりません。
+クエリパラメータはカスタマイズ可能なURLのオプション部分で、{% data variables.product.prodname_dotcom %}上の検索フィルタの結果やIssueテンプレートといった特定のWebページビューを共有できます。 独自のクエリパラメータを作成するには、キーと値のペアをマッチさせなければなりません。
 
 {% tip %}
 
@@ -34,7 +35,7 @@ versions:
 
 ### カスタムテンプレートでIssueやプルリクエストを記入する
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 `template`クエリパラメータを使い、テンプレートを指定して自動的にIssueやプルリクエストのボディに記入することができます。 `template`クエリパラメータは、`ISSUE_TEMPLATE`あるいはルート内の`PULL_REQUEST_TEMPLATE`サブディレクトリ、リポジトリ内の`docs/`あるいは`.github/`ディレクトリに保存されたテンプレートで動作します。
 

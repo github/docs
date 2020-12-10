@@ -1,16 +1,17 @@
 ---
 title: 搜索主题
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索与仓库关联的主题。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索与仓库关联的主题。'
 redirect_from:
   - /articles/searching-topics
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### 搜索 {{ site.data.variables.product.product_name }} 主题
+### 搜索 {% data variables.product.product_name %} 主题
 
-您可以在 {{ site.data.variables.product.product_name }} 上搜索主题、探索相关主题以及查看有多少仓库与特定主题关联。
+您可以在 {% data variables.product.product_name %} 上搜索主题、探索相关主题以及查看有多少仓库与特定主题关联。
 
 1. 导航到 https://github.com/search。
 2. 输入主题关键词。 ![搜索字段](/assets/images/help/search/search-field.png)
@@ -21,17 +22,17 @@ versions:
 
 ### 使用搜索限定符缩小搜索范围
 
-如果您要探索关于特定主题的仓库、查找要贡献内容的项目或了解哪些主题在 {{ site.data.variables.product.product_name }} 上最受欢迎，您可以使用搜索限定符 `is:featured`、`is:curated`、`repositories:n` 和 `created:YYYY-MM-DD` 搜索主题。
+如果您要探索关于特定主题的仓库、查找要贡献内容的项目或了解哪些主题在 {% data variables.product.product_name %} 上最受欢迎，您可以使用搜索限定符 `is:featured`、`is:curated`、`repositories:n` 和 `created:YYYY-MM-DD` 搜索主题。
 
-`is:featured` 搜索限定符会将搜索结果范围缩小为 {{ site.data.variables.product.product_name }} 上具有最多仓库的主题。 这些主题还会在 https://github.com/topics/ 上提供。
+`is:featured` 搜索限定符会将搜索结果范围缩小为 {% data variables.product.product_name %} 上具有最多仓库的主题。 这些主题还会在 https://github.com/topics/ 上提供。
 
 `is:curated` 搜索限定符可将搜索结果范围缩小到社区成员已向其添加额外信息的主题。 更多信息请参阅位于 https://github.com/github/explore 的探索仓库。
 
 您可以使用日期参数和 `created:` 根据创建时间过滤主题，也可以使用 `repositories:n` 根据与此主题关联的仓库数量过滤主题。 这两个限定符都可以使用[大于和小于范围限定符](/articles/understanding-the-search-syntax)。
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                       | 示例                                                                                                                                                                              |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

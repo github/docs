@@ -1,7 +1,7 @@
 ---
 title: Ver la red de un repositorio
 intro: 'El gráfico de red muestra el historial de la rama de la red del repositorio completa, incluidas las ramas del repositorio raíz y las ramas de las bifurcaciones que contienen confirmaciones únicas de la red.'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -20,6 +20,6 @@ versions:
 
 ### Acceder al gráfico de la red
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Network (Red)**. ![Pestaña de red](/assets/images/help/graphs/network_tab.png)

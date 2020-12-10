@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Applying suggested changes
@@ -16,7 +17,7 @@ To quickly incorporate more than one suggested change into a single commit, you 
 
 Each person who suggested a change included in the commit will be a co-author of the commit. The person who applies the suggested changes will be a co-author and the committer of the commit. For more information about the term committer in Git, see "[Git Basics - Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)" from the _Pro Git_ book site.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request you'd like to apply a suggested change to.
 3. Navigate to the first suggested change you'd like to apply.
     - To apply the change in its own commit, click **Commit suggestion**.
@@ -27,6 +28,10 @@ Each person who suggested a change included in the commit will be a co-author of
 ![Commit message field](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Click **Commit changes.**
 ![Commit changes button](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### Opening an issue for an out-of-scope suggestion
 

@@ -1,6 +1,6 @@
 ---
 title: コマンドラインのユーティリティ
-intro: '{{ site.data.variables.product.prodname_ghe_server }} には、特定の問題を解決したり特定のタスクを実行するのに役立つさまざまなユーティリティが搭載されています。'
+intro: '{% data variables.product.prodname_ghe_server %} には、特定の問題を解決したり特定のタスクを実行するのに役立つさまざまなユーティリティが搭載されています。'
 redirect_from:
   - /enterprise/admin/articles/viewing-all-services/
   - /enterprise/admin/articles/command-line-utilities/
@@ -17,10 +17,11 @@ SSH 管理ユーザとしてサインインした後では、VM 上のどこか�
 
 #### ghe-announce
 
-このユーティリティは、あらゆる {{ site.data.variables.product.prodname_enterprise }} ページの上部にバナーを設定します。 これを使用すればユーザにメッセージを配信することができます。
+このユーティリティは、あらゆる {% data variables.product.prodname_enterprise %} ページの上部にバナーを設定します。 これを使用すればユーザにメッセージを配信することができます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.variables.product.product_name }} の Enterprise 設定を使用して、お知らせバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
+また、
+{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
 {% endif %}
 
 ```shell
@@ -49,11 +50,11 @@ ghe-cleanup-caches
 ```
 #### ghe-cleanup-settings
 
-このユーティリティは、既存の {{ site.data.variables.enterprise.management_console }} の設定をすべて消去します。
+このユーティリティは、既存の {% data variables.enterprise.management_console %} の設定をすべて消去します。
 
 {% tip %}
 
-**参考**: {{ site.data.reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command }}
+**参考**: {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 {% endtip %}
 
@@ -63,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-このユーティリティを使用すると、{{ site.data.variables.product.product_location_enterprise }} の設定を取得して変更することができます。
+このユーティリティを使用すると、{% data variables.product.product_location %} の設定を取得して変更することができます。
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -83,14 +84,14 @@ $ ghe-config -l
 API レート制限からユーザのリストを除外できます。 詳しい情報については、「[REST API のリソース](/rest/overview/resources-in-the-rest-api#rate-limiting)」を参照してください。
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # ユーザーの hubot と github-actions をレート制限から除外する
 ```
 {% endif %}
 
 #### ghe-config-apply
 
-このユーティリティは、{{ site.data.variables.enterprise.management_console }} の設定の適用や、システムサービスのリロード、アプリケーションサービスのリロード、保留中のデータベースマイグレーションを行います。 これは、{{ site.data.variables.enterprise.management_console }} の Web UIで [**Save settings**] をクリックすること、または [`/setup/api/configure` エンドポイント](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)に POST リクエストを送信するのと同様です。
+このユーティリティは、{% data variables.enterprise.management_console %} の設定の適用や、システムサービスのリロード、アプリケーションサービスのリロード、保留中のデータベースマイグレーションを行います。 これは、{% data variables.enterprise.management_console %} の Web UIで [**Save settings**] をクリックすること、または [`/setup/api/configure` エンドポイント](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)に POST リクエストを送信するのと同様です。
 
 手動で実行することはないと思いますが、設定を保存する過程をSSH 経由で自動化したい場合に利用できます。
 
@@ -100,7 +101,7 @@ ghe-config-apply
 
 #### ghe-console
 
-このユーティリティは、{{ site.data.variables.product.prodname_enterprise }} アプライアンスで GitHub Rails コンソールを開きます。 {{ site.data.reusables.command_line.use_with_support_only }}
+このユーティリティは、{% data variables.product.prodname_enterprise %} アプライアンスで GitHub Rails コンソールを開きます。 {% data reusables.command_line.use_with_support_only %}
 
 ```shell
 ghe-console
@@ -108,7 +109,7 @@ ghe-console
 
 #### ghe-dbconsole
 
-このユーティリティは、{{ site.data.variables.product.prodname_enterprise }} アプライアンスで MySQL データベースセッションを開きます。 {{ site.data.reusables.command_line.use_with_support_only }}
+このユーティリティは、{% data variables.product.prodname_enterprise %} アプライアンスで MySQL データベースセッションを開きます。 {% data reusables.command_line.use_with_support_only %}
 
 ```shell
 ghe-dbconsole
@@ -158,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {{ site.data.variables.product.prodname_dotcom }} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{{ site.data.variables.product.prodname_dotcom }} サービスを設定している場合があります。 詳しい情報については、{{ site.data.variables.product.prodname_blog }} で「[{{ site.data.variables.product.prodname_dotcom }} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{{ site.data.variables.product.prodname_dotcom }} サービスを置き換える](/v3/guides/replacing-github-services/)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
+このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 詳しい情報については、{% data variables.product.prodname_blog %} で「[{% data variables.product.prodname_dotcom %} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{% data variables.product.prodname_dotcom %} サービスを置き換える](/developers/overview/replacing-github-services)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
 
 ```shell
 ghe-legacy-github-services-report
@@ -175,13 +176,12 @@ ghe-logs-tail
 
 #### ghe-maintenance
 
-このユーティリティにより、インストールのメンテナンスモードの状態を制御できます。 これは主に舞台裏で {{ site.data.variables.enterprise.management_console }} によって使用されるように設計されていますが、直接使用することもできます。
+このユーティリティにより、インストールのメンテナンスモードの状態を制御できます。 これは主に舞台裏で {% data variables.enterprise.management_console %} によって使用されるように設計されていますが、直接使用することもできます。
 
 ```shell
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 このユーティリティは、管理者が管理シェルを介してインスタンスにアクセスしたときに表示される今日のメッセージ (MOTD) を再表示します。 出力には、インスタンスの状態の概要が含まれます。
@@ -189,7 +189,6 @@ ghe-maintenance -h
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 
@@ -238,7 +237,7 @@ ghe-org-admin-promote -a
 
 #### ghe-reactivate-admin-login
 
-10分以内にログインを10回失敗した場合、このコマンドを使って {{ site.data.variables.enterprise.management_console }} を直ちに解除できます。
+10分以内にログインを10回失敗した場合、このコマンドを使って {% data variables.enterprise.management_console %} を直ちに解除できます。
 
 ```shell
 $ ghe-reactivate-admin-login
@@ -255,7 +254,7 @@ $ ghe-reactivate-admin-login
 * webhook はトリガーされていません。
 * Git プッシュ後、ウェブインタフェースが更新されない。
 
-Resque の故障を懸念している場合は、{{ site.data.variables.contact.contact_ent_support }} に連絡してください。
+Resque の故障を懸念している場合は、{% data variables.contact.contact_ent_support %} に連絡してください。
 
 このコマンドでは、キューでのジョブ停止または再開をすることができます。
 
@@ -272,7 +271,7 @@ $ ghe-resque-info -r <em>QUEUE</em>
 
 このユーティリティは、SAMLレコードのマップを支援します。
 
-{{ site.data.variables.product.product_name }}ユーザのためのすべてのSAMLマッピングを含むCSVファイルを作成するには、次のようにします。
+{% data variables.product.product_name %}ユーザのためのすべてのSAMLマッピングを含むCSVファイルを作成するには、次のようにします。
 ```shell
 $ ghe-saml-mapping-csv -d
 ```
@@ -322,13 +321,13 @@ stop/waiting
 $ sudo systemctl restart github-resqued
 ```
 
-サービスを停止することによって、インスタレーションが稼働停止しますので、サービスを停止または再起動する前に {{ site.data.variables.contact.contact_ent_support }} に連絡することをおすすめします。
+サービスを停止することによって、インスタレーションが稼働停止しますので、サービスを停止または再起動する前に {% data variables.contact.contact_ent_support %} に連絡することをおすすめします。
 
 {% endtip %}
 
 #### ghe-set-password
 
-`ghe-set-password` では、[{{ site.data.variables.enterprise.management_console }}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) に認証するための新しいパスワードを設定することができます。
+`ghe-set-password` では、[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) に認証するための新しいパスワードを設定することができます。
 
 ```shell
 ghe-set-password <新しいパスワード>
@@ -369,7 +368,7 @@ SSH のホストキーを廃棄しますか？ /etc/ssh/ssh_host_* にある既�
 
 #### ghe-ssh-weak-fingerprints
 
-このユーティリティは、{{ site.data.variables.product.prodname_enterprise }} のアプライアンスに保存されている脆弱なSSHキーの報告を作成します。 ユーザのキーを一括アクションとして取り消すことができます。 このユーティリティは、脆弱なシステムキーについて報告します。取り消しは、[{{ site.data.variables.enterprise.management_console }}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) で手動的に行う必要があります。
+このユーティリティは、{% data variables.product.prodname_enterprise %} のアプライアンスに保存されている脆弱なSSHキーの報告を作成します。 ユーザのキーを一括アクションとして取り消すことができます。 このユーティリティは、脆弱なシステムキーについて報告します。取り消しは、[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) で手動的に行う必要があります。
 
 ```shell
 # ユーザのシステムの脆弱なキーの報告を表示
@@ -381,7 +380,7 @@ $ ghe-ssh-weak-fingerprints --revoke
 
 #### ghe-ssl-acme
 
-このユーティリティでは、 {{ site.data.variables.product.prodname_enterprise }} のアプライアンスに Let's Encrypt の証明書をインストールすることができます。 詳しくは、"[TLS の設定方法](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)。" を参照してください。
+このユーティリティでは、 {% data variables.product.prodname_enterprise %} のアプライアンスに Let's Encrypt の証明書をインストールすることができます。 詳しくは、"[TLS の設定方法](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)。" を参照してください。
 
 `-x`フラグを使って、ACME設定を削除できます。
 
@@ -391,11 +390,11 @@ ghe-ssl-acme -e
 
 #### ghe-ssl-ca-certificate-install
 
-このユーティリティでは、{{ site.data.variables.product.prodname_enterprise }} のサーバにカスタムルートのCA証明書をインストールできます。 証明書は PEM 形式でなければなりません。 さらに、証明書の提供者が1つのファイルに複数のCA証明書を含めている場合は、それらを個別のファイルに分けて `ghe-ssl-ca-certificate-install` に各々を渡す必要があります。
+このユーティリティでは、{% data variables.product.prodname_enterprise %} のサーバにカスタムルートのCA証明書をインストールできます。 証明書は PEM 形式でなければなりません。 さらに、証明書の提供者が1つのファイルに複数のCA証明書を含めている場合は、それらを個別のファイルに分けて `ghe-ssl-ca-certificate-install` に各々を渡す必要があります。
 
 S/MIME コミット署名の検証のために証明書チェーンを追加するには、このユーティリティを実行します。 詳細は「[コミット署名の検証について](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)」を参照してください。
 
-他のサーバが自己署名証明書または必要な CA バンドルがついていない SSL 証明書を使っているため {{ site.data.variables.product.product_location_enterprise }} がそのサーバに接続できない場合、このユーティリティを使ってください。 これを確認する方法は、{{ site.data.variables.product.product_location_enterprise }} から`openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` を実行することです。 リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
+他のサーバが自己署名証明書または必要な CA バンドルがついていない SSL 証明書を使っているため {% data variables.product.product_location %} がそのサーバに接続できない場合、このユーティリティを使ってください。 これを確認する方法は、{% data variables.product.product_location %} から`openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` を実行することです。 リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
 
 ```
 SSL-Session:
@@ -453,7 +452,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-このユーティリティは、{{ site.data.variables.product.product_location_enterprise }} のバージョンやプラットフォーム、ビルドを表示します。
+このユーティリティは、{% data variables.product.product_location %} のバージョンやプラットフォーム、ビルドを表示します。
 
 ```shell
 $ ghe-version
@@ -486,7 +485,7 @@ ghe-webhook-logs --global
 
 #### ghe-cluster-status
 
-このユーティリティを使えば、分散{{ site.data.variables.product.prodname_pages }}サーバーを管理できます。
+このユーティリティを使えば、分散{% data variables.product.prodname_pages %}サーバーを管理できます。
 
 ```shell
 $ ghe-cluster-status
@@ -496,7 +495,7 @@ $ ghe-cluster-status
 
 このユーティリティは、Geo-replication またはクラスタリングのいずれかの構成で、各ノードからの重要なログを含む Support Bundle tarball を作成します。
 
-このコマンドは、デフォルトの設定では、*/tmp* に TAR 書庫を作成しますが、簡単に SSH 経由でストリーミングできるように、TAR 書庫を `STDOUT` に `cat`できます。 ウェブ UI が反応していないか、*/setup/support* から Support Bundle をダウンロードできないときに役立ちます。 より古いログを含む*拡張*バンドルを生成するときにこのコマンドを使う必要があります。 さらに、このコマンドを使って {{ site.data.variables.product.prodname_enterprise }} のサポートにクラスタリングSupport Bundle を直接アップロードすることができます。
+このコマンドは、デフォルトの設定では、*/tmp* に TAR 書庫を作成しますが、簡単に SSH 経由でストリーミングできるように、TAR 書庫を `STDOUT` に `cat`できます。 ウェブ UI が反応していないか、*/setup/support* から Support Bundle をダウンロードできないときに役立ちます。 より古いログを含む*拡張*バンドルを生成するときにこのコマンドを使う必要があります。 さらに、このコマンドを使って {% data variables.product.prodname_enterprise %} のサポートにクラスタリングSupport Bundle を直接アップロードすることができます。
 
 標準のバンドルを作成するには、以下のようにします。
 ```shell
@@ -508,12 +507,12 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -o' > cluste
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
-バンドルを{{ site.data.variables.contact.github_support }}に送信するには、以下のようにします。
+バンドルを{% data variables.contact.github_support %}に送信するには、以下のようにします。
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -u'
 ```
 
-バンドルを{{ site.data.variables.contact.github_support }}に送信し、そのバンドルをチケットに関連づけるには以下のようにします。
+バンドルを{% data variables.contact.github_support %}に送信し、そのバンドルをチケットに関連づけるには以下のようにします。
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
@@ -530,7 +529,7 @@ ghe-cluster-failover
 
 #### ghe-dpages
 
-このユーティリティを使えば、分散{{ site.data.variables.product.prodname_pages }}サーバーを管理できます。
+このユーティリティを使えば、分散{% data variables.product.prodname_pages %}サーバーを管理できます。
 
 ```shell
 ghe-dpages
@@ -541,7 +540,7 @@ ghe-dpages
 ghe-dpages status
 ```
 
-クラスタノードの退避に先立って{{ site.data.variables.product.prodname_pages }}ストレージサービスを退避するには、以下のようにします。
+クラスタノードの退避に先立って{% data variables.product.prodname_pages %}ストレージサービスを退避するには、以下のようにします。
 ``` shell
 ghe-dpages evacuate pages-server-<uuid>
 ```
@@ -600,7 +599,7 @@ ghe-repo <em>ユーザ名</em>/<em>reponame</em>
 
 #### ghe-repo-gc
 
-このユーティリティは、パックの容量を最適化するために、手動的にリポジトリのネットワークをリパックします。 大きなリポジトリの場合、このコマンドではリポジトリの全体的なサイズを減らすことができます。 リポジトリのネットワークとの対話を通じて、{{ site.data.variables.product.prodname_enterprise }} がこのコマンドを自動的に実行します。
+このユーティリティは、パックの容量を最適化するために、手動的にリポジトリのネットワークをリパックします。 大きなリポジトリの場合、このコマンドではリポジトリの全体的なサイズを減らすことができます。 リポジトリのネットワークとの対話を通じて、{% data variables.product.prodname_enterprise %} がこのコマンドを自動的に実行します。
 
 任意の`--prune` の引数を付けて、ブランチやタグ、refに参照されていない、届かないGitオブジェクトを除くことができます。 これは、[以前抹消した機密情報](/enterprise/user/articles/remove-sensitive-data/) を直ちに削除するのに役立ちます。
 
@@ -612,7 +611,7 @@ ghe-repo-gc <em>ユーザ名</em>/<em>reponame</em>
 
 #### ghe-migrator
 
-`ghe-migrator` は、他のGitHubインスタンスに移行するためのハイファイツールです。 インスタンスを統合、もしくは Organization やユーザ、Team、リポジトリをGitHub.comから {{ site.data.variables.product.prodname_enterprise }} に移行することができます。
+`ghe-migrator` は、他のGitHubインスタンスに移行するためのハイファイツールです。 インスタンスを統合、もしくは Organization やユーザ、Team、リポジトリをGitHub.comから {% data variables.product.prodname_enterprise %} に移行することができます。
 
 詳しくは、[ユーザやOrganization、リポジトリデータの移行](/enterprise/admin/guides/migrations/)の説明書を参照してください。
 
@@ -657,7 +656,7 @@ git-import-rewrite
 
 このユーティリティは、さまざまな確認を行い、問題を突き止めるためのサポートに送れるインスタレーションについて情報を集めます。
 
-現在のところ、このユーティリティの出力は、{{ site.data.variables.enterprise.management_console }} で診断情報をダウンロードすることに似ていますが、時間の経過とともに、Web UI では利用できない改善がさらに追加されている可能性があります。 詳細は「"[診断ファイルの作成と共有](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)」を参照してください。
+現在のところ、このユーティリティの出力は、{% data variables.enterprise.management_console %} で診断情報をダウンロードすることに似ていますが、時間の経過とともに、Web UI では利用できない改善がさらに追加されている可能性があります。 詳細は「"[診断ファイルの作成と共有](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)」を参照してください。
 
 ```shell
 ghe-diagnostics
@@ -665,10 +664,10 @@ ghe-diagnostics
 
 #### ghe-support-bundle
 
-{{ site.data.reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle }}
+{% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 このユーティリティは、インスタンスから重要なログを含むSupport BundleのTAR書庫を作成します。
 
-このコマンドは、デフォルトの設定では、*/tmp* に TAR 書庫を作成しますが、簡単に SSH 経由でストリーミングできるように、TAR 書庫を `STDOUT` に `cat`できます。 ウェブ UI が反応していないか、*/setup/support* から Support Bundle をダウンロードできないときに役立ちます。 より古いログを含む*拡張*バンドルを生成するときにこのコマンドを使う必要があります。 さらに、このコマンドを使って {{ site.data.variables.product.prodname_enterprise }} のサポートに Support Bundle を直接アップロードすることができます。
+このコマンドは、デフォルトの設定では、*/tmp* に TAR 書庫を作成しますが、簡単に SSH 経由でストリーミングできるように、TAR 書庫を `STDOUT` に `cat`できます。 ウェブ UI が反応していないか、*/setup/support* から Support Bundle をダウンロードできないときに役立ちます。 より古いログを含む*拡張*バンドルを生成するときにこのコマンドを使う必要があります。 さらに、このコマンドを使って {% data variables.product.prodname_enterprise %} のサポートに Support Bundle を直接アップロードすることができます。
 
 標準のバンドルを作成するには、以下のようにします。
 ```shell
@@ -680,12 +679,12 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
-バンドルを{{ site.data.variables.contact.github_support }}に送信するには、以下のようにします。
+バンドルを{% data variables.contact.github_support %}に送信するには、以下のようにします。
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
 ```
 
-バンドルを{{ site.data.variables.contact.github_support }}に送信し、そのバンドルをチケットに関連づけるには以下のようにします。
+バンドルを{% data variables.contact.github_support %}に送信し、そのバンドルをチケットに関連づけるには以下のようにします。
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'
@@ -693,9 +692,9 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em
 
 #### ghe-support-upload
 
-このユーティリティは、アプライアンスから {{ site.data.variables.product.prodname_enterprise }} サポートに情報を送信します。 ローカルファイルを指定、または`STDIN`経由で最大100MBまでのデータのストリームを提供することができます。 アップロードされたデータは任意でサポートチケットと関連付けることができます。
+このユーティリティは、アプライアンスから {% data variables.product.prodname_enterprise %} サポートに情報を送信します。 ローカルファイルを指定、または`STDIN`経由で最大100MBまでのデータのストリームを提供することができます。 アップロードされたデータは任意でサポートチケットと関連付けることができます。
 
-ファイルを{{ site.data.variables.contact.github_support }}に送信し、そのファイルをチケットに関連づけるには以下のようにします。
+ファイルを{% data variables.contact.github_support %}に送信し、そのファイルをチケットに関連づけるには以下のようにします。
 ```shell
 ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
 ```
@@ -705,13 +704,13 @@ ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
 <em>ghe-repl-status -vv</em> | ghe-support-upload -t <em>ticket-id</em> -d "<em>Verbose Replication Status</em>"
 ```
 
-この例では、`ghe-repl-status -vv` がレプリカアプライアンスから詳細なステータス情報を送信します。 `ghe-repl-status -vv`を`STDIN`ストリーミングしたい特定データに入れ替えて、`Verbose Replication Status` をデータの簡潔な説明に入れ替えます。 {{ site.data.reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command }}
+この例では、`ghe-repl-status -vv` がレプリカアプライアンスから詳細なステータス情報を送信します。 `ghe-repl-status -vv`を`STDIN`ストリーミングしたい特定データに入れ替えて、`Verbose Replication Status` をデータの簡潔な説明に入れ替えます。 {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
-### {{ site.data.variables.product.prodname_ghe_server }} のアップグレード
+### {% data variables.product.prodname_ghe_server %} のアップグレード
 
 #### ghe-upgrade
 
-このユーティリティは、アップグレードパッケージをインストール、または確認します。 アップグレードが失敗した場合や中断された場合は、このユーティリティを使用してパッチリリースをロールバックすることもできます。 詳しい情報については、「[{{ site.data.variables.product.prodname_ghe_server }} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
+このユーティリティは、アップグレードパッケージをインストール、または確認します。 アップグレードが失敗した場合や中断された場合は、このユーティリティを使用してパッチリリースをロールバックすることもできます。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)」を参照してください。
 
 アップグレードパッケージを確認するには以下のようにします。
 ```shell
@@ -723,7 +722,7 @@ ghe-upgrade --verify <em>UPGRADE-PACKAGE-FILENAME</em>
 ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
 ```
 
-{{ site.data.reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback }}
+{% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 #### ghe-upgrade-scheduler
 
@@ -747,11 +746,11 @@ $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 
 #### ghe-update-check
 
-このユーティリティは、{{ site.data.variables.product.prodname_enterprise }} の新規パッチのリリースがあるかどうかを確認します。 リリースが存在する場合、インスタンスに十分な容量があればパッケージをダウンロードします。 デフォルトでは、パッケージは */var/lib/ghe-updates* に保存されます。 その後、管理人が[アップグレードを実行できます](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/)。
+このユーティリティは、{% data variables.product.prodname_enterprise %} の新規パッチのリリースがあるかどうかを確認します。 リリースが存在する場合、インスタンスに十分な容量があればパッケージをダウンロードします。 デフォルトでは、パッケージは */var/lib/ghe-updates* に保存されます。 その後、管理人が[アップグレードを実行できます](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/)。
 
 */var/lib/ghe-updates/ghe-update-check.status* にダウンロードのステータスを含むファイルがあります。
 
-`-i`のスイッチを使って、{{ site.data.variables.product.prodname_enterprise }} の最新リリースを確認することができます。
+`-i`のスイッチを使って、{% data variables.product.prodname_enterprise %} の最新リリースを確認することができます。
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
@@ -761,7 +760,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 #### ghe-license-usage
 
-このユーティリティは、インストールのユーザーのリストを JSON 形式でエクスポートします。 インスタンスが {{ site.data.variables.product.prodname_ghe_cloud }} に接続されている場合、{{ site.data.variables.product.prodname_ghe_server }} はこの情報を使用してライセンス情報を {{ site.data.variables.product.prodname_ghe_cloud }} に報告します。 詳しい情報については、「[{{ site.data.variables.product.prodname_ghe_server }} を {{ site.data.variables.product.prodname_ghe_cloud }} に接続する](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
+このユーティリティは、インストールのユーザーのリストを JSON 形式でエクスポートします。 インスタンスが {% data variables.product.prodname_ghe_cloud %} に接続されている場合、{% data variables.product.prodname_ghe_server %} はこの情報を使用してライセンス情報を {% data variables.product.prodname_ghe_cloud %} に報告します。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_ghe_cloud %} に接続する](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
 
 デフォルトでは、結果の JSON ファイル内のユーザのリストは暗号化されます。 その他のオプションを利用するには、`-h` のフラグを使ってください。
 

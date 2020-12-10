@@ -1,27 +1,28 @@
 ---
 title: GitHub CLI
-intro: 'The {{ site.data.variables.product.prodname_cli }} is a command-line tool for using {{ site.data.variables.product.product_name }} features on your computer.'
+intro: 'The {% data variables.product.prodname_cli %} is a command-line tool for using {% data variables.product.product_name %} features on your computer.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
+  github-ae: '*'
 ---
 
-### About {{ site.data.variables.product.prodname_cli }}
+### About {% data variables.product.prodname_cli %}
 
-{{ site.data.variables.product.prodname_cli }} is an open source tool for using {{ site.data.variables.product.product_name }} from your computer's command line. When you're working from the command line, you can use the {{ site.data.variables.product.prodname_cli }} to save time and avoid switching context.
+{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
 
-You can use the following {{ site.data.variables.product.prodname_dotcom }} features with the {{ site.data.variables.product.prodname_cli }}.
+You can use the following {% data variables.product.prodname_dotcom %} features with the {% data variables.product.prodname_cli %}.
 
 - View, create, clone, and fork repositories
 - Create, close, and list issues and pull requests
 - Review, diff, and merge pull requests
 - Create, edit, list, and view gists
 
-For more information about what you can do with {{ site.data.variables.product.prodname_cli }}, see the [{{ site.data.variables.product.prodname_cli }} manual](https://cli.github.com/manual).
+For more information about what you can do with {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %} manual](https://cli.github.com/manual).
 
-### Installing {{ site.data.variables.product.prodname_cli }}
+### Installing {% data variables.product.prodname_cli %}
 
-View installation instructions {{ site.data.variables.product.prodname_cli }} for macOS, Windows, and Linux on the [{{ site.data.variables.product.prodname_cli }} page](https://cli.github.com).
+View installation instructions {% data variables.product.prodname_cli %} for macOS, Windows, and Linux on the [{% data variables.product.prodname_cli %} page](https://cli.github.com).
 
 ### Sharing feedback
 

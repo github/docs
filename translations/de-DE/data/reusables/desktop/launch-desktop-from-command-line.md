@@ -1,1 +1,1 @@
-Um {{ site.data.variables.product.prodname_desktop }} im zuletzt geöffneten Repository zu starten, gib `github` ein. To launch {{ site.data.variables.product.prodname_desktop }} for a particular repository, type `github` followed by the path to the repository.
+Um {% data variables.product.prodname_desktop %} im zuletzt geöffneten Repository zu starten, gib `github` ein. To launch {% data variables.product.prodname_desktop %} for a particular repository, type `github` followed by the path to the repository.

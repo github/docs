@@ -1,6 +1,6 @@
 ---
 title: GitHub Developer Program
-intro: 'If you build tools that integrate with {{ site.data.variables.product.prodname_dotcom }}, you can join the {{ site.data.variables.product.prodname_dotcom }} Developer Program.'
+intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
 redirect_from:
   - /program
 versions:
@@ -19,7 +19,7 @@ Build your own tools that seamlessly integrate with the place you push code ever
 
 ## Take on the enterprise
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {{ site.data.variables.product.prodname_ghe_server }}.
+[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}.
 
 
 ## Have an integration that works with GitHub?

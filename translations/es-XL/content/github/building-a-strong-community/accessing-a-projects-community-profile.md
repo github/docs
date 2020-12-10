@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Community** (Comunidad). ![Comunidad en la barra lateral izquierda](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
 ### Leer más

@@ -6,13 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para direcionar pessoas a recursos de suporte específicos, é possível adicionar um arquivo SUPPORT à pasta raiz, `docs` ou `.github` do seu repositório. Quando uma pessoa cria um problema no seu repositório, ela vê um link para o arquivo SUPPORT do projeto.
 
 ![Diretrizes de suporte](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-Você pode criar recursos de suporte padrão para sua organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default support resources for your organization or user account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 {% tip %}
 
@@ -22,12 +27,12 @@ Você pode criar recursos de suporte padrão para sua organização{% if current
 
 ### Adicionar recursos de suporte ao projeto
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo de nome do arquivo, digite *SUPPORT.md* (todas as letras maiúsculas).
 4. Na guia **Edit new file** (Editar novo arquivo), adicione informações sobre como as pessoas podem obter suporte para seu projeto.
 5. Para revisar o arquivo SUPPORT, clique em **Preview** (Visualizar).
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

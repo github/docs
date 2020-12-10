@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 Issue およびプルリクエストをフィルタリングして、以下を探すことができます:
 - すべてのオープンな Issue およびプルリクエスト
@@ -16,10 +17,10 @@ Issue およびプルリクエストをフィルタリングして、以下を�
 - 自分に割り当てられた Issue およびプルリクエスト
 - 自分が [**@メンション**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)された Issue およびプルリクエスト
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. [**Filters**] をクリックしてフィルタの種類を選びます。 ![[Filters] ドロップダウンメニューを使用する](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ### 参考リンク

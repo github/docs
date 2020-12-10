@@ -73,7 +73,7 @@ Cuando busques por una licencia de familia, los resultados incluirán todas las 
 
 ### Detectar una licencia
 
-[El titular de licencia de la gema de código abierto Ruby](https://github.com/benbalter/licensee) compara el archivo *LICENSE* (LICENCIA) del repositorio con una lista corta de licencias conocidas. El titular de licencia también proporciona las [API de licencias](/v3/licenses/) y [nos da información sobre las licencias que tienen los repositorios de {{ site.data.variables.product.product_name }}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Si tu repositorio utiliza una licencia que no está detallada en el [Sitio web Choose a License](http://choosealicense.com/appendix/), puedes[solicitar incluir la licencia](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[El titular de licencia de la gema de código abierto Ruby](https://github.com/benbalter/licensee) compara el archivo *LICENSE* (LICENCIA) del repositorio con una lista corta de licencias conocidas. El titular de licencia también proporciona las [API de licencias](/v3/licenses/) y [nos da información sobre las licencias que tienen los repositorios de {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Si tu repositorio utiliza una licencia que no está detallada en el [Sitio web Choose a License](http://choosealicense.com/appendix/), puedes[solicitar incluir la licencia](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Si tu repositorio utiliza una licencia que está detallada en el sitio web Choose a License y no se muestra claramente en la parte superior de la página del repositorio, puede que contenga múltiples licencias u otra complejidad. Para que se detecten tus licencias, simplifica tu archivo *LICENSE* y anota la complejidad en algún otro lado, como en el archivo *README* de tu repositorio.
 
@@ -90,4 +90,4 @@ El objetivo de los esfuerzos de generación de licencias de código abierto de G
 ### Leer más
 
 - La sección de Guías de código abierto "[La parte legal del código abierto](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -2,7 +2,7 @@
 title: Sintaxe de metadados para o GitHub Actions
 shortTitle: Sintaxe dos metadados
 intro: Você pode criar ações para executar tarefas no repositório. As ações requerem um arquivo de metadados que usa sintaxe YAML.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -13,10 +13,10 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Sobre sintaxe YAML para o {{ site.data.variables.product.prodname_actions }}
+### Sobre sintaxe YAML para o {% data variables.product.prodname_actions %}
 
 Ações Docker e JavaScript requerem um arquivo de metadados. O nome do arquivo dos metadados deve ser `action.yml` ou `action.yaml`. Os dados no arquivo de metadados definem as entradas, as saídas e o ponto de entrada principal para sua ação.
 
@@ -24,7 +24,7 @@ Arquivos de metadados de ação usam a sintaxe YAML. Se você não souber o que 
 
 ### **`name`**
 
-**Necessário**: nome de sua ação. O {{ site.data.variables.product.prodname_dotcom }} exibe o `name` (nome) na aba **Actions** (Ações) para facilitar a identificação visual das ações em cada trabalho.
+**Necessário**: nome de sua ação. O {% data variables.product.prodname_dotcom %} exibe o `name` (nome) na aba **Actions** (Ações) para facilitar a identificação visual das ações em cada trabalho.
 
 ### **`autor`**
 
@@ -36,12 +36,11 @@ Arquivos de metadados de ação usam a sintaxe YAML. Se você não souber o que 
 
 ### **`inputs`**
 
-**Opcional**: parâmetros de entrada permitem que você especifique os dados que a ação espera usar no momento da execução. O {{ site.data.variables.product.prodname_dotcom }} armazena parâmetros como variáveis de ambiente. Identificações de entrada com letras maiúsculas são alteradas para letras minúsculas no momento da execução. Recomenda-se usar identificações de entrada com letras minúsculas.
+**Opcional**: parâmetros de entrada permitem que você especifique os dados que a ação espera usar no momento da execução. O {% data variables.product.prodname_dotcom %} armazena parâmetros como variáveis de ambiente. Identificações de entrada com letras maiúsculas são alteradas para letras minúsculas no momento da execução. Recomenda-se usar identificações de entrada com letras minúsculas.
 
 #### Exemplo
 
-Este exemplo configura duas entradas: numOctocats e octocatEyeColor. A entrada numOctocats não é necessária e assumirá o valor '1'. A entrada octocatEyeColor é necessária e não tem valor padrão. Arquivos de fluxo de trabalho que usam essa ação devem usar a palavra-chave `with` (com) para definir um valor de entrada para octocatEyeColor. Para obter mais informações sobre a sintaxe `with` (com), consulte "[Sintaxe de fluxo de trabalho para o {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
-
+Este exemplo configura duas entradas: numOctocats e octocatEyeColor. A entrada numOctocats não é necessária e assumirá o valor '1'. A entrada octocatEyeColor é necessária e não tem valor padrão. Arquivos de fluxo de trabalho que usam essa ação devem usar a palavra-chave `with` (com) para definir um valor de entrada para octocatEyeColor. Para obter mais informações sobre a sintaxe `with` (com), consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)".
 
 ```yaml
 inputs:
@@ -54,8 +53,7 @@ inputs:
     required: true
 ```
 
-
-Quando você especifica uma entrada para uma ação em um arquivo de fluxo de trabalho ou usa um valor de entrada padrão, o {{ site.data.variables.product.prodname_dotcom }} cria uma variável de ambiente para a entrada com o nome `INPUT_<VARIABLE_NAME>`. A variável de ambiente criada altera os nomes de entrada para letras maiúsculas e substitui espaços por caracteres `_`.
+Quando você especifica uma entrada para uma ação em um arquivo de fluxo de trabalho ou usa um valor de entrada padrão, o {% data variables.product.prodname_dotcom %} cria uma variável de ambiente para a entrada com o nome `INPUT_<VARIABLE_NAME>`. A variável de ambiente criada altera os nomes de entrada para letras maiúsculas e substitui espaços por caracteres `_`.
 
 Por exemplo, se um fluxo de trabalho definiu as entradas numOctocats e octocatEyeColor, o código da ação lê os valores das entradas usando as variáveis de ambiente `INPUT_NUMOCTOCATS` e `INPUT_OCTOCATEYECOLOR`.
 
@@ -79,7 +77,7 @@ Por exemplo, se um fluxo de trabalho definiu as entradas numOctocats e octocatEy
 
 **Opcional** Os parâmetros de saída permitem que você declare os dados definidos por uma ação. As ações executadas posteriormente em um fluxo de trabalho podem usar os dados de saída definidos em ações executadas anteriormente.  Por exemplo, se uma ação executou a adição de duas entradas (x + y = z), a ação poderia usar o resultado da soma (z) como entrada em outras ações.
 
-Se você não declarar uma saída no seu arquivo de metadados de ação, você ainda poderá definir as saídas e usá-las no seu fluxo de trabalho. Para obter mais informações sobre a definição de saídas em uma ação, consulte "[Comandos do fluxo de trabalho para {{ site.data.variables.product.prodname_actions }}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
+Se você não declarar uma saída no seu arquivo de metadados de ação, você ainda poderá definir as saídas e usá-las no seu fluxo de trabalho. Para obter mais informações sobre a definição de saídas em uma ação, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)."
 
 #### Exemplo
 
@@ -99,7 +97,7 @@ saídas:
 
 ### **`saídas`** para ações de etapas de execução compostas
 
-As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>.description` (veja "[`saídas` para {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), mas também inclui o token do `valor`.
+As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>.description` (veja "[`saídas` para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), mas também inclui o token do `valor`.
 
 #### Exemplo
 
@@ -121,7 +119,7 @@ runs:
 #### **`outputs.<output_id.value>`**
 **Obrigatório** O valor com o qual o parâmetro de saída será mapeado. Você pode defini-lo como uma `string` ou uma expressão com contexto. Por exemplo, você pode usar o contexto das `etapas` para definir o `valor` de uma saída como o valor de saída de uma etapa.
 
-Para obter mais informações sobre como usar a sintaxe de contexto e expressão, consulte "[Sintaxe de contexto e expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Para obter mais informações sobre como usar a sintaxe de contexto e expressão, consulte "[Sintaxe de contexto e expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ### **`executa`** para ações JavaScript
 
@@ -239,11 +237,11 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 ##### **`runs.steps.id`**
 
-**Opcional** Um identificador único para a etapa. Você pode usar `id` para fazer referência à etapa em contextos. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+**Opcional** Um identificador único para a etapa. Você pode usar `id` para fazer referência à etapa em contextos. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ##### **`runs.steps.env`**
 
-**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você deseja modificar a variável de ambiente armazenada no fluxo de trabalho, use `echo "::set-env name={name}::{value}"` em uma etapa de execução compostoa.
+**Opcional**  Define um `mapa` de variáveis de ambiente apenas para essa etapa. Se você quiser modificar a variável de ambiente armazenada no fluxo de trabalho, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} em uma etapa de execução composta.
 
 ##### **`runs.steps.working-directory`**
 
@@ -275,7 +273,7 @@ runs:
 
 #### **`pre-entrypoint`**
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {{ site.data.variables.product.prodname_actions }} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do</code>entrypoint</code> e quaisquer status que você precisar devem ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do</code>entrypoint</code> e quaisquer status que você precisar devem ser acessados na área de trabalho, em `HOME` ou como uma variável `STATE_`. A ação `pre-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`pre-if`](#pre-if).
 
 O aplicativo especificado com a sintaxe [`using`](#runsusing) executará esse arquivo.
 
@@ -303,11 +301,11 @@ executa:
 
 **Opcional** Substitui o `ENTRYPOINT` do Docker no `arquivo Docker` ou o define, caso nenhum já tenha sido especificado. Use o `entrypoint` quando o `arquivo Docker` não especificar um `ENTRYPOINT` ou você desejar substituir a instrução do`ENTRYPOINT`. Se você omitir o `entrypoint`, serão executados os comandos que você especificar na instrução do `ENTRYPOINT` do Docker. A instrução do `ENTRYPOINT` do Docker tem forma de _shell_ e forma de _exec_. A documentação do `ENTRYPOINT` do docker recomenda o uso da forma _exec_ da instrução do `ENTRYPOINT`.
 
-Para obter mais informações sobre como o `entrypoint` é executado, consulte "[Suporte do arquivo Docker para {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)".
+Para obter mais informações sobre como o `entrypoint` é executado, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)".
 
 #### **`post-entrypoint`**
 
-**Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {{ site.data.variables.product.prodname_actions }} usa a `execução do docker` para lançar esta ação. Porque {{ site.data.variables.product.prodname_actions }} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`post-if`](#post-if).
+**Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` é sempre executada por padrão, mas você pode substituí-la usando [`post-if`](#post-if).
 
 ```yaml
 executa:
@@ -321,15 +319,15 @@ executa:
 
 #### **`runs.args`**
 
-**Opcional** Um array de strings que define as entradas para um contêiner Docker. As entradas podem incluir strings com codificação rígida. O {{ site.data.variables.product.prodname_dotcom }} entrega os `args` ao `ENTRYPOINT` do contêiner quando o contêiner inicia.
+**Opcional** Um array de strings que define as entradas para um contêiner Docker. As entradas podem incluir strings com codificação rígida. O {% data variables.product.prodname_dotcom %} entrega os `args` ao `ENTRYPOINT` do contêiner quando o contêiner inicia.
 
 `args` são usados em substituição à instrução `CMD` em um `Dockerfile`. Se você usar `CMD` no `Dockerfile`, use as diretrizes ordenadas por preferência:
 
-{{ site.data.reusables.github-actions.dockerfile-guidelines }}
+{% data reusables.github-actions.dockerfile-guidelines %}
 
 Se você precisar passar variáveis de ambiente para uma ação, certifique-se de que sua ação executa um shell de comando para realizar a substituição de variáveis. Por exemplo, se seu atributo `entrypoint` é definido como `"sh -c"`, os `args` serão executados em um terminal de comando. Como alternativa, se o seu `arquivo Docker` usar um `Entrypoint` para executar o mesmo comando (`"sh-c"`), os `Args` serão executado em um shell de comando.
 
-Para obter mais informações sobre o uso da instrução `CMD` com {{ site.data.variables.product.prodname_actions }}, consulte "[Suporte do arquivo Docker para {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
+Para obter mais informações sobre o uso da instrução `CMD` com {% data variables.product.prodname_actions %}, consulte "[Suporte do arquivo Docker para {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)".
 
 ##### Exemplo
 
@@ -347,7 +345,7 @@ runs:
 
 ### **`branding`**
 
-Você pode usar uma cor e o ícone da [Pena](https://feathericons.com/) para criar um selo para personalizar e distinguir a sua ação. Os selos são exibidos ao lado do nome da sua ação em [{{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace?type=actions).
+Você pode usar uma cor e o ícone da [Pena](https://feathericons.com/) para criar um selo para personalizar e distinguir a sua ação. Os selos são exibidos ao lado do nome da sua ação em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
 #### Exemplo
 

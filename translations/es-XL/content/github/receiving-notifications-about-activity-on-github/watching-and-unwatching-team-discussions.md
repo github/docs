@@ -19,31 +19,31 @@ Para ver automáticamente todos los debates de los equipos nuevos a los que te u
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} selecciona **Automatically watch teams** (Ver equipos automáticamente). ![Casilla de verificación para ver automáticamente equipos](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} selecciona **Automatically watch teams** (Ver equipos automáticamente). ![Casilla de verificación para ver automáticamente equipos](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Ver debates de un equipo único
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} haz clic en **Watch** (Ver) para abrir tus opciones de notificaciones. Después haz clic en **Watching (Ver)**. ![Ver opciones en un menú desplegable para un equipo específico](/assets/images/help/notifications/specific-team-watch-options.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} haz clic en **Watch** (Ver) para abrir tus opciones de notificaciones. Después haz clic en **Watching (Ver)**. ![Ver opciones en un menú desplegable para un equipo específico](/assets/images/help/notifications/specific-team-watch-options.png)
 
 ### Dejar de ver los debates de todos los equipos nuevos a los que te unes
 
 Si no deseas recibir de forma automática las notificaciones de debates de equipo cuando te unes a un equipo, puedes cambiar tus configuraciones de notificación para dejar de ver todos los nuevos equipos a los que te unes.
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} anula la selección de **Automatically watch teams** (Ver equipos automáticamente). ![Configuración para ver automáticamente equipos seleccionada por defecto](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} anula la selección de **Automatically watch teams** (Ver equipos automáticamente). ![Configuración para ver automáticamente equipos seleccionada por defecto](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Dejar de ver debates de un equipo único
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} haz clic en **Unwatch** (Dejar de ver) para abrir tus opciones de notificaciones. Después haz clic en **Not watching (No ver)**. ![Ver opciones en un menú desplegable para un equipo específico](/assets/images/help/notifications/specific-team-unwatch.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} haz clic en **Unwatch** (Dejar de ver) para abrir tus opciones de notificaciones. Después haz clic en **Not watching (No ver)**. ![Ver opciones en un menú desplegable para un equipo específico](/assets/images/help/notifications/specific-team-unwatch.png)
 
 {% note %}
 

@@ -1,15 +1,16 @@
 ---
 title: 手动为仓库创建单一议题模板
-intro: 将手动创建的议题模板添加到仓库后，项目贡献者会自动在议题正文中看到模板的内容。
+intro: '将手动创建的议题模板添加到仓库后，项目贡献者会自动在议题正文中看到模板的内容。'
 redirect_from:
   - /articles/creating-an-issue-template-for-your-repository/
   - /articles/manually-creating-a-single-issue-template-for-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 您可以在任何支持的文件夹中创建 *ISSUE_TEMPLATE/* 子目录，以包含多个议题模板，并且使用 `template` 查询参数指定填充议题正文的模板。 更多信息请参阅“[关于使用查询参数自动化议题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
 
@@ -28,22 +29,26 @@ assignees: octocat
 ```
 {% note %}
 
-**注：**必须将 YAML 保留的字符（如 `:`）放在引号中。 例如 `":bug: Bug"`。
+**注：** 如果扉页值包含 YAML 保留字符，如 `:`，则您必须将整个值放入引号中。 例如，`":bug: Bug"` 或 `":new: triage needed, :bug: bug"`。
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+{% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### 添加议题模板
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中：
     -  要使议题模板显示在仓库的根目录中，请输入 *issue_template* 的名称。 例如 `issue_template.md`。 ![根目录中的新议题模板名称](/assets/images/help/repository/issue-template-file-name.png)
     - 要使议题模板显示在仓库的 `docs` 目录中，请输入 *docs/*，后接 *issue_template* 的名称。 例如 `docs/issue_template.md`。 ![Docs 目录中的新议题模板](/assets/images/help/repository/issue-template-file-name-docs.png)
@@ -54,9 +59,9 @@ assignees: octocat
     - 预期行为和实际行为
     - 重现问题的步骤
     - 项目版本、操作系统或硬件等规范
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} 模板可供协作者用来合并到仓库的默认分支。
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} 模板可供协作者用来合并到仓库的默认分支。
+{% data reusables.files.propose_new_file %}
 
 ### 延伸阅读
 

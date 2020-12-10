@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Permissions overview
 
 There are three levels of permissions to a project board for people and teams:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 Organization owners and people with admin permissions can give a person access to an organization project board individually, as an outside collaborator or organization member, or through their membership in a team or organization. An outside collaborator is someone who is not an organization member but given permissions to collaborate in your organization.
 
@@ -23,13 +24,13 @@ Organization owners and people with admin permissions to a project board can als
 
 ### Cascading permissions for project boards
 
-{{ site.data.reusables.project-management.cascading-permissions }}
+{% data reusables.project-management.cascading-permissions %}
 
 For example, if an organization owner has given all organization members read permissions to a project board, and a project board admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the project board.
 
 ### Project board visibility
 
-{{ site.data.reusables.project-management.project-board-visibility }} You can change the project board's visibility from private to public and back again. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
+{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to public and back again. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
 
 ### 더 읽을거리
 

@@ -94,31 +94,6 @@ type AcceptTopicSuggestionPayload {
 }
 
 """
-The possible capabilities for action executions setting.
-"""
-enum ActionExecutionCapabilitySetting {
-  """
-  All action executions are enabled.
-  """
-  ALL_ACTIONS
-
-  """
-  All action executions are disabled.
-  """
-  DISABLED
-
-  """
-  Only actions defined within the repo are allowed.
-  """
-  LOCAL_ACTIONS_ONLY
-
-  """
-  Organization administrators action execution capabilities.
-  """
-  NO_POLICY
-}
-
-"""
 Represents an object which can take actions on GitHub. Typically a User or Bot.
 """
 interface Actor {
@@ -1226,6 +1201,16 @@ A branch protection rule.
 """
 type BranchProtectionRule implements Node {
   """
+  Can this branch be deleted.
+  """
+  allowsDeletions: Boolean!
+
+  """
+  Are force pushes allowed on this branch.
+  """
+  allowsForcePushes: Boolean!
+
+  """
   A list of conflicts matching branches protection rule and other branch protection rules
   """
   branchProtectionRuleConflicts(
@@ -1360,6 +1345,11 @@ type BranchProtectionRule implements Node {
   Are commits required to be signed.
   """
   requiresCommitSignatures: Boolean!
+
+  """
+  Are merge commits prohibited from being pushed to this branch.
+  """
+  requiresLinearHistory: Boolean!
 
   """
   Are status checks required to update matching branches.
@@ -1596,7 +1586,7 @@ type ChangeUserStatusPayload {
 """
 A single check annotation.
 """
-type CheckAnnotation @preview(toggledBy: "antiope-preview") {
+type CheckAnnotation {
   """
   The annotation's severity level.
   """
@@ -1650,7 +1640,7 @@ type CheckAnnotationConnection {
   """
   A list of nodes.
   """
-  nodes: [CheckAnnotation] @preview(toggledBy: "antiope-preview")
+  nodes: [CheckAnnotation]
 
   """
   Information to aid in pagination.
@@ -1666,7 +1656,7 @@ type CheckAnnotationConnection {
 """
 Information from a check run analysis to specific lines of code.
 """
-input CheckAnnotationData @preview(toggledBy: "antiope-preview") {
+input CheckAnnotationData {
   """
   Represents an annotation's information level
   """
@@ -1710,13 +1700,13 @@ type CheckAnnotationEdge {
   """
   The item at the end of the edge.
   """
-  node: CheckAnnotation @preview(toggledBy: "antiope-preview")
+  node: CheckAnnotation
 }
 
 """
 Represents an annotation's information level.
 """
-enum CheckAnnotationLevel @preview(toggledBy: "antiope-preview") {
+enum CheckAnnotationLevel {
   """
   An annotation indicating an inescapable error.
   """
@@ -1736,7 +1726,7 @@ enum CheckAnnotationLevel @preview(toggledBy: "antiope-preview") {
 """
 A character position in a check annotation.
 """
-type CheckAnnotationPosition @preview(toggledBy: "antiope-preview") {
+type CheckAnnotationPosition {
   """
   Column number (1 indexed).
   """
@@ -1751,7 +1741,7 @@ type CheckAnnotationPosition @preview(toggledBy: "antiope-preview") {
 """
 Information from a check run analysis to specific lines of code.
 """
-input CheckAnnotationRange @preview(toggledBy: "antiope-preview") {
+input CheckAnnotationRange {
   """
   The ending column of the range.
   """
@@ -1776,7 +1766,7 @@ input CheckAnnotationRange @preview(toggledBy: "antiope-preview") {
 """
 An inclusive pair of positions for a check annotation.
 """
-type CheckAnnotationSpan @preview(toggledBy: "antiope-preview") {
+type CheckAnnotationSpan {
   """
   End position (inclusive).
   """
@@ -1791,7 +1781,7 @@ type CheckAnnotationSpan @preview(toggledBy: "antiope-preview") {
 """
 The possible states for a check suite or run conclusion.
 """
-enum CheckConclusionState @preview(toggledBy: "antiope-preview") {
+enum CheckConclusionState {
   """
   The check suite or run requires action.
   """
@@ -1823,6 +1813,11 @@ enum CheckConclusionState @preview(toggledBy: "antiope-preview") {
   STALE
 
   """
+  The check suite or run has failed at startup.
+  """
+  STARTUP_FAILURE
+
+  """
   The check suite or run has succeeded.
   """
   SUCCESS
@@ -1836,7 +1831,7 @@ enum CheckConclusionState @preview(toggledBy: "antiope-preview") {
 """
 A check run.
 """
-type CheckRun implements Node & UniformResourceLocatable @preview(toggledBy: "antiope-preview") {
+type CheckRun implements Node & UniformResourceLocatable {
   """
   The check run's annotations
   """
@@ -1947,7 +1942,7 @@ type CheckRun implements Node & UniformResourceLocatable @preview(toggledBy: "an
 """
 Possible further actions the integrator can perform.
 """
-input CheckRunAction @preview(toggledBy: "antiope-preview") {
+input CheckRunAction {
   """
   A short explanation of what this action would do.
   """
@@ -1976,7 +1971,7 @@ type CheckRunConnection {
   """
   A list of nodes.
   """
-  nodes: [CheckRun] @preview(toggledBy: "antiope-preview")
+  nodes: [CheckRun]
 
   """
   Information to aid in pagination.
@@ -2001,13 +1996,13 @@ type CheckRunEdge {
   """
   The item at the end of the edge.
   """
-  node: CheckRun @preview(toggledBy: "antiope-preview")
+  node: CheckRun
 }
 
 """
 The filters that are available when fetching check runs.
 """
-input CheckRunFilter @preview(toggledBy: "antiope-preview") {
+input CheckRunFilter {
   """
   Filters the check runs created by this application ID.
   """
@@ -2032,7 +2027,7 @@ input CheckRunFilter @preview(toggledBy: "antiope-preview") {
 """
 Descriptive details about the check run.
 """
-input CheckRunOutput @preview(toggledBy: "antiope-preview") {
+input CheckRunOutput {
   """
   The annotations that are made as part of the check run.
   """
@@ -2062,7 +2057,7 @@ input CheckRunOutput @preview(toggledBy: "antiope-preview") {
 """
 Images attached to the check run output displayed in the GitHub pull request UI.
 """
-input CheckRunOutputImage @preview(toggledBy: "antiope-preview") {
+input CheckRunOutputImage {
   """
   The alternative text for the image.
   """
@@ -2082,7 +2077,7 @@ input CheckRunOutputImage @preview(toggledBy: "antiope-preview") {
 """
 The possible types of check runs.
 """
-enum CheckRunType @preview(toggledBy: "antiope-preview") {
+enum CheckRunType {
   """
   Every check run available.
   """
@@ -2097,7 +2092,7 @@ enum CheckRunType @preview(toggledBy: "antiope-preview") {
 """
 The possible states for a check suite or run status.
 """
-enum CheckStatusState @preview(toggledBy: "antiope-preview") {
+enum CheckStatusState {
   """
   The check suite or run has been completed.
   """
@@ -2122,7 +2117,7 @@ enum CheckStatusState @preview(toggledBy: "antiope-preview") {
 """
 A check suite.
 """
-type CheckSuite implements Node @preview(toggledBy: "antiope-preview") {
+type CheckSuite implements Node {
   """
   The GitHub App which created this check suite.
   """
@@ -2268,7 +2263,7 @@ type CheckSuite implements Node @preview(toggledBy: "antiope-preview") {
 """
 The auto-trigger preferences that are available for check suites.
 """
-input CheckSuiteAutoTriggerPreference @preview(toggledBy: "antiope-preview") {
+input CheckSuiteAutoTriggerPreference {
   """
   The node ID of the application that owns the check suite.
   """
@@ -2292,7 +2287,7 @@ type CheckSuiteConnection {
   """
   A list of nodes.
   """
-  nodes: [CheckSuite] @preview(toggledBy: "antiope-preview")
+  nodes: [CheckSuite]
 
   """
   Information to aid in pagination.
@@ -2317,13 +2312,13 @@ type CheckSuiteEdge {
   """
   The item at the end of the edge.
   """
-  node: CheckSuite @preview(toggledBy: "antiope-preview")
+  node: CheckSuite
 }
 
 """
 The filters that are available when fetching check suites.
 """
-input CheckSuiteFilter @preview(toggledBy: "antiope-preview") {
+input CheckSuiteFilter {
   """
   Filters the check suites created by this application ID.
   """
@@ -2983,7 +2978,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): CheckSuiteConnection @preview(toggledBy: "antiope-preview")
+  ): CheckSuiteConnection
 
   """
   Comments made on the commit.
@@ -4498,6 +4493,16 @@ Autogenerated input type of CreateBranchProtectionRule
 """
 input CreateBranchProtectionRuleInput {
   """
+  Can this branch be deleted.
+  """
+  allowsDeletions: Boolean
+
+  """
+  Are force pushes allowed on this branch.
+  """
+  allowsForcePushes: Boolean
+
+  """
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
@@ -4553,6 +4558,11 @@ input CreateBranchProtectionRuleInput {
   requiresCommitSignatures: Boolean
 
   """
+  Are merge commits prohibited from being pushed to this branch.
+  """
+  requiresLinearHistory: Boolean
+
+  """
   Are status checks required to update matching branches.
   """
   requiresStatusChecks: Boolean
@@ -4596,7 +4606,7 @@ type CreateBranchProtectionRulePayload {
 """
 Autogenerated input type of CreateCheckRun
 """
-input CreateCheckRunInput @preview(toggledBy: "antiope-preview") {
+input CreateCheckRunInput {
   """
   Possible further actions the integrator can perform, which a user may trigger.
   """
@@ -4661,7 +4671,7 @@ input CreateCheckRunInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of CreateCheckRun
 """
-type CreateCheckRunPayload @preview(toggledBy: "antiope-preview") {
+type CreateCheckRunPayload {
   """
   The newly created check run.
   """
@@ -4676,7 +4686,7 @@ type CreateCheckRunPayload @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated input type of CreateCheckSuite
 """
-input CreateCheckSuiteInput @preview(toggledBy: "antiope-preview") {
+input CreateCheckSuiteInput {
   """
   A unique identifier for the client performing the mutation.
   """
@@ -4696,7 +4706,7 @@ input CreateCheckSuiteInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of CreateCheckSuite
 """
-type CreateCheckSuitePayload @preview(toggledBy: "antiope-preview") {
+type CreateCheckSuitePayload {
   """
   The newly created check suite.
   """
@@ -6930,6 +6940,11 @@ enum DeploymentState {
   The deployment has queued
   """
   QUEUED
+
+  """
+  The deployment is waiting.
+  """
+  WAITING
 }
 
 """
@@ -8016,36 +8031,6 @@ type EnterpriseOutsideCollaboratorEdge {
 Enterprise information only visible to enterprise owners.
 """
 type EnterpriseOwnerInfo {
-  """
-  A list of enterprise organizations configured with the provided action execution capabilities setting value.
-  """
-  actionExecutionCapabilitySettingOrganizations(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for organizations with this setting.
-    """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
-  ): OrganizationConnection!
-
   """
   A list of all of the administrators for this enterprise.
   """
@@ -11457,6 +11442,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for issue comments returned from the connection.
+    """
+    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -12046,6 +12036,31 @@ type IssueCommentEdge {
   The item at the end of the edge.
   """
   node: IssueComment
+}
+
+"""
+Ways in which lists of issue comments can be ordered upon return.
+"""
+input IssueCommentOrder {
+  """
+  The direction in which to order issue comments by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field in which to order issue comments by.
+  """
+  field: IssueCommentOrderField!
+}
+
+"""
+Properties by which issue comment connections can be ordered.
+"""
+enum IssueCommentOrderField {
+  """
+  Order issue comments by update time
+  """
+  UPDATED_AT
 }
 
 """
@@ -13055,12 +13070,12 @@ input LockLockableInput {
   clientMutationId: String
 
   """
-  A reason for why the issue or pull request will be locked.
+  A reason for why the item will be locked.
   """
   lockReason: LockReason
 
   """
-  ID of the issue or pull request to be locked.
+  ID of the item to be locked.
   """
   lockableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Lockable")
 }
@@ -14303,11 +14318,6 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   id: ID!
 
   """
-  Just for debugging on review-lab
-  """
-  issuePrioritiesDebug: String!
-
-  """
   A list of issues associated with the milestone.
   """
   issues(
@@ -14857,12 +14867,12 @@ type Mutation {
   """
   Create a check run.
   """
-  createCheckRun(input: CreateCheckRunInput!): CreateCheckRunPayload @preview(toggledBy: "antiope-preview")
+  createCheckRun(input: CreateCheckRunInput!): CreateCheckRunPayload
 
   """
   Create a check suite
   """
-  createCheckSuite(input: CreateCheckSuiteInput!): CreateCheckSuitePayload @preview(toggledBy: "antiope-preview")
+  createCheckSuite(input: CreateCheckSuiteInput!): CreateCheckSuitePayload
 
   """
   Create a content attachment.
@@ -15142,7 +15152,7 @@ type Mutation {
   """
   Rerequests an existing check suite.
   """
-  rerequestCheckSuite(input: RerequestCheckSuiteInput!): RerequestCheckSuitePayload @preview(toggledBy: "antiope-preview")
+  rerequestCheckSuite(input: RerequestCheckSuiteInput!): RerequestCheckSuitePayload
 
   """
   Marks a review thread as resolved.
@@ -15153,6 +15163,21 @@ type Mutation {
   Creates or updates the identity provider for an enterprise.
   """
   setEnterpriseIdentityProvider(input: SetEnterpriseIdentityProviderInput!): SetEnterpriseIdentityProviderPayload
+
+  """
+  Set an organization level interaction limit for an organization's public repositories.
+  """
+  setOrganizationInteractionLimit(input: SetOrganizationInteractionLimitInput!): SetOrganizationInteractionLimitPayload
+
+  """
+  Sets an interaction limit setting for a repository.
+  """
+  setRepositoryInteractionLimit(input: SetRepositoryInteractionLimitInput!): SetRepositoryInteractionLimitPayload
+
+  """
+  Set a user level interaction limit for an user's public repositories.
+  """
+  setUserInteractionLimit(input: SetUserInteractionLimitInput!): SetUserInteractionLimitPayload
 
   """
   Submits a pending pull request review.
@@ -15217,17 +15242,12 @@ type Mutation {
   """
   Update a check run
   """
-  updateCheckRun(input: UpdateCheckRunInput!): UpdateCheckRunPayload @preview(toggledBy: "antiope-preview")
+  updateCheckRun(input: UpdateCheckRunInput!): UpdateCheckRunPayload
 
   """
   Modifies the settings of an existing check suite
   """
-  updateCheckSuitePreferences(input: UpdateCheckSuitePreferencesInput!): UpdateCheckSuitePreferencesPayload @preview(toggledBy: "antiope-preview")
-
-  """
-  Sets the action execution capability setting for an enterprise.
-  """
-  updateEnterpriseActionExecutionCapabilitySetting(input: UpdateEnterpriseActionExecutionCapabilitySettingInput!): UpdateEnterpriseActionExecutionCapabilitySettingPayload
+  updateCheckSuitePreferences(input: UpdateCheckSuitePreferencesInput!): UpdateCheckSuitePreferencesPayload
 
   """
   Updates the role of an enterprise administrator.
@@ -18696,7 +18716,17 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   The organization's public email.
   """
   email: String
+
+  """
+  True if this user/organization has a GitHub Sponsors listing.
+  """
+  hasSponsorsListing: Boolean!
   id: ID!
+
+  """
+  The interaction ability settings for this organization.
+  """
+  interactionAbility: RepositoryInteractionAbility
 
   """
   The setting value for whether the organization has an IP allow list enabled.
@@ -18734,7 +18764,12 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): IpAllowListEntryConnection!
 
   """
-  Whether the organization has verified its profile email and website.
+  True if the viewer is sponsored by this user/organization.
+  """
+  isSponsoringViewer: Boolean!
+
+  """
+  Whether the organization has verified its profile email and website, always false on Enterprise.
   """
   isVerified: Boolean!
 
@@ -19110,7 +19145,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   samlIdentityProvider: OrganizationIdentityProvider
 
   """
-  The GitHub Sponsors listing for this user.
+  The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
 
@@ -19302,9 +19337,19 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   viewerCanCreateTeams: Boolean!
 
   """
+  Whether or not the viewer is able to sponsor this user/organization.
+  """
+  viewerCanSponsor: Boolean!
+
+  """
   Viewer is an active member of this organization.
   """
   viewerIsAMember: Boolean!
+
+  """
+  True if the viewer is sponsoring this user/organization.
+  """
+  viewerIsSponsoring: Boolean!
 
   """
   The organization's public profile URL.
@@ -21911,6 +21956,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for issue comments returned from the connection.
+    """
+    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -24196,7 +24246,7 @@ enum PullRequestUpdateState {
 """
 A Git push.
 """
-type Push implements Node @preview(toggledBy: "antiope-preview") {
+type Push implements Node {
   id: ID!
 
   """
@@ -28828,6 +28878,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   id: ID!
 
   """
+  The interaction ability settings for this repository.
+  """
+  interactionAbility: RepositoryInteractionAbility
+
+  """
   Indicates if the repository is unmaintained.
   """
   isArchived: Boolean!
@@ -29798,10 +29853,6 @@ type RepositoryCollaboratorEdge {
 
   """
   The permission the user has on the repository.
-
-  **Upcoming Change on 2020-10-01 UTC**
-  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
-  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 
@@ -30057,6 +30108,101 @@ interface RepositoryInfo {
 }
 
 """
+Repository interaction limit that applies to this object.
+"""
+type RepositoryInteractionAbility {
+  """
+  The time the currently active limit expires.
+  """
+  expiresAt: DateTime
+
+  """
+  The current limit that is enabled on this object.
+  """
+  limit: RepositoryInteractionLimit!
+
+  """
+  The origin of the currently active interaction limit.
+  """
+  origin: RepositoryInteractionLimitOrigin!
+}
+
+"""
+A repository interaction limit.
+"""
+enum RepositoryInteractionLimit {
+  """
+  Users that are not collaborators will not be able to interact with the repository.
+  """
+  COLLABORATORS_ONLY
+
+  """
+  Users that have not previously committed to a repository’s default branch will be unable to interact with the repository.
+  """
+  CONTRIBUTORS_ONLY
+
+  """
+  Users that have recently created their account will be unable to interact with the repository.
+  """
+  EXISTING_USERS
+
+  """
+  No interaction limits are enabled.
+  """
+  NO_LIMIT
+}
+
+"""
+The length for a repository interaction limit to be enabled for.
+"""
+enum RepositoryInteractionLimitExpiry {
+  """
+  The interaction limit will expire after 1 day.
+  """
+  ONE_DAY
+
+  """
+  The interaction limit will expire after 1 month.
+  """
+  ONE_MONTH
+
+  """
+  The interaction limit will expire after 1 week.
+  """
+  ONE_WEEK
+
+  """
+  The interaction limit will expire after 6 months.
+  """
+  SIX_MONTHS
+
+  """
+  The interaction limit will expire after 3 days.
+  """
+  THREE_DAYS
+}
+
+"""
+Indicates where an interaction limit is configured.
+"""
+enum RepositoryInteractionLimitOrigin {
+  """
+  A limit that is configured at the organization level.
+  """
+  ORGANIZATION
+
+  """
+  A limit that is configured at the repository level.
+  """
+  REPOSITORY
+
+  """
+  A limit that is configured at the user-wide level.
+  """
+  USER
+}
+
+"""
 An invitation for a user to be added to a repository.
 """
 type RepositoryInvitation implements Node {
@@ -30083,10 +30229,6 @@ type RepositoryInvitation implements Node {
 
   """
   The permission granted on this repository by this invitation.
-
-  **Upcoming Change on 2020-10-01 UTC**
-  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
-  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 
@@ -30840,7 +30982,7 @@ type RequestReviewsPayload {
 """
 The possible states that can be requested when creating a check run.
 """
-enum RequestableCheckStatusState @preview(toggledBy: "antiope-preview") {
+enum RequestableCheckStatusState {
   """
   The check suite or run has been completed.
   """
@@ -30865,7 +31007,7 @@ union RequestedReviewer = Mannequin | Team | User
 """
 Autogenerated input type of RerequestCheckSuite
 """
-input RerequestCheckSuiteInput @preview(toggledBy: "antiope-preview") {
+input RerequestCheckSuiteInput {
   """
   The Node ID of the check suite.
   """
@@ -30885,7 +31027,7 @@ input RerequestCheckSuiteInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of RerequestCheckSuite
 """
-type RerequestCheckSuitePayload @preview(toggledBy: "antiope-preview") {
+type RerequestCheckSuitePayload {
   """
   The requested check suite.
   """
@@ -31939,6 +32081,126 @@ type SetEnterpriseIdentityProviderPayload {
 }
 
 """
+Autogenerated input type of SetOrganizationInteractionLimit
+"""
+input SetOrganizationInteractionLimitInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  When this limit should expire.
+  """
+  expiry: RepositoryInteractionLimitExpiry
+
+  """
+  The limit to set.
+  """
+  limit: RepositoryInteractionLimit!
+
+  """
+  The ID of the organization to set a limit for.
+  """
+  organizationId: ID! @possibleTypes(concreteTypes: ["Organization"])
+}
+
+"""
+Autogenerated return type of SetOrganizationInteractionLimit
+"""
+type SetOrganizationInteractionLimitPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The organization that the interaction limit was set for.
+  """
+  organization: Organization
+}
+
+"""
+Autogenerated input type of SetRepositoryInteractionLimit
+"""
+input SetRepositoryInteractionLimitInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  When this limit should expire.
+  """
+  expiry: RepositoryInteractionLimitExpiry
+
+  """
+  The limit to set.
+  """
+  limit: RepositoryInteractionLimit!
+
+  """
+  The ID of the repository to set a limit for.
+  """
+  repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
+}
+
+"""
+Autogenerated return type of SetRepositoryInteractionLimit
+"""
+type SetRepositoryInteractionLimitPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The repository that the interaction limit was set for.
+  """
+  repository: Repository
+}
+
+"""
+Autogenerated input type of SetUserInteractionLimit
+"""
+input SetUserInteractionLimitInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  When this limit should expire.
+  """
+  expiry: RepositoryInteractionLimitExpiry
+
+  """
+  The limit to set.
+  """
+  limit: RepositoryInteractionLimit!
+
+  """
+  The ID of the user to set a limit for.
+  """
+  userId: ID! @possibleTypes(concreteTypes: ["User"])
+}
+
+"""
+Autogenerated return type of SetUserInteractionLimit
+"""
+type SetUserInteractionLimitPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The user that the interaction limit was set for.
+  """
+  user: User
+}
+
+"""
 Represents an S/MIME signature on a Commit or Tag.
 """
 type SmimeSignature implements GitSignature {
@@ -31989,7 +32251,17 @@ Entities that can be sponsored through GitHub Sponsors
 """
 interface Sponsorable {
   """
-  The GitHub Sponsors listing for this user.
+  True if this user/organization has a GitHub Sponsors listing.
+  """
+  hasSponsorsListing: Boolean!
+
+  """
+  True if the viewer is sponsored by this user/organization.
+  """
+  isSponsoringViewer: Boolean!
+
+  """
+  The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
 
@@ -32059,6 +32331,16 @@ interface Sponsorable {
     """
     orderBy: SponsorshipOrder
   ): SponsorshipConnection!
+
+  """
+  Whether or not the viewer is able to sponsor this user/organization.
+  """
+  viewerCanSponsor: Boolean!
+
+  """
+  True if the viewer is sponsoring this user/organization.
+  """
+  viewerIsSponsoring: Boolean!
 }
 
 """
@@ -32315,7 +32597,7 @@ type Sponsorship implements Node {
   sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
 
   """
-  The user or organization that is sponsoring. Returns null if the sponsorship is private.
+  The user or organization that is sponsoring, if you have permission to view them.
   """
   sponsorEntity: Sponsor
 
@@ -34947,10 +35229,6 @@ type TeamRepositoryEdge {
 
   """
   The permission level the team has on the repository
-
-  **Upcoming Change on 2020-10-01 UTC**
-  **Description:** Type for `permission` will change from `RepositoryPermission!` to `String`.
-  **Reason:** This field may return additional values
   """
   permission: RepositoryPermission!
 }
@@ -35558,7 +35836,7 @@ input UnlockLockableInput {
   clientMutationId: String
 
   """
-  ID of the issue or pull request to be unlocked.
+  ID of the item to be unlocked.
   """
   lockableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Lockable")
 }
@@ -35862,6 +36140,16 @@ Autogenerated input type of UpdateBranchProtectionRule
 """
 input UpdateBranchProtectionRuleInput {
   """
+  Can this branch be deleted.
+  """
+  allowsDeletions: Boolean
+
+  """
+  Are force pushes allowed on this branch.
+  """
+  allowsForcePushes: Boolean
+
+  """
   The global relay id of the branch protection rule to be updated.
   """
   branchProtectionRuleId: ID! @possibleTypes(concreteTypes: ["BranchProtectionRule"])
@@ -35917,6 +36205,11 @@ input UpdateBranchProtectionRuleInput {
   requiresCommitSignatures: Boolean
 
   """
+  Are merge commits prohibited from being pushed to this branch.
+  """
+  requiresLinearHistory: Boolean
+
+  """
   Are status checks required to update matching branches.
   """
   requiresStatusChecks: Boolean
@@ -35960,7 +36253,7 @@ type UpdateBranchProtectionRulePayload {
 """
 Autogenerated input type of UpdateCheckRun
 """
-input UpdateCheckRunInput @preview(toggledBy: "antiope-preview") {
+input UpdateCheckRunInput {
   """
   Possible further actions the integrator can perform, which a user may trigger.
   """
@@ -36025,7 +36318,7 @@ input UpdateCheckRunInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of UpdateCheckRun
 """
-type UpdateCheckRunPayload @preview(toggledBy: "antiope-preview") {
+type UpdateCheckRunPayload {
   """
   The updated check run.
   """
@@ -36040,7 +36333,7 @@ type UpdateCheckRunPayload @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated input type of UpdateCheckSuitePreferences
 """
-input UpdateCheckSuitePreferencesInput @preview(toggledBy: "antiope-preview") {
+input UpdateCheckSuitePreferencesInput {
   """
   The check suite preferences to modify.
   """
@@ -36060,7 +36353,7 @@ input UpdateCheckSuitePreferencesInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of UpdateCheckSuitePreferences
 """
-type UpdateCheckSuitePreferencesPayload @preview(toggledBy: "antiope-preview") {
+type UpdateCheckSuitePreferencesPayload {
   """
   A unique identifier for the client performing the mutation.
   """
@@ -36070,46 +36363,6 @@ type UpdateCheckSuitePreferencesPayload @preview(toggledBy: "antiope-preview") {
   The updated repository.
   """
   repository: Repository
-}
-
-"""
-Autogenerated input type of UpdateEnterpriseActionExecutionCapabilitySetting
-"""
-input UpdateEnterpriseActionExecutionCapabilitySettingInput {
-  """
-  The value for the action execution capability setting on the enterprise.
-  """
-  capability: ActionExecutionCapabilitySetting!
-
-  """
-  A unique identifier for the client performing the mutation.
-  """
-  clientMutationId: String
-
-  """
-  The ID of the enterprise on which to set the members can create repositories setting.
-  """
-  enterpriseId: ID! @possibleTypes(concreteTypes: ["Enterprise"])
-}
-
-"""
-Autogenerated return type of UpdateEnterpriseActionExecutionCapabilitySetting
-"""
-type UpdateEnterpriseActionExecutionCapabilitySettingPayload {
-  """
-  A unique identifier for the client performing the mutation.
-  """
-  clientMutationId: String
-
-  """
-  The enterprise with the updated action execution capability setting.
-  """
-  enterprise: Enterprise
-
-  """
-  A message confirming the result of updating the action execution capability setting.
-  """
-  message: String
 }
 
 """
@@ -37872,6 +38125,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   ): GistConnection!
 
   """
+  True if this user/organization has a GitHub Sponsors listing.
+  """
+  hasSponsorsListing: Boolean!
+
+  """
   The hovercard information for this user in a given context
   """
   hovercard(
@@ -37881,6 +38139,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     primarySubjectId: ID
   ): Hovercard!
   id: ID!
+
+  """
+  The interaction ability settings for this user.
+  """
+  interactionAbility: RepositoryInteractionAbility
 
   """
   Whether or not this user is a participant in the GitHub Security Bug Bounty.
@@ -37913,6 +38176,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isSiteAdmin: Boolean!
 
   """
+  True if the viewer is sponsored by this user/organization.
+  """
+  isSponsoringViewer: Boolean!
+
+  """
   Whether or not this user is the viewing user.
   """
   isViewer: Boolean!
@@ -37940,6 +38208,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for issue comments returned from the connection.
+    """
+    orderBy: IssueCommentOrder
   ): IssueCommentConnection!
 
   """
@@ -38454,7 +38727,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   ): SavedReplyConnection
 
   """
-  The GitHub Sponsors listing for this user.
+  The GitHub Sponsors listing for this user or organization.
   """
   sponsorsListing: SponsorsListing
 
@@ -38631,9 +38904,19 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   viewerCanFollow: Boolean!
 
   """
+  Whether or not the viewer is able to sponsor this user/organization.
+  """
+  viewerCanSponsor: Boolean!
+
+  """
   Whether or not this user is followed by the viewer.
   """
   viewerIsFollowing: Boolean!
+
+  """
+  True if the viewer is sponsoring this user/organization.
+  """
+  viewerIsSponsoring: Boolean!
 
   """
   A list of repositories the given user is watching.

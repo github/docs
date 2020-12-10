@@ -1,10 +1,10 @@
 ---
 title: 目標の管理
 intro: 目標を使って、主要なメトリクスについてターゲットを設定し、それらのターゲットに到達する成功を計測できます。
-product: '{{ site.data.reusables.gated-features.github-insights }}'
+product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
-permissions: '{{ site.data.variables.product.prodname_insights }}にアクセスできる人は、目標を管理できます。'
+permissions: '{% data variables.product.prodname_insights %}にアクセスできる人は、目標を管理できます。'
 versions:
   enterprise-server: '*'
 ---
@@ -15,12 +15,12 @@ versions:
 
 目標は、主要なメトリクスでのみ利用できます。 レポートの中には、たとえば個々のプルリクエストなど、どういった作業が目標を満たさなかったかを示してくれるものがあります。 詳しい情報については「[主要なメトリクスとレポートの表示](/insights/exploring-your-usage-of-github-enterprise/viewing-key-metrics-and-reports)」を参照してください。
 
-目標は作成したり削除したりできません。 目標を編集すると、同じ{{ site.data.variables.product.prodname_insights }}アプリケーションを使っている全員に新しい目標が適用されます。
+目標は作成したり削除したりできません。 目標を編集すると、同じ{% data variables.product.prodname_insights %}アプリケーションを使っている全員に新しい目標が適用されます。
 
 ### 目標の編集
 
-{{ site.data.reusables.github-insights.navigate-to-key-metrics }}
-{{ site.data.reusables.github-insights.choose-key-metric }}
+{% data reusables.github-insights.navigate-to-key-metrics %}
+{% data reusables.github-insights.choose-key-metric %}
 1. 目標の右で{% octicon "gear" aria-label="The gear icon" %}をクリックしてください。 ![目標を編集するためのギアアイコン](/assets/images/help/insights/edit-goal.png)
 2. テキストフィールドに、新しい目標値を入力してください。 ![目標値フィールド](/assets/images/help/insights/input-goal.png)
 3. [**Save**] をクリックします。 ![目標の保存](/assets/images/help/insights/save-goal.png)

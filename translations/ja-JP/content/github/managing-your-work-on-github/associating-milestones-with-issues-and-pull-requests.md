@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. マイルストーンに関連付けたいアイテムの隣のチェックボックスを選択してください。 ![Issue のメタデータチェックボックス](/assets/images/help/issues/issues_assign_checkbox.png)
 4. 右上の隅の [**Milestone**] をクリックし、[既存のマイルストーン](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)の名前を入力し始めます。 マイルストーンの名前をクリックして、アイテムに関連付けます。 ![Issue のマイルストーン割り当てドロップダウンメニュー](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
 

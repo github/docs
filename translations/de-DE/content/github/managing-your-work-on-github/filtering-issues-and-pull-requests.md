@@ -1,14 +1,15 @@
 ---
 title: Issues und Pull Requests filtern
-intro: 'Issues und Pull Requests umfassen standardmäßige Filter, mit denen Du Deine Listen organisieren kannst.'
+intro: Issues und Pull Requests umfassen standardmäßige Filter, mit denen Du Deine Listen organisieren kannst.
 redirect_from:
   - /articles/filtering-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 Du kannst Issues und Pull Requests filtern, um Folgendes zu finden:
 - alle offenen Issues und Pull Requests
@@ -16,10 +17,10 @@ Du kannst Issues und Pull Requests filtern, um Folgendes zu finden:
 - Issues und Pull Requests, die Dir zugewiesen sind
 - Issues und Pull Requests, in denen Du [**@erwähnt**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) wurdest
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Klicke auf **Filters** (Filter), um den gewünschten Filtertyp auszuwählen. ![Dropdownmenü zum Anwenden der Filter](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ### Weiterführende Informationen

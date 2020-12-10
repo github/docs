@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server インスタンスをセットアップする
-intro: 'サポートされている任意の仮想化プラットフォームに、{{ site.data.variables.product.prodname_ghe_server }} をインストールできます。'
+intro: 'サポートされている任意の仮想化プラットフォームに、{% data variables.product.prodname_ghe_server %} をインストールできます。'
 redirect_from:
   - /enterprise/admin/installation/getting-started-with-github-enterprise-server
   - /enterprise/admin/guides/installation/supported-platforms/

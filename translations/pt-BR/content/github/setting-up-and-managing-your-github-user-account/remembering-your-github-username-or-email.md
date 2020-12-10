@@ -1,6 +1,6 @@
 ---
 title: Lembrar o nome de usuário ou e-mail do GitHub
-intro: 'Faz tempo que você não faz login no {{ site.data.variables.product.product_location }}? Se sim, bem-vindo de volta! Se não lembrar o nome da conta de usuário do {{ site.data.variables.product.product_name }}, siga estas etapas para recuperá-lo.'
+intro: 'Faz tempo que você não faz login no {% data variables.product.product_location %}? Se sim, bem-vindo de volta! Se não lembrar o nome da conta de usuário do {% data variables.product.product_name %}, siga estas etapas para recuperá-lo.'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email/
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
@@ -12,23 +12,23 @@ versions:
 
 {% mac %}
 
-### Usuários do {{ site.data.variables.product.prodname_desktop }}
+### Usuários do {% data variables.product.prodname_desktop %}
 
 1. No menu **GitHub Desktop**, clique em **Preferences** (Preferências).
 2. Na janela Preferences (Preferências), faça o seguinte:
-    - Para visualizar o nome de usuário do {{ site.data.variables.product.product_name }}, clique em **Accounts** (Contas).
-    - Para visualizar o e-mail do Git, clique em **Git**. Note que esse não é necessariamente seu [e-mail principal do {{ site.data.variables.product.product_name }}](/articles/changing-your-primary-email-address).
+    - Para visualizar o nome de usuário do {% data variables.product.product_name %}, clique em **Accounts** (Contas).
+    - Para visualizar o e-mail do Git, clique em **Git**. Note que esse não é necessariamente seu [e-mail principal do {% data variables.product.product_name %}](/articles/changing-your-primary-email-address).
 
 {% endmac %}
 
 {% windows %}
 
-### Usuários do {{ site.data.variables.product.prodname_desktop }}
+### Usuários do {% data variables.product.prodname_desktop %}
 
 1. No menu **Arquivo** clique em **Opções**.
 2. Na janela Options (Opções), faça o seguinte:
-    - Para visualizar o nome de usuário do {{ site.data.variables.product.product_name }}, clique em **Accounts** (Contas).
-    - Para visualizar o e-mail do Git, clique em **Git**. Note que esse não é necessariamente seu [e-mail principal do {{ site.data.variables.product.product_name }}](/articles/changing-your-primary-email-address).
+    - Para visualizar o nome de usuário do {% data variables.product.product_name %}, clique em **Accounts** (Contas).
+    - Para visualizar o e-mail do Git, clique em **Git**. Note que esse não é necessariamente seu [e-mail principal do {% data variables.product.product_name %}](/articles/changing-your-primary-email-address).
 
 {% endwindows %}
 
@@ -56,11 +56,11 @@ Se você tiver cópias locais de repositórios pessoais criados ou bifurcados, p
 $ cd <em>YOUR_REPOSITORY</em>
 # Altera os diretórios no repositório Git inicializado
 $ git remote -v
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-Seu nome de usuário aparece logo após `https://{{ site.data.variables.command_line.backticks }}/`.
+Seu nome de usuário aparece logo após `https://{% data variables.command_line.backticks %}/`.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Leia mais

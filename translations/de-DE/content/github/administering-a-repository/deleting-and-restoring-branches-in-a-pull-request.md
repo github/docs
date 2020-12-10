@@ -9,15 +9,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Löschen eines Branches, der für einen Pull-Request verwendet wurde
 
 Du kannst einen mit einem Pull Request verbundenen Branch löschen, wenn der Pull Request zusammengeführt oder geschlossen wurden und wenn keine weiteren, offenen Pull Request mit Referenz zum Branch vorhanden sind. Weitere Informationen über das Schließen von Branches, die nicht mit Pull Requests verbunden sind, findest Du unter „[Erstellen und Löschen von Branches innerhalb Deines Repositorys](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. Klicke in der Liste der Pull Requests auf den Pull Request, der mit dem Branch verknüpft ist, den Du löschen möchtest.
 5. Klicke im unteren Teil des Pull Requests auf **Delete branch** (Branch löschen). ![Schaltfläche „Delete branch“ (Branch löschen)](/assets/images/help/pull_requests/delete_branch_button.png)
 
@@ -27,14 +28,13 @@ Du kannst einen mit einem Pull Request verbundenen Branch löschen, wenn der Pul
 
 Sie können den Head-Branch eines geschlossenen Pull Requests wiederherstellen.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. Klicke in der Liste der Pull Requests auf den Pull Request, der mit dem Branch verknüpft ist, den Du wiederherstellen möchtest.
 5. Klicke im unteren Teil des Pull Requests auf **Restore branch** (Branch wiederherstellen). ![Schaltfläche „Restore deleted branch" (Wiederherstellen des gelöschten Branch)](/assets/images/help/branches/branches-restore-deleted.png)
 
 ### Weiterführende Informationen
 
-- „[Erstellen und Löschen von Branches innerhalb Deines Repositorys](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+- „[Erstellen und Löschen von Branches innerhalb Deines Repositorys](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"
 - „[Automatisches Löschen von Branches verwalten](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)"
-{% endif %}

@@ -9,11 +9,12 @@ intro: Webhooks provide a way for notifications to be delivered to an external w
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.organizations.owners-and-admins-can }} manage webhooks for an organization. {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**Tip:** {% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
@@ -21,9 +22,9 @@ Webhooks can be triggered whenever a variety of actions are performed on a repos
 
 * A repository is pushed to
 * A pull request is opened
-* A {{ site.data.variables.product.prodname_pages }} site is built
+* A {% data variables.product.prodname_pages %} site is built
 * A new member is added to a team
 
-Using the {{ site.data.variables.product.product_name }} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
+Using the {% data variables.product.product_name %} API, you can make these webhooks update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server.
 
 To set up a new webhook, you'll need access to an external server and familiarity with the technical procedures involved. For help on building a webhook, including a full list of actions you can associate with, see "[Webhooks](/webhooks)."

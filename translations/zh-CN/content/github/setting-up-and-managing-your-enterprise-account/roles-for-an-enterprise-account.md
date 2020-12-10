@@ -1,7 +1,7 @@
 ---
 title: 企业帐户的角色
-intro: 要控制对企业帐户的设置和数据的访问权限，您可以为企业帐户中的人员提供不同的角色。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: '要控制对企业帐户的设置和数据的访问权限，您可以为企业帐户中的人员提供不同的角色。'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/
   - /articles/roles-for-an-enterprise-account
@@ -16,7 +16,7 @@ versions:
 
 企业帐户附带一组管理员角色，您可以将这些角色分配给企业用户。 每个管理员角色都映射到业务职能，并提供在企业帐户中执行特定任务的权限。
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }}
+{% data reusables.enterprise-accounts.enterprise-administrators %}
 
 ### 企业所有者
 
@@ -29,7 +29,7 @@ versions:
 
 企业所有者无法访问组织设置或内容，除非将其设为组织所有者或授予直接访问组织所拥有仓库的权限。 类似地，除非您将其设为企业所有者，否则企业帐户中的组织所有者无权访问企业帐户。
 
-您可以根据需要向企业帐户添加任意数量的企业所有者。 企业所有者必须在 {{ site.data.variables.product.prodname_dotcom }} 上拥有个人帐户。 作为最佳做法，我们建议您在公司企业所有者中仅设置少量人员，以降低您的业务风险。
+您可以根据需要向企业帐户添加任意数量的企业所有者。 企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。 作为最佳做法，我们建议您在公司企业所有者中仅设置少量人员，以降低您的业务风险。
 
 ### 企业成员
 
@@ -44,11 +44,11 @@ versions:
 ### 帐单管理员
 
 帐单管理员只能访问企业帐户的帐单设置。 企业帐户的帐单管理员可以：
-- 查看和管理用户许可证、{{ site.data.variables.large_files.product_name_short }} 包以及其他计费设置
+- 查看和管理用户许可证、{% data variables.large_files.product_name_short %} 包以及其他计费设置
 - 查看帐单管理员列表
 - 添加或删除其他帐单管理员
 
-帐单管理员无权访问企业帐户中的组织或仓库，也无法添加或删除企业所有者。 帐单管理员必须在 {{ site.data.variables.product.prodname_dotcom }} 上拥有个人帐户。
+帐单管理员无权访问企业帐户中的组织或仓库，也无法添加或删除企业所有者。 帐单管理员必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。
 
 ### 延伸阅读
 

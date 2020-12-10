@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 プロジェクトボードを無効化すると、タイムラインや[監査ログ](/articles/reviewing-your-security-log/)でプロジェクトボード情報を見ることができなくなります。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. [Features] の下で、[**Projects**] チェックボックスの選択を解除します。 ![[Projects] チェックボックスの選択を解除する](/assets/images/help/projects/disable-projects-checkbox.png)
 
-プロジェクトボードが無効化されると、既存のプロジェクトボードはそれまでの URL でアクセスできなくなります。 {{ site.data.reusables.organizations.disable_project_board_results }}
+プロジェクトボードが無効化されると、既存のプロジェクトボードはそれまでの URL でアクセスできなくなります。 {% data reusables.organizations.disable_project_board_results %}

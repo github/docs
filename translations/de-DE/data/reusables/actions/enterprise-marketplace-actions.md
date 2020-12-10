@@ -1,8 +1,8 @@
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_actions }} on {{ site.data.variables.product.product_location }} may have limited access to actions on {{ site.data.variables.product.prodname_dotcom_the_website }} or {{ site.data.variables.product.prodname_marketplace }}. Weitere Informationen findest Du unter „[Kommunikation zwischen selbst-gehosteten Runnern und {{ site.data.variables.product.prodname_dotcom }}](#communication-between-self-hosted-runners-and-github)“.
+**Note:** {% data variables.product.prodname_actions %} on {% data variables.product.product_location %} may have limited access to actions on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_marketplace %}. Weitere Informationen findest Du unter „[Kommunikation zwischen selbst-gehosteten Runnern und {% data variables.product.prodname_dotcom %}](#communication-between-self-hosted-runners-and-github)“.
 
 {% endnote %}
 

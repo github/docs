@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Vamos andar pelos conceitos básicos da API, à medida que abordamos alguns casos de uso diário.
@@ -17,14 +17,14 @@ Vamos andar pelos conceitos básicos da API, à medida que abordamos alguns caso
 
 A maioria dos aplicativos usará uma [biblioteca de segurança][wrappers] existente na linguagem da sua escolha, mas é importante familiarizar-se primeiro com os métodos HTTP e de API subjacentes.
 
-Não há uma maneira mais fazê-lo do que através do [cURL][curl].{% if currentVersion == "free-pro-team@latest" %} Se você estiver usando um cliente alternativo, observe que você será obrigado a enviar um [cabeçalho do agente de usuário](/rest/overview/resources-in-the-rest-api#user-agent-required) válido na sua solicitação.{% endif %}
+Não há uma maneira mais fácil dar os primeiros passos do que através do [cURL][curl]. {% if currentVersion == "free-pro-team@latest" %} Se você estiver usando um cliente alternativo, observe que você deve enviar um [cabeçalho do Agente de Usuário](/rest/overview/resources-in-the-rest-api#user-agent-required) válido na sua solicitação.{% endif %}
 
 #### Hello World
 
 Vamos começar testando a nossa configuração. Abra uma instrução de comando e digite o comando a seguir:
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -35,12 +35,12 @@ Em seguida, vamos fazer `GET` para o [perfil de GitHub][users api] de [Chris Wan
 
 ```shell
 # GET /users/defunkt
-$ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -49,13 +49,12 @@ $ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
 Mmmmm, tem sabor de [JSON][json]. Vamos adicionar o sinalizador `-i` para incluir cabeçalhos:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -71,7 +70,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -86,16 +85,16 @@ Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não
 
 ### Autenticação
 
-Clientes sem autenticação podem fazer 60 solicitações por hora. Para obter mais solicitações por hora, precisaremos _efetuar a autenticação_. Na verdade, fazer qualquer coisa interessante com a API de {{ site.data.variables.product.product_name }} requer [autenticação][authentication].
+Clientes sem autenticação podem fazer 60 solicitações por hora. Para obter mais solicitações por hora, precisaremos _efetuar a autenticação_. Na verdade, fazer qualquer coisa interessante com a API de {% data variables.product.product_name %} requer [autenticação][authentication].
 
 #### Usar tokens de acesso pessoal
 
-A melhor e mais fácil maneira de efetuar a autenticação com a API de {{ site.data.variables.product.product_name }} é usando a Autenticação Básica [por meio dos tokens do OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Os tokens do OAuth incluem [os tokens de acesso pessoal][personal token].
+A melhor e mais fácil maneira de efetuar a autenticação com a API de {% data variables.product.product_name %} é usando a Autenticação Básica [por meio dos tokens do OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Os tokens do OAuth incluem [os tokens de acesso pessoal][personal token].
 
 Use um sinalizador `-u` para definir o seu nome de usuário:
 
 ```shell
-$ curl -i -u <em>your_username</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -104,7 +103,7 @@ Quando solicitado, você poderá inserir o seu token OAuth, mas nós recomendamo
 Você pode usar `-u "username:$token"` e configurar uma variável para o `token` para evitar deixar seu token no histórico do shell, o que deve ser evitado.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -112,14 +111,20 @@ Ao efetuar a autenticação, você deverá ver seu limite de taxa disparado para
 
 Você pode facilmente [criar um **token de acesso pessoal**][personal token] usando a sua [página de configurações de tokens de acesso pessoal][tokens settings]:
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![Seleção de Token Pessoal](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![Seleção de Token Pessoal](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### Obtenha seu próprio perfil de usuário
 
-Após efetuar a autenticação corretamente, você poderá aproveitar as permissões associadas à sua conta de {{ site.data.variables.product.product_name }}. Por exemplo, tente obter
+Após efetuar a autenticação corretamente, você poderá aproveitar as permissões associadas à sua conta de {% data variables.product.product_name %}. Por exemplo, tente obter
 
 ```shell
-$ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
 
 > {
 >   ...
@@ -133,7 +138,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.p
 > }
 ```
 
-Desta vez, além do mesmo conjunto de informações públicas que recuperamos para [@defunkt][defunkt github] anteriormente, você também deverá ver as informações não públicas para o seu perfil de usuário. Por exemplo, você verá um objeto de `plano` na resposta que dá detalhes sobre o plano de {{ site.data.variables.product.product_name }} para a conta.
+Desta vez, além do mesmo conjunto de informações públicas que recuperamos para [@defunkt][defunkt github] anteriormente, você também deverá ver as informações não públicas para o seu perfil de usuário. Por exemplo, você verá um objeto de `plano` na resposta que dá detalhes sobre o plano de {% data variables.product.product_name %} para a conta.
 
 #### Usar tokens do OAuth para aplicativos
 
@@ -144,7 +149,7 @@ O OAuth usa _tokens_. Os tokens fornecem dois grandes recursos:
 * **Acesso revogável**: os usuários podem revogar a autorização a aplicativos de terceiros a qualquer momento
 * **Acesso limitado**: os usuários podem revisar o acesso específico que um token fornecerá antes de autorizar um aplicativo de terceiros
 
-Os tokens devem ser criados por meio de um [fluxo web][webflow]. Um aplicativo envia os usuários para {{ site.data.variables.product.product_name }} para efetuar o login. {{ site.data.variables.product.product_name }} apresenta uma caixa de diálogo, que indica o nome do aplicativo, bem como o nível de acesso que o aplicativo tem uma após ser autorizado pelo usuário. Depois que um usuário autoriza o acesso, {{ site.data.variables.product.product_name }} redireciona o usuário de volta para o aplicativo:
+Os tokens devem ser criados por meio de um [fluxo web][webflow]. Um aplicativo envia os usuários para {% data variables.product.product_name %} para efetuar o login. {% data variables.product.product_name %} apresenta uma caixa de diálogo, que indica o nome do aplicativo, bem como o nível de acesso que o aplicativo tem uma após ser autorizado pelo usuário. Depois que um usuário autoriza o acesso, {% data variables.product.product_name %} redireciona o usuário de volta para o aplicativo:
 
 ![Diálogo do GitHub's OAuth](/assets/images/oauth_prompt.png)
 
@@ -154,29 +159,29 @@ Agora que demos um jeito de fazer chamadas autenticadas, vamos seguir em frente 
 
 ### Repositórios
 
-Quase qualquer uso significativo da API de {{ site.data.variables.product.product_name }} envolverá algum nível de informação do repositório. Podemos [`OBTER` informações do repositório][get repo] da mesma forma que obtemos os informações do usuário anteriormente:
+Quase qualquer uso significativo da API de {% data variables.product.product_name %} envolverá algum nível de informação do repositório. Podemos [`OBTER` informações do repositório][get repo] da mesma forma que obtemos os informações do usuário anteriormente:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/twbs/bootstrap
+$ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
 Da mesma forma, podemos [visualizar repositórios para o usuário autenticado][user repos api]:
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 Ou podemos [listar repositórios para outro usuário][other user repos api]:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/repos
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
 Ou podemos [listar repositórios para uma organização][org repos api]:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/orgs/octo-org/repos
+$ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
 As informações retornadas dessas chamadas dependerão de quais escopos o nosso token terá quando efetuarmos a autenticação:
@@ -187,14 +192,16 @@ As informações retornadas dessas chamadas dependerão de quais escopos o nosso
 Conforme a [documentação][repos-api] indica, estes métodos usam um parâmetro `tipo` que pode filtrar os repositórios retornados com base no tipo de acesso que o usuário possui para o repositório. Desta forma, podemos buscar apenas repositórios de propriedade direta, repositórios da organização ou repositórios nos quais o usuário colabora por meio de uma equipe.
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/users/octocat/repos?type=owner"
+$ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
 Neste exemplo, pegamos apenas os repositórios que o octocat possui, não os nos quais ela colabora. Observe a URL entre aspas acima. Dependendo de sua configuração do shell, a cURL às vezes exigirá uma URL entre aspas ou irá ignorar a string de consulta.
 
 #### Criar um repositório
 
-Buscar informações para repositórios existentes é um caso de uso comum, mas a API de {{ site.data.variables.product.product_name }} também é compatível com a criação de novos repositórios. Para [criar um repositório][create repo], precisamos `POST` alguns JSON que contenham as informações e opções de configuração.
+Buscar informações para repositórios existentes é um caso de uso comum, mas a
+API de {% data variables.product.product_name %} também é compatível com a criação de novos repositórios. Para [criar um repositório][create repo],
+precisamos `POST` alguns JSON que contém informações e opções de configuração.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
@@ -204,7 +211,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
         "private": true, \
         "gitignore_template": "nanoc" \
       }' \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 Neste pequeno exemplo, criamos um novo repositório para o nosso blogue (a ser servido no [GitHub Pages][pages], talvez). Embora o blogue seja público, nós tornamos o repositório privado. Nesta etapa única, também vamos inicializá-lo com um LEIAME e um [nanoc][nanoc]-flavored [.gitignore template][gitignore templates].
@@ -214,7 +221,7 @@ O repositório resultante será encontrado em `https://github.com/<your_username
 Em seguida, vamos buscar nosso repositório recém-criado:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
+$ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
 > HTTP/1.1 404 Not Found
 
@@ -223,31 +230,31 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
 > }
 ```
 
-Ah não! Onde ele foi parar? Uma vez que criamos o repositório como _privado_, precisamos autenticá-lo para poder vê-lo. Se você é um usuário de HTTP, você pode esperar um `403`. Como não queremos vazar informações sobre repositórios privados, a API do {{ site.data.variables.product.product_name }} retorna um `404` neste caso, como se dissesse "não podemos confirmar nem negar a existência deste repositório".
+Ah não! Onde ele foi parar? Uma vez que criamos o repositório como _privado_, precisamos autenticá-lo para poder vê-lo. Se você é um usuário de HTTP, você pode esperar um `403`. Como não queremos vazar informações sobre repositórios privados, a API do {% data variables.product.product_name %} retorna um `404` neste caso, como se dissesse "não podemos confirmar nem negar a existência deste repositório".
 
 ### Problemas
 
-A interface de usuário para problemas no {{ site.data.variables.product.product_name }} visa a fornecer fluxo de trabalho "apenas suficiente" enquanto permanece fora de seu caminho. Com {{ site.data.variables.product.product_name }} [API de problemas][issues-api], você pode extrair dados ou criar problemas a partir de outras ferramentas para criar um fluxo de trabalho que funcione para a sua equipe.
+A interface de usuário para problemas no {% data variables.product.product_name %} visa a fornecer fluxo de trabalho "apenas suficiente" enquanto permanece fora de seu caminho. Com {% data variables.product.product_name %} [API de problemas][issues-api], você pode extrair dados ou criar problemas a partir de outras ferramentas para criar um fluxo de trabalho que funcione para a sua equipe.
 
 Assim como o github.com, a API fornece alguns métodos para exibir problemas para o usuário autenticado. Para [ver todos os seus problemas][get issues api], chame `GET /issues`:
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/issues
+    {% data variables.product.api_url_pre %}/issues
 ```
 
-Para obter apenas os [problemas sob uma das suas organizações de {{ site.data.variables.product.product_name }}][get issues api], chame `GET
+Para obter apenas os [problemas sob uma das suas organizações de {% data variables.product.product_name %}][get issues api], chame `GET
 /orgs/<org>/issues`:
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/orgs/rails/issues
+    {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
 Também podemos obter [todos os problemas sob um único repositório][repo issues api]:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
 #### Paginação
@@ -255,12 +262,12 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
 Um projeto do tamanho de Rails tem milhares de problemas. Vamos precisar [paginar][pagination], fazendo várias chamadas de API para obter os dados. Vamos repetir essa última chamada, anotando os cabeçalhos de resposta:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
 > HTTP/1.1 200 OK
 
 > ...
-> Link: &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=30&gt;; rel="last"
+> Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
 > ...
 ```
 
@@ -279,10 +286,10 @@ $         "title": "New logo", \
 $         "body": "We should have one", \
 $         "labels": ["design"] \
 $       }' \
-$    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues
+$    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
 > HTTP/1.1 201 Created
-> Location: {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17
+> Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
 > {
@@ -301,7 +308,7 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     "gravatar_id": "7e19cd5486b5d6dc1ef90e671ba52ae0",
 >     "avatar_url": "https://secure.gravatar.com/avatar/7e19cd5486b5d6dc1ef90e671ba52ae0?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
 >     "id": 865,
->     "url": "{{ site.data.variables.product.api_url_pre }}/users/pengwynn"
+>     "url": "{% data variables.product.api_url_pre %}/users/pengwynn"
 >   },
 >   "closed_at": null,
 >   "updated_at": "2012-11-14T15:25:33Z",
@@ -312,13 +319,13 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     {
 >       "color": "ededed",
 >       "name": "design",
->       "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/labels/design"
+>       "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/labels/design"
 >     }
 >   ],
 >   "id": 8356941,
 >   "assignee": null,
 >   "state": "open",
->   "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17"
+>   "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17"
 > }
 ```
 
@@ -329,7 +336,7 @@ A resposta nos dá algumas indicações sobre a questão recém-criada, tanto no
 Uma grande parte de ser um bom cidadão da API é respeitar os limites de taxa por meio de armazenamento de informações que não mudaram. A API é compatível com [solicitações condicionais][conditional-requests] e ajuda você a fazer a coisa certa. Considere a primeira chamada de que fizemos para obter o perfil de defunkt:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
@@ -339,14 +346,14 @@ Além do texto do JSON, anote o código de status de HTTP de `200` e o cabeçalh
 
 ```shell
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
-$    {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$    {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 304 Not Modified
 ```
 
 O status `304` indica que o recurso não mudou desde a última vez que pedimos e a resposta não conterá texto. Como um bônus, as respostas de `304` não contam contra o seu [limite de taxa][rate-limiting].
 
-Nossa! Agora você conhece os princípios básicos da API de {{ site.data.variables.product.product_name }}!
+Nossa! Agora você conhece os princípios básicos da API de {% data variables.product.product_name %}!
 
 * Autenticação básica do & OAuth
 * Buscar e criar de repositórios e problemas
@@ -363,33 +370,33 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[repos-api]: /v3/repos/
-[repos-api]: /v3/repos/
+[repos-api]: /rest/reference/repos
+[repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
-[issues-api]: /v3/issues/
+[issues-api]: /rest/reference/issues
 [link-header]: http://www.w3.org/wiki/LinkHeader/
-[conditional-requests]: /v3/#conditional-requests
-[rate-limiting]: /v3/#rate-limiting
-[rate-limiting]: /v3/#rate-limiting
-[users api]: /v3/users/#get-a-user
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest#rate-limiting
+[users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
-[authentication]: /v3/#authentication
+[authentication]: /rest#authentication
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
-[pagination]: /v3/#pagination
-[get repo]: /v3/repos/#get-a-repository
-[create repo]: /v3/repos/#create-a-repository-for-the-authenticated-user
-[create issue]: /v3/issues/#create-an-issue
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
 [auth guide]: /guides/basics-of-authentication
-[user repos api]: /v3/repos/#list-repositories-for-the-authenticated-user
-[other user repos api]: /v3/repos/#list-repositories-for-a-user
-[org repos api]: /v3/repos/#list-organization-repositories
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /v3/issues/#list-repository-issues
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag

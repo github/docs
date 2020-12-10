@@ -1,8 +1,7 @@
-require('../../lib/feature-flags')
 const flat = require('flat')
 const { last } = require('lodash')
 const cheerio = require('cheerio')
-const loadPages = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/pages')
 const loadSiteData = require('../../lib/site-data')
 const getApplicableVersions = require('../../lib/get-applicable-versions')
 const loadRedirects = require('../../lib/redirects/precompile')
@@ -10,7 +9,9 @@ const { getVersionedPathWithLanguage } = require('../../lib/path-utils')
 const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-developer-links')
-const { getOldVersionFromNewVersion } = require('../../lib/old-versions-utils')
+const allVersions = require('../../lib/all-versions')
+const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
+  .filter(version => version.startsWith('enterprise-server@'))
 
 // schema-derived data to add to context object
 const rest = require('../../lib/rest')
@@ -38,15 +39,16 @@ describe('page rendering', () => {
   const brokenLinks = {}
 
   beforeAll(async (done) => {
-    const pages = await loadPages()
+    const pageList = await loadPages()
+    const pageMap = await loadPageMap(pageList)
     const siteData = await loadSiteData()
-    const redirects = await loadRedirects(pages)
+    const redirects = await loadRedirects(pageList, pageMap)
 
-    context.pages = pages
+    context.pages = pageMap
     context.site = siteData[languageCode].site
     context.redirects = redirects
 
-    const developerPages = pages
+    const developerPages = pageList
       .filter(page => page.relativePath.match(developerContentRegex) && page.languageCode === languageCode)
 
     let checkedLinks = {}
@@ -58,28 +60,25 @@ describe('page rendering', () => {
       const brokenLinksPerPage = {}
 
       // get an array of the pages product versions
-      const pageVersions = process.env.FEATURE_NEW_VERSIONS
-        ? getApplicableVersions(page.versions, page.relativePath)
-        : getApplicableVersions(page.productVersions, page.relativePath)
+      const pageVersions = getApplicableVersions(page.versions, page.relativePath)
 
       for (const pageVersion of pageVersions) {
         // attach page-specific properties to context
         page.version = pageVersion
         context.page = page
         context.currentVersion = pageVersion
+        context.enterpriseServerVersions = enterpriseServerVersions
 
         const relevantPermalink = page.permalinks.find(permalink => permalink.pageVersion === pageVersion)
 
-        const currentOldVersion = process.env.FEATURE_NEW_VERSIONS
-          ? getOldVersionFromNewVersion(pageVersion)
-          : pageVersion
+        const graphqlVersion = allVersions[pageVersion].miscVersionName
 
         // borrowed from middleware/contextualizers/graphql.js
         context.graphql = {
-          schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${currentOldVersion}`),
-          previewsForCurrentVersion: previews[currentOldVersion],
-          upcomingChangesForCurrentVersion: upcomingChanges[currentOldVersion],
-          prerenderedObjectsForCurrentVersion: prerenderedObjects[currentOldVersion],
+          schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${graphqlVersion}`),
+          previewsForCurrentVersion: previews[graphqlVersion],
+          upcomingChangesForCurrentVersion: upcomingChanges[graphqlVersion],
+          prerenderedObjectsForCurrentVersion: prerenderedObjects[graphqlVersion],
           changelog
         }
 
@@ -90,7 +89,7 @@ describe('page rendering', () => {
           languageCode
         )
 
-        context.operationsForCurrentProduct = context.rest.operations[currentOldVersion] || []
+        context.operationsForCurrentProduct = context.rest.operations[pageVersion] || []
 
         if (relevantPermalink.href.includes('rest/reference/')) {
           const docsPath = relevantPermalink.href

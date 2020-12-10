@@ -1,1 +1,1 @@
-Para comenzar, consulta la sección "[Subir un archivo SARIF a {{ site.data.variables.product.prodname_dotcom }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)".
+Para comenzar, consulta la sección "[Subir un archivo SARIF a {% data variables.product.prodname_dotcom %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/uploading-a-sarif-file-to-github)".

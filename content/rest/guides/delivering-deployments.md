@@ -8,14 +8,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+ 
+  
 
-
-
-The [Deployments API][deploy API] provides your projects hosted on {{ site.data.variables.product.product_name }} with
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
 the capability to launch them on a server that you own. Combined with
 [the Status API][status API], you'll be able to coordinate your deployments
-the moment your code lands on `master`.
+the moment your code lands on the default branch.
 
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -72,7 +73,7 @@ Great! Click on **Let me select individual events.**, and select the following:
 * Deployment status
 * Pull Request
 
-These are the events {{ site.data.variables.product.product_name }} will send to our server whenever the relevant action
+These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
 occurs. We'll configure our server to *just* handle when pull requests are merged
 right now:
 
@@ -89,7 +90,7 @@ post '/event_handler' do
 end
 ```
 
-What's going on? Every event that {{ site.data.variables.product.product_name }} sends out attached a `X-GitHub-Event`
+What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
 HTTP header. We'll only care about the PR events for now. When a pull request is
 merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
 
@@ -183,7 +184,7 @@ server we've built above. At GitHub, we:
 That's it! You don't need to build your own deployment setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

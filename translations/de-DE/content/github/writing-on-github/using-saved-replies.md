@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. Klicke auf den gewünschten Issue oder Pull Request.
 3. Klicken Sie auf {% octicon "reply" aria-label="The mail reply" %}, um im Kommentarfeld eine gespeicherte Antwort hinzuzufügen.![Schaltfläche „Saved replies“ (Gespeicherte Antworten)](/assets/images/help/writing/saved-replies-button.png)
 4. Wähle in der Liste die gespeicherte Antwort aus, die Du zu Deinem Kommentar hinzufügen möchtest. ![Gespeicherte Antworten](/assets/images/help/settings/saved-replies.png)

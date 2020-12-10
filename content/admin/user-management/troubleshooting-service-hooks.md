@@ -7,13 +7,14 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Getting information on deliveries
 
 You can find information for the last response of all service hooks deliveries on any repository.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Browse to the repository you're investigating.
 3. Click on the **Hooks** link in the navigation sidebar.
   ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
@@ -23,7 +24,7 @@ You can find information for the last response of all service hooks deliveries o
 
 ### Viewing the payload
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Browse to the repository you're investigating.
 3. Click on the **Hooks** link in the navigation sidebar.
   ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
@@ -35,7 +36,7 @@ You can find information for the last response of all service hooks deliveries o
 
 Deliveries are stored for 15 days.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Browse to the repository you're investigating.
 3. Click on the **Hooks** link in the navigation sidebar.
   ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)

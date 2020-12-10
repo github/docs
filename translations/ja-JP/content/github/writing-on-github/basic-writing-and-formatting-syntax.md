@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ヘッディング
@@ -85,17 +86,17 @@ git commit
 
 {% tip %}
 
-**ヒント:** {{ site.data.variables.product.product_name }}は、コメント中に適正な URL が書かれていれば自動的にリンクを生成します。 詳しい情報については[自動リンクされた参照と URL](/articles/autolinked-references-and-urls) を参照してください。
+**ヒント:** {% data variables.product.product_name %}は、コメント中に適正な URL が書かれていれば自動的にリンクを生成します。 詳しい情報については[自動リンクされた参照と URL](/articles/autolinked-references-and-urls) を参照してください。
 
 {% endtip %}
 
 ### セクションリンク
 
-{{ site.data.reusables.repositories.section-links }}
+{% data reusables.repositories.section-links %}
 
 ### 相対リンク
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### リスト
 
@@ -123,7 +124,7 @@ git commit
 
 1 つ以上のリストアイテムを他のアイテムの下にインデントすることで、入れ子になったリストを作成できます。
 
-{{ site.data.variables.product.product_name }}上の Web のエディタあるいは [Atom](https://atom.io/) のようなモノスペースフォントを使うテキストエディタを使って入れ子になったリストを作成するには、リストが揃って見えるように編集します。 入れ子になったリストアイテムの前に空白を、リストマーカーの文字 (`-` または `*`) が直接上位のアイテム内のテキストの一文字目の下に来るように入力してください。
+{% data variables.product.product_name %}上の Web のエディタあるいは [Atom](https://atom.io/) のようなモノスペースフォントを使うテキストエディタを使って入れ子になったリストを作成するには、リストが揃って見えるように編集します。 入れ子になったリストアイテムの前に空白を、リストマーカーの文字 (`-` または `*`) が直接上位のアイテム内のテキストの一文字目の下に来るように入力してください。
 
 ```
 1. 最初のリストアイテム
@@ -135,7 +136,7 @@ git commit
 
 ![2 レベルの入れ子になったアイテムを持つリスト](/assets/images/help/writing/nested-list-example-1.png)
 
-モノスペースフォントを使っていない {{ site.data.variables.product.product_name }}のコメントエディタで入れ子になったリストを作成するには、入れ子になったリストのすぐ上にあるリストアイテムを見て、そのアイテムの内容の前にある文字数を数えます。 そして、その数だけ空白を入れ子になったリストアイテムの前に入力します。
+モノスペースフォントを使っていない {% data variables.product.product_name %}のコメントエディタで入れ子になったリストを作成するには、入れ子になったリストのすぐ上にあるリストアイテムを見て、そのアイテムの内容の前にある文字数を数えます。 そして、その数だけ空白を入れ子になったリストアイテムの前に入力します。
 
 この例では、入れ子になったリストアイテムをリストアイテム `100. 最初のリストアイテム` の下に、最低 5 つの空白で入れ子になったリストアイテムをインデントさせることで追加できます。これは、`最初のリストアイテム`の前に 5 文字 (`100. `) があるからです。
 
@@ -160,7 +161,7 @@ git commit
 
 ### タスクリスト
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 タスクリストアイテムの説明が括弧で始まる場合、その括弧を "\" でエスケープする必要があります。
 
@@ -170,7 +171,7 @@ git commit
 
 ### 人や Team のメンション
 
-{{ site.data.variables.product.product_name }}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -188,24 +189,21 @@ git commit
 
 詳しい情報については[自動リンクされた参照と URL](/articles/autolinked-references-and-urls) を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 外部リソースの参照
 
-{{ site.data.reusables.repositories.autolink-references }}
-
-{% endif %}
+{% data reusables.repositories.autolink-references %}
 
 ### コンテンツの添付
 
-{{ site.data.variables.product.prodname_github_app }} には、登録されたドメインにリンクする URL に対する情報を {{ site.data.variables.product.product_name }} 内で提供するものがあります。 {{ site.data.variables.product.product_name }} は、アプリケーションが提供した情報を Issue あるいはプルリクエストのボディもしくはコメント中の URL の下に表示します。
+{% data variables.product.prodname_github_app %} には、登録されたドメインにリンクする URL に対する情報を {% data variables.product.product_name %} 内で提供するものがあります。 {% data variables.product.product_name %} は、アプリケーションが提供した情報を Issue あるいはプルリクエストのボディもしくはコメント中の URL の下に表示します。
 
 ![コンテンツの添付](/assets/images/help/writing/content-attachment.png)
 
-コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {{ site.data.variables.product.prodname_github_app }} が必要です。{% if currentVersion == "free-pro-team@latest" %}詳細は「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 
-コンテンツの添付を利用する {{ site.data.variables.product.prodname_github_app }} の構築に関する詳しい情報については、「[コンテンツの添付を使用する](/apps/using-content-attachments)」を参照してください。
+コンテンツの添付を利用する {% data variables.product.prodname_github_app %} の構築に関する詳しい情報については、「[コンテンツの添付を使用する](/apps/using-content-attachments)」を参照してください。
 
 ### 絵文字の利用
 
@@ -225,7 +223,7 @@ git commit
 
 ### Markdown のフォーマットの無視
 
-{{ site.data.variables.product.product_name }}に対し、Markdown のキャラクタの前に "\" を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます
+{% data variables.product.product_name %}に対し、Markdown のキャラクタの前に "\" を使うことで、Markdown のフォーマットを無視 (エスケープ) させることができます
 
 `\*新しいプロジェクト\* を \*古いプロジェクト\* にリネームしましょう`
 
@@ -235,7 +233,7 @@ git commit
 
 ### 参考リンク
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown の仕様](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [GitHub 上での書き込みと書式設定について](/articles/about-writing-and-formatting-on-github)
 - [高度なフォーマットを使用して作業する](/articles/working-with-advanced-formatting)
 - [Markdown をマスターする](https://guides.github.com/features/mastering-markdown/)

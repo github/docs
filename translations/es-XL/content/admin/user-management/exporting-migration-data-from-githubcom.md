@@ -1,6 +1,6 @@
 ---
 title: Exportar datos de migración desde GitHub.com
-intro: 'Puedes exportar los dtos de migración desde una organización en {{ site.data.variables.product.prodname_dotcom_the_website }} si utilizas la API para seleccionar los repositorios que deseas migrar y luego generas un archivo de migración que puedas importar en una instancia de {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'Puedes exportar los dtos de migración desde una organización en {% data variables.product.prodname_dotcom_the_website %} si utilizas la API para seleccionar los repositorios que deseas migrar y luego generas un archivo de migración que puedas importar en una instancia de {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -13,25 +13,25 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparar la orgnanización origen en {{ site.data.variables.product.prodname_dotcom }}
+### Preparar la orgnanización origen en {% data variables.product.prodname_dotcom %}
 
 1. Asegúrate de tener [permisos de propietario](/articles/permission-levels-for-an-organization/) en los repositorios de la organización de origen.
 
-2. {{ site.data.reusables.enterprise_migrations.token-generation }} en {{ site.data.variables.product.prodname_dotcom_the_website }}.
+2. {% data reusables.enterprise_migrations.token-generation %} en {% data variables.product.prodname_dotcom_the_website %}.
 
-{{ site.data.reusables.enterprise_migrations.make-a-list }}
+{% data reusables.enterprise_migrations.make-a-list %}
 
 ### Exportar los repositorios de la organización
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
-Para exportar datos del repositorio desde {{ site.data.variables.product.prodname_dotcom_the_website }}, usa la <a href="/rest/reference/migrations" class="dotcom-only">API de Migraciones</a>.
+Para exportar datos del repositorio desde {% data variables.product.prodname_dotcom_the_website %}, usa la <a href="/rest/reference/migrations" class="dotcom-only">API de Migraciones</a>.
 
 La API de Migraciones se encuentra actualmente en un período de previsualización, lo que significa que los puntos finales y los parámetros pueden cambiar en el futuro. Para acceder a la API de Migraciones, debes proporcionar un [tipo de medio](/v3/media) personalizado en el encabezado `Accept` (Aceptar): `application/vnd.github.wyandotte-preview+json`. Los ejemplos a continuación incluyen el tipo de medio personalizado.
 
 ### Generar un archivo de migración
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
 1. Notifica a los miembros de tu organización que harás una migración. La exportación puede durar varios minutos, en función de la cantidad de repositorios que se exporten. La migración completa, incluida la importación, puede durar varias horas. Por lo tanto, te recomendamos que hagas una prueba para determinar cuánto tiempo tomará el proceso completo. Para obtener más información, consulta "[Acerca de las migraciones](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
 
@@ -45,7 +45,7 @@ La API de Migraciones se encuentra actualmente en un período de previsualizaci�
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
     *  Si deseas bloquear los repositorios antes de migrarlos, asegúrate de que `lock_repositories`esté establecido en `true` (true). Esto es altamente recomendable.
-    * Puedes excluir archivos adjuntos pasando `exclude_attachments: true` al punto final. {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }} El tamaño final del archivo debe ser inferior a 20 GB.
+    * Puedes excluir archivos adjuntos pasando `exclude_attachments: true` al punto final. {% data reusables.enterprise_migrations.exclude-file-attachments %} El tamaño final del archivo debe ser inferior a 20 GB.
 
   Esta solicitud devuelve un `id` único que representa tu migración. Lo necesitarás para solicitudes posteriores a la API de Migraciones.
 
@@ -82,4 +82,4 @@ La API de Migraciones se encuentra actualmente en un período de previsualizaci�
       -H "Aceptar: application/vnd.github.wyandotte-preview+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

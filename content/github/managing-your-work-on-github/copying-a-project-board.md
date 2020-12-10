@@ -16,7 +16,7 @@ When you copy a project board to an organization, the project board's visibility
 A project board's automation is also enabled by default. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards/)."
 
 1. Navigate to the project board you want to copy.
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Copy**.
 ![Copy option in drop-down menu from project board sidebar](/assets/images/help/projects/project-board-copy-setting.png)
 4. Under "Owner", use the drop-down menu and click the repository or organization where you want to copy the project board.

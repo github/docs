@@ -1,6 +1,6 @@
 ---
 title: 列出您订阅的议题和拉取请求
-intro: 您可以查看您订阅的所有议题和拉取请求的概述，以便于找到您感兴趣但未收到近期通知的对话。
+intro: '您可以查看您订阅的所有议题和拉取请求的概述，以便于找到您感兴趣但未收到近期通知的对话。'
 versions:
   enterprise-server: <2.21
 ---
@@ -10,7 +10,7 @@ versions:
 ### 查看订阅列表
 
 1. 在任何页面的右上角，单击 {% octicon "bell" aria-label="The notifications bell" %}。 如果您禁用了 web 通知，并且未看到铃铛图标，可以导航到 <https://github.com/notifications/subscriptions>。 更多信息请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。 ![表示任何未读消息的通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-2. Click **Subscriptions** ![订阅选项卡](/assets/images/help/notifications/subscriptions-tab.png)
+2. 单击 **Subscriptions（订阅）** ![订阅选项卡](/assets/images/help/notifications/subscriptions-tab.png)
 
 ### 取消订阅议题和拉取请求
 

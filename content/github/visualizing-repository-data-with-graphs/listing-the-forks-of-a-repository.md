@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Forks are listed alphabetically by the username of the person who forked the repository. You can click on the username to be redirected to the user's {{ site.data.variables.product.product_name }} profile page or click on the fork name to be redirected to the specific fork of the repository.
+Forks are listed alphabetically by the username of the person who forked the repository. You can click on the username to be redirected to the user's {% data variables.product.product_name %} profile page or click on the fork name to be redirected to the specific fork of the repository.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -22,7 +23,7 @@ Forks are listed alphabetically by the username of the person who forked the rep
 
 ### Accessing the Members graph
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. In the left sidebar, click **Forks**.
 ![Forks tab](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)

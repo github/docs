@@ -68,11 +68,11 @@ Esta lista no es exhaustiva, por lo que hablar con un profesional legal sobre tu
 
 ### Quejas sobre Tecnología de Anti Elusión
 
-La Ley de Derechos de Autor también prohíbe la elusión de medidas tecnológicas que controlen eficazmente el acceso a las obras protegidas por los derechos de autor. Si crees que el contenido alojado en GitHub viola esta prohibición, por favor envíanos un informe a través de nuestro {{ site.data.variables.contact.contact_dmca }}, e incluye información específica sobre qué contenido viola esa prohibición, qué medidas tecnológicas aplicas y por qué el contenido viola la prohibición.
+La Ley de Derechos de Autor también prohíbe la elusión de medidas tecnológicas que controlen eficazmente el acceso a las obras protegidas por los derechos de autor. Si crees que el contenido alojado en GitHub viola esta prohibición, por favor envíanos un informe a través de nuestro {% data variables.contact.contact_dmca %}, e incluye información específica sobre qué contenido viola esa prohibición, qué medidas tecnológicas aplicas y por qué el contenido viola la prohibición.
 
 ### Como presentar tu queja
 
-La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {{ site.data.variables.contact.contact_dmca }}.
+La forma más rápida de obtener una respuesta es ingresar tu información y responder a todas las preguntas de nuestro {% data variables.contact.contact_dmca %}.
 
 También puedes enviar una notificación por correo electrónico a <copyright@github.com>. Puedes incluir un archivo adjunto si lo deseas, pero por favor incluye una versión de texto simple de tu carta en el cuerpo de tu mensaje.
 

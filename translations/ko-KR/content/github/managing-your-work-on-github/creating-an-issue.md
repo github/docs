@@ -1,23 +1,23 @@
 ---
 title: Creating an issue
 intro: 'Issues can be used to keep track of bugs, enhancements, or other requests.'
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 redirect_from:
   - /articles/creating-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-{{ site.data.reusables.repositories.create-issue-in-public-repository }}
 
 You can open a new issue based on code from an existing pull request. For more information, see "[Opening an issue from code](/github/managing-your-work-on-github/opening-an-issue-from-code)."
 
 You can open a new issue directly from a comment in an issue or a pull request review. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
-**Tip**: You can also create an issue using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -32,8 +32,8 @@ If you're using a project board to track and prioritize your work, you can conve
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Click **New issue**. ![New Issues button](/assets/images/help/issues/new_issues_button.png)
 4. If there are multiple issue types, click **Get started** next to the type of issue you'd like to open. ![Select the type of issue you want to create](/assets/images/help/issues/issue_template_get_started_button.png)
 {% if currentVersion == "free-pro-team@latest" or currentVersion >= "enterprise-server@2.21" %}
@@ -41,9 +41,9 @@ If you're using a project board to track and prioritize your work, you can conve
 {% else %}
 5. Optionally, click **Open a regular issue.** if the type of issue you'd like to open isn't included in the available options. ![Link to open a regular issue](/assets/images/help/issues/regular_issue_link.png)
 {% endif %}
-{{ site.data.reusables.repositories.type-issue-title-and-description }}
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
-{{ site.data.reusables.repositories.submit-new-issue }}
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
 ### 더 읽을거리
 
 - "[Creating a permanent link to a code snippet](/github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet)"

@@ -1,6 +1,6 @@
 ---
 title: Frontmatter
-productVersions:
-  dotcom: '*'
-  enterprise: '>=2.13'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.13'
 ---

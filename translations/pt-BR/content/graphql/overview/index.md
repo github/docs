@@ -1,9 +1,10 @@
 ---
 title: Visão Geral
-intro: 'Aprenda sobre a API do GraphQL de {{ site.data.variables.product.prodname_dotcom }}, pré-visualizações para alterações futuras, alterações significativas e limitações. Você também pode usar o Explorador do GraphQL para interagir com a API em dados reais do {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprenda sobre a API do GraphQL de {% data variables.product.prodname_dotcom %}, pré-visualizações para alterações futuras, alterações significativas e limitações. Você também pode usar o Explorador do GraphQL para interagir com a API em dados reais do {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /about-the-graphql-api %}

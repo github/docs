@@ -1,6 +1,6 @@
 ---
 title: Tipos de eventos de los informes de problemas
-intro: 'Para la API de Eventos de Informes de Problemas y la API de Línea de Tiempo, aprende sobre cada tipo de evento, la acción que los activa en {{ site.data.variables.product.prodname_dotcom }} y las propiedades exclusivas de cada uno de ellos.'
+intro: 'Para la API de Eventos de Informes de Problemas y la API de Línea de Tiempo, aprende sobre cada tipo de evento, la acción que los activa en {% data variables.product.prodname_dotcom %} y las propiedades exclusivas de cada uno de ellos.'
 redirect_from:
   - /v3/issues/issue-event-types
 versions:
@@ -18,11 +18,11 @@ La API de REST de GitHub considera a cada solicitud de extracción como un infor
 
 Los eventos de los informes de problemas tienen la misma estructura de objeto, excepto aquellos eventos que solo se encuentran disponibles en la API de Eventos de la Línea de Tiempo. Algunos eventos también incluyen propiedades adicionales que proporcionan más contexto acerca de los recursos de éstos. Consulta el evento específico para encontrar más detalles sobre cualquier propiedad que difiera de este formato de objeto.
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### added_to_project
 
-El informe de problemas o solicitud de extracción se agregó a un tablero de proyecto. {{ site.data.reusables.projects.disabled-projects }}
+El informe de problemas o solicitud de extracción se agregó a un tablero de proyecto. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidad
 
@@ -32,11 +32,11 @@ El informe de problemas o solicitud de extracción se agregó a un tablero de pr
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
 ### assigned
 
@@ -50,8 +50,8 @@ El informe de problemas o solicitud de extracción se asignó al usuario.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.assignee-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.assignee-properties %}
 
 ### automatic_base_change_failed
 
@@ -65,7 +65,7 @@ GitHub intentó cambiar la rama base de la solicitud de extracción automáticam
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### automatic_base_change_succeeded
 
@@ -79,7 +79,7 @@ GitHub intentó cambiar la rama base de la solicitud de extracción automáticam
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### base_ref_changed
 
@@ -93,7 +93,7 @@ La rama base de referencia de la solicitud de extracción cambió.
 
  ### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### closed
 
@@ -107,7 +107,7 @@ Se cerró el informe de problemas o la solicitud de extracción. Cuando está pr
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### commented
 
@@ -121,7 +121,7 @@ Un comentario se agregó al informe de problemas o solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nombre                   | Tipo        | Descripción                                                                                                                                                               |
 | ------------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -150,7 +150,7 @@ Una confirmación se agregó a la rama `HEAD` de la solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nombre                           | Tipo                | Descripción                                                                                                                                                                                    |
 | -------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -178,7 +178,7 @@ El informe de problemas o solicitud de extracción se vinculó a otro informe de
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### convert_to_draft
 
@@ -192,11 +192,11 @@ La solicitud de extracción se convirtió a modo borrador.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### converted_note_to_issue
 
-El informe de problemas se creó convirtiendo una nota en un tablero de proyecto para un informe de problemas. {{ site.data.reusables.projects.disabled-projects }}
+El informe de problemas se creó convirtiendo una nota en un tablero de proyecto para un informe de problemas. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidad
 
@@ -206,11 +206,11 @@ El informe de problemas se creó convirtiendo una nota en un tablero de proyecto
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
 ### cross-referenced
 
@@ -224,7 +224,7 @@ El informe de problemas o solicitud de extración se referenció desde otro info
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nombre                   | Tipo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -248,7 +248,7 @@ El informe de problemas o solicitud de extracción se elimnó de un hito.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `milestone` | `object` | El objeto del hito. `milestone[title]` | `string` | El título del hito.
 
 ### deployed
@@ -263,7 +263,7 @@ Se desplegó la solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### deployment_environment_changed
 
@@ -277,7 +277,7 @@ El ambiente de despliegue de la solicitud de extracción cambió.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### disconnected
 
@@ -291,7 +291,7 @@ El informe de problemas o solicitud de extracción se desvinculó de otro inform
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### head_ref_deleted
 
@@ -305,7 +305,7 @@ Se eliminó la rama `HEAD` de la solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### head_ref_restored
 
@@ -319,7 +319,7 @@ Se restauró la rama `HEAD` de la solicitud de extracción a su última confirma
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### labeled
 
@@ -333,8 +333,8 @@ Se agregó una etiqueta al informe de problemas o solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.label-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.label-properties %}
 
 ### locked
 
@@ -349,11 +349,11 @@ Se bloqueó el informe de problemas o la solicitud de extracción.
 #### Propiedades del objeto del evento
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-{{ site.data.reusables.pre-release-program.sailor-v-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.sailor-v-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | La razón por la cual se bloqueó un informe de problemas o solicitud de extracción, si es que se proporcionó alguna.
 
 ### mentioned
@@ -368,7 +368,7 @@ Se `@mentioned` al `actor` en el cuerpo de un informe de problemas o solicitud d
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### marked_as_duplicate
 
@@ -382,7 +382,7 @@ Un usuario con permisos de escritura marcó un informe de problemas como el dupl
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### fusionado
 
@@ -396,7 +396,7 @@ Se fusionó la solicitud de extracción. El atributo de `commit_id` es el SHA1 d
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### milestoned
 
@@ -410,12 +410,12 @@ El informe de problemas o solicitud de extracción se agregó a un hito.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `milestone` | `object` | El objeto del hito. `milestone[title]` | `string` | El título del hito.
 
 ### moved_columns_in_project
 
-El informe de problemas o solicitud de extracción se movió entre columnas en un tablero de proyecto. {{ site.data.reusables.projects.disabled-projects }}
+El informe de problemas o solicitud de extracción se movió entre columnas en un tablero de proyecto. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidad
 
@@ -425,11 +425,11 @@ El informe de problemas o solicitud de extracción se movió entre columnas en u
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 `previous_column_name` | `string` | El nombre de la columna desde la cual se movió el informe de problemas.
 
 ### pinned
@@ -444,7 +444,7 @@ Se fijó el informe de problemas.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### ready_for_review
 
@@ -458,7 +458,7 @@ Se creó una solicitud de extracción que no está en modo borrador.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### referenced
 
@@ -472,11 +472,11 @@ Se referenció al informe de problemas desde un mensaje de confirmación. El atr
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### removed_from_project
 
-El informe de problemas o solicitud de extracción se eliminó de un tablero de proyecto. {{ site.data.reusables.projects.disabled-projects }}
+El informe de problemas o solicitud de extracción se eliminó de un tablero de proyecto. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidad
 
@@ -486,11 +486,11 @@ El informe de problemas o solicitud de extracción se eliminó de un tablero de 
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
 ### renombrado
 
@@ -504,7 +504,7 @@ Se cambió el informe de problemas o la solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `rename` | `object` | Los detalles del nombre. `rename[from]` | `string` | El nombre anterior. `rename[to]` | `string` | El nombre nuevo.
 
 ### reopened
@@ -519,7 +519,7 @@ El informe de problemas o solicitud de extracción se reabrió.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### review_dismissed
 
@@ -533,8 +533,8 @@ Se destituyó la revisión de la solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.review-dismissed-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-dismissed-properties %}
 
 ### review_requested
 
@@ -548,8 +548,8 @@ Se solicitó una revisión de una solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.review-request-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
 
 ### review_request_removed
 
@@ -563,8 +563,8 @@ Se eliminó una solicitud de revisión para una solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.review-request-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
 
 ### reviewed
 
@@ -578,7 +578,7 @@ Se revisió la solicitud de extracción.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nombre               | Tipo        | Descripción                                                                                                                                                               |
 | -------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -607,7 +607,7 @@ Alguien se suscribió para recibir notificaciones para un informe de problemas o
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### transferred
 
@@ -621,7 +621,7 @@ El informe de problemas se transfirió a otro repositorio.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### unassigned
 
@@ -635,8 +635,8 @@ De desasignó a un usuario del informe de problemas.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.assignee-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.assignee-properties %}
 
 ### unlabeled
 
@@ -650,8 +650,8 @@ La etiqueta se eliminó del informe de problemas.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.label-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.label-properties %}
 
 ### unlocked
 
@@ -666,11 +666,11 @@ Se desbloqueó el informe de problemas.
 #### Propiedades del objeto del evento
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-{{ site.data.reusables.pre-release-program.sailor-v-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.sailor-v-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | La razón por la cual se bloqueó un informe de problemas o solicitud de extracción, si es que se proporcionó alguna.
 
 ### unmarked_as_duplicate
@@ -685,7 +685,7 @@ Un informe de problemas que algún usuario había marcado previamente como dupli
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### unpinned
 
@@ -699,7 +699,7 @@ El informe de problemas dejó de fijarse.
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### unsubscribed
 
@@ -713,7 +713,7 @@ Alguien se desuscribió de recibir notificaciones para un informe de problemas o
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
@@ -728,6 +728,6 @@ El propietario de una organización bloqueó a un usuario de la misma. Esto se h
 
 #### Propiedades del objeto del evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 {% endif %}

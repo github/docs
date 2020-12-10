@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 これらのフィルタービューでソートできます。
@@ -18,8 +19,8 @@ versions:
 * 一番古くに更新された Issue またはプルリクエスト
 * Issue またはプルリクエストに対して最も加えられた[リアクション](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 右上にあるソートドロップダウンメニューをクリックします。 ![ソートドロップダウンタブを使用する](/assets/images/help/issues/issues_sort_dropdown.png)
 
 ソートの選択を解除するには、[**Sort**] > [**Newest**] をクリックします。

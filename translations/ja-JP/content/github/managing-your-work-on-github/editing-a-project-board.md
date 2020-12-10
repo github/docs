@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -17,8 +18,8 @@ versions:
 {% endtip %}
 
 1. 編集するプロジェクトボードに移動します。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. プロジェクトボードの名前と説明を必要に応じて修正し、[**Save project**] をクリックします。 ![プロジェクトボードの名前と説明欄に記入し、[Save project] ボタンをクリックします。](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ### 参考リンク

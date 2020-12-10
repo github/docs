@@ -1,17 +1,18 @@
 ---
 title: 'Fehler: „Remote HEAD refers to nonexistent ref, unable to checkout“ (Remote-HEAD verweist auf nicht vorhandene Referenz, Auschecken nicht möglich)'
-intro: 'Dieser Fehler tritt auf, wenn der Standardbranch eines Repositorys auf {{ site.data.variables.product.product_location }} gelöscht wurde.'
+intro: 'Dieser Fehler tritt auf, wenn der Standardbranch eines Repositorys auf {% data variables.product.product_location %} gelöscht wurde.'
 redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Es ist nicht schwierig, diesen Fehler zu erkennen. Git warnt Dich, wenn Du versuchst, das Repository zu klonen:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Klont ein Repository
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -22,7 +23,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</e
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-Um das Problem zu beheben, musst Du ein Administrator des Repositorys auf {{ site.data.variables.product.product_location }} sein. [Ändere den Standardbranch](/articles/setting-the-default-branch) des Repositorys.
+Um das Problem zu beheben, musst Du ein Administrator des Repositorys auf {% data variables.product.product_location %} sein. [Ändere den Standardbranch](/github/administering-a-repository/changing-the-default-branch) des Repositorys.
 
 Anschließend kannst Du über die Befehlszeile eine Liste aller verfügbaren Branches abrufen:
 

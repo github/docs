@@ -1,7 +1,7 @@
 ---
 title: Enabling and testing SAML single sign-on for your organization
 intro: Organization owners and admins can enable SAML single sign-on to add an extra layer of security to their organization.
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
@@ -12,14 +12,14 @@ You can enable SAML SSO in your organization without requiring all members to us
 
 If you enable but don't enforce SAML SSO, organization members who choose not to use SAML SSO can still be members of the organization. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 Prior to enforcing SAML SSO in your organization, ensure that you've set up your identity provider (IdP). For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
 5. Under "SAML single sign-on", select **Enable SAML authentication**.
 ![Checkbox for enabling SAML SSO](/assets/images/help/saml/saml_enable.png)
 
@@ -41,7 +41,7 @@ Prior to enforcing SAML SSO in your organization, ensure that you've set up your
 
   {% tip %}
 
-  **Tip:** {{ site.data.reusables.saml.testing-saml-sso }}
+  **Tip:** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
 11. To enforce SAML SSO and remove all organization members who haven't authenticated via your IdP, select **Require SAML SSO authentication for all members of the _organization name_ organization**. For more information on enforcing SAML SSO, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)."

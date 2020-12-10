@@ -16,13 +16,13 @@ Os colaboradores têm permissões de gravação para a consultoria de segurança
 
 {% note %}
 
-{{ site.data.reusables.repositories.security-advisory-collaborators-public-repositories }} Para obter mais informações sobre a remoção de um colaborador em uma consultora de segurança, consulte "[Remover um colaborador de uma consultora de segurança](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)."
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} Para obter mais informações sobre a remoção de um colaborador em uma consultora de segurança, consulte "[Remover um colaborador de uma consultora de segurança](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)."
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Na lista "consultoria de segurança", clique na consultoria de segurança à qual deseja adicionar um colaborador.
 5. No lado direito da página, em "Colaboradores", digite o nome do usuário ou da equipe que você gostaria de adicionar à consultora de segurança. ![Campo para digitar nome de usuário ou equipe](/assets/images/help/security/add-collaborator-field.png)
 6. Clique em **Salvar**. ![Botão Add (Adicionar)](/assets/images/help/security/security-advisory-add-collaborator-button.png)

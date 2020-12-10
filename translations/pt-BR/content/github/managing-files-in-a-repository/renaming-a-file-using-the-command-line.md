@@ -6,14 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Muitos arquivos podem ser [renomeados diretamente no {{ site.data.variables.product.product_name }}](/articles/renaming-a-file), mas alguns arquivos, como imagens, exigem que a renomeação seja feita usando a linha de comando.
+Muitos arquivos podem ser [renomeados diretamente no {% data variables.product.product_name %}](/articles/renaming-a-file), mas alguns arquivos, como imagens, exigem que a renomeação seja feita usando a linha de comando.
 
-{{ site.data.reusables.command_line.manipulating_file_prereqs }}
+{% data reusables.command_line.manipulating_file_prereqs %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.switching_directories_procedural }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
 3. Renomeie o arquivo especificando o nome antigo e o novo nome que deseja atribuir ao arquivo. Isso fará o stage da alteração para commit.
   ```shell
   $ git mv <em>old_filename</em> <em>new_filename</em>
@@ -28,13 +29,13 @@ Muitos arquivos podem ser [renomeados diretamente no {{ site.data.variables.prod
   > #     renamed: <em>old_filename</em> -> <em>new_filename</em>
   > #
   ```
-{{ site.data.reusables.git.commit-file }}
+{% data reusables.git.commit-file %}
   ```shell
   $ git commit -m "Rename file"
   # Commits the tracked changes and prepares them to be pushed to a remote repository.
-  # {{ site.data.reusables.git.reset-head-to-previous-commit-codeblock }}
+  # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-{{ site.data.reusables.git.git-push }}
+{% data reusables.git.git-push %}
 
 ### Leia mais
 - "[Mover um arquivo para outro local usando a linha de comando](/articles/moving-a-file-to-a-new-location-using-the-command-line)"

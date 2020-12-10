@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 API でカスタムメディアタイプを使用して、ユーザが受信するデータの形式を選択できるようにします。 これは、リクエストをするときに、`Accept` ヘッダに次のタイプから 1 つ以上を追加することによって行われます。 メディアタイプはリソースに固有であり、リソースを個別に変更し、他のリソースではサポートしていない形式をサポートすることができます。
 
-{{ site.data.variables.product.product_name }} のすべてのメディアタイプは次のとおりです。
+{% data variables.product.product_name %} のすべてのメディアタイプは次のとおりです。
 
     application/vnd.github[.version].param[+json]
 
@@ -20,7 +21,7 @@ API がサポートする最も基本的なメディアタイプは次のとお�
     application/json
     application/vnd.github+json
 
-これらはどちらも[バージョン][versions]を指定しないため、常にリソースの現在のデフォルトの JSON 表現を取得します。
+Neither of these specify a [version][versions], so you will always get the current default JSON representation of resources.
 
 {% note %}
 
@@ -39,16 +40,16 @@ API がサポートする最も基本的なメディアタイプは次のとお�
 すべてのレスポンスのヘッダから現在のバージョンを確認できます。  `X-GitHub-Media-Type` ヘッダを探します。
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
@@ -56,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### コメント本文のプロパティ
 
-コメントの本文は、[GitHub Flavored Markdown][gfm]、[Issue](/v3/issues/)、[Issue コメント](/v3/issues/comments/)、[プルリクエストコメント](/v3/pulls/comments/)、および [gist コメント](/v3/gists/comments/) API で記述できます。これらの API はすべて、次の同じメディアタイプを受け入れます。
+The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
 
 #### Raw
 
@@ -84,7 +85,7 @@ Raw 形式のテキストおよび HTML 表現を返します。 レスポンス
 
 ### Git blob プロパティ
 
-[blob の取得](/v3/git/blobs/#get-a-blob)時に許可されるメディアタイプは次のとおりです。
+The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
 
 #### JSON
 
@@ -101,7 +102,7 @@ Raw 形式の blob データを返します。
 
 ### コミット、コミット比較、プルリクエスト
 
-[コミット API](/v3/repos/commits/) と[プルリクエスト API](/v3/pulls/) は、[diff][git-diff] および [patch][git-patch] 形式をサポートしています。
+The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
 #### diff
 
@@ -146,4 +147,4 @@ Gist の内容は、送信前に base64 でエンコードされます。 これ
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /v3/versions
+[versions]: /developers/overview/about-githubs-apis

@@ -1,15 +1,16 @@
 ---
 title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {{ site.data.variables.product.product_name }}.'
+intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
 ---
 
-### About navigating code on {{ site.data.variables.product.prodname_dotcom }}
+### About navigating code on {% data variables.product.prodname_dotcom %}
 
 Navigating code functions use the open source library [`semantic`](https://github.com/github/semantic). The following languages are supported:
+- C#
 - CodeQL
 - Go
 - Java

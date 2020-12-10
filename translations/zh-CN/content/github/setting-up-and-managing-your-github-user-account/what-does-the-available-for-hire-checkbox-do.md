@@ -1,5 +1,5 @@
 ---
-title: “招聘职位”复选框有什么作用？
+title: '“招聘职位”复选框有什么作用？'
 intro: 使用 **Available for hire（招聘职位）**复选框可查看 GitHub 内的 GitHub Jobs 岗位。
 redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do
@@ -11,5 +11,5 @@ versions:
 
 ![仪表板上的 GitHub Jobs 广告](/assets/images/help/settings/jobs-ads-on-dashboard.png)
 
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 2. 在 Jobs Profile（职位资料）下，选择 **Available for hire（招聘职位）**，然后单击 **Save jobs profile（保存职位资料）**。 ![职位资料设置](/assets/images/help/settings/jobs-profile-settings.png)

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.privacy }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.privacy %}
 3. Desmarque a seleção na caixa **Enable sign-up** (Habilitar assinatura). ![Caixa de seleção Enable sign-up (Habilitar assinatura)](/assets/images/enterprise/management-console/enable-sign-up.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}

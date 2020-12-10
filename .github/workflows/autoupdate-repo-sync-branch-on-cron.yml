@@ -1,0 +1,15 @@
+name: autoupdate reposync branch on cron
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  autoupdate:
+    name: autoupdate
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: docker://chinthakagodawita/autoupdate-action:v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          PR_FILTER: labelled
+          PR_LABELS: 'automated-reposync-pr'
+          MERGE_MSG: "Branch was updated using the 'autoupdate reposync branch on cron' Actions workflow."

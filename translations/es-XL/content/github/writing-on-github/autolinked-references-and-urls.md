@@ -10,7 +10,7 @@ versions:
 
 ### Direcciones URL
 
-{{ site.data.variables.product.product_name }} automáticamente crea vínculos desde las direcciones URL estándar.
+{% data variables.product.product_name %} automáticamente crea vínculos desde las direcciones URL estándar.
 
 `Visita https://github.com`
 
@@ -20,7 +20,7 @@ Para obtener información sobre cómo crear vínculos, consulta "[Sintaxis de es
 
 ### Propuestas y solicitudes de extracción
 
-Dentro de las conversaciones en {{ site.data.variables.product.product_name }}, las referencias a las propuestas y solicitudes de extracción se convierten automáticamente en vínculos acortados. Para obtener más información, consulta "[Acerca de las conversaciones en {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github)".
+Dentro de las conversaciones en {% data variables.product.product_name %}, las referencias a las propuestas y solicitudes de extracción se convierten automáticamente en vínculos acortados. Para obtener más información, consulta "[Acerca de las conversaciones en {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)".
 
 {% note %}
 
@@ -38,7 +38,7 @@ Dentro de las conversaciones en {{ site.data.variables.product.product_name }}, 
 
 ### Confirmar SHA
 
-Las referencias a un hash SHA de confirmación se convertirán automáticamente en enlaces acortados para la confirmación en {{ site.data.variables.product.product_name }}.
+Las referencias a un hash SHA de confirmación se convertirán automáticamente en enlaces acortados para la confirmación en {% data variables.product.product_name %}.
 
 | Tipo de referencia      | Referencia en bruto                                                                  | Vínculo acortado                                                                                                  |
 | ----------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ Las referencias a un hash SHA de confirmación se convertirán automáticamente 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Personalizar enlaces automáticos a recursos externos
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 

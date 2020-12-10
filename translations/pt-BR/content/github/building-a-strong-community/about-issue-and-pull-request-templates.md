@@ -6,11 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Depois que você cria modelos de problema e pull request no repositório, os contribuidores podem usá-los para abrir problemas ou descrever as alterações propostas nas respectivas pull requests, de acordo com as diretrizes de contribuição do repositório. Para obter mais informações sobre como adicionar diretrizes de contribuição a um repositório, consulte "[Configurar diretrizes para contribuidores de repositório](/articles/setting-guidelines-for-repository-contributors)".
 
-Você pode criar um problema padrão e modelos de pull request para sua organização {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default issue and pull request templates for your organization or user account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 ### Modelos de problema
 
@@ -20,15 +25,15 @@ Ao criar modelos de problema para o repositório usando o construtor de modelo d
 
 Usando o construtor de modelo, você pode especificar um titulo e a descrição de cada modelo, adicionar o conteúdo do modelo e, ou fazer commit do modelo no branch padrão, ou abrir uma pull request no repositório. O construtor de modelo adiciona automaticamente a markup de página inicial YAML que é necessária para que o modelo apareça na página do novo problema. Para obter mais informações, consulte "[Configurando modelos de problema para seu repositório](/articles/configuring-issue-templates-for-your-repository)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{{ site.data.reusables.repositories.issue-template-config }} Para obter mais informações, consulte "[Configurando modelos de problemas para seu repositório](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% data reusables.repositories.issue-template-config %} Para obter mais informações, consulte "[Configurando modelos de problemas para seu repositório](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 
-Os modelos de problema são armazenados no branch padrão do repositório, em um diretório `.github/ISSUE_TEMPLATE` oculto. Se você criar um modelo em outro branch, ele não estará disponível para uso dos colaboradores. Os nomes de arquivo do modelo de problema não diferenciam maiúsculas de minúsculas e precisam de uma extensão *.md*. {{ site.data.reusables.repositories.valid-community-issues }}
+Os modelos de problema são armazenados no branch padrão do repositório, em um diretório `.github/ISSUE_TEMPLATE` oculto. Se você criar um modelo em outro branch, ele não estará disponível para uso dos colaboradores. Os nomes de arquivo do modelo de problema não diferenciam maiúsculas de minúsculas e precisam de uma extensão *.md*. {% data reusables.repositories.valid-community-issues %}
 
 É possível criar manualmente um único modelo de problema em markdown usando o fluxo de trabalho do modelo de problema e os contribuidores do projeto verão automaticamente o conteúdo do modelo no texto do problema. No entanto, é recomendável usar o construtor atualizado de vários modelos de problema para criar os modelos. Para obter mais informações sobre o fluxo de trabalho herdado, consulte [Criar manualmente um único modelo de problemas para seu repositório](/articles/manually-creating-a-single-issue-template-for-your-repository)".
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Modelos de pull request
 

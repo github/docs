@@ -7,21 +7,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na nova cópia do repositório, é preciso [criar o novo repositório](/articles/creating-a-new-repository) no {{ site.data.variables.product.product_location }}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
+Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na nova cópia do repositório, é preciso [criar o novo repositório](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Nesses exemplos, `exampleuser/new-repository` ou `exampleuser/mirrored` são os espelhos.
 
 ### Espelhar um repositório
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Crie um clone bare do repositório.
   ```shell
-  $ git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>old-repository</em>.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
 3. Faça espelhamento/push no novo repositório.
   ```shell
   $ cd <em>old-repository</em>.git
-  $ git push --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>new-repository</em>.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Remova o repositório local temporário que você criou anteriormente.
   ```shell
@@ -29,26 +30,26 @@ Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na no
   $ rm -rf <em>old-repository</em>.git
   ```
 
-### Espelhar um repositório que contém objetos do {{ site.data.variables.large_files.product_name_long }}
+### Espelhar um repositório que contém objetos do {% data variables.large_files.product_name_long %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Crie um clone bare do repositório. Substitua o exemplo de nome de usuário pelo nome da pessoa ou da organização a quem pertence o repositório e substitua o exemplo de nome de repositório pelo nome do repositório que você deseja duplicar.
   ```shell
-  $ git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>old-repository</em>.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
 3. Navegue até o repositório que você acabou de clonar.
   ```shell
   $ cd <em>old-repository</em>.git
   ```
-4. Extraia os objetos do {{ site.data.variables.large_files.product_name_long }} do repositório.
+4. Extraia os objetos do {% data variables.large_files.product_name_long %} do repositório.
   ```shell
   $ git lfs fetch --all
   ```
 5. Faça espelhamento/push no novo repositório.
   ```shell
-  $ git push --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>new-repository</em>.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
-6. Faça push nos objetos do {{ site.data.variables.large_files.product_name_long }} do repositório no seu espelho.
+6. Faça push nos objetos do {% data variables.large_files.product_name_long %} do repositório no seu espelho.
   ```shell
   $ git lfs push --all https://github.com/<em>exampleuser/new-repository.git</em>
   ```
@@ -62,15 +63,15 @@ Para poder duplicar um repositório e fazer push (ou seja, _espelhamento_) na no
 
 Se você deseja espelhar um repositório em outro local e ainda obter atualizações do original, é possível clonar um espelho e fazer push das alterações periodicamente.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Crie um clone bare espelhado do repositório.
   ```shell
-  $ git clone --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
+  $ git clone --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
   ```
 3. Defina o local de push no espelho.
   ```shell
   $ cd <em>repository-to-mirror</em>.git
-  $ git remote set-url --push origin https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>mirrored</em>
+  $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 
 Assim como um clone bare, um clone espelhado inclui todos os branches remotes e tags, mas todas as referências locais serão substituídas todas as vezes que você fizer fetch, assim ele sempre será o mesmo do repositório original. O push no espelho é simplificado pela configuração da URL para pushes. Para atualizar o espelho, obtenha atualizações e faça push.

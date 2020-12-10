@@ -1,6 +1,6 @@
 ---
 title: Arten der von GitHub versendeten E-Mails
-intro: 'Du kannst von {{ site.data.variables.product.product_name }} verschiedene Arten von E-Mails erhalten, unter anderem Benachrichtigungen, Kontoinformationen und Marketingkommunikation.'
+intro: 'Sie können von {% data variables.product.product_name %} verschiedene Arten von E-Mails erhalten, unter anderem Benachrichtigungen, Kontoinformationen und Marketingkommunikation.'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
@@ -27,10 +27,10 @@ Falls Du ein Upgrade auf bezahlte Produkte oder Funktionen durchgeführt hast, e
 
 ### Marketing-E-Mails
 
-{{ site.data.variables.product.product_name }} versendet gelegentlich auch E-Mails mit folgenden Arten von Marketingkommunikation:
+{% data variables.product.product_name %} versendet gelegentlich auch E-Mails mit folgenden Arten von Marketingkommunikation:
 
 - Tipps und Tricks für die ersten Schritte mit Deinem Konto
 - Persönlich abgestimmte Informationen zu interessanten neuen Projekten oder Funktionen
-- Abonnierte Newsletter wie {{ site.data.variables.explore.explore_github }}
+- Abonnierte Newsletter wie {% data variables.explore.explore_github %}
 
 Weitere Informationen findest Du unter „[Marketing-E-Mails von GitHub verwalten](/articles/managing-marketing-emails-from-github).“

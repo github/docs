@@ -1,20 +1,20 @@
 ---
 title: Configurar seu ambiente de desenvolvimento para criar um aplicativo GitHub
-intro: 'Aprenda os princípios básicos para estender e criar um novo {{ site.data.variables.product.prodname_github_apps }}.'
+intro: 'Aprenda os princípios básicos para estender e criar um novo {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 ### Introdução
 
 Este guia irá analisar os passos necessários para configurar um aplicativo GitHub e executá-lo em um servidor. Os aplicativos GitHub exigem algumas etapas de configuração para gerenciar eventos do webhook e conectar o registro do aplicativo no GitHub ao seu código. O aplicativo neste guia serve como base que você pode usar para estender e criar novos aplicativos no GitHub.
 
-Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
+Ao final deste guia, você aprenderá a registrar um aplicativo GitHub e configurar um servidor web para receber eventos de webhook. Você aprenderá a usar uma ferramenta denominada Smee para capturar cargas do webhook e encaminhá-las para seu ambiente de desenvolvimento local. O aplicativo do modelo você irá configurar nesta seção não fará nada especial nesse momento, mas servirá como uma estrutura que você pode usar para começar a escrever o código do aplicativo usando a API ou concluindo outros [guias de início rápido](/apps/quickstart-guides/). {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Funciona com o GitHub](https://github.com/works-with).{% endif %}
 
 Após concluir este projeto, você entenderá como efetuar a autenticação como um aplicativo GitHub e uma instalação, bem como e como esses métodos de autenticação são diferentes.
 
@@ -28,7 +28,7 @@ Aqui estão as etapas que você vai seguir para configurar o modelo do aplicativ
 1. [Inicie servidor](#step-6-start-the-server)
 1. [Instale o aplicativo em sua conta](#step-7-install-the-app-on-your-account)
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 ### Pré-requisitos
 
@@ -37,7 +37,7 @@ Você pode achar útil ter um entendimento básico do seguinte:
 * [Aplicativos do GitHub](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [Linguagem de programação Ruby](https://www.ruby-lang.org/en/)
-* [APIs REST](/v3)
+* [APIs REST](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 Mas é possível acompanhar o processo em qualquer nível de experiência. Nós vamos nos conectar a informações de que você precisa ao longo do caminho!
@@ -220,7 +220,7 @@ end
 
 #### Defina um gerenciador de encaminhamento
 
-Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. Você não vai escrever este manipulador de eventos neste início rápido, mas veja os outros [guias de início rápido](/apps/quickstart-guides/) para obter exemplos de como estender o aplicativo deste modelo.
+Um encaminhamento vazio está incluído no código do modelo. Este código gerencia todas as solicitações `POST` para o encaminhamento `/event_handler`. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/quickstart-guides/) for examples of how to extend this template app.
 
 ``` ruby
 post '/event_handler' do
@@ -260,10 +260,10 @@ Antes de usar a biblioteca do Octokit.rb para fazer chamadas de API, você dever
 
 ``` ruby
 # Instancie um cliente do Octokit autenticado como um aplicativo GitHub.
-# A autenticação do aplicativo GitHub App exige que você construa um
-# JWT (https://jwt. o/introduction/) assinado com a chave privada do aplicativo
-# para que o GitHub possa ter certeza de que veio do aplicativo e não foi alterada por
-# terceiros maliciosos.
+# GitHub App authentication requires that you construct a
+# JWT (https://jwt.io/introduction/) signed with the app's private key,
+# so GitHub can be sure that it came from the app an not altered by
+# a malicious third party.
 def authenticate_app
   payload = {
       # The time that this JWT was issued, _i.e._ now.
@@ -382,7 +382,7 @@ Se você estiver se perguntando de onde vem a saída do Terminal acima, ela é e
 
 ### Solução de Problemas
 
-Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {% data variables.product.prodname_support_forum_with_url %}.
 
 * **P:** Quando eu tento instalar o cliente de linha de comando da Smee, eu recebo o seguinte erro:
 

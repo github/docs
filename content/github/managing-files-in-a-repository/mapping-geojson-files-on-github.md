@@ -5,8 +5,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-{{ site.data.variables.product.product_name }} supports rendering geoJSON and topoJSON map files within {{ site.data.variables.product.product_name }} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the geoJSON file on GitHub.com.
+{% data variables.product.product_name %} supports rendering geoJSON and topoJSON map files within {% data variables.product.product_name %} repositories. Simply commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the geoJSON file on GitHub.com.
 
 When you click the paper icon on the right, you'll also see the changes made to that file as part of a commit.
 
@@ -14,7 +15,7 @@ When you click the paper icon on the right, you'll also see the changes made to 
 
 ### Geometry Types
 
-Maps on {{ site.data.variables.product.product_name }} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [topoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
+Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [topoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 ### Styling features
 
@@ -33,7 +34,7 @@ See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simpl
 
 ### Embedding your map elsewhere
 
-Want to make your geoJSON map available someplace other than {{ site.data.variables.product.product_name }}? Simply modify this template, and place it in any HTML page that supports javascript (e.g., [{{ site.data.variables.product.prodname_pages }}](http://pages.github.com)):
+Want to make your geoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports javascript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -63,7 +64,7 @@ The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap
 
 ### Troubleshooting
 
-If you're having trouble rendering geoJSON files, ensure you have a valid geoJSON file by running it through a [geoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {{ site.data.variables.product.product_name }} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
+If you're having trouble rendering geoJSON files, ensure you have a valid geoJSON file by running it through a [geoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (<em>e.g.</em>, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
 Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that looks something like this:
 

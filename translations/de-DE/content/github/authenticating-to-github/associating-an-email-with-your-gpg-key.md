@@ -1,22 +1,23 @@
 ---
 title: Eine E-Mail-Adresse mit Deinem GPG-Schlüssel verknüpfen
-intro: 'Dein GPG-Schlüssel muss mit einer {{ site.data.variables.product.product_name }}-verifizierten E-Mail-Adresse verknüpft werden, die mit Deiner Beitragender-Identität übereinstimmt.'
+intro: 'Ihr GPG-Schlüssel muss mit einer {% data variables.product.product_name %}-verifizierten E-Mail-Adresse verknüpft werden, die mit Ihrer Beitragendenidentität übereinstimmt.'
 redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {{ site.data.variables.product.product_name }}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 4. Gib `gpg --edit-key GPG key ID` ein. Setze dabei die gewünschte GPG-Schlüssel-ID ein. Im folgenden Beispiel ist die GPG-Schlüssel-ID `3AA5C34371567BD2`:
   ```shell
   $ gpg --edit-key <em>3AA5C34371567BD2</em>
@@ -25,7 +26,7 @@ Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität 
   ```shell
   $ gpg> adduid
   ```
-6. Folge den Aufforderungen, Deinen echten Namen, Deine E-Mail-Adresse und allenfalls Kommentare anzugeben. Du kannst Deine Einträge ändern, indem Du `N`, `C` oder `E` auswählst. {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
+6. Folge den Aufforderungen, Deinen echten Namen, Deine E-Mail-Adresse und allenfalls Kommentare anzugeben. Du kannst Deine Einträge ändern, indem Du `N`, `C` oder `E` auswählst. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

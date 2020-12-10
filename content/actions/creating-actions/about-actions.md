@@ -1,7 +1,7 @@
 ---
 title: About actions
-intro: 'Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {{ site.data.variables.product.prodname_dotcom }} community.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -12,44 +12,44 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About actions
 
-You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {{ site.data.variables.product.prodname_dotcom }}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code.
+You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.prodname_dotcom %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code.
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can write your own actions to use in your workflow or share the actions you build with the {{ site.data.variables.product.prodname_dotcom }} community. To share actions you've built, your repository must be public.
+You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built, your repository must be public.
 {% endif %}
 
 Actions can run directly on a machine or in a Docker container. You can define an action's inputs, outputs, and environment variables.
 
 ### Types of actions
 
-You can build Docker container and JavaScript actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[Metadata syntax for {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions)."
+You can build Docker container and JavaScript actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
 
 | Type | Operating system |
 | ---- | ------------------- |
 | Docker container | Linux |
-| JavaScript | Linux, MacOS, Windows |
-| Composite run steps | Linux, MacOS, Windows |
+| JavaScript | Linux, macOS, Windows |
+| Composite run steps | Linux, macOS, Windows |
 
 #### Docker container actions
 
-Docker containers package the environment with the {{ site.data.variables.product.prodname_actions }} code. This creates a more consistent and reliable unit of work because the consumer of the action does not need to worry about the tools or dependencies.
+Docker containers package the environment with the {% data variables.product.prodname_actions %} code. This creates a more consistent and reliable unit of work because the consumer of the action does not need to worry about the tools or dependencies.
 
 A Docker container allows you to use specific versions of an operating system, dependencies, tools, and code. For actions that must run in a specific environment configuration, Docker is an ideal option because you can customize the operating system and tools. Because of the latency to build and retrieve the container, Docker container actions are slower than JavaScript actions.
 
-Docker container actions can only execute on runners with a Linux operating system. {{ site.data.reusables.github-actions.self-hosted-runner-reqs-docker }}
+Docker container actions can only execute on runners with a Linux operating system. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
 #### JavaScript actions
 
 JavaScript actions can run directly on a runner machine, and separate the action code from the environment used to run the code. Using a JavaScript action simplifies the action code and executes faster than a Docker container action.
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
-If you're developing a Node.js project, the {{ site.data.variables.product.prodname_actions }} Toolkit provides packages that you can use in your project to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
+If you're developing a Node.js project, the {% data variables.product.prodname_actions %} Toolkit provides packages that you can use in your project to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
 
 #### Composite run steps actions
 
@@ -60,14 +60,14 @@ A _composite run steps_ action allows you to combine multiple workflow run steps
 If you're developing an action for other people to use, we recommend keeping the action in its own repository instead of bundling it with other application code. This allows you to version, track, and release the action just like any other software.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Storing an action in its own repository makes it easier for the {{ site.data.variables.product.prodname_dotcom }} community to discover the action, narrows the scope of the code base for developers fixing issues and extending the action, and decouples the action's versioning from the versioning of other application code.
+Storing an action in its own repository makes it easier for the {% data variables.product.prodname_dotcom %} community to discover the action, narrows the scope of the code base for developers fixing issues and extending the action, and decouples the action's versioning from the versioning of other application code.
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}If you're building an action that you don't plan to make available to the public, you {% else %} You{% endif %} can store the action's files in any location in your repository. If you plan to combine action, workflow, and application code in a single repository, we recommend storing actions in the `.github` directory. For example, `.github/actions/action-a` and `.github/actions/action-b`.
 
-### Compatibility with {{ site.data.variables.product.prodname_ghe_server }}
+### Compatibility with {% data variables.product.prodname_ghe_server %}
 
-To ensure that your action is compatible with {{ site.data.variables.product.prodname_ghe_server }}, you should make sure that you do not use any hard-coded references to {{ site.data.variables.product.prodname_dotcom }} API URLs. You should instead use environment variables to refer to the {{ site.data.variables.product.prodname_dotcom }} API:
+To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% data variables.product.prodname_dotcom %} API URLs. You should instead use environment variables to refer to the {% data variables.product.prodname_dotcom %} API:
 
 - For the REST API, use the `GITHUB_API_URL` environment variable.
 - For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
@@ -82,9 +82,9 @@ This section explains how you can use release management to distribute updates t
 
 If you're developing an action for other people to use, we recommend using release management to control how you distribute updates. Users can expect an action's major version to include necessary critical fixes and security patches, while still remaining compatible with their existing workflows. You should consider releasing a new major version whenever your changes affect compatibility.
 
-Under this release management approach, users should not be referencing an action's `master` branch, as it's likely to contain the latest code and consequently might be unstable. Instead, you can recommend that your users specify a major version when using your action, and only direct them to a more specific version if they encounter issues.
+Under this release management approach, users should not be referencing an action's default branch, as it's likely to contain the latest code and consequently might be unstable. Instead, you can recommend that your users specify a major version when using your action, and only direct them to a more specific version if they encounter issues.
 
-To use a specific action version, users can configure their {{ site.data.variables.product.prodname_actions }} workflow to target a tag, a commit's SHA, or a branch named for a release.
+To use a specific action version, users can configure their {% data variables.product.prodname_actions %} workflow to target a tag, a commit's SHA, or a branch named for a release.
 
 #### Using tags for release management
 
@@ -139,21 +139,21 @@ We recommend creating a README file to help people learn how to use your action.
 - Environment variables the action uses
 - An example of how to use your action in a workflow
 
-### Comparing {{ site.data.variables.product.prodname_actions }} to {{ site.data.variables.product.prodname_github_apps}}
+### Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
-{{ site.data.variables.product.prodname_marketplace }} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[About apps](/apps/about-apps/)."
+{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[About apps](/apps/about-apps/)."
 
 #### Strengths of GitHub Actions and GitHub Apps
 
-While both {{ site.data.variables.product.prodname_actions }} and {{ site.data.variables.product.prodname_github_app }}s provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
+While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_app %}s provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
 
-{{ site.data.variables.product.prodname_github_apps }}:
+{% data variables.product.prodname_github_apps %}:
 * Run persistently and can react to events quickly.
 * Work great when persistent data is needed.
 * Work best with API requests that aren't time consuming.
 * Run on a server or compute infrastructure that you provide.
 
-{{ site.data.variables.product.prodname_actions }}:
+{% data variables.product.prodname_actions %}:
 * Provide automation that can perform continuous integration and continuous deployment.
 * Can run directly on runner machines or in Docker containers.
 * Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
@@ -162,4 +162,4 @@ While both {{ site.data.variables.product.prodname_actions }} and {{ site.data.v
 
 ### Further reading
 
-- "[Development tools for {{ site.data.variables.product.prodname_actions }}](/articles/development-tools-for-github-actions)"
+- "[Development tools for {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"

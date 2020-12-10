@@ -1,17 +1,18 @@
 ---
 title: 以前の外部のコラボレータの Organization へのアクセスを復帰させる
-intro: Organization で 2 要素認証を要求しており、外部コラボレーターが 2 要素認証を有効化していないために Organization から削除された場合、以前の外部コラボレーターの Organization リポジトリへのアクセス権、フォーク、設定を復帰させることができます。
+intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-[メンバーと外部コラボレーターに 2 要素認証を有効化するよう要求](/articles/requiring-two-factor-authentication-in-your-organization)したために Organization のプライベートリポジトリへの 外部コラボレーターのアクセスが削除される場合、そのユーザのアクセス権限と設定は 3 か月間保存されます。 そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion == "free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion == "free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 以前の外部コラボレーターを復帰させると、次のことがリストアできます:
  - ユーザの Organization リポジトリへの以前のアクセス
@@ -26,16 +27,16 @@ versions:
 
 **Tips**:
  - 外部コラボレーターの Organization へのアクセスを復帰させることができるのは、Organization のオーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
- - {{ site.data.variables.product.product_location }} のメンバー復帰フローでは、外部コラボレーターの復帰を説明するために「メンバー」という用語を使用することがありますが、この個人を復帰させて以前の権限を保持しても、付与されるのはその[外部コラボレーターの以前の権限](/articles/permission-levels-for-an-organization/#outside-collaborators)のみです。{% if currentVersion == "free-pro-team@latest" %}
+ - {% data variables.product.product_location %} のメンバー復帰フローでは、外部コラボレーターの復帰を説明するために「メンバー」という用語を使用することがありますが、この個人を復帰させて以前の権限を保持しても、付与されるのはその[外部コラボレーターの以前の権限](/articles/permission-levels-for-an-organization/#outside-collaborators)のみです。{% if currentVersion == "free-pro-team@latest" %}
  - Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳しい情報については、「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。{% endif %}
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. [**Invite and reinstate**] をクリックして外部コラボレーターの Organization での以前の権限をリストアすることを選択するか、[**Invite and start fresh**] をクリックして以前の権限をクリアして新たにアクセス権を設定することを選択します。
 
@@ -63,7 +64,7 @@ versions:
 7. 以前の外部コラボレーターの以前の権限をクリアした場合は、そのユーザのロールを選択し、オプションでいくつかのチームに追加してから、[**Add member**] をクリックします。 ![ロールと Team のオプションと [add member] ボタン](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-8. 招待された人物は、Organizationへの招待メールを受け取ります。 Organization で 外部コラボレーターになるには、招待を受諾する必要があります。 {{ site.data.reusables.organizations.cancel_org_invite }}
+8. 招待された人物は、Organizationへの招待メールを受け取ります。 Organization で 外部コラボレーターになるには、招待を受諾する必要があります。 {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### 参考リンク

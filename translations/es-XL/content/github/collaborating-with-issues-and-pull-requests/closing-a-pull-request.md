@@ -14,7 +14,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas cerrar.
 3. En la parte inferior de la solicitud de extracción, debajo del cuadro de comentarios, haz clic en **Close pull request** (Cerrar solicitud de extracción). ![El botón para cerrar las solicitudes de extracción](/assets/images/help/pull_requests/pullrequest-closebutton.png)
 4. De forma opcional, [elimina la rama](/articles/deleting-unused-branches). Esto mantiene ordenado el listado de ramas en tu repositorio.

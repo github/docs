@@ -8,17 +8,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.automate-project-board-permissions }}  Para obtener más información, consulta "[Permisos del tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
+{% data reusables.project-management.automate-project-board-permissions %}  Para obtener más información, consulta "[Permisos del tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
 
 Puedes automatizar acciones en función de los eventos desencadenantes para las columnas del tablero de proyecto. Esto elimina algunas tareas manuales en la administración de un tablero de proyecto. Por ejemplo, puedes configurar una columna "Tareas pendientes", donde cualquier propuesta o solicitud de extracción que agregues a un tablero de proyecto se mueva automáticamente a la columna configurada. Para obtener más información, consulta "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)".
 
-{{ site.data.reusables.project-management.use-automated-template }}
+{% data reusables.project-management.use-automated-template %}
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 La automatización del tablero de proyecto también puede ayudar a los equipos a desarrollar un entendimiento común del propósito de un tablero de proyecto y del proceso de desarrollo del equipo creando un flujo de trabajo estándar para ciertas acciones.
 
-{{ site.data.reusables.project-management.resync-automation }}
+{% data reusables.project-management.resync-automation %}
 
 ### Opciones de automatización
 
@@ -29,7 +29,7 @@ La automatización del tablero de proyecto también puede ayudar a los equipos a
 | Done                   | <ul><li>Mover todas las propuestas cerradas aquí.</li><li>Mover todas las solicitudes de extracción fusionadas aquí.</li><li>Mover todas las solicitudes de extracción cerradas, sin fusionar aquí.</li></ul> |
 
 ### Seguimiento de progreso del proyecto
-La automatización del tablero de proyecto permite un seguimiento de progreso por defecto. Las tarjetas en las columnas con "Tareas pendientes", "En progreso", "Hecho" preestablecen el conteo hacia el progreso general del proyecto. {{ site.data.reusables.project-management.project-progress-locations }}
+La automatización del tablero de proyecto permite un seguimiento de progreso por defecto. Las tarjetas en las columnas con "Tareas pendientes", "En progreso", "Hecho" preestablecen el conteo hacia el progreso general del proyecto. {% data reusables.project-management.project-progress-locations %}
 
 ### Leer más
 - "[Configurar automatización para tableros de proyecto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}

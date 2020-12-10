@@ -1,7 +1,7 @@
 ---
 title: Organization 向けの SAML シングルサインオンを有効化してテストする
 intro: Organization のオーナーと管理者は、SAML シングルサインオンを有効にして、Organization のセキュリティを強化できます。
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
@@ -12,14 +12,14 @@ versions:
 
 SAML SSO を有効化しても強制はしない場合、SAML SSO を使用しないメンバーは、引き続き Organization のメンバーであり続けます。 SAML SSO の強制化の詳細については、「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 Organization で SAML SSO を強制する前に、アイデンティティプロバイダ (IdP) を設定しておいてください。 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
 5. [SAML single sign-on] の下で [**Enable SAML authentication**] を選択します。 ![SAML SSO を有効化するためのチェックボックス](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
@@ -36,7 +36,7 @@ Organization で SAML SSO を強制する前に、アイデンティティプロ
 
   {% tip %}
 
-  **ヒント:** {{ site.data.reusables.saml.testing-saml-sso }}
+  **ヒント:** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
 11. SAML SSO を強制して、IdP 経由で認証をされていないすべての Organization メンバーを削除するには、[**Require SAML SSO authentication for all members of the _Organization 名_ organization**] を選択します。 SAML SSO の強制化の詳細については、「[Organization で SAML シングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」を参照してください。 ![Organization 向けに SAML SSO を強制するためのチェックボックス ](/assets/images/help/saml/saml_require_saml_sso.png)

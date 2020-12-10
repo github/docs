@@ -1,6 +1,6 @@
 ---
 title: Überwachung mittels SNMP
-intro: '{{ site.data.variables.product.prodname_enterprise }} bietet Daten zur Disk-Nutzung, CPU-Auslastung, Arbeitsspeichernutzung und mehr über SNMP.'
+intro: '{% data variables.product.prodname_enterprise %} bietet Daten zur Disk-Nutzung, CPU-Auslastung, Arbeitsspeichernutzung und mehr über SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
   - /enterprise/admin/articles/monitoring-using-snmp/
@@ -9,18 +9,18 @@ versions:
   enterprise-server: '*'
 ---
 
-SNMP ist ein allgemeiner Standard zum Überwachen von Geräten über ein Netzwerk. Es wird dringend empfohlen, SNMP zu aktivieren, damit Sie den Zustand von {{ site.data.variables.product.product_location_enterprise }} überwachen können und wissen, wann Sie der Host-Maschine Arbeitsspeicher, Storage oder Prozessorleistung hinzufügen müssen.
+SNMP ist ein allgemeiner Standard zum Überwachen von Geräten über ein Netzwerk. Es wird dringend empfohlen, SNMP zu aktivieren, damit Sie den Zustand von {% data variables.product.product_location %} überwachen können und wissen, wann Sie der Host-Maschine Arbeitsspeicher, Storage oder Prozessorleistung hinzufügen müssen.
 
-{{ site.data.variables.product.prodname_enterprise }} weist eine SNMP-Standardinstallation auf. Daher können Sie von [vielen Plug-ins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) profitieren, die für Nagios oder andere Überwachungssysteme verfügbar sind.
+{% data variables.product.prodname_enterprise %} weist eine SNMP-Standardinstallation auf. Daher können Sie von [vielen Plug-ins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) profitieren, die für Nagios oder andere Überwachungssysteme verfügbar sind.
 
 ### SNMP v2c konfigurieren
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.access-monitoring }}
-{{ site.data.reusables.enterprise_management_console.enable-snmp }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.access-monitoring %}
+{% data reusables.enterprise_management_console.enable-snmp %}
 4. Geben Sie im Feld **Community string** (Community-String) einen neuen Community-String ein. Wird das Feld leer gelassen, ist der Standardwert `public` (öffentlich). ![Feld zum Hinzufügen des Community-Strings](/assets/images/enterprise/management-console/community-string.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 5. Testen Sie Ihre SNMP-Konfiguration. Führen Sie dazu den folgenden Befehl auf einer separaten Workstation mit SNMP-Unterstützung in Ihrem Netzwerk aus:
   ```shell
   # community-string is your community string
@@ -28,7 +28,7 @@ SNMP ist ein allgemeiner Standard zum Überwachen von Geräten über ein Netzwer
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-Hiermit wird die Systemzeit auf dem {{ site.data.variables.product.product_location_enterprise }}-Host zurückgegeben.
+Hiermit wird die Systemzeit auf dem {% data variables.product.product_location %}-Host zurückgegeben.
 
 ### Benutzerbasierte Sicherheit
 
@@ -39,29 +39,29 @@ Wenn Sie SNMP v3 aktivieren, können Sie durch das Benutzersicherheitsmodell (Us
 
 ### Benutzer für SNMP v3 konfigurieren
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.access-monitoring }}
-{{ site.data.reusables.enterprise_management_console.enable-snmp }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.access-monitoring %}
+{% data reusables.enterprise_management_console.enable-snmp %}
 4. Wählen Sie **SNMP v3**. ![Schaltfläche zum Aktivieren von SNMP v3](/assets/images/enterprise/management-console/enable-snmpv3.png)
 5. Geben Sie unter „Username“ (Benutzername) den eindeutigen Benutzernamen Ihres SNMP v3-Benutzers ein. ![Feld zur Eingabe des SNMP v3-Benutzernamens](/assets/images/enterprise/management-console/snmpv3-username.png)
 6. Klicken Sie im Dropdownmenü **Security Level** (Sicherheitsebene) auf die Sicherheitsebene für Ihren SNMP v3-Benutzer. ![Dropdownmenü für die Sicherheitsebene des SNMP v3-Benutzers](/assets/images/enterprise/management-console/snmpv3-securitylevel.png)
 7. Für SNMP v3-Benutzer mit der Sicherheitsebene `authnopriv`: ![Einstellungen für die Sicherheitsebene „authnopriv“](/assets/images/enterprise/management-console/snmpv3-authnopriv.png)
-    - {{ site.data.reusables.enterprise_management_console.authentication-password }}
-    - {{ site.data.reusables.enterprise_management_console.authentication-protocol }}
+    - {% data reusables.enterprise_management_console.authentication-password %}
+    - {% data reusables.enterprise_management_console.authentication-protocol %}
 8. Für SNMP v3-Benutzer mit der Sicherheitsebene `authpriv`: ![Einstellungen für die Sicherheitsebene „authpriv“](/assets/images/enterprise/management-console/snmpv3-authpriv.png)
-    - {{ site.data.reusables.enterprise_management_console.authentication-password }}
-    - {{ site.data.reusables.enterprise_management_console.authentication-protocol }}
+    - {% data reusables.enterprise_management_console.authentication-password %}
+    - {% data reusables.enterprise_management_console.authentication-protocol %}
     - Geben Sie optional unter „Privacy password“ (Datenschutzpasswort) das Datenschutzpasswort ein.
     - Klicken Sie auf der rechten Seite von „Privacy password“ (Datenschutzpasswort) im Dropdownmenü **Protocol** (Protokoll) auf die gewünschte Datenschutzprotokollmethode.
 9. Klicken Sie auf **Add user** (Benutzer hinzufügen). ![Schaltfläche zum Hinzufügen des SNMP v3-Benutzers](/assets/images/enterprise/management-console/snmpv3-adduser.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ##### SNMP-Daten abfragen
 
 Informationen auf Hardware- und Softwareebene zu Ihrer Appliance sind mit SNMP v3 verfügbar. Da die Verschlüsselung und der Datenschutz für die Sicherheitsebenen `noAuthNoPriv` und `authNoPriv` unzureichend ist, wird die Tabelle `hrSWRun` (1.1.3.6.1.2.1.25.41) aus den resultierenden SNMP-Berichten ausgeschlossen. Diese Tabelle wird eingeschlossen, wenn Sie die Sicherheitsebene `authPriv` verwenden.
 
-Mit SNMP v2c stehen nur Informationen auf Hardwareebene zu Ihrer Appliance zur Verfügung. Die Anwendungen und Dienste innerhalb von {{ site.data.variables.product.prodname_enterprise }} weisen keine OIDs auf, die für das Melden von Kennzahlen konfiguriert sind. Es stehen verschiedene MIBs zur Verfügung. Diese können Sie anzeigen, indem Sie `snmpwalk` auf einer separaten Workstation mit SNMP-Unterstützung in Ihrem Netzwerk ausführen:
+Mit SNMP v2c stehen nur Informationen auf Hardwareebene zu Ihrer Appliance zur Verfügung. Die Anwendungen und Dienste innerhalb von {% data variables.product.prodname_enterprise %} weisen keine OIDs auf, die für das Melden von Kennzahlen konfiguriert sind. Es stehen verschiedene MIBs zur Verfügung. Diese können Sie anzeigen, indem Sie `snmpwalk` auf einer separaten Workstation mit SNMP-Unterstützung in Ihrem Netzwerk ausführen:
 
 ```shell
 # „community-string“ ist Ihr Community-String

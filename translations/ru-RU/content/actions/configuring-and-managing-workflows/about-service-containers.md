@@ -1,7 +1,7 @@
 ---
 title: About service containers
 intro: 'You can use service containers to connect databases, web services, memory caches, and other tools to your workflow.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
 versions:
@@ -9,16 +9,16 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About service containers
 
 Service containers are Docker containers that provide a simple and portable way for you to host services that you might need to test or operate your application in a workflow. For example, your workflow might need to run integration tests that require access to a database and memory cache.
 
-You can configure service containers for each job in a workflow. {{ site.data.variables.product.prodname_dotcom }} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job.
+You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job.
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 ### Communicating with service containers
 
@@ -26,7 +26,7 @@ You can configure jobs in a workflow to run directly on a runner machine or in a
 
 #### Running jobs in a container
 
-When you run jobs in a container, {{ site.data.variables.product.prodname_dotcom }} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Use bridge networks](https://docs.docker.com/network/bridge/)" in the Docker documentation.
+When you run jobs in a container, {% data variables.product.prodname_dotcom %} connects service containers to the job using Docker's user-defined bridge networks. For more information, see "[Use bridge networks](https://docs.docker.com/network/bridge/)" in the Docker documentation.
 
 Running the job and services in a container simplifies network access. You can access a service container using the label you configure in the workflow. The hostname of the service container is automatically mapped to the label name. For example, if you create a service container with the label `redis`, the hostname of the service container is `redis`.
 
@@ -34,7 +34,7 @@ You don't need to configure any ports for service containers. By default, all co
 
 #### Running jobs on the runner machine
 
-When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {{ site.data.variables.product.prodname_dotcom }} configures the container network to enable communication from the service container to the Docker host.
+When running jobs directly on the runner machine, you can access service containers using `localhost:<port>` or `127.0.0.1:<port>`. {% data variables.product.prodname_dotcom %} configures the container network to enable communication from the service container to the Docker host.
 
 When a job runs directly on a runner machine, the service running in the Docker container does not expose its ports to the job on the runner by default. You need to map ports on the service container to the Docker host. For more information, see "[Mapping Docker host and service container ports](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
@@ -78,9 +78,9 @@ You can map service containers ports to the Docker host using the `ports` keywor
 | `8080:80/udp`    | Maps UDP port 80 in the container to port 8080 on the Docker host.                   |
 | `8080/udp`       | Map a randomly chosen UDP port in the container to UDP port 8080 on the Docker host. |
 
-When you map ports using the `ports` keyword, {{ site.data.variables.product.prodname_dotcom }} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
+When you map ports using the `ports` keyword, {% data variables.product.prodname_dotcom %} uses the `--publish` command to publish the container’s ports to the Docker host. For more information, see "[Docker container networking](https://docs.docker.com/config/containers/container-networking/)" in the Docker documentation.
 
-When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {{ site.data.variables.product.prodname_dotcom }} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#job-context)."
+When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the service container context. For example, for a `redis` service container, if you configured the Docker host port 5432, you can access the corresponding container port using the `job.services.redis.ports[5432]` context. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-context)."
 
 #### Example mapping Redis ports
 

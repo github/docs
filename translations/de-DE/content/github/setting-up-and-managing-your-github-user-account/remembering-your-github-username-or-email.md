@@ -1,6 +1,6 @@
 ---
 title: Erinnerung für Deinen GitHub-Benutzernamen oder Deine GitHub-E-Mail-Adresse
-intro: 'Meldest Du Dich seit langem einmal wieder bei {{ site.data.variables.product.product_location }} an? Herzlich willkommen! Wenn Du Dich nicht mehr an den Namen Deines {{ site.data.variables.product.product_name }}-Benutzerkontos erinnern kannst, versuche ihn mit den folgenden Methoden zu finden.'
+intro: 'Meldest Du Dich seit langem einmal wieder bei {% data variables.product.product_location %} an? Herzlich willkommen! Wenn Sie sich nicht mehr an den Namen Ihres {% data variables.product.product_name %}-Benutzerkontos erinnern können, versuchen Sie ihn mit den folgenden Methoden zu finden.'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email/
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
@@ -12,23 +12,23 @@ versions:
 
 {% mac %}
 
-### {{ site.data.variables.product.prodname_desktop }}-Benutzer
+### {% data variables.product.prodname_desktop %}-Benutzer
 
 1. Klicke im **GitHub Desktop**-Menü auf **Preferences** (Einstellungen).
 2. Überprüfe im Einstellungsfenster Folgendes:
-    - Klicke auf **Accounts** (Konten), um Deinen {{ site.data.variables.product.product_name }}-Benutzernamen anzuzeigen.
-    - Klicke auf **Git**, um Deine Git-E-Mail-Adresse anzuzeigen. Eventuell ist diese Adresse jedoch nicht Deine [primäre {{ site.data.variables.product.product_name }}-E-Mail-Adresse](/articles/changing-your-primary-email-address).
+    - Klicke auf **Accounts** (Konten), um Deinen {% data variables.product.product_name %}-Benutzernamen anzuzeigen.
+    - Klicke auf **Git**, um Deine Git-E-Mail-Adresse anzuzeigen. Eventuell ist diese Adresse jedoch nicht Ihre [primäre {% data variables.product.product_name %}-E-Mail-Adresse](/articles/changing-your-primary-email-address).
 
 {% endmac %}
 
 {% windows %}
 
-### {{ site.data.variables.product.prodname_desktop }}-Benutzer
+### {% data variables.product.prodname_desktop %}-Benutzer
 
 1. Klicke im Menü **File** (Datei) auf **Options** (Optionen).
 2. Überprüfe im Optionsfenster Folgendes:
-    - Klicke auf **Accounts** (Konten), um Deinen {{ site.data.variables.product.product_name }}-Benutzernamen anzuzeigen.
-    - Klicke auf **Git**, um Deine Git-E-Mail-Adresse anzuzeigen. Eventuell ist diese Adresse jedoch nicht Deine [primäre {{ site.data.variables.product.product_name }}-E-Mail-Adresse](/articles/changing-your-primary-email-address).
+    - Klicke auf **Accounts** (Konten), um Deinen {% data variables.product.product_name %}-Benutzernamen anzuzeigen.
+    - Klicke auf **Git**, um Deine Git-E-Mail-Adresse anzuzeigen. Eventuell ist diese Adresse jedoch nicht Ihre [primäre {% data variables.product.product_name %}-E-Mail-Adresse](/articles/changing-your-primary-email-address).
 
 {% endwindows %}
 
@@ -56,11 +56,11 @@ Wenn Dir lokale Kopien persönlicher Repositorys vorliegen, die Du erstellt oder
 $ cd <em>YOUR_REPOSITORY</em>
 # Wechselt das Verzeichnis zum initialisierten Git-Repository
 $ git remote -v
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-Dein Benutzername folgt unmittelbar auf `https://{{ site.data.variables.command_line.backticks }}/`.
+Ihr Benutzername folgt unmittelbar auf `https://{% data variables.command_line.backticks %}/`.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Weiterführende Informationen

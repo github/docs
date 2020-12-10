@@ -66,7 +66,7 @@ Im Folgenden finden Sie eine nicht allumfassende Liste der verschiedenen Typen v
   - Sicherheitszugriffsprotokolle
   - Daten über Interaktionen mit privaten Repositorys
 
-  Um ein Gefühl für die Art der privaten Kontoinformationen zu erhalten, die GitHub erfasst, können Sie Ihr {{ site.data.reusables.user_settings.personal_dashboard }} aufrufen und die Abschnitte in der linken Menüleiste durchsuchen.
+  Um ein Gefühl für die Art der privaten Kontoinformationen zu erhalten, die GitHub erfasst, können Sie Ihr {% data reusables.user_settings.personal_dashboard %} aufrufen und die Abschnitte in der linken Menüleiste durchsuchen.
 
 - <a name="organization-account-data"></a>
 **Organisationskontodaten** — Informationen über Organisationen, deren administrative Benutzer und Repositorys sind auf GitHub öffentlich verfügbar. Organisationsprofile finden Sie unter einer URL wie `https://github.com/organization`. Öffentliche Organisationsprofile können auch zusätzliche Informationen enthalten, die die Inhaber möglicherweise öffentlich freigeben möchten. Alle öffentlichen Organisationsprofile umfassen:
@@ -141,7 +141,8 @@ Bitte beachten Sie, dass die verfügbaren Informationen von Fall zu Fall variier
   - Kommunikation oder Dokumentation (wie Probleme oder Wikis) in privaten Repositorys
   - Alle Sicherheitsschlüssel, die für die Authentifizierung oder Verschlüsselung verwendet werden
 
-- <a name="in-exigent-circumstances"></a>**Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
+- <a name="in-exigent-circumstances"></a>
+**Unter dringenden Umständen** - Wenn wir unter bestimmten dringenden Umständen (wenn wir glauben, dass die Offenlegung notwendig ist, um einen Notfall mit Todesfolge oder schwerer Körperverletzung einer Person zu verhindern) um Informationen gebeten werden, können wir begrenzte Informationen offenlegen, die wir für notwendig erachten, damit die Strafverfolgungsbehörden den Notfall behandeln können. Für alle darüber hinausgehenden Informationen benötigen wir eine Vorladung, einen Durchsuchungsbefehl oder einen Gerichtsbeschluss, wie oben beschrieben. Beispielsweise werden wir Inhalte von privaten Repositorys nicht ohne einen Durchsuchungsbefehl offenlegen. Bevor wir Informationen weitergeben, bestätigen wir, dass die Anfrage von einer Strafverfolgungsbehörde stammt, eine Behörde eine offizielle Mitteilung über den Notfall übermittelte und wie die angeforderten Informationen bei der Bewältigung des Notfalls hilfreich sein werden.
 
 ### Kostenerstattung
 
@@ -181,4 +182,4 @@ Als US-amerikanisches Unternehmen mit Sitz in Kalifornien ist GitHub nicht verpf
 
 ### Fragen
 
-Haben Sie weitere Fragen, Kommentare oder Anregungen? Bitte kontaktieren Sie uns über {{ site.data.variables.contact.contact_support }}.
+Haben Sie weitere Fragen, Kommentare oder Anregungen? Bitte kontaktieren Sie uns über {% data variables.contact.contact_support %}.

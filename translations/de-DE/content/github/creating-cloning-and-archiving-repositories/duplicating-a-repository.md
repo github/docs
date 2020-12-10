@@ -7,21 +7,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) des Repositorys übertragen kannst, musst Du auf {{ site.data.variables.product.product_location }} [das neue Repository erstellen](/articles/creating-a-new-repository). In diesen Beispielen sind `exampleuser/new-repository` oder `exampleuser/mirrored` die Spiegel.
+Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) des Repositorys übertragen kannst, musst Du auf {% data variables.product.product_location %} [das neue Repository erstellen](/articles/creating-a-new-repository). In diesen Beispielen sind `exampleuser/new-repository` oder `exampleuser/mirrored` die Spiegel.
 
 ### Ein Repository spiegeln
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Erstellen Sie einen leeren Klon des Repositorys.
   ```shell
-  $ git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>old-repository</em>.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
 3. Führe den Spiegel-Push in das neue Repository durch.
   ```shell
   $ cd <em>old-repository</em>.git
-  $ git push --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>new-repository</em>.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
 4. Entferne das temporäre lokale Repository, dass Du früher erstellt hast.
   ```shell
@@ -29,26 +30,26 @@ Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) de
   $ rm -rf <em>old-repository</em>.git
   ```
 
-### Ein Repository spiegeln, das {{ site.data.variables.large_files.product_name_long }}-Objekte enthält
+### Ein Repository spiegeln, das {% data variables.large_files.product_name_long %}-Objekte enthält
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Erstellen Sie einen leeren Klon des Repositorys. Ersetze den Beispiel-Benutzernamen durch den Namen der Person oder Organisation, der das Repository gehört, und ersetze den Beispiel-Repository-Namen durch den Namen des Repositorys, das Du duplizieren möchtest.
   ```shell
-  $ git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>old-repository</em>.git
+  $ git clone --bare https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>old-repository</em>.git
   ```
 3. Navigiere zu dem Repository, das Du gerade geklont hast.
   ```shell
   $ cd <em>old-repository</em>.git
   ```
-4. Rufe die {{ site.data.variables.large_files.product_name_long }}-Objekte des Repositorys ab.
+4. Rufe die {% data variables.large_files.product_name_long %}-Objekte des Repositorys ab.
   ```shell
   $ git lfs fetch --all
   ```
 5. Führe den Spiegel-Push in das neue Repository durch.
   ```shell
-  $ git push --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>new-repository</em>.git
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>new-repository</em>.git
   ```
-6. Übertrage die {{ site.data.variables.large_files.product_name_long }}-Objekte des Repositorys zu Deinem Spiegel.
+6. Übertrage die {% data variables.large_files.product_name_long %}-Objekte des Repositorys zu Deinem Spiegel.
   ```shell
   $ git lfs push --all https://github.com/<em>exampleuser/new-repository.git</em>
   ```
@@ -62,15 +63,15 @@ Bevor Du ein Repository duplizierst und zu Deiner neuen Kopie (dem _Spiegel_) de
 
 Wenn Du ein Repository an einem anderen Ort spiegeln und Aktualisierungen vom Original-Repository abrufen möchtest, kannst Du einen Spiegel klonen und die Änderungen regelmäßig per Push übertragen.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Erstelle einen leeren gespiegelten Klon des Repositorys.
   ```shell
-  $ git clone --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
+  $ git clone --mirror https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>repository-to-mirror</em>.git
   ```
 3. Lege den Push-Ort auf Deinen Spiegel fest.
   ```shell
   $ cd <em>repository-to-mirror</em>.git
-  $ git remote set-url --push origin https://{{ site.data.variables.command_line.codeblock }}/<em>exampleuser</em>/<em>mirrored</em>
+  $ git remote set-url --push origin https://{% data variables.command_line.codeblock %}/<em>exampleuser</em>/<em>mirrored</em>
   ```
 
 Wie ein leerer Klon enthält ein gespiegelter Klon alle Remote-Branches und Tags. Alle lokalen Verweise werden jedoch bei jedem Abrufen überschrieben, sodass er immer mit dem Original-Repository übereinstimmt. Das Festlegen einer Push-URL vereinfacht Pushes zu Deinem Spiegel. Um Deinen Spiegel zu aktualisieren, rufe Änderungen ab und übertrage sie per Push.

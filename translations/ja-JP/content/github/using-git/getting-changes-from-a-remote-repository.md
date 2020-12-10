@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 これらのコマンドは[リモートリポジトリ](/articles/about-remote-repositories)の操作時に非常に便利です。 `clone` および `fetch` は、リポジトリのリモート URL からお使いのローカルのコンピュータにリモートコードをダウンロードします。`merge` は、他のユーザの作業を自分のものとマージするために使用します。`pull` は、`fetch` と `merge` の組み合わせです。
@@ -16,11 +17,11 @@ versions:
 他のユーザのリポジトリの完全なコピーを取得するには、以下のように `git clone` を使用します:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>ユーザ名</em>/<em>REPOSITORY</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>ユーザ名</em>/<em>REPOSITORY</em>.git
 # リポジトリを自分のコンピュータにクローン
 ```
 
-リポジトリのクローン時は、[複数の異なる URL](/articles/which-remote-url-should-i-use) から選択できます。 {{ site.data.variables.product.prodname_dotcom }}にログインした状態である間は、これらの URL はリポジトリの詳細の下に表示されます:
+リポジトリのクローン時は、[複数の異なる URL](/articles/which-remote-url-should-i-use) から選択できます。 {% data variables.product.prodname_dotcom %}にログインした状態である間は、これらの URL はリポジトリの詳細の下に表示されます:
 
 ![リモート URL リスト](/assets/images/help/repository/remotes-url.png)
 
@@ -70,5 +71,5 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 ### 参考リンク
 
-- [書籍 _Pro Git_ のリモートでの作業](https://git-scm.com/book/ja/v2/Git-の基本-リモートでの作業){% if currentVersion == "free-pro-team@latest" %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
 - 「[接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)」{% endif %}

@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
 **提示：**
 - 您可以使用 Markdown 语法格式化注释。 例如，可以使用标题、链接、任务列表或表情符号。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)”。
-- 可以通过拖放或键盘快捷键对注释重新排序以及在列之间移动它们。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+- 可以通过拖放或键盘快捷键对注释重新排序以及在列之间移动它们。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 - 项目板必须至少有一列才可添加注释。 更多信息请参阅“[创建项目板](/articles/creating-a-project-board)”。
 
 {% endtip %}
@@ -42,12 +43,12 @@ versions:
 
 {% tip %}
 
-**提示：**您可以添加注释正文的内容以 @提及某人、链接到其他议题或拉取请求，以及添加表情符号。 这些 {{ site.data.variables.product.prodname_dotcom }} Flavored Markdown 功能在项目板注释中不受支持，但在注释转换为议题之后，它们会正确显示。 有关使用这些功能的更多信息，请参阅“[关于在 {{ site.data.variables.product.prodname_dotcom }} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
+**提示：**您可以添加注释正文的内容以 @提及某人、链接到其他议题或拉取请求，以及添加表情符号。 这些 {% data variables.product.prodname_dotcom %} Flavored Markdown 功能在项目板注释中不受支持，但在注释转换为议题之后，它们会正确显示。 有关使用这些功能的更多信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上编写和设置格式](/articles/about-writing-and-formatting-on-github)”。
 
 {% endtip %}
 
 1. 导航到您要转换为议题的注释。
-{{ site.data.reusables.project-management.project-note-more-options }}
+{% data reusables.project-management.project-note-more-options %}
 3. 单击 **Convert to issue（转换为议题）**。 ![转换为议题按钮](/assets/images/help/projects/convert-to-issue.png)
 4. 如果卡在全组织项目板上，请从下拉菜单中选择要添加议题到其中的仓库。 ![列出可在其中创建议题的仓库的下拉菜单](/assets/images/help/projects/convert-note-choose-repository.png)
 5. 可以选择编辑预填的议题标题，并输入议题正文。 ![议题标题和正文字段](/assets/images/help/projects/convert-note-issue-title-body.png)
@@ -57,7 +58,7 @@ versions:
 ### 编辑和删除注释
 
 1. 导航到您要编辑或删除的注释。
-{{ site.data.reusables.project-management.project-note-more-options }}
+{% data reusables.project-management.project-note-more-options %}
 3. 要编辑注释的内容，请单击 **Edit note（编辑注释）**。 ![编辑注释按钮](/assets/images/help/projects/edit-note.png)
 4. 要删除注释的内容，请单击 **Delete note（删除注释）**。 ![删除注释按钮](/assets/images/help/projects/delete-note.png)
 

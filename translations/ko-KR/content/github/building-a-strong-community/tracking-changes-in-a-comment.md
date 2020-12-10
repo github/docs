@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Viewing a comment's edit history details
@@ -13,7 +14,7 @@ versions:
 Anyone with read access to a repository can view a comment's edit history.
 
 1. Navigate to the comment you'd like to view the edit history for.
-{{ site.data.reusables.repositories.edited-comment-list }}
+{% data reusables.repositories.edited-comment-list %}
 
 ### Deleting sensitive information from a comment's history
 
@@ -22,7 +23,7 @@ Comment authors and anyone with write access to a repository can delete sensitiv
 When you delete sensitive information from the comment's edit history, the person who made the edit and when they made the edit is still visible in the comment history but the content of the edit is no longer available.
 
 1. Navigate to the comment where you would like to delete sensitive information from the edit history.
-{{ site.data.reusables.repositories.edited-comment-list }}
+{% data reusables.repositories.edited-comment-list %}
 3. In the top right of the edit history window, click **Options**. Then click **Delete revision from history** to delete the diff that shows the content being added. ![Delete comment edit details](/assets/images/help/repository/delete-comment-edit-details.png)
 4. To confirm deletion, click **OK**.
 

@@ -1,14 +1,15 @@
 ---
 title: クエリパラメータ付きのリリースフォームのための自動化
-intro: カスタマイズされた情報で新しいリリースフォームを自動的に展開することによってリリースを素早く作成するには、リリースフォームページの URL にクエリパラメータを追加できます。
+intro: 'カスタマイズされた情報で新しいリリースフォームを自動的に展開することによってリリースを素早く作成するには、リリースフォームページの URL にクエリパラメータを追加できます。'
 redirect_from:
   - /articles/automation-for-release-forms-with-query-parameters
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-クエリパラメータはカスタマイズ可能な URL のオプション部分で、{{ site.data.variables.product.prodname_dotcom }} 上の検索フィルタの結果や Issue テンプレート、リリースフォームページといった特定の Web ページビューを共有できます。 独自のクエリパラメータを作成するには、キーと値のペアをマッチさせなければなりません。
+クエリパラメータはカスタマイズ可能な URL のオプション部分で、{% data variables.product.prodname_dotcom %} 上の検索フィルタの結果や Issue テンプレート、リリースフォームページといった特定の Web ページビューを共有できます。 独自のクエリパラメータを作成するには、キーと値のペアをマッチさせなければなりません。
 
 クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 たとえば事前にリリースフォームに記入しておくには、リリースを作成する権限を持っていなければなりません。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 

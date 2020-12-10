@@ -16,7 +16,7 @@ versions:
 
 La API de Migraciones solo está disponible para los propietarios autenticados de la organización. Para obtener más información, consulta las secciones "[Niveles de permiso para una organización](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#permission-levels-for-an-organization)." y "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 
-{{ site.data.variables.migrations.organization_migrations_intro }}
+{% data variables.migrations.organization_migrations_intro %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -24,7 +24,7 @@ La API de Migraciones solo está disponible para los propietarios autenticados d
 
 ## Importaciones de Código Fuente
 
-{{ site.data.variables.migrations.source_imports_intro }}
+{% data variables.migrations.source_imports_intro %}
 
 Una importación de código fuente habitual inicia la importación y luego actualiza (opcionalmente) a los autores y/o actualiza las preferencias para utilizar el LFS de Ggit si existen archivos grandes en la importación. También puedes crear un webhook que escuche al [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para encontrar el estado de la importación.
 
@@ -111,7 +111,7 @@ Se puede ver un ejemplo más detallado en este diagrama:
 
 La API de migraciones de usuario solo está disponible para los propietarios de cuentas autenticadas. Para obtener más información, consulta la sección "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 
-{{ site.data.variables.migrations.user_migrations_intro }} Para encontrar una lista descargable de datos de migración, consulta "[Descarga un archivo de migración de usuario](#download-a-user-migration-archive)".
+{% data variables.migrations.user_migrations_intro %} Para encontrar una lista descargable de datos de migración, consulta "[Descarga un archivo de migración de usuario](#download-a-user-migration-archive)".
 
 Antes de descargar un archivo deberás iniciar la migración del usuario. Una vez que el estado de la migración sea `exported`, podrás descargarla.
 

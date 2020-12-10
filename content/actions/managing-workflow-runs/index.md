@@ -15,14 +15,16 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% link_in_list /using-the-visualization-graph %}{% endif %}
 {% link_in_list /viewing-workflow-run-history %}
 {% link_in_list /using-workflow-run-logs %}
 {% link_in_list /manually-running-a-workflow %}
 {% link_in_list /re-running-a-workflow %}
 {% link_in_list /canceling-a-workflow %}
+{% link_in_list /disabling-and-enabling-a-workflow %}
 {% link_in_list /deleting-a-workflow-run %}
 {% link_in_list /viewing-job-execution-time %}
 {% link_in_list /downloading-workflow-artifacts %}

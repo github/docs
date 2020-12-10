@@ -1,11 +1,12 @@
 ---
 title: 在拉取请求中加入反馈
-intro: 当审查者建议拉取请求中的更改时，您可以自动将这些更改合并到拉取请求中，或者开一个议题来跟踪范围外的建议。
+intro: '当审查者建议拉取请求中的更改时，您可以自动将这些更改合并到拉取请求中，或者开一个议题来跟踪范围外的建议。'
 redirect_from:
   - /articles/incorporating-feedback-in-your-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 应用建议的更改
@@ -16,13 +17,17 @@ versions:
 
 在提交中提议了更改的每个人都是该提交的联合作者。 提议的更改的应用者将是提交的联合作者兼提交者。 有关 Git 中术语提交者的更多信息，请参阅 _Pro Git_ 书籍站点中的“[Git 基本信息 - 查看提交历史记录](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)”。
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在拉取请求列表中，单击要对其应用提议的更改的拉取请求。
 3. 导航到您要应用的第一个提议的更改。
     - 要在其自己的提交中应用更改，请单击 **Commit suggestion（提交建议）**。 ![提交建议按钮](/assets/images/help/pull_requests/commit-suggestion-button.png)
     - 要将建议添加到一批更改，请单击 **Add suggestion to batch（添加建议到批次）**。 继续添加要包含在单一提交中的更改提议。 添加完提议的更改后，单击 **Commit suggestions（提交建议）**。 ![添加建议到批次按钮](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
 4. 在提交消息字段中，输入简短、有意义的提交消息，以描述对文件的更改。 ![提交消息字段](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. 单击 **Commit changes（提交更改）**。 ![提交更改按钮](/assets/images/help/pull_requests/commit-changes-button.png)
+
+### 重新请求审核
+
+{% data reusables.pull_requests.re-request-review %}
 
 ### 为范围外建议开一个议题
 

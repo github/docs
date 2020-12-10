@@ -1,6 +1,6 @@
 ---
 title: ウィキのコンテンツを編集する
-intro: ウィキ内のコンテンツに画像やリンクを追加したり、一部のサポートされている MediaWiki 形式を使用したりできます。
+intro: 'ウィキ内のコンテンツに画像やリンクを追加したり、一部のサポートされている MediaWiki 形式を使用したりできます。'
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/
@@ -10,10 +10,11 @@ redirect_from:
   - /articles/adding-images-to-wikis/
   - /articles/supported-mediawiki-formats/
   - /articles/editing-wiki-content
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### リンクの追加
@@ -27,8 +28,8 @@ versions:
 
 ウィキでは PNG、JPEG、および GIF 画像を表示できます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. ウィキ サイドバーを使って、変更したいページにアクセスし、[**Edit**] をクリックします。
 4. ウィキ ツールバーで [**Image**] をクリックします。 ![ウィキの画像追加ボタン](/assets/images/help/wiki/wiki_add_image.png)
 5. [Insert Image] ダイアログボックスで、画像の URL と代替テキスト (これは検索エンジンや画像リーダーで使われます) を入力します。
@@ -36,7 +37,7 @@ versions:
 
 #### リポジトリでの画像へのリンク
 
-{{ site.data.variables.product.product_name }}上のリポジトリにある画像は、ブラウザで URL をコピーし、それを画像へのパスとして利用することでリンクできます。 たとえば、Markdown を使ってウィキに画像を埋め込むと、以下のようになります:
+{% data variables.product.product_name %}上のリポジトリにある画像は、ブラウザで URL をコピーし、それを画像へのパスとして利用することでリンクできます。 たとえば、Markdown を使ってウィキに画像を埋め込むと、以下のようになります:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 

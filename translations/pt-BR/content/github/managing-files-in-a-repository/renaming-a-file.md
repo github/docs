@@ -1,11 +1,12 @@
 ---
 title: Renomear um arquivo
-intro: 'Você pode renomear qualquer arquivo dos repositórios diretamente no {{ site.data.variables.product.product_name }}. Ao renomear um arquivo, você tem a chance de [movê-lo para outro local](/articles/moving-a-file-to-a-new-location).'
+intro: 'Você pode renomear qualquer arquivo dos repositórios diretamente no {% data variables.product.product_name %}. Ao renomear um arquivo, você tem a chance de [movê-lo para outro local](/articles/moving-a-file-to-a-new-location).'
 redirect_from:
   - /articles/renaming-a-file
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -21,6 +22,6 @@ versions:
 1. No repositório, navegue até o arquivo que deseja renomear.
 2. No canto superior direito da exibição do arquivo, clique em {% octicon "pencil" aria-label="The edit icon" %} para abrir o editor de arquivos. ![Ícone Edit file (Editar arquivo)](/assets/images/help/repository/edit-file-icon.png)
 3. No campo de nome do arquivo, insira o nome de arquivo que deseja atribuir. Você também pode atualizar o conteúdo do arquivo ao mesmo tempo. ![Editar um nome de arquivo](/assets/images/help/repository/changing-file-name.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

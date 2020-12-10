@@ -8,11 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+### About two-factor authentication for organizations
 
-### Requirements for enforcing two-factor authentication
+{% data reusables.two_fa.about-2fa %} You can require all {% if currentVersion == "free-pro-team@latest" %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
-Before you can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use 2FA, you must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa/) for your own personal account.
+{% if currentVersion == "free-pro-team@latest" %}
+
+You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)."
+
+{% endif %}
 
 {% warning %}
 
@@ -24,14 +28,22 @@ Before you can require {% if currentVersion == "free-pro-team@latest" %}organiza
 
 {% endwarning %}
 
-Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) on your organization's People page.
+{% data reusables.two_fa.auth_methods_2fa %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+### Prerequisites
+
+Before you can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. For more information, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+
+Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see "[Viewing whether users in your organization have 2FA enabled](/github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+
+### Requiring two-factor authentication in your organization
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. If any members or outside collaborators are removed from the organization, we recommend sending them an invitation that can reinstate their former privileges and access to your organization. They must enable two-factor authentication before they can accept your invitation.
 {% endif %}
@@ -42,9 +54,9 @@ To view people who were automatically removed from your organization for non-com
 
 ![Audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Enter your search query. To search for:
     - Organization members removed, use `action:org.remove_member` in your search query
     - Outside collaborators removed, use `action:org.remove_outside_collaborator` in your search query{% if currentVersion == "free-pro-team@latest" %}

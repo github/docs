@@ -1,16 +1,17 @@
 ---
 title: Searching users
-intro: 'You can search for users on {{ site.data.variables.product.product_name }} and narrow the results using these user search qualifiers in any combination.'
+intro: 'You can search for users on {% data variables.product.product_name %} and narrow the results using these user search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-users
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can search for users globally across all of {{ site.data.variables.product.product_name }}. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Search only users or organizations
 
@@ -64,9 +65,9 @@ Using the `language` qualifier you can search for users based on the languages o
 
 ### Search by when a user account was created
 
-You can filter users based on when they joined {{ site.data.variables.product.product_name }} with the `created` qualifier. This takes a date as its parameter. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+You can filter users based on when they joined {% data variables.product.product_name %} with the `created` qualifier. This takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Пример                                                                                                                                                                                                                                 |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -6,19 +6,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Qualquer pessoa com permissões de leitura em um repositório pode criar uma pull request, mas você deve ter permissões de gravação para criar um branch. Se você quiser criar um branch para sua pull request e não tiver permissões de gravação no repositório, é possível bifurcar o repositório primeiro. Para obter mais informações, consulte "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)" e "[Sobre bifurcações](/articles/about-forks)".
 
 É possível especificar em qual branch você deseja fazer merge de suas alterações quando cria sua pull request. As pull requests só podem ser abertas entre dois branches que são diferentes.
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### Alterar o intervalo de branches e o repositório de destino
 
-Por padrão, as pull requests são baseadas no [branch padrão](/articles/setting-the-default-branch) do repositório principal.
+Por padrão, as pull requests são baseadas no [branch padrão](/articles/setting-the-default-branch) do repositório principal. Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
 
 Se o repositório principal padrão não estiver correto, você poderá alterar o repositório principal e o branch com as listas suspensas. Também é possível trocar o head e os branches base com as listas suspensas para estabelecer diffs entre pontos de referência. As referências aqui devem ser nomes de branch no seu repositório do GitHub.
 
@@ -42,18 +43,18 @@ Quando você muda qualquer uma das informações no intervalo de branches, as á
 
 {% tip %}
 
-**Dica**: Você também pode usar {{ site.data.variables.product.prodname_desktop }} para criar uma pull request. Para obter mais informações, consulte “[Criar um problema ou uma pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" na documentação do {{ site.data.variables.product.prodname_desktop }}.
+**Dica**: Você também pode usar {% data variables.product.prodname_desktop %} para criar uma pull request. Para obter mais informações, consulte “[Criar um problema ou uma pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" na documentação do {% data variables.product.prodname_desktop %}.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. No menu "Branch", escolha o branch que contém seus commits. ![Menu suspenso Branch](/assets/images/help/pull_requests/branch-dropdown.png)
-{{ site.data.reusables.repositories.new-pull-request }}
+{% data reusables.repositories.new-pull-request %}
 4. Use o menu suspenso do branch _base_ para selecionar o branch em que deseja fazer merge de suas alterações. Em seguida, use o menu suspenso do branch de _comparação_ para escolher o branch de tópico no qual você fez as alterações. ![Menus suspenso para escolher a base e comparar os branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
-{{ site.data.reusables.repositories.pr-title-description }}
-{{ site.data.reusables.repositories.create-pull-request }}
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 Depois que a pull request tiver sido revisada, ela poderá [sofrer merge no repositório](/articles/merging-a-pull-request).
 

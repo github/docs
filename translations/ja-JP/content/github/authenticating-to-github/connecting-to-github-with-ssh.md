@@ -1,6 +1,6 @@
 ---
 title: GitHub に SSH で接続する
-intro: '{{ site.data.variables.product.product_name }} に SSH で接続できます。'
+intro: '{% data variables.product.product_name %} に SSH で接続できます。'
 redirect_from:
   - /key-setup-redirect/
   - /linux-key-setup/
@@ -14,5 +14,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

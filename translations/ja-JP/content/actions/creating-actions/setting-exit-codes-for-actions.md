@@ -1,8 +1,8 @@
 ---
 title: アクションの終了コードの設定
 shortTitle: 終了コードの設定
-intro: '終了コードを使って、アクションのステータスを設定できます。 {{ site.data.variables.product.prodname_dotcom }}は、パスした、あるいは失敗したアクションを示すステータスを表示します。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '終了コードを使って、アクションのステータスを設定できます。 {% data variables.product.prodname_dotcom %}は、パスした、あるいは失敗したアクションを示すステータスを表示します。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
@@ -10,12 +10,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### 終了コードについて
 
-{{ site.data.variables.product.prodname_dotcom }} は、終了コードを使用して、アクションのチェック実行ステータスを設定します。これは、`success` または`failure` のいずれかです。
+{% data variables.product.prodname_dotcom %} は、終了コードを使用して、アクションのチェック実行ステータスを設定します。これは、`success` または`failure` のいずれかです。
 
 | 終了ステータス | チェック実行ステータス | 説明                                                                                                                            |
 | ------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -24,7 +24,7 @@ versions:
 
 ### JavaScript アクションで失敗終了を設定する
 
-JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
+JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
 
 ```javascript
 try {

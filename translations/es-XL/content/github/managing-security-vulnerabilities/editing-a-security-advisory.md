@@ -15,15 +15,15 @@ Si alguien acepta el crédito, el nombre de usuario de la persona aparecerá en 
 
 ### Editar una asesoría de seguridad
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. En el listado de "Asesorías de Seguridad", da clic en aquella que quieras editar.
 5. In the upper-right corner of the details for the security advisory, click
 {% octicon "pencil" aria-label="The edit icon" %}.
   ![Botón de editar para una asesoría de seguridad](/assets/images/help/security/security-advisory-edit-button.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Opcionalmente, puedes editar los "Créditos" para la asesoría de seguridad. ![Créditos para una asesoría de seguridad](/assets/images/help/security/security-advisory-credits.png)
 9. Da clic en **Actualizar asesoría de seguridad**". ![Botón Add (Agregar)](/assets/images/help/security/update-advisory-button.png)
 10. Las personas listadas en la sección de "Créditos" recibirán una notificación web o por correo electrónico que los invita a aceptar el crédito. Si la persona acepta, su nombre de usuario estará visible al público una vez que la asesoría de seguridad se publique.

@@ -1,37 +1,37 @@
 ---
 title: 启用和禁用版本更新
-intro: '您可以配置仓库，以便 {{ site.data.variables.product.prodname_dependabot }} 自动更新您使用的包。'
-permissions: '拥有仓库写入权限的用户可以启用或禁用仓库的 {{ site.data.variables.product.prodname_dependabot_version_updates }}。'
+intro: '您可以配置仓库，以便 {% data variables.product.prodname_dependabot %} 自动更新您使用的包。'
+permissions: '拥有仓库写入权限的用户可以启用或禁用仓库的 {% data variables.product.prodname_dependabot_version_updates %}。'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dependabot.beta-note-no-link }}
+{% data reusables.dependabot.beta-note-no-link %}
 
 ### 关于依赖项的版本更新
 
-You enable {{ site.data.variables.product.prodname_dependabot_version_updates }} by checking a *dependabot.yml* configuration file in to your repository's `.github` directory. {{ site.data.variables.product.prodname_dependabot_short }} then raises pull requests to keep the dependencies you configure up-to-date. 对于您想更新的每个包管理器的依赖项，必须指定包清单文件的位置及为文件所列的依赖项检查更新的频率。 有关启用安全更新的信息，请参阅“[配置 {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)。”
+通过将 *dependabot.yml* 配置文件检入仓库的 `.github` 目录，可启用 {% data variables.product.prodname_dependabot_version_updates %}。 {% data variables.product.prodname_dependabot %} 然后提出拉取请求，使您配置的依赖项保持最新。 对于您想更新的每个包管理器的依赖项，必须指定包清单文件的位置及为文件所列的依赖项检查更新的频率。 有关启用安全更新的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)。”
 
-{{ site.data.reusables.dependabot.initial-updates }} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
+{% data reusables.dependabot.initial-updates %} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 
-### 启用 {{ site.data.variables.product.prodname_dependabot_version_updates }}
+### 启用 {% data variables.product.prodname_dependabot_version_updates %}
 
 {% note %}
 
-{{ site.data.reusables.dependabot.private-dependencies }}
+{% data reusables.dependabot.private-dependencies %}
 
 {% endnote %}
 
-{{ site.data.reusables.dependabot.create-dependabot-yml }}
+{% data reusables.dependabot.create-dependabot-yml %}
 1. 使用 `package-ecosystem` 指定要监视的包管理器。
 1. 对于每个包管理器，可使用：
     - `directory` 指定清单或其他定义文件的位置。
     - `schedule.interval` 指定检查新版本的频率。
-{{ site.data.reusables.dependabot.check-in-dependabot-yml }}
+{% data reusables.dependabot.check-in-dependabot-yml %}
 
 #### 示例 *dependabot.yml* 文件
 
-下面的示例 *dependabot.yml* 文件将为两个包管理器配置版本更新：npm 和 Docker。 当此文件被检入时，{{ site.data.variables.product.prodname_dependabot }} 会检查默认分支上的清单文件中是否有过时的依赖项。 如果发现过时的依赖项，将针对默认分支提出拉取请求，以更新依赖项。
+下面的示例 *dependabot.yml* 文件将为两个包管理器配置版本更新：npm 和 Docker。 当此文件被检入时，{% data variables.product.prodname_dependabot %} 会检查默认分支上的清单文件中是否有过时的依赖项。 如果发现过时的依赖项，将针对默认分支提出拉取请求，以更新依赖项。
 
 ```yaml
 # Basic dependabot.yml file with
@@ -62,23 +62,23 @@ updates:
 
 如果您想在复刻上启用版本更新，还需要执行一个额外的步骤。 存在 *dependabot.yml* 配置文件时，不会自动启用版本更新。 这样可确保复刻所有者在从原始仓库拉取变更时不会无意中启用版本更新，包括 *dependabot.yml* 配置文件。
 
-在复刻上，也需要显式启用 {{ site.data.variables.product.prodname_dependabot }}。
+在复刻上，也需要显式启用 {% data variables.product.prodname_dependabot %}。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
-{{ site.data.reusables.dependabot.click-dependabot-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+{% data reusables.dependabot.click-dependabot-tab %}
 5. 在“Enable Dependabot（启用 Dependabot）”下，单击 **Enable Dependabot（启用 Dependabot）**。
 
 ### 检查版本更新的状态
 
-启用版本更新后，将在仓库的依赖关系图中发现新的 **Dependabot** 选项卡。 This tab shows which package managers {{ site.data.variables.product.prodname_dependabot }} is configured to monitor and when {{ site.data.variables.product.prodname_dependabot_short }} last checked for new versions.
+启用版本更新后，将在仓库的依赖关系图中发现新的 **Dependabot** 选项卡。 此选项卡显示配置了哪些要监视的包管理器 {% data variables.product.prodname_dependabot %} 以及 {% data variables.product.prodname_dependabot %} 上次检查新版本的时间。
 
 ![仓库洞察选项卡，依赖关系图，Dependabot 选项卡](/assets/images/help/dependabot/dependabot-tab-view-beta.png)
 
-For information, see "[Listing dependencies configured for version updates](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)."
+更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)。”
 
-### 禁用 {{ site.data.variables.product.prodname_dependabot_version_updates }}
+### 禁用 {% data variables.product.prodname_dependabot_version_updates %}
 
 您可以通过从仓库删除 *dependabot.yml* 文件完全禁用版本更新。 更多情况下，您会希望临时为一个或多个依赖项或包管理器禁用更新。
 
@@ -121,6 +121,6 @@ updates:
         versions: ["4.x", "5.x"]
 ```
 
-{{ site.data.reusables.dependabot.warning-ignore-option }}
+{% data reusables.dependabot.warning-ignore-option %}
 
 有关检查现有忽略首选项的更多信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)。”

@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 5. Click {% octicon "pin" aria-label="The pin icon" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon. ![Pin a discussion](/assets/images/help/projects/pin-discussion-button.png)
 
 ### Дополнительная литература

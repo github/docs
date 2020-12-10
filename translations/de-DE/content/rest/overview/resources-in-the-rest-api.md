@@ -1,48 +1,47 @@
 ---
 title: Resources in the REST API
-intro: 'Learn how to navigate the resources provided by the {{ site.data.variables.product.prodname_dotcom }} API.'
+intro: 'Learn how to navigate the resources provided by the {% data variables.product.prodname_dotcom %} API.'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-This describes the resources that make up the official {{ site.data.variables.product.product_name }} REST API. If you have any problems or requests, please contact {{ site.data.variables.contact.contact_support }}.
-
+This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
 ### Current version
 
-By default, all requests to `{{ site.data.variables.product.api_url_code }}` receive the **v3** [version](/v3/versions) of the REST API. We encourage you to [explicitly request this version via the `Accept` header](/v3/media/#request-specific-version).
+By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/developers/overview/about-githubs-apis) of the REST API. We encourage you to [explicitly request this version via the `Accept` header](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-For information about GitHub's GraphQL API, see the [v4 documentation](/v4). For information about migrating to GraphQL, see "[Migrating from REST](/v4/guides/migrating-from-rest/)."
+For information about GitHub's GraphQL API, see the [v4 documentation](/graphql). For information about migrating to GraphQL, see "[Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
 ### Schema
 
-{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{{ site.data.variables.product.api_url_code }}`.  All data is
+{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
 sent and received as JSON.
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/orgs
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 > HTTP/1.1 200 OK
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -77,18 +76,18 @@ The documentation provides an example response for each API method. The example 
 
 ### Authentifizierung
 
-There are two ways to authenticate through {{ site.data.variables.product.product_name }} API v3.  Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
+{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
 #### Basic authentication
 
 ```shell
-$ curl -u "username" {{ site.data.variables.product.api_url_pre }}
+$ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
 #### OAuth2 token (sent in a header)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {{ site.data.variables.product.api_url_pre }}
+$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
@@ -97,21 +96,22 @@ Note: GitHub recommends sending OAuth tokens using the Authorization header.
 
 {% endnote %}
 
-Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) for production applications.
+Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 key/secret
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 ```shell
-curl -u my_client_id:my_client_secret '{{ site.data.variables.product.api_url_pre }}/user/repos'
+curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
 Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth application to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth application's client secret to your users.
 
-{% if currentVersion != "free-pro-team@latest" %}
 You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/enterprise/admin/installation/enabling-private-mode)".
 {% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
@@ -123,24 +123,24 @@ Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-
 Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u foo:bar
+$ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 > HTTP/1.1 401 Unauthorized
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
 After detecting several requests with invalid credentials within a short period, the API will temporarily reject all authentication attempts for that user (including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
@@ -149,7 +149,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_
 Many API methods take optional parameters. For `GET` requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/repos/vmg/redcarpet/issues?state=closed"
+$ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
 In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner` and `:repo` parameters in the path while `:state` is passed in the query string.
@@ -157,7 +157,7 @@ In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner` 
 For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.product.api_url_pre }}/authorizations
+$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Root endpoint
@@ -165,22 +165,13 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.pro
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{{ site.data.variables.product.api_url_pre }}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion != "free-pro-team@latest" %}
-
-{% note %}
-
-**Note:** For {{ site.data.variables.product.prodname_ghe_server }}, [as with all other endpoints](/v3/enterprise-admin/#endpoint-urls), you'll need to pass your username and password.
-
-{% endnote %}
-
-{% endif %}
 
 ### GraphQL global node IDs
 
-See the guide on "[Using Global Node IDs](/v4/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ### Client errors
 
@@ -271,10 +262,10 @@ You can then expand these templates using something like the [uri_template][uri]
 
 ### Pagination
 
-Requests that return multiple items will be paginated to 30 items by default.  You can specify further pages with the `?page` parameter. For some resources, you can also set a custom page size up to 100 with the `?per_page` parameter. Note that for technical reasons not all endpoints respect the `?per_page` parameter, see [events](/v3/activity/events/) for example.
+Requests that return multiple items will be paginated to 30 items by default.  You can specify further pages with the `?page` parameter. For some resources, you can also set a custom page size up to 100 with the `?per_page` parameter. Note that for technical reasons not all endpoints respect the `?per_page` parameter, see [events](/rest/reference/activity#events) for example.
 
 ```shell
-$ curl '{{ site.data.variables.product.api_url_pre }}/user/repos?page=2&per_page=100'
+$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
 Note that page numbering is 1-based and that omitting the `?page` parameter will return the first page.
@@ -291,12 +282,12 @@ For more information on pagination, check out our guide on [Traversing with Pagi
 
 The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/user/repos?page=3&per_page=100>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/user/repos?page=50&per_page=100>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
+      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _The example includes a line break for readability._
 
-This `Link` response header contains one or more [Hypermedia](/v3/#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
 
 The possible `rel` values are:
 
@@ -313,20 +304,20 @@ For API requests using Basic Authentication or OAuth, you can make up to 5,000 r
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-For users that belong to a {{ site.data.variables.product.prodname_ghe_cloud }} account, requests made using an OAuth token to resources owned by the same {{ site.data.variables.product.prodname_ghe_cloud }} account have an increased limit of 15,000 requests per hour.
+For users that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests made using an OAuth token to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 requests per hour.
 
 {% endif %}
 
 For unauthenticated requests, the rate limit allows for up to 60 requests per hour. Unauthenticated requests are associated with the originating IP address, and not the user making requests.
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
-Note that [the Search API has custom rate limit rules](/v3/search/#rate-limit).
+Note that [the Search API has custom rate limit rules](/rest/reference/search#rate-limit).
 
 The returned HTTP headers of any API request show your current rate limit status:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -360,18 +351,18 @@ If you exceed the rate limit, an error response returns:
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
 > }
 ```
 
-You can [check your rate limit status](/v3/rate_limit) without incurring an API hit.
+You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
 
 #### Increasing the unauthenticated rate limit for OAuth applications
 
 If your OAuth application needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
-$ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_pre }}/user/repos
+$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -392,7 +383,7 @@ If you exceed your rate limit using Basic Authentication or OAuth, you can likel
 
 #### Abuse rate limits
 
-In order to provide quality service on {{ site.data.variables.product.product_name }}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in abuse rate limiting.
+In order to provide quality service on {% data variables.product.product_name %}, additional rate limits may apply to some actions when using the API. For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in abuse rate limiting.
 
 Abuse rate limits are not intended to interfere with legitimate use of the API. Your normal rate limits should be the only limit you target. To ensure you're acting as a good API citizen, check out our [Best Practices guidelines](/guides/best-practices-for-integrators/).
 
@@ -405,7 +396,7 @@ If your application triggers this rate limit, you'll receive an informative resp
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
 > }
 ```
 
@@ -413,7 +404,7 @@ If your application triggers this rate limit, you'll receive an informative resp
 
 ### User agent required
 
-All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent` header will be rejected. We request that you use your {{ site.data.variables.product.product_name }} username, or the name of your application, for the `User-Agent` header value. This allows us to contact you if there are problems.
+All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent` header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows us to contact you if there are problems.
 
 Here's an example:
 
@@ -424,7 +415,7 @@ User-Agent: Awesome-Octocat-App
 cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
-$ curl -iH 'User-Agent: ' {{ site.data.variables.product.api_url_pre }}/meta
+$ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 > HTTP/1.0 403 Forbidden
 > Connection: close
 > Content-Type: text/html
@@ -451,7 +442,7 @@ Most responses return an `ETag` header. Many responses also return a `Last-Modif
 {% endif %}
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i {% data variables.product.api_url_pre %}/user
 > HTTP/1.1 200 OK
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -462,7 +453,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+$ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -473,7 +464,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: 
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
+$ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
@@ -491,7 +482,7 @@ The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any
 Here's a sample request sent from a browser hitting `http://example.com`:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com"
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/1.1 302 Found
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
@@ -500,7 +491,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 This is what the CORS preflight request looks like:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com" -X OPTIONS
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
@@ -511,10 +502,10 @@ Access-Control-Max-Age: 86400
 
 ### JSON-P callbacks
 
-You can send a `?callback` parameter to any GET call to have the results wrapped in a JSON function.  This is typically used when browsers want to embed {{ site.data.variables.product.product_name }} content in web pages by getting around cross domain issues.  The response includes the same data output as the regular API, plus the relevant HTTP Header information.
+You can send a `?callback` parameter to any GET call to have the results wrapped in a JSON function.  This is typically used when browsers want to embed {% data variables.product.product_name %} content in web pages by getting around cross domain issues.  The response includes the same data output as the regular API, plus the relevant HTTP Header information.
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
+$ curl {% data variables.product.api_url_pre %}?callback=foo
 
 > /**/foo({
 >   "meta": {
@@ -523,7 +514,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
 >     "X-RateLimit-Remaining": "4966",
 >     "X-RateLimit-Reset": "1372700873",
 >     "Link": [ // pagination headers and other links
->       ["{{ site.data.variables.product.api_url_pre }}?page=2", {"rel": "next"}]
+>       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
 >   },
 >   "data": {
@@ -545,7 +536,7 @@ You can write a JavaScript handler to process the callback. Here's a minimal exa
     }
     
     var script = document.createElement('script');
-    script.src = '{{ site.data.variables.product.api_url_code }}?callback=foo';
+    script.src = '{% data variables.product.api_url_code %}?callback=foo';
     
     document.getElementsByTagName('head')[0].appendChild(script);
     </script>
@@ -595,23 +586,23 @@ Some requests that create new data, such as creating a new commit, allow you to 
 
 #### Explicitly providing an ISO 8601 timestamp with timezone information
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/v3/git/commits).
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
 
-These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/v3/git/commits/#example-input) for how these timestamps can be specified.
+These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
 #### Using the `Time-Zone` header
 
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {{ site.data.variables.product.api_url_pre }}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/v3/repos/contents/) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
 
 #### Using the last known timezone for the user
 
-If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {{ site.data.variables.product.product_name }} website.
+If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
 
 #### Defaulting to UTC without other timezone information
 

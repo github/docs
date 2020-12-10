@@ -1,16 +1,17 @@
 ---
 title: 搜索用户
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索用户，并使用这些用户搜索限定符的任意组合缩小结果范围。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索用户，并使用这些用户搜索限定符的任意组合缩小结果范围。'
 redirect_from:
   - /articles/searching-users
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-您可以在所有 {{ site.data.variables.product.product_name }} 内全局搜索用户。 更多信息请参阅“[关于在 {{ site.data.variables.product.company_short }} 上搜索](/articles/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索用户。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### 仅搜索用户或组织
 
@@ -64,9 +65,9 @@ versions:
 
 ### 按用户帐户创建时间搜索
 
-您可以使用 `created` 限定符基于用户加入 {{ site.data.variables.product.product_name }} 的时间过滤用户。 这将采用日期作为其参数。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+您可以使用 `created` 限定符基于用户加入 {% data variables.product.product_name %} 的时间过滤用户。 这将采用日期作为其参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                       | 示例                                                                                                                                                                                          |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

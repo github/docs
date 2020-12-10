@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. When you lock a conversation, you can also specify a reason, which is publicly visible.
@@ -14,7 +15,7 @@ Locking a conversation creates a timeline event that is visible to anyone with r
 
 ![Anonymized timeline event for a locked conversation](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account) can add, hide, and delete comments.
+While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) can add, hide, and delete comments.
 
 To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)."
 
@@ -33,7 +34,7 @@ To search for locked conversations in a repository that is not archived, you can
 - "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Maintaining your safety on {{ site.data.variables.product.prodname_dotcom }}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
 - "[Limiting interactions in your repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)"
 {% endif %}

@@ -13,7 +13,7 @@ versions:
 
 Puedes añadir archivos de salud predeterminados para la comunidad en la raíz del repositorio público llamada `gihub` que sea propiedad de una organización {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} o cuenta de usuario{% endif %}.
 
-{{ site.data.variables.product.product_name }} utilizará y mostrará los archivos predeterminados para cualquier repositorio público que sea propiedad de la cuenta que no tiene su propio archivo de ese tipo en ninguno de los siguientes lugares:
+{% data variables.product.product_name %} utilizará y mostrará los archivos predeterminados para cualquier repositorio público que sea propiedad de la cuenta que no tiene su propio archivo de ese tipo en ninguno de los siguientes lugares:
 - la raíz del repositorio
 - la carpeta `.github`
 - la carpeta `docs`
@@ -39,10 +39,10 @@ No puedes crear un archivo de licencia predeterminado. Los archivos de licencia 
 
 ### Crear un repositorio para archivos predeterminados
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. Utiliza el menú desplegable en **Propietario**, y selecciona la organización{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} o cuenta de usuario{% endif %} para la cual quieres crear los archivos predeterminados. ![Menú desplegable Propietario](/assets/images/help/repository/create-repository-owner.png)
 3. Escribe **.github** como nombre para tu repositorio y escribe una descripción opcional. ![Crear un campo de repositorio](/assets/images/help/repository/default-file-repository-name.png)
 4. Elige hacer que el repositorio sea público. ![Botones de selección para seleccionar el estado público o privado](/assets/images/help/repository/create-repository-public-private.png)
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 7. En el repositorio, crea uno de los archivos admitidos de estado de la comunidad. Las plantillas de reporte de problemas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} y su archivo de configuración{% endif %} deben estar en una carpeta llamada `.github/ISSUE_TEMPLATE`. Todos los demás archivos admitidos deben estar en la raíz del repositorio. Para obtener más información, consulta "[Crear nuevos archivos](/articles/creating-new-files/)."

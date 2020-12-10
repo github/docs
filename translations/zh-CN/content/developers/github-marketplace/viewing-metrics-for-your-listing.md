@@ -1,6 +1,6 @@
 ---
 title: Viewing metrics for your listing
-intro: 'The {{ site.data.variables.product.prodname_marketplace }} Insights page displays metrics for your {{ site.data.variables.product.prodname_github_app }}. You can use the metrics to track your {{ site.data.variables.product.prodname_github_app }}''s performance and make more informed decisions about pricing, plans, free trials, and how to visualize the effects of marketing campaigns.'
+intro: 'The {% data variables.product.prodname_marketplace %} Insights page displays metrics for your {% data variables.product.prodname_github_app %}. You can use the metrics to track your {% data variables.product.prodname_github_app %}''s performance and make more informed decisions about pricing, plans, free trials, and how to visualize the effects of marketing campaigns.'
 redirect_from:
   - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
   - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
@@ -12,7 +12,7 @@ versions:
 
 
 
-You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {{ site.data.variables.product.prodname_github_app }} has been listed.
+You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 
 {% note %}
 
@@ -42,12 +42,13 @@ The Insights page displays these performance metrics, for the selected time peri
 
 ![Marketplace insights](/assets/images/marketplace/marketplace_insights.png)
 
-To access {{ site.data.variables.product.prodname_marketplace }} Insights:
+To access {% data variables.product.prodname_marketplace %} Insights:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.marketplace_apps }}
-4. Select the {{ site.data.variables.product.prodname_github_app }} that you'd like to view Insights for.
-{{ site.data.reusables.user-settings.edit_marketplace_listing }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.marketplace_apps %}
+4. 选择
+{% data variables.product.prodname_github_app %} that you'd like to view Insights for.
+{% data reusables.user-settings.edit_marketplace_listing %}
 6. Click the **Insights** tab.
 7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Insights page. ![Marketplace time period](/assets/images/marketplace/marketplace_insights_time_period.png)

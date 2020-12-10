@@ -1,11 +1,12 @@
 ---
 title: Solucionar problemas de consultas de pesquisa
-intro: 'Se você encontrar resultados inesperados ao pesquisar no {{ site.data.variables.product.product_name }}, poderá solucionar os problemas analisando problemas comuns e limitações.'
+intro: 'Se você encontrar resultados inesperados ao pesquisar no {% data variables.product.product_name %}, poderá solucionar os problemas analisando problemas comuns e limitações.'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Possíveis tempos limite
@@ -16,7 +17,7 @@ Atingir um tempo limite não significa necessariamente que os resultados da pesq
 
 ### Limitações no tamanho da consulta
 
-Há alguns limites no tamanho das consultas ao pesquisar no {{ site.data.variables.product.product_name }}:
+Há alguns limites no tamanho das consultas ao pesquisar no {% data variables.product.product_name %}:
 
 * Não são aceitas consultas com mais de 256 caracteres
 * Não é possível construir uma consulta usando mais de cinco operadores `AND`, `OR` ou `NOT`

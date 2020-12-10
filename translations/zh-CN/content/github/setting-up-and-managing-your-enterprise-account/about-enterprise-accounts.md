@@ -1,7 +1,7 @@
 ---
 title: 关于企业帐户
-intro: '通过 {{ site.data.variables.product.prodname_ghe_cloud }}，可以创建企业帐户以在组织间进行合作，同时为管理员提供单一查看和管理点。'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: '通过 {% data variables.product.prodname_ghe_cloud %}，可以创建企业帐户以在组织间进行合作，同时为管理员提供单一查看和管理点。'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
@@ -12,22 +12,22 @@ versions:
 
 ### 关于企业帐户
 
-企业帐户可用于管理多个 {{ site.data.variables.product.prodname_dotcom }} 组织和 {{ site.data.variables.product.prodname_ghe_server }} 实例。 您的企业帐户必须有操作点，如 {{ site.data.variables.product.prodname_dotcom }} 上的组织或个人帐户。 企业管理员可以管理设置和首选项，如：
+企业帐户可用于管理多个 {% data variables.product.prodname_dotcom %} 组织和 {% data variables.product.prodname_ghe_server %} 实例。 您的企业帐户必须有操作点，如 {% data variables.product.prodname_dotcom %} 上的组织或个人帐户。 企业管理员可以管理设置和首选项，如：
 
 - 成员访问和管理（组织成员、外部协作者）
-- 帐单和使用（{{ site.data.variables.product.prodname_ghe_server }} 实例、用户许可、{{ site.data.variables.large_files.product_name_short }} 包）
+- 计费和使用（{% data variables.product.prodname_ghe_server %} 实例、用户许可、{% data variables.large_files.product_name_short %} 包）
 - 安全性（单点登录、双重身份验证）
-- 与 {{ site.data.variables.contact.enterprise_support }} 共享请求和支持包
+- 与 {% data variables.contact.enterprise_support %} 共享请求和支持包
 
-{{ site.data.reusables.enterprise-accounts.enterprise-accounts-billing }}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-有关 {{ site.data.variables.product.prodname_ghe_cloud }} 与 {{ site.data.variables.product.prodname_ghe_server }} 之间差异的更多信息，请参阅“[{{ site.data.variables.product.prodname_dotcom }} 的产品](/articles/githubs-products)”。 要升级至 {{ site.data.variables.product.prodname_enterprise }} 或开始使用企业帐户，请联系 {{ site.data.variables.contact.contact_enterprise_sales }}。
+有关 {% data variables.product.prodname_ghe_cloud %} 与 {% data variables.product.prodname_ghe_server %} 之间差异的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。 要升级至 {% data variables.product.prodname_enterprise %} 或开始使用企业帐户，请联系 {% data variables.contact.contact_enterprise_sales %}。
 
 有关成员访问和管理的更多信息，请参阅“[管理企业帐户的用户](/articles/managing-users-in-your-enterprise-account)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
-{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 ### 管理链接到企业帐户的组织
 
@@ -37,6 +37,8 @@ versions:
 
 更多信息请参阅“[管理企业帐户中的组织](/articles/managing-organizations-in-your-enterprise-account)”和“[为企业帐户中的组织设置策略](/articles/setting-policies-for-organizations-in-your-enterprise-account)”。
 
-### 管理链接至企业帐户的 {{ site.data.variables.product.prodname_ghe_server }} 许可
+{% endif %}
 
-{{ site.data.reusables.enterprise-accounts.admin-managing-licenses }}
+### 管理链接至企业帐户的 {% data variables.product.prodname_ghe_server %} 许可
+
+{% data reusables.enterprise-accounts.admin-managing-licenses %}

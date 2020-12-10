@@ -1,6 +1,6 @@
 ---
 title: Programa do Desenvolvedor GitHub
-intro: 'Se você criar ferramentas que integram-se ao {{ site.data.variables.product.prodname_dotcom }}, você poderá participar do Programa de Desenvolvedor do {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Se você criar ferramentas que integram-se ao {% data variables.product.prodname_dotcom %}, você poderá participar do Programa de Desenvolvedor do {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /program
 versions:
@@ -19,7 +19,7 @@ Crie suas próprias ferramentas que integram-se perfeitamente ao lugar que você
 
 ## Assuma a empresa
 
-[Obtenha licenças de desenvolvedor](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para criar e testar seu aplicativo com base no {{ site.data.variables.product.prodname_ghe_server }}.
+[Obtenha licenças de desenvolvedor](http://github.com/contact?form%5Bsubject%5D=Development+licenses) para criar e testar sua o seu aplicativo para {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}.
 
 
 ## Você tem uma integração que é compatível com o GitHub?

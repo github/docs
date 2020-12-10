@@ -1,30 +1,19 @@
 ---
 title: Sobre as APIs do GitHub
-intro: 'Saiba mais sobre as APIs dos {{ site.data.variables.product.prodname_dotcom }} para estender e personalizar sua experiência no {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Saiba mais sobre as APIs dos {% data variables.product.prodname_dotcom %} para estender e personalizar sua experiência no {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v3/versions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
+Existem duas versões estáveis da API do GitHub: a [API REST](/rest) e a [API do GraphQL](/graphql).
 
-Existem duas versões estáveis da API do GitHub: a [API REST](/v3/) e a [API do GraphQL](/v4/).
+Ao usar a API REST, incentivamos que você a [solicite a v3 por meio do cabeçalho `Aceitar`](/rest/overview/media-types#request-specific-version).
 
-{% else %}
-
-A última versão estável da API do GitHub é a [API REST](/v3/).
-
-{% endif %}
-
-Ao usar a API REST, incentivamos que você a [solicite a v3 por meio do cabeçalho `Aceitar`](/v3/media/#request-specific-version).
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
-
-Para obter informações sobre como usar a API do GraphQL, consulte a [documentação da v4](/v4/).
-
-{% endif %}
+Para obter informações sobre como usar a API do GraphQL, consulte a [documentação da v4](/graphql).
 
 ## Versões obsoletas
 

@@ -1,7 +1,7 @@
 ---
 title: Eine Docker-Container-Aktion erstellen
-intro: In diesem Leitfaden werden die mindestens erforderlichen Schritte zum Erstellen einer Docker-Container-Aktion beschrieben.
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'In diesem Leitfaden werden die mindestens erforderlichen Schritte zum Erstellen einer Docker-Container-Aktion beschrieben.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
@@ -21,18 +21,18 @@ In dieser Anleitung erfährst Du mehr über die grundlegenden Komponenten, die b
 
 Nach dem Abschluss dieses Projekts wirst Du verstehen, wie Du Deine eigene Docker-Containeraktion erstellen und sie in einem Workflow testen kannst.
 
-{{ site.data.reusables.github-actions.self-hosted-runner-reqs-docker }}
+{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
 ### Vorrausetzungen
 
-Es wir Dir vielleicht helfen, {{ site.data.variables.product.prodname_actions }} Umgebungsvariablen und das Docker-Container-Dateisystem grundlegend zu verstehen:
+Es wir Dir vielleicht helfen, {% data variables.product.prodname_actions %} Umgebungsvariablen und das Docker-Container-Dateisystem grundlegend zu verstehen:
 
 - "[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
-- "[Virtuelle Umgebungen für {{ site.data.variables.product.prodname_dotcom }}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
+- "[Virtuelle Umgebungen für {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)"
 
 Erstellen Sie zunächst ein GitHub-Repository.
 
-1. Erstellen Sie ein neues Repository auf {{ site.data.variables.product.product_location }}. Du kannst einen beliebigen Repository-Namen auswählen oder wie in diesem Beispiel „hello-world-docker-action“ verwenden. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
+1. Erstellen Sie ein neues Repository auf {% data variables.product.product_location %}. Du kannst einen beliebigen Repository-Namen auswählen oder wie in diesem Beispiel „hello-world-docker-action“ verwenden. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
 
 1. Clone Dein Repository auf Deinen Computer. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 
@@ -44,7 +44,7 @@ Erstellen Sie zunächst ein GitHub-Repository.
 
 ### Eine Docker-Datei erstellen
 
-Erstelle im neuen Verzeichnis `hello-world-docker-action` eine neue `Dockerfile`-Datei. Weitere Informationen findest Du unter „[Dockerfile-Support für {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/dockerfile-support-for-github-actions)“.
+Erstelle im neuen Verzeichnis `hello-world-docker-action` eine neue `Dockerfile`-Datei. Weitere Informationen findest Du unter „[Dockerfile-Support für {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)“.
 
 **Dockerfile**
 ```dockerfile
@@ -60,7 +60,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ### Eine Datei für die Metadaten der Aktion erstellen
 
-Erstellen Sie eine neue `action.yml`-Datei im von Ihnen oben erstellten Verzeichnis `hello-world-docker-action`. Weitere Informationen findest Du unter „[Metadaten-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions)“.
+Erstellen Sie eine neue `action.yml`-Datei im von Ihnen oben erstellten Verzeichnis `hello-world-docker-action`. Weitere Informationen findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)“.
 
 {% raw %}
 **action.yml**
@@ -86,13 +86,13 @@ runs:
 
 Diese Metadaten definieren einen `who-to-greet`-Eingabe- und einen `time`-Ausgabeparameter. Um Eingaben an den Docker-Container weiterzugeben, müssen Sie die Eingabe mit `inputs` deklarieren und die Eingabe im Stichwort`args` weitergeben.
 
-{{ site.data.variables.product.prodname_dotcom }} erstellt basierend auf Ihrem `Dockerfile` ein Image und führt mithilfe dieses Images Befehle in einem neuen Container aus.
+{% data variables.product.prodname_dotcom %} erstellt basierend auf Ihrem `Dockerfile` ein Image und führt mithilfe dieses Images Befehle in einem neuen Container aus.
 
 ### Aktions-Code schreiben
 
 Sie können ein beliebiges Docker-Basis-Image und folglich auch eine beliebige Sprache für Ihre Aktion auswählen. Im folgenden Shell-Skriptbeispiel wird die Eingabevariable `who-to-greet` verwendet, um in der Protokolldatei „Hello [who-to-greet]“ auszugeben.
 
-Als Nächstes ruft das Skript die aktuelle Zeit ab und legt sie als eine Ausgabevariable fest, die von später in einem Auftrag ausgeführten Aktionen verwendet werden kann. Damit {{ site.data.variables.product.prodname_dotcom }} Ausgabevariablen erkennen kann, musst Du einen Workflow-Befehl in einer bestimmten Syntax verwenden: `echo "::set-output name=<output name>::<value>"`. Weitere Informationen findest Du unter „[Workflow-Befehle für {{ site.data.variables.product.prodname_actions }}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)“.
+Als Nächstes ruft das Skript die aktuelle Zeit ab und legt sie als eine Ausgabevariable fest, die von später in einem Auftrag ausgeführten Aktionen verwendet werden kann. Damit {% data variables.product.prodname_dotcom %} Ausgabevariablen erkennen kann, musst Du einen Workflow-Befehl in einer bestimmten Syntax verwenden: `echo "::set-output name=<output name>::<value>"`. Weitere Informationen findest Du unter „[Workflow-Befehle für {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)“.
 
 1. Erstelle eine neue `entrypoint.sh`-Datei im Verzeichnis `hello-world-docker-action`.
 
@@ -170,7 +170,7 @@ git push --follow-tags
 
 Nun sind Sie bereit, Ihre Aktion in einem Workflow zu testen. Wenn eine Aktion in einem privaten Repository vorliegt, kann die Aktion nur in Workflows im selben Repository verwendet werden. Öffentliche Aktionen können von Workflows aus jedem Repository verwendet werden.
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### Beispiel mit einer öffentlichen Aktion
 

@@ -1,12 +1,13 @@
 ---
 title: Entender a sintaxe de pesquisa
-intro: 'Durante a pesquisa no {{ site.data.variables.product.product_name }}, é possível criar consultas que correspondam a palavras e números específicos.'
+intro: 'Durante a pesquisa no {% data variables.product.product_name %}, é possível criar consultas que correspondam a palavras e números específicos.'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Consultar por valores maiores ou menores que outro valor
@@ -37,7 +38,7 @@ Você pode usar a sintaxe de intervalo <code><em>n</em>..<em>n</em></code> para 
 
 ### Consultar por datas
 
-Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-values-between-a-range) para pesquisar por datas anteriores ou posteriores a outra data ou que se enquadram em um intervalo de datas. {{ site.data.reusables.time_date.date_format }}
+Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-values-between-a-range) para pesquisar por datas anteriores ou posteriores a outra data ou que se enquadram em um intervalo de datas. {% data reusables.time_date.date_format %}
 
 | Consulta                   | Exemplo                                                                                                                                                                                                                                                      |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -49,7 +50,7 @@ Você pode usar `>`, `>=`, `<`, `<=` e [consultas de intervalo](#query-for-value
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** corresponde a problemas criados após 30 de abril de 2012 contendo a palavra "cats".                                                    |
 | <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** corresponde a problemas criados antes de 4 de julho de 2012 contendo a palavra "cats".                                                 |
 
-{{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.time_format %}
 
 | Consulta                   | Exemplo                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,10 +81,10 @@ Se a consulta de pesquisa contém espaço em branco, é preciso colocá-lo entre
 
 Alguns símbolos não alfanuméricos, como espaços, são descartados de consultas de pesquisa de código entre aspas, por isso os resultados podem ser inesperados.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Consultas com nomes de usuário
 
-Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuário, como, por exemplo, `usuário`, `ator` ou `responsável`, você poderá usar qualquer nome de usuário de {{ site.data.variables.product.product_name }}, para especificar uma pessoa específica ou `@me` para especificar o usuário atual.
+Se sua consulta de pesquisa contiver um qualificador que exige um nome de usuário, como, por exemplo, `usuário`, `ator` ou `responsável`, você poderá usar qualquer nome de usuário de {% data variables.product.product_name %}, para especificar uma pessoa específica ou `@me` para especificar o usuário atual.
 
 | Consulta             | Exemplo                                                                                                                                                                        |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

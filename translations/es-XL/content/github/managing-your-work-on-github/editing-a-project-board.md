@@ -17,8 +17,8 @@ versions:
 {% endtip %}
 
 1. Dirígete al tablero de proyecto que deseas editar.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Modifica el nombre y la descripción del tablero de proyecto según sea necesario y luego haz clic en **Guardar proyecto**. ![Campos con el nombre y la descripción del tablero de proyecto y botón Guardar proyecto](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ### Leer más

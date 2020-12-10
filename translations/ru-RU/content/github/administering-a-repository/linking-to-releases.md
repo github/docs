@@ -6,10 +6,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Find the release you want to link to and click the version number. ![Releases tag information](/assets/images/help/releases/release_tag_name.png)
 3. Alternatively, right click **Latest Release** and copy the URL to share it. The suffix of this URL is always `/releases/latest`. ![Latest release tag](/assets/images/help/releases/release_latest_release_tag.png)
 

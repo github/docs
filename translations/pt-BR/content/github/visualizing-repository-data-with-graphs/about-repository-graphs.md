@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Os gráficos de um repositório fornecem informações sobre o tráfego do {% if currentVersion == "free-pro-team@latest" %}, projetos que dependem do repositório,{% endif %} contribuidores e commits do repositório, além de bifurcações e rede de um repositório. Se você mantém um repositório, é possível usar esses dados para entender melhor quem está usando o repositório e por que está usando.
+Os gráficos de um repositório fornecem informações sobre {% if currentVersion == "free-pro-team@latest" %} tráfego, projetos que dependem do repositório,{% endif %} contribuidores e commits no repositório e bifurcações de um repositório e rede. Se você mantém um repositório, é possível usar esses dados para entender melhor quem está usando o repositório e por que está usando.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Alguns gráficos do repositório estão disponíveis somente em repositórios públicos com o {{ site.data.variables.product.prodname_free_user }}:
+Alguns gráficos do repositório estão disponíveis somente em repositórios públicos com o {% data variables.product.prodname_free_user %}:
 - Pulso
 - Contribuidores
 - Tráfego
@@ -21,7 +22,7 @@ Alguns gráficos do repositório estão disponíveis somente em repositórios p�
 - Frequência de código
 - Rede
 
-Todos os outros gráficos do repositório estão disponíveis em todos os repositórios. Cada gráfico do repositório está disponível em repositórios públicos e privados com o {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_team }} e {{ site.data.variables.product.prodname_ghe_cloud }}. {{ site.data.reusables.gated-features.more-info }}
+Todos os outros gráficos do repositório estão disponíveis em todos os repositórios. Cada gráfico do repositório está disponível em repositórios públicos e privados com o {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} e {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

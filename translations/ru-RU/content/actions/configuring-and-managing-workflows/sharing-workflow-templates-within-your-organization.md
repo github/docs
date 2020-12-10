@@ -1,14 +1,14 @@
 ---
 title: Sharing workflow templates within your organization
 intro: You can create a standardized set of workflow templates specifically for your organization. Organization members can then use the templates when creating new workflows in the organizations repositories.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Workflow templates can be created by users with write access to the organization's `.github` repository. The templates can then be used by organization members who have permission to create workflows.
 
@@ -75,7 +75,7 @@ To add another workflow template, add your files to the same `workflow-templates
 
 This procedure demonstrates how a member of your organization can find and use a workflow template to create a new workflow. An organization's workflow templates can be used by anyone who is a member of the organization.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**. ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
 1. Your organization's workflow templates are located in their own section titled "Workflows created by _organization name_". Under the name of the template you'd like to use, click **Set up this workflow**. ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)

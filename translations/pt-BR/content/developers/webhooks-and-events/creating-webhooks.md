@@ -1,18 +1,22 @@
 ---
 title: Criar webhooks
-intro: 'Aprenda a criar um webhook, escolhendo os eventos que seu webhook irá ouvir em {{ site.data.variables.product.prodname_dotcom }} e como configurar um servidor para receber e gerenciar a carga de webhook.'
+intro: 'Aprenda a criar um webhook, escolhendo os eventos que seu webhook irá ouvir em {% data variables.product.prodname_dotcom %} e como configurar um servidor para receber e gerenciar a carga de webhook.'
 redirect_from:
   - /webhooks/creating
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
 Agora que entendemos [os conceitos básicos de webhooks][webhooks-overview], vamos analisar o processo de criação da nossa própria integração com o webhook. Neste tutorial, vamos criar um webhook de repositório que será responsável por listar quão popular é o nosso repositório, com base no número de problemas que recebe por dia.
 
-Criar um webhook é um processo de duas etapas. Primeiro, você deverá configurar como deseja que seu webhook se comporte através do {{ site.data.variables.product.product_name }} - quais eventos devem ser ouvidos. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
+Criar um webhook é um processo de duas etapas. Primeiro, você deverá configurar como deseja que seu webhook se comporte através do {% data variables.product.product_name %} - quais eventos devem ser ouvidos. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
+
+
+{% data reusables.webhooks.webhooks-rest-api-links %}
 
 ### Configurar um Webhook
 
@@ -26,21 +30,21 @@ Os webhooks exigem algumas opções de configuração antes de você poder usá-
 
 ### URL de carga
 
-{{ site.data.reusables.webhooks.payload_url }}
+{% data reusables.webhooks.payload_url %}
 
 Já que estamos desenvolvendo localmente para nosso tutorial, vamos definir como `http://localhost:4567/payload`. Vamos explicar o porquê na documentação [Configurando seu servidor](/webhooks/configuring/).
 
 ### Tipo de conteúdo
 
-{{ site.data.reusables.webhooks.content_type }} Para este tutorial, o tipo de conteúdo-padrão para `application/json` está certo.
+{% data reusables.webhooks.content_type %} Para este tutorial, o tipo de conteúdo-padrão para `application/json` está certo.
 
 ### Segredo
 
-{{ site.data.reusables.webhooks.secret }}
+{% data reusables.webhooks.secret %}
 
 ### Verificação de SSL
 
-{{ site.data.reusables.webhooks.webhooks_ssl }}
+{% data reusables.webhooks.webhooks_ssl %}
 
 ### Ativo
 
@@ -61,5 +65,5 @@ Ao terminar, clique em **Adicionar webhook**. Ufa! Agora que você criou o webho
 Para configurar um webhook para todos os eventos, use o caractere curinga (`*`) para especificar os eventos de webhook. Ao adicionar o evento curinga, substituiremos todos os eventos existentes que você tenha configurado pelo evento curinga e enviaremos todas as cargas para os eventos compatíveis. Você também obterá automaticamente todos os novos eventos que possamos adicionar no futuro.
 
 [webhooks-overview]: /webhooks/
-[webhook-api]: /v3/repos/hooks/
+[webhook-api]: /rest/reference/repos#hooks
 [hooks-api]: /webhooks/#events

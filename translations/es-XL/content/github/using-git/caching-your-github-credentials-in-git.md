@@ -4,13 +4,13 @@ redirect_from:
   - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
-intro: 'Si estás [clonando los repositorios de {{ site.data.variables.product.product_name }} mediante HTTPS](/github/using-git/which-remote-url-should-i-use), puedes utilizar un asistente de credenciales para decirle a Git que recuerde tus credenciales.'
+intro: 'Si estás [clonando los repositorios de {% data variables.product.product_name %} mediante HTTPS](/github/using-git/which-remote-url-should-i-use), puedes utilizar un asistente de credenciales para decirle a Git que recuerde tus credenciales.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Si clonas repositorios de {{ site.data.variables.product.product_name }} mediante SSH, entonces te autenticas utilizando una llave SSH en vez de utilizar otras credenciales. Para obtener información acerca de cómo configurar una conexión SSH, consulta la sección "[Generar una llave SSH](/articles/generating-an-ssh-key)".
+Si clonas repositorios de {% data variables.product.product_name %} mediante SSH, entonces te autenticas utilizando una llave SSH en vez de utilizar otras credenciales. Para obtener información acerca de cómo configurar una conexión SSH, consulta la sección "[Generar una llave SSH](/articles/generating-an-ssh-key)".
 
 {% mac %}
 
@@ -50,7 +50,7 @@ Instala Git y `osxkeychain helper` e informa a Git que lo use.
   # Set git to use the osxkeychain credential helper
   ```
 
-La próxima vez que clones una URL de HTTPS que requiera autenticación, Git te pedirá tu nombre de usuario y contraseña. {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+La próxima vez que clones una URL de HTTPS que requiera autenticación, Git te pedirá tu nombre de usuario y contraseña. {% data reusables.user_settings.password-authentication-deprecation %}
 
 Ya que te hayas autenticado exitosamente, tus credenciales se almacenarán en el llavero de macOS y se utilizarán cada que clones una URL con HTTPS. No se te solicitará teclear tus credenciales en Git nuevamente a menos de que éstas cambien.
 

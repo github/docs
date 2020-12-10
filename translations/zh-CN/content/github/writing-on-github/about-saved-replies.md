@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![已保存回复](/assets/images/help/settings/saved-replies.png)
@@ -16,7 +17,7 @@ versions:
 
 最多可以创建 100 个已保存回复。 如果已达到最大限制，可以删除不再使用的已保存回复，或者编辑现有的已保存回复。
 
-您也可以使用 {{ site.data.variables.product.product_name }} 提供“重复议题”已保存回复来将议题标记为重复，并用类似的议题跟踪它。
+您也可以使用 {% data variables.product.product_name %} 提供“重复议题”已保存回复来将议题标记为重复，并用类似的议题跟踪它。
 
 ### 延伸阅读
 

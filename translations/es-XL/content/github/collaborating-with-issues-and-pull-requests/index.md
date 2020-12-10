@@ -1,6 +1,6 @@
 ---
 title: Colaborar con propuestas y solicitudes de extracción
-intro: 'Usa el flujo {{ site.data.variables.product.prodname_dotcom }} para hacer el seguimiento y debatir los cambios en las propuestas, luego propone y revisa los cambios en las solicitudes de extracción.'
+intro: 'Usa el flujo {% data variables.product.prodname_dotcom %} para hacer el seguimiento y debatir los cambios en las propuestas, luego propone y revisa los cambios en las solicitudes de extracción.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/

@@ -1,7 +1,7 @@
 ---
-title: About code scanning
-intro: 'You can use {{ site.data.variables.product.prodname_code_scanning }} to find security vulnerabilities and errors in the code for your project on {{ site.data.variables.product.prodname_dotcom }}.'
-product: '{{ site.data.reusables.gated-features.code-scanning }}'
+title: コードスキャンニングについて
+intro: '{% data variables.product.prodname_code_scanning %} を使用して、{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードからセキュリティの脆弱性とエラーを見つけることができます。'
+product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/about-automated-code-scanning
 versions:
@@ -9,53 +9,52 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.code-scanning.beta }}
-{{ site.data.reusables.code-scanning.enterprise-enable-code-scanning }}
+{% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About {{ site.data.variables.product.prodname_code_scanning }}
+### {% data variables.product.prodname_code_scanning %} について
 
-{{ site.data.reusables.code-scanning.about-code-scanning }}
+{% data reusables.code-scanning.about-code-scanning %}
 
-You can use {{ site.data.variables.product.prodname_code_scanning }} to find, triage, and prioritize fixes for existing problems in your code. {{ site.data.variables.product.prodname_code_scanning_capc }} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
+{% data variables.product.prodname_code_scanning %} を使用して、コード内の既存の問題の修正を検索し、トリアージして、優先順位を付けることができます。 また、{% data variables.product.prodname_code_scanning_capc %} は、開発者による新しい問題の発生も防ぎます。 スキャンを特定の日時にスケジュールしたり、プッシュなどの特定のイベントがリポジトリで発生したときにスキャンをトリガーしたりすることができます。
 
-If {{ site.data.variables.product.prodname_code_scanning }} finds a potential vulnerability or error in your code, {{ site.data.variables.product.prodname_dotcom }} displays an alert in the repository. After you fix the code that triggered the alert, {{ site.data.variables.product.prodname_dotcom }} closes the alert. For more information, see "[Managing alerts from {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning)."
+{% data variables.product.prodname_code_scanning %} がコードに潜在的な脆弱性またはエラーを見つけた場合、{% data variables.product.prodname_dotcom %} はリポジトリにアラートを表示します。 アラートを引き起こしたコードを修正すると、{% data variables.product.prodname_dotcom %}はそのアラートを閉じます。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-To monitor results from {{ site.data.variables.product.prodname_code_scanning }} across your repositories or your organization, you can use the {{ site.data.variables.product.prodname_code_scanning }} API.
-For more information about API endpoints, see  "[{{ site.data.variables.product.prodname_code_scanning_capc }}](/v3/code-scanning)."
+{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用します。 For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
-To get started with {{ site.data.variables.product.prodname_code_scanning }}, see "[Enabling {{ site.data.variables.product.prodname_code_scanning }} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+{% data variables.product.prodname_code_scanning %} を始めるには、「[{% data variables.product.prodname_code_scanning %} の有効化](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)」を参照してください。
 
-### About {{ site.data.variables.product.prodname_codeql }}
+### {% data variables.product.prodname_codeql %} について
 
-You can use {{ site.data.variables.product.prodname_code_scanning }} with {{ site.data.variables.product.prodname_codeql }}, a semantic code analysis engine. {{ site.data.variables.product.prodname_codeql }} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers. 
+デフォルトでは、{% data variables.product.prodname_code_scanning %} はセマンティックコード分析エンジンである {% data variables.product.prodname_codeql %} を使用します。 {% data variables.product.prodname_codeql %} はコードをデータとして扱い、コードの潜在的な脆弱性を従来の静的分析よりも高い精度で見つけることができます。
 
-{{ site.data.variables.product.prodname_ql }} is the query language that powers {{ site.data.variables.product.prodname_codeql }}. {{ site.data.variables.product.prodname_ql }} is an object-oriented logic programming language. {{ site.data.variables.product.company_short }}, language experts, and security researchers create the queries used for {{ site.data.variables.product.prodname_code_scanning }}, and the queries are open source. The community maintains and updates the queries to improve analysis and reduce false positives. For more information, see [{{ site.data.variables.product.prodname_codeql }}](https://securitylab.github.com/tools/codeql) on the GitHub Security Lab website.
+{% data variables.product.prodname_ql %} は {% data variables.product.prodname_codeql %} を動作させるクエリ言語です。 {% data variables.product.prodname_ql %} はオブジェクト指向ロジックプログラミング言語です。 {% data variables.product.company_short %}、言語の専門家、セキュリティ研究者が {% data variables.product.prodname_code_scanning %} に使用するクエリを作成します。クエリはオープンソースです。 コミュニティはクエリを維持および更新して、分析を改善し、誤検出を減らします。 詳しい情報については、GitHub Security Lab Web サイトの「[{% data variables.product.prodname_codeql %}](https://securitylab.github.com/tools/codeql)」を参照してください。
 
-{{ site.data.variables.product.prodname_code_scanning_capc }} with {{ site.data.variables.product.prodname_codeql }} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
+{% data variables.product.prodname_code_scanning %} の API エンドポイントについての詳細は、「[{% data variables.product.prodname_code_scanning_capc %}](http://developer.github.com/v3/code-scanning)」を参照してください。
 
-{{ site.data.reusables.code-scanning.supported-languages }}
+{% data reusables.code-scanning.supported-languages %}
 
-You can view and contribute to the queries for {{ site.data.variables.product.prodname_code_scanning }} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information, see [{{ site.data.variables.product.prodname_codeql }} queries](https://help.semmle.com/QL/learn-ql/writing-queries/writing-queries.html) in the {{ site.data.variables.product.prodname_codeql }} documentation.
+[`github/codeql`](https://github.com/github/codeql)リポジトリで {% data variables.product.prodname_code_scanning %} のクエリを表示して貢献できます。 詳しい情報については、 {% data variables.product.prodname_codeql %} ドキュメントの「[{% data variables.product.prodname_codeql %} クエリ](https://help.semmle.com/QL/learn-ql/writing-queries/writing-queries.html)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### About billing for {{ site.data.variables.product.prodname_code_scanning }}
+### {% data variables.product.prodname_code_scanning %}の支払いについて
 
-{{ site.data.variables.product.prodname_code_scanning_capc }} uses {{ site.data.variables.product.prodname_actions }}, and each run of a {{ site.data.variables.product.prodname_code_scanning }} workflow consumes minutes for {{ site.data.variables.product.prodname_actions }}. For more information, see "[About billing for {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
+{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用し、{% data variables.product.prodname_code_scanning %} ワークフローの実行ごとに {% data variables.product.prodname_actions %} に数分かかります。 詳しい情報については、[{% data variables.product.prodname_actions %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)を参照してください。
 
 {% endif %}
 
-### About third-party code scanning tools
+### サードパーティのコードスキャンツールについて
 
-{{ site.data.reusables.code-scanning.you-can-upload-third-party-analysis }}
+{% data reusables.code-scanning.you-can-upload-third-party-analysis %}
 
-{{ site.data.reusables.code-scanning.interoperable-with-tools-that-output-sarif }}
+{% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
-{{ site.data.reusables.code-scanning.get-started-uploading-third-party-data }}
+{% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### Further reading
+### 参考リンク
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
-- [{{ site.data.variables.product.prodname_security }}](https://securitylab.github.com/)
-- [OASIS Static Analysis Results Interchange Format (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) on the OASIS Committee website
+- [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
+- OASIS 委員会 の Web サイトの「[OASIS Static Analysis Results Interchange Format (SARIF) 」TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif)

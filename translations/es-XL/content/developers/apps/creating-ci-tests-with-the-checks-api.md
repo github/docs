@@ -1,6 +1,6 @@
 ---
 title: Crear pruebas de IC con la API de Verificaciones
-intro: 'Crea un servidor de integración continua para ejecutar pruebas utilizando una {{ site.data.variables.product.prodname_github_app }} y la API de Verificaciones.'
+intro: 'Crea un servidor de integración continua para ejecutar pruebas utilizando una {% data variables.product.prodname_github_app %} y la API de Verificaciones.'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
 versions:
@@ -18,7 +18,7 @@ La IC es una práctica de software que requiere código confirmado frecuente en 
 
 Un servidor de IC hospeda código que ejecuta pruebas de IC, tal como los limpíadores de código (que revisan el formato del estilo), revisiones de seguridad, cobertura de código, y otras verificaciones contra las confirmaciones de código nuevas que hay en un repositorio. Los servidores de IC incluso pueden crear y desplegar código en los servidores de pruebas y en los productivos. Para encontrar algunas ejemplos de los tipos de pruebas de IC que puedes crear con una GitHub App, revisa las [apps de integración continua](https://github.com/marketplace/category/continuous-integration) que se encuentran disponibles en GitHub Marketplace.
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 #### Resumen de la API de Verificaciones
 
@@ -92,7 +92,7 @@ Para actualizar los permisos de tu app:
 1. Selecciona tu app de la [página de configuración de la app](https://github.com/settings/apps) y da clic en **Permisos & Webhooks** en la barra lateral.
 1. En la sección de "Permisos", encuentra "Verificaciones"; y selecciona **Lectura & escritura** en el menú desplegable de acceso que está a un costado.
 1. En la sección "Sucribirse a los eventos", selecciona **conjuntos de verificación** y **ejecución de verificación** para suscribirte a estos eventos.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 ¡Genial! Tu app tiene permiso para realizar las tareas que quieres que haga. Ahora puedes agregar el código para que gestione los eventos.
 
@@ -170,7 +170,7 @@ Para probar este código, reinicia el servidor desde tu terminal:
 $ ruby template_server.rb
 ```
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 Ahora abre una solicitud de extracción en el repositorio en donde instalaste tu app. Tu app deberá responder creando una ejecución de verificación en tu solicitud de extracción. Da clic en la pestaña de **Verificaciones** y deberías ver algo como esto:
 
@@ -328,7 +328,7 @@ Tu app necesita el permiso de lectura para "contenido de repositorio" si quieres
 
 1. Selecciona tu app de la [página de configuración de la app](https://github.com/settings/apps) y da clic en **Permisos & Webhooks** en la barra lateral.
 1. En la sección de "Permisos", encuentra el "contenido del repositorio", y selecciona **Lectura & escritura** en el menú desplegable de "Acceso" que está a un costado.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 Para clonar un repositorio utilizando los permisos de tu GitHub App, puedes utilizar el token de instalación de la misma (`x-access-token:<token>`), el cual se muestra en el siguiente ejemplo:
 
@@ -698,7 +698,7 @@ Los archivos se cambian de manera local, pero aún necesitarás cargarlos a GitH
 $ ruby template_server.rb
 ```
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 Esta vez, da clic en el botón "Arreglar esto" para corregir automáticamente los errores que RuboCop encontró desde la pestaña de **Verificaciones**.
 
@@ -730,7 +730,7 @@ end
 
 ### Solución de problemas
 
-Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {% data variables.product.prodname_support_forum_with_url %}.
 
 * **P:** Mi app no está cargando código a GitHub. !No veo las correcciones que RuboCop hace automáticamente!
 

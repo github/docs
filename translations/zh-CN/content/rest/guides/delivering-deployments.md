@@ -1,6 +1,6 @@
 ---
 title: 交付部署
-intro: 使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。
+intro: '使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。'
 redirect_from:
   - /guides/delivering-deployments/
   - /guides/automating-deployments-to-integrators/
@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+ 
+  
 
-
-
-[部署 API][deploy API] 为您托管在 {{ site.data.variables.product.product_name }} 上的项目提供在您自己的服务器上启动它们的功能。 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
 
 本指南将使用该 API 来演示您可以使用的设置。 在我们的场景中，我们将：
 
@@ -54,7 +55,7 @@ end
 * 部署状态
 * 拉取请求
 
-在发生相关操作时，{{ site.data.variables.product.product_name }} 会将这些事件发送到我们的服务器。 我们将服务器配置为*仅*在合并拉取请求时立即处理：
+在发生相关操作时，{% data variables.product.product_name %} 会将这些事件发送到我们的服务器。 我们将服务器配置为*仅*在合并拉取请求时立即处理：
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +70,7 @@ post '/event_handler' do
 end
 ```
 
-发生了什么？ {{ site.data.variables.product.product_name }} 发送的每个事件都附有 `X-GitHub-Event` HTTP 标头。 我们现在只关注拉取请求事件。 当拉取请求被合并时（其状态为 `closed`，并且 `merged` 为 `true`），我们将启动部署。
+发生了什么？ {% data variables.product.product_name %} 发送的每个事件都附有 `X-GitHub-Event` HTTP 标头。 我们现在只关注拉取请求事件。 当拉取请求被合并时（其状态为 `closed`，并且 `merged` 为 `true`），我们将启动部署。
 
 要测试此概念验证，请在测试仓库的分支中进行一些更改，打开拉取请求，然后合并它。 您的服务器应该会做出相应的响应！
 
@@ -144,7 +145,7 @@ end
 
 搞定！ 使用此示例并不需要构建自己的部署设置。 您始终可以依赖 [GitHub 集成][integrations]。
 
-[deploy API]: /v3/repos/deployments/
+[deploy API]: /rest/reference/repos#deployments
 [status API]: /guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok

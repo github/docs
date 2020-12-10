@@ -1,1 +1,0 @@
-{{ site.data.variables.product.prodname_ghe_cloud }}上のOrganizationあるいはEnterpriseのプロダクションワークフローが、重大なサービスのエラーもしくは中断のために失敗しており、その失敗が直接的にビジネスの運用に影響している。

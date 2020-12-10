@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Klicke in der oberen linken Ecke auf **Milestones** (Meilensteine). ![Schaltfläche „Issues Milestone“ (Meilenstein erstellen)](/assets/images/help/issues/issues_milestone_button.png)
 4. Wähle den Meilenstein aus, zu dem Du weitere Informationen anzeigen möchtest.
 

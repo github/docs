@@ -16,9 +16,9 @@ versions:
 
 If you'd like to match the commits in your repository to the authors' GitHub user accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
 
-{{ site.data.reusables.repositories.migrating-from-codeplex }}
+{% data reusables.repositories.migrating-from-codeplex %}
 
-{{ site.data.reusables.repositories.repo-size-limit }}
+{% data reusables.repositories.repo-size-limit %}
 
 1. In the upper-right corner of any page, click {% octicon "plus" aria-label="Plus symbol" %}, and then click **Import repository**. ![Import repository option in new repository menu](/assets/images/help/importer/import-repository.png)
 2. Under "Your old repository's clone URL", type the URL of the project you want to import. ![Text field for URL of imported repository](/assets/images/help/importer/import-url.png)

@@ -1,20 +1,21 @@
 ---
 title: Informationen zu geschützten Branches
 intro: 'Mit geschützten Branches wird sichergestellt, dass Mitarbeiter auf Deinem Repository keine unwiderruflichen Änderungen an Branches vornehmen. Durch die Aktivierung geschützter Branches kannst Du außerdem weitere optionale Prüfungen und Anforderungen aktivieren, beispielsweise erforderliche Statuschecks und erforderliche Reviews.'
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.pull_requests.about-protected-branches }} Du kannst entscheiden, Einschränkungen zu erzwingen über die Art und Weise, wie ein Pull Request in Dein Repository zusammengeführt wird.
+{% data reusables.pull_requests.about-protected-branches %} Du kannst entscheiden, Einschränkungen zu erzwingen über die Art und Weise, wie ein Pull Request in Dein Repository zusammengeführt wird.
 
 Durch das Erstellen von Regeln für geschützte Branches können Repository-Inhaber und Personen mit Administratorberechtigung für ein Repository bestimmte Workflows oder Anforderungen erzwingen, bevor ein Mitarbeiter einen Branch in Dein Repository überführen kann.
 
-{{ site.data.reusables.repositories.branch-rules-example }} Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“
+{% data reusables.repositories.branch-rules-example %} Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“
 
 ### Priorisierung von Regeln für geschützte Branches
 
@@ -24,7 +25,7 @@ Branch-Schutzregeln mit einem Sonderzeichen, wie `*`, `?` oder `]` werden in der
 
 ### Einstellungen für geschützte Branches
 
-Wenn Du eine Branch-Schutzregel in einem Repository erstellst, können Mitarbeiter weder einen Push auf den geschützten Branch erzwingen noch den Branch{% if currentVersion == "free-pro-team@latest" %} standardmäßig{% endif %} löschen. Du kannst andere Branch-Schutzeinstellungen aktivieren. Weitere Informationen findest Du unter „[Definieren der Zusammenführbarkeit von Pull Requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)."
+When you create a branch protection rule in a repository, collaborators cannot force push to the protected branch or delete the branch{% if currentVersion == "free-pro-team@latest" %} by default{% endif %}. Du kannst andere Branch-Schutzeinstellungen aktivieren. Weitere Informationen findest Du unter „[Definieren der Zusammenführbarkeit von Pull Requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)."
 
 ### Weiterführende Informationen
 

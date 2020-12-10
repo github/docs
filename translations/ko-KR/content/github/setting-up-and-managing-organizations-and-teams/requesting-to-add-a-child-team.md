@@ -6,22 +6,23 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you request to add a team as a child, a request is sent to the maintainers of the child team. Once a maintainer of the child team approves your request, the child team is nested under the parent team in your organization's hierarchy.
 
 If you're an organization owner or you have team maintainer permissions in both the child team and the parent team, you can add the child team without requesting approval or change the child team's parent from the child team's settings page. For more information, see "[Moving a team in your organization's hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. In the list of teams, click the name of the team where you'd like to add the child team. ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
 5. At the top of the team page, click {% octicon "people" aria-label="The people icon" %} **Teams**. ![Teams tab on a team page](/assets/images/help/teams/team-teams-tab.png)
 6. Click **Add a team**. ![Add a team button on a team page](/assets/images/help/teams/add-a-team.png)
 7. Type the name of the team you'd like to add as a child team, and select it from the drop-down list. ![Text box to type and drop-down menu to select the name of the child team](/assets/images/help/teams/type-child-team-name.png)
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Click **Confirm changes** to send a request to add the child team. ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### 더 읽을거리

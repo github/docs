@@ -1,25 +1,27 @@
 ---
 title: Manually running a workflow
-intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the REST API or from the Actions tab on {{ site.data.variables.product.prodname_dotcom }}.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the REST API or from the Actions tab on {% data variables.product.prodname_dotcom %}.'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+### Configuring a workflow to run manually
 
-### Running a workflow on {{ site.data.variables.product.prodname_dotcom }} 
+To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event. For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
-To trigger the `workflow_dispatch` event on {{ site.data.variables.product.prodname_dotcom }}, your workflow must be in the default branch. Follow these steps to manually trigger a workflow run.
+### Running a workflow on {% data variables.product.prodname_dotcom %} 
 
-{{ site.data.reusables.repositories.permissions-statement-read }}
+To trigger the `workflow_dispatch` event on {% data variables.product.prodname_dotcom %}, your workflow must be in the default branch. Follow these steps to manually trigger a workflow run.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.permissions-statement-read %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to run.
 ![actions select workflow](/assets/images/actions-select-workflow.png)
 1. Above the list of workflow runs, select **Run workflow**.

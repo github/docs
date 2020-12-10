@@ -1,6 +1,6 @@
 ---
 title: 从团队和组织中移除用户
-intro: 如果组织的成员不再需要某些仓库的访问权限，您可以从允许权限的团队中移除他们。 如果组织的成员不再需要组织拥有的任何仓库的访问权限 ，则可以从组织中移除他们。
+intro: '如果组织的成员不再需要某些仓库的访问权限，您可以从允许权限的团队中移除他们。 如果组织的成员不再需要组织拥有的任何仓库的访问权限 ，则可以从组织中移除他们。'
 redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
@@ -19,24 +19,24 @@ versions:
 
 {% warning %}
 
-**注**：{{ site.data.reusables.enterprise_management_console.badge_indicator }}
+**注**：{% data reusables.enterprise_management_console.badge_indicator %}
 
 要移除已同步到 LDAP 组的某个团队的现有成员，请联系您的 LDAP 管理员。
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 4. 选择您想要删除的一个或多个人员。 ![组织成员旁的复选框](/assets/images/help/teams/team-member-check-box.png)
 5. 在团队成员列表上方，使用下拉菜单，然后单击 **Remove from team（从团队中删除）**。 ![包含更改角色选项的下拉菜单](/assets/images/help/teams/bulk-edit-drop-down.png)
 
 ### 从组织中移除用户
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. 在您想要从组织中移除的用户的名称旁，单击复选框。![Remove user 复选框](/assets/images/help/organizations/Organization-remove-user.png)
 5. 在页面顶部的组织名称下，单击 **Remove from organization**。 ![从组织删除按钮](/assets/images/help/organizations/Organization-remove-from-organization-button.png)
 
-{{ site.data.reusables.organizations.data_saved_for_reinstating_a_former_org_member }}
+{% data reusables.organizations.data_saved_for_reinstating_a_former_org_member %}

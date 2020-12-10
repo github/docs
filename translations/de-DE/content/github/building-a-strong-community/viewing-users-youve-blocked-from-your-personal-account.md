@@ -1,6 +1,6 @@
 ---
-title: 'Benutzer anzeigen, die Du für Dein persönliches Konto blockiert hast'
-intro: 'Du kannst eine Liste sämtlicher Benutzer anzeigen, die Du in Deinem persönlichen Konto blockiert hast.'
+title: Benutzer anzeigen, die Du für Dein persönliches Konto blockiert hast
+intro: Du kannst eine Liste sämtlicher Benutzer anzeigen, die Du in Deinem persönlichen Konto blockiert hast.
 redirect_from:
   - /articles/viewing-users-you-ve-blocked-from-your-personal-account
   - /articles/viewing-users-youve-blocked-from-your-personal-account
@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. Überprüfe unter „Blocked users“ (Blockierte Benutzer) die Benutzer, die Du in Deinem Konto gesperrt hast. ![Liste der gesperrten Benutzer](/assets/images/help/settings/list-of-blocked-users.png)
 
 ### Weiterführende Informationen

@@ -1,1 +1,1 @@
-La aplicación ejecutora de {{ site.data.variables.product.prodname_actions }} es de código abierto. Puedes contribuir y emitir informes de problemas en el repositorio [runner](https://github.com/actions/runner).
+La aplicación ejecutora de {% data variables.product.prodname_actions %} es de código abierto. Puedes contribuir y emitir informes de problemas en el repositorio [runner](https://github.com/actions/runner).

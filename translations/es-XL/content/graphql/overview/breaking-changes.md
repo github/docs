@@ -1,6 +1,6 @@
 ---
 title: Cambios sustanciales
-intro: 'Aprende sobre los cambios sustanciales recientes y venideros a la API de GraphQL de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprende sobre los cambios sustanciales recientes y venideros a la API de GraphQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/breaking_changes
 versions:

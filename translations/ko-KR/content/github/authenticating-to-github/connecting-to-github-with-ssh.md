@@ -1,6 +1,6 @@
 ---
 title: Connecting to GitHub with SSH
-intro: 'You can connect to {{ site.data.variables.product.product_name }} using SSH.'
+intro: 'You can connect to {% data variables.product.product_name %} using SSH.'
 redirect_from:
   - /key-setup-redirect/
   - /linux-key-setup/
@@ -14,5 +14,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

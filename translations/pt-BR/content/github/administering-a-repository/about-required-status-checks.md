@@ -1,12 +1,13 @@
 ---
 title: Sobre verificações de status obrigatórias
 intro: As verificações de status obrigatórias garantem que todos os testes de CI sejam aprovados antes que os colaboradores possam fazer alterações em um branch protegido.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre verificações de status obrigatórias
@@ -19,7 +20,7 @@ Depois de habilitar as verificações de status obrigatórias, todas elas dever�
 
 {% tip %}
 
-**Observação:** Qualquer pessoa ou integração com permissões de gravação em um repositório pode configurar o estado de qualquer verificação de status no repositório. O {{ site.data.variables.product.product_name }} não analisa se o autor de uma verificação está autorizado a criar uma verificação com um determinado nome ou modificar um status existente. Antes de realizar o merge de uma pull request, você deve verificar se o autor de cada status, listado na caixa de merge, é esperado.
+**Observação:** Qualquer pessoa ou integração com permissões de gravação em um repositório pode configurar o estado de qualquer verificação de status no repositório. O {% data variables.product.product_name %} não analisa se o autor de uma verificação está autorizado a criar uma verificação com um determinado nome ou modificar um status existente. Antes de realizar o merge de uma pull request, você deve verificar se o autor de cada status, listado na caixa de merge, é esperado.
 
 {% endtip %}
 
@@ -35,7 +36,7 @@ Você pode optar por tornar mais ou menos rígidas as verificações de status, 
 
 ### Solução de problemas de verificações de status necessárias
 
-Se você tiver uma verificação e um status com o mesmo nome e selecionar esse nome como uma verificação de status obrigatória, a verificação e o status serão obrigatórios. Para obter mais informações, consulte "[Verificações](/v3/checks/)".
+Se você tiver uma verificação e um status com o mesmo nome e selecionar esse nome como uma verificação de status obrigatória, a verificação e o status serão obrigatórios. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)".
 
 Após configuração das verificações de status obrigatórias, o branch deverá ser atualizado com o branch base antes da ação de merge. Isso garante que o branch foi testado com o código mais recente do branch base. Se o branch estiver desatualizado, você precisará fazer merge do branch base no seu branch.
 
@@ -59,9 +60,9 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
-Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. Se o commit de mescla teste tiver um status, ele deve passar. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. Para obter mais informações sobre os commits de mescla teste, consulte "[Pull requests](/v3/pulls/#response-1)".
+Por vezes, os resultados das verificações de status para o commit de mescla teste e o commit principal entrarão em conflito. Se o commit de mescla teste tiver um status, ele deve passar. Caso contrário, o status do commit principal deve passar antes de você poder mesclar o branch. Para obter mais informações sobre os commits de mescla teste, consulte "[Pull requests](/rest/reference/pulls#response-1)".
 
 ![Branch com commits de mescla conflitantes](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}

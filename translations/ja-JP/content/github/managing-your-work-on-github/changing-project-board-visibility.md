@@ -1,14 +1,15 @@
 ---
 title: プロジェクトボードの表示設定の変更
-intro: Organization のオーナーあるいはプロジェクトボードの管理者は、プロジェクトボードをパブリックまたはプライベートに設定できます。
+intro: 'Organization のオーナーあるいはプロジェクトボードの管理者は、プロジェクトボードをパブリックまたはプライベートに設定できます。'
 redirect_from:
   - /articles/changing-project-board-visibility
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.project-management.project-board-visibility }}
+{% data reusables.project-management.project-board-visibility %}
 
 {% tip %}
 
@@ -17,6 +18,6 @@ versions:
 {% endtip %}
 
 1. パブリックまたはプライベートに設定したいプロジェクトボードに移動します。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. [Visibility] の下にある、[**Public**] または [**Private**] を選択します。 次に、[**Save**] をクリックします。 ![[Public] と [Private] のラジオボタン](/assets/images/help/projects/project-board-visibility-options.png)

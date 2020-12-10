@@ -1,6 +1,6 @@
 ---
 title: 'Error: SSL certificate problem, verify that the CA cert is OK'
-intro: 'このエラーは、CA ルート証明書の期限が切れていることを示しています。 CA ルート証明書を更新する必要がある場合は、{{ site.data.variables.product.product_name }} リポジトリからプッシュまたはプルすることはできません。'
+intro: 'このエラーは、CA ルート証明書の期限が切れていることを示しています。 CA ルート証明書を更新する必要がある場合は、{% data variables.product.product_name %} リポジトリからプッシュまたはプルすることはできません。'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:
@@ -10,8 +10,8 @@ versions:
 以下のようなエラーが表示されます:
 
 ```shell
-$ git push -u github.master
-> fatal: 'github.master' does not appear to be a git repository
+$ git push -u github.main
+> fatal: 'github.main' does not appear to be a git repository
 > fatal: The remote end hung up unexpectedly
 
 $ git pull -u github

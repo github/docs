@@ -1,7 +1,7 @@
 ---
 title: Preparar para exigir o logon único SAML na organização
 intro: 'Antes de exigir o logon único SAML na organização, você deve verificar a associação da organização e configurar as definições de conexão para seu provedor de identidade.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
@@ -16,7 +16,7 @@ Antes de exigir o SAML SSO na organização, você deve:
 - Se ainda não o fez, conecte seu IdP à organização. Para obter mais informações, consulte "[Conectar o provedor de identidade à sua organização](/articles/connecting-your-identity-provider-to-your-organization)".
 - Certifique-se de que os integrantes da organização registraram e vincularam suas contas ao IdP.
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 ### Leia mais
 

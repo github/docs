@@ -1,19 +1,20 @@
 ---
 title: Git Deinen Signaturschlüssel mitteilen
-intro: 'Für die lokale Signatur von Commits musst Du Git den für die Signatur verwendeten GPG-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} oder X.509-{% endif %}Schlüssel mitteilen.'
+intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}
 
 ### Git Deinen GPG-Schlüssel mitteilen
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {{ site.data.variables.product.product_name }}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% note %}
 
@@ -23,10 +24,10 @@ Wenn Du keinen GPG-Schlüssel hast, der Deiner Beitragender-Identität entsprich
 
 Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwenden ist.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Wenn Du die GPG-Suite nicht verwendest, füge den nachfolgenden Text ein, um den GPG-Schlüssel Deinem Bash-Profil hinzuzufügen:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
@@ -38,7 +39,7 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 
   {% endnote %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endmac %}
 
@@ -46,7 +47,7 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 
 ### Git Deinen GPG-Schlüssel mitteilen
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {{ site.data.variables.product.product_name }}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% note %}
 
@@ -56,12 +57,12 @@ Wenn Du keinen GPG-Schlüssel hast, der Deiner Beitragender-Identität entsprich
 
 Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwenden ist.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endwindows %}
 
@@ -69,13 +70,13 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 
 {% note %}
 
-**Hinweis:** X.509-Schlüssel werden unter Linux nicht unterstützt. Die Konfiguration von Verschlüsselungs- und Signaturservices in gpgsm wird von {{ site.data.variables.product.product_name }} derzeit noch nicht unterstützt. Weitere Informationen findest Du im Thema „[gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html)“ in der GnuPG-Dokumentation.
+**Hinweis:** X.509-Schlüssel werden unter Linux nicht unterstützt. Die Konfiguration von Verschlüsselungs- und Signaturservices in gpgsm wird von {% data variables.product.product_name %} derzeit noch nicht unterstützt. Weitere Informationen findest Du im Thema „[gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html)“ in der GnuPG-Dokumentation.
 
 {% endnote %}
 
 ### Git Deinen GPG-Schlüssel mitteilen
 
-Wenn Du einen GPG-Schlüssel verwendest, der mit Deiner Beitragender-Identität und Deiner verifizierten und mit Deinem {{ site.data.variables.product.product_name }}-Konto verknüpften E-Mail-Adresse übereinstimmt, kannst Du beginnen, Commits und Tags zu signieren.
+Wenn Sie einen GPG-Schlüssel verwenden, der mit Ihrer Beitragenderidentität und Ihrer verifizierten und mit Ihrem {% data variables.product.product_name %}-Konto verknüpften E-Mail-Adresse übereinstimmt, können Sie beginnen, Commits und Tags zu signieren.
 
 {% note %}
 
@@ -85,10 +86,10 @@ Wenn Du keinen GPG-Schlüssel hast, der Deiner Beitragender-Identität entsprich
 
 Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwenden ist.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Um Deinen GPG-Schlüssel zu Deinem Bash-Profil hinzuzufügen, füge den folgenden Text ein:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile

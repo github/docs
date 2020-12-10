@@ -5,10 +5,11 @@ redirect_from:
   - /articles/commenting-on-the-diff-of-a-pull-request/
   - /articles/commenting-on-differences-between-files/
   - /articles/commenting-on-a-pull-request
-intro: リポジトリのプルリクエストのオープン後、コラボレーターや Team メンバーは、特定の 2 つのブランチ間におけるファイルの比較について、またプロジェクト全体についてコメントできます。
+intro: 'リポジトリのプルリクエストのオープン後、コラボレーターや Team メンバーは、特定の 2 つのブランチ間におけるファイルの比較について、またプロジェクト全体についてコメントできます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのコメントについて
@@ -32,27 +33,27 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 {% tip %}
 
 **参考:**
-- プルリクエストのコメントては、@メンション、絵文字、参照など、{{ site.data.variables.product.product_name }}の通常のコメントにおいてサポートされている[フォーマット](/categories/writing-on-github)がサポートされています。
+- プルリクエストのコメントては、@メンション、絵文字、参照など、{% data variables.product.product_name %}の通常のコメントにおいてサポートされている[フォーマット](/categories/writing-on-github)がサポートされています。
 - [**Files changed**] のプルリクエストには、コメントへの[リアクション](/articles/about-conversations-on-github#reacting-to-ideas-in-comments)を追加できます。
 
 {% endtip %}
 
 ### プルリクエストに行コメントを追加する
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、行コメントをしたいプルリクエストをクリックします。
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. 完了したら、[**Add single comment**] をクリックします。 ![インラインコメントウインドウ](/assets/images/help/commits/inline-comment.png)
 
 プルリクエストまたはリポジトリを Watch している全員が、コメントの通知を受信します。
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### 参考リンク
 
 - 「[コードスニペットへのパーマリンクを作成する](/articles/creating-a-permanent-link-to-a-code-snippet/)」
-{% if currentVersion == "free-pro-team@latest" %}- 「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
 {% endif %}

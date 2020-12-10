@@ -9,25 +9,25 @@ Para obtener más información acerca de cómo acceder a tus notificaciones web,
 
 ### Marcar una notificación como leída
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la lista de notificaciones no leídas, encuentra la notificación que desearías marcar como leída.
 1. En el lateral derecho de la notificación, haz clic en {% octicon "check" aria-label="The check symbol" %}. ![Botón para marcar una notificación única como leída](/assets/images/help/notifications/notifications_mark_individual_as_read.png)
 
 ### Marcar una notificación como no leída
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, haz clic en **Read (Leída)**. ![Botón de todas las notificaciones](/assets/images/help/notifications/sidebar_read_notifications.png)
 1. En la lista de notificaciones leídas, encuentra la notificación que desearías marcar como no leída.
 1. En el lateral derecho de la notificación, haz clic en {% octicon "dot-fill" aria-label="The dot symbol" %}. ![Botón para marcar una notificación como leída](/assets/images/help/notifications/notifications_mark_individual_as_unread.png)
 
 ### Marcar todas las notificaciones como leídas
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la esquina superior derecha de la página, haz clic en **Mark all as read (Marcar todas como leídas)**. ![Botón para marcar todas las notificaciones como leídas](/assets/images/help/notifications/notifications_mark_all_as_read.png)
 
 ### Marcar todas las notificaciones de un repositorio como leídas
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, haz clic en el nombre del repositorio para el cual desearías marcar todas las notificaciones como leídas.
 1. En la lista de notificaciones, en el lateral derecho del nombre del repositorio, haz clic en {% octicon "check" aria-label="The check symbol" %}. ![Botón para marcar todas las notificaciones de un repositorio como leídas](/assets/images/help/notifications/notifications_repositories_mark_all_as_read.png)
 

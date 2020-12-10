@@ -1,11 +1,12 @@
 ---
 title: リモートの名前を変更する
-intro: 「git remote rename」コマンドを使用して、既存のリモートの名前を変更します。
+intro: '「git remote rename」コマンドを使用して、既存のリモートの名前を変更します。'
 redirect_from:
   - /articles/renaming-a-remote
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote rename` コマンドは、次の 2 つの引数を取ります:
@@ -15,21 +16,21 @@ versions:
 
 ### サンプル
 
-These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
+次の例は (推奨されるとおり) [HTTPS を使用してクローンを作成](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)したと想定しています。
 
 ```shell
 $ git remote -v
 # 既存のリモートを表示
-> origin https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
-> origin https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
+> origin https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
+> origin https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
 
 $ git remote rename origin destination
 # リモート名を「origin」から「destination」に変更
 
 $ git remote -v
 # リモートの新しい名前を確認
-> destination https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
-> destination https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
+> destination https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
+> destination https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
 ```
 
 ### トラブルシューティング
@@ -45,8 +46,8 @@ $ git remote -v
 ```shell
 $ git remote -v
 # 既存のリモートを表示
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (push)
 ```
 
 #### Remote [新しい名前] already exists.

@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Você pode gerenciar chaves SSH em seus servidores ao automatizar scripts de implantação usando o encaminhamento do agente SSH, HTTPS com tokens do OAuth, chaves de implantação ou usuários de máquina.
@@ -56,9 +56,9 @@ Consulte o [nosso guia sobre automação Git com tokens][git-automation].
 
 ### Chaves de implantação
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
-{{ site.data.reusables.repositories.deploy-keys-write-access }}
+{% data reusables.repositories.deploy-keys-write-access %}
 
 ##### Prós
 
@@ -76,7 +76,7 @@ Consulte o [nosso guia sobre automação Git com tokens][git-automation].
 1.
 Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde você salva o par de chaves RSA público/privadas gerado.</li> 
    
-   2 No canto superior direito de qualquer página do {{ site.data.variables.product.product_name }}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
+   2 No canto superior direito de qualquer página do {% data variables.product.product_name %}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
 3 Na sua página de perfil, clique em **Repositórios** e, em seguida, clique no nome do seu repositório. ![Link dos repositórios](/assets/images/repos.png)
 4 No seu repositório, clique em **Configurações**. ![Configurações do repositório](/assets/images/repo-settings.png)
 5 Na barra lateral, clique em **Implantar Chaves** e, em seguida, clique em **Adicionar chave de implantação**. ![Link para adicionar chaves de implantação](/assets/images/add-deploy-key.png)
@@ -86,9 +86,43 @@ Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde vo
 
 
 
+##### Usar vários repositórios em um servidor
+
+Se você usar vários repositórios em um servidor, você deverá gerar um par de chaves dedicado para cada um. Você não pode reutilizar uma chave de implantação para vários repositórios.
+
+No arquivo de configuração do SSH do servidor (geralmente `~/.ssh/config`), adicione uma entrada de pseudônimo para cada repositório. Por exemplo:
+
+
+
+```bash
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+```
+
+
+* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}meu-GHE-hostname.com{% endif %}-repo-0` - Pseudônimo do repositório.
+* `Nome de host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}meu-GHE-hostname.com{% endif %}` - Configura o nome de host a ser usado com o pseudônimo.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Atribui uma chave privada ao pseudônimo.
+
+Em seguida, você pode usar o apelido do host para interagir com o repositório usando SSH, que usará a chave de deploy exclusiva atribuída a esse pseudônimo. Por exemplo:
+
+
+
+```bash
+$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+```
+
+
+
+
 ### Usuários máquina
 
-Se o seu servidor precisar acessar vários repositórios, você poderá criar uma conta nova no {{ site.data.variables.product.product_name }} e anexar uma chave SSH que será usada exclusivamente para automação. Como esta conta do {{ site.data.variables.product.product_name }} não será usada por uma pessoa, ela será denominada _usuário máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
+Se o seu servidor precisar acessar vários repositórios, você poderá criar uma conta nova no {% data variables.product.product_name %} e anexar uma chave SSH que será usada exclusivamente para automação. Como esta conta do {% data variables.product.product_name %} não será usada por uma pessoa, ela será denominada _usuário máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
 
 {% if currentVersion == "free-pro-team@latest" %}
 

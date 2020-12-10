@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de conectividad
-intro: 'Si tienes problemas para conectarte a {{ site.data.variables.product.prodname_dotcom }}, puedes solucionar los problemas de conexión. Utiliza la herramienta {{ site.data.variables.product.prodname_debug }} para diagnosticar problemas.'
+intro: 'Si tienes problemas para conectarte a {% data variables.product.prodname_dotcom %}, puedes solucionar los problemas de conexión. Utiliza la herramienta {% data variables.product.prodname_debug %} para diagnosticar problemas.'
 redirect_from:
   - /articles/troubleshooting-connectivity-problems
 versions:
@@ -8,15 +8,15 @@ versions:
 ---
 
 
-La mayoría de las veces, los problemas de conexión ocurren porque un firewall, servidor proxy, red corporativa u otra red está configurada de una forma que bloquea {{ site.data.variables.product.prodname_dotcom }}.
+La mayoría de las veces, los problemas de conexión ocurren porque un firewall, servidor proxy, red corporativa u otra red está configurada de una forma que bloquea {% data variables.product.prodname_dotcom %}.
 
-### Permitir las direcciones IP de {{ site.data.variables.product.prodname_dotcom }}
+### Permitir las direcciones IP de {% data variables.product.prodname_dotcom %}
 
-Asegúrate de que tu red esté configurada para permitir las direcciones IP de {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta "[Acerca de las direcciones IP de {{ site.data.variables.product.prodname_dotcom }}](/articles/about-github-s-ip-addresses)".
+Asegúrate de que tu red esté configurada para permitir las direcciones IP de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Acerca de las direcciones IP de {% data variables.product.prodname_dotcom %}](/articles/about-github-s-ip-addresses)".
 
 ### Utilizar la red de una empresa u organización
 
-Si tienes problemas de conectividad con la red de tu empresa u organización, consulta con tu administrador de red para saber si se le aplican reglas a la red para bloquear determinados tráficos. Si ya existen reglas configuradas, consulta con tu administrador de red para permitir el tráfico hacia {{ site.data.variables.product.prodname_dotcom }}.
+Si tienes problemas de conectividad con la red de tu empresa u organización, consulta con tu administrador de red para saber si se le aplican reglas a la red para bloquear determinados tráficos. Si ya existen reglas configuradas, consulta con tu administrador de red para permitir el tráfico hacia {% data variables.product.prodname_dotcom %}.
 
 ### Solucionar problemas de captcha
 
@@ -28,16 +28,16 @@ Si no puedes verificar con el captcha:
 
 ### Cambiar métodos de clonación
 
-Cambiar desde la clonación por SSH a la clonación por HTTPS, o viceversa, puede mejorar la conectividad. Para obtener más información, consulta "[Clonar un repositorio desde {{ site.data.variables.product.prodname_dotcom }}](/articles/cloning-a-repository-from-github)".
+Cambiar desde la clonación por SSH a la clonación por HTTPS, o viceversa, puede mejorar la conectividad. Para obtener más información, consulta "[Clonar un repositorio desde {% data variables.product.prodname_dotcom %}](/articles/cloning-a-repository-from-github)".
 
 Si están ocurriendo interrupciones con SSH, consulta "[Error: Número de archivo erróneo](/articles/error-bad-file-number)".
 
 ### Solucionar problemas de descargas lentas y conexiones lentas intermitentes
 
-{{ site.data.variables.product.prodname_dotcom }} no alterna el ancho de banda por usuario.
+{% data variables.product.prodname_dotcom %} no alterna el ancho de banda por usuario.
 
-Si tienes conexiones lentas en determinados momentos del día, pero no en otros, las velocidades lentas normalmente se deben a la congestión de red. Ya que {{ site.data.variables.product.prodname_dotcom }} no puede resolver congestiones de red, debes escalar el problema a tu proveedor de servicio de internet.
+Si tienes conexiones lentas en determinados momentos del día, pero no en otros, las velocidades lentas normalmente se deben a la congestión de red. Ya que {% data variables.product.prodname_dotcom %} no puede resolver congestiones de red, debes escalar el problema a tu proveedor de servicio de internet.
 
-### Solucionar problemas con {{ site.data.variables.product.prodname_debug }}
+### Solucionar problemas con {% data variables.product.prodname_debug %}
 
-Si has seguido todas las sugerencias para solucionar problemas antes detalladas y sigues teniendo problemas de conexión, puedes seguir las indicaciones del sitio {{ site.data.variables.product.prodname_debug }} para ejecutar pruebas y enviar un informe a {{ site.data.variables.product.prodname_dotcom }} Support (Asistencia). Para obtener más información, consulta [{{ site.data.variables.product.prodname_debug }}](https://github-debug.com/).
+Si has seguido todas las sugerencias para solucionar problemas antes detalladas y sigues teniendo problemas de conexión, puedes seguir las indicaciones del sitio {% data variables.product.prodname_debug %} para ejecutar pruebas y enviar un informe a {% data variables.product.prodname_dotcom %} Support (Asistencia). Para obtener más información, consulta [{% data variables.product.prodname_debug %}](https://github-debug.com/).

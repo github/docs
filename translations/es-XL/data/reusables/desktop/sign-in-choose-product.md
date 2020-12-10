@@ -1,1 +1,1 @@
-1. Inicia sesión en {{ site.data.variables.product.prodname_dotcom }} o {{ site.data.variables.product.prodname_enterprise }}.
+1. Inicia sesión en {% data variables.product.prodname_dotcom %} o {% data variables.product.prodname_enterprise %}.

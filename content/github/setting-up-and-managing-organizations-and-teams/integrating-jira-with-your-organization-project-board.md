@@ -5,8 +5,9 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 2. In the left sidebar under **Organization settings**, click the name of your organization.
 ![Sidebar organization name](/assets/images/help/settings/organization-settings-from-sidebar.png)
 3. In the left sidebar under **Developer settings**, click **OAuth applications**.
@@ -19,7 +20,7 @@ versions:
 ![Register application button](/assets/images/help/oauth/register-application-button.png)
 9. Under **Organization owned applications**, note the "Client ID" and "Client Secret" values.
 ![Client ID and Client Secret](/assets/images/help/oauth/client-id-and-secret.png)
-{{ site.data.reusables.user_settings.jira_help_docs }}
+{% data reusables.user_settings.jira_help_docs %}
 
 ### Further reading
 

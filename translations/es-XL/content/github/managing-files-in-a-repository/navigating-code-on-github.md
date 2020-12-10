@@ -1,13 +1,13 @@
 ---
 title: Código de navegación en GitHub
-intro: 'Puedes comprender las relaciones dentro y a través de los repositorios al navegar directamente por código en {{ site.data.variables.product.product_name }}.'
+intro: 'Puedes comprender las relaciones dentro y a través de los repositorios al navegar directamente por código en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
 ---
 
-### Acerca de la navegación de código en {{ site.data.variables.product.prodname_dotcom }}
+### Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
 
 Las funciones del código de navegación usan la biblioteca de código abierto [semántica</code>](https://github.com/github/semantic). Los siguientes idiomas son compatibles:
 - CodeQL

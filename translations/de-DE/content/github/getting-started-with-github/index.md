@@ -1,7 +1,7 @@
 ---
 title: Erste Schritte mit GitHub
 shortTitle: Erste Schritte
-intro: 'Informieren Dich über die Produkte von {{ site.data.variables.product.prodname_dotcom }}, erstelle ein Konto, und erkunde die {{ site.data.variables.product.prodname_dotcom }}-Community.'
+intro: 'Informieren Dich über die Produkte von {% data variables.product.prodname_dotcom %}, erstelle ein Konto, und erkunde die {% data variables.product.prodname_dotcom %}-Community.'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/
@@ -15,6 +15,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

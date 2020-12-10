@@ -1,11 +1,12 @@
 ---
 title: Usar um endereço de e-mail verificado na chave GPG
-intro: 'Ao verificar uma assinatura, o {{ site.data.variables.product.product_name }} confere se o endereço de e-mail do committer ou tagger corresponde a um endereço de e-mail das identidades da chave GPG e se é um endereço de e-mail verificado na conta do usuário. Isso garante que a chave pertence a você e que você é o criador do commit ou da tag.'
+intro: 'Ao verificar uma assinatura, o {% data variables.product.product_name %} confere se o endereço de e-mail do committer ou tagger corresponde a um endereço de e-mail das identidades da chave GPG e se é um endereço de e-mail verificado na conta do usuário. Isso garante que a chave pertence a você e que você é o criador do commit ou da tag.'
 redirect_from:
   - /articles/using-a-verified-email-address-in-your-gpg-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

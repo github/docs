@@ -1,12 +1,13 @@
 ---
 title: Visualizar commits em um repositório
-intro: 'No gráfico de commits, é possível ver todos os commits feitos em um repositório no ano passado (exceto commits de merge).'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+intro: No gráfico de commits, é possível ver todos os commits feitos em um repositório no ano passado (exceto commits de merge).
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/visualizing-commits-in-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O gráfico superior mostra commits do ano inteiro, por semana.
@@ -19,6 +20,6 @@ O gráfico inferior mostra a média de commits por dia da semana para a semana s
 
 ### Acessar o gráfico de commits
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. Na barra lateral esquerda, clique em **Commits** (Commits). ![Guia Commits (Commits)](/assets/images/help/graphs/commits_tab.png)

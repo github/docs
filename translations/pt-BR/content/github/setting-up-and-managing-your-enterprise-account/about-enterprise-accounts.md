@@ -1,7 +1,7 @@
 ---
 title: Sobre contas corporativas
-intro: 'Com o {{ site.data.variables.product.prodname_ghe_cloud }}, você pode criar uma conta corporativa para permitir a colaboração entre suas organizações, ao mesmo tempo que fornece aos administradores um único ponto de visibilidade e gerenciamento.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'Com o {% data variables.product.prodname_ghe_cloud %}, você pode criar uma conta corporativa para permitir a colaboração entre suas organizações, ao mesmo tempo que fornece aos administradores um único ponto de visibilidade e gerenciamento.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
@@ -12,22 +12,22 @@ versions:
 
 ### Sobre contas corporativas
 
-Uma conta corporativa permite que você gerencie múltiplas organizações de {{ site.data.variables.product.prodname_dotcom }} e instâncias de {{ site.data.variables.product.prodname_ghe_server }}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {{ site.data.variables.product.prodname_dotcom }}. Os administradores corporativos podem gerenciar configurações e preferências, como:
+Uma conta corporativa permite que você gerencie múltiplas organizações {% data variables.product.prodname_dotcom %} e instâncias {% data variables.product.prodname_ghe_server %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
 
 - Acesso e gerenciamento de integrantes (integrantes da organização, colaboradores externos)
-- Faturamento e uso de instâncias de ({{ site.data.variables.product.prodname_ghe_server }}, licenças de usuário, pacotes de {{ site.data.variables.large_files.product_name_short }})
+- Faturamento e uso de instâncias de ({% data variables.product.prodname_ghe_server %}, licenças de usuário, pacotes de {% data variables.large_files.product_name_short %})
 - Segurança (logon único, autenticação de dois fatores)
-- Solicitações e compartilhamento de pacote de suporte com {{ site.data.variables.contact.enterprise_support }}
+- Solicitações e compartilhamento de pacote de suporte com {% data variables.contact.enterprise_support %}
 
-{{ site.data.reusables.enterprise-accounts.enterprise-accounts-billing }}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-Para obter mais informações sobre o {{ site.data.variables.product.prodname_ghe_cloud }} e {{ site.data.variables.product.prodname_ghe_server }}, consulte "[Produtos do {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)". Para atualizar para {{ site.data.variables.product.prodname_enterprise }} ou para começar com uma conta corporativa, entre em contato com {{ site.data.variables.contact.contact_enterprise_sales }}.
+Para obter mais informações sobre o {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %}, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Para atualizar para {% data variables.product.prodname_enterprise %} ou para começar com uma conta corporativa, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
 
 Para obter mais informações sobre acesso e gerenciamento de integrantes, consulte "[Gerenciar usuários na sua conta corporativa](/articles/managing-users-in-your-enterprise-account)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".
-{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 ### Gerenciar organizações vinculadas à sua conta corporativa
 
@@ -37,6 +37,8 @@ Os proprietários corporativos podem criar organizações e vinculá-las à empr
 
 Para obter mais informações, consulte "[Gerenciar organizações na sua conta corporativa](/articles/managing-organizations-in-your-enterprise-account)" e "[Configurar políticas para organizações em sua conta corporativa](/articles/setting-policies-for-organizations-in-your-enterprise-account)".
 
-### Gerenciando as licenças {{ site.data.variables.product.prodname_ghe_server }} vinculadas à sua conta corporativa
+{% endif %}
 
-{{ site.data.reusables.enterprise-accounts.admin-managing-licenses }}
+### Gerenciando as licenças {% data variables.product.prodname_ghe_server %} vinculadas à sua conta corporativa
+
+{% data reusables.enterprise-accounts.admin-managing-licenses %}

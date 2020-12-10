@@ -1,6 +1,6 @@
 ---
 title: Types of GitHub accounts
-intro: 'Your user account is your identity on {{ site.data.variables.product.product_location }}. Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
+intro: 'Your user account is your identity on {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,21 +10,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-For a full list of features for each {{ site.data.variables.product.product_name }} product, see "[{{ site.data.variables.product.prodname_dotcom }}'s products](/github/getting-started-with-github/githubs-products)."
+For a full list of features for each {% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Personal user accounts
 
-Every person who uses {{ site.data.variables.product.product_location }} has their own user account, which includes:
+Every person who uses {% data variables.product.product_location %} has their own user account, which includes:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-- Unlimited public and private repositories with {{ site.data.variables.product.prodname_free_user }}
-- Unlimited collaborators with {{ site.data.variables.product.prodname_free_user }}
-- Additional features for private repositories with {{ site.data.variables.product.prodname_pro }}
+- Unlimited public and private repositories with {% data variables.product.prodname_free_user %}
+- Unlimited collaborators with {% data variables.product.prodname_free_user %}
+- Additional features for private repositories with {% data variables.product.prodname_pro %}
 - Ability to [invite repository collaborators](/articles/inviting-collaborators-to-a-personal-repository)
 
 {% else %}
@@ -59,18 +60,18 @@ Every person who uses {{ site.data.variables.product.product_location }} has the
 
 Organizations are shared accounts where groups of people can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
 
-{{ site.data.reusables.organizations.organizations_include }}
+{% data reusables.organizations.organizations_include %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Enterprise accounts
 
-With enterprise accounts, you can centrally manage policy and billing for multiple {{ site.data.variables.product.prodname_dotcom_the_website }} organizations. {{ site.data.reusables.gated-features.enterprise-accounts }}
+With enterprise accounts, you can centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {{ site.data.variables.product.prodname_dotcom }} account](/articles/signing-up-for-a-new-github-account)"
-- "[{{ site.data.variables.product.prodname_dotcom }}'s products](/articles/githubs-products)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
+- "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)"{% endif %}
 - "[Creating a new organization account](/articles/creating-a-new-organization-account)"

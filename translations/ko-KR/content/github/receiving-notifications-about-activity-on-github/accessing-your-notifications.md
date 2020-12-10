@@ -1,15 +1,15 @@
 ---
 title: Accessing your notifications
-intro: 'Depending on how your notification delivery is set up, you can access your notifications on {{ site.data.variables.product.product_name }} or through your email client.'
+intro: 'Depending on how your notification delivery is set up, you can access your notifications on {% data variables.product.product_name %} or through your email client.'
 versions:
   enterprise-server: <2.21
 ---
 
 ### Accessing your web notifications
 
-To access web notifications on {{ site.data.variables.product.product_name }}, you must have web notifications enabled. For more information, see "[About web notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)" and "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."
+To access web notifications on {% data variables.product.product_name %}, you must have web notifications enabled. For more information, see "[About web notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)" and "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. In the left sidebar, to see all notifications for activity you're participating in, click **Participating**. ![Listing participating notifications](/assets/images/help/notifications/notifications_sidebar_participating.png)
 3. In the left sidebar, click the name of a repository to see notifications for a specific repository. ![Listing individual repository notifications](/assets/images/help/notifications/notifications_sidebar_specific_repos.png)
 

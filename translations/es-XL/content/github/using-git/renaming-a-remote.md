@@ -20,16 +20,16 @@ These examples assume you're [cloning using HTTPS](/articles/which-remote-url-sh
 ```shell
 $ git remote -v
 # Ver remotos existentes
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 
 $ git remote rename origin destination
 # Cambiar el nombre del remoto de 'origen' a 'destino'
 
 $ git remote -v
 # Verificar el nombre nuevo del remoto
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
 ### Solución de problemas
@@ -45,8 +45,8 @@ Puedes verificar los remotos que existen actualmente con el comando `git remote 
 ```shell
 $ git remote -v
 # Ver remotos existentes
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
 #### El [nombre nuevo] del remoto ya existe.

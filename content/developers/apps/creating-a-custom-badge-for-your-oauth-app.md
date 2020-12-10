@@ -1,11 +1,12 @@
 ---
 title: Creating a custom badge for your OAuth App
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_oauth_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_oauth_apps %}'
 redirect_from:
   - /apps/building-oauth-apps/creating-custom-badges-for-oauth-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 By default, a new OAuth App will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
@@ -25,17 +26,17 @@ You can change a custom badge for a GitHub App that already has an approved Mark
 
 To create a custom badge:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.oauth_apps }}
-{{ site.data.reusables.user-settings.modify_oauth_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+{% data reusables.user-settings.modify_oauth_app %}
 1. In "Application logo", drag-and-drop an image from a local folder or click **Upload new logo** to select an image from your computer.
 ![Upload a logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. Crop your picture. When you're done, click **Set new application logo**.
 ![Crop and set logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
 7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge. {% if currentVersion == "free-pro-team@latest" %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
 ![Badge background color](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
-{{ site.data.reusables.user-settings.update_oauth_app }}
+{% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

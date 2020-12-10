@@ -4,15 +4,16 @@ intro: Você pode exibir uma página de erro 404 personalizada quando as pessoas
 redirect_from:
   - /articles/custom-404-pages/
   - /articles/creating-a-custom-404-page-for-your-github-pages-site
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.pages.navigate-site-repo }}
-{{ site.data.reusables.pages.navigate-publishing-source }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.pages.navigate-publishing-source %}
+{% data reusables.files.add-file %}
 3. No campo de nome de arquivo, digite `404.html` ou `404.md`. ![Campo de nome de arquivo](/assets/images/help/pages/404-file-name.png)
 4. Se você nomeou seu arquivo como `404.md`, adicione a seguinte página inicial YAML no começo do arquivo:
   ```
@@ -21,10 +22,10 @@ versions:
   ---
   ```
 5. Abaixo da página inicial YAML, se houver, adicione o conteúdo que deseja exibir na página 404.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Leia mais
 

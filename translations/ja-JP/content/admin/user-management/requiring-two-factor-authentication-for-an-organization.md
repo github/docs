@@ -1,17 +1,17 @@
 ---
 title: Organizationに2要素認証を要求する
-intro: Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。
+intro: 'Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
   enterprise-server: '*'
 ---
 
-LDAP あるいはビルトイン認証を使っている場合、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスでは 2 要素認証がサポートされます。 Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
+When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. Organizationの管理者は、メンバーに対して2要素認証の有効化を必須とすることができます。
 
-{{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-詳しい情報については[2FAをサポートする認証方式に関するこのチャート](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)を参照してください。
+詳しい情報については「[2 要素認証について](/github/authenticating-to-github/about-two-factor-authentication)」を参照してください。
 
 ### 2 要素認証実施にあたっての要件
 
@@ -29,20 +29,20 @@ Organizationのメンバーと外部のコラボレータに2FAの利用を求�
 
 2要素認証の利用を要求する前に、Organizationのメンバーと外部のコラボレータに通知をして、アカウントに2FAをセットアップしてもらうよう頼むことをおすすめします。 [メンバー及び外部のコラボレータがすでに2FAを利用しているかの確認](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)は、OrganizationのPeopleタブから行えます。
 
-{{ site.data.reusables.profile.enterprise_access_profile}}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 
 ### Organization から削除された人々を表示する
 
 2 要素認証義務に従わなかったために Organization から自動的に削除された人々を見るには、検索フィールドで `reason:two_factor_requirement_non_compliance` を使って [Audit log を検索](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/)します。
 
-{{ site.data.reusables.audit_log.octicon_icon }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_site_admins }}
+{% data reusables.audit_log.octicon_icon %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
 4. `reason:two_factor_requirement_non_compliance`を使って検索クエリを入力してください。 ![2 要素認証への非準拠で削除されたユーザを示す Staff tools audit log イベント](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png) 検索結果を絞り込むには:
     - 削除された Organization のメンバーの場合、`action:org.remove_member AND reason:two_factor_requirement_non_compliance` と入力してください。
     - 削除された外部コラボレーターの場合、`action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance` と入力してください。

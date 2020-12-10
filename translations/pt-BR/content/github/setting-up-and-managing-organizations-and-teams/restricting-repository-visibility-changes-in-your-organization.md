@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode restringir a capacidade de alterar a visibilidade do repositório aos proprietários da organização ou permitir que integrantes com privilégios de administrador em um repositório também alterem a visibilidade do repositório.
+You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
 
 {% warning %}
 
@@ -17,9 +18,13 @@ Você pode restringir a capacidade de alterar a visibilidade do repositório aos
 {% endwarning %}
 
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. Em "Repository visibility change" (Alteração da visibilidade do repositório), desmarque a opção **Allow members to change repository visibilities for this organization** (Permitir que os integrantes alterem a visibilidade dos repositórios nesta organização). ![Caixa de seleção para permitir que os integrantes alterem a visibilidade dos repositórios](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Clique em **Salvar**.
+
+### Leia mais
+
+- "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"

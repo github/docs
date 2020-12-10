@@ -7,15 +7,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Profile organizations box](/assets/images/help/profile/profile_orgs_box.png)
 
 ### Changing the visibility of your organization membership
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Locate your username in the list of members. If the list is large, you can search for your username in the search box.
 ![Organization member search box](/assets/images/help/organizations/member-search-box.png)
 5. In the menu to the right of your username, choose a new visibility option:

@@ -1,1 +1,1 @@
-プルリクエストがマージされた後にheadブランチを削除すると、{{ site.data.variables.product.prodname_dotcom }}は同じリポジトリ内に削除されたブランチをベースブランチと指定しているオープンなプルリクエストがないかをチェックします。 {{ site.data.variables.product.prodname_dotcom }}はそういったプルリクエストを自動的に更新し、ベースブランチをマージされたプルリクエストのベースブランチに変更します。
+プルリクエストがマージされた後にheadブランチを削除すると、{% data variables.product.prodname_dotcom %}は同じリポジトリ内に削除されたブランチをベースブランチと指定しているオープンなプルリクエストがないかをチェックします。 {% data variables.product.prodname_dotcom %}はそういったプルリクエストを自動的に更新し、ベースブランチをマージされたプルリクエストのベースブランチに変更します。

@@ -11,7 +11,7 @@
   {% include graphql-deprecation %}
 
   {% if item.implements %}
-  <h4>{{ site.data.ui.products.graphql.reference.implements }}</h4>
+  <h4>{% data ui.products.graphql.reference.implements %}</h4>
   <ul>
   {% for interface in item.implements %}
   <li><code><a href="/{{ currentLanguage }}{{ interface.href }}">{{ interface.name }}</a></code></li>
@@ -20,7 +20,7 @@
   {% endif %}
 
   {% if item.fields %}
-  <h4>{{ site.data.ui.products.graphql.reference.fields }}</h4>
+  <h4>{% data ui.products.graphql.reference.fields %}</h4>
   {% assign fields = item.fields %}
   {% include graphql-fields %}
   {% endif %}

@@ -1,22 +1,23 @@
 ---
 title: Bilder rendern und vergleichen
-intro: '{{ site.data.variables.product.product_name }} kann verschiedene gängige Bildformate wie PNG, JPG, GIF, PSD und SVG darstellen. Neben der einfachen Wiedergabe bestehen aber auch verschiedene Möglichkeiten, Differenzen zwischen Versionen dieser Bildformate zu vergleichen.'
+intro: '{% data variables.product.product_name %} kann verschiedene gängige Bildformate wie PNG, JPG, GIF, PSD und SVG darstellen. Neben der einfachen Wiedergabe bestehen aber auch verschiedene Möglichkeiten, Differenzen zwischen Versionen dieser Bildformate zu vergleichen.'
 redirect_from:
   - /articles/rendering-and-diffing-images
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Hinweis:** Bei Verwendung des Firefox-Browsers werden SVGs auf {{ site.data.variables.product.prodname_dotcom }} unter Umständen nicht gerendert.
+**Hinweis:** Bei Verwendung des Firefox-Browsers werden SVGs auf {% data variables.product.prodname_dotcom %} unter Umständen nicht gerendert.
 
 {% endnote %}
 
 ### Bilder anzeigen
 
-Du kannst Bilder direkt in Deinem {{ site.data.variables.product.product_name }}-Repository suchen und aus dem Repository anzeigen:
+Sie können Bilder direkt in Ihrem {% data variables.product.product_name %}-Repository suchen und aus dem Repository anzeigen:
 
 ![Inline-Bild](/assets/images/help/images/view.png)
 

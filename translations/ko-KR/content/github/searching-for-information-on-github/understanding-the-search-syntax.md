@@ -1,12 +1,13 @@
 ---
 title: Understanding the search syntax
-intro: 'When searching {{ site.data.variables.product.product_name }}, you can construct queries that match specific numbers and words.'
+intro: 'When searching {% data variables.product.product_name %}, you can construct queries that match specific numbers and words.'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Query for values greater or less than another value
@@ -37,7 +38,7 @@ You can use the range syntax <code><em>n</em>..<em>n</em></code> to search for v
 
 ### Query for dates
 
-You can search for dates that are earlier or later than another date, or that fall within a range of dates, by using `>`, `>=`, `<`, `<=`, and [range queries](#query-for-values-between-a-range). {{ site.data.reusables.time_date.date_format }}
+You can search for dates that are earlier or later than another date, or that fall within a range of dates, by using `>`, `>=`, `<`, `<=`, and [range queries](#query-for-values-between-a-range). {% data reusables.time_date.date_format %}
 
 | Query                      | 예시                                                                                                                                                                                                                                                   |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +50,7 @@ You can search for dates that are earlier or later than another date, or that fa
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** matches issues created after April 30th, 2012 containing the word "cats."                                                      |
 | <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** matches issues created before July 4th, 2012 containing the word "cats."                                                       |
 
-{{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.time_format %}
 
 | Query                      | 예시                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -80,10 +81,10 @@ If your search query contains whitespace, you will need to surround it with quot
 
 Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Queries with usernames
 
-If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {{ site.data.variables.product.product_name }} username, to specify a specific person, or `@me`, to specify the current user.
+If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username, to specify a specific person, or `@me`, to specify the current user.
 
 | Query                | 예시                                                                                                                                                       |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |

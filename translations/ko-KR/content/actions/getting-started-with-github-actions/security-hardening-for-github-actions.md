@@ -1,25 +1,25 @@
 ---
 title: Security hardening for GitHub Actions
 shortTitle: Security hardening
-intro: 'Good security practices for using {{ site.data.variables.product.prodname_actions }} features.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Good security practices for using {% data variables.product.prodname_actions %} features.'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-This guide explains how to configure security hardening for certain {{ site.data.variables.product.prodname_actions }} features. If the {{ site.data.variables.product.prodname_actions }} concepts are unfamiliar, see "[Core concepts for GitHub Actions](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
+This guide explains how to configure security hardening for certain {% data variables.product.prodname_actions %} features. If the {% data variables.product.prodname_actions %} concepts are unfamiliar, see "[Core concepts for GitHub Actions](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
 
 ### Using secrets
 
-Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization or repository level, and allow you to store sensitive information in {{ site.data.variables.product.product_name }}.
+Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization or repository level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
-Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {{ site.data.variables.product.product_name }}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps the minimize risks related to accidental logging (for example, exception logs and request logs, among others) within {{ site.data.variables.product.product_name }}'s infrastructure. Once the secret is uploaded, {{ site.data.variables.product.product_name }} is then able to decrypt it so that it can be injected into the workflow runtime.
+Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps the minimize risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
 
-To help prevent accidental disclosure, {{ site.data.variables.product.product_name }} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
+To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
 
 - **Never use structured data as a secret**
     - Unstructured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
@@ -39,7 +39,7 @@ To help prevent accidental disclosure, {{ site.data.variables.product.product_na
 
 The individual jobs in a workflow can interact with (and compromise) other jobs. For example, a job querying the environment variables used by a later job, writing files to a shared directory that a later job processes, or even more directly by interacting with the Docker socket and inspecting other running containers and executing commands in them.
 
-This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and can use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {{ site.data.variables.product.prodname_dotcom }}. You can help mitigate this risk by following these good practices:
+This means that a compromise of a single action within a workflow can be very significant, as that compromised action would have access to all secrets configured on your repository, and can use the `GITHUB_TOKEN` to write to the repository. Consequently, there is significant risk in sourcing actions from third-party repositories on {% data variables.product.prodname_dotcom %}. You can help mitigate this risk by following these good practices:
 
 * **Pin actions to a full length commit SHA**
 
@@ -56,13 +56,13 @@ This means that a compromise of a single action within a workflow can be very si
 
 * **Pin actions to a tag only if you trust the creator**
 
-  Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {{ site.data.variables.product.prodname_marketplace }} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {{ site.data.variables.product.prodname_dotcom }}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
+  Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
 
 ### Considering cross-repository access
 
-{{ site.data.variables.product.product_name }} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` used in the workflow environment grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying workflow files. Users have specific permissions for each repository, so having the `GITHUB_TOKEN` for one repository grant access to another would impact the {{ site.data.variables.product.prodname_dotcom }} permission model if not implemented carefully. Similarly, caution must be taken when adding {{ site.data.variables.product.prodname_dotcom }} authentication tokens to the workflow environment, because this can also affect the {{ site.data.variables.product.prodname_dotcom }} permission model by inadvertently granting broad access to collaborators.
+{% data variables.product.product_name %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` used in the workflow environment grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying workflow files. Users have specific permissions for each repository, so having the `GITHUB_TOKEN` for one repository grant access to another would impact the {% data variables.product.prodname_dotcom %} permission model if not implemented carefully. Similarly, caution must be taken when adding {% data variables.product.prodname_dotcom %} authentication tokens to the workflow environment, because this can also affect the {% data variables.product.prodname_dotcom %} permission model by inadvertently granting broad access to collaborators.
 
-We have [a plan on the {{ site.data.variables.product.prodname_dotcom }} roadmap](https://github.com/github/roadmap/issues/74) to support a flow that allows cross-repository access within {{ site.data.variables.product.product_name }}, but this is not yet a supported feature. Currently, the only way to perform privileged cross-repository interactions is to place a {{ site.data.variables.product.prodname_dotcom }} authentication token or SSH key as a secret within the workflow environment. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
+We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](https://github.com/github/roadmap/issues/74) to support a flow that allows cross-repository access within {% data variables.product.product_name %}, but this is not yet a supported feature. Currently, the only way to perform privileged cross-repository interactions is to place a {% data variables.product.prodname_dotcom %} authentication token or SSH key as a secret within the workflow environment. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
 
 This list describes the recommended approaches for accessing repository data within a workflow, in descending order of preference:
 
@@ -72,8 +72,8 @@ This list describes the recommended approaches for accessing repository data wit
 2. **Repository deploy key**
     - Deploy keys are one of the only credential types that grant read or write access to a single repository, and can be used to interact with another repository within a workflow. For more information, see "[Managing deploy keys](/developers/overview/managing-deploy-keys#deploy-keys)."
     - Note that deploy keys can only clone and push to the repository using Git, and cannot be used to interact with the REST or GraphQL API, so they may not be appropriate for your requirements.
-3. **{{ site.data.variables.product.prodname_github_app }} tokens**
-    - {{ site.data.variables.product.prodname_github_apps }} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {{ site.data.variables.product.prodname_github_app }} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories.
+3. **{% data variables.product.prodname_github_app %} tokens**
+    - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories.
 4. **Personal access tokens**
     - You should never use personal access tokens from your own account. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your user account. This indirectly grants broad access to all write-access users of the repository the workflow is in. In addition, if you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging.
     - If a personal access token is used, it should be one that was generated for a new account that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
@@ -82,11 +82,11 @@ This list describes the recommended approaches for accessing repository data wit
 
 ### Hardening for self-hosted runners
 
-**{{ site.data.variables.product.prodname_dotcom }}-hosted** runners execute code within ephemeral and clean isolated virtual machines, meaning there is no way to persistently compromise this environment, or otherwise gain access to more information than was placed in this environment during the bootstrap process.
+**{% data variables.product.prodname_dotcom %}-hosted** runners execute code within ephemeral and clean isolated virtual machines, meaning there is no way to persistently compromise this environment, or otherwise gain access to more information than was placed in this environment during the bootstrap process.
 
-**Self-hosted** runners on {{ site.data.variables.product.product_name }} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+**Self-hosted** runners on {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {{ site.data.variables.product.product_name }}, because any user can open pull requests against the repository and compromise the environment. Similarly, be cautious when using self-hosted runners on private repositories, as anyone who can fork the repository and open a PR (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the more privileged `GITHUB_TOKEN` which grants write-access permissions on the repository.
+As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be cautious when using self-hosted runners on private repositories, as anyone who can fork the repository and open a PR (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the more privileged `GITHUB_TOKEN` which grants write-access permissions on the repository.
 
 You should also consider the environment of the self-hosted runner machines:
 - What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.

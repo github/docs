@@ -7,6 +7,7 @@ intro: Der Befehl `git remote set-url` ändert die vorhandene URL eines Remote-R
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -21,60 +22,59 @@ Der Befehl `git remote set-url` hat zwei Argumente:
 * eine neue URL für das Remote-Repository. Ein Beispiel:
   * Wenn Du eine Aktualisierung auf HTTPS durchführst, sieht die URL ähnlich aus wie folgende:
 ```shell
-https://{{ site.data.variables.command_line.backticks }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+https://{% data variables.command_line.backticks %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
   * Wenn Du eine Aktualisierung auf SSH durchführst, sieht die URL ähnlich aus wie folgende:
 ```shell
-git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
+git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
 
 ### Remote-URLs von SSH auf HTTPS umstellen
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 3. Liste die vorhandenen Remote-Repositorys auf, um den Namen des Remote-Repositorys zu erhalten, dessen URL Du ändern möchtest.
   ```shell
   $ git remote -v
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 4. Ändere die URL Deines Remote-Repositorys mit dem Befehl `git remote set-url` von SSH in HTTPS.
   ```shell
-  $ git remote set-url origin https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+  $ git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
 5. Überprüfe, ob die Remote-URL geändert wurde.
   ```shell
   $ git remote -v
   # Überprüfe die neue Remote URL
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-Wenn Du das nächste Mal den Befehl `git fetch`, `git pull` oder `git push` für das Remote-Repository ausführst, musst Du Deinen GitHub-Benutzernamen und Dein Passwort eingeben.
+Wenn Du das nächste Mal den Befehl `git fetch`, `git pull` oder `git push` für das Remote-Repository ausführst, musst Du Deinen GitHub-Benutzernamen und Dein Passwort eingeben. {% data reusables.user_settings.password-authentication-deprecation %}
 
-- Wenn Du die [Zwei-Faktor-Authentifizierung](/articles/securing-your-account-with-two-factor-authentication-2fa) aktiviert hast, musst Du [ein persönliches Zugriffstoken erstellen](/github/authenticating-to-github/creating-a-personal-access-token), das Du anstelle Deines GitHub-Passworts verwendest.
-- Sie können einen [Credential-Helper](/github/using-git/caching-your-github-credentials-in-git) verwenden, damit Git Ihren GitHub-Benutzernamen und Ihr -Passwort für die Kommunikation mit GitHub speichert.
+You can [use a credential helper](/github/using-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
 ### Switching remote URLs from HTTPS to SSH
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 3. Liste die vorhandenen Remote-Repositorys auf, um den Namen des Remote-Repositorys zu erhalten, dessen URL Du ändern möchtest.
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 4. Ändere die URL Deines Remote-Repositorys mit dem Befehl `git remote set-url` von HTTPS in SSH.
   ```shell
-  $ git remote set-url origin git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
+  $ git remote set-url origin git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
 5. Überprüfe, ob die Remote-URL geändert wurde.
   ```shell
   $ git remote -v
   # Überprüfe die neue Remote URL
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
 ### Problemlösungen
@@ -86,7 +86,7 @@ Beim Ändern eines Remote-Repositorys können folgende Fehler auftreten.
 Wenn dieser Fehler ausgegeben wird, ist das Remote-Repository, das Du ändern wolltest, nicht vorhanden:
 
 ```shell
-$ git remote set-url sofake https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife
+$ git remote set-url sofake https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: No such remote 'sofake'
 ```
 

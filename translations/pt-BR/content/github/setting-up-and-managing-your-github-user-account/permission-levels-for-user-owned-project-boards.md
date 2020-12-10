@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visão geral das permissões
@@ -14,7 +15,7 @@ Só existe um único proprietário de quadro de projeto pertencente a um usuári
 
 Existem três níveis de permissões para colaboradores de quadro de projeto:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 ### Permissões de proprietário e administrador em um quadro de projeto pertencente a um usuário
 

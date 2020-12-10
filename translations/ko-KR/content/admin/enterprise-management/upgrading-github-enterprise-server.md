@@ -1,6 +1,6 @@
 ---
 title: Upgrading GitHub Enterprise Server
-intro: 'Upgrade {{ site.data.variables.product.prodname_ghe_server }} to get the latest features and security updates.'
+intro: 'Upgrade {% data variables.product.prodname_ghe_server %} to get the latest features and security updates.'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
   - /enterprise/admin/articles/upgrading-to-the-latest-release/
@@ -20,8 +20,8 @@ versions:
 ### Preparing to upgrade
 
 1. Determine an upgrade strategy and choose a version to upgrade to. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
-3. Create a fresh backup of your primary instance with the {{ site.data.variables.product.prodname_enterprise_backup_utilities }}. For more information, see the [{{ site.data.variables.product.prodname_enterprise_backup_utilities }} README.md file](https://github.com/github/backup-utils#readme).
-4. If you are upgrading using an upgrade package, schedule a maintenance window for {{ site.data.variables.product.prodname_ghe_server }} end users. If you are using a hotpatch, maintenance mode is not required.
+3. Create a fresh backup of your primary instance with the {% data variables.product.prodname_enterprise_backup_utilities %}. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
+4. If you are upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users. If you are using a hotpatch, maintenance mode is not required.
 
   {% note %}
 
@@ -49,7 +49,7 @@ There are two types of snapshots:
 | 플랫폼                   | Snapshot method | Snapshot documentation URL                                                                                                                                                                             |
 | --------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | Disk            | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM              | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM              | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM              | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | Disk            | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM              | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -57,22 +57,22 @@ There are two types of snapshots:
 
 ### Upgrading with a hotpatch
 
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }} Using the {{ site.data.variables.enterprise.management_console }}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
+{% data reusables.enterprise_installation.hotpatching-explanation %} Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)."
 
 {% note %}
 
-**Note**: Installing a hotpatch using the {{ site.data.variables.enterprise.management_console }} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
+**Note**: Installing a hotpatch using the {% data variables.enterprise.management_console %} is not available in clustered environments. To install a hotpatch in a clustered environment, see "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)."
 
 {% endnote %}
 
 #### Upgrading a single appliance with a hotpatch
 
-##### Installing a hotpatch using the {{ site.data.variables.enterprise.management_console }}
+##### Installing a hotpatch using the {% data variables.enterprise.management_console %}
 
 1. Enable automatic updates. For more information, see "[Enabling automatic updates](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)."
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.updates-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.updates-tab %}
 4. When a new hotpatch has been downloaded, use the Install package drop-down menu:
     - To install immediately, select **Now**:
     - To install later, select a later date. ![Hotpatch installation date dropdown](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
@@ -80,11 +80,11 @@ There are two types of snapshots:
 
 ##### Installing a hotpatch using the administrative shell
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} Copy the URL for the upgrade hotpackage (*.hpkg* file).
-{{ site.data.reusables.enterprise_installation.download-package }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
+{% data reusables.enterprise_installation.download-package %}
 4. Run the `ghe-upgrade` command using the package file name:
   ```shell
   admin@<em>HOSTNAME</em>:~$ ghe-upgrade <em>GITHUB-UPGRADE.hpkg</em>
@@ -115,8 +115,8 @@ Appliances configured for high-availability and geo-replication use replica inst
 {% endnote %}
 
 1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
 ### Upgrading with an upgrade package
 
@@ -124,12 +124,12 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
 #### Upgrading a single appliance with an upgrade package
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} Select the appropriate platform and copy the URL for the upgrade package (*.pkg* file).
-{{ site.data.reusables.enterprise_installation.download-package }}
-4. Enable maintenance mode and wait for all active processes to complete on the {{ site.data.variables.product.prodname_ghe_server }} instance. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (*.pkg* file).
+{% data reusables.enterprise_installation.download-package %}
+4. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
   {% note %}
 
@@ -150,7 +150,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. For single appliance upgrades, disable maintenance mode so users can use {{ site.data.variables.product.product_location_enterprise }}.
+7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
   {% note %}
 
@@ -171,7 +171,7 @@ Appliances configured for high-availability and geo-replication use replica inst
 {% endwarning %}
 
 1. On the primary instance, enable maintenance mode and wait for all active processes to complete. For more information, see "[Enabling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)."
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
+{% data reusables.enterprise_installation.replica-ssh %}
 3. On the replica instance, or on all replica instances if you're running multiple replica instances as part of geo-replication, run `ghe-repl-stop` to stop replication.
 4. Upgrade the primary instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)."
 
@@ -184,12 +184,12 @@ Appliances configured for high-availability and geo-replication use replica inst
 {% endnote %}
 
 1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
-{{ site.data.reusables.enterprise_installation.start-replication }}
+{% data reusables.enterprise_installation.start-replication %}
 
-{{ site.data.reusables.enterprise_installation.replication-status }} If the command returns `Replication is not running`, the replication may still be starting. Wait about one minute before running `ghe-repl-status` again.
+{% data reusables.enterprise_installation.replication-status %} If the command returns `Replication is not running`, the replication may still be starting. Wait about one minute before running `ghe-repl-status` again.
 
    {% note %}
 
@@ -201,9 +201,9 @@ Appliances configured for high-availability and geo-replication use replica inst
    If `ghe-repl-status` didn't return `OK`, follow the steps below to manually start the replication.
 
    1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
-   {{ site.data.reusables.enterprise_installation.start-replication }}
-   {{ site.data.reusables.enterprise_installation.replication-status }}
-6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {{ site.data.variables.product.product_location_enterprise }}.
+   {% data reusables.enterprise_installation.start-replication %}
+   {% data reusables.enterprise_installation.replication-status %}
+6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ### Restoring from a failed upgrade
 
@@ -211,7 +211,7 @@ If an upgrade fails or is interrupted, you should revert your instance back to i
 
 #### Rolling back a patch release
 
-To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. {{ site.data.reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback }}
+To roll back a patch release, use the `ghe-upgrade` command with the `--allow-patch-rollback` switch. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)."
 

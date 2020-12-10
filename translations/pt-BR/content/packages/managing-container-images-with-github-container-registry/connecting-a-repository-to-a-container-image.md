@@ -1,30 +1,30 @@
 ---
 title: Conectar um repositório a uma imagem de contêiner
-intro: 'É possível vincular um repositório a uma imagem de contêiner localmente e no {{ site.data.variables.product.prodname_dotcom }}.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'É possível vincular um repositório a uma imagem de contêiner localmente e no {% data variables.product.prodname_dotcom %}.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
 Ao vincular um contêiner a um repositório, a página de destino do pacote mostrará informações e links do repositório, como, por exemplo, LEIAME.
 
-Para conectar um repositório e uma imagem de contêiner no {{ site.data.variables.product.prodname_dotcom }}, eles devem compartilhar o mesmo proprietário no {{ site.data.variables.product.prodname_dotcom }}. Por exemplo, `my_repo` e `hello_docker` são propriedade do usuário `monalisa`:
+Para conectar um repositório e uma imagem de contêiner no {% data variables.product.prodname_dotcom %}, eles devem compartilhar o mesmo proprietário no {% data variables.product.prodname_dotcom %}. Por exemplo, `my_repo` e `hello_docker` são propriedade do usuário `monalisa`:
 ```shell
 https://github.com/monalisa/my_repo
 https://github.com/monalisa/hello_docker
 ```
 
-### Conectar um repositório a uma imagem de contêiner de propriedade do usuário no {{ site.data.variables.product.prodname_dotcom }}
+### Conectar um repositório a uma imagem de contêiner de propriedade do usuário no {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.package_registry.package-settings-from-user-level }}
+{% data reusables.package_registry.package-settings-from-user-level %}
 
-{{ site.data.reusables.package_registry.repository_connection_steps }}
+{% data reusables.package_registry.repository_connection_steps %}
 
-### Conectar um repositório a uma imagem de contêiner de propriedade de organização no {{ site.data.variables.product.prodname_dotcom }}
+### Conectar um repositório a uma imagem de contêiner de propriedade de organização no {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.package_registry.package-settings-from-org-level }}
+{% data reusables.package_registry.package-settings-from-org-level %}
 
-{{ site.data.reusables.package_registry.repository_connection_steps }}
+{% data reusables.package_registry.repository_connection_steps %}
 
 ### Conectar um repositório a uma imagem de contêiner na linha de comando
 
@@ -62,14 +62,16 @@ https://github.com/monalisa/hello_docker
   $ docker tag 38f737a91f39 ghcr.io/monalisa/hello_docker:latest
   ```
 
-5. Se você ainda não o fez, efetue a autenticação no {{ site.data.variables.product.prodname_github_container_registry }}. Para obter mais informações, consulte "[Efetuar a autenticação no GitHub Container Registry](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-github-container-registry)".
+5. Se você ainda não o fez, efetue a autenticação em
+
+{% data variables.product.prodname_github_container_registry %}. Para obter mais informações, consulte "[Efetuar a autenticação no GitHub Container Registry](/packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images#authenticating-to-github-container-registry)".
     {% raw %}
     ```shell
     $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
     > Login Succeeded
     ```
     {% endraw %}
-6. Faça push da sua imagem de contêiner para {{ site.data.variables.product.prodname_github_container_registry }}.
+6. Faça push da sua imagem de contêiner para {% data variables.product.prodname_github_container_registry %}.
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE-NAME:TAG
   ```

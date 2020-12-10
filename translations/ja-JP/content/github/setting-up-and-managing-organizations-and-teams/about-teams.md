@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Organization 内の Team のリスト](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,17 +20,17 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 
 ![Team のメンションの画像](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-また、LDAP Sync を使って {{ site.data.variables.product.product_location_enterprise }}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{{ site.data.variables.product.product_location_enterprise }}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
+また、LDAP Sync を使って {% data variables.product.product_location %}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location %}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### Team の可視性
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### Team のページ
 
@@ -41,7 +42,7 @@ Organization のメンバーは、Team 内のディスカッションを作成�
 
 ### 入れ子チーム
 
-{{ site.data.variables.product.product_name }}の Organization では、複数レベルの入れ子チームでグループや会社の階層を反映させることができます。 親チームは複数の子チームを持つことができます。それぞれの子チームが持つことができる親チームは 1 つだけです。 シークレットチームを入れ子にすることはできません。
+{% data variables.product.product_name %}の Organization では、複数レベルの入れ子チームでグループや会社の階層を反映させることができます。 親チームは複数の子チームを持つことができます。それぞれの子チームが持つことができる親チームは 1 つだけです。 シークレットチームを入れ子にすることはできません。
 
 子チームは親のアクセス権限を引き継ぐので、大きなグループでの権限管理がシンプルになります。 子チームのメンバーは、親チームが@メンションされた場合にも通知を受けるので、複数グループの人々のコミュニケーションがシンプルになります。
 
@@ -55,11 +56,7 @@ Organization のメンバーは、Team 内のディスカッションを作成�
 
 Team を作るときには親を選択できます。あるいは、作成済みの Team を Organization の階層の中で移動させることもできます。 詳しい情報については[Organization 階層内での Team の移動](/articles/moving-a-team-in-your-organization-s-hierarchy)を参照してください。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
-
-{% endif %}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 ### Organization 内で Team を入れ子にする準備
 

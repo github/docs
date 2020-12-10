@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {{ site.data.variables.product.prodname_dotcom }}. To create your own query parameters, you must match the key and value pair.
+Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
 {% tip %}
 
@@ -24,9 +25,9 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 
 Query parameter | Example
 ---  | ---
-`body` | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&body=Fixes+the+problem.` creates a pull request, comparing the branches `master` and `pull-request-test`, with the comment "Fixes the problem" in the pull request body.
+`body` | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&body=Fixes+the+problem.` creates a pull request, comparing the branches `main` and `pull-request-test`, with the comment "Fixes the problem" in the pull request body.
 `title` | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` creates an issue with the label "bug" and title "New bug report."
-`labels` | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&labels=bug` creates a pull request, comparing the branches `master` and `pull-request-test`, with the label "bug."
+`labels` | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&labels=bug` creates a pull request, comparing the branches `main` and `pull-request-test`, with the label "bug."
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body.
 `milestone` | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` creates an issue with the milestone "testing milestones."
 `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
@@ -34,7 +35,7 @@ Query parameter | Example
 
 ### Filling issues and pull requests with custom templates
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 You can use the `template` query parameter to specify a template to automatically fill the issue or pull request body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` or `PULL_REQUEST_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository.
 

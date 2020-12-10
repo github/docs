@@ -7,13 +7,14 @@ redirect_from:
   - /enterprise/admin/user-management/troubleshooting-service-hooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Auslieferungen abrufen
 
 Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-Auslieferungen auf einem beliebigen Repository suchen.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navigieren Sie zu dem Repository, das Sie untersuchen.
 3. Klicken Sie auf der Navigationsseitenleiste auf den Link **Hooks**. ![Hooks-Seitenleiste](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Klicken Sie unter dem Dienst-Hook mit Problemen auf den Link **Latest Delivery** (Letzte Auslieferung). ![Hook-Details](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
@@ -21,7 +22,7 @@ Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-A
 
 ### Nutzlast anzeigen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navigieren Sie zu dem Repository, das Sie untersuchen.
 3. Klicken Sie auf der Navigationsseitenleiste auf den Link **Hooks**. ![Hooks-Seitenleiste](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Klicken Sie unter dem Dienst-Hook mit Problemen auf den Link **Latest Delivery** (Letzte Auslieferung).
@@ -31,7 +32,7 @@ Sie können nach Informationen für die letzte Antwort sämtlicher Dienst-Hook-A
 
 Auslieferungen werden 15 Tage lang gespeichert.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navigieren Sie zu dem Repository, das Sie untersuchen.
 3. Klicken Sie auf der Navigationsseitenleiste auf den Link **Hooks**. ![Hooks-Seitenleiste](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Klicken Sie unter dem Dienst-Hook mit Problemen auf den Link **Latest Delivery** (Letzte Auslieferung).

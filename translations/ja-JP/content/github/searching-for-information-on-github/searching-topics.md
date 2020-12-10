@@ -1,16 +1,17 @@
 ---
 title: トピックを検索する
-intro: '{{ site.data.variables.product.product_name }} 上のリポジトリと関連するトピックを検索できます。'
+intro: '{% data variables.product.product_name %} 上のリポジトリと関連するトピックを検索できます。'
 redirect_from:
   - /articles/searching-topics
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### トピックを {{ site.data.variables.product.product_name }} で検索
+### トピックを {% data variables.product.product_name %} で検索
 
-{{ site.data.variables.product.product_name }} 上でトピックを検索したり、関連するトピックを調べたり、特定のトピックに関連するリポジトリがどのくらいあるのかを確認したりできます。
+{% data variables.product.product_name %} 上でトピックを検索したり、関連するトピックを調べたり、特定のトピックに関連するリポジトリがどのくらいあるのかを確認したりできます。
 
 1. Https://github.com/search に移動します。
 2. トピックのキーワードを入力します。 ![検索フィールド](/assets/images/help/search/search-field.png)
@@ -22,17 +23,17 @@ versions:
 
 ### 検索修飾子で検索を絞り込む
 
-特定のトピックについてのリポジトリを調べたり、コントリビュートするプロジェクトを表示したり、{{ site.data.variables.product.product_name }} 上で最も人気のあるトピックを調べたりする場合、検索修飾子である `is:featured`、`is:curated`、`repositories:n`、および `created:YYYY-MM-DD` を使ってトピックを検索します。
+特定のトピックについてのリポジトリを調べたり、コントリビュートするプロジェクトを表示したり、{% data variables.product.product_name %} 上で最も人気のあるトピックを調べたりする場合、検索修飾子である `is:featured`、`is:curated`、`repositories:n`、および `created:YYYY-MM-DD` を使ってトピックを検索します。
 
-`is:featured` 検索修飾子は、{{ site.data.variables.product.product_name }} 上のほとんどのリポジトリのトピックの検索結果を絞り込みます。 また、これらのトピックは、https://github.com/topics/ に特集されています。
+`is:featured` 検索修飾子は、{% data variables.product.product_name %} 上のほとんどのリポジトリのトピックの検索結果を絞り込みます。 また、これらのトピックは、https://github.com/topics/ に特集されています。
 
 `is:curated` 検索修飾子は、検索結果を、コミュニティのメンバーが特別な情報を追加したトピックに限定します。 詳しい情報については、https://github.com/github/explore の「リポジトリを調べる」を参照してください。
 
 トピックは、日付パラメータと `created:` を使って、作成した日付に基づいてフィルタリングできます。また、`repositories:n` を使って、トピックに関連付けられているリポジトリの数でフィルタリングすることも可能です。 これら両方の修飾子では、[不等号や範囲の修飾子](/articles/understanding-the-search-syntax)を使うことができます。
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                       | サンプル                                                                                                                                                                                         |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

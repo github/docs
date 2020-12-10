@@ -1,6 +1,6 @@
 ---
 title: Escrever uma descrição da listagem para o seu aplicativo
-intro: 'Para [listar seu aplicativo](/marketplace/listing-on-github-marketplace/) no {{ site.data.variables.product.prodname_marketplace }}, você precisará escrever as descrições do seu aplicativo e fornecer imagens que seguem as diretrizes do GitHub.'
+intro: 'Para [listar seu aplicativo](/marketplace/listing-on-github-marketplace/) no {% data variables.product.prodname_marketplace %}, você precisará escrever as descrições do seu aplicativo e fornecer imagens que seguem as diretrizes do GitHub.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
@@ -22,13 +22,13 @@ Aqui estão as diretrizes sobre os campos que você precisará preencher na seç
 
 #### Nome da listagem
 
-O nome de seu aplicativo aparecerá [na página inicial do {{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace). O nome tem o limite de 255 caracteres.
+O nome de seu aplicativo aparecerá [na página inicial do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). O nome tem o limite de 255 caracteres.
 
 #### Descrição muito curta
 
-A comunidade verá a descrição "muito curta" sob o nome de seu aplicativo [na página inicial do {{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace).
+A comunidade verá a descrição "muito curta" sob o nome de seu aplicativo [na página inicial do {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
-![Descrição curta do aplicativo em {{ site.data.variables.product.prodname_marketplace }}](/assets/images/marketplace/marketplace_short_description.png)
+![Descrição curta do aplicativo em {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_short_description.png)
 
 ##### Comprimento
 
@@ -78,11 +78,11 @@ Recomendamos manter descrições curtas para com 40 a 80 caracteres. Embora voc�
 
 #### Categorias
 
-Os aplicativos em {{ site.data.variables.product.prodname_marketplace }} podem ser exibidos por categoria. Selecione a categoria que melhor descreve a principal funcionalidade do seu aplicativo no menu suspenso **categoria primária**, e opcionalmente, selecione uma **categoria secundária** que se encaixa no seu aplicativo.
+Os aplicativos em {% data variables.product.prodname_marketplace %} podem ser exibidos por categoria. Selecione a categoria que melhor descreve a principal funcionalidade do seu aplicativo no menu suspenso **categoria primária**, e opcionalmente, selecione uma **categoria secundária** que se encaixa no seu aplicativo.
 
 #### Linguagens compatíveis
 
-Se o seu aplicativo só funciona com idiomas específicos, selecione até 10 linguagens de programação com as quais o seu aplicativo é compatível. Esses idiomas são exibidos na página de listagem do {{ site.data.variables.product.prodname_marketplace }} do seu aplicativo. Este campo é opcional.
+Se o seu aplicativo só funciona com idiomas específicos, selecione até 10 linguagens de programação com as quais o seu aplicativo é compatível. Esses idiomas são exibidos na página de listagem do {% data variables.product.prodname_marketplace %} do seu aplicativo. Este campo é opcional.
 
 #### Listar URLs
 
@@ -98,15 +98,15 @@ Se o seu aplicativo só funciona com idiomas específicos, selecione até 10 lin
 
 ### Logotipo e cartão de recurso
 
-{{ site.data.variables.product.prodname_marketplace }} exibe todas as listagens com um logotipo quadrado dentro de um selo circular para distinguir visualmente os aplicativos.
+{% data variables.product.prodname_marketplace %} exibe todas as listagens com um logotipo quadrado dentro de um selo circular para distinguir visualmente os aplicativos.
 
 ![Imagens e logotipo do GitHub Marketplace](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-Um cartão de recursos consiste do logotipo, nome e uma imagem de fundo personalizada do seu aplicativo que capta a personalidade da sua marca. {{ site.data.variables.product.prodname_marketplace }} exibe este cartão se seu aplicativo for um dos quatro aplicativos destacado aleatoriamente na parte superior da [página inicial](https://github.com/marketplace). A descrição muito curta de cada aplicativo é exibida abaixo de seu cartão de recursos.
+Um cartão de recursos consiste do logotipo, nome e uma imagem de fundo personalizada do seu aplicativo que capta a personalidade da sua marca. {% data variables.product.prodname_marketplace %} exibe este cartão se seu aplicativo for um dos quatro aplicativos destacado aleatoriamente na parte superior da [página inicial](https://github.com/marketplace). A descrição muito curta de cada aplicativo é exibida abaixo de seu cartão de recursos.
 
 ![Cartão de recurso](/assets/images/marketplace/marketplace_feature_card.png)
 
-À medida que você faz o upload das imagens e seleciona as cores, sua listagem de rascunho do {{ site.data.variables.product.prodname_marketplace }} exibirá uma prévia do seu logotipo e do seu cartão de recurso.
+À medida que você faz o upload das imagens e seleciona as cores, sua listagem de rascunho do {% data variables.product.prodname_marketplace %} exibirá uma prévia do seu logotipo e do seu cartão de recurso.
 
 ##### Diretrizes para logotipos
 
@@ -122,21 +122,21 @@ Você deve enviar uma imagem personalizada para o logotipo. Escolha uma cor de f
 
 Você deve enviar uma imagem de fundo personalizada para o cartão de recurso. Para o nome do aplicativo, escolha uma cor do texto.
 
-- Use um padrão ou textura na sua imagem de fundo para dar ao seu cartão uma identidade visual e ajudá-lo a destacar-se com relação ao fundo escuro da página inicial do {{ site.data.variables.product.prodname_marketplace }}. Os cartões de recursos devem capturar a personalidade da sua marca.
+- Use um padrão ou textura na sua imagem de fundo para dar ao seu cartão uma identidade visual e ajudá-lo a destacar-se com relação ao fundo escuro da página inicial do {% data variables.product.prodname_marketplace %}. Os cartões de recursos devem capturar a personalidade da sua marca.
 - A iImagem de fundo mede 965 pixels x 482 pixels (largura x altura).
 - Escolha uma cor de texto para o nome do aplicativo que aparece claramente sobre a imagem de fundo.
 
 ### Detalhes da listagem
 
-Para acessar a página inicial do seu aplicativo, clique no nome do aplicativo na página inicial ou na página de categoria do {{ site.data.variables.product.prodname_marketplace }}. A página de destino exibe uma descrição mais longa do aplicativo, que inclui duas partes: uma "Descrição introdutória" e uma "Descrição detalhada".
+Para acessar a página inicial do seu aplicativo, clique no nome do aplicativo na página inicial ou na página de categoria do {% data variables.product.prodname_marketplace %}. A página de destino exibe uma descrição mais longa do aplicativo, que inclui duas partes: uma "Descrição introdutória" e uma "Descrição detalhada".
 
-A sua "Descrição introdutória" é exibida no topo da página inicial {{ site.data.variables.product.prodname_marketplace }} do seu aplicativo.
+A sua "Descrição introdutória" é exibida no topo da página inicial {% data variables.product.prodname_marketplace %} do seu aplicativo.
 
-![Descrição introdutória do {{ site.data.variables.product.prodname_marketplace }}](/assets/images/marketplace/marketplace_intro_description.png)
+![Descrição introdutória do {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_intro_description.png)
 
 Clicar em **Ler mais...**, exibirá a "Descrição detalhada".
 
-![Descrição detalhada do {{ site.data.variables.product.prodname_marketplace }}](/assets/images/marketplace/marketplace_detailed_description.png)
+![Descrição detalhada do {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_detailed_description.png)
 
 Siga estas instruções para escrever estas descrições.
 

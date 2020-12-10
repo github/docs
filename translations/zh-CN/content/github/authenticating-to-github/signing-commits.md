@@ -1,6 +1,6 @@
 ---
 title: 对提交签名
-intro: '您可以使用 GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} 或 S/MIME{% endif %} 在本地为提交签名。'
+intro: 您可以使用 GPG 或 S/MIME 在本地对提交进行签名。
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +35,14 @@ versions:
   # Creates a signed commit
   ```
 2. 如果您使用 GPG，则创建提交后，提供您[生成 GPG 密钥](/articles/generating-a-new-gpg-key)时设置的密码。
-3. 在本地完成创建提交后，将其推送到 {{ site.data.variables.product.product_name }} 上的远程仓库：
+3. 在本地完成创建提交后，将其推送到 {% data variables.product.product_name %} 上的远程仓库：
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. 在 {{ site.data.variables.product.product_name }} 上，导航到您的拉取请求。
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. 在
+{% data variables.product.product_name %} 上，导航到您的拉取请求。
+{% data reusables.repositories.review-pr-commits %}
 5. 要查看关于已验证签名的更多详细信息，请单击 Verified（已验证）。 ![已签名提交](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### 延伸阅读

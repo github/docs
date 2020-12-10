@@ -1,6 +1,6 @@
 ---
 title: Erros de clonagem HTTPs
-intro: Existem alguns erros comuns ao usar HTTPS com o Git. Esses erros normalmente indicam que você tem uma versão antiga do Git ou que você não tem acesso ao repositório.
+intro: 'Existem alguns erros comuns ao usar HTTPS com o Git. Esses erros normalmente indicam que você tem uma versão antiga do Git ou que você não tem acesso ao repositório.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -10,34 +10,35 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Segue aqui um exemplo de erro HTTPS que você pode receber:
 
 ```shell
 > erro: A URL solicitada retornou o erro: 401 ao acessar
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: solicitação HTTP rejeitada
 ```
 
 ```shell
 > Erro: A URL solicitada retornou o erro: 403 ao acessar
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: solicitação HTTP rejeitada
 ```
 
 ```shell
-> Erro: https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs not found: você executou o git
+> Erro: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: você executou o git
 > update-server-info no servidor?
 ```
 
 ### Verifique sua versão do Git
 
-Não há uma versão mínima necessária do Git para interagir com {{ site.data.variables.product.product_name }}, mas achamos que a versão 1.7.10 é uma versão estável e confortável, e que está disponível em muitas plataformas. Sempre é possível [baixar a última versão no site do Git](https://git-scm.com/downloads).
+Não há uma versão mínima necessária do Git para interagir com {% data variables.product.product_name %}, mas achamos que a versão 1.7.10 é uma versão estável e confortável, e que está disponível em muitas plataformas. Sempre é possível [baixar a última versão no site do Git](https://git-scm.com/downloads).
 
 ### Confirme que o remote está correto
 
-O repositório que você está tentando fazer fetch deve existir em {{ site.data.variables.product.product_location }} e a URL diferencia maiúsculas de minúsculas.
+O repositório que você está tentando fazer fetch deve existir em {% data variables.product.product_location %} e a URL diferencia maiúsculas de minúsculas.
 
 Você pode localizar a URL do repositório local abrindo a linha de comando e digitando `git remote -v`:
 
@@ -56,13 +57,13 @@ $ git remote -v
 > origin  https://github.com/github/ReactiveCocoa.git (push)
 ```
 
-Aternativamente, você pode alterar a URL por meio de nosso aplicativo [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/).
+Aternativamente, você pode alterar a URL por meio de nosso aplicativo [{% data variables.product.prodname_desktop %}](https://desktop.github.com/).
 
 ### Forneça um token de acesso
 
-Para acessar {{ site.data.variables.product.prodname_dotcom }}, você deve efetuar a autenticação com um token de acesso pessoal em vez de sua senha. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+Para acessar {% data variables.product.prodname_dotcom %}, você deve efetuar a autenticação com um token de acesso pessoal em vez de sua senha. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 ### Verifique suas permissões
 
@@ -70,7 +71,7 @@ Quando for solicitado um nome e senha, certifique-se de usar uma conta que tenha
 
 {% tip %}
 
-**Dica**: Se você não desejar inserir suas credenciais toda vez que interagir com o repositório remoto, você poderá ativar o [armazenamento de credenciais](/github/using-git/caching-your-github-credentials-in-git).
+**Dica**: Se você não desejar inserir suas credenciais toda vez que interagir com o repositório remoto, você poderá ativar o [armazenamento de credenciais](/github/using-git/caching-your-github-credentials-in-git). Se você já está usando o cache de credenciais, certifique-se de que o seu computador tem as credenciais corretas armazenadas em cache. Credenciais incorretas ou desatualizadas causarão falha na autenticação.
 
 {% endtip %}
 

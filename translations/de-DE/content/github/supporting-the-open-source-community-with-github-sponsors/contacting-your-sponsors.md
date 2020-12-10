@@ -1,6 +1,6 @@
 ---
 title: Deine Sponsoren kontaktieren
-intro: 'Du kannst eine E-Mail an Deine Sponsoren senden, wenn diese den Erhalt von Aktualisierungen zu Deiner Arbeit abonniert haben.'
+intro: Du kannst eine E-Mail an Deine Sponsoren senden, wenn diese den Erhalt von Aktualisierungen zu Deiner Arbeit abonniert haben.
 redirect_from:
   - /articles/contacting-your-sponsors
 versions:
@@ -13,18 +13,18 @@ Die Aktualisierung erfolgt über die primäre E-Mail-Adresse Deines Benutzerkont
 
 ### Die Sponsoren Deines Benutzerkontos kontaktieren
 
-{{ site.data.reusables.sponsors.navigate-to-dev-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.sponsors-updates-tab }}
-{{ site.data.reusables.sponsors.draft-new-update }}
-{{ site.data.reusables.sponsors.send-update-to-sponsors }}
-{{ site.data.reusables.sponsors.write-sponsor-update }}
-{{ site.data.reusables.sponsors.publish-sponsor-update }}
+{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.sponsors-updates-tab %}
+{% data reusables.sponsors.draft-new-update %}
+{% data reusables.sponsors.send-update-to-sponsors %}
+{% data reusables.sponsors.write-sponsor-update %}
+{% data reusables.sponsors.publish-sponsor-update %}
 
 ### Die Sponsoren Deiner Organisation kontaktieren
 
-{{ site.data.reusables.sponsors.navigate-to-org-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.sponsors-updates-tab }}
-{{ site.data.reusables.sponsors.draft-new-update }}
-{{ site.data.reusables.sponsors.send-update-to-sponsors }}
-{{ site.data.reusables.sponsors.write-sponsor-update }}
-{{ site.data.reusables.sponsors.publish-sponsor-update }}
+{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.sponsors-updates-tab %}
+{% data reusables.sponsors.draft-new-update %}
+{% data reusables.sponsors.send-update-to-sponsors %}
+{% data reusables.sponsors.write-sponsor-update %}
+{% data reusables.sponsors.publish-sponsor-update %}

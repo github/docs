@@ -1,6 +1,6 @@
 ---
 title: リポジトリのセキュリティと分析設定を管理する
-intro: '{{ site.data.variables.product.prodname_dotcom }} 上のプロジェクトのコードをセキュリティ保護し分析する機能を管理できます。'
+intro: '{% data variables.product.prodname_dotcom %} 上のプロジェクトのコードをセキュリティ保護し分析する機能を管理できます。'
 permissions: リポジトリの管理者権限を持つユーザは、リポジトリのセキュリティと分析設定を管理できます。
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
@@ -13,37 +13,37 @@ versions:
 
 ### セキュリティおよび分析機能の有効化または無効化
 
-{{ site.data.reusables.security.some-security-and-analysis-features-are-enabled-by-default }}
+{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
-{{ site.data.reusables.security.security-and-analysis-features-enable-read-only }}
+{% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.navigate-to-security-and-analysis }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
 4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable.png)
 
-### {{ site.data.variables.product.prodname_dependabot_alerts }} へのアクセスを許可する
+### セキュリティアラートへのアクセスを許可する
 
-Organization のリポジトリで {{ site.data.variables.product.prodname_dependabot_alerts }} を有効にすると、Organization のオーナーとリポジトリ管理者はデフォルトでアラートを表示できます。 追加の Team やユーザに、リポジトリのアラートへのアクセスを付与することができます。
+After you enable {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_secret_scanning %} alerts for a repository in an organization, organization owners and repository administrators can view the alerts by default. 追加の Team やユーザに、リポジトリのアラートへのアクセスを付与することができます。
 
 {% note %}
 
-Organization owners and repository administrators can only grant access to view {{ site.data.variables.product.prodname_dependabot_alerts }} to people or teams who have write access to the repo.
+Organization owners and repository administrators can only grant access to view security alerts, such as {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_secret_scanning %} alerts, to people or teams who have write access to the repo.
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.navigate-to-security-and-analysis }}
-4. [Dependabot alerts] の検索フィールドで、検索するユーザまたは Team 名の入力を開始し、リストから一致する名前をクリックします。 ![Dependabot アラートへのアクセスをユーザまたは Team に許可するための検索フィールド](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
-5. [**Save changes**] をクリックします。 ![Dependabot アラート設定を変更するための [Save changes] ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Access to alerts", in the search field, start typing the name of the person or team you'd like to find, then click a name in the list of matches. ![ユーザまたは Team にセキュリティアラートへのアクセスを付与するための検索フィールド](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+5. [**Save changes**] をクリックします。 ![セキュリティアラート設定を変更するための "Save changes" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
 
-### {{ site.data.variables.product.prodname_dependabot_alerts }} へのアクセスを削除する
+### セキュリティアラートへのアクセスを削除する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.navigate-to-security-and-analysis }}
-4. [Dependabot alerts] で、アクセスを削除するユーザまたは Team の右側にある {% octicon "x" aria-label="X symbol" %} をクリックします。 ![リポジトリの Dependabot アラートへのユーザのアクセスを削除する [x] ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}. ![リポジトリのセキュリティアラートへのアクセスを削除する "x" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
 
 ### 参考リンク
 

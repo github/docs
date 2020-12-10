@@ -3,10 +3,11 @@ title: リモートの URL の変更
 redirect_from:
   - /articles/changing-a-remote-s-url
   - /articles/changing-a-remotes-url
-intro: 「git remote set-url」コマンドにより、既存のリモートリポジトリ URL を変更できます。
+intro: '「git remote set-url」コマンドにより、既存のリモートリポジトリ URL を変更できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -21,60 +22,59 @@ versions:
 * リモートの新しい URL。 例:
   * HTTPS を使うよう更新する場合、URL は以下のようになります:
 ```shell
-https://{{ site.data.variables.command_line.backticks }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+https://{% data variables.command_line.backticks %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
   * SSH を使うよう更新する場合、URL は以下のようになります:
 ```shell
-git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
+git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
 
 ### リモート URL の SSH から HTTPS への切り替え
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
 3. 変更したいリモートの名前を取得するため、既存のリモート一覧を表示します。
   ```shell
   $ git remote -v
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 4. `git remote set-url` コマンドでリモートの URL を SSH から HTTPS に変更します。
   ```shell
-  $ git remote set-url origin https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+  $ git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
 5. リモート URL が変更されたことを検証します。
   ```shell
   $ git remote -v
   # Verify new remote URL
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。
+次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-- [2要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa) を有効にしている場合は、[パーソナルアクセストークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して、GitHub パスワードのかわりに使用することができます。
-- Git が GitHub と通信するたびに GitHub のユーザ名とパスワードを思い出すよう、[認証情報ヘルパーを使用する](/github/using-git/caching-your-github-credentials-in-git)ことができます。
+You can [use a credential helper](/github/using-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and personal access token every time it talks to GitHub.
 
 ### Switching remote URLs from HTTPS to SSH
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
 3. 変更したいリモートの名前を取得するため、既存のリモート一覧を表示します。
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 4. `git remote set-url` コマンドでリモートの URL を HTTPS から SSH に変更します。
   ```shell
-  $ git remote set-url origin git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
+  $ git remote set-url origin git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
 5. リモート URL が変更されたことを検証します。
   ```shell
   $ git remote -v
   # Verify new remote URL
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
 ### トラブルシューティング
@@ -86,7 +86,7 @@ git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOS
 このエラーは、変更しようとしたリモートが存在しないことを意味します。
 
 ```shell
-$ git remote set-url sofake https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife
+$ git remote set-url sofake https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: No such remote 'sofake'
 ```
 

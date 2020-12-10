@@ -6,17 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When running remote Git commands or SSH, your connection might time out:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [207.97.227.239] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
-> ssh: connect to host {{ site.data.variables.command_line.codeblock }} port 22: Connection timed out
-> ssh: connect to host {{ site.data.variables.command_line.codeblock }} port 22: Bad file number
+> ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out
+> ssh: connect to host {% data variables.command_line.codeblock %} port 22: Bad file number
 ```
 
 ### Solving the issue
@@ -26,7 +27,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/articles/which-remote-url-should-i-use) you're using:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>reponame</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
 > Cloning into 'reponame'...
 > remote: Counting objects: 84, done.
 > remote: Compressing objects: 100% (45/45), done.
@@ -36,7 +37,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>usernam
 
 #### Test from a different network
 
-If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {{ site.data.variables.product.product_name }}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to {{ site.data.variables.product.product_name }} to succeed.
+If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {% data variables.product.product_name %}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to {% data variables.product.product_name %} to succeed.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

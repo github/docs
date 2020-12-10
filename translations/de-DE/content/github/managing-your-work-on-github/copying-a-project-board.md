@@ -1,6 +1,6 @@
 ---
 title: Ein Projektboard kopieren
-intro: 'Du kannst ein Projektboard kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig genutzter oder stark angepasster Projektboards unterstützt die Standardisierung von Workflows.'
+intro: Du kannst ein Projektboard kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig genutzter oder stark angepasster Projektboards unterstützt die Standardisierung von Workflows.
 redirect_from:
   - /articles/copying-a-project-board
 versions:
@@ -16,7 +16,7 @@ Wenn Du ein Projektboard in eine Organisation kopierst, wird die Sichtbarkeit de
 Die Automatisierung eines Projektboards wird ebenfalls standardmäßig aktiviert. Weitere Informationen findest Du unter „[Informationen zur Automatisierung für Projektboards](/articles/about-automation-for-project-boards/).“
 
 1. Navigiere zu dem Projektboard, das Du kopieren möchtest.
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **Copy** (Kopieren). ![Option „Copy“ (Kopieren) im Dropdownmenü auf der Projektboard-Seitenleiste](/assets/images/help/projects/project-board-copy-setting.png)
 4. Klicke im Dropdownmenü unter „Owner“ (Inhaber) auf das Repository oder die Organisation, in das respektive die Du das Projektboard kopieren möchtest. ![Inhaber von kopiertem Projektboard aus Dropdownmenü auswählen](/assets/images/help/projects/copied-project-board-owner.png)
 5. Optional kannst Du unter „Project board name“ (Name des Projektboards) den Namen des kopierten Projektboards eingeben. ![Feld zum Eingeben eines Namens für das kopierte Projektboard](/assets/images/help/projects/copied-project-board-name.png)

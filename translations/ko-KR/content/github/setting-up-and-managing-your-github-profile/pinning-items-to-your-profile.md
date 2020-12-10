@@ -1,6 +1,6 @@
 ---
 title: Pinning items to your profile
-intro: 'You can pin {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists and {% endif %}repositories to your profile so other people can quickly see your best work.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
@@ -17,7 +17,7 @@ Pinned items include important information about the item, like the number of st
 
 You can reorder the items in the "Pinned" section. In the upper-right corner of a pin, click {% octicon "grabber" aria-label="The grabber symbol" %}  and drag the pin to a new location.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. In the "Popular repositories" or "Pinned" section, click **Customize your pins**. ![Customize your pins button](/assets/images/help/profile/customize-pinned-repositories.png)
 3. To display a searchable list of items to pin, select "Repositories", "Gists", or both. ![Checkboxes to select the types of items to display](/assets/images/help/profile/pinned-repo-picker.png)
 4. Optionally, to make it easier to find a specific item, in the filter field, type the name of a user, organization, repository, or gist. ![Filter items](/assets/images/help/profile/pinned-repo-search.png)

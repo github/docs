@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. 以下のオプションから 1 つ選択します:
     - 新しいマイルストーンを作成するには、[**New Milestone**] をクリックします。 ![[New milestone] ボタン](/assets/images/help/repository/new-milestone.png)
     - マイルストーンを編集するには、編集対象のマイルストーンの隣にある [**Edit**] をクリックします。 ![マイルストーンの編集](/assets/images/help/repository/edit-milestone.png)
@@ -21,9 +22,9 @@ versions:
 
 マイルストーンを削除しても、Issue やプルリクエストに影響はありません。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. 削除対象のマイルストーンの隣にある [**Delete**] をクリックします。 ![マイルストーンの削除](/assets/images/help/repository/delete-milestone.png)
 
 ### 参考リンク

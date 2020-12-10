@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 タスクリストは、コメント内でクリックできるチェックボックスと共に表示されます。 チェックボックスを選択するか選択を解除して、それらが完了したか、あるいは未完了であることをマークできます。
@@ -18,7 +19,7 @@ versions:
 
 ### タスクリストの作成
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### タスクの順序変更
 

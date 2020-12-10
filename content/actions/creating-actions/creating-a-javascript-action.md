@@ -1,7 +1,7 @@
 ---
 title: Creating a JavaScript action
 intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -12,18 +12,18 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
 
 In this guide, you'll learn about the basic components needed to create and use a packaged JavaScript action. To focus this guide on the components needed to package the action, the functionality of the action's code is minimal. The action prints "Hello World" in the logs or "Hello [who-to-greet]" if you provide a custom name.
 
-This guide uses the {{ site.data.variables.product.prodname_actions }} Toolkit Node.js module to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
+This guide uses the {% data variables.product.prodname_actions %} Toolkit Node.js module to speed up development. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
 
 Once you complete this project, you should understand how to build your own JavaScript action and test it in a workflow.
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
 ### Prerequisites
 
@@ -33,7 +33,7 @@ Before you begin, you'll need to download Node.js and create a GitHub repository
 
   https://nodejs.org/en/download/current/
 
-1. Create a new repository on {{ site.data.variables.product.product_location }}. You can choose any repository name or use "hello-world-javascript-action" like this example. You can add these files after your project has been pushed to {{ site.data.variables.product.product_name }}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Create a new repository on {% data variables.product.product_location %}. You can choose any repository name or use "hello-world-javascript-action" like this example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 
@@ -51,7 +51,7 @@ Before you begin, you'll need to download Node.js and create a GitHub repository
 
 ### Creating an action metadata file
 
-Create a new file `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Create a new file `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
 
 **action.yml**
@@ -77,9 +77,9 @@ This file defines the `who-to-greet` input and `time` output. It also tells the 
 
 The actions toolkit is a collection of Node.js packages that allow you to quickly build JavaScript actions with more consistency.
 
-The toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package provides an interface to the workflow commands, input and output variables, exit statuses, and debug messages.
+The toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package provides an interface to the workflow commands, input and output variables, exit statuses, and debug messages.
 
-The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github) package that returns an authenticated Octokit REST client and access to GitHub Actions contexts.
+The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) package that returns an authenticated Octokit REST client and access to GitHub Actions contexts.
 
 The toolkit offers more than the `core` and `github` packages. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
 
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
 ### Creating a README
@@ -162,7 +162,7 @@ with:
 
 ### Commit, tag, and push your action to GitHub
 
-{{ site.data.variables.product.product_name }} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
+{% data variables.product.product_name %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
 
 From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
 
@@ -205,7 +205,7 @@ git push --follow-tags
 
 Now you're ready to test your action out in a workflow. When an action is in a private repository, the action can only be used in workflows in the same repository. Public actions can be used by workflows in any repository.
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### Example using a public action
 
@@ -261,6 +261,12 @@ jobs:
 ```
 {% endraw %}
 
-From your repository, click the **Actions** tab, and select the latest workflow run. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
+From your repository, click the **Actions** tab, and select the latest workflow run. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
+![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}

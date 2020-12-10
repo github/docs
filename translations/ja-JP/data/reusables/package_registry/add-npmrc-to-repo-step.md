@@ -1,1 +1,1 @@
-3. {{ site.data.variables.product.prodname_registry }}がプロジェクトを見つけられるリポジトリに*.npmrc*ファイルを追加してください。 詳しい情報については「[コマンドラインを使ったリポジトリへのファイルの追加](/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line)」を参照してください。
+3. {% data variables.product.prodname_registry %}がプロジェクトを見つけられるリポジトリに*.npmrc*ファイルを追加してください。 詳しい情報については「[コマンドラインを使ったリポジトリへのファイルの追加](/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line)」を参照してください。

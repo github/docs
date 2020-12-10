@@ -8,28 +8,28 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} 删除组织仓库。 如果已禁用 **Allow members to delete or transfer repositories for this organization（允许成员删除或转让此组织的仓库）**，仅组织所有者可删除组织仓库。 {{ site.data.reusables.organizations.new-repo-permissions-more-info }}
+{% data reusables.organizations.owners-and-admins-can %} 删除组织仓库。 如果已禁用 **Allow members to delete or transfer repositories for this organization（允许成员删除或转让此组织的仓库）**，仅组织所有者可删除组织仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+
 {% warning %}
 
-**警告**：删除仓库将**永久**删除发行版附件和团队权限。 此操作**必须**完成。
+**警告**：
+
+- Deleting a repository will **permanently** delete release attachments and team permissions. 此操作**必须**完成。
+- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
 
 {% endwarning %}
-{% endif %}
-
-请同时记住进行以下内容：
-- 删除私有仓库将删除其所有复刻。
-- 删除公共仓库不会删除其复刻。
 
 {% if currentVersion == "free-pro-team@latest" %}
 您可以在 90 天内恢复一些已删除的仓库。 更多信息请参阅“[恢复删除的仓库](/articles/restoring-a-deleted-repository)”。
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 2. 在 Danger Zone（危险区域）下，单击**Delete this repository（删除此仓库）**。 ![仓库删除按钮](/assets/images/help/repository/repo-delete.png)
 3. **阅读警告**。
 4. 如需验证是否正在删除正确的仓库，请输入要删除仓库的名称。 ![删除标签](/assets/images/help/repository/repo-delete-confirmation.png)

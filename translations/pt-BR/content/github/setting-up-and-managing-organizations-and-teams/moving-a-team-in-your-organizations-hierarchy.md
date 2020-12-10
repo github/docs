@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Proprietários de organizações podem mudar a principal de qualquer equipe. Mantenedores de equipes podem alterar a principal de uma equipe se forem mantenedores da equipe secundária e da equipe principal. Mantenedores de equipe sem permissões de mantenedor na equipe secundária podem solicitar para adicionar uma equipe principal ou secundária. Para obter mais informações, consulte "[Solicitar adição ou alteraração de uma equipe principal](/articles/requesting-to-add-or-change-a-parent-team)" e "[Solicitar adição de uma equipe secundária](/articles/requesting-to-add-a-child-team)".
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
@@ -22,14 +23,14 @@ Proprietários de organizações podem mudar a principal de qualquer equipe. Man
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Na lista de equipes, clique no nome da equipe cuja principal você deseja alterar. ![Lista das equipes da organização](/assets/images/help/teams/click-team-name.png)
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.organizations.team_settings %}
 6. Use o menu suspenso para escolher uma equipe principal ou para remover uma principal existente e selecione **Clear selected value** (Limpar valor selecionado). ![Menu suspenso listando as equipes da organização](/assets/images/help/teams/choose-parent-team.png)
 7. Clique em **Atualizar**.
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Clique em **Confirm new parent team** (Confirmar nova equipe principal). ![Caixa de diálogo modal com informações sobre as alterações nas permissões de acesso ao repositório](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### Leia mais

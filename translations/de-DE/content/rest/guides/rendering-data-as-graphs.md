@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+ 
 
 
-
-In this guide, we're going to use the API to fetch information about repositories that we own, and the programming languages that make them up. Then, we'll visualize that information in a couple of different ways using the [D3.js][D3.js] library. To interact with the {{ site.data.variables.product.product_name }} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+In this guide, we're going to use the API to fetch information about repositories that we own, and the programming languages that make them up. Then, we'll visualize that information in a couple of different ways using the [D3.js][D3.js] library. To interact with the {% data variables.product.product_name %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
 
 If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication] guide before starting this example. You can find the complete source code for this project in the [platform-samples][platform samples] repository.
 
@@ -19,7 +20,7 @@ Let's jump right in!
 
 ### Setting up an OAuth application
 
-First, [register a new application][new oauth application] on {{ site.data.variables.product.product_name }}. Set the main and callback URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by implementing a Rack middleware using [sinatra-auth-github][sinatra auth github]:
+First, [register a new application][new oauth application] on {% data variables.product.product_name %}. Set the main and callback URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by implementing a Rack middleware using [sinatra-auth-github][sinatra auth github]:
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -72,7 +73,7 @@ run Example::MyGraphApp
 
 ### Fetching repository information
 
-This time, in order to talk to the {{ site.data.variables.product.product_name }} API, we're going to use the [Octokit Ruby library][Octokit]. This is much easier than directly making a bunch of REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained, so you know it'll work.
+This time, in order to talk to the {% data variables.product.product_name %} API, we're going to use the [Octokit Ruby library][Octokit]. This is much easier than directly making a bunch of REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained, so you know it'll work.
 
 Authentication with the API via Octokit is easy. Just pass your login and token to the `Octokit::Client` constructor:
 
@@ -90,7 +91,7 @@ Let's do something interesting with the data about our repositories. We're going
 repos = client.repositories
 ```
 
-Next, we'll iterate over each repository, and count the language that {{ site.data.variables.product.product_name }} associates with it:
+Next, we'll iterate over each repository, and count the language that {% data variables.product.product_name %} associates with it:
 
 ``` ruby
 language_obj = {}
@@ -332,7 +333,7 @@ Et voila! Beautiful rectangles containing your repo languages, with relative pro
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
 [D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

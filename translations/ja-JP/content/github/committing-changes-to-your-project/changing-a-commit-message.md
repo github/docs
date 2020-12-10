@@ -3,25 +3,22 @@ title: コミットメッセージの変更
 redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
-intro: 'コミットメッセージに不明確、不正確、または機密情報が含まれている場合、ローカルでメッセージを修正して、{{ site.data.variables.product.product_name }}に新しいメッセージで新しいコミットをプッシュできます。 また、コミットメッセージを変更して、不足している情報を追加することも可能です。'
+intro: 'コミットメッセージに不明確、不正確、または機密情報が含まれている場合、ローカルでメッセージを修正して、{% data variables.product.product_name %}に新しいメッセージで新しいコミットをプッシュできます。 また、コミットメッセージを変更して、不足している情報を追加することも可能です。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 直近のコミットメッセージの書き換え
 
 `git commit --amend` コマンドで、直近のコミットメッセージを変更できます。
 
-{% warning %}
-
 Git では、コミットメッセージのテキストはコミットの一部として扱われます。 コミットメッセージを変更すると、コミット ID (コミットの SHA1 チェックサム) も変更されます。 実質的には、古いコミットに代わる新しいコミットを作成することになります。
 
-{% endwarning %}
+### オンラインにプッシュされていないコミット
 
-#### オンラインにプッシュされていないコミット
-
-コミットがローカルリポジトリにのみ存在し、{{ site.data.variables.product.product_location }}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
+コミットがローカルリポジトリにのみ存在し、{% data variables.product.product_location %}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
 
 1. コマンドラインで、修正したいコミットのあるリポジトリに移動します。
 2. `git commit --amend` と入力し、**Enter** を押します。
@@ -31,7 +28,7 @@ Git では、コミットメッセージのテキストはコミットの一部�
     - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳しい情報については「[Organization の代理でコミットを作成](/articles/creating-a-commit-on-behalf-of-an-organization)」を参照してください。
 {% endif %}
 
-次回のプッシュ時に、{{ site.data.variables.product.product_location }}に新たなコミットとメッセージが表示されます。
+次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。
 
 {% tip %}
 
@@ -39,9 +36,9 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 {% endtip %}
 
-#### 古いまたは複数のコミットメッセージの修正
+### 古いまたは複数のコミットメッセージの修正
 
-すでにコミットを {{ site.data.variables.product.product_location }}にプッシュしている場合、修正済みのメッセージでコミットをフォースプッシュする必要があります。
+すでにコミットを {% data variables.product.product_location %}にプッシュしている場合、修正済みのメッセージでコミットをフォースプッシュする必要があります。
 
 {% warning %}
 
@@ -49,7 +46,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 {% endwarning %}
 
-**直近にプッシュしたコミットのメッセージ修正**
+**Changing the message of the most recently pushed commit**
 
 1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
 2. `push --force` コマンドにより、古いコミットをフォースプッシュで上書きします。
@@ -57,7 +54,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
   $ git push --force <em>example-branch</em>
   ```
 
-**古いまたは複数のコミットメッセージの修正**
+**Changing the message of older or multiple commit messages**
 
 複数のコミットまたは古いコミットの、メッセージを修正する必要がある場合は、インタラクティブなリベースを利用した後にフォースプッシュして、コミットの履歴を変更できます。
 
@@ -93,7 +90,6 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
     #
     # Note that empty commits are commented out
     ```
-
 3. 変更する各コミットメッセージの前の `pick` を `reword` に置き換えます。
   ```shell
   pick e499d89 Delete CNAME
@@ -102,10 +98,10 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
   ```
 4. コミット一覧のファイルを保存して閉じます。
 5. 生成された各コミットコミットファイルに、新しいコミットメッセージを入力し、ファイルを保存して閉じます。
-6. 修正したコミットをフォースプッシュします。
-  ```shell
-  $ git push --force
-  ```
+6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+```shell
+$ git push --force <em>example-branch</em>
+```
 
 インタラクティブリベースに関する詳しい情報については、Git のマニュアルにある「[インタラクティブモード](https://git-scm.com/docs/git-rebase#_interactive_mode)」を参照してください。
 
@@ -117,7 +113,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 {% warning %}
 
-修正したコミットをフォースプッシュしても元のコミットは {{ site.data.variables.product.product_name }}から削除されない場合がありますので、元のコミットメッセージに機密情報が含まれている場合は注意してください。 古いコミットは、以降のクローンには含まれませんが、{{ site.data.variables.product.product_name }}にキャッシュされ、コミット ID でアクセスできます。 リモートリポジトリから古いコミットメッセージをパージするには、古いコミット ID を添えて {{ site.data.variables.contact.contact_support }}にお問い合わせください。
+修正したコミットをフォースプッシュしても元のコミットは {% data variables.product.product_name %}から削除されない場合がありますので、元のコミットメッセージに機密情報が含まれている場合は注意してください。 古いコミットは、以降のクローンには含まれませんが、{% data variables.product.product_name %}にキャッシュされ、コミット ID でアクセスできます。 リモートリポジトリから古いコミットメッセージをパージするには、古いコミット ID を添えて {% data variables.contact.contact_support %}にお問い合わせください。
 
 {% endwarning %}
 

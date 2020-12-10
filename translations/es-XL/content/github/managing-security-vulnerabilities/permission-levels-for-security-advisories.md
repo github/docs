@@ -10,7 +10,7 @@ versions:
 
 ### Resumen de permisos
 
-{{ site.data.reusables.repositories.security-advisory-admin-permissions }} Para obtener más información sobre cómo añadir un colaborador a una asesoría de seguridad, consulta la sección "[Añadir un colaborador a una asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)".
+{% data reusables.repositories.security-advisory-admin-permissions %} Para obtener más información sobre cómo añadir un colaborador a una asesoría de seguridad, consulta la sección "[Añadir un colaborador a una asesoría de seguridad](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)".
 
 | Acción                                                                                                                                                                                                                                                                                                      | Permisos de escritura | Permisos de administrador |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------------- |

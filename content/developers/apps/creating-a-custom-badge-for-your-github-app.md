@@ -1,11 +1,12 @@
 ---
 title: Creating a custom badge for your GitHub App
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_github_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_github_apps %}'
 redirect_from:
   - /apps/building-github-apps/creating-custom-badges-for-github-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 By default, a new GitHub App will have an automatically generated [identicon](https://github.com/blog/1586-identicons).
@@ -25,10 +26,10 @@ You can change a custom badge for a GitHub App that already has an approved Mark
 
 To create a custom badge:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
-{{ site.data.reusables.user-settings.modify_github_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
+{% data reusables.user-settings.modify_github_app %}
 5. In "Display information", drag-and-drop an image from a local folder or click **Upload a logo** to select an image from your computer.
 ![Upload a logo](/assets/images/github-apps/github_apps_upload_logo.png)
 6. Crop your picture. When you're done, click **Set new avatar**.

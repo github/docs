@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 可托管和渲染扩展名为 *.stl* 的 3D 文件。
+{% data variables.product.product_name %} 可托管和渲染扩展名为 *.stl* 的 3D 文件。
 
-直接在 {{ site.data.variables.product.product_name }} 上查看 STL 文件时，可以：
+直接在 {% data variables.product.product_name %} 上查看 STL 文件时，可以：
 
 * 单击并拖动以旋转模型。
 * 右键单击并拖动便可转换视图。
@@ -57,6 +58,6 @@ versions:
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**注**：`ref` 可以是分支或个别提交的哈希（如 `2391ae`）。
 
 {% endtip %}

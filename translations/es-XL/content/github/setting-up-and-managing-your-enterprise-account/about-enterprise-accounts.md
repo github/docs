@@ -1,7 +1,7 @@
 ---
 title: Acerca de las cuentas de empresa
-intro: 'Con {{ site.data.variables.product.prodname_ghe_cloud }}, puedes crear una cuenta de empresa para activar la colaboración entre tus organizaciones, al mismo tiempo que le das a los administradores un punto único de visibilidad y administración.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'Con {% data variables.product.prodname_ghe_cloud %}, puedes crear una cuenta de empresa para activar la colaboración entre tus organizaciones, al mismo tiempo que le das a los administradores un punto único de visibilidad y administración.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
@@ -12,16 +12,16 @@ versions:
 
 ### Acerca de las cuentas de empresa
 
-Una cuenta empresarial te permite administrar diversas organizaciones de {{ site.data.variables.product.prodname_dotcom }} e instancias de {{ site.data.variables.product.prodname_ghe_server }}. Tu cuenta de empresa debe tener un controlador, como una organización o cuenta personal en {{ site.data.variables.product.prodname_dotcom }}. Los administradores de empresas pueden administrar los parámetros y las referencias, como:
+Una cuenta empresarial te permite administrar diversas organizaciones de {% data variables.product.prodname_dotcom %} e instancias de {% data variables.product.prodname_ghe_server %}. Tu cuenta de empresa debe tener un controlador, como una organización o cuenta personal en {% data variables.product.prodname_dotcom %}. Los administradores de empresas pueden administrar los parámetros y las referencias, como:
 
 - El acceso de los miembros y la administración (miembros de la organización, colaboradores externos).
-- Facturación y uso (instancias de {{ site.data.variables.product.prodname_ghe_server }}, licencias de usuario, paquetes de {{ site.data.variables.large_files.product_name_short }})
+- Facturación y uso (instancias de {% data variables.product.prodname_ghe_server %}, licencias de usuario, paquetes de {% data variables.large_files.product_name_short %})
 - Seguridad (inicio de sesión único, autenticación de dos factores).
-- Solicitudes y paquetes de soporte compartidos con {{ site.data.variables.contact.enterprise_support }}
+- Solicitudes y paquetes de soporte compartidos con {% data variables.contact.enterprise_support %}
 
-{{ site.data.reusables.enterprise-accounts.enterprise-accounts-billing }}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-Para obtener más información acerca de las diferencias entre {{ site.data.variables.product.prodname_ghe_cloud }} y {{ site.data.variables.product.prodname_ghe_server }}, consulta la sección "[ productos de {{ site.data.variables.product.prodname_dotcom }}](/articles/githubs-products)". Para mejorar tu cuenta a {{ site.data.variables.product.prodname_enterprise }} o para comenzar con una cuenta empresarial, contacta a {{ site.data.variables.contact.contact_enterprise_sales }}.
+Para obtener más información acerca de las diferencias entre {% data variables.product.prodname_ghe_cloud %} y {% data variables.product.prodname_ghe_server %}, consulta la sección "[ productos de {% data variables.product.prodname_dotcom %}](/articles/githubs-products)". Para mejorar tu cuenta a {% data variables.product.prodname_enterprise %} o para comenzar con una cuenta empresarial, contacta a {% data variables.contact.contact_enterprise_sales %}.
 
 Para obtener más información acerca del acceso de los miembros y la administración, consulta "[Administrar usuarios en tu cuenta de empresa](/articles/managing-users-in-your-enterprise-account)".
 
@@ -37,6 +37,6 @@ Los propietarios de la empresa pueden crear organizaciones y vincularlas a la em
 
 Para obtener más información, consulta "[Administrar las organizaciones de tu cuenta de empresa](/articles/managing-organizations-in-your-enterprise-account)" y "[Configurar políticas para las organizaciones de tu cuenta de empresa](/articles/setting-policies-for-organizations-in-your-enterprise-account)".
 
-### Administrar las licencias de {{ site.data.variables.product.prodname_ghe_server }} enlazadas con tu cuenta empresarial
+### Administrar las licencias de {% data variables.product.prodname_ghe_server %} enlazadas con tu cuenta empresarial
 
-{{ site.data.reusables.enterprise-accounts.admin-managing-licenses }}
+{% data reusables.enterprise-accounts.admin-managing-licenses %}

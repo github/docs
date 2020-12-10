@@ -1,14 +1,14 @@
 ---
 title: Deinen Identitätsanbieter mit Deiner Organisation verbinden
-intro: 'Um SAML Single Sign-On und SCIM zu verwenden, musst Du Deinen Identitätsanbieter mit Deiner {{ site.data.variables.product.product_name }}-Organisation verbinden.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'Um SAML Single Sign-On und SCIM zu verwenden, musst Du Deinen Identitätsanbieter mit Deiner {% data variables.product.product_name %}-Organisation verbinden.'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
 ---
 
-Vor der [Aktivierung von SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in Deiner {{ site.data.variables.product.product_name }}-Organisation musst Du Deinen Identitätsanbieter (IdP Identity Provider) mit Deiner Organisation verbinden.
+Vor der [Aktivierung von SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) in Ihrer {% data variables.product.product_name %}-Organisation müssen Sie Ihren Identity Provider (IdP) mit Ihrer Organisation verbinden.
 
 Die SAML- und SCIM-Implementierungsdetails für Deinen IdP findest Du in der IdP-Dokumentation:
 - Active Directory Federation Services (AD FS) [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
@@ -20,7 +20,7 @@ Die SAML- und SCIM-Implementierungsdetails für Deinen IdP findest Du in der IdP
 
 {% note %}
 
-**Hinweis:** Von {{ site.data.variables.product.product_name }} unterstützte Identitätsanbieter für SCIM sind Azure AD, Okta und OneLogin. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/articles/about-scim).“
+**Hinweis:** Von {% data variables.product.product_name %} unterstützte Identitätsanbieter für SCIM sind Azure AD, Okta und OneLogin. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/articles/about-scim).“
 
 {% endnote %}
 

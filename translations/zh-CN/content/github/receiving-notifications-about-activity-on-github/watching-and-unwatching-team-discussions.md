@@ -19,31 +19,35 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} select **Automatically watch teams**. ![自动关注团队的复选框](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} 选择 **Automatically watch teams（自动关注团队）**。
+![自动关注团队的复选框](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### 关注单个团队讨论
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} click **Watch** to open your notifications options. 然后单击 **Watching（关注）**。 ![特定团队下拉菜单中的关注选项](/assets/images/help/notifications/specific-team-watch-options.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} 单击 **Watch（关注）**以打开通知选项。 然后单击 **Watching（关注）**。
+![特定团队下拉菜单中的关注选项](/assets/images/help/notifications/specific-team-watch-options.png)
 
 ### 取消关注您加入的所有新团队的团队讨论
 
 如果不想在加入团队时自动接收团队讨论通知，则可以更改通知设置以取消关注您加入的所有新团队。
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} unselect **Automatically watch teams**. ![默认选择的自动关注团队设置](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} 取消选择 **Automatically watch teams（自动关注团队）**。
+![默认选择的自动关注团队设置](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### 取消关注单个团队讨论
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} click **Unwatch** to open your notifications options. 然后单击 **Not watching（不再关注）**。 ![特定团队下拉菜单中的关注选项](/assets/images/help/notifications/specific-team-unwatch.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} 单击 **Unwatch（取消关注）**以打开通知选项。 然后单击 **Not watching（不再关注）**。
+![特定团队下拉菜单中的关注选项](/assets/images/help/notifications/specific-team-unwatch.png)
 
 {% note %}
 

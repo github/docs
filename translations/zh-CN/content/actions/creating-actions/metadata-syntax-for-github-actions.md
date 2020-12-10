@@ -2,7 +2,7 @@
 title: GitHub 操作的元数据语法
 shortTitle: 元数据语法
 intro: 您可以创建操作来执行仓库中的任务。 操作需要使用 YAML 语法的元数据文件。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -13,10 +13,10 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 关于 {{ site.data.variables.product.prodname_actions }} 的 YAML 语法
+### 关于 {% data variables.product.prodname_actions %} 的 YAML 语法
 
 Docker 和 JavaScript 操作需要元数据文件。 元数据文件名必须是 `action.yml` 或 `action.yaml`。 元数据文件中的数据定义操作的输入、输出和主要进入点。
 
@@ -24,7 +24,7 @@ Docker 和 JavaScript 操作需要元数据文件。 元数据文件名必须是
 
 ### **`name`**
 
-**必要** 操作的名称。 {{ site.data.variables.product.prodname_dotcom }} 在 **Actions（操作）**选项卡中显示 `name`，帮助从视觉上识别每项作业中的操作。
+**必要** 操作的名称。 {% data variables.product.prodname_dotcom %} 在 **Actions（操作）**选项卡中显示 `name`，帮助从视觉上识别每项作业中的操作。
 
 ### **`作者`**
 
@@ -36,12 +36,11 @@ Docker 和 JavaScript 操作需要元数据文件。 元数据文件名必须是
 
 ### **`inputs`**
 
-**可选** 输入参数用于指定操作在运行时预期使用的数据。 {{ site.data.variables.product.prodname_dotcom }} 将输入参数存储为环境变量。 大写的输入 ID 在运行时转换为小写。 建议使用小写输入 ID。
+**可选** 输入参数用于指定操作在运行时预期使用的数据。 {% data variables.product.prodname_dotcom %} 将输入参数存储为环境变量。 大写的输入 ID 在运行时转换为小写。 建议使用小写输入 ID。
 
 #### 示例
 
-此示例配置两个输入：numOctocats 和 octocatEyeColor。 numOctocats 输入不是必要的，默认值为 '1'。 octocatEyeColor 输入是必要的，没有默认值。 使用此操作的工作流程文件必须使用 `with` 关键词来设置 octocatEyeColor 的输入值。 有关 `with` 语法的更多信息，请参阅“[{{ site.data.variables.product.prodname_actions }} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)”。
-
+此示例配置两个输入：numOctocats 和 octocatEyeColor。 numOctocats 输入不是必要的，默认值为 '1'。 octocatEyeColor 输入是必要的，没有默认值。 使用此操作的工作流程文件必须使用 `with` 关键词来设置 octocatEyeColor 的输入值。 有关 `with` 语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)”。
 
 ```yaml
 inputs:
@@ -54,8 +53,7 @@ inputs:
     required: true
 ```
 
-
-在指定工作流程文件中某个操作的输入或者使用默认输入值时，{{ site.data.variables.product.prodname_dotcom }} 将为名称为 `INPUT_<VARIABLE_NAME>` 的输入创建环境变量。 创建的环境变量将输入名称转换为大写，并将空格替换为 `_` 字符。
+在指定工作流程文件中某个操作的输入或者使用默认输入值时，{% data variables.product.prodname_dotcom %} 将为名称为 `INPUT_<VARIABLE_NAME>` 的输入创建环境变量。 创建的环境变量将输入名称转换为大写，并将空格替换为 `_` 字符。
 
 例如，如果工作流程定义了 numOctocats and octocatEyeColor 输入，操作代码可使用 `INPUT_NUMOCTOCATS` 和 `INPUT_OCTOCATEYECOLOR` 环境变量读取输入的值。
 
@@ -79,7 +77,7 @@ inputs:
 
 **可选** 输出参数允许您声明操作所设置的数据。 稍后在工作流程中运行的操作可以使用以前运行操作中的输出数据集。  例如，如果有操作执行两个输入的相加 (x + y = z)，则该操作可能输出总和 (z)，用作其他操作的输入。
 
-如果不在操作元数据文件中声明输出，您仍然可以设置输出并在工作流程中使用它们。 有关在操作中设置输出的更多信息，请参阅“[{{ site.data.variables.product.prodname_actions }} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)”。
+如果不在操作元数据文件中声明输出，您仍然可以设置输出并在工作流程中使用它们。 有关在操作中设置输出的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)”。
 
 #### 示例
 
@@ -99,7 +97,7 @@ outputs:
 
 ### 用于组合运行步骤操作的 **`outputs`**
 
-**可选** `outputs` 使用与 `outputs.<output_id>` 及 `outputs.<output_id>.description` 相同的参数（请参阅“用于 {{ site.data.variables.product.prodname_actions }}</a> 的
+**可选** `outputs` 使用与 `outputs.<output_id>` 及 `outputs.<output_id>.description` 相同的参数（请参阅“用于 {% data variables.product.prodname_actions %}</a> 的
 
 `outputs`”），但也包括 `value` 令牌。</p> 
 
@@ -132,7 +130,7 @@ runs:
 
 **必要** 输出参数将会映射到的值。 您可以使用上下文将此设置为 `string` 或表达式。 例如，您可以使用 `steps` 上下文将输出的 `value` 设置为步骤的输出值。
 
-有关如何使用上下文和表达式语法的更多信息，请参阅“[{{ site.data.variables.product.prodname_actions }} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+有关如何使用上下文和表达式语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
 
 
@@ -301,13 +299,13 @@ runs:
 
 ##### **`runs.steps.id`**
 
-**可选** 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+**可选** 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
 
 
 ##### **`runs.steps.env`**
 
-**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改存储在工作流程中的环境变量，请在组合运行步骤中使用 `echo "::set-env name={name}::{value}"`。
+**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合运行步骤中使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
 
 
 
@@ -357,7 +355,7 @@ runs:
 
 #### **`pre-entrypoint`**
 
-**可选** 允许您在 `entrypoint` 操作开始之前运行脚本。 例如，您可以使用 `pre-entrypoint:` 运行基本要求设置脚本。 {{ site.data.variables.product.prodname_actions }} 使用 `docker run` 启动此操作，并在使用同一基本映像的新容器中运行脚本。 这意味着运行时状态与主 `entrypoint` 容器不同，并且必须在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `pre-entrypoint:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
+**可选** 允许您在 `entrypoint` 操作开始之前运行脚本。 例如，您可以使用 `pre-entrypoint:` 运行基本要求设置脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 启动此操作，并在使用同一基本映像的新容器中运行脚本。 这意味着运行时状态与主 `entrypoint` 容器不同，并且必须在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `pre-entrypoint:` 操作始终默认运行，但您可以使用 [`pre-if`](#pre-if) 覆盖该设置。
 
 使用 [`using`](#runsusing) 语法指定的应用程序将执行此文件。
 
@@ -394,13 +392,13 @@ runs:
 
 **可选** 覆盖 `Dockerfile` 中的 Docker `ENTRYPOINT`，或在未指定时设置它。 当 `Dockerfile` 未指定 `ENTRYPOINT` 或者您想要覆盖 `ENTRYPOINT` 指令时使用 `entrypoint`。 如果您省略 `entrypoint`，您在 Docker `ENTRYPOINT` 指令中指定的命令将执行。 Docker `ENTRYPOINT` 指令有 _shell_ 形式和 _exec_ 形式。 Docker `ENTRYPOINT` 文档建议使用 _exec_ 形式的 `ENTRYPOINT` 指令。
 
-有关 `entrypoint` 如何执行的更多信息，请参阅“[Dockerfile 对 {{ site.data.variables.product.prodname_actions }} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”。
+有关 `entrypoint` 如何执行的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”。
 
 
 
 #### **`post-entrypoint`**
 
-**可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {{ site.data.variables.product.prodname_actions }} 使用 `docker run` 来启动此操作。 因为  {{ site.data.variables.product.prodname_actions }} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `post-entrypoint:` 操作始终默认运行，但您可以使用 [`post-if`](#post-if) 覆盖该设置。
+**可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 来启动此操作。 因为  {% data variables.product.prodname_actions %} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `post-entrypoint:` 操作始终默认运行，但您可以使用 [`post-if`](#post-if) 覆盖该设置。
 
 
 
@@ -419,15 +417,15 @@ runs:
 
 #### **`runs.args`**
 
-**可选** 定义 Docker 容器输入的字符串数组。 输入可包含硬编码的字符串。 {{ site.data.variables.product.prodname_dotcom }} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。
+**可选** 定义 Docker 容器输入的字符串数组。 输入可包含硬编码的字符串。 {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。
 
 `args` 用来代替 `Dockerfile` 中的 `CMD` 指令。 如果在 `Dockerfile` 中使用 `CMD`，请遵循按偏好顺序排序的指导方针：
 
-{{ site.data.reusables.github-actions.dockerfile-guidelines }}
+{% data reusables.github-actions.dockerfile-guidelines %}
 
 如果需要将环境变量传递到操作中，请确保操作运行命令 shell 以执行变量替换。 例如，如果 `entrypoint` 属性设置为 `"sh -c"`，`args` 将在命令 shell 中运行。 或者，如果 `Dockerfile` 使用 `ENTRYPOINT` 运行同一命令 (`"sh -c"`)，`args` 将在命令 shell 中执行。
 
-有关将 `CMD` 指令与 {{ site.data.variables.product.prodname_actions }} 一起使用的更多信息，请参阅“[Dockerfile 对 {{ site.data.variables.product.prodname_actions }} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)”。
+有关将 `CMD` 指令与 {% data variables.product.prodname_actions %} 一起使用的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)”。
 
 
 
@@ -453,7 +451,7 @@ runs:
 
 ### **`branding`**
 
-您可以使用颜色和 [Feather](https://feathericons.com/) 图标创建徽章，以个性化和识别操作。 徽章显示在 [{{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
+您可以使用颜色和 [Feather](https://feathericons.com/) 图标创建徽章，以个性化和识别操作。 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
 
 
 

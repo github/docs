@@ -1,6 +1,6 @@
 ---
 title: Collaborating with issues and pull requests
-intro: 'Use the {{ site.data.variables.product.prodname_dotcom }} flow to track and discuss changes in issues, then propose and review changes in pull requests.'
+intro: 'Use the {% data variables.product.prodname_dotcom %} flow to track and discuss changes in issues, then propose and review changes in pull requests.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -28,7 +29,7 @@ versions:
     {% link_in_list /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility %}
 {% topic_link_in_list /collaborating-on-repositories-with-code-quality-features %}
     {% link_in_list /about-status-checks %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /working-with-pre-receive-hooks %}
 <!-- endif -->
 {% topic_link_in_list /proposing-changes-to-your-work-with-pull-requests %}

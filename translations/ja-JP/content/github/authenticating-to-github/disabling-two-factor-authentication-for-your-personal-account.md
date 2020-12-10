@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントの 2 要素認証を無効化する
-intro: 自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。
+intro: '自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。'
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:
@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**警告:** 2 要素認証を必要とする Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部コラボレーターが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
+**Warning:** If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
 
@@ -22,8 +22,8 @@ Organization から自分を削除するには:
  - Organization のメンバーまたはオーナーの場合は「[Organization から自分を削除する](/articles/removing-yourself-from-an-organization/)」を参照してください。
  - 外部コラボレーターの場合は、Organization のオーナーかリポジトリの管理者に Organization のリポジトリから削除してもらうよう依頼してください。 詳細は「[Organization における人のロールを表示する](/articles/viewing-people-s-roles-in-an-organization)」および「[外部コラボレーターを Organization リポジトリから削除する](/articles/removing-an-outside-collaborator-from-an-organization-repository/)」を参照してください。
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.security %}
 3. Click **Disable**. ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### 参考リンク

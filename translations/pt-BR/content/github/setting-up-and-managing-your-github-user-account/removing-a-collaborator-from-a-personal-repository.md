@@ -8,10 +8,11 @@ redirect_from:
   - /articles/deleting-a-private-fork-of-a-private-user-repository/
   - /articles/how-do-i-delete-a-fork-of-my-private-repository/
   - /articles/removing-a-collaborator-from-a-personal-repository
-product: '{{ site.data.reusables.gated-features.user-repo-collaborators }}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Excluir bifurcações de repositórios privados
@@ -20,10 +21,10 @@ Apesar de as bifurcações de repositórios privados serem excluídas quando um 
 
 ### Remover as permissões de colaborador de um usuário que está contribuindo em um repositório
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
+{% data reusables.repositories.navigate-to-manage-access %}
 4. À direita do colaborador que deseja remover, clique em
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
   ![Botão para remover o colaborador](/assets/images/help/repository/collaborator-remove.png)

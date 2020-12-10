@@ -1,6 +1,6 @@
 ---
 title: 升级 GitHub Enterprise Server
-intro: '升级 {{ site.data.variables.product.prodname_ghe_server }}，以获取最新功能和安全更新。'
+intro: '升级 {% data variables.product.prodname_ghe_server %}，以获取最新功能和安全更新。'
 redirect_from:
   - /enterprise/admin/installation/upgrading-github-enterprise-server
   - /enterprise/admin/articles/upgrading-to-the-latest-release/
@@ -20,8 +20,8 @@ versions:
 ### 准备升级
 
 1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
-3. 使用 {{ site.data.variables.product.prodname_enterprise_backup_utilities }} 创建全新的主实例备份。 更多信息请参阅 [{{ site.data.variables.product.prodname_enterprise_backup_utilities }} README.md 文件](https://github.com/github/backup-utils#readme)。
-4. 如果您要使用升级包进行升级，请为 {{ site.data.variables.product.prodname_ghe_server }} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
+3. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
+4. 如果您要使用升级包进行升级，请为 {% data variables.product.prodname_ghe_server %} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
 
   {% note %}
 
@@ -49,7 +49,7 @@ versions:
 | 平台                    | 快照方法 | 快照文档 URL                                                                                                                                                                                               |
 | --------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Amazon AWS            | 磁盘   | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>                                                                                                                       |
-| Azure                 | VM   | <https://azure.microsoft.com/en-us/documentation/articles/backup-azure-vms/>                                                                                                                           |
+| Azure                 | VM   | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>                                                                                                                              |
 | Hyper-V               | VM   | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>                                                                                     |
 | Google Compute Engine | 磁盘   | <https://cloud.google.com/compute/docs/disks/create-snapshots>                                                                                                                                         |
 | VMware                | VM   | [https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html](https://pubs.vmware.com/vsphere-50/topic/com.vmware.wssdk.pg.doc_50/PG_Ch11_VM_Manage.13.3.html) |
@@ -57,34 +57,34 @@ versions:
 
 ### 使用热补丁升级
 
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }} 利用 {{ site.data.variables.enterprise.management_console }}，您可以立即安装热补丁，也可以排定稍后安装热补丁。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
+{% data reusables.enterprise_installation.hotpatching-explanation %} 利用 {% data variables.enterprise.management_console %}，您可以立即安装热补丁，也可以排定稍后安装热补丁。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
 
 {% note %}
 
-**注**：无法在集群环境中使用 {{ site.data.variables.enterprise.management_console }} 安装热补丁。 要在集群环境中安装热补丁，请参阅“[升级集群](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”。
+**注**：无法在集群环境中使用 {% data variables.enterprise.management_console %} 安装热补丁。 要在集群环境中安装热补丁，请参阅“[升级集群](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)”。
 
 {% endnote %}
 
 #### 使用热补丁升级单个设备
 
-##### 使用 {{ site.data.variables.enterprise.management_console }} 安装热补丁
+##### 使用 {% data variables.enterprise.management_console %} 安装热补丁
 
 1. 启用自动更新。 更多信息请参阅“[启用自动更新](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)”。
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.updates-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.updates-tab %}
 4. 在新的热补丁下载完毕后，请使用 Install package 下拉菜单：
     - 要立即安装，请选择 **Now**：
     - 要稍后安装，请选择以后的日期。 ![热补丁安装日期下拉菜单](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
-5. Click **Install**. ![热补丁安装按钮](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
+5. 单击 **Install（安装）**。 ![热补丁安装按钮](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
 ##### 使用管理 shell 安装热补丁
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} 复制升级热补丁包（*.hpkg* 文件）的 URL。
-{{ site.data.reusables.enterprise_installation.download-package }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} 复制升级热补丁包（*.hpkg* 文件）的 URL。
+{% data reusables.enterprise_installation.download-package %}
 4. 使用包文件名运行 `ghe-upgrade` 命令：
   ```shell
   admin@<em>HOSTNAME</em>:~$ ghe-upgrade <em>GITHUB-UPGRADE.hpkg</em>
@@ -114,9 +114,9 @@ versions:
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+1. 按照“[使用管理 shell 安装热补丁](#installing-a-hotpatch-using-the-administrative-shell)”中的说明升级副本实例。 如果使用多个副本进行异地复制，则必须重复此过程，每次升级一个副本。
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
 ### 使用升级包升级
 
@@ -124,12 +124,12 @@ versions:
 
 #### 使用升级包升级单个设备
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} 选择适当的平台并复制升级包（*.pkg* 文件）的 URL。
-{{ site.data.reusables.enterprise_installation.download-package }}
-4. 启用维护模式并等待 {{ site.data.variables.product.prodname_ghe_server }} 实例上的所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} 选择适当的平台并复制升级包（*.pkg* 文件）的 URL。
+{% data reusables.enterprise_installation.download-package %}
+4. 启用维护模式并等待 {% data variables.product.prodname_ghe_server %} 实例上的所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
   {% note %}
 
@@ -150,7 +150,7 @@ versions:
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {{ site.data.variables.product.product_location_enterprise }}。
+7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
   {% note %}
 
@@ -171,7 +171,7 @@ versions:
 {% endwarning %}
 
 1. 在主实例上，启用维护模式并等待所有活动进程完成。 更多信息请参阅“[启用维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
+{% data reusables.enterprise_installation.replica-ssh %}
 3. 在副本实例或者所有副本实例（如果您将多个副本实例作为 Geo-replication 的一部分运行）上，运行 `ghe-repl-stop` 以停止复制。
 4. 按照“[使用升级包升级单个设备](#upgrading-a-single-appliance-with-an-upgrade-package)”中的说明升级主实例。
 
@@ -183,13 +183,13 @@ versions:
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+1. 按照“[使用升级包升级单个设备](#upgrading-a-single-appliance-with-an-upgrade-package)”中的说明升级副本实例。 如果使用多个副本进行异地复制，则必须重复此过程，每次升级一个副本。
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
-{{ site.data.reusables.enterprise_installation.start-replication }}
+{% data reusables.enterprise_installation.start-replication %}
 
-{{ site.data.reusables.enterprise_installation.replication-status }} 如果命令返回 `Replication is not running`，说明复制可能仍在启动。 等待 1 分钟左右，然后再次运行 `ghe-repl-status`。
+{% data reusables.enterprise_installation.replication-status %} 如果命令返回 `Replication is not running`，说明复制可能仍在启动。 等待 1 分钟左右，然后再次运行 `ghe-repl-status`。
 
    {% note %}
 
@@ -201,9 +201,9 @@ versions:
    如果 `ghe-repl-status` 未返回 `OK`，请执行以下步骤手动启动复制。
 
    1. 在副本实例上，再次运行 `ghe-repl-setup <primary-instance-ip>`。
-   {{ site.data.reusables.enterprise_installation.start-replication }}
-   {{ site.data.reusables.enterprise_installation.replication-status }}
-6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {{ site.data.variables.product.product_location_enterprise }}。
+   {% data reusables.enterprise_installation.start-replication %}
+   {% data reusables.enterprise_installation.replication-status %}
+6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
 ### 从失败的升级中恢复
 
@@ -211,7 +211,7 @@ versions:
 
 #### 回滚补丁版本
 
-要回滚补丁版本，请使用带 `--allow-patch-rollback` 开关的 `ghe-upgrade` 命令。 {{ site.data.reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback }}
+要回滚补丁版本，请使用带 `--allow-patch-rollback` 开关的 `ghe-upgrade` 命令。 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)”。
 

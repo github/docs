@@ -1,6 +1,6 @@
 ---
 title: 機密データをリポジトリから削除する
-intro: Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 不要なファイルをリポジトリの履歴から完全に削除するには、「git filter-branch」コマンドか BFG Repo-Cleaner オープンソースツールのいずれかを使用します。
+intro: 'Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 不要なファイルをリポジトリの履歴から完全に削除するには、「git filter-branch」コマンドか BFG Repo-Cleaner オープンソースツールのいずれかを使用します。'
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git filter-branch` コマンドと BFG Repo-Cleaner は、リポジトリの履歴を書き換えます。変更を加えた既存のコミットや依存関係にあるコミットの SHA を変更します。 コミットの SHA が変更されると、リポジトリでオープンされたプルリクエストに影響する可能性があります。 ファイルをリポジトリから削除する前に、オープンプルリクエストをすべてマージまたはクローズすることを推奨します。
@@ -17,9 +18,9 @@ versions:
 
 {% warning %}
 
-**警告: コミットを {{ site.data.variables.product.product_name }} にプッシュしたら、そこに含まれるデータが危険にさらされることを考慮する必要があります。**パスワードをコミットした場合は、変更してください。 キーをコミットした場合は、新たに生成してください。
+**警告: コミットを {% data variables.product.product_name %} にプッシュしたら、そこに含まれるデータが危険にさらされることを考慮する必要があります。**パスワードをコミットした場合は、変更してください。 キーをコミットした場合は、新たに生成してください。
 
-この記事では、機密データを含むコミットに {{ site.data.variables.product.product_name }} リポジトリのブランチやタグから到達できないようにする方法を説明しています。 ただし、こうしたコミットも、リポジトリのクローンやフォークからは、{{ site.data.variables.product.product_name }} でキャッシュされているビューの SHA-1 ハッシュによって直接、また参照元のプルリクエストによって、到達できる可能性があることに注意することが重要です。 {{ site.data.variables.product.product_name }} では、リポジトリに既存のクローンやフォークについては何もできませんが、キャッシュされているビューや、プルリクエストでの機密データへの参照は、{{ site.data.variables.contact.contact_support }} へ連絡することにより恒久的に削除することができます。
+この記事では、機密データを含むコミットに {% data variables.product.product_name %} リポジトリのブランチやタグから到達できないようにする方法を説明しています。 ただし、こうしたコミットも、リポジトリのクローンやフォークからは、{% data variables.product.product_name %} でキャッシュされているビューの SHA-1 ハッシュによって直接、また参照元のプルリクエストによって、到達できる可能性があることに注意することが重要です。 {% data variables.product.product_name %} では、リポジトリに既存のクローンやフォークについては何もできませんが、キャッシュされているビューや、プルリクエストでの機密データへの参照は、{% data variables.contact.contact_support %} へ連絡することにより恒久的に削除することができます。
 
 {% endwarning %}
 
@@ -53,7 +54,7 @@ $ bfg --replace-text passwords.txt
 
 1. 機密データを含むリポジトリのローカルコピーが履歴にまだない場合は、ローカルコンピュータに[リポジトリのクローンを作成](/articles/cloning-a-repository/)します。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>ユーザ名</em>/<em>リポジトリ</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>ユーザ名</em>/<em>リポジトリ</em>
   > Initialized empty Git repository in /Users/<em>ファイルパス</em>/<em>リポジトリ</em>/.git/
   > remote: Counting objects: 1301, done.
   > remote: Compressing objects: 100% (769/769), done.
@@ -71,10 +72,10 @@ $ bfg --replace-text passwords.txt
     - **既存のタグを上書きする**
         ```shell
         $ git filter-branch --force --index-filter \
-        "git rm --cached --ignore-unmatch <em>機密データを含むファイルへのパス</em>" \
+        "git rm --cached --ignore-unmatch <em>PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA</em>" \
         --prune-empty --tag-name-filter cat -- --all
         > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (266/266)
-        > Ref 'refs/heads/master' was rewritten
+        > Ref 'refs/heads/main' was rewritten
         ```
 
   {% note %}
@@ -86,14 +87,14 @@ $ bfg --replace-text passwords.txt
 4. 機密データを含むファイルを、誤って再度コミットしないようにするため、`.gitignore` に追加します。
 
   ```shell
-  $ echo "<em>機密データを含むファイル</em>" >> .gitignore
+  $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
-  $ git commit -m "Add <em>機密データを含むファイル</em> to .gitignore"
-  > [master 051452f] Add <em>機密データを含むファイル</em> to .gitignore
+  $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. リポジトリの履歴から削除対象をすべて削除したこと、すべてのブランチがチェックアウトされたことをダブルチェックします。
-6. リポジトリの状態が整ったら、ローカルでの変更をフォースプッシュして、{{ site.data.variables.product.product_name }} リポジトリと、プッシュしたすべてのブランチに上書きします。
+6. リポジトリの状態が整ったら、ローカルでの変更をフォースプッシュして、{% data variables.product.product_name %} リポジトリと、プッシュしたすべてのブランチに上書きします。
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -101,8 +102,8 @@ $ bfg --replace-text passwords.txt
   > Compressing objects: 100% (677/677), done.
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>ユーザ名</em>/<em>リポジトリ</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 7. 機密データを[タグ付きリリース](/articles/about-releases)から削除するため、Git タグに対しても次のようにフォースプッシュする必要があります。
   ```shell
@@ -112,10 +113,10 @@ $ bfg --replace-text passwords.txt
   > Compressing objects: 100% (166/166), done.
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>ユーザ名</em>/<em>リポジトリ</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  >  + 48dc599...051452f main -> main (forced update)
   ```
-8. {{ site.data.variables.contact.contact_support }} に連絡し、{{ site.data.variables.product.product_name }} 上で、キャッシュされているビューと、プルリクエストでの機密データへの参照を削除するよう依頼します。
+8. {% data variables.contact.contact_support %} に連絡し、{% data variables.product.product_name %} 上で、キャッシュされているビューと、プルリクエストでの機密データへの参照を削除するよう依頼します。
 9. コラボレータには、 作成したブランチを古い (汚染された) リポジトリ履歴から[リベース](https://git-scm.com/book/en/Git-Branching-Rebasing)する (マージ*しない*) よう伝えます。 マージコミットを 1 回でも行うと、パージで問題が発生したばかりの汚染された履歴の一部または全部が再導入されてしまいます。
 10. 一定の時間が経過し、`git filter-branch` に意図しない副作用がないことが確信できるようになったら、次のコマンドによって、ローカルリポジトリのすべてのオブジェクトが強制的に参照から外されガベージコレクトされるようにします (Git 1.8.5 以降を使用)。
   ```shell
@@ -130,20 +131,20 @@ $ bfg --replace-text passwords.txt
   ```
   {% note %}
 
-   **注釈:** フィルタした履歴を、新規または空のリポジトリにプッシュして、{{ site.data.variables.product.product_name }} から新しいクローンを作成することによっても、同じことができます。
+   **注釈:** フィルタした履歴を、新規または空のリポジトリにプッシュして、{% data variables.product.product_name %} から新しいクローンを作成することによっても、同じことができます。
 
   {% endnote %}
 
-## 将来にわたって誤ったコミットを回避する
+### 将来にわたって誤ったコミットを回避する
 
 コミット対象でないものがコミットされるのを回避するためのシンプルな方法がいくつかあります。
 
-- [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/) や [gitk](https://git-scm.com/docs/gitk) のようなビジュアルプログラムを使用して、変更をコミットします。 ビジュアルプログラムは通常、各コミットでどのファイルが追加、削除、変更されるかを正確に把握しやすくするものです。
+- [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) や [gitk](https://git-scm.com/docs/gitk) のようなビジュアルプログラムを使用して、変更をコミットします。 ビジュアルプログラムは通常、各コミットでどのファイルが追加、削除、変更されるかを正確に把握しやすくするものです。
 - コマンドラインでは catch-all コマンド、`git add .` および `git commit -a` は使用しないようにします。ファイルを個別にステージングするには、代わりに `git add filename` および `git rm filename` を使用します。
 - 各ファイル内の変更を個別にレビューしステージングするには、`git add --interactive` を使用します。
 - コミットのためにステージングされている変更をレビューするには、`git diff --cached` を使用します。 これはまさに、`git commit` で `-a` フラグを使用しない限りにおいて生成される diff です。
 
 ### 参考リンク
 
-- [`git filter-branch` メインページ](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

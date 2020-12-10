@@ -4,13 +4,14 @@ redirect_from:
   - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
-intro: '如果您 [使用 HTTPS 克隆 {{ site.data.variables.product.product_name }} 仓库](/github/using-git/whit-remote-url-should-i-us)，您可以使用凭据小助手告诉 Git 记住您的凭据。'
+intro: '如果您 [使用 HTTPS 克隆 {% data variables.product.product_name %} 仓库](/github/using-git/which-remote-url-should-i-use)，您可以使用凭据小助手告诉 Git 记住您的凭据。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-如果您使用 SSH 克隆 {{ site.data.variables.product.product_name }} 仓库，则可使用 SSH 密钥进行身份验证，而不是使用其他凭据。 有关设置 SSH 连接的信息，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。
+如果您使用 SSH 克隆 {% data variables.product.product_name %} 仓库，则可使用 SSH 密钥进行身份验证，而不是使用其他凭据。 有关设置 SSH 连接的信息，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。
 
 {% mac %}
 
@@ -50,7 +51,7 @@ versions:
   # Set git to use the osxkeychain credential helper
   ```
 
-下次克隆需要身份验证的 HTTPS URL 时，Git 会提示您输入用户名和密码。 {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+下次克隆需要身份验证的 HTTPS URL 时，Git 会提示您输入用户名和密码。 {% data reusables.user_settings.password-authentication-deprecation %}
 
 验证成功后，您的凭据存储在 macOS 密钥链中，每次克隆 HTTPS URL 时都会使用。 除非更改凭据，否则无需在 Git 中再次键入凭据。
 

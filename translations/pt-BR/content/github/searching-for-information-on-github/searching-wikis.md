@@ -1,16 +1,17 @@
 ---
 title: Pesquisar wikis
-intro: 'Você pode pesquisar wikis no {{ site.data.variables.product.product_name }} e limitar os resultados usando qualquer combinação dos qualificadores da pesquisa de wiki.'
+intro: 'Você pode pesquisar wikis no {% data variables.product.product_name %} e limitar os resultados usando qualquer combinação dos qualificadores da pesquisa de wiki.'
 redirect_from:
   - /articles/searching-wikis
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode pesquisar wikis globalmente no {{ site.data.variables.product.product_name }} ou pesquisar em uma organização ou um repositório específico. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+Você pode pesquisar wikis globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Pesquisar nos repositórios de um usuário ou uma organização
 
@@ -35,7 +36,7 @@ Os qualificadores `in` limitam a pesquisa ao texto ou ao título da página wiki
 
 O qualificador `updated` identifica as páginas wiki que foram atualizadas pela última vez no intervalo de datas especificado.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Exemplo                                                                                                                                                                                                  |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

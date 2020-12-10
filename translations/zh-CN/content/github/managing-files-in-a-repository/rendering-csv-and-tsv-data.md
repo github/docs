@@ -5,13 +5,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 GitHub 支持以 *.csv*（逗号分隔）和 .*tsv*（制表符分隔）文件的形式呈现表格数据。
 
 ![呈现的 CSV 示例](/assets/images/help/repository/rendered_csv.png)
 
-查看时，提交到 {{ site.data.variables.product.product_name }} 仓库的任何 _.csv_ 或 _.tsv_ 文件都会自动呈现为交互式表格，包括标题和行编号。 默认情况下，我们始终假设第一行是标题行。
+查看时，提交到 {% data variables.product.product_name %} 仓库的任何 _.csv_ 或 _.tsv_ 文件都会自动呈现为交互式表格，包括标题和行编号。 默认情况下，我们始终假设第一行是标题行。
 
 您可以通过单击行号链接到特定行，或通过按住 Shift 键选择多行。 只需复制 URL 并将其发送给好友即可。
 

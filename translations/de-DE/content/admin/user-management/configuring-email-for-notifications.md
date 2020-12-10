@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'Damit Benutzer einfach und schnell auf Aktivitäten auf {{ site.data.variables.product.prodname_ghe_server }} reagieren können, können Sie Ihre Instanz so konfigurieren, dass E-Mail-Benachrichtigungen zu Issues, Pull Requests und Commit-Kommentaren gesendet werden. Zudem können Sie zusätzliche Einstellungen konfigurieren, um eingehende E-Mail-Antworten zu ermöglichen. Benachrichtigungs-E-Mails werden gesendet, wenn auf einem von einem Benutzer beobachteten Repository oder in einem Pull Request oder Issue, an dem er sich beteiligt, Aktivität zu verzeichnen ist, oder wenn der Benutzer oder das Team, von dem er bzw. es ein Mitglied ist, in einem Kommentar @erwähnt wird.'
+intro: 'Damit Benutzer einfach und schnell auf Aktivitäten auf {% data variables.product.prodname_ghe_server %} reagieren können, können Sie Ihre Instanz so konfigurieren, dass E-Mail-Benachrichtigungen zu Issues, Pull Requests und Commit-Kommentaren gesendet werden. Zudem können Sie zusätzliche Einstellungen konfigurieren, um eingehende E-Mail-Antworten zu ermöglichen. Benachrichtigungs-E-Mails werden gesendet, wenn auf einem von einem Benutzer beobachteten Repository oder in einem Pull Request oder Issue, an dem er sich beteiligt, Aktivität zu verzeichnen ist, oder wenn der Benutzer oder das Team, von dem er bzw. es ein Mitglied ist, in einem Kommentar @erwähnt wird.'
 versions:
   enterprise-server: '*'
 ---
 
 ### SMTP konfigurieren
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 2. Klicken Sie im oberen Bereich der Seite auf **Settings** (Einstellungen). ![Registerkarte „Settings“ (Einstellungen)](/assets/images/enterprise/management-console/settings-tab.png)
 3. Klicken Sie auf der linken Seitenleiste auf **Email** (E-Mail). ![Registerkarte „Email“ (E-Mail)](/assets/images/enterprise/management-console/email-sidebar.png)
 4. Wählen Sie **Enable email** (E-Mail aktivieren) aus. Dadurch werden aus- und eingehende E-Mails aktiviert. Damit eingehende E-Mails funktionieren, müssen Sie jedoch auch Ihre DNS-Einstellungen konfigurieren, wie dies im Folgenden unter „[DNS- und Firewalleinstellungen zum Zulassen eingehender E-Mails konfigurieren](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)“ beschrieben ist. ![Option zum Aktivieren ausgehender E-Mails](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -44,7 +44,7 @@ Wenn Sie E-Mail-Antworten auf Benachrichtigungen zulassen möchten, müssen Sie 
 1. Stellen Sie sicher, dass Port 25 auf der Instanz für Ihren SMTP-Server erreichbar ist.
 2. Erstellen Sie einen Datensatz, der auf `reply.[hostname]` verweist. In Abhängigkeit Ihres DNS-Providers und Ihrer Instanz-Host-Konfiguration können Sie ggf. stattdessen einen einzelnen A-Datensatz erstellen, der auf `*.[hostname]` verweist.
 3. Erstellen Sie einen MX-Datensatz, der auf `reply.[hostname]` verweist, sodass an diese Domain gesendete E-Mails zur Instanz weitergeleitet werden.
-4. Erstellen Sie einen MX-Datensatz, wodurch `noreply.[hostname]` auf `[hostname]` verweist, damit an die in Benachrichtigungs-E-Mails enthaltene `cc`-Adresse gesendete Antworten an die Instanz weitergeleitet werden. Weitere Informationen findest Du unter {% if currentVersion ver_gt "enterprise-server@2.20" %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}„[Informationen zu E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}“.
+4. Erstellen Sie einen MX-Datensatz, wodurch `noreply.[hostname]` auf `[hostname]` verweist, damit an die in Benachrichtigungs-E-Mails enthaltene `cc`-Adresse gesendete Antworten an die Instanz weitergeleitet werden. For more information, see {% if currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."
 
 In Ihrer DNS-Konfigurationseinrichtung können Sie nun testen, ob die Einrichtung funktioniert.
 
@@ -68,7 +68,7 @@ In Ihrer DNS-Konfigurationseinrichtung können Sie nun testen, ob die Einrichtun
 
 #### Support-Bundle erstellen
 
-Wenn Sie anhand der angezeigten Fehlermeldung nicht ermitteln können, was falsch ist, können Sie ein [Support-Bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) herunterladen, das die gesamte SMTP-Kommunikation zwischen Ihrem E-Mail-Server und {{ site.data.variables.product.prodname_ghe_server }} enthält. Überprüfen Sie nach dem Herunterladen und Extrahieren des Bundles die Einträge in *enterprise-manage-logs/unicorn.log* für das gesamte SMTP-Kommunikationsprotokoll und auf die zugehörigen Fehler.
+Wenn Sie anhand der angezeigten Fehlermeldung nicht ermitteln können, was falsch ist, können Sie ein [Support-Bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) herunterladen, das die gesamte SMTP-Kommunikation zwischen Ihrem E-Mail-Server und {% data variables.product.prodname_ghe_server %} enthält. Überprüfen Sie nach dem Herunterladen und Extrahieren des Bundles die Einträge in *enterprise-manage-logs/unicorn.log* für das gesamte SMTP-Kommunikationsprotokoll und auf die zugehörigen Fehler.
 
 Das Unicorn-Protokoll sollte in etwa folgende Transaktion anzeigen:
 
@@ -109,7 +109,7 @@ Dieses Protokoll zeigt, dass die Appliance
 * der Authentifizierungstyp `login` durchgeführt wurde (`<- "AUTH LOGIN\r\n"`),
 * der SMTP-Server die Authentifizierung als ungültig (`-> "535-5.7.1 Username and Password not accepted.`) abgelehnt hat.
 
-#### {{ site.data.variables.product.product_location_enterprise }}-Protokolle überprüfen
+#### {% data variables.product.product_location_enterprise %}-Protokolle überprüfen
 
 Es gibt zwei Protokolldateien (*/var/log/mail.log* und */var/log/mail-replies/metroplex.log*), die Sie auf Ihrer Instanz untersuchen können, falls Sie verifizieren müssen, dass Ihre eingehenden E-Mails funktionieren.
 
@@ -143,8 +143,8 @@ Damit eingehende E-Mails ordnungsgemäß verarbeitet werden, müssen Sie eine g�
 
 #### Einstellungen der Firewall oder der AWS-Sicherheitsgruppe überprüfen
 
-Wenn sich {{ site.data.variables.product.product_location_enterprise }} hinter einer Firewall befindet oder durch eine AWS-Sicherheitsgruppe betrieben wird, muss Port 25 auf allen E-Mail-Servern geöffnet sein, auf denen E-Mails an `reply@reply.[hostname]` gesendet werden.
+Wenn sich {% data variables.product.product_location_enterprise %} hinter einer Firewall befindet oder durch eine AWS-Sicherheitsgruppe betrieben wird, muss Port 25 auf allen E-Mail-Servern geöffnet sein, auf denen E-Mails an `reply@reply.[hostname]` gesendet werden.
 
 #### Support kontaktieren
 
-Kontaktieren Sie {{ site.data.variables.contact.contact_ent_support }}, falls Sie das Problem weiterhin nicht beheben können. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.
+Kontaktieren Sie {% data variables.contact.contact_ent_support %}, falls Sie das Problem weiterhin nicht beheben können. Hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an, um uns bei der Fehlerbehebung zu unterstützen.

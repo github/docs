@@ -1,6 +1,6 @@
 ---
 title: Einen Commit im Namen einer Organisation erstellen
-intro: 'Du kannst Commits im Namen einer Organisation erstellen, indem Du einen Trailer zur Commit-Mitteilung hinzufügst. Commits, die einer Organisation zugeordnet sind, enthalten den Badge `on-behalf-of` (in Namen von) auf {{ site.data.variables.product.product_name }}.'
+intro: 'Du kannst Commits im Namen einer Organisation erstellen, indem Du einen Trailer zur Commit-Mitteilung hinzufügst. Commits, die einer Organisation zugeordnet sind, enthalten den Badge `on-behalf-of` (in Namen von) auf {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
@@ -26,7 +26,7 @@ Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlic
 
 ### Commits mit einem `on-behalf-of`-Badge in der Befehlszeile erstellen
 
-{{ site.data.reusables.pull_requests.commit-message-with-trailer-beginning }}
+{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
 
 2. Gib in der nächsten Zeile der Commit-Mitteilung `on-behalf-of: @org <name@organization.com>` ein, gefolgt von einem abschließenden Anführungszeichen.
 
@@ -37,11 +37,11 @@ Organisationen können die E-Mail-Adresse `name@organization.com` als öffentlic
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {{ site.data.variables.product.product_location }} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/articles/pushing-commits-to-a-remote-repository/).“
+Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {% data variables.product.product_location %} angezeigt. Weitere Informationen findest Du unter „[Änderungen zu einem Remote-Repository übertragen](/articles/pushing-commits-to-a-remote-repository/).“
 
-### Commits mit einem `on-behalf-of`-Badge auf {{ site.data.variables.product.product_name }} erstellen
+### Commits mit einem `on-behalf-of`-Badge auf {% data variables.product.product_name %} erstellen
 
-Wenn Du mit dem Web-Editor Änderungen an einer Datei auf {{ site.data.variables.product.product_name }} vorgenommen hast, kannst Du einen Commit im Namen Deiner Organisation erstellen, indem Du den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügst.
+Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen haben, können Sie einen Commit im Namen Ihrer Organisation erstellen, indem Sie den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügen.
 
 1. Nachdem Du Deine Änderungen gemacht hast, gib unten auf der Seite eine kurze, aussagekräftige Commit-Mitteilung ein, die die von Dir gemachten Änderungen beschreibt. ![Commit-Mitteilung für Deine Änderung](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
@@ -50,7 +50,7 @@ Wenn Du mit dem Web-Editor Änderungen an einer Datei auf {{ site.data.variables
   ![Beispiel für on-behalf-of-Trailer in Commit-Mitteilung im Textfeld der zweiten Commit-Mitteilung](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
 4. Klicken Sie auf **Commit changes** (Änderungen committen) oder **Propose changes** (Änderungen vorschlagen).
 
-Der neue Commit wird samt Mitteilung und Badge auf {{ site.data.variables.product.product_location }} angezeigt.
+Der neue Commit wird samt Mitteilung und Badge auf {% data variables.product.product_location %} angezeigt.
 
 ### Weiterführende Informationen
 

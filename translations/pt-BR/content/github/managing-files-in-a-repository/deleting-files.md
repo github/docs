@@ -1,11 +1,12 @@
 ---
 title: Excluir arquivos
-intro: 'Você pode excluir qualquer arquivo nos repositórios do {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode excluir qualquer arquivo nos repositórios do {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -17,10 +18,10 @@ versions:
 1. Navegue até o arquivo no repositório que deseja excluir.
 2. Na parte superior do arquivo, clique
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 {% danger %}
 

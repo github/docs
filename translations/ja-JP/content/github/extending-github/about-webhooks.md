@@ -9,11 +9,12 @@ intro: webhook は、特定のアクションがリポジトリあるいは Orga
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**ヒント:** {{ site.data.reusables.organizations.owners-and-admins-can }}は Organization の webhook を管理します。 {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**ヒント:** {% data reusables.organizations.owners-and-admins-can %}は Organization の webhook を管理します。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
@@ -21,9 +22,9 @@ webhook は、リポジトリあるいは Organization にさまざまなアク�
 
 * リポジトリへのプッシュ
 * プルリクエストのオープン
-* {{ site.data.variables.product.prodname_pages }}サイトの構築
+* {% data variables.product.prodname_pages %}サイトの構築
 * Team への新しいメンバーの追加
 
-{{ site.data.variables.product.product_name }}API を使えば、これらの webhook に外部の Issue トラッカーを更新させたり、CI ビルドを走らせたり、バックアップミラーを更新したり、さらにはプロダクションサーバーへデプロイしたりすることができます。
+{% data variables.product.product_name %}API を使えば、これらの webhook に外部の Issue トラッカーを更新させたり、CI ビルドを走らせたり、バックアップミラーを更新したり、さらにはプロダクションサーバーへデプロイしたりすることができます。
 
 新しい webhook をセットアップするには、外部サーバーにアクセスでき、関連する技術的な手順に精通している必要があります。 関連付けられるアクションの完全なリストを含む、webhook の作成に関するヘルプについては、「[ webhook](/webhooks)」を参照してください。

@@ -1,1 +1,0 @@
-{{ site.data.variables.product.prodname_ghe_one }}を購入したお客様については、{{ site.data.variables.product.prodname_actions }}、{{ site.data.variables.product.prodname_insights }}、{{ site.data.variables.product.prodname_learning }}、{{ site.data.variables.product.prodname_registry }}に関する{{ site.data.variables.product.premium_plus_support_plan }}のサポートの条件は異なります。

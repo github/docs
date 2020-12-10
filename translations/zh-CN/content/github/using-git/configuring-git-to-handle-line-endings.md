@@ -1,6 +1,6 @@
 ---
 title: 配置 Git 处理行结束符
-intro: 为避免差异中出现问题，可配置 Git 正常处理行标题。
+intro: '为避免差异中出现问题，可配置 Git 正常处理行标题。'
 redirect_from:
   - /dealing-with-lineendings/
   - /line-endings/
@@ -9,11 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 每次按键盘上的 <kbd>return</kbd> 时，会插入一个称为行结束符的不可见字符。 不同的操作系统处理行结束符的方式不同。
 
-在使用 Git 和 {{ site.data.variables.product.product_name }} 协作处理项目时，Git 可能产生意外结果，例如，您在 Windows 计算机上操作，而您的协作者是在 OS X 中做的更改。
+在使用 Git 和 {% data variables.product.product_name %} 协作处理项目时，Git 可能产生意外结果，例如，您在 Windows 计算机上操作，而您的协作者是在 OS X 中做的更改。
 
 您可以将 Git 配置为自动处理行结束符，以便与使用不同操作系统的人员有效地协作。
 

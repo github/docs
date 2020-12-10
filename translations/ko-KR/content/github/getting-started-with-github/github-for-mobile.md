@@ -1,45 +1,56 @@
 ---
 title: GitHub for mobile
-intro: 'Triage, collaborate, and manage your work on {{ site.data.variables.product.company_short }} from your mobile device.'
+intro: 'Triage, collaborate, and manage your work on {% data variables.product.company_short %} from your mobile device.'
 versions:
   free-pro-team: '*'
 ---
 
-### About {{ site.data.variables.product.prodname_mobile }}
+### About {% data variables.product.prodname_mobile %}
 
-{{ site.data.variables.product.prodname_mobile }} is currently available for {{ site.data.variables.product.prodname_dotcom_the_website }} users as an Android and iOS app.
+{% data variables.product.prodname_mobile %} is currently available for {% data variables.product.prodname_dotcom_the_website %} users as an Android and iOS app.
 
-{{ site.data.variables.product.prodname_mobile }} gives you a way to do high-impact work on {{ site.data.variables.product.prodname_dotcom }} quickly and from anywhere. {{ site.data.variables.product.prodname_mobile }} is a safe and secure way to access your {{ site.data.variables.product.prodname_dotcom }} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.prodname_dotcom %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.prodname_dotcom %} data through a trusted, first-party client application.
 
-With {{ site.data.variables.product.prodname_mobile }} you can:
+With {% data variables.product.prodname_mobile %} you can:
 - Manage, triage, and clear notifications
 - Read, review, and collaborate on issues and pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
 
-For more information about notifications for {{ site.data.variables.product.prodname_mobile }}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
+For more information about notifications for {% data variables.product.prodname_mobile %}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 
-### Installing {{ site.data.variables.product.prodname_mobile }}
+### Installing {% data variables.product.prodname_mobile %}
 
-To install {{ site.data.variables.product.prodname_mobile }} for Android or iOS, see [{{ site.data.variables.product.prodname_mobile }}](https://github.com/mobile).
+To install {% data variables.product.prodname_mobile %} for Android or iOS, see [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
 
-### Managing Universal Links for {{ site.data.variables.product.prodname_mobile }} on iOS
+### Supported languages for {% data variables.product.prodname_mobile %}
 
-{{ site.data.variables.product.prodname_mobile }} automatically enables Universal Links for iOS. When you tap any {{ site.data.variables.product.product_name }} link, the destination URL will open in {{ site.data.variables.product.prodname_mobile }} instead of Safari. For more information, see [Universal Links](https://developer.apple.com/ios/universal-links/) on the Apple Developer site.
+{% data variables.product.prodname_mobile %} is available in the following languages.
 
-To disable Universal Links, long-press any {{ site.data.variables.product.prodname_dotcom }} link, then tap **Open**. Every time you tap a {{ site.data.variables.product.prodname_dotcom }} link in the future, the destination URL will open in Safari instead of {{ site.data.variables.product.prodname_mobile }}.
+- Japanese
+- Brazilian Portuguese
+- 스페인어
 
-To re-enable Universal Links, long-press any {{ site.data.variables.product.prodname_dotcom }} link, then tap **Open in {{ site.data.variables.product.prodname_dotcom }}**.
+If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
+
+### Managing Universal Links for {% data variables.product.prodname_mobile %} on iOS
+
+{% data variables.product.prodname_mobile %} automatically enables Universal Links for iOS. When you tap any {% data variables.product.product_name %} link, the destination URL will open in {% data variables.product.prodname_mobile %} instead of Safari. For more information, see [Universal Links](https://developer.apple.com/ios/universal-links/) on the Apple Developer site.
+
+To disable Universal Links, long-press any {% data variables.product.prodname_dotcom %} link, then tap **Open**. Every time you tap a {% data variables.product.prodname_dotcom %} link in the future, the destination URL will open in Safari instead of {% data variables.product.prodname_mobile %}.
+
+To re-enable Universal Links, long-press any {% data variables.product.prodname_dotcom %} link, then tap **Open in {% data variables.product.prodname_dotcom %}**.
 
 ### Sharing feedback
 
-If you have feedback or feature requests for {{ site.data.variables.product.prodname_mobile }}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
+If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
 ### Opting out of beta releases for iOS
 
-If you're testing a beta release of {{ site.data.variables.product.prodname_mobile }} for iOS using TestFlight, you can leave the beta at any time.
+If you're testing a beta release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the beta at any time.
 
 1. On your iOS device, open the TestFlight app.
-2. Under "Apps", tap **{{ site.data.variables.product.prodname_dotcom }}**.
+2. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
 3. At the bottom of the page, tap **Stop Testing**.

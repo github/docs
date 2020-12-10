@@ -32,7 +32,7 @@ versions:
 - 在组织中创建或访问仓库
 - 查看组织的私人成员
 - 出现在组织成员列表中
-- 购买、编辑或取消 {{ site.data.variables.product.prodname_marketplace }} 应用程序订阅
+- 购买、编辑或取消 {% data variables.product.prodname_marketplace %} 应用程序订阅
 
 {% tip %}
 
@@ -44,9 +44,9 @@ versions:
 
 受邀人员将会收到邀请电子邮件，邀请他们成为您的组织的帐单管理员。 在受邀人员单击其邀请电子邮件中的接受链接后，他们会自动加入组织成为帐单管理员。 如果他们还没有 GitHub 帐户，将被重定向到注册页面注册一个，在创建帐户后会自动加入组织成为帐单管理员。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. 在帐单管理员旁边，单击 **Add a billing manager（添加帐单管理员）**。 ![邀请帐单管理员](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 输入您要添加的人员的用户名或电子邮件地址，然后单击 **Send invitation（发送邀请）**。 ![邀请帐单管理员页面](/assets/images/help/billing/billing_manager_invite.png)

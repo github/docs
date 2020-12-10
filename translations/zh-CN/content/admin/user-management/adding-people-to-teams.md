@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
   - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
   - /enterprise/admin/user-management/adding-people-to-teams
-intro: '创建团队后，组织管理员可以将用户从 {{ site.data.variables.product.product_location_enterprise }} 添加到团队并决定他们可以访问哪些仓库。'
+intro: '创建团队后，组织管理员可以将用户从 {% data variables.product.product_location %} 添加到团队并决定他们可以访问哪些仓库。'
 versions:
   enterprise-server: '*'
 ---
@@ -17,14 +17,14 @@ versions:
 
 ### 设置团队
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.invite_to_team }}
-{{ site.data.reusables.organizations.review-team-repository-access }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.invite_to_team %}
+{% data reusables.organizations.review-team-repository-access %}
 
 ### 将团队映射到 LDAP 组（例如，使用 LDAP 同步进行用户身份验证）
 
-{{ site.data.reusables.enterprise_management_console.badge_indicator }}
+{% data reusables.enterprise_management_console.badge_indicator %}
 
 要将新成员添加到已同步至 LDAP 组的团队，请将用户添加为 LDAP 组的成员，或者联系您的 LDAP 管理员。

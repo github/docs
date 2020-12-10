@@ -1,6 +1,6 @@
 ---
 title: 行終端を処理するようGitを設定する
-intro: diff における問題を回避するため、行終端を正しく処理できるよう Git を設定できます。
+intro: 'diff における問題を回避するため、行終端を正しく処理できるよう Git を設定できます。'
 redirect_from:
   - /dealing-with-lineendings/
   - /line-endings/
@@ -9,11 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 キーボードで <kbd>return</kbd> を押すたびに、行終端と呼ばれる目に見えない文字が挿入されています。 行終端の処理は、オペレーティングシステムによって異なります。
 
-Git と {{ site.data.variables.product.product_name }}でコラボレートしているとき、自分が Windows マシンを使用し、コラボレーターが OS X で変更した場合、Git により予想外の結果が生じる可能性があります。
+Git と {% data variables.product.product_name %}でコラボレートしているとき、自分が Windows マシンを使用し、コラボレーターが OS X で変更した場合、Git により予想外の結果が生じる可能性があります。
 
 異なるオペレーティングシステムを使用しているユーザとも効果的にコラボレーションができるように、自動的に行終端を処理するよう Git を設定することができます。
 

@@ -1,21 +1,22 @@
 ---
 title: Limites para visualização de conteúdo e diffs no repositório
-intro: 'Determinados tipos de recursos podem ser muito grandes, exigindo processamento elevado no{{ site.data.variables.product.product_name }}. Por isso, limites são estabelecidos para assegurar que as solicitações sejam completadas em um período razoável.'
+intro: 'Determinados tipos de recursos podem ser muito grandes, exigindo processamento elevado no{% data variables.product.product_name %}. Por isso, limites são estabelecidos para assegurar que as solicitações sejam completadas em um período razoável.'
 redirect_from:
   - /articles/what-are-the-limits-for-viewing-content-and-diffs-in-my-repository/
   - /articles/limits-for-viewing-content-and-diffs-in-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-A maioria dos limites abaixo afetam o {{ site.data.variables.product.product_name }} e a API.
+A maioria dos limites abaixo afetam o {% data variables.product.product_name %} e a API.
 
 ### Limites de texto
 
 Arquivos de texto maiores que **1 MB** são sempre exibidos como texto simples. O código não destaca a sintaxe e arquivos em prosa não são convertidos em HTML (como markdown, AsciiDoc *etc.*).
 
-Arquivos de texto acima de **5 MB** somente estão disponíveis por meio de suas URLs brutas, que são servidas em `{{ site.data.variables.product.raw_github_com }}`; por exemplo, `https://{{ site.data.variables.product.raw_github_com }}/octocat/Spoon-Knife/master/index.html`. Clique no botão **Raw** (Bruto) para obter o URL bruto de um arquivo.
+Arquivos de texto acima de **5 MB** somente estão disponíveis por meio de suas URLs brutas, que são servidas em `{% data variables.product.raw_github_com %}`; por exemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Clique no botão **Raw** (Bruto) para obter o URL bruto de um arquivo.
 
 ### Limites de diff
 

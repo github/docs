@@ -1,17 +1,18 @@
 ---
 title: プルリクエストの必須レビューについて
 intro: 必須レビューにより、保護されたブランチにコラボレーターが変更を加える前にプルリクエストが指定された数の承認レビューを得ることが保証されます。
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-reviews-for-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリでブランチの保護を強制した場合、必須レビューをセットアップできます。 ブランチ保護の強制に関する詳しい情報については[保護されたブランチの設定](/articles/configuring-protected-branches/)を参照してください。 必須レビューのセットアップに関する詳しい情報については[プルリクエストの必須レビューの有効化](/articles/enabling-required-reviews-for-pull-requests)を参照してください。
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 *管理者*権限を持つ人がレビューで [**Request changes**] を選択した場合、その人が承認しなければプルリクエストはマージできません。 プルリクエストへの変更をリクエストしたレビューアーが見つからない場合、そのリポジトリに*管理*あるいは*書き込み*権限を持つ人が、ブロックしているレビューを却下できます。 詳しい情報については[プルリクエストレビューの却下](/articles/dismissing-a-pull-request-review)を参照してください。
 
@@ -25,7 +26,7 @@ versions:
 
 必須レビューがリポジトリ管理者を含むようにセットアップされていないかぎり、*管理者*権限を持つ人は他の管理者のレビューに関係なくプルリクエストをマージできます。
 
-{{ site.data.reusables.repositories.review-policy-overlapping-commits }}
+{% data reusables.repositories.review-policy-overlapping-commits %}
 
 保護されたブランチへのプルリクエストのマージは、*書き込み*または*管理者*権限を持つ誰かが承認するまで行えません。 ペンディングになっている、あるいは拒否されたレビューがある場合、エラーメッセージが返されます:
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Fenced code blocks
@@ -46,5 +47,5 @@ We use [Linguist](https://github.com/github/linguist) to perform language detect
 
 ### 더 읽을거리
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown Spec](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

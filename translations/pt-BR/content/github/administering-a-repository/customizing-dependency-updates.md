@@ -1,16 +1,16 @@
 ---
 title: Personalizando atualizações de dependências
-intro: 'Você pode personalizar como {{ site.data.variables.product.prodname_dependabot }} mantém suas dependências.'
-permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {{ site.data.variables.product.prodname_dependabot }} para o repositório.'
+intro: 'Você pode personalizar como {% data variables.product.prodname_dependabot %} mantém suas dependências.'
+permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {% data variables.product.prodname_dependabot %} para o repositório.'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dependabot.beta-note }}
+{% data reusables.dependabot.beta-note %}
 
 ### Sobre a personalização de atualizações de dependências
 
-Depois que você habilitou as atualizações de versão, você pode personalizar a forma como o {{ site.data.variables.product.prodname_dependabot }} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:
+Depois que você habilitou as atualizações de versão, você pode personalizar a forma como o {% data variables.product.prodname_dependabot %} mantém suas dependências adicionando mais opções ao arquivo *dependabot.yml*. Por exemplo, você pode:
 
 - Especificar qual dia da semana abrirá pull requests para atualizações de versão: `schedule.day`
 - Definir revisores, responsáveis e etiquetas para cada gerente de pacote: `revisores`, `responsáveis`e `etiquetas`
@@ -20,19 +20,19 @@ Depois que você habilitou as atualizações de versão, você pode personalizar
 
 Para obter mais informações sobre as opções de configuração, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates)".
 
-Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {{ site.data.variables.product.prodname_dependabot }} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{{ site.data.variables.product.prodname_dependabot_short }}**, isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
+Ao atualizar o arquivo *dependabot.yml* no seu repositório, o {% data variables.product.prodname_dependabot %} executa uma verificação imediata com a nova configuração. Dentro de minutos você verá uma lista atualizada de dependências na aba **{% data variables.product.prodname_dependabot %}**. Isso pode demorar mais se o repositório tiver muitas dependências. Você também pode ver novas pull requests para atualizações de versão. Para obter mais informações, consulte "[Listando dependências configuradas para atualizações da versão](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)".
 
 ### Impacto das alterações de configuração nas atualizações de segurança
 
-Se você personalizar o arquivo *dependabot.yml*, você poderá notar algumas alterações nas pull requests criadas por atualizações de segurança. Essas pull requests são sempre acionadas por uma consultoria de segurança para uma dependência, ao invés da agenda {{ site.data.variables.product.prodname_dependabot }}. No entanto, eles herdam configurações relevantes do arquivo *dependabot.yml* a menos que você especifique um branch de destino diferente para atualizações de versão.
+Se você personalizar o arquivo *dependabot.yml*, você poderá notar algumas alterações nas pull requests criadas por atualizações de segurança. Essas pull requests são sempre acionadas por uma consultoria de segurança para uma dependência, ao invés da agenda {% data variables.product.prodname_dependabot %}. No entanto, eles herdam configurações relevantes do arquivo *dependabot.yml* a menos que você especifique um branch de destino diferente para atualizações de versão.
 
 Por exemplo, consulte "[Definindo etiquetas personalizadas](#setting-custom-labels)" abaixo.
 
 ### Modificando o agendamento
 
-Ao definir um agendamento de atualização `diário`, por padrão, {{ site.data.variables.product.prodname_dependabot }} verifica novas versões às 05:00 UTC. Você pode usar `schedule.time` para especificar um horário alternativo do dia para verificar atualizações (formato: `hh:mm`).
+Ao definir um agendamento de atualização `diário`, por padrão, {% data variables.product.prodname_dependabot %} verifica novas versões às 05:00 UTC. Você pode usar `schedule.time` para especificar um horário alternativo do dia para verificar atualizações (formato: `hh:mm`).
 
-O exemplo de arquivo *dependabot.yml* abaixo expande a configuração npm para especificar quando o {{ site.data.variables.product.prodname_dependabot }} deve procurar por atualizações de versão em dependências.
+O exemplo de arquivo *dependabot.yml* abaixo expande a configuração npm para especificar quando o {% data variables.product.prodname_dependabot %} deve procurar por atualizações de versão em dependências.
 
 ```yaml
 # arquivo dependabot.yml com
@@ -51,7 +51,7 @@ updates:
 
 ### Configurando revisores e responsáveis
 
-Por padrão, {{ site.data.variables.product.prodname_dependabot }} levanta todas as pull requests sem revisores ou responsáveis.
+Por padrão, {% data variables.product.prodname_dependabot %} levanta todas as pull requests sem revisores ou responsáveis.
 
 Você pode usar `revisores` e `responsáveis`  para especificar revisores e responsáveis para todas as pull requests criadas para um gerenciador de pacotes. Quando especificar uma equipe, você deve usar o nome completo da equipe, como se estivesse @mencionando a equipe (incluindo a organização).
 
@@ -79,7 +79,7 @@ updates:
 
 ### Definindo etiquetas personalizadas
 
-{{ site.data.reusables.dependabot.default-labels}}
+{% data reusables.dependabot.default-labels %}
 
 Você pode usar `etiquetas` para substituir as etiquetas padrão e especificar etiquetas alternativas para todas as pull requests criadas para um gerenciador de pacotes. Você não pode criar novas etiquetas no arquivo *dependabot.yml* , então as etiquetas alternativas já existem no repositório.
 

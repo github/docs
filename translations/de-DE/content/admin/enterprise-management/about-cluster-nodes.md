@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Clusterknoten
-intro: '*Knoten* sind {{ site.data.variables.product.prodname_ghe_server }}-Instanzen, die in einem Cluster arbeiten. Jeder Knoten führt eine Reihe an Diensten aus, die dem Cluster und schließlich den Benutzern bereitgestellt werden.'
+intro: '*Knoten* sind {% data variables.product.prodname_ghe_server %}-Instanzen, die in einem Cluster arbeiten. Jeder Knoten führt eine Reihe an Diensten aus, die dem Cluster und schließlich den Benutzern bereitgestellt werden.'
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
   - /enterprise/admin/enterprise-management/about-cluster-nodes
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_clustering.clustering-requires-https }}
+{% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ### Mindesthardwareempfehlungen
 Jeder Knoten muss ein Root-Volume und ein separates Datenvolumen aufweisen. Es gibt Mindestempfehlungen. Entsprechend Ihrer Nutzung, beispielsweise in Bezug auf die Benutzeraktivität und die ausgewählten Integrationen, sind möglicherweise mehr Ressourcen erforderlich.
@@ -39,10 +39,10 @@ Verwenden Sie zum Erzielen der angemessenen Redundanz diese Mindestanforderungen
 
 ### Empfehlungen zum Clusterdesign
 
-Mittels Clustering können Dienste, die den {{ site.data.variables.product.prodname_ghe_server }} bilden, unabhängig voneinander per Scale-out erweitert werden. Diese Flexibilität kann genutzt werden, um einen Cluster zu konzipieren und zu implementieren, der zu Organisationen mit unterschiedlichen Skalierbarkeitsanforderungen passt. Beispielsweise benötigen einige Organisationen möglicherweise Speicherdurchsätze für große oder häufige Abrufe, die Webservernutzung ist jedoch relativ gering. Eine andere Organisation besitzt möglicherweise eine gute Leistung bei weniger Speicherressourcen, benötigt jedoch viele Knoten, auf denen `pages-server` oder `elasticsearch-server` ausgeführt wird. Es sind viele verschiedene Kombinationen möglich. Wenden Sie sich an Ihren Kundenbetreuer, um die beste Clusterkonfiguration für Ihre speziellen Anforderungen zu bestimmen.
+Mittels Clustering können Dienste, die den {% data variables.product.prodname_ghe_server %} bilden, unabhängig voneinander per Scale-out erweitert werden. Diese Flexibilität kann genutzt werden, um einen Cluster zu konzipieren und zu implementieren, der zu Organisationen mit unterschiedlichen Skalierbarkeitsanforderungen passt. Beispielsweise benötigen einige Organisationen möglicherweise Speicherdurchsätze für große oder häufige Abrufe, die Webservernutzung ist jedoch relativ gering. Eine andere Organisation besitzt möglicherweise eine gute Leistung bei weniger Speicherressourcen, benötigt jedoch viele Knoten, auf denen `pages-server` oder `elasticsearch-server` ausgeführt wird. Es sind viele verschiedene Kombinationen möglich. Wenden Sie sich an Ihren Kundenbetreuer, um die beste Clusterkonfiguration für Ihre speziellen Anforderungen zu bestimmen.
 
 - Verteilen Sie redundante Knoten über unabhängige Hardware hinweg. Wenn Sie CPU, Arbeitsspeicher oder Speichergeräte gemeinsam verwenden, wird die Leistung reduziert und Single Points of Failure ermöglicht. Gemeinsam verwendete Netzwerkkomponenten können ebenfalls den Durchsatz reduzieren und im Falle eines Ausfalls das Risiko des Konnektivitätsverlusts erhöhen.
-- Verwenden Sie schnellen Speicher. Storage-Area-Networks (SAN) sind oftmals für die maximale Speicherauslastung, Verfügbarkeit und Fehlertoleranz optimiert und nicht für den absoluten Durchsatz. {{ site.data.variables.product.prodname_ghe_server }}-Clustering bietet Redundanz und Verfügbarkeit und funktioniert am besten auf dem schnellsten Speicher, der verfügbar ist. Lokaler SSD-Speicher wird empfohlen.
+- Verwenden Sie schnellen Speicher. Storage-Area-Networks (SAN) sind oftmals für die maximale Speicherauslastung, Verfügbarkeit und Fehlertoleranz optimiert und nicht für den absoluten Durchsatz. {% data variables.product.prodname_ghe_server %}-Clustering bietet Redundanz und Verfügbarkeit und funktioniert am besten auf dem schnellsten Speicher, der verfügbar ist. Lokaler SSD-Speicher wird empfohlen.
 - Erstellen Sie die Knotenstufen, die für Ihre Organisation sinnvoll sind. Beispielkonfiguration:
   - Front-End-Ebene mit zwei Knoten und den folgenden Diensten:
     - `web-server`
@@ -63,7 +63,7 @@ Mittels Clustering können Dienste, die den {{ site.data.variables.product.prodn
 #### Beispielclusterdiagramm
 {% note %}
 
-**Hinweis: Dies ist nur ein Beispiel.** Das optimale Clusterdesign Ihrer Organisation hängt von Ihren individuellen Anforderungen ab. Kontaktiere Deinen engagierten Ansprechpartner oder {{ site.data.variables.contact.contact_enterprise_sales }} damit wir Dir helfen können, die beste Clusterkonfiguration zu bestimmen.
+**Hinweis: Dies ist nur ein Beispiel.** Das optimale Clusterdesign Ihrer Organisation hängt von Ihren individuellen Anforderungen ab. Kontaktiere Deinen engagierten Ansprechpartner oder {% data variables.contact.contact_enterprise_sales %} damit wir Dir helfen können, die beste Clusterkonfiguration zu bestimmen.
 
 {% endnote %}
 

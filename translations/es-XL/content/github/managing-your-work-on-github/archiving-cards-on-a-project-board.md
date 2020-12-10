@@ -17,6 +17,6 @@ La automatización en tu tablero de proyecto no se aplica a las tarjetas del tab
 
 ### Restaurar tarjetas en un tablero de proyecto desde la barra lateral
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. Haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, luego haz clic en **View archive** (Ver archivo). ![Seleccionar la opción para ver el archivo desde el menú](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Encima de la tarjeta del tablero de proyecto que deseas desarchivar, haz clic en **Restore** (Restaurar). ![Seleccionar la restauración de la tarjeta del tablero de proyecto](/assets/images/help/projects/restore-card.png)
