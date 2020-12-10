@@ -34,7 +34,7 @@ O fluxo de trabalho é um procedimento automatizado que você adiciona ao seu re
 
 #### Eventos
 
-Um evento é uma atividade específica que aciona um fluxo de trabalho. Por exemplo, uma atividade pode originar de {% data variables.product.prodname_dotcom %} quando alguém faz o push de um commit em um repositório ou quando são criados um problema ou um pull request. Também é possível usar o webhook de envio de repositório para acionar um fluxo de trabalho quando ocorrer um evento externo. Para obter uma lista completa de eventos que podem ser usados para acionar fluxos de trabalho, consulte [Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows).
+Um evento é uma atividade específica que aciona um fluxo de trabalho. Por exemplo, uma atividade pode originar de {% data variables.product.prodname_dotcom %} quando alguém faz o push de um commit em um repositório ou quando são criados um problema ou um pull request. Também é possível usar o [webhook de envio de repositórios](/rest/reference/repos#create-a-repository-dispatch-event) para acionar um fluxo de trabalho quando ocorre um evento externo. Para obter uma lista completa de eventos que podem ser usados para acionar fluxos de trabalho, consulte [Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows).
 
 #### Trabalhos
 
@@ -42,7 +42,7 @@ Um trabalho é um conjunto de etapas executadas no mesmo executor. Por padrão, 
 
 #### Etapas
 
-Uma etapa é uma tarefa individual que pode executar comandos (conhecidos como _ações_). Cada etapa de um trabalho é executada no mesmo executor, permitindo que as ações naquele trabalho compartilhem dados entre si.
+Uma etapa é uma tarefa individual que pode executar comandos em um trabalho. Uma etapa pode ser uma _ação_ ou um comando de shell. Cada etapa de um trabalho é executada no mesmo executor, permitindo que as ações naquele trabalho compartilhem dados entre si.
 
 #### Ações
 
@@ -50,7 +50,7 @@ _Ações_ são comandos autônomos combinados em _etapas_ para criar um _trabalh
 
 #### Executores
 
-Um executor é um servidor com a aplicação de executor de {% data variables.product.prodname_actions %} instalada. Você pode usar um executor hospedado em {% data variables.product.prodname_dotcom %} ou você pode hospedar seu próprio. Um executor escuta trabalhos disponíveis, executa um trabalho de cada vez e relata o progresso, os registros e os resultados de volta para {% data variables.product.prodname_dotcom %}. Para executores hospedados em {% data variables.product.prodname_dotcom %}, cada trabalho em um fluxo de trabalho é executado em um novo ambiente virtual.
+Um executor é um servidor que tem o[aplicativo do executor de {% data variables.product.prodname_actions %}](https://github.com/actions/runner) instalado. Você pode usar um executor hospedado em {% data variables.product.prodname_dotcom %} ou você pode hospedar seu próprio. Um executor escuta trabalhos disponíveis, executa um trabalho de cada vez e relata o progresso, os registros e os resultados de volta para {% data variables.product.prodname_dotcom %}. Para executores hospedados em {% data variables.product.prodname_dotcom %}, cada trabalho em um fluxo de trabalho é executado em um novo ambiente virtual.
 
 Os executores hospedados em {% data variables.product.prodname_dotcom %}runners são baseados no Ubuntu Linux, Microsoft Windows e macOS. Para informações sobre executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}-](/actions/reference/virtual-environments-for-github-hosted-runners)". Se você precisar de um sistema operacional diferente ou precisar de uma configuração de hardware específica, você poderá hospedar seus próprios executores. Para obter informações sobre executores auto-hospedados, consulte "[Hospedar seus próprios executores](/actions/hosting-your-own-runners)".
 
@@ -197,7 +197,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
 
 #### Visualizar o arquivo de fluxo de trabalho
 
-Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de criar e como os componentes de {% data variables.product.prodname_actions %} estão organizados em uma hierarquia. Cada etapa executa uma única ação. As etapas 1 e 2 usam ações de comunidade pré-criadas. Para encontrar mais ações pré-criadas para seus fluxos de trabalho, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
+Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de criar e como os componentes de {% data variables.product.prodname_actions %} estão organizados em uma hierarquia. Cada etapa executa uma única ação ou comando de shell. As etapas 1 e 2 usam ações de comunidade pré-criadas. As etapas 3 e 4 executam comandos de shell diretamente no executor. Para encontrar mais ações pré-criadas para seus fluxos de trabalho, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
 
 ![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-event.png)
 

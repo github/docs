@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de notificações da sua caixa de entrada
-intro: 'Use a sua caixa de entrada para rapidamente rastrear e sincronizar as notificações entre os e-mails{% if currentVersion == "free-pro-team@latest" %} e dispositivos móveis{% endif %}.'
+title: Managing notifications from your inbox
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -10,110 +10,111 @@ versions:
   github-ae: '*'
 ---
 
-### Sobre sua caixa de entrada
+### About your inbox
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} Para obter mais informações, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
-Para acessar sua caixa de entrada de notificações, no canto superior direito de qualquer página, clique em {% octicon "bell" aria-label="The notifications bell" %}.
+To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
 
-  ![Notificação indicando qualquer mensagem não lida](/assets/images/help/notifications/notifications_general_existence_indicator.png)
+  ![Notification indicating any unread message](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
-Sua caixa de entrada mostra todas as notificações que você não cancelou sua inscrição ou marcou como **Concluído.** Você pode personalizar sua caixa de entrada para melhor se adequar ao seu fluxo de trabalho usando filtros, visualizando todas ou apenas notificações não lidas e agrupando suas notificações para obter uma visão geral.
+Your inbox shows all of the notifications that you haven't unsubscribed to or marked as **Done.** You can customize your inbox to best suit your workflow using filters, viewing all or just unread notifications, and grouping your notifications to get a quick overview.
 
-  ![visualização da caixa de entrada](/assets/images/help/notifications-v2/inbox-view.png)
+  ![inbox view](/assets/images/help/notifications-v2/inbox-view.png)
 
-Por padrão, sua caixa de entrada mostrará notificações lidas e não lidas. Para ver apenas notificações não lidas, clique em **Não lidas** ou use a consulta `is:unread`.
+By default, your inbox will show read and unread notifications. To only see unread notifications, click **Unread** or use the `is:unread` query.
 
-  ![visualização da caixa de entrada não lida](/assets/images/help/notifications-v2/unread-inbox-view.png)
+  ![unread inbox view](/assets/images/help/notifications-v2/unread-inbox-view.png)
 
-### Opções de triagem
+### Triaging options
 
-Você tem várias opções para fazer triagem de notificações a partir de sua caixa de entrada.
+You have several options for triaging notifications from your inbox.
 
-| Opções de triagem   | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Salvar              | Salva a sua notificação para revisão posterior. Para salvar uma notificação, à direita da notificação, clique em {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> As notificações salvas são mantidas indefinidamente e podem ser vistas clicando em **Salvo** na barra lateral ou com a consulta `is:saved`. Se sua notificação salva tiver mais de 5 meses e tornar-se não salva, a notificação desaparecerá da sua caixa de entrada em um dia. |
-| Concluído           | Marca uma notificação como concluída e remove a notificação da sua caixa de entrada. Você pode ver todas as notificações concluídas clicando em **Concluido** na barra lateral ou com a consulta `is:done`. Notificações marcadas como **Concluídas** são salvas por 5 meses.                                                                                                                                                                                                   |
-| Cancelar assinatura | Remove automaticamente a notificação de sua caixa de entrada e cancela sua assinatura da conversa até que você seja @mencionado, uma equipe na qual você esteja seja @mencionada, ou você seja solicitado para revisão.                                                                                                                                                                                                                                                         |
-| Leitura             | Marca uma notificação como lida. Para ver apenas as notificações lidas na sua caixa de entrada, use a consulta `is:read`. Esta consulta não inclui notificações marcadas como **Concluído**.                                                                                                                                                                                                                                                                                    |
-| Não lido            | Marca uma notificação como não lida. Para ver apenas as notificações não lidas na sua caixa de entrada, use a consulta `is:read`.                                                                                                                                                                                                                                                                                                                                               |
+| Triaging option | Description |
+|-----------------|-------------|
+| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
+| Done            | Marks a notification as completed and removes the notification from your inbox. You can see all completed notifications by clicking **Done** in the sidebar or with the `is:done` query. Notifications marked as **Done** are saved for 5 months.
+| Unsubscribe     | Automatically removes the notification from your inbox and unsubscribes you from the conversation until you are @mentioned, a team you're on is @mentioned, or you're requested for review.
+| Read            | Marks a notification as read. To only view read notifications in your inbox, use the `is:read` query. This query doesn't include notifications marked as **Done**.
+| Unread          | Marks notification as unread. To only view unread notifications in your inbox, use the `is:unread` query. |
 
-Para ver os atalhos de teclado disponíveis, consulte "[Atalhos de teclado](/github/getting-started-with-github/keyboard-shortcuts#notifications)".
+To see the available keyboard shortcuts, see "[Keyboard Shortcuts](/github/getting-started-with-github/keyboard-shortcuts#notifications)."
 
-Antes de escolher uma opção de triagem, primeiro você pode pré-visualizar os detalhes da sua notificação e investigar. Para obter mais informações, consulte “[Fazendo triagem de uma só notificação](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)".
+Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)."
 
-### Fazer triagem de várias notificações ao mesmo tempo
+### Triaging multiple notifications at the same time
 
-Para fazer triagem de várias notificações de uma só vez, selecione as notificações relevantes e use o menu suspenso de {% octicon "kebab-horizontal" aria-label="The edit icon" %} para escolher uma opção de triagem.
+To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
 
-![Menu suspenso com opções de triagem e notificações selecionadas](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
+![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
-### Filtros de notificação padrão
+### Default notification filters
 
-Por padrão, sua caixa de entrada tem filtros para quando você é responsável, participa de um thread, é solicitado a rever uma pull request ou quando seu nome de usuário for @mencionado diretamente ou quando uma equipe da qual você é integrante é @mencionada.
+By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
 
-  ![Filtros personalizados padrão](/assets/images/help/notifications-v2/default-filters.png)
+  ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
 
-### Personalizando sua caixa de entrada com filtros personalizados
+### Customizing your inbox with custom filters
 
-Você pode adicionar até 15 dos seus próprios filtros personalizados.
+You can add up to 15 of your own custom filters.
 
 {% data reusables.notifications.access_notifications %}
-2. Para abrir as configurações de filtro, na barra lateral esquerda, próximo de "Filtros", clique em {% octicon "gear" aria-label="The Gear icon" %}.
+2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
 
   {% tip %}
 
-  **Dica:** Você pode visualizar rapidamente os resultados da caixa de entrada de um filtro, criando uma consulta na sua caixa de entrada e clicando em **Salvar**, que abre as configurações de filtro personalizado.
+  **Tip:** You can quickly preview a filter's inbox results by creating a query in your inbox view and clicking **Save**, which opens the custom filter settings.
 
   {% endtip %}
 
-3. Adicione um nome para seu filtro e uma consulta de filtro. Por exemplo, para ver apenas notificações para um repositório específico, é possível criar um filtro usando a consulta `repo:octocat/open-source-project-name reason:participating`. Você também pode adicionar emojis com um teclado de emojis nativo. Para obter uma lista de consultas de pesquisa compatíveis, consulte "[Consultas suportadas para filtros personalizados](#supported-queries-for-custom-filters)".
+3. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
 
-  ![Exemplo de filtro personalizado](/assets/images/help/notifications-v2/custom-filter-example.png)
+  ![Custom filter example](/assets/images/help/notifications-v2/custom-filter-example.png)
 
-4. Clique em **Criar**.
+4. Click **Create**.
 
-### Limitações de filtro personalizadas
+### Custom filter limitations
 
-Filtros personalizados atualmente não suportam:
-  - Pesquisa de texto completo em sua caixa de entrada, incluindo busca de pull request ou títulos de problema.
-  - Distinguindo entre filtros de consulta `is:issue`, `is:pr` e `is:pull-request`. Essas consultas retornarão problemas e pull requests.
-  - Criando mais de 15 filtros personalizados.
-  - Alterando os filtros padrão ou sua ordenação.
+Custom filters do not currently support:
+  - Full text search in your inbox, including searching for pull request or issue titles.
+  - Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
+  - Creating more than 15 custom filters.
+  - Changing the default filters or their order.
+  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
-### Consultas suportadas para filtros personalizados
+### Supported queries for custom filters
 
-Existem três tipos de filtros que você pode usar:
-  - Filtrar por repositório com `repo:`
-  - Filtrar por tipo de discussão com `is:`
-  - Filtrar por motivo de notificação com `reason:`
+There are three types of filters that you can use:
+  - Filter by repository with `repo:`
+  - Filter by discussion type with `is:`
+  - Filter by notification reason with `reason:`
 
-Para adicionar um filtro `repo:`, você deve incluir o proprietário do repositório na consulta. Por exemplo, `repo:atom/atom` representa o repositório Atom pertencente à organização Atom
+To add a `repo:` filter, you must include the owner of the repository in the query. For example, `repo:atom/atom` represents the Atom repository owned by the Atom organization.
 
-#### Consultas suportadas `reason:`
+#### Supported `reason:` queries
 
-Para filtrar notificações por motivos pelos quais recebeu uma atualização, você pode usar a consulta `reason:`. Por exemplo, para ver notificações quando você (ou uma equipe da qual você participa) é solicitado a rever uma pull request, use `reason:review-requested`. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)".
+To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
 
-| Consulta                  | Descrição                                                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `reason:assign`           | Quando houver uma atualização em um problema ou numa pull request que você tenha sido designado responsável.                      |
-| `reason:author`           | Quando você abriu uma pull request ou um problema e houve uma atualização ou novo comentário.                                     |
-| `reason:comment`          | Quando você comentou em um problema, numa pull request ou numa discussão em equipe.                                               |
-| `reason:participating`    | Quando você tiver comentado um problema, uma pull request ou numa discussão de equipe ou tiver sido @mencionado.                  |
-| `reason:invitation`       | Quando você for convidado para uma equipe, organização ou repositório.                                                            |
-| `reason:manual`           | Quando você clicar em **Assinar** em um problema ou uma pull request que você ainda não estava inscrito.                          |
-| `reason:mention`          | Você foi @mencionado diretamente.                                                                                                 |
+| Query | Description |
+|-----------------|-------------|
+| `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
+| `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
+| `reason:comment`| When you commented on an issue, pull request, or team discussion.
+| `reason:participating` | When you have commented on an issue, pull request, or team discussion or you have been @mentioned.
+| `reason:invitation` | When you're invited to a team, organization, or repository.
+| `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
+| `reason:mention` | You were directly @mentioned.
 | `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
-| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
-| `reason:state-change`     | Quando o estado de uma pull request ou um problema é alterado. Por exemplo, um problema é fechado ou uma pull request é mesclada. |
-| `reason:team-mention`     | Quando uma equipe da qual você é integrante é @mencionada.                                                                        |
-| `reason:ci-activity`      | Quando um repositório tem uma atualização de CI, como um novo status de execução de fluxo de trabalho.                            |
+| `reason:security-alert` | When a security alert is issued for a repository.{% endif %}
+| `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
+| `reason:team-mention` | When a team you're a member of is @mentioned.
+| `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
-#### Consultas suportadas `is:`
+#### Supported `is:` queries
 
-Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
@@ -126,11 +127,10 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:team-discussion`
 
 {% if currentVersion != "github-ae@latest" %}
-For information about reducing noise from notifications for
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 {% endif %}
 
-Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
+You can also use the `is:` query to describe how the notification was triaged.
 
 - `is:saved`
 - `is:done`

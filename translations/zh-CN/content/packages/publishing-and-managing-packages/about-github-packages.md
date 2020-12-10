@@ -26,6 +26,8 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
+![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+
 {% endif %}
 
 #### 查看包
@@ -34,17 +36,17 @@ versions:
 
 #### 关于包权限和可见性
 {% if currentVersion == "free-pro-team@latest" %}
-|      | 包注册表                                                                                                                                                                                                              | {% data variables.product.prodname_github_container_registry %}
-| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| 托管位置 | 您可以在一个仓库中托管多个包。                                                                                                                                                                                                   | 您可以在一个组织或用户帐户中托管多个容器映像。                                           |
-| 权限   | {{ site.data.reusables.package_registry.public-or-private-packages }} 您可以使用 {{ site.data.variables.product.prodname_dotcom }} 角色和团队来限制谁可以安装或发布每个包，因为包会继承仓库的权限。 对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 | 对于每个容器映像，您可以选择其他人具有的访问权限级别。 容器映像访问的权限与组织和仓库权限不同。                  |
+|      | 包注册表                                                                                                                                                                                                    | {% data variables.product.prodname_github_container_registry %}
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| 托管位置 | 您可以在一个仓库中托管多个包。                                                                                                                                                                                         | 您可以在一个组织或用户帐户中托管多个容器映像。                                           |
+| 权限   | {% data reusables.package_registry.public-or-private-packages %} 您可以使用 {% data variables.product.prodname_dotcom %} 角色和团队来限制谁可以安装或发布每个包，因为包会继承仓库的权限。 对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 | 对于每个容器映像，您可以选择其他人具有的访问权限级别。 容器映像访问的权限与组织和仓库权限不同。                  |
  可见性 | {% data reusables.package_registry.public-or-private-packages %} | 您可以设置每个容器映像的可见性。 私有容器映像仅对组织内被授予访问权限的人员或团队可见。 公共容器映像对任何人都可见。 | 匿名访问 | N/A| 您可以匿名访问公共容器映像。
 
 {% else %}
-|      | 包注册表                                                                                                                                                                                                              |
-| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 托管位置 | 您可以在一个仓库中托管多个包。                                                                                                                                                                                                   |
-| 权限   | {{ site.data.reusables.package_registry.public-or-private-packages }} 您可以使用 {{ site.data.variables.product.prodname_dotcom }} 角色和团队来限制谁可以安装或发布每个包，因为包会继承仓库的权限。 对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 |
+|      | 包注册表                                                                                                                                                                                                    |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 托管位置 | 您可以在一个仓库中托管多个包。                                                                                                                                                                                         |
+| 权限   | {% data reusables.package_registry.public-or-private-packages %} 您可以使用 {% data variables.product.prodname_dotcom %} 角色和团队来限制谁可以安装或发布每个包，因为包会继承仓库的权限。 对仓库有读取权限的任何人都可以将包安装为项目中的依赖项，有写入权限的任何人都可以发布新的包版本。 |
 | 可见性  | {% data reusables.package_registry.public-or-private-packages %}
 
 {% endif %}
@@ -83,7 +85,7 @@ versions:
 #### 对包注册表的支持
 
 {% if currentVersion == "free-pro-team@latest" %}
-包注册表使用 `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 作为包主机 URL，用包命名空间替换 `PACKAGE-TYPE`。 例如，Gemfile 将托管在 `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 上。
+包注册表使用 `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 作为包主机 URL，用包命名空间替换 `PACKAGE-TYPE`。 例如，Gemfile 将托管在 `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` 上。
 
 {% else %}
 
@@ -98,8 +100,8 @@ versions:
 | ---------- | ---------------------- | ----------------------------------- | ------------ | ----------------------------------------------------- |
 | JavaScript | 节点包管理器                 | `package.json`                      | `npm`        | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | RubyGems 包管理器          | `Gemfile`                           | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Apache Maven 项目管理和理解工具 | `pom.xml`                           | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Java 的 Gradle 构建自动化工具  | `build.gradle` 或 `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Apache Maven 项目管理和理解工具 | `pom.xml`                           | `mvn`        | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java 的 Gradle 构建自动化工具  | `build.gradle` 或 `build.gradle.kts` | `gradle`     | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | .NET 的 NuGet 包管理       | `nupkg`                             | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
@@ -161,15 +163,15 @@ versions:
 要安装或发布包，您必须使用具有适当作用域的令牌，并且您的用户帐户必须对该仓库具有适当的权限。
 
 例如：
--  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须对该仓库具有读取权限。 如果是私有仓库，您的令牌还必须具有 `repo` 作用域。
+-  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须对该仓库具有读取权限。
 - 要在 {% data variables.product.product_name %} 上删除私有包的特定版本，您的令牌必须具有 `delete:packages` 和 `repo` 作用域。 公共包无法删除。 更多信息请参阅“[删除包](/packages/publishing-and-managing-packages/deleting-a-package)”。
 
-| 作用域               | 描述                                                                         | 仓库权限      |
-| ----------------- | -------------------------------------------------------------------------- | --------- |
-| `read:packages`   | 从 {% data variables.product.prodname_registry %} 下载和安装包                    | 读取        |
-| `write:packages`  | 将包上传和发布到 {% data variables.product.prodname_registry %}                    | 写入        |
-| `delete:packages` | 从 {% data variables.product.prodname_registry %} 删除私有包的特定版本                | 管理员       |
-| `repo`            | 安装、上传和删除私有仓库中的某些包（对应 `read:packages`、`write:packages` 或 `delete:packages`） | 读取、写入或管理员 |
+| 作用域               | 描述                                                          | 仓库权限   |
+| ----------------- | ----------------------------------------------------------- | ------ |
+| `read:packages`   | 从 {% data variables.product.prodname_registry %} 下载和安装包     | 读取     |
+| `write:packages`  | 将包上传和发布到 {% data variables.product.prodname_registry %}     | 写入     |
+| `delete:packages` | 从 {% data variables.product.prodname_registry %} 删除私有包的特定版本 | 管理员    |
+| `repo`            | 上传和删除包（连同 `write:packages` 或 `delete:packages`）             | 写入或管理员 |
 
 创建 {% data variables.product.prodname_actions %} 工作流程时，您可以使用 `GITHUB_TOKEN` 发布和安装 {% data variables.product.prodname_registry %} 中的包，无需存储和管理个人访问令牌。
 
@@ -180,7 +182,7 @@ versions:
 
 ### 管理包
 
-您可以在 {% data variables.product.product_name %} 上或使用 GraphQL API 删除私有包的版本。 使用 GraphQL API 查询和删除私有包时，必须使用与向 {% data variables.product.prodname_registry %} 验证时相同的令牌。 更多信息请参阅“[删除包](/packages/publishing-and-managing-packages/deleting-a-package)”和“[使用 GraphQL 进行调用](/v4/guides/forming-calls/)”。
+您可以在 {% data variables.product.product_name %} 上或使用 GraphQL API 删除私有包的版本。 使用 GraphQL API 查询和删除私有包时，必须使用与向 {% data variables.product.prodname_registry %} 验证时相同的令牌。 更多信息请参阅“[删除包](/packages/publishing-and-managing-packages/deleting-a-package)”和“[使用 GraphQL 进行调用](/graphql/guides/forming-calls-with-graphql)”。
 
 您可以配置 web 挂钩来订阅与包相关的事件，例如包的发布或更新等事件。 更多信息请参阅“[`package` web 挂钩事件](/webhooks/event-payloads/#package)”。
 

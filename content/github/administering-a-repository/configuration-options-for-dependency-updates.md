@@ -12,7 +12,7 @@ versions:
 
 The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request with for security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
+You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. For more information, see "[Enabling and disabling version updates](/github/administering-a-repository/enabling-and-disabling-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 
 ### Configuration options for *dependabot.yml*
 
@@ -302,13 +302,14 @@ updates:
       - dependency-name: "express"
         # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # For Loadash, ignore all updates
-      - dependency-name: "loadash"
+        # For Lodash, ignore all updates
+      - dependency-name: "lodash"
 ```
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dependabot_version_updates %} can't run version updates for any dependencies in manifests containing private git dependencies or private git registries, even if you add the private dependencies to the `ignore` option of your configuration file. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot#supported-repositories-and-ecosystems)."
+**Note**: {% data variables.product.prodname_dependabot %} can only run version updates on manifest or lock files if it can access all of the dependencies in the file, even if you add inaccessible dependencies to the `ignore` option of your configuration file. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-repositories)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+
 
 {% endnote %}
 

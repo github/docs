@@ -59,6 +59,7 @@ In addition to managing organization-level settings, organization owners have ad
 | Edit wikis | **X** | **X** | **X** | **X** | **X** |{% if currentVersion == "free-pro-team@latest" %}
 | [Report abusive or spammy content](/articles/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Apply labels | | **X** | **X** | **X** | **X** |
+| Create, edit, delete labels | | | **X** | **X** | **X** |
 | Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |
 | Apply milestones |  | **X** | **X** | **X** | **X** |
 | Mark [duplicate issues and pull requests](/articles/about-duplicate-issues-and-pull-requests)| | **X** | **X** | **X** | **X** |
@@ -104,13 +105,28 @@ In addition to managing organization-level settings, organization owners have ad
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_dependabot_alerts %}](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository) for vulnerable dependencies | | | | | **X** |
-| [Manage data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository) | | | | | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" %}| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** | {% endif %}
+| [Manage data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository) | | | | | **X** |
+| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** | {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
+| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}
 | [Manage the forking policy for a repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository) | | | | | **X** |
 | [Transfer repositories into the organization](/articles/restricting-repository-creation-in-your-organization) | | | | | **X** |
 | [Delete or transfer repositories out of the organization](/articles/setting-permissions-for-deleting-or-transferring-repositories) | | | | | **X** |
 | [Archive repositories](/articles/about-archiving-repositories) | | | | | **X** |{% if currentVersion == "free-pro-team@latest" %}
 | Display a sponsor button (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)") | | | | | **X** |{% endif %}
-| Create autolink references to external resources, like JIRA or Zendesk (see "[Configuring autolinks to reference external resources](/articles/configuring-autolinks-to-reference-external-resources)") | | | | | **X** |
+| Create autolink references to external resources, like JIRA or Zendesk (see "[Configuring autolinks to reference external resources](/articles/configuring-autolinks-to-reference-external-resources)") | | | | | **X** |{% if currentVersion == "free-pro-team@latest" %}
+| Create [security advisories](/github/managing-security-vulnerabilities/about-github-security-advisories) | | | | | **X** | {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
+| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| [Enable {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository) in a repository | | | | **X** | **X** |
+| [Create and edit categories](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository) for {% data variables.product.prodname_discussions %} | | | | **X** | **X** |
+| [Move a discussion to a different category](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) | | | **X** | **X** | **X** |
+| [Transfer a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) to a new repository| | | **X** | **X** | **X** |
+| [Manage pinned discussions](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) | | | **X** | **X** | **X** |
+| [Convert issues to discussions in bulk](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository) | | | **X** | **X** | **X** |
+| [Lock and unlock discussions](/discussions/managing-discussions-for-your-community/moderating-discussions) | | **X** | **X** | **X** | **X** |
+| [Individually convert issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions) | | **X** | **X** | **X** | **X** |
+| [Create new discussions and comment on existing discussions](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 
 ### Further reading
 

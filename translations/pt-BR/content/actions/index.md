@@ -4,17 +4,43 @@ shortTitle: GitHub Actions
 intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
 introLinks:
   quickstart: /actions/quickstart
-  learn: /actions/learn-github-actions
+  reference: /actions/reference
 featuredLinks:
+  guides:
+    - /actions/learn-github-actions
+    - /actions/guides/about-continuous-integration
+    - /actions/guides/about-packaging-with-github-actions
   gettingStarted:
     - /actions/managing-workflow-runs
     - /actions/hosting-your-own-runners
-  guide:
+  guideCards:
     - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-    - /actions/guides/about-packaging-with-github-actions
+    - /actions/guides/publishing-nodejs-packages
+    - /actions/guides/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/reference/events-that-trigger-workflows
+    - /actions/learn-github-actions
+    - /actions/reference/context-and-expression-syntax-for-github-actions
+    - /actions/reference/workflow-commands-for-github-actions
+    - /actions/reference/environment-variables
+changelog:
+  - 
+    title: Remover comandos set-env e add-path em 16 de novembro
+    date: '2020-11-09'
+    href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
+  - 
+    title: Os últimos fluxos de trabalho do Ubuntu-20.04
+    date: '2020-10-29'
+    href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
+  - 
+    title: Pré-visualização para MacOS Big Sur
+    date: '2020-10-29'
+    href: https://github.blog/changelog/2020-10-29-github-actions-macos-big-sur-preview
+  - 
+    title: Alterações de acesso ao grupo de executores auto-hospedados
+    date: '2020-10-16'
+    href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -36,144 +62,27 @@ versions:
 <!-- {% link_with_intro /hosting-your-own-runners %} -->
 <!-- {% link_with_intro /reference %} -->
 
-<!-- Article links -->
-<div class="d-lg-flex gutter my-6 py-6">
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in featuredLinks.guide %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in featuredLinks.popular %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
-    <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Gerenciar fluxos de trabalho</h3>
-    </div>
-    <ul class="list-style-none">
-      {% for link in featuredLinks.gettingStarted %}
-        <li>{% include featured-link %}</li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-
 <!-- Code examples -->
-<div class="mt-6 pt-6">
-  <h2 class="mb-2">Mais guias</h2>
+{% assign actionsCodeExamples = site.data.variables.action_code_examples %}
+{% if actionsCodeExamples %}
+<div class="my-6 pt-6">
+  <h2 class="mb-2 font-mktg h1">Exemplos de códigos</h2>
+
+  <div class="pr-lg-3 mb-5 mt-3">
+    <input class="js-code-example-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Exemplos de código de pesquisa" type="search" autocomplete="off" aria-label="Search code examples"/>
+  </div>
 
   <div class="d-flex flex-wrap gutter">
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-nodejs">
-        <div class="p-4">
-          <h4>Building and testing Node.js</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Node.js application.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-nodejs</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-python">
-        <div class="p-4">
-          <h4>Building and testing Python</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Python application.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Python</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-python</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-maven">
-        <div class="p-4">
-          <h4>Building and testing Java with Maven</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Java project with Maven.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-maven</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-gradle">
-        <div class="p-4">
-          <h4>Building and testing Java with Gradle</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Java project with Gradle.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-gradle</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-ant">
-        <div class="p-4">
-          <h4>Building and testing Java with Ant</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to power CI in your Java project with Ant.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/building-and-testing-java-with-ant</span>
-        </footer>
-      </a>
-    </div>
-    <div class="col-12 col-lg-4 mb-4">
-      <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/publishing-nodejs-packages">
-        <div class="p-4">
-          <h4>Publishing Node.js packages</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
-          <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
-            <span class="IssueLabel text-white bg-blue mr-2">CI</span>
-          </div>
-        </div>
-        <footer class="border-top p-4 text-gray d-flex flex-items-center">
-          {% octicon "workflow" class="flex-shrink-0" %}
-          <span class="ml-2">/guides/publishing-nodejs-packages</span>
-        </footer>
-      </a>
-    </div>
+    {% render 'code-example-card' for actionsCodeExamples as example %}
   </div>
 
-  <a href="/actions/guides" class="btn btn-outline mt-4">Mostrar todos os guias {% octicon "arrow-right" %}</a>
+  <button class="js-code-example-show-more btn btn-outline float-right">Mostrar mais {% octicon "arrow-right" %}</button>
+
+  <div class="js-code-example-no-results d-none py-4 text-center text-gray font-mktg">
+    <div class="mb-3">{% octicon "search" width="24" %}</div>
+    <h3 class="text-normal">Desculpe, não há resultados para <strong class="js-code-example-filter-value"></strong></h3>
+    <p class="my-3 f4">Parece que não temos um exemplo que se encaixa no seu filtro.<br>Tente outro filtro ou adicione seu exemplo de código</p>
+    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">Saiba como adicionar um exemplo de código {% octicon "arrow-right" %}</a>
+  </div>
 </div>
+{% endif %}

@@ -37,7 +37,7 @@ Your testing scenarios may require setting up listing plans that offer free tria
 
 ### Testing APIs
 
-For most {% data variables.product.prodname_marketplace %} API endpoints, we also provide stubbed API endpoints that return hard-coded, fake data you can use for testing. To receive stubbed data, you must specify stubbed URLs, which include `/stubbed` in the route (for example, `/user/marketplace_purchases/stubbed`). For a list of endpoints that support this stubbed-data approach, see [{% data variables.product.prodname_marketplace %} endpoints](/v3/apps/marketplace/#github-marketplace).
+For most {% data variables.product.prodname_marketplace %} API endpoints, we also provide stubbed API endpoints that return hard-coded, fake data you can use for testing. To receive stubbed data, you must specify stubbed URLs, which include `/stubbed` in the route (for example, `/user/marketplace_purchases/stubbed`). For a list of endpoints that support this stubbed-data approach, see [{% data variables.product.prodname_marketplace %} endpoints](/rest/reference/apps#github-marketplace).
 
 ### Testing webhooks
 

@@ -1,6 +1,7 @@
 ---
 title: Gerenciando alertas do escaneamento secreto
 intro: Você pode visualizar e fechar alertas de segredos verificados para seu repositório.
+product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'
 ---

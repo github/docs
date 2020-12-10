@@ -34,7 +34,7 @@ versions:
 
 #### 事件
 
-事件是触发工作流程的特定活动。 例如，当有推送提交到仓库或者创建议题或拉取请求时，{% data variables.product.prodname_dotcom %} 就可能产生活动。 您也可以使用仓库调度 web 挂钩在发生外部事件时触发工作流程。 有关可用于触发工作流程的事件的完整列表，请参阅[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)。
+事件是触发工作流程的特定活动。 例如，当有推送提交到仓库或者创建议题或拉取请求时，{% data variables.product.prodname_dotcom %} 就可能产生活动。 您还可以使用[仓库分发 web 挂钩](/rest/reference/repos#create-a-repository-dispatch-event)在发生外部事件时触发工作流程。 有关可用于触发工作流程的事件的完整列表，请参阅[触发工作流程的事件](/actions/reference/events-that-trigger-workflows)。
 
 #### Jobs
 
@@ -42,7 +42,7 @@ versions:
 
 #### 步骤
 
-步骤是可以运行命令（称为_操作_）的单个任务。 作业中的每个步骤在同一运行器上执行，可让该作业中的操作互相共享数据。
+步骤是可以在作业中运行命令的单个任务。 步骤可以是_操作_或 shell 命令。 作业中的每个步骤在同一运行器上执行，可让该作业中的操作互相共享数据。
 
 #### 操作
 
@@ -50,7 +50,7 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
 
 #### 运行器
 
-运行器是安装了 {% data variables.product.prodname_actions %} 运行器应用程序的服务器。 您可以使用 {% data variables.product.prodname_dotcom %} 托管的运行器或托管您自己的运行器。 运行器将侦听可用的作业，每次运行一个作业，并将进度、日志和结果报告回 {% data variables.product.prodname_dotcom %}。 对于 {% data variables.product.prodname_dotcom %} 托管的运行器，工作流程中的每项作业都会在一个新的虚拟环境中运行。
+运行器是安装了 [{% data variables.product.prodname_actions %} 运行器应用程序](https://github.com/actions/runner)的服务器。 您可以使用 {% data variables.product.prodname_dotcom %} 托管的运行器或托管您自己的运行器。 运行器将侦听可用的作业，每次运行一个作业，并将进度、日志和结果报告回 {% data variables.product.prodname_dotcom %}。 对于 {% data variables.product.prodname_dotcom %} 托管的运行器，工作流程中的每项作业都会在一个新的虚拟环境中运行。
 
 {% data variables.product.prodname_dotcom %} 托管的运行器基于 Ubuntu Linux、Microsoft Windows 和 macOS 。 有关 {% data variables.product.prodname_dotcom %} 托管的运行器的信息，请参阅“[ {% data variables.product.prodname_dotcom %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners)”。 如果您需要不同的操作系统或需要特定的硬件配置，可以托管自己的运行器。 有关自托管运行器的信息，请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 
@@ -197,7 +197,7 @@ _操作_ 是独立命令，它们组合到_步骤_以创建_作业_。 操作是
 
 #### 可视化工作流程文件
 
-在此关系图中，您可以看到刚刚创建的工作流程文件，以及 {% data variables.product.prodname_actions %} 组件在层次结构中的组织方式。 每个步骤执行单个操作。 步骤 1 和 2 使用预构建的社区操作。 要查找更多为工作流预构建的操作，请参阅“[查找和自定义操作](/actions/learn-github-actions/finding-and-customizing-actions)”。
+在此关系图中，您可以看到刚刚创建的工作流程文件，以及 {% data variables.product.prodname_actions %} 组件在层次结构中的组织方式。 每个步骤执行单个操作或 shell 命令。 步骤 1 和 2 使用预构建的社区操作。 步骤 3 和 4 直接在运行器上运行 shell 命令。 要查找更多为工作流预构建的操作，请参阅“[查找和自定义操作](/actions/learn-github-actions/finding-and-customizing-actions)”。
 
 ![工作流程概述](/assets/images/help/images/overview-actions-event.png)
 

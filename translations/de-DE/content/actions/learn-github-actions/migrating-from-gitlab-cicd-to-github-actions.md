@@ -118,9 +118,9 @@ linux_job:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Weitere Informationen findest Du unter „[Workflow Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-### Docker images
+### Docker-Images
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} support running jobs in a Docker image. In GitLab CI/CD, Docker images are defined with a `image` key, while in {% data variables.product.prodname_actions %} it is done with the `container` key.
 
@@ -156,7 +156,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
+Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idcontainer)“.
 
 ### Condition and expression syntax
 
@@ -180,7 +180,7 @@ GitLab CI/CD
 deploy_prod:
   stage: deploy
   script:
-    - echo "Deply to production server"
+    - echo "Deploy to production server"
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 ```
@@ -194,7 +194,7 @@ jobs:
     if: contains( github.ref, 'master')
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deply to production server"
+      - run: echo "Deploy to production server"
 ```
 {% endraw %}
 </td>
@@ -262,7 +262,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "This job will be run first, in parallel with build_a"
-  
+
   test_ab:
     runs-on: ubuntu-latest
     needs: [build_a,build_b]
@@ -286,7 +286,7 @@ Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variable
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#scheduled-events)."
+Weitere Informationen findest Du unter "[Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#scheduled-events)."
 
 ### Variables and secrets
 
@@ -346,7 +346,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Caching dependencies to speed up workflows](/actions/guides/caching-dependencies-to-speed-up-workflows)."
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 ### Artifacts
 
@@ -367,7 +367,7 @@ GitLab CI/CD
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-script: 
+script:
 artifacts:
   paths:
   - math-homework.txt
@@ -414,7 +414,7 @@ GitLab CI/CD
 container-job:
   variables:
     POSTGRES_PASSWORD: postgres
-    # The hostname used to communicate with the 
+    # The hostname used to communicate with the
     # PostgreSQL service container
     POSTGRES_HOST: postgres
     # The default PostgreSQL port
@@ -423,10 +423,10 @@ container-job:
   services:
     - postgres
   script:
-  # Performs a clean installation of all dependencies 
+  # Performs a clean installation of all dependencies
   # in the `package.json` file
    - npm ci
-   # Runs a script that creates a PostgreSQL client, 
+   # Runs a script that creates a PostgreSQL client,
    # populates the client with data, and retrieves data
    - node client.js
   tags:
@@ -452,7 +452,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # Performs a clean installation of all dependencies 
+      # Performs a clean installation of all dependencies
       # in the `package.json` file
       - name: Install dependencies
         run: npm ci
@@ -462,7 +462,7 @@ jobs:
         # populates the client with data, and retrieves data
         run: node client.js
         env:
-          # The hostname used to communicate with the 
+          # The hostname used to communicate with the
           # PostgreSQL service container
           POSTGRES_HOST: postgres
           # The default PostgreSQL port
@@ -473,4 +473,4 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[About service containers](/actions/guides/about-service-containers)."
+Weitere Informationen findest Du unter "[Über Service-Container](/actions/guides/about-service-containers)."

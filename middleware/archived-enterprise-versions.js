@@ -1,29 +1,21 @@
 const path = require('path')
 const slash = require('slash')
-const { latest, deprecated, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
+const { latest, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
+const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
 const findPage = require('../lib/find-page')
 
 // This module handles requests for deprecated GitHub Enterprise versions
-// by routing them to static content in
-// https://github.com/github/help-docs-archived-enterprise-versions
+// by routing them to static content in help-docs-archived-enterprise-versions
 
 module.exports = async (req, res, next) => {
+  const { isArchived, requestedVersion } = isArchivedVersion(req)
+  if (!isArchived) return next()
+
   // Skip asset paths
   if (patterns.assetPaths.test(req.path)) return next()
-
-  if (req.context.page) return next()
-
-  // ignore paths that don't have an enterprise version number
-  if (!patterns.getEnterpriseVersionNumber.test(req.path)) return next()
-
-  // extract enterprise version from path, e.g. 2.16
-  const requestedVersion = req.path.match(patterns.getEnterpriseVersionNumber)[1]
-
-  // bail if the request version is not deprecated
-  if (!deprecated.includes(requestedVersion)) return next()
 
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)

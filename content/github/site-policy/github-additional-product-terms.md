@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: November 1, 2020
+Version Effective Date: December 7, 2020
 
 When you create an Account, you're given access to lots of different features and products that are all a part of the Service. Because many of these features and products offer different functionality, they may require additional terms and conditions specific to that feature or product. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -89,7 +89,7 @@ In order to become a Sponsored Developer, you must agree to the [GitHub Sponsors
 
 ### 9. GitHub Advanced Security
 
-GitHub Advanced Security enables you to identify security vulnerabilities through customizable and automated semantic code analysis. GitHub Advanced Security is licensed on a per User basis. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions. Billing for usage of GitHub Actions is usage-based and is subject to the [GitHub Actions terms](/github/site-policy/github-additional-product-terms#c-payment-and-billing-for-actions-and-packages).
+GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a code commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. If you are using GitHub Advanced Security as part of GitHub Enterprise Cloud, many features of GitHub Advanced Security, including automated code scanning of private repositories, also require the use of GitHub Actions. 
 
 ### 10. Dependabot Preview
 
@@ -109,3 +109,12 @@ We need the legal right to submit your contributions to the GitHub Advisory Data
 
 The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
 
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+
+#### b. Third-party components
+
+The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request.

@@ -13,7 +13,7 @@ versions:
 
 您可以申请 45 天试用版来试用 {% data variables.product.prodname_ghe_server %}。 您的试用版将作为虚拟设备安装，带有内部或云部署选项。 有关支持的可视化平台列表，请参阅“[设置 GitHub Enterprise Server 实例](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)”。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}Security{% endif %} alerts and {% data variables.product.prodname_github_connect %} are not currently available in trials of {% data variables.product.prodname_ghe_server %}. 要获取这些功能的演示，请联系 {% data variables.contact.contact_enterprise_sales %}。 有关这些功能的更多信息，请参阅“[关于对有漏洞的依赖项发出警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)”。
+{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}Security{% endif %} alerts and {% data variables.product.prodname_github_connect %} are not currently available in trials of {% data variables.product.prodname_ghe_server %}. 要获取这些功能的演示，请联系 {% data variables.contact.contact_enterprise_sales %}。 有关这些功能的更多信息，请参阅“[关于对有漏洞的依赖项发出警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”和“[将 {% data variables.product.prodname_ghe_server %} 连接到 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)”。
 
 试用版也可用于 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/articles/setting-up-a-trial-of-github-enterprise-cloud)”。
 
@@ -36,7 +36,7 @@ versions:
    - [{% data variables.product.prodname_dotcom %} 快速入门指南](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)网络直播
    - {% data variables.product.prodname_dotcom %} 指南中的[了解 {% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} 指南中的 [Hello World](https://guides.github.com/activities/hello-world/)
-3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
+3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/enterprise/admin/configuration/configuring-your-enterprise)."
 4. 要将 {% data variables.product.prodname_ghe_server %} 与您的身份提供程序集成，请参阅“[使用 SAML](/enterprise/admin/user-management/using-saml)”和“[使用 LDAP](/enterprise/admin/authentication/using-ldap)”。
 5. 邀请不限数量的人员加入您的试用版。
    - 使用内置身份验证或配置的身份提供程序将用户添加到 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[使用内置身份验证](/enterprise/admin/user-management/using-built-in-authentication)”。

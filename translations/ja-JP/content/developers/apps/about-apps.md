@@ -1,6 +1,6 @@
 ---
 title: アプリケーションについて
-intro: 'You can build integrations with the {% data variables.product.prodname_dotcom %} APIs to add flexibility and reduce friction in your own workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
+intro: '{% data variables.product.prodname_dotcom %} API でインテグレーションを構築し、柔軟性を強化してワークフローの摩擦を軽減できます。{% if currentVersion == "free-pro-team@latest" %}また、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) で他のユーザとインテグレーションを共有することも可能です。{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -67,13 +67,13 @@ OAuth2 は、外部アプリケーションがパスワードにアクセスす�
 * Team や企業を代理するアプリケーションとして {% data variables.product.prodname_oauth_app %} を構築しないでください。 {% data variables.product.prodname_oauth_app %} は単一のユーザとして認証を行うので、ある人が {% data variables.product.prodname_oauth_app %} を会社が使用するものとして作成し、その人が会社を辞めた場合は、他の人がアクセスできなくなります。{% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-{% data variables.product.prodname_oauth_app %} の詳細については、「[{% data variables.product.prodname_oauth_app %} を作成する](/apps/building-oauth-apps/creating-an-oauth-app/)」および「[アプリケーションを登録する](/v3/guides/basics-of-authentication/#registering-your-app)」を参照してください。
+{% data variables.product.prodname_oauth_app %} の詳細については、「[{% data variables.product.prodname_oauth_app %} を作成する](/apps/building-oauth-apps/creating-an-oauth-app/)」および「[アプリケーションを登録する](/rest/guides/basics-of-authentication#registering-your-app)」を参照してください。
 
 ### 個人アクセストークン
 
 [個人アクセストークン](/articles/creating-a-personal-access-token-for-the-command-line/)は、権限を[スコープ](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)で特定できる点において、[OAuth トークン](/apps/building-oauth-apps/authorizing-oauth-apps/)と機能が似ている文字列です。 また、個人アクセストークンはパスワードとも似ています。ただし、個人アクセストークンは複数所有でき、それぞれのアクセス権をいつでも取り消すことができます。
 
-たとえば、個人アクセストークンにリポジトリへの書き込みをできるように設定できます。 そして、リポジトリで[Issue を作成する](/v3/issues/#create-an-issue) cURL コマンドを実行するかスクリプトを記述する場合、個人アクセストークンを渡して認証します。 個人アクセストークンを環境変数として保存することで、使用のたびに入力することを避けることができます。
+たとえば、個人アクセストークンにリポジトリへの書き込みをできるように設定できます。 そして、リポジトリで[Issue を作成する](/rest/reference/issues#create-an-issue) cURL コマンドを実行するかスクリプトを記述する場合、個人アクセストークンを渡して認証します。 個人アクセストークンを環境変数として保存することで、使用のたびに入力することを避けることができます。
 
 個人アクセストークンを使用する際は、以下に気を付けてください。
 

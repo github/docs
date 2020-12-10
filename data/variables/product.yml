@@ -27,7 +27,7 @@ prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
   {% if enterpriseServerVersions contains currentVersion %}your GitHub Enterprise Server instance{% elsif currentVersion == "github-ae@latest" %}your enterprise{% else %}GitHub{% endif %}
-  
+
 # Used ONLY when you need to refer to a GHES instance in an article that is versioned for non-GHES versions.
 # Do not use in other situations!
 product_location_enterprise: 'your GitHub Enterprise Server instance'
@@ -48,7 +48,10 @@ prodname_unified_search: 'unified search'
 # GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
+prodname_education_community_with_url: 'the [GitHub Education Community](https://education.github.community)'
 prodname_classroom: 'GitHub Classroom'
+prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
+prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 
 # GitHub CLI
@@ -90,6 +93,9 @@ prodname_actions: 'GitHub Actions'
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
+
+# GitHub Discussions
+prodname_discussions: 'GitHub Discussions'
 
 # GitHub Packages
 prodname_registry: 'GitHub Packages'
@@ -170,8 +176,7 @@ signout_link: >-
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 # GitHub Enterprise Server past versions
-current-340-version:
-  '11.10.354'
+current-340-version: '11.10.354'
 
 # Developer site product variables
 # Use this inside command-line and other code blocks

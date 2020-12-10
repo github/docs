@@ -1,6 +1,6 @@
 ---
 title: Enviar um tíquete
-intro: 'You can submit a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
+intro: 'Você pode enviar um tíquete de suporte usando {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} de {% data variables.enterprise.management_console %} ou{% endif %} o portal de suporte.'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
@@ -13,8 +13,8 @@ versions:
 Antes de enviar um ticket, reúna informações úteis sobre o {% data variables.contact.github_support %} e defina a melhor pessoa para fazer o contato. Para obter mais informações, consulte "[Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)".
 
 {% if enterpriseServerVersions contains currentVersion %}
-After submitting your support request and optional diagnostic information,
-{% data variables.contact.github_support %} may ask you to download and share a support bundle with us. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)".
+Após enviar a sua solicitação de suporte e informações opcionais de diagnóstico,
+{% data variables.contact.github_support %} poderá pedir que você baixe e compartilhe um pacote de suporte conosco. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)".
 
 ### Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
@@ -51,13 +51,13 @@ After submitting your support request and optional diagnostic information,
 {% if currentVersion == "github-ae@latest" %}
 ### Enviar um tíquete usando o {% data variables.contact.ae_azure_portal %}
 
-Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft documentation.
+Os clientes comerciais podem enviar um pedido de suporte no {% data variables.contact.contact_ae_portal %}. Clientes do governo devem usar os [Portal do Azure para clientes do governo](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Para obter mais informações, consulte [Criar uma solicitação de suporte ao Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) na documentação da Microsoft.
 
-For urgent issues, to ensure a quick response, after you submit a ticket, please call the support hotline immediately. Your Technical Support Account Manager (TSAM) will provide you with the number to use in your onboarding session.
+Para problemas urgentes, a fim de garantir uma resposta rápida, depois que enviar um ticket, chame a linha suporte imediatamente. Seu Administrador de Conta de Suporte Técnico (TSAM) irá fornecer a você o número a ser usado na sua sessão de integração.
 
 {% endif %}
 
 ### Leia mais
 
-- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
-- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}
+- "[Sobre {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[Sobre {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}

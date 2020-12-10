@@ -1,8 +1,10 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers')
+const { get, getDOM, head } = require('../helpers/supertest')
+const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+const { loadPages } = require('../../lib/pages')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -53,8 +55,6 @@ describe('server', () => {
     expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
-    expect(csp.get('script-src').includes("'unsafe-eval'")).toBe(true) // exception for Algolia instantsearch
-    expect(csp.get('script-src').includes("'unsafe-inline'")).toBe(true)
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
@@ -92,7 +92,7 @@ describe('server', () => {
     expect($.res.statusCode).toBe(400)
   })
 
-  // see https://github.com/github/docs-internal/issues/12427
+  // see issue 12427
   test('renders a 404 for leading slashes', async () => {
     let $ = await getDOM('//foo.com/enterprise')
     expect($('h1').text()).toBe('Ooops!')
@@ -132,7 +132,7 @@ describe('server', () => {
     expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
   })
 
-  // see https://github.com/github/docs-internal/issues/9678
+  // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM('/en/github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line')
     const articleIntro = $('.lead-mktg').text()
@@ -161,24 +161,6 @@ describe('server', () => {
       expect('name' in category).toBe(true)
       expect('published_articles' in category).toBe(true)
     })
-  })
-
-  test('serves publicly accessible /enterprise.json', async () => {
-    const res = await get('/enterprise.json')
-
-    // check for CORS header
-    expect(res.headers['access-control-allow-origin']).toBe('*')
-
-    const enterpriseData = JSON.parse(res.text)
-    expect(Object.keys(enterpriseData).length).toBe(2)
-    expect(enterpriseData.enterpriseDates['2.0'].releaseDate).toBe('2014-11-11')
-    expect(enterpriseData.enterpriseDates['2.15'].deprecationDate).toBe('2019-10-16')
-    expect(enterpriseData.enterpriseVersions.supported.length).toBeGreaterThan(2)
-    expect(enterpriseData.enterpriseVersions.deprecated.length).toBeGreaterThan(16)
-    expect(typeof enterpriseData.enterpriseVersions.latest).toBe('string')
-    expect(typeof enterpriseData.enterpriseVersions.oldestSupported).toBe('string')
-    expect(typeof enterpriseData.enterpriseVersions.nextDeprecationDate).toBe('string')
-    expect(enterpriseData.enterpriseVersions.deprecatedOnNewSite.length).toBeGreaterThan(2)
   })
 
   test('renders Markdown links that have Liquid hrefs', async () => {
@@ -372,6 +354,46 @@ describe('server', () => {
     test('is not displayed if article has only one version', async () => {
       const $ = await getDOM('/en/articles/signing-up-for-a-new-github-account')
       expect($('.article-versions').length).toBe(0)
+    })
+  })
+
+  describeViaActionsOnly('Early Access articles', () => {
+    let hiddenPageHrefs, hiddenPages
+
+    beforeAll(async (done) => {
+      const $ = await getDOM('/early-access')
+      hiddenPageHrefs = $('#article-contents ul > li > a').map((i, el) => $(el).attr('href')).get()
+
+      const allPages = await loadPages()
+      hiddenPages = allPages.filter(page => page.languageCode === 'en' && page.hidden)
+
+      done()
+    })
+
+    test('exist in the set of English pages', async () => {
+      expect(hiddenPages.length).toBeGreaterThan(0)
+    })
+
+    test('are listed at /early-access', async () => {
+      expect(hiddenPageHrefs.length).toBeGreaterThan(0)
+    })
+
+    test('are not listed at /early-access in production', async () => {
+      const oldNodeEnv = process.env.NODE_ENV
+      process.env.NODE_ENV = 'production'
+      const res = await get('/early-access', { followRedirects: true })
+      process.env.NODE_ENV = oldNodeEnv
+      expect(res.statusCode).toBe(404)
+    })
+
+    test('have noindex meta tags', async () => {
+      const $ = await getDOM(hiddenPageHrefs[0])
+      expect($('meta[content="noindex"]').length).toBe(1)
+    })
+
+    test('public articles do not have noindex meta tags', async () => {
+      const $ = await getDOM('/en/articles/set-up-git')
+      expect($('meta[content="noindex"]').length).toBe(0)
     })
   })
 

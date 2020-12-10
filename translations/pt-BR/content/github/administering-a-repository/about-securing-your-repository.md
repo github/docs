@@ -21,13 +21,13 @@ O primeiro passo para proteger um repositório é configurar quem pode ver e mod
 
   Discute em particular e corrige vulnerabilidades de segurança no código do seu repositório. Em seguida, você pode publicar uma consultoria de segurança para alertar a sua comunidade sobre a vulnerabilidade e incentivá-los a fazer a atualização. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 
-- **{% data variables.product.prodname_dependabot_short %} alerts and security updates**
+- **{% data variables.product.prodname_dependabot_alerts %} e atualizações de segurança**
 
-  Ver alertas sobre dependências conhecidas por conter vulnerabilidades de segurança e escolher se deseja gerar pull requests para atualizar essas dependências automaticamente. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)."
+  Ver alertas sobre dependências conhecidas por conter vulnerabilidades de segurança e escolher se deseja gerar pull requests para atualizar essas dependências automaticamente. Para obter mais informações, consulte "[Sobre alertas de dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) e "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 
-- **{% data variables.product.prodname_dependabot_short %} version updates**
+- **atualizações de versão de {% data variables.product.prodname_dependabot %}**
 
-  Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot-version-updates)".
+  Use {% data variables.product.prodname_dependabot %} para levantar automaticamente os pull requests a fim de manter suas dependências atualizadas. Isso ajuda a reduzir a exposição a versões mais antigas de dependências. Usar versões mais recentes facilita a aplicação de patches, caso as vulnerabilidades de segurança sejam descobertas e também torna mais fácil para {% data variables.product.prodname_dependabot_security_updates %} levantar, com sucesso, os pull requests para atualizar as dependências vulneráveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)".
 
 - **Alertas de {% data variables.product.prodname_code_scanning_capc %}**
 
@@ -43,6 +43,6 @@ O gráfico de dependências de {% data variables.product.prodname_dotcom %} perm
 * Ecossistemas e pacotes dos quais o repositório depende
 * Repositórios e pacotes que dependem do seu repositório
 
-Você deve habilitar o gráfico de dependências antes de {% data variables.product.prodname_dotcom %} pode gerar alertas de {% data variables.product.prodname_dependabot_short %} para dependências com vulnerabilidades de segurança.
+Você deve habilitar o gráfico de dependências antes de {% data variables.product.prodname_dotcom %} pode gerar {% data variables.product.prodname_dependabot_alerts %} para dependências com vulnerabilidades de segurança.
 
 Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
