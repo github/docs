@@ -180,22 +180,35 @@ describe('platform specific content', () => {
     { name: 'Windows', id: 'windows', ua: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36' },
     { name: 'Linux', id: 'linux', ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1' }
   ]
-  const userAgentLinux = userAgents[2]
+  const linuxUserAgent = userAgents[2]
+  const pageWithSwitcher = 'http://localhost:4001/en/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners'
+  const pageWithoutSwitcher = 'http://localhost:4001/en/github/using-git'
+  const pageWithDefaultPlatform = 'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
 
   it('should have a platform switcher', async () => {
-    await page.goto('http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service')
+    await page.goto(pageWithSwitcher)
     const nav = await page.$$('nav.UnderlineNav')
     const switches = await page.$$('a.platform-switcher')
     const selectedSwitch = await page.$$('a.platform-switcher.selected')
-    expect(nav.length).toEqual(1)
+    expect(nav).toHaveLength(1)
     expect(switches.length).toBeGreaterThan(1)
-    expect(selectedSwitch.length).toEqual(1)
+    expect(selectedSwitch).toHaveLength(1)
+  })
+
+  it('should NOT have a platform switcher', async () => {
+    await page.goto(pageWithoutSwitcher)
+    const nav = await page.$$('nav.UnderlineNav')
+    const switches = await page.$$('a.platform-switcher')
+    const selectedSwitch = await page.$$('a.platform-switcher.selected')
+    expect(nav).toHaveLength(0)
+    expect(switches).toHaveLength(0)
+    expect(selectedSwitch).toHaveLength(0)
   })
 
   it('should detect platform from user agent', async () => {
     for (const agent of userAgents) {
       await page.setUserAgent(agent.ua)
-      await page.goto('http://localhost:4001/en/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners')
+      await page.goto(pageWithSwitcher)
       const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
       const selectedPlatform = await page.evaluate(el => el.textContent, selectedPlatformElement)
       expect(selectedPlatform).toBe(agent.name)
@@ -205,12 +218,34 @@ describe('platform specific content', () => {
   it('should prefer defaultPlatform from frontmatter', async () => {
     for (const agent of userAgents) {
       await page.setUserAgent(agent.ua)
-      await page.goto('http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service')
+      await page.goto(pageWithDefaultPlatform)
       const defaultPlatform = await page.$eval('[data-default-platform]', el => el.dataset.defaultPlatform)
       const selectedPlatformElement = await page.waitForSelector('a.platform-switcher.selected')
       const selectedPlatform = await page.evaluate(el => el.textContent, selectedPlatformElement)
-      expect(defaultPlatform).toBe(userAgentLinux.id)
-      expect(selectedPlatform).toBe(userAgentLinux.name)
+      expect(defaultPlatform).toBe(linuxUserAgent.id)
+      expect(selectedPlatform).toBe(linuxUserAgent.name)
+    }
+  })
+
+  it('should show the content for the selected platform only', async () => {
+    await page.goto(pageWithSwitcher)
+
+    const platforms = ['mac', 'windows', 'linux']
+    for (const platform of platforms) {
+      await page.click(`.platform-switcher[data-platform="${platform}"]`)
+
+      // content for selected platform is expected to become visible
+      await page.waitForSelector(`.extended-markdown.${platform}`, { visible: true, timeout: 3000 })
+
+      // only a single tab should be selected
+      const selectedSwitch = await page.$$('a.platform-switcher.selected')
+      expect(selectedSwitch).toHaveLength(1)
+
+      // content for NOT selected platforms is expected to become hidden
+      const otherPlatforms = platforms.filter(e => e !== platform)
+      for (const other of otherPlatforms) {
+        await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
+      }
     }
   })
 })
