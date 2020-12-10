@@ -30,6 +30,18 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
 
+{% if currentVersion == "free-pro-team@latest" %}
+### Reviewing dependency changes
+
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+{% endif %}
+
 ### Marking a file as viewed
 
 After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
@@ -56,8 +68,5 @@ After you've finished reviewing all the files you want in the pull request, subm
 
 ### Further reading
 
-- "[About pull request reviews](/articles/about-pull-request-reviews)"
-- "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)"
-- "[Approving a pull request with required reviews](/articles/approving-a-pull-request-with-required-reviews)"
-- "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
-- "[Filtering pull requests by review status](/articles/filtering-pull-requests-by-review-status)"
+- "[About required reviews for pull requests](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
+- "[Filtering pull requests by review status](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

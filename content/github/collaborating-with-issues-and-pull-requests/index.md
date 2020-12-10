@@ -52,6 +52,7 @@ versions:
     {% link_in_list /finding-changed-methods-and-functions-in-a-pull-request %}
     {% link_in_list /commenting-on-a-pull-request %}
     {% link_in_list /viewing-a-pull-request-review %}
+    {% link_in_list /reviewing-dependency-changes-in-a-pull-request %}
     {% link_in_list /incorporating-feedback-in-your-pull-request %}
     {% link_in_list /approving-a-pull-request-with-required-reviews %}
     {% link_in_list /dismissing-a-pull-request-review %}
