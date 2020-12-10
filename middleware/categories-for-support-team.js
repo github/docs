@@ -2,7 +2,7 @@
 // to quickly search for Help articles by title and insert the link to
 // the article into a reply to a customer.
 const path = require('path')
-const fs = require('fs')
+const fs = require('fs').promises
 const matter = require('gray-matter')
 const dotcomDir = path.join(__dirname, '../content/github')
 const dotcomIndex = path.join(dotcomDir, 'index.md')
@@ -10,24 +10,22 @@ const linkRegex = /{% (?:topic_)?link_in_list ?\/(.*?) ?%}/g
 
 module.exports = async (req, res, next) => {
   if (req.path !== '/categories.json') return next()
-  const categories = generateCategories()
+  const categories = await generateCategories()
   return res.json(categories)
 }
 
-function generateCategories () {
+async function generateCategories () {
   // get links included in dotcom index page.
   // each link corresponds to a dotcom subdirectory
   // example: getting-started-with-github
-  const links = getLinks(fs.readFileSync(dotcomIndex, 'utf8'))
-
-  const categories = []
+  const links = getLinks(await fs.readFile(dotcomIndex, 'utf8'))
 
   // get links included in each subdir's index page
   // these are links to articles
-  links.forEach(link => {
+  const categories = await Promise.all(links.map(async link => {
     const category = {}
     const indexPath = getPath(link, 'index')
-    const indexContents = fs.readFileSync(indexPath, 'utf8')
+    const indexContents = await fs.readFile(indexPath, 'utf8')
     const { data, content } = matter(indexContents)
 
     // get name from title frontmatter
@@ -36,29 +34,23 @@ function generateCategories () {
     // get child article links
     const articleLinks = getLinks(content)
 
-    const publishedArticles = []
-
-    articleLinks.forEach(articleLink => {
-      const publishedArticle = {}
-
+    category.published_articles = (await Promise.all(articleLinks.map(async articleLink => {
       // get title from frontmatter
       const articlePath = getPath(link, articleLink)
-      const articleContents = fs.readFileSync(articlePath, 'utf8')
+      const articleContents = await fs.readFile(articlePath, 'utf8')
       const { data } = matter(articleContents)
 
       // do not include map topics in list of published articles
       if (data.mapTopic) return
 
-      publishedArticle.title = data.title
-      publishedArticle.slug = articleLink
+      return {
+        title: data.title,
+        slug: articleLink
+      }
+    }))).filter(Boolean)
 
-      publishedArticles.push(publishedArticle)
-    })
-
-    category.published_articles = publishedArticles
-
-    categories.push(category)
-  })
+    return category
+  }))
 
   return categories
 }
