@@ -560,7 +560,7 @@ jobs:
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in a public registry - <sub>[Google Container Registry - GCR](https://cloud.google.com/container-registry)</sub>
+A Docker image in a public registry. This example uses the Google Container Registry at `gcr.io`.
 
 ```yaml
 jobs:
