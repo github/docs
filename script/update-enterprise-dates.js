@@ -22,6 +22,7 @@ if (!process.env.GITHUB_TOKEN) {
 main()
 
 async function main () {
+  // send owner, repo, ref, path
   const rawDates = JSON.parse(await getContents('github', 'enterprise-releases', 'master', 'releases.json'))
 
   const formattedDates = {}
