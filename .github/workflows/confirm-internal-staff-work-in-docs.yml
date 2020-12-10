@@ -17,7 +17,8 @@ jobs:
     continue-on-error: true
     if: github.repository == 'github/docs'
     steps:
-      - uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+      - id: membership_check
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
           script: |
@@ -61,10 +62,10 @@ jobs:
               body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/docs-internal repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks! \n\n/cc @github/docs @github/docs-engineering`
             });
 
-            throw new Error('A Hubber opened an issue on the public github/docs repo');
+            core.setOutput('did_warn', 'true')
 
       - name: Send Slack notification if a GitHub employee who isn't on the docs team opens an issue in public
-        if: ${{ failure() && github.repository == 'github/docs' }}
+        if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
         uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         with:
           channel: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
