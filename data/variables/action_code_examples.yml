@@ -287,3 +287,9 @@
     - monorepo
     - copybara
     - workflow
+- title: Deploy static files to GitHub Pages
+  description: GitHub Action to publish website to GitHub Pages automatically
+  languages: 'TypeScript, JavaScript'
+  href: peaceiris/actions-gh-pages
+  tags:
+    - publishing
