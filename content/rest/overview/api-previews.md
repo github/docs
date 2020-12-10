@@ -114,17 +114,6 @@ Include nested team content in [team](/rest/reference/teams) payloads.
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-
-### Global webhooks
-
-Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
-
-**Custom media type:** `superpro-preview`
-**Announced:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
-
-{% endif %}
-
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### Repository transfer
 
