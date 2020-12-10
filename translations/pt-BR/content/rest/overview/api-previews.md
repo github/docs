@@ -35,7 +35,7 @@ Exerça um maior controle sobre as [implantações](/rest/reference/repos#deploy
 Gerencie as [reações](/rest/reference/reactions) de commits, problemas e comentários.
 
 **Tipo de mídia personalizado:** `squirrel-girl-preview` **Anunciado em:** [2016-05-12](https://developer.github.com/changes/2016-05-12-reactions-api-preview/) **Atualização em:**
-[ 2016-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)</p> 
+[ 2016-07](https://developer.github.com/changes/2016-06-07-reactions-api-update/)</p>
 
 
 
@@ -52,7 +52,7 @@ Obter uma [lista de eventos](/rest/reference/issues#timeline) para um problema o
 
 Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
-**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments) 
+**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 
 {% endif %}
 
@@ -63,7 +63,7 @@ Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
 Gerencie as [integrações](/early-access/integrations/) através da API.
 
-**Tipo de mídia personalizada:** `machine-man-preview` **Anunciado em:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/) 
+**Tipo de mídia personalizada:** `machine-man-preview` **Anunciado em:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)
 
 {% endif %}
 
@@ -73,7 +73,7 @@ Gerencie as [integrações](/early-access/integrations/) através da API.
 
 Gerencie [projetos](/rest/reference/projects).
 
-**Tipo de mídia personalizada:** `inertia-preview` **Anunciado em:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Atualização em:** [ 2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)</p> 
+**Tipo de mídia personalizada:** `inertia-preview` **Anunciado em:** [2016-09-14](https://developer.github.com/changes/2016-09-14-projects-api/) **Atualização em:** [ 2016-10-27](https://developer.github.com/changes/2016-10-27-changes-to-projects-api/)</p>
 
 
 
@@ -90,7 +90,7 @@ Gerencie [projetos](/rest/reference/projects).
 
 Os usuários podem [bloquear outros usuários](/rest/reference/users#blocking). As organizações também podem [bloquear usuários](/rest/reference/orgs#blocking).
 
-**Tipo de mídia personalizado:** `giant-sentry-fist-preview` **Anunciado em:** [2011-05-31](https://github.com/blog/862-block-the-bullies) **Atualização 1:** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users) **Atualização 2:** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page) 
+**Tipo de mídia personalizado:** `giant-sentry-fist-preview` **Anunciado em:** [2011-05-31](https://github.com/blog/862-block-the-bullies) **Atualização 1:** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users) **Atualização 2:** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page)
 
 {% endif %}
 
@@ -121,18 +121,6 @@ Inclua o conteúdo aninhado das cargas da [equipe](/rest/reference/teams).
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-
-
-
-### Webhooks globais
-
-Habilita [webhooks globais](/rest/reference/enterprise-admin#global-webhooks/) para  [organizações](/webhooks/event-payloads/#organization) e tipos de evento do [usuário](/webhooks/event-payloads/#user). Esta visualização da API só está disponível para {% data variables.product.prodname_ghe_server %}.
-
-**Tipo de mídia personalizada:** `superpro-preview` **Anunciado em:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
-
-{% endif %}
-
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 
 
@@ -140,7 +128,7 @@ Habilita [webhooks globais](/rest/reference/enterprise-admin#global-webhooks/) p
 
 Transfira um [repositório](/rest/reference/repos) para uma organização ou usuário.
 
-**Tipo de mídia personalizada:** `nightshade-preview` **Anunciado em:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview) 
+**Tipo de mídia personalizada:** `nightshade-preview` **Anunciado em:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
 
 {% endif %}
 
@@ -151,7 +139,7 @@ Transfira um [repositório](/rest/reference/repos) para uma organização ou usu
 
 Agora você pode adicionar um motivo ao[bloquear um problema](/rest/reference/issues#lock-an-issue).
 
-**Tipo de mídia personalizada:** `sailor-v-preview` **Anunciado em:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview) 
+**Tipo de mídia personalizada:** `sailor-v-preview` **Anunciado em:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
 
 {% endif %}
 
@@ -189,7 +177,7 @@ Recuperar informações do [hovercard de alguém](/rest/reference/users#get-cont
 
 Permite que um aplicativo GitHub execute verificações externas no código de um repositório. Veja as [execuções de verificação](/rest/reference/checks#runs) e [Conjuntos de verificação](/rest/reference/checks#suites) das APIs para obter mais informações.
 
-**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/) 
+**Tipo de mídia personalizada:** `antiope-preview` **Anunciado:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 
 {% endif %}
 
@@ -283,7 +271,7 @@ Você pode usar dois novos pontos de extremidade na [API de commits](/rest/refer
 
 Agora os proprietários dos aplicativos GitHub podem desinstalar um aplicativo usando a [API de aplicativos](/rest/reference/apps#delete-an-installation-for-the-authenticated-app).
 
-**Tipos de mídia personalizada:** `gambit-preview` 
+**Tipos de mídia personalizada:** `gambit-preview`
 
 {% endif %}
 
@@ -310,7 +298,7 @@ Você pode usar um novo ponto de extremidade para [atualizar um branch de pull r
 
 Você pode usar um novo conjunto de pontos de extremidade para [habilitar e desabilitar as correções de segurança automatizadas](/rest/reference/repos#enable-automated-security-fixes).
 
-**Tipo de mídia personalizada:** `london-preview` **Anunciado:** [2019-06-04](https://developer.github.com/changes/2019-06-04-automated-security-fixes/) 
+**Tipo de mídia personalizada:** `london-preview` **Anunciado:** [2019-06-04](https://developer.github.com/changes/2019-06-04-automated-security-fixes/)
 
 {% endif %}
 
@@ -329,7 +317,7 @@ Você pode usar um novo ponto de extremidade para [Criar um repositório usando 
 
 Você pode gerenciar os tokens de forma mais segura para aplicativos OAuth usando os tokens OAuth como parâmetros de entrada em vez dos parâmetros de caminho com os novos pontos de extremidade da [API dos aplicativos OAuth](/rest/reference/apps#oauth-applications).
 
-**Tipos de mídia personalizada:** `doutor-strange-preview` **Anunciado:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/) 
+**Tipos de mídia personalizada:** `doutor-strange-preview` **Anunciado:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
 
 {% endif %}
 
@@ -340,6 +328,6 @@ Você pode gerenciar os tokens de forma mais segura para aplicativos OAuth usand
 
 Você pode definir e recuperar a visibilidade de um repositório na [API de repositórios](/rest/reference/repos).
 
-**Tipos de mídia personalizada:** `nebula-preview` **Anunciado:** [2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/) 
+**Tipos de mídia personalizada:** `nebula-preview` **Anunciado:** [2019-11-25](https://developer.github.com/changes/2019-12-03-internal-visibility-changes/)
 
 {% endif %}

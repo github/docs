@@ -99,16 +99,6 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-
-### グローバル webhook
-
-[Organization](/webhooks/event-payloads/#organization) および[ユーザ](/webhooks/event-payloads/#user)イベントタイプの[グローバル webhook](/rest/reference/enterprise-admin#global-webhooks/) を有効にします。 この API プレビューは {% data variables.product.prodname_ghe_server %} でのみ使用できます。
-
-**カスタムメディアタイプ:** `superpro-preview` **発表日:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
-
-{% endif %}
-
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### リポジトリ移譲
 

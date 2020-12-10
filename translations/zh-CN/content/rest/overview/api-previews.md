@@ -99,16 +99,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-
-### 全局 web 挂钩
-
-为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 web 挂钩](/rest/reference/enterprise-admin#global-webhooks/)。 此 API 预览仅适用于 {% data variables.product.prodname_ghe_server %}。
-
-**自定义媒体类型：** `superpro-preview` **公布日期：** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
-
-{% endif %}
-
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### 仓库转让
 

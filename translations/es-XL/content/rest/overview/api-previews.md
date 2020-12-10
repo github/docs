@@ -115,16 +115,6 @@ Incluir contenido anidado del equipo en cargas útiles del [equipo](/v3/teams/)
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
-
-### Webhooks globales
-
-Habilita los [webhooks globales](/v3/enterprise-admin/global_webhooks/) para una [organización](/webhooks/event-payloads/#organization) y para los tipos de evento del [usuario](/webhooks/event-payloads/#user). Esta vista previa de la API solo está disponible para {% data variables.product.prodname_ghe_server %}.
-
-**Tipo de medios personalizados:** `superpro-preview` **Anunciado en:**[2017-12-12](/v3/enterprise-admin/global_webhooks)
-
-{% endif %}
-
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
 ### Transferencia de repositorio
 
