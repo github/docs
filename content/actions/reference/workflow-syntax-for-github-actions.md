@@ -553,7 +553,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: docker://ghcr.io/cloud-builders/gradle
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 
 ##### Example using a Docker public registry action
