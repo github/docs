@@ -1,6 +1,6 @@
 ---
 title: 用户帐户仓库的权限级别
-intro: '用户帐户拥有的仓库有两种权限级别：*仓库所有者*和*协作者*。'
+intro: 'A repository owned by a user account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
 versions:
@@ -9,38 +9,48 @@ versions:
   github-ae: '*'
 ---
 
+### About permissions levels for a user account repository
+
+Repositories owned by user accounts have one owner. Ownership permissions can't be shared with another user account.
+
+You can also {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)."
+
 {% tip %}
 
-**提示：**如果需要对用户帐户拥有的仓库实施更细致的读/写权限，请考虑将仓库转让给组织。 更多信息请参阅“[转让仓库](/articles/transferring-a-repository)”。
+**Tip:** If you require more granular access to a repository owned by your user account, consider transferring the repository to an organization. 更多信息请参阅“[转让仓库](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)”。
 
 {% endtip %}
 
-#### 所有者对用户帐户拥有的仓库的访问权限
+### Owner access for a repository owned by a user account
 
-仓库所有者对仓库具有完全控制权。 除了仓库协作者的所有权限之外，仓库所有者还可以：
+仓库所有者对仓库具有完全控制权。 In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
-- {% if currentVersion == "free-pro-team@latest" %}[Invite collaborators](/articles/inviting-collaborators-to-a-personal-repository){% else %}[Add collaborators](/articles/inviting-collaborators-to-a-personal-repository){% endif %}
-- Change the visibility of the repository (from [public to private](/articles/making-a-public-repository-private), or from [private to public](/articles/making-a-private-repository-public)){% if currentVersion == "free-pro-team@latest" %}
-- [限制与仓库的交互](/articles/limiting-interactions-with-your-repository){% endif %}
-- 合并受保护分支上的拉取请求（即使没有批准审查）
-- [删除仓库](/articles/deleting-a-repository)
-- [Manage a repository's topics](/articles/classifying-your-repository-with-topics){% if currentVersion == "free-pro-team@latest" %}
-- 管理安全和分析设置。 For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- 删除包。 更多信息请参阅“[删除包](/github/managing-packages-with-github-packages/deleting-a-package)”。{% endif %}
-- 创建和编辑仓库社交卡。 更多信息请参阅“[自定义仓库的社交媒体审查](/articles/customizing-your-repositorys-social-media-preview)”。
-- 将仓库设为模板。 For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."{% if currentVersion != "github-ae@latest" %}
-- Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- 忽略仓库中的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
-- [管理私有仓库的数据使用](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
-- [定义仓库的代码所有者](/articles/about-code-owners)
-- [Archive repositories](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
-- 创建安全通告。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
-- 显示赞助按钮。 更多信息请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”。{% endif %}
+| 操作                                                                                                                                                                                                                           | 更多信息                                                                                                                                                                                                                                                                          |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% if currentVersion == "free-pro-team@latest" %}Invite collaborators{% else %}Add collaborators{% endif %}                                                                                                                  |                                                                                                                                                                                                                                                                               |
+| "[邀请个人仓库的协作者](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)"                                                                                                     |                                                                                                                                                                                                                                                                               |
+| Change the visibility of the repository                                                                                                                                                                                      | "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)" |{% if currentVersion == "free-pro-team@latest" %}
+| Limit interactions with the repository                                                                                                                                                                                       | "[Limiting interactions in your repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)" |{% endif %}
+| 合并受保护分支上的拉取请求（即使没有批准审查）                                                                                                                                                                                                      | "[关于受保护分支](/github/administering-a-repository/about-protected-branches)"                                                                                                                                                                                                      |
+| 删除仓库                                                                                                                                                                                                                         | "[删除仓库](/github/administering-a-repository/deleting-a-repository)"                                                                                                                                                                                                            |
+| Manage the repository's topics                                                                                                                                                                                               | "[Classifying your repository with topics](/github/administering-a-repository/classifying-your-repository-with-topics)" |{% if currentVersion == "free-pro-team@latest" %}
+| Manage security and analysis settings for the repository                                                                                                                                                                     | "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| Enable the dependency graph for a private repository                                                                                                                                                                         | "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)" |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| 删除包                                                                                                                                                                                                                          | "[Deleting a package](/github/managing-packages-with-github-packages/deleting-a-package)" |{% endif %}
+| Customize the repository's social media preview                                                                                                                                                                              | "[Customizing your repository's social media preview](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)"                                                                                                                                  |
+| Create a template from the repository                                                                                                                                                                                        | "[Creating a template repository](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+| Receive                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                               |
+| {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies | "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" |{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository                                                                                                                                          | "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"                                                                                                                                                 |
+| Manage data use for a private repository                                                                                                                                                                                     | "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)"|{% endif %}
+| 定义仓库的代码所有者                                                                                                                                                                                                                   | "[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)"                                                                                                                                                                                            |
+| Archive the repository                                                                                                                                                                                                       | "[About archiving repositories](/github/creating-cloning-and-archiving-repositories/about-archiving-repositories)" |{% if currentVersion == "free-pro-team@latest" %}
+| Create security advisories                                                                                                                                                                                                   | "[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)"                                                                                                                                |
+| Display a sponsor button                                                                                                                                                                                                     | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}
 
-用户帐户拥有的仓库只有**一个所有者**，此权限无法与其他用户帐户共享。 要将仓库的所有权转让给其他用户，请参阅“[如何转让仓库](/articles/how-to-transfer-a-repository)”。
+### Collaborator access for a repository owned by a user account
 
-#### 协作者对用户帐户拥有的仓库的访问权限
+Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
 {% note %}
 
@@ -48,27 +58,26 @@ versions:
 
 {% endnote %}
 
-个人仓库的协作者可以：
+Collaborators can also perform the following actions.
 
-- 推送（写入）、拉取（读取）和复刻（复制）仓库
-- 创建、应用和删除标签及里程碑
-- 打开、关闭、重新打开和分配议题
-- 编辑和删除对提交、拉取请求和议题的评论
-- 将议题或拉取请求标记为重复。 更多信息请参阅“[关于重复的议题和拉取请求](/articles/about-duplicate-issues-and-pull-requests)”。
-- 打开、合并和关闭拉取请求
-- 对拉取请求应用提议的更改。 更多信息请参阅“[合并拉取请求中的反馈](/articles/incorporating-feedback-in-your-pull-request)”。
-- Send pull requests from forks of the repository{% if currentVersion == "free-pro-team@latest" %}
-- 发布、查看和安装包。 更多信息请参阅“[发布和管理包](/github/managing-packages-with-github-packages/publishing-and-managing-packages)”。{% endif %}
-- 创建和编辑 Wiki
-- 创建和编辑发行版. 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”。
-- 作为仓库协作者删除自己
-- 提交会影响其合并性的拉取请求审查
-- 作为仓库的指定代码所有者。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners)”。
-- 锁定对话。 For more information, see "[Locking conversations](/articles/locking-conversations)."{% if currentVersion == "free-pro-team@latest" %}
-- 向 {% data variables.contact.contact_support %} 报告滥用的内容。 更多信息请参阅“[报告滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”。{% endif %}
-- 将议题转让给不同的仓库 更多信息请参阅“[将议题传输到其他仓库](/articles/transferring-an-issue-to-another-repository)”。
+| 操作                                                                                        | 更多信息                                                                                                                                                         |
+|:----------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Fork the repository                                                                       | "[关于复刻](/github/collaborating-with-issues-and-pull-requests/about-forks)"                                                                                    |
+| Create, edit, and delete comments on commits, pull requests, and issues in the repository | <ul><li>"[About issues](/github/managing-your-work-on-github/about-issues)"</li><li>"[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)"</li><li>"[Managing disruptive comments](/github/building-a-strong-community/managing-disruptive-comments)"</li></ul>                                                                                                                                    |
+| Create, assign, close, and re-open issues in the repository                               | "[Managing your work with issues](/github/managing-your-work-on-github/managing-your-work-with-issues)"                                                      |
+| Manage labels for issues and pull requests in the repository                              | "[Labeling issues and pull requests](/github/managing-your-work-on-github/labeling-issues-and-pull-requests)"                                                |
+| Manage milestones for issues and pull requests in the repository                          | "[创建和编辑议题及拉取请求的里程碑](/github/managing-your-work-on-github/creating-and-editing-milestones-for-issues-and-pull-requests)"                                      |
+| Mark an issue or pull request in the repository as a duplicate                            | "[About duplicate issues and pull requests](/github/managing-your-work-on-github/about-duplicate-issues-and-pull-requests)"                                  |
+| Create, merge, and close pull requests in the repository                                  | "[Proposing changes to your work with pull requests](/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests)" |
+| Apply suggested changes to pull requests in the repository                                | "[Incorporating feedback in your pull request](/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request)"             |
+| Create a pull request from a fork of the repository                                       | "[从复刻创建拉取请求](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)"                                                       |
+| Submit a review on a pull request that affects the mergeability of the pull request       | "[审查拉取请求中提议的更改](/github/collaborating-with-issues-and-pull-requests/reviewing-proposed-changes-in-a-pull-request)"                                           |
+| Create and edit a wiki for the repository                                                 | "[关于 wikis](/github/building-a-strong-community/about-wikis)"                                                                                                |
+| Create and edit releases for the repository                                               | "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)"                                                  |
+| Act as a code owner for the repository                                                    | "[About code owners](/articles/about-code-owners)" |{% if currentVersion == "free-pro-team@latest" %}
+| Publish, view, or install packages                                                        | "[Publishing and managing packages](/github/managing-packages-with-github-packages/publishing-and-managing-packages)" |{% endif %}
+| 作为仓库协作者删除自己                                                                               | "[从协作者的仓库删除您自己](/github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository)"                                 |
 
 ### 延伸阅读
 
-- "[邀请个人仓库的协作者](/articles/inviting-collaborators-to-a-personal-repository)"
 - "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"

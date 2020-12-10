@@ -36,7 +36,7 @@ You can view the top 100 contributors to a repository{% if enterpriseServerVersi
 
 {% tip %}
 
-**提示：**要列出仓库中的所有提交贡献者，请参阅“[仓库](/v3/repos/#list-contributors)”。
+**提示：**要列出仓库中的所有提交贡献者，请参阅“[仓库](/rest/reference/repos#list-contributors)”。
 
 {% endtip %}
 

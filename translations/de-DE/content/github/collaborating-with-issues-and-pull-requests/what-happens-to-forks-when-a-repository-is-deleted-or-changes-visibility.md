@@ -16,13 +16,19 @@ versions:
 
 Wenn Du ein privates Repository löschst, werden alle zugehörigen privaten Forks ebenfalls gelöscht.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 #### Öffentliches Repository löschen
 
 Wenn Du ein öffentliches Repository löschst, wird einer der vorhandenen öffentlichen Forks als das neue übergeordnete Repository ausgewählt. Alle anderen Repositorys werden von diesem neuen übergeordneten Element abgezweigt, und nachfolgende Pull Requests werden an dieses neue übergeordnete Element gesendet.
 
+{% endif %}
+
 #### Private Forks und Berechtigungen
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 #### Öffentliches Repository in ein privates Repository ändern
 
@@ -40,11 +46,31 @@ Wenn ein öffentliches Repository auf privat festgelegt und anschließend gelös
 
 #### Privates Repository in ein öffentliches Repository ändern
 
-Wenn ein privates Repository auf öffentlich festgelegt wird, werden alle privaten Forks in eigenständige private Repositorys umgewandelt und werden zum übergeordneten Element ihres eigenen neuen Repository-Netzwerks. Private Forks werden niemals automatisch auf öffentlich festgelegt, da sie sensible Commits enthalten können, die nicht veröffentlicht werden sollten.
+Wenn ein privates Repository auf öffentlich festgelegt wird, werden alle privaten Forks in ein eigenständiges privates Repository umgewandelt und avancieren zum übergeordneten Element des eigenen neuen Repository-Netzwerks. Private Forks werden niemals automatisch auf öffentlich festgelegt, da sie sensible Commits enthalten können, die nicht veröffentlicht werden sollten.
 
 ##### Öffentliches Repository löschen
 
 Wenn ein privates Repository auf öffentlich festgelegt und anschließend gelöscht wird, bleiben die zugehörigen privaten Forks in separaten Netzwerken als eigenständige private Repositorys erhalten.
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+
+#### Changing the visibility of an internal repository
+
+{% note %}
+
+**Note:** {% data reusables.gated-features.internal-repos %}
+
+{% endnote %}
+
+If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+
+##### Deleting the internal repository
+
+If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+
+{% endif %}
 
 ### Weiterführende Informationen
 
@@ -52,3 +78,4 @@ Wenn ein privates Repository auf öffentlich festgelegt und anschließend gelös
 - „[Informationen zu Forks](/articles/about-forks)“
 - „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - „[Die Forking-Richtlinie für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)"
+- "{% if currentVersion == "free-pro-team@latest" %}[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-forking-private-or-internal-repositories){% else %}[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories){% endif %}"

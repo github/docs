@@ -1,0 +1,12 @@
+[
+  {
+    "someStuff": true,
+    "date": "2020-11-20"
+  },
+  {
+    "previous_entry": "..."
+  },
+  {
+    "another_previous_entry": "..."
+  }
+]

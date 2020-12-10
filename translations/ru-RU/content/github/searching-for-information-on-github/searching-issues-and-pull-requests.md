@@ -64,14 +64,11 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."                                          |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."                                         |
 
-### Search by public or private repository
+### Filter by repository visibility
 
-If you're [searching across all of {% data variables.product.product_name %}](https://github.com/search), it can be helpful to filter your results based on whether the repository is public or private. You can do this with `is:public` and `is:private`.
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
-| Qualifier    | Пример                                                                                                                                                                                      |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in all public repositories.                                                           |
-| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you have access to. |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ### Search by author
 
@@ -166,7 +163,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ### Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/v3/repos/statuses/) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
 
 | Qualifier        | Пример                                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -150,4 +150,4 @@ MIME タイプとは、ブラウザがリクエストするファイルの性質
 ### 参考リンク
 
 - {% data variables.product.prodname_learning %} の [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages)
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"

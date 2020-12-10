@@ -131,7 +131,7 @@ versions:
 
 ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされたアーティファクトをダウンロードできます。
 
-ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/v3/actions/artifacts/)」を参照してください。
+ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/rest/reference/actions#artifacts)」を参照してください。
 
 #### ワークフロー実行中の成果物のダウンロード
 

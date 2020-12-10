@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
 const frontmatter = require('@github-docs/frontmatter')
-const loadPages = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/pages')
 const patterns = require('../../lib/patterns')
 const loadRedirects = require('../../lib/redirects/precompile')
 const allVersions = Object.keys(require('../../lib/all-versions'))
@@ -23,7 +23,8 @@ main()
 async function main () {
   // we need to load the pages so we can get the redirects
   const englishPages = (await loadPages()).filter(p => p.languageCode === 'en')
-  const redirects = await loadRedirects(englishPages)
+  const englishPageMap = await loadPageMap(englishPages)
+  const redirects = await loadRedirects(englishPages, englishPageMap)
 
   for (const file of files) {
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))
@@ -55,16 +56,17 @@ async function main () {
         // remove version segment
         .replace(new RegExp(`/(${allVersions.join('|')})`), '')
 
-      // re-add the fragment
+      // re-add the fragment after removing any fragment added via the redirect
+      // otherwise /v3/git/refs/#create-a-reference will become /rest/reference/git#refs#create-a-reference
+      // we want to preserve the #create-a-reference fragment, not #refs
       const newLink = fragment
-        ? redirect + '#' + fragment
+        ? redirect.replace(/#.+?$/, '') + '#' + fragment
         : redirect
 
-      // first remove any trailing slashes from the old link,
-      // then replace with the new link
+      // first replace the old link with the new link
+      // then remove any trailing slashes
       newContent = newContent
-        .replace(`${devLink}/`, devLink)
-        .replace(devLink, newLink)
+        .replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
     }
 
     fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))

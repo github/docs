@@ -129,7 +129,7 @@ Wenn Du keine Node.js Version festlegst, verwendet {% data variables.product.pro
 
 Auf {% data variables.product.prodname_dotcom %}-gehosteten Runnern sind die Abhängigkeitsmanager npm und Yarn installiert. Du kannst npm und Yarn verwenden, um in Ihrem Workflow Abhängigkeiten zu installieren, bevor Du Deinen Code baust und testest. Die auf {% data variables.product.prodname_dotcom %} gehosteten Windows- und Linux-Runner haben auch Grunt, Gulp und Bower installiert.
 
-Du kannst Abhängigkeiten auch im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen. Weitere Informationen findest Du unter „[Abhängigkeiten im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“.
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 #### Beispiel mit npm
 
@@ -227,7 +227,7 @@ always-auth=true
 
 #### Beispiel zum Zwischenspeichern von Abhängigkeiten im Cache
 
-Du kannst Abhängigkeiten mit einem eindeutigen Schlüssel im Cache zwischenspeichern und sie später wiederherstellen, wenn Du zukünftige Workflows mit der Aktion `-cache-` ausführst. Weitere Informationen findest Du unter „[Caching-Abhängigkeiten zur Beschleunigung von Workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching-Abhängigkeiten zur Beschleunigung von Workflows</a>“ und der [Aktion `cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
@@ -241,7 +241,7 @@ steps:
   uses: actions/cache@v2
   with:
     # npm cache files are stored in `~/.npm` on Linux/macOS
-    path: ~/.npm 
+    path: ~/.npm
     key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
     restore-keys: |
       ${{ runner.OS }}-node-

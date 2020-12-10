@@ -25,7 +25,7 @@ describe('category pages', () => {
 
   const walkOptions = {
     globs: ['*/index.md', 'enterprise/*/index.md'],
-    ignore: ['{rest,graphql,developers}/**', 'enterprise/index.md', '**/articles/**'],
+    ignore: ['{rest,graphql,developers}/**', 'enterprise/index.md', '**/articles/**', 'early-access/**'],
     directories: false,
     includeBasePath: true
   }
@@ -42,15 +42,17 @@ describe('category pages', () => {
       // Get links included in product index page.
       // Each link corresponds to a product subdirectory (category).
       // Example: "getting-started-with-github"
-      const contents = fs.readFileSync(productIndex, 'utf8')
+      const contents = fs.readFileSync(productIndex, 'utf8') // TODO move to async
       const { content } = matter(contents)
 
+      const productDir = path.dirname(productIndex)
+
       const categoryLinks = getLinks(content)
-        // HACK: I'm not really sure why this file is a one-off but it is...
-        .filter(link => !(productName === 'actions' && link === 'quickstart'))
+        // Only include category directories, not standalone category files like content/actions/quickstart.md
+        .filter(link => fs.existsSync(getPath(productDir, link, 'index')))
+        // TODO this should move to async, but you can't asynchronously define tests with Jest...
 
       // Map those to the Markdown file paths that represent that category page index
-      const productDir = path.dirname(productIndex)
       const categoryPaths = categoryLinks.map(link => getPath(productDir, link, 'index'))
 
       // Make them relative for nicer display in test names
