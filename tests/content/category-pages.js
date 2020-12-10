@@ -42,7 +42,7 @@ describe('category pages', () => {
       // Get links included in product index page.
       // Each link corresponds to a product subdirectory (category).
       // Example: "getting-started-with-github"
-      const contents = fs.readFileSync(productIndex, 'utf8')
+      const contents = fs.readFileSync(productIndex, 'utf8') // TODO move to async
       const { content } = matter(contents)
 
       const productDir = path.dirname(productIndex)
@@ -50,6 +50,7 @@ describe('category pages', () => {
       const categoryLinks = getLinks(content)
         // Only include category directories, not standalone category files like content/actions/quickstart.md
         .filter(link => fs.existsSync(getPath(productDir, link, 'index')))
+        // TODO this should move to async, but you can't asynchronously define tests with Jest...
 
       // Map those to the Markdown file paths that represent that category page index
       const categoryPaths = categoryLinks.map(link => getPath(productDir, link, 'index'))

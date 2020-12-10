@@ -22,6 +22,7 @@ featuredLinks:
     - /discussions/guides/finding-discussions-across-multiple-repositories
     - /discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions
     - /discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository
+product_video: https://www.youtube-nocookie.com/embed/DbTWBP3_RbM
 layout: product-landing
 versions:
   free-pro-team: '*'
