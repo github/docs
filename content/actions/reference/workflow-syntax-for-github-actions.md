@@ -542,7 +542,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-##### Example using a Github Container Registry
+##### Example using the {% data variables.product.prodname_github_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
