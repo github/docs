@@ -86,7 +86,7 @@ The IdP must use `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/v3/auth/#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim).“
+**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim).“
 
 {% endnote %}
 

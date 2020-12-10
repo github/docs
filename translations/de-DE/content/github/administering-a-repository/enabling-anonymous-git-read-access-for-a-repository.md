@@ -5,7 +5,6 @@ redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
 versions:
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 Repository-Administratoren können die Einstellung für den anonymen Git-Lesezugriff für ein bestimmtes Repository ändern, wenn folgende Voraussetzungen erfüllt sind:

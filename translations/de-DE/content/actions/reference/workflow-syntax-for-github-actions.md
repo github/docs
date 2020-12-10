@@ -227,7 +227,7 @@ Jeder Job läuft in einer Umgebung, die mit `runs-on` angegeben wird.
 
 Innerhalb der Nutzungsbeschränkungen des Workflows kannst Du unbegrenzt viele Jobs ausführen. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
-Wenn Du den eindeutigen Bezeichner eines Jobs finden musst, der in einem Workflowlauf ausgeführt wird, kannst Du die API von {% data variables.product.prodname_dotcom %} verwenden. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
+Wenn Du den eindeutigen Bezeichner eines Jobs finden musst, der in einem Workflowlauf ausgeführt wird, kannst Du die API von {% data variables.product.prodname_dotcom %} verwenden. For more information, see "[Workflow Jobs](/rest/reference/actions#workflow-jobs)."
 
 ### **`jobs.<job_id>`**
 
@@ -876,9 +876,15 @@ strategy:
 
 {% endnote %}
 
+##### Using environment variables in a matrix
+
+You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
+
+{% data reusables.github-actions.matrix-variable-example %}
+
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
-Wenn diese Option auf `true` gesetzt ist, bricht {% data variables.product.prodname_dotcom %} alle laufenden Aufträge ab, sobald ein `matrix`-Auftrag fehlschlägt. Standard: `true`
+Wenn diese Option auf `true` gesetzt ist, bricht {% data variables.product.prodname_dotcom %} alle laufenden Jobs ab, sobald ein Job der `matrix` fehlschlägt. Standard: `true`
 
 ### **`jobs.<job_id>.strategy.max-parallel`**
 

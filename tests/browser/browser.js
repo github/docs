@@ -3,6 +3,8 @@ const sleep = require('await-sleep')
 const querystring = require('querystring')
 
 describe('homepage', () => {
+  jest.setTimeout(60 * 1000)
+
   test('should be titled "GitHub Documentation"', async () => {
     await page.goto('http://localhost:4001')
     await expect(page.title()).resolves.toMatch('GitHub Documentation')
@@ -10,6 +12,8 @@ describe('homepage', () => {
 })
 
 describe('algolia browser search', () => {
+  jest.setTimeout(60 * 1000)
+
   it('works on the homepage', async () => {
     await page.goto('http://localhost:4001/en')
     await page.click('#search-input-container input[type="search"]')
@@ -38,6 +42,8 @@ describe('algolia browser search', () => {
   })
 
   it('sends the correct data to algolia for Enterprise Server', async () => {
+    expect.assertions(12) // 3 assertions x 4 letters ('test')
+
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
 
@@ -61,6 +67,8 @@ describe('algolia browser search', () => {
   })
 
   it('sends the correct data to algolia for GHAE', async () => {
+    expect.assertions(12) // 3 assertions x 4 letters ('test')
+
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
 

@@ -64,66 +64,63 @@ versions:
 | `is:open`      | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) 匹配含有 "performance" 字样的开放议题。                                 |
 | `is:closed`    | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) 匹配含有 "android" 字样的已关闭议题和拉取请求。                                              |
 
-### 按公共或私有仓库搜索
+### Filter by repository visibility
 
-如果您[在所有 {% data variables.product.product_name %} 内搜索](https://github.com/search)，基于仓库是公共还是私有来过滤结果可能非常有用。 您可以使用 `is:public` 和 `is:private` 实现此操作。
+You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)”。
 
-| 限定符          | 示例                                                                                                                     |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) 匹配所有公共仓库中的议题和拉取请求。                                |
-| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate&type=Issues) 匹配您具有访问权限的私有仓库中含有 "cupcake" 字样的议题和拉取请求。 |
+| Qualifier  | Example | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ### 按作者搜索
 
 `author` 限定符查找由特定用户或集成帐户创建的议题和拉取请求。
 
-| 限定符                       | 示例                                                                                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) 匹配含有 "cool" 字样、由 @gjtorikian 创建的议题和拉取请求。           |
-|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) 匹配由 @mdo 撰写、正文中含有 "bootstrap" 字样的议题。 |
-| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) 匹配由名为 "robot" 的集成帐户创建的议题。                                    |
+| 限定符                       | 示例                                                                                                                                                                                         |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>author:<em>USERNAME</em></code> | [**cool author:gjtorikian**](https://github.com/search?q=cool+author%3Agjtorikian&type=Issues) matches issues and pull requests with the word "cool" that were created by @gjtorikian.     |
+|                           | [**bootstrap in:body author:mdo**](https://github.com/search?q=bootstrap+in%3Abody+author%3Amdo&type=Issues) matches issues written by @mdo that contain the word "bootstrap" in the body. |
+| <code>author:app/<em>USERNAME</em></code> | [**author:app/robot**](https://github.com/search?q=author%3Aapp%2Frobot&type=Issues) matches issues created by the integration account named "robot."                                      |
 
 ### 按受理人搜索
 
-`assignee` 限定符查找分配给特定用户的议题和拉取请求。 您无法搜索具有 _any_ 受理人的议题和拉取请求，但可以搜索[没有受理人的议题和拉取请求](#search-by-missing-metadata)。
+`assignee` 限定符查找分配给特定用户的议题和拉取请求。 You cannot search for issues and pull requests that have _any_ assignee, however, you can search for [issues and pull requests that have no assignee](#search-by-missing-metadata).
 
-| 限定符                       | 示例                                                                                                                                                                                 |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) 匹配分配给 @vmg 的 libgit2 项目 libgit2 中的议题和拉取请求。 |
+| 限定符                       | 示例                                                                                                                                                                                                                               |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>assignee:<em>USERNAME</em></code> | [**assignee:vmg repo:libgit2/libgit2**](https://github.com/search?utf8=%E2%9C%93&q=assignee%3Avmg+repo%3Alibgit2%2Flibgit2&type=Issues) matches issues and pull requests in libgit2's project libgit2 that are assigned to @vmg. |
 
 ### 按提及搜索
 
 `mentions` 限定符查找提及特定用户的议题。 更多信息请参阅“[提及人员和团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)”。
 
-| 限定符                       | 示例                                                                                                                                 |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) 匹配含有 "resque" 字样、提及 @defunkt 的议题。 |
+| 限定符                       | 示例                                                                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
 
 ### 按团队提及搜索
 
 对于您所属的组织和团队，您可以使用 `team` 限定符查找提及该组织内特定团队的议题或拉取请求。 将这些示例名称替换为您的组织和团队的名称以执行搜索。
 
-| 限定符                       | 示例                                                            |
-| ------------------------- | ------------------------------------------------------------- |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** 匹配提及 `@jekyll/owners` 团队的议题。           |
-|                           | **team:myorg/ops is:open is:pr** 匹配提及 `@myorg/ops` 团队的打开拉取请求。 |
+| 限定符                       | 示例                                                                                                    |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** matches issues where the `@jekyll/owners` team is mentioned.                   |
+|                           | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned. |
 
 ### 按评论者搜索
 
 `commenter` 限定符查找含有来自特定用户评论的议题。
 
-| 限定符                       | 示例                                                                                                                                                                                            |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) 匹配位于 GitHub 拥有的仓库中、含有 "github" 字样且由 @defunkt 评论的议题。 |
+| 限定符                       | 示例                                                                                                                                                                                                                                                        |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>commenter:<em>USERNAME</em></code> | [**github commenter:defunkt org:github**](https://github.com/search?utf8=%E2%9C%93&q=github+commenter%3Adefunkt+org%3Agithub&type=Issues) matches issues in repositories owned by GitHub, that contain the word "github," and have a comment by @defunkt. |
 
 ### 按议题或拉取请求中涉及的用户搜索
 
 您可以使用 `involves` 限定符查找以某种方式涉及特定用户的议题。 `involves` 限定符是单一用户 `author`、`assignee`、`mentions` 和 `commenter` 限定符之间的逻辑 OR（或）。 换句话说，此限定符查找由特定用户创建、分配给该用户、提及该用户或由该用户评论的议题和拉取请求。
 
-| 限定符                       | 示例                                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** 匹配涉及 @defunkt 或 @jlord 的议题。                |
-|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) 匹配涉及 @mdo 且正文中未包含 "bootstrap" 字样的议题。 |
+| 限定符                       | 示例                                                                                                                                                                                                                |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** matches issues either @defunkt or @jlord are involved in.                                      |
+|                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body. |
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### 搜索链接的议题和拉取请求
@@ -166,7 +163,7 @@ versions:
 
 ### 按提交状态搜索
 
-您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/v3/repos/statuses/) 或 CI 服务时特别有用。
+您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/rest/reference/repos#statuses) 或 CI 服务时特别有用。
 
 | 限定符              | 示例                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

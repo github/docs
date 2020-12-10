@@ -1,7 +1,8 @@
 const path = require('path')
 const cheerio = require('cheerio')
 const Page = require('../../lib/page')
-const allVersionIds = Object.keys(require('../../lib/all-versions'))
+const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects')
+const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 // get the `free-pro-team` segment of `free-pro-team@latest`
@@ -14,14 +15,14 @@ const opts = {
 }
 
 describe('Page class', () => {
-  test('preserves file path info', () => {
-    const page = new Page(opts)
+  test('preserves file path info', async () => {
+    const page = await Page.init(opts)
     expect(page.relativePath).toBe('github/collaborating-with-issues-and-pull-requests/about-branches.md')
     expect(page.fullPath.includes(page.relativePath)).toBe(true)
   })
 
-  test('does not error out on translated TOC with no links', () => {
-    const page = new Page({
+  test('does not error out on translated TOC with no links', async () => {
+    const page = await Page.init({
       relativePath: 'translated-toc-with-no-links-index.md',
       basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'ja'
@@ -30,30 +31,34 @@ describe('Page class', () => {
   })
 
   describe('showMiniToc page property', () => {
-    const article = new Page({
-      relativePath: 'sample-article.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'en'
-    })
+    let article, articleWithFM, tocPage, mapTopic
 
-    const articleWithFM = new Page({
-      showMiniToc: false,
-      relativePath: article.relativePath,
-      basePath: article.basePath,
-      languageCode: article.languageCode
-    })
+    beforeAll(async () => {
+      article = await Page.init({
+        relativePath: 'sample-article.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
 
-    const tocPage = new Page({
-      relativePath: 'sample-toc-index.md',
-      basePath: path.join(__dirname, '../fixtures'),
-      languageCode: 'en'
-    })
+      articleWithFM = await Page.init({
+        showMiniToc: false,
+        relativePath: article.relativePath,
+        basePath: article.basePath,
+        languageCode: article.languageCode
+      })
 
-    const mapTopic = new Page({
-      mapTopic: true,
-      relativePath: article.relativePath,
-      basePath: article.basePath,
-      languageCode: article.languageCode
+      tocPage = await Page.init({
+        relativePath: 'sample-toc-index.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+
+      mapTopic = await Page.init({
+        mapTopic: true,
+        relativePath: article.relativePath,
+        basePath: article.basePath,
+        languageCode: article.languageCode
+      })
     })
 
     test('is true by default on articles', () => {
@@ -75,7 +80,7 @@ describe('Page class', () => {
 
   describe('page.render(context)', () => {
     test('rewrites links to include the current language prefix and version', async () => {
-      const page = new Page(opts)
+      const page = await Page.init(opts)
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
         currentVersion: nonEnterpriseDefaultVersion,
@@ -90,8 +95,15 @@ describe('Page class', () => {
       expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
     })
 
+    test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
+      const graphqlVersion = allVersions[nonEnterpriseDefaultVersion].miscVersionName
+      const $ = cheerio.load(prerenderedObjects[graphqlVersion].html)
+      expect($('a[href^="/graphql/reference/input-objects"]').length).toBe(0)
+      expect($(`a[href^="/en/${nonEnterpriseDefaultVersion}/graphql/reference/input-objects"]`).length).toBeGreaterThan(0)
+    })
+
     test('rewrites links in the intro to include the current language prefix and version', async () => {
-      const page = new Page(opts)
+      const page = await Page.init(opts)
       page.rawIntro = '[Pull requests](/articles/about-pull-requests)'
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
@@ -106,7 +118,7 @@ describe('Page class', () => {
     })
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
-      const page = new Page({
+      const page = await Page.init({
         relativePath: 'admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -125,7 +137,7 @@ describe('Page class', () => {
     })
 
     test('does not rewrite links to external redirects', async () => {
-      const page = new Page(opts)
+      const page = await Page.init(opts)
       page.markdown = `${page.markdown}\n\nSee [Capistrano](/capistrano).`
       const context = {
         page: { version: nonEnterpriseDefaultVersion },
@@ -142,7 +154,7 @@ describe('Page class', () => {
     // But they don't have access to our currently supported versions, which we're testing here.
     // This test ensures that this works as expected: {% if enterpriseServerVersions contains currentVersion %}
     test('renders the expected Enterprise Server versioned content', async () => {
-      const page = new Page({
+      const page = await Page.init({
         relativePath: 'page-versioned-for-all-enterprise-releases.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
@@ -151,7 +163,7 @@ describe('Page class', () => {
       const context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
-        enterpriseServerVersions: allVersionIds.filter(id => id.startsWith('enterprise-server@'))
+        enterpriseServerVersions: Object.keys(allVersions).filter(id => id.startsWith('enterprise-server@'))
       }
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
@@ -176,27 +188,27 @@ describe('Page class', () => {
     })
   })
 
-  test('preserves `languageCode`', () => {
-    const page = new Page(opts)
+  test('preserves `languageCode`', async () => {
+    const page = await Page.init(opts)
     expect(page.languageCode).toBe('en')
   })
 
-  test('parentProductId getter', () => {
-    let page = new Page({
+  test('parentProductId getter', async () => {
+    let page = await Page.init({
       relativePath: 'github/some-category/some-article.md',
       basePath: path.join(__dirname, '../fixtures/products'),
       languageCode: 'en'
     })
     expect(page.parentProductId).toBe('github')
 
-    page = new Page({
+    page = await Page.init({
       relativePath: 'actions/some-category/some-article.md',
       basePath: path.join(__dirname, '../fixtures/products'),
       languageCode: 'en'
     })
     expect(page.parentProductId).toBe('actions')
 
-    page = new Page({
+    page = await Page.init({
       relativePath: 'admin/some-category/some-article.md',
       basePath: path.join(__dirname, '../fixtures/products'),
       languageCode: 'en'
@@ -205,26 +217,26 @@ describe('Page class', () => {
   })
 
   describe('permalinks', () => {
-    test('is an array', () => {
-      const page = new Page(opts)
+    test('is an array', async () => {
+      const page = await Page.init(opts)
       expect(Array.isArray(page.permalinks)).toBe(true)
     })
 
-    test('has a key for every supported enterprise version (and no deprecated versions)', () => {
-      const page = new Page(opts)
+    test('has a key for every supported enterprise version (and no deprecated versions)', async () => {
+      const page = await Page.init(opts)
       const pageVersions = page.permalinks.map(permalink => permalink.pageVersion)
       expect(enterpriseServerReleases.supported.every(version => pageVersions.includes(`enterprise-server@${version}`))).toBe(true)
       expect(enterpriseServerReleases.deprecated.every(version => !pageVersions.includes(`enterprise-server@${version}`))).toBe(true)
     })
 
-    test('sets versioned values', () => {
-      const page = new Page(opts)
+    test('sets versioned values', async () => {
+      const page = await Page.init(opts)
       expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-branches`)
       expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/github/collaborating-with-issues-and-pull-requests/about-branches`)
     })
 
-    test('homepage permalinks', () => {
-      const page = new Page({
+    test('homepage permalinks', async () => {
+      const page = await Page.init({
         relativePath: 'index.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -234,8 +246,8 @@ describe('Page class', () => {
       expect(page.permalinks.find(permalink => permalink.pageVersion === 'homepage').href).toBe('/en')
     })
 
-    test('permalinks for dotcom-only pages', () => {
-      const page = new Page({
+    test('permalinks for dotcom-only pages', async () => {
+      const page = await Page.init({
         relativePath: 'github/getting-started-with-github/signing-up-for-a-new-github-account.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -244,8 +256,8 @@ describe('Page class', () => {
       expect(page.permalinks.length).toBe(1)
     })
 
-    test('permalinks for enterprise-only pages', () => {
-      const page = new Page({
+    test('permalinks for enterprise-only pages', async () => {
+      const page = await Page.init({
         relativePath: 'products/admin/some-category/some-article.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
@@ -256,8 +268,8 @@ describe('Page class', () => {
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
     })
 
-    test('permalinks for non-GitHub.com products without Enterprise versions', () => {
-      const page = new Page({
+    test('permalinks for non-GitHub.com products without Enterprise versions', async () => {
+      const page = await Page.init({
         relativePath: 'products/actions/some-category/some-article.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
@@ -266,8 +278,8 @@ describe('Page class', () => {
       expect(page.permalinks.length).toBe(1)
     })
 
-    test('permalinks for non-GitHub.com products with Enterprise versions', () => {
-      const page = new Page({
+    test('permalinks for non-GitHub.com products with Enterprise versions', async () => {
+      const page = await Page.init({
         relativePath: '/insights/installing-and-configuring-github-insights/about-github-insights.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -310,7 +322,7 @@ describe('Page class', () => {
   })
 
   test('fixes translated frontmatter that includes verdadero', async () => {
-    const page = new Page({
+    const page = await Page.init({
       relativePath: 'article-with-mislocalized-frontmatter.md',
       basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'ja'
@@ -325,7 +337,7 @@ describe('Page class', () => {
 
     // Note this test will go out of date when we deprecate 2.20
     test('pages that apply to newer enterprise versions', async () => {
-      const page = new Page({
+      const page = await Page.init({
         relativePath: 'github/administering-a-repository/comparing-releases.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -335,7 +347,7 @@ describe('Page class', () => {
     })
 
     test('index page', async () => {
-      const page = new Page({
+      const page = await Page.init({
         relativePath: 'index.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -344,7 +356,7 @@ describe('Page class', () => {
     })
 
     test('enterprise admin index page', async () => {
-      const page = new Page({
+      const page = await Page.init({
         relativePath: 'admin/index.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
@@ -358,38 +370,50 @@ describe('Page class', () => {
 
 describe('catches errors thrown in Page class', () => {
   test('frontmatter parsing error', () => {
-    function getPage () {
-      return new Page({
+    async function getPage () {
+      return await Page.init({
         relativePath: 'page-with-frontmatter-error.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
     }
 
-    expect(getPage).toThrowError('invalid frontmatter entry')
+    expect(getPage).rejects.toThrowError('invalid frontmatter entry')
   })
 
   test('missing versions frontmatter', () => {
-    function getPage () {
-      return new Page({
+    async function getPage () {
+      return await Page.init({
         relativePath: 'page-with-missing-product-versions.md',
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
     }
 
-    expect(getPage).toThrowError('versions')
+    expect(getPage).rejects.toThrowError('versions')
   })
 
-  test('page with a version in frontmatter that its parent product is not available in', () => {
-    function getPage () {
-      return new Page({
+  test('English page with a version in frontmatter that its parent product is not available in', () => {
+    async function getPage () {
+      return await Page.init({
         relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
         basePath: path.join(__dirname, '../fixtures/products'),
         languageCode: 'en'
       })
     }
 
-    expect(getPage).toThrowError(/`versions` frontmatter.*? product is not available in/)
+    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+  })
+
+  test('non-English page with a version in frontmatter that its parent product is not available in', () => {
+    async function getPage () {
+      return await Page.init({
+        relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
+        basePath: path.join(__dirname, '../fixtures/products'),
+        languageCode: 'es'
+      })
+    }
+
+    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 })

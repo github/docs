@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_registry %} on {% data variables.product.prodname_ghe_server %} uses external blob storage to store your packages. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}.
 
-At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration.
+At this time, {% data variables.product.prodname_registry %} supports blob storage with Amazon Web Services (AWS) S3. MinIO is also supported, but configuration is not currently implemented in the {% data variables.product.product_name %} interface. You can use MinIO for storage by following the instructions for AWS S3, entering the analogous information for your MinIO configuration. Before configuring third-party storage for {% data variables.product.prodname_registry %} on {% data variables.product.prodname_dotcom %}, you must set up a bucket with your third-party storage provider. For more information on installing and running a MinIO bucket to use with {% data variables.product.prodname_registry %}, see the "[Quickstart for configuring MinIO storage](/admin/packages/quickstart-for-configuring-minio-storage)."
 
 For the best experience, we recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
 

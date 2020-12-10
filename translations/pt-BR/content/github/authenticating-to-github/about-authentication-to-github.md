@@ -9,17 +9,17 @@ versions:
 
 ### Sobre autenticação no {% data variables.product.prodname_dotcom %}
 
-To keep your account secure, you must authenticate before you can access{% if currentVersion != "github-ae@latest" %} certain{% endif %} resources on {% data variables.product.product_name %}. Ao efetuar a autenticação em {% data variables.product.product_name %}, você fornece ou confirma credenciais que são exclusivas que provam quem você declara ser.
+Para manter sua conta protegida, você deve efetuar a autenticação antes de poder acessar{% if currentVersion != "github-ae@latest" %} certos{% endif %} recursos em {% data variables.product.product_name %}. Ao efetuar a autenticação em {% data variables.product.product_name %}, você fornece ou confirma credenciais que são exclusivas que provam quem você declara ser.
 
 Você pode acessar seus recursos em {% data variables.product.product_name %} de várias formas: no navegador, por meio do {% data variables.product.prodname_desktop %} ou outro aplicativo da área de trabalho, com a API ou por meio da linha de comando. Cada forma de acessar o {% data variables.product.product_name %} é compatível com diferentes modos de autenticação.
 
-- {% if currentVersion == "github-ae@latest" %}Your identity provider (IdP){% else %}Username and password with two-factor authentication{% endif %}
+- {% if currentVersion == "github-ae@latest" %}Seu provedor de identidade (IdP){% else %}Nome de usuário e senha com autenticação de dois fatores{% endif %}
 - Token de acesso de pessoal
 - Chave SSH
 
 ### Efetuar a autenticação no seu navegador
 
-You can authenticate to {% data variables.product.product_name %} in your browser {% if currentVersion == "github-ae@latest" %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
+Você pode efetuar a autenticação no {% data variables.product.product_name %} no navegador {% if currentVersion == "github-ae@latest" %}usando o seu IdP. Para obter mais informações, consulte "[Sobre a autenticação com o logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}de formas diferentes.
 
 - **Apenas nome de usuário e senha**
     - Você criará uma senha ao criar sua conta de usuário em {% data variables.product.product_name %}. Recomendamos que você use um gerenciador de senhas para gerar uma senha aleatória e única. Para obter mais informações, consulte "[Criar uma senha forte](/github/authenticating-to-github/creating-a-strong-password)".
@@ -38,7 +38,7 @@ Autenticar-se no {% data variables.product.prodname_dotcom %}."</p>
 
 ### Efetuar a autenticação com a API
 
-You can authenticate with the API in different ways.
+Você pode efetuar a autenticação com a API de diferentes formas.
 
 - **Tokens de acesso pessoal** 
       - Em algumas situações, como, por exemplo, testes, você pode usar um token de acesso pessoal para acessar a API. Usar um token de acesso pessoal permite que você revogue o acesso a qualquer momento. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."

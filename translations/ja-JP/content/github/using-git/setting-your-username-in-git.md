@@ -20,13 +20,13 @@ versions:
 2. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config --global user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config --global user.name
    > Mona Lisa
-  ```
+   ```
 
 ### 単一のリポジトリ用に Git ユーザ名を設定する
 
@@ -37,13 +37,13 @@ versions:
 3. {% data reusables.user_settings.set_your_git_username %}
    ```shell
    $ git config user.name "<em>Mona Lisa</em>"
-  ```
+   ```
 
 3. {% data reusables.user_settings.confirm_git_username_correct %}
    ```shell
    $ git config user.name
    > Mona Lisa
-  ```
+   ```
 
 ### 参考リンク
 

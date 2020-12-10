@@ -5,7 +5,7 @@ const app = require('../../server')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const Page = require('../../lib/page')
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 
 describe('redirects', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -17,8 +17,8 @@ describe('redirects', () => {
     done()
   })
 
-  test('page.redirects is an array', () => {
-    const page = new Page({
+  test('page.redirects is an array', async () => {
+    const page = await Page.init({
       relativePath: 'github/collaborating-with-issues-and-pull-requests/about-branches.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
@@ -26,8 +26,8 @@ describe('redirects', () => {
     expect(isPlainObject(page.redirects)).toBe(true)
   })
 
-  test('dotcom homepage page.redirects', () => {
-    const page = new Page({
+  test('dotcom homepage page.redirects', async () => {
+    const page = await Page.init({
       relativePath: 'github/index.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
@@ -41,7 +41,7 @@ describe('redirects', () => {
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
-    const page = new Page({
+    const page = await Page.init({
       relativePath: 'github/collaborating-with-issues-and-pull-requests/about-conversations-on-github.md',
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
