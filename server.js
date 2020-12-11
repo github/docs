@@ -18,8 +18,14 @@ if (!module.parent) {
     if (status === false) {
       // If in a deployed environment, warm the server at the start
       if (process.env.NODE_ENV === 'production') {
-        // If in a production environment, wait for the cache to be fully warmed.
-        await warmServer()
+        // If in a true production environment, wait for the cache to be fully warmed.
+        if (process.env.HEROKU_PRODUCTION_APP) {
+          await warmServer()
+        } else {
+          // If not in a true production environment, don't wait for the cache to be fully warmed.
+          // This avoids deployment timeouts in environments with slower servers.
+          warmServer()
+        }
       }
 
       // workaround for https://github.com/expressjs/express/issues/1101
