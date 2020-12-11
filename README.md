@@ -2,7 +2,7 @@
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
+GitHub's Docs team works on  a pre-production content in a private repo that regularly syncs with this public repo.
 
 In this article:
 
@@ -18,7 +18,7 @@ We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contribut
 
 #### Click **make a contribution** from docs
 
-As you're using the GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
+As you're using the GitHub Docs, you may find something in an article  which  you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
@@ -44,6 +44,7 @@ There are a few more things to know when you're getting started with this repo:
 
 1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
+3. also we know that which is better we have to update  with that repositries.
 
 ## READMEs
 
@@ -69,6 +70,7 @@ In addition to the README you're reading right now, this repo includes other REA
 ## License
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
+also check out all documentation and contribute it to github documentation.
 
 All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
 
