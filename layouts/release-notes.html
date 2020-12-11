@@ -11,7 +11,7 @@
       {% include header %}
       {% include deprecation-banner %}
 
-      <div class="markdown-body d-flex flex-items-stretch">
+      <div class="d-flex flex-items-stretch">
         <article class="flex-auto">
           <div class="d-flex flex-items-center flex-justify-between bg-white text-bold py-4 px-5">
             {% if prevRelease %}
@@ -24,7 +24,7 @@
               <div></div>
             {% endif %}
 
-            {{ currentVersion | version_num }} Release notes
+            <h1 class="f4 p-0 m-0">{{ currentVersion | version_num }} Release notes</h1>
 
             {% if nextRelease %}
               <a
@@ -37,7 +37,7 @@
             {% endif %}
           </div>
 
-          <div>
+          <div class="markdown-body">
             {% for patch in releaseNotes %}
               <div id="{{ patch.version }}" class="mb-10 bg-gray-light px-3 py-6 border-bottom border-top">
                 <header class="container-xl position-sticky top-0 bg-gray-light border-bottom pb-2">
@@ -95,7 +95,7 @@
           </div>
         </article>
 
-        <aside class="d-none d-md-block border-left no-print bg-white flex-shrink-0" style="width: 300px">
+        <aside class="markdown-body d-none d-md-block border-left no-print bg-white flex-shrink-0" style="width: 300px">
           <nav class="position-sticky top-0">
             <ul class="list-style-none pl-0 text-bold">
               {% for release in releases %}
