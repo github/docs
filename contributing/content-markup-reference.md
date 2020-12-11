@@ -62,9 +62,11 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 
 ### Usage
 
-`{% octicon "<name of octicon>" %}`  
-`{% octicon "plus" %}`
-`{% octicon "plus" aria-label="The plus icon" %}`
+```
+{% octicon "<name of octicon>" %}
+{% octicon "plus" %}
+{% octicon "plus" aria-label="The plus icon" %}
+```
 
 ## Operating system tags
 
@@ -92,6 +94,16 @@ These instructions are pertinent to Windows users.
  These instructions are pertinent to Linux users.
 
 {% endlinux %}
+```
+
+The platform-specific content matching the reader's operating system shows by default. You can override this behavior for individual Markdown files with the `defaultPlatform` frontmatter (such as for pages about GitHub Actions runners, which mostly use Linux):
+
+```
+---
+title: …
+versions: …
+defaultPlatform: linux
+---
 ```
 
 ## Reusable and variable strings of text
