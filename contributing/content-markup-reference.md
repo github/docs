@@ -38,10 +38,10 @@ For information on when to use callout tags, see the [style guide](content-style
 
 To render syntax highlighting in command line instructions, we use triple backticks followed by the term `shell`.
 
-### Usage  
-  
-    ```shell  
-    git init <em>YOUR_REPO</em>  
+### Usage
+
+    ```shell
+    git init <em>YOUR_REPO</em>
     ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
@@ -92,13 +92,6 @@ These instructions are pertinent to Windows users.
  These instructions are pertinent to Linux users.
 
 {% endlinux %}
-```
-```
-{% all %}
-
-Though rare, these instructions are pertinent to any other operating system.
-
-{% endall %}
 ```
 
 ## Reusable and variable strings of text
