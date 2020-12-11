@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: November 13, 2020
+Version Effective Date: December 7, 2020
 
 When you create an Account, you're given access to lots of different features and products that are all a part of the Service. Because many of these features and products offer different functionality, they may require additional terms and conditions specific to that feature or product. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -108,3 +108,13 @@ We need the legal right to submit your contributions to the GitHub Advisory Data
 #### b. License to the GitHub Advisory Database
 
 The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+
+#### b. Third-party components
+
+The Software includes components licensed to GitHub by third parties, including software whose licenses require GitHub to make the source code for those components available. The source code for such components will be provided upon request.

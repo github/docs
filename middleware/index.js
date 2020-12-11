@@ -62,8 +62,7 @@ module.exports = function (app) {
   app.use('/csrf', require('./csrf-route'))
   app.use(require('./archived-enterprise-versions'))
   app.use(require('./robots'))
-  app.use(require('./early-access-paths'))
-  app.use(require('./early-access-proxy'))
+  app.use(/(\/.*)?\/early-access$/, require('./contextualizers/early-access-links'))
   app.use(require('./categories-for-support-team'))
   app.use(require('./loaderio-verification'))
   app.get('/_500', asyncMiddleware(require('./trigger-error')))
@@ -74,6 +73,8 @@ module.exports = function (app) {
   app.use(require('./contextualizers/rest'))
   app.use(require('./contextualizers/webhooks'))
   app.use(require('./breadcrumbs'))
+  app.use(require('./early-access-breadcrumbs'))
+  app.use(require('./enterprise-server-releases'))
   app.use(require('./dev-toc'))
   app.use(require('./featured-links'))
 
