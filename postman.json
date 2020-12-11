@@ -1,0 +1,1452 @@
+{
+  "description": null,
+  "folders": [
+    {
+      "auth": null,
+      "description": null,
+      "events": null,
+      "folder": null,
+      "folders_order": [],
+      "id": "ba3622e3-8225-4a86-b9d1-50b72885c9f9",
+      "lastRevision": 4044010161,
+      "lastUpdatedBy": "4561910",
+      "name": "Directory",
+      "order": [ "e715564a-1c92-4561-b0c9-d150c7e6d3ae", "1c2becb1-f2b0-4ccb-ad5f-d41eb4810aef", "140dfa10-f9d7-4333-8c86-7faf4d63e46e" ],
+      "owner": "4561910",
+      "variables": null
+    },
+    {
+      "owner": "4561910",
+      "lastUpdatedBy": "4561910",
+      "lastRevision": 4044010158,
+      "folder": null,
+      "id": "3aab023a-7c0b-4447-82b9-4d8e710338b3",
+      "name": "Project",
+      "description": null,
+      "variables": null,
+      "auth": null,
+      "events": null,
+      "order": [ "7523b04b-0ae1-45dd-9e2c-656a0370ecf5", "cb91cb7b-c6eb-4bb6-ae54-036ca3f6dac4", "a015d859-c4e1-4d9f-9e6d-169d88f96995", "0d4c39f9-cef7-47d3-bd6b-88166c7e2598", "b955e046-0037-4ac9-8d48-b955151d43c5" ],
+      "folders_order": []
+    },
+    {
+      "owner": "4561910",
+      "lastUpdatedBy": "4561910",
+      "lastRevision": 4044010160,
+      "folder": null,
+      "id": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "name": "Reports",
+      "description": null,
+      "variables": null,
+      "auth": null,
+      "events": null,
+      "order": [ "3fbef8a7-e817-4929-aabd-8d389e310b77", "d0febc7d-899a-4844-86a1-e609c2702c73", "4ff4b8a4-0f29-4a46-8a00-a17865bae112", "0697e501-109e-4564-a42b-e68d2da6589a", "81e1fc75-315b-4654-9280-b277dd7b37c9", "93dc32b0-92b8-410a-bc90-e46a405e5bbc" ],
+      "folders_order": []
+    },
+    {
+      "owner": "4561910",
+      "lastUpdatedBy": "4561910",
+      "lastRevision": 4044010162,
+      "folder": null,
+      "id": "dadbe35b-fe76-4b64-bda7-2504a3dd6134",
+      "name": "Resources (Glossary,TM)",
+      "description": null,
+      "variables": null,
+      "auth": null,
+      "events": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "3eab3f26-9c69-44c5-a6fb-f653995b6742",
+            "type": "text\/javascript",
+            "exec": [ "" ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "da19e231-8714-471e-b7c5-0394a5fa3c62",
+            "type": "text\/javascript",
+            "exec": [ "" ]
+          }
+        }
+      ],
+      "order": [ "6de088a2-1379-4f42-8908-ab47580d2a24", "e7ff0621-e36e-45fe-9e5a-6df830ae75a0", "9a1022b3-a95f-426e-8cbc-6bf7ab5bb6b8", "349b2543-4262-4450-a5c6-5cfcf07228fd" ],
+      "folders_order": []
+    },
+    {
+      "owner": "4561910",
+      "lastUpdatedBy": "4561910",
+      "lastRevision": 4044010159,
+      "folder": null,
+      "id": "92531bcf-1615-4c8c-a8c4-454db706ff9c",
+      "name": "Source files",
+      "description": null,
+      "variables": null,
+      "auth": null,
+      "events": null,
+      "order": [ "2073093a-128a-482c-9210-79994da1a40b", "c2e97517-091b-4ac2-a254-248a9f29d75d", "55dcceec-8f89-4226-b0af-37eeb43307b7" ],
+      "folders_order": []
+    },
+    {
+      "owner": "4561910",
+      "lastUpdatedBy": "4561910",
+      "lastRevision": 4044010157,
+      "folder": null,
+      "id": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "name": "Translations",
+      "description": null,
+      "variables": null,
+      "auth": null,
+      "events": null,
+      "order": [ "515d0e8b-2402-42ba-b164-3c2439e45f18", "25f68f6d-a5f1-4cce-9b68-a2f87bc53fac", "0cb1d534-0765-4e79-ab9e-4af4d034eafa", "1ff76982-4090-4b83-90f7-cb2c2079bcdc", "2beb866f-90aa-40fe-a195-b9b3bf01dbbc", "f49bf6f1-f55b-449b-9eff-9b92a0dab3da", "3947bef6-2b9b-434d-a1a6-d7d62c9ad0d3", "98ce76c2-85bc-4562-af6b-b1f85babb982", "08cdaf26-ea37-4661-9827-cc28ffe02bb2", "f5273d0d-a8ca-4fc3-abd6-f129735ee068", "a1ec8e86-78fc-4f6e-abb0-a6711486190c" ],
+      "folders_order": []
+    }
+  ],
+  "folders_order": [ "3aab023a-7c0b-4447-82b9-4d8e710338b3", "92531bcf-1615-4c8c-a8c4-454db706ff9c", "10b6092c-dd30-4ddf-a304-af85635086c0", "dadbe35b-fe76-4b64-bda7-2504a3dd6134", "ba3622e3-8225-4a86-b9d1-50b72885c9f9", "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb" ],
+  "id": "7825cc8b-d7ad-4631-8785-6731ba797011",
+  "name": "Crowdin API",
+  "order": [],
+  "owner": "4561910",
+  "public": false,
+  "requests": [
+    {
+      "folder": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "id": "0697e501-109e-4564-a42b-e68d2da6589a",
+      "name": "Download Translation Costs Report",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download previously generated Translation Costs report.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/reports\/translation-costs\/download?key={{project-key}}&hash={{previously-received-hash}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        },
+        {
+          "key": "hash",
+          "value": "{{previously-received-hash}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "08cdaf26-ea37-4661-9827-cc28ffe02bb2",
+      "name": "Pre-Translate",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "languages[]",
+          "value": "",
+          "description": "Set of languages to which pre-translation should be applied. For this use \u0421rowdin language codes (find them listed on the Knowledge Base).",
+          "type": "text"
+        },
+        {
+          "key": "files[{example-file-name.txt}]",
+          "value": "",
+          "description": "Files array that should be translated. Array keys should contain file names with path in Crowdin project.",
+          "type": "text"
+        },
+        {
+          "key": "files[{another-file-name.txt}]",
+          "value": "",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Pre-translate Crowdin project files.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/pre-translate?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "0cb1d534-0765-4e79-ab9e-4af4d034eafa",
+      "name": "Language Status",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "language",
+          "value": "",
+          "description": "Specify the language using Crowdin language codes (find them listed on the Knowledge Base).",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Get the detailed translation progress for specified language.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/language-status?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "3aab023a-7c0b-4447-82b9-4d8e710338b3",
+      "id": "0d4c39f9-cef7-47d3-bd6b-88166c7e2598",
+      "name": "Account Projects",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Get projects list.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/account\/get-projects?account-key={{account-key}}&login={{crowdin-username}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "account-key",
+          "value": "{{account-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        },
+        {
+          "key": "login",
+          "value": "{{crowdin-username}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "ba3622e3-8225-4a86-b9d1-50b72885c9f9",
+      "id": "140dfa10-f9d7-4333-8c86-7faf4d63e46e",
+      "name": "Change Directory",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "name",
+          "value": "",
+          "description": "Full directory path that should be modified (for example: \/MainPage\/AboutUs).",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Rename directory or modify its attributes. When renaming directory the path can not be changed (it means new_name parameter can not contain path, name only).",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/change-directory?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "ba3622e3-8225-4a86-b9d1-50b72885c9f9",
+      "id": "1c2becb1-f2b0-4ccb-ad5f-d41eb4810aef",
+      "name": "Delete Directory",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "name",
+          "value": "",
+          "description": "Directory path (or just name if the directory is in root).",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Delete Crowdin project directory. All nested files and directories will be deleted too.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/delete-directory?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "1ff76982-4090-4b83-90f7-cb2c2079bcdc",
+      "name": "Download Translations",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download a ZIP file with translations. You can choose the language of translation you need or download all of them at once.\n\n**Note:** This method downloads the ZIP file that was created during the last build. To make sure all the latest translations are included, please use Export Translations API method to build the project before downloading.\n\nIn case you wish to download translations for a single branch, make sure to build a separate ZIP file for that branch by specifying the branch name.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/download\/{{package}}.zip?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "92531bcf-1615-4c8c-a8c4-454db706ff9c",
+      "id": "2073093a-128a-482c-9210-79994da1a40b",
+      "name": "Add File",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "files[{{example-file-name.txt}}]",
+          "value": "",
+          "type": "file",
+          "description": "Files array that should be added to Crowdin project. Array keys should contain file names with path in Crowdin project.  Note! 20 files max are allowed to upload per one file transfer. The maximum size of one file is 100 MB."
+        },
+        {
+          "key": "files[{{another-file-name.txt}}]",
+          "value": "",
+          "type": "file"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Add new file to Crowdin project.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/add-file?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "25f68f6d-a5f1-4cce-9b68-a2f87bc53fac",
+      "name": "Translation Status",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Track overall translation and proofreading progress in each target language. Default response format is XML.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/status?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "2beb866f-90aa-40fe-a195-b9b3bf01dbbc",
+      "name": "Export Translations",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Build ZIP archive with the latest translations.\n\nPlease note that this method can be invoked only once per 30 minutes (there is no such restriction for organization plans). Also API call will be ignored if there were no changes in the project since previous export. You can see whether ZIP archive with latest translations was actually build by status attribute (\"built\" or \"skipped\") returned in response.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/export?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "dadbe35b-fe76-4b64-bda7-2504a3dd6134",
+      "id": "349b2543-4262-4450-a5c6-5cfcf07228fd",
+      "name": "Upload TM",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "file",
+          "value": "",
+          "description": "File in TBX, CSV or XLS\/XLSX formats. See TMX 1.4b Specification.",
+          "type": "file"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Upload your Translation Memory for Crowdin Project in TMX, CSV or XLS\/XLSX file format.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/upload-tm?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "3947bef6-2b9b-434d-a1a6-d7d62c9ad0d3",
+      "name": "Pseudo Export",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Generate pseudo-translation files for the whole project.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/pseudo-export?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "id": "3fbef8a7-e817-4929-aabd-8d389e310b77",
+      "name": "Download Top Members Report",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download previously generated Top Members report.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/reports\/top-members\/download?key={{project-key}}&hash={{previously-received-hash}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        },
+        {
+          "key": "hash",
+          "value": "{{previously-received-hash}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "id": "4ff4b8a4-0f29-4a46-8a00-a17865bae112",
+      "name": "Export Top Members Report",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Generate Top Members report to know who contributed the most to your project's translation during the specified date range.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/reports\/top-members\/export?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "515d0e8b-2402-42ba-b164-3c2439e45f18",
+      "name": "Upload Translation",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "files[{{example-file-name.txt}}]",
+          "value": "",
+          "description": "Translated files array. Array keys should contain file names in Crowdin.\nNote! 20 files max are allowed to upload per one file transfer.",
+          "type": "file"
+        },
+        {
+          "key": "files[{{another-file-name.txt}}]",
+          "value": "",
+          "type": "file"
+        },
+        {
+          "key": "language",
+          "value": "",
+          "description": "Target language. With a single call it's possible to upload translations for several files but only into one of the languages.",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Upload existing translations to your Crowdin project.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/upload-translation?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "id": "55dcceec-8f89-4226-b0af-37eeb43307b7",
+      "headers": "",
+      "headerData": [],
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/delete-file?key={{project-key}}",
+      "folder": "92531bcf-1615-4c8c-a8c4-454db706ff9c",
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "preRequestScript": null,
+      "pathVariables": {},
+      "pathVariableData": [],
+      "method": "POST",
+      "data": [
+        {
+          "key": "file",
+          "value": "",
+          "description": "Name of the file that should be deleted.",
+          "type": "text"
+        }
+      ],
+      "dataMode": "params",
+      "tests": null,
+      "currentHelper": "normal",
+      "helperAttributes": {},
+      "time": 1528474159973,
+      "name": "Delete File",
+      "description": "Delete file from Crowdin project. All the translations will be lost without ability to restore them.",
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011",
+      "responses": []
+    },
+    {
+      "folder": "dadbe35b-fe76-4b64-bda7-2504a3dd6134",
+      "id": "6de088a2-1379-4f42-8908-ab47580d2a24",
+      "name": "Download Glossary",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download Crowdin project glossaries as TBX file.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/download-glossary?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "3aab023a-7c0b-4447-82b9-4d8e710338b3",
+      "id": "7523b04b-0ae1-45dd-9e2c-656a0370ecf5",
+      "name": "Create Project",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "login",
+          "value": "",
+          "description": "Your username in Crowdin.",
+          "type": "text"
+        },
+        {
+          "key": "name",
+          "value": "",
+          "description": "Project name.",
+          "type": "text"
+        },
+        {
+          "key": "identifier",
+          "value": "",
+          "description": "Project identifier. Should be unique among other Crowdin projects.",
+          "type": "text"
+        },
+        {
+          "key": "source_language",
+          "value": "",
+          "description": "Project source language. Specify using Crowdin language codes (find them listed on the Knowledge Base).",
+          "type": "text"
+        },
+        {
+          "key": "languages[]",
+          "value": "",
+          "description": "An array of language codes project should be translate into.",
+          "type": "text"
+        },
+        {
+          "key": "join_policy",
+          "value": "",
+          "description": "Project join policy. Acceptable values are:\nopen - anyone can view and join\nprivate - visible only to the invited project members",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Create Crowdin project.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/account\/create-project?account-key={{account-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "account-key",
+          "value": "{{account-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "id": "81e1fc75-315b-4654-9280-b277dd7b37c9",
+      "name": "Export Translation Costs Report",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Generate Translation Costs report to calculate the real translation cost and know how much your translators and proofreaders should be paid.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/reports\/translation-costs\/export?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "id": "93dc32b0-92b8-410a-bc90-e46a405e5bbc",
+      "name": "Download Costs Estimation Report",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download previously generated Costs Estimation report.\n",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/reports\/costs-estimation\/download?key={{project-key}}&hash={{previously-received-hash}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        },
+        {
+          "key": "hash",
+          "value": "{{previously-received-hash}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "98ce76c2-85bc-4562-af6b-b1f85babb982",
+      "name": "Pseudo Download",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download ZIP file with pseudo-translations.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/pseudo-download?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "dadbe35b-fe76-4b64-bda7-2504a3dd6134",
+      "id": "9a1022b3-a95f-426e-8cbc-6bf7ab5bb6b8",
+      "name": "Download TM",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Download Crowdin project Translation Memory as TMX file.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/download-tm?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "3aab023a-7c0b-4447-82b9-4d8e710338b3",
+      "id": "a015d859-c4e1-4d9f-9e6d-169d88f96995",
+      "name": "Edit Project",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Edit Crowdin project.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/edit-project?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "a1ec8e86-78fc-4f6e-abb0-a6711486190c",
+      "name": "Supported Languages",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Get supported languages list with Crowdin codes mapped to locale name and standardized codes.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/supported-languages",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "3aab023a-7c0b-4447-82b9-4d8e710338b3",
+      "id": "b955e046-0037-4ac9-8d48-b955151d43c5",
+      "name": "Delete Project",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Delete Crowdin project with all translations.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/delete-project?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "92531bcf-1615-4c8c-a8c4-454db706ff9c",
+      "id": "c2e97517-091b-4ac2-a254-248a9f29d75d",
+      "name": "Update File",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "files[{{example-file-name.txt}}]",
+          "value": "",
+          "description": "File array that should be updated. \nNote! 20 files max are allowed to upload per one file transfer.",
+          "type": "file"
+        },
+        {
+          "key": "files[{{another-file-name.txt}}]",
+          "value": "",
+          "type": "file"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Upload latest version of your localization file to Crowdin.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/update-file?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "3aab023a-7c0b-4447-82b9-4d8e710338b3",
+      "id": "cb91cb7b-c6eb-4bb6-ae54-036ca3f6dac4",
+      "name": "Project Details",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Get Crowdin Project details.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/info?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "97d0e032-4f40-4ebe-b4ad-c2295d1b92cb",
+      "id": "d0febc7d-899a-4844-86a1-e609c2702c73",
+      "name": "Export Costs Estimation Report",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "language",
+          "value": "",
+          "description": "The language for which the report should be generated. For this use \u0421rowdin language codes (find them listed on the Knowledge Base).",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Generate Costs Estimation report to have an insight on how to plan the budget. This report allows you to calculate the approximate translation cost of currently untranslated strings in the project.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/reports\/costs-estimation\/export?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "ba3622e3-8225-4a86-b9d1-50b72885c9f9",
+      "id": "e715564a-1c92-4561-b0c9-d150c7e6d3ae",
+      "name": "Add Directory",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "name",
+          "value": "",
+          "description": "Directory name (with path if nested directory should be created).",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Add directory to Crowdin project.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/add-directory?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "dadbe35b-fe76-4b64-bda7-2504a3dd6134",
+      "id": "e7ff0621-e36e-45fe-9e5a-6df830ae75a0",
+      "name": "Upload Glossary",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "file",
+          "value": "",
+          "description": "File in TBX, CSV or XLS\/XLSX formats.",
+          "type": "file"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Upload your glossaries for Crowdin Project in TBX, CSV or XLS\/XLSX file formats.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/upload-glossary?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "f49bf6f1-f55b-449b-9eff-9b92a0dab3da",
+      "name": "Export File",
+      "dataMode": "params",
+      "data": [
+        {
+          "key": "json",
+          "value": "true",
+          "type": "text"
+        }
+      ],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "This method exports single translated files from Crowdin. Additionally, it can be applied to export XLIFF files for offline localization.",
+      "variables": null,
+      "headers": "",
+      "method": "GET",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/export-file?key={{project-key}}&file={{example-file-name.txt}}&language={{language-code}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        },
+        {
+          "key": "file",
+          "value": "{{example-file-name.txt}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        },
+        {
+          "key": "language",
+          "value": "{{language-code}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    },
+    {
+      "folder": "10b6092c-dd30-4ddf-a304-af85635086c0",
+      "id": "f5273d0d-a8ca-4fc3-abd6-f129735ee068",
+      "name": "Reported Issues",
+      "dataMode": "params",
+      "data": [],
+      "auth": null,
+      "events": null,
+      "rawModeData": null,
+      "descriptionFormat": null,
+      "description": "Get a list of issues reported in the Editor.",
+      "variables": null,
+      "headers": "",
+      "method": "POST",
+      "pathVariables": {},
+      "url": "https:\/\/api.crowdin.com\/api\/project\/{{project-identifier}}\/issues?key={{project-key}}",
+      "preRequestScript": null,
+      "tests": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "queryParams": [
+        {
+          "key": "key",
+          "value": "{{project-key}}",
+          "equals": true,
+          "description": "",
+          "enabled": true
+        }
+      ],
+      "headerData": [],
+      "pathVariableData": [],
+      "responses": [],
+      "collectionId": "7825cc8b-d7ad-4631-8785-6731ba797011"
+    }
+  ],
+  "timestamp": 0
+}
