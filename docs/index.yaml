@@ -7,7 +7,7 @@ links:
     kind: dashboard
     service: docs-internal
     url: https://app.datadoghq.com/dashboard/8uc-x67-tgi/help-docs
-  - name: Sentry dashboard
+  - name: Sentry-dashboard
     description: Production Sentry dashboard
     kind: dashboard
     service: docs-internal
