@@ -84,7 +84,7 @@ Allows you to find the uuid of your node in `cluster.conf`.
 Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
+$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
 # Exempts the users hubot and github-actions from rate limits
 ```
 {% endif %}
@@ -159,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)." For more information about this command or for additional options, use the `-h` flag.
+This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report

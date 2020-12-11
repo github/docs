@@ -3832,6 +3832,108 @@
       ]
     },
     {
+      "name": "setOrganizationInteractionLimit",
+      "kind": "mutations",
+      "id": "setorganizationinteractionlimit",
+      "href": "/graphql/reference/mutations#setorganizationinteractionlimit",
+      "description": "<p>Set an organization level interaction limit for an organization's public repositories.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetOrganizationInteractionLimitInput!",
+          "id": "setorganizationinteractionlimitinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setorganizationinteractionlimitinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "organization",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization",
+          "description": "<p>The organization that the interaction limit was set for.</p>"
+        }
+      ]
+    },
+    {
+      "name": "setRepositoryInteractionLimit",
+      "kind": "mutations",
+      "id": "setrepositoryinteractionlimit",
+      "href": "/graphql/reference/mutations#setrepositoryinteractionlimit",
+      "description": "<p>Sets an interaction limit setting for a repository.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetRepositoryInteractionLimitInput!",
+          "id": "setrepositoryinteractionlimitinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setrepositoryinteractionlimitinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "repository",
+          "type": "Repository",
+          "id": "repository",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repository",
+          "description": "<p>The repository that the interaction limit was set for.</p>"
+        }
+      ]
+    },
+    {
+      "name": "setUserInteractionLimit",
+      "kind": "mutations",
+      "id": "setuserinteractionlimit",
+      "href": "/graphql/reference/mutations#setuserinteractionlimit",
+      "description": "<p>Set a user level interaction limit for an user's public repositories.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "SetUserInteractionLimitInput!",
+          "id": "setuserinteractionlimitinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#setuserinteractionlimitinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "user",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user",
+          "description": "<p>The user that the interaction limit was set for.</p>"
+        }
+      ]
+    },
+    {
       "name": "submitPullRequestReview",
       "kind": "mutations",
       "id": "submitpullrequestreview",
@@ -59540,6 +59642,35 @@
       ]
     },
     {
+      "name": "RepositoryInteractionLimitExpiry",
+      "kind": "enums",
+      "id": "repositoryinteractionlimitexpiry",
+      "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry",
+      "description": "<p>The length for a repository interaction limit to be enabled for.</p>",
+      "values": [
+        {
+          "name": "ONE_DAY",
+          "description": "<p>The interaction limit will expire after 1 day.</p>"
+        },
+        {
+          "name": "ONE_MONTH",
+          "description": "<p>The interaction limit will expire after 1 month.</p>"
+        },
+        {
+          "name": "ONE_WEEK",
+          "description": "<p>The interaction limit will expire after 1 week.</p>"
+        },
+        {
+          "name": "SIX_MONTHS",
+          "description": "<p>The interaction limit will expire after 6 months.</p>"
+        },
+        {
+          "name": "THREE_DAYS",
+          "description": "<p>The interaction limit will expire after 3 days.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryInteractionLimitOrigin",
       "kind": "enums",
       "id": "repositoryinteractionlimitorigin",
@@ -66726,6 +66857,132 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "SetOrganizationInteractionLimitInput",
+      "kind": "inputObjects",
+      "id": "setorganizationinteractionlimitinput",
+      "href": "/graphql/reference/input-objects#setorganizationinteractionlimitinput",
+      "description": "<p>Autogenerated input type of SetOrganizationInteractionLimit.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expiry",
+          "description": "<p>When this limit should expire.</p>",
+          "type": "RepositoryInteractionLimitExpiry",
+          "id": "repositoryinteractionlimitexpiry",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The limit to set.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "organizationId",
+          "description": "<p>The ID of the organization to set a limit for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "SetRepositoryInteractionLimitInput",
+      "kind": "inputObjects",
+      "id": "setrepositoryinteractionlimitinput",
+      "href": "/graphql/reference/input-objects#setrepositoryinteractionlimitinput",
+      "description": "<p>Autogenerated input type of SetRepositoryInteractionLimit.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expiry",
+          "description": "<p>When this limit should expire.</p>",
+          "type": "RepositoryInteractionLimitExpiry",
+          "id": "repositoryinteractionlimitexpiry",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The limit to set.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "repositoryId",
+          "description": "<p>The ID of the repository to set a limit for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "SetUserInteractionLimitInput",
+      "kind": "inputObjects",
+      "id": "setuserinteractionlimitinput",
+      "href": "/graphql/reference/input-objects#setuserinteractionlimitinput",
+      "description": "<p>Autogenerated input type of SetUserInteractionLimit.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "expiry",
+          "description": "<p>When this limit should expire.</p>",
+          "type": "RepositoryInteractionLimitExpiry",
+          "id": "repositoryinteractionlimitexpiry",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimitexpiry"
+        },
+        {
+          "name": "limit",
+          "description": "<p>The limit to set.</p>",
+          "type": "RepositoryInteractionLimit!",
+          "id": "repositoryinteractionlimit",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryinteractionlimit"
+        },
+        {
+          "name": "userId",
+          "description": "<p>The ID of the user to set a limit for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

@@ -5,7 +5,9 @@
    {% warning %}
 
    **Warning**
+
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
+
    For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}

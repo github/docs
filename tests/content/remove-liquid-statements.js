@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs').promises
 const path = require('path')
 const cheerio = require('cheerio')
 const matter = require('gray-matter')
@@ -35,8 +35,8 @@ function processFrontmatter (contents, file) {
 }
 
 describe('removing liquid statements only', () => {
-  test('removes liquid statements that specify "greater than version to deprecate"', () => {
-    let contents = fs.readFileSync(greaterThan, 'utf8')
+  test('removes liquid statements that specify "greater than version to deprecate"', async () => {
+    let contents = await fs.readFile(greaterThan, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('Alpha')
@@ -57,8 +57,8 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% if currentVersion ver_gt "enterprise-server@2
     expect($('.example10').text().trim()).toBe('Alpha')
   })
 
-  test('removes liquid statements that specify "and greater than version to deprecate"', () => {
-    let contents = fs.readFileSync(andGreaterThan1, 'utf8')
+  test('removes liquid statements that specify "and greater than version to deprecate"', async () => {
+    let contents = await fs.readFile(andGreaterThan1, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('{% if currentVersion != "free-pro-team@latest" %}\n\nAlpha\n\n{% endif %}')
@@ -71,8 +71,8 @@ Alpha\n\n{% if currentVersion != "free-pro-team@latest" %}\n\nBravo\n\n{% endif 
 Alpha\n\n{% if currentVersion ver_gt "enterprise-server@2.16" %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
   })
 
-  test('removes liquid statements that specify "and greater than version to deprecate" (alternate format)', () => {
-    let contents = fs.readFileSync(andGreaterThan2, 'utf8')
+  test('removes liquid statements that specify "and greater than version to deprecate" (alternate format)', async () => {
+    let contents = await fs.readFile(andGreaterThan2, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('{% if currentVersion ver_lt "enterprise-server@2.16" %}\n\nAlpha\n\n{% endif %}')
@@ -85,8 +85,8 @@ Alpha\n\n{% if currentVersion ver_lt "enterprise-server@2.16" %}\n\nBravo\n\n{% 
 Alpha\n\n{% if currentVersion != "free-pro-team@latest" %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
   })
 
-  test('removes liquid statements that specify "not equals version to deprecate"', () => {
-    let contents = fs.readFileSync(notEquals, 'utf8')
+  test('removes liquid statements that specify "not equals version to deprecate"', async () => {
+    let contents = await fs.readFile(notEquals, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('Alpha')
@@ -103,8 +103,8 @@ Alpha\n\n{% endif %}`)
 })
 
 describe('removing liquid statements and content', () => {
-  test('removes interior content and liquid statements that specify "equals version to deprecate"', () => {
-    let contents = fs.readFileSync(equals, 'utf8')
+  test('removes interior content and liquid statements that specify "equals version to deprecate"', async () => {
+    let contents = await fs.readFile(equals, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('')
@@ -117,8 +117,8 @@ Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example6').text().trim()).toBe('Charlie\n\nBravo')
   })
 
-  test('removes interior content and liquid statements that specify "less than next oldest than version to deprecate"', () => {
-    let contents = fs.readFileSync(lessThanNextOldest, 'utf8')
+  test('removes interior content and liquid statements that specify "less than next oldest than version to deprecate"', async () => {
+    let contents = await fs.readFile(lessThanNextOldest, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('Alpha')
@@ -137,8 +137,8 @@ Charlie\n\n{% else %}\n\nDelta\n\n{% endif %}\n\nEcho`)
 })
 
 describe('updating frontmatter', () => {
-  test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to version to deprecate', () => {
-    let contents = fs.readFileSync(frontmatter1, 'utf8')
+  test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to version to deprecate', async () => {
+    let contents = await fs.readFile(frontmatter1, 'utf8')
     contents = processFrontmatter(contents, frontmatter1)
     const $ = cheerio.load(contents)
     // console.log('foo')
@@ -147,8 +147,8 @@ describe('updating frontmatter', () => {
     expect($.text().includes('enterprise-server: \'>=2.13\'')).toBe(false)
   })
 
-  test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to next oldest version', () => {
-    let contents = fs.readFileSync(frontmatter2, 'utf8')
+  test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to next oldest version', async () => {
+    let contents = await fs.readFile(frontmatter2, 'utf8')
     contents = processFrontmatter(contents, frontmatter2)
     const $ = cheerio.load(contents)
     expect($.text().includes('enterprise-server: \'*\'')).toBe(true)
@@ -157,8 +157,8 @@ describe('updating frontmatter', () => {
 })
 
 describe('whitespace', () => {
-  test('does not add newlines when whitespace control is used', () => {
-    let contents = fs.readFileSync(whitespace, 'utf8')
+  test('does not add newlines when whitespace control is used', async () => {
+    let contents = await fs.readFile(whitespace, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text()).toBe('\n  Alpha\n')
@@ -167,8 +167,8 @@ describe('whitespace', () => {
     expect($('.example4').text()).toBe('\n  Alpha\n')
   })
 
-  test('does not add newlines when no newlines are present', () => {
-    let contents = fs.readFileSync(whitespace, 'utf8')
+  test('does not add newlines when no newlines are present', async () => {
+    let contents = await fs.readFile(whitespace, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example5').text()).toBe('\n  Alpha\n')

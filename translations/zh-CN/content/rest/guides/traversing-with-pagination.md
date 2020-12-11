@@ -20,9 +20,9 @@ versions:
 
 首先需要了解有关接收分页条目的一些事实：
 
-1. 不同的 API 调用响应具有不同的默认值。 例如，调用[列出公共仓库](/v3/repos/#list-public-repositories)将提供以 30 项为单位的分页结果，而调用 GitHub 搜索 API 将提供以 100 项为单位的分页结果
+1. 不同的 API 调用响应具有不同的默认值。 例如，调用[列出公共仓库](/rest/reference/repos#list-public-repositories)将提供以 30 项为单位的分页结果，而调用 GitHub 搜索 API 将提供以 100 项为单位的分页结果
 2. 您可以指定要接收的条目数（最多 100 个）；但是，
-3. 出于技术原因，并非每个端点的行为都相同。 例如，[事件](/v3/activity/events/)不允许设置要接收的最大条目数量。 请务必阅读关于如何处理特定端点分页结果的文档。
+3. 出于技术原因，并非每个端点的行为都相同。 例如，[事件](/rest/reference/activity#events)不允许设置要接收的最大条目数量。 请务必阅读关于如何处理特定端点分页结果的文档。
 
 有关分页的信息包含在 API 调用的 [Link 标头](http://tools.ietf.org/html/rfc5988)中。 例如，我们向搜索 API 发出一个 curl 请求，以查明 Mozilla 项目使用短语 `addClass` 的次数：
 
@@ -201,7 +201,7 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

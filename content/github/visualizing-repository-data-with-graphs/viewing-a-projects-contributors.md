@@ -38,7 +38,7 @@ If you don't appear in a repository's contributors graph, it may be because:
 
 {% tip %}
 
-**Tip:** To list all commit contributors in a repository, see "[Repositories](/v3/repos/#list-contributors)."
+**Tip:** To list all commit contributors in a repository, see "[Repositories](/rest/reference/repos#list-contributors)."
 
 {% endtip %}
 

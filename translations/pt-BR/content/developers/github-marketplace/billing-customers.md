@@ -25,7 +25,7 @@ Os clientes devem ser capazes de executar as seguintes ações no site do seu ap
 
 Siga estas diretrizes para upgrades, downgrade e cancelamentos para manter um processo de cobrança claro e consistente. Para obter instruções mais detalhadas sobre os eventos de compra do {% data variables.product.prodname_marketplace %}, consulte "[Fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)".
 
-Você pode usar a chave do `marketplace_purchase` do webhook `effective_date` para determinar quando a mudança de um plano irá ocorrer e sincronizar periodicamente as [Lista de contas para um plano](/v3/apps/marketplace/#list-accounts-for-a-plan).
+Você pode usar a chave do `marketplace_purchase` do webhook `effective_date` para determinar quando a mudança de um plano irá ocorrer e sincronizar periodicamente as [Lista de contas para um plano](/rest/reference/apps#list-accounts-for-a-plan).
 
 #### Atualizações
 

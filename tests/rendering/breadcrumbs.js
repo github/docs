@@ -1,5 +1,7 @@
-const { getDOM, getJSON } = require('../helpers')
+const { getDOM, getJSON } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+
+const describeInternalOnly = process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 
 describe('breadcrumbs', () => {
   jest.setTimeout(300 * 1000)
@@ -57,6 +59,27 @@ describe('breadcrumbs', () => {
       const $ = await getDOM('/ja/github/getting-started-with-github')
       const $breadcrumbs = $('.breadcrumbs a')
       expect($breadcrumbs.eq(0).attr('href')).toBe(`/ja/${nonEnterpriseDefaultVersion}/github`)
+    })
+  })
+
+  describeInternalOnly('early access rendering', () => {
+    test('top-level product pages have breadcrumbs', async () => {
+      const $ = await getDOM('/early-access/github/articles/using-gist-playground')
+      expect($('.breadcrumbs')).toHaveLength(1)
+    })
+
+    test('early access article pages have breadcrumbs with product, category, and article', async () => {
+      const $ = await getDOM('/early-access/github/enforcing-best-practices-with-github-policies/about-github-policies')
+      const $breadcrumbSpans = $('.breadcrumbs span')
+      const $breadcrumbLinks = $('.breadcrumbs a')
+
+      expect($breadcrumbSpans).toHaveLength(2)
+      expect($breadcrumbLinks).toHaveLength(2)
+      expect($breadcrumbSpans.eq(0).text()).toBe('Early Access documentation')
+      expect($breadcrumbSpans.eq(1).text()).toBe('GitHub.com')
+      expect($breadcrumbLinks.eq(0).attr('title')).toBe('category: Enforcing best practices with GitHub Policies')
+      expect($breadcrumbLinks.eq(1).attr('title')).toBe('article: About GitHub Policies')
+      expect($breadcrumbLinks.eq(1).hasClass('text-gray-light')).toBe(true)
     })
   })
 

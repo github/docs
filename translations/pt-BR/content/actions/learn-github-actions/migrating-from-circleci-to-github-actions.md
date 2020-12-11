@@ -101,7 +101,7 @@ GitHub Actions
 </tr>
 </table>
 
-Para obter mais informações, consulte "[Memorizando dependências para acelerar fluxos de trabalho](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)".
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 {% data variables.product.prodname_actions %} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
 
