@@ -5,7 +5,7 @@ on:
 
 jobs:
   triage:
-    if: github.repository == 'github/docs'
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
