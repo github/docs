@@ -81,6 +81,7 @@ These instructions are pertinent to Mac users.
 
 {% endmac %}
 ```
+
 ```
 {% windows %}
 
@@ -88,6 +89,7 @@ These instructions are pertinent to Windows users.
 
 {% endwindows %}
 ```
+
 ```
 {% linux %}
 
@@ -96,15 +98,7 @@ These instructions are pertinent to Windows users.
 {% endlinux %}
 ```
 
-The platform-specific content matching the reader's operating system shows by default. You can override this behavior for individual Markdown files with the `defaultPlatform` frontmatter (such as for pages about GitHub Actions runners, which mostly use Linux):
-
-```
----
-title: …
-versions: …
-defaultPlatform: linux
----
-```
+You can define a default platform in the frontmatter, see the [content README](../content/README.md#defaultplatform).
 
 ## Reusable and variable strings of text
 
