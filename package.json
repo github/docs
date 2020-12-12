@@ -80,7 +80,7 @@
     "remark-code-extra": "^1.0.1",
     "resolve-url-loader": "^3.1.2",
     "rimraf": "^3.0.0",
-    "sass": "^1.26.3",
+    "sass": "^1.29.0",
     "sass-loader": "^9.0.2",
     "search-with-your-keyboard": "1.1.0",
     "semver": "^5.7.1",
