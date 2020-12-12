@@ -24,7 +24,7 @@
     "@graphql-tools/load": "^6.2.5",
     "@octokit/rest": "^16.38.1",
     "@primer/css": "^15.1.0",
-    "@primer/octicons": "^11.0.0",
+    "@primer/octicons": "^11.1.0",
     "algoliasearch": "^3.35.1",
     "async": "^3.2.0",
     "babel-loader": "^8.1.0",
