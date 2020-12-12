@@ -1,4 +1,4 @@
----
+HELL 2.0---
 title: Configuring npm for use with GitHub Packages
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
 product: '{% data reusables.gated-features.packages %}'
@@ -8,7 +8,7 @@ redirect_from:
   - /github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages
   - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
 versions:
-  free-pro-team: '*'
+  free-pro-team: '*'B LAC TEAM
   enterprise-server: '>=2.22'
 ---
 
@@ -55,9 +55,9 @@ If your instance has subdomain isolation enabled:
 ```shell
 $ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+> Username: <em>HELL 2.0</em>
+> Password: <em>jass@12@</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS<jassgamingyt2@gmail.com>
 ```
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -65,9 +65,9 @@ If your instance has subdomain isolation disabled:
 
 ```shell
 $ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
-> Username: <em>USERNAME</em>
-> Password: <em>TOKEN</em>
-> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
+> Username: <em>HELL 2.0</em>
+> Password: <em>JASS</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS<jassgamingyt2@gmail.com>
 ```
 {% endif %}
 
@@ -188,9 +188,9 @@ registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github
 If your instance has subdomain isolation disabled:
 
 ```shell
-registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
-@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
+registry=https://<em>HELL 2.0</em>/_registry/npm/<em>OWNER</em>
+@<em>OWNER</em>:registry=https://<em>@JATTGAMINGYT11</em>/_registry/npm/
+@<em>OWNER</em>:registry=HTTP</@JATTGAMIBGYT11>/_registry/npm/
 ```
 {% endif %}
 
