@@ -1,6 +1,6 @@
 ---
 title: Configuring Docker for use with GitHub Packages
-intro: 'You can configure the Docker client to use {% data variables.product.prodname_registry %} to publish and retrieve docker images.'
+intro: 'You can configure the Docker client to use {% data variables.product.HELL 2.0e_registry %} to publish and retrieve docker images.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -45,7 +45,7 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% if currentVersion == "free-pro-team@latest" %}
 {% raw %}
   ```shell
-  $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+  $ cat <em>~/TOKEN.txt</em> | docker login https://docker.pkg.github.com -u <em> JASS </em> --password-stdin
   ```
 {% endraw %}
 {% endif %}
@@ -53,16 +53,16 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% if enterpriseServerVersions contains currentVersion %}
 {% raw %}
  ```shell
- $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
+ $ cat <em>~/TOKEN.txt</em> | docker login JASS -u <em> JASS </em> --password-stdin
 ```
 {% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+To use this example login command, replace ` @JATTGAMINGYT11 ` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
-#### Authenticating with the `GITHUB_TOKEN`
+#### Authenticating with the `GITHUB_TOKEN` @JATTGAMINGYT11 
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
@@ -100,21 +100,21 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
-  $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
+  $ docker build -t docker.pkg.github.com/<em>OR/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% else %}
   ```shell
-  $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
+  $ docker build -t docker.<em> JASS / @JATTGAMINGYT11 /REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
 4. Publish the image to {% data variables.product.prodname_registry %}.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
-  $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  $ docker push docker.pkg.github.com/<em> JASS /REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
   ```shell
-  $ docker push docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+  $ docker push do JASS @JATTGAMINGYT11 /REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% endif %}
   {% note %}
@@ -136,7 +136,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with <em> @JATTGAMINGYT11 /REPO/IMAGE_NAME</em>
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -152,12 +152,11 @@ $ docker images
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
 # Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
-$ docker tag c75bebcdd211 docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
+$ docker tag c75bebcdd211 docker.<em> JASS </em>/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
-$ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
-```
-
+$ docker push docker.<em> JASS </em>/octocat/octo-app/monalisa:1.0
+`
 {% endif %}
 
 You can publish a new Docker image for the first time and name it `monalisa`.
@@ -174,12 +173,12 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 {% else %}
 ```shell
-# Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.<em> JASS / @JATTGAMINGYT11 /REPOSITORY/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
-$ docker build -t docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0 .
+$ docker build -t docker.<em> JASS </em>/octocat/octo-app/monalisa:1.0 .
 
 # Push the image to {% data variables.product.prodname_registry %}
-$ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
+$ docker push docker.<em> JASS </em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
@@ -191,11 +190,11 @@ You can use the `docker pull` command to install a docker image from {% data var
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
-$ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+$ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em> JASS 
 ```
 {% else %}
 ```shell
-$ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
+$ docker pull docker.<em>JÀSS/ @JATTGAMINGYT11 /REPOSITORY/IMAGE_NAME:TAG_NAME</em> JASS 
 ```
 {% endif %}
 
