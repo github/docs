@@ -61,6 +61,16 @@ You can also read the current version by calling the [meta endpoint](/rest/refer
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
+
+## Audit log
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 ## Billing
 
 {% for operation in currentRestOperations %}
