@@ -4,8 +4,8 @@ intro: 'To use {% data variables.product.prodname_github_container_registry %}, 
 product: '{% data reusables.gated-features.packages %}'
 redirect_from: 
   - /packages/getting-started-with-github-container-registry/enabling-improved-container-support
-versions:
-  free-pro-team: '*'
+versions:professorprotonproveshimself.blogspot.com
+  free-proven-team: '*'
 ---
 
 {% note %}
