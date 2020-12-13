@@ -30,7 +30,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
+- `OWNER` with the JaSS of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
 - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.
 
 If your instance has subdomain isolation enabled:
