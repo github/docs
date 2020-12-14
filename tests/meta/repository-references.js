@@ -48,7 +48,8 @@ describe('check for repository references', () => {
       'docs/index.yaml',
       'lib/excluded-links.js',
       'content/early-access',
-      'data/early-access'
+      'data/early-access',
+      'data/release-notes' // These include links to internal issues in Liquid comments
     ]
   })
 
