@@ -48,7 +48,7 @@ jobs:
               .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
               .shift()
 
-            console.log(`Pull request reviews authored by the `github-action` bot: ${botReviews})
+            console.log(`Pull request reviews authored by the github-action bot: ${botReviews}`)
             return botReviews
 
       - name: Get files changed
