@@ -45,8 +45,9 @@ describe('featuredLinks', () => {
 
     test('featured links respect versioning', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/packages`)
-      const $featuredLinks = $('.featured-links a')
+      const $featuredLinks = $('.all-articles-list a')
       expect($featuredLinks.length).toBeGreaterThan(2)
+      expect($featuredLinks.text().includes('Package client guides for GitHub Packages')).toBe(true)
       // does not include dotcom-only links
       expect($featuredLinks.text().includes('About GitHub Container Registry')).toBe(false)
       expect($featuredLinks.text().includes('Getting started with GitHub Container Registry')).toBe(false)

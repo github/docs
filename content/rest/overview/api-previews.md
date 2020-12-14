@@ -2,7 +2,6 @@
 title: API previews
 intro: You can use API previews to try out new features and provide feedback before these features become official.
 redirect_from:
-  - /early-access/
   - /v3/previews
 versions:
   free-pro-team: '*'
@@ -60,7 +59,7 @@ Create, list, update, and delete environments for pre-receive hooks.
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### Integrations
 
-Manage [integrations](/early-access/integrations/) through the API.
+Manage [integrations](/v3/integrations) through the API.
 
 **Custom media type:** `machine-man-preview`
 **Announced:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)

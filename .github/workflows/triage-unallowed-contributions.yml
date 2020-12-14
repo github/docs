@@ -1,0 +1,117 @@
+name: Check unallowed file changes
+
+on:
+  push:
+
+jobs:
+  triage:
+    if: github.repository == 'github/docs' && github.event.pull_request.user.login != 'Octomerger'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+      - name: Get pull request number
+        id: pull-number
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          result-encoding: string
+          script: |
+            const pulls = await github.repos.listPullRequestsAssociatedWithCommit({
+              ...context.repo,
+              commit_sha: context.sha
+            })
+
+            return pulls.data.map(pull => pull.number).shift()
+      - name: Check for existing requested changes
+        id: requested-change
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          result-encoding: json
+          script: |
+            const pullReviews = await github.pulls.listReviews({
+              ...context.repo,
+              pull_number: ${{steps.pull-number.outputs.result}}
+            })
+
+            return pullReviews.data
+              .filter(review => review.user.login === 'github-actions[bot]')
+              .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
+              .shift()
+      - name: Get files changed
+        uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
+        id: filter
+        with:
+          # Base branch used to get changed files
+          base: 'main'
+
+          # Enables setting an output in the format in `${FILTER_NAME}_files
+          # with the names of the matching files formatted as JSON array
+          list-files: json
+
+          # Returns list of changed files matching each filter
+          filters: |
+            translation:
+              - 'translations/**'
+            openapi:
+              - 'lib/rest/static/**'
+            notAllowed:
+              - '.github/workflows/**'
+              - '.github/CODEOWNERS'
+              - 'translations/**'
+              - 'assets/fonts/**'
+              - 'data/graphql/**'
+              - 'lib/graphql/**'
+              - 'lib/redirects/**'
+              - 'lib/rest/**'
+              - 'lib/webhooks/**'
+
+      # When there are changes to files we can't accept
+      # and no review exists,leave a REQUEST_CHANGES review
+      - name: Request pull request changes
+        # Check for no reviews or reviews that aren't CHANGES_REQUESTED
+        if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const changedFiles = ${{steps.filter.outputs.notAllowed_files}}
+            const restFiles = ${{steps.filter.outputs.openapi_files}}
+            const translationFiles = ${{steps.filter.outputs.translation_files}}
+            const markdownFiles = changedFiles.map(file => `- \`${file}\`\n`).join('')
+
+            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions.\n${markdownFiles}\n\nYou'll need to revert all of these ☝️ files using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
+
+            if (restFiles.length > 0) {
+              reviewMessage += "\n\nIt looks like you've modified the OpenAPI schema (`lib/rest/static/**`). While we aren't accepting changes to the schema directly, you can open an issue for any updates to the REST API docs. Head on over to the [`github/rest-api-description`](https://github.com/github/rest-api-description/issues/new?assignees=&labels=Inaccuracy&template=schema-inaccuracy.md&title=%5BSchema+Inaccuracy%5D+%3CDescribe+Problem%3E) repository to open an issue. ⚡"
+            }
+
+            if (translationFiles.length > 0) {
+              await github.issues.addLabels({
+                ...context.repo,
+                issue_number: ${{steps.pull-number.outputs.result}},
+                labels: ['localization']
+              })
+              reviewMessage += "\n\nIt looks like you've modified translated content. Unfortunately, we are not able to accept pull requests for translated content. Our translation process involves an integration with an external service at crowdin.com, where all translation activity happens. We hope to eventually open up the translation process to the open source community, but we're not there yet. See https://github.com/github/docs/blob/main/CONTRIBUTING.md#earth_asia-translations for more details."
+            }
+
+            await github.pulls.createReview({
+              ...context.repo,
+              pull_number: ${{steps.pull-number.outputs.result}},
+              body: reviewMessage,
+              event: 'REQUEST_CHANGES'
+            })
+      # When the most recent review was CHANGES_REQUESTED and the existing
+      # PR no longer contains unallowed changes, dismiss the previous review
+      - name: Dismiss pull request review
+        if: ${{ steps.filter.outputs.notAllowed == 'false' && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
+        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            await github.pulls.dismissReview({
+              ...context.repo,
+              pull_number: ${{steps.pull-number.outputs.result}},
+              review_id: ${{fromJson(steps.requested-change.outputs.result).id}},
+              message: `✨Looks like you reverted all files we don't accept contributions for. 🙌 A member of the docs team will review your PR soon. 🚂`
+            })

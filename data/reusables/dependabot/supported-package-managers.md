@@ -1,20 +1,23 @@
-Package manager | Supports vendoring
---- | :---:
-Bundler: `bundler` | **X**
-Cargo: `cargo` |
-Composer: `composer` |
-Docker: `docker` |
-Elm: `elm` |
-git submodule: `gitsubmodule` |
-GitHub Actions: `github-actions` |
-Go modules: `gomod` | **X**
-Gradle: `gradle` |
-Maven: `maven` |
-Mix: `mix` |
-npm: `npm` |
-NuGet: `nuget` |
-pip: `pip` |
-Terraform: `terraform` |
+The following table shows, for each package manager, whether {% data variables.product.prodname_dependabot %} supports: dependencies in private {% data variables.product.prodname_dotcom %} repositories, and vendored dependencies.
+
+Package manager | Private {% data variables.product.prodname_dotcom %} repositories | Vendoring 
+--- | :---:| :---:
+Bundler: `bundler` | | **✓** |
+Cargo: `cargo` | **✓** | |
+Composer: `composer` | **✓** | |
+Docker: `docker` | **✓** | |
+Elixir: `hex` | | |
+Elm: `elm` | **✓** | |
+git submodule: `gitsubmodule` | **✓** | |
+GitHub Actions: `github-actions` | **✓** | |
+Go modules: `gomod` | **✓** | **✓** |
+Gradle: `gradle` | **✓** | |
+Maven: `maven` | **✓** | |
+Mix: `mix` | **✓** | |
+npm: `npm` | **✓** | |
+NuGet: `nuget` | **✓** | |
+pip: `pip` | | |
+Terraform: `terraform` | **✓** | |
 
 {% note %}
 
