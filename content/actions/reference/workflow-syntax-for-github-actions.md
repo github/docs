@@ -187,7 +187,7 @@ For more information about cron syntax, see "[Events that trigger workflows](/ac
 
 ### `env`
 
-A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps.*.env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -340,7 +340,7 @@ jobs:
 
 ### `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps.*.env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -415,11 +415,11 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.*.id`
+### `jobs.<job_id>.steps[*].id`
 
 A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-### `jobs.<job_id>.steps.*.if`
+### `jobs.<job_id>.steps[*].if`
 
 You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
@@ -449,11 +449,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### `jobs.<job_id>.steps.*.name`
+### `jobs.<job_id>.steps[*].name`
 
 A name for your step to display on {% data variables.product.prodname_dotcom %}.
 
-### `jobs.<job_id>.steps.*.uses`
+### `jobs.<job_id>.steps[*].uses`
 
 Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
@@ -556,7 +556,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-### `jobs.<job_id>.steps.*.run`
+### `jobs.<job_id>.steps[*].run`
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
@@ -661,7 +661,7 @@ For built-in shell keywords, we provide the following defaults that are executed
   - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
   - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
-### `jobs.<job_id>.steps.*.with`
+### `jobs.<job_id>.steps[*].with`
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
@@ -681,7 +681,7 @@ jobs:
           last_name: Octocat      
 ```
 
-### `jobs.<job_id>.steps.*.with.args`
+### `jobs.<job_id>.steps[*].with.args`
 
 A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
 
@@ -704,7 +704,7 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 1. Use defaults that allow using the action without specifying any `args`.
 1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
-### `jobs.<job_id>.steps.*.with.entrypoint`
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
 
@@ -720,7 +720,7 @@ steps:
 
 The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-### `jobs.<job_id>.steps.*.env`
+### `jobs.<job_id>.steps[*].env`
 
 Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
@@ -741,11 +741,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.*.continue-on-error`
+### `jobs.<job_id>.steps[*].continue-on-error`
 
 Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
 
-### `jobs.<job_id>.steps.*.timeout-minutes`
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
 The maximum number of minutes to run the step before killing the process.
 
