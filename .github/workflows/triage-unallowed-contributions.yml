@@ -19,7 +19,8 @@ jobs:
             const pullNumber = await github.repos.listPullRequestsAssociatedWithCommit({
               ...context.repo,
               commit_sha: context.sha
-            }).data
+            })
+              .data
               .map(pull => pull.number)
               .shift()
 
@@ -40,7 +41,8 @@ jobs:
             const pullReviews = await github.pulls.listReviews({
               ...context.repo,
               pull_number: ${{steps.pull-number.outputs.result}}
-            }).data
+            })
+              .data
               .filter(review => review.user.login === 'github-actions[bot]')
               .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
               .shift()
