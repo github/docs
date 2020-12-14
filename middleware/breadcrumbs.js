@@ -49,7 +49,7 @@ module.exports = async (req, res, next) => {
   // e.g., /github/getting-started-with-github/learning-about-github
   let maptopic
   if (req.context.page.mapTopic) {
-    const maptopicPath = path.posix.join(categoryPath, pathParts[2])
+    const maptopicPath = req.path
 
     maptopic = category.maptopics[maptopicPath]
 
@@ -60,9 +60,7 @@ module.exports = async (req, res, next) => {
       title: maptopic.shortTitle || maptopic.title
     }
   } else {
-    // get article path
-    // e.g., /github/getting-started-with-github/githubs-products
-    const articlePath = path.posix.join(categoryPath, pathParts[2])
+    const articlePath = req.path
 
     // find parent maptopic if one exists
     // some categories don't have maptopics, e.g. site-policy
