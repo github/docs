@@ -705,6 +705,8 @@ on:
 
 {% data reusables.webhooks.workflow_run_desc %}
 
+{% data reusables.github-actions.branch-requirement %}
+
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|	
 | [`workflow_run`](/webhooks/event-payloads/#workflow_run) | - n/a | Last commit on default branch | Default branch |	
