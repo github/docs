@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
   req.context.breadcrumbs.product = {
-    href: path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath),
+    href: path.posix.join('/', req.context.currentVersion, productPath),
     title: product.title
   }
 
@@ -32,7 +32,7 @@ module.exports = async (req, res, next) => {
   // get category path
   // e.g., `getting-started-with-github` in /free-pro-team@latest/github/getting-started-with-github
   // or /enterprise-server@2.21/github/getting-started-with-github
-  const categoryPath = path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath, pathParts[1])
+  const categoryPath = path.posix.join('/', req.context.currentVersion, productPath, pathParts[1])
 
   const category = product.categories[categoryPath]
 
@@ -49,7 +49,7 @@ module.exports = async (req, res, next) => {
   // e.g., /github/getting-started-with-github/learning-about-github
   let maptopic
   if (req.context.page.mapTopic) {
-    const maptopicPath = req.path
+    const maptopicPath = path.posix.join(categoryPath, pathParts[2])
 
     maptopic = category.maptopics[maptopicPath]
 
@@ -60,7 +60,9 @@ module.exports = async (req, res, next) => {
       title: maptopic.shortTitle || maptopic.title
     }
   } else {
-    const articlePath = req.path
+    // get article path
+    // e.g., /github/getting-started-with-github/githubs-products
+    const articlePath = path.posix.join(categoryPath, pathParts[2])
 
     // find parent maptopic if one exists
     // some categories don't have maptopics, e.g. site-policy
@@ -75,7 +77,17 @@ module.exports = async (req, res, next) => {
       }
     }
 
-    const articlePage = req.context.page
+    let articleKey = '/' + req.language + articlePath
+    let articlePage = req.context.pages[articleKey]
+
+    // fall back to English if localized article does not exist
+    if (!articlePage && req.language !== 'en') {
+      articleKey = '/en' + articlePath
+      articlePage = req.context.pages[articleKey]
+    }
+
+    if (!articlePage) return next()
+
     const articleTitle = await articlePage.renderProp('shortTitle', req.context, { textOnly: true, encodeEntities: true })
 
     req.context.breadcrumbs.article = {
