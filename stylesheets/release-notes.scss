@@ -1,0 +1,17 @@
+ul.release-notes-list li.release-notes-list-item {
+  &::marker  {
+    // `• `
+    content: '\2022\00a0';
+    font-size: 1.6em;
+    margin-right: $spacer-2;
+    color: $gray-400;
+  }
+
+  &.list-style-none::marker {
+    content: '';
+  }
+}
+
+details[open].release-notes-version-picker summary .octicon.octicon-chevron-down {
+  transform: rotate(180deg);
+}
