@@ -34,6 +34,7 @@
     "cheerio": "^1.0.0-rc.3",
     "clipboard": "^2.0.6",
     "compression": "^1.7.4",
+    "connect-datadog": "0.0.9",
     "connect-slashes": "^1.4.0",
     "cookie-parser": "^1.4.5",
     "copy-webpack-plugin": "^6.0.3",
@@ -150,6 +151,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon server.js",
     "dev": "npm start",
+    "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES='en,ja' nodemon --inspect server.js",
     "rest-dev": "script/rest/update-files.js && npm run dev",
     "build": "cross-env NODE_ENV=production npx webpack --mode production",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",
