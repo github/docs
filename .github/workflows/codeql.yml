@@ -2,6 +2,9 @@ name: CodeQL analysis
 
 on:
   push:
+    branches: main
+  pull_request:
+    branches: main
     paths:
       - '**/*.js'
       - '.github/workflows/codeql.yml'
