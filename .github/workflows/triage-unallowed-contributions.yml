@@ -16,11 +16,11 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: string
           script: |
-            const pullNumber = await github.repos.listPullRequestsAssociatedWithCommit({
+            const pulls = await github.repos.listPullRequestsAssociatedWithCommit({
               ...context.repo,
               commit_sha: context.sha
             })
-              .data
+            const pullNumber = pulls.data
               .map(pull => pull.number)
               .shift()
 
@@ -42,13 +42,14 @@ jobs:
               ...context.repo,
               pull_number: ${{steps.pull-number.outputs.result}}
             })
-              .data
+
+            const botReviews = pullReviews.data
               .filter(review => review.user.login === 'github-actions[bot]')
               .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
               .shift()
 
-            console.log(`Pull request reviews authored by the `github-action` bot: ${pullReviews})
-            return pullReviews
+            console.log(`Pull request reviews authored by the `github-action` bot: ${botReviews})
+            return botReviews
 
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
