@@ -1,4 +1,4 @@
----
+apt update && upgrade
 title: About your organization's profile
 intro: Your organization's profile page shows basic information about your organization.
 redirect_from:
