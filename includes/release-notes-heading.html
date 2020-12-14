@@ -1,0 +1,18 @@
+{% case section[0] %}
+  {% when "features" %}
+    {% assign colors = "text-gradient-aquamarine-mauve" %}
+  {% when "bugs" %}
+    {% assign colors = "text-gradient-red-orange" %}
+  {% when "known_issues" %}
+    {% assign colors = "text-gradient-dark-mint" %}
+  {% when "security_fixes" %}
+    {% assign colors = "text-gradient-coral-yellow-dark" %}
+  {% when "changes" %}
+    {% assign colors = "text-gradient-blue-purple" %}
+  {% when "deprecations" %}
+    {% assign colors = "text-gradient-dark-mint" %}
+  {% else %}
+    {% assign colors = "text-gradient-aquamarine-mauve" %}
+{% endcase %}
+
+<h4 class="{{ colors }} text-uppercase text-bold">{{ note.heading }}</h4>

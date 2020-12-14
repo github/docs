@@ -14,7 +14,15 @@ const contentFiles = walk(contentDir, { includeBasePath: true })
 // [start-readme]
 //
 // Run this script to standardize frontmatter fields in all content files,
-// per the order decided in https://github.com/github/docs-internal/issues/9658#issuecomment-485536265.
+// per the order:
+// - title
+// - intro
+// - product callout
+// - productVersion
+// - map topic status
+// - hidden status
+// - layout
+// - redirect
 //
 // [end-readme]
 
