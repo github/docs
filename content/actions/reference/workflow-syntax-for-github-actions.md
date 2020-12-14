@@ -282,7 +282,7 @@ jobs:
     needs: [job1, job2]
 ```
 
-In this example, `job3` uses the `always()` conditional expression so it always runs after `job1` and `job2` completes, whether `job1` and `job2` are successful or not. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
+In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
 ### `jobs.<job_id>.runs-on`
 
