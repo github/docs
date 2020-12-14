@@ -95,8 +95,11 @@
           </div>
         </article>
 
-        <aside class="markdown-body d-none d-md-block border-left no-print bg-white flex-shrink-0" style="width: 300px">
-          <nav class="position-sticky top-0">
+        <aside
+          class="markdown-body position-sticky top-0 d-none d-md-block border-left no-print bg-white flex-shrink-0"
+          style="width: 300px; height: 100vh;"
+        >
+          <nav class="height-full overflow-auto">
             <ul class="list-style-none pl-0 text-bold">
               {% for release in releases %}
                 <li class="border-bottom">
