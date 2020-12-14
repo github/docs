@@ -27,7 +27,7 @@ jobs:
               console.log(`Pull request number: ${pullNumber}`)
               return pullNumber
             } else {
-              console.log(`When this workflow ran there was no associated pull request created. Pushing a new commit after you've created a pull request will automatically re-run this workflow, or you can manually re-run the workflow.`)
+              console.log(`When this workflow ran, the associated pull request was not yet created. Pushing a new commit after you've created a pull request will automatically re-run this workflow, or you can manually re-run the workflow.`)
               process.exit(1)
             }
       - name: Check for existing requested changes
@@ -40,12 +40,14 @@ jobs:
             const pullReviews = await github.pulls.listReviews({
               ...context.repo,
               pull_number: ${{steps.pull-number.outputs.result}}
-            })
-
-            return pullReviews.data
+            }).data
               .filter(review => review.user.login === 'github-actions[bot]')
               .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
               .shift()
+
+            console.log(`Pull request reviews authored by the `github-action` bot: ${pullReviews})
+            return pullReviews
+              
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
