@@ -111,23 +111,23 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
-    pipeline {
-     agent any
-      triggers {
-        cron('H/15 * * * 1-5')
-      }
-   }
-  ```
+```yaml
+pipeline {
+  agent any
+  triggers {
+    cron('H/15 * * * 1-5')
+  }
+}
+```
 
 </td>
 <td>
 
-  ```yaml
-  on:
+```yaml
+on:
   schedule:
-    - cron:  '*/15 * * * 1-5'
-  ```
+    - cron: '*/15 * * * 1-5'
+```
 
 </td>
 </tr>
@@ -147,25 +147,24 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
-  pipeline {
-    agent any
-    environment {
-      MAVEN_PATH = '/usr/local/maven'
-    }
+```yaml
+pipeline {
+  agent any
+  environment {
+    MAVEN_PATH = '/usr/local/maven'
   }
-  ```
+}
+```
 
 </td>
 <td>
 
-  ```yaml
- jobs:
-    maven-build:
+```yaml
+jobs:
+  maven-build:
     env:
       MAVEN_PATH: '/usr/local/maven'
-  
-  ```
+```
 
 </td>
 </tr>
@@ -185,30 +184,28 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
-  pipeline {
-    triggers {
-      upstream(
-        upstreamProjects: 'job1,job2',
-        threshold: hudson.model.Result.SUCCESS)
-      }
-    }
+```yaml
+pipeline {
+  triggers {
+    upstream(
+      upstreamProjects: 'job1,job2',
+      threshold: hudson.model.Result.SUCCESS
+    )
   }
-
-  ```
+}
+```
 
 </td>
 <td>
 
-  ```yaml
-  jobs:
-    job1:
-    job2:
-      needs: job1
-    job3:
-      needs: [job1, job2]
-  
-  ```
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    needs: [job1, job2]
+```
 
 </td>
 </tr>
@@ -228,26 +225,27 @@ Jenkins Pipeline
 <tr>
 <td>
 
-  ```yaml
+```yaml
 pipeline {
-agent none
-stages {
-  stage('Run Tests') {
-    matrix {
-      axes {
-        axis {
-          name: 'PLATFORM'
-          values: 'macos', 'linux'
+  agent none
+  stages {
+    stage('Run Tests') {
+      matrix {
+        axes {
+          axis {
+            name: 'PLATFORM'
+            values: 'macos', 'linux'
+          }
         }
-      }
-      agent { label "${PLATFORM}" }
-      stages {
-        stage('test') {
-          tools { nodejs "node-12" }
-          steps {
-            dir("scripts/myapp") {
-              sh(script: "npm install -g bats")
-              sh(script: "bats tests")
+        agent { label "${PLATFORM}" }
+        stages {
+          stage('test') {
+            tools { nodejs "node-12" }
+            steps {
+              dir("scripts/myapp") {
+                sh(script: "npm install -g bats")
+                sh(script: "bats tests")
+              }
             }
           }
         }
@@ -255,33 +253,32 @@ stages {
     }
   }
 }
-}
-  ```
+```
 
 </td>
 <td>
 
 {% raw %}
-  ```yaml
-  name: demo-workflow
-  on:
-    push:
-  jobs:
-    test:
-      runs-on: ${{ matrix.os }}
-      strategy:
-        fail-fast: false
-        matrix:
-          os: [macos-latest, ubuntu-latest]
-      steps:
-        - uses: actions/checkout@v1
-        - uses: actions/setup-node@v1
-          with:
-            node-version: 12
-        - run: npm install -g bats
-        - run: bats tests
-          working-directory: scripts/myapp
-  ```
+```yaml
+name: demo-workflow
+on:
+  push:
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm install -g bats
+      - run: bats tests
+        working-directory: scripts/myapp
+```
 {% endraw %}
 
 </td>
