@@ -22,7 +22,7 @@ jobs:
             }).data
               .map(pull => pull.number)
               .shift()
-            
+
             if (pullNumber) {
               console.log(`Pull request number: ${pullNumber}`)
               return pullNumber
@@ -47,7 +47,7 @@ jobs:
 
             console.log(`Pull request reviews authored by the `github-action` bot: ${pullReviews})
             return pullReviews
-              
+
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
@@ -115,7 +115,7 @@ jobs:
       # PR no longer contains unallowed changes, dismiss the previous review
       - name: Dismiss pull request review
         # Check that unallowed files aren't modified and that a
-        # CHANGES_REQUESTED review already exists 
+        # CHANGES_REQUESTED review already exists
         if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
