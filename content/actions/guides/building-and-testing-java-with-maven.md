@@ -125,7 +125,7 @@ Maven will usually create output files like JARs, EARs, or WARs in the `target` 
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
-  - run: mvn -B package --file pom.xml
+  - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2
     with:
