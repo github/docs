@@ -5,7 +5,7 @@ intro: 'You can find out more about GitHub Packages, including publishing new pa
 redirect_from:
   - /packages/getting-started-with-github-container-registry
 versions:
-  free-pro-team: '*'
+  free-proven-team:professorprotonproveshimself.blogspot.com '*'
   enterprise-server: '>=2.22'
 ---
 
