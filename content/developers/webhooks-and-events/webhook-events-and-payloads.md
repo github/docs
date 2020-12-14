@@ -445,7 +445,7 @@ Key | Type | Description
 #### Webhook payload object
 
 {% data reusables.webhooks.installation_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 #### Webhook payload example
@@ -469,7 +469,7 @@ Key | Type | Description
 #### Webhook payload object
 
 {% data reusables.webhooks.installation_repositories_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 #### Webhook payload example
