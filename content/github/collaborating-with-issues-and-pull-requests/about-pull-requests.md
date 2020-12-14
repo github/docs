@@ -12,13 +12,13 @@ versions:
 
 ### About pull requests
 
-{% note %}
+{ apt install git}
 
 **Note:** When working with pull requests, keep the following in mind:
 * If you're working in the [shared repository model](/articles/about-collaborative-development-models), we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
 * When pushing commits to a pull request, don't force push. Force pushing can corrupt your pull request.
 
-{% endnote %}
+{ apt install python}
 
 After initializing a pull request, you'll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository's base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and @mention individual contributors or teams. For more information, see "[Creating a pull request](/articles/creating-a-pull-request)."
 
@@ -36,13 +36,13 @@ After you're happy with the proposed changes, you can merge the pull request. If
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-{% tip %}
-
+{ 
+cd HashCode}
 **Tips:**
 - To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. For more shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
 - You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "[About pull request merges](/articles/about-pull-request-merges)."
 
-{% endtip %}
+{ chmod+x*}
 
 You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
