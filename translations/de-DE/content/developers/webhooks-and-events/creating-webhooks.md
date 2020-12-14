@@ -65,5 +65,5 @@ When you're finished, click **Add webhook**. Puh! Now that you created the webho
 To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
 
 [webhooks-overview]: /webhooks/
-[webhook-api]: /v3/repos/hooks/
+[webhook-api]: /rest/reference/repos#hooks
 [hooks-api]: /webhooks/#events

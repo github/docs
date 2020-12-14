@@ -1,0 +1,25 @@
+{% case section[0] %}
+  {% when "features" %}
+    {% assign colors = "bg-gradient-aquamarine-mauve text-white" %}
+    {% assign text = "Features" %}
+  {% when "bugs" %}
+    {% assign colors = "bg-gradient-red-orange text-white" %}
+    {% assign text = "Bug fixes" %}
+  {% when "known_issues" %}
+    {% assign colors = "bg-gradient-dark-mint text-white" %}
+    {% assign text = "Known issues" %}
+  {% when "security_fixes" %}
+    {% assign colors = "bg-gradient-coral-yellow text-white" %}
+    {% assign text = "Security fixes" %}
+  {% when "changes" %}
+    {% assign colors = "bg-gradient-blue-purple text-white" %}
+    {% assign text = "Changes" %}
+  {% when "deprecations" %}
+    {% assign colors = "bg-gradient-mint-blue text-white" %}
+    {% assign text = "Deprecations" %}
+  {% else %}
+    {% assign colors = "bg-blue text-white" %}
+    {% assign text = "INVALID SECTION" %}
+{% endcase %}
+
+<span class="{{ colors }} px-3 py-2 f5 text-uppercase text-mono">{{ text }}</span>

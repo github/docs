@@ -31,9 +31,9 @@ versions:
 
 ### プロジェクトの進捗の追跡
 
-You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
+進捗は、プロジェクトボードで追跡できます。 [To do]、[In progress]、または [Done] 列のカードの数は、プロジェクトの進捗全体にカウントされます。 {% data reusables.project-management.project-progress-locations %}
 
-For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
+詳細については「[プロジェクトボードで進捗を追跡する](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)」を参照してください。
 
 ### 参考リンク
 - [プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards){% if currentVersion == "free-pro-team@latest" %}
