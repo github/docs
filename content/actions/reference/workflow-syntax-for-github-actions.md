@@ -249,9 +249,9 @@ The name of the job displayed on {% data variables.product.prodname_dotcom %}.
 
 ### `jobs.<job_id>.needs`
 
-Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional statement that causes the job to continue.
+Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### Example
+#### Example requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -270,9 +270,9 @@ The jobs in this example run sequentially:
 2. `job2`
 3. `job3`
 
-Here is an example of using a [conditional statement](https://docs.github.com/en/free-pro-team@latest/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions):
+#### Example not requiring dependent jobs to be successful
 
-````yaml
+```yaml
 jobs:
   job1:
   job2:
@@ -282,7 +282,7 @@ jobs:
     needs: [job1, job2]
 ```
 
-``job3` will run after `job1` and `job2` whether `job1` and `job2` are successful or not.
+In this example, `job3` uses the `always()` conditional expression so it always runs after `job1` and `job2` completes, whether `job1` and `job2` are successful or not. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
 ### `jobs.<job_id>.runs-on`
 
