@@ -1,5 +1,5 @@
 ---
-title: GitHub's products
+title: GitHub products
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
