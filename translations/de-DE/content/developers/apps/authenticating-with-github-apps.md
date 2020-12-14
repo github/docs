@@ -118,13 +118,13 @@ You'll need to create a new JWT after the time expires.
 
 ### Accessing API endpoints as a {% data variables.product.prodname_github_app %}
 
-For a list of REST API endpoints you can use to get high-level information about a {% data variables.product.prodname_github_app %}, see "[GitHub Apps](/v3/apps/)."
+For a list of REST API endpoints you can use to get high-level information about a {% data variables.product.prodname_github_app %}, see "[GitHub Apps](/rest/reference/apps)."
 
 ### Authenticating as an installation
 
 Authenticating as an installation lets you perform actions in the API for that installation. Before authenticating as an installation, you must create an installation access token. These installation access tokens are used by {% data variables.product.prodname_github_app %}s to authenticate.
 
-By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/v3/apps/#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
+By default, installation access tokens are scoped to all the repositories that an installation can access. You can limit the scope of the installation access token to specific repositories by using the `repository_ids` parameter. See the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint for more details. Installation access tokens have the permissions configured by the {% data variables.product.prodname_github_app %} and expire after one hour.
 
 To create an installation access token, include the JWT [generated above](#jwt-payload) in the Authorization header in the API request:
 
@@ -144,7 +144,7 @@ $ curl -i -X POST \
 ```
 {% endif %}
 
-The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/v3/apps/#create-an-installation-access-token-for-an-app) endpoint.
+The response will include your installation access token, the expiration date, the token's permissions, and the repositories that the token can access. For more information about the response format, see the [Create an installation access token for an app](/rest/reference/apps#create-an-installation-access-token-for-an-app) endpoint.
 
 To authenticate with an installation access token, include it in the Authorization header in the API request:
 
@@ -168,9 +168,9 @@ $ curl -i \
 
 ### Accessing API endpoints as an installation
 
-For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_app %}s using an installation access token, see "[Available Endpoints](/v3/apps/available-endpoints/)."
+For a list of REST API endpoints that are available for use by {% data variables.product.prodname_github_app %}s using an installation access token, see "[Available Endpoints](/rest/overview/endpoints-available-for-github-apps)."
 
-For a list of endpoints related to installations, see "[Installations](/v3/apps/installations/)."
+For a list of endpoints related to installations, see "[Installations](/rest/reference/apps#installations)."
 
 ### HTTP-based Git access by an installation
 

@@ -23,7 +23,7 @@ Du benötigst Schreibzugriff auf ein Repository, um einen Branch zu erstellen, e
 
 ### About the default branch
 
-{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally out when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
+{% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
 By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %} in any new repository.
 
@@ -75,7 +75,7 @@ Wenn ein Branch geschützt ist, trifft Folgendes zu:
 - Wenn erforderliche Pull-Request-Reviews auf dem Branch aktiviert sind, kannst Du Änderungen erst dann in den Branch zusammenführen, wenn alle Anforderungen der Richtlinie für Pull-Request-Reviews erfüllt sind. Weitere Informationen findest Du unter „[Einen Pull Request zusammenführen](/articles/merging-a-pull-request).“
 - Wenn der erforderliche Review von einem Codeinhaber auf einem Branch aktiviert ist und der Code mit einem Inhaber durch einen Pull Request geändert wird, muss ein Codeinhaber den Pull Request genehmigen, bevor er zusammengeführt werden kann. Weitere Informationen findest Du unter „[Informationen zu Codeinhabern](/articles/about-code-owners).“
 - Wenn die obligatorische Commit-Signatur auf einem Branch aktiviert ist, kannst Du keine Commits an den Branch übertragen, die nicht signiert und verifiziert sind. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About required commit signing](/articles/about-required-commit-signing)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-- Wenn du den Konflikt-Editor von {% data variables.product.prodname_dotcom %} benutzt, um Konflikte für eine Pull Request zu beheben, die Du aus einem geschützten Branch erstellt hast, wird Dir {% data variables.product.prodname_dotcom %} helfen, einen alternativen Branch für den Pull-Request zu erstellen, so dass Deine Auflösung der Konflikte zusammengeführt werden kann. Weitere Informationen findest Du unter „[Einen Mergekonflikt auf {% data variables.product.prodname_dotcom %} beheben](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github).“{% endif %}
+- If you use {% data variables.product.prodname_dotcom %}'s conflict editor to fix conflicts for a pull request that you created from a protected branch, {% data variables.product.prodname_dotcom %}  helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. Weitere Informationen findest Du unter „[Einen Mergekonflikt auf {% data variables.product.prodname_dotcom %} beheben](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github).“{% endif %}
 
 ### Weiterführende Informationen
 

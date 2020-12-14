@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 ---
 
-此 API 仅适用于团队[组织](/v3/orgs)中经过身份验证的成员。 OAuth 访问令牌需要 `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。 {% data variables.product.prodname_dotcom %}  从团队 `name` 生成团队的 `slug`。
+此 API 仅适用于团队[组织](/rest/reference/orgs)中经过身份验证的成员。 OAuth 访问令牌需要 `read:org` [scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/)。 {% data variables.product.prodname_dotcom %}  从团队 `name` 生成团队的 `slug`。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -16,7 +16,7 @@ versions:
 
 ## 讨论
 
-团队讨论 API 允许您获取、创建、编辑和删除团队页面上的讨论帖子。 您可以使用团队讨论进行不特定于存储库或项目的对话。 团队[组织](/v3/orgs)的任何成员都可以创建和阅读公共讨论帖子。 有关详细信息，请参阅“[关于团队讨论](https://help.github.com/articles/about-team-discussions/)”。 要详细了解对讨论帖子的评论，请参阅[团队讨论评论 API](/v3/teams/discussion_comments)。 此 API 仅适用于团队组织中经过身份验证的成员。
+团队讨论 API 允许您获取、创建、编辑和删除团队页面上的讨论帖子。 您可以使用团队讨论进行不特定于存储库或项目的对话。 团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公共讨论帖子。 有关详细信息，请参阅“[关于团队讨论](https://help.github.com/articles/about-team-discussions/)”。 要详细了解对讨论帖子的评论，请参阅[团队讨论评论 API](/rest/reference/teams#discussion-comments)。 此 API 仅适用于团队组织中经过身份验证的成员。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}
@@ -24,7 +24,7 @@ versions:
 
 ## 讨论评论
 
-团队讨论评论 API 允许您在[团队讨论](/v3/teams/discussions)帖子上获取、 创建、编辑和删除讨论评论。 团队[组织](/v3/orgs)的任何成员都可以创建和阅读公共讨论上的评论。 有关详细信息，请参阅“[关于团队讨论](https://help.github.com/articles/about-team-discussions/)”。 此 API 仅适用于团队组织中经过身份验证的成员。
+团队讨论评论 API 允许您在[团队讨论](/rest/reference/teams#discussions)帖子上获取、 创建、编辑和删除讨论评论。 团队[组织](/rest/reference/orgs)的任何成员都可以创建和阅读公共讨论上的评论。 有关详细信息，请参阅“[关于团队讨论](https://help.github.com/articles/about-team-discussions/)”。 此 API 仅适用于团队组织中经过身份验证的成员。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussion-comments' %}{% include rest_operation %}{% endif %}

@@ -9,7 +9,9 @@ versions:
 
 ### About {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.sponsorship-details %} {% data reusables.sponsors.no-fees %} For more information, see "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.sponsorship-details %} 
+
+{% data reusables.sponsors.no-fees %} For more information, see "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
 
@@ -25,7 +27,7 @@ When you become a sponsored developer or sponsored organization, additional term
 
 {% endnote %}
 
-The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/github/site-policy/github-community-guidelines). Sponsored organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
+The {% data variables.product.prodname_matching_fund %} aims to benefit members of the {% data variables.product.prodname_dotcom %} community who develop open source software that promotes the [{% data variables.product.prodname_dotcom %} Community Guidelines](/github/site-policy/github-community-guidelines). Payments to sponsored organizations and payments from organizations are not eligible for {% data variables.product.prodname_matching_fund %}.
 
 To be eligible for the {% data variables.product.prodname_matching_fund %}, you must create a profile that will attract a community that will sustain you for the long term. For more information about creating a strong profile, see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)."
 
@@ -34,8 +36,6 @@ To be eligible for the {% data variables.product.prodname_matching_fund %}, you 
 ### Sharing feedback about {% data variables.product.prodname_sponsors %}
 
 This is just the beginning — we'd love your input to make sure {% data variables.product.prodname_sponsors %} serves your needs into the future. Please send us your feedback or suggestions by contacting [{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors). 
-
-Currently, only individual users can sponsor developers and organizations. If your organization is interested in sponsoring developers, please let us know by contacting [{% data variables.contact.github_support %}](https://support.github.com/contact?form%5Bsubject%5D=GitHub+Sponsors). 
 
 ### Further reading
 - "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"

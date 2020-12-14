@@ -2,7 +2,7 @@
 
 const path = require('path')
 const { chain, difference } = require('lodash')
-const loadPages = require('../lib/pages')
+const { loadPages } = require('../lib/pages')
 const loadSiteData = require('../lib/site-data')
 const renderContent = require('../lib/render-content')
 const allVersions = require('../lib/all-versions')
@@ -12,6 +12,7 @@ const patterns = require('../lib/patterns')
 const authenticateToAWS = require('../lib/authenticate-to-aws.js')
 const readlineSync = require('readline-sync')
 const { execSync } = require('child_process')
+const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 const uploadScript = path.join(process.cwd(), 'script/upload-images-to-s3.js')
 
 // ignore the non-enterprise default version
@@ -22,7 +23,7 @@ const versionsToCheck = Object.keys(allVersions)
 //
 // Run this script in your branch to check whether any images referenced in content are
 // not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script.
-// Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
+// Instructions for the one-time setup are at docs-content/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md
 //
 // [end-readme]
 
@@ -51,7 +52,8 @@ async function main () {
         page,
         site: siteData,
         currentVersion: version,
-        currentLanguage: 'en'
+        currentLanguage: 'en',
+        enterpriseServerVersions
       }
 
       const rendered = await renderContent(page.markdown, context)
