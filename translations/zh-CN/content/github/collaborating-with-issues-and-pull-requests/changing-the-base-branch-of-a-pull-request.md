@@ -23,7 +23,7 @@ versions:
 
 {% tip %}
 
-**Tip:** When you open a pull request, {% data variables.product.product_name %} will set the base to the commit that branch references. If the branch is updated in the future, {% data variables.product.product_name %} will not update the base branch's commit.
+**提示：**当您打开拉取请求时，{% data variables.product.product_name %} 将设置分支引用的提交的基础。 如果将来更新该分支，{% data variables.product.product_name %} 不会更新基础分支的提交。
 
 {% endtip %}
 

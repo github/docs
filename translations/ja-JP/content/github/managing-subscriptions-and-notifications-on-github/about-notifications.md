@@ -21,7 +21,12 @@ versions:
 - 特定の Issue、プルリクエスト、または Gist の会話。
 - リポジトリまたは Team ディスカッション内のすべてのアクティビティ。
 - {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。
+{% if currentVersion == "free-pro-team@latest" %}
+- Issues, pulls requests, releases and discussions (if enabled) in a repository.
+{% endif %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - リポジトリ内のリリース。
+{% endif %}
 
 フォークを除き、あなたがプッシュアクセスを持つすべてのリポジトリを自動的にWatchすることもできます。 [**Watch**] をクリックすると、手動でアクセスできる他のリポジトリを Watch できます。
 

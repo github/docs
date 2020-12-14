@@ -227,7 +227,7 @@ defaults:
 
 在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
-如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/v3/actions/workflow-jobs)”。
+如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/rest/reference/actions#workflow-jobs)”。
 
 ### **`jobs.<job_id>`**
 
@@ -446,7 +446,7 @@ steps:
     uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
-    uses: actions/heroku@master
+    uses: actions/heroku@1.0.0
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -492,7 +492,7 @@ jobs:
     steps:
       - name: My first step
         # Uses the default branch of a public repository
-        uses: actions/heroku@master
+        uses: actions/heroku@1.0.0
       - name: My second step
         # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
@@ -875,6 +875,12 @@ strategy:
 **注意：**所有 `include` 组合在 `exclude` 后处理。 这允许您使用 `include` 添加回以前排除的组合。
 
 {% endnote %}
+
+##### 在矩阵中使用环境变量
+
+You can add custom environment variables for each test combination by using the `include` key. 然后，您可以在后面的步骤中引用自定义环境变量。
+
+{% data reusables.github-actions.matrix-variable-example %}
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 

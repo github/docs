@@ -68,7 +68,7 @@ versions:
 
 ### ステップ 4. 顧客アカウントのプロビジョニング
 
-アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 [ステップ3 認可](#step-3-authorization)で受け取った顧客のアクセストークンを使い、 「[認証されたユーザのサブスクリプションのリスト](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)」エンドポイントを呼び出してください。 レスポンスには顧客の`account`情報が含まれ、その顧客が無料トライアルを利用しているかが示されます（`on_free_trial`）。 この情報を使って、セットアップとプロビジョニングを完了させてください。
+アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 [ステップ3 認可](#step-3-authorization)で受け取った顧客のアクセストークンを使い、 「[認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)」エンドポイントを呼び出してください。 レスポンスには顧客の`account`情報が含まれ、その顧客が無料トライアルを利用しているかが示されます（`on_free_trial`）。 この情報を使って、セットアップとプロビジョニングを完了させてください。
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 
@@ -76,6 +76,6 @@ versions:
 
 Organizationのメンバーがアプリケーションへのアクセスを受け取る方法は、カスタマイズできます。 いくつかの例を挙げましょう。
 
-**定額料金:** Organizationに対して定額料金での購入が行われたなら、アプリケーションはAPI経由で[Organizationの全メンバーを取得](/v3/orgs/members/#list-organization-members)して、Organizationの管理者に対してどのメンバーがインテグレーター側で有料ユーザとなるかの選択を求めることができます。
+**定額料金:** Organizationに対して定額料金での購入が行われたなら、アプリケーションはAPI経由で[Organizationの全メンバーを取得](/rest/reference/orgs#list-organization-members)して、Organizationの管理者に対してどのメンバーがインテグレーター側で有料ユーザとなるかの選択を求めることができます。
 
 **ユニット単位の料金:** ユニットシートごとにプロビジョニングする方法の1つは、ユーザがアプリケーションにログインしたときにシートを使用できるようにすることです。 顧客がシートカウントの閾値に達した場合、アプリケーションはユーザに対して{% data variables.product.prodname_marketplace %}を通じてアップグレードする必要があることを警告できます。

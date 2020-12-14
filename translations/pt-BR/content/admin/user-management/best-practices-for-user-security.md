@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas de segurança de usuários
-intro: '{% if enterpriseServerVersions contains currentVersion %}Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there {% else %}There {% endif %}are steps your users can take to help protect your enterprise.'
+intro: '{% if enterpriseServerVersions contains currentVersion %}Medidas de segurança fora do nível da instância (SSL, isolamento de subdomínio, configuração de um firewall) que um administrador do site pode implementar, há {% else %} Há{% endif %}etapas que seus usuários podem seguir para ajudar a proteger a sua empresa.'
 redirect_from:
   - /enterprise/admin/user-management/best-practices-for-user-security
 versions:
@@ -18,7 +18,7 @@ Para obter mais informações sobre como configurar a autenticação de dois fat
 
 ### Exigir um gerenciador de senhas
 
-We strongly recommend requiring your users to install and use a password manager--such as [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/)--on any computer they use to connect to your enterprise. Essa medida garante senhas mais fortes e muito menos passíveis de violação ou roubo.
+É altamente recomendável que os usuários instalem e usem um gerenciador de senhas, como, por exemplo, o [LastPass](https://lastpass.com/), [1Password](https://1password.com/) ou [Keeper](https://keepersecurity.com/)--em qualquer computador que usarem para conectar-se à sua empresa. Essa medida garante senhas mais fortes e muito menos passíveis de violação ou roubo.
 
 ### Restringir o acesso a equipes e repositórios
 

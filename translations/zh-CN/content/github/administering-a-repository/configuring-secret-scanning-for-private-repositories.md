@@ -1,6 +1,7 @@
 ---
 title: 配置私有仓库的密码扫描
 intro: '您可以配置 {% data variables.product.product_name %} 如何扫描您私有仓库中的密码。'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: '对私有仓库具有管理员权限的人员可为 {% data variables.product.prodname_secret_scanning %} 启用仓库。'
 versions:
   free-pro-team: '*'

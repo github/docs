@@ -1,0 +1,143 @@
+{% assign product = siteTree[currentLanguage][currentVersion].products[currentProduct] %}
+
+<!doctype html>
+<html lang="{{currentLanguage}}">
+  {% include head %}
+
+  <body class="d-lg-flex">
+    {% include sidebar %}
+
+    <main class="width-full">
+      {% include header %}
+      {% include deprecation-banner %}
+
+      <div class="d-flex flex-items-stretch">
+        <article class="flex-auto">
+          <div class="d-flex flex-items-center flex-justify-between bg-white text-bold py-4 px-5">
+            {% if prevRelease %}
+              <a
+                class="btn btn-outline"
+                href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ prevRelease }}/{{ currentProduct }}/release-notes">
+                {% octicon "chevron-left" %} {{ prevRelease }}
+              </a>
+            {% else %}
+              <div></div>
+            {% endif %}
+
+            <h1 class="f4 p-0 m-0">{{ currentVersion | version_num }} Release notes</h1>
+
+            {% if nextRelease %}
+              <a
+                class="btn btn-outline"
+                href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ nextRelease }}/{{ currentProduct }}/release-notes">
+                {{ nextRelease }} {% octicon "chevron-right" %}
+              </a>
+            {% else %}
+              <div></div>
+            {% endif %}
+          </div>
+
+          <div class="markdown-body">
+            {% for patch in releaseNotes %}
+              <div id="{{ patch.version }}" class="mb-10 bg-gray-light px-3 py-6 border-bottom border-top">
+                <header class="container-xl position-sticky top-0 bg-gray-light border-bottom pb-2">
+                  <div class="d-flex flex-items-baseline">
+                    <h2 class="d-flex flex-items-center border-bottom-0 mr-3 mb-0">
+                      {{ allVersions[currentVersion].versionTitle }}.{{ patch.patchVersion }}
+
+                      {% if patch.release_candidate %}
+                        <span class="IssueLabel bg-orange text-white mx-2">Release Candidate</span>
+                      {% endif %}
+                    </h2>
+
+                    <a href="https://enterprise.github.com/releases/{{ patch.version }}/download" class="f5">
+                      Download
+                    </a>
+
+                    <button class="js-print btn-link ml-3 f5">
+                      Print
+                    </button>
+                  </div>
+
+                  <p class="text-gray mt-1">{{ patch.date | date: "%B %d, %Y" }}</p>
+                </header>
+
+                <div class="container-xl">
+                  <p class="mt-3">{{ patch.intro }}</p>
+
+                  {% for section in patch.sections %}
+                    <div class="py-6 d-block d-xl-flex flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
+                      <div class="mr-2 flex-shrink-0 mb-5 col-12 col-xl-3">
+                        {% include 'release-notes-category-label' %}
+                      </div>
+
+                      <ul class="flex-auto pl-3 pl-xl-0 release-notes-list">
+                        {% for note in section[1] %}
+                          <li class="release-notes-list-item {% if note.heading %}list-style-none{% endif %}">
+                            {% if note.heading %}
+                              {% include 'release-notes-heading' %}
+                              <ul class="pl-3 pb-4 mt-2 release-notes-list">
+                                {% for subNote in note.notes %}
+                                  <li class="release-notes-list-item">{{ subNote }}</li>
+                                {% endfor %}
+                              </ul>
+                            {% else %}
+                              {{ note }}
+                            {% endif %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </article>
+
+        <aside class="markdown-body d-none d-md-block border-left no-print bg-white flex-shrink-0" style="width: 300px">
+          <nav class="position-sticky top-0">
+            <ul class="list-style-none pl-0 text-bold">
+              {% for release in releases %}
+                <li class="border-bottom">
+                  {% if release.patches %}
+                    <details class="my-0 details-reset release-notes-version-picker" aria-current="page" {% if release.version == allVersions[currentVersion].currentRelease %}open{% endif %}>
+                      <summary class="px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
+                        {{ release.version }}
+                        <div class="d-flex">
+                          <span class="text-gray-light text-mono text-small text-normal mr-1">{{ release.patches | size }} releases</span>
+                          {% octicon "chevron-down" %}
+                        </div>
+                      </summary>
+                      <ul class="bg-gray border-top list-style-none px-3 py-4 my-0">
+                        {% for patch in release.patches %}
+                          <li>
+                            <a
+                              href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ release.version }}/{{ currentProduct }}/release-notes#{{ patch.version }}"
+                              class="d-flex flex-items-center flex-justify-between">
+                              {{ patch.version }}
+                              <span class="text-gray-light text-mono text-small text-normal">{{ patch.date | date: "%B %d, %Y" }}</span>
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </details>
+                  {% else %}
+                    <a href="/{{ currentLanguage }}/{{ allVersions[currentVersion].plan }}@{{ release.version }}/{{ currentProduct }}/release-notes" class="link-gray-dark no-underline px-3 py-4 my-0 d-flex flex-items-center flex-justify-between">
+                      {{ release.version }}
+                      {% octicon "link-external" %}
+                    </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </aside>
+      </div>
+
+      <div class="border-top">
+        {% include small-footer %}
+      </div>
+    </main>
+  </body>
+</html>

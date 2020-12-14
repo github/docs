@@ -57,7 +57,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 更多信息请参阅 [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)。
@@ -106,7 +106,7 @@ jobs:
 ```
 {% endraw %}
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)”。
+更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ### 使用数据库和服务容器
 

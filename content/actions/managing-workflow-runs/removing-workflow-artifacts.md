@@ -27,7 +27,11 @@ versions:
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Under **Artifacts**, click {% octicon "trashcan" aria-label="The trashcan icon" %} next to the artifact you want to remove.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+    ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% else %}
     ![Delete artifact drop-down menu](/assets/images/help/repository/actions-delete-artifact.png)
+    {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Setting the retention period for an artifact

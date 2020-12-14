@@ -432,33 +432,33 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [create a new authorization API]: /rest/reference/oauth-authorizations#create-a-new-authorization
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[repos-api]: /v3/repos/
+[repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
-[issues-api]: /v3/issues/
-[link-header]: http://www.w3.org/wiki/LinkHeader/
-[conditional-requests]: /v3/#conditional-requests
-[rate-limiting]: /v3/#rate-limiting
-[users api]: /v3/users/#get-a-user
-[auth user api]: /v3/users/#get-the-authenticated-user
+[issues-api]: /rest/reference/issues
+[link-header]: https://www.w3.org/wiki/LinkHeader
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest#rate-limiting
+[users api]: /rest/reference/users#get-a-user
+[auth user api]: /rest/reference/users#get-the-authenticated-user
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
-[authentication]: /v3/#authentication
+[authentication]: /rest#authentication
 [2fa]: /articles/about-two-factor-authentication
 [2fa header]: /rest/overview/other-authentication-methods#working-with-two-factor-authentication
-[oauth section]: /v3/guides/getting-started/#oauth
+[oauth section]: /rest/guides/getting-started-with-the-rest-api#oauth
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
-[pagination]: /v3/#pagination
-[get repo]: /v3/repos/#get-a-repository
-[create repo]: /v3/repos/#create-a-repository-for-the-authenticated-user
-[create issue]: /v3/issues/#create-an-issue
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
 [auth guide]: /guides/basics-of-authentication
-[user repos api]: /v3/repos/#list-repositories-for-the-authenticated-user
-[other user repos api]: /v3/repos/#list-repositories-for-a-user
-[org repos api]: /v3/repos/#list-organization-repositories
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /v3/issues/#list-repository-issues
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag
-[2fa section]: /v3/guides/getting-started/#two-factor-authentication
+[2fa section]: /rest/guides/getting-started-with-the-rest-api#two-factor-authentication
