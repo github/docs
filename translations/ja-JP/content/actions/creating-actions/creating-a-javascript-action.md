@@ -176,7 +176,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-`node_modules` ディレクトリをチェックインする代わりに、[`@vercel/ncc`](https://github.com/vercel/ncc) というツールを使用して、コードとモジュールを配信用の 1 つのファイルにコンパイルすることができます。
+Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. ターミナルで次のコマンドを実行し、`vercel/ncc` をインストールします: `npm i -g @vercel/ncc`
 
@@ -256,9 +256,11 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/javascript-action-workflow-run.png)

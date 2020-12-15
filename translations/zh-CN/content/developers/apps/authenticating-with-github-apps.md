@@ -28,7 +28,7 @@ versions:
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 {% data reusables.user-settings.modify_github_app %}
-5. 在“Private keys（私钥）”中，单击 **Generate a private key（生成私钥）**。 ![生成私钥](/assets/images/github-apps/github_apps_generate_private_keys.png)
+5. In "Private keys", click **Generate a private key**. ![生成私钥](/assets/images/github-apps/github_apps_generate_private_keys.png)
 6. 您将看到一个以 PEM 格式下载至您的计算机的私钥。 确保将此文件存储下来，因为 GitHub 仅存储密钥的公共部分。
 
 {% note %}
