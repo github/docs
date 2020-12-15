@@ -123,7 +123,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using PowerShell
+#### Example using PowerShell Core
 
 {% raw %}
 ```yaml
@@ -136,7 +136,7 @@ steps:
 ```
 {% endraw %}
 
-#### Example using Cmd.exe
+#### Example using Windows `cmd`
 
 {% raw %}
 ```yaml

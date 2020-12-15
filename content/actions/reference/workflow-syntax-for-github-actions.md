@@ -615,7 +615,7 @@ You can override the default shell settings in the runner's operating system usi
 | Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
 | Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
-#### Example running a script using bash
+#### Example running a script using Bash
 
 ```yaml
 steps:
@@ -642,7 +642,7 @@ steps:
     shell: pwsh
 ```
 
-#### Example running a python script
+#### Example running a Python script
 
 ```yaml
 steps:
