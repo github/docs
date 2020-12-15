@@ -27,16 +27,16 @@ versions:
 ### Issue やプルリクエストをレポートする
 
 1. レポートする Issue またはプルリクエストに移動します。
-2. In the upper-right corner of the issue or pull request, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. Issue またはプルリクエストの右上隅にある
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックし、[**Report content**] をクリックします。
   ![コメントをレポートするボタン](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
 ### コメントをレポートする
 
 1. レポートするコメントに移動します。
-2. In the upper-right corner of the comment, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. コメントの右上隅にある
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %} をクリックし、[**Report content**] をクリックします。
 ![コメントをレポートするオプションを含むケバブメニュー](/assets/images/help/repository/menu-report-comment.png)
 {% data reusables.community.report-content %}
 
@@ -58,7 +58,7 @@ versions:
 
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/articles/setting-up-your-project-for-healthy-contributions)
 - 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)」
-- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- 「[混乱を生むコメントを管理する](/articles/managing-disruptive-comments)」{% if currentVersion == "free-pro-team@latest" %}
 - 「[ {% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
 - 「[リポジトリでのインタラクションを制限する](/github/building-a-strong-community/limiting-interactions-in-your-repository)」{% endif %}
 - 「[コメントの変更を追跡する](/articles/tracking-changes-in-a-comment)」

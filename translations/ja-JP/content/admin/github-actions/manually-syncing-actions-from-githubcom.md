@@ -24,7 +24,7 @@ If your machine has access to both systems at the same time, you can do the sync
 
 ### 必要な環境
 
-* Before using the the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
+* Before using the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
 * You must create a personal access token (PAT) on your enterprise instance that can create and write to repositories in the destination organizations. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
 ### Example: Using the `actions-sync` tool

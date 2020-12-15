@@ -1,13 +1,5 @@
 ---
 - 
-  title: Starter workflows
-  description: Workflow files for helping people get started with GitHub Actions
-  languages: TypeScript
-  href: actions/starter-workflows
-  tags:
-    - official
-    - Workflow
-- 
   title: Example services
   description: Example workflows using service containers
   languages: JavaScript
@@ -334,3 +326,10 @@
     - monorepo
     - copybara
     - Workflow
+- 
+  title: Deploy static files to GitHub Pages
+  description: GitHub Action to publish website to GitHub Pages automatically
+  languages: 'TypeScript, JavaScript'
+  href: peaceiris/actions-gh-pages
+  tags:
+    - publishing

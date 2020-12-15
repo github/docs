@@ -262,13 +262,15 @@ API v3 尽可能对每个操作使用适当的 HTTP 请求方法。
 
 ### 分页
 
-默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `?page` 参数指定更多页面。 对于某些资源，您还可以使用 `?per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `?per_page` 参数，相关示例请参阅[事件](/rest/reference/activity#events)。
+默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `page` 参数指定更多页面。 对于某些资源，您还可以使用 `per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `per_page` 参数，相关示例请参阅[事件](/rest/reference/activity#events)。
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-请注意，页码从 1 开始，省略 `?page` 参数将返回第一页。
+请注意，页码从 1 开始，省略 `page` 参数将返回第一页。
+
+有些端点使用基于光标的分页。 光标是指向结果集中位置的字符串。 使用基于光标的分页时，结果集中没有固定的“页”概念，因此无法导航到特定页面。 相反，您可以使用 `before` 或 `after` 参数遍历结果。
 
 有关分页的更多信息，请查看我们的[分页浏览][pagination-guide]指南。
 
@@ -280,12 +282,16 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-[链接标头](http://tools.ietf.org/html/rfc5988)包括分页信息：
+[链接标头](http://tools.ietf.org/html/rfc5988)包括分页信息： 例如：
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _该示例包括换行符，以提高可读性。_
+
+或者，如果端点使用基于光标的分页：
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
 此 `Link` 响应标头包含一个或多个[超媒体](/rest#hypermedia)链接关系，其中一些可能需要扩展为 [URI 模板](http://tools.ietf.org/html/rfc6570)。
 
@@ -312,7 +318,7 @@ _该示例包括换行符，以提高可读性。_
 
 {% data reusables.enterprise.rate_limit %}
 
-请注意[搜索 API 具有自定义速率限制规则](/rest/reference/search#rate-limit)。
+请注意，[搜索 API 具有自定义速率限制规则](/rest/reference/search#rate-limit)。
 
 任何 API 请求返回的 HTTP 标头都显示当前速率限制状态：
 
