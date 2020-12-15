@@ -7,6 +7,9 @@
 # A temporary image that installs production-only dependencies
 
 FROM node:14-alpine as installation
+RUN apk --no-cache add --virtual native-deps \
+    g++ gcc git libgcc libstdc++ linux-headers make python2 && \
+    npm install --quiet node-gyp -g
 ENV NODE_ENV production
 WORKDIR /usr/src/docs
 COPY package*.json ./
@@ -19,6 +22,9 @@ RUN npm ci
 # A temporary image that installs dependencies and builds the production-ready front-end bundles.
 
 FROM node:14-alpine as bundles
+RUN apk --no-cache add --virtual native-deps \
+    g++ gcc git libgcc libstdc++ linux-headers make python2 && \
+    npm install --quiet node-gyp -g
 WORKDIR /usr/src/docs
 # Install the files used to create the bundles
 COPY package*.json ./
@@ -33,7 +39,9 @@ RUN npm ci && npm run build
 # MAIN IMAGE
 
 FROM node:14-alpine
-
+RUN apk --no-cache add --virtual native-deps \
+    g++ gcc git libgcc libstdc++ linux-headers make python2 && \
+    npm install --quiet node-gyp -g
 # Let's make our home
 WORKDIR /usr/src/docs
 
