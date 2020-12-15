@@ -18,7 +18,7 @@
     "@github-docs/render-content": "^5.2.0",
     "@github/rest-api-operations": "^3.6.1",
     "@octokit/rest": "^16.38.1",
-    "@primer/css": "^15.1.0",
+    "@primer/css": "^15.2.0",
     "@primer/octicons": "^11.0.0",
     "algoliasearch": "^3.35.1",
     "babel-loader": "^8.1.0",
