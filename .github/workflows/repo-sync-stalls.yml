@@ -2,7 +2,7 @@ name: Repo Sync Stalls
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */2 * * *'
 jobs:
   check-freezer:
     name: Check for deployment freezes
