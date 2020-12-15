@@ -20,10 +20,57 @@ versions:
 
 To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the [`jobs.<job_id>.steps.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) keywords. For more information, see "[Workflow syntax for {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
+#### Example printing environment variables using Bash
+
 ```yaml
 steps:
   - name: Hello world
+    shell: bash
     run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+    env:
+      FIRST_NAME: Mona
+      middle_name: The
+      Last_Name: Octocat
+```
+
+#### Example printing environment variables using PowerShell Core
+
+```yaml
+steps:
+  - name: Hello world
+    shell: pwsh
+    run: echo "Hello world $Env:FIRST_NAME $Env:middle_name $Env:Last_Name!"
+    env:
+      FIRST_NAME: Mona
+      middle_name: The
+      Last_Name: Octocat
+```
+
+#### Example printing environment variables using Windows `cmd`
+
+```yaml
+steps:
+  - name: Hello world
+    shell: cmd
+    run: echo Hello world %FIRST_NAME% %middle_name% %Last_Name%!
+    env:
+      FIRST_NAME: Mona
+      middle_name: The
+      Last_Name: Octocat
+```
+
+#### Example printing environment variables using Python
+
+```yaml
+steps:
+  - name: Hello world
+    shell: python
+    run: |
+      import os
+      first_name = os.environ.get("FIRST_NAME", "")
+      middle_name = os.environ.get("middle_name", "")
+      last_name = os.environ.get("Last_Name", "")
+      print(f"Hello world {first_name} {middle_name} {last_name}!")
     env:
       FIRST_NAME: Mona
       middle_name: The
