@@ -22,7 +22,7 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
 
 {% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
@@ -53,14 +53,14 @@ versions:
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
   $ git push -u origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  # ローカルリポジトリの変更を、origin として指定したリモートリポジトリにプッシュする
   ```
 
 {% endmac %}
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
 
 {% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
@@ -91,14 +91,14 @@ versions:
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
   $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  # ローカルリポジトリの変更を、origin として指定したリモートリポジトリにプッシュする
   ```
 
 {% endwindows %}
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
+1. {% data variables.product.product_location %} に[新しいリポジトリ](/articles/creating-a-new-repository)を作成します。
 
 {% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
     ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
@@ -129,7 +129,7 @@ versions:
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
   $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  # ローカルリポジトリの変更を、origin として指定したリモートリポジトリにプッシュする
   ```
 
 {% endlinux %}
