@@ -1,9 +1,17 @@
 name: Check unallowed file changes
 
 on:
-  push:
   pull_request:
-    types: [opened, reopened]
+    paths:
+      - '.github/workflows/**'
+      - '.github/CODEOWNERS'
+      - 'translations/**'
+      - 'assets/fonts/**'
+      - 'data/graphql/**'
+      - 'lib/graphql/**'
+      - 'lib/redirects/**'
+      - 'lib/rest/**'
+      - 'lib/webhooks/**'
 
 jobs:
   triage:
@@ -11,27 +19,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
-      - name: Get pull request number
-        id: pull-number
-        uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          result-encoding: string
-          script: |
-            if (context.eventName == 'pull_request') {
-              return context.payload.number
-            }
-
-            const pulls = await github.repos.listPullRequestsAssociatedWithCommit({
-              ...context.repo,
-              commit_sha: context.sha
-            })
-            const pullNumber = pulls.data
-              .map(pull => pull.number)
-              .shift()
-
-            console.log(`Pull request number: ${pullNumber}`)
-            return pullNumber
       - name: Check for existing requested changes
         id: requested-change
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
@@ -41,7 +28,7 @@ jobs:
           script: |
             const pullReviews = await github.pulls.listReviews({
               ...context.repo,
-              pull_number: ${{steps.pull-number.outputs.result}}
+              pull_number: context.payload.number
             })
 
             const botReviews = pullReviews.data
@@ -105,7 +92,7 @@ jobs:
             if (translationFiles.length > 0) {
               await github.issues.addLabels({
                 ...context.repo,
-                issue_number: ${{steps.pull-number.outputs.result}},
+                issue_number: context.payload.number,
                 labels: ['localization']
               })
               reviewMessage += "\n\nIt looks like you've modified translated content. Unfortunately, we are not able to accept pull requests for translated content. Our translation process involves an integration with an external service at crowdin.com, where all translation activity happens. We hope to eventually open up the translation process to the open source community, but we're not there yet. See https://github.com/github/docs/blob/main/CONTRIBUTING.md#earth_asia-translations for more details."
@@ -113,7 +100,7 @@ jobs:
 
             await github.pulls.createReview({
               ...context.repo,
-              pull_number: ${{steps.pull-number.outputs.result}},
+              pull_number: context.payload.number,
               body: reviewMessage,
               event: 'REQUEST_CHANGES'
             })
@@ -129,7 +116,7 @@ jobs:
           script: |
             await github.pulls.dismissReview({
               ...context.repo,
-              pull_number: ${{steps.pull-number.outputs.result}},
+              pull_number: context.payload.number,
               review_id: ${{fromJson(steps.requested-change.outputs.result).id}},
               message: `✨Looks like you reverted all files we don't accept contributions for. 🙌 A member of the docs team will review your PR soon. 🚂`
             })
