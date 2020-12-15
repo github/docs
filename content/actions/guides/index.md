@@ -41,6 +41,11 @@ You can use {% data variables.product.prodname_actions %} to create custom conti
 You can use {% data variables.product.prodname_actions %} to create custom continuous deployment (CD) workflows that deploy projects to a number of cloud partner ecosystems.
 
 {% link_in_list /deploying-to-google-kubernetes-engine %}
+ You can use {% data variables.product.prodname_actions %} to create custom continuous deployment (CD) workflows that deploy projects to a number of cloud partner ecosystems.
+
+ {% link_in_list /deploying-to-amazon-elastic-container-service %}
+ {% link_in_list /deploying-to-azure-app-service %}
+ {% link_in_list /deploying-to-google-kubernetes-engine %}
 
 ### Publishing software packages
 
