@@ -21684,6 +21684,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "hasVerifiedOwner",
+          "description": "<p>Whether the creator of the app is a verified org.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "howItWorks",
           "description": "<p>A technical description of how this app works with GitHub.</p>",
           "type": "String",
