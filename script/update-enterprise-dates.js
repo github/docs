@@ -9,7 +9,7 @@ const jsonFile = require(filename)
 // [start-readme]
 //
 // Run this script during Enterprise releases and deprecations.
-// It uses the GitHub API to get dates from [`enterprise-releases`](https://github.com/github/enterprise-releases/blob/master/releases.json) and updates `lib/enterprise-dates.json`.
+// It uses the GitHub API to get dates from enterprise-releases and updates `lib/enterprise-dates.json`.
 // The help site uses this JSON to display dates at the top of some Enterprise versions.
 //
 // This script requires that you have a GitHub Personal Access Token in a `.env` file.
@@ -26,8 +26,7 @@ const jsonFile = require(filename)
 
 main()
 
-// GHE Release Lifecycle Dates:
-// https://github.com/github/enterprise-releases/blob/master/releases.json
+// GHE Release Lifecycle Dates
 async function main () {
   let raw
   try {
@@ -38,7 +37,7 @@ async function main () {
   }
   const json = prepareData(raw)
   if (json === prettify(jsonFile)) {
-    console.log('This repo is already in sync with https://github.com/github/enterprise-releases/blob/master/releases.json!')
+    console.log('This repo is already in sync with enterprise-releases!')
   } else {
     fs.writeFileSync(filename, json, 'utf8')
     console.log(`${filename} has been updated!`)

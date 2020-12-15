@@ -15,7 +15,7 @@ Billable job execution minutes are only shown for jobs run on private repositori
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under the job summary, you can view the job's execution time. To view the billable job execution time, click **Run and billable time details**.
+1. Under the job summary, you can view the job's execution time. To view details about the billable job execution time, click the time under **Billable time**.
    ![Run and billable time details link](/assets/images/help/repository/view-run-billable-time.png)
 
    {% note %}

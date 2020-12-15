@@ -139,7 +139,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a | Last commit on the `GITHUB_REF` branch | Branch that received dispatch |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a | Last commit on default branch | Default branch |
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -578,6 +578,12 @@ on:
 
 This event is similar to `pull_request`, except that it runs in the context of the base repository of the pull request, rather than in the merge commit. This means that you can more safely make your secrets available to the workflows triggered by the pull request, because only workflows defined in the commit on the base repository are run. For example, this event allows you to create workflows that label and comment on pull requests, based on the contents of the event payload. 
 
+{% warning %}
+
+**Warning**: When using the `pull_request_target` event, be aware that it runs in the context of the base repository. This means that the `GITHUB_TOKEN` has write access to the repository, and the cache shares the same scope as the base branch. As a result, do not run untrusted code in the same context, as there is a risk that it may access sensitive information and unexpectedly manipulate the workflow environment. In addition, to help prevent cache poisoning, do not save the cache if there is a possibility that the cache contents were altered.
+
+{% endwarning %}
+
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
 | [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Last commit on the PR base branch | PR base branch |
@@ -698,6 +704,8 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+{% data reusables.github-actions.branch-requirement %}
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|	
