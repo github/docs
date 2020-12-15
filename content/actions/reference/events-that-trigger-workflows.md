@@ -530,6 +530,12 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
+{% note %}
+
+**Note:** In order to protect public repositories from malicious users, all pull request workflows raised from repository forks run with a read-only token and no access to secrets.
+
+{% endnote %}
+
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `pull_request_review`
@@ -576,7 +582,13 @@ on:
 
 #### `pull_request_target`
 
-This event is similar to `pull_request`, except that it runs in the context of the base repository of the pull request, rather than in the merge commit. This means that you can more safely make your secrets available to the workflows triggered by the pull request, because only workflows defined in the commit on the base repository are run. For example, this event allows you to create workflows that label and comment on pull requests, based on the contents of the event payload. 
+{% warning %}
+
+**Warning:** The `pull_request_target` event is granted a read/write repository token and access to secrets, even from a fork. (The `pull_request` event does not grant read/write or secret access from a repository fork.) Do not check out and build or run untrusted code from pull request with this event.
+
+{% endwarning %}
+
+This event runs in the context of the base repository of the pull request, rather than in the merge commit as `pull_request` does. This is by design to prevent you from executing unsafe code that could alter your repository or steal any secrets you use in your workflow. For example, this event allows you to create workflows that label and comment on pull requests, based on the contents of the event payload. 
 
 {% warning %}
 
