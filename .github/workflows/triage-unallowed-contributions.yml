@@ -2,8 +2,6 @@ name: Check unallowed file changes
 
 on:
   push:
-  pull_request:
-    types: [opened, reopened]
 
 jobs:
   triage:
@@ -22,17 +20,8 @@ jobs:
               ...context.repo,
               commit_sha: context.sha
             })
-            const pullNumber = pulls.data
-              .map(pull => pull.number)
-              .shift()
 
-            if (pullNumber) {
-              console.log(`Pull request number: ${pullNumber}`)
-              return pullNumber
-            } else {
-              console.log(`When this workflow ran, the associated pull request was not yet created. Pushing a new commit after you've created a pull request will automatically re-run this workflow, or you can manually re-run the workflow.`)
-              process.exit(1)
-            }
+            return pulls.data.map(pull => pull.number).shift()
       - name: Check for existing requested changes
         id: requested-change
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
@@ -45,16 +34,10 @@ jobs:
               pull_number: ${{steps.pull-number.outputs.result}}
             })
 
-            const botReviews = pullReviews.data
+            return pullReviews.data
               .filter(review => review.user.login === 'github-actions[bot]')
               .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
               .shift()
-
-            if (botReviews) {
-              console.log(`Pull request reviews authored by the github-action bot: ${botReviews}`)
-            }
-            return botReviews
-
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
         id: filter
@@ -121,9 +104,7 @@ jobs:
       # When the most recent review was CHANGES_REQUESTED and the existing
       # PR no longer contains unallowed changes, dismiss the previous review
       - name: Dismiss pull request review
-        # Check that unallowed files aren't modified and that a
-        # CHANGES_REQUESTED review already exists
-        if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
+        if: ${{ steps.filter.outputs.notAllowed == 'false' && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
