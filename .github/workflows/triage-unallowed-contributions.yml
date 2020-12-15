@@ -32,12 +32,12 @@ jobs:
             })
 
             const botReviews = pullReviews.data
-              .filter(review => review.user.login === 'github-actions[bot]')
+              .filter(review => review.user.login === 'docubot')
               .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at))
               .shift()
 
             if (botReviews) {
-              console.log(`Pull request reviews authored by the github-action bot: ${botReviews}`)
+              console.log(`Pull request reviews authored by docubot: ${botReviews}`)
             }
             return botReviews
 
@@ -76,7 +76,7 @@ jobs:
         if: ${{ steps.filter.outputs.notAllowed == 'true' && (!steps.requested-change.outputs.result || fromJson(steps.requested-change.outputs.result).state != 'CHANGES_REQUESTED') }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
           script: |
             const changedFiles = ${{steps.filter.outputs.notAllowed_files}}
             const restFiles = ${{steps.filter.outputs.openapi_files}}
@@ -112,7 +112,7 @@ jobs:
         if: ${{ steps.filter.outputs.notAllowed == 'false' && steps.requested-change.outputs.result && fromJson(steps.requested-change.outputs.result).state == 'CHANGES_REQUESTED' }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES}}
           script: |
             await github.pulls.dismissReview({
               ...context.repo,
