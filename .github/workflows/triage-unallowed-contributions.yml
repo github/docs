@@ -1,7 +1,7 @@
 name: Check unallowed file changes
 
 on:
-  pull_request:
+  pull_request_target:
     paths:
       - '.github/workflows/**'
       - '.github/CODEOWNERS'
