@@ -5,6 +5,7 @@
     "NPM_CONFIG_PRODUCTION": "true"
   },
   "buildpacks": [
+    { "url": "https://github.com/DataDog/heroku-buildpack-datadog.git#1.21" },
     { "url": "heroku/nodejs" }
   ],
   "formation": {
