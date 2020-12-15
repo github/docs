@@ -37,7 +37,7 @@ versions:
 
 启用 {% data variables.product.prodname_github_connect %} 将不允许 {% data variables.product.prodname_dotcom_the_website %} 用户对 {% data variables.product.prodname_ghe_server %} 进行更改。
 
-有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
+有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/graphql/guides/managing-enterprise-accounts)”。
 ### 启用 {% data variables.product.prodname_github_connect %}
 
 1. 登录到

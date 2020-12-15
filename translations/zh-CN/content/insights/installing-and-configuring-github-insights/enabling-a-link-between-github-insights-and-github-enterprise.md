@@ -1,6 +1,6 @@
 ---
 title: 启用 GitHub Insights 与 GitHub Enterprise 之间的链接
-intro: '您可以启用一个允许用户从 {% data variables.product.prodname_ghe_server %} 导航到 {{  site.data.variables.product.prodname_insights }} 的链接。'
+intro: 'You can enable a link that will allow users to navigate from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_insights %}.'
 product: '{% data reusables.gated-features.github-insights %}'
 permissions: '{% data variables.product.prodname_ghe_server %} 的站点管理员可启用 {% data variables.product.prodname_ghe_server %} 与 {% data variables.product.prodname_insights %} 之间的链接。'
 redirect_from:

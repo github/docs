@@ -1,26 +1,26 @@
 ---
-title: Limiting interactions for your user account
-intro: 'You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.'
+title: Limitar interações para sua conta de usuário
+intro: 'Você pode aplicar temporariamente um período de atividade limitada para certos usuários em todos os repositórios públicos pertencentes à sua conta de usuário.'
 versions:
   free-pro-team: '*'
-permissions: Anyone can limit interactions for their own user account.
+permissions: Qualquer pessoa pode limitar as interações para sua própria conta de usuário.
 ---
 
-### About temporary interaction limits
+### Sobre limites temporários de interação
 
-Limiting interactions for your user account enables temporary interaction limits for all public repositories owned by your user account. {% data reusables.community.interaction-limits-restrictions %}
+Limitar interações para sua conta de usuário permite limites temporários de interação para todos os repositórios públicos pertencentes à sua conta de usuário. {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your public repositories.
+{% data reusables.community.interaction-limits-duration %} Após a duração do seu limite, os usuários podem retomar a atividade normal nos seus repositórios públicos.
 
 {% data reusables.community.types-of-interaction-limits %}
 
-When you enable user-wide activity limitations, you can't enable or disable interaction limits on individual repositories. For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/articles/limiting-interactions-in-your-repository)."
+Ao habilitar limitações de atividade para todos os usuários, você não pode habilitar ou desabilitar limites de interação em repositórios individuais. Para obter mais informações sobre limitação de atividade para um repositório individual, consulte "[Limitar interações no repositório](/articles/limiting-interactions-in-your-repository)".
 
-You can also block users. For more information, see "[Blocking a user from your personal account](/github/building-a-strong-community/blocking-a-user-from-your-personal-account)."
+Você também pode bloquear usuários. Para obter mais informações, consulte "[Bloquear um usuário da sua conta pessoal](/github/building-a-strong-community/blocking-a-user-from-your-personal-account)".
 
-### Limiting interactions for your user account
+### Limitar interações para sua conta de usuário
 
 {% data reusables.user_settings.access_settings %}
-1. In your user settings sidebar, under "Moderation settings", click **Interaction limits**. !["Interaction limits" tab in the user settings sidebar](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
+1. Na barra lateral de configurações do usuário, em "Configurações de moderação", clique em **Limites de interação**. ![Aba "Limites de interação" na barra lateral de configurações do usuário](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
   ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)

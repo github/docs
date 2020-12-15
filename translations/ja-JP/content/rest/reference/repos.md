@@ -29,7 +29,7 @@ versions:
 
 ### コミットコメントのカスタムメディアタイプ
 
-以下がコミットコメントでサポートされているメディアタイプです。 API におけるメディアタイプの使用に関する詳細は、[こちら](/v3/media/)を参照してください。
+以下がコミットコメントでサポートされているメディアタイプです。 API におけるメディアタイプの使用に関する詳細は、[こちら](/rest/overview/media-types)を参照してください。
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -65,7 +65,7 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
 
 ### リポジトリコンテンツのカスタムメディアタイプ
 
-[README](/v3/repos/contents/#get-a-repository-readme)、[ファイル](/v3/repos/contents/#get-repository-content)、[シンボリックリンク](/v3/repos/contents/#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
+[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、[シンボリックリンク](/rest/reference/repos#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -74,13 +74,13 @@ Repo Commits API は、リポジトリ内の子コミットのリスティング
 
 Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-[すべてのオブジェクト](/v3/repos/contents/#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
+[すべてのオブジェクト](/rest/reference/repos#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.object
 
 コンテンツのタイプに関係なく、一貫したオブジェクトフォーマットを取得するには、`object` メディアタイプパラメータを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
 
-You can read more about the use of media types in the API [here](/v3/media/).
+API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}

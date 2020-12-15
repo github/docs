@@ -14,7 +14,7 @@ versions:
 
 如果运行已完成，则可查看运行结果是成功、失败、已取消还是中性。 如果运行失败，您可以查看并搜索构建日志，来诊断失败原因并重新运行工作流程。 您也可以查看可计费作业执行分钟数，或下载日志和创建构件。
 
-{% data variables.product.prodname_actions %} 使用 Checks API 来输出工作流程的状态、结果和日志。 {% data variables.product.prodname_dotcom %} 对每个工作流程创建新检查套件。 检查套件包含检查工作流程中每项作业的运行，而每项作业包含步骤。 {% data variables.product.prodname_actions %} 作为工作流程中的一个步骤运行。 有关检查 API 的详细信息，请参阅“[检查](/v3/checks/)”。
+{% data variables.product.prodname_actions %} 使用 Checks API 来输出工作流程的状态、结果和日志。 {% data variables.product.prodname_dotcom %} 对每个工作流程创建新检查套件。 检查套件包含检查工作流程中每项作业的运行，而每项作业包含步骤。 {% data variables.product.prodname_actions %} 作为工作流程中的一个步骤运行。 有关检查 API 的详细信息，请参阅“[检查](/rest/reference/checks)”。
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
