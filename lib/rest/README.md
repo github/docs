@@ -1,5 +1,7 @@
 # REST
 
+👋
+
 ## About this directory
 
 * `lib/rest/index.js` is human-editable.
