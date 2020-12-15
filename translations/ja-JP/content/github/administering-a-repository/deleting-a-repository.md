@@ -17,7 +17,7 @@ versions:
 
 {% warning %}
 
-**Warnings**:
+**警告**:
 
 - Deleting a repository will **permanently** delete release attachments and team permissions. このアクションは取り消すことが**できません**。
 - Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.

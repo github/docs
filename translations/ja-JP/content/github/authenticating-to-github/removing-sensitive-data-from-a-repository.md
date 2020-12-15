@@ -40,6 +40,12 @@ $ bfg --delete-files <em>機密データを含むファイル</em>
 $ bfg --replace-text passwords.txt
 ```
 
+機密データが削除されたら、変更を {% data variables.product.product_name %} に強制的にプッシュする必要があります。
+
+```shell
+$ git push --force
+```
+
 完全な使用方法とダウンロード手順については、[BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) のドキュメントを参照してください。
 
 #### filter-branch を使用する
@@ -146,5 +152,5 @@ $ bfg --replace-text passwords.txt
 
 ### 参考リンク
 
-- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` メインページ](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

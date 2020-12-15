@@ -32,14 +32,14 @@ versions:
 
 {% data variables.product.prodname_dotcom_the_website %} にミラーされている有名なリポジトリを以下に挙げます:
 
-- [Android Open Source Project](https://github.com/aosp-mirror)
+- [Android オープンソースプロジェクト](https://github.com/aosp-mirror)
 - [The Apache Software Foundation](https://github.com/apache)
 - [The Chromium Project](https://github.com/chromium)
 - [Eclipse Foundation](https://github.com/eclipse)
 - [The FreeBSD Project](https://github.com/freebsd)
 - [Glasgow Haskell Compiler](https://github.com/ghc)
 - [GNOME](https://github.com/GNOME)
-- [Linux kernel source tree](https://github.com/torvalds/linux)
+- [Linux カーネルソースツリー](https://github.com/torvalds/linux)
 - [Qt](https://github.com/qt)
 
 独自のミラーを設定するために、公式のプロジェクトリポジトリに [post-receive フック](https://git-scm.com/book/en/Customizing-Git-Git-Hooks)を設定して、コミットを {% data variables.product.product_name %} 上にミラーされたリポジトリに自動的にプッシュするようにできます。

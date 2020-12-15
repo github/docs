@@ -20,7 +20,7 @@ versions:
 
 ### 1. Fazer backup do conteúdo da organização
 
-Depois que você exclui uma organização, o GitHub **não pode restaurar o conteúdo que você tem lá**. Portanto, antes de excluir sua organização, verifique se que você tem na conta uma cópia de todos os repositórios, wikis e problemas.
+Depois que você exclui uma organização, o GitHub **não pode restaurar o conteúdo que você tem lá**. Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
 ### 2. Excluir a organização
 
