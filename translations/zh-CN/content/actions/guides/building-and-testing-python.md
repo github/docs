@@ -217,7 +217,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 pip 软件包管理器。 在构建和测试代码之前，您可以使用 pip 从 PyPI 软件包注册表安装依赖项。 例如，下面的 YAML 安装或升级 `pip` 软件包安装程序以及 `setuptools` 和 `wheel` 软件包。
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% raw %}
 
@@ -265,7 +265,7 @@ steps:
 
 #### 缓存依赖项
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存 pip 依赖项， 并在使用[`缓存`](https://github.com/marketplace/actions/cache)操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于下面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
 

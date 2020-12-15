@@ -203,7 +203,7 @@ You can filter by the visibility of the repository containing the issues and pul
 
 | 修飾子                        | サンプル                                                                                                                                                      |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues)は、コメント数が 100 を超えるクローズした Issue にマッチします。 |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues)は、コメント数が 100 を超えるクローズした Issue にマッチします。 |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues)は、500 から 1,000 までの範囲のコメント数の Issue にマッチします。                          |
 
 ### インタラクションの数で検索

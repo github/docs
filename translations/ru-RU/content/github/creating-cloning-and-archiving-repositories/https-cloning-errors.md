@@ -45,16 +45,16 @@ You can find the URL of the local repository by opening the command line and typ
 ```shell
 $ git remote -v
 # View existing remotes
-> origin  https://github.com/github/reactivecocoa.git (fetch)
-> origin  https://github.com/github/reactivecocoa.git (push)
+> origin  https://github.com/ghost/reactivecocoa.git (fetch)
+> origin  https://github.com/ghost/reactivecocoa.git (push)
 
-$ git remote set-url origin https://github.com/github/ReactiveCocoa.git
+$ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Change the 'origin' remote's URL
 
 $ git remote -v
 # Verify new remote URL
-> origin  https://github.com/github/ReactiveCocoa.git (fetch)
-> origin  https://github.com/github/ReactiveCocoa.git (push)
+> origin  https://github.com/ghost/ReactiveCocoa.git (fetch)
+> origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
 Alternatively, you can change the URL through our [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.

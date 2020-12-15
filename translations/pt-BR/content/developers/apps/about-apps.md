@@ -67,13 +67,13 @@ Tenha isso em mente ao criar {% data variables.product.prodname_oauth_app %}s:
 * Não crie um {% data variables.product.prodname_oauth_app %} para atuar como um aplicativo para sua equipe ou empresa. {% data variables.product.prodname_oauth_app %}s efetuam a autenticação como um único usuário. Portanto, se uma pessoa criar um {% data variables.product.prodname_oauth_app %} para a empresa usar e depois sair da empresa, ninguém mais terá acesso a ele.{% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-For more on {% data variables.product.prodname_oauth_app %}s, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
+Para obter mais informações sobre {% data variables.product.prodname_oauth_app %}, consulte "[Criar um {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" e "[Registrando seu aplicativo](/rest/guides/basics-of-authentication#registering-your-app)".
 
 ### Tokens de acesso pessoal
 
 Um [token de acesso pessoal](/articles/creating-a-personal-access-token-for-the-command-line/) é uma string de caracteres que funciona da mesma forma que um [token do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/), cujas permissões você pode especificar por meio de [escopos](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). Um token de acesso pessoal também é semelhante a uma senha, mas você pode ter muitos delas e você pode revogar o acesso a cada uma a qualquer momento.
 
-Como exemplo, você pode habilitar um token de acesso pessoal para escrever em seus repositórios. If then you run a cURL command or write a script that [creates an issue](/rest/reference/issues#create-an-issue) in your repository, you would pass the personal access token to authenticate. Você pode armazenar o token de acesso pessoal como uma variável de ambiente para evitar ter de digitá-lo toda vez que você usá-lo.
+Como exemplo, você pode habilitar um token de acesso pessoal para escrever em seus repositórios. Em seguida, se você executar um comando cURL ou escrever um script que [cria um problema](/rest/reference/issues#create-an-issue) no seu repositório, você informaria o token de acesso pessoal para efetuar a autenticação. Você pode armazenar o token de acesso pessoal como uma variável de ambiente para evitar ter de digitá-lo toda vez que você usá-lo.
 
 Tenha em mente essas ideias ao usar os tokens de acesso pessoais:
 
