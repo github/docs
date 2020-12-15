@@ -68,16 +68,7 @@ export GKE_SA_KEY=$(cat key.json | base64)
 {% endraw %}
 
 #### (Optional) Set up `kustomize`
-Kustomize is an optional tool used for managing YAML specs. After  [setting up](https://github.com/kubernetes-sigs/kustomize#usage) a kustomization file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`:
-
-{% raw %}
-```bash{:copy}
-kustomize edit set image \
-gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
- 
-kustomize build . | kubectl apply -f -
-```
-{% endraw %}
+Kustomize is an optional tool used for managing YAML specs. After  [setting up](https://github.com/kubernetes-sigs/kustomize#usage) a kustomization file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`.
 
 ### Workflow
 
