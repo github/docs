@@ -66,7 +66,7 @@
                   <p class="mt-3">{{ patch.intro }}</p>
 
                   {% for section in patch.sections %}
-                    <div class="py-6 d-block d-xl-flex flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
+                    <div class="release-notes-section-{{ section[0] }} py-6 d-block d-xl-flex flex-items-baseline {% unless forloop.last %}border-bottom{% endunless %}">
                       <div class="mr-2 flex-shrink-0 mb-5 col-12 col-xl-3">
                         {% include 'release-notes-category-label' %}
                       </div>

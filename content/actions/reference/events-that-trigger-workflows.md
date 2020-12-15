@@ -139,7 +139,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a | Last commit on the `GITHUB_REF` branch | Branch that received dispatch |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a | Last commit on default branch | Default branch |
 
 {% data reusables.github-actions.branch-requirement %}
 
