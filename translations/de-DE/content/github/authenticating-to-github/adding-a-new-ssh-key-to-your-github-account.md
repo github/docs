@@ -19,9 +19,9 @@ Nachdem Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.produc
 
 {% mac %}
 
-1. Kopiere den SSH-Schlüssel in die Zwischenablage.
+1. Copy the SSH public key to your clipboard.
 
-  Wenn Deine SSH-Schlüsseldatei einen anderen Namen hat als die Datei im Beispielcode, passe den Dateinamen entsprechend an. Achte beim Kopieren des Schlüssels darauf, keine neuen Zeilen oder Leerzeichen hinzuzufügen.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. Achte beim Kopieren des Schlüssels darauf, keine neuen Zeilen oder Leerzeichen hinzuzufügen.
 
   ```shell
   $ pbcopy &lt; ~/.ssh/id_ed25519.pub
@@ -46,9 +46,9 @@ Nachdem Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.produc
 
 {% windows %}
 
-1. Kopiere den SSH-Schlüssel in die Zwischenablage.
+1. Copy the SSH public key to your clipboard.
 
-  Wenn Deine SSH-Schlüsseldatei einen anderen Namen hat als die Datei im Beispielcode, passe den Dateinamen entsprechend an. Achte beim Kopieren des Schlüssels darauf, keine neuen Zeilen oder Leerzeichen hinzuzufügen.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. Achte beim Kopieren des Schlüssels darauf, keine neuen Zeilen oder Leerzeichen hinzuzufügen.
 
   ```shell
   $ clip &lt; ~/.ssh/id_ed25519.pub
@@ -73,9 +73,9 @@ Nachdem Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.produc
 
 {% linux %}
 
-1. Kopiere den SSH-Schlüssel in die Zwischenablage.
+1. Copy the SSH public key to your clipboard.
 
-  Wenn Deine SSH-Schlüsseldatei einen anderen Namen hat als die Datei im Beispielcode, passe den Dateinamen entsprechend an. Achte beim Kopieren des Schlüssels darauf, keine neuen Zeilen oder Leerzeichen hinzuzufügen.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. Achte beim Kopieren des Schlüssels darauf, keine neuen Zeilen oder Leerzeichen hinzuzufügen.
 
   ```shell
   $ sudo apt-get install xclip
