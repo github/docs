@@ -27,7 +27,7 @@ Most workflow commands use the `echo` command in a specific format, while others
 Workflow commands use the `echo` command in a specific format.
 {% endif %}
 
-``` bash
+```bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
@@ -54,12 +54,13 @@ core.setOutput('SELECTED_COLOR', 'green');
 You can use the `set-output` command in your workflow to set the same value:
 
 {% raw %}
-``` yaml
-      - name: Set selected color
-        run: echo '::set-output name=SELECTED_COLOR::green'
-        id: random-color-generator
-      - name: Get color
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```yaml
+steps:
+  - name: Set selected color
+    run: echo "::set-output name=SELECTED_COLOR::green"
+    id: random-color-generator
+  - name: Get color
+    run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
 {% endraw %}
 
@@ -89,10 +90,28 @@ The following table shows which toolkit functions are available within a workflo
 
 Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "::set-env name=action_state::yellow"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::set-env name=action_state::yellow"
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo ::set-env name=action_state::yellow
+```
+
+#### Example using Python
+
+```python
+print("::set-env name=action_state::yellow")
 ```
 {% endif %}
 
@@ -104,10 +123,28 @@ Sets an action's output parameter.
 
 Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)."
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "::set-output name=action_fruit::strawberry"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::set-output name=action_fruit::strawberry"
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo ::set-output name=action_fruit::strawberry
+```
+
+#### Example using Python
+
+```python
+print("::set-output name=action_fruit::strawberry")
 ```
 
 {% if currentVersion ver_lt "enterprise-server@2.23" %}
@@ -117,10 +154,27 @@ echo "::set-output name=action_fruit::strawberry"
 
 Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "::add-path::/path/to/dir"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::add-path::path\to\dir"
+```
+#### Example using Windows `cmd`
+
+```batch
+echo ::add-path::path\to\dir
+```
+#### Example using Python
+
+```python
+from os.path import normpath
+print(f"::add-path::{ normpath('path/to/dir') }")
 ```
 {% endif %}
 
@@ -130,10 +184,28 @@ echo "::add-path::/path/to/dir"
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "::debug::Set the Octocat variable"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::debug::Set the Octocat variable"
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo ::debug::Set the Octocat variable
+```
+
+#### Example using Python
+
+```python
+print("::debug::Set the Octocat variable")
 ```
 
 ### Setting a warning message
@@ -142,10 +214,28 @@ echo "::debug::Set the Octocat variable"
 
 Creates a warning message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the warning occurred.
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "::warning file=app.js,line=1,col=5::Missing semicolon"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::warning file=app.js,line=1,col=5::Missing semicolon"
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo ::warning file=app.js,line=1,col=5::Missing semicolon
+```
+
+#### Example using Python
+
+```python
+print("::warning file=app.js,line=1,col=5::Missing semicolon")
 ```
 
 ### Setting an error message
@@ -154,10 +244,28 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the error occurred.
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::error file=app.js,line=10,col=15::Something went wrong"
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo ::error file=app.js,line=10,col=15::Something went wrong
+```
+
+#### Example using Python
+
+```python
+print("::error file=app.js,line=10,col=15::Something went wrong")
 ```
 
 ### Grouping log lines
@@ -169,12 +277,36 @@ echo "::error file=app.js,line=10,col=15::Something went wrong"
 
 Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
-#### Example
+#### Example using Bash
 
 ```bash
 echo "::group::My title"
 echo "Inside group"
 echo "::endgroup::"
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo ::group::My title
+echo Inside group
+echo ::endgroup::
+```
+
+#### Example using Python
+
+```python
+print("::group::My title")
+print("Inside group")
+print("::endgroup::")
 ```
 
 ![Foldable group in workflow run log](/assets/images/actions-log-group.png)
@@ -185,7 +317,7 @@ echo "::endgroup::"
 
 Masking a value prevents a string or variable from being printed in the log. Each masked word separated by whitespace is replaced with the `*` character. You can use an environment variable or string for the mask's `value`.
 
-#### Example masking a string
+#### Example masking a string using Bash
 
 When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
@@ -193,7 +325,31 @@ When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 echo "::add-mask::Mona The Octocat"
 ```
 
-#### Example masking an environment variable
+#### Example masking a string using PowerShell Core
+
+When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
+
+```powershell
+echo "::add-mask::Mona The Octocat"
+```
+
+#### Example masking a string using Windows `cmd`
+
+When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
+
+```batch
+echo ::add-mask::Mona The Octocat
+```
+
+#### Example masking a string using Python
+
+When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
+
+```python
+print("::add-mask::Mona The Octocat")
+```
+
+#### Example masking an environment variable using Bash
 
 When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
 
@@ -202,26 +358,89 @@ MY_NAME="Mona The Octocat"
 echo "::add-mask::$MY_NAME"
 ```
 
+#### Example masking an environment variable using PowerShell Core
+
+When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
+
+```powershell
+$MY_NAME="Mona The Octocat"
+echo "::add-mask::$MY_NAME"
+```
+
+#### Example masking an environment variable using Windows `cmd`
+
+When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
+
+```batch
+set MY_NAME=Mona The Octocat
+echo ::add-mask::%MY_NAME%
+```
+
+#### Example masking an environment variable using Python
+
+When you print the variable `my_name` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
+
+```python
+my_name = "Mona The Octocat"
+print(f"::add-mask::{ my_name }")
+```
+
 ### Stopping and starting workflow commands
 
 `::stop-commands::{endtoken}`
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-#### Example stopping workflow commands
+#### Example stopping workflow commands using Bash
 
-``` bash
+```bash
 echo "::stop-commands::pause-logging"
+```
+
+#### Example stopping workflow commands using PowerShell Core
+
+```powershell
+echo "::stop-commands::pause-logging"
+```
+
+#### Example stopping workflow commands using Windows `cmd`
+
+```batch
+echo ::stop-commands::pause-logging
+```
+
+#### Example stopping workflow commands using Python
+
+```python
+print("::stop-commands::pause-logging")
 ```
 
 To start workflow commands, pass the token that you used to stop workflow commands.
 
 `::{endtoken}::`
 
-#### Example starting workflow commands
+#### Example starting workflow commands using Bash
 
-``` bash
+```bash
 echo "::pause-logging::"
+```
+
+#### Example starting workflow commands using PowerShell Core
+
+```powershell
+echo "::pause-logging::"
+```
+
+#### Example starting workflow commands using Windows `cmd`
+
+```batch
+echo ::pause-logging::
+```
+
+#### Example starting workflow commands using Python
+
+```python
+print("::pause-logging::")
 ```
 
 ### Sending values to the pre and post actions
@@ -234,13 +453,13 @@ The `save-state`  command can only be run within an action, and is not available
 
 This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
-``` javascript
+```javascript
 console.log('::save-state name=processID::12345')
 ```
 
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
-``` javascript
+```javascript
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
@@ -251,9 +470,9 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 {% warning %}
 
-**Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+**Warning:** PowerShell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -266,10 +485,44 @@ steps:
 
 Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
-#### Example
+#### Example using Bash
 
 ```bash
 echo "action_state=yellow" >> $GITHUB_ENV
+```
+
+Running `$action_state` in a future step will now return `yellow`
+
+#### Example using PowerShell
+
+```powershell
+echo "action_state=yellow" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf8 -Append
+```
+
+Running `$action_state` in a future step will now return `yellow`
+
+#### Example using PowerShell Core
+
+```powershell
+echo "action_state=yellow" >> $Env:GITHUB_ENV
+```
+
+Running `$action_state` in a future step will now return `yellow`
+
+#### Example using Windows `cmd`
+
+```batch
+echo action_state=yellow >> %GITHUB_ENV%
+```
+
+Running `$action_state` in a future step will now return `yellow`
+
+#### Example using Python
+
+```python
+import os
+with open(os.environ["GITHUB_ENV"], "a", encoding="utf-8") as file:
+  file.write("action_state=yellow")
 ```
 
 Running `$action_state` in a future step will now return `yellow`
@@ -287,14 +540,15 @@ For multiline strings, you may use a delimiter with the following syntax.
 ##### Example
 
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
-```
+
+```yaml
 steps:
   - name: Set the value
     id: step_one
     run: |
-        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-        curl https://httpbin.org/json >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+      echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+      curl https://httpbin.org/json >> $GITHUB_ENV
+      echo 'EOF' >> $GITHUB_ENV
 ```
 
 ### Adding a system path
@@ -303,9 +557,36 @@ steps:
 
 Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
 
-#### Example
+#### Example using Bash
 
-``` bash
+```bash
 echo "/path/to/dir" >> $GITHUB_PATH
+```
+
+#### Example using PowerShell
+
+```powershell
+echo "path\to\dir" | Out-File -FilePath $Env:GITHUB_PATH -Encoding utf8 -Append
+```
+
+#### Example using PowerShell Core
+
+```powershell
+echo "path\to\dir" >> $Env:GITHUB_PATH
+```
+
+#### Example using Windows `cmd`
+
+```batch
+echo path\to\dir >> %GITHUB_PATH%
+```
+
+#### Example using Python
+
+```python
+import os
+from os.path import normpath
+with open(os.environ["GITHUB_PATH"], "a", encoding="utf-8") as file:
+  file.write(normpath("/path/to/dir"))
 ```
 {% endif %}
