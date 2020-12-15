@@ -3,13 +3,7 @@
 # note this file should not be translated
 productsInOrder:
   - github
-  - admin
   - discussions
   - actions
-  - packages
   - developers
-  - rest
-  - graphql
-  - insights
-  - education
-  - desktop
+  
