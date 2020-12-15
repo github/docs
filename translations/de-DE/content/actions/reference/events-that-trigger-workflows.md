@@ -137,9 +137,9 @@ jobs:
 
 #### `repository_dispatch`
 
-| Nutzlast des Webhook-Ereignisses                                     | Aktivitätstypen | `GITHUB_SHA`                          | `GITHUB_REF`                           |
-| -------------------------------------------------------------------- | --------------- | ------------------------------------- | -------------------------------------- |
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | –               | Letzter Commit im Branch `GITHUB_REF` | Branch, der den Dispatch empfangen hat |
+| Nutzlast des Webhook-Ereignisses                                     | Aktivitätstypen | `GITHUB_SHA`                      | `GITHUB_REF`    |
+| -------------------------------------------------------------------- | --------------- | --------------------------------- | --------------- |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | –               | Letzter Commit im Standard-Branch | Standard-Branch |
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -698,6 +698,8 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+{% data reusables.github-actions.branch-requirement %}
 
 | Nutzlast des Webhook-Ereignisses                         | Aktivitätstypen | `GITHUB_SHA`                      | `GITHUB_REF`    |
 | -------------------------------------------------------- | --------------- | --------------------------------- | --------------- |

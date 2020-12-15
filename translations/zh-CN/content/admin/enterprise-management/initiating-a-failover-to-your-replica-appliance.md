@@ -37,7 +37,7 @@ versions:
       ```
     - 在新的主设备上，使用 `ghe-repl-teardown` 删除 UUID。 请将 *`UUID`* 替换为您在上一步中检索到的 UUID。
       ```shell
-      $ ghe-repl-teardown -u <em>UUNID</em>
+      $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
 ### 延伸阅读
