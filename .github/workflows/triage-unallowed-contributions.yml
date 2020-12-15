@@ -18,6 +18,10 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: string
           script: |
+            if (context.eventName == 'pull_request') {
+              return context.payload.number
+            }
+
             const pulls = await github.repos.listPullRequestsAssociatedWithCommit({
               ...context.repo,
               commit_sha: context.sha
@@ -26,13 +30,15 @@ jobs:
               .map(pull => pull.number)
               .shift()
 
-            if (pullNumber) {
-              console.log(`Pull request number: ${pullNumber}`)
-              return pullNumber
-            } else {
-              console.log(`When this workflow ran, the associated pull request was not yet created. Pushing a new commit after you've created a pull request will automatically re-run this workflow, or you can manually re-run the workflow.`)
+            // Stop the workflow from running on branches that have
+            // no associated pull request yet. This workflow can run 
+            // on branches that internal contributors create before a 
+            // pull request is created. 
+            if (!pullNumber) {
               process.exit(1)
             }
+            console.log(`Pull request number: ${pullNumber}`)
+            return pullNumber
       - name: Check for existing requested changes
         id: requested-change
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
