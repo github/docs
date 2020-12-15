@@ -1,1 +1,0 @@
-8. Klicke auf der linken Seitenleiste auf **Collaborators** (Mitarbeiter). ![Menüoption „Collaborators" (Mitarbeiter) in der linken Seitenleiste](/assets/images/help/projects/project-board-collaborator-setting.png)

@@ -1,1 +1,0 @@
-4. A la derecha de "Email updates to your sponsorss" (Actualizaciones por correo electrónico para tus patrocinadores), haz clic en **New update** (Actualización nueva). ![Botón New update (Actualización nueva)](/assets/images/help/sponsors/new-update-button.png)

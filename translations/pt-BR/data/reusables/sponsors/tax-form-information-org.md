@@ -1,1 +1,0 @@
-Para obter mais informações sobre as organizações de formulários de impostos precisam preencher, consulte [Instruções para o formulário W-8BEN-E](https://www.irs.gov/pub/irs-pdf/iw8bene.pdf) no site do Serviço de Receita Interna dos Estados Unidos.

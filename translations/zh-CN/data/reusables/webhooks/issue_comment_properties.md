@@ -1,1 +1,0 @@
-`changes`|`object` | 对评论的更改，如果操作为 `edited`。 `changes[body][from]` |`string` | 正文的前版本，如果操作为 `edited`。 `issue`|`object` | 评论所属的[议题](/rest/reference/issues)。 `comment`|`object` | [评论](/rest/reference/issues#comments)本身。

@@ -1,1 +1,0 @@
-1. Unter **Linked repositories** (Verknüpfte Repositorys) suche optional nach einem Repository, das Du mit Deinem Projektboard verknüpfen möchtest. ![Suchfeld um Repositorys zu verknüpfen](/assets/images/help/projects/search-to-link-repository-on-create.png)

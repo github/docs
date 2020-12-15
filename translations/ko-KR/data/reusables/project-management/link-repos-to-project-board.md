@@ -1,1 +1,0 @@
-You can link up to twenty-five repositories to your organization or user-owned project board. Linking repositories makes it easier to add issues and pull requests from those repositories to your project board using **{% octicon "plus" aria-label="The Plus icon" %} Add cards** or from the issue or pull requests sidebar.

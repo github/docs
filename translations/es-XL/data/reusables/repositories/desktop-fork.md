@@ -1,1 +1,0 @@
-Puedes utilizar {% data variables.product.prodname_desktop %} para bifurcar un repositorio. Para obtener más información, consulta la sección "[Clonar y bifurar repositorios de {% data variables.product.prodname_desktop %}](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)".

@@ -1,1 +1,0 @@
-1. Um eine Sitzung zu widerrufen, klicke rechts neben der Sitzung, die Du widerrufen möchtest, auf „**Revoke**" (Widerrufen). ![Schaltfläche „Revoke" (Widerrufen)](/assets/images/help/saml/revoke-session.png)

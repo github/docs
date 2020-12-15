@@ -1,1 +1,0 @@
-Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_education %} school. For more information, see "[About {% data variables.product.prodname_education %}](https://education.github.com/partners/schools)."

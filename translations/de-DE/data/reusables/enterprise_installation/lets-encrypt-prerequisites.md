@@ -1,1 +1,0 @@
-Zum Verwenden der „Let's Encrypt"-Automatisierung muss Deine Appliance mit einem Hostnamen konfiguriert sein, auf den über HTTP öffentlich zugegriffen werden kann. Darüber hinaus muss festgelegt werden, dass die Appliance ausgehende HTTPS-Verbindungen herstellen kann.

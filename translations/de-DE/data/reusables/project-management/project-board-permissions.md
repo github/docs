@@ -1,3 +1,0 @@
-- **Read** (Lesen), wodurch Personen die Berechtigung erhalten, ein Projektboard anzuzeigen.
-- **Write** (Schreiben), wodurch Personen die Berechtigung erhalten, ein Projektboard anzuzeigen, Repositorys mit einem Projektboard zu verknüpfen und mit einem Projektboard zu interagieren. Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
-- **Admin** (Administrator), wodurch Personen die Berechtigung erhalten, ein Projektboard anzuzeigen, mit einem Projektboard zu interagieren, die Einstellungen des Projektboards zu verwalten und den Zugriff anderer Personen auf das Projektboard zu verwalten.

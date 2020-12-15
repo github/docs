@@ -1,1 +1,0 @@
-使い捨てドメインからメールアドレスを検証することはできません。 メールアドレスをプライベートにしておきたいなら、{% data variables.product.product_name %} が提供する`noreply`メールアドレスを使ってください。 詳しい情報については「[{% data variables.product.prodname_dotcom %}でのコミットメールアドレスの設定](/articles/setting-your-commit-email-address#setting-your-commit-email-address-on-github)」を参照してください。

@@ -1,1 +1,0 @@
-Cuando un repositorio privado se hace público.  Sin duda alguna: el mejor evento de {% data variables.product.product_name %}. 

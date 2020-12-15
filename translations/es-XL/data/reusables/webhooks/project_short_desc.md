@@ -1,1 +1,0 @@
-La actividad relacionada con los tableros de proyecto. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[proyectos](/v3/projects)".

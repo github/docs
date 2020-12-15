@@ -1,1 +1,0 @@
-書き込みアクセス権を持つキーをデプロイすれば、管理アクセス権を持つOrganizationのメンバー、あるいは個人リポジトリのコラボレータと同じアクションを行えます。 詳しい情報については「[Organizationのリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization/)」及び「[ユーザアカウントリポジトリの権限レベル](/articles/permission-levels-for-a-user-account-repository/)」を参照してください。

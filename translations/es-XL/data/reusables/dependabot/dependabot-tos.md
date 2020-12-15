@@ -1,1 +1,0 @@
-En las [Condiciones de Servicio de {% data variables.product.prodname_dotcom %}](/github/site-policy/github-terms-of-service) se incluyen al {% data variables.product.prodname_dependabot %} y a todas sus características relacionadas.

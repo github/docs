@@ -1,1 +1,0 @@
-如果您属于任何实施 SAML 单点登录的组织，则可能会提示您需要通过身份提供程序进行身份验证，然后才能授权 {% data variables.product.prodname_oauth_app %}。 有关 SAML 的更多信息，请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”。

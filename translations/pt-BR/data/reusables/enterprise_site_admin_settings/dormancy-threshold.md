@@ -1,1 +1,0 @@
-O limite de inatividade é o tempo que um usuário deve ser inativo para ser considerado inativo. O limite de inatividade padrão é de 90 dias, no entanto, você pode personalizar o limite de inatividade para {% data variables.product.product_location %}.

@@ -1,1 +1,0 @@
-4. Debajo de la pestaña "Personas", da clic en **Colaboradores externos**. ![Botón para seleccionar los colaboradores externos para una organización](/assets/images/help/organizations/select-outside-collaborators.png)

@@ -1,1 +1,0 @@
-1. Verifica el campo `repository` en el *package.json*. de tu proyecto. El campo `repository` debe coincidir con la URL de tu repositorio de {% data variables.product.prodname_dotcom %}. Por ejemplo, si la URL de tu repositorio es `github.com/my-org/test`, entonces el campo de repositorio debe ser `git://github.com/my-org/test.git`.

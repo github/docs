@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}如果要访问使用 SAML SSO 的组织，您在进行身份验证之前还必须授权个人访问令牌访问组织。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)”和“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。{% endif %}

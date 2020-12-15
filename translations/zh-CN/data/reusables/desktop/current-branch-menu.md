@@ -1,1 +1,0 @@
-1. 在 {% data variables.product.prodname_desktop %} 中，单击 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**。 ![当前分支下拉菜单](/assets/images/help/desktop/current-branch-menu.png)

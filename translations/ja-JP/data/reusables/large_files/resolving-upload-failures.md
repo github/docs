@@ -1,1 +1,0 @@
-アップロードに成功しなかった{% data variables.large_files.product_name_short %}のファイルで参照されたものがあるなら、エラーメッセージが返されます。 詳しい情報については「[{% data variables.large_files.product_name_long %}のアップロードの失敗の解決](/articles/resolving-git-large-file-storage-upload-failures)」を参照してください。

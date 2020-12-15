@@ -1,1 +1,0 @@
-1. Klicke in der Liste der Anwendungen auf die Kennzeichnung der Anwendung, die Du für die Organisation erstellt hast, die {% data variables.product.prodname_ghe_cloud %} verwendet. ![{% data variables.product.prodname_ghe_cloud %}-Anwendung in Okta](/assets/images/help/saml/okta-ghec-application.png)

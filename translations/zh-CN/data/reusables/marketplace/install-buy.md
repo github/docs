@@ -1,1 +1,0 @@
-1. 单击**免费安装**、**向 {% data variables.product.prodname_dotcom %} 购买**或**免费试用 14 天**。 ![向 {% data variables.product.prodname_dotcom %} 购买按钮](/assets/images/help/marketplace/marketplace-buy-with-github-button.png)

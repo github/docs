@@ -1,1 +1,0 @@
-1. Se a pessoa que está convidando nunca foi membro da organização ou se você excluiu seus privilégios, escolha uma função para o usuário. ![Opções para fazer do usuário um membro ou proprietário](/assets/images/help/organizations/choose-new-member-role.png)
