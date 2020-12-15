@@ -25,8 +25,8 @@ To set custom environment variables, you need to specify the variables in the wo
 ```yaml
 steps:
   - name: Hello world
-    shell: bash
     run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+    shell: bash
     env:
       FIRST_NAME: Mona
       middle_name: The
@@ -38,8 +38,8 @@ steps:
 ```yaml
 steps:
   - name: Hello world
-    shell: pwsh
     run: echo "Hello world $Env:FIRST_NAME $Env:middle_name $Env:Last_Name!"
+    shell: pwsh
     env:
       FIRST_NAME: Mona
       middle_name: The
@@ -51,8 +51,8 @@ steps:
 ```yaml
 steps:
   - name: Hello world
-    shell: cmd
     run: echo Hello world %FIRST_NAME% %middle_name% %Last_Name%!
+    shell: cmd
     env:
       FIRST_NAME: Mona
       middle_name: The
@@ -64,13 +64,13 @@ steps:
 ```yaml
 steps:
   - name: Hello world
-    shell: python
     run: |
       import os
       first_name = os.environ.get("FIRST_NAME", "")
       middle_name = os.environ.get("middle_name", "")
       last_name = os.environ.get("Last_Name", "")
       print(f"Hello world {first_name} {middle_name} {last_name}!")
+    shell: python
     env:
       FIRST_NAME: Mona
       middle_name: The
