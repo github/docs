@@ -16,7 +16,7 @@ versions:
 This guide will show you how to use GitHub Actions to build and deploy a containerized application from Google Container Registry (GCR) to GKE. 
 
 ### Prerequisites
-To adopt this workflow, you will first need to complete the following setup steps:
+To adopt this workflow, you will first need to complete the following setup steps for your [Kubernetes](https://kubernetes.io/) project. This guide assumes you already have a Dockerfile and a Kubernetes Deployment configuration file in the root of your project. See [here](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke) for a concrete example.
 
 #### Create a GKE cluster
 For example, after [authenticating](https://cloud.google.com/sdk/gcloud/reference/auth/login) with the [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference), part of the [Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk):
@@ -68,7 +68,7 @@ export GKE_SA_KEY=$(cat key.json | base64)
 {% endraw %}
 
 #### (Optional) Set up `kustomize`
-Kustomize is an optional tool used for managing YAML specs. After  [setting up](https://github.com/kubernetes-sigs/kustomize#usage) a kustomization file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`.
+Kustomize is an optional tool used for managing YAML specs. After [setting up](https://github.com/kubernetes-sigs/kustomize#usage) a kustomization file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`.
 
 ### Workflow
 
