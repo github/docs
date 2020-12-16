@@ -3,5 +3,6 @@
 # note this file should not be translated
 productsInOrder:
   - navigation
+  - development
   - github
   
