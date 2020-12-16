@@ -40,7 +40,7 @@ On Linux:
 chmod +x codeql-runner-linux
 ```
 
-On MacOS:
+macOS 의 경우 :
 
 ```shell
 chmod +x codeql-runner-macos

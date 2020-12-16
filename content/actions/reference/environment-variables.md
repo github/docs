@@ -51,8 +51,8 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_WORKSPACE` | The {% data variables.product.prodname_dotcom %} workspace directory path. The workspace directory is a copy of your repository if your workflow uses the [actions/checkout](https://github.com/actions/checkout) action. If you don't use the `actions/checkout` action, the directory will be empty. For example, `/home/runner/work/my-repo-name/my-repo-name`. |
 | `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
 | `GITHUB_REF` | The branch or tag ref that triggered the workflow. For example, `refs/heads/feature-branch-1`. If neither a branch or tag is available for the event type, the variable will not exist. |
-| `GITHUB_HEAD_REF` | Only set for forked repositories. The branch of the head repository.
-| `GITHUB_BASE_REF` | Only set for forked repositories. The branch of the base repository.
+| `GITHUB_HEAD_REF` | Only set for pull request events. The name of the head branch.
+| `GITHUB_BASE_REF` | Only set for pull request events. The name of the base branch.
 | `GITHUB_SERVER_URL`| Returns the URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
