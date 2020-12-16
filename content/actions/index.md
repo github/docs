@@ -25,18 +25,15 @@ featuredLinks:
     - /actions/reference/workflow-commands-for-github-actions
     - /actions/reference/environment-variables
 changelog:
+  - title: Workflow visualization
+    date: '2020-12-08'
+    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
   - title: Removing set-env and add-path commands on November 16
     date: '2020-11-09'
     href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
   - title: Ubuntu-latest workflows will use Ubuntu-20.04
     date: '2020-10-29'
     href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
-  - title: MacOS Big Sur Preview
-    date: '2020-10-29'
-    href: https://github.blog/changelog/2020-10-29-github-actions-macos-big-sur-preview
-  - title: Self-Hosted Runner Group Access Changes
-    date: '2020-10-16'
-    href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
 
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
   
