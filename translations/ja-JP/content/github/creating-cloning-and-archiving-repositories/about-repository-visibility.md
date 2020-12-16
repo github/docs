@@ -1,6 +1,6 @@
 ---
 title: リポジトリの可視性について
-intro: 'You can restrict who has access to a repository by choosing a repository''s visibility: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}public, internal, or private{% elsif currentVersion == "github-ae@latest"  %}private or internal{% else %} public or private{% endif %}.'
+intro: 'リポジトリの可視性を選択することで、リポジトリにアクセスできるユーザを制限できます{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}（パブリック、内部、プライベート{% elsif currentVersion == "github-ae@latest"  %}{% else %}パブリックまたはプライベートなど）{% endif %}。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -9,15 +9,15 @@ versions:
 
 ### リポジトリの可視性について
 
-{% if currentVersion == "github-ae@latest" %}When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.{% else %}When you create a repository, you can choose to make the repository public or private.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} If you're creating the repository in an organization{% if currentVersion == "free-pro-team@latest" %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}
+{% if currentVersion == "github-ae@latest" %} ユーザアカウント所有のリポジトリを作成すると、リポジトリは常にプライベートになります。 Organization 所有のリポジトリを作成するときに、プライベートリポジトリにするか内部リポジトリにするかを選択できます。{% else %}リポジトリを作成するときに、リポジトリをパブリックにするかプライベートにするかを選択できます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} Enterprise アカウントが所有する Organization {% if currentVersion == "free-pro-team@latest" %} でリポジトリを作成している場合は{% endif %}、リポジトリを内部にすることもできます。{% endif %}{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 If
-{% data variables.product.product_location %} is not in private mode or behind a firewall, public repositories are accessible to everyone on the internet. Otherwise, public repositories are available to everyone using {% data variables.product.product_location %}, including outside collaborators. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. {% if currentVersion ver_gt "enterprise-server@2.19" %} Internal repositories are accessible to enterprise members. 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。{% endif %}
+{% data variables.product.product_location %} はプライベートモードでもファイアウォールの内側にありません。インターネット上のすべてのユーザがパブリックリポジトリにアクセスできます。 そうではない場合、外部のコラボレータを含め、{% data variables.product.product_location %} を使用するすべてのユーザがパブリックリポジトリを利用できます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 {% if currentVersion ver_gt "enterprise-server@2.19" %} Enterprise メンバーは内部リポジトリにアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。{% endif %}
 {% elsif currentVersion == "github-ae@latest" %}
-Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 内部リポジトリには、すべての Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
 {% else %}
-Public repositories are accessible to everyone on the internet. Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members. Internal repositories are accessible to enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+パブリックリポジトリには、インターネット上のすべてのユーザがアクセスできます。 プライベートリポジトリには、自分、明示的にアクセスを共有するユーザ、および Organization リポジトリの場合は特定の Organization メンバーのみがアクセスできます。 内部リポジトリには、Enterprise メンバーがアクセスできます。 詳しい情報については、「[内部リポジトリについて](#about-internal-repositories)」を参照してください。
 {% endif %}
 
 Organization のオーナーは、Organization 内で作成されたすべてのリポジトリにいつでもアクセスできます。 詳細は「[Organization のリポジトリ権限レベル](/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization)」を参照してください。
@@ -29,15 +29,15 @@ Organization のオーナーは、Organization 内で作成されたすべての
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.internal-repos %}
+**注釈:** {% data reusables.gated-features.internal-repos %}
 
 {% endnote %}
 
 {% data reusables.repositories.about-internal-repos %}インナーソースに関する詳しい情報については、{% data variables.product.prodname_dotcom %}のホワイトペーパー「[インナーソース入門](https://resources.github.com/whitepapers/introduction-to-innersource/)」を参照してください。
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% if currentVersion == "free-pro-team@latest" %}outside of the enterprise{% else %}who are not members of an organization{% endif %}, including outside collaborators on organization repositories. For more information, see {% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}"[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and {% endif %}"[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)."
+すべての Enterprise メンバーは内部リポジトリへの読み取り権限を持っていますが、内部リポジトリは、Organization リポジトリの外部のコラボレータを含む、Organization メンバーではない Enterprise 外{% else %}のユーザ {% if currentVersion == "free-pro-team@latest" %} には表示されません{% endif %}。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or "github-ae@latest" %}「[Enterprise アカウントのロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)」および{% endif %}「[Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)」を参照してください。
 
 {% data reusables.repositories.internal-repo-default %}
 
-If a user is removed from all organizations owned by the enterprise, that user's forks of internal repositories are removed automatically.
+Enterprise が所有するすべての Organization からユーザが削除されると、そのユーザの内部リポジトリのフォークは自動的に削除されます。
 {% endif %}

@@ -16,7 +16,7 @@ versions:
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+您可以在 {% data variables.product.product_name %} 仓库中存储各种项目，包括内部来源项目。 通过内部源代码，您可以分享代码来获取更好、更可靠的软件。 有关内部资源的更多信息，请参阅 {% data variables.product.company_short %} 的白皮书“[内部资源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
 {% endif %}
 
@@ -32,7 +32,7 @@ You can store a variety of projects in {% data variables.product.product_name %}
 
 {% data reusables.repositories.create_new %}
 2. 为仓库键入简短、令人难忘的名称。 例如 "hello-world"。 ![用于输入仓库名称的字段](/assets/images/help/repository/create-repository-name.png)
-3. （可选）添加仓库的说明。 For example, "My first repository on
+3. （可选）添加仓库的说明。 例如“我在
 {% data variables.product.product_name %}。"
   ![用于输入仓库说明的字段](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}

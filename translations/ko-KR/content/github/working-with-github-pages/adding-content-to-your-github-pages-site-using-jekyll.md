@@ -51,7 +51,7 @@ Your theme includes default layouts, includes, and stylesheets that will automat
 4. Create a new file called _YYYY-MM-DD-NAME-OF-POST.md_, replacing _YYYY-MM-DD_ with the date of your post and _NAME-OF-POST_ with the name of your post.
 4. Add the following YAML frontmatter to the top of the file, replacing _POST TITLE_ with the post's title, _YYYY-MM-DD hh:mm:ss -0000_ with the date and time for the post, and _CATEGORY-1_ and _CATEGORY-2_ with as many categories you want for your post.
   ```shell
-  layout: page
+  layout: post
   title: "<em>POST TITLE</em>"
   date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
   categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>

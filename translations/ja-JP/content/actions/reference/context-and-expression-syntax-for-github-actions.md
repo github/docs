@@ -75,7 +75,7 @@ env:
 - `a-Z` または `_` で始まる。
 - `a-Z` 、`0-9`、 `-`、または`_`が続く。
 
-#### **`github` コンテキスト**
+#### `github` コンテキスト
 
 `github` コンテキストは、ワークフローの実行および、その実行をトリガーしたイベントの情報を含みます。 ほとんどの `github` コンテキストデータは、環境変数で読み取ることができます。 環境変数に関する詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
 
@@ -103,7 +103,7 @@ env:
 | `github.workflow`         | `string` | ワークフローの名前。 ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。                                                                                                                                                                                                  |
 | `github.workspace`        | `string` | [`checkout`](https://github.com/actions/checkout)アクションを使う際の、ステップにとってのデフォルトのワーキングディレクトリであり、リポジトリのデフォルトの場所です。                                                                                                                                                                         |
 
-#### **`env`コンテキスト**
+#### `env`コンテキスト
 
 `env`コンテキストには、ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 ワークフローでの環境変数の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)」を参照してください。
 
@@ -117,7 +117,7 @@ env:
 | `env.<env name>` | `string` | 特定の環境変数の値。                                                     |
 
 
-#### **`job` コンテキスト**
+#### `job` コンテキスト
 
 `job` コンテキストは、現在実行中のジョブに関する情報を含みます。
 
@@ -133,7 +133,7 @@ env:
 | `job.services.<service id>.ports`   | `オブジェクト` | サービスコンテナの公開ポート。                                                                                                                                                                     |
 | `job.status`                              | `string` | ジョブの現在の状態。 `success`、`failure`、`cancelled` のいずれかの値をとります。                                                                                                                            |
 
-#### **`steps` コンテキスト**
+#### `steps` コンテキスト
 
 `steps` コンテキストは、すでに実行中のジョブ内のステップに関する情報を含みます。
 
@@ -145,7 +145,7 @@ env:
 | `steps.<step id>.outcome`                     | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)が適用される前の完了したステップの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 `continue-on-error`のステップが失敗すると、`outcome`は`failure`になりますが、最終的な`conclusion`は`success`になります。 |
 | `steps.<step id>.outputs.<output name>` | `string` | 特定の出力の値。                                                                                                                                                                                                                                                                           |
 
-#### **`runner`コンテキスト**
+#### `runner`コンテキスト
 
 `runner`コンテキストには、現在のジョブを実行しているランナーに関する情報が含まれています。
 
@@ -155,7 +155,7 @@ env:
 | `runner.temp`       | `string` | ランナー用のテンポラリディレクトリのパス。 このディレクトリは、セルフホストランナーの場合であっても、各ジョブの開始時点では空であることが保証されています。                                                                                                                                                                           |
 | `runner.tool_cache` | `string` | {% data variables.product.prodname_dotcom %}ホストランナーにプレインストールされているいくつかのツールを含むディレクトリのパス。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners/#supported-software)」を参照してください。 |
 
-#### **`needs`コンテキスト**
+#### `needs`コンテキスト
 
 `needs`コンテキストは、現在のジョブの依存関係として定義されたすべてのジョブからの出力を含みます。 ジョブの依存関係の定義に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
 
