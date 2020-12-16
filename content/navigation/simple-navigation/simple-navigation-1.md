@@ -1,5 +1,5 @@
 ---
-title: About branch restrictions
+title: About OsmAnd Navigation 1
 intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
