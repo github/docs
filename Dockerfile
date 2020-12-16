@@ -58,18 +58,22 @@ COPY --chown=node:node --from=bundles /usr/src/docs/dist /usr/src/docs/dist
 ENV NODE_ENV production
 
 # Copy only what's needed to run the server
+COPY --chown=node:node server.js ./server.js
+COPY --chown=node:node package*.json ./
+COPY --chown=node:node feature-flags.json ./
+COPY --chown=node:node middleware ./middleware
+COPY --chown=node:node lib ./lib
+
+# mounted 
 # Copy only what's needed to run the server
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node data ./data
 COPY --chown=node:node layouts ./layouts
 COPY --chown=node:node includes ./includes
-COPY --chown=node:node lib ./lib
-COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node translations ./translations
-COPY --chown=node:node server.js ./server.js
-COPY --chown=node:node package*.json ./
-COPY --chown=node:node feature-flags.json ./
+
+
 
 EXPOSE 4000
 #CMD tail -f /dev/null
