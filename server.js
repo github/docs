@@ -21,10 +21,6 @@ if (!module.parent) {
         // If in a true production environment, wait for the cache to be fully warmed.
         if (process.env.HEROKU_PRODUCTION_APP || process.env.GITHUB_ACTIONS) {
           await warmServer()
-        } else {
-          // If not in a true production environment, don't wait for the cache to be fully warmed.
-          // This avoids deployment timeouts in environments with slower servers.
-          warmServer()
         }
       }
 

@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**Warning:** If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
+**警告:** 2 要素認証を必要とする Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部のコラボレータが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
 
@@ -24,7 +24,7 @@ Organization から自分を削除するには:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Click **Disable**. ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
+3. [**Disable**] をクリックします。 ![[Disable two-factor authentication] ボタン](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### 参考リンク
 

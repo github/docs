@@ -29,6 +29,18 @@ versions:
 
 ![取消审查按钮](/assets/images/help/pull_requests/cancel-review-button.png)
 
+{% if currentVersion == "free-pro-team@latest" %}
+### 查看依赖项更改
+
+如果拉取请求包含对依赖项的更改，您可以使用清单或锁定文件的依赖项审阅来查看更改的内容，并检查更改是否引入安全漏洞。 For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+{% endif %}
+
 ### 将文件标记为已查看
 
 在完成审查文件后，您可以将文件标记为已查看，该文件将会收起。 如果查看过的文件有更改，将会取消已查看的标记。
@@ -53,8 +65,5 @@ versions:
 
 ### 延伸阅读
 
-- “[关于拉取请求审查](/articles/about-pull-request-reviews)”
-- "[关于拉取请求的必要审查](/articles/about-required-reviews-for-pull-requests)"
-- “[批准需要审查的拉取请求](/articles/approving-a-pull-request-with-required-reviews)”
-- "[评论拉取请求](/articles/commenting-on-a-pull-request)"
-- "[按审查状态过滤拉取请求](/articles/filtering-pull-requests-by-review-status)"
+- "[关于拉取请求的必要审查](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
+- "[按审查状态过滤拉取请求](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

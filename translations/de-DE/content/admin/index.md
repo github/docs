@@ -28,3 +28,5 @@ versions:
 {% link_with_intro /packages %}
 
 {% link_with_intro /enterprise-support %}
+
+{% link_with_intro /release-notes %}
