@@ -96,7 +96,7 @@
     "ajv": "^6.11.0",
     "async": "^3.2.0",
     "await-sleep": "0.0.1",
-    "aws-sdk": "^2.610.0",
+    "aws-sdk": "^2.799.0",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.0.0",
     "commander": "^6.2.0",
