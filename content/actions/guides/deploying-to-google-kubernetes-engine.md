@@ -11,68 +11,89 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
-[Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine) (GKE) is a managed Kubernetes cluster service from Google Cloud and is a great option for hosting your containerized workloads in the cloud or on premise.
 
-This guide will show you how to use GitHub Actions to build and deploy a containerized application from Google Container Registry (GCR) to GKE. 
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application in Google Container Registry (GCR) and deploy it to Google Kubernetes Engine (GKE).
+
+GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
 ### Prerequisites
-To adopt this workflow, you will first need to complete the following setup steps for your [Kubernetes](https://kubernetes.io/) project. This guide assumes you already have a Dockerfile and a Kubernetes Deployment configuration file in the root of your project. See [here](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke) for a concrete example.
+Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file. For an example, see [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
 
-#### Create a GKE cluster
-For example, after [authenticating](https://cloud.google.com/sdk/gcloud/reference/auth/login) with the [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference), part of the [Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk):
+#### Creating a GKE cluster
+
+To create the GKE cluster, you will first need to authenticate using the `gcloud` CLI. For more information on this step, see the following articles:
+- [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login).
+- [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference).
+- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk).
+
+For example:
 
 {% raw %}
 ```bash{:copy}
-gcloud container clusters create $GKE_CLUSTER \
+$ gcloud container clusters create $GKE_CLUSTER \
 	--project=$GKE_PROJECT \
 	--zone=$GKE_ZONE
 ```
 {% endraw %}
 
-#### Enable required APIs
-The Kubernetes Engine and Container Registry APIs are needed:
+#### Enabling the APIs
+
+Enable the Kubernetes Engine and Container Registry APIs. For example:
 
 {% raw %}
 ```bash{:copy}
-gcloud services enable \
+$ gcloud services enable \
 	containerregistry.googleapis.com \
 	container.googleapis.com
 ```
 {% endraw %}
 
-#### Configure service account and store credentials as a secret, `GKE_SA_KEY`
-Create a new service account, add roles to it, retrieve keys for it, and store it as a base64-encoded, [encrypted repository secret](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) named `GKE_SA_KEY`.
+#### Configuring a service account and storing its credentials
 
-Also store the project ID as a secret named `GKE_PROJECT`.
+This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded [encrypted repository secret](/actions/reference/encrypted-secrets) named `GKE_SA_KEY`.
 
-{% raw %}
-```bash{:copy}
-# Create new service account
-gcloud iam service-accounts create $SA_NAME
- 
-# Retrieve email address of service account just created
-gcloud iam service-accounts list
- 
-# Add roles to service account
-# Note: restrict these further in production
-gcloud projects add-iam-policy-binding $GKE_PROJECT \
-	--member=serviceAccount:$SA_EMAIL \
-	--role=roles/container.admin \
-	--role=roles/storage.admin
- 
-# Download a JSON keyfile
-gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
- 
-export GKE_SA_KEY=$(cat key.json | base64)
-```
-{% endraw %}
+1. Create a new service account:
+  {% raw %}
+  ```
+  $ gcloud iam service-accounts create $SA_NAME
+  ```
+  {% endraw %}
+1. Retrieve the email address of the service account you just created:
+  {% raw %}
+  ```
+  $ gcloud iam service-accounts list
+  ```
+  {% endraw %}
+1. Add roles to the service account. Note: Apply more restrictive roles to suit your requirements.
+  {% raw %}
+  ```
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/container.admin \
+    --role=roles/storage.admin
+  ```
+  {% endraw %}
+1. Download the JSON keyfile for the service account:
+  {% raw %}
+  ```
+  $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
+  ```
+  {% endraw %}
+1. Store the project ID as a secret named `GKE_PROJECT`:
+  {% raw %}
+  ```
+  $ export GKE_SA_KEY=$(cat key.json | base64)
+  ```
+  {% endraw %}
 
-#### (Optional) Set up `kustomize`
-Kustomize is an optional tool used for managing YAML specs. After [setting up](https://github.com/kubernetes-sigs/kustomize#usage) a kustomization file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`.
+#### (Optional) Configuring kustomize
+Kustomize is an optional tool used for managing YAML specs. After creating a _kustomization_ file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. For more information, see [kustomize usage](https://github.com/kubernetes-sigs/kustomize#usage).
 
-### Workflow
+### Creating the workflow
 
-Now that the prerequisite steps are done, consider the following workflow, which will build and push a container image to GCR, and then use Kubernetes native tools like `kubectl` and `kustomize` to pull this image into the cluster deployment.
+Once you've completed the prerequisites, you can proceed with creating the workflow.
+
+The following example workflow demonstrates how to build a container image and push it to GCR. It then uses the Kubernetes tools (such as `kubectl` and `kustomize`) to pull the image into the cluster deployment.
 
 {% raw %}
 ```yaml{:copy}
@@ -84,9 +105,9 @@ on:
  
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-1    # TODO: update to cluster name
-  GKE_ZONE: us-central1-c   # TODO: update to cluster zone
-  DEPLOYMENT_NAME: gke-test # TODO: update to deployment name
+  GKE_CLUSTER: cluster-1    # Add your cluster name here.
+  GKE_ZONE: us-central1-c   # Add your cluster zone here.
+  DEPLOYMENT_NAME: gke-test # Add your deployment name here.
   IMAGE: static-site
  
 jobs:
@@ -146,7 +167,8 @@ jobs:
 {% endraw %}
 
 ### Additional resources
-The following additional resources may also be of use:
+
+For more information on the tools used in these examples, see the following documentation:
 
 1.  [GKE starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/google.yml) for the full starter workflow
 2.  [Google GitHub actions example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/) for more starter workflows and accompanying code
