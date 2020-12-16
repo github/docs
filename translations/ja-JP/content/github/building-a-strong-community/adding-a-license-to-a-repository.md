@@ -40,7 +40,7 @@ versions:
 4. [**Edit new file**] タブで、使用したいライセンスの全文を貼り付けます。
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-7. コミットメッセージフィールドの下で、コミットを追加を現在のブランチか新しいブランチから選択してください。 If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[Creating a pull request](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)". ![コミットブランチのオプション](/assets/images/help/repository/choose-commit-branch.png)
+7. コミットメッセージフィールドの下で、コミットを追加を現在のブランチか新しいブランチから選択してください。 現在のブランチが `main` の場合、コミット先として新しいブランチを作成してからプルリクエストを作成する必要があります。 詳しい情報については、「[プルリクエストを作成する](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)」を参照してください。 ![コミットブランチのオプション](/assets/images/help/repository/choose-commit-branch.png)
 8. [**Commit new file**] をクリックします。 ![ブランチへのライセンスのコミット](/assets/images/help/repository/license-submit-tool.png)
 
 {% endif %}

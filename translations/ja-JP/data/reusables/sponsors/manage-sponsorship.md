@@ -1,0 +1,1 @@
+1. To the right of your current tier, click **Manage**. ![スポンサーシップの管理ボタン](/assets/images/help/sponsors/manage-your-sponsorship-button.png)

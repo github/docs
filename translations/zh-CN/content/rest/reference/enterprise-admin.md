@@ -58,6 +58,16 @@ http(s)://<em>hostname</em>/
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
+
+## 审核日志
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 ## 计费
 
 {% for operation in currentRestOperations %}

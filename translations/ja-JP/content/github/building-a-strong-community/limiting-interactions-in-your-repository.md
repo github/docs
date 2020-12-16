@@ -1,30 +1,30 @@
 ---
 title: リポジトリでのインタラクションを制限する
-intro: 'You can temporarily enforce a period of limited activity for certain users on a public repository.'
+intro: 'パブリックリポジトリ上の特定のユーザに対して、一定期間アクティビティ制限を適用することができます。'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
-permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+permissions: リポジトリへの管理者権限を持つユーザは、そのリポジトリでのインタラクションを一時的に制限できます。
 ---
 
-### About temporary interaction limits
+### 一時的なインタラクションの制限について
 
 {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your repository.
+{% data reusables.community.interaction-limits-duration %} 制限期間が過ぎると、ユーザはリポジトリで通常のアクティビティを再開できます。
 
 {% data reusables.community.types-of-interaction-limits %}
 
-You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/github/building-a-strong-community/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/github/building-a-strong-community/limiting-interactions-in-your-organization)."
+ユーザアカウントまたは Organization が所有するすべてのリポジトリでアクティビティ制限を有効にすることもできます。 ユーザ全体または Organization 全体の制限が有効になっている場合、アカウントが所有する個々のリポジトリのアクティビティを制限することはできません。 詳しい情報については、「[ユーザアカウントのインタラクションを制限する](/github/building-a-strong-community/limiting-interactions-for-your-user-account)」と「[Organization 内のインタラクションを制限する](/github/building-a-strong-community/limiting-interactions-in-your-organization)」を参照してください。
 
 ### リポジトリでのインタラクションを制限する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click **Moderation settings**. !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**. ![リポジトリの設定での [Interaction limits] ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. 左サイドバーで [**Moderation settings**] をクリックします。 ![[Repository settings] サイトバーの [Moderation settings]](/assets/images/help/repository/repo-settings-moderation-settings.png)
+1. [Moderation settings] で、[**Interaction limits**] をクリックします。 ![リポジトリの設定での [Interaction limits] ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
   ![[Temporary interaction limits] のオプション](/assets/images/help/repository/temporary-interaction-limits-options.png)
 

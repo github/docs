@@ -11,7 +11,7 @@ versions:
 
 {% data reusables.desktop.about-github-desktop %}
 
-For more information about {% data variables.product.prodname_desktop %}, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation.
+{% data variables.product.prodname_desktop %} の詳細については、{% data variables.product.prodname_desktop %} ドキュメントの「[{% data variables.product.prodname_desktop %} のインストールと設定](/desktop/installing-and-configuring-github-desktop)」を参照してください。
 
 ### フィードバックを送る
 

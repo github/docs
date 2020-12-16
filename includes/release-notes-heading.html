@@ -1,0 +1,5 @@
+{% assign slug = note.heading | slugify %}
+
+<h4 id="{{ slug }}" class="release-notes-section-heading text-uppercase text-bold">
+  <a href="#{{ slug }}" class="text-inherit">{{ note.heading }}</a>
+</h4>

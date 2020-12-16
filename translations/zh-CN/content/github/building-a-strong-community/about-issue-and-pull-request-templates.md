@@ -13,7 +13,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-You can create default issue and pull request templates for your organization or user account. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+您可以为组织或用户帐户创建议题和拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
 
 {% endif %}
 

@@ -91,7 +91,7 @@ steps:
 
 ### Memorizar dependências
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. Após a conclusão bem-sucedida, a sua cache do pacote do Gradle local será armazenada na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios de pacotes remotos. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, a sua cache do pacote do Gradle local será armazenada na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios de pacotes remotos. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
