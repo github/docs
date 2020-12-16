@@ -8,6 +8,7 @@
     <a href="/{{ currentLanguage }}" class="h4-mktg text-white no-underline no-wrap pl-2 flex-auto">{% data ui.header.github_docs %}</a>
   </div>
 
+  <nav>
     {% if error == '404' or page.relativePath == 'index.md' %}
     <ul class="sidebar-products mt-4">
       {% include sidebar-homepage %}
@@ -17,4 +18,5 @@
       {% include sidebar-specific-product %}
     </ul>
     {% endif %}
+  </nav>
 </div>
