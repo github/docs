@@ -33,8 +33,8 @@ Sie können Docker-Container- und JavaScript-Aktionen erstellen. Für Aktionen w
 | Typ                                  | Betriebssystem        |
 | ------------------------------------ | --------------------- |
 | Docker-Container                     | Linux                 |
-| JavaScript                           | Linux, MacOS, Windows |
-| Zusammengesetzte Ausführungsschritte | Linux, MacOS, Windows |
+| JavaScript                           | Linux, macOS, Windows |
+| Zusammengesetzte Ausführungsschritte | Linux, macOS, Windows |
 
 #### Docker-Containeraktionen
 

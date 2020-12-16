@@ -83,8 +83,8 @@ GitHub コミュニティサポートには、[コミュニティフォーラム
 
 現在請求書をご利用の場合は、詳細について営業担当者にメールでお問い合わせください。 営業担当者が不明な場合は、支払いマネージャーまたはアカウント所有者にお問い合わせください。
 
-### 米国政府の制裁が適用される地域のユーザと Organization にどのように影響しますか？ government sanctions are applied?
+### 米国政府の制裁が適用される地域のユーザと Organization にどのように影響しますか？ -
 
-Due to U.S. 米国の貿易管理法の制限により、GitHub は米国の制裁対象地域のアカウントにプライベートリポジトリサービスと有料サービスを提供できません。 sanctioned regions. ただし、GitHub は無料の公開リポジトリサービスへのアクセスを保持しています。 詳細については、「[GitHub と貿易管理](/github/site-policy/github-and-trade-controls)」をご覧ください。
+- 米国の貿易管理法の制限により、GitHub は米国の制裁対象地域のアカウントにプライベートリポジトリサービスと有料サービスを提供できません。 - ただし、GitHub は無料の公開リポジトリサービスへのアクセスを保持しています。 詳細については、「[GitHub と貿易管理](/github/site-policy/github-and-trade-controls)」をご覧ください。
 
-GitHub は、無料のプライベートリポジトリを含め、認可された地域の開発者が無料のコードコラボレーションサービスに最大限にアクセスできるように、米国の規制当局に引き続き提唱していきます。 regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions.
+GitHub は、無料のプライベートリポジトリを含め、認可された地域の開発者が無料のコードコラボレーションサービスに最大限にアクセスできるように、米国の規制当局に引き続き提唱していきます。 - 当社は、これらの無料サービスを提供することが、 各地域での情報の自由な流れと言論の自由を奨励するという米国の外交政策をサポートすることに繋がると信じています。

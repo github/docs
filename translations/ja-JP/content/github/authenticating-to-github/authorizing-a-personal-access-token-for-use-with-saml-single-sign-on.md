@@ -15,7 +15,7 @@ versions:
 {% data reusables.user_settings.personal_access_tokens %}
 3. 認可したいトークンの隣の [**Enable SSO**] (SSO を有効化) または [**Disable SSO**] (SSOを無効化) をクリックします。 ![SSO トークン認可ボタン](/assets/images/help/settings/sso-allowlist-button.png)
 4. アクセストークンを認可する Organization を見つけます。
-4. Click **Authorize**. ![トークン認可ボタン](/assets/images/help/settings/token-authorize-button.png)
+4. [**Authorize**] をクリックします。 ![トークン認可ボタン](/assets/images/help/settings/token-authorize-button.png)
 
 ### 参考リンク
 

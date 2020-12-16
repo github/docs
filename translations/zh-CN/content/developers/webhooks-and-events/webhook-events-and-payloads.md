@@ -145,7 +145,7 @@ The unique properties for a webhook event are the same properties you'll find in
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -445,7 +445,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 #### Web 挂钩有效负载对象
 
 {% data reusables.webhooks.installation_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
@@ -469,7 +469,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 #### Web 挂钩有效负载对象
 
 {% data reusables.webhooks.installation_repositories_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
@@ -1047,7 +1047,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 | 键        | 类型    | 描述                                           |
 | -------- | ----- | -------------------------------------------- |
-| `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。 This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
+| `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1098,6 +1098,31 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 {{ webhookPayloadsForCurrentVersion.repository_vulnerability_alert.create }}
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+### secret_scanning_alert
+
+{% data reusables.webhooks.secret_scanning_alert_event_short_desc %}
+
+#### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- {% data variables.product.prodname_github_app %}s with the `secret_scanning_alerts:read` permission
+
+#### Web 挂钩有效负载对象
+
+{% data reusables.webhooks.secret_scanning_alert_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+`sender` | `object` | If the `action` is `resolved` or `reopened`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
+
+#### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
 ### security_advisory
@@ -1237,9 +1262,9 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 #### Web 挂钩有效负载对象
 
-| 键    | 类型   | 描述                                                                               |
-| ---- | ---- | -------------------------------------------------------------------------------- |
-| `团队` | `对象` | The [team](/rest/reference/teams) that was modified.  **注：**较旧的事件可能不会在有效负载中包括此值。 |
+| 键    | 类型   | 描述                                                           |
+| ---- | ---- | ------------------------------------------------------------ |
+| `团队` | `对象` | 被修改的[团队](/rest/reference/teams)。  **注：**较旧的事件可能不会在有效负载中包括此值。 |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1268,7 +1293,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 {% data reusables.webhooks.watch_short_desc %}
 
-The event’s actor is the [user](/rest/reference/users) who starred a repository, and the event’s repository is the [repository](/rest/reference/repos) that was starred.
+事件的执行者是标星仓库的[用户](/rest/reference/users)，并且事件的仓库是被标星的[仓库](/rest/reference/repos)。
 
 #### 可用性
 
@@ -1305,7 +1330,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### workflow_run
 
-When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
+When a {% data variables.product.prodname_actions %} workflow run is requested or completed. 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_run)”。
 
 #### 可用性
 
