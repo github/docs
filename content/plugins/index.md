@@ -11,5 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-{% link_in_list /development %}
-
+{% link_in_list /audio-video-notes %}
+{% link_in_list /nautical-charts %}
+{% link_in_list /online-maps %}
+{% link_in_list /terrain %}

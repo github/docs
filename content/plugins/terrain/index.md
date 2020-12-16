@@ -1,5 +1,5 @@
 ---
-title: Simple navigation
+title: Contour lines and Terrain map
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
