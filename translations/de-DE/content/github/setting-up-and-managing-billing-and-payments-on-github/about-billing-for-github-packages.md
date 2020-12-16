@@ -10,6 +10,8 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
 Die Datenübertragung wird jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
@@ -50,8 +52,8 @@ Deine {% data variables.product.prodname_registry %}-Nutzung teilt das bestehend
 
 ### Über Ausgabenlimits
 
-Standardmäßig wird Dein Konto ein Ausgabenlimit von 0 $ für die Nutzung von {% data variables.product.prodname_registry %} haben. Um die Nutzung von Speicher und Datenübertragung für private Pakete über die Kontingente Deines Kontos hinaus zu ermöglichen, kannst Du das Ausgabenlimit erhöhen oder unbegrenzte Ausgaben zulassen. Weitere Informationen findest Du unter „[Ausgabenlimit für {% data variables.product.prodname_registry %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

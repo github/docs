@@ -23,6 +23,7 @@ describe('redirects', () => {
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
+    page.buildRedirects()
     expect(isPlainObject(page.redirects)).toBe(true)
   })
 
@@ -32,6 +33,7 @@ describe('redirects', () => {
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
+    page.buildRedirects()
     expect(page.redirects['/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
     expect(page.redirects['/en/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
     expect(page.redirects['/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
@@ -46,6 +48,7 @@ describe('redirects', () => {
       basePath: path.join(__dirname, '../../content'),
       languageCode: 'en'
     })
+    page.buildRedirects()
     const expected = `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
     expect(page.redirects['/en/articles/about-discussions-in-issues-and-pull-requests']).toBe(expected)
   })

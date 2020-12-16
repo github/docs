@@ -41,7 +41,8 @@ versions:
 
 - [リポジトリ](/articles/searching-for-repositories)
 - [Topics](/articles/searching-topics)
-- [Issue およびプルリクエスト](/articles/searching-issues-and-pull-requests)
+- [Issues and pull requests](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
+- [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [コード](/articles/searching-code)
 - [コミット](/articles/searching-commits)
 - [ユーザ](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
