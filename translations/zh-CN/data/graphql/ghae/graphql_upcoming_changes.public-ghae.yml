@@ -1,7 +1,7 @@
 ---
 upcoming_changes:
   - 
-    location: Migration.uploadUrlTemplate
+    location: LegacyMigration.uploadUrlTemplate
     description: '`uploadUrlTemplate` 将被删除。使用 `uploadUrl` 代替。'
     reason: '`uploadUrlTemplate` 正在被删除，因为它不是标准的 URL，并且增加了一个额外的用户步骤。'
     date: '2019-04-01T00:00:00+00:00'

@@ -23,15 +23,15 @@ versions:
 
 要安装 Android 或 iOS 版 {% data variables.product.prodname_mobile %}，请参阅 [{% data variables.product.prodname_mobile %}](https://github.com/mobile)。
 
-### Supported languages for {% data variables.product.prodname_mobile %}
+### {% data variables.product.prodname_mobile %} 支持的语言
 
-{% data variables.product.prodname_mobile %} is available in the following languages.
+{% data variables.product.prodname_mobile %} 支持以下语言。
 
 - 日语
-- Brazilian Portuguese
+- 巴西葡萄牙语
 - 西班牙语
 
-If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
+如果将设备上的语言配置为受支持的语言，则 {% data variables.product.prodname_mobile %} 默认为该语言。 您可以在 {% data variables.product.prodname_mobile %} 的 **Settings（设置）**菜单中更改 {% data variables.product.prodname_mobile %} 的语言。
 
 ### 管理 iOS 上 {% data variables.product.prodname_mobile %} 的通用链接
 
@@ -43,9 +43,9 @@ If you configure the language on your device to a supported language, {% data va
 
 ### 分享反馈
 
-If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
+如果您发现 {% data variables.product.prodname_mobile %} 中的漏洞，可以发送电子邮件到 <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> 联系我们。
 
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
+您可以在 [GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22) 上提交对 {% data variables.product.prodname_mobile %} 的功能要求或其他反馈。
 
 ### 选择退出 iOS 的测试版
 

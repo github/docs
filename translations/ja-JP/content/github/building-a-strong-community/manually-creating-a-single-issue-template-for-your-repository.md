@@ -29,7 +29,7 @@ assignees: octocat
 ```
 {% note %}
 
-**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
+**注釈:** フロントマター値に `:` などの YAML 予約文字が含まれている場合は、値全体を引用符で囲む必要があります。 たとえば、`":bug: Bug"` または `":new: triage needed, :bug: bug"` などです。
 
 {% endnote %}
 

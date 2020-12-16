@@ -24,7 +24,7 @@ The `https://` clone URLs are available on all repositories, regardless of visib
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 
 - 認証情報ヘルパーを使用すれば、{% data variables.product.prodname_dotcom %} と通信するたびに、{% data variables.product.prodname_dotcom %} の認証情報が Git で記憶されます。 詳細は「[Git に {% data variables.product.prodname_dotcom %} の認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
 
@@ -44,7 +44,7 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% tip %}
 
-**ヒント**: SSH URL は、お使いのコンピュータにリポジトリを作成する際にも、または本番サーバーにコードをデプロイする安全な方法としても使用できます。 デプロイスクリプトで SSH エージェント転送を使用して、サーバー上のキーの管理を回避することもできます。 詳細は「[SSH エージェント転送を使用する](/v3/guides/using-ssh-agent-forwarding/)」を参照してください。
+**ヒント**: SSH URL は、お使いのコンピュータにリポジトリを作成する際にも、または本番サーバーにコードをデプロイする安全な方法としても使用できます。 デプロイスクリプトで SSH エージェント転送を使用して、サーバー上のキーの管理を回避することもできます。 詳細は「[SSH エージェント転送を使用する](/developers/overview/using-ssh-agent-forwarding)」を参照してください。
 
 {% endtip %}
 

@@ -19,7 +19,6 @@ jobs:
       - name: Run script
         run: |
           script/check-english-links.js > broken_links.md
-          echo -e '\ncc @github/docs-content'>> broken_links.md
       - if: ${{ failure() }}
         name: Get title for issue
         id: check
@@ -40,11 +39,10 @@ jobs:
           content-filepath: ./broken_links.md
           labels: broken link report
       - if: ${{ failure() }}
-        name: Add issue to FR project board
-        uses: peter-evans/create-or-update-project-card@80140aaeb9730972a83c626031250621fe8f6670
+        name: Add comment to issue
+        uses: peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd
         with:
-          project-location: 'github'
-          project-number: '1367'
-          column-name: 'Docs-content FR issues'
+          body: |
+            cc @github/docs-content
           issue-number: ${{ steps.broken-link-report.outputs.issue-number }}
           token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}

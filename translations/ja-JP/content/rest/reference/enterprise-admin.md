@@ -58,6 +58,16 @@ The current version of your enterprise is returned in the response header of eve
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
+
+## Audit log
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 ## 支払い
 
 {% for operation in currentRestOperations %}
@@ -86,7 +96,7 @@ IdP は、SCIM エンドポイントとして `{% data variables.product.api_url
 
 {% note %}
 
-**注釈:** Enterprise SCIM API は、[SAML SSO](/v3/auth/#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
+**注釈:** Enterprise SCIM API は、[SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
 
 {% endnote %}
 

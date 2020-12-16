@@ -1,1 +1,1 @@
-次回の定期の支払日までの期間に対して、比例配分された課金がすぐに行われます。
+If you're sponsoring on behalf of your user account, you will immediately be charged a prorated amount for the time until your next regular billing date. If you're sponsoring on behalf of an organization, you can choose to pay the prorated amount or make the full monthly payment.

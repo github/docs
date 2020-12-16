@@ -9,8 +9,9 @@ env:
   FREEZE: ${{ secrets.FREEZE }}
 
 on:
-  schedule:
-    - cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
+  workflow_dispatch:
+  #schedule:
+  #- cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
 
 jobs:
   update_graphql_files:
@@ -36,21 +37,16 @@ jobs:
       - name: Run updater scripts
         env:
           # need to use a token from a user with access to github/github for this step
-          GITHUB_TOKEN: ${{ secrets.ZEKE_PAT_WITH_REPO_AND_WORKFLOW_SCOPE_FOR_REPO_SYNC }}
-        # technically the changelog should only be updated once per day, but we can safely
-        # run build-changelog-from-markdown.js in its current form once per hour; when we
-        # rewrite the changelog script, we may need to run it in a separate workflow on a
-        # once-per-day schedule; see details in https://github.com/github/docs-internal/issues/12722.
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         run: |
           script/graphql/update-files.js
-          script/graphql/build-changelog-from-markdown.js
       - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@938e6aea6f8dbdaced2064e948cb806c77fe87b8
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          commit-message: 'Action ran graphql scripts "update-files" and "build-changelog-from-markdown"'
+          commit-message: 'Action ran graphql script"update-files"'
           title: GraphQL schema update
           body:
             "Hello! Some GraphQL data in github/github was updated recently. This PR

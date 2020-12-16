@@ -1,1 +1,1 @@
-日付では[大なり、小なりおよび範囲指定](/articles/understanding-the-search-syntax)を使用できます。
+When you search for a date, you can use greater than, less than, and range qualifiers to further filter results. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。

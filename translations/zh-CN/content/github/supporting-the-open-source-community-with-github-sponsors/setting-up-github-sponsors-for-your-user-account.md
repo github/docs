@@ -26,7 +26,7 @@ versions:
 
 在 {% data variables.product.prodname_dotcom %} 审核您的申请后，您可以设置您的被赞助开发者个人资料，以便人们可以开始赞助您。
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ versions:
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -54,16 +54,14 @@ versions:
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-如果您居住在不受支持的区域，并且被接受参加 {% data variables.product.prodname_sponsors %} 公测，您将收到一封电子邮件，其中说明如何提供银行信息，以便您可以通过 ACH 转账或电汇接收付款。
-
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 ### 提交您的税务信息
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +73,7 @@ versions:
 
 ### 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. 单击 **Request approval（请求批准）**。 ![请求批准按钮](/assets/images/help/sponsors/request-approval-button.png)
 
 {% data reusables.sponsors.github-review-app %}

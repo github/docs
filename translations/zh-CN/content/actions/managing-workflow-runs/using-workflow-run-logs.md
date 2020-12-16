@@ -14,7 +14,7 @@ versions:
 
 如果运行已完成，则可查看运行结果是成功、失败、已取消还是中性。 如果运行失败，您可以查看并搜索构建日志，来诊断失败原因并重新运行工作流程。 您也可以查看可计费作业执行分钟数，或下载日志和创建构件。
 
-{% data variables.product.prodname_actions %} 使用 Checks API 来输出工作流程的状态、结果和日志。 {% data variables.product.prodname_dotcom %} 对每个工作流程创建新检查套件。 检查套件包含检查工作流程中每项作业的运行，而每项作业包含步骤。 {% data variables.product.prodname_actions %} 作为工作流程中的一个步骤运行。 有关检查 API 的详细信息，请参阅“[检查](/v3/checks/)”。
+{% data variables.product.prodname_actions %} 使用 Checks API 来输出工作流程的状态、结果和日志。 {% data variables.product.prodname_dotcom %} 对每个工作流程创建新检查套件。 检查套件包含检查工作流程中每项作业的运行，而每项作业包含步骤。 {% data variables.product.prodname_actions %} 作为工作流程中的一个步骤运行。 有关检查 API 的详细信息，请参阅“[检查](/rest/reference/checks)”。
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
@@ -44,7 +44,12 @@ versions:
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. 在日志输出的右上角，在 **Search logs（搜索日志）**搜索框中输入搜索查询。 ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated.png)
+1. 在日志输出的右上角，在 **Search logs（搜索日志）**搜索框中输入搜索查询。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated-2.png)
+{% else %}
+  ![搜索日志的搜索框](/assets/images/help/repository/search-log-box-updated.png)
+{% endif %}
 {% else %}
 1. 要展开想包含在搜索中的每个步骤，请单击该步骤。 ![步骤名称](/assets/images/help/repository/failed-check-step.png)
 1. 在日志输出的右上角，在 **Search logs（搜索日志）**搜索框中输入搜索查询。 ![搜索日志的搜索框](/assets/images/help/repository/search-log-box.png)
@@ -61,8 +66,12 @@ versions:
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 1. 在右上角单击
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 并选择 **Download log archive（下载日志存档）**。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} 并选择 **Download log archive（下载日志存档）**。
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
+  {% else %}
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated.png)
+  {% endif %}
 {% else %}
 1. 在右上角单击
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 并选择 **Download log archive（下载日志存档）**。
@@ -78,8 +87,20 @@ versions:
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。 ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated.png) 删除日志后，**Delete all logs（删除所有日志）**按钮将被删除，以表明工作流程运行中未剩下任何日志文件。
+1. 在右上角单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+ ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    {% else %}
+    ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+    {% endif %}
+2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  {% else %}
+  ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated.png)
+  {% endif %}
+删除日志后，**Delete all logs（删除所有日志）** 按钮将会移除，以表示在工作流程运行中没有日志文件。
 {% else %}
 1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) 删除日志后，**Delete all logs（删除所有日志）**按钮将被删除，以表明工作流程运行中未剩下任何日志文件。

@@ -14,13 +14,13 @@ versions:
 
 ### 最新バージョン
 
-デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
+デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/developers/overview/about-githubs-apis)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/rest/overview/media-types#request-specific-version)ことをお勧めします。
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/v4/guides/migrating-from-rest/)」を参照してください。
+GitHub の GraphQL API についての情報は、[v4 ドキュメント](/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 {% endif %}
 
@@ -171,7 +171,7 @@ $ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "gith
 
 ### GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/v4/guides/using-global-node-ids)」のガイドを参照してください。
+REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
 
 ### クライアントエラー
 
@@ -261,13 +261,15 @@ API v3 は、可能な限り各アクションに適切な HTTPメソッドを�
 
 ### ページネーション
 
-複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  `?page` パラメータを使用すると、さらにページを指定できます。 一部のリソースでは、`?per_page` パラメータを使用してカスタムページサイズを最大 100 に設定することもできます。 技術的な理由により、すべてのエンドポイントが `?per_page` パラメータを尊重するわけではないことに注意してください。例については、[イベント](/v3/activity/events/)を参照してください。
+複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  You can specify further pages with the `page` parameter. For some resources, you can also set a custom page size up to 100 with the `per_page` parameter. Note that for technical reasons not all endpoints respect the `per_page` parameter, see [events](/rest/reference/activity#events) for example.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-ページ番号は 1 から始まり、`?page` パラメータを省略すると最初のページが返されることに注意してください。
+Note that page numbering is 1-based and that omitting the `page` parameter will return the first page.
+
+Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set. With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page. Instead, you can traverse the results by using the `before` or `after` parameters.
 
 ページネーションの詳細については、[ページネーションでトラバースする][pagination-guide]のガイドをご覧ください。
 
@@ -279,14 +281,18 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-[Link ヘッダ](http://tools.ietf.org/html/rfc5988)には、ページネーション情報が含まれています。
+The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information. 例:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _この例は、読みやすいように改行されています。_
 
-この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/v3/#hypermedia)リンク関係が含まれています。その一部には、[URI テンプレート](http://tools.ietf.org/html/rfc6570)としての拡張が必要な場合があります。
+Or, if the endpoint uses cursor-based pagination:
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
+
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
 
 使用可能な `rel` の値は以下のとおりです。
 
@@ -311,7 +317,7 @@ Basic 認証または OAuth を使用する API リクエストの場合、1 時
 
 {% data reusables.enterprise.rate_limit %}
 
-[Search API にはカスタムのレート制限ルール](/v3/search/#rate-limit)があることに注意してください。
+Note that [the Search API has custom rate limit rules](/rest/reference/search#rate-limit).
 
 API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
 
@@ -354,7 +360,7 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-API ヒットを発生させることなく、[レート制限ステータスを確認](/v3/rate_limit)できます。
+You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
 
 #### OAuth アプリケーションの認証されていないレート制限を増やす
 
@@ -585,9 +591,9 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 #### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 
-タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 これは[コミット API](/v3/git/commits) の例です。
+タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 An example of this is the [Commits API](/rest/reference/git#commits).
 
-これらのタイムスタンプは、`2014-02-27T15:05:06+01:00` のようになります。 これらのタイムスタンプを指定する方法については、[こちらの例](/v3/git/commits/#example-input)も参照してください。
+これらのタイムスタンプは、`2014-02-27T15:05:06+01:00` のようになります。 Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
 #### `Time-Zone` ヘッダを使用する
 
@@ -597,7 +603,7 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 たとえば、[コンテンツ API](/v3/repos/contents/) は追加または変更ごとに git コミットを生成し、タイムスタンプとして現在の時刻を使用します。 このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
+つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
 
 #### ユーザが最後に認識されたタイムゾーンを使用する
 

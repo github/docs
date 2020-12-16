@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}
+intro: Uma conta de usuário é considerada inativa se não estiver ativa por pelo menos um mês.{% if enterpriseServerVersions contains currentVersion %} Você pode optar por suspender usuários adormecidos para liberar licenças de usuário.{% endif %}
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -15,7 +15,7 @@ O termo "atividade" inclui, entre outros:
 - Fazer login no {% data variables.product.product_name %};
 - Fazer comentários em problemas ou pull requests;
 - Criar, excluir, ver e marcar repositórios como favoritos;
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- Push de commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 - Acessar recursos usando um token de acesso pessoal ou chave SSH.{% endif %}
 
 ### Exibir usuários inativos

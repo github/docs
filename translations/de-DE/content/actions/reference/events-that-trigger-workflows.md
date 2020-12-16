@@ -137,13 +137,13 @@ jobs:
 
 #### `repository_dispatch`
 
-| Nutzlast des Webhook-Ereignisses                                     | Aktivitätstypen | `GITHUB_SHA`                          | `GITHUB_REF`                           |
-| -------------------------------------------------------------------- | --------------- | ------------------------------------- | -------------------------------------- |
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | –               | Letzter Commit im Branch `GITHUB_REF` | Branch, der den Dispatch empfangen hat |
+| Nutzlast des Webhook-Ereignisses                                     | Aktivitätstypen | `GITHUB_SHA`                      | `GITHUB_REF`    |
+| -------------------------------------------------------------------- | --------------- | --------------------------------- | --------------- |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | –               | Letzter Commit im Standard-Branch | Standard-Branch |
 
 {% data reusables.github-actions.branch-requirement %}
 
-Mit der {% data variables.product.product_name %}-API können Sie das Webhook-Ereignis [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) auslösen, wenn ein Workflow für eine Aktivität ausgelöst werden soll, die außerhalb von {% data variables.product.prodname_dotcom %} abläuft. Weitere Informationen finden Sie unter "[Erstellen eines Repository-Dispatchereignisses](/v3/repos/#create-a-repository-dispatch-event)."
+Mit der {% data variables.product.product_name %}-API können Sie das Webhook-Ereignis [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) auslösen, wenn ein Workflow für eine Aktivität ausgelöst werden soll, die außerhalb von {% data variables.product.prodname_dotcom %} abläuft. For more information, see "[Create a repository dispatch event](/rest/reference/repos#create-a-repository-dispatch-event)."
 
 Soll das benutzerdefinierte Webhook-Ereignis `repository_dispatch` ausgelöst werden, senden Sie eine `POST`-Anfrage an einen {% data variables.product.product_name %}-API-Endpunkt, und geben Sie den Namen für einen `event_type` als Beschreibung für den Aktivitätstyp an. Soll ein Workflow-Lauf ausgelöst werden, konfigurieren Sie außerdem den Workflow für die Verwendung des Ereignisses `repository_dispatch`.
 
@@ -163,7 +163,7 @@ Du kannst Deinen Workflow so konfigurieren, dass er ausgeführt wird, sobald Web
 
 #### `check_run`
 
-Führt den Workflow aus, wenn das Ereignis `check_run` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Check runs](/v3/checks/runs/)."
+Führt den Workflow aus, wenn das Ereignis `check_run` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Check runs](/rest/reference/checks#runs)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -183,7 +183,7 @@ on:
 
 #### `check_suite`
 
-Führt den Workflow aus, wenn das Ereignis `check_suite` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Check suites](/v3/checks/suites/)."
+Führt den Workflow aus, wenn das Ereignis `check_suite` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Check suites](/rest/reference/checks#suites)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -209,7 +209,7 @@ on:
 
 #### `create`
 
-Führt den Workflow aus, wenn ein Benutzer einen Branch oder ein Tag erstellt, wodurch das Ereignis `create` ausgelöst wird. For information about the REST API, see "[Create a reference](/v3/git/refs/#create-a-reference)."
+Führt den Workflow aus, wenn ein Benutzer einen Branch oder ein Tag erstellt, wodurch das Ereignis `create` ausgelöst wird. For information about the REST API, see "[Create a reference](/rest/reference/git#create-a-reference)."
 
 | Nutzlast des Webhook-Ereignisses             | Aktivitätstypen | `GITHUB_SHA`                                 | `GITHUB_REF`               |
 | -------------------------------------------- | --------------- | -------------------------------------------- | -------------------------- |
@@ -224,7 +224,7 @@ on:
 
 #### `delete`
 
-Führt den Workflow aus, wenn ein Benutzer einen Branch oder ein Tag löscht, wodurch das Ereignis `delete` ausgelöst wird. For information about the REST API, see "[Delete a reference](/v3/git/refs/#delete-a-reference)."
+Führt den Workflow aus, wenn ein Benutzer einen Branch oder ein Tag löscht, wodurch das Ereignis `delete` ausgelöst wird. For information about the REST API, see "[Delete a reference](/rest/reference/git#delete-a-reference)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -271,7 +271,7 @@ on:
 
 #### `Fork`
 
-Führt den Workflow aus, wenn ein Benutzer ein Repository forkt, wodurch das Ereignis `fork` ausgelöst wird. For information about the REST API, see "[Create a fork](/v3/repos/forks/#create-a-fork)."
+Führt den Workflow aus, wenn ein Benutzer ein Repository forkt, wodurch das Ereignis `fork` ausgelöst wird. For information about the REST API, see "[Create a fork](/rest/reference/repos#create-a-fork)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -354,7 +354,7 @@ jobs:
 
 #### `Issues (Lieferungen)`
 
-Führt den Workflow aus, wenn das Ereignis `issues` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Issues](/v3/issues)."
+Führt den Workflow aus, wenn das Ereignis `issues` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Issues](/rest/reference/issues)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -374,7 +374,7 @@ on:
 
 #### `Kennzeichnung`
 
-Führt den Workflow aus, wenn das Ereignis `label` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see  "[Labels](/v3/issues/labels/)."
+Führt den Workflow aus, wenn das Ereignis `label` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see  "[Labels](/rest/reference/issues#labels)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -394,7 +394,7 @@ on:
 
 #### `Meilensteine`
 
-Führt Deinen Workflow aus, wenn das Ereignis `milestone` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Milestones](/v3/issues/milestones/)."
+Führt Deinen Workflow aus, wenn das Ereignis `milestone` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Milestones](/rest/reference/issues#milestones)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -431,7 +431,7 @@ on:
 
 #### `project (Projekt)`
 
-Führt den Workflow aus, wenn das Ereignis `project` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Projects](/v3/projects/)."
+Führt den Workflow aus, wenn das Ereignis `project` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Projects](/rest/reference/projects)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -451,7 +451,7 @@ on:
 
 #### `project_card`
 
-Führt den Workflow aus, wenn das Ereignis `project_card` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project cards](/v3/projects/cards)."
+Führt den Workflow aus, wenn das Ereignis `project_card` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project cards](/rest/reference/projects#cards)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -471,7 +471,7 @@ on:
 
 #### `project_column`
 
-Führt Deinen Workflow aus, wenn das Ereignis `project_column` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project columns](/v3/projects/columns)."
+Führt Deinen Workflow aus, wenn das Ereignis `project_column` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Project columns](/rest/reference/projects#columns)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -491,7 +491,7 @@ on:
 
 #### `public`
 
-Führt Deinen Workflow aus, wenn ein Benutzer ein privates Repository öffentlich macht, wodurch das Ereignis `public` ausgelöst wird. For information about the REST API, see "[Edit repositories](/v3/repos/#edit)."
+Führt Deinen Workflow aus, wenn ein Benutzer ein privates Repository öffentlich macht, wodurch das Ereignis `public` ausgelöst wird. For information about the REST API, see "[Edit repositories](/rest/reference/repos#edit)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -508,7 +508,7 @@ on:
 
 #### `pull_request`
 
-Führt Deinen Workflow aus, wenn das Ereignis `pull_request` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull requests](/v3/pulls)."
+Führt Deinen Workflow aus, wenn das Ereignis `pull_request` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull requests](/rest/reference/pulls)."
 
 {% note %}
 
@@ -534,7 +534,7 @@ on:
 
 #### `pull_request_review`
 
-Führt Deinen Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/v3/pulls/reviews)."
+Führt Deinen Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/rest/reference/pulls#reviews)."
 
 | Nutzlast des Webhook-Ereignisses                                       | Aktivitätstypen                                            | `GITHUB_SHA`                                | `GITHUB_REF`                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
@@ -554,7 +554,7 @@ on:
 
 #### `pull_request_review_comment`
 
-Führt den Workflow aus, wenn ein Kommentar zum vereinheitlichten Diff für einen Pull Request geändert wird, wodurch das Ereignis `pull_request_review_comment` ausgelöst wird. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see [Review comments](/v3/pulls/comments).
+Führt den Workflow aus, wenn ein Kommentar zum vereinheitlichten Diff für einen Pull Request geändert wird, wodurch das Ereignis `pull_request_review_comment` ausgelöst wird. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see [Review comments](/rest/reference/pulls#comments).
 
 | Nutzlast des Webhook-Ereignisses                                                       | Aktivitätstypen                                        | `GITHUB_SHA`                                | `GITHUB_REF`                                |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------- | ------------------------------------------- |
@@ -597,7 +597,7 @@ on: pull_request_target
 
 {% note %}
 
-**Hinweis:** Die Webhook-Nutzlast, die Für GitHub-Aktionen verfügbar ist, enthält im Objekt `commit` nicht die Attribute `added`, `removed` und `modified`. Du kannst das vollständige Commit-Objekt mit der REST-API abrufen. For more information, see "[Get a single commit](/v3/repos/commits/#get-a-single-commit)"".
+**Hinweis:** Die Webhook-Nutzlast, die Für GitHub-Aktionen verfügbar ist, enthält im Objekt `commit` nicht die Attribute `added`, `removed` und `modified`. Du kannst das vollständige Commit-Objekt mit der REST-API abrufen. For more information, see "[Get a single commit](/rest/reference/repos#get-a-single-commit)"".
 
 {% endnote %}
 
@@ -640,7 +640,7 @@ on:
 
 {% endnote %}
 
-Führt den Workflow aus, wenn das Ereignis `release` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Releases](/v3/repos/releases/)."
+Führt den Workflow aus, wenn das Ereignis `release` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Releases](/rest/reference/repos#releases)."
 
 | Nutzlast des Webhook-Ereignisses               | Aktivitätstypen                                                                                                                                                 | `GITHUB_SHA`                               | `GITHUB_REF`          |
 | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | --------------------- |
@@ -658,7 +658,7 @@ on:
 
 #### `Status`
 
-Führt den Workflow aus, wenn sich der Status eines Git-Commit ändert, wodurch das Ereignis `status` ausgelöst wird. For information about the REST API, see [Statuses](/v3/repos/statuses/).
+Führt den Workflow aus, wenn sich der Status eines Git-Commit ändert, wodurch das Ereignis `status` ausgelöst wird. For information about the REST API, see [Statuses](/rest/reference/repos#statuses).
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -675,7 +675,7 @@ on:
 
 #### `beobachten`
 
-Führt den Workflow aus, wenn das Ereignis `watch` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Starring](/v3/activity/starring/)."
+Führt den Workflow aus, wenn das Ereignis `watch` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Starring](/rest/reference/activity#starring)."
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -698,6 +698,8 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+{% data reusables.github-actions.branch-requirement %}
 
 | Nutzlast des Webhook-Ereignisses                         | Aktivitätstypen | `GITHUB_SHA`                      | `GITHUB_REF`    |
 | -------------------------------------------------------- | --------------- | --------------------------------- | --------------- |

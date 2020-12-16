@@ -23,7 +23,7 @@ IdP を通じた Team メンバーシップ変更はすべて、Team 同期ボ�
 
 IdP グループに接続された Team を含めて {% data variables.product.prodname_dotcom %} Team のリポジトリに対するアクセスを管理するには、{% data variables.product.product_name %} で変更を行う必要があります。 詳細は「[Team について](/articles/about-teams)」および「[Organization リポジトリへの Team のアクセスを管理する](/articles/managing-team-access-to-an-organization-repository)」を参照してください。
 
-Team 同期を API で管理することもできます。 詳しい情報については「[Team の同期](/v3/teams/team_sync/)」を参照してください。
+Team 同期を API で管理することもできます。 詳しい情報については「[Team の同期](/rest/reference/teams#team-sync)」を参照してください。
 
 ### 同期される Team のメンバーに関する要件
 

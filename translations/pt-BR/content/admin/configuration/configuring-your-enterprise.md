@@ -1,6 +1,6 @@
 ---
 title: Configurar a sua empresa
-intro: "After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization's needs."
+intro: "Depois que {% data variables.product.product_name %} estiver pronto e funcionando, você poderá configurar a sua empresa para atender às necessidades da sua organização."
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/

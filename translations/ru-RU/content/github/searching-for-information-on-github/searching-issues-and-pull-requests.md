@@ -163,7 +163,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ### Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/v3/repos/statuses/) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
 
 | Qualifier        | Пример                                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -203,7 +203,7 @@ You can use the `comments` qualifier along with [greater than, less than, and ra
 
 | Qualifier                  | Пример                                                                                                                                                                 |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) matches closed issues with more than 100 comments. |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) matches closed issues with more than 100 comments. |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) matches issues with comments ranging from 500 to 1,000.                         |
 
 ### Search by number of interactions
