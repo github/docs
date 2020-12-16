@@ -24,3 +24,4 @@ Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the be
     - To remove an image, click **Remove image**
 
     ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
+dependabot/npm_and_yarn/rollup-2.35.0
