@@ -17,7 +17,7 @@ Nautical charts of OsmAnd are based on the data from OpenSeaMap project. The ide
 
 While OpenSeaMap charts at the moment cannot compete with official nautical charts, they can be used by recreational sailors for orientation or route planning.
 
-{% android%}
+{% android %}
 At first you just have to download and enable Nautical plugin: app menu-> Plugins-> Nautical map view. You may need to download the plugin first. The plugin enriches the OsmAnd map and navigation app to also produce nautical maps for boating, sailing, and other types of watersports. You can activate Boat navigation profile when you enable the plugin.
 
 (Image not available offline) (Image not available offline)
