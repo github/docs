@@ -74,13 +74,25 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
      $ jekyll <em>VERSION</em> new .
      # Creates a Jekyll site in the current directory
      ```
-8. Open the Gemfile that was created and follow the instructions in the Gemfile's comments to use {% data variables.product.prodname_pages %}.
-  ![Instructions for updating Gemfile](/assets/images/help/pages/gemfile-instructions.png)
-9. Update the `gem "github-pages"` line so that the line looks like this, replacing _VERSION_ with the current dependency version for `github-pages`. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
-```shell
-gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
-```
+8. Open the Gemfile that was created, find the line that looks like this:
+   ```shell
+   # gem "github-pages", group: :jekyll_plugins
+   ```
+   and update it so that it looks like this:
+   ```shell
+   gem "github-pages", "~> 209", group: :jekyll_plugins
+   ```
+   If there is a newer version of the `github-pages` gem, replace `209` above with the latest version that is listed in [Rubygems](https://rubygems.org/gems/github-pages).
+   Then find the line that looks like this:
+   ```shell
+   gem "jekyll", "~> 4.0.0"
+   ```
+   and disable it by adding a `#` to it:
+   ```shell
+   # gem "jekyll", "~> 4.0.0"
+   ```
 10. Save and close the Gemfile.
+11. From the command line, run `bundle install`.
 11. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
 12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
