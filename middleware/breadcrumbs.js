@@ -22,6 +22,10 @@ module.exports = async (req, res, next) => {
   const productPath = path.posix.join('/', req.context.currentProduct)
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
+  if (!product) {
+    return next()
+  }
+
   req.context.breadcrumbs.product = {
     href: path.posix.join('/', req.context.currentVersion, productPath),
     title: product.title
@@ -95,6 +99,5 @@ module.exports = async (req, res, next) => {
       title: articleTitle
     }
   }
-
   return next()
 }
