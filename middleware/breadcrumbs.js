@@ -2,9 +2,12 @@ const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
 
 module.exports = async (req, res, next) => {
+  if (!req.context.page) return next()
+  if (req.context.page.hidden) return next()
+
   req.context.breadcrumbs = {}
 
-  if (!req.context.page) return next()
+  // Return an empty object on the landing page
   if (req.context.page.relativePath === 'index.md') return next()
 
   const rawPath = getPathWithoutLanguage(req.path)
@@ -18,6 +21,10 @@ module.exports = async (req, res, next) => {
 
   const productPath = path.posix.join('/', req.context.currentProduct)
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
+
+  if (!product) {
+    return next()
+  }
 
   req.context.breadcrumbs.product = {
     href: path.posix.join('/', req.context.currentVersion, productPath),
@@ -92,6 +99,5 @@ module.exports = async (req, res, next) => {
       title: articleTitle
     }
   }
-
   return next()
 }

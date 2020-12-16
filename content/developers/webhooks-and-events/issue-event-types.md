@@ -91,7 +91,7 @@ The base reference branch of the pull request changed.
 |:----------|:----------------:|:-----------------:|
 | <ul><li>Pull requests</li></ul> | **X** | |
 
- ### Event object properties
+#### Event object properties
 
 {% data reusables.issue-events.issue-event-common-properties %}
 

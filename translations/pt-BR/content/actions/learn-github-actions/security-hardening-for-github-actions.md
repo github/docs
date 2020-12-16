@@ -54,6 +54,8 @@ Isso significa que comprometer uma única ação dentro de um fluxo de trabalho 
   **Aviso:** A versão curta do commit SHA é insegura e nunca deve ser usada para especificar a referência do Git de uma ação. Devido ao modo como funcionam as redes de repositório, qualquer usuário pode bifurcar o repositório e fazer push de um commit criado que colida com o SHA curto. Isso faz com que os clones subsequentes falhem nesse SHA, pois se converte em um commit ambíguo. Como resultado, todos os fluxos de trabalho que usam o SHA encurtado falharão imediatamente.
 
   {% endwarning %}
+
+
 * **Audite o código-fonte da ação**
 
   Certifique-se de que a ação está tratando o conteúdo do seu repositório e os segredos, como esperado. Por exemplo, verifique se os segredos não são enviados para os hosts não intencionais, ou se não são registrados inadvertidamente.
@@ -92,9 +94,13 @@ Executores **auto-hospedados** em {% data variables.product.product_name %} não
 
 Como resultado, os executores auto-hospedados quase [nunca devem ser usados para repositórios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) em {% data variables.product.product_name %}, porque qualquer usuário pode abrir pull requests contra o repositório e comprometer o ambiente. Da mesma forma, tenha cuidado ao usar executores auto-hospedados em repositórios privados, uma vez que qualquer pessoa que possa bifurcar o repositório e abrir um PR (geralmente aqueles com acesso de leitura ao repositório) são capazes de comprometer o ambiente de executores auto-hospedados, incluindo a obtenção de acesso a segredos e `GITHUB_TOKEN` mais privilegiado, que concede permissões de gravação no repositório.
 
+Quando um executor auto-hospedado é definido no nível da organização ou empresa, {% data variables.product.product_name %} pode programar fluxos de trabalho de vários repositórios para o mesmo executor. Consequentemente, um compromisso de segurança destes ambientes pode ter um grande impacto. Para ajudar a reduzir o escopo de um compromisso, você pode criar limites organizando seus executores auto-hospedados em grupos separados. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
+
 Você também deve considerar o ambiente das máquinas de executores auto-hospedadas:
 - Que informação sensível reside na máquina configurada como um executor auto-hospedado? Por exemplo, chaves SSH privadas, tokens de acesso à API, entre outros.
 - A máquina tem acesso à rede a serviços sensíveis? Por exemplo, serviços de metadados do Azure ou AWS. A quantidade de informações confidenciais neste ambiente deve ser limitada ao mínimo, e você deve estar sempre ciente de que qualquer usuário capaz de invocar fluxos de trabalho terá acesso a esse ambiente.
+
+Alguns clientes podem tentar mitigar parcialmente esses riscos implementando sistemas que destroem automaticamente o executor auto-hospedado após cada execução do trabalho. No entanto, esta abordagem poderá não ser tão eficaz como pretendido, uma vez que não há forma de garantir que um executor auto-hospedado execute apenas um trabalho.
 
 ### Auditar eventos de {% data variables.product.prodname_actions %}
 
@@ -130,5 +136,3 @@ As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_a
 | `action:org.runner_group_renamed`         | Acionado quando um administrador da organização renomeia um grupo de executores auto-hospedados.                                                                                                                                              |
 | `action:org.runner_group_runners_added`   | Acionada quando um administrador da organização [adiciona um executor auto-hospedado a um grupo](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).               |
 | `action:org.runner_group_runners_removed` | Acionado quando um administrador da organização remove um grupo de executores auto-hospedados.                                                                                                                                                | 
-
-
