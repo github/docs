@@ -170,7 +170,7 @@ jobs:
 
 For more information on the tools used in these examples, see the following documentation:
 
-1.  [GKE starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/google.yml) for the full starter workflow
-2.  [Google GitHub actions example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/) for more starter workflows and accompanying code
-3.  [Kustomize](https://kustomize.io/), the Kubernetes YAML customization engine
-4.  [Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app) 
+1.  For the full starter workflow, see [GKE starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/google.yml).
+2.  For more starter workflows and accompanying code, see [Google GitHub actions example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
+3.  The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/), 
+4.  [Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app).
