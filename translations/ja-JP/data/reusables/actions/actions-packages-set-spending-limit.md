@@ -1,0 +1,1 @@
+You can set a specific spending limit or, for some accounts, allow unlimited spending. 利用上限は、{% data variables.product.prodname_registry %} と {% data variables.product.prodname_actions %} を組み合わせた範囲に適用されます。

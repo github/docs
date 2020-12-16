@@ -58,4 +58,4 @@ versions:
 ### 延伸阅读
 - 开源指南的“[启动开源项目](https://opensource.guide/starting-a-project/)”部分{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}
+- "[添加许可到仓库](/articles/adding-a-license-to-a-repository)"{% endif %}

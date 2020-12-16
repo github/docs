@@ -1,6 +1,6 @@
 ---
 title: Testar seu aplicativo
-intro: 'O GitHub recomenda testar seu aplicativo com APIs e webhooks antes de enviar sua listagem para o {% data variables.product.prodname_marketplace %}, para que você possa oferecer uma experiência ideal para os clientes. Antes de a equipe de integração do {% data variables.product.prodname_marketplace %} aprovar seu aplicativo, ele deve gerenciar, de modo adequado, os [fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows).'
+intro: 'O GitHub recomenda testar seu aplicativo com APIs e webhooks antes de enviar sua listagem para o {% data variables.product.prodname_marketplace %}, para que você possa oferecer uma experiência ideal para os clientes. Antes que um especialista em integração aprove seu aplicativo, ele deverá tratar adequadamente os fluxos de cobrança.'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
@@ -13,7 +13,7 @@ versions:
 
 ### Testar aplicativos
 
-Você pode usar uma [listagem de rascunho do {% data variables.product.prodname_marketplace %} ](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) para simular cada um dos [fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows). Uma listagem com status de rascunho significa que não foi enviada à aprovação. Qualquer compra que você fizer usando uma listagem de rascunho do {% data variables.product.prodname_marketplace %} _não criará_ transações reais e o GitHub não efetuará nenhuma cobrança no seu cartão de crédito.
+Você pode usar um rascunho de anúncio de {% data variables.product.prodname_marketplace %} para simular cada um dos fluxos de cobrança. Uma listagem com status de rascunho significa que não foi enviada à aprovação. Qualquer compra que você fizer usando uma listagem de rascunho do {% data variables.product.prodname_marketplace %} _não criará_ transações reais e o GitHub não efetuará nenhuma cobrança no seu cartão de crédito. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
 #### Usar um aplicativo de desenvolvimento com uma listagem de rascunho para testar alterações
 

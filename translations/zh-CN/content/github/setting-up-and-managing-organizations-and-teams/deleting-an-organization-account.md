@@ -20,7 +20,7 @@ versions:
 
 ### 1. 备份组织内容
 
-删除组织后，GitHub **无法恢复内容**。 因此，在删除组织之前，请确保您拥有该帐户中所有仓库、wiki 和议题的副本。
+删除组织后，GitHub **无法恢复内容**。 Therefore, before you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
 
 ### 2. 删除组织
 

@@ -373,7 +373,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
 [issues-api]: /rest/reference/issues
-[link-header]: http://www.w3.org/wiki/LinkHeader/
+[link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
 [rate-limiting]: /rest#rate-limiting
 [rate-limiting]: /rest#rate-limiting

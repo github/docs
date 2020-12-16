@@ -1,14 +1,14 @@
 import { sendEvent } from './events'
 
 export default function () {
-  const printButton = document.querySelector('.js-print')
+  const printButtons = document.querySelectorAll('.js-print')
 
-  if (printButton) {
+  Array.from(printButtons).forEach(btn => {
     // Open the print dialog when the button is clicked
-    printButton.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       window.print()
     })
-  }
+  })
 
   // Track print events
   window.onbeforeprint = function () {

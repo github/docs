@@ -10,6 +10,8 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
 Data transfer resets every month, while storage usage does not.
@@ -50,8 +52,8 @@ Your {% data variables.product.prodname_registry %} usage shares your account's 
 
 ### About spending limits
 
-By default, your account will have a spending limit of $0 for {% data variables.product.prodname_registry %} usage. To enable storage and data transfer for private packages beyond the amounts included with your account, you can increase the spending limit or allow unlimited spending. For more information, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}
