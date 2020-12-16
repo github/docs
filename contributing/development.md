@@ -37,9 +37,13 @@ In a matter of minutes, you will be ready to edit, preview and test your changes
 This repo has configuration for debugging with VS Code's built-in Node Debugger.
 
 1. After running the build steps, start the app by running `npm run debug`.
+
 2. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
+
 3. In the Debug View, select the **'Node: Nodemon'** configuration, then press F5 or click the green play button. You should see all of your running node processes.
+
 4. Select the node process that's started with the `--inspect` flag.
+
 5. Debugger has now been attached. Enjoy!
 
 For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).
@@ -52,7 +56,7 @@ At the `/dev-toc` path, you'll see a list of available versions. Click a version
 
 ## Site structure
 
-This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.ws/), another Ruby static site generator.
+This site it  was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.ws/), another Ruby static site generator.
 
 Today it's a dynamic Node.js webserver powered by Express, using [middleware](../middleware/README.md) to support proper HTTP redirects, language header detection, and dynamic content generation to support the various flavors of GitHub's product documentation, like GitHub.com and GitHub Enterprise Server.
 
