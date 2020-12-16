@@ -3,7 +3,10 @@
 
 # Company
 
-company_short: 'GitHub'
+company_short: 'OsmAnd'
+prodname_navigation: 'OsmAnd Navigation'
+
+
 
 # GitHub's flagship products
 ## Until we have versioning to support GitHub Enterprise Cloud content, avoid using this variable if the output should specifically be GitHub Enterprise Cloud or GitHub Enterprise Server
