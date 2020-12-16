@@ -9,6 +9,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
+  github-ae: '*'dependabot/npm_and_yarn/rollup-2.35.0
 ---
 
