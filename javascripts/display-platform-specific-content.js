@@ -1,5 +1,5 @@
 const { getPlatformFromUserAgent } = require('platform-utils')
-const supportedPlatforms = ['mac', 'windows', 'linux']
+const supportedPlatforms = ['mac', 'windows', 'linux', 'android', 'ios']
 const detectedPlatforms = new Set()
 
 // Emphasize content for the visitor's OS (inferred from user agent string)
@@ -51,7 +51,7 @@ function findPlatformSpecificContent (platform) {
 
   // find all platform-specific *inline* elements and hide or show as appropriate
   // example: <span class="platform-mac">inline content</span>
-  Array.from(document.querySelectorAll('.platform-mac, .platform-windows, .platform-linux'))
+  Array.from(document.querySelectorAll('.platform-mac, .platform-windows, .platform-linux, .platform-android, .platform-ios'))
     .forEach(el => {
       detectPlatforms(el)
       el.style.display = el.classList.contains('platform-' + platform)
