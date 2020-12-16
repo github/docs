@@ -163,7 +163,7 @@ Mit dem Kennzeichner `project` können Sie Issues suchen, die innerhalb eines Re
 
 ### Suche nach Commit-Status
 
-Sie können Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist besonders nützlich, wenn Sie die [Status-API](/v3/repos/statuses/) oder einen CI-Dienst verwenden.
+Sie können Pull Requests nach dem Status ihrer Commits filtern. Dieser Filter ist besonders nützlich, wenn Sie die [Status-API](/rest/reference/repos#statuses) oder einen CI-Dienst verwenden.
 
 | Qualifizierer    | Beispiel                                                                                                                                                                                                                                                               |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -203,7 +203,7 @@ Mit dem Kennzeichner `comments` in Verbindung mit dem [„Größer-als“-, „K
 
 | Qualifizierer              | Beispiel                                                                                                                                                                    |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) sucht geschlossene Issues mit mehr als 100 Kommentaren. |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) sucht geschlossene Issues mit mehr als 100 Kommentaren. |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) sucht Issues mit 500 bis 1.000 Kommentaren.                                          |
 
 ### Suche nach Anzahl der Interaktionen

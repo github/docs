@@ -10,7 +10,7 @@ versions:
 
 The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
 
-You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/v3/search/#constructing-a-search-query)."
+You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
 
 ### Ranking search results
 
@@ -18,7 +18,7 @@ Unless another sort option is provided as a query parameter, results are sorted 
 
 ### Rate limit
 
-The Search API has a custom rate limit. For requests using [Basic Authentication](/v3/#authentication), [OAuth](/v3/#authentication), or [client ID and secret](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
+The Search API has a custom rate limit. For requests using [Basic Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 
 {% data reusables.enterprise.rate_limit %}
 

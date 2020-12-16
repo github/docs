@@ -8,8 +8,7 @@ const got = require('got')
 const findPage = require('../lib/find-page')
 
 // This module handles requests for deprecated GitHub Enterprise versions
-// by routing them to static content in
-// https://github.com/github/help-docs-archived-enterprise-versions
+// by routing them to static content in help-docs-archived-enterprise-versions
 
 module.exports = async (req, res, next) => {
   const { isArchived, requestedVersion } = isArchivedVersion(req)

@@ -17,7 +17,7 @@ versions:
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
+**注：**如果您在 {% data variables.product.product_name %} 的公共仓库中发布源代码，{% if currentVersion == "free-pro-team@latest" %}根据[服务条款](/articles/github-terms-of-service)，{% endif %}其他 {% data variables.product.product_location %} 用户有权利查看您的仓库并对其复刻。 如果您已创建仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将仓库的可见性变为私有时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[设置仓库可见性](/github/administering-a-repository/setting-repository-visibility)”。
 
 {% endnote %}
 
@@ -74,7 +74,7 @@ versions:
 
 ### 检测许可
 
-[开源 Ruby gem 被许可人](https://github.com/benbalter/licensee)比较仓库的 *LICENSE* 文件与已知许可短列表。 被许可人还提供[许可 API](/v3/licenses/) 并[向我们提供如何许可 {% data variables.product.product_name %} 上的仓库的洞见](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果您的仓库使用的许可未列在[选择许可网站](http://choosealicense.com/appendix/)中，您可以[申请包含该许可](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
+[开源 Ruby gem 被许可人](https://github.com/benbalter/licensee)比较仓库的 *LICENSE* 文件与已知许可短列表。 被许可人还提供[许可 API](/rest/reference/licenses) 并[向我们提供如何许可 {% data variables.product.product_name %} 上的仓库的洞见](https://github.com/blog/1964-open-source-license-usage-on-github-com)。 如果您的仓库使用的许可未列在[选择许可网站](http://choosealicense.com/appendix/)中，您可以[申请包含该许可](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license)。
 
 如果您的仓库使用的许可列在“选择许可”网站中，但未明确显示在仓库页面顶部，其中可能包含多个许可或存在其他复杂性。 为使您的许可被检测到，请简化*许可*文件，并在其他位置注明复杂性，例如在仓库的*自述文件*中。
 

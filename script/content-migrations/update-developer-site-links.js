@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
 const frontmatter = require('@github-docs/frontmatter')
-const loadPages = require('../../lib/pages')
+const { loadPages, loadPageMap } = require('../../lib/pages')
 const patterns = require('../../lib/patterns')
 const loadRedirects = require('../../lib/redirects/precompile')
 const allVersions = Object.keys(require('../../lib/all-versions'))
@@ -23,7 +23,8 @@ main()
 async function main () {
   // we need to load the pages so we can get the redirects
   const englishPages = (await loadPages()).filter(p => p.languageCode === 'en')
-  const redirects = await loadRedirects(englishPages)
+  const englishPageMap = await loadPageMap(englishPages)
+  const redirects = await loadRedirects(englishPages, englishPageMap)
 
   for (const file of files) {
     const { data, content } = frontmatter(fs.readFileSync(file, 'utf8'))

@@ -12,6 +12,7 @@ These guidelines are specific to GitHub’s documentation. For general style que
   - [Code blocks](#code-blocks)
   - [Commands](#commands)
   - [Examples](#examples)
+  - [Indentation](#indentation)
 - [Headers](#headers)
 - [Images](#images)
   - [Alt text](#alt-text)
@@ -129,6 +130,21 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
+### Indentation
+
+In YAML examples, such as actions and workflow files, use two spaces to indent lines within nested lists and block sequences.
+
+- **Use:**
+
+```yaml
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+```
+
 ## Headers
 
 Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
@@ -218,7 +234,7 @@ When introducing a list, avoid phrasing like “the following” or “these”,
 
 ## Procedural steps
 
-Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
+Procedures give readers a set of sequential steps to follow to complete a task. Always use numbered lists for procedures. Give readers all of the prerequisites or conceptual information they’ll need to complete the task before the procedure, rather than including it within a specific step.
 
 Each step must include an action. You can also choose to include whether a step is optional, explain the reason or result of the step, and orient the reader by describing the location of the action, before guiding them to complete the action.
 

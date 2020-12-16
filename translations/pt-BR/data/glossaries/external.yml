@@ -61,7 +61,7 @@
 - 
   term: branch
   description: >-
-    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
+    Um branch é uma versão paralela de um repositório. O branch está contido no repositório, mas não afeta o branch principal ou mestre, o que permite trabalhar livremente sem interromper a versão ativa. Após concluir as alterações necessárias, você poderá fazer merge entre o branch alterado e o branch mestre para publicar as alterações.
 - 
   term: restrição de branch
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
 - 
   term: mestre
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    O branch padrão em muitos repositórios do Git. Por padrão, ao criar um novo repositório do Git na linha de comando um branch denominado "mestre" é criado. Muitas ferramentas agora usam um nome alternativo para o branch padrão. Por exemplo, quando você cria um novo repositório no GitHub, a branch padrão é chamada de "principal".
 - 
   term: gráfico de integrantes
   description: Gráfico que exibe todas as bifurcações de um repositório.

@@ -108,8 +108,6 @@ versions:
           パス: output/test/code-coverage.html
 ```
 
-![ワークフローアップロード成果物ワークフロー実行の画像](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### カスタムアーティファクトの保持期間を設定する
 
@@ -131,7 +129,7 @@ versions:
 
 ワークフローの実行中に、[`download-artifactaction`](https://github.com/actions/download-artifact) を使用して、同じワークフローの実行で以前にアップロードされたアーティファクトをダウンロードできます。
 
-ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/v3/actions/artifacts/)」を参照してください。
+ワークフローの実行が完了したら、{% data variables.product.prodname_dotcom %} または REST API を使用してアーティファクトをダウンロードまたは削除できます。 詳しい情報については、「[ワークフローアーティファクトをダウンロードする](/actions/managing-workflow-runs/downloading-workflow-artifacts)」、「[ワークフローアーティファクトを削除する](/actions/managing-workflow-runs/removing-workflow-artifacts)」、および「[アーティファクト REST API](/rest/reference/actions#artifacts)」を参照してください。
 
 #### ワークフロー実行中の成果物のダウンロード
 
@@ -237,7 +235,12 @@ versions:
           エコー 結果は $value
 ```
 
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![ジョブ間でデータを受け渡して数学を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![ジョブ間でデータを受け渡して数学を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

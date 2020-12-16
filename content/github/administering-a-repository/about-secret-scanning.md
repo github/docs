@@ -20,7 +20,7 @@ Service providers can partner with {% data variables.product.company_short %} to
 
  {% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories, where it scans code for secrets, to check for known secret formats. When a match of your secret format is found in a public repository, {% data variables.product.company_short %} doesn't publicly disclose the information as an alert, but instead sends a payload to an HTTP endpoint of your choice. For an overview of how secret scanning works on public repositories, see "[Secret scanning](/developers/overview/secret-scanning)."
 
-When you push to a public repository, {% data variables.product.product_name %} scans the content of the commits for secrets. If you switch a private repository to public, {% data variables.product.product_name %} scans the entire repository for secrets. 
+When you push to a public repository, {% data variables.product.product_name %} scans the content of the commits for secrets. If you switch a private repository to public, {% data variables.product.product_name %} scans the entire repository for secrets.
 
 When {% data variables.product.prodname_secret_scanning %} detects a set of credentials, we notify the service provider who issued the secret. The service provider validates the credential and then decides whether they should revoke the secret, issue a new secret, or reach out to you directly, which will depend on the associated risks to you or the service provider.
 
@@ -36,6 +36,7 @@ When {% data variables.product.prodname_secret_scanning %} detects a set of cred
 - Databricks
 - Datadog
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity
@@ -79,6 +80,8 @@ When {% data variables.product.prodname_secret_scanning %} detects a secret in a
 
 Repository administrators and organization owners can grant users and team access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
+To monitor results from {% data variables.product.prodname_secret_scanning %} across your private repositories or your organization, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
+
 {% data variables.product.product_name %} currently scans private repositories for secrets issued by the following service providers.
 
 - Adafruit
@@ -90,6 +93,7 @@ Repository administrators and organization owners can grant users and team acces
 - CloudBees CodeShip
 - Databricks
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity

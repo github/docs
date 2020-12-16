@@ -25,7 +25,11 @@ versions:
 
 そうすれば、プルリクエストをレビューする際には、ワークフローの実行を見て生成された成果物をダウンロードできるでしょう。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down-updated.png)
+{% else %}
 ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)
+{% endif %}
 
 こうすれば、プルリクエスト中のコードを自分のマシン上で実行できるので、プルリクエストのデバッグやテストに役立ちます。
 
