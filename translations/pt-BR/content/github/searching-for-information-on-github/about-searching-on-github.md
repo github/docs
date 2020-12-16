@@ -41,7 +41,8 @@ You can search for the following information across all repositories you can acc
 
 - [Repositórios](/articles/searching-for-repositories)
 - [Tópicos](/articles/searching-topics)
-- [Problemas e pull requests](/articles/searching-issues-and-pull-requests)
+- [Issues and pull requests](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
+- [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Código](/articles/searching-code)
 - [Commits](/articles/searching-commits)
 - [Usuários](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}

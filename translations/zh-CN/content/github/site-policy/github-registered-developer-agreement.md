@@ -86,7 +86,7 @@ GitHub 很荣幸看到众多开发者融入我们的平台。 我们受宠若惊
 
 13. **专有权利**
 
-  您同意，GitHub 及其许可人拥有以下内容的所有权利、所有权和权益：API、预发布材料以及所有其他 GitHub 产品和服务；有关其配置和组合的所有信息和数据；以及对上述任何内容的所有修改和派生作品。 您同意，不得删除、更改、覆盖或混淆我们在 API、预发布材料或任何其他 GitHub 产品和服务上放置或嵌入的任何版权或其他专有权声明。
+  您同意，GitHub 及其许可人拥有以下内容的所有权利、所有权和权益：API、预发布材料以及所有其他 GitHub 产品和服务；有关其配置和组合的所有信息和数据；以及对上述任何内容的所有修改和派生作品。 You agree not to remove, alter, cover or obfuscate any copyright or other proprietary rights notices we place on or embed in the API, the Pre-release Materials, or any other GitHub products and services.
 
 14. **政府用户**
 

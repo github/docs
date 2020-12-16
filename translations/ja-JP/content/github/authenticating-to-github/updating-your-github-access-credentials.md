@@ -1,6 +1,6 @@
 ---
 title: GitHub アクセス認証情報を更新する
-intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. 必要があれば、すべてのアクセス認証情報をリセットできます。'
+intro: '{% data variables.product.product_name %} 認証情報は、{% if currentVersion != "github-ae@latest" %}パスワードだけではなく、{% endif %}{% data variables.product.product_name %} に伝達するのに使うアクセストークン、SSH キーおよびアプリケーション API トークンを含みます。 必要があれば、すべてのアクセス認証情報をリセットできます。'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -14,7 +14,7 @@ versions:
 {% if currentVersion != "github-ae@latest" %}
 ### 新しいパスワードをリクエストする
 
-1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+1. 新しいパスワードをリクエストするには、{% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} にアクセスします。
 2. 個人 {% data variables.product.product_name %} アカウントに関連するメールアドレスを入力し、次に [**Send password reset email**] をクリックします。バックアップメールアドレスが設定されている場合、そのアドレスにメールが送られます。 ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
 3. パスワードをリセットするためのリンクがメールで届きます。 メールを受信してから 3 時間以内に、このリンクをクリックする必要があります。 弊社からメールが届かない場合、スパムフォルダを確認してください。
 4. メールのリンクをクリックすると、新しいパスワードを入力するように求められます。 ![パスワードリカバリボックス](/assets/images/help/settings/password_recovery_page.png)

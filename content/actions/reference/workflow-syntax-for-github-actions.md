@@ -223,7 +223,7 @@ defaults:
 
 A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
 
-Each job runs in an environment specified by `runs-on`.
+Each job runs in a runner environment specified by `runs-on`.
 
 You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
@@ -249,9 +249,9 @@ The name of the job displayed on {% data variables.product.prodname_dotcom %}.
 
 ### `jobs.<job_id>.needs`
 
-Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional statement that causes the job to continue.
+Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### Example
+#### Example requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -269,6 +269,20 @@ The jobs in this example run sequentially:
 1. `job1`
 2. `job2`
 3. `job3`
+
+#### Example not requiring dependent jobs to be successful
+
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    if: always()
+    needs: [job1, job2]
+```
+
+In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
 ### `jobs.<job_id>.runs-on`
 
@@ -305,6 +319,39 @@ runs-on: [self-hosted, linux]
 ```
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### `jobs.<job_id>.environment`
+
+The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+
+You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
+
+##### Example using a single environment name
+
+```yaml
+environment: staging_environment
+```
+
+##### Example using environment name and URL
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+The URL can be an expression and can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+#### Example
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
 
 ### `jobs.<job_id>.outputs`
 
@@ -755,7 +802,7 @@ The maximum number of minutes to let a job run before {% data variables.product.
 
 ### `jobs.<job_id>.strategy`
 
-A strategy creates a build matrix for your jobs. You can define different variations of an environment to run each job in.
+A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
 
 ### `jobs.<job_id>.strategy.matrix`
 

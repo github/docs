@@ -21,12 +21,12 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 If
-{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブのダウンロードは、リポジトリの帯域幅使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 - {% data reusables.large_files.owner_quota_only %}
 - {% data reusables.large_files.does_not_carry %}
 

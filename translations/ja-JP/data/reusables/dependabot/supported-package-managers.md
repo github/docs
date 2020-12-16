@@ -1,20 +1,23 @@
-| パッケージマネージャー                      | Supports vendoring |
-| -------------------------------- |:------------------:|
-| Bundler: `bundler`               |       **X**        |
-| Cargo: `cargo`                   |                    |
-| Composer: `composer`             |                    |
-| Docker: `docker`                 |                    |
-| Elm: `elm`                       |                    |
-| gitサブモジュール:`gitsubmodule`        |                    |
-| GitHub Actions: `github-actions` |                    |
-| Goモジュール:`gomod`                  |       **X**        |
-| Gradle: `gradle`                 |                    |
-| Maven: `maven`                   |                    |
-| Mix: `mix`                       |                    |
-| npm: `npm`                       |                    |
-| NuGet: `nuget`                   |                    |
-| pip: `pip`                       |                    |
-| Terraform: `terraform`           |                    |
+The following table shows, for each package manager, whether {% data variables.product.prodname_dependabot %} supports: dependencies in private {% data variables.product.prodname_dotcom %} repositories, and vendored dependencies.
+
+| パッケージマネージャー                      | Private {% data variables.product.prodname_dotcom %} repositories | Vendoring |
+| -------------------------------- |:-----------------------------------------------------------------:|:---------:|
+| Bundler: `bundler`               |                                                                   |   **✓**   |
+| Cargo: `cargo`                   |                               **✓**                               |           |
+| Composer: `composer`             |                               **✓**                               |           |
+| Docker: `docker`                 |                               **✓**                               |           |
+| Elixir: `hex`                    |                                                                   |           |
+| Elm: `elm`                       |                               **✓**                               |           |
+| gitサブモジュール:`gitsubmodule`        |                               **✓**                               |           |
+| GitHub Actions: `github-actions` |                               **✓**                               |           |
+| Goモジュール:`gomod`                  |                               **✓**                               |   **✓**   |
+| Gradle: `gradle`                 |                               **✓**                               |           |
+| Maven: `maven`                   |                               **✓**                               |           |
+| Mix: `mix`                       |                               **✓**                               |           |
+| npm: `npm`                       |                               **✓**                               |           |
+| NuGet: `nuget`                   |                               **✓**                               |           |
+| pip: `pip`                       |                                                                   |           |
+| Terraform: `terraform`           |                               **✓**                               |           |
 
 {% note %}
 

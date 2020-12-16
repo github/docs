@@ -32,13 +32,13 @@ Se tiver habilitado atualizações de segurança, às vezes você verá atualiza
 
 ### Repositórios e ecossistemas suportados
 
+É possível configurar atualizações de versão para repositórios que contenham um manifesto de dependência ou arquivo de bloqueio para um dos gerentes de pacotes suportados. Para alguns gerenciadores de pacotes, você também pode configurar o armazenamento para dependências. Para obter mais informações, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)".
+
 {% note %}
 
-{% data reusables.dependabot.private-dependencies %}
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
 {% endnote %}
-
-É possível configurar atualizações de versão para repositórios que contenham um manifesto de dependência ou arquivo de bloqueio para um dos gerentes de pacotes suportados. Para alguns gerenciadores de pacotes, você também pode configurar o armazenamento para dependências. Para obter mais informações, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)".
 
 {% data reusables.dependabot.supported-package-managers %}
 

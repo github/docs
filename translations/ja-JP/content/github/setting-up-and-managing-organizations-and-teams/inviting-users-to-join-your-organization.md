@@ -11,7 +11,7 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 - Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-expiration %}
 - Organization がメンバーに 2 要素認証を使うことを要求している場合、招待するユーザは招待を受ける前に 2 要素認証を有効化する必要があります。 詳細については、「[Organization で 2 要素認証を要求する](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)」と「[2要素認証 (2FA) でアカウントをセキュアにする](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)」を参照してください。
 
