@@ -7,12 +7,15 @@ versions:
   free-pro-team: '*'
 ---
 
+{% data reusables.sponsors.org-sponsors-release-phase %}
+
+### About sponsorship upgrades
+
 スポンサーシップ層をアップグレードした場合、その変更は直ちに有効になります。 {% data reusables.sponsors.prorated-sponsorship %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-{% data reusables.sponsors.change-tier %}
-4. ページの右側の、選択した層の隣にある [**Edit**] をクリックします。 ![層の編集ボタン](/assets/images/help/billing/edit-tier-button.png)
+### スポンサーシップをアップグレードする
+
+{% data reusables.sponsors.navigate-to-sponsored-account %}
+{% data reusables.sponsors.sponsorship-dashboard %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}

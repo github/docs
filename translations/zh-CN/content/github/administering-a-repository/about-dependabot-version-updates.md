@@ -32,13 +32,13 @@ versions:
 
 ### 支持的仓库和生态系统
 
+您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)。”
+
 {% note %}
 
-{% data reusables.dependabot.private-dependencies %}
+{% data reusables.dependabot.private-dependencies-note %} 此外，{% data variables.product.prodname_dependabot %} 不支持所有包管理器的 {% data variables.product.prodname_dotcom %} 私有依赖项。 See the details in the table below.
 
 {% endnote %}
-
-您可以为包含其中一个受支持包管理器的依赖项清单或锁定文件的仓库配置版本更新。 对于某些软件包管理器，您也可以配置依赖项的供应。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)。”
 
 {% data reusables.dependabot.supported-package-managers %}
 

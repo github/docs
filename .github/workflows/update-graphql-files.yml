@@ -9,8 +9,9 @@ env:
   FREEZE: ${{ secrets.FREEZE }}
 
 on:
-  schedule:
-    - cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
+  workflow_dispatch:
+  #schedule:
+  #- cron: '20 16 * * *' # run every day at 16:20 UTC / 8:20 PST
 
 jobs:
   update_graphql_files:
@@ -36,7 +37,7 @@ jobs:
       - name: Run updater scripts
         env:
           # need to use a token from a user with access to github/github for this step
-          GITHUB_TOKEN: ${{ secrets.ZEKE_PAT_WITH_REPO_AND_WORKFLOW_SCOPE_FOR_REPO_SYNC }}
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         run: |
           script/graphql/update-files.js
       - name: Create pull request

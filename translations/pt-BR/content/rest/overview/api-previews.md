@@ -61,7 +61,7 @@ Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
 ### Integrações
 
-Gerencie as [integrações](/early-access/integrations/) através da API.
+Gerencie as [integrações](/v3/integrations) através da API.
 
 **Tipo de mídia personalizada:** `machine-man-preview` **Anunciado em:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/) 
 

@@ -176,7 +176,7 @@ git tag -a -m "My first action release" v1
 git push --follow-tags
 ```
 
-作为检入 `node_modules` 目录的替代方法，您可以使用名为 [`@vercel/ncc`](https://github.com/vercel/ncc) 的工具将您的代码和模块编译到一个用于分发的文件中。
+Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. 通过在您的终端运行此命令来安装 `vercel/ncc`。 `npm i -g @vercel/ncc`
 
@@ -256,9 +256,11 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
 {% else %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)

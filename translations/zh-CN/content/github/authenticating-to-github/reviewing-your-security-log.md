@@ -33,7 +33,7 @@ versions:
 ### 了解安全日志中的事件
 {% endif %}
 
-The events listed in your security log are triggered by your actions. Actions are grouped into the following categories:
+安全日志中列出的事件由您的操作触发。 操作分为以下几类：
 
 | 类别名称                                                                                   | 描述                                                                                                                                                                                                                                                                                                                                               |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% if currentVersion == "free-pro-team@latest" %}
@@ -61,13 +61,13 @@ The events listed in your security log are triggered by your actions. Actions ar
 
 {% endif %}
 
-### Security log actions
+### 安全日志操作
 
-An overview of some of the most common actions that are recorded as events in the security log.
+安全日志中记录为事件的一些最常见操作的概述。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `account_recovery_token` category actions
+#### `account_recovery_token` 类操作
 
 | 操作              | 描述                                                                                        |
 | --------------- | ----------------------------------------------------------------------------------------- |
@@ -75,20 +75,20 @@ An overview of some of the most common actions that are recorded as events in th
 | `recover`       | 当您成功[取回帐户恢复令牌](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)时触发。    |
 | `recover_error` | 当 {% data variables.product.prodname_dotcom %} 无法验证所使用的令牌时触发。                             |
 
-#### `billing` category actions
+#### `billing` 类操作
 
 | 操作                    | 描述                                                                                                          |
 | --------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `change_billing_type` | 当您[更改 {% data variables.product.prodname_dotcom %} 的支付方式](/articles/adding-or-editing-a-payment-method)时触发。 |
 | `change_email`        | 当您[更改您的电子邮件地址](/articles/changing-your-primary-email-address)时触发。                                           |
 
-#### `marketplace_agreement_signature` category actions
+#### `marketplace_agreement_signature` 类操作
 
 | 操作       | 描述                                                              |
 | -------- | --------------------------------------------------------------- |
 | `create` | 在签署 {% data variables.product.prodname_marketplace %} 开发者协议时触发。 |
 
-#### `marketplace_listing` category actions
+#### `marketplace_listing` 类操作
 
 | 操作        | 描述                                                                   |
 | --------- | -------------------------------------------------------------------- |
@@ -100,7 +100,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `oauth_access` category actions
+#### `oauth_access` 类操作
 
 | 操作        | 描述                                                                                                                       |
 | --------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -109,7 +109,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-#### `payment_method` category actions
+#### `payment_method` 类操作
 
 | 操作       | 描述                                                     |
 | -------- | ------------------------------------------------------ |
@@ -119,13 +119,13 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-#### `profile_picture` category actions
+#### `profile_picture` 类操作
 
 | 操作       | 描述                                                           |
 | -------- | ------------------------------------------------------------ |
 | `update` | 当您[设置或更新个人资料图片](/articles/setting-your-profile-picture/)时触发。 |
 
-#### `project` category actions
+#### `project` 类操作
 
 | 操作                       | 描述                                |
 | ------------------------ | --------------------------------- |
@@ -138,14 +138,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `unlink`                 | 当仓库从项目板解除链接时触发。                   |
 | `update_user_permission` | 在项目板中添加或删除外部协作者时，或者他们的权限级别被更改时触发。 |
 
-#### `public_key` category actions
+#### `public_key` 类操作
 
 | 操作       | 描述                                                                                                                        |
 | -------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `create` | 当您[为 {% data variables.product.product_name %} 帐户添加新公共 SSH 密钥](/articles/adding-a-new-ssh-key-to-your-github-account)时触发。 |
 | `delete` | 当您[删除 {% data variables.product.product_name %} 帐户的公共 SSH 密钥](/articles/reviewing-your-ssh-keys)时触发。                      |
 
-#### `repo` category actions
+#### `repo` 类操作
 
 | 操作                                    | 描述                                                                                                                                                                                                                                                                  |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -169,14 +169,14 @@ An overview of some of the most common actions that are recorded as events in th
 | `unarchived`                          | 当仓库所有者取消存档仓库时触发。                                                                                                                                                                                                                                                    |
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `sponsors` category actions
+#### `sponsors` 类操作
 
 | 操作                                            | 描述                                                                                                                                                                                                                                                   |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repo_funding_link_button_toggle`             | 在仓库中启用或禁用赞助按钮时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                                        |
 | `repo_funding_links_file_action`              | 更改仓库中的 FUNDING 文件时触发（请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）                                                                                                                                                    |
 | `sponsor_sponsorship_cancel`                  | 当您取消赞助时触发（请参阅“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                                                                          |
-| `sponsor_sponsorship_create`                  | 当您赞助开发者时触发（请参阅“[赞助开源开发者](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor#sponsoring-a-developer)”）                                                                                           |
+| `sponsor_sponsorship_create`                  | Triggered when you sponsor an account (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor)")                                                       |
 | `sponsor_sponsorship_preference_change`       | 当您更改是否接收被赞助开发者的电子邮件更新时触发（请参阅“[管理赞助](/articles/managing-your-sponsorship)”）                                                                                                                                                                           |
 | `sponsor_sponsorship_tier_change`             | 当您升级或降级赞助时触发（请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”）                                                                                                                                           |
 | `sponsored_developer_approve`                 | 当您的 {% data variables.product.prodname_sponsors %} 帐户被批准时触发（请参阅“[为您的用户帐户设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)”）     |
@@ -190,7 +190,7 @@ An overview of some of the most common actions that are recorded as events in th
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-#### `successor_invitation` category actions
+#### `successor_invitation` 类操作
 
 | 操作        | 描述                                                                                                                                                                |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -203,7 +203,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-#### `team` category actions
+#### `team` 类操作
 
 | 操作                  | 描述                                                                       |
 | ------------------- | ------------------------------------------------------------------------ |
@@ -217,7 +217,7 @@ An overview of some of the most common actions that are recorded as events in th
 {% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-#### `two_factor_authentication` category actions
+#### `two_factor_authentication` 类操作
 
 | 操作         | 描述                                                                                  |
 | ---------- | ----------------------------------------------------------------------------------- |
@@ -225,24 +225,24 @@ An overview of some of the most common actions that are recorded as events in th
 | `disabled` | 在禁用双重身份验证时触发。                                                                       |
 {% endif %}
 
-#### `user` category actions
+#### `user` 类操作
 
-| 操作                                 | 描述                                                                                                                                                                                             |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `add_email`                        | 在您{% if currentVersion != "github-ae@latest" %}[新增电子邮件地址](/articles/changing-your-primary-email-address){% else %}新增电子邮件地址{% endif %}时触发。                                                      |
-| `create`                           | Triggered when you create a new user account.{% if currentVersion != "github-ae@latest" %}
-| `change_password`                  | 当您更改密码时触发。                                                                                                                                                                                     |
+| 操作                                 | 描述                                                                                                                                            |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `add_email`                        | 在您{% if currentVersion != "github-ae@latest" %}[新增电子邮件地址](/articles/changing-your-primary-email-address){% else %}新增电子邮件地址{% endif %}时触发。     |
+| `create`                           | 在创建新帐户时触发。{% if currentVersion != "github-ae@latest" %}
+| `change_password`                  | 当您更改密码时触发。                                                                                                                                    |
 | `forgot_password`                  | 在您要求[重置密码](/articles/how-can-i-reset-my-password)时触发。{% endif %}
-| `hide_private_contributions_count` | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                                                                                               |
-| `login`                            | 当您登录 {% data variables.product.product_location %} 时触发。                                                                                                                                        |
-| `failed_login`                     | 当您未能成功登录时触发。                                                                                                                                                                                   |
-| `remove_email`                     | 当您删除电子邮件地址时触发。                                                                                                                                                                                 |
-| `rename`                           | Triggered when you rename your account.{% if currentVersion == "free-pro-team@latest" %}
+| `hide_private_contributions_count` | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                                              |
+| `login`                            | 当您登录 {% data variables.product.product_location %} 时触发。                                                                                       |
+| `failed_login`                     | 当您未能成功登录时触发。                                                                                                                                  |
+| `remove_email`                     | 当您删除电子邮件地址时触发。                                                                                                                                |
+| `rename`                           | 在重命名帐户时触发。{% if currentVersion == "free-pro-team@latest" %}
 | `report_content`                   | 当您[举报议题或拉取请求，或者举报对议题、拉取请求或提交的评论](/articles/reporting-abuse-or-spam)时触发。{% endif %}
-| `show_private_contributions_count` | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion != "github-ae@latest" %}
+| `show_private_contributions_count` | 当您[在个人资料中公开私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion != "github-ae@latest" %}
 | `two_factor_requested`             | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。{% endif %}
 
-#### `user_status` category actions
+#### `user_status` 类操作
 
 | 操作        | 描述                                                                                           |
 | --------- | -------------------------------------------------------------------------------------------- |

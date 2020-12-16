@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: November 13, 2020
+Version Effective Date: December 14, 2020
 
 Wenn Sie ein Konto erstellen, erhalten Sie Zugriff auf viele verschiedene Features und Produkte, die alle Teil des Dienstes sind. Da viele dieser Features und Produkte unterschiedliche Funktionen bieten, erfordern sie möglicherweise zusätzliche Geschäftsbedingungen, die für dieses Feature oder dieses Produkt spezifisch sind. Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -46,13 +46,11 @@ GitHub Pages unterliegen Bandbreiten- und Nutzungsbeschränkungen und sind für 
 ### 5. Actions und Pakete
 
 #### a. Verwendung von Actions
-GitHub Actions ermöglicht es Ihnen, benutzerdefinierte Softwareentwicklungs-Lebenszyklus-Workflows direkt in Ihrem GitHub Repository zu erstellen. Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/actions). Your Actions compute usage is displayed within [your account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. Wenn Sie Actions über die in Ihrem Paket enthaltenen Datenmengen hinaus verwenden möchten, können Sie [enable overages (Überschreitungen aktivieren)](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions) aktivieren.
+GitHub Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-Die Nutzungsberechnung für enthaltene und bezahlte Mengen wird in Minuten anhand der Art von Aktionen berechnet, die Sie ausführen (z.B. Linux, Windows, macOS). Die Minuten, die für den Auftrag oder die Aufgabe jeder Aktion verwendet werden, werden auf die nächste Minute aufgerundet. Bei inbegriffenen Mengen und abhängig von der Art der Aktion kann ein Multiplikator auf die Zeit angewandt werden, die für die Ausführung jedes Auftrags oder jeder Aufgabe benötigt wird, bevor auf die nächste Minute aufgerundet wird. Zusätzliche Minuten werden zum [angegebenen Preis pro Minute ](https://github.com/features/actions) basierend auf der Art der von Ihnen ausgeführten Aktionen berechnet. Actions und Packages teilen sich Speicher, und Ihre Speichernutzung wird in Ihren [Kontoeinstellungen](https://github.com/settings/billing) angezeigt. For additional details about included quantity usage calculations, see the [Actions documentation](/actions).
-
-Actions und jegliche Elemente des Action-Dienstes dürfen nicht unter Missachtung der Vereinbarung, der [Richtlinie für die zulässige Verwendung](/github/site-policy/github-acceptable-use-policies), oder der GitHub-Actions [Diensteinschränkungen](/actions/reference/usage-limits-billing-and-administration/#usage-limits) verwendet werden. Actions sollte außerdem nicht für Folgendes verwendet werden:
+Actions and any elements of the Actions service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions). Actions sollte außerdem nicht für Folgendes verwendet werden:
 - cryptomining;
-- die Nutzung unserer Server, um Dienste, Geräte, Daten, Konten oder Netzwerke zu stören oder zu versuchen, diese zu stören, oder um unbefugten Zugang zu erlangen oder dies zu versuchen (es sei denn, dies wurde im Rahmen des [GitHub Bug Bounty-Programms](https://bounty.github.com) genehmigt)
+- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 - the provision of a stand-alone or integrated application or service offering Actions or any elements of Actions for commercial purposes;
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
 - jegliche weiteren Aktivitäten ohne Bezug zu Produktion, Tests, Bereitstellung oder Veröffentlichung des Software-Projekts, das mit dem Repository verknüpft ist, in dem GitHub Actions verwendet werden.
@@ -60,16 +58,7 @@ Actions und jegliche Elemente des Action-Dienstes dürfen nicht unter Missachtun
 Um Verstöße gegen diese Einschränkungen und Missbrauch von GitHub Actions zu verhindern, kann GitHub Ihre Verwendung von GitHub Actions überwachen. Der Missbrauch von GitHub Actions kann zur Kündigung von Aufträgen oder zu Beschränkungen Ihrer Möglichkeiten bei der Nutzung von GitHub Actions führen.
 
 #### b. Verwendung von Packages
-GitHub Packages kann zum Herunterladen, Veröffentlichen und Verwalten von Content-Paketen verwendet werden. Jeder Kontoplan umfasst die mitgelieferten Bandbreiten- und Speichermengen für die Verwendung mit Packages, entsprechend der [Packages-Dokumentation](/github/managing-packages-with-github-package-registry/about-github-package-registry). Der Speicherplatz für Actions und Packages wird von den beiden Dienst-Funktionen gemeinsam genutzt. Die Speicher- und Bandbreitennutzung wird unter [Kontoeinstellungen](https://github.com/settings/billing) angezeigt, und Sie werden per E-Mail benachrichtigt, bevor Sie das Limit Ihrer inbegriffenen Menge erreichen. Wenn Sie Packages über die in Ihrem Paket enthaltenen Bandbreiten- und Speichermengen hinaus verwenden möchten, können Sie [Überschreitungen aktivieren](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages) aktivieren.
-
-Die Bandbreitennutzung wird auf der Grundlage der Datenmenge berechnet, die über Packages aus Ihren Repositorys übertragen wird, jedoch zählen Package-Transfers über Actions nicht zu Ihren inkludierten oder bezahlten Mengen. Packages bandwidth usage is limited by the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), and included bandwidth quantities are determined by your [account plan](https://github.com/pricing).
-
-Der Speicherplatz für Actions und Packages wird von den beiden Dienst-Funktionen gemeinsam genutzt. Die Speichernutzung wird im Laufe des Monats als gewichteter Durchschnitt berechnet und nicht jeden Monat zurückgesetzt. Public and private repositories have different included storage quantities, and the included quantities for private repositories depend on your [account plan](https://github.com/pricing).
-
-#### c. Zahlung und Abrechnung für Actions und Packages
-Die Abrechnung für Actions und Packages erfolgt auf Basis der Nutzung. Zusätzliche Mengen von Actions oder Packages können nicht separat erworben werden.  Als Kunde mit monatlicher Rechnungsstellung müssen Sie eine Zahlungsart hinterlegt haben, mit der Sie für zusätzliche Mengen dieser Servicefunktionen zahlen können. Die Abrechnung erfolgt auf monatlicher, fortlaufender Basis auf der Grundlage Ihres Verbrauchs im Vormonat, es sei denn, die Abrechnung erfolgt per Rechnung. Rechnungskunden müssen die Gebühren innerhalb von dreißig (30) Tagen ab dem Datum der GitHub-Rechnung zahlen. Für Kunden, die für Service-Feature-Überschreitungen im Voraus bezahlen, werden nicht verwendete Prepaid-Minuten nicht auf den nächsten Abrechnungszeitraum übertragen und nicht zurückerstattet.
-
-Sie können ein monatliches Ausgabelimit Ihren [Kontoeinstellungen](https://github.com/settings/billing/cost_management) festlegen. Sie werden im Voraus per E-Mail benachrichtigt, wenn Sie die Grenze Ihrer enthaltenen Mengen und die angegebene Ausgabengrenze Ihrer bezahlten Zusatzmengen erreichen.
+GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
 
 ### 6. Learning Lab
 
@@ -108,3 +97,13 @@ We need the legal right to submit your contributions to the GitHub Advisory Data
 #### b. Lizenz für das GitHub Advisory Database
 
 The GitHub Advisory Database is licensed under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/). The attribution term may be fulfilled by linking to the GitHub Advisory Database at <https://github.com/advisories> or to individual GitHub Advisory Database records used, prefixed by <https://github.com/advisories>.
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Die Microsoft Corporation kann SQL Server-Images jederzeit deaktivieren.
+
+#### b. Third-party components
+
+Die Software umfasst Komponenten, für die Dritte GitHub eine Lizenz gewähren. Dazu zählt auch Software, für die GitHub den Quellcode der entsprechenden Komponenten verfügbar machen muss. Der Quellcode entsprechender Komponenten wird auf Anfrage bereitgestellt.

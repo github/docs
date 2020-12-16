@@ -11,6 +11,7 @@ versions:
 
 {% link_in_list /about-githubs-apis %}
 {% link_in_list /managing-deploy-keys %}
+{% link_in_list /viewing-deployment-history %}
 {% link_in_list /using-ssh-agent-forwarding %}
 {% link_in_list /secret-scanning %}
 {% link_in_list /replacing-github-services %}
