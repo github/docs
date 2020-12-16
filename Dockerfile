@@ -64,7 +64,7 @@ COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node lib ./lib
 
-# mounted 
+# could be  mounted (though it's not clear how to restart server)
 # Copy only what's needed to run the server
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
