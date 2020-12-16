@@ -79,7 +79,7 @@ Jenkins can run the `stages` and `steps` in parallel, while {% data variables.pr
 
 #### Build matrix
 
-Both {% data variables.product.prodname_actions %} and Jenkins let you use a build matrix to define various system combinations. 
+Both {% data variables.product.prodname_actions %} and Jenkins let you use a build matrix to define various system combinations.
 
 | Jenkins       | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
