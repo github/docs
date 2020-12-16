@@ -40,6 +40,12 @@ Um allen Text in der Datei `passwords.txt` zu ersetzen, unabhängig davon, wo er
 $ bfg --replace-text passwords.txt
 ```
 
+After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
+
+```shell
+$ git push --force
+```
+
 Ausführliche Informationen zum Download und zur Verwendung von [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) findest Du in seiner Dokumentation.
 
 #### Mit „filter-branch“

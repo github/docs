@@ -1,6 +1,6 @@
 ---
 title: 使用星标保存仓库
-intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
+intro: '您可以对仓库和主题标星以跟踪您感兴趣的项目{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}。'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -20,7 +20,7 @@ versions:
 标星操作便于以后再次找到仓库或主题。 您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can star repositories and topics to discover similar projects on
+您可以对仓库和主题标星以发现类似项目
 {% data variables.product.product_name %} 上的企业设置来设置公告横幅。 对仓库或主题加星标时，{% data variables.product.product_name %} 可能会在消息馈送的发现视图中推荐相关内容。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 {% endif %}
 

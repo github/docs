@@ -11,11 +11,15 @@ versions:
   github-ae: '*'
 ---
 
+### About protected branches
+
 {% data reusables.pull_requests.about-protected-branches %} You can choose to enforce restrictions on how a pull request is merged into your repository.
 
 Repository owners and people with admin permissions for a repository can enforce certain workflows or requirements, before a collaborator can merge a branch in your repository by creating protected branch rules.
 
 {% data reusables.repositories.branch-rules-example %} For more information, see "[Configuring protected branches](/articles/configuring-protected-branches/)."
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 ### Prioritization of protected branch rules
 

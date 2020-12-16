@@ -23,15 +23,15 @@ versions:
 
 Android または iOS に {% data variables.product.prodname_mobile %} をインストールするには、「[{% data variables.product.prodname_mobile %}](https://github.com/mobile)」を参照してください。
 
-### Supported languages for {% data variables.product.prodname_mobile %}
+### {% data variables.product.prodname_mobile %} でサポートされている言語
 
-{% data variables.product.prodname_mobile %} is available in the following languages.
+{% data variables.product.prodname_mobile %} は次の言語で利用できます。
 
 - 日本語
-- Brazilian Portuguese
+- ポルトガル語 (ブラジル)
 - スペイン語
 
-If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
+デバイスの言語をサポートされている言語に設定すると、{% data variables.product.prodname_mobile %} はデフォルトでその言語になります。 {% data variables.product.prodname_mobile %} の [**Settings**] メニューで {% data variables.product.prodname_mobile %} の言語を変更できます。
 
 ### iOS で {% data variables.product.prodname_mobile %} のユニバーサルリンクを管理する
 
@@ -43,9 +43,9 @@ If you configure the language on your device to a supported language, {% data va
 
 ### フィードバックを送る
 
-If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
+{% data variables.product.prodname_mobile %} でバグを見つけた場合は、<a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> までメールでお知らせください。
 
-You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
+[GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22) で {% data variables.product.prodname_mobile %} の機能リクエストやその他のフィードバックを送信できます。
 
 ### iOS のベータリリースをオプトアウトする
 

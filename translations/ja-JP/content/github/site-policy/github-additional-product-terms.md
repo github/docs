@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-このバージョンの発効日: 2020 年 11 月 13 日
+Version Effective Date: December 14, 2020
 
 アカウントを作成すると利用できるようになる各種の機能と製品は、すべて本サービスの一部です。 このような機能と製品の多くは機能性が異なるため、その機能や製品に固有の利用規約が必要になる場合があります。 Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -46,13 +46,11 @@ GitHub Pagesは、特定の帯域幅および使用法の制限を受けるた�
 ### 5. アクションとパッケージ
 
 #### a. アクションの使用量
-GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/actions). Your Actions compute usage is displayed within [your account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. 付属の量を超えてアクションを使用したい場合は、[超過使用を有効にする](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)こともできます。
+GitHub Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-付属の量と有料の量の計算使用量は、実行するアクションの種類 (Linux、Windows、macOSなど)に基づいて分単位で計算されます。 各アクションのジョブまたはタスクに使用された時間を、分単位で切り上げます。 付属の量の場合は、アクションの種類に応じ、各ジョブまたはタスクの実行に使われた時間に倍数をかけてから、最も近い分単位に切り上げます。 超過使用時間は、実行するアクションの種類に基づいて[申告された分単位の価格](https://github.com/features/actions)で請求されます。 アクションとパッケージはストレージを共有し、ストレージの使用量は、[アカウント設定](https://github.com/settings/billing)に表示されます。 For additional details about included quantity usage calculations, see the [Actions documentation](/actions).
-
-アクションとアクションサービスの要素は、本契約、[利用規定](/github/site-policy/github-acceptable-use-policies)、またはGitHubアクション[サービス制限](/actions/reference/usage-limits-billing-and-administration/#usage-limits)に違反して使用される場合があります。 また、アクションは次の用途には使用しないでください。
+Actions and any elements of the Actions service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions). また、アクションは次の用途には使用しないでください。
 - クリプトマイニング;
-- 当社サーバーを使用して、何らかのサービス、デバイス、データ、アカウントまたはネットワークを妨害すること、またはこれらに不正アクセスするかあるいはこれを試みること ([GitHub Bug Bounty program](https://bounty.github.com) により許可されている場合を除く)、
+- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 - the provision of a stand-alone or integrated application or service offering Actions or any elements of Actions for commercial purposes;
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
 - gitHubアクションが使用されるリポジトリに関連するソフトウェアプロジェクトの製造、テスト、デプロイ、公開に関連しないその他の行為。
@@ -60,16 +58,7 @@ GitHubアクションでは、カスタムソフトウェア開発のライフ�
 このような使用制限違反や、GitHubアクションの悪用を防ぐために、GitHubはGitHubアクションの使用を監視する場合があります。 GitHubアクションを不正利用した場合には、ジョブが停止されたり、GitHubアクションの使用を制限されたりすることもあります。
 
 #### b. パッケージの使用量
-GitHubパッケージを使用してコンテンツのパッケージをダウンロード、公開、管理することができます。 各アカウントプランには、パッケージで使用できる付属の帯域幅およびストレージ容量が付属しています。これについては、[パッケージのドキュメント](/github/managing-packages-with-github-package-registry/about-github-package-registry)を参照してください。 アクションとパッケージは、2つのサービス機能間でストレージを共有します。 ストレージと帯域幅の使用量は[アカウント設定](https://github.com/settings/billing)に表示され、付属の量の制限に達すると前もってメールで通知されます。 付属の帯域幅およびストレージを超えてパッケージを使用したい場合は、[超過使用を有効にする](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)こともできます。
-
-帯域幅の使用量は、パッケージを通じてリポジトリの外部に委譲されたデータの量に基づいて計算されますが、アクションを通じてのパッケージ委譲は、付属の量にも有料の量にも含まれません。 Packages bandwidth usage is limited by the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), and included bandwidth quantities are determined by your [account plan](https://github.com/pricing).
-
-アクションとパッケージのストリーム使用量は、2つのサービス機能間で共有します。 ストレージの使用量は1か月を通じた加重平均で計算され、毎月リセットはされません。 Public and private repositories have different included storage quantities, and the included quantities for private repositories depend on your [account plan](https://github.com/pricing).
-
-#### c. アカウントとパッケージに対する支払いと請求
-アクションとパッケージに対する請求は従量制です。 アクションまたはパッケージの追加の量を個別に購入することはできません。  月次請求のお客様が、これらのサービス機能の追加料の支払いを選択するには、支払い方法がファイルに指定されている必要があります。 請求書払いでない場合は、前月の使用量に基づいて毎月定期的に請求されます。 請求書払いのお客様の場合は、GitHubの請求日から30日以内にお支払いください。 サービス機能の制限超過分を前払いしたお客様の場合、未使用分数の前払い分は次の請求期間に繰り越されず、返金されません。
-
-[アカウント設定](https://github.com/settings/billing/cost_management)で、毎月の使用制限を設定することができます。 付属の量の制限や、有料で追加した量に指定した使用制限に近づくと、前もってメールで通知されます。
+GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
 
 ### 6. Learning Lab
 
@@ -108,3 +97,13 @@ Your use of Spectrum is governed by the GitHub [Terms of Service](/github/site-p
 #### b. GitHub Advisory Databaseのライセンス
 
 GitHub Advisory Databaseは、[Creative Commons Attribution 4.0ライセンス](https://creativecommons.org/licenses/by/4.0/)の下でライセンスされています。 帰属条件は、<https://github.com/advisories>のGitHub Advisory Databaseまたは使用される個々のGitHub Advisory Databaseレコード（<https://github.com/advisories>で始まる）にリンクすることで満たすことができます。
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+
+#### b. Third-party components
+
+「ソフトウェア」には、第三者によって GitHub にライセンスを付与されたコンポーネントが含まれており、そうしたソフトウエアの中には、GitHub に対して、それらのコンポーネントのソースコードを入手可能にすることを要求するソフトウェアも含まれています。 これらのコンポーネントのソースコードは、要請に応じて提供いたします。

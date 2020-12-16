@@ -21,17 +21,17 @@ versions:
 
 必须将工作流程文件存储在仓库的 `.github/workflows` 目录中。
 
-### **`name`**
+### `name`
 
 工作流程的名称。 {% data variables.product.prodname_dotcom %} 在仓库的操作页面上显示工作流程的名称。 如果省略 `name`，{% data variables.product.prodname_dotcom %} 将其设置为相对于仓库根目录的工作流程文件路径。
 
-### **`on`**
+### `on`
 
 **必要** 触发工作流程的 {% data variables.product.prodname_dotcom %} 事件的名称。 您可以提供单一事件 `string`、事件的 `array`、事件 `types` 的 `array` 或事件配置 `map`，以安排工作流程的运行，或将工作流程的执行限于特定文件、标记或分支更改。 有关可用事件的列表，请参阅“[触发工作流程的事件](/articles/events-that-trigger-workflows)”。
 
 {% data reusables.github-actions.actions-on-examples %}
 
-### **`on.<event_name>.types`**
+### `on.<event_name>.types`
 
 选择将触发工作流程运行的活动类型。 大多数 GitHub 事件由多种活动触发。  例如，发布资源的事件在发行版 `published`、`unpublished`、`created`、`edited`、`deleted` 或 `prereleased` 时触发。 通过 `types` 关键词可缩小触发工作流程运行的活动类型的范围。 如果只有一种活动类型可触发 web 挂钩事件，就没有必要使用 `types` 关键词。
 
@@ -45,7 +45,7 @@ on:
     types: [published, created, edited]
 ```
 
-### **`on.<push|pull_request>.<branches|tags>`**
+### `on.<push|pull_request>.<branches|tags>`
 
 使用 `push` 和 `pull_request` 事件时，您可以将工作流配置为在特定分支或标记上运行。 对于 `pull_request` 事件，只评估基础上的分支和标签。 如果只定义 `tags` 或只定义 `branches`，则影响未定义 Git ref 的事件不会触发工作流程运行。
 
@@ -112,7 +112,7 @@ on:
     - '!releases/**-alpha'
 ```
 
-### **`on.<push|pull_request>.paths`**
+### `on.<push|pull_request>.paths`
 
 使用 `push` 和 `pull_request` 事件时，您可以将工作流程配置为在至少一个文件不匹配 `paths-ignore` 或至少一个修改的文件匹配配置的 `paths` 时运行。 路径过滤器不评估是否推送到标签。
 
@@ -179,13 +179,13 @@ on:
 
 更多信息请参阅“[关于比较拉取请求中的分支](/articles/about-comparing-branches-in-pull-requests)”。
 
-### **`on.schedule`**
+### `on.schedule`
 
 {% data reusables.repositories.actions-scheduled-workflow-example %}
 
 有关计划任务语法的更多信息请参阅“[触发工作流程的事件](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)”。
 
-### **`env`**
+### `env`
 
 环境变量的 `map` 可用于工作流程中的所有作业和步骤。 您还可以设置仅适用于作业或步骤的环境变量。 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)。
 
@@ -198,13 +198,13 @@ env:
   SERVER: production
 ```
 
-### **`defaults`**
+### `defaults`
 
 将应用到工作流程中所有作业的默认设置的 `map`。 您也可以设置只可用于作业的默认设置。 更多信息请参阅 [`jobs.<job_id>.defaults`](#jobsjob_iddefaults)。
 
 {% data reusables.github-actions.defaults-override %}
 
-### **`defaults.run`**
+### `defaults.run`
 
 您可以为工作流程中的所有 [`run`](#jobsjob_idstepsrun) 步骤提供默认的 `shell` 和 `working-directory` 选项。 您也可以设置只可用于作业的 `run` 默认设置。 更多信息请参阅 [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun)。 您不能在此关键词中使用上下文或表达式。
 
@@ -219,7 +219,7 @@ defaults:
     working-directory: scripts
 ```
 
-### **`jobs`**
+### `jobs`
 
 工作流程运行包括一项或多项作业。 作业默认是并行运行。 要按顺序运行作业，您可以使用 `<job_id>needs` 关键词在其他作业上定义依赖项。
 
@@ -229,7 +229,7 @@ defaults:
 
 如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/rest/reference/actions#workflow-jobs)”。
 
-### **`jobs.<job_id>`**
+### `jobs.<job_id>`
 
 每项作业必须关联一个 ID。 键值 `job_id` 是一个字符串，其值是作业配置数据的映像。 必须将 `<job_id>` 替换为 `jobs` 对象唯一的字符串。 `<job_id>` 必须以字母或 `_` 开头，并且只能包含字母数字字符、`-` 或 `_`。
 
@@ -243,15 +243,15 @@ jobs:
     name: My second job
 ```
 
-### **`jobs.<job_id>.name`**
+### `jobs.<job_id>.name`
 
 作业显示在 {% data variables.product.prodname_dotcom %} 上的名称。
 
-### **`jobs.<job_id>.needs`**
+### `jobs.<job_id>.needs`
 
-识别在此作业运行之前必须成功完成的任何作业。 它可以是一个字符串，也可以是字符串数组。 如果某个作业失败，则所有需要它的作业都会被跳过，除非这些作业使用让该作业继续的条件语句。
+识别在此作业运行之前必须成功完成的任何作业。 它可以是一个字符串，也可以是字符串数组。 If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### 示例
+#### Example requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -270,7 +270,21 @@ jobs:
 2. `job2`
 3. `job3`
 
-### **`jobs.<job_id>.runs-on`**
+#### Example not requiring dependent jobs to be successful
+
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    if: always()
+    needs: [job1, job2]
+```
+
+In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
+
+### `jobs.<job_id>.runs-on`
 
 **必需**运行作业的机器类型。 机器可以是 {% data variables.product.prodname_dotcom %} 托管的运行器或自托管的运行器。
 
@@ -286,7 +300,7 @@ jobs:
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
 
-##### **示例**
+##### 示例
 
 ```yaml
 runs-on: ubuntu-latest
@@ -298,7 +312,7 @@ runs-on: ubuntu-latest
 
 {% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-##### **示例**
+##### 示例
 
 ```yaml
 runs-on: [self-hosted, linux]
@@ -306,7 +320,7 @@ runs-on: [self-hosted, linux]
 
 更多信息请参阅“[关于自托管的运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)”和“[在工作流程中使用自托管的运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
 
-### **`jobs.<job_id>.outputs`**
+### `jobs.<job_id>.outputs`
 
 作业的输出 `map`。 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的更多信息，请参阅 [`jobs.<job_id>.needs`](#jobsjob_idneeds)。
 
@@ -314,7 +328,7 @@ runs-on: [self-hosted, linux]
 
 要在依赖的作业中使用作业输出, 您可以使用 `needs` 上下文。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)”。
 
-#### **示例**
+#### 示例
 
 {% raw %}
 ```yaml
@@ -338,13 +352,13 @@ jobs:
 ```
 {% endraw %}
 
-### **`jobs.<job_id>.env`**
+### `jobs.<job_id>.env`
 
 环境变量的 `map` 可用于作业中的所有步骤。 您也可以设置整个工作流程或单个步骤的环境变量。 更多信息请参阅 [`env`](#env) 和 [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-#### **示例**
+#### 示例
 
 ```yaml
 jobs:
@@ -353,13 +367,13 @@ jobs:
       FIRST_NAME: Mona
 ```
 
-### **`jobs.<job_id>.defaults`**
+### `jobs.<job_id>.defaults`
 
 将应用到作业中所有步骤的默认设置的 `map`。 您也可以设置整个工作流程的默认设置。 更多信息请参阅 [`defaults`](#defaults)。
 
 {% data reusables.github-actions.defaults-override %}
 
-### **`jobs.<job_id>.defaults.run`**
+### `jobs.<job_id>.defaults.run`
 
 为作业中的所有 `run` 步骤提供默认的 `shell` 和 `working-directory`。 此部分不允许上下文和表达式。
 
@@ -379,13 +393,13 @@ jobs:
         working-directory: scripts
 ```
 
-### **`jobs.<job_id>.if`**
+### `jobs.<job_id>.if`
 
 您可以使用 `if` 条件阻止作业在条件得到满足之前运行。 您可以使用任何支持上下文和表达式来创建条件。
 
 {% data reusables.github-actions.expression-syntax-if %} 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-### **`jobs.<job_id>.steps`**
+### `jobs.<job_id>.steps`
 
 作业包含一系列任务，称为 `steps`。 步骤可以运行命令、运行设置任务，或者运行您的仓库、公共仓库中的操作或 Docker 注册表中发布的操作。 并非所有步骤都会运行操作，但所有操作都会作为步骤运行。 每个步骤在运行器环境中以其自己的进程运行，且可以访问工作区和文件系统。 因为步骤以自己的进程运行，所以步骤之间不会保留环境变量的更改。 {% data variables.product.prodname_dotcom %} 提供内置的步骤来设置和完成作业。
 
@@ -415,17 +429,17 @@ jobs:
 ```
 {% endraw %}
 
-#### **`jobs.<job_id>.steps.id`**
+### `jobs.<job_id>.steps.id`
 
 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-#### **`jobs.<job_id>.steps.if`**
+### `jobs.<job_id>.steps.if`
 
 您可以使用 `if` 条件阻止步骤在条件得到满足之前运行。 您可以使用任何支持上下文和表达式来创建条件。
 
 {% data reusables.github-actions.expression-syntax-if %} 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-##### 使用上下文的示例
+#### 使用上下文的示例
 
  此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
 
@@ -436,7 +450,7 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-##### 使用状态检查功能的示例
+#### 使用状态检查功能的示例
 
 `my backup step` 仅在作业的上一步失败时运行。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)”。
 
@@ -449,11 +463,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-#### **`jobs.<job_id>.steps.name`**
+### `jobs.<job_id>.steps.name`
 
 步骤显示在 {% data variables.product.prodname_dotcom %} 上的名称。
 
-#### **`jobs.<job_id>.steps.uses`**
+### `jobs.<job_id>.steps.uses`
 
 选择要作为作业中步骤的一部分运行的操作。 操作是一种可重复使用的代码单位。 您可以使用工作流程所在仓库中、公共仓库中或[发布 Docker 容器映像](https://hub.docker.com/)中定义的操作。
 
@@ -466,7 +480,7 @@ steps:
 
 操作为 JavaScript 文件或 Docker 容器。 如果您使用的操作是 Docker 容器，则必须在 Linux 环境中运行作业。 更多详情请参阅 [`runs-on`](#jobsjob_idruns-on)。
 
-##### 使用版本化操作的示例
+#### 使用版本化操作的示例
 
 ```yaml
 steps:    
@@ -480,7 +494,7 @@ steps:
   - uses: actions/setup-node@main
 ```
 
-##### 使用公共操作的示例
+#### 使用公共操作的示例
 
 `{owner}/{repo}@{ref}`
 
@@ -498,7 +512,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-##### 在子目录中使用公共操作的示例
+#### 在子目录中使用公共操作的示例
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -512,7 +526,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-##### 使用工作流程所在仓库中操作的示例
+#### 使用工作流程所在仓库中操作的示例
 
 `./path/to/dir`
 
@@ -528,7 +542,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-##### 使用 Docker 中枢操作的示例
+#### 使用 Docker 中枢操作的示例
 
 `docker://{image}:{tag}`
 
@@ -542,7 +556,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-##### 使用 Docker 公共注册表操作的示例
+#### 使用 Docker 公共注册表操作的示例
 
 `docker://{host}/{image}:{tag}`
 
@@ -556,7 +570,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### **`jobs.<job_id>.steps.run`**
+### `jobs.<job_id>.steps.run`
 
 使用操作系统 shell 运行命令行程序。 如果不提供 `name`，步骤名称将默认为 `run` 命令中指定的文本。
 
@@ -588,7 +602,7 @@ jobs:
   working-directory: ./temp
 ```
 
-##### 使用指定 shell
+#### 使用指定 shell
 
 您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。
 
@@ -601,7 +615,7 @@ jobs:
 | Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                     | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
 | Windows       | `powershell` | 这是 Windows 上使用的默认 shell。 Desktop PowerShell。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 | `powershell -command ". '{0}'"`.                |
 
-##### 使用 bash 运行脚本的示例
+#### 使用 bash 运行脚本的示例
 
 ```yaml
 steps:
@@ -610,7 +624,7 @@ steps:
     shell: bash
 ```
 
-##### 使用 Windows `cmd` 运行脚本的示例
+#### 使用 Windows `cmd` 运行脚本的示例
 
 ```yaml
 steps:
@@ -619,7 +633,7 @@ steps:
     shell: cmd
 ```
 
-##### 使用 PowerShell Core 运行脚本的示例
+#### 使用 PowerShell Core 运行脚本的示例
 
 ```yaml
 steps:
@@ -628,7 +642,7 @@ steps:
     shell: pwsh
 ```
 
-##### 运行 python 脚本的示例
+#### 运行 python 脚本的示例
 
 ```yaml
 steps:
@@ -639,11 +653,11 @@ steps:
     shell: python
 ```
 
-##### 自定义 shell
+#### 自定义 shell
 
 您可以使用 `command […options] {0} [..more_options]` 将 `shell` 值设置为模板字符串。 {% data variables.product.prodname_dotcom %} 将字符串的第一个用空格分隔的词解释为命令，并在 `{0}` 处插入临时脚本的文件名。
 
-##### 退出代码和错误操作首选项
+#### 退出代码和错误操作首选项
 
 至于内置的 shell 关键词，我们提供由 {% data variables.product.prodname_dotcom %} 托管运行程序执行的以下默认值。 在运行 shell 脚本时，您应该使用这些指南。
 
@@ -661,11 +675,11 @@ steps:
   - 除了编写脚本来检查每个错误代码并相应地响应之外，似乎没有办法完全选择快速失败行为。 由于我们默认不能实际提供该行为，因此您需要将此行为写入脚本。
   - `cmd.exe` 在退出时带有其执行的最后一个程序的错误等级，并且会将错误代码返回到运行程序。 此行为在内部与上一个 `sh` 和 `pwsh` 默认行为一致，是 `cmd.exe` 的默认值，所以此行为保持不变。
 
-#### **`jobs.<job_id>.steps.with`**
+### `jobs.<job_id>.steps.with`
 
 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。 输入参数被设置为环境变量。 该变量的前缀为 `INPUT_`，并转换为大写。
 
-##### 示例
+#### 示例
 
 定义 `hello_world` 操作所定义的三个输入参数（`first_name`、`middle_name` 和 `last_name`）。 这些输入变量将被 `hello-world` 操作作为 `INPUT_FIRST_NAME`、`INPUT_MIDDLE_NAME` 和 `INPUT_LAST_NAME` 环境变量使用。
 
@@ -681,11 +695,11 @@ jobs:
           last_name: Octocat      
 ```
 
-#### **`jobs.<job_id>.steps.with.args`**
+### `jobs.<job_id>.steps.with.args`
 
 `string` 定义 Docker 容器的输入。 {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。 此参数不支持 `array of strings`。
 
-##### 示例
+#### 示例
 
 {% raw %}
 ```yaml
@@ -704,11 +718,11 @@ steps:
 1. 使用默认值，允许不指定任何 `args` 即可使用操作。
 1. 如果操作显示 `--help` 标记或类似项，请将其用作默认值，以便操作自行记录。
 
-#### **`jobs.<job_id>.steps.with.entrypoint`**
+### `jobs.<job_id>.steps.with.entrypoint`
 
 覆盖 `Dockerfile` 中的 Docker `ENTRYPOINT`，或在未指定时设置它。 与包含 shell 和 exec 表单的 Docker `ENTRYPOINT` 指令不同，`entrypoint` 关键词只接受定义要运行的可执行文件的单个字符串。
 
-##### 示例
+#### 示例
 
 ```yaml
 steps:
@@ -720,7 +734,7 @@ steps:
 
 `entrypoint` 关键词旨在用于 Docker 容器操作，但您也可以将其用于未定义任何输入的 JavaScript 操作。
 
-#### **`jobs.<job_id>.steps.env`**
+### `jobs.<job_id>.steps.env`
 
 设置供步骤用于运行器环境的环境变量。 您也可以设置整个工作流程或某个作业的环境变量。 更多信息请参阅 [`env`](#env) 和 [`jobs.<job_id>.env`](#jobsjob_idenv)。
 
@@ -728,7 +742,7 @@ steps:
 
 公共操作可在自述文件中指定预期的环境变量。 如果要在环境变量中设置密码，必须使用 `secrets` 上下文进行设置。 更多信息请参阅“[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”和“[{% data variables.product.prodname_actions %} 的上下文和表达式](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
-##### 示例
+#### 示例
 
 {% raw %}
 ```yaml
@@ -741,23 +755,23 @@ steps:
 ```
 {% endraw %}
 
-#### **`jobs.<job_id>.steps.continue-on-error`**
+### `jobs.<job_id>.steps.continue-on-error`
 
 防止步骤失败时作业也会失败。 设置为 `true` 以允许在此步骤失败时作业能够通过。
 
-#### **`jobs.<job_id>.steps.timeout-minutes`**
+### `jobs.<job_id>.steps.timeout-minutes`
 
 终止进程之前运行该步骤的最大分钟数。
 
-### **`jobs.<job_id>.timeout-minutes`**
+### `jobs.<job_id>.timeout-minutes`
 
 在 {% data variables.product.prodname_dotcom %} 自动取消运行之前可让作业运行的最大分钟数。 默认值：360
 
-### **`jobs.<job_id>.strategy`**
+### `jobs.<job_id>.strategy`
 
 策略创建作业的构建矩阵。 您可以定义要在其中运行每项作业的环境的不同变种。
 
-#### **`jobs.<job_id>.strategy.matrix`**
+### `jobs.<job_id>.strategy.matrix`
 
 您可以定义不同作业配置的矩阵。 矩阵允许您通过在单个作业定义中执行变量替换来创建多个作业。 例如，可以使用矩阵为多个受支持的编程语言、操作系统或工具版本创建作业。 矩阵重新使用作业的配置，并为您配置的每个矩阵创建作业。
 
@@ -767,7 +781,7 @@ steps:
 
 定义 `matrix` 事项的顺序。 定义的第一个选项将是工作流程中运行的第一个作业。
 
-##### 使用 Node.js 多个版本运行的示例
+#### 使用 Node.js 多个版本运行的示例
 
 您可以提供配置选项阵列来指定矩阵。 例如，如果运行器支持 Node.js 版本 6、8 和 10，则您可以在 `matrix` 中指定这些版本的阵列。
 
@@ -789,7 +803,7 @@ steps:
 
 `setup-node` 操作是在使用 {% data variables.product.prodname_dotcom %} 托管的运行器时建议用于配置 Node.js 版本的方式。 更多信息请参阅 [`setup-node`](https://github.com/actions/setup-node) 操作。
 
-##### 使用多个操作系统的示例
+#### 使用多个操作系统的示例
 
 您可以创建矩阵以在多个运行器操作系统上运行工作流程。 您也可以指定多个矩阵配置。 此示例创建包含 6 个作业的矩阵：
 
@@ -814,7 +828,7 @@ steps:
 
 要查找 {% data variables.product.prodname_dotcom %} 托管的运行器支持的配置选项，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
 
-##### 在组合中包含附加值的示例
+#### 在组合中包含附加值的示例
 
 您可以将额外的配置选项添加到已经存在的构建矩阵作业中。 例如，如果要在作业使用 `windows-latest` 和 `node` 的版本 4 运行时使用 `npm` 的特定版本，您可以使用 `include` 指定该附加选项。
 
@@ -834,7 +848,7 @@ strategy:
 ```
 {% endraw %}
 
-##### 包括新组合的示例
+#### 包括新组合的示例
 
 您可以使用 `include` 将新作业添加到构建矩阵中。 任何不匹配包含配置都会添加到矩阵中。 例如，如果您想要使用 `node` 版本 12 在多个操作系统上构建，但在 Ubuntu 上需要一个使用节点版本 13 的额外实验性作业，则可使用 `include` 指定该额外作业。
 
@@ -852,7 +866,7 @@ strategy:
 ```
 {% endraw %}
 
-##### 从矩阵中排除配置的示例
+#### 从矩阵中排除配置的示例
 
 您可以使用 `exclude` 选项删除构建矩阵中定义的特定配置。 使用 `exclude` 删除由构建矩阵定义的作业。 作业数量是您提供的数组中所包括的操作系统 (`os`) 数量减去所有减项 (`exclude`) 后的叉积。
 
@@ -878,15 +892,15 @@ strategy:
 
 ##### 在矩阵中使用环境变量
 
-You can add custom environment variables for each test combination by using the `include` key. 然后，您可以在后面的步骤中引用自定义环境变量。
+您可以使用 `include` 键为每个测试组合添加自定义环境变量。 然后，您可以在后面的步骤中引用自定义环境变量。
 
 {% data reusables.github-actions.matrix-variable-example %}
 
-### **`jobs.<job_id>.strategy.fail-fast`**
+### `jobs.<job_id>.strategy.fail-fast`
 
 设置为 `true` 时，如果任何 `matrix` 作业失败，{% data variables.product.prodname_dotcom %} 将取消所有进行中的作业。 默认值：`true`
 
-### **`jobs.<job_id>.strategy.max-parallel`**
+### `jobs.<job_id>.strategy.max-parallel`
 
 使用 `matrix` 作业策略时可同时运行的最大作业数。 默认情况下，{% data variables.product.prodname_dotcom %} 将最大化并发运行的作业数量，具体取决于 {% data variables.product.prodname_dotcom %} 托管虚拟机上可用的运行程序。
 
@@ -895,7 +909,7 @@ strategy:
   max-parallel: 2
 ```
 
-### **`jobs.<job_id>.continue-on-error`**
+### `jobs.<job_id>.continue-on-error`
 
 防止工作流程运行在作业失败时失败。 设置为 `true` 以允许工作流程运行在此作业失败时通过。
 
@@ -920,7 +934,7 @@ strategy:
 ```
 {% endraw %}
 
-### **`jobs.<job_id>.container`**
+### `jobs.<job_id>.container`
 
 用于运行作业中尚未指定容器的任何步骤的容器。 如有步骤同时使用脚本和容器操作，则容器操作将运行为同一网络上使用相同卷挂载的同级容器。
 
@@ -950,16 +964,17 @@ jobs:
     container: node:10.16-jessie
 ```
 
-#### **`jobs.<job_id>.container.image`**
+### `jobs.<job_id>.container.image`
 
 要用作运行操作的容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-#### **`jobs.<job_id>.container.credentials`**
+
+### `jobs.<job_id>.container.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-##### 示例
+#### 示例
 
 {% raw %}
 ```yaml
@@ -972,15 +987,15 @@ container:
 {% endraw %}
 {% endif %}
 
-#### **`jobs.<job_id>.container.env`**
+### `jobs.<job_id>.container.env`
 
 设置容器中环境变量的 `map`。
 
-#### **`jobs.<job_id>.container.ports`**
+### `jobs.<job_id>.container.ports`
 
 设置要在容器上显示的端口 `array`。
 
-#### **`jobs.<job_id>.container.volumes`**
+### `jobs.<job_id>.container.volumes`
 
 设置要使用的容器卷的 `array`。 您可以使用卷分享作业中服务或其他步骤之间的数据。 可以指定命名的 Docker 卷、匿名的 Docker 卷或主机上的绑定挂载。
 
@@ -990,7 +1005,7 @@ container:
 
 `<source>` 是主机上的卷名称或绝对路径，`<destinationPath>` 是容器中的绝对路径。
 
-##### 示例
+#### 示例
 
 ```yaml
 volumes:
@@ -999,11 +1014,11 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.container.options`**
+### `jobs.<job_id>.container.options`
 
 附加 Docker 容器资源选项。 有关选项列表，请参阅“[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)”。
 
-### **`jobs.<job_id>.services`**
+### `jobs.<job_id>.services`
 
 {% data reusables.github-actions.docker-container-os-support %}
 
@@ -1033,16 +1048,17 @@ services:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.<service_id>.image`**
+### `jobs.<job_id>.services.<service_id>.image`
 
 要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-#### **`jobs.<job_id>.services.<service_id>.credentials`**
+
+### `jobs.<job_id>.services.<service_id>.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-##### 示例
+#### 示例
 
 {% raw %}
 ```yaml
@@ -1061,15 +1077,15 @@ services:
 {% endraw %}
 {% endif %}
 
-#### **`jobs.<job_id>.services.<service_id>.env`**
+### `jobs.<job_id>.services.<service_id>.env`
 
 在服务容器中设置环境变量的 `map`。
 
-#### **`jobs.<job_id>.services.<service_id>.ports`**
+### `jobs.<job_id>.services.<service_id>.ports`
 
 设置要在服务容器上显示的端口 `array`。
 
-#### **`jobs.<job_id>.services.<service_id>.volumes`**
+### `jobs.<job_id>.services.<service_id>.volumes`
 
 设置要使用的服务容器卷的 `array`。 您可以使用卷分享作业中服务或其他步骤之间的数据。 可以指定命名的 Docker 卷、匿名的 Docker 卷或主机上的绑定挂载。
 
@@ -1079,7 +1095,7 @@ services:
 
 `<source>` 是主机上的卷名称或绝对路径，`<destinationPath>` 是容器中的绝对路径。
 
-##### 示例
+#### 示例
 
 ```yaml
 volumes:
@@ -1088,7 +1104,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.<service_id>.options`**
+### `jobs.<job_id>.services.<service_id>.options`
 
 附加 Docker 容器资源选项。 有关选项列表，请参阅“[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)”。
 

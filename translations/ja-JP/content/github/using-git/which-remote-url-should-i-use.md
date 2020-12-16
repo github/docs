@@ -24,7 +24,7 @@ The `https://` clone URLs are available on all repositories, regardless of visib
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 
 - 認証情報ヘルパーを使用すれば、{% data variables.product.prodname_dotcom %} と通信するたびに、{% data variables.product.prodname_dotcom %} の認証情報が Git で記憶されます。 詳細は「[Git に {% data variables.product.prodname_dotcom %} の認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
 

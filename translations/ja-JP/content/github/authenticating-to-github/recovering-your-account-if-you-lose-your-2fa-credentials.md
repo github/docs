@@ -82,7 +82,7 @@ versions:
 2. {% data variables.product.product_name %}アカウントに関連付けられているリカバリトークンをクリックします。 ![Facebook に格納されているリカバリトークンのリスト](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. アカウントリカバリトークンを引き換えるため、[**Recover This Account**] をクリックします。 新しいウィンドウが開き、{% data variables.product.product_name %}に戻ります。 ![リカバリトークンについての情報を表示するモーダルボックスおよび [Recover This Account] ボタン](/assets/images/help/settings/security-recover-account-facebook.png)
 4. お問い合わせ
-{% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
+{% data variables.contact.contact_support %} に連絡して、アカウントリカバリトークンはレビューの準備ができていることを知らせます。
 {% endif %}
 
 ### 参考リンク

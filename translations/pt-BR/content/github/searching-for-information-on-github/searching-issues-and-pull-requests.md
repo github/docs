@@ -203,7 +203,7 @@ Você pode usar o qualificador `comments` com os [qualificadores maior que, meno
 
 | Qualifier                  | Exemplo                                                                                                                                                                           |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) identifica os problemas fechados com mais de 100 comentários. |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) identifica os problemas fechados com mais de 100 comentários. |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) identifica os problemas com 500 a 1.000 comentários.                                       |
 
 ### Pesquisar por número de interações
