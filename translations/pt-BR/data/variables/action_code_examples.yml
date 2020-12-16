@@ -1,13 +1,5 @@
 ---
 - 
-  title: Fluxos de trabalho iniciais
-  description: Arquivos do fluxo de trabalho para ajudar pessoas a dar os primeiros passos com o GitHub Actions
-  languages: TypeScript
-  href: actions/starter-workflows
-  tags:
-    - official
-    - fluxo de trabalho
-- 
   title: Example services
   description: Example workflows using service containers
   languages: JavaScript
@@ -334,3 +326,10 @@
     - monorepo
     - copybara
     - fluxo de trabalho
+- 
+  title: Deploy static files to GitHub Pages
+  description: GitHub Action to publish website to GitHub Pages automatically
+  languages: 'TypeScript, JavaScript'
+  href: peaceiris/actions-gh-pages
+  tags:
+    - publishing

@@ -79,7 +79,7 @@ steps:
 
 #### Using branches
 
-Referring to a specific branch means that the action will always use include the latest updates on the target branch, but can create problems if those updates include breaking changes. This example targets a branch named `@main`:
+Referring to a specific branch means that the action will always use the latest updates on the target branch, but can create problems if those updates include breaking changes. This example targets a branch named `@main`:
 
 ```yaml
 steps:

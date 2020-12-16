@@ -25,6 +25,7 @@ Mithilfe von Suchbegriffen zu Issues und Pull Requests kannst Du:
 - Issues und Pull Requests filtern, die bestimmte Personen umfassen, sie jedoch nicht zwangsläufig [**@erwähnen**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams): `state:open type:issue involves:octocat`,
 - Issues und Pull Requests nach Bearbeiter filtern: `state:open type:issue assignee:octocat`,
 - Issues und Pull Requests nach Kennzeichnung filtern: `state:open type:issue label:"bug"`.
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 Für Issues kannst Du die Suche auf für folgendes benutzen:

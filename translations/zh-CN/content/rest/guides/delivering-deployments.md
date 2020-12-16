@@ -13,7 +13,7 @@ versions:
  
   
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
+[部署 API][deploy API] 为您托管在 {% data variables.product.product_name %} 上的项目提供在您自己的服务器上启动它们的功能。 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
 
 本指南将使用该 API 来演示您可以使用的设置。 在我们的场景中，我们将：
 

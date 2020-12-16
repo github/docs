@@ -22,19 +22,19 @@ This project will walk you through the following:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
 
 ### 必要な環境
 
-You may find it helpful to have a basic understanding of the following:
+以下に関する基本的な理解があると役立つでしょう。
 
 * [GitHub Apps](/apps/about-apps)
 * [webhook](/webhooks)
-* [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/rest)
+* [プログラミング言語のRuby](https://www.ruby-lang.org/en/)
+* [REST API](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
-But you can follow along at any experience level. We'll link out to information you need along the way!
+とはいえ、経験のレベルにかかわらず見ていくことはできます。 その過程で必要な情報にはリンクしていきます！
 
 Before you begin, you'll need to do the following:
 

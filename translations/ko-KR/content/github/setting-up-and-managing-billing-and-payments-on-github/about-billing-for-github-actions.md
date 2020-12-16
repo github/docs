@@ -8,7 +8,9 @@ versions:
 
 ### About billing for {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
 Minutes reset every month, while storage usage does not.
 
@@ -69,8 +71,8 @@ Your {% data variables.product.prodname_actions %} usage shares your account's e
 
 ### About spending limits
 
-By default, your account will have a spending limit of $0 for {% data variables.product.prodname_actions %} usage. To enable using minutes and storage for private repositories beyond the amounts included with your account, you can increase the spending limit or allow unlimited spending. For more information, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

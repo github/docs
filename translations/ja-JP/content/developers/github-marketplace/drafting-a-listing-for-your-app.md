@@ -60,8 +60,8 @@ versions:
 
 ### アプリケーションのサブミット
 
-{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/articles/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 レビューのためにアプリケーションをサブミットした後、{% data variables.product.prodname_marketplace %}のオンボーディングチームから、オンボーディングのプロセスに関する追加情報と併せて連絡が来ます。 オンボーディングとセキュリティレビューのプロセスに関する詳細については「[{% data variables.product.prodname_marketplace %}を使い始める](/marketplace/getting-started/)」を参照してください。
+{% data variables.product.prodname_marketplace %}リストが完成したら、**Overview（概要）**ページからレビューのためにリストをサブミットできます。 「[{% data variables.product.prodname_marketplace %}の開発者契約](/articles/github-marketplace-developer-agreement/)」を読んで同意しなければなりません。続いて**Submit for review（レビューのためにサブミット）**をクリックできます。 After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process. オンボーディングとセキュリティレビューのプロセスに関する詳細については「[{% data variables.product.prodname_marketplace %}を使い始める](/marketplace/getting-started/)」を参照してください。
 
 ### {% data variables.product.prodname_marketplace %}リストの削除
 
-アプリケーションを{% data variables.product.prodname_marketplace %}のリストに載せたくなくなったなら、リストを削除するために[marketplace@github.com](mailto:marketplace@github.com)に連絡してください。
+If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.

@@ -64,7 +64,6 @@ versions:
 
 {% link_in_list /working-with-github-pages %}
 {% link_in_list /supporting-the-open-source-community-with-github-sponsors %}
-{% link_in_list /teaching-and-learning-with-github-education %}
 {% link_in_list /finding-talent-with-github-jobs %}
 {% link_in_list /working-with-github-support %}
 {% link_in_list /understanding-how-github-uses-and-protects-your-data %}

@@ -41,6 +41,7 @@ changelog:
     title: 自托管运行器组访问权限更改
     date: '2020-10-16'
     href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
+product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -69,18 +70,18 @@ versions:
   <h2 class="mb-2 font-mktg h1">代码示例</h2>
 
   <div class="pr-lg-3 mb-5 mt-3">
-    <input class="js-code-example-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="搜索代码示例" type="search" autocomplete="off" aria-label="Search code examples"/>
+    <input class="js-filter-card-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="搜索代码示例" type="search" autocomplete="off" aria-label="Search code examples"/>
   </div>
 
   <div class="d-flex flex-wrap gutter">
     {% render 'code-example-card' for actionsCodeExamples as example %}
   </div>
 
-  <button class="js-code-example-show-more btn btn-outline float-right">显示更多 {% octicon "arrow-right" %}</button>
+  <button class="js-filter-card-show-more btn btn-outline float-right">显示更多 {% octicon "arrow-right" %}</button>
 
-  <div class="js-code-example-no-results d-none py-4 text-center text-gray font-mktg">
+  <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>
-    <h3 class="text-normal">抱歉，找不到结果 <strong class="js-code-example-filter-value"></strong></h3>
+    <h3 class="text-normal">抱歉，找不到结果 <strong class="js-filter-card-value"></strong></h3>
     <p class="my-3 f4">似乎没有适合您的过滤条件的示例。<br>请尝试其他过滤条件或添加代码示例</p>
     <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">了解如何添加代码示例 {% octicon "arrow-right" %}</a>
   </div>

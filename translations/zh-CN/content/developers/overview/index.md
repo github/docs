@@ -1,6 +1,6 @@
 ---
 title: 概览
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and secure your deployments.{% else %}, secure your deployments, and join {% data variables.product.prodname_dotcom %}''s Developer Program.{% endif %}'
+intro: '了解 {% data variables.product.prodname_dotcom %} 的 API{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 并保护您的部署。{% else %}、保护您的部署并加入 {% data variables.product.prodname_dotcom %} 开发者计划。{% endif %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
