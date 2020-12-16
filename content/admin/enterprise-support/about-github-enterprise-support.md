@@ -93,7 +93,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 #### Holidays in Japan

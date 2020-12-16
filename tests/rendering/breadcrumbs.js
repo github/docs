@@ -88,7 +88,7 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/${nonEnterpriseDefaultVersion}/github`,
           title: 'GitHub.com'
         }
       }
@@ -99,11 +99,11 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github/authenticating-to-github?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/${nonEnterpriseDefaultVersion}/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
+          href: `/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
           title: 'Authentication'
         }
       }
@@ -114,15 +114,15 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github/authenticating-to-github/keeping-your-account-and-data-secure?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/${nonEnterpriseDefaultVersion}/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
+          href: `/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
           title: 'Authentication'
         },
         maptopic: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/keeping-your-account-and-data-secure`,
+          href: `/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/keeping-your-account-and-data-secure`,
           title: 'Keeping your account and data secure'
         }
       }
@@ -133,19 +133,19 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github/authenticating-to-github/creating-a-strong-password?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/${nonEnterpriseDefaultVersion}/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
+          href: `/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
           title: 'Authentication'
         },
         maptopic: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/keeping-your-account-and-data-secure`,
+          href: `/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/keeping-your-account-and-data-secure`,
           title: 'Keeping your account and data secure'
         },
         article: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/creating-a-strong-password`,
+          href: `/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/creating-a-strong-password`,
           title: 'Creating a strong password'
         }
       }
@@ -156,15 +156,15 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/github/site-policy/github-privacy-statement?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/${nonEnterpriseDefaultVersion}/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/site-policy`,
+          href: `/${nonEnterpriseDefaultVersion}/github/site-policy`,
           title: 'Site policy'
         },
         article: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/site-policy/github-privacy-statement`,
+          href: `/${nonEnterpriseDefaultVersion}/github/site-policy/github-privacy-statement`,
           title: 'GitHub Privacy Statement'
         }
       }

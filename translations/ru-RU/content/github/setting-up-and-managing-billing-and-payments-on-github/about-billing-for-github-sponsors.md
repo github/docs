@@ -9,6 +9,8 @@ versions:
 
 {% data reusables.sponsors.sponsorship-details %}
 
+{% data reusables.sponsors.no-fees %}
+
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 ### Дополнительная литература

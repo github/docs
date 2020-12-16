@@ -51,7 +51,7 @@ GeoJSON マップを {% data variables.product.product_name %} 以外の場所�
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**注釈**: `ref` は、個々のコミットへのブランチまたはハッシュ (`2391ae` など) にすることができます。
 
 {% endtip %}
 

@@ -10,12 +10,12 @@
 {% include all-products-link %}
 <li title="{{product.title}}" class="sidebar-product mb-2">
   {% unless page.hidden %}
-  <a href="{{product.href}}" class="pl-4 pr-5 pb-1 f4">{{ product.title }}</a>
+  <a href="/{{currentLanguage}}{{product.href}}" class="pl-4 pr-5 pb-1 f4">{{ product.title }}</a>
   {% endunless %}
 </li>
 <ul class="sidebar-categories list-style-none">
   {% for category in product.categories %}
-  {% capture fullPathToCategory %}{{category[1].href}}{% endcapture %}
+  {% capture fullPathToCategory %}/{{currentLanguage}}{{category[1].href}}{% endcapture %}
 
   <li class="sidebar-category py-1 {% if breadcrumbs.category.href == category[1].href %}active {% if currentPath == fullPathToCategory %}is-current-page {% endif %}{% endif %}{% if category[1].standalone %}standalone-category{% endif %}">
     {% if category[1].standalone %}
@@ -37,13 +37,13 @@
       <ul class="sidebar-topics list-style-none position-relative">
         {% for maptopic in category[1].maptopics %}
           {% unless maptopic[1].hidden %}
-            {% capture fullPathToMaptopic %}{{maptopic[1].href}}{% endcapture %}
+            {% capture fullPathToMaptopic %}/{{currentLanguage}}{{maptopic[1].href}}{% endcapture %}
 
             <li class="sidebar-maptopic {% if breadcrumbs.maptopic.href == maptopic[1].href %}active {% if currentPath == fullPathToMaptopic %}is-current-page{% endif %}{% endif %}">
               <a href="{{fullPathToMaptopic}}" class="pl-4 pr-5 py-2">{{ maptopic[1].title }}</a>
               <ul class="sidebar-articles my-2">
                 {% for article in maptopic[1].articles %}
-                {% capture fullPathToArticle %}{{article[1].href}}{% endcapture %}
+                {% capture fullPathToArticle %}/{{currentLanguage}}{{article[1].href}}{% endcapture %}
 
                 <li class="sidebar-article {% if breadcrumbs.article.href == article[1].href %}active {% if currentPath == fullPathToArticle %}is-current-page{% endif %}{% endif %}">
                   <a href="{{fullPathToArticle}}" class="pl-6 pr-5 py-1{% if forloop.last %} pb-2{% endif %}">{{ article[1].title }}</a>
@@ -58,7 +58,7 @@
       {% else %}
       <ul class="sidebar-articles list-style-none">
         {% for article in category[1].articles %}
-        {% capture fullPathToArticle %}{{article[1].href}}{% endcapture %}
+        {% capture fullPathToArticle %}/{{currentLanguage}}{{article[1].href}}{% endcapture %}
         <li class="sidebar-article {% if breadcrumbs.article.href == article[1].href %}active {% if currentPath == fullPathToArticle %}is-current-page{% endif %}{% endif %}">
           <a href="{{fullPathToArticle}}" class="pl-4 pr-5 py-1{% if forloop.last %} pb-2{% endif %}">{{ article[1].title }}</a>
         </li>

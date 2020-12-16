@@ -148,7 +148,7 @@ steps:
 
 #### 缓存依赖项
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器， `setup-ruby` 操作提供了在运行之间自动处理 gem 缓存的方法。
 
 要启用缓存，请设置以下内容。
 
@@ -165,7 +165,7 @@ steps:
 
 **无 setup-ruby 的缓存**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+为了加强缓存控制，如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器，可以直接使用 `actions/cache` 操作。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 {% raw %}
 ```yaml

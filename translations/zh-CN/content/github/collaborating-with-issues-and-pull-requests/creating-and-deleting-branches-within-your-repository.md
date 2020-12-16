@@ -22,7 +22,11 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-如果要删除的分支是仓库的默认分支，则在删除该分支之前必须选择新的默认分支。 更多信息请参阅“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
+{% note %}
+
+**注意：**如果要删除的分支是仓库的默认分支，则在删除该分支之前必须选择新的默认分支。 更多信息请参阅“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
+
+{% endnote %}
 
 如果要删除的分支与打开的拉取请求关联，则在删除该分支之前必须合并或关闭拉取请求。 更多信息请参阅“[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)”和“[关闭拉取请求](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)”。
 
