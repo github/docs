@@ -145,8 +145,10 @@ class LinksChecker {
         if (gheVersionInLink && deprecated.includes(gheVersionInLink[1])) continue
         // ------ END ONEOFF EXCLUSIONS -------///
 
-        // look for linked page
+        // the link at this point should include a version via lib/rewrite-local-links
         const versionFromHref = getVersionStringFromPath(link)
+
+        // look for linked page
         const linkedPage = findPageInVersion(link, context.pages, context.redirects, this.languageCode, versionFromHref)
         this.checkedLinksCache.add(link)
 
