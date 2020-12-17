@@ -1,0 +1,1 @@
+Menu -> Maps & Resources -> OsmAnd Live -> Get OsmAnd Live
