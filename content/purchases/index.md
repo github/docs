@@ -13,4 +13,5 @@ versions:
 
 
 {% link_in_list /osmand-live %}
-
+{% data reusables.links.osmand-free-google-play %}
+{% data reusables.links.osmand-plus-google-play %}
