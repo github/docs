@@ -64,7 +64,7 @@ Once you've completed the prerequisites, you can proceed with creating the workf
 
 The following example workflow demonstrates how to build a container image and push it to Amazon ECR. It then updates the task definition with the new image ID, and deploys the task definition to Amazon ECS.
 
-Ensure that you provide your own values for all the variables in the `env:` key of the workflow.
+Ensure that you provide your own values for all the variables in the `env` key of the workflow.
 
 {% raw %}
 ```yaml{:copy}
