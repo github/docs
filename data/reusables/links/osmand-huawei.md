@@ -1,0 +1,1 @@
+[OsmAnd on HUAWEI AppGallery](osmand-maps-app-store.md)

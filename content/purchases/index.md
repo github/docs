@@ -4,9 +4,18 @@ intro: "OsmAnd has plenty of features and offers its full functional in the free
 versions: '*'
 ---
 
+
 {% link_in_list /osmand-live %}
 {% link_in_list /in-apps-ios %}
 {% link_in_list /in-apps-android %}
 
-{% data reusables.links.osmand-free-google-play %}
-{% data reusables.links.osmand-plus-google-play %}
+
+## Get OsmAnd
+There are several possibilities to do that:
+ - {% data reusables.links.osmand-plus-google-play %}
+ - {% data reusables.links.osmand-plus-amazon %}
+ - {% data reusables.links.osmand-maps-app-store %}
+ - {% data reusables.links.osmand-huawei %} 
+
+## Win OsmAnd
+
