@@ -47,11 +47,11 @@ describe('POST /events', () => {
       created: '2020-10-02T17:12:18.620Z',
 
       // Content information
-      path: '/github/docs/issues',
+      path: '/osmandapp/docs/issues',
       hostname: 'github.com',
-      referrer: 'https://github.com/github/docs',
+      referrer: 'https://github.com/osmandapp/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
-      href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
+      href: 'https://github.com/osmandapp/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       site_language: 'en',
 
       // Device information
