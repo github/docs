@@ -30,9 +30,9 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --region MY_AWS_REGION
    ```{% endraw %}
 
-   Ensure that you use the same Amazon ECR repository name for the `ECR_REPOSITORY` variable in the workflow below.
+   Ensure that you use the same Amazon ECR repository name (represented here by `MY_ECR_REPOSITORY`) for the `ECR_REPOSITORY` variable in the workflow below.
 
-   Ensure that you use the same AWS region value for the `AWS_REGION` variable in the workflow below.
+   Ensure that you use the same AWS region value for the `AWS_REGION` (represented here by `MY_AWS_REGION`) variable in the workflow below.
 
 2. Create an Amazon ECS task definition, cluster, and service.
 
