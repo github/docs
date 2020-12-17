@@ -28,9 +28,9 @@ errors:
   we_track_errors: We track these errors automatically, but if the problem persists please feel free to contact us.
   page_doesnt_exist: It looks like this page doesn't exist.
 support:
-  still_need_help: Still need help?
-  contact_support: Contact support
-  ask_community: Ask the GitHub community
+  still_need_help: Все еще нужна помощь?
+  contact_support: Поддержка
+  ask_community: Спросить OsmAnd сообщество
 helpfulness:
   able_to_find: Did this doc help you?
   yes: true
