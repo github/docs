@@ -40,9 +40,9 @@ Para que os proprietários do código recebam solicitações de revisão, o arqu
 
 ### Sintaxe de CODEOWNERS
 
-Um arquivo CODEOWNERS usa um padrão que segue as mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Você também pode consultar um usuário por um endereço de e-mail que tenha sido adicionado à respectiva conta do {% data variables.product.product_name %}, por exemplo `user@example.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Você também pode consultar um usuário por um endereço de e-mail que tenha sido adicionado à respectiva conta do {% data variables.product.product_name %}, por exemplo `user@example.com`.
 
-Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões. A sintaxe inválida inclui comentários embutidos e nomes de usuário ou equipe que não existem em {% data variables.product.product_name %}.
+Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
 #### Exemplo de um arquivo CODEOWNERS
 ```
 # Este é um comentário.
@@ -84,6 +84,13 @@ apps/ @octocat
 # subdirectories.
 /docs/ @doctocat
 ```
+#### Syntax exceptions
+There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
+- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+- Using `!` to negate a pattern
+- Using `[ ]` to define a character range
+
+
 
 ### Leia mais
 

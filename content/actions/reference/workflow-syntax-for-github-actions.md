@@ -187,7 +187,7 @@ For more information about cron syntax, see "[Events that trigger workflows](/ac
 
 ### `env`
 
-A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to all jobs and steps in the workflow. You can also set environment variables that are only available to a job or step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -223,7 +223,7 @@ defaults:
 
 A workflow run is made up of one or more jobs. Jobs run in parallel by default. To run jobs sequentially, you can define dependencies on other jobs using the `jobs.<job_id>.needs` keyword.
 
-Each job runs in an environment specified by `runs-on`.
+Each job runs in a runner environment specified by `runs-on`.
 
 You can run an unlimited number of jobs as long as you are within the workflow usage limits. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
@@ -249,9 +249,9 @@ The name of the job displayed on {% data variables.product.prodname_dotcom %}.
 
 ### `jobs.<job_id>.needs`
 
-Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional statement that causes the job to continue.
+Identifies any jobs that must complete successfully before this job will run. It can be a string or array of strings. If a job fails, all jobs that need it are skipped unless the jobs use a conditional expression that causes the job to continue.
 
-#### Example
+#### Example requiring dependent jobs to be successful
 
 ```yaml
 jobs:
@@ -269,6 +269,20 @@ The jobs in this example run sequentially:
 1. `job1`
 2. `job2`
 3. `job3`
+
+#### Example not requiring dependent jobs to be successful
+
+```yaml
+jobs:
+  job1:
+  job2:
+    needs: job1
+  job3:
+    if: always()
+    needs: [job1, job2]
+```
+
+In this example, `job3` uses the `always()` conditional expression so that it always runs after `job1` and `job2` have completed, regardless of whether they were successful. For more information, see "[Context and expression syntax](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)."
 
 ### `jobs.<job_id>.runs-on`
 
@@ -306,6 +320,39 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### `jobs.<job_id>.environment`
+
+The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+
+You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
+
+##### Example using a single environment name
+
+```yaml
+environment: staging_environment
+```
+
+##### Example using environment name and URL
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+The URL can be an expression and can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+#### Example
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
+
 ### `jobs.<job_id>.outputs`
 
 A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
@@ -340,7 +387,7 @@ jobs:
 
 ### `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
+A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -415,11 +462,11 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.id`
+### `jobs.<job_id>.steps[*].id`
 
 A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
-### `jobs.<job_id>.steps.if`
+### `jobs.<job_id>.steps[*].if`
 
 You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
@@ -449,11 +496,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### `jobs.<job_id>.steps.name`
+### `jobs.<job_id>.steps[*].name`
 
 A name for your step to display on {% data variables.product.prodname_dotcom %}.
 
-### `jobs.<job_id>.steps.uses`
+### `jobs.<job_id>.steps[*].uses`
 
 Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
@@ -570,7 +617,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-### `jobs.<job_id>.steps.run`
+### `jobs.<job_id>.steps[*].run`
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
@@ -675,7 +722,7 @@ For built-in shell keywords, we provide the following defaults that are executed
   - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
   - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
-### `jobs.<job_id>.steps.with`
+### `jobs.<job_id>.steps[*].with`
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
@@ -695,7 +742,7 @@ jobs:
           last_name: Octocat      
 ```
 
-### `jobs.<job_id>.steps.with.args`
+### `jobs.<job_id>.steps[*].with.args`
 
 A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter.
 
@@ -718,7 +765,7 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 1. Use defaults that allow using the action without specifying any `args`.
 1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
-### `jobs.<job_id>.steps.with.entrypoint`
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
 
@@ -734,7 +781,7 @@ steps:
 
 The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-### `jobs.<job_id>.steps.env`
+### `jobs.<job_id>.steps[*].env`
 
 Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
@@ -755,11 +802,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.continue-on-error`
+### `jobs.<job_id>.steps[*].continue-on-error`
 
 Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
 
-### `jobs.<job_id>.steps.timeout-minutes`
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
 The maximum number of minutes to run the step before killing the process.
 
@@ -769,7 +816,7 @@ The maximum number of minutes to let a job run before {% data variables.product.
 
 ### `jobs.<job_id>.strategy`
 
-A strategy creates a build matrix for your jobs. You can define different variations of an environment to run each job in.
+A strategy creates a build matrix for your jobs. You can define different variations to run each job in.
 
 ### `jobs.<job_id>.strategy.matrix`
 

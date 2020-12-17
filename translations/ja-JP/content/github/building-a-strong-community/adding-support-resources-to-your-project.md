@@ -15,7 +15,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-You can create default support resources for your organization or user account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+Organization またはユーザアカウントのデフォルトのサポートリソースを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 
