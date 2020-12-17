@@ -44,6 +44,7 @@ jobs:
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Create pull request
+        id: create-pull
         uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
@@ -72,9 +73,10 @@ jobs:
 
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
+        if: ${{ steps.find-pull-request.outputs.number }}
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const mainHeadSha = await github.git.getRef({
               ...context.repo,
@@ -84,13 +86,14 @@ jobs:
 
             const pull = await github.pulls.get({
               ...context.repo,
-              pull_number: ${{ steps.find-pull-request.outputs.number }}
+              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
             })
+            console.log(`Pull request base sha: ${pull.data.base.sha}`)
 
-            if (mainHeadSha.data.object.sha !== pull.data.base.sha) {
+            if (mainHeadSha.data.object.sha !== pull.data.base.sha || pull.data.mergeable_state === 'behind') {
               const updateBranch = await github.pulls.updateBranch({
                 ...context.repo,
-                pull_number: ${{ steps.find-pull-request.outputs.number }}
+                pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
               })
               console.log(updateBranch.data.message)
             } else {
