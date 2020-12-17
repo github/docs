@@ -1,5 +1,5 @@
 ---
-title: About OsmAnd Navigation 1
+title: OsmAnd Live subscription on Android
 intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
@@ -24,7 +24,5 @@ People and apps with admin permissions to a repository are always able to push t
 
 ### Further reading
 
-- "[About protected branches](/articles/about-protected-branches)"
-- "[Configuring protected branches](/articles/configuring-protected-branches)"
-- "[About required status checks](/articles/about-required-status-checks)"
-- "[Enabling required status checks](/articles/enabling-required-status-checks)"
+- "[Purchases on Android](/purchases/in-apps-android)"
+- "[Purchases on iOS](/purchases/in-apps-ios)"
