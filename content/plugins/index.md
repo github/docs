@@ -15,3 +15,4 @@ versions:
 {% link_in_list /nautical-charts %}
 {% link_in_list /online-maps %}
 {% link_in_list /terrain %}
+{% link_in_list /osm-editing %}
