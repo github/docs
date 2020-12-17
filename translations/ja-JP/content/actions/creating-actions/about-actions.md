@@ -30,11 +30,11 @@ versions:
 
 DockerコンテナのアクションとJavaScriptのアクションをビルドできます。 アクションには、アクションの入力、出力、およびメインのエントリポイントを定義するメタデータファイルが必要です。 このメタデータのファイル名は`action.yml`もしくは`action.yaml`でなければなりません。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions)」を参照してください。
 
-| 種類         | オペレーティングシステム        |
-| ---------- | ------------------- |
-| Dockerコンテナ | Linux               |
-| JavaScript | Linux、MacOS、Windows |
-| 複合実行ステップ   | Linux、MacOS、Windows |
+| 種類         | オペレーティングシステム          |
+| ---------- | --------------------- |
+| Dockerコンテナ | Linux                 |
+| JavaScript | Linux, macOS, Windows |
+| 複合実行ステップ   | Linux, macOS, Windows |
 
 #### Docker コンテナーアクション
 

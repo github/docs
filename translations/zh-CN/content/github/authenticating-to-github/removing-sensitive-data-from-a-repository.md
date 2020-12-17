@@ -40,6 +40,12 @@ $ bfg --delete-files <em>YOUR-FILE-WITH-SENSITIVE-DATA</em>
 $ bfg --replace-text passwords.txt
 ```
 
+删除敏感数据后，必须强制将更改推送到 {% data variables.product.product_name %}。
+
+```shell
+$ git push --force
+```
+
 有关完整的使用和下载说明，请参阅 [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) 的文档。
 
 #### 使用 filter-branch

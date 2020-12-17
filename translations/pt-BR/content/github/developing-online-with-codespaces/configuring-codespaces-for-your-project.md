@@ -15,7 +15,7 @@ versions:
 
 {% data reusables.codespaces.about-configuration %}
 
-Se você não definir uma configuração no repositório, o {% data variables.product.prodname_dotcom %} criará um código com uma imagem-base do Linux. A imagem-base do Linux inclui ferramentas para Node.js, JavaScript, TypeScript, Python, C++, Java, C#, .NET Core, PHP, e PowerShell. Para obter mais informações sobre a imagem base do Linux, consulte o repositório [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux).
+Se você não definir uma configuração no repositório, o {% data variables.product.prodname_dotcom %} criará um código com uma imagem-base do Linux. The base Linux image includes tools for Python, Node.js, JavaScript, TypeScript, C++, Java, C#, F#, .NET Core, PHP, PowerShell, Go, Ruby, and Rust. Para obter mais informações sobre a imagem base do Linux, consulte o repositório [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux).
 
 {% data reusables.codespaces.about-personalization %} {% data reusables.codespaces.codespace-config-order %} Para obter mais informações, consulte "[Personalizar {% data variables.product.prodname_codespaces %} para a sua conta](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)".
 

@@ -1,1 +1,1 @@
-您将立即被收取下一个固定结算日期之前的金额（按时间比例计算）。
+If you're sponsoring on behalf of your user account, you will immediately be charged a prorated amount for the time until your next regular billing date. If you're sponsoring on behalf of an organization, you can choose to pay the prorated amount or make the full monthly payment.

@@ -108,8 +108,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-![Imagem de execução de fluxo de trabalho de artefato carregado em fluxo de trabalho](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Configurar um período de retenção do artefato personalizado
 
@@ -238,7 +236,12 @@ jobs:
           echo The result is $value
 ```
 
+A execução do fluxo de trabalho arquivará quaisquer artefatos gerados por ele. Para obter mais informações sobre o download de artefatos arquivados, consulte "[Fazer download dos artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![Fluxo de trabalho que transmite dados entre trabalhos para executar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

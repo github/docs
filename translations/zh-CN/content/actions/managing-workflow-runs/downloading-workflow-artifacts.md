@@ -19,4 +19,9 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. 在**构件**下，单击您想要下载的构件。 ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)
+1. 在**构件**下，单击您想要下载的构件。
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+    ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down-updated.png)
+    {% else %}
+    ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)
+    {% endif %}
