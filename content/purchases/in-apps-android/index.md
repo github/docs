@@ -1,5 +1,5 @@
 ---
-title: Purchases on iOS
+title: Purchases on Android
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
