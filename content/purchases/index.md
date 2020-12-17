@@ -6,9 +6,7 @@ redirect_from:
   - /troubleshooting-common-issues/
 intro: "OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail."
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  main: '*'
 ---
 
 OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail.
