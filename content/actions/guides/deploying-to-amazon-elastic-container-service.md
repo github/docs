@@ -26,8 +26,8 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    {% raw %}```bash{:copy}
    aws ecr create-repository \
-       --repository-name $ECR_REPOSITORY \
-       --region $AWS_REGION
+       --repository-name MY_ECR_REPOSITORY \
+       --region MY_AWS_REGION
    ```{% endraw %}
 
    Ensure that you use the same Amazon ECR repository name for the `ECR_REPOSITORY` variable in the workflow below.
@@ -75,13 +75,13 @@ on:
     types: [ created ]
 
 env:
-  AWS_REGION: your-preferred-aws-region        # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: your-ecr-repository          # set this to your Amazon ECR repository name
-  ECS_SERVICE: your-ecs-service                # set this to your Amazon ECS service name
-  ECS_CLUSTER: your-ecs-cluster                # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: your-ecs-task-defintion # set this to the path to your Amazon ECS task definition
+  AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
+  ECS_SERVICE: MY-ECS-SERVICE                 # set this to your Amazon ECS service name
+  ECS_CLUSTER: MY-ECS-CLUSTER                 # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: MY-ECS-TASK-DEFINITION # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: your-container-name          # set this to the name of the container in the
+  CONTAINER_NAME: MY-CONTAINER-NAME           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 defaults:
