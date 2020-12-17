@@ -53,7 +53,7 @@ In addition to the requirements for all apps above, each app that you offer as a
 - {% data variables.product.prodname_github_app %}s should have a minimum of 100 installations.
 - {% data variables.product.prodname_oauth_app %}s should have a minimum of 200 users.
 - All paid apps must handle {% data variables.product.prodname_marketplace %} purchase events for new purchases, upgrades, downgrades, cancellations, and free trials. For more information, see "[Billing requirements for paid apps](#billing-requirements-for-paid-apps)" below.
-- Publishing organizations must have a verified domain and must enable two-factor authentication. For more information, see "[Requiring two-factor authentication in your organization](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization.")
+- Publishing organizations must have a verified domain and must enable two-factor authentication. For more information, see "[Requiring two-factor authentication in your organization](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
 
 When you are ready to publish the app on {% data variables.product.prodname_marketplace %} you must request verification for the listing.
 
