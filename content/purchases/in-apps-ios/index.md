@@ -1,5 +1,6 @@
 ---
 title: Purchases on iOS
+intro: "You can get OsmAnd Live subscription or buy separate continents"
 versions: '*' 
 ---
 
@@ -11,7 +12,7 @@ The purchase system in iOS is a little different from that on Android. The Nauti
 For example, you can get the maps of Africa or Europe. Of course, free map downloads are available, as well. To view all the options, please visit the 'Maps & Resources' menu. {% data reusables.links.osmand-maps-app-store %}
 
 
-### OsmAnd Live subscription
-{% data purchases.osmand-live.osmand-live-ios %}
-- "[OsmAnd Live](/purchases/osmand-live/osmand-live-ios)"
+
+{% link_with_intro /purchases/in-apps-ios %}
+
 

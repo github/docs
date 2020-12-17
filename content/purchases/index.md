@@ -4,7 +4,6 @@ intro: "OsmAnd has plenty of features and offers its full functional in the free
 versions: '*'
 ---
 
-
 {% link_with_intro /osmand-live %}
 {% link_with_intro /in-apps-ios %}
 {% link_with_intro /in-apps-android %}
