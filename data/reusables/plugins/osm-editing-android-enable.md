@@ -1,0 +1,1 @@
+Menu -> Plugins-> OpenStreetMap editing -> Three dots icon -> press Enable.

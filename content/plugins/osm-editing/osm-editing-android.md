@@ -10,6 +10,8 @@ versions:
   github-ae: '*'
 ---
 
+`{% data reusables.plugins.osm-editing-android-enable %}`
+
 When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. For more information, see "[Enabling branch restrictions](/articles/enabling-branch-restrictions)" and "[About protected branches](/articles/about-protected-branches)." You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
 
 You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with `write` access to a repository.
