@@ -5,10 +5,7 @@ redirect_from:
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
 intro: 'Articles about Plugins'
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+versions: '*'
 ---
 
 {% link_in_list /audio-video-notes %}

@@ -1,9 +1,6 @@
 ---
 title: Online maps
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+versions: '*'
 ---
 
 

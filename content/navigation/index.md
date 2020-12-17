@@ -5,10 +5,7 @@ redirect_from:
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
 intro: 'Documentation about Navigation'
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+versions: '*'
 ---
 
 {% link_in_list /simple-navigation %}

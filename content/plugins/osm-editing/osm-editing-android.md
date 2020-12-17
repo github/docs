@@ -2,12 +2,7 @@
 title: OpenStreetMap editing on Android
 intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
-redirect_from:
-  - /articles/about-branch-restrictions
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+versions: '*'
 ---
 
 `{% data reusables.plugins.osm-editing-android-enable %}`
