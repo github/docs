@@ -132,4 +132,4 @@ jobs:
 
 For more tips and tricks about why `autobuild` won't build your code, see "[Troubleshooting {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)".
 
-If you added manual build steps for compiled languages or used a build matrix and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+If you added manual build steps for compiled languages or used a build matrix and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_osmand_support%}.

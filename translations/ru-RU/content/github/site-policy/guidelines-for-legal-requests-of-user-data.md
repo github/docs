@@ -182,4 +182,4 @@ As a United States company based in California, GitHub is not required to provid
 
 ### Questions
 
-Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.
+Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_osmand_support%}.

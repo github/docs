@@ -95,7 +95,7 @@ If you already have a personal {% data variables.product.prodname_dotcom %} user
 ### Next steps
 
 1. Contact your client and ask them to [add you to the organization as a billing manager](/articles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
-2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
+2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_osmand_support%}.
 3. When it's time to renew your client's paid subscription, see "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)."
 
 ### Further reading

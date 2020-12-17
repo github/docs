@@ -92,7 +92,7 @@ If you're unable to regain access to your account, generate a one-time password 
   ![List of recovery tokens stored on Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. To redeem your account recovery token, click **Recover This Account**. A new window will open, returning you to {% data variables.product.product_name %}.
   ![Modal box with information about your recovery token and Recover This Account button](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Contact {% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
+4. Contact {% data variables.contact.contact_osmand_support%} to let them know that your account recovery token is ready for review.
 {% endif %}
 
 ### Further reading

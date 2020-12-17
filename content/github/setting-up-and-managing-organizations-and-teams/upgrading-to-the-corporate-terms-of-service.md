@@ -9,7 +9,7 @@ versions:
 
 The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the Corporate Terms of Service.
 
-1. Contact {% data variables.contact.contact_support %} to request an upgrade to the Corporate Terms of Service. They will enable a banner on your organization's dashboard that will allow you to accept the Corporate Terms of Service.
+1. Contact {% data variables.contact.contact_osmand_support%} to request an upgrade to the Corporate Terms of Service. They will enable a banner on your organization's dashboard that will allow you to accept the Corporate Terms of Service.
 {% data reusables.dashboard.access-org-dashboard %}
 3. At the top of the page, to the right of the Terms of Service banner, click **Sign now**.
   ![Sign now button](/assets/images/help/organizations/sign-now-button.png)

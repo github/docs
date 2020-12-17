@@ -80,7 +80,7 @@ Changing the default branch of the repository will change it for all repository 
 
 Commits made in a fork will not count toward your contributions. To make them count, you must do one of the following:
 - [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the parent repository.
-- To detach the fork and turn it into a standalone repository on {% data variables.product.product_name %}, contact {% data variables.contact.contact_support %}. If the fork has forks of its own, let {% data variables.contact.github_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
+- To detach the fork and turn it into a standalone repository on {% data variables.product.product_name %}, contact {% data variables.contact.contact_osmand_support%}. If the fork has forks of its own, let {% data variables.contact.github_support %} know if the forks should move with your repository into a new network or remain in the current network. For more information, see "[About forks](/articles/about-forks/)."
 
 ### Further reading
 

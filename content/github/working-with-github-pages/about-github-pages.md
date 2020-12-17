@@ -118,7 +118,7 @@ Project sites can also be published from the `master` branch or a `/docs` folder
   - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100GB per month.
   - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.
 
-If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
+If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_osmand_support%} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
 
 #### Prohibited uses
 
@@ -134,7 +134,7 @@ Additionally, {% data variables.product.prodname_pages %} sites must refrain fro
   - Sexually obscene content
   - Content that misrepresents your identity or site purpose
 
-If you have questions about whether your use or intended use falls into these categories, please contact {% data variables.contact.contact_support %}.
+If you have questions about whether your use or intended use falls into these categories, please contact {% data variables.contact.contact_osmand_support%}.
 {% endif %}
 
 ### MIME types on {% data variables.product.prodname_pages %}

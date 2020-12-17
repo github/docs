@@ -2,7 +2,7 @@ If you need help with anything related to workflow configuration, such as syntax
 
 If you have feedback or feature requests for {% data variables.product.prodname_actions %}, share those in the {% data variables.contact.contact_feedback_actions %}.
 
-Contact {% data variables.contact.contact_support %} for any of the following, whether your use or intended use falls into the usage limit categories:
+Contact {% data variables.contact.contact_osmand_support%} for any of the following, whether your use or intended use falls into the usage limit categories:
 
 * If you believe your account has been incorrectly restricted
 * If you encounter an unexpected error when executing one of your Actions, for example: a unique ID

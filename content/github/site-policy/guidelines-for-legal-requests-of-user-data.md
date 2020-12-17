@@ -237,4 +237,4 @@ GitHub will promptly respond to requests that are issued via U.S. court by way o
 
 ### Questions
 
-Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.
+Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_osmand_support%}.

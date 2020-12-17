@@ -131,6 +131,6 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 {% warning %}
 
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_osmand_support%} for further help. An unidentified public key may indicate a possible security concern.
 
 {% endwarning %}

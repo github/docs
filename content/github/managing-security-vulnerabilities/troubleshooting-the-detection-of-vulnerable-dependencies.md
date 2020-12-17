@@ -55,7 +55,7 @@ Yes, the dependency graph has two categories of limits:
 
     Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
 
-    By default, {% data variables.product.prodname_dotcom %} will not process more than 20 manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not be created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}. 
+    By default, {% data variables.product.prodname_dotcom %} will not process more than 20 manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not be created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_osmand_support%}. 
 
 2. **Visualization limits**
 
@@ -69,7 +69,7 @@ Yes, the dependency graph has two categories of limits:
 
 The {% data variables.product.prodname_advisory_database %} was launched in November 2019, and initially back-filled to include vulnerability information for the supported ecosystems, starting from 2017. When adding CVEs to the database, we prioritize curating newer CVEs, and CVEs affecting newer versions of software.
 
-Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_support %}. 
+Some information on older vulnerabilities is available, especially where these CVEs are particularly widespread, however some old vulnerabilities are not included in the {% data variables.product.prodname_advisory_database %}. If there's a specific old vulnerability that you need to be included in the database, contact {% data variables.contact.contact_osmand_support%}. 
 
 **Check**: Does the uncaught vulnerability have a publish date earlier than 2017 in the National Vulnerability Database?
 

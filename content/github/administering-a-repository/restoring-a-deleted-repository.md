@@ -13,7 +13,7 @@ Anyone can restore deleted repositories that were owned by their own user accoun
 
 A deleted repository can be restored within 90 days, unless the repository was part of a fork network that is not currently empty. A fork network consists of a parent repository, the repository's forks, and forks of the repository's forks. If your repository was part of a fork network, it cannot be restored unless every other repository in the network is deleted or has been detached from the network. For more information about forks, see "[About forks](/articles/about-forks)."
 
-If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_support %}.
+If you want to restore a repository that was part of a fork network that is not currently empty, you can contact {% data variables.contact.contact_osmand_support%}.
 
 It can take up to an hour after a repository is deleted before that repository is available for restoration.
 

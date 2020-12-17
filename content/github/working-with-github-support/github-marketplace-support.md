@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplace support
-intro: 'For help with purchasing or paying for an app from {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %}. For help using a {% data variables.product.prodname_marketplace %} app, contact the app''s provider.'
+intro: 'For help with purchasing or paying for an app from {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_osmand_support%}. For help using a {% data variables.product.prodname_marketplace %} app, contact the app''s provider.'
 redirect_from:
   - /articles/github-marketplace-support
 versions:

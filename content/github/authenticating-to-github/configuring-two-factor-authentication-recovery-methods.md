@@ -88,7 +88,7 @@ Recover Accounts Elsewhere lets you associate your {% data variables.product.pro
 
 If you lose access to your {% data variables.product.product_name %} account because you no longer have access to your two-factor authentication method or recovery codes, you can retrieve your account recovery token from the recovery provider to help prove that you're the owner of your {% data variables.product.product_name %} account.
 
-After you retrieve your token, {% data variables.contact.contact_support %} may be able to disable two-factor authentication for your account. Then, you can provide or reset your password to regain access to your account.
+After you retrieve your token, {% data variables.contact.contact_osmand_support%} may be able to disable two-factor authentication for your account. Then, you can provide or reset your password to regain access to your account.
 
 When you generate or retrieve an account recovery token, an event is added to your account's audit log. For more information, see "[Reviewing your security log](/articles/reviewing-your-security-log)."
 

@@ -20,7 +20,7 @@ You can remove the file from the latest commit with `git rm`. For information on
 
 **Warning: Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any data it contains to be compromised.** If you committed a password, change it! If you committed a key, generate a new one.
 
-This article tells you how to make commits with sensitive data unreachable from any branches or tags in your {% data variables.product.product_name %} repository. However, it's important to note that those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You can't do anything about existing clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+This article tells you how to make commits with sensitive data unreachable from any branches or tags in your {% data variables.product.product_name %} repository. However, it's important to note that those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You can't do anything about existing clones or forks of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_osmand_support%}.
 
 {% endwarning %}
 
@@ -122,7 +122,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f main -> main (forced update)
   ```
-8. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}.
+8. Contact {% data variables.contact.contact_osmand_support%}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}.
 9. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 10. After some time has passed and you're confident that `git filter-branch` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
   ```shell

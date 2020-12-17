@@ -75,7 +75,7 @@ For more information, see the workflow extract in "[Automatic build for a compil
        dotnet build /p:UseSharedCompilation=false 
    ```
 
-  If you encounter another problem with your specific compiler or configuration, contact {% data variables.contact.contact_support %}.
+  If you encounter another problem with your specific compiler or configuration, contact {% data variables.contact.contact_osmand_support%}.
 
 For more information about specifying build steps, see "[Configuring the {% data variables.product.prodname_codeql %} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)." 
 
@@ -85,12 +85,12 @@ The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuris
 
 ### Error: "Server error"
 
-If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_support %}.
+If the run of a workflow for {% data variables.product.prodname_code_scanning %} fails due to a server error, try running the workflow again. If the problem persists, contact {% data variables.contact.contact_osmand_support%}.
 
 ### Error: "Out of disk" or "Out of memory"
 
 On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
-{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_support %} so that we can investigate the problem.
+{% if currentVersion == "free-pro-team@latest" %}If you encounter this issue on a hosted {% data variables.product.prodname_actions %} runner, contact {% data variables.contact.contact_osmand_support%} so that we can investigate the problem.
 {% else %}If you encounter this issue, try increasing the memory on the runner.{% endif %}
 
 ### The build takes too long

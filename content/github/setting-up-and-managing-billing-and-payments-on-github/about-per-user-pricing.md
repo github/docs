@@ -23,7 +23,7 @@ Outside collaborators and bot accounts will count toward your organization's tot
 
 You can add paid licenses to your organization anytime. If you're paying for more licenses than you're using, you can also remove paid licenses from your organization. For more information, see "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/articles/upgrading-your-github-subscription)" and "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/articles/downgrading-your-github-subscription)."
 
-If you have questions about your organization's subscription, contact {% data variables.contact.contact_support %}.
+If you have questions about your organization's subscription, contact {% data variables.contact.contact_osmand_support%}.
 
 ### If I keep my organization on a per-repository plan, can I upgrade or downgrade to a different per-repository plan?
 

@@ -28,7 +28,7 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 {% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}. See "[Differences between GitHub and OAuth apps](/apps/differences-between-apps/)" for more details. To learn more about switching from OAuth to {% data variables.product.prodname_github_apps %}, see [Migrating OAuth Apps to {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/).
 
-If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.
+If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_osmand_support%} directly.
 
 #### Unverified Apps
 

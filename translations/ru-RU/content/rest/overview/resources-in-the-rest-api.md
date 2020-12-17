@@ -10,7 +10,7 @@ versions:
 ---
 
 
-This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
+This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_osmand_support%}.
 
 ### Current version
 
