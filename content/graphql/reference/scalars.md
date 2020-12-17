@@ -1,4 +1,4 @@
----
+add scalers.md
 title: Scalars
 redirect_from:
   - /v4/scalar
