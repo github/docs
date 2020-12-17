@@ -237,7 +237,8 @@ async function buildPathContext (initialContext, page, permalink) {
   const pathContext = {
     page,
     currentVersion: permalink.pageVersion,
-    relativePath: permalink.relativePath
+    relativePath: permalink.relativePath,
+    currentPath: permalink.href
   }
 
   // Combine it with the initial context object that has pages, redirects, etc.
