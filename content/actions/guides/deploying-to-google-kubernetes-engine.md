@@ -17,14 +17,15 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
 ### Prerequisites
+
 Before you proceed with creating the workflow, you will need to complete the following steps for your Kubernetes project. This guide assumes the root of your project already has a `Dockerfile` and a Kubernetes Deployment configuration file. For an example, see [google-github-actions](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/gke).
 
 #### Creating a GKE cluster
 
 To create the GKE cluster, you will first need to authenticate using the `gcloud` CLI. For more information on this step, see the following articles:
-- [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login).
-- [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference).
-- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk).
+- [`gcloud auth login`](https://cloud.google.com/sdk/gcloud/reference/auth/login)
+- [`gcloud` CLI](https://cloud.google.com/sdk/gcloud/reference)
+- [`gcloud` CLI and Cloud SDK](https://cloud.google.com/sdk/gcloud#the_gcloud_cli_and_cloud_sdk)
 
 For example:
 
@@ -170,7 +171,7 @@ jobs:
 
 For more information on the tools used in these examples, see the following documentation:
 
-1.  For the full starter workflow, see [GKE starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/google.yml).
-2.  For more starter workflows and accompanying code, see [Google GitHub actions example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
-3.  The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/), 
-4.  [Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app).
+* For the full starter workflow, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/master/ci/google.yml).
+* For more starter workflows and accompanying code, see Google's [{% data variables.product.prodname_actions %} example workflows](https://github.com/google-github-actions/setup-gcloud/tree/master/example-workflows/).
+* The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
+* "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.
