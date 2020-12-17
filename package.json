@@ -102,7 +102,7 @@
     "commander": "^6.2.0",
     "count-array-values": "^1.2.1",
     "csp-parse": "0.0.2",
-    "csv-parse": "^4.8.8",
+    "csv-parse": "^4.14.1",
     "csv-parser": "^2.3.3",
     "dedent": "^0.7.0",
     "del": "^4.1.1",
