@@ -40,9 +40,9 @@ Damit Codeinhaber Review-Anfragen erhalten können, muss sich die CODEINHABER-Da
 
 ### CODEOWNERS-Syntax
 
-Eine CODEINHABER-Datei verwendet ein Muster, das den gleichen Regeln folgt wie in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format)-Dateien. Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Du kannst auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {% data variables.product.product_name %}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Du kannst auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {% data variables.product.product_name %}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews.
 #### Beispiel für eine CODEOWNERS-Datei
 ```
 # Dies ist ein Kommentar.
@@ -84,6 +84,13 @@ apps/ @octocat
 # subdirectories.
 /docs/ @doctocat
 ```
+#### Syntax exceptions
+There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
+- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+- Using `!` to negate a pattern
+- Using `[ ]` to define a character range
+
+
 
 ### Weiterführende Informationen
 

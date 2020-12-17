@@ -59,7 +59,11 @@ Fazer commit do arquivo de fluxo de trabalho no repositório aciona o evento `pu
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho de **base de código Lint**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
+{% else %}
 1. Na barra lateral esquerda, clique no trabalho **Lint de código-bsee**. ![Lint do trabalho do código-base](/assets/images/help/repository/superlinter-lint-code-base-job.png)
+{% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
 ### Mais fluxos de trabalho iniciais
@@ -101,7 +105,7 @@ Imprimir "Olá, mundo!" é uma ótima maneira de explorar a configuração e a s
     # When the event is triggered, GitHub Actions will run the jobs indicated
     jobs:
       say_hello:
-        # Uses a ubuntu-lates runner to complete the requested steps
+        # Uses a ubuntu-latest runner to complete the requested steps
         runs-on: ubuntu-latest
         steps:
         - run: |

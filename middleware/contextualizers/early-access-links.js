@@ -1,10 +1,12 @@
+const { uniq } = require('lodash')
+
 module.exports = function earlyAccessContext (req, res, next) {
   if (process.env.NODE_ENV === 'production') {
     return next(404)
   }
 
   // Get a list of all hidden pages per version
-  const earlyAccessPageLinks = req.context.pages
+  const earlyAccessPageLinks = uniq(Object.values(req.context.pages)
     .filter(page => page.hidden)
     // Do not include early access landing page
     .filter(page => page.relativePath !== 'early-access/index.md')
@@ -12,7 +14,7 @@ module.exports = function earlyAccessContext (req, res, next) {
     .map(page => {
       return page.permalinks.map(permalink => `- [${permalink.title}](${permalink.href})`)
     })
-    .flat()
+    .flat())
     // Get links for the current version
     .filter(link => link.includes(req.context.currentVersion))
     .sort()
