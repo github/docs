@@ -1,14 +1,7 @@
 ---
 title: Development
-redirect_from:
-  - /articles/
-  - /common-issues-and-questions/
-  - /troubleshooting-common-issues/
 intro: 'Documentation about Development'
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+versions: '*'
 ---
 
 {% link_in_list /development %}

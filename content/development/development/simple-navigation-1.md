@@ -2,12 +2,7 @@
 title: About OsmAnd Navigation 1
 intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
-redirect_from:
-  - /articles/about-branch-restrictions
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+versions: '*'
 ---
 
 When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. For more information, see "[Enabling branch restrictions](/articles/enabling-branch-restrictions)" and "[About protected branches](/articles/about-protected-branches)." You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
