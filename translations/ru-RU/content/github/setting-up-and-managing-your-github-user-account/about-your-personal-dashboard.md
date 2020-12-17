@@ -15,7 +15,7 @@ versions:
 
 Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
-To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
+To access your personal dashboard once you're signed in, click the {% data reusables.osmand.logo aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_name %}.
 
 ### Finding your recent activity
 
