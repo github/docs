@@ -12,7 +12,7 @@ versions:
 
 ### Introduction
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application in Google Container Registry (GCR) and deploy it to Google Kubernetes Engine (GKE).
+This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE).
 
 GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
 
