@@ -6,7 +6,6 @@
     "ENABLED_LANGUAGES": "en"
   },
   "buildpacks": [
-    { "url": "https://github.com/DataDog/heroku-buildpack-datadog.git#1.21" },
     { "url": "heroku/nodejs" }
   ],
   "formation": {
