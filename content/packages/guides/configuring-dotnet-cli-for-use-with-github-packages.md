@@ -160,37 +160,4 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 
 ### Installing a package
 
-Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
-
-{% data reusables.package_registry.authenticate-step %}
-
-2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file, replacing the `OctokittenApp` package with your package dependency and `1.0.0` with the version you want to use:
-  ``` xml
-  <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-      <OutputType>Exe</OutputType>
-      <TargetFramework>netcoreapp3.0</TargetFramework>
-      <PackageId>OctocatApp</PackageId>
-      <Version>1.0.0</Version>
-      <Authors>Octocat</Authors>
-      <Company>GitHub</Company>
-      <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="OctokittenApp" Version="12.0.2" />
-    </ItemGroup>
-
-  </Project>
-  ```
-
-3. Install the packages with the `restore` command.
-  ```shell
-  dotnet restore
-  ```
-
-### Further reading
-
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/ 1BVtsOK8Bu2rbkyHxMJXzue6k4UmQsskyxDvo2FtWy_sP1sMtdgj370-Bo02kXrtpq6GuQR7sYoPpzYTw42I7mvMmyzoZBIExJ6TG9kCyZFkMHCJ8T9NNNFmKnQz6obPcwJoIVn-yIbv0IhYTCdKhzeY5iV6gblVVDGM1PgMSYnlr_9LadmE_wL6Yc1xMirCMiKdnFOK0gbUuGBsiQ2uAZ3ZAUbOvv8gLGhIsDzrnAVsxHJHpkA_f_z-qHI7j0rIQgCMNzn2yBAndagAP7V_8LUB76EgrnzL5BIHxmRA8cAWQfiVIefJ-0x8xAostHGD1wrGJhab8uW3mlfeZPiduxtsc-7kAHnA= 
