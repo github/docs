@@ -40,7 +40,7 @@ describe('enterprise deprecation', () => {
   test('sets the expected x-robots-tag header for deprecated Enterprise pages', async () => {
     const res = await get('/en/enterprise/2.13/user/articles/about-branches')
     expect(res.statusCode).toBe(200)
-    expect(res.get('x-robots-tag')).toBe('none')
+    expect(res.get('x-robots-tag')).toBe('noindex')
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
