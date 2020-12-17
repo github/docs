@@ -13,8 +13,5 @@ versions:
 
 OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail.
 
-{% link_in_list /audio-video-notes %}
-{% link_in_list /nautical-charts %}
-{% link_in_list /online-maps %}
-{% link_in_list /terrain %}
-{% link_in_list /osm-editing %}
+{% link_in_list /osmand-live %}
+
