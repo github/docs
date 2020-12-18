@@ -3,9 +3,8 @@ title: Nautical chart plugin
 intro: "Detailed graphical representation of oceans, seas, coastal areas and rivers."
 versions: '*'
 ---
-{% link_with_intro /nautical-charts-android %}
-{% link_with_intro /nautical-charts-ios %}
-
+{% link_with_intro /osmand-live %}
+{% link_with_intro /osmand-live %}
 Nautical Chart is a detailed graphical representation of oceans, seas, coastal areas and rivers.
 
 Nautical Charts are made for people who drive any kind of vehicle on water: from professional sailors to people who rented a boat to make a tour over city canals. The charts can contain various information like sailing routes, navigation lights, dangerous areas, areas where it's allowed or not allowed to sail or dock, etc.
