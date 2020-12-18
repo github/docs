@@ -3,8 +3,11 @@ title: Nautical chart plugin
 intro: "Detailed graphical representation of oceans, seas, coastal areas and rivers."
 versions: '*'
 ---
+
+##### How to use
 {% link_with_intro /nautical-charts-android %}
 {% link_with_intro /nautical-charts-ios %}
+
 
 Nautical Chart is a detailed graphical representation of oceans, seas, coastal areas and rivers.
 
