@@ -20,7 +20,7 @@ You can also interact with other users in pull requests and issues using feature
 Every comment field on {% data variables.product.product_name %} contains a text formatting toolbar, allowing you to format your text without learning Markdown syntax. In addition to Markdown formatting like bold and italic styles and creating headers, links, and lists, the toolbar includes {% data variables.product.product_name %}-specific features such as @mentions, task lists, and links to issues and pull requests.
 
 ![Markdown toolbar](/assets/images/help/writing/markdown-toolbar.gif)
-
+SPE3984217948
 ### Further reading
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
