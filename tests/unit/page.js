@@ -366,6 +366,18 @@ describe('Page class', () => {
       expect(page.versions['enterprise-server']).toBe('*')
     })
   })
+
+  describe('platform specific content', () => {
+    test('page.defaultPlatform frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service.md',
+        basePath: path.join(__dirname, '../../content'),
+        languageCode: 'en'
+      })
+      expect(page.defaultPlatform).toBeDefined()
+      expect(page.defaultPlatform).toBe('linux')
+    })
+  })
 })
 
 describe('catches errors thrown in Page class', () => {
