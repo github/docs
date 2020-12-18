@@ -181,7 +181,7 @@ describe('platform specific content', () => {
     { name: 'Linux', id: 'linux', ua: 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1' }
   ]
   const linuxUserAgent = userAgents[2]
-  const pageWithSwitcher = 'http://localhost:4001/en/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners'
+  const pageWithSwitcher = 'http://localhost:4001/en/github/using-git/configuring-git-to-handle-line-endings'
   const pageWithoutSwitcher = 'http://localhost:4001/en/github/using-git'
   const pageWithDefaultPlatform = 'http://localhost:4001/en/actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service'
 
