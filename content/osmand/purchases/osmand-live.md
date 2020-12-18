@@ -1,5 +1,6 @@
 ---
 title: OsmAnd Live Subscription
+intro: "Get full access to every possible OsmAnd feature for a fraction of cost."
 versions: '*'
 ---
 
