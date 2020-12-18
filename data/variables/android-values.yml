@@ -1,7 +1,6 @@
-release_3_9: "
-    • Added option to export and import all data including settings, resources, my places
-    • Plan Route: graphs for track segments with route, and added the ability to create and edit multiple track segments
-    • Added OAuth authentication method for OpenStreetMap, improved UI of OSM dialogs
+release_3_9: "• Added option to export and import all data including settings, resources, my places  
+    • Plan Route: graphs for track segments with route, and added the ability to create and edit multiple track segments  
+    • Added OAuth authentication method for OpenStreetMap, improved UI of OSM dialogs  
     • Support custom colors for favorites and track waypoints"
 profile_type_user_string: "User profile"
 profile_type_osmand_string: "OsmAnd profile"
@@ -12,12 +11,9 @@ plan_route_join_segments: "Join segments"
 app_mode_light_aircraft: "Light aircraft"
 elevation_data: "You can use elevation data to account for ascent/descent of your trip"
 ltr_or_rtl_combine_via_star: "%1$s * %2$s"
-add_photos_descr: "OsmAnd shows photos from several sources:
-OpenPlaceReviews - POI photos;
-Mapillary - street-level imagery;
-Web / Wikimedia - POI photos as per OpenStreetMap data."
+add_photos_descr: "OsmAnd shows photos from several sources: OpenPlaceReviews - POI photos; Mapillary - street-level imagery; Web / Wikimedia - POI photos as per OpenStreetMap data."
 use_dev_url: "Use dev.openstreetmap.org"
-use_dev_url_descr: "Switch to use "dev.openstreetmap.org" instead of "openstreetmap.org" to testing uploading OSM Note / POI / GPX."
+use_dev_url_descr: "Switch to use \"dev.openstreetmap.org\" instead of \"openstreetmap.org\" to testing uploading OSM Note / POI / GPX."
 add_to_opr: "Add to OpenPlaceReviews"
 add_to_mapillary: "Add to Mapillary"
 select_items_for_import: "Select items that will be imported."
@@ -57,9 +53,7 @@ user_login: "Login"
 user_password: "Password"
 login_account: "Account"
 use_login_password: "Use login and password"
-open_street_map_login_mode: "You need to login to upload new or modified changes. 
-
-You can log in using the safe OAuth method or use your login and password."
+open_street_map_login_mode: "You need to login to upload new or modified changes.   You can log in using the safe OAuth method or use your login and password."
 osm_edits_view_descr: "View all your not yet uploaded edits or OSM bugs in %1$s. Already uploaded changes will not show up any more."
 sign_in_with_open_street_map: "Sign in with OpenStreetMap"
 login_open_street_map_org: "Login to OpenStreetMap.org"
@@ -77,8 +71,7 @@ icon_group_amenity: "Amenity"
 app_mode_gap: "Gap"
 ltr_or_rtl_combine_via_dash: "%1$s — %2$s"
 shared_string_local_maps: "Local maps"
-message_graph_will_be_available_after_recalculation: "Please wait.
-Graph will be available after route recalculation."
+message_graph_will_be_available_after_recalculation: "Please wait. Graph will be available after route recalculation."
 message_need_calculate_route_before_show_graph: "%1$s data available only on roads, calculate a route using “Route between points” to see graphs."
 shared_string_graph: "Graph"
 use_two_phase_routing: "Use 2-phase A* routing algorithm"
@@ -96,35 +89,19 @@ use_live_public_transport: "OsmAnd Live data"
 development: "Development"
 routing_attr_avoid_footways_name: "Avoid footways"
 routing_attr_avoid_footways_description: "Avoid footways"
-osm_live_payment_subscription_management_hw: "Your AppGallery account is charged upon purchase confirmation.
-
-The subscription prolongates automatically unless canceled before the renewal date. Your account will be charged for the renewal period (month/three months/year) only on the renewal date.
-
-You can manage and cancel your subscriptions in your AppGallery settings."
+osm_live_payment_subscription_management_hw: "Your AppGallery account is charged upon purchase confirmation.  The subscription prolongates automatically unless canceled before the renewal date. Your account will be charged for the renewal period (month/three months/year) only on the renewal date.  You can manage and cancel your subscriptions in your AppGallery settings."
 osm_live_payment_desc_hw: "The subscription is charged per the period selected. Cancel it in your AppGallery at any time."
 contour_lines_thanks: "Thank you for purchasing 'Contour lines'"
 start_finish_icons: "Start and finish icons"
 sort_name_ascending: "Name: A – Z"
 sort_name_descending: "Name: Z – A"
 sort_last_modified: "Last modified"
-release_3_8: "• Updated "Plan a route" function: allows using different navigation types per segment and the inclusion of tracks
-
-
-    • New "Appearance" menu for tracks: select color, thickness, display direction arrows, start and finish icons
-
-
-    • Improved visibility of bicycle nodes.
-
-
-    • Tracks are now tappable, have context menu with basic info.
-
-
-    • Improved "Search" algorithms
-
-
-    • Improved "Follow track" options in Navigation
-
-
+release_3_8: "• Updated \"Plan a route\" function: allows using different navigation types per segment and the inclusion of tracks  
+    • New \"Appearance\" menu for tracks: select color, thickness, display direction arrows, start and finish icons  
+    • Improved visibility of bicycle nodes.  
+    • Tracks are now tappable, have context menu with basic info.  
+    • Improved \"Search\" algorithms  
+    • Improved \"Follow track\" options in Navigation  
     • Fixed issues with import/export of profile settings"
 shared_string_redo: "Redo"
 one_point_error: "Please add at least two points."
@@ -249,15 +226,9 @@ speed_cameras_alert: "Speed cameras alerts in some countries is prohibited by th
 shared_string_uninstall: "Uninstall"
 keep_active: "Keep active"
 speed_cameras_legal_descr: "In some countries or regions, the use of speed camera warning applications is prohibited by law.
-        
-
-You need to make a choice depending on the law of your country.
-        
-
-Select %1$s and you will receive alerts and warnings about speed cameras.
-        
-
-Select %2$s. All data related to speed cameras: alerts, notifications, POIs will be deleted until OsmAnd is completely reinstalled."
+          You need to make a choice depending on the law of your country.
+          Select %1$s and you will receive alerts and warnings about speed cameras.
+          Select %2$s. All data related to speed cameras: alerts, notifications, POIs will be deleted until OsmAnd is completely reinstalled."
 speed_camera_pois: "Speed camera POI’s"
 shared_string_legal: "Legal"
 uninstall_speed_cameras: "Uninstall speed cameras"
@@ -268,18 +239,10 @@ export_import_quick_actions_with_profiles_promo: "You can export or import quick
 tiles_storage_descr: "Choose how to store downloaded tiles."
 expire_time_descr: "Cached tiles will be re-downloaded after the specified number of minutes.
         Leave this field empty to never refresh tiles for this source.
-        
-
-One day is 1440 minutes.
-One week is 10 080 minutes.
-One month is 43 829 minutes."
+          One day is 1440 minutes. One week is 10 080 minutes. One month is 43 829 minutes."
 map_source_zoom_levels_descr: "Affects the screen when used as map or overlay/underlay.
-        
-
-%1$s: The map is limited to the zoom level range selected.
-        
-
-%2$s are the levels at which the original tiles will be visible, upscaling or downscaling will occur outside these values."
+          %1$s: The map is limited to the zoom level range selected.
+          %2$s are the levels at which the original tiles will be visible, upscaling or downscaling will occur outside these values."
 map_source_zoom_levels: "Set a minimum and maximum zoom level to show or load the online map."
 storage_format: "Storage format"
 mercator_projection: "Mercator projection"
@@ -324,30 +287,14 @@ quick_action_transport_descr: "Button showing or hiding public transport on the 
 quick_action_show_hide_transport: "Show or hide public transport"
 quick_action_transport_show: "Show public transport"
 quick_action_transport_hide: "Hide public transport"
-release_3_7: "• New offline Slope maps
-
-
-    • Full customization of Favorites and GPX Waypoints – custom colors, icons, shapes
-
-
-    • Customize items order in \"Context Menu\", \"Configure Map\" and \"Drawer\"
-
-
-    • Wikipedia as a separate layer in Configure map, select only needed languages
-
-
-    • Create your own POI filter / maps with total flexibility
-
-
-    • Added options to restore settings for custom profiles
-
-
-    • Full GPX routes from navigation support traffic lanes and complete turn instructions
-
-
-    • Fix UI sizes on tablets
-
-
+release_3_7: "• New offline Slope maps  
+    • Full customization of Favorites and GPX Waypoints – custom colors, icons, shapes  
+    • Customize items order in \"Context Menu\", \"Configure Map\" and \"Drawer\"  
+    • Wikipedia as a separate layer in Configure map, select only needed languages  
+    • Create your own POI filter / maps with total flexibility  
+    • Added options to restore settings for custom profiles  
+    • Full GPX routes from navigation support traffic lanes and complete turn instructions  
+    • Fix UI sizes on tablets  
     • Fix bugs with RTL"
 navigation_profiles_item: "Navigation profiles"
 legend_item_description: "The guide to a map's symbology."
@@ -365,11 +312,7 @@ download_unsupported_action: "Unsupported action %1$s"
 extra_maps_menu_group: "Extra maps"
 search_poi_types_descr: "Combine POI types from different categories. Tap switch to select all, tap left side to category selection."
 search_poi_types: "Search for POI types"
-osm_live_payment_subscription_management: "Payment will be charged to your Google Play account at the confirmation of purchase.
-
- Subscription automatically renews unless it is canceled before the renewal date. Your account will be charged for renewal period (month/three month/year) only on the renewal date.
-
- You can manage and cancel your subscriptions by going to your Google Play settings."
+osm_live_payment_subscription_management: "Payment will be charged to your Google Play account at the confirmation of purchase.   Subscription automatically renews unless it is canceled before the renewal date. Your account will be charged for renewal period (month/three month/year) only on the renewal date.   You can manage and cancel your subscriptions by going to your Google Play settings."
 ltr_or_rtl_combine_via_slash_with_space: "%1$s / %2$s"
 custom_color: "Custom color"
 lang_lmo: "Lombard"
@@ -430,9 +373,7 @@ context_menu_actions: "Context menu actions"
 shared_string_drawer: "Drawer"
 ui_customization: "UI Customization"
 ui_customization_short_descr: "Drawer items, context menu"
-ui_customization_description: "Customize the quantity of items in \"Drawer\", \"Configure Map\" and \"Context Menu\".
-
-Turn off unused plugins to hide all their controls. %1$s."
+ui_customization_description: "Customize the quantity of items in \"Drawer\", \"Configure Map\" and \"Context Menu\".  Turn off unused plugins to hide all their controls. %1$s."
 shared_string_min: "Min"
 shared_string_square: "Square"
 shared_string_octagon: "Octagon"
@@ -457,9 +398,7 @@ saving_new_profile: "Saving new profile"
 profile_backup_failed: "Could not back up profile."
 importing_from: "Importing data from %1$s"
 shared_string_importing: "Importing"
-checking_for_duplicate_description: "OsmAnd check %1$s for duplicates with existing items in the app.
-
-It may take some time."
+checking_for_duplicate_description: "OsmAnd check %1$s for duplicates with existing items in the app.  It may take some time."
 items_added: "Items added"
 shared_string_import_complete: "Import complete"
 import_complete_description: "All data from the %1$s is imported, you can use buttons below to open needed part of the app to manage it."
@@ -492,64 +431,36 @@ replace_all_desc: "Current items will be replaced with items from the file"
 replace_all: "Replace all"
 keep_both: "Keep both"
 keep_both_desc: "Imported items will be added with prefix"
-import_duplicates_description: "OsmAnd already has elements with the same names as those imported.
-
-Select an action."
+import_duplicates_description: "OsmAnd already has elements with the same names as those imported.  Select an action."
 import_duplicates_title: "Some items already exist"
 select_data_to_import: "Select the data to be imported."
 please_provide_profile_name_message: "Please provide a name for the profile"
 no_recalculation_setting: "No recalculation"
 open_settings: "Open settings"
 plugin_disabled: "Plugin off"
-plugin_disabled_descr: "This plugin is a separate app, you will need to remove it separately if you no longer plan to use it.
-
-The plugin will remain on the device after removing OsmAnd."
+plugin_disabled_descr: "This plugin is a separate app, you will need to remove it separately if you no longer plan to use it.  The plugin will remain on the device after removing OsmAnd."
 shared_string_menu: "Menu"
 ltr_or_rtl_triple_combine_via_dash: "%1$s — %2$s — %3$s"
 route_recalculation_dist_title: "Minimal distance to recalculate route"
 route_recalculation_dist_descr: "The route will be recalculated if the distance to the route is longer than specified parameter"
 routing_profile_direct_to: "Direct-to-point"
 clear_recorded_data: "Clear recorded data"
-release_3_6: "• Profiles: now you can change order, set icon for map, change all setting for base profiles and restore them back to defaults
-
-
-    • Added exit number in the navigation
-
-
-    • Reworked plugin settings
-
-
-    • Reworked Settings screen for quick access to all profiles
-
-
-    • Added option to copy settings from another profile
-
-
-    • Added ability to change an order or hide POI categories in Search
-
-
-    • Correctly aligned POI icons on the map
-
-
-    • Added Sunset / Sunrise data to Configure Map
-
-
-    • Added Home/Work icons on the map
-
-
-    • Added support for multiline description in Settings
-
-
-    • Added correct transliteration into the map of Japan
-
-
+release_3_6: "• Profiles: now you can change order, set icon for map, change all setting for base profiles and restore them back to defaults  
+    • Added exit number in the navigation  
+    • Reworked plugin settings  
+    • Reworked Settings screen for quick access to all profiles  
+    • Added option to copy settings from another profile  
+    • Added ability to change an order or hide POI categories in Search  
+    • Correctly aligned POI icons on the map  
+    • Added Sunset / Sunrise data to Configure Map  
+    • Added Home/Work icons on the map  
+    • Added support for multiline description in Settings  
+    • Added correct transliteration into the map of Japan  
     • Added Antarctica map"
 copy_coordinates: "Copy coordinates"
 reset_to_default_category_button_promo: "'Reset to default' will reinstate the sort order to the installation default."
 use_system_screen_timeout: "Use the system screen timeout"
-use_system_screen_timeout_promo: "Disabled by default: While OsmAnd is running in the foreground, the screen will not time out.
-
-If enabled, OsmAnd will use the system timeout setting."
+use_system_screen_timeout_promo: "Disabled by default: While OsmAnd is running in the foreground, the screen will not time out.  If enabled, OsmAnd will use the system timeout setting."
 accessibility_mode_disabled: "Accessibility mode is turned off in your Android system."
 rearrange_categories: "Rearrange categories"
 create_custom_categories_list_promo: "Change the list sort order, hide categories. You can import or export all changes with profiles."
@@ -571,11 +482,11 @@ permission_is_required: "Permission is required to use this option."
 logcat_buffer_descr: "Check and share detailed logs of the app"
 file_does_not_contain_routing_rules: "No routing rules in '%1$s'. Please choose another file."
 not_support_file_type_with_ext: "Select a supported %1$s extension file instead."
-monitoring_min_speed_descr: "This is a low-speed cut-off filter to not record points below a certain speed. This may make recorded tracks look "smoother" when viewed on the map."
+monitoring_min_speed_descr: "This is a low-speed cut-off filter to not record points below a certain speed. This may make recorded tracks look \"smoother\" when viewed on the map."
 monitoring_min_speed_descr_side_effect: "Side effect: Your track will be missing all sections where the minimum speed criterion was not met (e.g. where you push your bike up a steep hill). Also, there will be no information about periods at rest, like breaks. This has effects on any analysis or post-processing, like when trying to determine the total length of your trip, time in motion, or your average speed."
-monitoring_min_speed_descr_recommendation: "Recommendation: Try using the motion detection via the "logging minimum displacement" filter (B) first, it may produce better results, and you will lose less data. If your tracks remain noisy at low speeds, try non-zero values here. Please note that some measurements may not report any speed value at all (some network-based methods), in which case you would not record anything."
-monitoring_min_speed_descr_remark: "Remark: "speed > 0" check: Most GPS chipsets report a speed value only if the algorithm determines you are in motion, and none if you are not. Hence using the "> 0" setting in this filter in a sense uses the motion detection of the GPS chipset. But even if not filtered here at recording time, we still use this feature in our GPX analysis to determine the "Distance corrected", i.e. the value displayed in that field is the "distance recorded while in motion"."
-monitoring_min_accuracy_descr: "This will record only points measured with a minimum "accuracy" indication (in meters/feet, as reported by Android for your chipset). Accuracy is the proximity of measurements to the true position, and is not directly related to precision, which is the scatter of repeated measurements."
+monitoring_min_speed_descr_recommendation: "Recommendation: Try using the motion detection via the \"logging minimum displacement\" filter (B) first, it may produce better results, and you will lose less data. If your tracks remain noisy at low speeds, try non-zero values here. Please note that some measurements may not report any speed value at all (some network-based methods), in which case you would not record anything."
+monitoring_min_speed_descr_remark: "Remark: \"speed > 0\" check: Most GPS chipsets report a speed value only if the algorithm determines you are in motion, and none if you are not. Hence using the \"> 0\" setting in this filter in a sense uses the motion detection of the GPS chipset. But even if not filtered here at recording time, we still use this feature in our GPX analysis to determine the \"Distance corrected\", i.e. the value displayed in that field is the \"distance recorded while in motion\"."
+monitoring_min_accuracy_descr: "This will record only points measured with a minimum \"accuracy\" indication (in meters/feet, as reported by Android for your chipset). Accuracy is the proximity of measurements to the true position, and is not directly related to precision, which is the scatter of repeated measurements."
 monitoring_min_accuracy_descr_side_effect: "Side effect: As a result of filtering by accuracy, points may be entirely missing for e.g. below bridges, under trees, between high buildings, or with certain weather conditions."
 monitoring_min_accuracy_descr_recommendation: "Recommendation: It is hard to predict what will be recorded and what not, it may be best to turn this filter off."
 monitoring_min_accuracy_descr_remark: "Remark: If GPS had been off immediately before a recording, the first point measured may have a decreased accuracy,so in our code we may want to wait a second or so before recording a point (or record the best of 3 consecutive points, etc.), but this is not yet implemented."
@@ -684,27 +595,13 @@ apply_preference_to_all_profiles: "You can apply this change to all or only the 
 shared_preference: "Shared"
 routing_attr_driving_style_prefer_unpaved_name: "Prefer unpaved roads"
 routing_attr_driving_style_prefer_unpaved_description: "Prefer unpaved over paved roads for routing."
-release_3_5: "• Updated app and profile settings: Settings are now arranged by type. Each profile can be customized separately.
-
-
-    • New map download dialog suggesting a map to download while browsing
-
-
-    • Dark theme fixes
-
-
-    • Fixed several routing issues around the world
-
-
-    • Updated basemap with more detailed road network
-
-
-    • Fixed flooded areas around the world
-
-
-    • Ski routing: Added elevation profile and route complexity to the route details
-
-
+release_3_5: "• Updated app and profile settings: Settings are now arranged by type. Each profile can be customized separately.  
+    • New map download dialog suggesting a map to download while browsing  
+    • Dark theme fixes  
+    • Fixed several routing issues around the world  
+    • Updated basemap with more detailed road network  
+    • Fixed flooded areas around the world  
+    • Ski routing: Added elevation profile and route complexity to the route details  
     • Other bugfixes"
 shared_string_memory_used_tb_desc: "Used %1$s TB"
 shared_string_memory_used_gb_desc: "Used %1$s GB"
@@ -732,8 +629,7 @@ app_mode_utv: "Side by Side"
 rendering_attr_piste_difficulty_aerialway_name: "Aerialway"
 rendering_attr_piste_difficulty_connection_name: "Connection"
 avoid_in_routing_descr_: "Avoid certain routes and road types"
-change_data_storage_full_description: "Move OsmAnd data files to the new destination?
-%1$s > %2$s"
+change_data_storage_full_description: "Move OsmAnd data files to the new destination? %1$s > %2$s"
 data_storage_preference_summary: "%1$s • %2$s"
 data_storage_space_description: "%1$s GB free (of %2$s GB)"
 enter_path_to_folder: "Enter path to the folder"
@@ -867,33 +763,15 @@ edit_profile_nav_settings_subtitle: "Select navigation settings for the profile"
 routing_attr_max_num_changes_description: "Specify upper limit of changes"
 routing_attr_max_num_changes_name: "Number of changes"
 app_mode_ufo: "UFO"
-release_3_4: "• App profiles: Create a custom profile for your own needs, with a custom icon and color
-
-
-    • Now customize any profile's default and min/max speeds
-
-
-    • Added a widget for the current coordinates
-
-
-    • Added options to show the compass and a radius ruler on the map
-
-
-    • Fix background track logging
-
-
-    • Improved background map downloads
-
-
-    • Returned 'Turn screen on' option
-
-
-    • Fixed Wikipedia language selection
-
-
-    • Fixed compass button behavior during navigation
-
-
+release_3_4: "• App profiles: Create a custom profile for your own needs, with a custom icon and color  
+    • Now customize any profile's default and min/max speeds  
+    • Added a widget for the current coordinates  
+    • Added options to show the compass and a radius ruler on the map  
+    • Fix background track logging  
+    • Improved background map downloads  
+    • Returned 'Turn screen on' option  
+    • Fixed Wikipedia language selection  
+    • Fixed compass button behavior during navigation  
     • Other bugfixes"
 precision_hdop_and_vdop: "Horizontal precision: %1$s, vertical: %2$s"
 precision_hdop: "Horizontal precision: %s"
@@ -916,9 +794,7 @@ rate_dialog_descr: "Please share your feedback and rate our work on Google Play.
 button_rate: "Rate"
 shared_string_privacy_policy: "Privacy Policy"
 help_us_make_osmand_better: "Help us make OsmAnd better"
-make_osmand_better_descr: "Allow OsmAnd to collect and process anonymous app usage data. No data about your position or locations you view on the map are collected.
-
-Configure any time in 'Settings' → 'Privacy and Security'."
+make_osmand_better_descr: "Allow OsmAnd to collect and process anonymous app usage data. No data about your position or locations you view on the map are collected.  Configure any time in 'Settings' → 'Privacy and Security'."
 choose_data_to_share: "Choose the type of data you want to share:"
 downloaded_maps: "Maps downloaded"
 visited_screens: "Screens visited"
@@ -1134,18 +1010,15 @@ third_party_application: "Third-party app"
 search_street: "Search street"
 start_search_from_city: "First specify city/town/locality"
 shared_string_restore: "Restore"
-keep_passed_markers_descr: "Markers added as a group of Favorites or GPX waypoints marked "Passed" will remain on the map. If the group is not active, the markers will disappear from the map."
+keep_passed_markers_descr: "Markers added as a group of Favorites or GPX waypoints marked \"Passed\" will remain on the map. If the group is not active, the markers will disappear from the map."
 keep_passed_markers: "Keep passed markers on the map"
 more_transport_on_stop_hint: "More transport available from this stop."
 ask_for_location_permission: "Please grant OsmAnd location access to continue."
 thank_you_for_feedback: "Thank you for your feedback"
 poi_cannot_be_found: "Could not find node or way."
-search_no_results_feedback: "No search results?
-Provide feedback"
+search_no_results_feedback: "No search results? Provide feedback"
 increase_search_radius_to: "Extend search radius to %1$s"
-send_search_query_description: "Your search query will be sent to: \"%1$s\", along with your location.
-
-
+send_search_query_description: "Your search query will be sent to: \"%1$s\", along with your location.  
         Personal info is not collected, only search data needed to improve the search."
 send_search_query: "Send search query?"
 shared_string_world: "World"
@@ -1166,7 +1039,7 @@ off_road_render_descr: "For off-road driving based on 'Topo' style and for use w
 nautical_render_descr: "For nautical navigation. Features buoys, lighthouses, riverways, sea lanes and marks, harbors, seamark services, and depth contours."
 ski_map_render_descr: "For skiing. Features pistes, ski-lifts, cross country tracks, etc. Dims secondary map objects."
 light_rs_render_descr: "Simple driving style. Gentle night mode, contour lines, contrasting orange styled roads, dims secondary map objects."
-topo_render_descr: "For hiking, trekking, and nature cycling. Readable outdoors. Contrasting roads and natural objects, different route types, advanced contour line options, extra details. Adjusting "Surface integrity" distinguishes road quality. No night mode."
+topo_render_descr: "For hiking, trekking, and nature cycling. Readable outdoors. Contrasting roads and natural objects, different route types, advanced contour line options, extra details. Adjusting \"Surface integrity\" distinguishes road quality. No night mode."
 mapnik_render_descr: "Old default 'Mapnik'-style. Similar colors to 'Mapnik'."
 touring_view_render_descr: "Touring style with high contrast and maximum detail. Includes all options of the OsmAnd default style, while displaying as much detail as possible, in particular roads, paths, and other ways to travel. Clear \"touring atlas\" distinction between road types. Suitable for day, night, and outdoor use."
 default_render_descr: "General purpose style. Dense cities shown cleanly. Features contour lines, routes, surface quality, access restrictions, road shields, paths rendering according to SAC scale, whitewater sports items."
@@ -1216,8 +1089,7 @@ shared_string_dont: "Don't"
 shared_string_do: "Do"
 shared_string_only_with_wifi: "Only on Wi-Fi"
 wikivoyage_download_pics: "Download images"
-wikivoyage_download_pics_descr: "Article images can be downloaded for offline use.
-Always available in 'Explore' → 'Options'."
+wikivoyage_download_pics_descr: "Article images can be downloaded for offline use. Always available in 'Explore' → 'Options'."
 shared_string_wifi_only: "Only on Wi-Fi"
 select_travel_book: "Select a travel book"
 shared_string_travel_book: "Travel book"
@@ -1731,10 +1603,7 @@ rendering_value_medium_name: "Medium"
 rendering_value_bold_name: "Bold"
 no_map_markers_found: "Please add map markers via map"
 no_waypoints_found: "No waypoints found"
-anonymous_user_hint: "Anonymous users cannot:
-- Create groups;
-- Sync groups and devices with the server;
-- Manage groups and devices in a personal dashboard on the website."
+anonymous_user_hint: "Anonymous users cannot: - Create groups; - Sync groups and devices with the server; - Manage groups and devices in a personal dashboard on the website."
 report: "Report"
 storage_permission_restart_is_required: "The app is now allowed to write to external storage, but needs to be started again to do so."
 shared_string_move_up: "Move ↑"
@@ -1764,30 +1633,23 @@ osm_live_active: "Active"
 osm_live_not_active: "Inactive"
 osm_live_enter_email: "Please enter a valid e-mail address"
 osm_live_enter_user_name: "Please enter a public name"
-osm_live_thanks: "Thank you for supporting OsmAnd!
-To activate all new features you need to restart OsmAnd."
+osm_live_thanks: "Thank you for supporting OsmAnd! To activate all new features you need to restart OsmAnd."
 osm_live_region_desc: "Part of your donation will be sent to OSM users who submit changes to the map in that region."
 osm_live_subscription_settings: "Subscription settings"
 osm_live_ask_for_purchase: "Please purchase a subscription to OsmAnd Live first"
-osm_live_header: "This subscription enables hourly updates for all maps around the world.
-
-    Part of the income goes back to the OSM community and is paid out for each OSM contribution.
-
+osm_live_header: "This subscription enables hourly updates for all maps around the world. 
+    Part of the income goes back to the OSM community and is paid out for each OSM contribution. 
     If you love OsmAnd and OSM and want to support and be supported by them, this is the perfect way to do it."
 select_map_marker: "Select map marker"
 map_markers_other: "Other markers"
 upload_anonymously: "Upload anonymously"
 show_transparency_seekbar: "Show transparency seekbar"
-download_files_error_not_enough_space: "Not enough space!
-
-    {3} MB is needed temporarily, {1} MB permanently.
-
+download_files_error_not_enough_space: "Not enough space! 
+    {3} MB is needed temporarily, {1} MB permanently. 
     (Only {2} MB available.)"
-download_files_question_space_with_temp: "Download {0} file(s)?
-
+download_files_question_space_with_temp: "Download {0} file(s)? 
     {3} MB is used temporarily, {1} MB permanently. (Of {2} MB.)"
-download_files_question_space: "Download {0} file(s)?
-
+download_files_question_space: "Download {0} file(s)? 
     {1} MB (of {2} MB) will be used."
 upload_osm_note: "Upload OSM Note"
 map_marker_1st: "First map marker"
@@ -1815,7 +1677,7 @@ rendering_attr_hideUnderground_name: "Underground objects"
 data_is_not_available: "Data not available"
 shared_string_remove: "Remove"
 shared_string_read_more: "Read more"
-clear_updates_proposition_message: ""Remove downloaded updates and get back to the original map edition""
+clear_updates_proposition_message: "\"Remove downloaded updates and get back to the original map edition\""
 add_time_span: "Add time span"
 road_blocked: "Road blocked"
 shared_string_select: "Select"
@@ -1905,7 +1767,7 @@ shared_string_qr_code: "QR code"
 map_downloaded: "Map downloaded"
 map_downloaded_descr: "The %1$s map is ready for use."
 go_to_map: "Show map"
-simulate_initial_startup_descr: ""Sets the flag indicating first app startup, keeps all other settings unchanged.""
+simulate_initial_startup_descr: "\"Sets the flag indicating first app startup, keeps all other settings unchanged.\""
 simulate_initial_startup: "Simulate first app start"
 share_geo: "geo:"
 share_menu_location: "Share location"
@@ -2085,8 +1947,7 @@ waypoint_visit_after: "Visit after"
 waypoint_visit_before: "Visit before"
 simulate_your_location: "Simulate your position"
 drawer: "Flat list"
-short_location_on_map: "Lat %1$s
-Lon %2$s"
+short_location_on_map: "Lat %1$s Lon %2$s"
 tips_and_tricks_descr: "Frequently asked questions, recent changes, and others."
 routing_settings_2: "Navigation settings"
 general_settings_2: "General settings"
@@ -2166,64 +2027,37 @@ route_points: "Route points"
 track_segments: "Track segments"
 track_points: "Track points"
 shared_string_online_maps: "Online maps"
-osmand_rastermaps_plugin_description: "Access many types of online (so called tile or raster) maps, from predefined OSM tiles (like Mapnik) to satellite images, and special purpose layers like weather maps, climate maps, geological maps, hillshade layers, etc.
-
-
-    Any of these maps can either be used as the main (base) map to be displayed, or as an overlay or underlay to another base map (like OsmAnd's standard offline maps). Certain elements of the OsmAnd vector maps can be hidden via the 'Configure map' menu to make any underlay map more visible.
-
-
+osmand_rastermaps_plugin_description: "Access many types of online (so called tile or raster) maps, from predefined OSM tiles (like Mapnik) to satellite images, and special purpose layers like weather maps, climate maps, geological maps, hillshade layers, etc.  
+    Any of these maps can either be used as the main (base) map to be displayed, or as an overlay or underlay to another base map (like OsmAnd's standard offline maps). Certain elements of the OsmAnd vector maps can be hidden via the 'Configure map' menu to make any underlay map more visible.  
     Download tile maps directly online, or prepared them for offline use (manually copied to OsmAnd's data folder) as an SQLite database which can be produced by a variety of 3rd party map preparation tools."
 record_plugin_name: "Trip recording"
-record_plugin_description: "This plugin activates the functionality to record and save your tracks by manually touching the GPX logging widget on the map, or also to automatically log all of your navigation routes to a GPX file.
-
-
+record_plugin_description: "This plugin activates the functionality to record and save your tracks by manually touching the GPX logging widget on the map, or also to automatically log all of your navigation routes to a GPX file.  
     Recorded tracks can be shared with your friends or be used for OSM contributions. Athletes can use recorded tracks to monitor their trainings. Some basic track analysis can be performed directly in OsmAnd, like lap times, average speed etc., and tracks can of course also later be analyzed in special 3rd party analysis tools."
 srtm_paid_version_title: "Contour lines plugin"
 osmand_srtm_short_description_80_chars: "OsmAnd plugin for offline contour lines"
-osmand_srtm_long_description_1000_chars: "This plugin provides both a contour line overlay and a (relief) hillshade layer to be displayed on top of OsmAnd's standard maps. This functionality will be much appreciated by athletes, hikers, trekkers, and anybody interested in the relief structure of a landscape.
-
-
+osmand_srtm_long_description_1000_chars: "This plugin provides both a contour line overlay and a (relief) hillshade layer to be displayed on top of OsmAnd's standard maps. This functionality will be much appreciated by athletes, hikers, trekkers, and anybody interested in the relief structure of a landscape.  
     The global data (between 70 ° north and 70 ° south) is based on measurements by SRTM (Shuttle Radar Topography Mission) and ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer), an imaging instrument onboard Terra, the flagship satellite of NASA's Earth Observing System. ASTER is a cooperative effort between NASA, Japan's Ministry of Economy, Trade and Industry (METI), and Japan Space Systems (J-spacesystems)."
 srtm_plugin_name: "Contour lines"
 srtm_plugin_description: "This plugin provides both a contour line overlay and a (relief) hillshade layer to be displayed on top of OsmAnd's standard maps. This functionality will be much appreciated by athletes, hikers, trekkers, and anybody interested in the relief structure of a landscape. (Please note that contour line and/or relief data are separate, additional downloads available after activating the plugin.)
-		
-
-The global data (between 70 ° north and 70 ° south) is based on measurements by SRTM (Shuttle Radar Topography Mission) and ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer), an imaging instrument onboard Terra, the flagship satellite of NASA's Earth Observing System. ASTER is a cooperative effort between NASA, Japan's Ministry of Economy, Trade and Industry (METI), and Japan Space Systems (J-spacesystems)."
+		  The global data (between 70 ° north and 70 ° south) is based on measurements by SRTM (Shuttle Radar Topography Mission) and ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer), an imaging instrument onboard Terra, the flagship satellite of NASA's Earth Observing System. ASTER is a cooperative effort between NASA, Japan's Ministry of Economy, Trade and Industry (METI), and Japan Space Systems (J-spacesystems)."
 plugin_touringview_name: "Touring map view"
 plugin_touringview_descr: "Activating this view changes OsmAnd's map style to 'Touring view', this is a special high-detail view for travelers and professional drivers.
-		
-
-This view provides, at any given map zoom, the maximum amount of travel details available in the map data (particularly roads, tracks, paths, and orientation marks).
-		
-
-It also clearly depicts all types of roads unambiguously by color coding, which is useful when e.g. driving large vehicles.
-		
-
-And it provides special touring options like showing bicycle routes or Alpine mountain routes.
-		
-
-A special map download is not needed, the view is created from our standard maps.
-		
-
-This view can be reverted by either de-activating it again here, or by changing the 'Map style' under 'Configure map' as desired."
+		  This view provides, at any given map zoom, the maximum amount of travel details available in the map data (particularly roads, tracks, paths, and orientation marks).
+		  It also clearly depicts all types of roads unambiguously by color coding, which is useful when e.g. driving large vehicles.
+		  And it provides special touring options like showing bicycle routes or Alpine mountain routes.
+		  A special map download is not needed, the view is created from our standard maps.
+		  This view can be reverted by either de-activating it again here, or by changing the 'Map style' under 'Configure map' as desired."
 plugin_nautical_name: "Nautical map view"
 plugin_nautical_descr: "This plugin enriches the OsmAnd map and navigation app to also produce nautical maps for boating, sailing, and other types of watersports.
-		
-
-A special map add-on for OsmAnd will provide all nautical navigation marks and chart symbols, for inland as well as for nearshore navigation. The description of each navigation mark provides the details needed to identify them and their meaning (category, shape, color, sequence, reference, etc.).
-		
-
-To return to one of OsmAnd's conventional map styles, simply either de-activate this plugin again, or change the 'Map style' under 'Configure map' as desired."
+		  A special map add-on for OsmAnd will provide all nautical navigation marks and chart symbols, for inland as well as for nearshore navigation. The description of each navigation mark provides the details needed to identify them and their meaning (category, shape, color, sequence, reference, etc.).
+		  To return to one of OsmAnd's conventional map styles, simply either de-activate this plugin again, or change the 'Map style' under 'Configure map' as desired."
 plugin_ski_name: "Ski map view"
 plugin_ski_descr: "This plugin for OsmAnd puts at your fingertips details of global downhill ski slopes, cross country ski runs, Alpine ski routes, cable cars and ski lifts. Routes and pistes are shown color-coded by difficulty, and depicted in a special 'Winter' map style which assimilates a snow-colored winter landscape.
-		
-
-Activating this view changes the map style to 'Winter and ski', showing all landscape features under wintry conditions. This view can be reverted by either de-activating it again here, or by changing the 'Map style' under 'Configure map' as desired."
+		  Activating this view changes the map style to 'Winter and ski', showing all landscape features under wintry conditions. This view can be reverted by either de-activating it again here, or by changing the 'Map style' under 'Configure map' as desired."
 audionotes_plugin_name: "Audio/video notes"
 audionotes_plugin_description: "Make audio/photo/video notes during a trip, using either a map button or location context menu."
 osmand_parking_plugin_name: "Parking position"
-osmand_parking_plugin_description: "Lets you record where your car is parked, including how much parking time remains.
-
+osmand_parking_plugin_description: "Lets you record where your car is parked, including how much parking time remains. 
     Both location and time are visible on the dashboard as well as in a map widget. An alarm reminder can be added to the Android calendar."
 osmand_distance_planning_plugin_name: "Distance calculator and planning tool"
 osmand_distance_planning_plugin_description: "Create paths by tapping the map, or by using or modifying existing GPX files, to plan a trip and measure the distance between points. The result can be saved as a GPX file to use later for guidance."
@@ -2237,9 +2071,7 @@ rename_failed: "Renaming failed."
 days_behind: "days behind"
 back_to_map: "Back to map"
 share_note: "Share note"
-location_on_map: "Location:
- Lat %1$s
- Lon %2$s"
+location_on_map: "Location:  Lat %1$s  Lon %2$s"
 watch: "Watch"
 notes: "A/V notes"
 online_map: "Online map"
@@ -2287,10 +2119,8 @@ navigate_point_zone: "Zone"
 navigate_point_mgrs: "MGRS"
 navigate_point_olc: "Open Location Code"
 navigate_point_olc_info_invalid: "Invalid OLC"
-navigate_point_olc_info_short: "Short OLC
-Please provide a full code"
-navigate_point_olc_info_area: "Valid full OLC
-Represents area: %1$s x %2$s"
+navigate_point_olc_info_short: "Short OLC Please provide a full code"
+navigate_point_olc_info_area: "Valid full OLC Represents area: %1$s x %2$s"
 navigate_point_northing: "Northing"
 navigate_point_easting: "Easting"
 download_tab_downloads: "All Downloads"
@@ -2452,12 +2282,9 @@ gpx_timemoving: "Time moving: %1$s"
 gpx_selection_segment_title: "Segment"
 gpx_selection_number_of_points: "%1$s points"
 gpx_selection_point: "Point %1$s"
-gpx_selection_route_points: "%1$s 
-Route points %2$s"
-gpx_selection_points: "%1$s 
-Points"
-gpx_selection_track: "%1$s 
-Track %2$s"
+gpx_selection_route_points: "%1$s  Route points %2$s"
+gpx_selection_points: "%1$s  Points"
+gpx_selection_track: "%1$s  Track %2$s"
 gpx_file_is_empty: "Empty GPX file"
 osmo_edit_color: "Display color"
 osmo_connect_menu: "Connect"
@@ -2563,10 +2390,8 @@ routing_attr_width_name: "Width limit"
 routing_attr_width_description: "Specify permitted vehicle width limit on routes."
 routing_attr_height_name: "Height limit"
 routing_attr_height_description: "Specify vehicle height to be permitted on routes."
-android_19_location_disabled: "On Android 4.4 (KitKat) onwards, the old storage folder (%s) is deprecated. Copy all OsmAnd files to new storage location?
-
-    Note 1: Your old files will remain untouched (but can be deleted manually).
-
+android_19_location_disabled: "On Android 4.4 (KitKat) onwards, the old storage folder (%s) is deprecated. Copy all OsmAnd files to new storage location? 
+    Note 1: Your old files will remain untouched (but can be deleted manually). 
     Note 2: In the new storage location it will not be possible to share files between OsmAnd and OsmAnd+."
 copying_osmand_one_file_descr: "Copying file (%s) to the new destination…"
 copying_osmand_files_descr: "Copying OsmAnd data files to the new destination (%s)…"
@@ -2663,12 +2488,9 @@ plugin_distance_point_ele: "elevation"
 plugin_distance_point: "Point"
 gpx_file_name: "GPX filename"
 gpx_saved_sucessfully: "GPX file saved to {0}"
-use_distance_measurement_help: "* Tap to mark a point.
-
-    * Long-tap the map to delete previous point.
-
-    * Long-tap on a point to view and attach description.
-
+use_distance_measurement_help: "* Tap to mark a point. 
+    * Long-tap the map to delete previous point. 
+    * Long-tap on a point to view and attach description. 
     * Tap the measurement widget to see more actions."
 distance_measurement_start_editing: "Start editing"
 distance_measurement_finish_editing: "Finish editing"
@@ -2749,8 +2571,7 @@ av_settings: "Audio/video settings"
 recording_error: "Recording failed"
 recording_camera_not_available: "Camera not available"
 recording_is_recorded: "Recording audio/video. Stop by tapping the AV widget."
-recording_playing: "An audio from the specified recording is being played.
-%1$s"
+recording_playing: "An audio from the specified recording is being played. %1$s"
 recording_open_external_player: "Open external player"
 recording_delete_confirm: "Delete this item?"
 recording_unavailable: "unavailable"
@@ -2840,304 +2661,166 @@ interrupt_music_descr: "Voice prompts pause music playback."
 interrupt_music: "Pause music"
 osmand_play_title_30_chars: "OsmAnd Maps & Navigation"
 osmand_short_description_80_chars: "Global mobile map viewing and navigation for offline and online OSM maps"
-osmand_long_description_1000_chars: "OsmAnd (OSM Automated Navigation Directions)
+osmand_long_description_1000_chars: "OsmAnd (OSM Automated Navigation Directions)  
 
+		OsmAnd is an open source software navigation app with access to a wide variety of global OSM data. All map data (vector or tile maps) can be stored on the phone memory card for offline usage. Offline and online routing functionality is also offered, including turn-by-turn voice guidance.  
 
+		Some of the core features: 
+		- Complete offline functionality (store downloaded vector or tile maps in the device storage) 
+		- Compact offline vector maps for the whole world available 
+		- Download country or region maps directly from the app 
+		- Overlay of several map layers possible, like GPX or navigation tracks, points of interest, Favorites, contour lines, public transport stops, additional maps with customizable transparency 
+		- Offline search for addresses and places (POIs) 
+		- Offline routing for medium-range distances 
+		- Car, bicycle, and pedestrian modes with optional: 
+		-  Automated day/night view switching 
+		-  Speed-dependent map zooming 
+		-  Map alignment according to compass or direction of motion 
+		-  Lane guidance, speed limit display, recorded and text-to-speech voices  
 
-		OsmAnd is an open source software navigation app with access to a wide variety of global OSM data. All map data (vector or tile maps) can be stored on the phone memory card for offline usage. Offline and online routing functionality is also offered, including turn-by-turn voice guidance.
-
-
-
-		Some of the core features:
-
-		- Complete offline functionality (store downloaded vector or tile maps in the device storage)
-
-		- Compact offline vector maps for the whole world available
-
-		- Download country or region maps directly from the app
-
-		- Overlay of several map layers possible, like GPX or navigation tracks, points of interest, Favorites, contour lines, public transport stops, additional maps with customizable transparency
-
-		- Offline search for addresses and places (POIs)
-
-		- Offline routing for medium-range distances
-
-		- Car, bicycle, and pedestrian modes with optional:
-
-		-  Automated day/night view switching
-
-		-  Speed-dependent map zooming
-
-		-  Map alignment according to compass or direction of motion
-
-		-  Lane guidance, speed limit display, recorded and text-to-speech voices
-
-
-
-		Limitations of this free version of OsmAnd:
-
-		- Number of map downloads limited
-
-		- No offline access to Wikipedia POIs
-
-
+		Limitations of this free version of OsmAnd: 
+		- Number of map downloads limited 
+		- No offline access to Wikipedia POIs  
 
 		OsmAnd is actively being developed and our project and its continued progress relies on financial contributions for development and testing of new functionality. Please consider buying OsmAnd+, or funding specific new features or making a general donation on https://osmand.net."
-osmand_extended_description_part1: "OsmAnd (OSM Automated Navigation Directions) is a map and navigation app with access to the free, worldwide, and high-quality OSM data.
-
-
+osmand_extended_description_part1: "OsmAnd (OSM Automated Navigation Directions) is a map and navigation app with access to the free, worldwide, and high-quality OSM data.  
 
     Enjoy voice and optical navigator, viewing POIs (points of interest), creating and managing GPX tracks, using contour lines visualization and altitude info (through plugin), a choice between driving, cycling, pedestrian modes, OSM editing and much more."
-osmand_extended_description_part2: "GPS navigation
-
-        • Choose between offline (no roaming charges when you are abroad) or online (faster) mode
-
-        • Turn-by-turn voice guidance leads you along the way (recorded and synthesized voices)
-
-        • The route gets rebuilt whenever you deviate from it
-
-        • Lane guidance, street names, and estimated time of arrival will help along the way
-
-        • To make your trip safer, day/night mode switches automatically
-
-        • Show speed limits, and get reminders if you exceed it
-
-        • Map zoom adjusts to your speed
-
-        • Search for destinations by address, type (e.g: Parking, restaurant, hotel, gas station, museum), or geographical coordinates
-
-        • Supports intermediate points on your itinerary
-
+osmand_extended_description_part2: "GPS navigation 
+        • Choose between offline (no roaming charges when you are abroad) or online (faster) mode 
+        • Turn-by-turn voice guidance leads you along the way (recorded and synthesized voices) 
+        • The route gets rebuilt whenever you deviate from it 
+        • Lane guidance, street names, and estimated time of arrival will help along the way 
+        • To make your trip safer, day/night mode switches automatically 
+        • Show speed limits, and get reminders if you exceed it 
+        • Map zoom adjusts to your speed 
+        • Search for destinations by address, type (e.g: Parking, restaurant, hotel, gas station, museum), or geographical coordinates 
+        • Supports intermediate points on your itinerary 
         • Record your own or upload a GPX track and follow it"
-osmand_extended_description_part3: "Map
-
-        • Displays POIs (point of interests) around you
-
-        • Adjusts the map to your direction of motion (or compass)
-
-        • Shows your location and the direction you are looking in
-
-        • Share your location so that your friends can find you
-
-        • Keeps your most important places in 'Favorites'
-
-        • Allows you to choose how to display names on the map: In English, local, or phonetic spelling
-
+osmand_extended_description_part3: "Map 
+        • Displays POIs (point of interests) around you 
+        • Adjusts the map to your direction of motion (or compass) 
+        • Shows your location and the direction you are looking in 
+        • Share your location so that your friends can find you 
+        • Keeps your most important places in 'Favorites' 
+        • Allows you to choose how to display names on the map: In English, local, or phonetic spelling 
         • Displays specialized online tiles, satellite view (from Bing), different overlays like touring/navigation GPX tracks and additional layers with customizable transparency"
-osmand_extended_description_part4: "Skiing
-
+osmand_extended_description_part4: "Skiing 
         OsmAnd ski maps plugin enables you to see ski tracks with level of complexity and some additional info, like location of lifts and other facilities."
-osmand_extended_description_part5: "Cycling
-
-        • Find cycle paths on the map
-
-        • GPS navigation in cycling mode builds your route using cycle paths
-
-        • See your speed and altitude
-
-        • GPX recording option enables you to record your trip and share it
-
+osmand_extended_description_part5: "Cycling 
+        • Find cycle paths on the map 
+        • GPS navigation in cycling mode builds your route using cycle paths 
+        • See your speed and altitude 
+        • GPX recording option enables you to record your trip and share it 
         • Via an additional plugin you can enable contour lines and hillshading"
-osmand_extended_description_part6: "Walking, hiking, city tour
-
-        • The map shows you walking and hiking paths
-
-        • Wikipedia in your preferred language can tell you a lot during a city tour
-
-        • Public transport stops (bus, tram, train), including line names, help to navigate in a new city
-
-        • GPS navigation in pedestrian mode builds your route using walking paths
-
+osmand_extended_description_part6: "Walking, hiking, city tour 
+        • The map shows you walking and hiking paths 
+        • Wikipedia in your preferred language can tell you a lot during a city tour 
+        • Public transport stops (bus, tram, train), including line names, help to navigate in a new city 
+        • GPS navigation in pedestrian mode builds your route using walking paths 
         • Upload and follow a GPX route or record and share your own"
-osmand_extended_description_part7: "Contribute to OSM
-
-        • Report data bugs
-
-        • Upload GPX tracks to OSM directly from the app
-
+osmand_extended_description_part7: "Contribute to OSM 
+        • Report data bugs 
+        • Upload GPX tracks to OSM directly from the app 
         • Add POIs and directly upload them to OSM (or later if offline)"
-osmand_extended_description_part8: "OsmAnd is actively developed open source software. Everyone can contribute to the app by reporting bugs, improving translations or coding new features. Additionally the project relies on financial contributions to fund coding and testing of new functionalities.
-
-        Approximate map coverage and quality:
-
-        • Western Europe: ****
-
-        • Eastern Europe: ***
-
-        • Russia: ***
-
-        • North America: ***
-
-        • South America: **
-
-        • Asia: **
-
-        • Japan and Korea: ***
-
-        • Middle East: **
-
-        • Africa: **
-
-        • Antarctica: *
-
-        Most countries around the globe are available for download!
-
+osmand_extended_description_part8: "OsmAnd is actively developed open source software. Everyone can contribute to the app by reporting bugs, improving translations or coding new features. Additionally the project relies on financial contributions to fund coding and testing of new functionalities. 
+        Approximate map coverage and quality: 
+        • Western Europe: **** 
+        • Eastern Europe: *** 
+        • Russia: *** 
+        • North America: *** 
+        • South America: ** 
+        • Asia: ** 
+        • Japan and Korea: *** 
+        • Middle East: ** 
+        • Africa: ** 
+        • Antarctica: * 
+        Most countries around the globe are available for download! 
         Get a reliable navigator in your country - be it France, Germany, Mexico, UK, Spain, Netherlands, USA, Russia, Brazil or any other."
 osmand_plus_play_title_30_chars: "OsmAnd+ Maps & Navigation"
 osmand_plus_short_description_80_chars: "Global Mobile Map Viewing & Navigation for Offline and Online OSM Maps"
-osmand_plus_long_description_1000_chars: "OsmAnd+ (OSM Automated Navigation Directions)
+osmand_plus_long_description_1000_chars: "OsmAnd+ (OSM Automated Navigation Directions)  
 
+		OsmAnd+ is an open source software navigation app with access to a wide variety of global OSM data. All map data (vector or tile maps) can be stored on the phone memory card for offline use. Offline and online routing functionality is also offered, including turn-by-turn voice guidance.  
 
+		OsmAnd+ is the paid app version, by buying it you support the project, fund the development of new features, and receive the latest updates.  
 
-		OsmAnd+ is an open source software navigation app with access to a wide variety of global OSM data. All map data (vector or tile maps) can be stored on the phone memory card for offline use. Offline and online routing functionality is also offered, including turn-by-turn voice guidance.
-
-
-
-		OsmAnd+ is the paid app version, by buying it you support the project, fund the development of new features, and receive the latest updates.
-
-
-
-		Some of the core features:
-
-		- Complete offline functionality (store downloaded vector or tile maps in the device storage)
-
-		- Compact offline vector maps for the whole world available
-
-		- Unlimited downloading of country or region maps directly from the app
-
-		- Offline Wikipedia feature (download Wikipedia POIs), great for sightseeing
-
-		- Overlay of several map layers possible, like GPX or navigation tracks, points of interest, Favorites, contour lines, public transport stops, additional maps with customizable transparency
-
-
-		- Offline search for addresses and places (POIs)
-
-		- Offline routing for medium-range distances
-
-		- Car, bicycle, and pedestrian modes with optional:
-
-		-  Automated day/night view switching
-
-		-  Speed-dependent map zooming
-
-		-  Map alignment according to compass or direction of motion
-
+		Some of the core features: 
+		- Complete offline functionality (store downloaded vector or tile maps in the device storage) 
+		- Compact offline vector maps for the whole world available 
+		- Unlimited downloading of country or region maps directly from the app 
+		- Offline Wikipedia feature (download Wikipedia POIs), great for sightseeing 
+		- Overlay of several map layers possible, like GPX or navigation tracks, points of interest, Favorites, contour lines, public transport stops, additional maps with customizable transparency  
+		- Offline search for addresses and places (POIs) 
+		- Offline routing for medium-range distances 
+		- Car, bicycle, and pedestrian modes with optional: 
+		-  Automated day/night view switching 
+		-  Speed-dependent map zooming 
+		-  Map alignment according to compass or direction of motion 
 		-  Lane guidance, speed limit display, recorded and text-to-speech voices"
-osmand_plus_extended_description_part1: "OsmAnd+ (OSM Automated Navigation Directions) is a map and navigation app with access to the free, worldwide, and high-quality OSM data.
+osmand_plus_extended_description_part1: "OsmAnd+ (OSM Automated Navigation Directions) is a map and navigation app with access to the free, worldwide, and high-quality OSM data. 
+        Enjoy voice and optical navigation, viewing POIs (points of interest), creating and managing GPX tracks, using contour lines visualization and altitude info, a choice between driving, cycling, pedestrian modes, OSM editing and much more.  
 
-        Enjoy voice and optical navigation, viewing POIs (points of interest), creating and managing GPX tracks, using contour lines visualization and altitude info, a choice between driving, cycling, pedestrian modes, OSM editing and much more.
-
-
-
-        OsmAnd+ is the paid app version. By buying it, you support the project, fund the development of new features, and receive the latest updates.
-
-
+        OsmAnd+ is the paid app version. By buying it, you support the project, fund the development of new features, and receive the latest updates.  
 
         Some of the main features:"
-osmand_plus_extended_description_part2: "Navigation
-
-        • Works online (fast) or offline (no roaming charges when you are abroad)
-
-        • Turn-by-turn voice guidance (recorded and synthesized voices)
-
-        • Optional lane guidance, street name display, and estimated time of arrival
-
-        • Supports intermediate points on your itinerary
-
-        • Automatic re-routing whenever you deviate from the route
-
+osmand_plus_extended_description_part2: "Navigation 
+        • Works online (fast) or offline (no roaming charges when you are abroad) 
+        • Turn-by-turn voice guidance (recorded and synthesized voices) 
+        • Optional lane guidance, street name display, and estimated time of arrival 
+        • Supports intermediate points on your itinerary 
+        • Automatic re-routing whenever you deviate from the route 
         • Search for places by address, by type (e.g: Restaurant, hotel, gas station, museum), or by geographical coordinates"
-osmand_plus_extended_description_part3: "Map Viewing
-
-        • Display your position and orientation
-
-        • Optionally align the picture according to compass or your direction of motion
-
-        • Save your most important places as Favorites
-
-        • Display POIs (points of interest) around you
-
-        • Display specialized online tiles, satellite view (from Bing), different overlays like touring/navigation GPX tracks and additional layers with customizable transparency
-
+osmand_plus_extended_description_part3: "Map Viewing 
+        • Display your position and orientation 
+        • Optionally align the picture according to compass or your direction of motion 
+        • Save your most important places as Favorites 
+        • Display POIs (points of interest) around you 
+        • Display specialized online tiles, satellite view (from Bing), different overlays like touring/navigation GPX tracks and additional layers with customizable transparency 
         • Optionally display place names in English, local, or phonetic spelling"
-osmand_plus_extended_description_part4: "Use OSM and Wikipedia Data
-
-        • High-quality info from the best collaborative projects of the world
-
-        • OSM data available per country or region
-
-        • Wikipedia POIs, great for sightseeing
-
-        • Unlimited free downloads, directly from the app
-
-        • Compact offline vector maps updated at least once a month
-
-
+osmand_plus_extended_description_part4: "Use OSM and Wikipedia Data 
+        • High-quality info from the best collaborative projects of the world 
+        • OSM data available per country or region 
+        • Wikipedia POIs, great for sightseeing 
+        • Unlimited free downloads, directly from the app 
+        • Compact offline vector maps updated at least once a month  
 
         • Choice between complete region data and just road network (Example: All of Japan is 700 MB or 200 MB for the road network part thereof)"
-osmand_plus_extended_description_part5: "Safety Features
-
-        • Optional automated day/night view switching
-
-        • Optional speed limit display, with reminder if you exceed it
-
-        • Optional speed-dependent zooming
-
+osmand_plus_extended_description_part5: "Safety Features 
+        • Optional automated day/night view switching 
+        • Optional speed limit display, with reminder if you exceed it 
+        • Optional speed-dependent zooming 
         • Share your location so that your friends can find you"
-osmand_plus_extended_description_part6: "Bicycle and Pedestrian Features
-
-        • Viewing foot, hiking, and bike paths, great for outdoor activities
-
-        • Special routing and display modes for bike and pedestrian
-
-        • Optional public transport stops (bus, tram, train) including line names
-
-        • Optional trip recording to local GPX file or online service
-
-        • Optional speed and altitude display
-
+osmand_plus_extended_description_part6: "Bicycle and Pedestrian Features 
+        • Viewing foot, hiking, and bike paths, great for outdoor activities 
+        • Special routing and display modes for bike and pedestrian 
+        • Optional public transport stops (bus, tram, train) including line names 
+        • Optional trip recording to local GPX file or online service 
+        • Optional speed and altitude display 
         • Display of contour lines and hillshading (via additional plugin)"
-osmand_plus_extended_description_part7: "Contribute directly to OSM
-
-        • Report data bugs
-
-        • Upload GPX tracks to OSM directly from the app
-
-        • Add POIs and directly upload them to OSM (or later if offline)
-
-        • Optional trip recording also in background mode (while device is in sleep mode)
-
+osmand_plus_extended_description_part7: "Contribute directly to OSM 
+        • Report data bugs 
+        • Upload GPX tracks to OSM directly from the app 
+        • Add POIs and directly upload them to OSM (or later if offline) 
+        • Optional trip recording also in background mode (while device is in sleep mode) 
         OsmAnd is actively developed open source software. Everyone can contribute to the app by reporting bugs, improving translations or coding new features. Additionally the project relies on financial contributions to fund coding and testing of new functionalities."
-osmand_plus_extended_description_part8: "Approximate map coverage and quality:
-
-        • Western Europe: ****
-
-        • Eastern Europe: ***
-
-        • Russia: ***
-
-        • North America: ***
-
-        • South America: **
-
-        • Asia: **
-
-        • Japan and Korea: ***
-
-        • Middle East: **
-
-        • Africa: **
-
-        • Antarctica: *
-
-        Most countries around the globe available as downloads
-
+osmand_plus_extended_description_part8: "Approximate map coverage and quality: 
+        • Western Europe: **** 
+        • Eastern Europe: *** 
+        • Russia: *** 
+        • North America: *** 
+        • South America: ** 
+        • Asia: ** 
+        • Japan and Korea: *** 
+        • Middle East: ** 
+        • Africa: ** 
+        • Antarctica: * 
+        Most countries around the globe available as downloads 
         From Afghanistan to Zimbabwe, from Australia to the USA. Argentina, Brazil, Canada, France, Germany, Mexico, UK, Spain, …"
 filterpoi_activity: "Create POI filter"
 recalculate_route_to_your_location: "Transport mode:"
 select_navigation_mode: "Transport mode:"
-day_night_info_description: "Sunrise: %1$s 
-Sunset: %2$s"
+day_night_info_description: "Sunrise: %1$s  Sunset: %2$s"
 day_night_info: "Day/night info"
 map_widget_renderer: "Map style"
 layer_map_appearance: "Configure screen"
@@ -3149,10 +2832,8 @@ map_widget_fluorescent: "Fluorescent routes"
 map_widget_show_ruler: "Ruler"
 map_widget_view_direction: "Viewing direction"
 map_widget_transparent: "Transparent widgets"
-bg_service_sleep_mode_off: "Run
- app in background"
-bg_service_sleep_mode_on: "Stop
- running in background"
+bg_service_sleep_mode_off: "Run  app in background"
+bg_service_sleep_mode_on: "Stop  running in background"
 int_continuosly: "Continuous"
 screen_is_locked: "Tap the lock icon to unlock"
 map_widget_top_text: "Street name"
@@ -3185,8 +2866,7 @@ osmand_parking_position_description_add_time: "The car is parked at"
 select_animate_speedup: "Route simulation speed:"
 global_app_allocated_memory_descr: "Allocated memory %1$s MB (Android limit %2$s MB, Dalvik %3$s MB)."
 global_app_allocated_memory: "Allocated memory"
-native_app_allocated_memory_descr: "Total native memory allocated by app %1$s MB (Dalvik %2$s MB, other %3$s MB).
-
+native_app_allocated_memory_descr: "Total native memory allocated by app %1$s MB (Dalvik %2$s MB, other %3$s MB). 
     Proportional memory %4$s MB (Android limit %5$s MB, Dalvik %6$s MB)."
 native_app_allocated_memory: "Total native memory"
 starting_point_too_far: "Point of departure too far from nearest road."
@@ -3474,9 +3154,7 @@ tts_missing_language_data: "Go to the market to download selected language?"
 gpx_option_reverse_route: "Reverse track direction"
 gpx_option_destination_point: "Use current destination"
 gpx_option_from_start_point: "Pass along entire track"
-switch_to_vector_map_to_see: "Offline vector map present for this location. 
-\t
-\tTo use activate 'Menu' → 'Configure map' → 'Map Source…' → 'Offline vector maps'."
+switch_to_vector_map_to_see: "Offline vector map present for this location.  \t \tTo use activate 'Menu' → 'Configure map' → 'Map Source…' → 'Offline vector maps'."
 choose_audio_stream: "Voice guidance output"
 choose_audio_stream_descr: "Select loudspeaker for voice guidance."
 voice_stream_voice_call: "Phone call audio (to interrupt car Bluetooth stereos)"
@@ -3517,8 +3195,7 @@ foot: "ft"
 mile_per_hour: "mph"
 mile: "mi"
 send_location_way_choose_title: "Share location using"
-send_location_sms_pattern: "Location: %1$s
-%2$s"
+send_location_sms_pattern: "Location: %1$s %2$s"
 send_location_email_pattern: "To see location follow the web link %1$s or Android intent link %2$s"
 send_location: "Send location"
 context_menu_item_share_location: "Share location"
@@ -3559,9 +3236,7 @@ poi_filter_namefinder: "Online NameFinder"
 reading_cached_tiles: "Reading cached tiles…"
 version_index_is_big_for_memory: "The index ''{0}'' did not fit into memory"
 version_index_is_not_supported: "The version of index ''{0}'' is not supported"
-osmand_routing_experimental: "OsmAnd offline navigation is an experimental feature and it does not work for longer distances than about 20 km.
-
-Navigation temporarily switched to online CloudMade service."
+osmand_routing_experimental: "OsmAnd offline navigation is an experimental feature and it does not work for longer distances than about 20 km.  Navigation temporarily switched to online CloudMade service."
 specified_dir_doesnt_exist: "Could not find the specified folder."
 osmand_net_previously_installed: "All offline data in the old installed app will be supported by the new one, but Favorite points must be exported from the old app and then imported in the new one."
 build_installed: "Build {0} was installed ({1})."
@@ -3664,10 +3339,8 @@ voice_data_initializing: "Initializing voice data…"
 voice_data_not_supported: "Unsupported version of voice data"
 voice_data_corrupted: "Specified voice data is corrupted"
 voice_data_unavailable: "Selected voice prompt package is not available"
-sd_unmounted: "Memory card not accessible.
-You won't be able to see maps or find things."
-sd_mounted_ro: "Memory card read-only.
-It is now only possible to see the preloaded map, not download new areas."
+sd_unmounted: "Memory card not accessible. You won't be able to see maps or find things."
+sd_mounted_ro: "Memory card read-only. It is now only possible to see the preloaded map, not download new areas."
 unzipping_file: "Unzipping file…"
 route_tr: "Turn right and go"
 route_tshr: "Turn sharply right and go"
@@ -3760,8 +3433,7 @@ error_occurred_saving_gpx: "Could not save GPX file."
 error_calculating_route: "Could not calculate route."
 error_calculating_route_occured: "Could not calculate route."
 empty_route_calculated: "The calculated route is empty."
-new_route_calculated_dist_dbg: "Route: distance %s, router time %s 
-Calculation: %.1f sec, %d roads, %d tiles)"
+new_route_calculated_dist_dbg: "Route: distance %s, router time %s  Calculation: %.1f sec, %d roads, %d tiles)"
 arrived_at_destination: "You have arrived."
 invalid_locations: "Invalid coordinates"
 go_back_to_osmand: "Go back to map"
@@ -3893,8 +3565,7 @@ shared_string_card_was_hidden: "Card was hidden"
 shared_string_undo: "Undo"
 shared_string_skip: "Skip"
 app_name_osmand: "OsmAnd"
-offline_maps_and_navigation: "Offline Maps
-& Navigation"
+offline_maps_and_navigation: "Offline Maps & Navigation"
 commit_poi: "Commit POI"
 tab_title_basic: "Basic"
 tab_title_advanced: "Advanced"
@@ -3968,7 +3639,7 @@ missing_write_external_storage_permission: "OsmAnd lacks permission to use the m
 last_update: "Last update: %s"
 update_time: "Update time"
 updates_size: "Update size"
-last_map_change: ""Last map change: %s""
+last_map_change: "\"Last map change: %s\""
 hourly: "Hourly"
 daily: "Daily"
 weekly: "Weekly"
@@ -4016,7 +3687,7 @@ quick_action_switch_day_mode: "Day mode"
 quick_action_switch_night_mode: "Night mode"
 quick_action_day_night_switch_mode: "Switch day/night mode"
 quick_action_interim_dialog: "Show an interim dialog"
-favorite_autofill_toast_text: "" saved to ""
+favorite_autofill_toast_text: "\" saved to \""
 favorite_empty_place_name: "Place"
 quick_action_duplicates: "Quick action renamed to %1$s to avoid duplication."
 quick_action_duplicate: "Quick action name duplicate"
