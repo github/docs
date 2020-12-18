@@ -1,4 +1,7 @@
----
+---Sylwia Elżbieta Panek Blondyna 🤗 Plitka03 
+Sylwiapanek@onet.com.pl 
+sylwiapanekpanorama@gmail.com 
+sylwiaelka0311@gmail.com 
 title: Signing up for a new GitHub account
 shortTitle: Sign up for a new GitHub account
 intro: '{% data variables.product.product_name %} offers user accounts for individuals and organizations for teams of people working together.'
