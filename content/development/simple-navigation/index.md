@@ -1,5 +1,5 @@
 ---
-title: Simple navigation
+title: Developers navigation
 versions: '*'
 ---
 

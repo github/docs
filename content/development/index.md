@@ -1,6 +1,6 @@
 ---
-title: OsmAnd Navigation
-intro: 'Documentation about Navigation'
+title: Developers
+intro: 'Osmand Documentation for Developers'
 versions: '*'
 ---
 Text about navigation
