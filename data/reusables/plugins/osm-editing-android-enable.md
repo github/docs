@@ -1,1 +1,1 @@
-Menu -> Plugins-> OpenStreetMap editing -> Three dots icon -> press Enable.
+{% data variables.android.menu %} -> {% data variables.android.plugins %} -> {% data variables.android.osm_editing %} -> Three dots icon -> press Enable.
