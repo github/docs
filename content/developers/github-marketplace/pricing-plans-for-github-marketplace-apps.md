@@ -48,7 +48,7 @@ Customers can start a free trial for any paid plan on a Marketplace listing that
 
 Free trials have a fixed length of 14 days. Customers are notified 4 days before the end of their trial period (on day 11 of the free trial) that their plan will be upgraded. At the end of a free trial, customers will be auto-enrolled into the plan they are trialing if they do not cancel.
 
-For more information, see: "[Handling new purchases and free trials](/developers/github-marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)."
+For more information, see: "[Handling new purchases and free trials](/developers/github-marketplace/handling-new-purchases-and-free-trials/)."
 
 {% note %}
 
