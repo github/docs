@@ -1,6 +1,6 @@
 ---
 title: Navigation
-intro: 'Documentation about Navigation'
+intro: 'Documentation Boat Navigation'
 versions: '*'
 ---
 Text about navigation
