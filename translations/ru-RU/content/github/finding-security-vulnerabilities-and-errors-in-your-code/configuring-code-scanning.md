@@ -181,17 +181,17 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; 
+        if [ -f requirements.txt ];
         then pip install -r requirements.txt;
         fi
         # Set the `CODEQL-PYTHON` environment variable to the Python executable
         # that includes the dependencies
-        echo "::set-env name=CODEQL_PYTHON::$(which python)"
+        echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
         languages: python
-        # Override the default behavior so that the action doesn't attempt 
+        # Override the default behavior so that the action doesn't attempt
         # to auto-install Python dependencies
         setup-python-dependencies: false
 ```
@@ -263,8 +263,8 @@ For the interpreted languages that {% data variables.product.prodname_codeql %} 
 
 ``` yaml
 paths:
-  - src 
-paths-ignore: 
+  - src
+paths-ignore:
   - src/node_modules
   - '**/*.test.js'
 ```
@@ -296,7 +296,7 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 
 If your workflow for {% data variables.product.prodname_code_scanning %} accesses a private repository, other than the repository that contains the workflow, you'll need to configure Git to authenticate with a personal access token. Define the secret in the runner environment by using `jobs.<job_id>.steps.env` in your workflow before any {% data variables.product.prodname_codeql %} actions. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)" and "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
-For example, the following configuration has Git replace the full URLs to the `github/foo`, `github/bar`, and `github/baz` repositories on {% data variables.product.prodname_dotcom_the_website %} with URLs that include the personal access token that you store in the `ACCESS_TOKEN` environment variable.
+For example, the following configuration has Git replace the full URLs to the `ghost/foo`, `ghost/bar`, and `ghost/baz` repositories on {% data variables.product.prodname_dotcom_the_website %} with URLs that include the personal access token that you store in the `ACCESS_TOKEN` environment variable.
 
 {% raw %}
 ```yaml
@@ -305,9 +305,9 @@ steps:
   env:
     TOKEN: ${{ secrets.ACCESS_TOKEN }}
   run: |
-    git config --global url."https://${TOKEN}@github.com/github/foo".insteadOf "https://github.com/github/foo"
-    git config --global url."https://${TOKEN}@github.com/github/bar".insteadOf "https://github.com/github/bar"
-    git config --global url."https://${TOKEN}@github.com/github/baz".insteadOf "https://github.com/github/baz"
+    git config --global url."https://${TOKEN}@github.com/ghost/foo".insteadOf "https://github.com/ghost/foo"
+    git config --global url."https://${TOKEN}@github.com/ghost/bar".insteadOf "https://github.com/ghost/bar"
+    git config --global url."https://${TOKEN}@github.com/ghost/baz".insteadOf "https://github.com/ghost/baz"
 ```
 {% endraw %}
 

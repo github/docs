@@ -15,6 +15,7 @@ const ALLOW_LIST = new Set([
   'platform-samples',
   'github-services',
   'explore',
+  'enterprise-releases',
   'markup',
   'hubot',
   'VisualStudio',
@@ -48,7 +49,8 @@ describe('check for repository references', () => {
       'docs/index.yaml',
       'lib/excluded-links.js',
       'content/early-access',
-      'data/early-access'
+      'data/early-access',
+      'data/release-notes' // These include links to internal issues in Liquid comments
     ]
   })
 

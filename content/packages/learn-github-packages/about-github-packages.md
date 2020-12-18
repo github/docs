@@ -46,7 +46,7 @@ You can review the package's README, some metadata like licensing, download stat
 {% if currentVersion == "free-pro-team@latest" %}
 ### About billing for {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.packages-billing %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 {% endif %}

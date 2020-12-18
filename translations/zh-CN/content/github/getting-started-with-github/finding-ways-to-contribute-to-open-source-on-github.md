@@ -32,14 +32,14 @@ versions:
 
 以下是 {% data variables.product.prodname_dotcom_the_website %} 上镜像的几个主要仓库：
 
-- [Android Open Source Project](https://github.com/aosp-mirror)
+- [Android 开源项目](https://github.com/aosp-mirror)
 - [The Apache Software Foundation](https://github.com/apache)
 - [The Chromium Project](https://github.com/chromium)
 - [Eclipse Foundation](https://github.com/eclipse)
 - [The FreeBSD Project](https://github.com/freebsd)
 - [Glasgow Haskell Compiler](https://github.com/ghc)
 - [GNOME](https://github.com/GNOME)
-- [Linux kernel source tree](https://github.com/torvalds/linux)
+- [Linux 内核源树](https://github.com/torvalds/linux)
 - [Qt](https://github.com/qt)
 
 为创建您自己的镜像，可在您的正式项目仓库中配置[接收后挂钩](https://git-scm.com/book/en/Customizing-Git-Git-Hooks)，以自动将提交推送到 {% data variables.product.product_name %} 上的镜像仓库。
