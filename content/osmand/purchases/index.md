@@ -10,6 +10,8 @@ versions: '*'
 {% link_in_list /in-apps-android %}
 {% link_in_list /osmand-live-android %}
 {% link_in_list /osmand-live-ios %}
+{% link_in_list /giveaway %}
+{% link_in_list /giftcards %}
 
 
 ## Get OsmAnd
