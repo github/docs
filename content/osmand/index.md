@@ -1,12 +1,12 @@
 ---
-title: Purchases
-intro: "OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail."
+title: OsmAnd
+intro: "OsmAnd is a mobile application available for iOS and Android"
 versions: '*'
 ---
 
 
+{% link_in_list /navigation %}
 {% link_in_list /purchases %}
-
 
 ## Get OsmAnd
 There are several possibilities to do that:
