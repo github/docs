@@ -1,18 +1,15 @@
 ---
 title: OsmAnd
 intro: "OsmAnd is a mobile application available for iOS and Android"
-featuredLinks:
-    gettingStarted:
-        - /navigation
-        - /purchases
-        - /plugins
 versions: '*'
 ---
 
-
 {% link_in_list /navigation %}
-{% link_in_list /purchases %}
+{% link_in_list /settings %}
+{% link_in_list /plan-route %}
 {% link_in_list /plugins %}
+{% link_in_list /purchases %}
+{% link_in_list /troubleshooting %}
 
 ## Get OsmAnd
 There are several possibilities to do that:
