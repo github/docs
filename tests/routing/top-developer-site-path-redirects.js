@@ -1,9 +1,9 @@
-const { head } = require('../helpers')
+const { head } = require('../helpers/supertest')
 
 describe('developer.github.com redirects', () => {
   jest.setTimeout(30 * 60 * 1000)
 
-  it('responds with 200 for the top historical request paths from google analytics', async () => {
+  it('responds with 200 for the top historical request paths', async () => {
     // ignore paths that are not (yet?) being redirected from developer.github.com to docs.github.com
     const ignoredPatterns = [
       /^\/changes/,

@@ -1,11 +1,12 @@
 ---
 title: 複数の作者を持つコミットを作成する
-intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} で表示され、プロフィールコントリビューショングラフとリポジトリの統計に含めることができます。{% endif %}'
+intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} に表示され、プロファイルコントリビューショングラフとリポジトリの統計に含めることができます{% endif %}。'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 必要な共作者情報
@@ -30,7 +31,7 @@ versions:
 
 ### {% data variables.product.prodname_desktop %} で co-authored コミットを作成する
 
-{% data variables.product.prodname_desktop %} で、共作者を持つコミットを作成できます。 詳細は「[コミットメッセージの入力と変更のプッシュ](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)」および [{% data variables.product.prodname_desktop %}](https://desktop.github.com) を参照してください。
+{% data variables.product.prodname_desktop %} で、共作者を持つコミットを作成できます。 詳細は「[コミットメッセージの入力と変更のプッシュ](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)」および [{% data variables.product.prodname_desktop %}](https://desktop.github.com) を参照してください。
 
 ![コミットメッセージに共作者を追加](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -67,10 +68,10 @@ versions:
 {% data variables.product.product_location %} に新たなコミットとメッセージが表示されます。
 
 ### 参考リンク
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
 - [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile){% endif %}
 - [リポジトリアクティビティの概要を表示する](/articles/viewing-a-summary-of-repository-activity)
 - [プロジェクトのコントリビューターを表示する](/articles/viewing-a-projects-contributors)
 - [コミットメッセージの変更](/articles/changing-a-commit-message)
-- {% data variables.product.prodname_desktop %} ドキュメンテーションの「[プロジェクトへの変更をコミットまたはレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)」
+- {% data variables.product.prodname_desktop %} ドキュメンテーションの「[プロジェクトへの変更をコミットまたはレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)」

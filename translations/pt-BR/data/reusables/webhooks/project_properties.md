@@ -1,7 +1,7 @@
-| Tecla                 | Tipo     | Descrição                                                                                                            |
-| --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| `Ação`                | `string` | The action that was performed on the project. Can be one of `created`, `edited`, `closed`, `reopened`, or `deleted`. |
-| `alterações`          | `objeto` | The changes to the project if the action was `edited`.                                                               |
-| `changes[name][from]` | `string` | A versão anterior do nome se a ação foi `editada`.                                                                   |
-| `changes[body][from]` | `string` | The previous version of the body if the action was `edited`.                                                         |
-| `project`             | `objeto` | The [project](/v3/projects/) itself.                                                                                 |
+| Tecla                 | Tipo     | Descrição                                                                                              |
+| --------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `Ação`                | `string` | A acção que foi realizada no projeto. Pode ser `created`, `edited`, `closed`, `reopened` ou `deleted`. |
+| `alterações`          | `objeto` | As alterações no projeto, se a ação foi `editada`.                                                     |
+| `changes[name][from]` | `string` | A versão anterior do nome se a ação foi `editada`.                                                     |
+| `changes[body][from]` | `string` | A versão anterior do texto se a ação foi `editada`.                                                    |
+| `project`             | `objeto` | O próprio [projeto](/rest/reference/projects).                                                         |

@@ -1,31 +1,38 @@
 ---
-title: Sobre problemas
-intro: 'Use problemas para rastrear ideias, aprimoramentos, tarefas ou erros para trabalhar no {% data variables.product.product_name %}.'
+title: About issues
+intro: 'Use issues to track ideas, enhancements, tasks, or bugs for work on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-issues/
-  - /articles/about-issues
+  - /articles/about-issues/
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode coletar feedback, reportar erros de software e organizar tarefas que deseja realizar com problemas em um repositório. Os problemas podem ser mais do que um lugar para relatar erros de relatório.
+### About issues
+
+You can collect user feedback, report software bugs, and organize tasks you'd like to accomplish with issues in a repository. Issues can act as more than just a place to report software bugs.
+
+Other conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %}
+
+{% data reusables.discussions.you-cannot-convert-a-discussion %}
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-Para se manter atualizado sobre os comentários mais recentes em um problema, você pode inspecionar um problema a fim de recebe notificações sobre os últimos comentários. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+To stay updated on the most recent comments in an issue, you can watch an issue to receive notifications about the latest comments. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." 
 
-Para encontrar links para problemas atualizados recentemente nos quais você está inscrito, visite seu painel. Para obter mais informações, consulte "[Sobre seu painel pessoal](/articles/about-your-personal-dashboard)".
+To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
 
-### Trabalhar com problemas
+### Working with issues
 
-Com problemas, você pode:
-- Acompanhar e priorizar seu trabalho usando quadros de projeto. Para obter mais informações, consulte "[Usar quadros de projeto](/articles/about-project-boards)".
-- Criar novos problemas para rastrear feedbacks fora do escopo a partir de um comentário em um problema ou de uma revisão de pull request. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
-- Criar modelos de problema para ajudar os contribuidores a abrir problemas significativos. Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- Transferir problemas abertos para outros repositórios. Para obter mais informações, consulte "[Transferir um problema para outro repositório](/articles/transferring-an-issue-to-another-repository)".{% endif %}
-- Fixar problemas importantes para que seja mais fácil encontrá-los, evitando a duplicação de problemas e reduzindo ruídos. Para obter mais informações, consulte "[Fixar um problema no seu repositório](/articles/pinning-an-issue-to-your-repository)".
-- Acompanhar problemas duplicados usando respostas salvas. Para obter mais informações, consulte "[Sobre respostas salvas](/articles/about-saved-replies)".{% if currentVersion == "free-pro-team@latest" %}
-- Relatar comentários que violam as [Diretrizes da comunidade](/articles/github-community-guidelines) do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Relatar abuso ou spam](/articles/reporting-abuse-or-spam)".{% endif %}
+With issues, you can:
+- Track and prioritize your work using project boards. For more information, see "[Using project boards](/articles/about-project-boards)."
+- Create new issues to track out-of-scope feedback from a comment in an issue or a pull request review. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
+- Create issue templates to help contributors open meaningful issues. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+- Transfer open issues to other repositories. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."
+- Pin important issues to make them easier to find, preventing duplicate issues and reducing noise. For more information, see "[Pinning an issue to your repository](/articles/pinning-an-issue-to-your-repository)."
+- Track duplicate issues using saved replies. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
+- Report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/articles/github-community-guidelines). For more information, see "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)."{% endif %}
 
-Os problemas também podem ser [atribuídos a outros usuários](/articles/assigning-issues-and-pull-requests-to-other-github-users), [marcados com etiquetas](/articles/applying-labels-to-issues-and-pull-requests) para pesquisa mais rápida e [agrupados com marcos](/articles/creating-and-editing-milestones-for-issues-and-pull-requests).
+Issues can also be [assigned to other users](/articles/assigning-issues-and-pull-requests-to-other-github-users), [tagged with labels](/articles/applying-labels-to-issues-and-pull-requests) for quicker searching, and [grouped together with milestones](/articles/creating-and-editing-milestones-for-issues-and-pull-requests).

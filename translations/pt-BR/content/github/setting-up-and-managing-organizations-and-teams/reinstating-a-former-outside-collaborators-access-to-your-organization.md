@@ -1,15 +1,16 @@
 ---
 title: Restabelecer o acesso de um ex-colaborador externo à organização
-intro: 'Se você exigiu a autenticação de dois fatores na organização e um colaborador externo foi removido da organização por não ter a 2FA habilitada, poderá restabelecer as permissões de acesso do ex-colaborador externo nas configurações, nas bifurcações e nos repositórios da organização.'
+intro: "É possível restabelecer as permissões de acesso de um ex-colaborador externo para repositórios, forks e configurações da organização."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Se o acesso de um colaborador externo aos repositórios privados da organização foi removido porque você passou a [exigir a autenticação de dois fatores para integrantes e colaboradores externos](/articles/requiring-two-factor-authentication-in-your-organization), as configurações e os privilégios de acesso do usuário serão mantidos por três meses. Você poderá restaurar os privilégios do usuário se {% if currentVersion == "free-pro-team@latest" %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
+Quando o acesso de um colaborador externo aos repositórios privados da sua organização é removido, os privilégios e configurações de acesso do usuário são salvos por três meses. Você pode restaurar os privilégios do usuário se você {% if currentVersion == "free-pro-team@latest" %}convidá-los{% else %}add{% endif %} para a organização nesse período de tempo.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -26,7 +27,7 @@ Ao restabelecer um ex-colaborador externo, você pode restaurar:
 
 **Dicas**:
  - Somente proprietários da organização podem restabelecer o acesso de um colaborador externo à organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
- - O fluxo de restabelecimento de um integrante no {% data variables.product.product_location %} pode usar o termo "integrante" para descrever o restabelecimento de um colaborador externo, mas se você restabelecer o usuário e mantiver os privilégios anteriores, ele terá apenas as [permissões anteriores de colaborador externo](/articles/permission-levels-for-an-organization/#outside-collaborators).{% if currentVersion == "free-pro-team@latest" %}
+ - O restabelecimento de um fluxo de integrante em {% data variables.product.product_location %} pode usar o termo "integrante" para descrever o restabelecimento de um colaborador externo. No entanto, se você restabelecer esta pessoa e mantiver seus privilégios anteriores, ela terá apenas suas [permissões de colaborador externo](/articles/permission-levels-for-an-organization/#outside-collaborators). {% if currentVersion == "free-pro-team@latest" %}
  - Se a organização tiver uma assinatura paga por usuário, ela deverá ter uma licença não utilizada disponível para você poder convidar um integrante para participar da organização ou restabelecer um ex-integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)."{% endif %}
 
 {% endtip %}

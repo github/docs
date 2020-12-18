@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -38,7 +39,7 @@ diff の見方には複数の選択肢があります。
 
 ![Diff の表示のオプションメニュー](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-大きなプルリクエスト中の変更のレビューをシンプルにするために、選択されたファイルタイプだけを表示、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}コードオーナーであるファイルを表示、表示したことのあるファイルを非表示、{% endif %}または削除されたファイルを非表示にするように diff をフィルタリングできます。 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
+大規模なプルリクエスト中の変更のレビューを簡素化するために、選択されたファイルタイプだけを表示、CODEOWNERS であるファイルを表示、表示したことのあるファイルを非表示、または削除されたファイルを非表示にするように diff をフィルタリングできます。 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
 
   ![ファイルフィルタのドロップダウンメニュー](/assets/images/help/pull_requests/file-filter-menu.png)
 

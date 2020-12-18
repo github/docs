@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### {% data variables.product.product_name %} 上的讨论
@@ -19,7 +20,7 @@ versions:
 
 ### 反应评论意见
 
-您可以在对话中对某种想法表示支持或反对。 在对评论或者团队讨论、议题或拉取请求添加反应时，订阅对话的人不会收到通知。 有关订阅的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[订阅和退订通知](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}”。
+您可以在对话中对某种想法表示支持或反对。 在对评论或者团队讨论、议题或拉取请求添加反应时，订阅对话的人不会收到通知。 有关订阅的更多信息，请参阅 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[订阅和退订通知](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}”。
 
 ![包含反应的议题示例](/assets/images/help/repository/issue-reactions.png)
 

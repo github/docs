@@ -1,6 +1,6 @@
 ---
 title: Sobre o GitHub Marketplace
-intro: 'Aprenda os princípios básicos para preparar seu aplicativo para revisão antes de entrar no {% data variables.product.prodname_marketplace %}.'
+intro: 'Aprenda sobre {% data variables.product.prodname_marketplace %} em que você pode compartilhar seus aplicativos e ações publicamente com todos os usuários do {% data variables.product.product_name %}.'
 redirect_from:
   - /apps/marketplace/getting-started/
   - /marketplace/getting-started
@@ -14,52 +14,41 @@ versions:
 
 {% data reusables.actions.actions-not-verified %}
 
-Para saber mais sobre a publicação do {% data variables.product.prodname_actions %} no {% data variables.product.prodname_marketplace %}, consulte "[{% data variables.product.prodname_actions %} no {% data variables.product.prodname_marketplace %}](/marketplace/actions/)".
+Para saber mais sobre publicação de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_marketplace %}, consulte "[Publicar ações no GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)".
 
 ### Aplicativos
 
-Você pode listar os aplicativos verificados e não verificados no {% data variables.product.prodname_marketplace %}. Os aplicativos não verificados não passam por segurança, testes e ciclo de verificação que {% data variables.product.prodname_dotcom %} exige para aplicativos verificados.
+Qualquer pessoa pode compartilhar seus aplicativos com outros usuários em {% data variables.product.prodname_marketplace %}, mas apenas os anúncios verificados por {% data variables.product.company_short %} podem incluir planos pagos. Para obter mais informações, consulte "[Sobre criadores verificados](/developers/github-marketplace/about-verified-creators)".
 
-Os aplicativos verificados têm um selo verde no {% data variables.product.prodname_marketplace %}. Os aplicativos não verificados têm um selo cinza ao lado de sua listagem e só estão disponíveis como aplicativos gratuitos.
+Se estiver interessado em criar um aplicativo para {% data variables.product.prodname_marketplace %}, mas você é novo em {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_app %}s, consulte "[Criar {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" ou "[Criar {% data variables.product.prodname_oauth_app %}s](/developers/apps/building-oauth-apps)".
 
-![Selo verde para verificado e cinza para não verificado](/assets/images/marketplace/marketplace_verified_badges.png)
-
-Se você estiver interessado em criar um aplicativo para {% data variables.product.prodname_marketplace %}, mas você é novo no {% data variables.product.prodname_github_apps %} e no {% data variables.product.prodname_oauth_app %}, consulte "[Criando aplicativos](/apps/)".
-
-{% data reusables.marketplace.github_apps_preferred %}, embora você possa listar tanto o OAuth quanto {% data variables.product.prodname_github_app %}s no {% data variables.product.prodname_marketplace %}. Consulte "[Diferenças entre os aplicativos GitHub e OAuth](/apps/differences-between-apps/)" para obter mais detalhes. Para saber mais sobre como mudar do OAuth para {% data variables.product.prodname_github_apps %}, consulte [Migrando aplicativos OAuth para {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/).
+{% data reusables.marketplace.github_apps_preferred %}, embora você possa listar tanto o OAuth quanto {% data variables.product.prodname_github_app %}s no {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "[Diferenças entre {% data variables.product.prodname_github_apps %} e {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/)" e[Migrando {% data variables.product.prodname_oauth_app %}s para {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)
 
 Em caso de dúvidas dúvidas sobre {% data variables.product.prodname_marketplace %}, entre em contato diretamente com {% data variables.contact.contact_support %}.
 
-#### Aplicativos não verificados
+### Publicar um aplicativo em {% data variables.product.prodname_marketplace %}
 
-Os aplicativos não verificados não precisam atender aos "[Requisitos de listagem de um aplicativo no {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" ou passar pelo "[Processo de revisão de segurança](/marketplace/getting-started/security-review-process/)".
+Ao terminar de criar seu aplicativo, você poderá compartilhá-lo com outros usuários publicando-o em {% data variables.product.prodname_marketplace %}. Em resumo, o processo é:
 
-{% data reusables.marketplace.unverified-apps %} Ter um plano pago publicado impedirá que você possa enviar um aplicativo não verificado. Você deve remover os planos pagos ou mantê-los no modo rascunho antes de publicar um aplicativo não verificado.
+1. Revise cuidadosamente o seu app para garantir que se comportará como esperado em outros repositórios e que segue as diretrizes das práticas recomendadas. Para obter mais informações, consulte "[as práticas de segurança recomendadas para os aplicativos](/developers/github-marketplace/security-best-practices-for-apps)" e "[requisitos para listar um app](/developers/github-marketplace/requirements-for-listing-an-app#best-practice-for-customer-experience)".
 
-Para listar seu aplicativo não verificado no {% data variables.product.prodname_marketplace %}, você só precisa criar uma "[Listagem em {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/)" e enviá-lo como uma listagem não verificada.
+1. Adicionar eventos webhook ao aplicativo para rastrear solicitações de cobrança do usuário. Para obter mais informações sobre a API de {% data variables.product.prodname_marketplace %}, eventos de webhook e solicitações de cobrança, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-{% data reusables.marketplace.launch-with-free %}
+1. Crie um rascunho de listagem de {% data variables.product.prodname_marketplace %} Para obter mais informações, consulte "[Criar uma listagem para o seu aplicativo](/developers/github-marketplace/drafting-a-listing-for-your-app)".
 
-#### Aplicativos verificados
+1. Adicionar um plano de preços. Para obter mais informações, consulte "[Configurar planos de preços para sua listagem](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-Se você já criou um aplicativo e está interessado em enviar uma listagem verificado no {% data variables.product.prodname_marketplace %}, comece aqui:
+1. Verifique se seu aplicativo atende aos requisitos para a listagem em {% data variables.product.prodname_marketplace %} como um aplicativo grátis ou pago. Para obter mais informações, consulte "[Requisitos para listar um app](/developers/github-marketplace/requirements-for-listing-an-app)".
 
-1. [Começando com {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)<br/>Saiba mais sobre requisitos, diretrizes e processo de envio de aplicativos.
+1. Leia e aceite os termos do "[Contrato do Desenvolvedor de {% data variables.product.prodname_marketplace %}](/articles/github-marketplace-developer-agreement/)".
 
-1. [Integrar com a API do {% data variables.product.prodname_marketplace %} ](/marketplace/integrating-with-the-github-marketplace-api/)<br/>Antes de poder listar seu aplicativo no {% data variables.product.prodname_marketplace %}, você deverá integrar os fluxos de cobrança usando a API do {% data variables.product.prodname_marketplace %} e os eventos de webhook.
+1. Envie sua listagem para publicação em {% data variables.product.prodname_marketplace %}, solicitando verificação, se você desejar vender o aplicativo. Para obter mais informações, consulte "[Enviar sua listagem para publicação](/developers/github-marketplace/submitting-your-listing-for-publication)".
 
-1. [Listar no {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/) <br/>Crie uma listagem de rascunho {% data variables.product.prodname_marketplace %} de {% data variables.product.prodname_marketplace %}, defina as configurações de webhook e configure planos de preços.
+Um especialista em integração entrará em contato com você com outras dúvidas ou etapas posteriores. Por exemplo, se você adicionou um plano pago, você deverá concluir o processo de verificação e concluir a integração financeira. Assim que seu anúncio for aprovado, o aplicativo será publicado em {% data variables.product.prodname_marketplace %}.
 
-1. [Vendendo seu aplicativo](/marketplace/selling-your-app/)<br/>Saiba mais sobre os planos de preço, ciclos de cobrança e como receber pagamento do {% data variables.product.prodname_dotcom %} para o seu aplicativo.
+### Ver como seu aplicativo está sendo executado
 
-1. [{% data variables.product.prodname_marketplace %} Ideias](/marketplace/github-marketplace-insights/)<br/>Veja como seu aplicativo está sendo executado em {% data variables.product.prodname_marketplace %}. Você pode usar métricas coletadas pelo {% data variables.product.prodname_dotcom %} para orientar sua campanha de marketing e ter sucesso no {% data variables.product.prodname_marketplace %}.
+Você pode acessar métricas e transações para a sua listagem. Para obter mais informações, consulte:
 
-1. [ transações do {% data variables.product.prodname_marketplace %} ](/marketplace/github-marketplace-transactions/)<br/>Faça o download e veja os dados de transação para a sua listagem do {% data variables.product.prodname_marketplace %}.
-
-### Revisar seu aplicativo
-
-Queremos ter certeza de que os aplicativos oferecidos no {% data variables.product.prodname_marketplace %} são seguros, protegidos e bem testados. Os especialistas de integração do {% data variables.product.prodname_marketplace %} irão rever seu aplicativo para garantir que ele atende a todos os requisitos. Siga as diretrizes nestes artigos antes de enviar seu aplicativo:
-
-
-* [Requisitos para listar um aplicativo no {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)
-* [Processo de revisão de segurança](/marketplace/getting-started/security-review-process/)
+- "[Visualizar métricas para a sua listagem](/developers/github-marketplace/viewing-metrics-for-your-listing)"
+- "[Visualizar transações para a sua listagem](/developers/github-marketplace/viewing-transactions-for-your-listing)"

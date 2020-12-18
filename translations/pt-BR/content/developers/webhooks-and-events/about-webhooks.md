@@ -1,34 +1,34 @@
 ---
-title: Sobre webhooks
-intro: Aprenda os princípios básicos de como os webhooks funcionam para ajudá-lo a criar e configurar integrações.
+title: About webhooks
+intro: Learn the basics of how webhooks work to help you build and set up integrations.
 redirect_from:
   - /webhooks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
+Webhooks allow you to build or set up integrations, such as [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) or [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), which subscribe to certain events on GitHub.com. When one of those events is triggered, we'll send a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external issue tracker, trigger CI builds, update a backup mirror, or even deploy to your production server. You're only limited by your imagination.
 
-Os webhooks permitem que você crie ou configure integrações, como [{% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) ou [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/), que assinam determinados eventos no GitHub.com. Quando um desses eventos é acionado, enviaremos uma carga de POST por HTTP POST para a URL de configuração do webhook. Os webhooks podem ser usados para atualizar um rastreador de problemas externo, acionar criações de CI, atualizar um espelho de backup, ou até mesmo fazer uma implantação no seu servidor de produção. A sua imaginação é o único limite.
+Webhooks can be installed on{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} [{% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#global-webhooks/),{% endif %} an [organization][org-hooks], a specific [repository][repo-hooks], or a {% data variables.product.prodname_github_app %}. Once installed, the webhook will be sent each time one or more subscribed events occurs.
 
-Os webhooks podem ser instalados em{% if currentVersion != "free-pro-team@latest" %} uma instância do [{% data variables.product.prodname_ghe_server %}](/v3/enterprise-admin/global_webhooks/),{% endif %} uma [organização][org-hooks], um repositório [específico][repo-hooks]ou em um {% data variables.product.prodname_github_app %}. Uma vez instalado, o webhook será enviado cada vez que ocorrer um ou mais eventos assinados.
+You can create up to {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}250{% else %}20{% endif %} webhooks for each event on each installation target {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}({% data variables.product.prodname_ghe_server %} instance, specific organization, or specific repository).{% else %}(specific organization or specific repository).{% endif %}
 
-Você pode criar até {% if currentVersion != "free-pro-team@latest" %}250{% else %}20{% endif %} webhooks para cada evento em cada destino de instalação {% if currentVersion != "free-pro-team@latest" %}instância({% data variables.product.prodname_ghe_server %} de organização específica ou repositório específico).{% else %}(organização específica ou repositório específico).{% endif %}
-
-### Eventos
+### Events
 
 {% data reusables.webhooks.webhooks_intro %}
 
-Cada evento corresponde a um certo conjunto de ações que podem ocorrer na sua organização e/ou repositório. Por exemplo, se você assinar o evento `problemas`, você receberá cargas detalhadas toda vez que uma tarefa for aberta, fechada, etiquetada, etc.
+Each event corresponds to a certain set of actions that can happen to your organization and/or repository. For example, if you subscribe to the `issues` event you'll receive detailed payloads every time an issue is opened, closed, labeled, etc.
 
-Consulte "[Cargas de evento do eebhook](/webhooks/event-payloads)" para a lista de eventos de webhook disponíveis e suas cargas.
+See "[Webhook event payloads](/webhooks/event-payloads)" for the list of available webhook events and their payloads.
 
-### Evento de ping
+### Ping event
 
 {% data reusables.webhooks.ping_short_desc %}
 
-Para obter mais informações sobre a carga do webhook do evento de `ping`, consulte o evento [`ping`](/webhooks/event-payloads/#ping).
+For more information about the `ping` event webhook payload, see the [`ping`](/webhooks/event-payloads/#ping) event.
 
-[org-hooks]: /v3/orgs/hooks/
-[repo-hooks]: /v3/repos/hooks/
+[org-hooks]: /rest/reference/orgs#webhooks/
+[repo-hooks]: /rest/reference/repos#hooks

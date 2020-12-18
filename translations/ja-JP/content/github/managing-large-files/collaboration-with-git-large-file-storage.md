@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリのコラボレーターが {% data variables.large_files.product_name_short %}をインストールしていない場合、オリジナルの大容量ファイルにはアクセスできません。 リポジトリのクローンを試みた場合、ポインタファイルをフェッチするのみで、実際のデータにはアクセスできません。
@@ -19,7 +20,7 @@ versions:
 
 ### プルリクエストの大容量ファイルを表示する
 
-{% data variables.product.product_name %}は、プルリクエストの {% data variables.large_files.product_name_short %}オブジェクトを表示しません。 Only the pointer file is shown:
+{% data variables.product.product_name %}は、プルリクエストの {% data variables.large_files.product_name_short %}オブジェクトを表示しません。 ポインタファイルのみが表示されます。
 
 ![大容量ファイルのプルリクエスト例](/assets/images/help/large_files/large_files_pr.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Die Zustand eines Pull Requests ändern
-intro: 'Du kannst einen Pull-Request-Review als bereit zur Überprüfung markieren{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} oder einen Pull Request in einen Entwurf umwandeln{% endif %}.'
+intro: 'You can mark a draft pull request as ready for review{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} or convert a pull request to a draft{% endif %}.'
 permissions: Personen mit Schreibberechtigungen in ein Repository sowie Pull-Request-Autoren können den Zustand eines Pull-Requests ändern.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Einen Pull Request als bereit zum Überprüfung markieren
@@ -18,7 +19,7 @@ versions:
 2. Klicke in der Liste „Pull Requests“ auf den Pull Request, den Du als „Ready for review“ (Bereit zur Überprüfung) markieren möchtest.
 3. Klicke im Merge-Feld **Ready for review** (Bereit zur Überprüfung). ![Schaltfläche „Ready for review“ (Bereit für Review)](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 ### Einen Pull Request in einen Entwurf umwandeln
 

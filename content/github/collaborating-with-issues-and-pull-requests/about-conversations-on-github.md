@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Discussions on {% data variables.product.product_name %}
@@ -19,7 +20,7 @@ Issues are useful for discussing specific details of a project such as bug repor
 
 ### Reacting to ideas in comments
 
-You can show your support or dissent for an idea in a conversation. When you add a reaction to a comment or the body of a team discussion, issue, or pull request, people subscribed to the conversation won't receive a notification. For more information about subscriptions, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
+You can show your support or dissent for an idea in a conversation. When you add a reaction to a comment or the body of a team discussion, issue, or pull request, people subscribed to the conversation won't receive a notification. For more information about subscriptions, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
 
 ![Example of an issue with reactions](/assets/images/help/repository/issue-reactions.png)
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在新增 SSH 密钥到 {% data variables.product.product_name %} 帐户之前，您应该已：
@@ -18,13 +19,13 @@ versions:
 
 {% mac %}
 
-1. 将 SSH 密钥复制到剪贴板。
+1. 将 SSH 公钥复制到剪贴板。
 
-  如果您的 SSH 密钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
+  如果您的 SSH 公钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -45,13 +46,13 @@ versions:
 
 {% windows %}
 
-1. 将 SSH 密钥复制到剪贴板。
+1. 将 SSH 公钥复制到剪贴板。
 
-  如果您的 SSH 密钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
+  如果您的 SSH 公钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -72,16 +73,16 @@ versions:
 
 {% linux %}
 
-1. 将 SSH 密钥复制到剪贴板。
+1. 将 SSH 公钥复制到剪贴板。
 
-  如果您的 SSH 密钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
+  如果您的 SSH 公钥文件与示例代码不同，请修改文件名以匹配您当前的设置。 在复制密钥时，请勿添加任何新行或空格。
 
   ```shell
   $ sudo apt-get install xclip
   # Downloads and installs xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
   {% tip %}
 

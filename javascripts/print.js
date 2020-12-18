@@ -1,20 +1,17 @@
-export default function () {
-  const printButton = document.querySelector('.js-print')
+import { sendEvent } from './events'
 
-  if (printButton) {
+export default function () {
+  const printButtons = document.querySelectorAll('.js-print')
+
+  Array.from(printButtons).forEach(btn => {
     // Open the print dialog when the button is clicked
-    printButton.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       window.print()
     })
-  }
+  })
 
   // Track print events
   window.onbeforeprint = function () {
-    // Ensure that Google Analytics was registered
-    if (!window.ga) return
-    const category = 'Print'
-    const action = 'print'
-    const label = 'print'
-    window.ga('send', 'event', category, action, label)
+    sendEvent({ type: 'print' })
   }
 }

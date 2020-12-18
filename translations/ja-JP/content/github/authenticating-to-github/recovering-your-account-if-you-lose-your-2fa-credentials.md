@@ -1,6 +1,6 @@
 ---
 title: 2 要素認証クレデンシャルをなくした際のアカウントの回復
-intro: 2 要素認証の認証情報にアクセスできなくなった場合、リカバリコードまたはその他のリカバリ方法を使用して、アカウントへのアクセスを回復できます。
+intro: '2 要素認証の認証情報にアクセスできなくなった場合、リカバリコードまたはその他のリカバリ方法を使用して、アカウントへのアクセスを回復できます。'
 redirect_from:
   - /articles/recovering-your-account-if-you-lost-your-2fa-credentials/
   - /articles/authenticating-with-an-account-recovery-token/
@@ -81,7 +81,8 @@ versions:
 1. Facebook で、[セキュリティ設定](https://www.facebook.com/settings?tab=security)に移動し、[**Recovery Accounts Elsewhere**] をクリックします。 ![Facebook のセキュリティ設定ページと Recovery Accounts Elsewhere リンク](/assets/images/help/settings/security-facebook-security-settings-page.png)
 2. {% data variables.product.product_name %}アカウントに関連付けられているリカバリトークンをクリックします。 ![Facebook に格納されているリカバリトークンのリスト](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. アカウントリカバリトークンを引き換えるため、[**Recover This Account**] をクリックします。 新しいウィンドウが開き、{% data variables.product.product_name %}に戻ります。 ![リカバリトークンについての情報を表示するモーダルボックスおよび [Recover This Account] ボタン](/assets/images/help/settings/security-recover-account-facebook.png)
-4. {% data variables.contact.contact_support %} に連絡して、アカウントリカバリトークンはレビューの準備ができていることを知らせます。
+4. お問い合わせ
+{% data variables.contact.contact_support %} に連絡して、アカウントリカバリトークンはレビューの準備ができていることを知らせます。
 {% endif %}
 
 ### 参考リンク

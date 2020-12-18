@@ -1,1 +1,1 @@
-Activity related to a release. {% data reusables.webhooks.action_type_desc %} For more information, see the "[releases](/v3/repos/releases/)" REST API.
+与发行版相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[发行版](/rest/reference/repos#releases)”REST API。

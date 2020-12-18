@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se seu commit não estiver no branch padrão, um indicador mostrará os branches que contêm o commit. Se o commit fizer parte de uma pull request sem merge, ele mostrará um link.
@@ -14,7 +15,7 @@ Se seu commit não estiver no branch padrão, um indicador mostrará os branches
 
 Assim que o commit estiver no branch padrão, todas as tags que contêm o commit serão mostradas e o branch padrão será o único branch listado.
 
-![Commit-master-label](/assets/images/help/commits/Commit-master-label.png)
+![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
 ### Leia mais
 

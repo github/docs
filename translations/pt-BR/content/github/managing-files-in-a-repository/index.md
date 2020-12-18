@@ -7,15 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 ### Índice
 
 {% topic_link_in_list /managing-files-on-github %}
-<!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /navigating-code-on-github %}
-<!-- endif -->
     {% link_in_list /creating-new-files %}
     {% link_in_list /adding-a-file-to-a-repository %}
     {% link_in_list /moving-a-file-to-a-new-location %}

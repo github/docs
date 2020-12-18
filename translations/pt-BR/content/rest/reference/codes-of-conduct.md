@@ -6,8 +6,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-You can use the Codes of Conduct API to retrieve information about a repository's code of conduct. To get a repository's code of conduct, use the "[Get a repository](/v3/repos/#get-a-repository)" endpoint.
+Você pode usar a API de Códigos de Conduta para recuperar informações sobre o código de conduta de um repositório. Para obter o código de conduta de um repositório, use o ponto de extremidade "[Obter um repositório](/rest/reference/repos#get-a-repository).
 
 {% include rest_operations_at_current_path %}

@@ -21,10 +21,10 @@ versions:
 
 1. 在 {% data variables.product.prodname_desktop %} 中，使用 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**下拉菜单，然后选择要更新的本地分支。
 2.  要检查远程分支上的提交，请单击 **Fetch origin（获取源)** ![提取源按钮](/assets/images/help/desktop/fetch-button.png)
-3. To pull any commits from the remote branch, click **Pull origin** or **Pull origin with rebase**. ![拉取源按钮](/assets/images/help/desktop/pull-button.png)
+3. 要从远程分支拉取任何提交，请点击 **Pull origin（拉取来源）**或 **Pull origin with rebase（包含变基的的拉取来源）**。 ![拉取源按钮](/assets/images/help/desktop/pull-button.png)
 {% data reusables.desktop.resolve-merge-conflicts %}
 
-### Merging another branch into your project branch
+### 将另一个分支合并到项目分支
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.choose-a-branch-to-merge %}
@@ -39,15 +39,15 @@ versions:
    ![合并按钮](/assets/images/help/desktop/merge-branch-button.png)
 {% data reusables.desktop.push-origin %}
 
-### Rebasing your project branch onto another branch
+### 将项目分支变基到另一个分支
 
 {% mac %}
 
-1. In the menu bar, use the **Branch** drop-down and click **Rebase Current Branch**. ![在分支中重新变基当前分支下拉菜单](/assets/images/help/desktop/mac-rebase-current-branch.png)
+1. 在菜单栏中，使用 **Branch（分支）**下拉菜单，并单击 **Rebase Current Branch（变基当前分支）**。 ![在分支中重新变基当前分支下拉菜单](/assets/images/help/desktop/mac-rebase-current-branch.png)
 2. 单击要变基到当前分支的分支，然后单击 **Start rebase（开始变基）**。 ![开始变基按钮](/assets/images/help/desktop/start-rebase-button.png)
 3. 如果确定要变基，请单击 **Begin rebase（开始变基）**。 ![开始变基按钮](/assets/images/help/desktop/begin-rebase-button.png)
 {% data reusables.desktop.resolve-merge-conflicts %}
-4. To push your local changes, click **Force push origin**. ![强制推送源](/assets/images/help/desktop/force-push-origin.png)
+4. 要推送本地更改，请单击 **Force push origin（强制推送源）**。 ![强制推送源](/assets/images/help/desktop/force-push-origin.png)
 
 {% endmac %}
 
@@ -62,6 +62,6 @@ versions:
 {% endwindows %}
 
 ### 延伸阅读
-- "[Pull](/github/getting-started-with-github/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Merge](/github/getting-started-with-github/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[Rebase](/github/getting-started-with-github/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary
+- {% data variables.product.prodname_dotcom %} 词汇表中的“[拉取](/github/getting-started-with-github/github-glossary#pull)”
+- {% data variables.product.prodname_dotcom %} 词汇表中的“[合并](/github/getting-started-with-github/github-glossary#merge)”
+- {% data variables.product.prodname_dotcom %} 词汇表中的“[变基](/github/getting-started-with-github/github-glossary#rebase)”

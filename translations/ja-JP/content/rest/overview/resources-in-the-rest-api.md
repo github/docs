@@ -6,27 +6,27 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-
 ### 最新バージョン
 
-デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
+デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/developers/overview/about-githubs-apis)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/rest/overview/media-types#request-specific-version)ことをお勧めします。
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/v4/guides/migrating-from-rest/)」を参照してください。
+GitHub の GraphQL API についての情報は、[v4 ドキュメント](/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 {% endif %}
 
 ### スキーマ
 
-{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
+{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -36,13 +36,12 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -77,7 +76,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 ### 認証
 
-{% data variables.product.product_name %} API v3 を使用して認証する方法は 2 つあります。  認証を必要とするリクエストは、場所によって `403 Forbidden` ではなく `404 Not Found` を返します。  これは、許可されていないユーザにプライベートリポジトリが誤って漏洩するのを防ぐためです。
+{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
 #### Basic 認証
 
@@ -97,8 +96,9 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% endnote %}
 
-[OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  OAuth2 トークンは、本番アプリケーションの [Web アプリケーションフロー](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)で取得できることに注意してください。
+[OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 キー/シークレット
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -109,9 +109,9 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 `client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
 
-{% if currentVersion != "free-pro-team@latest" %}
 プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳しい情報については、 「[プライベートモードを有効化する](/enterprise/admin/installation/enabling-private-mode)」を参照してください。
 {% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 [認証されていないレート制限の詳細](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)をお読みください。
@@ -135,9 +135,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 API は、無効な認証情報を含むリクエストを短期間に複数回検出すると、`403 Forbidden` で、そのユーザに対するすべての認証試行（有効な認証情報を含む）を一時的に拒否します。
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,22 +165,13 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion != "free-pro-team@latest" %}
-
-{% note %}
-
-**注釈:** {% data variables.product.prodname_ghe_server %} では、[他のすべてのエンドポイントと同様に](/v3/enterprise-admin/#endpoint-urls)、ユーザ名とパスワードを渡す必要があります。
-
-{% endnote %}
-
-{% endif %}
 
 ### GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/v4/guides/using-global-node-ids)」のガイドを参照してください。
+REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
 
 ### クライアントエラー
 
@@ -270,13 +261,15 @@ API v3 は、可能な限り各アクションに適切な HTTPメソッドを�
 
 ### ページネーション
 
-複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  `?page` パラメータを使用すると、さらにページを指定できます。 一部のリソースでは、`?per_page` パラメータを使用してカスタムページサイズを最大 100 に設定することもできます。 技術的な理由により、すべてのエンドポイントが `?per_page` パラメータを尊重するわけではないことに注意してください。例については、[イベント](/v3/activity/events/)を参照してください。
+複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  You can specify further pages with the `page` parameter. For some resources, you can also set a custom page size up to 100 with the `per_page` parameter. Note that for technical reasons not all endpoints respect the `per_page` parameter, see [events](/rest/reference/activity#events) for example.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-ページ番号は 1 から始まり、`?page` パラメータを省略すると最初のページが返されることに注意してください。
+Note that page numbering is 1-based and that omitting the `page` parameter will return the first page.
+
+Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set. With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page. Instead, you can traverse the results by using the `before` or `after` parameters.
 
 ページネーションの詳細については、[ページネーションでトラバースする][pagination-guide]のガイドをご覧ください。
 
@@ -288,14 +281,18 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-[Link ヘッダ](http://tools.ietf.org/html/rfc5988)には、ページネーション情報が含まれています。
+The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information. 例:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _この例は、読みやすいように改行されています。_
 
-この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/v3/#hypermedia)リンク関係が含まれています。その一部には、[URI テンプレート](http://tools.ietf.org/html/rfc6570)としての拡張が必要な場合があります。
+Or, if the endpoint uses cursor-based pagination:
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
+
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
 
 使用可能な `rel` の値は以下のとおりです。
 
@@ -320,7 +317,7 @@ Basic 認証または OAuth を使用する API リクエストの場合、1 時
 
 {% data reusables.enterprise.rate_limit %}
 
-[Search API にはカスタムのレート制限ルール](/v3/search/#rate-limit)があることに注意してください。
+Note that [the Search API has custom rate limit rules](/rest/reference/search#rate-limit).
 
 API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
 
@@ -363,7 +360,7 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-API ヒットを発生させることなく、[レート制限ステータスを確認](/v3/rate_limit)できます。
+You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
 
 #### OAuth アプリケーションの認証されていないレート制限を増やす
 
@@ -594,9 +591,9 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 #### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 
-タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 これは[コミット API](/v3/git/commits) の例です。
+タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 An example of this is the [Commits API](/rest/reference/git#commits).
 
-これらのタイムスタンプは、`2014-02-27T15:05:06+01:00` のようになります。 これらのタイムスタンプを指定する方法については、[こちらの例](/v3/git/commits/#example-input)も参照してください。
+これらのタイムスタンプは、`2014-02-27T15:05:06+01:00` のようになります。 Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
 #### `Time-Zone` ヘッダを使用する
 
@@ -606,7 +603,7 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 たとえば、[コンテンツ API](/v3/repos/contents/) は追加または変更ごとに git コミットを生成し、タイムスタンプとして現在の時刻を使用します。 このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
+つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
 
 #### ユーザが最後に認識されたタイムゾーンを使用する
 

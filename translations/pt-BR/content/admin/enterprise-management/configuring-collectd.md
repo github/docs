@@ -11,7 +11,7 @@ versions:
 
 ### Configurar um servidor externo `collectd`
 
-Se você ainda não configurou um servidor externo `collectd`, será preciso fazê-lo antes de ativar o encaminhamento `collectd` na {% data variables.product.product_location_enterprise %}. Seu servidor `collectd` deve ser configurado executando uma versão `collectd` 5.x ou mais recente.
+Se você ainda não configurou um servidor externo `collectd`, será preciso fazê-lo antes de ativar o encaminhamento `collectd` na {% data variables.product.product_location %}. Seu servidor `collectd` deve estar executando uma versão `collectd` 5.x ou superior.
 
 1. Faça login no servidor `collectd`.
 2. Crie ou edite o arquivo de configuração `collectd` para carregar o plugin de rede e preencher as diretivas de servidor e porta com os valores adequados. Na maioria das distribuições, esses dados ficam em `/etc/collectd/collectd.conf`
@@ -53,6 +53,6 @@ ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname
 
 #### Central do servidor collectd não recebe dados
 
-{% data variables.product.prodname_enterprise %} vem com a versão 5.x. de `collectd`. `collectd` 5.x não é retrocompatível com a série de versões 4.x. Seu servidor central `collectd` precisa ser da versão 5.x para aceitar os dados enviados pela {% data variables.product.product_location_enterprise %}.
+{% data variables.product.prodname_enterprise %} vem com a versão 5.x. de `collectd`. `collectd` 5.x não é retrocompatível com a série de versões 4.x. Seu servidor central `collectd` precisa ser da versão 5.x para aceitar os dados enviados pela {% data variables.product.product_location %}.
 
 Em caso de dúvidas ou perguntas, entre em contato com o {% data variables.contact.contact_ent_support %}.

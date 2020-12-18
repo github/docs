@@ -1,21 +1,22 @@
 ---
 title: GitHub CLI
-intro: 'The {% data variables.product.prodname_cli %} is a command-line tool for using {% data variables.product.product_name %} features on your computer.'
+intro: '{% data variables.product.prodname_cli %} は、コンピューターで {% data variables.product.product_name %} 機能を使用するためのコマンドラインツールです。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
+  github-ae: '*'
 ---
 
-### {% data variables.product.prodname_cli %}について
+### {% data variables.product.prodname_cli %} について
 
-{% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
+{% data variables.product.prodname_cli %} は、コンピューターのコマンドラインから {% data variables.product.product_name %} を使用するためのオープンソースツールです。 コマンドラインから作業しているときは、{% data variables.product.prodname_cli %} を使用して時間を節約し、コンテキストの切り替えを回避できます。
 
-You can use the following {% data variables.product.prodname_dotcom %} features with the {% data variables.product.prodname_cli %}.
+次の {% data variables.product.prodname_dotcom %} 機能を {% data variables.product.prodname_cli %} で使用できます。
 
-- View, create, clone, and fork repositories
-- Create, close, and list issues and pull requests
-- Review, diff, and merge pull requests
-- Create, edit, list, and view gists
+- リポジトリの表示、作成、複製、フォーク
+- Issue とプルリクエストの作成、クローズ、リスト表示
+- プルリクエストのレビュー、diff、マージ
+- Gist の作成、編集、リスト表示、表示
 
 {% data variables.product.prodname_cli %} でできることの詳細については、[{% data variables.product.prodname_cli %} マニュアル](https://cli.github.com/manual) を参照してください。
 

@@ -1,11 +1,12 @@
 ---
 title: Private Beiträge in Deinem Profil veröffentlichen oder verbergen
-intro: 'Dein {% data variables.product.product_name %}-Profil zeigt ein Diagramm Deiner Repository-Beiträge des letzten Jahres an. Du kannst auswählen, ob neben den Aktivitäten in öffentlichen Repositorys auch anonymisierte Aktivitäten in privaten Repositorys angezeigt werden sollen.'
+intro: 'Ihr {% data variables.product.product_name %}-Profil zeigt ein Diagramm Ihrer Repository-Beiträge des letzten Jahres an. You can choose to show anonymized activity from {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}private and internal{% else %}private{% endif %} repositories{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du Deine privaten Beiträge veröffentlichst, können Benutzer, die keinen Zugriff auf die Repositorys haben, an denen Du mitarbeitest, die Informationen zu Deinen privaten Beiträgen nicht sehen. Stattdessen sehen sie die Anzahl an privaten Beiträgen, die Du pro Tag geleistet hast. Zu Deinen öffentlichen Beiträgen werden detaillierte Informationen angezeigt. Weitere Informationen findest Du unter „[Beiträge auf Deiner Profilseite anzeigen](/articles/viewing-contributions-on-your-profile-page)“.

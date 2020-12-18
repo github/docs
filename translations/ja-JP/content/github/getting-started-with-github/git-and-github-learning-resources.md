@@ -8,6 +8,9 @@ intro: 'ウェブ上には数多くの役に立つ Git と {% data variables.pro
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### Git を使用する

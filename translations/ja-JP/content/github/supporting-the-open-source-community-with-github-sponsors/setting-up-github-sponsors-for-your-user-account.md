@@ -26,7 +26,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 {% data variables.product.prodname_dotcom %} で申請がレビューされたら、ユーザがあなたのスポンサーになれるようにスポンサード開発者プロフィールを設定できます。
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -50,20 +50,18 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 ### 銀行口座情報をサブミットする
 
-サポートされている地域にお住まいの場合は、次の手順に従って Stripe Connect アカウントを作成し、銀行口座情報をサブミットできます。 {% data reusables.sponsors.stripe-supported-regions %}
+サポートされている地域にお住まいの場合は、次の手順に従って Stripe Connect アカウントを作成し、銀行口座情報をサブミットできます。 Your region of residence and the region of your bank account must match. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-サポートされていない地域にお住まいで、{% data variables.product.prodname_sponsors %} のベータに参加が許可された場合は、ACH 送金または電信で支払いを受けられるように、銀行口座情報を指定する手順が、メールで届きます。
-
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 ### 納税情報をサブミットする
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +73,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 ### {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. [**Request approval**] をクリックします。 ![[Request approval] ボタン](/assets/images/help/sponsors/request-approval-button.png)
 
 {% data reusables.sponsors.github-review-app %}

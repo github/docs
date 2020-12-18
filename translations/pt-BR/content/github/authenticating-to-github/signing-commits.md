@@ -1,6 +1,6 @@
 ---
 title: Assinar commits
-intro: 'Você pode assinar commits localmente usando GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} ou S/MIME{% endif %}.'
+intro: Você pode assinar commits localmente usando GPG ou S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}
@@ -39,7 +40,8 @@ Se você tiver várias chaves ou estiver tentando assinar commits ou tags com um
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. No {% data variables.product.product_name %}, navegue até sua pull request.
+4. Em
+{% data variables.product.product_name %}, navegue até o seu pull request.
 {% data reusables.repositories.review-pr-commits %}
 5. Para exibir informações mais detalhadas sobre a assinatura verificada, clique em Verified (Verificada). ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 

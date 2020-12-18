@@ -1,6 +1,6 @@
 ---
 title: Domänen Deiner Organisation überprüfen
-intro: 'Du kannst die von Deiner Organisation kontrollierten Domänen verifizieren, um die Identität Deiner Organisation auf {% data variables.product.product_name %} zu bestätigen.'
+intro: 'Sie können die von Ihrer Organisation gesteuerten Domains überprüfen, um die Identität Ihrer Organisation auf {% data variables.product.product_name %} zu bestätigen.'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -10,7 +10,7 @@ versions:
 
 Um Domänen auf {% data variables.product.product_name %} zu verifizieren, musst Du in der Organisation über Inhaberberechtigungen verfügen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)". Darüber hinaus benötigst Du Zugriff, um die Domänen-Einträge mit Deinem Domänen-Hosting-Dienst zu ändern.
 
-Nachdem Du die Inhaberschaft der Domains Deiner Organisation verifiziert hast, wird im Profil der Organisation der Badge „Verified“ (Verifiziert) angezeigt. Wenn Deine Organisation in {% data variables.product.prodname_ghe_cloud %} vorhanden ist und den Unternehmensnutzungsbedingungen zugestimmt hat, können Organisationsinhaber die Identität der Organisationsmitglieder verifizieren, indem sie die E-Mail-Adresse der jeweiligen Mitglieder innerhalb der verifizierten Domäne anzeigen. Weitere Informationen findest Du unter „[Informationen zum Profil Deiner Organisation](/articles/about-your-organization-s-profile/)“ und „[Auf Unternehmensnutzungsbedingungen umsteigen](/articles/upgrading-to-the-corporate-terms-of-service).“
+Nachdem Du die Inhaberschaft der Domains Deiner Organisation verifiziert hast, wird im Profil der Organisation der Badge „Verified“ (Verifiziert) angezeigt. Wenn Ihre Organisation in {% data variables.product.prodname_ghe_cloud %} vorhanden ist und den Unternehmensnutzungsbedingungen zugestimmt hat, können Organisationsinhaber die Identität der Organisationsmitglieder verifizieren, indem sie die E-Mail-Adresse der jeweiligen Mitglieder in der verifizierten Domain anzeigen. Weitere Informationen findest Du unter „[Informationen zum Profil Deiner Organisation](/articles/about-your-organization-s-profile/)“ und „[Auf Unternehmensnutzungsbedingungen umsteigen](/articles/upgrading-to-the-corporate-terms-of-service).“
 
 Damit der Badge „Verified“ (Verifiziert) angezeigt wird, müssen die in Deinem Profil angezeigten Website- und E-Mail-Informationen mit denen der verifizierten Domäne oder Domänen übereinstimmen. Wenn die im Profil Deiner Organisation angezeigten Website- und E-Mail-Adressen auf unterschiedlichen Domänen gehostet werden, musst Du alle Domänen verifizieren.
 
@@ -20,7 +20,7 @@ Damit der Badge „Verified“ (Verifiziert) angezeigt wird, müssen die in Dein
 
 {% endnote %}
 
-Auf {% data variables.product.prodname_ghe_cloud %} kannst Du nach dem Verifizieren der Inhaberschaft der Domäne Deiner Organisation die E-Mail-Benachrichtigungen für die Organisation auf diese Domäne beschränken. Weitere Informationen findest Du unter „[E-Mail-Benachrichtigungen auf eine genehmigte Domäne beschränken](/articles/restricting-email-notifications-to-an-approved-domain).“
+Auf {% data variables.product.prodname_ghe_cloud %} können Sie nach dem Verifizieren der Inhaberschaft der Domain Ihrer Organisation E-Mail-Benachrichtigungen für die Organisation auf diese Domain beschränken. Weitere Informationen findest Du unter „[E-Mail-Benachrichtigungen auf eine genehmigte Domäne beschränken](/articles/restricting-email-notifications-to-an-approved-domain).“
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

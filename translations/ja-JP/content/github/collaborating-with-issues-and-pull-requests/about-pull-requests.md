@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストについて
@@ -26,7 +27,7 @@ versions:
 他のコントリビューターは、あなたが提案した変更をレビューしたり、レビューコメントを追加したり、プルリクエストのディスカッションにコントリビュートしたり、さらにはプルリクエストにコメントを追加したりできます。
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/articles/viewing-deployment-activity-for-your-repository)」を参照してください。
+[Conversation] タブで、ブランチの現在のデプロイメントステータスや過去のデプロイメントのアクティビティに関する情報を確認することができます。 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/articles/viewing-deployment-activity-for-your-repository)」を参照してください。
 {% endif %}
 
 提案された変更に満足したなら、プルリクエストをマージできます。 共有リポジトリモデルで作業している場合は、プルリクエストを作成し、あなたか他のユーザが、プルリクエストで指定したベースブランチにフィーチャブランチからの変更をマージします。 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
@@ -52,6 +53,13 @@ You can see information about the branch's current deployment status and past de
 プルリクエストを作成する際には、レビュー可能なプルリクエストを作成するか、ドラフトのプルリクエストを作成するかを選択できます。 ドラフトのプルリクエストはマージできません。また、コードオーナーにはドラフトのプルリクエストのレビューは自動的にはリクエストされません。 ドラフトのプルリクエストの作成に関する詳しい情報については、「[プルリクエストを作成する](/articles/creating-a-pull-request)」および「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」を参照してください。
 
 {% data reusables.pull_requests.mark-ready-review %} プルリクエストはいつでもドラフトに変換できます。 詳しい情報については、「[プルリクエストのステージの変更](/articles/changing-the-stage-of-a-pull-request)」を参照してください。
+
+### 比較とプルリクエストページのコミットの違い
+
+比較とプルリクエストページは、次のような異なる方法で、変更されたファイルの diff を計算します。
+
+- 比較ページには、head ref のヒントと、head およびベース ref の現在の共通の先祖 (マージベース) との diff が表示されます。
+- プルリクエストページには、プルリクエストが作成されたときの head ref のヒントと、head およびベース ref の共通の先祖との diff が表示されます。 したがって、比較に使用されるマージベースは異なる場合があります。
 
 ### 参考リンク
 

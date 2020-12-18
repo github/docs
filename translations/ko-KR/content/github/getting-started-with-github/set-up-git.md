@@ -14,9 +14,10 @@ intro: 'At the heart of {% data variables.product.product_name %} is an open sou
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-To use Git on the command line, you'll need to download, install, and configure Git on your computer. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}
+To use Git on the command line, you'll need to download, install, and configure Git on your computer. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}
 
 If you want to work with Git locally, but don't want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
 

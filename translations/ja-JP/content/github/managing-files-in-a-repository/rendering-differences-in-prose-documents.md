@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 文章ドキュメントを含むコミットとプルリクエストには、そのドキュメントを*ソース*と*レンダリング済み*のビューで表示する機能があります。
@@ -45,9 +46,9 @@ versions:
 
 ### 複雑な diff を表示する
 
-プルリクエストの中には、大きくて複雑なドキュメントでの多数の変更を含むものがあります。 When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+プルリクエストの中には、大きくて複雑なドキュメントでの多数の変更を含むものがあります。 変更の分析に時間がかかりすぎると、{% data variables.product.product_name %} が変更のレンダリングされたビューを常に生成できない場合があります。 これが発生した場合、レンダリングされたボタンをクリックするとエラーメッセージが表示されます。
 
-![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
+![ビューをレンダリングできない場合のメッセージ](/assets/images/help/repository/prose_diff_rendering.png)
 
 その場合でもソースビューは変更の分析やコメント入力に使用できます。
 

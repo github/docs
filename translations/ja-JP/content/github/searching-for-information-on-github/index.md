@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -25,6 +26,7 @@ versions:
     {% link_in_list /searching-code %}
     {% link_in_list /searching-commits %}
     {% link_in_list /searching-issues-and-pull-requests %}{% if currentVersion == "free-pro-team@latest" %}
+    {% link_in_list /searching-discussions %}
     {% link_in_list /searching-github-marketplace %}{% endif %}
     {% link_in_list /searching-users %}
     {% link_in_list /searching-for-packages %}

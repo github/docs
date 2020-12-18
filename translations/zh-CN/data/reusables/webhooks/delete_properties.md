@@ -1,4 +1,4 @@
-| 键          | 类型    | 描述                                                                                                                                                                                                   |
-| ---------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`      | `字符串` | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}The [`git ref`](/v3/git/refs/#get-a-reference) resource.{% else %}The [`git ref`](/v3/git/refs/#get-a-reference) resource.{% endif %}
-| `ref_type` | `字符串` | The type of Git ref oject deleted in the repository. Can be `branch` or `tag`.                                                                                                                       |
+| 键          | 类型    | 描述                                                       |
+| ---------- | ----- | -------------------------------------------------------- |
+| `ref`      | `字符串` | The [`git ref`](/rest/reference/git#get-a-reference) 资源。 |
+| `ref_type` | `字符串` | 在仓库中删除的 Git ref 对象的类型。 可以是 `branch` 或 `tag`。             |

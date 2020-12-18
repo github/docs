@@ -8,6 +8,7 @@ intro: 复刻是仓库的副本。 通过复刻仓库，您可以自由地尝试
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 复刻最常见的用法是对其他人的项目提出更改或将其他人的项目用作自己创意的起点。
@@ -18,15 +19,21 @@ versions:
 
 - 复刻仓库
 - 进行修复
-- Submit a pull request to the project owner.
+- 向项目所有者提交拉取请求。
 
 #### 将其他人的项目用作自己创意的起点。
 
 开源软件的理念是通过共享代码，可以开发出更好、更可靠的软件。 更多信息请参阅 Open Source Initiative（开源倡议）上的“[关于开源倡议](http://opensource.org/about)”。
 
+有关将开源原则应用于组织在 {% data variables.product.product_location %} 上的开发工作的详细信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部来源](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense 上的“[选择开源许可](http://choosealicense.com/)”。
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
+
+{% endif %}
 
 {% note %}
 
@@ -34,10 +41,10 @@ versions:
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
-**Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 复刻仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库复刻`](https://cli.github.com/manual/gh_repo_fork)”。
 
 {% endtip %}
 {% endif %}
@@ -59,9 +66,11 @@ versions:
 
 #### 第 2 步：创建复刻的本地克隆
 
-现在，您有了 Spoon-Knife 仓库的复刻，但您的计算机上还没有该仓库中的文件。 Let's create a clone of your fork locally on your computer.
+现在，您有了 Spoon-Knife 仓库的复刻，但您的计算机上还没有该仓库中的文件。 让我们在计算机上本地创建复刻的克隆。
 
-1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
+1. 在
+
+{% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -86,7 +95,9 @@ versions:
 
 为了对原始仓库提议更改而复刻项目时，您可以配置 Git 以将更改从原始或上游仓库拉取到复刻的本地克隆。
 
-1. 在 {% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. 在
+
+{% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 将目录更改为您在[第 2 步：创建复刻的本地克隆](#step-2-create-a-local-clone-of-your-fork)中克隆复刻的位置。

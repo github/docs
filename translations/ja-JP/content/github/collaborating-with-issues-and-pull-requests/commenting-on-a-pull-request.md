@@ -5,10 +5,11 @@ redirect_from:
   - /articles/commenting-on-the-diff-of-a-pull-request/
   - /articles/commenting-on-differences-between-files/
   - /articles/commenting-on-a-pull-request
-intro: リポジトリのプルリクエストのオープン後、コラボレーターや Team メンバーは、特定の 2 つのブランチ間におけるファイルの比較について、またプロジェクト全体についてコメントできます。
+intro: 'リポジトリのプルリクエストのオープン後、コラボレーターや Team メンバーは、特定の 2 つのブランチ間におけるファイルの比較について、またプロジェクト全体についてコメントできます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのコメントについて
@@ -54,5 +55,5 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 ### 参考リンク
 
 - 「[コードスニペットへのパーマリンクを作成する](/articles/creating-a-permanent-link-to-a-code-snippet/)」
-{% if currentVersion == "free-pro-team@latest" %}- 「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」
+{% if currentVersion == "free-pro-team@latest" %}-「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」
 {% endif %}

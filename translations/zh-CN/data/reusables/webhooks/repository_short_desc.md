@@ -1,1 +1,1 @@
-Activity related to a repository. {% data reusables.webhooks.action_type_desc %} For more information, see the "[repositories](/v3/repos/)" REST API.
+与仓库相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[仓库](/rest/reference/repos)”REST API。

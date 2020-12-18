@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -128,7 +129,7 @@ GitHubでは長年、CIを管理するため[Janky][janky]の特定のバージ�
 
 これら全ての通信は、チャットルームに集約されます。 この例を使用するために、独自のCI設定を構築する必要はありません。 いつでも[GitHubインテグレーション][integrations]に頼ることができます。
 
-[status API]: /v3/repos/statuses/
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

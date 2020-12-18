@@ -1,1 +1,1 @@
-Activity related to team membership. {% data reusables.webhooks.action_type_desc %} For more information, see the "[team members](/v3/teams/members/)" REST API.
+与团队成员相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[团队成员](/rest/reference/teams#members)”REST API。

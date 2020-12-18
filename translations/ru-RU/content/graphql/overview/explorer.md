@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+layout: graphql-explorer
 ---
 
-You can access GitHub's GraphQL Explorer at https://developer.github.com/v4/explorer.

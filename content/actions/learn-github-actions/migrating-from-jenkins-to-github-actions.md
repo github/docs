@@ -57,7 +57,7 @@ Jenkins uses directives to manage _Declarative Pipelines_. These directives defi
 
 | Jenkins Directives | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
-| [`environment`](https://jenkins.io/doc/book/pipeline/syntax/#environment)  |  [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv) |
+| [`environment`](https://jenkins.io/doc/book/pipeline/syntax/#environment)  |  [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps[*].env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv) |
 |  [`options`](https://jenkins.io/doc/book/pipeline/syntax/#parameters) |  [`jobs.<job_id>.strategy`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) <br> [`jobs.<job_id>.strategy.fail-fast`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) <br> [`jobs.<job_id>.timeout-minutes`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)|
 | [`parameters`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)  | [`inputs`](/actions/creating-actions/metadata-syntax-for-github-actions#inputs) <br> [`outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs) |
 | [`triggers`](https://jenkins.io/doc/book/pipeline/syntax/#triggers)  | [`on`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#on) <br> [`on.<event_name>.types`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onevent_nametypes) <br> [<code>on.<push\|pull_request>.<branches\|tags></code>](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestbranchestags) <br> [<code>on.<push\|pull_request>.paths</code>](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#onpushpull_requestpaths) |
@@ -232,12 +232,19 @@ Jenkins Pipeline
 
   ```yaml
 pipeline {
-  agent none
-  stages {
-    stage('Run Tests') {
-      parallel {
-        stage('Test On MacOS') {
-          agent { label "macos" }
+agent none
+stages {
+  stage('Run Tests') {
+    matrix {
+      axes {
+        axis {
+          name: 'PLATFORM'
+          values: 'macos', 'linux'
+        }
+      }
+      agent { label "${PLATFORM}" }
+      stages {
+        stage('test') {
           tools { nodejs "node-12" }
           steps {
             dir("scripts/myapp") {
@@ -246,19 +253,10 @@ pipeline {
             }
           }
         }
-        stage('Test On Linux') {
-          agent { label "linux" }
-          tools { nodejs "node-12" }
-          steps {
-            dir("script/myapp") {
-              sh(script: "npm install -g bats")
-              sh(script: "bats tests")
-            }
-          }
-        }
       }
     }
   }
+}
 }
   ```
 

@@ -12,6 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -20,23 +21,23 @@ versions:
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Dica**: Você também pode criar um repositório usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {% data variables.product.product_location %}.
+**Dica**: Você também pode criar um repositório usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 {% endif %}
 
-{% data reusables.repositories.create_new %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-2. Se desejar, para criar um repositório com a estrutura de diretório e arquivos de um repositório existente, use o menu suspenso **Choose a template** (Escolher um modelo) e selecione um repositório de modelo. Você verá repositórios de modelo que pertencem a você e às organizações das quais você é integrante ou que usou antes. Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)". ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-3. Opcionalmente, se você escolheu usar um modelo para incluir a estrutura do diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}{% endif %}
+{% data reusables.repositories.create_new %}
+2. Se desejar, para criar um repositório com a estrutura de diretório e arquivos de um repositório existente, use o menu suspenso **Choose a template** (Escolher um modelo) e selecione um repositório de modelo. Você verá repositórios de modelo que pertencem a você e às organizações das quais você é integrante ou que usou antes. Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)". ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+3. Opcionalmente, se você escolheu usar um modelo para incluir a estrutura do diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
 3. No menu suspenso Proprietário, selecione a conta na qual deseja criar o repositório.![Menu suspenso Owner (Proprietário)](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}Se não for usar um modelo, {% else %}h{% endif %}á vários itens opcionais com os quais você pode preencher previamente seu repositório. Se for importar um repositório existente para o {% data variables.product.product_name %}, não escolha qualquer uma destas opções, pois isso poderá criar um conflito de merge. É possível {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.15" %}adicionar ou criar arquivos usando a interface do usuário ou {% endif %}optar por adicionar novos arquivos posteriormente usando a linha de comando. Para obter mais informações, consulte "[Importar um repositório Git usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line/)", "[Adicionar um arquivo a um repositório usando a linha de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)" e "[Solucionar conflitos de merge](/articles/addressing-merge-conflicts/)."
+6. Se você não estiver usando um modelo, haverá um número de itens opcionais com os quais você pode preencher previamente o seu repositório. Se for importar um repositório existente para o {% data variables.product.product_name %}, não escolha qualquer uma destas opções, pois isso poderá criar um conflito de merge. É possível adicionar ou criar arquivos usando a interface de usuário ou optar por adicionar novos arquivos posteriormente usando a linha de comando. Para obter mais informações, consulte "[Importar um repositório Git usando a linha de comando](/articles/importing-a-git-repository-using-the-command-line/)", "[Adicionar um arquivo a um repositório usando a linha de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)" e "[Solucionar conflitos de merge](/articles/addressing-merge-conflicts/)."
     - Você pode criar um LEIAME, que é um documento que descreve seu projeto. Para obter mais informações, consulte "[Sobre arquivos LEIAME](/articles/about-readmes/)".
-    - Você pode criar um arquivo *.gitignore*, que é um conjunto de regras com instruções para ignorar. Para obter mais informações, consulte "[Ignorar arquivos](/articles/ignoring-files)".{% if currentVersion == "free-pro-team@latest" %}
+    - Você pode criar um arquivo *.gitignore*, que é um conjunto de regras com instruções para ignorar. Para obter mais informações, consulte "[Ignorar arquivos](/articles/ignoring-files)."{% if currentVersion == "free-pro-team@latest" %}
     - Você pode optar por adicionar uma licença de software para seu projeto. Para obter mais informações, consulte "[Licenciar um repositório](/articles/licensing-a-repository)".{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}
@@ -48,5 +49,4 @@ versions:
 
 - "[Gerenciar acessos aos repositórios da organização](/articles/managing-access-to-your-organization-s-repositories)"
 - [Guias de código aberto](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.16" %}
-- "[Inicializar um repositório vazio com um LEIAME](/articles/initializing-an-empty-repository-with-a-readme)"{% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

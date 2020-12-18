@@ -1,6 +1,6 @@
 ---
 title: Using submodules with GitHub Pages
-intro: 'Du kannst Submodule in {% data variables.product.prodname_pages %} nutzen und damit andere Projekte in den Code Deiner Website einbinden.'
+intro: 'Sie können Submodule in {% data variables.product.prodname_pages %} nutzen und damit andere Projekte in den Code Ihrer Website einbinden.'
 redirect_from:
   - /articles/using-submodules-with-pages/
   - /articles/using-submodules-with-github-pages
@@ -9,9 +9,9 @@ versions:
   free-pro-team: '*'
 ---
 
-Wenn das Repository für Deine {% data variables.product.prodname_pages %}-Website Submodule enthält, wird deren Inhalt automatisch beim Erstellen der Website abgerufen.
+Wenn das Repository für Ihre {% data variables.product.prodname_pages %}-Website Submodule enthält, wird deren Inhalt automatisch beim Erstellen der Website abgerufen.
 
-Du kannst nur Submodule verwenden, die auf öffentliche Repositorys verweisen, da der {% data variables.product.prodname_pages %}-Server nicht auf private Repositorys zugreifen kann.
+Sie können nur Submodule verwenden, die auf öffentliche Repositorys verweisen, da der {% data variables.product.prodname_pages %}-Server nicht auf private Repositorys zugreifen kann.
 
 Verwende die schreibgeschützte `https://`-URL für Submodule, einschließlich verschachtelter Submodule. Du kannst diese Änderung in Deiner _.gitmodules_-Datei vornehmen.
 

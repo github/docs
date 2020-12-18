@@ -8,9 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Eine README-Datei zusammen mit {% if currentVersion == "free-pro-team@latest" %}einer [Repository-Lizenz](/articles/licensing-a-repository), [Beitragsrichtlinien](/articles/setting-guidelines-for-repository-contributors) und einem [Verhaltenskodex](/articles/adding-a-code-of-conduct-to-your-project){% else %}einer [Repository-Lizenz](/articles/licensing-a-repository) und [Beitragsrichtlinien](/articles/setting-guidelines-for-repository-contributors){% endif %} hilft Dir, die Erwartungen an Dein Projekt zu kommunizieren und die Beiträge zu Deinem Projekt zu verwalten.
+### Informationen zu README-Dateien
+
+You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+
+For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
 
 Die README-Datei ist oft das erste Element, das ein Benutzer beim Besuch Deines Repositorys sieht. README-Dateien enthalten in der Regel folgende Informationen:
 - Was ist die Aufgabe des Projekts?
@@ -19,13 +24,17 @@ Die README-Datei ist oft das erste Element, das ein Benutzer beim Besuch Deines 
 - Wo erhalten Benutzer Hilfe zu Ihrem Projekt?
 - Wer verwaltet das Projekt und trägt dazu bei?
 
-Wenn Du Deine README-Datei im root-, `docs`- oder im verborgenen `.github`-Verzeichnis Deines Repositorys ablegst, erkennt {% data variables.product.product_name %} Deine README-Datei und stellt sie automatisch den Besuchern des Repositorys zur Verfügung.
+Wenn Sie Ihre README-Datei im Stammverzeichnis, im Ordner `docs` oder im verborgenen Verzeichnis `.github` Ihres Repositorys ablegen, erkennt {% data variables.product.product_name %} Ihre README-Datei und stellt sie automatisch den Besuchern des Repositorys zur Verfügung.
 
 ![Hauptseite des github/scientist-Repositorys und seiner README-Datei](/assets/images/help/repository/repo-with-readme.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
 
 {% data reusables.profile.profile-readme %}
+
+{% endif %}
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 As verificações de status se baseiam em processos externos, como compilações de integração contínua, que são executados para cada push que você faz em um repositório. Você pode ver o estado de *pendência*, *aprovação* ou *falha* das verificações de status ao lado de commits individuais em sua pull request.
@@ -28,7 +29,7 @@ Há dois tipos de verificação de status no {% data variables.product.product_n
 
 _Verificações_ são diferentes de _status_, pois elas fornecem anotações em linha, mensagens mais detalhadas e estão disponíveis apenas para uso com os {% data variables.product.prodname_github_app %}s.
 
-Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/v3/checks/)" e "[Status](/v3/repos/statuses/)".
+Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/rest/reference/checks)" e "[Status](/rest/reference/repos#statuses)".
 
 ### Verificações
 
@@ -46,7 +47,7 @@ Você pode navegar entre os resumos das verificações de vários commits em uma
 
 #### Ignorar e solicitar verificações para commits individuais
 
-Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações por pushes automaticamente, você pode solicitar verificações para um commit individual do qual fez push. Para obter mais informações sobre essas configurações, consulte "[Conjuntos de verificações](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)".
+Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações por pushes automaticamente, você pode solicitar verificações para um commit individual do qual fez push. Para obter mais informações sobre essas configurações, consulte "[Conjuntos de verificações](/rest/reference/checks#update-repository-preferences-for-check-suites)".
 
 Para ignorar ou solicitar verificações para seu commit, adicione uma das seguintes linhas de trailer ao fim da mensagem do commit:
 

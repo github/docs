@@ -1,11 +1,12 @@
 ---
 title: 管理组织成员对项目板的访问
-intro: 作为组织所有者或项目板管理员，您可以为所有组织成员设置项目板的默认权限级别。
+intro: '作为组织所有者或项目板管理员，您可以为所有组织成员设置项目板的默认权限级别。'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 默认情况下，组织成员对其组织的项目板具有写入权限，除非组织所有者或项目板管理员对特定项目板设置不同的权限。

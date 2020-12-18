@@ -1,12 +1,13 @@
 ---
 title: Adicionar integrantes da organização a uma equipe
-intro: 'As pessoas com permissões de proprietário ou mantenedor de equipe podem adicionar integrantes da organização às equipes. As pessoas com permissões de proprietário também podem {% if currentVersion == "free-pro-team@latest" %}convidar não integrantes para ingressar em{% else %}adicionar não integrantes a{% endif %} uma equipe e na organização.'
+intro: 'As pessoas com permissões de proprietário ou mantenedor de equipe podem adicionar integrantes da organização às equipes. Pessoas com permissões de proprietário também podem {% if currentVersion == "free-pro-team@latest" %}convidar os não integrantes a juntar-se a {% else %}adicionar não integrantes a {% endif %} uma equipe e à organização.'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-synchronization %}

@@ -8,6 +8,9 @@ intro: 'Web 上有许多有用的 Git 和 {% data variables.product.product_name
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### 使用 Git

@@ -1,6 +1,6 @@
 ---
 title: HTTPS 克隆错误
-intro: 对 Git 使用 HTTPS 时有几种常见错误。 这些错误通常表示您有旧版 Git，或无法访问仓库。
+intro: '对 Git 使用 HTTPS 时有几种常见错误。 这些错误通常表示您有旧版 Git，或无法访问仓库。'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 下面是您可能收到的 HTTPS 错误示例：
@@ -44,16 +45,16 @@ versions:
 ```shell
 $ git remote -v
 # View existing remotes
-> origin  https://github.com/github/reactivecocoa.git (fetch)
-> origin  https://github.com/github/reactivecocoa.git (push)
+> origin  https://github.com/ghost/reactivecocoa.git (fetch)
+> origin  https://github.com/ghost/reactivecocoa.git (push)
 
-$ git remote set-url origin https://github.com/github/ReactiveCocoa.git
+$ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Change the 'origin' remote's URL
 
 $ git remote -v
 # Verify new remote URL
-> origin  https://github.com/github/ReactiveCocoa.git (fetch)
-> origin  https://github.com/github/ReactiveCocoa.git (push)
+> origin  https://github.com/ghost/ReactiveCocoa.git (fetch)
+> origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
 也可通过 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) 应用程序更改 URL。
@@ -70,7 +71,7 @@ $ git remote -v
 
 {% tip %}
 
-**提示**：如果不想在每次与远程仓库交互时都输入用户名和密码，您可以打开[凭据缓存](/github/using-git/caching-your-github-credentials-in-git)。
+**提示**：如果不想在每次与远程仓库交互时都输入用户名和密码，您可以打开[凭据缓存](/github/using-git/caching-your-github-credentials-in-git)。 如果已在使用凭据缓存，请确保您的计算机缓存了正确的凭据。 不正确或过期的凭据将导致身份验证失败。
 
 {% endtip %}
 

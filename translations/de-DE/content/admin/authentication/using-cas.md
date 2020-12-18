@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/about-cas-authentication/
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
-intro: 'CAS ist ein Single Sign-On-Protokoll (SSO) für mehrere Webanwendungen. Ein CAS-Benutzerkonto übernimmt eine(n) {% if currentVersion ver_gt "enterprise-server@2.16" %}Benutzerlizenz{% else %}Benutzer{% endif %} erst nach Anmeldung des Benutzers.'
+intro: 'CAS ist ein Single Sign-On-Protokoll (SSO) für mehrere Webanwendungen. A CAS user account does not take up a {% if currentVersion ver_gt "enterprise-server@2.16" %}user license{% else %}seat{% endif %} until the user signs in.'
 versions:
   enterprise-server: '*'
 ---
@@ -25,14 +25,14 @@ versions:
 
 Die folgenden Attribute sind verfügbar.
 
-| Attributname   | Typ          | Beschreibung                                                              |
-| -------------- | ------------ | ------------------------------------------------------------------------- |
+| Attributname   | Typ          | Beschreibung                                                         |
+| -------------- | ------------ | -------------------------------------------------------------------- |
 | `Benutzername` | Erforderlich | Der {% data variables.product.prodname_ghe_server %}-Benutzername. |
 
 ### CAS konfigurieren
 {% warning %}
 
-**Warnung:** Bevor Sie CAS auf {% data variables.product.product_location_enterprise %} konfigurieren, sollten Sie beachten, dass Benutzer ihre CAS-Benutzernamen und -Passwörter nicht verwenden können, um API-Anforderungen oder Git-Vorgänge über HTTP/HTTPS zu authentifizieren. Stattdessen müssen sie ein [Zugriffstoken erstellen](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
+**Warnung:** Bevor Sie CAS auf {% data variables.product.product_location %} konfigurieren, sollten Sie beachten, dass Benutzer ihre CAS-Benutzernamen und -Passwörter nicht verwenden können, um API-Anforderungen oder Git-Vorgänge über HTTP/HTTPS zu authentifizieren. Stattdessen müssen sie ein [Zugriffstoken erstellen](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
 
 {% endwarning %}
 

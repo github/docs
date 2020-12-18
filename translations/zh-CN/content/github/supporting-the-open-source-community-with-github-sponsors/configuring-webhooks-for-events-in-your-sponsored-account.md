@@ -5,25 +5,13 @@ versions:
   free-pro-team: '*'
 ---
 
-To monitor changes to your sponsorships, such as cancellations at the end of a pay period, you can create webhooks for your sponsored user or organization account. When you set up a webhook for your sponsored user or organization account, you'll receive updates when sponsorships are created, edited, or deleted. 更多信息请参阅 [`sponsorship` web 挂钩事件](/webhooks/event-payloads/#sponsorship)。
+### About webhooks for events in your sponsored account
 
-### 管理被赞助用户帐户的 web 挂钩
+要监视赞助变更，例如在付款期结束时取消，您可以为被赞助的用户或组织帐户创建 web 挂钩。 When you set up a webhook for your sponsored account, you'll receive updates when sponsorships are created, edited, or deleted. 更多信息请参阅 [`sponsorship` web 挂钩事件](/webhooks/event-payloads/#sponsorship)。
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
-{% data reusables.sponsors.navigate-to-webhooks-tab %}
-{% data reusables.sponsors.add-webhook %}
-{% data reusables.sponsors.add-payload-url %}
-{% data reusables.sponsors.webhook-content-formatting %}
-{% data reusables.sponsors.webhook-secret-token %}
-{% data reusables.sponsors.add-active-triggers %}
-{% data reusables.sponsors.confirm-add-webhook %}
-{% data reusables.sponsors.manage-existing-webhooks %}
+### Managing webhooks for events in your sponsored account
 
-### 管理被赞助组织的 web 挂钩
-
-Organization owners can configure webhooks for a sponsored organization.
-
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-webhooks-tab %}
 {% data reusables.sponsors.add-webhook %}
 {% data reusables.sponsors.add-payload-url %}

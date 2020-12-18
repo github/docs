@@ -1,6 +1,6 @@
 ---
-title: Exporting migration data from your enterprise
-intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
+title: 从企业导出迁移数据
+intro: '要更改平台或从试用实例迁移到生产实例，可以通过准备实例、锁定仓库和生成迁移存档来从 {% data variables.product.prodname_ghe_server %} 实例导出迁移数据。'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the {% data variables.product.prodname_ghe_server %} source instance
+### 准备 {% data variables.product.prodname_ghe_server %} 源实例
 
 1. 验证您在 {% data variables.product.prodname_ghe_server %} 源上是站点管理员。 最好的方式是验证您可以[通过 SSH 访问实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
 
@@ -21,7 +21,7 @@ versions:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the {% data variables.product.prodname_ghe_server %} source repositories
+### 导出 {% data variables.product.prodname_ghe_server %} 源仓库
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
@@ -86,7 +86,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. 关闭与 {% data variables.product.product_location_enterprise %} 的连接：
+8. 关闭与 {% data variables.product.product_location %} 的连接：
   ```shell
   $ exit
   > logout

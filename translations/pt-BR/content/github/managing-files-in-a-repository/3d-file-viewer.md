@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O {% data variables.product.product_name %} pode hospedar e renderizar arquivos 3D com a extensão *.stl*.

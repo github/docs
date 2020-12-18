@@ -75,7 +75,7 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
-#### **`github` context**
+#### `github` context
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
@@ -84,26 +84,26 @@ The `github` context contains information about the workflow run and the event t
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `github` | `object` | The top-level context available during any job or step in a workflow. |
-| `github.event` | `object` | The full event webhook payload. For more information, see "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." You can access individual properties of the event using this context. |
-| `github.event_path` | `string` | The path to the full event webhook payload on the runner. |
-| `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
-| `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
-| `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
-| `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
+| `github.action` | `string` | The name of the action currently running. {% data variables.product.prodname_dotcom %} removes special characters or uses the name `run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name `run1`, and the second script will be named `run2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
+| `github.action_path` | `string` | The path where your action is located. You can use this path to easily access files located in the same repository as your action. This attribute is only supported in composite run steps actions. |
 | `github.actor` | `string` | The login of the user that initiated the workflow run. |
+| `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`. |
+| `github.event` | `object` | The full event webhook payload. For more information, see "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." You can access individual properties of the event using this context. |
+| `github.event_name` | `string` | The name of the event that triggered the workflow run. |
+| `github.event_path` | `string` | The path to the full event webhook payload on the runner. |
+| `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`. |
+| `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
+| `github.ref` | `string` | The branch or tag ref that triggered the workflow run. For branches this in the format  `refs/heads/<branch_name>`, and for tags it is `refs/tags/<tag_name>`. |
 | `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
-| `github.event_name` | `string` | The name of the event that triggered the workflow run. |
+| `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
+| `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
-| `github.ref` | `string` | The branch or tag ref that triggered the workflow run. |
-| `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`. |
-| `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`. |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)." |
+| `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
 | `github.workspace` | `string` | The default working directory for steps and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
-| `github.action` | `string` | The name of the action currently running. {% data variables.product.prodname_dotcom %} removes special characters or uses the name `run` when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name `run1`, and the second script will be named `run2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
-| `github.action_path` | `string` | The path where your action is located. You can use this path to easily access files located in the same repository as your action. This attribute is only supported in composite run steps actions.
 
-#### **`env` context**
+#### `env` context
 
 The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
 
@@ -117,23 +117,23 @@ You can only use the `env` context in the value of the `with` and `name` keys, o
 | `env.<env name>` | `string` | The value of a specific environment variable. |
 
 
-#### **`job` context**
+#### `job` context
 
 The `job` context contains information about the currently running job.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `job` | `object` | This context changes for each job in a workflow run. You can access this context from any step in a job. |
-| `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
 | `job.container` | `object` | Information about the job's container. For more information about containers, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)." |
-| `job.container.network` | `string` | The id of the container network. The runner creates the network used by all containers in a job. |
 | `job.container.id` | `string` | The id of the container. |
+| `job.container.network` | `string` | The id of the container network. The runner creates the network used by all containers in a job. |
 | `job.services` | `object` | The service containers created for a job. For more information about service containers, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)." |
 | `job.services.<service id>.id` | `string` | The id of the service container. |
-| `job.services.<service id>.ports` | `object` | The exposed ports of the service container. |
 | `job.services.<service id>.network` | `string` | The id of the service container network. The runner creates the network used by all containers in a job. |
+| `job.services.<service id>.ports` | `object` | The exposed ports of the service container. |
+| `job.status` | `string` | The current status of the job. Possible values are `success`, `failure`, or `cancelled`. |
 
-#### **`steps` context**
+#### `steps` context
 
 The `steps` context contains information about the steps in the current job that have already run.
 
@@ -141,11 +141,11 @@ The `steps` context contains information about the steps in the current job that
 |---------------|------|-------------|
 | `steps` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
 | `steps.<step id>.outputs` | `object` | The set of outputs defined for the step. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)." |
-| `steps.<step id>.outputs.<output name>` | `string` | The value of a specific output. |
-| `steps.<step id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
 | `steps.<step id>.conclusion` | `string` | The result of a completed step after [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
+| `steps.<step id>.outcome` | `string` | The result of a completed step before [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) is applied. Possible values are `success`, `failure`, `cancelled`, or `skipped`. When a `continue-on-error` step fails, the `outcome` is `failure`, but the final `conclusion` is `success`. |
+| `steps.<step id>.outputs.<output name>` | `string` | The value of a specific output. |
 
-#### **`runner` context**
+#### `runner` context
 
 The `runner` context contains information about the runner that is executing the current job.
 
@@ -155,16 +155,16 @@ The `runner` context contains information about the runner that is executing the
 | `runner.temp` | `string` | The path of the temporary directory for the runner. This directory is guaranteed to be empty at the start of each job, even on self-hosted runners. |
 | `runner.tool_cache` | `string` | The path of the directory containing some of the preinstalled tools for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
 
-#### **`needs` context**
+#### `needs` context
 
 The `needs` context contains outputs from all jobs that are defined as a dependency of the current job. For more information on defining job dependencies, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `needs.<job id>` | `object` | A single job that the current job depends on. |
-| `needs.<job id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, or `cancelled`. |
 | `needs.<job id>.outputs` | `object` | The set of outputs of a job that the current job depends on. |
 | `needs.<job id>.outputs.<output name>` | `string` | The value of a specific output for a job that the current job depends on. |
+| `needs.<job id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
 
 #### Example printing context information to the log file
 
@@ -179,7 +179,7 @@ on: push
 
 jobs:
   one:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
         env:

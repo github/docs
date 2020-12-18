@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %}は、*.stl* 拡張子の 3D ファイルをホストしてレンダリングできます。
@@ -57,6 +58,6 @@ STLファイルを含むコミットあるいは一連の変更を見る場合�
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**注釈**: `ref` は、個々のコミットへのブランチまたはハッシュ (`2391ae` など) にすることができます。
 
 {% endtip %}

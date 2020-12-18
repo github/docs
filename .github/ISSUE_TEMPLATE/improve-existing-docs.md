@@ -7,15 +7,15 @@ labels:
 assignees: ''
 ---
 <!--
-HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT https://github.com/github/docs-content/issues/new/choose INSTEAD.
+HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
 -->
 
 <!--
 For questions, ask in Discussions: https://github.com/github/docs/discussions
 
-Before you file an issue read the: 
-- Code of Conduct: https://github.com/github/docs/blob/onboarding/CODE_OF_CONDUCT.md
-- Contributing guide: https://github.com/github/docs/blob/onboarding/CONTRIBUTING.md
+Before you file an issue read the:
+- Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md
+- Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md
 
 Check to make sure someone hasn't already opened a similar issue: https://github.com/github/docs/issues
 -->

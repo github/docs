@@ -1,11 +1,12 @@
 ---
 title: Verbindungen zwischen Repositorys verstehen
-intro: 'Die Verbindungen zwischen Repositorys kannst Du besser verstehen, wenn Du Dir das Netzwerk{% if currentVersion == "free-pro-team@latest" %}, die vom Repository abhängigen Projekte{% endif %} und die Repository-Forks ansiehst.'
+intro: 'You can better understand the connections that exist between repositories by viewing a repository''s network{% if currentVersion == "free-pro-team@latest" %}, projects that depend on the repository,{% endif %} and its forks.'
 mapTopic: true
 redirect_from:
   - /articles/understanding-connections-between-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

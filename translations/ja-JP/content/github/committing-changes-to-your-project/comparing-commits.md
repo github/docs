@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ブランチ、タグ、コミット、日付にわたってリポジトリの状態を比較できます。 リポジトリの異なるバージョンを比較するには、リポジトリのパスに `/compare` を追加します。
@@ -26,9 +27,9 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ### タグを比較する
 
-リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
+リリースタグを比較すると、前回のリリース以降のリポジトリへの変更が表示されます。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 詳しい情報については、「[リリースを比較する](/github/administering-a-repository/comparing-releases)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}タグを比較するには、ページ上部の `compare` ドロップダウンメニューからタグ名を選択できます。{% else %}ブランチ名を入力する代わりに、`compare` ドロップダウンメニューにタグの名前を入力します。{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} タグを比較するには、ページ上部の [`compare`] ドロップダウンメニューからタグ名を選択します。{% else %}ブランチ名を入力する代わりに、[`compare`] ドロップダウンメニューにタグの名前を入力します。{% endif %}
 
 2 つのタグ間を比較する例については、[こちらをクリック](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3)してください。
 
@@ -46,7 +47,7 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ベースリポジトリと、フォークした任意のリポジトリを比較できます。 これは、ユーザがプロジェクトにプルリクエストを実行したときに表示されるビューです。
 
-別のリポジトリにあるブランチを比較するには、ブランチの名前の前にユーザ名を付けてください。 たとえば、`base` に `octocat:master` を、`compare` に `octo-org:master` を指定することで、`octocat` と `octo-org` のそれぞれが所有するリポジトリの `master` ブランチを比較できます。
+別のリポジトリにあるブランチを比較するには、ブランチの名前の前にユーザ名を付けてください。 たとえば、`base` に `octocat:main` を指定し、`compare` に `octo-org:main` を指定することで、`octocat` と `octo-org` がそれぞれ所有するリポジトリの `main` ブランチを比較できます。
 
 2 つのリポジトリ間を比較した例については、[こちらをクリック](https://github.com/octocat/linguist/compare/master...octo-org:master)してください。
 

@@ -15,9 +15,9 @@ versions:
 
 ### 1. 选择一个分支并进行更改
 
-1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking
+1. [创建一个新分支](/desktop/guides/contributing-to-projects/managing-branches)，或选择一个现有分支，方法是单击
 
-{% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
+工具栏上的 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**并从列表中选择分支。
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down.png)
 {% data reusables.desktop.make-changes %}
 
@@ -36,17 +36,23 @@ versions:
 
 #### 创建部分提交
 
-如果一个文件包含多处更改，但只有*部分*更改要包含在提交中，则可创建部分提交。 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
+如果一个文件包含多处更改，但只有部分更改要包含在提交中，则可创建部分提交。 其余更改会保持不动，以便您进行其他修改和提交。 这允许您进行单独、有意义的提交，例如使提交中的换行符更改区别于代码或文字更改。
 
-在审查文件的差异时，包含在提交中的行将以蓝色高亮显示。 要排除更改，请单击更改的行让蓝色消失。
+{% note %}
 
-![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
+**注意：**拆分差异显示当前处于测试阶段，可能会更改。
 
-#### 放弃更改
+{% endnote %}
 
-您可以放弃一个文件、一系列文件中所有未提交的更改，或者放弃上次提交后所有文件中的所有更改。
+1. 要选择更改的显示方式，请在已更改文件的右上角使用 {% octicon "gear" aria-label="The Gear icon" %} 选择**统一**或**拆分**。 ![包含统一和拆分差异的齿轮图标](/assets/images/help/desktop/gear-diff-select.png)
+2. 要从提交中排除更改的行，请单击一条或多条更改的行，以使蓝色消失。 仍以蓝色突出显示的行将包含在提交中。 ![文件中取消选择的行](/assets/images/help/desktop/partial-commit.png)
 
-{% mac %}
+### 3. 放弃更改
+如果您有不想保留的未提交更改，可以放弃这些更改。 这将从计算机上的文件中删除更改。 您可以放弃一个或多个文件中所有未提交的更改，也可以丢弃添加的特定行。
+
+丢弃的更改保存在回收站中带日期的文件中。 在回收站清空之前，您可以恢复丢弃的更改。
+
+#### 丢弃一个或多个文件中的更改
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -54,30 +60,25 @@ versions:
 {% data reusables.desktop.confirm-discard-files %}
   ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-{% tip %}
+#### 丢弃一行或多行中的更改
+您可以丢弃一个或多个未提交的已更改行。
 
-**提示：**您放弃的更改保存在垃圾桶的日期文件中，在垃圾桶清空之前可以恢复。
+{% note %}
 
-{% endtip %}
+**注意：**在添加和删除行的一组更改中不可丢弃单行。
 
-{% endmac %}
+{% endnote %}
 
-{% windows %}
+要丢弃一个添加的行，请在已更改的行列表中，右键单击要丢弃的行，然后选择 **Discard added line（丢弃添加的行）**。
 
-{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
-  ![上下文菜单中的 Discard Changes（放弃更改）选项](/assets/images/help/desktop/discard-changes-win.png)
-{% data reusables.desktop.confirm-discard-files %}
-  ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-win.png)
+  ![在确认对话框中丢弃单行](/assets/images/help/desktop/discard-single-line.png)
 
-{% tip %}
+要丢弃一组更改的行，请右键单击要丢弃的行编号右侧的垂直条，然后选择 **Discard added lines（丢弃添加的行）**。
 
-**提示：**您放弃的更改保存在垃圾桶的文件中，在垃圾桶清空之前可以恢复。
+  ![在确认对话框中丢弃一组添加的行](/assets/images/help/desktop/discard-multiple-lines.png)
 
-{% endtip %}
 
-{% endwindows %}
-
-### 3. 编写提交消息并推送更改
+### 4. 编写提交消息并推送更改
 
 对选择要包含在提交中的更改感到满意后，编写提交消息并推送更改。 如果协作处理了某个提交，也可以将提交归于多个作者。
 

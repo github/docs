@@ -1,6 +1,6 @@
 ---
 title: ウィキのコンテンツを編集する
-intro: ウィキ内のコンテンツに画像やリンクを追加したり、一部のサポートされている MediaWiki 形式を使用したりできます。
+intro: 'ウィキ内のコンテンツに画像やリンクを追加したり、一部のサポートされている MediaWiki 形式を使用したりできます。'
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/
@@ -14,6 +14,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### リンクの追加
@@ -32,7 +33,7 @@ versions:
 3. ウィキ サイドバーを使って、変更したいページにアクセスし、[**Edit**] をクリックします。
 4. ウィキ ツールバーで [**Image**] をクリックします。 ![ウィキの画像追加ボタン](/assets/images/help/wiki/wiki_add_image.png)
 5. [Insert Image] ダイアログボックスで、画像の URL と代替テキスト (これは検索エンジンや画像リーダーで使われます) を入力します。
-6. Click **OK**.
+6. [**OK**] をクリックします。
 
 #### リポジトリでの画像へのリンク
 

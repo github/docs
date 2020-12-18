@@ -8,6 +8,7 @@ intro: 'OAuthトークンを使用して、自動化されたスクリプトを�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ステップ 1: OAuth トークンを取得する
@@ -18,7 +19,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 **参考:**
-- You must verify your email address before you can create a personal access token. 詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
+- 個人アクセストークンを作成する前に、メールアドレスを確認する必要があります。 詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
 **ヒント:** {% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -32,7 +33,7 @@ versions:
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. 詳しい情報については、「[Git に GitHub 認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
+これらのプロンプトを回避するには、Git パスワードキャッシュを使用できます。 詳しい情報については、「[Git に GitHub 認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
 
 {% warning %}
 
@@ -42,4 +43,4 @@ To avoid these prompts, you can use Git password caching. 詳しい情報につ�
 
 ### 参考リンク
 
-- 「[OAuth App を認証する](/v3/oauth/)」
+- 「[OAuth App を認証する](/developers/apps/authorizing-oauth-apps)」

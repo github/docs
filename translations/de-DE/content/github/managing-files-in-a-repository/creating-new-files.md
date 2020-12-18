@@ -1,17 +1,18 @@
 ---
 title: Neue Dateien erstellen
-intro: 'Du kannst neue Dateien direkt auf {% data variables.product.product_name %} in jedem Repository erstellen, auf das Du Schreibzugriff hast.'
+intro: 'Sie können neue Dateien direkt auf {% data variables.product.product_name %} in jedem Repository erstellen, auf das Sie Schreibzugriff haben.'
 redirect_from:
   - /articles/creating-new-files
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Wenn Du eine Datei auf {% data variables.product.product_name %} erstellst, beachte Folgendes:
+Wenn Sie eine Datei auf {% data variables.product.product_name %} erstellen, beachten Sie Folgendes:
 
 - Wenn Du versuchst, eine neue Datei in einem Repository zu erstellen, auf das Du keinen Zugriff hast, erstellen wir einen Fork des Projekts unter Deinem Benutzerkonto und helfen Dir nach dem Commit Deiner Änderung, einen [Pull Request](/articles/about-pull-requests) an das ursprüngliche Repository zu senden.
-- Dateinamen, die in der Weboberfläche erstellt werden, dürfen nur alphanumerische Zeichen und Bindestriche (`-`) enthalten. Um andere Zeichen zu verwenden, [erstelle die Dateien lokal, gib sie mit Commit frei und übertrage sie mit Push zum Repository auf {% data variables.product.product_name %}](/articles/adding-a-file-to-a-repository-using-the-command-line).
+- Dateinamen, die in der Weboberfläche erstellt werden, dürfen nur alphanumerische Zeichen und Bindestriche (`-`) enthalten. Um andere Zeichen zu verwenden, [erstellen und committen Sie die Dateien lokal und pushen Sie sie zum Repository auf {% data variables.product.product_name %}](/articles/adding-a-file-to-a-repository-using-the-command-line).
 
 {% data reusables.repositories.sensitive-info-warning %}
 

@@ -1,16 +1,21 @@
 ---
 title: 关于议题和拉取请求模板
-intro: 利用议题和拉取请求模板，可以自定义和标准化您希望贡献者在您的仓库中打开议题和拉取请求时加入的信息。
+intro: '利用议题和拉取请求模板，可以自定义和标准化您希望贡献者在您的仓库中打开议题和拉取请求时加入的信息。'
 redirect_from:
   - /articles/about-issue-and-pull-request-templates
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在仓库中创建议题和拉取请求后，贡献者可以根据仓库的参与指南使用模板打开议题或描述其拉取请求中提议的更改。 有关向仓库添加参与指南的更多信息，请参阅“[设置仓库贡献者指南](/articles/setting-guidelines-for-repository-contributors)”。
 
-您可以为组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}或用户帐户{% endif %}创建默认的议题和拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+您可以为组织或用户帐户创建议题和拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+
+{% endif %}
 
 ### 议题模板
 
@@ -20,8 +25,8 @@ versions:
 
 使用模板构建器，可以指定每个模板的标题和描述，添加模板内容，然后提交模板到默认分支或在仓库中打开拉取请求。 模板构建器会自动添加模板显示于新议题页面所需的 YAML 扉页标记。 更多信息请参阅“[为仓库配置议题模板](/articles/configuring-issue-templates-for-your-repository)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% data reusables.repositories.issue-template-config %}更多信息请参阅“[为仓库配置议题模板](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)”。
 {% endif %}
 
 议题模板存储在仓库的默认分支的隐藏目录 `.github/ISSUE_TEMPLATE` 中。 如果您在另一个分支中创建模板，协作者将无法使用。 议题模板文件名不区分大小写，并且需要 *.md* 扩展名。 {% data reusables.repositories.valid-community-issues %}

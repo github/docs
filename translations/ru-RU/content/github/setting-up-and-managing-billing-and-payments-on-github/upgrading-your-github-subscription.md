@@ -28,7 +28,9 @@ You can upgrade your personal account from {% data variables.product.prodname_fr
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Next to "{% data variables.product.prodname_free_user %}", click **Upgrade**. ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
+4. Next to "
+{% data variables.product.prodname_free_user %}", click **Upgrade**.
+  ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}

@@ -1,6 +1,6 @@
 ---
 title: Erros de clonagem HTTPs
-intro: Existem alguns erros comuns ao usar HTTPS com o Git. Esses erros normalmente indicam que você tem uma versão antiga do Git ou que você não tem acesso ao repositório.
+intro: 'Existem alguns erros comuns ao usar HTTPS com o Git. Esses erros normalmente indicam que você tem uma versão antiga do Git ou que você não tem acesso ao repositório.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Segue aqui um exemplo de erro HTTPS que você pode receber:
@@ -44,16 +45,16 @@ Você pode localizar a URL do repositório local abrindo a linha de comando e di
 ```shell
 $ git remote -v
 # Visualiza remotes existentes
-> origem  https://github.com/github/reactivecocoa.git (fetch)
-> origem  https://github.com/github/reactivecocoa.git (push)
+> origem  https://github.com/ghost/reactivecocoa.git (fetch)
+> origem  https://github.com/ghost/reactivecocoa.git (push)
 
-$ git remote set-url origin https://github.com/github/ReactiveCocoa.git
+$ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Altere a 'origem' da URL do remote
 
 $ git remote -v
 # Verifica nova URL remota
-> origin  https://github.com/github/ReactiveCocoa.git (fetch)
-> origin  https://github.com/github/ReactiveCocoa.git (push)
+> origin  https://github.com/ghost/ReactiveCocoa.git (fetch)
+> origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
 Aternativamente, você pode alterar a URL por meio de nosso aplicativo [{% data variables.product.prodname_desktop %}](https://desktop.github.com/).
@@ -70,7 +71,7 @@ Quando for solicitado um nome e senha, certifique-se de usar uma conta que tenha
 
 {% tip %}
 
-**Dica**: Se você não desejar inserir suas credenciais toda vez que interagir com o repositório remoto, você poderá ativar o [armazenamento de credenciais](/github/using-git/caching-your-github-credentials-in-git).
+**Dica**: Se você não desejar inserir suas credenciais toda vez que interagir com o repositório remoto, você poderá ativar o [armazenamento de credenciais](/github/using-git/caching-your-github-credentials-in-git). Se você já está usando o cache de credenciais, certifique-se de que o seu computador tem as credenciais corretas armazenadas em cache. Credenciais incorretas ou desatualizadas causarão falha na autenticação.
 
 {% endtip %}
 

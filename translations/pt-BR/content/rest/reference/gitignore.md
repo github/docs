@@ -5,16 +5,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-When you create a new {% data variables.product.product_name %} repository via the API, you can specify a [.gitignore template](/github/using-git/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
+Ao criar um novo repositório do {% data variables.product.product_name %} através da API, você pode especificar um [modelo do .gitignore](/github/using-git/ignoring-files) a ser aplicado ao repositório após a criação. A API de modlos do .gitignore lista e recupera modelos do repositório de [.gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
 
-### Custom media types for gitignore
+### Tipos de mídia personalizados para gitignore
 
-You can use this custom media type when getting a gitignore template.
+Você pode usar este tipo de mídia personalizada ao obter um modelo de gitignore.
 
     application/vnd.github.VERSION.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+Para obter mais informações, consulte "[Tipos de mídia](/rest/overview/media-types)".
 
 {% include rest_operations_at_current_path %}

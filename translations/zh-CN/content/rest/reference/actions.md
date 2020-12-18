@@ -24,6 +24,18 @@ versions:
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## 权限
+
+权限 API 允许您设置允许哪些组织和仓库运行 {% data variables.product.prodname_actions %}，以及允许运行哪些操作。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)”。
+
+您还可以为企业设置权限。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+{% endif %}
+
 ## 密码
 
 密码 API 允许您创建、更新、删除和检索有关加密密码的信息。 {% data reusables.actions.about-secrets %}更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
@@ -40,7 +52,7 @@ versions:
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_app %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须对仓库或组织具有管理员权限才可使用此 API。
 
-您可以管理企业的自托管运行器。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#actions)”REST API。
+您可以管理企业的自托管运行器。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)”REST API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runners' %}{% include rest_operation %}{% endif %}
@@ -52,7 +64,7 @@ versions:
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_app %} 必须对仓库具有`管理`权限，或者对组织具有 `organization_self_hosted_runners` 权限。 经过身份验证的用户必须对仓库或组织具有管理员权限才可使用此 API。
 
-您可以管理企业的自托管运行器组。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#actions)”REST API。
+您可以管理企业的自托管运行器组。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin##github-actions)”REST API。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'self-hosted-runner-groups' %}{% include rest_operation %}{% endif %}

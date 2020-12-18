@@ -1,5 +1,6 @@
 ---
 title: Neues GitHub-Konto registrieren
+shortTitle: Sign up for a new GitHub account
 intro: 'Für die Teamarbeit bietet {% data variables.product.product_name %} Benutzerkonten für Einzelpersonen und Organisationen.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
@@ -9,9 +10,8 @@ versions:
 
 Weitere Informationen zu den verschiedenen Konto- und Produkttypen findest Du unter „[Arten von {% data variables.product.prodname_dotcom %}-Konten](/articles/types-of-github-accounts)“ und „[Produkte von {% data variables.product.product_name %}](/articles/github-s-products).“
 
-1. Rufe die [Preisübersicht]({% data variables.product.pricing_url %}) von {% data variables.product.product_name %} auf.
-2. Lies die Informationen zu den von {% data variables.product.product_name %} angebotenen Produkten und Abonnements, und klicke dann unter dem Abonnement, das Dich interessiert, auf die Schaltfläche „Upgrade“.
-3. Folge den Eingabeaufforderungen, um Dein persönliches Konto oder Deine Organisation zu erstellen.
+{% data reusables.accounts.create-account %}
+1. Folge den Eingabeaufforderungen, um Dein persönliches Konto oder Deine Organisation zu erstellen.
 
 ### Nächste Schritte:
 

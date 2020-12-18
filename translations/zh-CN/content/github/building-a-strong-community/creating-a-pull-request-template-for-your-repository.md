@@ -1,18 +1,23 @@
 ---
 title: 为仓库创建拉取请求模板
-intro: 将拉取请求模板添加到仓库后，项目贡献者会自动在拉取请求正文中看到模板的内容。
+intro: '将拉取请求模板添加到仓库后，项目贡献者会自动在拉取请求正文中看到模板的内容。'
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 更多信息请参阅“[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
 
 您可以在任何支持的文件夹中创建 *PULL_REQUEST_TEMPLATE/* 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。 更多信息请参阅“[关于使用查询参数自动化议题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
 
-您可以为组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}或用户帐户{% endif %}创建默认的拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+您可以为组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} 或用户帐户{% endif %} 创建默认的拉取请求模板。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+
+{% endif %}
 
 ### 添加拉取请求模板
 

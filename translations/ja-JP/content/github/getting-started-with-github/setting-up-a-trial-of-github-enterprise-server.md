@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} を評価するための 45 日間トライアルをリクエストできます。 トライアルは仮想アプライアンスとしてインストールされ、オンプレミスまたはクラウドでのデプロイメントのオプションがあります。 サポートされている仮想化プラットフォームの一覧については「[GitHub Enterprise Server インスタンスをセットアップする](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 
-セキュリティアラートと {% data variables.product.prodname_github_connect %} は、{% data variables.product.prodname_ghe_server %} のトライアルでは現在利用できません。 これらの機能のデモについては、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 これらの機能の詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_dotcom_the_website %} に接続する](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
+{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}現在、セキュリティ{% endif %}アラートと {% data variables.product.prodname_github_connect %} は {% data variables.product.prodname_ghe_server %} のトライアルでは利用できません。 これらの機能のデモについては、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。 これらの機能の詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_dotcom_the_website %} に接続する](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
 
 {% data variables.product.prodname_ghe_cloud %} のトライアルも利用できます。 詳しい情報については、「[{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する](/articles/setting-up-a-trial-of-github-enterprise-cloud)」を参照してください。
 
@@ -36,7 +36,7 @@ versions:
    - [Quick start guide to {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/) ウェブキャスト
    - {% data variables.product.prodname_dotcom %} ガイドの [Understanding the {% data variables.product.prodname_dotcom %}flow](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} ガイドの [Hello World](https://guides.github.com/activities/hello-world/)
-3. 組織のニーズに合わせてインスタンスを設定するには、「[{% data variables.product.prodname_ghe_server %} アプライアンスを設定する](/enterprise/admin/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
+3. 組織のニーズに合わせてインスタンスを設定するには、「[Enterprise を設定する](/enterprise/admin/configuration/configuring-your-enterprise)」を参照してください。
 4. {% data variables.product.prodname_ghe_server %} とご使用のアイデンティティプロバイダとを統合するには、「[SAML を使用する](/enterprise/admin/user-management/using-saml)」および「[LDAP を使用する](/enterprise/admin/authentication/using-ldap)」を参照してください。
 5. 個人をトライアルに招待します。人数制限はありません。
    - ビルトイン認証または設定済みアイデンティティプロバイダを使用して、ユーザを {% data variables.product.prodname_ghe_server %} インスタンスに追加します。 詳細は「[ビルトイン認証を使用する](/enterprise/admin/user-management/using-built-in-authentication)」を参照してください。

@@ -18,7 +18,7 @@ Geo DNS, such as [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/
 
 ### Ограничения
 
-Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes are limited by the slowest replica{% if currentVersion ver_gt "enterprise-server@2.17" %}, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary{% endif %}. Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests.
+Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests.
 
 ### Monitoring a geo-replication configuration
 

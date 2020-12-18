@@ -1,6 +1,6 @@
 ---
-title: Configuring `dotnet` CLI for use with GitHub Packages
-intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
+title: GitHub Packagesで利用するために`dotnet` CLIを設定する
+intro: '{% data variables.product.prodname_registry %} にNuGetパッケージを公開し、{% data variables.product.prodname_registry %} に保存されたパッケージを依存関係として .Net プロジェクトで利用するよう`dotnet`コマンドラインインターフェース（CLI）を設定できます。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-nuget-for-use-with-github-package-registry
@@ -14,25 +14,25 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-{% data reusables.package_registry.admins-can-configure-package-types %}
+{% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
 
-### Authenticating to {% data variables.product.prodname_registry %}
+### {% data variables.product.prodname_registry %} への認証を行う
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with a personal access token
+#### 個人アクセストークンでの認証
 
 {% data reusables.package_registry.required-scopes %}
 
-To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
+`dotnet`コマンドラインインターフェース（CLI）で{% data variables.product.prodname_registry %}に認証を受けるには、プロジェクトディレクトリに*nuget.config*ファイルを作成し、{% data variables.product.prodname_registry %}をソースとして`dotnet` CLIクライアントの`packageSources`の下に指定してください。
 
-You must replace:
-- `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
-- `TOKEN` with your personal access token.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if currentVersion != "free-pro-team@latest" %}
-- `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.
+以下のように置き換えてください。
+- `USERNAME`を{% data variables.product.prodname_dotcom %}上のユーザアカウント名で。
+- `TOKEN`を個人アクセストークンで。
+- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
+- `HOSTNAME`を、{% data variables.product.prodname_ghe_server %}インスタンスのホスト名で。
 
-If your instance has subdomain isolation enabled:
+パッケージの作成に関する詳しい情報については[maven.apache.orgのドキュメンテーション](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)を参照してください。
 {% endif %}
 
 ```xml
@@ -51,46 +51,47 @@ If your instance has subdomain isolation enabled:
 </configuration>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
-If your instance has subdomain isolation disabled:
+{% if enterpriseServerVersions contains currentVersion %}
+たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-    <packageSources>
-        <clear />
-        <add key="github" value="https://HOSTNAME/_registry/nuget/OWNER/index.json" />
-    </packageSources>
-    <packageSourceCredentials>
-        <github>
-            <add key="Username" value="USERNAME" />
-            <add key="ClearTextPassword" value="TOKEN" />
-        </github>
-    </packageSourceCredentials>
-</configuration>
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <PackageId>OctodogApp</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Octodog</Authors>
+    <Company>GitHub</Company>
+    <PackageDescription>This package adds an Octodog!</PackageDescription>
+    <RepositoryUrl>https://github.com/octo-org/octo-cats-and-dogs</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
 ```
 {% endif %}
 
-#### Authenticating with the `GITHUB_TOKEN`
+#### `GITHUB_TOKEN`での認証
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publishing a package
+### パッケージを公開する
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file. When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+*nuget.config*で認証を受けることによって、パッケージを{% data variables.product.prodname_registry %}に公開できます。 公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
-2. Create a new project.
+2. 新しいプロジェクトを作成してください。
   ```shell
   dotnet new console --name OctocatApp
   ```
-3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
-    - `OWNER` with the name of the user or organization account that owns the repository containing your project.
-    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
-    - `1.0.0` with the version number of the package.{% if currentVersion != "free-pro-team@latest" %}
-    - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
+3. プロジェクト固有の情報をプロジェクトファイルに追加してください。プロジェクトファイルは*.csproj*で終わります。  以下のように置き換えてください。
+    - `OWNER`を、プロジェクトを含むリポジトリを所有しているユーザもしくはOrganizationアカウント名で。
+    - `REPOSITORY`を、公開したいパッケージを含むリポジトリの名前で。
+    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
+    - `HOSTNAME`を、{% data variables.product.prodname_ghe_server %}インスタンスのホスト名で。{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -107,21 +108,21 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 
   </Project>
   ```
-4. Package the project.
+4. プロジェクトをパッケージ化してください。
   ```shell
   dotnet pack --configuration Release
   ```
 
-5. Publish the package using the `key` you specified in the *nuget.config* file.
+5. *nuget.config*ファイル中で指定した`key`を使ってパッケージを公開してください。
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
 
-### Publishing multiple packages to the same repository
+### 同じリポジトリへの複数パッケージの公開
 
-To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
+複数のパッケージを同じリポジトリに公開するには、同じ{% data variables.product.prodname_dotcom %}リポジトリURLをすべての*.csproj*プロジェクトファイル中の`RepositoryURL`フィールドに含めることができます。 {% data variables.product.prodname_dotcom %}は、そのフィールドに基づいてリポジトリをマッチします。
 
-For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
+たとえば、以下の*OctodogApp*と*OctocatApp*は同じリポジトリに公開されます。
 
 ``` xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -157,14 +158,13 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 </Project>
 ```
 
+### パッケージをインストールする
 
-### Installing a package
-
-Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+プロジェクトで{% data variables.product.prodname_dotcom %}からパッケージを利用するのは、*nuget.org*からパッケージを使用するのに似ています。 パッケージの依存関係を*.csproj*ファイルに追加し、パッケージ名とバージョンを指定してください。 For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 
-2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file, replacing the `OctokittenApp` package with your package dependency and `1.0.0` with the version you want to use:
+2. パッケージを利用するには、*.csproj*プロジェクトファイルに`ItemGroup`を追加し、`PackageReference`フィールドを設定してください。`OctokittenApp`パッケージをパッケージの依存関係で、`1.0.0`を使いたいバージョンで置き換えてください。
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -186,11 +186,11 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
   </Project>
   ```
 
-3. Install the packages with the `restore` command.
+3. `restore`コマンドでパッケージをインストールしてください。
   ```shell
   dotnet restore
   ```
 
-### Further reading
+### 参考リンク
 
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- [パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package/)

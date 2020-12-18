@@ -1,11 +1,12 @@
 ---
 title: プルリクエストの作成方法
-intro: 'リポジトリへの、変更の提案、または変更における共同作業をするには、プルリクエストを作成できます。 These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
+intro: 'リポジトリへの、変更の提案、または変更における共同作業をするには、プルリクエストを作成できます。 これらの変更は「ブランチ」を介して提案され、デフォルトブランチには完成していて、かつ承認された作業のみが含まれるようにします。'
 redirect_from:
   - /articles/creating-a-pull-request
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリに対する読み取り権限があるユーザなら誰でもプルリクエストを作成できますが、ブランチの作成には書き込み権限が必要です。 プルリクエストのための新しいブランチを作成したいけれども、リポジトリへの書き込み権限がない場合は、まずリポジトリをフォークできます。 詳細は「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」および「[フォークについて](/articles/about-forks)」を参照してください。
@@ -18,7 +19,7 @@ versions:
 
 ### ブランチの範囲と宛先リポジトリの変更
 
-デフォルトでは、プルリクエストは親リポジトリの[デフォルトブランチ](/articles/setting-the-default-branch)に基づいています。
+デフォルトでは、プルリクエストは親リポジトリの[デフォルトブランチ](/articles/setting-the-default-branch)に基づいています。 詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
 デフォルトの親リポジトリが正しくない場合、親リポジトリとブランチをどちらもドロップダウンリストで変更できます。 また、基準点間の差分を確認するために、ドロップダウンリストで head ブランチと base ブランチを入れ替えることもできます。 ここで言う基準は GitHub リポジトリにあるブランチ名でなければなりません。
 
@@ -32,7 +33,7 @@ base リポジトリを変更するとき、プルリクエストの通知も変
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 - 比較ビューを使用して、どの時間枠であっても比較対象として設定できます。 詳しい情報については「[コミットを比較する](/github/committing-changes-to-your-project/comparing-commits)」を参照してください。
 - プロジェクトメンテナーはプルリクエストテンプレートをリポジトリに追加できます。 テンプレートにはプルリクエスト本文にある情報のプロンプトが含まれます。 詳しい情報については[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -15,7 +16,7 @@ versions:
 {% endtip %}
 
 1. リポジトリ内で削除対象のファイルを見つけます。
-2. At the top of the file, click
+2. ページの上部で、次をクリックします。
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

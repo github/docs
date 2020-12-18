@@ -37,14 +37,13 @@ Enabling {% data variables.product.prodname_github_connect %} also creates a {% 
 
 Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.prodname_ghe_server %}.
 
-{% if currentVersion ver_gt "enterprise-server@2.18" %}
-For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
-{% endif %}
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 ### Enabling {% data variables.product.prodname_github_connect %}
 
-1. Sign in to {% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+1. Sign in to
+
+{% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 5. Under "{% data variables.product.prodname_dotcom_the_website %} is not enabled yet", click **Enable {% data variables.product.prodname_github_connect %}**. By clicking **Enable {% data variables.product.prodname_github_connect %}**, you agree to the  <a href="/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/" class="dotcom-only">{% data variables.product.prodname_github_connect %} Addendum to the {% data variables.product.prodname_enterprise %} License Agreement</a>. ![Enable GitHub Connect button](/assets/images/enterprise/business-accounts/enable-github-connect-button.png)
@@ -54,8 +53,7 @@ For more information about managing enterprise accounts using the GraphQL API, s
 
 When you disconnect from {% data variables.product.prodname_ghe_cloud %}, the {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} is deleted from your enterprise account or organization and credentials stored on {% data variables.product.product_location_enterprise %} are deleted.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 5. Next to the enterprise account or organization you'd like to disconnect, click **Disable {% data variables.product.prodname_github_connect %}**. ![Disable GitHub Connect button next to an enterprise account or organization name](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)

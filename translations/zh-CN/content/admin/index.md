@@ -1,11 +1,12 @@
 ---
-title: Enterprise Administrators
+title: 企业管理员
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin
-intro: 适用于部署、配置和管理 GitHub Enterprise 实例的组织管理员、系统管理员和安全专家的分步指南。
+intro: 适用于{% if enterpriseServerVersions contains currentVersion %}部署、{% endif %}配置{% if enterpriseServerVersions contains currentVersion %}、{% endif %}和管理 {% data variables.product.product_name %} 的企业管理员、系统管理员及安全专家的文档和指南。
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}
@@ -27,3 +28,5 @@ versions:
 {% link_with_intro /packages %}
 
 {% link_with_intro /enterprise-support %}
+
+{% link_with_intro /release-notes %}

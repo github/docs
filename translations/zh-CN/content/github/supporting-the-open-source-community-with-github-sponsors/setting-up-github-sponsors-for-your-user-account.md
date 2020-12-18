@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} {% data reusables.sponsors.stripe-supported-regions %}
 
-To join {% data variables.product.prodname_sponsors %} as an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+要作为组织加入 {% data variables.product.prodname_sponsors %}，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 2. 如果您是组织所有者，则有多个符合条件的帐户。 单击 **View your eligible accounts（查看符合条件的帐户）**，然后在帐户列表中找到您的用户帐户。
@@ -26,7 +26,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 在 {% data variables.product.prodname_dotcom %} 审核您的申请后，您可以设置您的被赞助开发者个人资料，以便人们可以开始赞助您。
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -50,20 +50,18 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 ### 提交您的银行信息
 
-如果您居住在受支持的区域，可以按照这些说明创建 Stripe Connect 帐户来提交银行信息。 {% data reusables.sponsors.stripe-supported-regions %}
+如果您居住在受支持的区域，可以按照这些说明创建 Stripe Connect 帐户来提交银行信息。 您居住的区域与您的银行帐户所在区域必须匹配。 {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-如果您居住在不受支持的区域，并且被接受参加 {% data variables.product.prodname_sponsors %} 公测，您将收到一封电子邮件，其中说明如何提供银行信息，以便您可以通过 ACH 转账或电汇接收付款。
-
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 ### 提交您的税务信息
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +73,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 ### 向 {% data variables.product.prodname_dotcom %} 提交申请以请求批准
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. 单击 **Request approval（请求批准）**。 ![请求批准按钮](/assets/images/help/sponsors/request-approval-button.png)
 
 {% data reusables.sponsors.github-review-app %}

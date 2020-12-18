@@ -14,11 +14,12 @@ intro: '{% data variables.product.product_name %} の中心には、Git とい�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-コマンドラインで Git を使うには、あなたのコンピュータに Git をダウンロードし、インストールし、設定する必要があります。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}
+コマンドラインで Git を使うには、あなたのコンピュータに Git をダウンロードし、インストールし、設定する必要があります。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} コマンドラインから {% data variables.product.prodname_cli %} をインストールして {% data variables.product.product_name %} を使用することもできます。 {% data variables.product.prodname_cli %} の詳細については、[{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) ドキュメントを参照してください。{% endif %}
 
-ローカルで Git を動かしたいけれどもコマンドラインを使いたくない場合、代わりに [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) クライアントをダウンロードしインストールしてください。  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
+ローカルで Git を動かしたいけれどもコマンドラインを使いたくない場合、代わりに [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) クライアントをダウンロードしインストールしてください。  詳しい情報については、「[{% data variables.product.prodname_desktop %} のインストールと設定](/desktop/installing-and-configuring-github-desktop/)」を参照してください。
 
 ローカルでファイルを扱う作業をする必要がない場合、{% data variables.product.product_name %} により、以下を含む、多くの Git 関連のアクションをブラウザで直接実行できます:
 

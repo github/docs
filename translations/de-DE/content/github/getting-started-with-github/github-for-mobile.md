@@ -23,6 +23,16 @@ Weitere Informationen über Benachrichtigungen für {% data variables.product.pr
 
 Für die Installation von {% data variables.product.prodname_mobile %} für Android oder iOS findest Du weitere Informationen auf [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
 
+### Supported languages for {% data variables.product.prodname_mobile %}
+
+{% data variables.product.prodname_mobile %} is available in the following languages.
+
+- Japanisch
+- Brazilian Portuguese
+- Spanisch
+
+If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
+
 ### Universal Links für {% data variables.product.prodname_mobile %} auf iOS verwalten
 
 {% data variables.product.prodname_mobile %} aktiviert automatisch Universal Links für iOS. Wenn Du auf einen {% data variables.product.product_name %}-Link tippst, wird die Ziel-URL in {% data variables.product.prodname_mobile %} anstatt in Safari geöffnet. Weitere Informationen findest Du unter [Universal Links](https://developer.apple.com/ios/universal-links/) auf der Apple Entwickler Website.
@@ -33,8 +43,9 @@ Um Universal Links wieder zu aktivieren, drücke lange auf einen {% data variabl
 
 ### Feedback teilen
 
-Wenn Du Feedback oder Funktions-Anfragen für {% data variables.product.prodname_mobile %} hast, kannst Du uns eine E-Mail senden an <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
+If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
 ### Abmelden von Beta-Versionen für iOS
 

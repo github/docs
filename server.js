@@ -10,14 +10,19 @@ const app = express()
 
 require('./middleware')(app)
 
-// prevent the app from starting up durings tests
+// prevent the app from starting up during tests
 /* istanbul ignore next */
 if (!module.parent) {
   // check that the development server is not already running
   portUsed.check(port).then(async status => {
     if (status === false) {
-      // If in production, warm the server at the start
-      if (process.env.NODE_ENV === 'production') await warmServer()
+      // If in a deployed environment, warm the server at the start
+      if (process.env.NODE_ENV === 'production') {
+        // If in a true production environment, wait for the cache to be fully warmed.
+        if (process.env.HEROKU_PRODUCTION_APP || process.env.GITHUB_ACTIONS) {
+          await warmServer()
+        }
+      }
 
       // workaround for https://github.com/expressjs/express/issues/1101
       const server = require('http').createServer(app)

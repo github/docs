@@ -1,5 +1,4 @@
-const findPage = require('../lib/find-page')
-const getApplicableVersions = require('../lib/get-applicable-versions')
+const findPageInVersion = require('../lib/find-page-in-version')
 const { getVersionedPathWithLanguage } = require('../lib/path-utils')
 
 // this middleware adds properties to the context object
@@ -8,9 +7,12 @@ module.exports = async (req, res, next) => {
 
   if (!(req.context.page.relativePath.endsWith('index.md') || req.context.page.layout === 'product-landing')) return next()
 
-  req.context.gettingStartedLinks = await getLinkData(req.context.page.rawGettingStartedLinks, req.context)
-  req.context.popularLinks = await getLinkData(req.context.page.rawPopularLinks, req.context)
-  req.context.guideLinks = await getLinkData(req.context.page.rawGuideLinks, req.context)
+  if (!req.context.page.featuredLinks) return next()
+
+  req.context.featuredLinks = {}
+  for (const key in req.context.page.featuredLinks) {
+    req.context.featuredLinks[key] = await getLinkData(req.context.page.featuredLinks[key], req.context)
+  }
 
   return next()
 }
@@ -27,20 +29,16 @@ async function getLinkData (rawLinks, context) {
       ? getVersionedPathWithLanguage(link.href, context.currentVersion, context.currentLanguage)
       : getVersionedPathWithLanguage(link, context.currentVersion, context.currentLanguage)
 
-    const linkedPage = findPage(href, context.pages, context.redirects, context.currentLanguage)
+    const linkedPage = findPageInVersion(href, context.pages, context.redirects, context.currentLanguage, context.currentVersion)
     if (!linkedPage) continue
-
-    const applicableVersions = getApplicableVersions(linkedPage.versions, linkedPage.fullPath)
-
-    // skip link if this is not the homepage and the link's versions do not include the current version
-    if (context.currentVersion !== 'homepage' && !applicableVersions.includes(context.currentVersion)) continue
 
     const opts = { textOnly: true, encodeEntities: true }
 
     links.push({
       href,
       title: await linkedPage.renderTitle(context, opts),
-      intro: await linkedPage.renderProp('intro', context, opts)
+      intro: await linkedPage.renderProp('intro', context, opts),
+      page: linkedPage
     })
   }
 

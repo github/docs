@@ -1,26 +1,27 @@
 ---
 title: 自定义对通知分类的工作流程
-intro: 要创建对通知分类的理想工作流程，可以调整和自定义以下示例工作流程。
+intro: '要创建对通知分类的理想工作流程，可以调整和自定义以下示例工作流程。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### 开始收件箱分类
 
-Before you start triaging your inbox, consider whether you prefer to first find and respond to the most important updates or to clear your inbox of distracting updates that are easy to remove or triage.
+在开始对收件箱进行分类之前，请考虑您是希望首先查找并响应最重要的更新，还是清除收件箱中容易删除或分类的干扰更新。
 
-You may decide to use a combination of both approaches at various times depending on the volume of notifications you have.
+您可以在不同时间根据收到的通知数量决定使用这两种方法的组合。
 
-For an example workflow of finding and responding to the most important notifications, see "[Checking your highest notification priorities](#checking-your-highest-notification-priorities)."
+有关查找和响应最重要通知的工作流程示例，请参阅“[检查您的最高通知优先级](#checking-your-highest-notification-priorities)”。
 
-For an example workflow of removing notifications that are easy to remove or triage, see "[Clearing your least important notifications](#clearing-your-least-important-notifications)."
+有关清除易删除或易分类通知的工作流程示例，请参阅“[清除最不重要的通知](#clearing-your-least-important-notifications)”。
 
 ### 检查您的最高通知优先级
 
-Choose which type of notifications are most urgent to review and pick a time to review them that's best for you. You might consider the question "Who am I blocking?"
+选择最迫切需要查看的通知类型，并选择最适合查看的时间。 您可能会考虑“我在阻止谁？”
 
-For example, you may decide to check your notifications in this order in the morning during your daily planning time:
+例如，您可以决定在每日计划时间的早上按此顺序检查通知：
   - 已请求您审查的拉取请求。 （按 `reason:review-requested` 过滤）
   - @提及了您的用户名的事件，也称为直接提及。 （按 `reason:mention` 过滤）
   - @提及了您所在团队的事件，也称为团队提及。 （按 `reason:team-mention` 过滤）
@@ -34,15 +35,15 @@ For example, you may decide to check your notifications in this order in the mor
 
 ### 跟进正在进行的通知更新
 
-To follow-up on notifications, you might consider the question "What was I blocked on that I'm no longer blocked on?" Choose your follow-up notification priorities. Choose your follow-up notification priorities.
+To follow-up on notifications, you might consider the question "What was I blocked on that I'm no longer blocked on?" Choose your follow-up notification priorities. 选择后续通知优先级。
 
-For example, you may decide to follow up in this order:
+例如，您可以决定按照以下顺序采取后续行动：
   - 分配给您的议题和拉取请求。 立即关闭您可以关闭的任何议题或拉取请求，并添加更新。 需要时，保存通知供以后查看。
   - 查看已保存的收件箱中的通知，尤其是未读更新。 如果帖子不再相关，请取消选中 {% octicon "bookmark" aria-label="The bookmark icon" %} 以从保存的收件箱中删除通知并取消保存它。
 
 ### 管理低优先级通知
 
-After triaging the higher priority notifications, review the remaining notifications, such as participating notifications. Consider these questions:
+对较高优先级的通知进行分类之后，查看其余的通知，例如参与通知。 考虑以下问题：
   - 您可以取消订阅此通知吗？ 此通知是否已完成并且可以标记为**完成**？
   {% tip %}
 
@@ -54,12 +55,12 @@ After triaging the higher priority notifications, review the remaining notificat
 
 ### 清除最不重要的通知
 
-Choose which type of notifications are quickest and easiest for you to triage and remove from your inbox, ideally triaging multiple notifications at once.
+选择收件箱中最快和最容易分类和删除的通知类型，最好是一次对多个通知进行分类。
 
 例如，您可以决定按以下顺序清除通知：
   - 参与您可以取消订阅的通知。
   - 与保留或跟进无关的仓库更新。
 
-For more information on managing multiple notifications in your inbox at the same time, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)."
+有关同时管理收件箱中多个通知的更多信息，请参阅“[管理收件箱中的通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#triaging-multiple-notifications-at-the-same-time)”。
 
-You may also consider changing your notification settings or unsubscribing from these updates if possible. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)" or "[Managing subscriptions for activity on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+如果可能，您还可以考虑更改通知设置或取消订阅这些更新。 更多信息请参阅"[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)“[管理 GitHub 上的活动订阅](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)。”

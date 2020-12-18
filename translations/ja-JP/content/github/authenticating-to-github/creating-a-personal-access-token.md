@@ -9,9 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-個人アクセストークン（PAT）は、[GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
+個人アクセストークン（PAT）は、[GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
 
 {% if currentVersion == "free-pro-team@latest" %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)」及び「[SAMLシングルサインオンで利用する個人アクセストークンの認可](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
 
@@ -27,8 +28,8 @@ versions:
 5. トークンにわかりやすい名前を付けます。 ![トークンの説明フィールド](/assets/images/help/settings/token_description.png)
 6. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。 ![トークンスコープの選択](/assets/images/help/settings/token_scopes.gif)
 7. [**Generate token**] をクリックします。 ![[Generate token] ボタン](/assets/images/help/settings/generate_token.png)
-8. {% octicon "clippy" aria-label="The copy to clipboard icon" %}をクリックしてトークンをクリップボードにコピーします。 セキュリティ上の理由により、ページの外に移動すると、再びこのトークンを見ることはできません。{% if currentVersion == "free-pro-team@latest" %} ![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![新しく作成されたトークン](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. {% octicon "clippy" aria-label="The copy to clipboard icon" %}をクリックしてトークンをクリップボードにコピーします。 セキュリティ上の理由により、ページの外に移動すると、再びこのトークンを見ることはできません。{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
+![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
 
    {% warning %}
 

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a verificação de assinatura de commit
-intro: 'Você pode assinar localmente seu trabalho usando GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} ou S/MIME{% endif %}. O {% data variables.product.product_name %} verificará essas assinaturas, assim as pessoas saberão que seus commits tem origem em uma fonte confiável.{% if currentVersion == "free-pro-team@latest" %} O {% data variables.product.product_name %} assinará automaticamente os commits que você fez com a interface web do {% data variables.product.product_name %}.{% endif %}'
+intro: 'Você pode assinar seu trabalho localmente usando GPG ou S/MIME. {% data variables.product.product_name %} irá verificar essas assinaturas para que outras pessoas saibam que seus commits vêm de uma fonte de confiança. {% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} irá assinar automaticamente os commits que você fizer usando a interface da web.{% data variables.product.product_name %}{% endif %}'
 redirect_from:
   - /articles/generating-a-gpg-key/
   - /articles/signing-commits-with-gpg/
@@ -9,5 +9,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

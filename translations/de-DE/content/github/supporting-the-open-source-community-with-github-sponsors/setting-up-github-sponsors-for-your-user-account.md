@@ -26,7 +26,7 @@ Wenn Du ein Bankkonto in einer unterstützten Region hast, wird {% data variable
 
 Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft hat, kannst Du Dein Profil als unterstützter Entwickler aufsetzen, damit Personen beginnen können, Dich zu unterstützen.
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -50,20 +50,18 @@ Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft
 
 ### Deine Bankinformationen einreichen
 
-Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen, um Deine Bankinformationen durch das Erstellen eines Stripe Connect-Kontos einzureichen. {% data reusables.sponsors.stripe-supported-regions %}
+Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen, um Deine Bankinformationen durch das Erstellen eines Stripe Connect-Kontos einzureichen. Your region of residence and the region of your bank account must match. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-Wenn Du nicht in einer unterstützten Region lebst und für die Beta-Phase von {% data variables.product.prodname_sponsors %} akzeptiert wurdest, wirst Du eine E-Mail erhalten mit Anweisungen, wie Du Deine Bankdaten zur Verfügung stellen musst, damit Du Auszahlungen via ACH-Übermittlung oder Banküberweisung erhalten kannst.
-
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 ### Deine Steuerinformationen einreichen
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +73,7 @@ Bevor Du ein unterstützter Entwickler werden kannst, musst Du die 2FA für Dein
 
 ### Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Klicke auf **Request approval** (Genehmigung beantragen). ![Schaltfläche „Request approval" (Beantragen der Genehmigung)](/assets/images/help/sponsors/request-approval-button.png)
 
 {% data reusables.sponsors.github-review-app %}

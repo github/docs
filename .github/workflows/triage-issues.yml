@@ -1,7 +1,9 @@
 name: Triage new issues
 on:
   issues:
-    types: [reopened, opened]
+    types:
+      - reopened
+      - opened
 
 jobs:
   triage_issues:
@@ -9,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Label new issues with 'triage'
-      uses: rachmari/labeler@v1.0.4
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
-        add-labels: "triage"
-    - name: Triage to project board
-      uses: rachmari/actions-add-new-issue-to-column@v1.1.1
-      with:
-        action-token: ${{ secrets.GITHUB_TOKEN }}
-        project-url: "https://github.com/github/docs/projects/1"
-        column-name: "Triage"
+      - name: Label new issues with 'triage'
+        uses: rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          add-labels: 'triage'
+      - name: Triage to project board
+        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
+        with:
+          action-token: ${{ secrets.GITHUB_TOKEN }}
+          project-url: 'https://github.com/github/docs/projects/1'
+          column-name: 'Triage'

@@ -1,6 +1,6 @@
 ---
 title: TLS konfigurieren
-intro: 'Sie können Transport Layer Security (TLS) auf {% data variables.product.product_location_enterprise %} konfigurieren, damit Sie ein von einer vertrauenswürdigen Zertifizierungsstelle signiertes Zertifikat verwenden können.'
+intro: 'Sie können Transport Layer Security (TLS) auf {% data variables.product.product_location %} konfigurieren, damit Sie ein von einer vertrauenswürdigen Zertifizierungsstelle signiertes Zertifikat verwenden können.'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -26,7 +26,7 @@ Um TLS in der Produktion zu verwenden, müssen Sie über ein Zertifikat verfüge
 
 Darüber hinaus schreibt Ihr Zertifikat Subject Alternative Names vor, die für die in „[Subdomain-Isolation aktivieren](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)“ aufgelisteten Subdomains konfiguriert sind, und es muss die gesamte Zertifikatskette enthalten, wenn es von einer zwischengeschalteten Zertifizierungsstelle signiert wurde. Weitere Informationen finden Sie unter „[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)“ auf Wikipedia.
 
-Du kannst mit dem Befehl `ghe-ssl-generate-csr` eine Anfrage zur Signierung des Zertifikats (CSR) für Deine Instanz erzeugen. Weitere Informationen findest Du unter „[Befehlszeilen-Hilfsprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)“.
+Du kannst mit dem Befehl `ghe-ssl-generate-csr` eine Anfrage zur Signierung des Zertifikats (CSR) für Deine Instanz erzeugen. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)“.
 
 ### Benutzerdefiniertes TLS-Zertifikat hochladen
 
@@ -51,9 +51,9 @@ Let's Encrypt ist eine öffentliche Zertifizierungsstelle, die kostenlose, autom
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-Wenn Sie die Automatisierung der TLS-Zertifikatsverwaltung mit Let's Encrypt aktivieren, kontaktiert {% data variables.product.product_location_enterprise %} die Let's Encrypt-Server, um ein Zertifikat abzurufen. Zum Verlängern eines Zertifikats müssen die Let's Encrypt-Server die Steuerung des konfigurierten Domain-Namens mit eingehenden HTTP-Anforderungen validieren.
+Wenn Sie die Automatisierung der TLS-Zertifikatsverwaltung mit Let's Encrypt aktivieren, kontaktiert {% data variables.product.product_location %} die Let's Encrypt-Server, um ein Zertifikat abzurufen. Zum Verlängern eines Zertifikats müssen die Let's Encrypt-Server die Steuerung des konfigurierten Domain-Namens mit eingehenden HTTP-Anforderungen validieren.
 
-Darüber hinaus können Sie das Befehlszeilenprogramm `ghe-ssl-acme` auf {% data variables.product.product_location_enterprise %} verwenden, um ein Let's Encrypt-Zertifikat automatisch zu generieren. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)“.
+Darüber hinaus können Sie das Befehlszeilenprogramm `ghe-ssl-acme` auf {% data variables.product.product_location %} verwenden, um ein Let's Encrypt-Zertifikat automatisch zu generieren. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)“.
 
 ### TLS mit Let's Encrypt konfigurieren
 

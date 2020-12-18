@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを追加できます。
@@ -50,7 +51,7 @@ Jekyll サイトのコンテンツとして 2 つの主なタイプは、ペー�
 4. _YYYY-MM-DD-NAME-OF-POST.md_ という名前の新規ファイルを作成します。_YYYY-MM-DD_ は投稿の日時に、_NAME-OF-POST_ は投稿の名前に置き換えてください。
 4. 以下の YAML frontmatter を、ファイルの先頭に追加します。 _POST TITLE_ は投稿のタイトルに、 _YYYY-MM-DD hh:mm:ss -0000_ は投稿の日時に置き換え、投稿に追加したいカテゴリを _CATEGORY-1_、_CATEGORY-2_ のように好きなだけ追加し、カテゴリの名前に置き換えてください。
   ```shell
-  layout: page
+  layout: post
   title: "<em>POST TITLE</em>"
   date: </em>YYYY-MM-DD hh:mm:ss -0000</em>
   categories: <em>CATEGORY-1</em> <em>CATEGORY-2</em>

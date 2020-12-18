@@ -1,17 +1,18 @@
 ---
 title: Issue およびプルリクエストのファイル添付
-intro: Issue を開いたりプルリクエストを更新したりする際に、Issue の添付を使用して機能の提案やバグのスクリーンショットの画像をアップロードできます。
+intro: 'Issue を開いたりプルリクエストを更新したりする際に、Issue の添付を使用して機能の提案やバグのスクリーンショットの画像をアップロードできます。'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
 
-**警告:**Pull Request や Issue へのコメントに画像添付を追加した場合、その Pull Request がプライベートリポジトリのものである場合、{% if currentVersion != "free-pro-team@latest" %}またはプライベートモードが有効化されている場合も、{% endif %}匿名化した画像 URL は認証なしに誰もが見ることができます。 機密の画像をプライベートにしておきたい場合は、それらを認証が必要なプライベートなネットワークあるいはサーバーから提供するようにしてください。 {% if currentVersion == "free-pro-team@latest" %}匿名化した URL の詳細については、「[匿名化された画像 URL について](/articles/about-anonymized-image-urls)」を参照してください。{% endif %}
+**警告:**Pull Request や Issue へのコメントに画像添付を追加した場合、その Pull Request がプライベートリポジトリのものである場合、{% if enterpriseServerVersions contains currentVersion %}またはプライベートモードが有効化されている場合も、{% endif %}匿名化した画像 URL は認証なしに誰もが見ることができます。 機密の画像をプライベートにしておきたい場合は、それらを認証が必要なプライベートなネットワークあるいはサーバーから提供するようにしてください。 {% if currentVersion == "free-pro-team@latest" %}匿名化した URL の詳細については、「[匿名化された画像 URL について](/articles/about-anonymized-image-urls)」を参照してください。{% endif %}
 
 {% endwarning %}
 
@@ -21,7 +22,7 @@ Issue やプルリクエストの会話にファイルを添付するには、�
 
 {% tip %}
 
-**ヒント:** Chrome をお使いの場合は、ボックスに画像を直接コピーして貼り付けることもできます。
+**ヒント:** 多くのブラウザでは、画像をコピーして直接ボックスに貼り付けることができます。
 
 {% endtip %}
 

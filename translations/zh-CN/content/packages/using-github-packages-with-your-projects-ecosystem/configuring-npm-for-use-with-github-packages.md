@@ -25,17 +25,17 @@ versions:
 
 通过编辑您的每用户 *~/.npmrc* 文件以包含个人访问令牌，或者在命令行上使用用户名和个人访问令牌登录 npm，您可以使用 npm 向 {% data variables.product.prodname_registry %} 验证。
 
-要通过将个人访问令牌添加到 *~/.npmrc* 文件进行身份验证，请编辑项目的 *~/.npmrc* 文件以包含以下行，将 *TOKEN* 替换为您的个人访问令牌。  如果 *~/.npmrc* 文件不存在，请新建该文件。
+要通过将个人访问令牌添加到 *~/.npmrc* 文件进行身份验证，请编辑项目的 *~/.npmrc* 文件以包含以下行，将{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为 {% data variables.product.prodname_ghe_server %} 实例的主机名，并{% endif %}将 *TOKEN* 替换为您的个人访问令牌。  如果 *~/.npmrc* 文件不存在，请新建该文件。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```shell
-//npm.pkg.github.com/:_authToken=<em>TOKEN</em>
+//{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```shell
@@ -48,25 +48,28 @@ $ npm login --registry=https://npm.pkg.github.com
 
 要通过登录到 npm 进行身份验证，请使用 `npm login` 命令，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌，将 *PUBLIC-EMAIL-ADDRESS* 替换为您的电子邮件地址。
 
-{% if currentVersion != "free-pro-team@latest" %}
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+
+{% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```shell
-"repository" : {
-    "type" : "git",
-    "url": "ssh://git@github.com/<em>OWNER</em>/<em>REPOSITORY</em>.git",
-    "directory": "packages/name"
-  },
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
+$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 {% endif %}
 
@@ -75,6 +78,12 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### 发布包
+
+{% note %}
+
+**注：**包名称和作用域只能使用小写字母。
+
+{% endnote %}
 
 默认情况下，{% data variables.product.prodname_registry %} 将包发布到您在 *package.json* 文件的名称字段中指定的 {% data variables.product.prodname_dotcom %} 仓库。 例如，您要发布一个名为 `@my-org/test` 的包到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。 通过在包目录中包含 *README.md* 文件，您可以添加包列表页面的摘要。 更多信息请参阅 npm 文档中的“[使用 package.json](https://docs.npmjs.com/getting-started/using-a-package.json)”和“[如何创建 Node.js 模块](https://docs.npmjs.com/getting-started/creating-node-modules)”。
 
@@ -86,12 +95,13 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 
 #### 使用本地 *.npmrc* 文件发布包
 
-您可以使用 *.npmrc* 文件来配置项目的作用域映射。 在 *.npmrc* 文件中，使用 {% data variables.product.prodname_registry %} URL 和帐户所有者，使 account owner so {% data variables.product.prodname_registry %} 知道将包请求路由到何处。 使用 *.npmrc* 文件防止其他开发者意外地将包发布到 npmjs.org 而不是 {% data variables.product.prodname_registry %}。 {% data reusables.package_registry.lowercase-name-field %}
+您可以使用 *.npmrc* 文件来配置项目的作用域映射。 在 *.npmrc* 文件中，使用 {% data variables.product.prodname_registry %} URL 和帐户所有者，使 account owner so {% data variables.product.prodname_registry %} 知道将包请求路由到何处。 使用 *.npmrc* 文件防止其他开发者意外地将包发布到 npmjs.org 而不是 {% data variables.product.prodname_registry %}。
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-4. 验证项目的 *package.json* 中包的名称。 `name` 字段必须包含包的作用域和名称。 例如，如果您的包名为 "test"，并且要发布到 "My-org" {% data variables.product.prodname_dotcom %} 组织，则 *package.json* 中的 `name` 字段应为 `@my-org/test`。
+1. 验证项目的 *package.json* 中包的名称。 `name` 字段必须包含包的作用域和名称。 例如，如果您的包名称为“test”，要发布到“My-org”
+{% data variables.product.prodname_dotcom %} 组织，则 *package.json* 中的 `name` 字段应为 `@my-org/test`。
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
@@ -100,20 +110,20 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 您可以使用 *package.json* 文件中的 `publishConfig` 元素来指定要发布包的注册表。 更多信息请参阅 npm 文档中的“[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)”。
 
 1. 编辑包的 *package.json* 文件并包含 `publishConfig` 条目。
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
   ```shell
-    "publishConfig": {
-      "registry":"https://npm.pkg.github.com/"
-    },
+  "publishConfig": {
+    "registry":"https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
+  },
   ```
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
    ```shell
-    "publishConfig": {
-      "registry":"https://<em>HOSTNAME</em>/_registry/npm/"
-    },
+   "publishConfig": {
+     "registry":"https://<em>HOSTNAME</em>/_registry/npm/"
+   },
   ```
   {% endif %}
 {% data reusables.package_registry.verify_repository_field %}
@@ -139,7 +149,7 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 
 通过在项目的 *package.json* 文件中将包添加为依赖项，您可以从 {% data variables.product.prodname_registry %} 安装包。 有关在项目中使用 *package.json* 的更多信息，请参阅 npm 文档中的“[使用 package.json](https://docs.npmjs.com/getting-started/using-a-package.json)”。
 
-默认情况下，您可以从一个组织添加包。 更多信息请参阅[从其他组织安装包](#installing-packages-from-other-organizations)。
+默认情况下，您可以从一个组织添加包。 更多信息请参阅“[从其他组织安装包](#installing-packages-from-other-organizations)”。
 
 还需要将 *.npmrc* 文件添加到项目，使所有安装包的请求都会通过 {% data variables.product.prodname_registry %}。 通过 {% data variables.product.prodname_registry %} 路由所有包请求时，您可以使用 *npmjs.com* 作用域内和作用域外的包。 更多信息请参阅 npm 文档中的“[npm 作用域](https://docs.npmjs.com/misc/scope)”。
 
@@ -169,28 +179,27 @@ registry=https://npm.pkg.github.com/<em>OWNER</em>
 
 #### 从其他组织安装包
 
-默认情况下，您只能使用来自一个组织的 {% data variables.product.prodname_registry %} 包。 默认情况下，您只能使用来自一个组织的 {% data variables.product.prodname_registry %} 包。 {% data reusables.package_registry.lowercase-name-field %}
+默认情况下，您只能使用来自一个组织的 {% data variables.product.prodname_registry %} 包。 如果想将包请求传送到多个组织和用户，您可以添加额外行到 *.npmrc* 文件，将 {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名，并{% endif %}将 *OWNER* 替换为拥有项目所在仓库的用户或组织帐户的名称。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```shell
-registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}<em>OWNER</em>
-@<em>OWNER</em>:registry={% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
-@<em>OWNER</em>:registry={% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>{% endif %}/<em>OWNER</em>
+@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+@<em>OWNER</em>:registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```shell
 registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
-@<em>OWNER</em>:registry=<em>HOSTNAME</em>/_registry/npm/
-@<em>OWNER</em>:registry=<em>HOSTNAME</em>/_registry/npm/
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
 {% endif %}
-
 
 ### 延伸阅读
 

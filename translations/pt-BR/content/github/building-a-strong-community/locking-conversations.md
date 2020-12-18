@@ -6,15 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-É apropriado bloquear uma conversa quando toda ela não é construtiva ou infringe o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou das [Diretrizes da comunidade](/articles/github-community-guidelines) do GitHub{% endif %}. Quando você bloqueia uma conversa, você também pode especificar o motivo, que é visível publicamente.
+É apropriado bloquear uma conversa quando toda a conversa não é construtiva ou viola o código de conduta da sua comunidade{% if currentVersion == "free-pro-team@latest" %} ou as [diretrizes da comunidade do GitHub](/articles/github-community-guidelines){% endif %}. Quando você bloqueia uma conversa, você também pode especificar o motivo, que é visível publicamente.
 
 Bloquear uma conversa cria um evento na linha do tempo visível a qualquer um com acesso de leitura ao repositório. No entanto, o nome de usuário da pessoa que bloqueou a conversa somente pode ser visualizado pelas pessoas com acesso de gravação ao repositório. Para qualquer pessoa sem acesso de gravação, o evento na linha do tempo é anônimo.
 
 ![Evento anônimo de linha do tempo de uma conversa bloqueada](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-Quando uma conversa é bloqueada, somente [pessoas com acesso de gravação](/articles/repository-permission-levels-for-an-organization/) e [proprietários e colaboradores de repositórios](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account) podem adicionar, ocultar ou excluir comentários.
+Quando uma conversa é bloqueada, somente [pessoas com acesso de gravação](/articles/repository-permission-levels-for-an-organization/) e [proprietários e colaboradores de repositórios](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) podem adicionar, ocultar ou excluir comentários.
 
 Para pesquisar conversas bloqueadas em um repositório que não está arquivado, é posível usar os qualificadores de pesquisa `is:locked` e `archived:false`. As conversas são automaticamente bloqueadas em repositórios arquivados. Para obter mais informações, consulte "[Pesquisar problemas e pull requests](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
 
@@ -28,7 +29,7 @@ Para pesquisar conversas bloqueadas em um repositório que não está arquivado,
 
 - "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Gerenciando comentários disruptivos](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Gerenciar comentários disruptivos](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[Denunciar abuso ou spam](/articles/reporting-abuse-or-spam)"
 - "[Limitando interações em seu repositório](/github/building-a-strong-community/limiting-interactions-in-your-repository)"

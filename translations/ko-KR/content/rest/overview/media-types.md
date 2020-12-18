@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -56,7 +57,7 @@ $  -H "Accept: application/vnd.github.v3.full+json"
 
 ### Comment body properties
 
-The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/v3/issues/), [issue comments](/v3/issues/comments/), [pull request comments](/v3/pulls/comments/), and the [gist comments](/v3/gists/comments/) APIs all accept these same media types:
+The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
 
 #### Raw
 
@@ -84,7 +85,7 @@ Return raw, text and HTML representations. Response will include `body`, `body_t
 
 ### Git blob properties
 
-The following media types are allowed when [getting a blob](/v3/git/blobs/#get-a-blob):
+The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
 
 #### JSON
 
@@ -101,7 +102,7 @@ Return the raw blob data.
 
 ### Commits, commit comparison, and pull requests
 
-The [commits API](/v3/repos/commits/) and [pull requests API](/v3/pulls/) support [diff][git-diff] and [patch][git-patch] formats:
+The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
 #### 비교(diff)
 
@@ -146,4 +147,4 @@ The gist contents are base64-encoded before being sent out. This can be useful i
 [gfm]: http://github.github.com/github-flavored-markdown/
 [git-diff]: http://git-scm.com/docs/git-diff
 [git-patch]: http://git-scm.com/docs/git-format-patch
-[versions]: /v3/versions
+[versions]: /developers/overview/about-githubs-apis

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-您必须为 {% data variables.product.product_name %} 帐户选择或生成密码，密码应满足以下条件：
+您必须为 {% data variables.product.product_name %} 帐户选择或生成密码，密码至少应满足以下条件：
 - 至少 8 个字符，包含数字和小写字母；或者
 - 至少 16 个字符，任意字符组合
 
@@ -21,7 +21,7 @@ versions:
 
 {% data reusables.repositories.blocked-passwords %}
 
-You can only use your password to log on to {% data variables.product.product_name %} using your browser. When you authenticate to {% data variables.product.product_name %} with other means, such as the command line or API, you should use other credentials. 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”。
+您只能使用密码通过浏览器登录 {% data variables.product.product_name %}。 使用其他方式（例如命令行或 API）向 {% data variables.product.product_name %} 验证时，应使用其他凭据。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”。
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
 

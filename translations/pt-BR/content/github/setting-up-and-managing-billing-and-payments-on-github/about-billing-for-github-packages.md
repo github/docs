@@ -10,12 +10,14 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
 A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
 
-| Produto                                                                  | Armazenamento | Transferência de dados (por mês) |
-| ------------------------------------------------------------------------ | ------------- | -------------------------------- |
+| Produto                                                             | Armazenamento | Transferência de dados (por mês) |
+| ------------------------------------------------------------------- | ------------- | -------------------------------- |
 | {% data variables.product.prodname_free_user %}                   | 500MB         | 1GB                              |
 | {% data variables.product.prodname_pro %}                           | 2GB           | 10GB                             |
 | {% data variables.product.prodname_free_team %} para organizações | 500MB         | 1GB                              |
@@ -50,8 +52,8 @@ Se uso de {% data variables.product.prodname_registry %} compartilha a data de c
 
 ### Sobre limites de gastos
 
-Por padrão, sua conta terá um limite de gastos de $0 para o uso de {% data variables.product.prodname_registry %}. Para habilitar a transferência de armazenamento e dados para pacotes privados além dos valores incluídos em sua conta, você pode aumentar o limite de gastos ou permitir gastos ilimitados. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)".
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

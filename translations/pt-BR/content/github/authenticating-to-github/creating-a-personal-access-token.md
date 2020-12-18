@@ -9,11 +9,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas para autenticação no {% data variables.product.product_name %} ao usar a [API do GitHub](/v3/auth/#via-oauth-and-personal-access-tokens) ou a [linha de comando](#using-a-token-on-the-command-line).
+Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas para autenticação no {% data variables.product.product_name %} ao usar a [API do GitHub](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) ou a [linha de comando](#using-a-token-on-the-command-line).
 
-{% if currentVersion == "free-pro-team@latest" %}Se você deseja usar um PAT para acessar recursos que pertencem a uma organização que usa o SAML SSO, você deverá autorizar o PAT. Para mais informações consulte "[Sobre autenticação com logon único SAML](/articles/about-authentication-with-saml-single-sign-on)" e "[Autorizando um token de acesso pessoal para uso com logon único SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Se você deseja usar um PAT para acessar recursos pertencentes a uma organização que usa SAML SSO, você deve autorizar o PAT. Para mais informações consulte "[Sobre autenticação com logon único SAML](/articles/about-authentication-with-saml-single-sign-on)" e "[Autorizando um token de acesso pessoal para uso com logon único SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
@@ -27,7 +28,7 @@ Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas par
 5. Dê ao seu token um nome descritivo. ![Campo Token description (Descrição do token)](/assets/images/help/settings/token_description.png)
 6. Selecione os escopos, ou as permissões, aos quais deseja conceder esse token. Para usar seu token para acessar repositórios da linha de comando, selecione **repo**. ![Selecionar escopos do token](/assets/images/help/settings/token_scopes.gif)
 7. Clique em **Generate token** (Gerar token). ![Botão Generate token (Gerar token)](/assets/images/help/settings/generate_token.png)
-8. Clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar o token na sua área de transferência. Por motivos de segurança, após sair da página, você não poderá ver o token novamente.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
+8. Clique em {% octicon "clippy" aria-label="The copy to clipboard icon" %} para copiar o token na sua área de transferência. Por motivos de segurança, depois que você sair da página, você não poderá ver o token novamente.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
 ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
 
    {% warning %}

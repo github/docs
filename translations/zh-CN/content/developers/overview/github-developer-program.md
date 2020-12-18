@@ -1,37 +1,37 @@
 ---
-title: GitHub Developer Program
-intro: 'If you build tools that integrate with {% data variables.product.prodname_dotcom %}, you can join the {% data variables.product.prodname_dotcom %} Developer Program.'
+title: GitHub 开发者计划
+intro: '要构建与 {% data variables.product.prodname_dotcom %} 集成的工具，您可以加入 {% data variables.product.prodname_dotcom %} 开发者计划。'
 redirect_from:
   - /计划
 versions:
   free-pro-team: '*'
 ---
 
-Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
+要构建与 GitHub 集成的应用程序？ 请注册我们的开发者计划！ 无尽可能，享受点赞。 [立即注册](https://github.com/developer/register)
 
-## Stay in the know
+## 信息灵通
 
-Be the first to know about API changes and try out new features before they launch in the [Developer blog](https://developer.github.com/changes/).
+第一时间了解 API 变更，在[开发者博客](https://developer.github.com/changes/)中发布新功能之前抢先体验。
 
-## Scratch an itch
+## 大显身手
 
-Build your own tools that seamlessly integrate with the place you push code every day.
+构建自己的工具，与每天推送代码的平台无缝集成。
 
-## Take on the enterprise
+## 纳入企业
 
-[Obtain developer licenses](http://github.com/contact?form%5Bsubject%5D=Development+licenses) to build and test your application against {% data variables.product.prodname_ghe_server %}.
+[取得开发者许可](http://github.com/contact?form%5Bsubject%5D=Development+licenses)，根据 {% data variables.product.prodname_ghe_server %} 或 {% data variables.product.prodname_ghe_managed %} 构建和测试您的应用程序。
 
 
-## Have an integration that works with GitHub?
+## 有适用于 GitHub 的集成？
 
-Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
-* [Let us know about your integration](https://github.com/contact?form[subject]=New+GitHub+Integration)
-* Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
-* Post a video or a blog on your website about your integration
+太棒了！ 我们希望您加入计划。 以下是您可以使用的推广方式：</p>
+* [让我们知道您的集成](https://github.com/contact?form[subject]=New+GitHub+Integration)
+* 使用 [Octocat 或 GitHub 徽标](https://github.com/logos)来标识您的产品适用于 GitHub
+* 在您的网站上发布有关您的集成的视频或博客
 
-## Ready to join the GitHub Developer Program?</h3>
+## 准备加入 GitHub 开发者计划吗？</h3>
 
-Membership is open to individual developers and companies who have:
+成员资格向满足以下条件的个人开发者和公司开放：
 
-* An integration in production or development using the GitHub API.
-* An email address where GitHub users can contact you for support.
+* 使用 GitHub API 进行生产或开发中的集成。
+* 提供 GitHub 用户可以联系您以获取支持的电子邮件地址。

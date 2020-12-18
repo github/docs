@@ -1,46 +1,46 @@
 ---
-title: GitHub event types
-intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+title: GitHubイベントの種類
+intro: '{% data variables.product.prodname_dotcom %} Event APIについて、各イベントの種類、{% data variables.product.prodname_dotcom %}上でのトリガーするアクション、各イベント固有のプロパティについて学んでください。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-The Events API can return different types of events triggered by activity on GitHub. Each event response contains shared properties, but has a unique `payload` object determined by its event type. The [Event object common properties](#event-object-common-properties) describes the properties shared by all events, and each event type describes the `payload` properties that are unique to the specific event.
+Events APIは、GitHub上のアクティビティによってトリガーされる様々な種類のイベントを返します。 各イベントのレスポンスは共有プロパティを含むとともに、イベントの種類によって決まる固有の`payload`オブジェクトを持ちます。 [イベントオブジェクトの共通プロパティ](#event-object-common-properties)は、すべてのイベントが共有するプロパティを示すものであり、各イベントの種類にはそのイベントに固有の`payload`プロパティが示されています。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
 
+### イベントオブジェクトの共通プロパティ
 
-### Event object common properties
+Events APIエンドポイントから返されるイベントオブジェクトは、同じ構造を持ちます。
 
-The event objects returned from the Events API endpoints have the same structure.
+| Event API属性名          | 説明                                                                                                   |
+| --------------------- | ---------------------------------------------------------------------------------------------------- |
+| `id`                  | イベントの一意の識別子。                                                                                         |
+| `type`                | イベントの種類。 イベントの名前にはPascalCaseが使われます。                                                                  |
+| `actor`               | イベントをトリガーしたユーザ。                                                                                      |
+| `actor.id`            | アクターの一意の識別子。                                                                                         |
+| `actor.login`         | アクターのユーザ名。                                                                                           |
+| `actor.display_login` | ユーザ名に特定の表示形式。                                                                                        |
+| `actor.gravatar_id`   | アクターのGravatarプロフィールの一意の識別子。                                                                          |
+| `actor.url`           | 追加のユーザ情報を含むユーザオブジェクトの取得に使われるREST APIのURL。                                                            |
+| `actor.avatar_url`    | アクターのプロフィール画像のURL。                                                                                   |
+| `repo`                | イベントが発生したリポジトリオブジェクト。                                                                                |
+| `repo.id`             | リポジトリの一意の識別子。                                                                                        |
+| `repo.name`           | リポジトリの名前。オーナーとリポジトリの名前が含まれる。 たとえば`octocat/hello-world`は、`octocat`ユーザアカウントが所有する`hello-world`リポジトリの名前。 |
+| `repo.url`            | 追加のリポジトリ情報を含むリポジトリオブジェクトの取得に使われるREST APIのURL。                                                        |
+| `payload`             | イベントの種類に固有のイベントペイロードオブジェクト。 イベントAPIの`payload`オブジェクトについては、以下のイベントの種類を参照してください。                        |
 
-| Event API attribute name | 説明                                                                                                                                                                                            |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                     | Unique identifier for the event.                                                                                                                                                              |
-| `type`                   | The type of event. Events uses PascalCase for the name.                                                                                                                                       |
-| `actor`                  | The user that triggered the event.                                                                                                                                                            |
-| `actor.id`               | The unique identifier for the actor.                                                                                                                                                          |
-| `actor.login`            | The username of the actor.                                                                                                                                                                    |
-| `actor.display_login`    | The specific display format of the username.                                                                                                                                                  |
-| `actor.gravatar_id`      | The unique indentifier of the Gravatar profile for the actor.                                                                                                                                 |
-| `actor.url`              | The REST API URL used to retrieve the user object, which includes additional user information.                                                                                                |
-| `actor.avatar_url`       | The URL of the actor's profile image.                                                                                                                                                         |
-| `repo`                   | The repository object where the event occurred.                                                                                                                                               |
-| `repo.id`                | The unique identifier of the repository.                                                                                                                                                      |
-| `repo.name`              | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url`               | The REST API URL used to retrive the repository object, which includes additional repository information.                                                                                     |
-| `payload`                | The event payload object is unique to the event type. See the event type below for the event API `payload` object.                                                                            |
+#### WatchEventイベントのオブジェクトの例
 
-#### Example WatchEvent event object
-
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/v3/activity/events).
+この例は、[Events API](/rest/reference/activity#events)を使用する際の[WatchEvent](#watchevent)のレスポンスの形式を示しています。
 
 ```
 Status: 200 OK
@@ -85,7 +85,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.commit_comment_properties %}
 
@@ -95,7 +95,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.create_properties %}
 
@@ -105,7 +105,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.delete_properties %}
 
@@ -115,7 +115,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.fork_properties %}
 
@@ -125,7 +125,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.gollum_properties %}
 
@@ -135,7 +135,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
@@ -146,7 +146,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.issue_event_api_properties %}
 {% data reusables.webhooks.issue_properties %}
@@ -157,7 +157,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
@@ -166,9 +166,9 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.public_short_desc %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
-This event returns an empty `payload` object.
+このイベントは、空の`payload`オブジェクトを返します。
 
 ### PullRequestEvent
 
@@ -176,7 +176,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
@@ -187,7 +187,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
@@ -198,22 +198,22 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-| キー                         | 種類        | 説明                                                                                                                                                                                                                                                                                          |
-| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `push_id`                  | `整数`      | Unique identifier for the push.                                                                                                                                                                                                                                                             |
-| `size`                     | `整数`      | The number of commits in the push.                                                                                                                                                                                                                                                          |
-| `distinct_size`            | `整数`      | The number of distinct commits in the push.                                                                                                                                                                                                                                                 |
-| `ref`                      | `string`  | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/master`.                                                                                                                                                                                                          |
-| `head`                     | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
-| `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
-| `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
-| `commits[][sha]`           | `string`  | コミットのSHA。                                                                                                                                                                                                                                                                                   |
-| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                                                                                                                                                  |
-| `commits[][author]`        | `オブジェクト`  | The git author of the commit.                                                                                                                                                                                                                                                               |
-| `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                      |
-| `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                             |
-| `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                 |
-| `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                      |
+| キー                         | 種類        | 説明                                                                                                                                                                    |
+| -------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `push_id`                  | `integer` | プッシュの一意の識別子。                                                                                                                                                          |
+| `size`                     | `integer` | プッシュ中のコミット数。                                                                                                                                                          |
+| `distinct_size`            | `integer` | プッシュ中の個別のコミット数。                                                                                                                                                       |
+| `ref`                      | `string`  | プッシュされた完全な[`git ref`](/rest/reference/git#refs)。 例:`refs/heads/main`。                                                                                                 |
+| `head`                     | `string`  | プッシュ後の`ref`上の最新のコミットのSHA。                                                                                                                                             |
+| `before`                   | `string`  | プッシュ前の`ref` 上の最新のコミットのSHA。                                                                                                                                            |
+| `commits`                  | `array`   | プッシュされたコミットを示すコミットオブジェクトの配列。 （配列には最大で20のコミットが含まれる。 必要な場合は、追加のコミットを[Commits API](/rest/reference/repos#commits)を使ってフェッチできる。 この制限はタイムラインイベントにのみ適用され、webhookの配信には適用されない） |
+| `commits[][sha]`           | `string`  | コミットのSHA。                                                                                                                                                             |
+| `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                            |
+| `commits[][author]`        | `オブジェクト`  | コミットのGit作者。                                                                                                                                                           |
+| `commits[][author][name]`  | `string`  | Git作者の名前。                                                                                                                                                             |
+| `commits[][author][email]` | `string`  | Git作者のメールアドレス。                                                                                                                                                        |
+| `commits[][url]`           | `url`     | コミットAPIのリソースを指すURL。                                                                                                                                                   |
+| `commits[][distinct]`      | `boolean` | このコミットが以前にプッシュされたいずれとも異なっているか。                                                                                                                                        |
 
 ### ReleaseEvent
 
@@ -221,7 +221,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
@@ -231,7 +231,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
@@ -243,6 +243,6 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-#### Event `payload` object
+#### イベントの`payload`オブジェクト
 
 {% data reusables.webhooks.watch_properties %}

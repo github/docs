@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 对仓库具有管理员权限的任何人都可以启用强制推送。
@@ -15,7 +16,7 @@ versions:
 
 启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 
-{% if currentVersion != "free-pro-team@latest" %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到用户帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}如果站点管理员阻止强制推送到仓库中的所有分支，您不能启用强制推送到受保护分支。 更多信息请参阅“[阻止强制推送到用户帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
 
 如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 

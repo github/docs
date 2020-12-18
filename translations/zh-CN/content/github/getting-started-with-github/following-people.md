@@ -1,11 +1,12 @@
 ---
 title: 关注他人
-intro: '您可以在 {% data variables.product.product_name %} 上关注他人，以接收有关其活动的通知{% if currentVersion == "free-pro-team@latest" %} 和发现其社区中的项目{% endif %}。'
+intro: '您可以在 {% data variables.product.product_name %} 上关注他人，以接收有关其活动的通知{% if currentVersion == "free-pro-team@latest" %}和发现其社区中的项目{% endif %}。'
 redirect_from:
   - /articles/following-people
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 关注他人后，您将在消息馈送的活动视图中看到其公开活动。{% if currentVersion == "free-pro-team@latest" %}如果您关注的人标注了某个公共仓库，{% data variables.product.product_name %} 可能会在您的消息馈送发现视图中向您推荐该仓库。{% endif %}要关注某人，请访问其个人资料页面，然后在其个人资料图像下面单击 **Follow（关注）**。

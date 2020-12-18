@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:
@@ -22,7 +23,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<e
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-このエラーを解決するには、{% data variables.product.product_location %} リポジトリの管理者になる必要があります。 リポジトリの[デフォルトブランチの変更](/articles/setting-the-default-branch)が必要となります。
+このエラーを解決するには、{% data variables.product.product_location %} リポジトリの管理者になる必要があります。 リポジトリの[デフォルトブランチの変更](/github/administering-a-repository/changing-the-default-branch)が必要となります。
 
 その後、コマンドラインで使用可能なブランチすべてのリストを取得できます:
 
@@ -31,14 +32,14 @@ $ git branch -a
 # すべてのブランチをリスト
 >   remotes/origin/awesome
 >   remotes/origin/more-work
->   remotes/origin/new-master
+>   remotes/origin/new-main
 ```
 
 その後、新しいブランチにスイッチするだけです:
 
 ```shell
-$ git checkout new-master
-# Create and checkout a tracking branch
-> Branch new-master set up to track remote branch new-master from origin.
-> Switched to a new branch 'new-master'
+$ git checkout new-main
+# 追跡ブランチを作成してチェックアウト
+> Branch new-main set up to track remote branch new-main from origin.
+> Switched to a new branch 'new-main'
 ```

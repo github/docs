@@ -2,30 +2,46 @@
 title: GitHub 包文档
 shortTitle: GitHub Packages
 intro: '了解如何安全地发布和使用包，将包与代码存储在一起，以及与您的团队私下分享或与开源社区公开分享您的包。 还可以使用 {% data variables.product.prodname_actions %} 自动执行您的包。'
-gettingStartedLinks:
-  - /packages/publishing-and-managing-packages/about-github-packages
-  - /packages/getting-started-with-github-container-registry/about-github-container-registry
-  - /packages/getting-started-with-github-container-registry
-  - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
-  - /packages/publishing-and-managing-packages/publishing-a-package
-  - /packages/publishing-and-managing-packages/installing-a-package
-popularLinks:
-  - /packages/using-github-packages-with-your-projects-ecosystem/configuring-npm-for-use-with-github-packages
-  - /packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
-  - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
-  - /packages/using-github-packages-with-your-projects-ecosystem/using-github-packages-with-github-actions
+introLinks:
+  quickstart: /packages/quickstart
+  reference: /packages/manage-packages
+featuredLinks:
+  guides:
+    - /packages/learn-github-packages
+    - /packages/guides/using-github-packages-with-github-actions
+    - /packages/manage-packages/installing-a-package
+  popular:
+    - /packages/guides/configuring-npm-for-use-with-github-packages
+    - /packages/learn-github-packages/about-github-packages
+    - /packages/guides/configuring-apache-maven-for-use-with-github-packages
+  guideCards:
+    - /packages/guides/configuring-npm-for-use-with-github-packages
+    - /packages/guides/enabling-improved-container-support
+    - /packages/guides/configuring-rubygems-for-use-with-github-packages
+changelog:
+  - 
+    title: 包容器支持是一个选择性测试版
+    date: '2020-11-17'
+    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
+  - 
+    title: 组织管理员对容器的访问
+    date: '2020-11-16'
+    href: https://github.blog/changelog/2020-11-16-packages-organization-admins-access-to-containers/
+  - 
+    title: 包现在遵守 IP 允许列表设置
+    date: '2020-11-12'
+    href: https://github.blog/changelog/2020-11-12-packages-now-respects-ip-allow-list-settings/
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
   - /github/managing-packages-with-github-package-registry
+layout: product-landing
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.package_registry.packages-ghes-release-stage %}
-
-{% link_with_intro /getting-started-with-github-container-registry %}
-{% link_with_intro /managing-container-images-with-github-container-registry %}
-{% link_with_intro /publishing-and-managing-packages %}
-{% link_with_intro /using-github-packages-with-your-projects-ecosystem %}
+<!-- {% link_with_intro /quickstart %}  -->
+<!-- {% link_with_intro /guides %} -->
+<!-- {% link_with_intro /learn-github-packages %} -->
+<!-- {% link_with_intro /manage-packages %} -->

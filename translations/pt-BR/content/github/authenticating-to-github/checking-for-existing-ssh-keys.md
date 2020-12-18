@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.ssh.dsa-support %}
@@ -20,8 +21,7 @@ versions:
 3. Verifique a listagem do diretório para verificar se você já tem uma chave SSH pública. Por padrão, os nomes de arquivo das chaves públicas são um dos seguintes:
     - *id_rsa.pub*
     - *id_ecdsa.pub*
-    - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-    - *id_dsa.pub*{% endif %}
+    - *id_ed25519.pub*
 
 Se você não tiver um par de chaves pública e privada ou não deseja usar algum que esteja disponível para conectar-se a {% data variables.product.product_name %}, [gere uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 

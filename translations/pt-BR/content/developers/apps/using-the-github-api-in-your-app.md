@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 ### Introdução
@@ -22,7 +22,7 @@ Este projeto orientará você no seguinte:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
+Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Funciona com o GitHub](https://github.com/works-with).{% endif %}
 
 ### Pré-requisitos
 
@@ -31,7 +31,7 @@ Você pode achar útil ter um entendimento básico do seguinte:
 * [Aplicativos do GitHub](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [Linguagem de programação Ruby](https://www.ruby-lang.org/en/)
-* [APIs REST](/v3)
+* [APIs REST](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 Mas é possível acompanhar o processo em qualquer nível de experiência. Nós vamos nos conectar a informações de que você precisa ao longo do caminho!
@@ -143,11 +143,11 @@ Antes que a etiqueta possa ser _adicionada_ em qualquer lugar, você precisará 
 
 {% tip %}
 
-**Dica**: Não seria ótimo se o aplicativo pudesse criar a etiqueta de forma programática? [Ele pode](/v3/issues/labels/#create-a-label)! Adicione o código para fazer isso por conta própria depois de concluir as etapas deste guia.
+**Dica**: Não seria ótimo se o aplicativo pudesse criar a etiqueta de forma programática? [Ele pode](/rest/reference/issues#create-a-label)! Adicione o código para fazer isso por conta própria depois de concluir as etapas deste guia.
 
 {% endtip %}
 
-Agora que o rótulo foi criado, você pode programar seu aplicativo para usar a API REST para [adicionar a etiqueta a qualquer problema recém-aberto](/v3/issues/labels/#add-labels-to-an-issue).
+Agora que o rótulo foi criado, você pode programar seu aplicativo para usar a API REST para [adicionar a etiqueta a qualquer problema recém-aberto](/rest/reference/issues#add-labels-to-an-issue).
 
 ### Etapa 4. Adicionar gerenciamento de etiqueta
 
@@ -231,5 +231,5 @@ Aqui estão algumas ideias do que você pode fazer a seguir:
 * Quando o bot adiciona a etiqueta com sucesso, é exibida uma mensagem no Terminal. (Dica: compare o ID da etiqueta `needs-response` com o ID da etiqueta na carga como uma condição para sua mensagem para que a mensagem seja exibida somente quando a etiqueta relevante for adicionada e não qualquer outra etiqueta.)
 * Adicione uma página inicial ao seu aplicativo e conecte um [encaminhamento do Sinatra](https://github.com/sinatra/sinatra#routes) para isso.
 * Mova o seu código para um servidor hospedado (como o Heroku). Não se esqueça de atualizar as configurações do seu aplicativo com o novo domínio.
-* Compartilhe seu projeto ou receba orientações no {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
+* Compartilhe o seu projeto ou receba orientação em {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
 * Você construiu um aplicativo novo brilhante que você considera que outras pessoas podem achar útil? [Adicione-o ao GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

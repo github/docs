@@ -1,5 +1,5 @@
 ---
-title: Setting permissions for GitHub Apps
+title: GitHub Appの権限の設定
 intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps/
@@ -8,12 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-When you create a GitHub App, you can select the permissions it needs to access end user data. Permissions can also be added and removed. For more information, see "[Editing a GitHub App's permissions](/apps/managing-github-apps/editing-a-github-app-s-permissions/)."
+GitHub Appを作成する際に、そのアプリケーションがエンドユーザのデータにアクセスするために必要な権限を選択できます。 権限は、追加することも削除することもできます。 詳しい情報については「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 
 ### メタデータ権限
 
-By default, GitHub Apps have `Read-only` access to metadata endpoints. Metadata is a collection of read-only endpoints that provide general information about resources that the authorized installation can access.
+デフォルトでは、GitHub Appはメタデータエンドポイントに`Read-only`のアクセスを持ちます。 メタデータは、読み取りのみのエンドポイントの集合で、認可されたインストールからアクセスできるリソースに関する一般的な情報を提供します。
 
-{% data reusables.apps.metadata-permissions %} For a list of metadata endpoints, see "[Metadata permissions](/v3/apps/permissions/#metadata-permissions)."
+{% data reusables.apps.metadata-permissions %} メタデータエンドポイントのリストについては、「[メタデータの権限](/rest/reference/permissions-required-for-github-apps#metadata-permissions)」を参照してください。

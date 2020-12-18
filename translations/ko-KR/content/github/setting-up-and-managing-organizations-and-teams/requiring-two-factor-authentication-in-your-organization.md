@@ -8,11 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data reusables.two_fa.auth_methods_2fa %}
+### About two-factor authentication for organizations
 
-### Requirements for enforcing two-factor authentication
+{% data reusables.two_fa.about-2fa %} You can require all {% if currentVersion == "free-pro-team@latest" %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
-Before you can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use 2FA, you must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa/) for your own personal account.
+{% if currentVersion == "free-pro-team@latest" %}
+
+You can also require two-factor authentication for organizations in an enterprise. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)."
+
+{% endif %}
 
 {% warning %}
 
@@ -24,7 +28,15 @@ Before you can require {% if currentVersion == "free-pro-team@latest" %}organiza
 
 {% endwarning %}
 
-Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) on your organization's People page.
+{% data reusables.two_fa.auth_methods_2fa %}
+
+### 빌드전 요구 사양
+
+Before you can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. For more information, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
+
+Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. For more information, see "[Viewing whether users in your organization have 2FA enabled](/github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled)."
+
+### Requiring two-factor authentication in your organization
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

@@ -1,6 +1,6 @@
 ---
 title: Anmeldeinformationen für den Zugriff auf GitHub aktualisieren
-intro: 'Die Anmeldeinformationen von {% data variables.product.product_name %} umfassen nicht nur Dein Passwort, sondern auch Deine Zugriffstokens, SSH-Schlüssel und Anwendungs-API-Tokens für die Kommunikation mit {% data variables.product.product_name %}. Bei Bedarf kannst Du alle diese Anmeldeinformationen selber zurücksetzen.'
+intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Bei Bedarf kannst Du alle diese Anmeldeinformationen selber zurücksetzen.'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -8,11 +8,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion != "github-ae@latest" %}
 ### Neues Passwort anfordern
 
-1. Rufe zur Anforderung eines neuen Passworts {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} auf.
+1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Gib die Deinem persönlichen {% data variables.product.product_name %}-Konto zugeordnete E-Mail-Adresse ein, und klicke auf **Send password reset email** (E-Mail für Passwortzurücksetzung anfordern). Die E-Mail wird an die Backup-E-Mail-Adresse gesendet, sofern Du diese konfiguriert hast. ![Dialogfeld zum Anfordern einer E-Mail für die Passwortzurücksetzung](/assets/images/help/settings/password-recovery-email-request.png)
 3. Die E-Mail enthält einen Link, über den Du Dein Passwort zurücksetzen kannst. Auf diesen Link musst Du innerhalb von drei Stunden nach Erhalt der E-Mail klicken. Falls Du keine E-Mail von uns erhalten hast, siehe in Deinem Spam-Ordner nach.
 4. Nach dem Klicken auf den Link in Deiner E-Mail wirst Du zur Eingabe eines neuen Passworts aufgefordert. ![Feld für Passwortwiederherstellung](/assets/images/help/settings/password_recovery_page.png)
@@ -29,11 +31,7 @@ Um Dein Passwort in Zukunft nicht mehr zu verlieren, empfehlen wir die Verwendun
 
 1. {% data variables.product.signin_link %} für {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.user_settings.security %}
-{%- else %}
-{% data reusables.user_settings.account_settings %}
-{%- endif %}
 4. Gib unter „Change password“ (Passwort ändern) Dein altes Passwort und ein sicheres neues Passwort ein, und bestätige das neue Passwort. Details zur Erstellung eines sicheren Passworts findest Du unter „[Sicheres Passwort erstellen](/articles/creating-a-strong-password).“
 5. Klicke auf **Update password** (Passwort aktualisieren).
 
@@ -42,7 +40,7 @@ Um Dein Passwort in Zukunft nicht mehr zu verlieren, empfehlen wir die Verwendun
 Für noch mehr Sicherheit empfehlen wir Dir zusätzlich zur Änderung Deines Passworts die Aktivierung der Zwei-Faktor-Authentifizierung. Details findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication)“.
 
 {% endtip %}
-
+{% endif %}
 ### Zugriffstoken aktualisieren
 
 Anweisungen zum Überprüfen und Löschen Deiner Zugriffstokens findest Du unter „[Deine autorisierten Integrationen überprüfen](/articles/reviewing-your-authorized-integrations)“. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
@@ -53,8 +51,10 @@ Anweisungen zum Überprüfen und Löschen von SSH-Schlüsseln findest Du unter �
 
 ### API-Token zurücksetzen
 
-Wenn Du bei {% data variables.product.product_name %} Anwendungen registriert hast, musst Du eventuell deren OAuth-Tokens zurücksetzen. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
+Wenn Sie bei {% data variables.product.product_name %} Anwendungen registriert haben, müssen Sie eventuell OAuth-Token zurücksetzen. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
 
+{% if currentVersion != "github-ae@latest" %}
 ### Nicht autorisierten Zugriff verhindern
 
 Weitere Empfehlungen zum Schutz Deines Kontos und zur Verhinderung von nicht autorisierten Zugriffen findest Du unter „[Nicht autorisierten Zugriff verhindern](/articles/preventing-unauthorized-access).“
+{% endif %}

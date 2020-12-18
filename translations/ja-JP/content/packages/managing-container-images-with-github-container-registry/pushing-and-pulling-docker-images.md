@@ -1,6 +1,6 @@
 ---
-title: Pushing and pulling Docker images
-intro: 'You can store and manage Docker images in {% data variables.product.prodname_github_container_registry %}.'
+title: Docker イメージをプッシュ、プルする
+intro: 'Docker イメージは {% data variables.product.prodname_github_container_registry %} で保存して管理できます。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -8,55 +8,57 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+Organization が所有するコンテナイメージをプッシュまたはプルするには、{% data variables.product.prodname_github_container_registry %} を Organization に対して有効化する必要があります。 For more information, see "[Enabling improved container support](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)."
 
 ### {% data variables.product.prodname_github_container_registry %} への認証を行う
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-### Pushing container images
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-This example pushes the latest version of `IMAGE-NAME`.
+### コンテナイメージをプッシュする
+
+以下の例では、`IMAGE-NAME` の最新バージョンをプッシュします。
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
-This example pushes the `2.5` version of the image.
+以下の例では、イメージのバージョン `2.5` をプッシュします。
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE-NAME:2.5
   ```
 
-When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
+パッケージを最初に公開する際のデフォルトの可視性はプライベートです。 可視性の変更やアクセス権限の設定については、「[コンテナイメージにアクセス制御と可視性を設定する](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)」を参照してください。
 
-### Pulling container images
+### コンテナイメージをプルする
 
-#### Pull by digest
+#### ダイジェストによるプル
 
-To ensure you're always using the same image, you can specify the exact container image version you want to pull by the `digest` SHA value.
+常に同一のイメージを使用するため、`digest` SHA 値でプルするコンテナイメージのバージョンを指定できます。
 
-1. To find the digest SHA value, use `docker inspect` or `docker pull` and copy the SHA value after `Digest:`
+1. `docker inspect` または `docker pull` を使用してダイジェスト SHA 値を調べ、その SHA 値を `Digest:` の後にコピーします。
   ```shell
   $ docker inspect ghcr.io/OWNER/IMAGE_NAME
   ```
-2. Remove image locally as needed.
+2. 必要に応じてローカルでイメージを削除します。
   ```shell
-  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
-3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
+3. イメージ名の後に `@YOUR_SHA_VALUE` を付けてコンテナイメージをプルします。
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-#### Pull by name
+#### 名前によるプル
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME
   ```
 
-#### Pull by name and version
+#### 名前とバージョンによるプル
 
-Docker CLI example showing an image pulled by its name and the `1.14.1` version tag:
+名前と `1.14.1` バージョンタグにより Docker CLI でイメージをプルする例を以下に示します。
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:1.14.1
   > 5e35bd43cf78: Pull complete
@@ -68,7 +70,7 @@ Docker CLI example showing an image pulled by its name and the `1.14.1` version 
   > ghcr.io/orgname/image-name/release:1.14.1
   ```
 
-#### Pull by name and latest version
+#### 名前と最新バージョンによるプル
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
@@ -78,16 +80,16 @@ Docker CLI example showing an image pulled by its name and the `1.14.1` version 
   > ghcr.io/user/image-name:latest
   ```
 
-### Building container images
+### コンテナイメージを構築する
 
-This example builds the `hello_docker` image:
+以下の例では `hello_docker` イメージを構築します。
   ```shell
   $ docker build -t hello_docker .
   ```
 
-### Tagging container images
+### コンテナイメージにタグ付けする
 
-1. Find the ID for the Docker image you want to tag.
+1. タグ付けする Docker イメージの ID を調べます。
   ```shell
   $ docker images
   > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
@@ -96,7 +98,7 @@ This example builds the `hello_docker` image:
   > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
   ```
 
-2. Tag your Docker image using the image ID and your desired image name and hosting destination.
+2. イメージ ID を使用して、Docker イメージを任意のイメージ名とホスティング先でタグ付けします。
   ```shell
   $ docker tag 38f737a91f39 ghcr.io/OWNER/NEW_IMAGE_NAME:latest
   ```

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 复刻仓库类似于复制仓库，主要有两点差异：
@@ -23,7 +24,7 @@ versions:
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-如果以后要从现有仓库的内容创建新仓库，但不想合并上游更改，您可以复制仓库 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}，或者，如果该仓库是模板，则使用该仓库作为模板{% endif %}。 更多信息请参阅“[复制仓库](/articles/duplicating-a-repository)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} 和[从模板创建仓库](/articles/creating-a-repository-from-a-template)"{% endif %}。
+如果以后要从现有仓库的内容创建新仓库，但不想合并上游更改，您可以复制仓库 ，或者，如果该仓库是模板，则使用该仓库作为模板。 更多信息请参阅“[复制仓库](/articles/duplicating-a-repository)" 和[从模板创建仓库](/articles/creating-a-repository-from-a-template)"。
 
 ### 延伸阅读
 

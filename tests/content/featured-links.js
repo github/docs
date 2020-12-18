@@ -1,9 +1,9 @@
-const { getDOM, getJSON } = require('../helpers')
+const { getDOM, getJSON } = require('../helpers/supertest')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
-describe('gettingStartedLinks and popularLinks', () => {
+describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   describe('rendering', () => {
@@ -45,8 +45,9 @@ describe('gettingStartedLinks and popularLinks', () => {
 
     test('featured links respect versioning', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/packages`)
-      const $featuredLinks = $('.featured-links a')
+      const $featuredLinks = $('.all-articles-list a')
       expect($featuredLinks.length).toBeGreaterThan(2)
+      expect($featuredLinks.text().includes('Package client guides for GitHub Packages')).toBe(true)
       // does not include dotcom-only links
       expect($featuredLinks.text().includes('About GitHub Container Registry')).toBe(false)
       expect($featuredLinks.text().includes('Getting started with GitHub Container Registry')).toBe(false)
@@ -55,7 +56,7 @@ describe('gettingStartedLinks and popularLinks', () => {
 
   describe('context.page object', () => {
     test('returns modified array of links', async () => {
-      const gettingStartedLinks = await getJSON('/en?json=gettingStartedLinks')
+      const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
       const expectedFirstLink = {
         href: `/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/set-up-git`,
         title: 'Set up Git'
@@ -66,7 +67,7 @@ describe('gettingStartedLinks and popularLinks', () => {
     })
 
     test('returns raw array of links on the page object', async () => {
-      const rawGettingStartedLinks = await getJSON('/en?json=page.rawGettingStartedLinks')
+      const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
       expect(rawGettingStartedLinks[0]).toEqual('/github/getting-started-with-github/set-up-git')
     })
   })

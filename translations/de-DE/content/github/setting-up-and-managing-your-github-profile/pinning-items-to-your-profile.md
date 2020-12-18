@@ -1,6 +1,6 @@
 ---
 title: Elemente an Dein Profil anheften
-intro: 'Du kannst {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}Gists und {% endif %}Repositorys an Dein Profil anheften, damit andere Personen Deine besten Arbeiten schnell sehen können.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile

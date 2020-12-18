@@ -8,6 +8,7 @@ product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 As pessoas com permissões de administrador ou proprietário podem configurar um arquivo CODEOWNERS em um repositório.
@@ -20,9 +21,9 @@ Solicita-se automaticamente que os proprietários do código revisem quando algu
 
 Quando alguém com permissões de administrador ou proprietário tiver habilitado revisões obrigatórias, se desejar, ele também poderá exigir aprovação de um proprietário do código para que o autor possa fazer merge de uma pull request no repositório. Para obter mais informações, consulte "[Habilitar revisões obrigatórias para pull requests](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Se uma equipe tiver habilitado as tarefas de revisão de código, as aprovações individuais não satisfarão o requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se uma equipe habilitou as atribuições de revisão de código, as aprovações individuais não vão atender ao requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 
@@ -39,9 +40,9 @@ Para que os proprietários do código recebam solicitações de revisão, o arqu
 
 ### Sintaxe de CODEOWNERS
 
-Um arquivo CODEOWNERS usa um padrão que segue as mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Você também pode consultar um usuário por um endereço de e-mail que tenha sido adicionado à respectiva conta do {% data variables.product.product_name %}, por exemplo `user@example.com`.
+A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Você também pode consultar um usuário por um endereço de e-mail que tenha sido adicionado à respectiva conta do {% data variables.product.product_name %}, por exemplo `user@example.com`.
 
-Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões. A sintaxe inválida inclui comentários embutidos e nomes de usuário ou equipe que não existem em {% data variables.product.product_name %}.
+Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
 #### Exemplo de um arquivo CODEOWNERS
 ```
 # Este é um comentário.
@@ -78,10 +79,18 @@ docs/*  docs@example.com
 # em qualquer lugar do seu repositório.
 apps/ @octocat
 
-# Neste exemplo, @doctocat tem qualquer arquivo no diretório
-# `/docs` na raiz do seu repositório.
+# In this example, @doctocat owns any file in the `/docs`
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
+#### Syntax exceptions
+There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
+- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
+- Using `!` to negate a pattern
+- Using `[ ]` to define a character range
+
+
 
 ### Leia mais
 

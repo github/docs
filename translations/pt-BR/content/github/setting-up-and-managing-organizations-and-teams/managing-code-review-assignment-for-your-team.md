@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Os mantenedores de equipe e os proprietários da organização podem configurar atribuições de revisão de código.
@@ -17,7 +18,7 @@ Quando se solicita automaticamente que os proprietários de códigos façam uma 
 
 ### Encaminhar algoritmos
 
-As atribuições de revisão de código escolhem e atribuem automaticamente os revisores com base em um dos dois algoritmos possíveis.
+Escolha as atribuições de revisão de código e atribua os revisores automaticamente com base em um dos dois algoritmos possíveis.
 
 O algoritmo round robin (rotativo) escolhe os revisores com base em quem recebeu a solicitação de revisão menos recente e tem o foco em alternar entre todos os integrantes da equipe, independentemente do número de avaliações pendentes que possuem atualmente.
 

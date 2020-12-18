@@ -1,28 +1,21 @@
 const path = require('path')
-const { latest, deprecated, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
+const slash = require('slash')
+const { latest, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
+const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
 const findPage = require('../lib/find-page')
 
 // This module handles requests for deprecated GitHub Enterprise versions
-// by routing them to static content in
-// https://github.com/github/help-docs-archived-enterprise-versions
+// by routing them to static content in help-docs-archived-enterprise-versions
 
 module.exports = async (req, res, next) => {
+  const { isArchived, requestedVersion } = isArchivedVersion(req)
+  if (!isArchived) return next()
+
   // Skip asset paths
   if (patterns.assetPaths.test(req.path)) return next()
-
-  if (req.context.page) return next()
-
-  // ignore paths that don't have an enterprise version number
-  if (!patterns.getEnterpriseVersionNumber.test(req.path)) return next()
-
-  // extract enterprise version from path, e.g. 2.16
-  const requestedVersion = req.path.match(patterns.getEnterpriseVersionNumber)[1]
-
-  // bail if the request version is not deprecated
-  if (!deprecated.includes(requestedVersion)) return next()
 
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)
@@ -43,7 +36,7 @@ module.exports = async (req, res, next) => {
   try {
     const r = await got(getProxyPath(req.path, requestedVersion))
     res.set('content-type', r.headers['content-type'])
-    res.set('x-robots-tag', 'none')
+    res.set('x-robots-tag', 'noindex')
 
     // make the stubbed redirect files added in >=2.18 return 301 instead of 200
     const staticRedirect = r.body.match(patterns.staticRedirect)
@@ -69,7 +62,7 @@ module.exports = async (req, res, next) => {
 // for <2.13: /2.12/user/articles/viewing-contributions-on-your-profile
 function getProxyPath (reqPath, requestedVersion) {
   const proxyPath = versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)
-    ? path.join('/', requestedVersion, reqPath)
+    ? slash(path.join('/', requestedVersion, reqPath))
     : reqPath.replace(/^\/enterprise/, '')
 
   return `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
@@ -97,7 +90,7 @@ function getFallbackRedirects (req, requestedVersion) {
     // ]
     .filter(oldPath => oldPath.startsWith('/enterprise') && patterns.enterpriseNoVersion.test(oldPath))
     // add in the current language and version
-    .map(oldPath => path.join('/', req.context.currentLanguage, oldPath.replace('/enterprise/', `/enterprise/${requestedVersion}/`)))
+    .map(oldPath => slash(path.join('/', req.context.currentLanguage, oldPath.replace('/enterprise/', `/enterprise/${requestedVersion}/`))))
     // ignore paths that match the requested path
     .filter(oldPath => oldPath !== req.path)
 }

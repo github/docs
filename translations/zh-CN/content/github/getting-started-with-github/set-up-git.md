@@ -14,11 +14,12 @@ intro: '{% data variables.product.product_name %} 的核心是名为 Git 的开�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-要在命令行中使用 Git，您将需要在计算机上下载、安装和配置 Git。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} from the command line. For more information on {% data variables.product.prodname_cli %}, see the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.{% endif %}
+要在命令行中使用 Git，您将需要在计算机上下载、安装和配置 Git。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} 您也可以从命令行安装 {% data variables.product.prodname_cli %} 以使用 {% data variables.product.product_name %}。 有关 {% data variables.product.prodname_cli %} 的更多信息，请参阅 [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) 文档。{% endif %}
 
-如果要在本地使用 Git，但不想使用命令行，您可以下载并安装 [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) 客户端。  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
+如果要在本地使用 Git，但不想使用命令行，您可以下载并安装 [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) 客户端。  更多信息请参阅“[安装和配置 {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)”。
 
 如果无需在本地使用文件，{% data variables.product.product_name %} 可让您在浏览器中直接完成许多 Git 相关的操作，包括：
 

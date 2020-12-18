@@ -1,6 +1,6 @@
 const { eachOfLimit } = require('async')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get } = require('../helpers')
+const { get } = require('../helpers/supertest')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const restRedirectFixtures = require('../fixtures/rest-redirects')
 const graphqlRedirectFixtures = require('../fixtures/graphql-redirects')

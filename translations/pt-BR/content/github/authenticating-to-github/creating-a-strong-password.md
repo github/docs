@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Você deve escolher ou gerar uma senha para sua conta do {% data variables.product.product_name %} que tenha:
+You must choose or generate a password for your {% data variables.product.product_name %} account that is at least:
 - Oito caracteres, se incluir um número e uma letra minúscula, ou
 - 16 caracteres com qualquer combinação de caracteres
 

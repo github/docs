@@ -1,11 +1,12 @@
 ---
 title: 使用查询参数自动化发行版表单
-intro: 要通过使用自定义信息自动填充新发行版表单来快速创建发行版，可以添加查询参数到发行版表单页面的 URL。
+intro: '要通过使用自定义信息自动填充新发行版表单来快速创建发行版，可以添加查询参数到发行版表单页面的 URL。'
 redirect_from:
   - /articles/automation-for-release-forms-with-query-parameters
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 查询参数是 URL 中可以定制的部分，用于在 {% data variables.product.prodname_dotcom %}上共享特定的网页视图，如搜索过滤结果、议题模板或发行版表单页面。 要创建自己的查询参数，必须将键与值进行配对。

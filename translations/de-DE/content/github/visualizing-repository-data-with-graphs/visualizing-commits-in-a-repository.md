@@ -1,12 +1,13 @@
 ---
 title: Commits in einem Repository visualisieren
-intro: 'Im Commit-Diagramm kannst Du mit Ausnahme von Merge-Commits alle Commits anzeigen, die im vergangenen Jahr an einem Repository vorgenommen wurden.'
+intro: Im Commit-Diagramm kannst Du mit Ausnahme von Merge-Commits alle Commits anzeigen, die im vergangenen Jahr an einem Repository vorgenommen wurden.
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/visualizing-commits-in-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Das obere Diagramm zeigt Commits für das gesamte Jahr nach Woche.

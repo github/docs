@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Ao executar SSH ou comandos do Git remotos, o tempo limite da conexão pode expirar:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
-> OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
 > ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out

@@ -24,7 +24,7 @@ Se você tiver permissões de administrador para uma imagem de contêiner perten
 
 Se o seu pacote pertencer a uma organização e for privado, você só poderá conceder acesso a outros integrantes da organização ou equipes.
 
-Para a organização de contêineres de imagens, os administradores das organizações devem habilitar pacotes antes que você possa definir a visibilidade como pública. Para obter mais informações, consulte "[Habilitar o GitHub Container Registry para sua organização](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)".
+Para a organização de contêineres de imagens, os administradores das organizações devem habilitar pacotes antes que você possa definir a visibilidade como pública. Para obter mais informações, consulte "[Habilitar suporte ao contêiner aprimorado](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)".
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 1. Na página de configurações do pacote, clique em **Convidar equipes ou pessoas** e digite o nome, nome de usuário ou e-mail da pessoa à qual você deseja conceder acesso. Você também pode inserir um nome de equipe da organização para dar acesso a todos os integrantes da equipe. ![Botão de convite de acesso ao contêiner](/assets/images/help/package-registry/container-access-invite.png)
@@ -54,7 +54,7 @@ Ao publicar um pacote, a visibilidade-padrão é privada e só você poderá ver
 
 Um pacote público pode ser acessado anonimamente sem autenticação. Uma vez que você torna público o seu pacote, mas você não poderá tornar o seu pacote privado novamente.
 
-Para a organização de contêineres de imagens, os administradores das organizações devem habilitar pacotes públicos antes que você possa definir a visibilidade como pública. Para obter mais informações, consulte "[Habilitar o GitHub Container Registry para sua organização](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)".
+Para a organização de contêineres de imagens, os administradores das organizações devem habilitar pacotes públicos antes que você possa definir a visibilidade como pública. Para obter mais informações, consulte "[Habilitar suporte ao contêiner aprimorado](/packages/getting-started-with-github-container-registry/enabling-improved-container-support)".
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 5. Em "Zona de Perigo", escolha uma configuração de visibilidade:

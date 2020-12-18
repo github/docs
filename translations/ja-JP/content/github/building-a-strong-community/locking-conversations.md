@@ -1,20 +1,21 @@
 ---
 title: 会話をロックする
-intro: リポジトリのオーナーおよびコラボレーター、そしてリポジトリへの書き込みアクセスを持つユーザは、過熱した議論を和らげるために、Issue、プルリクエスト、およびコミットに関する会話を、恒久的または一時的にロックすることができます。
+intro: 'リポジトリのオーナーおよびコラボレーター、そしてリポジトリへの書き込みアクセスを持つユーザは、過熱した議論を和らげるために、Issue、プルリクエスト、およびコミットに関する会話を、恒久的または一時的にロックすることができます。'
 redirect_from:
   - /articles/locking-conversations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-会話が全体的に非建設的になったときや、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。
+会話が全体的に非建設的になったときや、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %} または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %} に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。
 
 会話をロックすると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、会話をロックしたユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 
 ![ロックした会話について匿名化されたタイムラインイベント](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-会話がロックされている間も、[書き込みアクセスを持つユーザ](/articles/repository-permission-levels-for-an-organization/)と[リポジトリのオーナーおよびコラボレーター](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)はコメントを追加または削除したり、非表示にしたりできます。
+会話がロックされている間も、[書き込みアクセスを持つユーザ](/articles/repository-permission-levels-for-an-organization/)と[リポジトリのオーナーおよびコラボレーター](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)はコメントを追加または削除したり、非表示にしたりできます。
 
 アーカイブされていないリポジトリでロックされた会話を検索するには、検索修飾子 `is:locked` および `archived:false` を使用できます。 会話はアーカイブされたリポジトリで自動的にロックされます。 詳細は「[Issue およびプルリクエストを検索する](/articles/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)」を参照してください。
 

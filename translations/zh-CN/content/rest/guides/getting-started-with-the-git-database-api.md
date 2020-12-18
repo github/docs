@@ -4,13 +4,14 @@ intro: 'Git 数据库 API 使您能够在 {% data variables.product.product_name
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概览
 
 这基本上允许您通过我们的 API 重新实现大量 Git 功能 - 通过直接在数据库中创建原始对象并更新分支引用，从技术上讲，您可以在不安装 Git 的情况下完成 Git 能做的任何事情。
 
-如果 Git 仓库为空或不可用，Git 数据库 API 函数将返回 `409 Conflict`。  仓库不可用通常意味着 {% data variables.product.product_name %} 正在创建仓库。 对于空仓库，您可以使用“[创建或更新文件内容](/v3/repos/contents/#create-or-update-file-contents)”端点来创建内容并初始化仓库，以便您可以使用 Git 数据库 API。 如果此响应状态仍然存在，请联系 {% data variables.contact.contact_support %}。
+如果 Git 仓库为空或不可用，Git 数据库 API 函数将返回 `409 Conflict`。  仓库不可用通常意味着 {% data variables.product.product_name %} 正在创建仓库。 对于空仓库，您可以使用“[创建或更新文件内容](/rest/reference/repos#create-or-update-file-contents)”端点来创建内容并初始化仓库，以便您可以使用 Git 数据库 API。 如果此响应状态仍然存在，请联系 {% data variables.contact.contact_support %}。
 
 ![git 数据库概述](/assets/images/git-database-overview.png)
 
@@ -32,14 +33,14 @@ versions:
 
 {% warning %}
 
-**警告！**请勿直接使用 Git 或 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %} 进行更新以 `merge` Git 引用，因为此内容会过时而不发出警告。
+**警告！**请不要依赖直接使用 Git 或 [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference)  更新 `merge` Git 引用，因为此内容会在不发出警告的情况下过期。
 
 {% endwarning %}
 
-消费 API 需要明确请求拉取请求来创建一个_测试_合并提交。 当您在 UI 中查看拉取请求并且“ Merge（合并）”按钮显示时，或者当您使用 REST API 来[获取](/v3/pulls/#get-a-pull-request)、[创建](/v3/pulls/#create-a-pull-request)或[编辑](/v3/pulls/#update-a-pull-request)拉取请求时，将创建一个_测试_合并提交。 如果没有此请求，`merge` Git 引用将过时，直到下次有人查看拉取请求。
+消费 API 需要明确请求拉取请求来创建一个_测试_合并提交。 当您在 UI 中查看拉取请求并且“ Merge（合并）”按钮显示时，或者当您使用 REST API 来[获取](/rest/reference/pulls#get-a-pull-request)、[创建](/rest/reference/pulls#create-a-pull-request)或[编辑](/rest/reference/pulls#update-a-pull-request)拉取请求时，将创建一个_测试_合并提交。 如果没有此请求，`merge` Git 引用将过时，直到下次有人查看拉取请求。
 
-如果您当前正在使用会生成过时 `merge` Git 引用的轮询方法，GitHub 建议您使用以下步骤从基本分支（通常是 `master`）获取最新更改：
+如果您当前正在使用会生成过时 `merge` Git 引用的轮询方法，GitHub 建议使用以下步骤从默认分支获取最新更改：
 
 1. 接收拉取请求 web 挂钩。
-2. 调用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) 以启动创建合并提交候选项的后台作业。
-3. 使用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) 轮询仓库，以查看 `mergeable` 属性是 `true` 还是 `false`。 您可以直接使用 Git 或 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %} 进行更新以 `merge` Git 引用，前提是您已执行上述步骤。
+2. 调用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) 以启动创建合并提交候选项的后台作业。
+3. 使用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/reference/pulls#get-a-pull-request) 轮询仓库，以查看 `mergeable` 属性是 `true` 还是 `false`。 您仅在执行上述步骤后才可直接使用 Git 或 [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/reference/git#get-a-reference) 更新 `merge` Git 引用。

@@ -1,1 +1,1 @@
-Activity related to an organization and its members. {% data reusables.webhooks.action_type_desc %} For more information, see the "[organizations](/v3/orgs/)" REST API.
+Atividade relacionada a uma organização e seus integrantes. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a APRI REST de "[organizações](/rest/reference/orgs)".

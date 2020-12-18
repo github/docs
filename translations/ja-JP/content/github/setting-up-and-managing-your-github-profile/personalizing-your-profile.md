@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プロフィール画像を変更する
@@ -40,7 +41,7 @@ versions:
 
 ### プロフィール名を変更する
 
-プロフィールに表示される名前は変更可能です。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}また、この名前は Organization が所有するプライベートリポジトリで付けたコメントの隣に表示される場合もあります。 詳細は「[Organization のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。{% endif %}
+プロフィールに表示される名前は変更可能です。 This name may also be displayed next to comments you make on private repositories owned by an organization. 詳細は「[Organization のメンバー名表示を管理する](/articles/managing-the-display-of-member-names-in-your-organization)」を参照してください。
 
 {% data reusables.user_settings.access_settings %}
 2. [Name] の下に、プロフィールに表示する名前を入力します。 ![プロフィール設定の [Name] フィールド](/assets/images/help/profile/name-field.png)
@@ -51,7 +52,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-自分に関するカスタマイズした情報を長いフォームで、もっと目立つように表示する場合は、プロフィール README を使用することもできます。 プロフィール README の詳細は、「[プロフィール README の管理](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)」を参照してください。
+自分に関するカスタマイズした情報を長いフォームで、もっと目立つように表示する場合は、プロフィール README を使用することもできます。 For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 
 {% endif %}
 
@@ -101,12 +102,12 @@ versions:
 
 特定のプログラムに参加すると、{% data variables.product.prodname_dotcom %} でプロフィールに自動的にバッジが表示されます。
 
-| バッジ                                                             | プログラム                                                                     | 説明                                                                                                                                                                                                                                                                      |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} Contributor** | 2020 Arctic Vault プログラムでアーカイブされたリポジトリのデフォルトブランチでコミットを作成すると、プロフィールで {% data variables.product.prodname_arctic_vault %} コントリビューターバッジを取得できます。 詳しい情報については、[{% data variables.product.prodname_archive %}](https://archiveprogram.github.com) を参照してください。         |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **開発者プログラムメンバー**                                                          | GitHub 開発者プログラムの登録メンバーの場合は、GitHub API でアプリを開発すると、プロフィールで開発者プログラムメンバーのバッジを取得します。 GitHub 開発者の詳しい情報については、「[GitHub 開発者](/program/)」を参照してください。                                                                                                                               |
-| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub スポンサー**                                                          | {% data variables.product.prodname_sponsors %} を通じてオープンソースコントリビューターをスポンサーした場合、プロフィールで GitHub スポンサーのバッジを取得します。 詳細は、「[オープンソースコントリビューターに対するスポンサー](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)」を参照してください。   |
-| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                                   | {% data variables.product.prodname_pro %} を使用すると、プロフィールで PRO バッジを取得します。 {% data variables.product.prodname_pro %} の詳細は、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products#github-pro)」を参照してください。 |
+| バッジ                                                             | プログラム                                                                | 説明                                                                                                                                                                                                                                                               |
+| --------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} Contributor** | 2020 Arctic Vault プログラムでアーカイブされたリポジトリのデフォルトブランチでコミットを作成すると、プロフィールで {% data variables.product.prodname_arctic_vault %} コントリビューターバッジを取得できます。 詳しい情報については、[{% data variables.product.prodname_archive %}](https://archiveprogram.github.com) を参照してください。            |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **開発者プログラムメンバー**                                                     | GitHub 開発者プログラムの登録メンバーの場合は、GitHub API でアプリを開発すると、プロフィールで開発者プログラムメンバーのバッジを取得します。 GitHub 開発者の詳しい情報については、「[GitHub 開発者](/program/)」を参照してください。                                                                                                                        |
+| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub スポンサー**                                                     | {% data variables.product.prodname_sponsors %} を通じてオープンソースコントリビューターをスポンサーした場合、プロフィールで GitHub スポンサーのバッジを取得します。 詳細は、「[オープンソースコントリビューターに対するスポンサー](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)」を参照してください。 |
+| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                              | {% data variables.product.prodname_pro %} を使用すると、プロフィールで PRO バッジを取得します。 {% data variables.product.prodname_pro %} の詳細は、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products#github-pro)」を参照してください。         |
 
 ### プロフィールでバッジを無効にする
 

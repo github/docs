@@ -1,11 +1,12 @@
 ---
 title: Gistのフォークとクローン
-intro: Gists は Git リポジトリです。つまり、オリジナルの作者でなくても Gist をフォークしたりクローンしたりできます。 diff など、Gist の完全なコミット履歴を見ることもできます。
+intro: 'Gists は Git リポジトリです。つまり、オリジナルの作者でなくても Gist をフォークしたりクローンしたりできます。 diff など、Gist の完全なコミット履歴を見ることもできます。'
 redirect_from:
   - /articles/forking-and-cloning-gists
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Gist をフォークする
