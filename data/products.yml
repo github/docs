@@ -2,5 +2,5 @@
 # the product IDs match keys in lib/all-products.js
 # note this file should not be translated
 productsInOrder:
-  - navigation
-  - purchases
+  - osmand
+  - development

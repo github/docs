@@ -8,6 +8,8 @@ versions: '*'
 {% link_in_list /osmand-live %}
 {% link_in_list /in-apps-ios %}
 {% link_in_list /in-apps-android %}
+{% link_in_list /osmand-live-android %}
+{% link_in_list /osmand-live-ios %}
 
 
 ## Get OsmAnd
