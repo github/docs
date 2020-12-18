@@ -1,5 +1,5 @@
----
-title: Setting your commit email address
+
+title: setting-your-commit-email-address.md
 intro: 'You can set the email address that is used to author commits on {% data variables.product.product_name %} and on your computer.'
 redirect_from:
   - /articles/keeping-your-email-address-private/
