@@ -530,12 +530,6 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-{% note %}
-
-**Note:** In order to protect public repositories from malicious users, all pull request workflows raised from repository forks run with a read-only token and no access to secrets.
-
-{% endnote %}
-
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `pull_request_review`
@@ -582,17 +576,11 @@ on:
 
 #### `pull_request_target`
 
-{% warning %}
-
-**Warning:** The `pull_request_target` event is granted a read/write repository token and access to secrets, even from a fork. (The `pull_request` event does not grant read/write or secret access from a repository fork.) Do not check out and build or run untrusted code from pull request with this event.
-
-{% endwarning %}
-
-This event runs in the context of the base repository of the pull request, rather than in the merge commit as `pull_request` does. This is by design to prevent you from executing unsafe code that could alter your repository or steal any secrets you use in your workflow. For example, this event allows you to create workflows that label and comment on pull requests, based on the contents of the event payload. 
+This event runs in the context of the base of the pull request, rather than in the merge commit as the `pull_request` event does.  This prevents executing unsafe workflow code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows you to do things like create workflows that label and comment on pull requests based on the contents of the event payload.
 
 {% warning %}
 
-**Warning**: When using the `pull_request_target` event, be aware that it runs in the context of the base repository. This means that the `GITHUB_TOKEN` has write access to the repository, and the cache shares the same scope as the base branch. As a result, do not run untrusted code in the same context, as there is a risk that it may access sensitive information and unexpectedly manipulate the workflow environment. In addition, to help prevent cache poisoning, do not save the cache if there is a possibility that the cache contents were altered.
+**Warning:** The `pull_request_target` event is granted a read/write repository token and can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch, and to help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered.
 
 {% endwarning %}
 
