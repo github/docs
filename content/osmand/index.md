@@ -7,6 +7,7 @@ versions: '*'
 
 {% link_in_list /navigation %}
 {% link_in_list /purchases %}
+{% link_in_list /plugins %}
 
 ## Get OsmAnd
 There are several possibilities to do that:
