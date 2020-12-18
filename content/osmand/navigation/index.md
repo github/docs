@@ -1,5 +1,5 @@
 ---
-title: OsmAnd Navigation
+title: Navigation
 intro: 'Documentation about Navigation'
 versions: '*'
 ---
