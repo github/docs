@@ -2,9 +2,10 @@
 title: OsmAnd
 intro: "OsmAnd is a mobile application available for iOS and Android"
 featuredLinks:
-    - /navigation
-    - /purchases
-    - /plugins
+    gettingStarted:
+        - /navigation
+        - /purchases
+        - /plugins
 versions: '*'
 ---
 
