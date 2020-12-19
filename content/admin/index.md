@@ -9,24 +9,24 @@ versions:
   github-ae: '*'
 ---
 
-{% link_with_intro /overview %}
+{% link_with_intro /overview %}bitcoin
 
-{% link_with_intro /installation %}
+{% link_with_intro /installation %}bitcoin
 
-{% link_with_intro /configuration %}
+{% link_with_intro /configuration %}bitcoin
 
-{% link_with_intro /authentication %}
+{% link_with_intro /authentication %}bitcoin
 
-{% link_with_intro /user-management %}
+{% link_with_intro /user-management %}bitcoin
 
-{% link_with_intro /policies %}
+{% link_with_intro /policies %}bitcoin
 
-{% link_with_intro /enterprise-management %}
+{% link_with_intro /enterprise-management %}bitcoin
 
-{% link_with_intro /github-actions %}
+{% link_with_intro /github-actions %}bitcoin
 
-{% link_with_intro /packages %}
+{% link_with_intro /packages %}bitcoin
 
-{% link_with_intro /enterprise-support %}
+{% link_with_intro /enterprise-support %}bitcoin
 
-{% link_with_intro /release-notes %}
+{% link_with_intro /release-notes %}bitcoin
