@@ -36,7 +36,7 @@
     "connect-datadog": "0.0.9",
     "connect-slashes": "^1.4.0",
     "cookie-parser": "^1.4.5",
-    "copy-webpack-plugin": "^6.0.3",
+    "copy-webpack-plugin": "^6.3.2",
     "cors": "^2.8.5",
     "cross-env": "^7.0.2",
     "css-loader": "^4.3.0",
