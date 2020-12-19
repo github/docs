@@ -4,8 +4,8 @@ intro: 'There are several Subversion workflows and properties that are similar t
 redirect_from:
   - /articles/subversion-properties-supported-by-github
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  free-pro-team: 'ekkarat30'
+  enterprise-server: 'https://ekkarar_product@outlook.co.th
 ---
 
 ### Executable files (svn:executable)
