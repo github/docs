@@ -1,0 +1,1 @@
+Use OdmAnd to contribute to collaborative projects like OpenStreetMap, WikiVoyage, Mapillary
