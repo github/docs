@@ -7,8 +7,8 @@ redirect_from:
   - /articles/about-enterprise-accounts
   - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  free-pro-team: 
+  enterprise-server: 
 ---
 
 ### About enterprise accounts
