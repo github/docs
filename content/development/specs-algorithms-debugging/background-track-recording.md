@@ -9,7 +9,7 @@ Starting with Android 4.4 (or maybe before), new Android power saving options li
 - (A3) Android 8 introduced a new Foreground service in connection with a system notification. Ever since OsmAnd v3.2 we use this foreground service which should also solve the issue, but only for Android 8+. (Issues [\#5255](https://github.com/osmandapp/Osmand/issues/5255), [\#5587](https://github.com/osmandapp/Osmand/issues/5587)). Read more - [Dontkillmyapp](https://dontkillmyapp.com/)
 
 ## Update December 2020
-Subsequent statements (B) and (C) are now outdated, GPS Wake-Up has been removed from our code (950a9cc8f8660b3f3d750391ddc1429d5dc38b34). Track recording will keep GPX on continuously via an Android foreground service.
+Subsequent statements (B) and (C) are now outdated, GPS Wake-Up has been removed from our code (https://github.com/osmandapp/OsmAnd/commit/950a9cc8f8660b3f3d750391ddc1429d5dc38b34). Track recording will keep GPX on continuously via an Android foreground service.
 
 ## <del>(B) GPS Wake-up Strategy</del>
 - (B1) While OsmAnd is used for e.g. Navigation: We keep the system's GPS module on all the time, as continuous location information is key here. Effect on battery use (order of magnitude) seems about 5% per hour on older systems up to Android 4.4, 2-3% for newer systems.
