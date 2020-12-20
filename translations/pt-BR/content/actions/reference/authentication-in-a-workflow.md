@@ -14,7 +14,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Qualquer pessoa com acesso de `gravar` em um repositório pode criar, ler e usar secredos.
+Qualquer pessoa com acesso de `gravar` em um repositório pode criar, ler e usar segredos.
 
 ### Sobre o segredo `GITHUB_TOKEN`
 
