@@ -28,26 +28,27 @@ The _tts.js_ config files should contain a header as follows, where (X) keeps tr
 * For some languages we offer different regional variants. Hearing also the corresponding regional pronunciation depends on the capabilities of your device.
 * For some voices we also offer additional variants with e.g. shorter ('casual') prompts or some prompts muted to redcue chattiness.
 
-## 3. Testing of Voice Prompts:
+## 3. Testing of Voice Prompts
 You may temporarily enable OssmAnd's Development plugin, then go to its settings and use button _Test voice propmts_. It provides several annlouncement examples for each type of OsmAnd prompt, using a wide range of numbers to test time/distance formating and pronunciation. The button caption staes the basic prompt content, the exact wording is specified in the tts.js file you test.
 There is also a test button showing your device settings and language capabilities.
 
-## 4. Details on Some Specific Prompts:
+## 4. Details on Some Specific Prompts
 
-### "Route calculated/Route recalculated":
+### "Route calculated/Route recalculated"
 Is played after the route has been calculated or recalculated, together with saome base data, depending on the chattines of the voice package selected.
 
-### "GPS signal lost":
+### "GPS signal lost"
 
 Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action.
 
-### "Make a U-turn when possible":
+### "Make a U-turn when possible"
 
 Mostly suppressed now. Shpoudl only sound if no route in forward direction was found at all (e.g. if you are heading down a one way road), or if a route in forward directiom is decisively longer. 
 
-### Turn instructions: Lead distances (lead time):
-**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): | &nbsp;
+### Turn instructions:
+Lead distances (lead time) | Prompt type
 --- | ---
+**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): |
 (a) \>3000m out | "Follow the course of the road for..."
 <del>(b) 3000m-2000m</del> | <del>PREPARE\_LONG</del> (We now suppress this entirely)
 (c) 1500m-1200m|PREPARE
@@ -55,14 +56,14 @@ Mostly suppressed now. Shpoudl only sound if no route in forward direction was f
 (e) \<60m (or \<5sec) | TURN
 **2. BICYCLE profile** (DEFAULT\_SPEED = 5m/s=18 km/h): |
 (b) 500m-300m | PREPARE\_LONG
-(c) \~\~500m-350m\~\~ 200m-120m | PREPARE
-(d) \~\~225m-80m (or \<45sec)\~\~ 80m-60m (or \<16sec) | TURN\_IN
-(e) \~\~\<45m (or \<9sec)\~\~ \<30m (or \<6sec) | TURN
+(c) 200m-120m | PREPARE
+(d) 80m-60m (or \<16sec) | TURN\_IN
+(e) \<30m (or \<6sec) | TURN
 **3. PEDESTRIAN profile** (DEFAULT\_SPEED = 2 m/s=7.2km/h):
-(c) \~\~200m-150m\~\~ 100m-70m | PREPARE
-(d) \~\~100m-70m (or \<50sec)\~\~ 50m-30m (or \<25sec) | TURN\_IN
-(e) \~\~25m or (or \<12sec)\~\~ 15m (or \<7.5sec) | TURN
+(c) 100m-70m | PREPARE
+(d) 50m-30m (or \<25sec) | TURN\_IN
+(e) 15m (or \<7.5sec) | TURN
 
 Notes:
 * Values as of 2013 to be checked, we may have changed at some point.
-* We interrupt/suppress TURN instructions immediately once your direction of travel or current position is not any more in line with the turn to be announced (account for GPS issues).
+* We mute TURN instructions immediately once your direction of travel or current position is not any more in line with the turn to be announced (account for GPS issues).
