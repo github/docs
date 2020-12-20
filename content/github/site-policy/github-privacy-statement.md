@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: November 16, 2020
+Effective date: December 19, 2020
 
 Thanks for entrusting GitHub Inc. (“GitHub”, “we”) with your source code, your projects, and your personal information. Holding on to your private information is a serious responsibility, and we want you to know how we're handling it.
 
@@ -28,14 +28,14 @@ Of course, the short version and the Summary below don't tell you everything, so
 
 | Section | What can you find there? |
 |---|---|
-| [What information GitHub collects](#what-information-github-collects) | GitHub collects information directly from you for your registration, payment, transactions, and user profile. We also automatically collect from you your usage information, cookies and similar technologies, and device information, subject, where necessary, to your consent. GitHub may also collect User Personal Information from third parties. We only collect the minimum amount of personal information necessary from you, unless you choose to provide more. |
+| [What information GitHub collects](#what-information-github-collects) | GitHub collects information directly from you for your registration, payment, transactions, and user profile. We also automatically collect from you your usage information, cookies, and device information, subject, where necessary, to your consent. GitHub may also collect User Personal Information from third parties. We only collect the minimum amount of personal information necessary from you, unless you choose to provide more. |
 | [What information GitHub does _not_ collect](#what-information-github-does-not-collect) | We don’t knowingly collect information from children under 13, and we don’t collect [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/). |
 | [How GitHub uses your information](#how-github-uses-your-information) | In this section, we describe the ways in which we use your information, including to provide you the Service, to communicate with you, for security and compliance purposes, and to improve our Service. We also describe the legal basis upon which we process your information, where legally required. |
 | [How we share the information we collect](#how-we-share-the-information-we-collect) | We may share your information with third parties under one of the following circumstances: with your consent, with our service providers, for security purposes, to comply with our legal obligations, or when there is a change of control or sale of corporate entities or business units. We do not sell your personal information and we do not host advertising on GitHub. You can see a list of the service providers that access your information. |
 | [Other important information](#other-important-information) | We provide additional information specific to repository contents, public information, and Organizations on GitHub. |
 | [Additional services](#additional-services) | We provide information about additional service offerings, including third-party applications, GitHub Pages, and GitHub applications. |
 | [How you can access and control the information we collect](#how-you-can-access-and-control-the-information-we-collect) | We provide ways for you to access, alter, or delete your personal information. |
-| [Our use of cookies and tracking](#our-use-of-cookies-and-tracking) | We use cookies for the overall functionality of our Website, and we use a small number of tracking and analytics services on a few parts of our site. We offer a page that makes this very transparent. Please see this section for more information. |
+| [Our use of cookies and tracking](#our-use-of-cookies-and-tracking) | We only use strictly necessary cookies to provide, secure and improve our service. We offer a page that makes this very transparent. Please see this section for more information. |
 | [How GitHub secures your information](#how-github-secures-your-information) | We take all measures reasonably necessary to protect the confidentiality, integrity, and availability of your personal information on GitHub and to protect the resilience of our servers. |
 | [GitHub's global privacy practices](#githubs-global-privacy-practices) | We provide the same high standard of privacy protection to all our users around the world. |
 | [How we communicate with you](#how-we-communicate-with-you) | We communicate with you by email. You can control the way we contact you in your account settings, or by contacting us. |
@@ -74,8 +74,8 @@ If you have a paid Account with us, sell an application listed on [GitHub Market
 ##### Usage information
 If you're accessing our Service or Website, we automatically collect the same basic information that most services collect, subject, where necessary, to your consent. This includes information about how you use the Service, such as the pages you view, the referring site, your IP address and session information, and the date and time of each request. This is information we collect from every visitor to the Website, whether they have an Account or not. This information may include User Personal information.
 
-##### Cookies and similar technologies information
-As further described below, and subject, where applicable, to your consent, we automatically collect information from cookies and similar technologies (such as cookie ID and settings) to keep you logged in, to remember your preferences, and to identify you and your device.
+##### Cookies 
+As further described below, we automatically collect information from cookies (such as cookie ID and settings) to keep you logged in, to remember your preferences, to identify you and your device and to analyze your use of our service.
 
 ##### Device information
 We may collect certain information about your device, such as its IP address, browser or client application information, language preference, operating system and application version, device type and ID, and device model and manufacturer. This information may include User Personal information.
@@ -235,15 +235,17 @@ That said, the email address you have supplied [via your Git commit settings](/g
 
 #### Cookies
 
-GitHub uses cookies and similar technologies (e.g., HTML5 localStorage) to make interactions with our service easy and meaningful. Cookies are small text files that websites often store on computer hard drives or mobile devices of visitors. We use cookies and similar technologies (hereafter collectively "cookies") to provide you our services, for example, to keep you logged in, remember your preferences, identify your device for security purposes, and provide information for future development of GitHub. By using our Website, you agree that we can place these types of cookies on your computer or device. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use GitHub’s services.
+GitHub only uses strictly necessary cookies. Cookies are small text files that websites often store on computer hard drives or mobile devices of visitors. 
 
-We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies. It also lists our third-party analytics providers and how you can control your cookie preference settings for such cookies.
+We use cookies solely to provide, secure, and improve our service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, analyze your use of our service, compile statistical reports, and provide information for future development of GitHub. We use our own cookies for analytics purposes, but do not use any third-party analytics service providers. 
 
-#### Tracking and analytics
+By using our service, you agree that we can place these types of cookies on your computer or device. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use our service.
 
-We use a number of third-party analytics and service providers to help us evaluate our Users' use of GitHub, compile statistical reports on activity, and improve our content and Website performance. We only use these third-party analytics providers on certain areas of our Website, and all of them have signed data protection agreements with us that limit the type of User Personal Information they can collect and the purpose for which they can process the information. In addition, we use our own internal analytics software to provide features and improve our content and performance.
+We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies. 
 
-Some browsers have incorporated "Do Not Track" (DNT) features that can send a signal to the websites you visit indicating you do not wish to be tracked. GitHub responds to browser DNT signals and follows the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you have not enabled DNT on a browser that supports it, cookies on some parts of our Website will track your online browsing activity on other online services over time, though we do not permit third parties other than our analytics and service providers to track GitHub Users' activity over time on GitHub. You can read more about DNT in our [Tracking on GitHub](/github/site-policy/github-subprocessors-and-cookies#tracking-on-github) section of our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page.
+#### DNT
+
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub responds to browser DNT signals and follows the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. There are also good applications that block online tracking, such as [Privacy Badger](https://privacybadger.org/).
 
 ### How GitHub secures your information
 
