@@ -10,25 +10,17 @@
 
 The _tts.js_ config files should contain a header as follows, where (X) keeps track of which particular features have been implemented and checked for the voice in question:
 
-`// IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
+> // IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
+> //
+> // (X) Basic navigation prompts: route (re)calculated (with distance and time support), turns, roundabouts, u-turns, straight/follow, arrival
+> // (X) Announce nearby point names (destination / intermediate / GPX waypoint / favorites / POI)
+> // (X) Attention prompts: SPEED_CAMERA; SPEED_LIMIT; BORDER_CONTROL; RAILWAY; TRAFFIC_CALMING; TOLL_BOOTH; STOP; PEDESTRIAN; MAXIMUM; TUNNEL
+> // (X) Other prompts: gps lost, off route, back to route
+> // (X) Street name and prepositions (onto / on / to) and street destination (toward) support
+> // (X) Distance unit support (meters / feet / yard)
+> // (N/A) Special grammar: (please specify which)
 
-//
-
-// (X) Basic navigation prompts: route (re)calculated (with distance and time support), turns, roundabouts, u-turns, straight/follow, arrival
-
-// (X) Announce nearby point names (destination / intermediate / GPX waypoint / favorites / POI)
-
-// (X) Attention prompts: SPEED_CAMERA; SPEED_LIMIT; BORDER_CONTROL; RAILWAY; TRAFFIC_CALMING; TOLL_BOOTH; STOP; PEDESTRIAN; MAXIMUM; TUNNEL
-
-// (X) Other prompts: gps lost, off route, back to route
-
-// (X) Street name and prepositions (onto / on / to) and street destination (toward) support
-
-// (X) Distance unit support (meters / feet / yard)
-
-// (N/A) Special grammar: (please specify which)
-
-// (X) Support announcing highway exits`
+> // (X) Support announcing highway exits
 
 
 ## 2. Voice Languages and Variants
@@ -61,8 +53,8 @@ Mostly suppressed now. Shpoudl only sound if no route in forward direction was f
 Note Hardy: Values to be checked, may have been changed
 
 
-**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): |  
---------------------------------------------------- | -
+**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): |   
+----------------------------------------------- | --
 (a) \>3000m out | "Follow the course of the road for..."
 (b) 3000m-2000m | PREPARE\_LONG (We now suppress this prompt as it was little helpful)
 (c) 1500m-1200m|PREPARE
