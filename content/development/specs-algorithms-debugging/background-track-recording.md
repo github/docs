@@ -18,7 +18,7 @@ Subsequent statements (B) and (C) are now outdated, GPS Wake-Up has been removed
 
 ## <del>(C) GPS Wake-up Issues</del>
 In order to achieve the GPS wake-up, so far we use the Android AlarmManger to wake up the device periodically (also from Doze mode, which was introduced in Android 6). New Android versions introduced the following issues:
-- **(C1) AlarmManager's setRepeating() became inexact starting with Android 4.4:**
+- **(C1) AlarmManager's setRepeating() became inexact starting with Android 4.4:**  
 Mitigation: We now use *setRepeating()* only up to Android 4.2, the new *setExact()* method starting with Android 4.4, and *setExactAndAllowWhileIdle()* for Android 8+. ([Issue \#5632](https://github.com/osmandapp/Osmand/issues/5632))
-- **(C2) Starting from Android 4.4, systems limit the number of times *setExact()* is executed repeatedly** to e.g. once per 5 or even 15 minutes. (The actual value seems wildly device specific.)
+- **(C2) Starting from Android 4.4, systems limit the number of times *setExact()* is executed repeatedly** to e.g. once per 5 or even 15 minutes. (The actual value seems wildly device specific.)  
 No good solution found for now. Current mitigation is we do not use AlarmManager wake-up, instead keep GPS always on for background track logging on devices with Android 5+ for all recording intervals shorter than 5 minutes. This produces reliable and precise tracks at the cost of the higher battery use. ([Issue \#5632](https://github.com/osmandapp/Osmand/issues/5632))
