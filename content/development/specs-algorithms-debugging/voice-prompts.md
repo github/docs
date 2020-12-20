@@ -1,13 +1,12 @@
 # Navigation Voice Prompts - Status, Parametrization (by Hardy)
 ## 1. Some Basics
- * Osmand supports both Text-to-Speech (TTS) synthesized prompts and pre-recorded voices.  
- * Using a TTS voice is preferred, it is more flexible and can e.g. also pronouce the names of places or streets.  
- * Pre-recorded voices are recommended only as a fallback if your device is not capababöle of supportinmg TTS voice at all in the language selected.  
- * In order to use TTS, your device needs to havea TTS engine insalled which supports the laguage you would like to hear. Most devices come withne or two engines already preinstalled. Only for less common languages you may have to find and install a third party TTS engine.
-  
- * For which event or actions voice prompts are offered, and their timing, is governed by the OsmAnd voice router code.  
- * The vocabulary and sentence construction for any language is specified in a configuratioon file _xx-yy_tts.js_, where xx is the ISO 639-1 language code and yy an optional regional or similar specifier. Only for recorded voices an additional sub-folder _voice_ subfiolder is required with all necessary recorded expressions as _.ogg_ files.
- * The folder/file convention on the device is `voice/xx[-yy]-ttsxx[-yy]_tts.js`.
+* Osmand supports both Text-to-Speech (TTS) synthesized prompts and pre-recorded voices.  
+* Using a TTS voice is preferred, it is more flexible and can e.g. also pronouce the names of places or streets.  
+* Pre-recorded voices are recommended only as a fallback if your device is not capababöle of supporting TTS at all in the language selected.  
+* In order to use TTS, your device needs to have a TTS engine installed which supports the laguage you would like to hear. Most devices come with one or two engines already pre-installed. Only for less common languages you may have to find and install a third party TTS engine.
+* For which event voice prompts are offered, and their timing, is governed by the OsmAnd voice router code.  
+* But the vocabulary and sentence construction for any language is specified in a configuration file _xx-yy_tts.js_, where xx is the ISO 639-1 language code and yy an optional regional or similar specifier. Only for recorded voices an additional sub-folder _voice_ subfiolder is required with all necessary recorded expressions as _.ogg_ files.
+* The folder/file convention on the device is `voice/xx[-yy]-ttsxx[-yy]_tts.js`.
 
 The _tts.js_ config files should contain a header as follows, where (X) keeps track of which particular features have been implemented and checked for the voice in question:
 
@@ -25,7 +24,7 @@ The _tts.js_ config files should contain a header as follows, where (X) keeps tr
 </pre>
 
 ## 2. Voice Languages and Variants
-* Some common language voices prompt packages are preinstallled in OsmAnd, others require a one-time download-
+* Some common language voices prompt packages are preinstallled in OsmAnd, others require a one-time download.
 * For some languages we offer different regional variants. Hearing also the correct reggional pronunciation depends on the capabilities of your device.
 * For some voices we also offer additional variants with e.g. shorter prompts or some prompts muted
 
@@ -54,10 +53,10 @@ Mostly suppressed now. Shpoudl only sound if no route in forward direction was f
 Note Hardy: Values to be checked, may have been changed
 
 
-**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): |   
------------------------------------------------ | ---
+**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): | &nbsp;
+--- | ---
 (a) \>3000m out | "Follow the course of the road for..."
-(b) 3000m-2000m | ~~PREPARE\_LONG~~ (We now suppress this entirely)
+(b) 3000m-2000m | <del>PREPARE\_LONG</del> (We now suppress this entirely)
 (c) 1500m-1200m|PREPARE
 (d) 300m-168m (or \<25sec) | TURN\_IN
 (e) \<60m (or \<5sec) | TURN
