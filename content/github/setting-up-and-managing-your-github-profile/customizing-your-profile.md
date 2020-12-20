@@ -5,8 +5,8 @@ mapTopic: true
 redirect_from:
   - /articles/customizing-your-profile
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: 
+  enterprise-server: 
+  github-ae: 
 ---
 
