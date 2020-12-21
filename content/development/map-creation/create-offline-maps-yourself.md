@@ -34,26 +34,35 @@ mv index_files/*.obf osmandmaps/
 
 ### Explanation
 Line `WORK\_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps \_osm\_files\_, \_OsmAndMapCreator\_, \_index\_files\_ and \_gen\_files\_.
+
 We go to the download folder \_osm\_files\_ and use the command \_wget\_ to download our map(s). `wget` is used with parameter `\_-O \<name\>\_` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
+
 We go to folder \_OsmAndMapCreator\_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
 <pre>
 _java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml_
 </pre>
 runs OsmAndMapcreator with our downloaded maps, processing all maps it will find in the download folder (including all older ones still present there).
+
 We log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in \_batch.xml\_.  
+
 **Note:** a 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
+
 The \_batch.xml\_ file is found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program. The line:
 <pre>
 _process directory_for_osm_files=​"/opt/OpenStreetMap/osm_files" directory_for_index_files=​"/opt/OpenStreetMap/index_files" directory_for_generation=​"/opt/OpenStreetMap/gen_files"_
 </pre>
 specifies the working folders.
+
 The next line:
 <pre>
 _skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true"        indexTransport="true" indexAddress="true">_ 
 </pre>       
 contains options to modify parts of your map. If you don't need routing and/or addresses, you can skip these by setting the parameters to "false".
+
 You may also use multiple batch.xml files for different purposes.
+
 The last two lines in the script move the created maps to the osmandmaps folder where we store our maps (in this case).
+
 Lines
 <pre>
 _echo date > starttime.txt_</pre>
