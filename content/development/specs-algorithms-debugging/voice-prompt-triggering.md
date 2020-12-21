@@ -26,20 +26,23 @@ Is played after GPS signal has been lost for continuous 20 sec and this was not 
 
 Mostly suppressed now. Should only sound if no route in forward direction was found at all (e.g. if you are heading down a one way road), or if a route in forward directiom is decisively longer. 
 
-### Trigger Behavior:
+### Trigger Behavior
 Prompt type | Trigger
 --- | ---
 GoAhead | \>3000 m out, after route calculation if no other prompt is due, or (2) after a turn if next turn is more than PREPARE_LONG_DISTANCE away
 <del>(TURN) PREPARE_LONG </del> | <del>CAR: 3000 m - 2000 m</del><br>BICYCLE: 500 m - 30 0m<br>PEDESTRIAN: 100 m - 70 m
 (TURN) PREPARE | CAR: 1500 m - 1200 m<br>BICYCLE: 200 m - 120 m<br>PEDESTRIAN: 100m-70m
-TURN_IN | CAR: 300m-168m or \<25sec<br>BICYCLE: 80m-60m or \<16sec<br>PEDESTRIAN: 50m-30m or \<25sec
-TURN | CAR: \<60m or \<5sec<br>BICYCLE: \<30m or \<6sec<br>PEDESTRIAN: 15m or \<7.5sec
-ALARMS | 
-approach points | 1400m
-arrive at destinationPoint | 5sec * ARRIVAL_DISTANCE_FACTOR
+TURN_IN | CAR: 300 m - 168 m or \<25 sec<br>BICYCLE: 80 m - 60 m or \<16 sec<br>PEDESTRIAN: 50 m - 30 m or \<25 sec
+TURN | CAR: \<60 m or \<5 sec<br>BICYCLE: \<30 m or \<6 sec<br>PEDESTRIAN: 15 m or \<7.5 sec
+ALARMS | 150 m (100 m for TRAFFIC_CALMING)
+approaching points | 1400 m
+arrive at destinationPoint | 5 sec * ARRIVAL_DISTANCE_FACTOR
 arrive at waypoint | Treat like destination
-passing nearby POI | to be discussed
-passing nearby FAVORITE | to be discussed
+passing nearby POI | <span style="color:red">no threshold, to be discussed</span>
+passing nearby FAVORITE | <span style="color:red">no threshold, to be discussed</span>
+Make a U-turn when possible | Mostly suppressed now. Should only sound if no route in forward direction was found at all (e.g. if you are heading down a one way road), or if a route in forward directio
+GPS signal lost | Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action.
+
 
 Notes:
 * Values as of 2013 to be checked, we may have changed at some point.
