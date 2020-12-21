@@ -13,6 +13,6 @@ Just launch OsmAnd Maps & Navigation app and update the information about differ
 
 ##### How to use
 {% link_in_list /osm-editing-android %}
-{% link_in_list /osm-editings-ios %}
+{% link_in_list /osm-editing-ios %}
 
 {% data reusables.plugins.osm-editing-android-enable %}
