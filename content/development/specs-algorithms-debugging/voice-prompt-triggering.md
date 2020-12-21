@@ -30,7 +30,7 @@ Mostly suppressed now. Should only sound if no route in forward direction was fo
 Prompt type | Trigger
 --- | ---
 GoAhead | \>3000 m out, after route calculation if no other prompt is due, or (2) after a turn if next turn is more than PREPARE_LONG_DISTANCE away
-<del>(TURN) PREPARE_LONG </del> | <del>CAR: 3000 m - 2000 m</del><br>BICYCLE: 500 m - 30 0m<br>PEDESTRIAN: 100 m - 70 m
+<del>(TURN) PREPARE_LONG </del> | We now suppress this prompt due to user feedback<del>CAR: 3000 m - 2000 m<br>BICYCLE: 500 m - 30 0m<br>PEDESTRIAN: 100 m - 70 m</del>
 (TURN) PREPARE | CAR: 1500 m - 1200 m<br>BICYCLE: 200 m - 120 m<br>PEDESTRIAN: 100m-70m
 TURN_IN | CAR: 300 m - 168 m or \<25 sec<br>BICYCLE: 80 m - 60 m or \<16 sec<br>PEDESTRIAN: 50 m - 30 m or \<25 sec
 TURN | CAR: \<60 m or \<5 sec<br>BICYCLE: \<30 m or \<6 sec<br>PEDESTRIAN: 15 m or \<7.5 sec
