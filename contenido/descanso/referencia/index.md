@@ -40,4 +40,4 @@ versions:
 {% link_in_list /secret-scanning %}
 {% link_in_list /teams %}
 {% link_in_list /users %}
-{% link_in_list /permissions-required-for-github-apps %}
+{% link_in_list / %}
