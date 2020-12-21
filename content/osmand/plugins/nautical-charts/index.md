@@ -4,7 +4,6 @@ intro: "Detailed graphical representation of oceans, seas, coastal areas and riv
 versions: '*'
 ---
 
-##### How to use
 {% link_in_list /nautical-charts-android %}
 {% link_in_list /nautical-charts-ios %}
 
