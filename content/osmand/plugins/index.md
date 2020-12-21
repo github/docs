@@ -6,5 +6,6 @@ versions: '*'
 
 
 {% link_in_list /audio-video-notes %}
+{% link_in_list /contour-lines %}
 {% link_in_list /nautical-charts %}
 {% link_in_list /osm-editing %}
