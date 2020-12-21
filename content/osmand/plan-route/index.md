@@ -1,5 +1,5 @@
 ---
-title: {% data variables.android-values.plan_a_route %}
+title: Plan a route
 intro: "OsmAnd is a mobile application available for iOS and Android"
 versions: '*'
 ---
