@@ -90,18 +90,17 @@ What can you do to improve performance:
 The modern "solid state" disks are 2-6 times as fast as conventional hard-disks and can improve your map creation performance dramatically.
 
 #### Multiple disks
-Modern operating systems can access multiple disks simultaneously. Note that this really means *\*multiple disks\** and *\*NOT\** multiple partitions on one disk.
-If you have your \_process directory\_for\_osm\_files\_ on one disk and your \_directory\_for\_generation\_ on another disk you will see an nice and noticeable performance gain.
+Modern operating systems can access multiple disks simultaneously. Note that this really means **multiple disks** and **not** multiple partitions on one disk.
+If you have your _process\_directory\_for\_osm\_files_ on one disk and your _directory\_for\_generation_ on another disk, you will see an nice and noticeable performance gain.
 
 #### In memory processing
-You can do a great deal of the map creation not on disk but in memory. In your batch.xml one of the top lines contains:
+You can process a great deal of the map creation in memory instead of on disk. In your _batch.xml_, one of the top lines contains:
 <pre>
-\<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/\>
+`\<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/\>`
 </pre>
-* The osmDbDialect="sqlite" mapDbDialect="sqlite" determines where your map generation process will take place.
-* Line osmDbDialect="sqlite" mapDbDialect="sqlite" means that it will take place on disk.
-* If you change this to osmDbDialect="sqlite\_in\_memory" mapDbDialect="sqlite\_in\_memory" the process will take place in memory.
-This "in memory" processing will speed up the map generation by 10-50% but requires a lot of memory. The 10% to 50% is dependent on the map size. Smaller maps benefit less from in memory processing than larger maps, as still the normal disk access (initial reading and final map writing) plays a major role in smaller maps, where as the processing of all the data (and their relations) in larger maps requires more "calculation".
+* `osmDbDialect="sqlite" mapDbDialect="sqlite"` means your map generation process will take place on disk.
+* Change to `osmDbDialect="sqlite\_in\_memory" mapDbDialect="sqlite\_in\_memory"`to run the process in memory.
+This "in memory" processing will speed up the map generation by 10-50%, but requires a lot of memory. 10% to 50% depends on the map size. Smaller maps benefit less from in memory processing than larger maps, as disk access for initial reading and final map writing plays a bigger role, while larger maps require more "calculation".
 In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm* or *.osm.pbf* file. This *nodes.tmp.odb* file is a sqlite database file and it is about 15 to 25 times as big as the original *.osm.pbf* file which you downloaded from [geofabrik.de](http://download.geofabrik.de/).
 So if your original *.osm.pbf* file is 300MB, your *nodes.tmp.odb* file will be 5GB to 6GB! Note that smaller maps will be around the 15x factor whereas big maps (\>350MB) will end up in the 20x to 25X space increase.
 With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. It means that the -Xmx parameter, which we discussed in the [Explanation](http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation) sections, needs to be big enough for both the *nodes.tmp.odb* and the normal processing that takes place in memory.
