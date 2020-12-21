@@ -4,7 +4,7 @@ intro: "This plugin gives the terrain information you can view over the basic ma
 versions: '*'
 ---
 
-![Contour lines](/assets/images/plugins/contour-lines/ncontour-lines-intro.png)
+![Contour lines](/assets/images/plugins/contour-lines/contour-lines-intro.png)
 
 ##### How to use
 {% link_in_list /contour-lines-android %}
