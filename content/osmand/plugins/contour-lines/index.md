@@ -3,6 +3,9 @@ title: Contour lines maps and Terrain
 intro: "This plugin gives the terrain information you can view over the basic map."
 versions: '*'
 ---
+
+![Contour lines](/assets/images/plugins/contour-lines/ncontour-lines-intro.png)
+
 ##### How to use
 {% link_in_list /contour-lines-android %}
 {% link_in_list /contour-lines-ios %}
