@@ -29,4 +29,4 @@ The generated file is like this:
 &lt;/osm>
 </pre>         
 
-All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The created\_by= option with missing value means that the properties will be ignored. If your poi belongs to different categories, I suggest you create multiple osm files and create OsmAnd odf files and merge them together later with OsmAndMapCreator, or create multiple obf files.
+All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The `created\_by=` option with missing value means that the properties will be ignored. If your POI belongs to different categories, I suggest you create multiple osm files and create OsmAnd obf files and merge them together later with OsmAndMapCreator, or create multiple obf files.
