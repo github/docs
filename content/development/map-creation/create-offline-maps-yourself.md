@@ -95,9 +95,9 @@ If you have your _process\_directory\_for\_osm\_files_ on one disk and your _dir
 
 #### In memory processing
 You can process a great deal of the map creation in memory instead of on disk. In your _batch.xml_, one of the top lines contains:
-<pre><code>
-<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"\>
-</code></pre>
+<pre>
+\<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"\\\>
+</pre>
 * `osmDbDialect="sqlite" mapDbDialect="sqlite"` means your map generation process will take place on disk.
 * Change to `osmDbDialect="sqlite\_in\_memory" mapDbDialect="sqlite\_in\_memory"`to run the process in memory.
 This "in memory" processing will speed up the map generation by 10-50%, but requires a lot of memory. 10% to 50% depends on the map size. Smaller maps benefit less from in memory processing than larger maps, as disk access for initial reading and final map writing plays a bigger role, while larger maps require more "calculation".
