@@ -1,5 +1,5 @@
 # Navigation Voice Prompt Triggering
-**(Compiled by Hardy 2013, to be reviewed)**
+**-- Compiled by Hardy 2013, to be reviewed --**
 * Most prompts are triggered based on a fixed lead distance (which can depend on the base profile)
 * For some close prompts we have a combined approach using
    * lead distance threshold
@@ -8,7 +8,7 @@
    * current speed
    * DEFAULT_SPEED of the base profile
 * There is a user-configurable additional and overall VOICE_PROMPT_DELAY, particularly needed for output type _Phone call audio_, where we emulate a call to a car stereo which comes with a noticeable delay. (Also all distances to be used in the prompts anticipate VOICE_PROMPT_DELAY!)
-* For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting ARRICAL_DISTANCE_FACTOR impacting the lead distance
+* For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting ARRIVAL_DISTANCE_FACTOR impacting the lead distance
 * We mute TURN instructions immediately once your direction of travel or current position is not any more in line with the turn to be announced (account for GPS issues).
 
 ### Base Profile Default Speeds
@@ -20,7 +20,7 @@
 ### Trigger Behavior
 Prompt type | Trigger
 --- | ---
-GoAhead | \>3000 m out, after route calculation if no other prompt is due, or (2) after a turn if next turn is more than PREPARE_LONG_DISTANCE away
+GoAhead | \>3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away
 <del>(TURN) PREPARE_LONG </del> | We now suppress this prompt as per user feedback<br><del>CAR: 3000 m - 2000 m<br>BICYCLE: 500 m - 30 0m<br>PEDESTRIAN: 100 m - 70 m</del>
 (TURN) PREPARE | CAR: 1500 m - 1200 m<br>BICYCLE: 200 m - 120 m<br>PEDESTRIAN: 100m-70m
 TURN_IN | CAR: 300 m - 168 m or \<25 sec<br>BICYCLE: 80 m - 60 m or \<16 sec<br>PEDESTRIAN: 50 m - 30 m or \<25 sec
