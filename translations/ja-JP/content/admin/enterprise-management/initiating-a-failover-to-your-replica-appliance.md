@@ -37,7 +37,7 @@ versions:
       ```
     - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
       ```shell
-      $ ghe-repl-teardown -u <em>UUNID</em>
+      $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
 ### 参考リンク

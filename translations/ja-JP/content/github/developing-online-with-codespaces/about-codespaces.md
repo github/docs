@@ -16,7 +16,7 @@ versions:
 
 ### {% data variables.product.prodname_codespaces %} について
 
-{% data variables.product.prodname_codespaces %} is a cloud development environment available in your browser. codespace には、構文の強調表示とオートコンプリートを備えたテキストエディタ、ターミナル、デバッグツール、Git コマンドなど、特定のリポジトリ向けに開発する必要があるすべてのものが {% data variables.product.prodname_dotcom %} 内に含まれています。 codespace に {% data variables.product.prodname_vscode %} 拡張機能をインストールして、機能を追加することもできます。
+{% data variables.product.prodname_codespaces %} は、ブラウザで利用できるクラウド開発環境です。 codespace には、構文の強調表示とオートコンプリートを備えたテキストエディタ、ターミナル、デバッグツール、Git コマンドなど、特定のリポジトリ向けに開発する必要があるすべてのものが {% data variables.product.prodname_dotcom %} 内に含まれています。 codespace に {% data variables.product.prodname_vscode %} 拡張機能をインストールして、機能を追加することもできます。
 
 {% data variables.product.prodname_codespaces %} を使用すると、開発者は簡単に新しい会社へ参加したり、オープンソースプロジェクトへ貢献したりすることができます。 プロジェクトメンテナはリポジトリを設定できるため、リポジトリの codespace を作成すると、プロジェクトの依存関係が自動的に含まれます。 環境設定に費やす時間を削減することで、コーディングをより素早く開始できます。
 

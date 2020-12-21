@@ -1,6 +1,6 @@
 ---
 title: Sobre repositórios
-intro: Um repositório é como uma pasta para seu projeto. O repositório do seu projeto contém todos os arquivos do projeto e armazena cada histórico de revisão do arquivo. Você também pode discutir e gerenciar o trabalho do projeto dentro do repositório.
+intro: A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
 redirect_from:
   - /articles/about-repositories
 versions:
@@ -22,9 +22,11 @@ Com
 Cada pessoa e organização podem ter repositórios ilimitados e convidar um número ilimitado de colaboradores para todos os repositórios.
 {% endif %}
 
-Você pode colaborar em seu projeto com outras pessoas usando os problemas, as pull requests e os quadros de projeto do repositório.
-
-![Página principal do repositório octocat/Hello-World](/assets/images/help/repository/repo-main-page.png)
+You can use repositories to manage your work and collaborate with others.
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."
+- {% data reusables.discussions.you-can-use-discussions %}
+- You can use pull requests to propose changes to a repository. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+- You can use project boards to organize and prioritize your issues and pull requests. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)".
 
 {% data reusables.repositories.repo-size-limit %}
 

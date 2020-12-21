@@ -8,7 +8,7 @@
     {% for category in product.categories %}
       {% unless category[1].standalone %}
         <div class="col-12 col-lg-4 mb-6 height-full">
-          <h4 class="mb-3"><a href="/{{ currentLanguage }}{{ category[1].href }}">{{ category[1].title }}</a></h4>
+          <h4 class="mb-3"><a href="{{ category[1].href }}">{{ category[1].title }}</a></h4>
 
           {% if category[1].maptopics %}
             <ul class="list-style-none">
@@ -16,7 +16,7 @@
                 {% unless maptopic[1].hidden %}
                   {% assign numArticles = category[1].maptopics | obj_size %}
                   <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}">
-                    <a href="/{{ currentLanguage }}{{ maptopic[1].href }}">
+                    <a href="{{ maptopic[1].href }}">
                       {{ maptopic[1].title }}
                     </a>
                   </li>
@@ -30,7 +30,7 @@
             <ul class="list-style-none">
               {% assign numArticles = category[1].articles | obj_size %}
               {% for article in category[1].articles %}
-                <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}"><a href="/{{ currentLanguage }}{{ article[1].href }}">{{ article[1].title }}</a></li>
+                <li class="mb-3 {% if forloop.index > maxArticles %}d-none{% endif %}"><a href="{{ article[1].href }}">{{ article[1].title }}</a></li>
               {% endfor %}
             </ul>
             {% if numArticles > maxArticles %}
