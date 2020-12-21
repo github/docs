@@ -1,5 +1,5 @@
 # Navigation Voice Prompt Triggering
-**-- Compiled by Hardy 2013, to be reviewed --**
+**(Compiled by Hardy 2013, to be reviewed)**
 * Most prompts are triggered based on a fixed lead distance (which can depend on the base profile)
 * For some close prompts we have a combined approach using
    * lead distance threshold
