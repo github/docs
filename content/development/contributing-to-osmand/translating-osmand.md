@@ -1,5 +1,7 @@
-# How to Translate OsmAnd - We Need Your Assistance!
-
+---
+title: How to Translate OsmAnd - We Need Your Assistance!
+versions: '*'
+---
 We really appreciate your help translating OsmAnd! Providing display text translations is not very complicated, the preferred way to provide string translations is described here: [OsmAnd @ Hosted Weblate](https://hosted.weblate.org/projects/osmand/).
 
 * If a language you would like to help translating into is not yet listetd there, please open an issue [here](https://github.com/osmandapp/Osmand/issues) (requires a github account).
