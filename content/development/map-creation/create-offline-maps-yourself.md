@@ -96,16 +96,17 @@ If you have your _process\_directory\_for\_osm\_files_ on one disk and your _dir
 #### In memory processing
 You can process a great deal of the map creation in memory instead of on disk. In your _batch.xml_, one of the top lines contains:
 <pre>
-`\<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/\>`
+`\<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"\\>`
 </pre>
 * `osmDbDialect="sqlite" mapDbDialect="sqlite"` means your map generation process will take place on disk.
 * Change to `osmDbDialect="sqlite\_in\_memory" mapDbDialect="sqlite\_in\_memory"`to run the process in memory.
 This "in memory" processing will speed up the map generation by 10-50%, but requires a lot of memory. 10% to 50% depends on the map size. Smaller maps benefit less from in memory processing than larger maps, as disk access for initial reading and final map writing plays a bigger role, while larger maps require more "calculation".
-In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm* or *.osm.pbf* file. This *nodes.tmp.odb* file is a sqlite database file and it is about 15 to 25 times as big as the original *.osm.pbf* file which you downloaded from [geofabrik.de](http://download.geofabrik.de/).
-So if your original *.osm.pbf* file is 300MB, your *nodes.tmp.odb* file will be 5GB to 6GB! Note that smaller maps will be around the 15x factor whereas big maps (\>350MB) will end up in the 20x to 25X space increase.
-With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. It means that the -Xmx parameter, which we discussed in the [Explanation](http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation) sections, needs to be big enough for both the *nodes.tmp.odb* and the normal processing that takes place in memory.
-You will need "the size of the nodes.tmp.odb" + 20-25%.
-It means that for a 250MB *.osm.pbf*, which will generate a \~4.5GB *nodes.tmp.odb* file, you need about 5GB heapspace which requires an -Xmx value of -Xmx5120M.
+
+In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm* or *.osm.pbf* file. This *nodes.tmp.odb* file is a sqlite database file and it is about 15 to 25 times as big as the original *.osm.pbf* file which you downloaded from [geofabrik.de](http://download.geofabrik.de/). So if your original *.osm.pbf* file is 300MB, your *nodes.tmp.odb* file will be 5GB to 6GB! Note that smaller maps will be around the 15x factor whereas big maps (\>350MB) will end up in the 20x to 25X space increase.
+
+With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. It means that the -Xmx parameter, which we discussed in the [Explanation](http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation) sections, needs to be big enough for both the *nodes.tmp.odb* and the normal processing that takes place in memory. You will need "the size of the nodes.tmp.odb" + 20-25%.
+
+This means that for a 250MB *.osm.pbf*, which will generate a \~4.5GB *nodes.tmp.odb* file, you need about 5GB heapspace which requires an -Xmx value of -Xmx5120M.
 
 * **Note**: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used.
 
