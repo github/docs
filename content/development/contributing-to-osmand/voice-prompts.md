@@ -32,7 +32,7 @@ The _tts.js_ config files should contain a header as follows, where (X) keeps tr
 You may temporarily enable OssmAnd's Development plugin, then go to its settings and use button _Test voice propmts_. It provides several annlouncement examples for each type of OsmAnd prompt, using a wide range of numbers to test time/distance formating and pronunciation. The button caption staes the basic prompt content, the exact wording is specified in the tts.js file you test.
 There is also a test button showing your device settings and language capabilities.
 
-## 4. Details on Some Specific Prompts
+During navigation, the current voice prompt can always be triggered by tapping on the turn arrow widget.## 4. Details on Some Specific Prompts
 
 ### "Route calculated/Route recalculated"
 Is played after the route has been calculated or recalculated, together with saome base data, depending on the chattines of the voice package selected.
