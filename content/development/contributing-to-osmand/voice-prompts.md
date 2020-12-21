@@ -1,14 +1,15 @@
----
-title: Navigation Voice Prompts - Status, Parametrization
-versions: '*'
----
+----
+-title: Navigation Voice Prompts
+-versions: '*'
+----
+# Navigation Voice Prompts
 ## 1. Some Basics
-* Osmand supports both Text-to-Speech (TTS) synthesized prompts and pre-recorded voices.
-* Using a TTS voice is preferred, it is more flexible and can e.g. also pronouce the names of places or streets.
-* Pre-recorded voices are recommended only as a fallback if your device is not capababöle of supporting TTS at all in the language selected.
-* In order to use TTS, your device needs to have a TTS engine installed which supports the laguage you would like to hear. Most devices come with one or two engines already pre-installed. Only for less common languages you may have to find and install a third party TTS engine.
+* OsmAnd supports both Text-to-Speech (TTS) synthesized prompts and pre-recorded voices.
+* Using a TTS voice is preferred, it is more flexible and can e.g. also prononuce the names of places or streets.
+* Pre-recorded voices are recommended only as a fallback if your device is not capable of supporting TTS at all in the language selected.
+* In order to use TTS, your device needs to have a TTS engine installed which supports the language you would like to hear. Most devices come with one or two engines already pre-installed. Only for less common languages you may have to find and install a third party TTS engine.
 * For which event voice prompts are offered, and their timing, is governed by the OsmAnd voice router code.
-* But the vocabulary and sentence construction for any language is specified in a configuration file _xx-yy_tts.js_, where xx is the ISO 639-1 language code and yy an optional regional or similar specifier. Only for recorded voices an additional sub-folder _voice_ subfiolder is required with all necessary recorded expressions as _.ogg_ files.
+* But the vocabulary and sentence construction for any language is specified in a configuration file _xx-yy_tts.js_, where xx is the ISO 639-1 language code and yy an optional regional or similar specifier. Only for recorded voices an additional sub-folder _voice_ subfolder is required with all necessary recorded expressions as _.ogg_ files.
 * The folder/file convention on the device is `voice/xx[-yy]-tts/xx[-yy]_tts.js`.
 
 The _tts.js_ config files should contain a header as follows, where (X) keeps track of which particular features have been implemented and checked for the file in question:
@@ -37,36 +38,11 @@ There is also a test button showing your device settings and language capabiliti
 
 During navigation, the current voice prompt can always be triggered by tapping on the turn arrow widget.## 4. Details on Some Specific Prompts
 
-### "Route calculated/Route recalculated"
-Is played after the route has been calculated or recalculated, together with saome base data, depending on the chattines of the voice package selected.
-
-### "GPS signal lost"
-
-Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action.
-
-### "Make a U-turn when possible"
-
-Mostly suppressed now. Shpoudl only sound if no route in forward direction was found at all (e.g. if you are heading down a one way road), or if a route in forward directiom is decisively longer. 
-
-### Turn instructions:
-Lead distances (lead time) | Prompt type
---- | ---
-**1. CAR profile** (DEFAULT\_SPEED = 12m/s=43km/h): |
-(a) \>3000m out | "Follow the course of the road for..."
-<del>(b) 3000m-2000m</del> | <del>PREPARE\_LONG</del> (We now suppress this entirely)
-(c) 1500m-1200m|PREPARE
-(d) 300m-168m (or \<25sec) | TURN\_IN
-(e) \<60m (or \<5sec) | TURN
-**2. BICYCLE profile** (DEFAULT\_SPEED = 5m/s=18 km/h): |
-(b) 500m-300m | PREPARE\_LONG
-(c) 200m-120m | PREPARE
-(d) 80m-60m (or \<16sec) | TURN\_IN
-(e) \<30m (or \<6sec) | TURN
-**3. PEDESTRIAN profile** (DEFAULT\_SPEED = 2 m/s=7.2km/h):
-(c) 100m-70m | PREPARE
-(d) 50m-30m (or \<25sec) | TURN\_IN
-(e) 15m (or \<7.5sec) | TURN
-
-Notes:
-* Values as of 2013 to be checked, we may have changed at some point.
-* We mute TURN instructions immediately once your direction of travel or current position is not any more in line with the turn to be announced (account for GPS issues).
+## 4. Creating a New TTS Voice Language Package
+Some hints:
+- OsmAnd only provides the wording, word order, grammar in terms of declinations, cases, singular/plural, etc., while the pronunciation is performed by the TTS engine you use on the device (there are built in and 3rd party ones)
+- This is done in a single voice definition file per language. On github the files are located <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/voice">here</a>, and please see above for the folder/file conventions on your device locally).
+- The file is now in js (migrated from former PROLOG to make it more mainstream).
+- To create a new configuration file, please start by cloning from _en\_tts.js_, i.e. use that as a template.
+- It may be helpful to look at at existing config files for languages which have some similarity with yours in terms of grammar, word order, number forming, etc., it will simplify your work to see how things are already solved.
+- You can test your own tts file (or your improvements to existing ones) yourself locally, prior to a pull request, justplaceit on you device with nthecorrect file/folder convention.
