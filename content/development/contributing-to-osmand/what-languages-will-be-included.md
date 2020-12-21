@@ -1,3 +1,7 @@
+---
+title: How to Translate OsmAnd - We Need Your Assistance!
+versions: '*'
+---
 # What languages will be included in OsmAnd ?
 
 > Dear translators,
