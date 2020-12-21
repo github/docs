@@ -9,18 +9,22 @@ export default function tabs () {
     // TODO: stop browser from scrolling
     link.addEventListener('click', (event) => {
       event.preventDefault()
-      console.log(`Tab group: ${event.target.dataset.group}, id: ${event.target.dataset.tab}`)
+      const tab = event.target
+      console.log(`Tab group: ${tab.dataset.group}, id: ${tab.dataset.tab}`)
+      const offset = tab.getBoundingClientRect().top - window.scrollY
       hideTabContent(tabContent)
-      Array.from(document.querySelectorAll(`.tab.tab-${ event.target.dataset.tab }`))
-        //.filter( tab => tab.dataset.group === event.target.dataset.group )
+      Array.from(document.querySelectorAll(`.tab.tab-${ tab.dataset.tab }`))
+        //.filter( tab => tab.dataset.group === tab.dataset.group )
         .forEach( block => {
           block.style.display = ''
         })
       tabLinks().forEach(link_ => {
-        link_.dataset.tab == event.target.dataset.tab
+        link_.dataset.tab == tab.dataset.tab
           ? link_.classList.add('selected')
           : link_.classList.remove('selected')
       })
+      // Keep relative offset of tab in viewport to avoid jumping content
+      window.scrollTo(window.scrollX, tab.getBoundingClientRect().top - offset)
     })
   })
 }
