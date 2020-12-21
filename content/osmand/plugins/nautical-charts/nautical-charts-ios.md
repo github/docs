@@ -8,7 +8,7 @@ At first you just have to enable Nautical plugin: _app menu-> Maps & Resources->
 
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nautical-charts-ios.jpg)
 
-You also will need a World seamarks map. Make sure to get it in app menu-> Maps & Resources-> Nautical maps. Please note that OsmAnd Nautical Charts work best with the World seamarks map and we recommend to download it. Then go to app menu-> Map-> Details-> enable the 'Nautical depth contours' option.
+You also will need a World seamarks map. Make sure to get it in _app menu-> Maps & Resources-> Nautical maps_. Please note that OsmAnd Nautical Charts work best with the World seamarks map and we recommend to download it. Then go to _app menu-> Map-> Details-> enable the 'Nautical depth contours' option_.
 
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nc_10.jpg) ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nc_11.jpg)
 
