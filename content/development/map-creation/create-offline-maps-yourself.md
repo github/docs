@@ -33,49 +33,49 @@ mv index_files/*.obf osmandmaps/
 </pre>       
 
 ### Explanation
-Line `WORK\_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps \_osm\_files\_, \_OsmAndMapCreator\_, \_index\_files\_ and \_gen\_files\_.
+Line `WORK_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps _osm\_files_, _OsmAndMapCreator_, _index\_files_ and _gen\_files_.
 
 We go to the download folder \_osm\_files\_ and use the command \_wget\_ to download our map(s). `wget` is used with parameter `\_-O \<name\>\_` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
 
-We go to folder \_OsmAndMapCreator\_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
+We go to folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
 <pre>
-_java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml_
+java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml
 </pre>
 runs OsmAndMapcreator with our downloaded maps, processing all maps it will find in the download folder (including all older ones still present there).
 
-We log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in \_batch.xml\_.  
+We log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in _batch.xml_.  
 
-**Note:** a 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
+**Note:** A 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
 
-The \_batch.xml\_ file is found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program. The line:
+The _batch.xml_ file is found in the _OsmAndMapCreator_ folder, together with the program, and contains settings for running the program. The line:
 <pre>
-_process directory_for_osm_files=​"/opt/OpenStreetMap/osm_files" directory_for_index_files=​"/opt/OpenStreetMap/index_files" directory_for_generation=​"/opt/OpenStreetMap/gen_files"_
+process directory_for_osm_files=​"/opt/OpenStreetMap/osm_files" directory_for_index_files=​"/opt/OpenStreetMap/index_files" directory_for_generation=​"/opt/OpenStreetMap/gen_files"
 </pre>
 specifies the working folders.
 
 The next line:
 <pre>
-_skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true"        indexTransport="true" indexAddress="true">_ 
+skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true" indexTransport="true" indexAddress="true">
 </pre>       
 contains options to modify parts of your map. If you don't need routing and/or addresses, you can skip these by setting the parameters to "false".
 
-You may also use multiple batch.xml files for different purposes.
+You may also use multiple _batch.xml_ files for different purposes.
 
-The last two lines in the script move the created maps to the osmandmaps folder where we store our maps (in this case).
+The last two lines in the script move the created maps to the _osmandmaps_ folder where we store our maps (in this case).
 
 Lines
 <pre>
-_echo date > starttime.txt_</pre>
-and
-<pre>_echo date > endtime.txt_</pre>
-are not really neccessary but simply display how long the process takes.
+echo date > starttime.txt
+echo date > endtime.txt
+</pre>
+are not really necessary but simply display how long the process takes.
 
 ### Scheduling
 The shell script may be scheduled. Account e.g. for the Geofabrik map creation schedule (adjust for your time zone).
 
 If you want to create a new map every night, you can add a crontab line like:
 <pre>
-_01 03 * * 7 /opt/OpenStreetMap/​osm.pbf_to_obf_convert.sh > /dev/null 2>&1_
+01 03 * * 7 /opt/OpenStreetMap/​osm.pbf_to_obf_convert.sh > /dev/null 2>&1
 </pre>
 This will start the map creation at 03:01am which is currently after the Geofabrik Netherlands osm.pbf map has been generated (local time zone).
 
