@@ -30,3 +30,14 @@ The generated file is like this:
 </pre>         
 
 All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The `created_by=` option with missing value means that the properties will be ignored. If your POI belongs to different categories, I suggest you create multiple osm files and create OsmAnd obf files and merge them together later with OsmAndMapCreator, or create multiple obf files.
+
+## Converting OSM Format into OBF Format
+
+Now you are ready to perform the final step. The conversion will be done using OsmAndMapCreator. Download, unzip and run this program.
+- Deselect all choices except Build POI Index as shown:
+- Select the work dir (File/Specify working directory…)
+- Load my_places.osm (File/Select osm file…)
+
+If all is right you'll find My\_places.obf into your workdir folder. Simply upload this file into your OsmAnd phone folder and you have done.
+
+Good luck!!!
