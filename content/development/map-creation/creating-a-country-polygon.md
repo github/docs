@@ -21,32 +21,32 @@ Because of this strategic decision of geofabrik, OsmAnd has an option to generat
 ## Necessary actions
 Depending on the complexity of the (generated) polygon this complete chain of actions can take from 10 minutes to 2 hours in total.
 
-1. Get the OpenStreetMap relation from Nominatim  
+### 1. Get the OpenStreetMap relation from Nominatim
 - Go to [nominatim.openstreetmap.org](https://nominatim.openstreetmap.org/)
 - Fill in your country name
 - Once found click on the link "(details)"
 - In Details scroll down to "OSM: relation " and write down or copy the relation ID number.
 
-2. Generate the polygon  
+### 2. Generate the polygon
 - Go to [polygons.openstreetmap.fr](http://polygons.openstreetmap.fr/)
 - Fill in (or paste) the "OSM: relation " ID number you retrieved from Nominatim for your desired country into the "Id of relation" field.
 - This will create a default polygon, consisting of 250 to 3500 nodes (NPoints). The poly itself can be found in the "poly" column.
 - In case of more then 350 nodes you will need to simplify the polygon. The simpler the polygon, the faster the country map can be created (of course depending on the contents)
 
-3. Simplify the polygon
+### 3. Simplify the polygon
 The number of Node Points (NPoints) needs to be as low as possible for the fastest possible creation of the map by OsmAndMapCreator. As mentioned: In case of more then 350 node points try to reduce them by simplifying the polygon.
 - In case of more then 350 nodes, try to reduce them by "playing" with the X variable (in my experience the others don't really matter)
 - Sometimes you get great results (90 NPoints, 200 NPoints, 270 NPoints) and then you are done with this step. Sometimes you simply can't get below 450 NPoints or so. Then you need to apply further manual steps.
 - Save your final polygon to file. Use the correct default name for it, like france.poly. Stick to lowercase characters.
 
-4. Further modification and simplification of the polygon  
+### 4. Further modification and simplification of the polygon
 - Open JOSM (download if necessary) and open the polygon file you created (did you make a copy/backup of the original polygon that you saved?).
 - Add a background from the "Images" menu and select the default "OpenStreetMap (Mapnik)" background.
 - Manually remove node points where possible. \*Note:\* Keep the polygon as close as possible around the border. You do need some overlap but try to keep it below 2-5 kilometers. Overlap in countries will be generated twice for each country. Less overlap, means less rendering time and rendering errors. At coastlines and around islands try to keep more distance (20 kilometers). This is widely acepted and the sea is "empty" anyway.
 - When you have done the best you can you can save the updated, corrected poly. As said: try to get as little node points as possible, but sometimes a country border is so complicated that you simply need more node points to describe it and to keep the polygon as close as possible around the border: so be it.
 - **Do not upload the polygon to OSM**. JOSM will ask you to upload your work to OpenStreetMap. Don't do this for these polygons unless you know exactly what you do. Almost every country in the world is already perfectly covered in OpenStreetMap (otherwise nominatim would not be able to give you the details about the country, and polygons.openstreetmap.fr would not be able to generate the polygon based on the OSM relation id.)
 
-5.Adding the poly(gon) to the OsmAnd server  
+### 5. Adding the poly(gon) to the OsmAnd server
 
 To be able to do this you must register as a user.
 
@@ -54,14 +54,14 @@ To make the map generation possible there are two steps required:
 - Adding the polygon to the map data section
 - Adding the country to the data file that is used to generate the OsmAnd obf maps.
 
-Adding the polygon to the map data section  
+Adding the polygon to the map data section
 - Go to the web address of the OsmAnd development server at [https://github.com/osmandapp/](https://github.com/osmandapp/ "https://github.com/osmandapp/")
 - Select the OsmAnd-misc section.
 - Select "fork" to create your own personal repository
 - Create a new file and copy your poly data inside. Save the file.
 - Create a pull request.
 
-Add the map creation to the batch list  
+Add the map creation to the batch list
 - Go to the web address of the OsmAnd development server at [github.com/osmandapp](https://github.com/osmandapp/)
 - Select the OsmAnd-tools section.
 - Select "fork" to create your own personal repository.
