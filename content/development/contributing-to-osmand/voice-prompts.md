@@ -1,4 +1,7 @@
-# Navigation Voice Prompts - Status, Parametrization (by Hardy)
+---
+title: Navigation Voice Prompts - Status, Parametrization
+versions: '*'
+---
 ## 1. Some Basics
 * Osmand supports both Text-to-Speech (TTS) synthesized prompts and pre-recorded voices.
 * Using a TTS voice is preferred, it is more flexible and can e.g. also pronouce the names of places or streets.
