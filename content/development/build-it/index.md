@@ -3,7 +3,7 @@ title: Build it
 versions: '*'
 ---
 
-Here we talk about all samples, how to compile and how to deploy
+Here we talk about the development environment, compilation, etc.
 - API 
 - GPX overview
 - ...
