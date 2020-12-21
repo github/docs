@@ -2,6 +2,9 @@
 title: How to Translate OsmAnd - We Need Your Assistance!
 versions: '*'
 ---
+
+# How to Translate OsmAnd - We Need Your Assistance!
+
 We really appreciate your help translating OsmAnd! Providing display text translations is not very complicated, the preferred way to provide string translations is described here: [OsmAnd @ Hosted Weblate](https://hosted.weblate.org/projects/osmand/).
 
 * If a language you would like to help translating into is not yet listetd there, please open an issue [here](https://github.com/osmandapp/Osmand/issues) (requires a github account).
@@ -22,3 +25,17 @@ Yes, you can email the file, but please try the preferred ways, it is easy.
 
 #### Q3: How should I check what has changed in the __English strings.xml__ ?
 Please use Weblate as described above, it will show you all changes. If you want to check the source manually vs. your file: New strings are usually added at the top of the master language resource file. You can download it and use some utility like pspad or vim to compare them. You can also use *[blame](https://github.com/osmandapp/Osmand/blame/master/OsmAnd/res/values/strings.xml)* or the file history on github to view the last modifications.
+
+## What languages will be included in OsmAnd ?
+
+> Dear translators,
+> 
+> Thank you all very much for your efforts to complete our display language translations, and also to localize OsmAnd in more and more languages on [Weblate](https://hosted.weblate.org/projects/osmand/)!
+> 
+> Please note the following: I am happy to include in OsmAnd's display language selection menu any new language with >10% translation rate, (will mark it as "incomplete" until it reaches ~80%). Please post an issue with OsmAnd if you need this done, I only sporadically watch these figures on Weblate.
+> 
+> Unfortunately, languages featuring 3-letter ISO 639-2 codes currently seem to have issues in Android, see e.g.*   [https://code.google.com/p/android/issues/detail?id=49120](https://code.google.com/p/android/issues/detail?id=49120)*   [https://code.google.com/p/android/issues/detail?id=106574](https://code.google.com/p/android/issues/detail?id=106574)  
+>     This means that, unfortunately, any such language may not display in the OsmAnd menus on your device. (This issue only affects the language used in the app menus, not in the map, of course.)
+> 
+> Thanks,  
+> Dr. Hardy Mueller

@@ -1,8 +1,8 @@
 ---
-title: OBF Routing Debugging on a PC
+title: Debug OBF Routing on a PC
 versions: '*'
 ---
-# OBF Routing Debugging on a PC with OSM Map Display
+# Debug OBF Routing on a PC with OSM Map Display
 - go to [https://osmand.net](https://osmand.net "https://osmand.net") and download [OsmandMapCreator.zip](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip "http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip") from the link on the right screen side, and unzip it,
 - copy the obf file from your phone or tablet into that folder,
 - start OsmandMapCreator via bat file or sh file,

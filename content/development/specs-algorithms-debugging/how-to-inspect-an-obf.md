@@ -2,7 +2,7 @@
 title: How to Inspect an obf Binary File
 versions: '*'
 ---
-# How to Inspect an obf Binary File
+# How to Inspect an OBF Binary File
 If you want inspect the content of an obf file, you need to download [OsmAndMapCreator](https://download.osmand.net/latest-night-build/OsmAndMapCreator-development.zip). There you can find a console application Inspector (.sh, .bat). This console application has optional parameters [-vmap, -vaddress, -vtransport] and one required parameter (input obf file). By specifying optional parameters you can trace all information from the obf file (be aware: it could be huge!).
 
 Example and step-by-step for Windows users:

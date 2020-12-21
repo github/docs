@@ -22,4 +22,4 @@ The SQLIte format used in OsmAnd is based on the "BigPlanet" SQLite as supported
 ||"image"|Blob of image bytes.|
 ||"time"|Integer. Time stamp when image was downloaded.|
 
-The class supporting this is SQLiteTileSource at or near [https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java\#L33](https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java#L33)
+The class supporting this is SQLiteTileSource at or near [https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java\#L33](https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java#L33).
