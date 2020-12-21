@@ -38,7 +38,7 @@ There is also a test button showing your device settings and language capabiliti
 
 During navigation, the current voice prompt can always be triggered by tapping on the turn arrow widget.## 4. Details on Some Specific Prompts
 
-## 4. Creating a New TTS Voice Language Package
+## 4. Creating a New TTS Voice Language/Package
 Some hints:
 - OsmAnd only provides the wording, word order, grammar in terms of declinations, cases, singular/plural, etc., while the pronunciation is performed by the TTS engine you use on the device (there are built in and 3rd party ones)
 - This is done in a single voice definition file per language. On github the files are located <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/voice">here</a>, and please see above for the folder/file conventions on your device locally).
