@@ -37,7 +37,10 @@ prodname_unified_search: 'gemeinsame Suche'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
+prodname_education_community_with_url: 'the [GitHub Education Community](https://education.github.community)'
 prodname_classroom: 'GitHub Classroom'
+prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
+prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -69,6 +72,8 @@ ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.micr
 prodname_actions: 'GitHub Actions'
 #GitHub Debug
 prodname_debug: 'GitHub Debug'
+#GitHub Discussions
+prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'GitHub Packages'
 prodname_github_container_registry: 'GitHub Container Registry'

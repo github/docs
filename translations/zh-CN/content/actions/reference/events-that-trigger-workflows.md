@@ -137,9 +137,9 @@ jobs:
 
 #### `repository_dispatch`
 
-| Web 挂钩事件有效负载                                                         | 活动类型 | `GITHUB_SHA`          | `GITHUB_REF` |
-| -------------------------------------------------------------------- | ---- | --------------------- | ------------ |
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a  | `GITHUB_REF` 分支上的最新提交 | 收到了分发的分支     |
+| Web 挂钩事件有效负载                                                         | 活动类型 | `GITHUB_SHA` | `GITHUB_REF` |
+| -------------------------------------------------------------------- | ---- | ------------ | ------------ |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a  | 默认分支上的最新提交   | 默认分支         |
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -698,6 +698,8 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+{% data reusables.github-actions.branch-requirement %}
 
 | Web 挂钩事件有效负载                                             | 活动类型  | `GITHUB_SHA` | `GITHUB_REF` |
 | -------------------------------------------------------- | ----- | ------------ | ------------ |

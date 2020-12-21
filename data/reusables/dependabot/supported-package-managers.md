@@ -25,6 +25,8 @@ Terraform: `terraform` | **✓** | |
 
 -`yarn` (v1 only) (specify `npm`)
 
+-`.gradle.tks` files, for Kotlin projects (specify `gradle`)
+
 -`pipenv`, `pip-compile`, and `poetry` (specify `pip`)
 
 For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your *dependabot.yml* file.

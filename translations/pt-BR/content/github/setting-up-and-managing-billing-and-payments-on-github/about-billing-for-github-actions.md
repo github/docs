@@ -8,7 +8,9 @@ versions:
 
 ### Sobre a cobrança do {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
 Os minutos são reiniciados todos os meses, mas o uso do armazenamento não.
 
@@ -69,8 +71,8 @@ Se uso de {% data variables.product.prodname_actions %} compartilha a data de co
 
 ### Sobre limites de gastos
 
-Por padrão, sua conta terá um limite de gastos de $0 para o uso de {% data variables.product.prodname_actions %}. Para habilitar o uso de minutos e armazenamento para repositórios privados além dos valores incluídos em sua conta, você pode aumentar o limite de gastos ou permitir gastos ilimitados. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)".
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

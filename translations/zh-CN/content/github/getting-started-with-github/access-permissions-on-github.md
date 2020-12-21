@@ -18,7 +18,7 @@ versions:
 
 ### 组织帐户
 
-Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. 成员是其他每个人的默认角色。 您可以通过团队一次管理多个成员的访问权限。 更多信息请参阅：
+组织成员可以是*所有者*{% if currentVersion == "free-pro-team@latest" %}、*帐单管理员*{% endif %} 或*成员*角色。 所有者对组织具有完全管理权限{% if currentVersion == "free-pro-team@latest" %}，而帐单管理员负责管理帐单设置{% endif %}。 成员是其他每个人的默认角色。 您可以通过团队一次管理多个成员的访问权限。 更多信息请参阅：
 - "[组织的权限级别](/articles/permission-levels-for-an-organization)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"
 - "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"
@@ -28,7 +28,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 ### 企业帐户
 
-*企业所有者*对企业帐户拥有最终权力，可在企业帐户中执行任何操作。 *帐单管理员*可以管理企业帐户的帐单设置。 企业帐户拥有的组织的成员和外部协作者自动成为企业帐户的成员，但他们对企业帐户本身或其设置没有访问权限。 For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
+*企业所有者*对企业帐户拥有最终权力，可在企业帐户中执行任何操作。 *帐单管理员*可以管理企业帐户的帐单设置。 企业帐户拥有的组织的成员和外部协作者自动成为企业帐户的成员，但他们对企业帐户本身或其设置没有访问权限。 更多信息请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)”。
 
 {% data reusables.gated-features.enterprise-accounts %}
 
