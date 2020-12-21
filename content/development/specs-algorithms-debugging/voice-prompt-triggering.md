@@ -5,9 +5,9 @@
    * lead time threshold
    * GPS_TOLERANCE
    * current speed
-   * DEFAULT\_SPEED of the base profile
-* There is a user-configurable additional and overall VOICE\_PROMPT\_DELAY, particularly needed for output type _Phone call audio_, where we emulate a call to a car stereo which comes with a noticeable delay. (Also all distances to be used in the prompts anticipate VOICE\_PROMPT\_DELAY!)
-* For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting ARRICAL\_DISTANCE\_FACTOR impacting the lead distance
+   * DEFAULT_SPEED of the base profile
+* There is a user-configurable additional and overall VOICE_PROMPT_DELAY, particularly needed for output type _Phone call audio_, where we emulate a call to a car stereo which comes with a noticeable delay. (Also all distances to be used in the prompts anticipate VOICE_PROMPT_DELAY!)
+* For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting ARRICAL_DISTANCE_FACTOR impacting the lead distance
 
 ### Base Profile Default Speeds
 * CAR: 12 m/s = 43 km/h
@@ -29,23 +29,17 @@ Mostly suppressed now. Should only sound if no route in forward direction was fo
 ### Trigger Behavior:
 Prompt type | Trigger
 --- | ---
-GoAhead | \>3000m out, after route calculation if no other prompt is due, or (2) after a turn if next turn is more than PREPARE_LONG_DISTANCE away
-<del>(TURN) PREPARE\_LONG </del> | <del>CAR: 3000m-2000m</del><br>BICYCLE: 500m-300m<br>PEDESTRIAN: 100m-70m
-(TURN) PREPARE | CAR: 1500m-1200m  
-BICYCLE: 200m-120m
-PEDESTRIAN: 100m-70m
-TURN\_IN | CAR: 300m-168m or \<25sec
-BICYCLE: 80m-60m or \<16sec
-PEDESTRIAN: 50m-30m or \<25sec
-TURN | CAR: \<60m or \<5sec
-BICYCLE: \<30m or \<6sec
-PEDESTRIAN: 15m or \<7.5sec
+GoAhead | \>3000 m out, after route calculation if no other prompt is due, or (2) after a turn if next turn is more than PREPARE_LONG_DISTANCE away
+<del>(TURN) PREPARE_LONG </del> | <del>CAR: 3000 m - 2000 m</del><br>BICYCLE: 500 m - 30 0m<br>PEDESTRIAN: 100 m - 70 m
+(TURN) PREPARE | CAR: 1500 m - 1200 m<br>BICYCLE: 200 m - 120 m<br>PEDESTRIAN: 100m-70m
+TURN_IN | CAR: 300m-168m or \<25sec<br>BICYCLE: 80m-60m or \<16sec<br>PEDESTRIAN: 50m-30m or \<25sec
+TURN | CAR: \<60m or \<5sec<br>BICYCLE: \<30m or \<6sec<br>PEDESTRIAN: 15m or \<7.5sec
 ALARMS | 
-approach points | 
-arrive at destinationPoint | GPS_TOLERANCE, defaultSpeed, ARRIVAL\_DISTANCE\_FACTOR
-arrive at waypoint
-nearby POI
-nearby FAVORITE
+approach points | 1400m
+arrive at destinationPoint | 5sec * ARRIVAL_DISTANCE_FACTOR
+arrive at waypoint | Treat like destination
+passing nearby POI | to be discussed
+passing nearby FAVORITE | to be discussed
 
 Notes:
 * Values as of 2013 to be checked, we may have changed at some point.
