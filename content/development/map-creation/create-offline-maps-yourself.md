@@ -35,7 +35,7 @@ mv index_files/*.obf osmandmaps/
 ### Explanation
 * Line `WORK\_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps \_osm\_files\_, \_OsmAndMapCreator\_, \_index\_files\_ and \_gen\_files\_.
 * We go to the download folder \_osm\_files\_ and use the command \_wget\_ to download our map(s). `wget` is used with parameter `\_-O \<name\>\_` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
-* We go to folder \_OsmAndMapCreator\_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
+* We go to folder \_OsmAndMapCreator\_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:  
 <pre>
 _java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml_  
 </pre>  
