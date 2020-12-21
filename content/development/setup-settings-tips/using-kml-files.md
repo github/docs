@@ -14,19 +14,19 @@ $ gpsbabel -i kml -f my_places.kml -o osm,tagnd="tourism:museum",​created_by -
 </pre>
 The generated file is like this:
 <pre>
->     &lt;?xml version='1.0' encoding='UTF-8'?>
->     &lt;osm version='0.5' generator='GPSBabel-1.4.0'>
->       &lt;node id='-1' visible='true' lat='41.890121' lon='12.492265'>
->         &lt;tag k='name' v='place01'/>
->         <tag k='note' v='place01'/>
->         <tag k='tourism' v='museum'/>
->       </node>
->     <node id='-2' visible='true' lat='41.892241' lon='12.489031'>>
->         <tag k='name' v='place02'/>
->         <tag k='note' v='place02'/>
->         <tag k='tourism' v='museum'/>
->       </node>
->     </osm>
+     &lt;?xml version='1.0' encoding='UTF-8'?>
+     &lt;osm version='0.5' generator='GPSBabel-1.4.0'>
+       &lt;node id='-1' visible='true' lat='41.890121' lon='12.492265'>
+         &lt;tag k='name' v='place01'/>
+         &lt;tag k='note' v='place01'/>
+         &lt;tag k='tourism' v='museum'/>
+       &lt;/node>
+     &lt;node id='-2' visible='true' lat='41.892241' lon='12.489031'>>
+         &lt;tag k='name' v='place02'/>
+         &lt;tag k='note' v='place02'/>
+         &lt;tag k='tourism' v='museum'/>
+       &lt;/node>
+     &lt;/osm>
 </pre>         
 
 All points inside the kml file are converted into osm points, assigning them some properties like tourism category and museum type. The created\_by= option with missing value means that the properties will be ignored. If your poi belongs to different categories, I suggest you create multiple osm files and create OsmAnd odf files and merge them together later with OsmAndMapCreator, or create multiple obf files.
