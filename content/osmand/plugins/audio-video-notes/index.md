@@ -1,9 +1,9 @@
 ---
-title: Audio/Video notes plugin
+title: Audio/Video notes plugin (Android)
 intro: "Making memorable notes is one of the main pleasures of traveling"
 versions: '*'
 ---
-##### How to use
+##### How to use for Android
 {% link_in_list /how-to-use %}
 {% link_in_list /add-av-notes %}
 
