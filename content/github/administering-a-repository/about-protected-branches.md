@@ -31,7 +31,7 @@ Protected branch rules that mention a special character, such as `*`, `?`, or `]
 
 When you create a branch protection rule in a repository, collaborators cannot force push to the protected branch or delete the branch{% if currentVersion == "free-pro-team@latest" %} by default{% endif %}. You can enable other branch protection settings. For information, see "[Defining the mergeability of pull requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)."
 
-### Further reading
+### Further  reading
 
 - "[About required status checks](/articles/about-required-status-checks)"
 - "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)"
