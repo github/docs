@@ -37,9 +37,9 @@ mv index_files/*.obf osmandmaps/
 * We go to the download folder \_osm\_files\_ and use the command \_wget\_ to download our map(s). `wget` is used with parameter `\_-O \<name\>\_` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
 * We go to folder \_OsmAndMapCreator\_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
 <pre>
-_java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml_
-</pre>           
-runs OsmAndMapcreator with our downloaded maps., processing all maps it will find in the download folder (including all older ones still present there).
+_java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml_  
+</pre>  
+runs OsmAndMapcreator with our downloaded maps, processing all maps it will find in the download folder (including all older ones still present there).
 * We log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in \_batch.xml\_.  
 **Note:** a 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
 * The \_batch.xml\_ file is found in the OsmAndMapCreator folder, together with the program, and contains settings for running the program. The line:
