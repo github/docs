@@ -1,5 +1,5 @@
 ---
-title: Contribution Geodata
+title: Contributing Geodata
 versions: '*'
 ---
 
