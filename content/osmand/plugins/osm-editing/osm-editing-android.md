@@ -22,3 +22,5 @@ You can participate in the work on the global map. Just share the tracks you've 
 ### How to report a mistake
 You can also report about the mistakes on the map. All you have to do is tap on the location, choose {% data reusables.plugins.osm-editing-android-add-osm-note %} and then add the info about it. OSM editors would consider your comments.
 ![Open OSM Note](/assets/images/plugins/osm-editing/open-osm-note.png)
+
+To view the OSM editing layer, go to {% data reusables.configure-map.osm-note-enable-android %}. You'll see all the notes in the specific area. You can click to OSM note and choose your comment or delete it.
