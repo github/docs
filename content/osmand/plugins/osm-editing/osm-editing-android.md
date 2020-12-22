@@ -14,7 +14,7 @@ Tap on the map where the new POI has to be placed. Press on **{% data variables.
 ![Placeholder](/assets/images/plugins/placeholder-intro.png)
 
 {% note %}
-Note: you can see your new POI on OsmAnd map after one hour after added it to OSM project if you have OsmAnd Live subscription.
+Note: you can see your new POI on OsmAnd map after one hour after added it to OSM project if you have OsmAnd Live subscription {% link /osmand/purchases/osmand-live-android %}.
 {% endnote %}
 
 ### How to upload GPX track
