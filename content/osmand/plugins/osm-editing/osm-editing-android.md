@@ -10,6 +10,12 @@ The plugin lets you create new objects, so-called  [points of interest or POI](h
 Go to {% data reusables.plugins.osm-editing-android-enable %}
 
 ### How to add POI
+Tap on the map where the new POI has to be placed. Press on **{% data variables.android-values.shared_string_actions %}**, then choose **{% data variables.android-values.context_menu_item_create_poi %}**, add its name and other details like working hours, website, etc. You'll also have to register at {% data reusables.links.osm %} and then provide your OSM credentials to introduce changes.
+![Placeholder](/assets/images/plugins/placeholder-intro.png)
+
+{% note %}
+Note: you can see your new POI on OsmAnd map after one hour after added it to OSM project if you have OsmAnd Live subscription.
+{% endnote %}
 
 ### How to upload GPX track
 You can add the tracks you've made to {% data reusables.links.osm %}. To do that, turn the [Trip recording plugin](http://osmand.net/features?id=trip-recording-plugin) on, record a track, and then go to _My places-> Tracks-> press the ![OpenStretMap editing](/assets/images/icons/android/ic_action_export.svg) button_. Choose the required track and click _Yes_. You can change description, tags or visibility of the track. 

@@ -1,1 +1,1 @@
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_osm_bugs %} → {% data variables.android-values.shared_string_enable %}.
+{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_osm_bugs %} → {% data variables.android-values.shared_string_enable %}
