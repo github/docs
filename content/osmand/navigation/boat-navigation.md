@@ -4,7 +4,7 @@ intro: "Here we will talk about Boat Navigation"
 versions: '*' 
 ---
 Here we will talk about Boat Navigation.
-We use data from OpenSea project.
+We use data from the OpenSea project.
 {% android %}
 Hello android ! 
 {% endandroid %}
