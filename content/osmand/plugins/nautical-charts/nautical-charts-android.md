@@ -4,7 +4,7 @@ intro: "Detailed graphical representation of oceans, seas, coastal areas and riv
 versions: '*'
 ---
 
-### Download and install Plugin?
+### Download and install Plugin
 At first you just have  [to download](https://play.google.com/store/apps/details?id=net.osmand.nauticalPlugin&hl=en)  and enable Nautical plugin:  _app menu-> Plugins-> Nautical map view_. You may need to download the plugin first. The plugin enriches the OsmAnd map and navigation app to also produce nautical maps for boating, sailing, and other types of watersports. You can activate  [Boat navigation profile](https://osmand.net/features/navigation-profiles)  when you enable the plugin.
 
   ![Nautical maps on Android](/assets/images/plugins/nautical-charts/np_and_1.jpg)
@@ -17,11 +17,11 @@ Next turn  [the Nautical map style](https://osmand.net/features/start#Types_maps
 
   ![Nautical maps on Android](/assets/images/plugins/nautical-charts/np_and_3.jpg)
 
-### Map legend?
+### Map legend
 
 **Map legend**  of Nautical map you can find  [_here_](https://osmand.net/help-online/map-legend#nautical).
 
-### Boat navigation?
+### Boat navigation
 
 Boat mode for navigation can be enabled together with the Nautical plugin. You can build your trip on rivers or waterway fairway. You can read more about navigation profiles  [here](https://osmand.net/features/navigation-profiles).
 
