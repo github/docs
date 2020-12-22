@@ -7,14 +7,14 @@ versions: '*'
 The plugin lets you create new objects, so-called  [points of interest or POI](https://osmand.net/features/find-something-on-map#Find_Points_of_Interest_A)  on the map. New shop opened next to you? Add it to the map! Your favorite monument is missing on the map? Put it there in seconds. Also, if you're the owner of a newly-opened business, adding it to the map is a great way to let people find you.
 
 ### How to enable
-Go to {% data reusables.plugins.osm-editing-android-enable %}
+Go to **{% data reusables.plugins.osm-editing-android-enable %}**.
 
 ### How to add POI
 Tap on the map where the new POI has to be placed. Press on **{% data variables.android-values.shared_string_actions %}**, then choose **{% data variables.android-values.context_menu_item_create_poi %}**, add its name and other details like working hours, website, etc. You'll also have to register at {% data reusables.links.osm %} and then provide your OSM credentials to introduce changes.
 ![Placeholder](/assets/images/plugins/placeholder-intro.png)
 
 {% note %}
-Note: you can see your new POI on OsmAnd map after one hour after added it to OSM project if you have OsmAnd Live subscription {% link /osmand/purchases/osmand-live-android %}.
+Note: you can see your new POI on OsmAnd map after one hour after added it to OSM project if you have {% link /osmand/purchases/osmand-live-android %}.
 {% endnote %}
 
 ### How to upload GPX track
@@ -26,7 +26,7 @@ You can participate in the work on the global map. Just share the tracks you've 
 
 
 ### How to report a mistake
-You can also report about the mistakes on the map. All you have to do is tap on the location, choose {% data reusables.plugins.osm-editing-android-add-osm-note %} and then add the info about it. OSM editors would consider your comments.
+You can also report about the mistakes on the map. All you have to do is tap on the location, choose **{% data reusables.plugins.osm-editing-android-add-osm-note %}** and then add the info about it. OSM editors would consider your comments.
 ![Open OSM Note](/assets/images/plugins/osm-editing/open-osm-note.png)
 
-To view the OSM editing layer, go to {% data reusables.configure-map.osm-note-layer-enable-android %}. You'll see all the notes in the specific area. You can click to OSM note and choose your comment or delete it.
+To view the OSM editing layer, go to **{% data reusables.configure-map.osm-note-layer-enable-android %}**. You'll see all the notes in the specific area. You can click to OSM note and choose your comment or delete it.
