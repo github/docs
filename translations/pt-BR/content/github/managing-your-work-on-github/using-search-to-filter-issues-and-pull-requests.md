@@ -25,6 +25,7 @@ Com os termos da pesquisa de problemas e pull requests, é possível:
 - Filtrar problemas e pull requests que envolvem determinadas pessoas, mas não necessariamente as [**@mencionam**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams): `state:open type:issue involves:octocat`
 - Filtrar problemas e pull requests por responsável: `state:open type:issue assignee:octocat`
 - Filtrar problemas e pull requests por etiqueta: `state:open type:issue label:"bug"`
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 Para problemas, você também pode usar a busca para:

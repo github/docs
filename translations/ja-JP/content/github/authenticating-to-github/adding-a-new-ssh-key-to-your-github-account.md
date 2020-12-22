@@ -19,13 +19,13 @@ versions:
 
 {% mac %}
 
-1. SSH キーをクリップボードにコピーしてください。
+1. SSH 公開鍵をクリップボードにコピーします。
 
-  使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
+  SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
   $ pbcopy &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  # id_ed25519.pub ファイルの内容をクリップボードにコピーする
   ```
 
   {% tip %}
@@ -46,13 +46,13 @@ versions:
 
 {% windows %}
 
-1. SSH キーをクリップボードにコピーしてください。
+1. SSH 公開鍵をクリップボードにコピーします。
 
-  使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
+  SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
   $ clip &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  # id_ed25519.pub ファイルの内容をクリップボードにコピーする
   ```
 
   {% tip %}
@@ -73,16 +73,16 @@ versions:
 
 {% linux %}
 
-1. SSH キーをクリップボードにコピーしてください。
+1. SSH 公開鍵をクリップボードにコピーします。
 
-  使用する SSH キーの名前がサンプルのコードとは違っている場合は、現在の設定に合わせてファイル名を修正してください。 キーをコピーする際には、改行や空白を追加しないでください。
+  SSH 公開鍵のファイル名がサンプルコードと異なる場合は、現在の設定に一致するようにファイル名を変更してください。 キーをコピーする際には、改行や空白を追加しないでください。
 
   ```shell
   $ sudo apt-get install xclip
   # xclip をダウンロードしてインストールします。 If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
   $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
-  # Copies the contents of the id_ed25519.pub file to your clipboard
+  # id_ed25519.pub ファイルの内容をクリップボードにコピーする
   ```
   {% tip %}
 

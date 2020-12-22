@@ -10,8 +10,8 @@ versions:
 ---
 
 {% for term in site.data.glossaries.external %}
-  ### {{term.term}}
-  {{term.description}}
+  ### {% data glossaries.external[forloop.index0].term %}
+  {% data glossaries.external[forloop.index0].description %}
   ---
 {% endfor %}
 

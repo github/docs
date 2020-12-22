@@ -36,6 +36,7 @@ When {% data variables.product.prodname_secret_scanning %} detects a set of cred
 - Databricks
 - Datadog
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity
@@ -79,6 +80,8 @@ When {% data variables.product.prodname_secret_scanning %} detects a secret in a
 
 Repository administrators and organization owners can grant users and team access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 
+To monitor results from {% data variables.product.prodname_secret_scanning %} across your private repositories or your organization, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
+
 {% data variables.product.product_name %} currently scans private repositories for secrets issued by the following service providers.
 
 - Adafruit
@@ -90,6 +93,7 @@ Repository administrators and organization owners can grant users and team acces
 - CloudBees CodeShip
 - Databricks
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity

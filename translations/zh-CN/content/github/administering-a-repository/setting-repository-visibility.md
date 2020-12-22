@@ -20,12 +20,12 @@ versions:
 
 #### 将仓库设为私有
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-* {% data variables.product.product_name %} 将会分离公共仓库的公共复刻并将其放入新的网络中。 Public forks are not made private.{% endif %}
-* If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}The visibility of any forks will also change to private.{% elsif currentVersion == "github-ae@latest" %}If the internal repository has any forks, the visibility of the forks is already private.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"{% if currentVersion == "free-pro-team@latest" %}
-* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. {% data reusables.gated-features.more-info %}{% endif %}
-* Any published {% data variables.product.prodname_pages %} site will be automatically unpublished.{% if currentVersion == "free-pro-team@latest" %} If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-* {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."{% endif %}{% if enterpriseServerVersions contains currentVersion %}
-* Anonymous Git read access is no longer available. 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。{% endif %}
+* {% data variables.product.product_name %} 将会分离公共仓库的公共复刻并将其放入新的网络中。 公共复刻无法设为私有。{% endif %}
+* 如果您将仓库的可见性从内部更改为私有， {% data variables.product.prodname_dotcom %} 将删除属于任何没有新私有仓库访问权限的用户的复刻。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}任何复刻的可见性也将更改为私有。{% elsif currentVersion == "github-ae@latest" %}如果内部仓库有任何复刻，则复刻的可见性已经是私有的。{% endif %}更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”{% if currentversion == "free proteam@latest" %}
+* 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 {% data reusables.gated-features.more-info %}{% endif %}
+* 任何已发布的 {% data variables.product.prodname_pages %} 站点将自动取消发布。{% if currentVersion == "free-pro-team@latest" %} 如果将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应先删除或更新 DNS 记录后再将仓库设为私有，以避免域接管的风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+* {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) 上存档内容和数据”。{% endif %}{% if enterpriseServerVersions contains currentVersion %}
+* 匿名 Git 读取权限不再可用。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
@@ -37,7 +37,7 @@ versions:
 
 {% endnote %}
 
-* Any forks of the repository will remain in the repository network, and {% data variables.product.product_name %} maintains the relationship between the root repository and the fork. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)"
+* 仓库的任何复刻都将保留在仓库网络中， {% data variables.product.product_name %} 维护根仓库与复刻之间的关系。 更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)”
 
 {% endif %}
 
@@ -45,8 +45,8 @@ versions:
 
 #### 将仓库设为公共
 
-* {% data variables.product.product_name %} will detach private forks and turn them into a standalone private repository. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"{% if currentVersion == "free-pro-team@latest" %}
-* If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines. You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). 您的仓库设为公共后，您还可以查看仓库的社区资料以了解项目是否符合支持贡献者的最佳做法。 更多信息请参阅“[查看您的社区资料](/articles/viewing-your-community-profile)”。{% endif %}
+* {% data variables.product.product_name %} 将会分离私有复刻并将它们变成独立的私有仓库。 更多信息请参阅“[删除仓库或更改其可见性时，复刻会发生什么变化？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)”{% if currentVersion == "free-pro-team@latest" %}
+* 如果在创建开源项目时将私有仓库转换为公共仓库，请参阅[开放源码指南](http://opensource.guide)以了解有用的提示和指南。 您还可以通过 [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}) 免费学习管理开源项目的课程。 您的仓库设为公共后，您还可以查看仓库的社区资料以了解项目是否符合支持贡献者的最佳做法。 更多信息请参阅“[查看您的社区资料](/articles/viewing-your-community-profile)”。{% endif %}
 
 {% endif %}
 

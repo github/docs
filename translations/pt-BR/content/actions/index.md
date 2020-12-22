@@ -1,7 +1,7 @@
 ---
-title: Documentação do GitHub Actions
+title: GitHub Actions Documentation
 shortTitle: GitHub Actions
-intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
+intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
   quickstart: /actions/quickstart
   reference: /actions/reference
@@ -25,22 +25,21 @@ featuredLinks:
     - /actions/reference/workflow-commands-for-github-actions
     - /actions/reference/environment-variables
 changelog:
-  - 
-    title: Remover comandos set-env e add-path em 16 de novembro
+  - title: Removing set-env and add-path commands on November 16
     date: '2020-11-09'
     href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
-  - 
-    title: Os últimos fluxos de trabalho do Ubuntu-20.04
+  - title: Ubuntu-latest workflows will use Ubuntu-20.04
     date: '2020-10-29'
     href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
-  - 
-    title: Pré-visualização para MacOS Big Sur
+  - title: MacOS Big Sur Preview
     date: '2020-10-29'
     href: https://github.blog/changelog/2020-10-29-github-actions-macos-big-sur-preview
-  - 
-    title: Alterações de acesso ao grupo de executores auto-hospedados
+  - title: Self-Hosted Runner Group Access Changes
     date: '2020-10-16'
     href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
+
+product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
+  
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -66,23 +65,23 @@ versions:
 {% assign actionsCodeExamples = site.data.variables.action_code_examples %}
 {% if actionsCodeExamples %}
 <div class="my-6 pt-6">
-  <h2 class="mb-2 font-mktg h1">Exemplos de códigos</h2>
+  <h2 class="mb-2 font-mktg h1">Code examples</h2>
 
   <div class="pr-lg-3 mb-5 mt-3">
-    <input class="js-code-example-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Exemplos de código de pesquisa" type="search" autocomplete="off" aria-label="Search code examples"/>
+    <input class="js-filter-card-filter input-lg py-2 px-3 col-12 col-lg-8 form-control" placeholder="Search code examples" type="search" autocomplete="off" aria-label="Search code examples"/>
   </div>
 
   <div class="d-flex flex-wrap gutter">
     {% render 'code-example-card' for actionsCodeExamples as example %}
   </div>
 
-  <button class="js-code-example-show-more btn btn-outline float-right">Mostrar mais {% octicon "arrow-right" %}</button>
+  <button class="js-filter-card-show-more btn btn-outline float-right">Show more {% octicon "arrow-right" %}</button>
 
-  <div class="js-code-example-no-results d-none py-4 text-center text-gray font-mktg">
+  <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>
-    <h3 class="text-normal">Desculpe, não há resultados para <strong class="js-code-example-filter-value"></strong></h3>
-    <p class="my-3 f4">Parece que não temos um exemplo que se encaixa no seu filtro.<br>Tente outro filtro ou adicione seu exemplo de código</p>
-    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">Saiba como adicionar um exemplo de código {% octicon "arrow-right" %}</a>
+    <h3 class="text-normal">Sorry, there is no result for <strong class="js-filter-card-value"></strong></h3>
+    <p class="my-3 f4">It looks like we don't have an example that fits your filter.<br>Try another filter or add your code example</p>
+    <a href="https://github.com/github/docs/blob/main/data/variables/action_code_examples.yml">Learn how to add a code example {% octicon "arrow-right" %}</a>
   </div>
 </div>
 {% endif %}

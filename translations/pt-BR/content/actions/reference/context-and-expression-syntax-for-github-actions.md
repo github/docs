@@ -75,7 +75,7 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 - começar com `a-Z` ou `_`;
 - ser seguido por `a-Z` `0-9` `-` ou `_`.
 
-#### **Contexto `github`**
+#### Contexto `github`
 
 O contexto `github` context contém informações sobre a execução do fluxo de trabalho e sobre o evento que a acionou. Você pode ler a maioria dos dados de contexto `github` em variáveis de ambiente. Para obter mais informações sobre as variáveis de ambiente, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
 
@@ -103,7 +103,7 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 | `github.workflow`         | `string` | Nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório.                                                                                                                                                                                                                                                                                                                                |
 | `github.workspace`        | `string` | O diretório-padrão de trabalho para etapas e a localização-padrão do repositório ao usar a ação [`checkout-`](https://github.com/actions/checkout).                                                                                                                                                                                                                                                                                                                                                             |
 
-#### **Contexto `env`**
+#### Contexto `env`
 
 O contexto `env` contém variáveis de ambiente que foram definidas em um fluxo de trabalho, trabalho ou etapa. Para obter mais informações sobre como configurar variáveis de ambiente em seu fluxo de trabalho, consulte "[Sintaxe do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)".
 
@@ -117,7 +117,7 @@ Você só pode usar o contexto `env` no valor de `com` e as chaves do `nome` ou 
 | `env.<env name>` | `string` | O valor de uma variável de ambiente específica.                                                                   |
 
 
-#### **Contexto `trabalho`**
+#### Contexto `trabalho`
 
 O contexto `job` (trabalho) contém informações sobre o trabalho atualmente em execução.
 
@@ -133,7 +133,7 @@ O contexto `job` (trabalho) contém informações sobre o trabalho atualmente em
 | `job.services.<service id>.ports`   | `objeto` | As portas expostas do contêiner de serviço.                                                                                                                                                                                                                                  |
 | `job.status`                              | `string` | Status atual do trabalho. Possíveis valores são `success`, `failure` ou `cancelled`.                                                                                                                                                                                         |
 
-#### **Contexto `etapas`**
+#### Contexto `etapas`
 
 O contexto `steps` (etapas) contém informações sobre as etapas já executadas do trabalho atual.
 
@@ -145,7 +145,7 @@ O contexto `steps` (etapas) contém informações sobre as etapas já executadas
 | `steps.<step id>.outcome`                     | `string` | O resultado de uma etapa concluída antes de [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) ser aplicado. Os valores possíveis são: `sucesso`, `falha`, `cancelado`ou `ignorado`. Quando ocorre uma falha na etapa de `continue-on-error`, o `resultado` será `falha`, mas a conclusão `final` será `sucesso`. |
 | `steps.<step id>.outputs.<output name>` | `string` | Valor de uma saída específica.                                                                                                                                                                                                                                                                                                                                               |
 
-#### **Contexto do `executor`**
+#### Contexto do `executor`
 
 O contexto do `executor` contém informações sobre o executor que está executando o trabalho atual.
 
@@ -155,7 +155,7 @@ O contexto do `executor` contém informações sobre o executor que está execut
 | `runner.temp`       | `string` | O caminho do diretório temporário para o executor. É certo que este diretório estará vazio no início de cada trabalho, mesmo em executores auto-hospedados.                                                                                                                                                                                                                |
 | `runner.tool_cache` | `string` | O caminho do diretório que contém algumas das ferramentas pré-instaladas para executores hospedados no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Especificações para executores hospedados no {% data variables.product.prodname_dotcom %}](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
 
-#### **Contexto `needs`**
+#### Contexto `needs`
 
 O contexto `needs` contém saídas de todos os trabalhos definidos como uma dependência do trabalho atual. Para obter mais informações sobre a definição de dependências de tarefas, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)".
 

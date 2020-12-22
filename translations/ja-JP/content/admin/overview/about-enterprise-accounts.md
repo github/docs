@@ -15,7 +15,7 @@ An enterprise account allows you to manage multiple organizations{% if enterpris
 
 - Member access and management (organization members, outside collaborators){% if enterpriseServerVersions contains currentVersion %}
 - Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs){% endif %}
-- Security{% if enterpriseServerVersions contains currentVersion %}(single sign-on, two factor authentication)
+- Security {% if enterpriseServerVersions contains currentVersion %}(single sign-on, two factor authentication)
 - Requests {% if enterpriseServerVersions contains currentVersion %}and support bundle sharing {% endif %}with {% data variables.contact.enterprise_support %}{% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." {% endif %}For more information about managing your {% data variables.product.product_name %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."

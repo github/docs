@@ -83,4 +83,4 @@ Assim como na suspensão, o cancelamento da suspensão de um usuário ocorre na 
   ```
 
 ### Leia mais
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+- "[Suspender um usuário](/rest/reference/enterprise-admin#suspend-a-user)"

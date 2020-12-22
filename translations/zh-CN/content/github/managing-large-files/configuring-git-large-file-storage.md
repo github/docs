@@ -18,7 +18,7 @@ versions:
 
 {% tip %}
 
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
+**注：**尝试向 {% data variables.product.product_name %} 推送大文件之前，请确保在您的企业上启用了 {% data variables.large_files.product_name_short %}。 更多信息请参阅“[在 GitHub Enterprise Server 上配置 Git Large File Storage](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)”。
 
 {% endtip %}
 
@@ -59,5 +59,5 @@ versions:
 
 ### 延伸阅读
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+- "[与 {% data variables.large_files.product_name_long %} 协作](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 - "[管理仓库存档中的 {% data variables.large_files.product_name_short %} 对象](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

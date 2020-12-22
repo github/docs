@@ -18,7 +18,7 @@ versions:
 
 {% tip %}
 
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. 詳しい情報については「[GitHub Enterprise Server で Git Large File Storage を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)」を参照してください。
+**注釈:** 大容量ファイルを {% data variables.product.product_name %} にプッシュする前に、Enterprise で {% data variables.large_files.product_name_short %} を有効化していることを確認してください。 詳しい情報については「[GitHub Enterprise Server で Git Large File Storage を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)」を参照してください。
 
 {% endtip %}
 
@@ -59,5 +59,5 @@ versions:
 
 ### 参考リンク
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 - 「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」{% endif %}
