@@ -38,7 +38,8 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
    {% warning %}
 
-   **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
+   **Warning:** Treat your tokens like passwords and keep them secret. When working with the API, use tokens as environment variables instead of hardcoding them into your programs. And Do not share your token to anyone.
+   use authenticator applications like Google authenticator to authinticate your login. It's prevent from malicious activities.
 
    {% endwarning %}
 {% if currentVersion == "free-pro-team@latest" %}9. To use your token to authenticate to an organization that uses SAML SSO, [authorize the token for use with a SAML single-sign-on organization](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
