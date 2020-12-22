@@ -3,7 +3,7 @@ title: Setup, Settings, Tips
 versions: '*'
 ---
 
-System Setup, OsmAnd Settings, and Use Tips
+System setup, OsmAnd settings, and use tips.
 
 ### Table of Contents
 
