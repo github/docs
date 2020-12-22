@@ -1,0 +1,1 @@
+{% data variables.android-values.shared_string_actions %} → {% data variables.android-values.context_menu_item_open_note %}
