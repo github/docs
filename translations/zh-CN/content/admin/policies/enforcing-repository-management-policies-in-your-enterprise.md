@@ -34,7 +34,7 @@ versions:
 
 每次有人在您的企业上创建新仓库时，此人必须选择仓库的可见性。 当您配置企业的默认可见性设置时，需要选择默认可见性。 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”
 
-If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
+如果企业所有者不允许成员创建某种类型的仓库，成员将无法创建此类仓库，即使可见性设置默认为此类型。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
@@ -49,9 +49,9 @@ If an enterprise owner disallows members from creating certain types of reposito
 
 ### 设置有关更改仓库可见性的策略
 
-When you prevent members from changing repository visibility, only enterprise owners can change the visibility of a repository.
+当您阻止成员更改仓库可见性时，只有企业所有者可以更改仓库的可见性。
 
-If an enterprise owner has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If an enterprise owner has restricted member repository creation to private repositories only, then members will only be able to change the visibility of a repository to private. 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
+如果企业所有者仅允许组织所有者创建仓库，则成员将无法更改仓库可见性。 如果企业所有者只允许私有仓库成员创建私有仓库，则成员只能将仓库的可见性更改为私有。 更多信息请参阅“[设置仓库创建策略](#setting-a-policy-for-repository-creation)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -77,7 +77,7 @@ If an enterprise owner has restricted repository creation to organization owners
 
 ### 实施有关复刻私有或内部仓库的策略
 
-Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
+在企业拥有的所有组织中，您可以允许有权访问私有或内部仓库的人员复刻仓库、永远不允许分支私有或内部仓库，或者允许所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

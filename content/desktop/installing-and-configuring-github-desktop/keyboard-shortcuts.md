@@ -51,6 +51,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>⌘</kbd><kbd>2</kbd> | Show your commit history
 |<kbd>⌘</kbd><kbd>B</kbd> | Show all your branches
 |<kbd>⌘</kbd><kbd>G</kbd> | Go to the commit summary field
+|<kbd>⌘</kbd><kbd>Enter</kbd> | Commit changes when summary or description field is active
 |<kbd>space</kbd>| Select or deselect all highlighted files
 |<kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | Create a new branch
 |<kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | Rename the current branch
@@ -104,6 +105,7 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd><kbd>2</kbd> | Show your commit history
 |<kbd>Ctrl</kbd><kbd>B</kbd> | Show all your branches
 |<kbd>Ctrl</kbd><kbd>G</kbd> | Go to the commit summary field
+|<kbd>Ctrl</kbd><kbd>Enter</kbd> | Commit changes when summary or description field is active
 |<kbd>space</kbd>| Select or deselect all highlighted files
 |<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>N</kbd> | Create a new branch
 |<kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>R</kbd> | Rename the current branch

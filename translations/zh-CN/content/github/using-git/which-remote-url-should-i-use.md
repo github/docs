@@ -44,7 +44,7 @@ SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 �
 
 {% tip %}
 
-**提示**：您可以使用 SSH URL 将仓库克隆到计算机，或作为将代码部署到生产服务器的安全方法。 您还可以将 SSH 代理转发与部署脚本一起使用，以避免管理服务器上的密钥。 更多信息请参阅“[使用 SSH 代理转发](/v3/guides/using-ssh-agent-forwarding/)”。
+**提示**：您可以使用 SSH URL 将仓库克隆到计算机，或作为将代码部署到生产服务器的安全方法。 您还可以将 SSH 代理转发与部署脚本一起使用，以避免管理服务器上的密钥。 更多信息请参阅“[使用 SSH 代理转发](/developers/overview/using-ssh-agent-forwarding)”。
 
 {% endtip %}
 

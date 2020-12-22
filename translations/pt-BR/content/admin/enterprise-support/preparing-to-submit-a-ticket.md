@@ -1,6 +1,6 @@
 ---
 title: Preparar para enviar um tíquete
-intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
+intro: 'Você pode agilizar o seu problema com {% data variables.contact.enterprise_support %} seguindo essas sugestões antes de abrir um tíquete de suporte.'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:

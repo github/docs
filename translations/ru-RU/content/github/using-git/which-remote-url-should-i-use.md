@@ -44,7 +44,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 {% tip %}
 
-**Tip**: You can use an SSH URL to clone a repository to your computer, or as a secure way of deploying your code to production servers. You can also use SSH agent forwarding with your deploy script to avoid managing keys on the server. For more information, see "[Using SSH Agent Forwarding](/v3/guides/using-ssh-agent-forwarding/)."
+**Tip**: You can use an SSH URL to clone a repository to your computer, or as a secure way of deploying your code to production servers. You can also use SSH agent forwarding with your deploy script to avoid managing keys on the server. For more information, see "[Using SSH Agent Forwarding](/developers/overview/using-ssh-agent-forwarding)."
 
 {% endtip %}
 

@@ -1,6 +1,6 @@
 ---
 title: Sobre a verificação de assinatura de commit
-intro: 'Using GPG or S/MIME, you can sign tags and commits locally. Esses commits ou tags são marcados como verificados no {% data variables.product.product_name %} para que outras pessoas tenham a segurança de que as alterações vêm de uma fonte confiável.'
+intro: 'Ao usar GPG ou S/MIME, você pode assinar tags e commits localmente. Esses commits ou tags são marcados como verificados no {% data variables.product.product_name %} para que outras pessoas tenham a segurança de que as alterações vêm de uma fonte confiável.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/

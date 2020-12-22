@@ -44,7 +44,7 @@ Wenn Du mittels SSH-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`
 
 {% tip %}
 
-**Tipp**: Du kannst eine SSH-URL verwenden, um ein Repository auf Deinem Computer zu klonen oder als sichere Möglichkeit, Deinen Code auf Produktionsserver zu verteilen. Du kannst auch SSH-Agent-Weiterleitung mit Deinem Verteil-Skript verwenden, um das Verwalten von Schlüsseln auf dem Server zu vermeiden. For more information, see "[Using SSH Agent Forwarding](/v3/guides/using-ssh-agent-forwarding/)."
+**Tipp**: Du kannst eine SSH-URL verwenden, um ein Repository auf Deinem Computer zu klonen oder als sichere Möglichkeit, Deinen Code auf Produktionsserver zu verteilen. Du kannst auch SSH-Agent-Weiterleitung mit Deinem Verteil-Skript verwenden, um das Verwalten von Schlüsseln auf dem Server zu vermeiden. For more information, see "[Using SSH Agent Forwarding](/developers/overview/using-ssh-agent-forwarding)."
 
 {% endtip %}
 

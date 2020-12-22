@@ -32,8 +32,8 @@ You can build Docker container and JavaScript actions. Actions require a metadat
 | Type | Operating system |
 | ---- | ------------------- |
 | Docker container | Linux |
-| JavaScript | Linux, MacOS, Windows |
-| Composite run steps | Linux, MacOS, Windows |
+| JavaScript | Linux, macOS, Windows |
+| Composite run steps | Linux, macOS, Windows |
 
 #### Docker container actions
 

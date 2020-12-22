@@ -14,6 +14,7 @@ const version = require('../../lib/enterprise-server-releases').oldestSupported
 const archivalRepoName = 'help-docs-archived-enterprise-versions'
 const archivalRepoUrl = `https://github.com/github/${archivalRepoName}`
 const loadRedirects = require('../../lib/redirects/precompile')
+const { loadPageMap } = require('../../lib/pages')
 
 // [start-readme]
 //
@@ -95,8 +96,8 @@ async function main () {
   }
 
   console.log(`Enterprise version to archive: ${version}`)
-  const pages = await (require('../../lib/pages')())
-  const permalinksPerVersion = Object.keys(pages)
+  const pageMap = await loadPageMap()
+  const permalinksPerVersion = Object.keys(pageMap)
     .filter(key => key.includes(`/enterprise-server@${version}`))
 
   const urls = dryRun
@@ -149,7 +150,7 @@ async function main () {
     console.log(`\n\ndone scraping! added files to ${path.relative(process.cwd(), finalDirectory)}\n`)
 
     // create redirect html files to preserve frontmatter redirects
-    await createRedirectPages(permalinksPerVersion, pages, finalDirectory)
+    await createRedirectPages(permalinksPerVersion, pageMap, finalDirectory)
 
     console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
 
@@ -157,9 +158,9 @@ async function main () {
   })
 }
 
-async function createRedirectPages (permalinks, pages, finalDirectory) {
-  const pagesPerVersion = permalinks.map(permalink => pages[permalink])
-  const redirects = await loadRedirects(pagesPerVersion)
+async function createRedirectPages (permalinks, pageMap, finalDirectory) {
+  const pagesPerVersion = permalinks.map(permalink => pageMap[permalink])
+  const redirects = await loadRedirects(pagesPerVersion, pageMap)
 
   Object.entries(redirects).forEach(([oldPath, newPath]) => {
     // remove any liquid variables that sneak in
@@ -180,7 +181,6 @@ async function createRedirectPages (permalinks, pages, finalDirectory) {
   console.log('done creating redirect files!\n')
 }
 
-// prior art: https://github.com/github/help-docs-archived-enterprise-versions/blob/master/2.12/user/leave-a-repo/index.html
 // redirect html files already exist in <=2.12 because these versions were deprecated on the old static site
 function getRedirectHtml (newPath) {
   return `<!DOCTYPE html>

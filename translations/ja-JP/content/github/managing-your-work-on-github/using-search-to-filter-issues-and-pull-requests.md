@@ -25,6 +25,7 @@ Issue およびプルリクエストの検索用語により、次のことが�
 - [特定の人に関連するが、必ずしも **@メンション**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)ではない Issue とプルリクエストのフィルタリング: `state:open type:issue involves:octocat`
 - アサインされた人による Issues とプルリクエストのフィルタリング: `state:open type:issue assignee:octocat`
 - ラベルにより Issue とプルエストをフィルタリング: `state:open type:issue label:"bug"`
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 Issueについては、以下も検索に利用できます。

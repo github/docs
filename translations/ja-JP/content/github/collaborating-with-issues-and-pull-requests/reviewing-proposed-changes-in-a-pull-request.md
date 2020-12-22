@@ -29,6 +29,18 @@ versions:
 
 ![[Cancel review] ボタン](/assets/images/help/pull_requests/cancel-review-button.png)
 
+{% if currentVersion == "free-pro-team@latest" %}
+### Reviewing dependency changes
+
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+{% endif %}
+
 ### ファイルをレビュー済みとしてマークする
 
 ファイルのレビュー後は、そのファイルをレビュー済みとしてマークできます。マークしたファイルは折りたたまれます。 ファイルを表示後に変更すると、レビュー済みマークが解除されます。
@@ -53,8 +65,5 @@ versions:
 
 ### 参考リンク
 
-- "[プルリクエストのレビューについて](/articles/about-pull-request-reviews)"
-- [プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)
-- "[必須レビューで Pull Request を承認する](/articles/approving-a-pull-request-with-required-reviews)"
-- [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)
-- 「[プルリクエストをレビューステータスでフィルタリングする](/articles/filtering-pull-requests-by-review-status)」
+- [プルリクエストのための必須レビューについて](/github/administering-a-repository/about-required-reviews-for-pull-requests)
+- 「[プルリクエストをレビューステータスでフィルタリングする](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)」

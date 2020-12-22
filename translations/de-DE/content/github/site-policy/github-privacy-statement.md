@@ -201,7 +201,7 @@ Bitte wenden Sie sich an die Kontoinhaber, um weitere Informationen darüber zu 
 
 #### Anwendungen Dritter
 
-Sie haben die Möglichkeit, Ihrem Konto Drittanbieter-Anwendungen, die als "Entwicklerprodukte" bezeichnet werden, hinzuzufügen bzw. diese zu aktivieren. Diese Entwicklerprodukte sind für Ihre Nutzung von GitHub nicht erforderlich. Wir geben Ihre personenbezogenen Benutzerdaten an Dritte weiter, wenn Sie uns darum bitten, z. B. durch den Kauf eines Entwicklerprodukts über den Marketplace; Sie sind jedoch für Ihre Nutzung des Entwicklerprodukts von Drittanbietern sowie für die Menge der personenbezogenen Benutzerinformationen, die Sie mit diesem Produkt teilen möchten, selber verantwortlich. Sie können unsere [API-Dokumentation](/v3/users/) einsehen um zu erfahren, welche Informationen bereitgestellt werden, wenn Sie sich mit Ihrem GitHub-Profil bei einem Entwicklerprodukt authentifizieren.
+Sie haben die Möglichkeit, Ihrem Konto Drittanbieter-Anwendungen, die als "Entwicklerprodukte" bezeichnet werden, hinzuzufügen bzw. diese zu aktivieren. Diese Entwicklerprodukte sind für Ihre Nutzung von GitHub nicht erforderlich. Wir geben Ihre personenbezogenen Benutzerdaten an Dritte weiter, wenn Sie uns darum bitten, z. B. durch den Kauf eines Entwicklerprodukts über den Marketplace; Sie sind jedoch für Ihre Nutzung des Entwicklerprodukts von Drittanbietern sowie für die Menge der personenbezogenen Benutzerinformationen, die Sie mit diesem Produkt teilen möchten, selber verantwortlich. Sie können unsere [API-Dokumentation](/rest/reference/users) einsehen um zu erfahren, welche Informationen bereitgestellt werden, wenn Sie sich mit Ihrem GitHub-Profil bei einem Entwicklerprodukt authentifizieren.
 
 #### GitHub Pages
 

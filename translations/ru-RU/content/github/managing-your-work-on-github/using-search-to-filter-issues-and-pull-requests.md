@@ -25,6 +25,7 @@ With issue and pull request search terms, you can:
 - Filter issues and pull requests that involve, but don't necessarily [**@mention**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), certain people: `state:open type:issue involves:octocat`
 - Filter issues and pull requests by assignee: `state:open type:issue assignee:octocat`
 - Filter issues and pull requests by label: `state:open type:issue label:"bug"`
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 For issues, you can also use search to:

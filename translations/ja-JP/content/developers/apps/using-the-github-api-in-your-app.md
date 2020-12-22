@@ -22,19 +22,19 @@ This project will walk you through the following:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
+Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %} アプリケーションの成功例は、[GitHub Marketplace](https://github.com/marketplace)や[Works with GitHub](https://github.com/works-with)で調べることができます。{% endif %}
 
 ### 必要な環境
 
-You may find it helpful to have a basic understanding of the following:
+以下に関する基本的な理解があると役立つでしょう。
 
 * [GitHub Apps](/apps/about-apps)
 * [webhook](/webhooks)
-* [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/v3)
+* [プログラミング言語のRuby](https://www.ruby-lang.org/en/)
+* [REST API](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
-But you can follow along at any experience level. We'll link out to information you need along the way!
+とはいえ、経験のレベルにかかわらず見ていくことはできます。 その過程で必要な情報にはリンクしていきます！
 
 Before you begin, you'll need to do the following:
 
@@ -74,7 +74,7 @@ These are the steps you'll complete to create your first GitHub App:
 
 ### ステップ 1. Update app permissions
 
-When you [first registered your app](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read issues and write labels.
+[最初にアプリケーションを登録](/apps/quickstart-guides/setting-up-your-development-environment/#step-2-register-a-new-github-app)した際は、デフォルトの権限を受け入れています。これは、アプリケーションがほとんどのリソースにアクセスできないことを意味します。 For this example, your app will need permission to read issues and write labels.
 
 アプリケーションの権限を更新するには、以下の手順に従います。
 
@@ -143,11 +143,11 @@ Before the label can be _added_ anywhere, you'll need to _create_ the custom lab
 
 {% tip %}
 
-**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/v3/issues/labels/#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
+**Tip**: Wouldn't it be great if your app could create the label programmatically? [It can](/rest/reference/issues#create-a-label)! Try adding the code to do that on your own after you finish the steps in this guide.
 
 {% endtip %}
 
-Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/v3/issues/labels/#add-labels-to-an-issue).
+Now that the label exists, you can program your app to use the REST API to [add the label to any newly opened issue](/rest/reference/issues#add-labels-to-an-issue).
 
 ### ステップ 4. Add label handling
 

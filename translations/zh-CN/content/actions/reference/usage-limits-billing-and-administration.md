@@ -79,6 +79,7 @@ GitHub Actions 使用对
 - "[对组织禁用或限制 {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在企业帐户中实施 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_actions %} 策略](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)"{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### 禁用和启用工作流程
 
 您可以在 {% data variables.product.prodname_dotcom %} 上启用和禁用仓库中的个别工作流程。
@@ -86,3 +87,4 @@ GitHub Actions 使用对
 {% data reusables.actions.scheduled-workflows-disabled %}
 
 更多信息请参阅“[禁用和启用工作流程](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)。
+{% endif %}

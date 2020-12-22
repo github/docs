@@ -148,7 +148,7 @@ steps:
 
 #### 依存関係のキャッシング
 
-The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 To enable caching, set the following.
 
@@ -165,7 +165,7 @@ This will configure bundler to install your gems to `vendor/cache`. For each suc
 
 **Caching without setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` Action directly. 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。
+For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 {% raw %}
 ```yaml
