@@ -27,7 +27,9 @@ Boat mode for navigation can be enabled together with the Nautical plugin. You c
 
   ![Nautical maps on Android](/assets/images/plugins/nautical-charts/np_and_4.jpg)
 
-> Next version of navigation for boat:  **Direct-to-point**. Direct-to-point navigation is a critical and frequently used feature for marine users.
+##### Direct-to-point
+
+Next version of navigation for boat:  **Direct-to-point**. Direct-to-point navigation is a critical and frequently used feature for marine users.
 
 How to make your navigation profile with your parameters read  [here](https://osmand.net/features/navigation-profiles#create).
 
@@ -37,7 +39,9 @@ Also, you can see a point projection that represents the distance to the end poi
 
   ![Nautical maps on Android](/assets/images/plugins/nautical-charts/np_and_5.jpg)
 
-> The next navigation type:  **Straight-Line**.
+##### Straight-Line
+
+The next navigation type:  **Straight-Line**.
 
 There is also a new setting to specify at which distance of user's location from route to start recalculation:  _Configure profile-> Navigation settings-> Route parameters-> Minimal distance to recalculate the route_.
 
