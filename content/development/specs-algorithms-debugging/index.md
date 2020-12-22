@@ -1,8 +1,9 @@
 ---
-title: Algorithms & How it works
+title: Specifications, Algorithms, Debugging
 versions: '*'
 ---
-Here we talk about how routing, rendering, search, voice navigation etc works 
+
+Our collection of specifications and functional descriptions, e.g covering building blocks like routing, rendering, search, voice navigation etc.
 
 ### Table of Contents
 
