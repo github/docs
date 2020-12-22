@@ -21,7 +21,12 @@ Você pode optar por assinar notificações para:
 - Uma conversa em um problema específico, pull request ou gist.
 - Todas as atividades em um repositório ou em uma discussão em equipe.
 - Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}.
+{% if currentVersion == "free-pro-team@latest" %}
+- Issues, pulls requests, releases and discussions (if enabled) in a repository.
+{% endif %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - Lançamentos em um repositório.
+{% endif %}
 
 Você também pode optar por assistir automaticamente todos os repositórios aos quais você tem acesso de push, exceto as bifurcações. É possível assistir qualquer outro repositório ao qual você tenha acesso manualmente clicando em **Watch** (Assistir).
 

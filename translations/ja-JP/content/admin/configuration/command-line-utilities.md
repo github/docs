@@ -159,7 +159,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 詳しい情報については、{% data variables.product.prodname_blog %} で「[{% data variables.product.prodname_dotcom %} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{% data variables.product.prodname_dotcom %} サービスを置き換える](/v3/guides/replacing-github-services/)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
+このユーティリティは、2018 年 10 月 1 日に廃止予定の統合方式である {% data variables.product.prodname_dotcom %} サービスを使用しているアプライアンス上のリポジトリを一覧表示します。 アプライアンス上のユーザーは、特定のリポジトリへのプッシュに対する通知を作成するために、{% data variables.product.prodname_dotcom %} サービスを設定している場合があります。 詳しい情報については、{% data variables.product.prodname_blog %} で「[{% data variables.product.prodname_dotcom %} サービスの非推奨をアナウンスする](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)」、または「[{% data variables.product.prodname_dotcom %} サービスを置き換える](/developers/overview/replacing-github-services)」を参照してください。 このコマンドの詳細や追加のオプションについては、`-h` フラグを使用してください。
 
 ```shell
 ghe-legacy-github-services-report

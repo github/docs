@@ -54,7 +54,7 @@ https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/
 
 たとえば、顧客が5人のプランを使っていて、10人のプランに移行する必要があることに気づいた場合、アプリケーションのUIに「アップグレードの方法はこちら」というボタンを表示したり、アップグレードURLへのリンクを持つバナーを表示したりできます。 アップグレードURLは顧客をリストされたプランのアップグレードの確認ページへ移動させます。
 
-顧客が購入したいであろうプランの`LISTING_PLAN_NUMBER`を使ってください。 新しい価格プランを作成すると、それらにはリスト内で各プランに対してユニークな`LISTING_PLAN_NUMBER`と、{% data variables.product.prodname_marketplace %}内で各プランに対してユニークな`LISTING_PLAN_ID`が与えられます。 [プランをリスト](/v3/apps/marketplace/#list-plans)する際にはこれらの番号があり、リストの価格プランを特定できます。 `LISTING_PLAN_ID`と「[プランに対するアカウントのリスト](/v3/apps/marketplace/#list-accounts-for-a-plan)」エンドポイントを使って、`CUSTOMER_ACCOUNT_ID`を取得してください。
+顧客が購入したいであろうプランの`LISTING_PLAN_NUMBER`を使ってください。 新しい価格プランを作成すると、それらにはリスト内で各プランに対してユニークな`LISTING_PLAN_NUMBER`と、{% data variables.product.prodname_marketplace %}内で各プランに対してユニークな`LISTING_PLAN_ID`が与えられます。 [プランをリスト](/rest/reference/apps#list-plans)する際にはこれらの番号があり、リストの価格プランを特定できます。 `LISTING_PLAN_ID`と「[プランに対するアカウントのリスト](/rest/reference/apps#list-accounts-for-a-plan)」エンドポイントを使って、`CUSTOMER_ACCOUNT_ID`を取得してください。
 
 
 {% note %}

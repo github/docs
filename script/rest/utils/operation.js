@@ -177,10 +177,6 @@ module.exports = class Operation {
   async renderNotes () {
     this.notes = []
 
-    if (this['x-github'].enabledForGitHubApps) {
-      this.notes.push('<a href="{{ restGitHubAppsLink }}">Works with GitHub Apps</a>')
-    }
-
     return Promise.all(this.notes.map(async (note) => renderContent(note)))
   }
 }

@@ -163,7 +163,7 @@ You can filter by the visibility of the repository containing the issues and pul
 
 ### 按提交状态搜索
 
-您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/v3/repos/statuses/) 或 CI 服务时特别有用。
+您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/rest/reference/repos#statuses) 或 CI 服务时特别有用。
 
 | 限定符              | 示例                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -203,7 +203,7 @@ You can filter by the visibility of the repository containing the issues and pul
 
 | 限定符                        | 示例                                                                                                                                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3C100&type=Issues) 匹配具有超过 100 条评论的已关闭议题。 |
+| <code>comments:<em>n</em></code> | [**state:closed comments:&gt;100**](https://github.com/search?q=state%3Aclosed+comments%3A%3E100&type=Issues) 匹配具有超过 100 条评论的已关闭议题。 |
 |                            | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Issues) 匹配具有 500 到 1,000 条评论的议题。                           |
 
 ### 按交互数量搜索

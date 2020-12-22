@@ -140,11 +140,11 @@ jobs:
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
       with:
-        # セマンティックバージョン範囲の構文または Python バージョンの正確なバージョン
-        python-version: '3.x' 
-        # オプション - x64 または x86 アーキテクチャ、デフォルトは x64
-        architecture: 'x64' 
-    # 現在の Python バージョンを印刷して、マトリックスをテストできます
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x'
+        # Optional - x64 or x86 architecture, defaults to x64
+        architecture: 'x64'
+    # You can test your matrix by printing the current Python version
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
 ```
@@ -192,7 +192,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %}ホストランナーには、パッケージマネージャーのpipがインストールされています。 コードのビルドとテストに先立って、pipを使ってパッケージレジストリのPyPIから依存関係をインストールできます。 たとえば以下のYAMLは`pip`パッケージインストーラーと`setuptools`及び`wheel`パッケージのインストールやアップグレードを行います。
 
-ワークフローの速度を上げるために、依存関係をキャッシュすることもできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 {% raw %}
 ```yaml
@@ -228,13 +228,11 @@ steps:
 
 #### 依存関係のキャッシング
 
-`cache`アクションを使って、ユニークキーを使ってpipの依存関係をキャッシュし、将来のワークフローの実行で依存関係をリストアできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。</p> 
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ランナーのオペレーティングシステムによって、pipは依存関係を様々な場所にキャッシュします。 キャッシュする必要があるパスは、使用するオペレーティングシステムによって以下のUbuntuの例とは異なるかもしれません。 詳しい情報については[Pythonのキャッシングの例](https://github.com/actions/cache/blob/main/examples.md#python---pip)を参照してください。
 
 {% raw %}
-
-
 ```yaml
 steps:
 - uses: actions/checkout@v2
@@ -255,8 +253,6 @@ steps:
 - name: Install dependencies
   run: pip install -r requirements.txt
 ```
-
-
 {% endraw %}
 
 {% note %}
@@ -265,21 +261,15 @@ steps:
 
 {% endnote %}
 
-
-
 ### コードのテスト
 
 ローカルで使うのと同じコマンドを、コードのビルドとテストに使えます。
-
-
 
 #### pytest及びpytest-covでのテスト
 
 以下の例では、`pytest`及び`pytest-cov`をインストールあるいはアップグレードします。 そしてテストが実行され、JUnit形式で出力が行われ、一方でコードカバレッジの結果がCoberturaに出力されます。 詳しい情報については[JUnit](https://junit.org/junit5/)及び[Cobertura](https://cobertura.github.io/cobertura/)を参照してください。
 
 {% raw %}
-
-
 ```yaml
 steps:
 - uses: actions/checkout@v2
@@ -297,19 +287,13 @@ steps:
     pip install pytest-cov
     pytest tests.py --doctest-modules --junitxml=junit/test-results.xml --cov=com --cov-report=xml --cov-report=html
 ```
-
-
 {% endraw %}
-
-
 
 #### Flake8を使ったコードのlint
 
 以下の例は、`flake8`をインストールもしくはアップグレードし、それを使ってすべてのファイルをlintします。 詳しい情報については[Flake8](http://flake8.pycqa.org/en/latest/)を参照してください。
 
 {% raw %}
-
-
 ```yaml
 steps:
 - uses: actions/checkout@v2
@@ -326,19 +310,13 @@ steps:
     pip install flake8
     flake8 .
 ```
-
-
 {% endraw %}
-
-
 
 #### toxでのテストの実行
 
 {% data variables.product.prodname_actions %}では、toxでテストを実行し、その処理を複数のジョブに分散できます。 toxを起動する際には、特定のバージョンを指定するのではなく、`-e py`オプションを使って`PATH`中のPythonのバージョンを選択しなければなりません。 詳しい情報については [tox](https://tox.readthedocs.io/en/latest/)を参照してください。
 
 {% raw %}
-
-
 ```yaml
 name: Python package
 
@@ -364,11 +342,7 @@ jobs:
         # 「PATH」で Python のバージョンを使用して tox を実行する
         run: tox -e py
 ```
-
-
 {% endraw %}
-
-
 
 ### 成果物としてのワークフローのデータのパッケージ化
 
@@ -377,8 +351,6 @@ jobs:
 以下の例は、`upload-artifact`アクションを使って`pytest`の実行によるテスト結果をアーカイブする方法を示しています。 詳しい情報については[`upload-artifact`アクション](https://github.com/actions/upload-artifact)を参照してください。
 
 {% raw %}
-
-
 ```yaml
 name: Python package
 
@@ -413,11 +385,7 @@ jobs:
         # テスト失敗時にテスト結果を公開するには、always() を使用して常にこのステップを実行する
         if: ${{ always() }}
 ```
-
-
 {% endraw %}
-
-
 
 ### パッケージレジストリへの公開
 
@@ -426,8 +394,6 @@ CIテストにパスしたなら、Pythonパッケージを任意のパッケー
 パッケージを公開するのに必要なアクセストークンやクレデンシャルは、リポジトリシークレットを使って保存できます。 以下の例では、`twine`と`dist`を使ってパッケージを作成してPyPIに公開しています。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 {% raw %}
-
-
 ```yaml
 name: Upload Python Package
 
@@ -456,8 +422,6 @@ jobs:
         python setup.py sdist bdist_wheel
         twine upload dist/*
 ```
-
-
 {% endraw %}
 
 テンプレートワークフローに関する詳しい情報については[`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)を参照してください。

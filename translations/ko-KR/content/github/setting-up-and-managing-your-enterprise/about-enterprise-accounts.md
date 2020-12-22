@@ -26,7 +26,7 @@ For more information about the differences between {% data variables.product.pro
 
 For more information about member access and management, see "{% if currentVersion == "free-pro-team@latest" %}[Managing users in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Managing users, organizations, and repositories](/admin/user-management){% endif %}."
 
-For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 

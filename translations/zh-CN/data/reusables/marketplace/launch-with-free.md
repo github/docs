@@ -1,1 +1,1 @@
-您可以提交未经验证和经过验证的应用程序。 这将允许您使用免费版本的应用程序启动。 GitHub 验证您的应用程序后，该程序在 {% data variables.product.prodname_marketplace %} 中的上架状态将从未经验证变为经过验证，GitHub 将发布您的新定价计划。
+You can request publication with or without verification. Requesting publication without verification allows you to launch a free version of your app quickly. If you then request publication with verification, your listing will be updated to include the verified creator badge and any paid pricing plans when you complete verification and financial onboarding.

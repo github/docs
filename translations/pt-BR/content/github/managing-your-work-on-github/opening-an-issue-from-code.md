@@ -1,6 +1,7 @@
 ---
 title: Abrir um problema a partir de código
 intro: É possível abrir um problema novo a partir de uma linha ou linhas específicas de código em um arquivo ou pull request.
+permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
 redirect_from:
   - /articles/opening-an-issue-from-code
 versions:
@@ -13,7 +14,7 @@ Quando você abre um problema de código, o problema contém um trecho mostrando
 
 ![Trecho de código fornecido em um problema aberto de código](/assets/images/help/repository/issue-opened-from-code.png)
 
-{% data reusables.repositories.create-issue-in-public-repository %}
+{% data reusables.repositories.administrators-can-disable-issues %}
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Localize o código que deseja referenciar em um problema:

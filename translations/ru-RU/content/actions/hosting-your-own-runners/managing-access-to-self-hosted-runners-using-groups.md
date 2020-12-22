@@ -47,9 +47,11 @@ When creating a group, you must choose a policy that defines which repositories 
 
    {% warning %}
 
-   **Warnung**
+   **Предупреждение**
+
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
-   Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
+
+   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
 
@@ -77,9 +79,11 @@ When creating a group, you must choose a policy that defines which organizations
 
    {% warning %}
 
-   **Warnung**
+   **Предупреждение**
+
    {% indented_data_reference site.data.reusables.github-actions.self-hosted-runner-security spaces=3 %}
-   Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)“.
+
+   For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
 
@@ -109,4 +113,3 @@ Self-hosted runners are automatically returned to the default group when their g
 1. To remove the group, click **Remove group**. ![View runner group settings](/assets/images/help/settings/actions-org-runner-group-remove.png)
 
 1. Review the confirmation prompts, and click **Remove this runner group**.
-

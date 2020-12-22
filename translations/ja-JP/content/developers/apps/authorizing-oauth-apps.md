@@ -235,12 +235,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ### 非Webアプリケーションフロー
 
-テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[個人アクセストークン設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[Basic認証](/v3/auth#basic-authentication)を利用して個人アクセストークンを作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
+テストのような限定的な状況では、非Web認証が利用できます。 必要な場合は、[個人アクセストークン設定ページ](/articles/creating-an-access-token-for-command-line-use)を使い、[Basic認証](/rest/overview/other-authentication-methods#basic-authentication)を利用して個人アクセストークンを作成できます。 この手法を使えば、ユーザはいつでもアクセスを取り消せます。
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
-**ノート:** 非Webアプリケーションフローを使ってOAuth2トークンを作成する場合で、ユーザが2要素認証を有効化しているなら[2要素認証の利用](/v3/auth/#working-with-two-factor-authentication)方法を必ず理解しておいてください。
+**ノート:** 非Webアプリケーションフローを使ってOAuth2トークンを作成する場合で、ユーザが2要素認証を有効化しているなら[2要素認証の利用](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)方法を必ず理解しておいてください。
 
 {% endnote %}
 {% endif %}
@@ -289,7 +289,7 @@ OAuthアプリケーションへの認可情報へリンクし、ユーザがア
 
 {% tip %}
 
-**Tip:** OAuthアプリケーションがユーザのためにアクセスできるリソースについてさらに学ぶには、「[ユーザのためにリソースを見つける](/v3/guides/discovering-resources-for-a-user/)」を参照してください。
+**Tip:** OAuthアプリケーションがユーザのためにアクセスできるリソースについてさらに学ぶには、「[ユーザのためにリソースを見つける](/rest/guides/discovering-resources-for-a-user)」を参照してください。
 
 {% endtip %}
 

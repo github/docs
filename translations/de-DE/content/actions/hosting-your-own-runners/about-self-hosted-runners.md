@@ -87,7 +87,7 @@ The following operating systems are supported for the self-hosted runner applica
 - Windows Server 2016 64-bit
 - Windows Server 2019 64-bit
 
-#### MacOS
+#### macOS
 
 - macOS 10.13 (High Sierra) oder höher
 

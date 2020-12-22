@@ -40,7 +40,7 @@ Some IdPs support provisioning access to a  {% data variables.product.prodname_d
 
 ### Adding members to an organization using SAML SSO
 
-After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/v3/orgs/members/#add-or-update-organization-membership)."
+After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)" and "[Members](/rest/reference/orgs#add-or-update-organization-membership)."
 
 {% data reusables.organizations.team-synchronization %}
 

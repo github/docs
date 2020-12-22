@@ -1,6 +1,6 @@
 ---
 title: Mostrar ou ocultar contribuições privadas no perfil
-intro: 'Seu perfil do {% data variables.product.product_name %} mostra um gráfico de contribuições no seu repositório no último ano. É possível escolher mostrar atividades anônimas em repositórios privados além da atividade mostrada em repositórios públicos.'
+intro: 'Seu perfil do {% data variables.product.product_name %} mostra um gráfico de contribuições no seu repositório no último ano. You can choose to show anonymized activity from {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}private and internal{% else %}private{% endif %} repositories{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:

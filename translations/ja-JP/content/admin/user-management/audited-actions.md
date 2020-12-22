@@ -138,7 +138,7 @@ versions:
   [デプロイキー]: /guides/managing-deploy-keys/#deploy-keys
   [deploy key]: /guides/managing-deploy-keys/#deploy-keys
   [generate token]: /articles/creating-an-access-token-for-command-line-use
-  [OAuth アクセストークン]: /v3/oauth/
+  [OAuth アクセストークン]: /developers/apps/authorizing-oauth-apps
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
   [OAuth アプリケーション]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication
