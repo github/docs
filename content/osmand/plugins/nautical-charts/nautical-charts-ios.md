@@ -4,6 +4,8 @@ intro: "Detailed graphical representation of oceans, seas, coastal areas and riv
 versions: '*'
 ---
 
+### Using Nautical Plugin
+
 At first you just have to enable Nautical plugin: _app menu-> Maps & Resources-> Plugins-> Nautical map_. There, you'll have to buy the plugin by tapping on the checkbox.
 
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nautical-charts-ios.jpg)
@@ -15,6 +17,6 @@ You also will need a World seamarks map. Make sure to get it in _app menu-> Maps
 Next turn the Nautical map style on using the Map menu in the left upper corner of the screen or _app menu-> Map-> Map type-> Nautical_.
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/np_ios_2.jpg)
 
-# Map legend
+### Map legend
 **Map legend**  of Nautical map you can find  [_here_](https://osmand.net/help-online/map-legend#nautical).
 
