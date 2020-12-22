@@ -819,10 +819,19 @@ _Team_
 * [`PUT /orgs/:org/actions/secrets/:secret_name/repositories/:repository_id`](/rest/reference/actions#add-selected-repository-to-an-organization-secret) (:write)
 * [`DELETE /orgs/:org/actions/secrets/:secret_name/repositories/:repository_id`](/rest/reference/actions#remove-selected-repository-from-an-organization-secret) (:write)
 * [`DELETE /orgs/:org/actions/secrets/:secret_name`](/rest/reference/actions#delete-an-organization-secret) (:write)
-
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Permission on "secret scanning alerts"
+
+- [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
+
+- [`GET /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#get-a-secret-scanning-alert) (:read)
+
+- [`PATCH /repos/:owner/:repo/secret-scanning/alerts/:alert_number`](/rest/reference/secret-scanning#update-a-secret-scanning-alert) (:write)
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### "security events"に対する権限
 
 - [`GET /repos/:owner/:repo/code-scanning/alerts`](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) (:read)

@@ -60,7 +60,11 @@ jobs:
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
 * `Should -Be $true` - 使用 Pester 定义预期结果。 如果结果是非预期的，则 {% data variables.product.prodname_actions %} 会将此标记为失败的测试。 例如：
 
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test-updated.png)
+  {% else %}
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test.png)
+  {% endif %}
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - 使用 Pester 执行文件 `Unit.Tests.ps1` 中定义的测试。 例如，要执行上述相同的测试， `Unit.Tests.ps1` 将包含以下内容：
   ```
@@ -91,7 +95,7 @@ jobs:
 
 {% endnote %}
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 例如，以下作业将安装 `SqlServer` 和 `PSScriptAnalyzer` 模块：
 
@@ -119,7 +123,7 @@ jobs:
 
 #### 缓存依赖项
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存 PowerShell 依赖项， 这样在使用 [`cache`](https://github.com/marketplace/actions/cache) 操作运行未来的工作流程时可以恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 PowerShell 根据运行器的操作系统将其依赖项缓存在不同的位置。 例如，以下 Ubuntu 示例中使用的 `path` 位置在 Windows 操作系统中是不同的。
 

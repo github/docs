@@ -13419,6 +13419,11 @@ type MarketplaceListing implements Node {
   hasTermsOfService: Boolean!
 
   """
+  Whether the creator of the app is a verified org
+  """
+  hasVerifiedOwner: Boolean!
+
+  """
   A technical description of how this app works with GitHub.
   """
   howItWorks: String

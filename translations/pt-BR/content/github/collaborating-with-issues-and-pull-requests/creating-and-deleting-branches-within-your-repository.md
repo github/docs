@@ -22,7 +22,11 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-Se o branch que você deseja excluir for o branch-padrão do repositório, você deverá escolher um novo branch-padrão antes de excluir o branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+{% note %}
+
+**Note:** If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+
+{% endnote %}
 
 Se o branch que você deseja excluir estiver associado a um pull request aberto, você deverá fazer o merge ou fechar o pull request antes de excluir o branch. Para obter mais informações, consulte "[Fazer merge de um pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" ou "[Fechar um pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)".
 
