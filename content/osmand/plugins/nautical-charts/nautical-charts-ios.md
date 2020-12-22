@@ -13,7 +13,8 @@ You also will need a World seamarks map. Make sure to get it in _app menu-> Maps
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/np_ios_1.jpg)
 
 Next turn the Nautical map style on using the Map menu in the left upper corner of the screen or _app menu-> Map-> Map type-> Nautical_.
-![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nc_12.jpg)  ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nc_13.jpg)
+![Nautical maps on iOs](/assets/images/plugins/nautical-charts/np_ios_2.jpg)
 
-
+{% note %}
 **Map legend**  of Nautical map you can find  [_here_](https://osmand.net/help-online/map-legend#nautical).
+{% endnote %}
