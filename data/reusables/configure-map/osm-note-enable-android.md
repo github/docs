@@ -1,1 +1,0 @@
-{% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.osm_settings %} → ![Overflow menu](/assets/images/icons/android/ic_overflow_menu_white.svg) → {% data variables.android-values.shared_string_enable %}.
