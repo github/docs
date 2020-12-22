@@ -19,3 +19,4 @@ versions:
 {% topic_link_in_list /events %}
     {% link_in_list /github-event-types %}
     {% link_in_list /issue-event-types %}
+Remote 
