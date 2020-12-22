@@ -25,7 +25,7 @@ Terraform: `terraform` | **✓** | |
 
 -`yarn` (v1 only) (specify `npm`)
 
--`.gradle.tks` files, for Kotlin projects (specify `gradle`)
+-`.gradle.kts` files, for Kotlin projects (specify `gradle`)
 
 -`pipenv`, `pip-compile`, and `poetry` (specify `pip`)
 
