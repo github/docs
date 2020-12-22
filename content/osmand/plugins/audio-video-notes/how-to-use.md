@@ -17,7 +17,8 @@ For viewing your notes on the map you can switch on the  [Recording layer](https
 You can tap on your note on the map. After that you see details screen where you can play/show your note or delete it. Of course you can share this note or make other _Actions_ with it.
  
 ![Audio_video_notes](/assets/images/plugins/audio-video-notes/av-3.png)
-All your notes you can find in  {% data.reusables.plugins.audio-video-notes-my-places %}. Here you can sort your list, share your notes or delete it. If you click to one of your note you will see it on the map.
+
+All your notes you can find in  _{% data.reusables.plugins.audio-video-notes-my-places %}_. Here you can sort your list, share your notes or delete it. If you click to one of your note you will see it on the map.
 
 You can click to three points ![Overflow menu](/assets/images/icons/android/ic_overflow_menu_white.svg) button of note for _play/show, share, show on map, rename, delete it_.
 
