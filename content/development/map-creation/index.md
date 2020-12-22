@@ -1,8 +1,9 @@
 ---
-title: Generate maps
+title: Map Creation
 versions: '*'
 ---
 
-Here we talk how to generate custom maps, OpenStreetMaps, GPX, etc...
+How OsmAnd offline map data is created and how you can produce customized map files.
+
 ### Table of Contents
 
