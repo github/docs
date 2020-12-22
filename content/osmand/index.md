@@ -10,6 +10,7 @@ versions: '*'
 {% link_in_list /plugins %}
 {% link_in_list /purchases %}
 {% link_in_list /troubleshooting %}
+{% link_in_list /development/expert-user-documentation %}
 
 ## Get OsmAnd
 There are several possibilities to do that:
