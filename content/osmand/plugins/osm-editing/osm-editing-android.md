@@ -13,7 +13,9 @@ So how to do it? Go to  _app menu-> Plugins-> OpenStreetMap editing_  and press 
 ### How to add POI
 
 ### How to upload GPX track
-You can add the tracks you've made to [OpenStreetMap](http://www.openstreetmap.com/). To do that, turn the [Trip recording plugin](http://osmand.net/features?id=trip-recording-plugin) on, make a track, and then go to _My places-> Tracks-> press the '↥' button_. Choose the required track and click _Yes_. You can change description, tags or visibility of the track. Kinfly note, that OSM editing plugin has to be turned on. In an hour, your track will be added to [https://www.openstreetmap.org/traces](https://www.openstreetmap.org/traces), so you can view it and other users can find it helpful, as well. You can participate in the work on the global map. Just share the tracks you've made. They become part of the [OpenStreetMap](http://www.openstreetmap.com/) project. Make sure you tag objects and roads as well.
+You can add the tracks you've made to {% data reusables.links.osm %}. To do that, turn the [Trip recording plugin](http://osmand.net/features?id=trip-recording-plugin) on, record a track, and then go to _My places-> Tracks-> press the ![OpenStretMap editing](/assets/images/icons/android/ic_action_export.svg) button_. Choose the required track and click _Yes_. You can change description, tags or visibility of the track. Kindly note, that {% data variables.android-values.osm_editing %} has to be turned on. 
+In an hour, your track will be added to [https://www.openstreetmap.org/traces](https://www.openstreetmap.org/traces), so you can view it and other users can find it helpful, as well. 
+You can participate in the work on the global map. Just share the tracks you've made. They become part of the {% data reusables.links.osm %} project. Make sure you tag objects and roads as well.
 
 
 ### How to report a mistake
