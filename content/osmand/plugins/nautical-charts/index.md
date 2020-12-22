@@ -14,6 +14,7 @@ All professional sailors are obliged to have official nautical charts on their s
 ![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nautical-intro.jpg)
 
 ### How to use
+
 {% link_in_list /nautical-charts-android %}
 {% link_in_list /nautical-charts-ios %}
 
