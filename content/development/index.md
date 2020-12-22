@@ -1,6 +1,6 @@
 ---
-title: Developer Documentation
-intro: 'Osmand Documentation for Developers'
+title: Technical Documentation
+intro: 'Osmand documentation for developers and expert users.'
 versions: '*'
 ---
 Here we collect information structured into the following categories: 
