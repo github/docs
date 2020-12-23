@@ -17,18 +17,18 @@ The generated file is like this:
 
 ```
 <?xml version='1.0' encoding='UTF-8'?>
-&lt;osm version='0.5' generator='GPSBabel-1.4.0'>
-  &lt;node id='-1' visible='true' lat='41.890121' lon='12.492265'>
-    &lt;tag k='name' v='place01'/>
-    &lt;tag k='note' v='place01'/>
-    &lt;tag k='tourism' v='museum'/>
-  &lt;/node>
-  &lt;node id='-2' visible='true' lat='41.892241' lon='12.489031'>>
-    &lt;tag k='name' v='place02'/>
-    &lt;tag k='note' v='place02'/>
-    &lt;tag k='tourism' v='museum'/>
-  &lt;/node>
-&lt;/osm>
+<osm version='0.5' generator='GPSBabel-1.4.0'>
+  <node id='-1' visible='true' lat='41.890121' lon='12.492265'>
+    <tag k='name' v='place01'/>
+    <tag k='note' v='place01'/>
+    <tag k='tourism' v='museum'/>
+  </node>
+  <node id='-2' visible='true' lat='41.892241' lon='12.489031'>>
+    <tag k='name' v='place02'/>
+    <tag k='note' v='place02'/>
+    <tag k='tourism' v='museum'/>
+  </node>
+</osm>
 ```        
 
 All points inside the KML file are converted into osm points, assigning them some properties like tourism category and museum type. The `created_by=` option with missing value means that the properties will be ignored. If your POI belongs to different categories, I suggest you create multiple OSM files and create OsmAnd OBF files and merge them together later with OsmAndMapCreator, or create multiple OBF files.
