@@ -125,9 +125,7 @@ how much memory the program can consume. Settings can be different for
 
 ### After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? {.help}
 
-It could be that a crucial tag was missing for OsmAndMapCreator to
-recognize a POI when you converted the osm from another source, like
-Garmin. If a point in the OSM file looks like this:
+It could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If a point in the OSM file looks like this:
 <pre>
   &lt;node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
     &lt;tag k='created_by' v='GPSBabel-1.4.2'/>
@@ -139,12 +137,11 @@ change it to contain an additional 'amenity' tag, like:
   &lt;node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
     &lt;tag k='created_by' v='GPSBabel-1.4.2'/>
     &lt;tag k='name' v='Street-Soccer Court'/>
-    &lt;tag k='amenity' v='point' />
+    <b>&lt;tag k='amenity' v='point' /></b>
   &lt;/node>
 </pre>
  
-Then convert the file using OsmAndMapCreator. You can check on the OSM
-site what tags are good ones to use, or you can just use this amenity.
+Then convert the file using OsmAndMapCreator. You can check on the OSM site what tags are good ones to use, or you can just use this amenity.
 
 ## Using an Internet access proxy in OsmAndMapCreator
 
