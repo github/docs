@@ -2,7 +2,6 @@
 title: Specification of OsmAnd's Metainfo Format
 versions: '*'
 ---
-# Specification of OsmAnd's Metainfo Format
 
 The Metainfo format used in OsmAnd to store the tile layers preferences. In OsmAnd we add a number of tables extending the format:
 

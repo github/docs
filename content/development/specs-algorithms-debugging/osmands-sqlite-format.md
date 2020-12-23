@@ -2,7 +2,6 @@
 title: Specification of OsmAnd's SQLite Format
 versions: '*'
 ---
-# Specification of OsmAnd's SQLite Format
 
 The SQLIte format used in OsmAnd is based on the "BigPlanet" SQLite as supported by MOBAC. In OsmAnd we add a number of tables extending the format:
 

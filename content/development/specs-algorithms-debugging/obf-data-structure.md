@@ -2,7 +2,6 @@
 title: OsmAnd Data Structure
 versions: '*'
 ---
-# OsmAnd Data Structure
 
 ## Introduction
 

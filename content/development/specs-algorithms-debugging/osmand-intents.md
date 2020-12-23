@@ -2,7 +2,6 @@
 title: What Intents Does OsmAnd Listen to?
 versions: '*'
 ---
-# What Intents Does OsmAnd Listen to?
 
 [Google geo intents](http://developer.android.com/guide/appendix/g-app-intents.html)
 * geo:latitude,longitude

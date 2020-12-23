@@ -2,8 +2,9 @@
 title: Navigation Voice Prompt Triggering
 versions: '*'
 ---
-# Navigation Voice Prompt Triggering
+
 **(Compiled by Hardy 2013, to be reviewed)**
+## Principle
 * Most prompts are triggered based on a fixed lead distance (which can depend on the base profile)
 * For some close prompts we have a combined approach using
    * lead distance threshold
@@ -15,13 +16,13 @@ versions: '*'
 * For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting ARRIVAL_DISTANCE_FACTOR impacting the lead distance
 * We mute TURN instructions immediately once your direction of travel or current position is not any more in line with the turn to be announced (account for GPS issues).
 
-### Base Profile Default Speeds
+## Base Profile Default Speeds
 * CAR: 12 m/s = 43 km/h
 * BICYCLE: 5 m/s = 18 km/h)
 * PEDESTRIAN: 2 m/s=7.2 km/h
 * These are now also user-adjustable!
 
-### Trigger Behavior
+## Trigger Behavior
 Prompt type | Trigger
 --- | ---
 GoAhead | \>3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away

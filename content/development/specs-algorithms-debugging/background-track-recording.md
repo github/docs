@@ -3,8 +3,6 @@ title: Background Track Recording - Strategies and Known Issues
 versions: '*'
 ---
 
-# Background Track Recording - Strategies and Known Issues
-
 This article addresses our GPS track recording. *'Background'* refers to the OsmAnd app not being displayed in the foreground, in particular when the device screen is off.
 The following issues have been observed over time in different Android versions:
 
