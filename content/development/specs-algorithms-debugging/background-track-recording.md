@@ -8,7 +8,7 @@ The following issues have been observed over time in different Android versions:
 
 ## User hints for this topic
 See "Trip recording stops while screen is off"
-{% link_in_list ../expert-user-documentation/trip-recording-stops-while-screen-is-off %}
+{% link_in_list /../development/expert-user-documentation/trip-recording-stops-while-screen-is-off %}
 
 ## (A) The system may kill background apps to save power
 Starting with Android 4.4 (or maybe before), new Android power saving options limit CPU max speed, screen brightness, and may kill running apps. Mitigations:
