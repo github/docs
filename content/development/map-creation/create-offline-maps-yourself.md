@@ -32,7 +32,7 @@ echo "And finally moving the obf files from the index folder to the osmandmaps f
 mv index_files/*.obf osmandmaps/
 </pre>       
 
-### Explanation
+### Script Explanation
 Line `WORK_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps _osm\_files_, _OsmAndMapCreator_, _index\_files_ and _gen\_files_.
 
 We go to the download folder \_osm\_files\_ and use the command \_wget\_ to download our map(s). `wget` is used with parameter `\_-O \<name\>\_` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
@@ -70,7 +70,7 @@ echo date > endtime.txt
 </pre>
 are not really necessary but simply display how long the process takes.
 
-### Scheduling
+## Scheduling
 The shell script may be scheduled. Account e.g. for the Geofabrik map creation schedule (adjust for your time zone).
 
 If you want to create a new map every night, you can add a crontab line like:
@@ -79,21 +79,21 @@ If you want to create a new map every night, you can add a crontab line like:
 </pre>
 This will start the map creation at 03:01am which is currently after the Geofabrik Netherlands osm.pbf map has been generated (local time zone).
 
-### Performance and Tuning
+## Performance and Tuning
 Creating maps is memory hungry and I/O intensive. In other words: It takes long to very long!
 What can you do to improve performance:
 - Use SSD disks.
 - Use multiple disks.
 - Use "in memory" processing.
 
-#### SSD disks
+### SSD disks
 The modern "solid state" disks are 2-6 times as fast as conventional hard-disks and can improve your map creation performance dramatically.
 
-#### Multiple disks
+### Multiple disks
 Modern operating systems can access multiple disks simultaneously. Note that this really means **multiple disks** and **not** multiple partitions on one disk.
 If you have your _process\_directory\_for\_osm\_files_ on one disk and your _directory\_for\_generation_ on another disk, you will see an nice and noticeable performance gain.
 
-#### In memory processing
+### In memory processing
 You can process a great deal of the map creation in memory instead of on disk. In your _batch.xml_, one of the top lines contains:
 <pre>
 &lt;process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/&gt;
@@ -113,3 +113,43 @@ This means that for a 250MB *.osm.pbf*, which will generate a \~4.5GB *nodes.tmp
 So in effect you really need a 64bit Operating system to really benefit from "in memory" processing.
 Note also that your -Xmx value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal "on disk" processing.
 Finally: your source *.osm.pbf* file can be no larger then 600MB as this would require up to 20GB working memory. If your source file exceeds 600MB, OsmAndMapCreator will switch back to normal "on disk" processing. You will be notified early in the process with a warning "Switching SQLITE in memory dialect to SQLITE"
+
+## Common Issues
+### OsmAndMapCreator fails with message: OutOfMemoryError {.help}
+
+The file you try to process with OsmAndMapCreator is too large. Either
+try to process a smaller file, or increase the memory for
+OsmAndMapCreator in the .sh or .bat file. The -Xmx parameter specifies
+how much memory the program can consume. Settings can be different for
+64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
+
+### After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? {.help}
+
+It could be that a crucial tag was missing for OsmAndMapCreator to
+recognize a POI when you converted the osm from another source, like
+Garmin. If a point in the OSM file looks like this:
+
+change it to contain an additional 'amenity' tag, like:
+
+Then convert the file using OsmAndMapCreator. You can check on the OSM
+site what tags are good ones to use, or you can just use this amenity.
+
+## Using an Internet access proxy in OsmAndMapCreator
+
+See
+[http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm](http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm)
+Use OsmAndMapCreator.bat or OsmAndMapCreator.sh (depending on your operating system) to start OsmAndMapCreator. This invokes java, so you just need to add the `-D... -D..` parameters (i .e. `-Djava.util.logging.config.file = logging.properties`) to the invocation:
+<pre>
+javaw.exe <bold>-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080>/bold> -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/\*.jar" net.osmand.swing.OsmExtractionUI
+</pre>
+
+## How to Produce Customized Vector Data
+
+It is possible to create a customized obf file with specific (own) vector data (hiking paths, speed cams, transport routes debug way info), and adjust the rendere to display it.
+
+OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change [this](https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml) file. OsmAndMapCreator has an option to use custom rendering\_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with '-vmap' argument. This utility is packaged with OsmAndMapCreator.
+
+Once the .obf file is ready you can create custom rendering file to display missing attributes. There is a [default rendering style](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/default.render.xml) which contains all information about rendering. It is good to have a look at it but it is very hard to open/edit it and understand. More convenient way to create your own rendering style is to create style that depends (inherits) default style. A good example of custom rendering style you can find [here](https://github.com/osmandapp/OsmAnd-resources/blob/master/rendering_styles/Winter-and-ski.render.xml.).
+
+Currently OsmAndMapCreator doesn't support relation tagging. So you need to manually copy all tags from relations (like route color) to way tags by script.
+
