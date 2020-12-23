@@ -15,7 +15,7 @@ Find the place name a street is associated with in offline OBF maps
 - Have a Java framework installed on your desktop computer.
 - Download OsmAndMapCreator, for example from [download.osmand.net/releases](https://download.osmand.net/releases/) and unzip it to your PC.
 - Take any map file with extensiuon OBF and put it in the same folder where all files from mapcreator are located.
-- Start OsmAndMapCreator on your PC by clicking `OsmAndMapCreator.bat` or `OsmAndMapCreator.sh`
+- Start OsmAndMapCreator on your PC by running `OsmAndMapCreator.bat` or `OsmAndMapCreator.sh`
 - Be sure that you have internet access on your PC, and Mapcreator's settings are that tiles are downloaded when you drag and zoom the map to your location where your issue is located.
 - If you have zoomed to your area, do a right-click with the mouse on the map and choose "show address" from the popup-menu.
 - Normally, now all the street names should be displayed from the OBF file, and the place name to where each street is associated in OsmAnd's offline search.
