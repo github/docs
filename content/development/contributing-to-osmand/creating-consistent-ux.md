@@ -23,7 +23,7 @@ Use only **one expression** for a certain feature, do not mix two possible expre
 ## 2. Authoring Text
 
 * Please try to re-use existing string constants as much as possible, it is good for memory and performance.
-* For highly re-usable strings XXX we often have a _shared_string_XXX_
+* For highly re-usable strings 'XXX' we often have a `shared_string_XXX`
 * Strings are often re-used! When changing existing strings, please double-check with _all_ their occurrences in the code
 * Unnecessary text clutters screens without helping much. Please be short and precise, only add words which convey _necessary_ information.
 * Please double-check the appearance of wording in the app, in particular on low-density devices. Too many line breaks, cut-off text or blown-up menu buttons may make a screen or dialog unusable.
