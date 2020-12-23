@@ -4,12 +4,19 @@ intro: "Detailed graphical representation of oceans, seas, coastal areas and riv
 versions: '*'
 ---
 
-At first you just have to enable Nautical plugin: app menu-> Maps & Resources-> Plugins-> Nautical map. There, you'll have to buy the plugin by tapping on the checkbox.
+For using this feature you should buy  [Contour lines in-app](https://apps.apple.com/us/app/osmand-maps-travel-navigate/id934850257)  or subscribe  [OsmAnd live](https://osmand.net/features/subscription#osm_live_ios). To turn the contour lines on in iOS, you need to go to  _'Maps & Resources'_  menu, switch to the  _Plugins_  tab and turn the  _Contour lines_  plugin on. Then download the Contour lines map of the area you need. You'll also have to download the Hillshade/Slope map if you need it. All downloads are available in  _'Maps and Resources' - 'Maps'_  menu. Also, you have to go to the  _Map_  menu in the left upper corner of the map screen and turn the  _Terrain_  option on. That's it. You are now viewing the maps with contour line information and hillshade/slope.
 
-![Nautical maps on iOs](/assets/images/plugins/nautical-charts/nautical-charts-ios.jpg)
+![Contour lines on iOS](/assets/images/plugins/contour-lines/cl-5.png)
 
-You also will need a World seamarks map. Make sure to get it in app menu-> Maps & Resources-> Nautical maps. Please note that OsmAnd Nautical Charts work best with the World seamarks map and we recommend to download it. Then go to app menu-> Map-> Details-> enable the 'Nautical depth contours' option.
 
-Next turn the Nautical map style on using the Map menu in the left upper corner of the screen or app menu-> Map-> Map type-> Nautical.
+You can set the minimal zoom level where the contour lines will become visible, color scheme, width and density for lines. To do so, please go to  _Map -> Contour lines (Map style)_.
 
-**Map legend**  of Nautical map you can find  [_here_](https://osmand.net/help-online/map-legend#nautical).
+![Contour lines on iOS](/assets/images/plugins/contour-lines/cl-6.png) 
+
+You can set zoom levels, layer transparency for Hillshade/Slope layer. To do so, please go to  _Map -> Terrain (Overlay/Underlay)_.
+
+![Contour lines on iOS](/assets/images/plugins/contour-lines/cl-7.png)  
+
+OsmAnd at  [Facebook](https://www.facebook.com/osmandapp/),  [Twitter](https://www.twitter.com/osmandapp/), and  [Reddit](https://www.reddit.com/r/OsmAnd/)! Join to us at our  [group of Telegram](https://t.me/OsmAndMaps).
+
+
