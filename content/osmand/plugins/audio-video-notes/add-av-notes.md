@@ -10,4 +10,6 @@ You can use this plugin while  [recording the GPX track](https://osmand.net/feat
 To view everything later, you can export the track together with all the media and see them in the  [JOSM editor](https://josm.openstreetmap.de/). Please note that you'll need to put the media in the corresponding folder (you'll know which one if you click on a video note and see the message about a missing file. Just put it in the indicated folder).
 
 ![Audio_video_notes](/assets/images/plugins/audio-video-notes/av-6.png)
+
+
 So there you have it: your personal notes linked to the map and stored in one place. Document your adventures!
