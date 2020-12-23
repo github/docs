@@ -27,9 +27,10 @@ For Contour lines you can set the minimal zoom level where the contour lines wil
 
 ![Contour lines on Android](/assets/images/plugins/contour-lines/cl-4.png)
 
-{% note %}
+### Note
+
 You can use both contour lines and terrain together to get the information from both layers. Just go to  _Configure map_  menu and enable both  _Contour lines_  and  _Terrain layer_  options. If you cannot see the hillshade/slopes after downloading it, please restart the application.
-{% endnote %}
+
 
 After that, you'll be able to enjoy a map with all the hills and peaks. A nice option for both practical use and a general knowledge about the area you live in or travel to.
 
