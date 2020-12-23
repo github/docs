@@ -1,5 +1,5 @@
 ---
-title: How to Setup the Development Environment?
+title: How to Setup the Development Environment
 versions: '*'
 ---
 # How to Setup the Development Environment
