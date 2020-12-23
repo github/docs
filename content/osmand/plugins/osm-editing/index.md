@@ -1,5 +1,5 @@
 ---
-title: OpenStretMap editing
+title: "{% data variables.android-values.osm_settings %}"
 intro: "Make contributions to OpenStreetMap."
 versions: '*'
 ---

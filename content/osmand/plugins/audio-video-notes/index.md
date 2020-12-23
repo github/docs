@@ -1,5 +1,5 @@
 ---
-title: Audio/Video notes plugin (Android)
+title: "{% data variables.android-values.audionotes_plugin_name %}"
 intro: "Making memorable notes is one of the main pleasures of traveling"
 versions: '*'
 ---

@@ -1,5 +1,5 @@
 ---
-title: Nautical chart plugin
+title: "{% data variables.android-values.plugin_nautical_name %}"
 intro: "Detailed graphical representation of oceans, seas, coastal areas and rivers."
 versions: '*'
 ---

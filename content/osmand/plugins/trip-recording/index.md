@@ -1,5 +1,5 @@
 ---
-title: Trip recording
+title: "{% data variables.android-values.record_plugin_name %}"
 intro: "Essential tool for runners, sportsmen and tourists. It allows you to record your movement using your phone's GPS"
 versions: '*'
 ---
