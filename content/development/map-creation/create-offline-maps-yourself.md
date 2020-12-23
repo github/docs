@@ -2,7 +2,7 @@
 title: Create Offline Maps Yourself
 versions: '*'
 ---
-# Create Offline Maps Yourself
+
 [*OsmAndMapCreator*](https://wiki.openstreetmap.org/wiki/OsmAndMapCreator) can be used to create maps yourself if you want maps that are more up-to-date then the ones you can download from OsmAnd.
 The following explains how, using a Un\*x/Linux/OS X like shell script and the nightly generated maps from [Geofabrik](http://download.geofabrik.de/), a German company that sells OpenstreetMap based maps and appliances.
 
