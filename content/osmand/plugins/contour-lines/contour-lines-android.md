@@ -21,3 +21,4 @@ You can use both contour lines and terrain together to get the information from 
 After that, you'll be able to enjoy a map with all the hills and peaks. A nice option for both practical use and a general knowledge about the area you live in or travel to.
 
 Please see full video guide below:
+[Link to Youtube](https://www.youtube.com/watch?v=z8kp_M3FKoc&feature=emb_logo&ab_channel=BartEisenberg)
