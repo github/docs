@@ -4,14 +4,17 @@ intro: 'Strategies and settings to avoid background trip recording being interru
 versions: '*'
 ---
 
-## For older versions odf Android, try these steps
+## Check your configuration
 
-1. check if not the corresponding setting 'Prevent standalone logging' is active in OsmAnd's settings under Plugin/Trip recording.
+* Check if not the corresponding setting 'Prevent standalone logging' is active in OsmAnd's settings under Plugin/Trip recording.
 
-2. update OsmAnd to 3.4 or higher. Different Android versions apply different strategies to reduce power consumption [by killing apps running in the background](https://dontkillmyapp.com/). New versions of Android therefore deploy a Foreground service while recording a trip, visible in the Android notification bar, in an effort to keep the app active.
+* Update OsmAnd to 3.4 or higher. Different Android versions apply different strategies to reduce power consumption [by killing apps running in the background](https://dontkillmyapp.com/). New versions of OsmAnd therefore deploy a Foreground service while recording a trip, visible in the Android notification bar, in an effort to keep the app active.
 
-3. In your **Android's** Power or Power Savings setting, white-list OsmAnd to not being optimized: In **Android's** 'Apps', 'Applications', or 'App Manager' settings, find OsmAnd and tap it. You may find a line item regarding 'Power Savings' or 'Power Consumption': Tap it and exempt OsmAnd from power optimization measures.
-4. Disable the Android Power Saving on your device, this often helps for older Android versions
+## For older versions of Android, try these steps
+
+* In your **Android's** Power or Power Savings setting, white-list OsmAnd to not being optimized: In **Android's** 'Apps', 'Applications', or 'App Manager' settings, find OsmAnd and tap it. You may find a line item regarding 'Power Savings' or 'Power Consumption': Tap it and exempt OsmAnd from power optimization measures.
+
+* Disable the Android Power Saving on your device, this often helps for older Android versions
 
 ## Tested Settings for Android 9 and 10, Hardy, 2020-08-25
 
