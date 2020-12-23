@@ -21,10 +21,11 @@ versions: '*'
 
 5. Install imagemagick with librsvg
 
-   `brew install`
-
-   `[https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb](https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb) --with-librsvg`
-
+   <shell>
+   brew install
+   [https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb](https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb) --with-librsvg
+   </shell>
+   
 6. `mkdir OsmAnd` && `cd OsmAnd`
 
 7. Clone manually or via google repo tool: `[https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml](https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml) --with-librsvg`
