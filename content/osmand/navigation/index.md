@@ -1,5 +1,5 @@
 ---
-title: Navigation
+title: "{% data variables.android-values.shared_string_navigation %}"
 intro: 'Documentation Boat Navigation'
 versions: '*'
 ---
