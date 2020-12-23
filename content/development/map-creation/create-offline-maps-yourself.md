@@ -128,9 +128,21 @@ how much memory the program can consume. Settings can be different for
 It could be that a crucial tag was missing for OsmAndMapCreator to
 recognize a POI when you converted the osm from another source, like
 Garmin. If a point in the OSM file looks like this:
-
+<pre>
+  &lt;node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
+    &lt;tag k='created_by' v='GPSBabel-1.4.2'/>
+    &lt;tag k='name' v='Street-Soccer Court'/>
+  &lt;/node>
+</pre>
 change it to contain an additional 'amenity' tag, like:
-
+<pre>
+  &lt;node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
+    &lt;tag k='created_by' v='GPSBabel-1.4.2'/>
+    &lt;tag k='name' v='Street-Soccer Court'/>
+    &lt;tag k='amenity' v='point' />
+  &lt;/node>
+</pre>
+ 
 Then convert the file using OsmAndMapCreator. You can check on the OSM
 site what tags are good ones to use, or you can just use this amenity.
 
@@ -140,7 +152,7 @@ See
 [http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm](http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm)
 Use OsmAndMapCreator.bat or OsmAndMapCreator.sh (depending on your operating system) to start OsmAndMapCreator. This invokes java, so you just need to add the `-D... -D..` parameters (i .e. `-Djava.util.logging.config.file = logging.properties`) to the invocation:
 <pre>
-javaw.exe <bold>-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080>/bold> -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/\*.jar" net.osmand.swing.OsmExtractionUI
+javaw.exe <b>-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080</b> -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/\*.jar" net.osmand.swing.OsmExtractionUI
 </pre>
 
 ## How to Produce Customized Vector Data
