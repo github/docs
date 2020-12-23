@@ -6,6 +6,7 @@ versions: '*'
 
 {% link_in_list /navigation %}
 {% link_in_list /settings %}
+{% link_in_list /map %}
 {% link_in_list /plan-route %}
 {% link_in_list /plugins %}
 {% link_in_list /purchases %}
