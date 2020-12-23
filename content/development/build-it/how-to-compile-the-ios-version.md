@@ -2,7 +2,6 @@
 title: How to Compile the iOS Version
 versions: '*'
 ---
-# How to Compile the iOS Version
 
 1. Install XCode (not BETA!)
 

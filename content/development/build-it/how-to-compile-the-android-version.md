@@ -2,7 +2,6 @@
 title: How to Compile the Android Version
 versions: '*'
 ---
-# How to Compile the Android Version
 
 First of all you need to setup development environment, see corresponding description.
 

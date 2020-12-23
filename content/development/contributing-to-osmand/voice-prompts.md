@@ -2,7 +2,7 @@
 title: Navigation Voice Prompts
 versions: '*'
 ---
-# Navigation Voice Prompts
+
 ## 1. Some Basics
 * OsmAnd supports both Text-to-Speech (TTS) synthesized prompts and pre-recorded voices.
 * Using a TTS voice is preferred, it is more flexible and can e.g. also prononuce the names of places or streets.
