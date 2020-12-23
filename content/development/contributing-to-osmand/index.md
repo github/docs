@@ -1,5 +1,5 @@
 ---
-title: Contributiing to OsmAnd
+title: Contributing to OsmAnd
 versions: '*'
 ---
 
