@@ -14,7 +14,7 @@ versions: '*'
 
 The _tts.js_ config files should contain a header as follows, where (X) keeps track of which particular features have been implemented and checked for the file in question:
 
-<pre>
+```
 // IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
 //
 // (X) Basic navigation prompts: route (re)calculated (with distance and time support), turns, roundabouts, u-turns, straight/follow, arrival
@@ -25,7 +25,7 @@ The _tts.js_ config files should contain a header as follows, where (X) keeps tr
 // (X) Distance unit support (meters / feet / yard)
 // (N/A) Special grammar: (please specify which)
 // (X) Support announcing highway exits
-</pre>
+```
 
 ## 2. Voice Languages and Variants
 * Some common language voice prompt packages are pre-installed in OsmAnd, others require a one-time download. (Please note that also the pre-installed ones appear as if they were a download.)
@@ -33,10 +33,10 @@ The _tts.js_ config files should contain a header as follows, where (X) keeps tr
 * For some voices we also offer additional variants with e.g. shorter ('casual') prompts or some prompts muted to reduce chattiness.
 
 ## 3. Testing of Voice Prompts
-You may temporarily enable OssmAnd's Development plugin, then go to its settings and use button _Test voice propmts_. It provides several annlouncement examples for each type of OsmAnd prompt, using a wide range of numbers to test time/distance formating and pronunciation. The button caption staes the basic prompt content, the exact wording is specified in the tts.js file you test.
+You may temporarily enable OssmAnd's Development plugin, then go to its settings and use button `Test voice prompts`. It provides several annlouncement examples for each type of OsmAnd prompt, using a wide range of numbers to test time/distance formating and pronunciation. The button caption staes the basic prompt content, the exact wording is specified in the tts.js file you test.
 There is also a test button showing your device settings and language capabilities.
 
-During navigation, the current voice prompt can always be triggered by tapping on the turn arrow widget.## 4. Details on Some Specific Prompts
+During navigation, the current voice prompt can always be triggered by tapping on the turn arrow widget.
 
 ## 4. Creating a New TTS Voice Language/Variant
 Some hints:
