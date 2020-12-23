@@ -12,7 +12,7 @@ versions: '*'
 * But the vocabulary and sentence construction for any language is specified in a configuration file _xx-yy_tts.js_, where xx is the ISO 639-1 language code and yy an optional regional or similar specifier. Only for recorded voices an additional sub-folder _voice_ subfolder is required with all necessary recorded expressions as _.ogg_ files.
 * The folder/file convention on the device is `voice/xx[-yy]-tts/xx[-yy]_tts.js`.
 
-The _tts.js_ config files should contain a header as follows, where (X) keeps track of which particular features have been implemented and checked for the file in question:
+The _tts.js_ config files should contain a header as follows, keeping track of which particular features have been implemented and verified for the file in question:
 
 ```
 // IMPLEMENTED (X) or MISSING ( ) FEATURES, (N/A) if not needed in this language:
