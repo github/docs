@@ -1,5 +1,5 @@
 ---
-title: "{% data variables.android-values.map_widget_confi %}"
+title: "{% data variables.android-values.map_widget_config %}"
 intro: "OsmAnd is a mobile application available for iOS and Android"
 versions: '*'
 ---
