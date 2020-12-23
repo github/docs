@@ -240,7 +240,7 @@ Error code name | Description
 -----------|-----------|
 `missing` | A resource does not exist.
 `missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for the for more specific information.
+`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
 `already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
 `unprocessable` | The inputs provided were invalid.
 
