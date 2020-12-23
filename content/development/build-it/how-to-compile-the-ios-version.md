@@ -9,15 +9,15 @@ versions: '*'
 
 3. [Install cmake](https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg) (exactly this version!)
 
-   Add this line to your .zshrc file: `PATH="/Applications/CMake.app/Contents/bin":"$PATH"`
+-  Add this line to your .zshrc file: `PATH="/Applications/CMake.app/Contents/bin":"$PATH"`
 
-   Reload your .zshrc file: `source ~/.zshrc`
+-  Reload your .zshrc file: `source ~/.zshrc`
 
-   Verify everything works: `cmake --version`
+-  Verify everything works: `cmake --version`
 
-4. [Install brew](https://brew.sh)
+4. [Install brew](https://brew.sh), run
 
-   Run: `/usr/bin/ruby -e "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install](https://raw.githubusercontent.com/Homebrew/install/master/install))"`
+   ```/usr/bin/ruby -e "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install](https://raw.githubusercontent.com/Homebrew/install/master/install))"```
 
 5. Install imagemagick with librsvg
 
@@ -30,15 +30,13 @@ versions: '*'
 
 7. Clone manually or via google repo tool: `[https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml](https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml) --with-librsvg`
 
-   `$ mkdir ~/bin`
-
-   `$ PATH=~/bin:$PATH`
-
-   `$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo`
-
-   `$ chmod a+x ~/bin/repo`
-
-   `$ repo init -u [https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml](https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml)`
+   ```
+   $ mkdir ~/bin
+   $ PATH=~/bin:$PATH
+   $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+   $ chmod a+x ~/bin/repo
+   $ repo init -u [https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml](https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml)
+   ```
 
    **after doing this, the repo is installed, but "google repo tool couldn’t obtain manifest"**
 
