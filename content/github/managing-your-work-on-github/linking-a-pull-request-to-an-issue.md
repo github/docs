@@ -1,4 +1,4 @@
----
+#enable autolink---
 title: Linking a pull request to an issue
 intro: 'You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.'
 redirect_from:
@@ -71,3 +71,4 @@ You can also use closing keywords in a commit message. The issue will be closed 
 ### Further reading
 
 - "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+-Submitting change permission/
