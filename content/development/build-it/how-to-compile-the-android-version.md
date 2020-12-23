@@ -10,11 +10,11 @@ versions: '*'
     * ANDROID_NDK = path to android ndk (currently android-ndk-r17b")
 
     ANDROID_SDK and ANDROID_HOME are where Android studio places things:
-```
+    ```
 export ANDROID_SDK=/[your-path]/Android/sdk  
 export ANDROID_NDK=/[your-path]/android-ndk-r17b  
 export ANDROID_HOME=/[your-path]/Library/Android/sdk
-```
+    ```
 
 You can also use our [debug.keystore](https://github.com/osmandapp/Osmand/tree/master/keystores) to make builds compatible with the nightly build.
 
