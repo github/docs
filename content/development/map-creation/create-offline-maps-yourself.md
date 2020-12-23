@@ -147,7 +147,7 @@ Then convert the file using OsmAndMapCreator. You can check on the OSM site what
 
 See
 [http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm](http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm)
-Use OsmAndMapCreator.bat or OsmAndMapCreator.sh (depending on your operating system) to start OsmAndMapCreator. This invokes java, so you just need to add the `-D... -D..` parameters (i .e. `-Djava.util.logging.config.file = logging.properties`) to the invocation:
+Use `OsmAndMapCreator.bat` or `OsmAndMapCreator.sh` (depending on your operating system) to start OsmAndMapCreator. This invokes java, so you just need to add the xorresponding `-D... -D..` parameters to the invocation:
 <pre>
 javaw.exe <b>-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080</b> -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/\*.jar" net.osmand.swing.OsmExtractionUI
 </pre>
