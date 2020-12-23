@@ -7,7 +7,7 @@ We really appreciate your help translating OsmAnd! Providing display text transl
 
 * If a language you would like to help translating into is not yet listetd there, please open an issue [here](https://github.com/osmandapp/Osmand/issues) (requires a github account).
 * Existing language files could also be modified by editing the respective _strings.xml file_ directly in our code via github mechanisms, but this is not the preferred way.
-* Just for reference: master strings are kept in the [American English strings.xml file](https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml). The string data for the map data extractor is in the `theswing_messages_{language}.properties` files in [DataExtractionOsm](https://github.com/osmandapp/Osmand/tree/master/DataExtractionOSM/src/net/osmand/swing) **(NOTE Hardy: link is broken!)** project.
+* Just for reference: master strings are kept in the [American English strings.xml file](https://github.com/osmandapp/Osmand/blob/master/OsmAnd/res/values/strings.xml). The string data for the map data extractor is in the `swing_messages_{language}.properties` files in the [DataExtractionOsm](https://github.com/osmandapp/Osmand/tree/master/DataExtractionOSM/src/net/osmand/swing) **(NOTE Hardy: link is broken!)** project.
 
 Thank you for your help !
 
