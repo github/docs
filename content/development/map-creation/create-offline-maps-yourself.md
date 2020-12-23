@@ -115,11 +115,11 @@ This "in memory" processing will speed up the map generation by 10-50%, but requ
 
 In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm* or *.osm.pbf* file. This *nodes.tmp.odb* file is a sqlite database file and it is about 15 to 25 times as big as the original *.osm.pbf* file which you downloaded from [geofabrik.de](http://download.geofabrik.de/). So if your original *.osm.pbf* file is 300MB, your *nodes.tmp.odb* file will be 5GB to 6GB! Note that smaller maps will be around the 15x factor whereas big maps (\>350MB) will end up in the 20x to 25X space increase.
 
-With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. It means that the -Xmx parameter, which we discussed in the [Explanation](http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation) sections, needs to be big enough for both the *nodes.tmp.odb* and the normal processing that takes place in memory. You will need "the size of the nodes.tmp.odb" + 20-25%.
+With "in memory" processing this *nodes.tmp.odb* file will be created in your working memory. It means that the `-Xmx` parameter, which we discussed in the [Explanation](http://code.google.com/p/osmand/wiki/CreateOfflineMapsForYourself#Explanation) sections, needs to be big enough for both the *nodes.tmp.odb* and the normal processing that takes place in memory. You will need "the size of the nodes.tmp.odb" + 20-25%.
 
-This means that for a 250MB *.osm.pbf*, which will generate a \~4.5GB *nodes.tmp.odb* file, you need about 5GB heapspace which requires an -Xmx value of -Xmx5120M.
+This means that for a 250MB *.osm.pbf*, which will generate a \~4.5GB *nodes.tmp.odb* file, you need about 5GB heapspace which requires an `-Xmx` value of `-Xmx5120M`.
 
-* **Note**: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used.
+* **Note**: a 32bit Operating system can address up to approximately 1.5GB. This means that your `-Xmx` value can no larger be then `-Xmx1720M`. A larger specification is accepted without errors, but not used.
 
 So in effect you really need a 64bit Operating system to really benefit from "in memory" processing.
 Note also that your `-Xmx` value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal "on disk" processing.
