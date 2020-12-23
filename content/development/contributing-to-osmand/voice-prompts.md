@@ -28,9 +28,9 @@ The _tts.js_ config files should contain a header as follows, where (X) keeps tr
 </pre>
 
 ## 2. Voice Languages and Variants
-* Some common language voice prompt packages are pre-installed in OsmAnd, others require a one-time download.
+* Some common language voice prompt packages are pre-installed in OsmAnd, others require a one-time download. (Please note that also the pre-installed ones appear as if they were a download.)
 * For some languages we offer different regional variants. Hearing also the corresponding regional pronunciation depends on the capabilities of your device.
-* For some voices we also offer additional variants with e.g. shorter ('casual') prompts or some prompts muted to redcue chattiness.
+* For some voices we also offer additional variants with e.g. shorter ('casual') prompts or some prompts muted to reduce chattiness.
 
 ## 3. Testing of Voice Prompts
 You may temporarily enable OssmAnd's Development plugin, then go to its settings and use button _Test voice propmts_. It provides several annlouncement examples for each type of OsmAnd prompt, using a wide range of numbers to test time/distance formating and pronunciation. The button caption staes the basic prompt content, the exact wording is specified in the tts.js file you test.
@@ -44,5 +44,5 @@ Some hints:
 - This is done in a single voice definition file per language. On github the files are located <a href="https://github.com/osmandapp/OsmAnd-resources/tree/master/voice">here</a>, and please see above for the folder/file conventions on your device locally).
 - The file is now in js (migrated from former PROLOG to make it more mainstream).
 - To create a new configuration file, please start by cloning from _en\_tts.js_, i.e. use that as a template.
-- It may be helpful to look at at existing config files for languages which have some similarity with yours in terms of grammar, word order, number forming, etc., it will simplify your work to see how things are already solved.
-- You can test your own tts file (or your improvements to existing ones) yourself locally, prior to a pull request, justplaceit on you device with nthecorrect file/folder convention.
+- It may then be helpful to look at existing config files for grammatically more complex languages (e.g. German, Czech, or Slovak) to look at existing solutions for special grammar, word order, number forming, etc. Look particularly at languages similar to yours.
+- You can test your own tts file (or your improvements to existing ones) yourself locally, prior to a pull request, just place it on you device with nthecorrect file/folder convention.
