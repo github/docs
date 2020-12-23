@@ -3,7 +3,6 @@ title: Contributing Geodata
 versions: '*'
 ---
 
-Use OsmAnd to contribute to collaborative projects like OpenStreetMap, WikiVoyage, Mapillary.
+You can use OsmAnd's funtionalityand plugins to directly contribute data to collaborative projects like OpenStreetMap, WikiVoyage, Mapillary.
 
-### Table of Contents
-
+{% link_in_list /../osmand/plugins/osm-editing %}
