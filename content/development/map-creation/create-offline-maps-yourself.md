@@ -106,7 +106,7 @@ If you have your `process_directory_for_osm_files` on one disk and your `directo
 You can process a great deal of the map creation in memory instead of on disk. In your `batch.xml`, one of the top lines contains:
 
 ```
-<process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
+process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"
 ```
 
 * `osmDbDialect="sqlite" mapDbDialect="sqlite"` means your map generation process will take place on disk.
