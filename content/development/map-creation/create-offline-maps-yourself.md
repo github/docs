@@ -7,7 +7,8 @@ versions: '*'
 The following explains how, using a Un\*x/Linux/OS X like shell script and the nightly generated maps from [Geofabrik](http://download.geofabrik.de/), a German company that sells OpenstreetMap based maps and appliances.
 
 ## Shell script:
-<pre>
+
+```
 #!/bin/sh
 WORK_FOLDER="/opt/OpenStreetMap"
 # First download all the data
@@ -30,53 +31,61 @@ echo date > endtime.txt
 
 echo "And finally moving the obf files from the index folder to the osmandmaps folder\n"
 mv index_files/*.obf osmandmaps/
-</pre>       
+```
 
 ### Script Explanation
-Line `WORK_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps _osm\_files_, _OsmAndMapCreator_, _index\_files_ and _gen\_files_.
+Line `WORK_FOLDER="/opt/OpenStreetMap"` is a variable to set the working folder. Inside this folder we have the maps in `osm_files`, `OsmAndMapCreator`, `index_files`and `gen_files`.
 
-We go to the download folder \_osm\_files\_ and use the command \_wget\_ to download our map(s). `wget` is used with parameter `\_-O \<name\>\_` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
+We go to the download folder `_osm_files` and use the command `wget` to download our map(s). `wget` is used with parameter `-O <name\>` to download the latest nightly map from Geofabrik, we save it in the name format OsmAnd prefers.
 
-We go to folder _OsmAndMapCreator_ where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
-<pre>
+We go to folder `OsmAndMapCreator` where we installed/copied the OsmAndMapCreator program. It is best to use the program from this folder, or else you need to set all kind of environment variables. The line:
+
+```
 java -Djava.util.logging.config.file=​logging.properties -Xms256M -Xmx2560M -cp "./OsmAndMapCreator.jar:​./lib/OsmAnd-core.jar:./lib/*.jar" net.osmand.data.​index.IndexBatchCreator ./batch.xml
-</pre>
+```
+
 runs OsmAndMapcreator with our downloaded maps, processing all maps it will find in the download folder (including all older ones still present there).
 
-We log the process to file (-Djava.util.logging.config.file=logging.properties), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in _batch.xml_.  
+We log the process to file (`-Djava.util.logging.config.file=logging.properties`), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in `batch.xml`.  
 
 **Note:** A 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
 
 The _batch.xml_ file is found in the _OsmAndMapCreator_ folder, together with the program, and contains settings for running the program. The line:
-<pre>
+
+```
 process directory_for_osm_files=​"/opt/OpenStreetMap/osm_files" directory_for_index_files=​"/opt/OpenStreetMap/index_files" directory_for_generation=​"/opt/OpenStreetMap/gen_files"
-</pre>
+```
 specifies the working folders.
 
 The next line:
-<pre>
+
+```
 skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true" indexTransport="true" indexAddress="true">
-</pre>       
+```
+
 contains options to modify parts of your map. If you don't need routing and/or addresses, you can skip these by setting the parameters to "false".
 
-You may also use multiple _batch.xml_ files for different purposes.
+You may also use multiple `batch.xml` files for different purposes.
 
-The last two lines in the script move the created maps to the _osmandmaps_ folder where we store our maps (in this case).
+The last two lines in the script move the created maps to the ``osmandmaps_ folder` where we store our maps (in this case).
 
 Lines
-<pre>
+
+```
 echo date > starttime.txt
 echo date > endtime.txt
-</pre>
+```
+
 are not really necessary but simply display how long the process takes.
 
 ## Scheduling
 The shell script may be scheduled. Account e.g. for the Geofabrik map creation schedule (adjust for your time zone).
 
 If you want to create a new map every night, you can add a crontab line like:
-<pre>
+
+```
 01 03 * * 7 /opt/OpenStreetMap/​osm.pbf_to_obf_convert.sh > /dev/null 2>&1
-</pre>
+```
 This will start the map creation at 03:01am which is currently after the Geofabrik Netherlands osm.pbf map has been generated (local time zone).
 
 ## Performance and Tuning
@@ -91,15 +100,17 @@ The modern "solid state" disks are 2-6 times as fast as conventional hard-disks 
 
 ### Multiple disks
 Modern operating systems can access multiple disks simultaneously. Note that this really means **multiple disks** and **not** multiple partitions on one disk.
-If you have your _process\_directory\_for\_osm\_files_ on one disk and your _directory\_for\_generation_ on another disk, you will see an nice and noticeable performance gain.
+If you have your `process_directory_for_osm_files` on one disk and your `directory_for_generation` on another disk, you will see an nice and noticeable performance gain.
 
 ### In memory processing
-You can process a great deal of the map creation in memory instead of on disk. In your _batch.xml_, one of the top lines contains:
-<pre>
+You can process a great deal of the map creation in memory instead of on disk. In your `batch.xml`, one of the top lines contains:
+
+```
 &lt;process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/&gt;
-</pre>
+```
+
 * `osmDbDialect="sqlite" mapDbDialect="sqlite"` means your map generation process will take place on disk.
-* Change to `osmDbDialect="sqlite_in_memory" mapDbDialect="sqlite_in_memory"`to run the process in memory.
+* Change to `osmDbDialect="sqlite_in_memory" mapDbDialect="sqlite_in_memory"` to run the process in memory.
 This "in memory" processing will speed up the map generation by 10-50%, but requires a lot of memory. 10% to 50% depends on the map size. Smaller maps benefit less from in memory processing than larger maps, as disk access for initial reading and final map writing plays a bigger role, while larger maps require more "calculation".
 
 In normal "on disk" processing a *nodes.tmp.odb* file is created from your *.osm* or *.osm.pbf* file. This *nodes.tmp.odb* file is a sqlite database file and it is about 15 to 25 times as big as the original *.osm.pbf* file which you downloaded from [geofabrik.de](http://download.geofabrik.de/). So if your original *.osm.pbf* file is 300MB, your *nodes.tmp.odb* file will be 5GB to 6GB! Note that smaller maps will be around the 15x factor whereas big maps (\>350MB) will end up in the 20x to 25X space increase.
@@ -111,35 +122,35 @@ This means that for a 250MB *.osm.pbf*, which will generate a \~4.5GB *nodes.tmp
 * **Note**: a 32bit Operating system can address up to approximately 1.5GB. This means that your -Xmx value can no larger be then -Xmx1720M. A larger specification is accepted without errors, but not used.
 
 So in effect you really need a 64bit Operating system to really benefit from "in memory" processing.
-Note also that your -Xmx value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal "on disk" processing.
+Note also that your `-Xmx` value should not be that big that your operating system starts swapping to disk. This will even decrease your performance below that of normal "on disk" processing.
 Finally: your source *.osm.pbf* file can be no larger then 600MB as this would require up to 20GB working memory. If your source file exceeds 600MB, OsmAndMapCreator will switch back to normal "on disk" processing. You will be notified early in the process with a warning "Switching SQLITE in memory dialect to SQLITE"
 
 ## Common Issues
-### OsmAndMapCreator fails with message: OutOfMemoryError {.help}
+### OsmAndMapCreator fails with message: OutOfMemoryError
 
 The file you try to process with OsmAndMapCreator is too large. Either
 try to process a smaller file, or increase the memory for
-OsmAndMapCreator in the .sh or .bat file. The -Xmx parameter specifies
+OsmAndMapCreator in the .sh or .bat file. The `-Xmx` parameter specifies
 how much memory the program can consume. Settings can be different for
 64bit (more than 1.5GB) and 32bit (max around 1.5GB) machines.
 
-### After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong? {.help}
+### After converting an .osm to .obf with only a POI index, the .obf is empty, although original .osm file did contain POIs. What is wrong?
 
 It could be that a crucial tag was missing for OsmAndMapCreator to recognize a POI when you converted the osm from another source, like Garmin. If a point in the OSM file looks like this:
-<pre>
-  &lt;node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
-    &lt;tag k='created_by' v='GPSBabel-1.4.2'/>
-    &lt;tag k='name' v='Street-Soccer Court'/>
-  &lt;/node>
-</pre>
+```
+  <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
+    <tag k='created_by' v='GPSBabel-1.4.2'/>
+    <tag k='name' v='Street-Soccer Court'/>
+  </node>
+```
 change it to contain an additional 'amenity' tag, like:
-<pre>
-  &lt;node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
-    &lt;tag k='created_by' v='GPSBabel-1.4.2'/>
-    &lt;tag k='name' v='Street-Soccer Court'/>
-    <b>&lt;tag k='amenity' v='point' /></b>
-  &lt;/node>
-</pre>
+```
+  <node id='-24' visible='true' lat='1.3094000' lon='103.7784000'>
+    <tag k='created_by' v='GPSBabel-1.4.2'/>
+    <tag k='name' v='Street-Soccer Court'/>
+    <tag k='amenity' v='point' />
+  </node>
+```
  
 Then convert the file using OsmAndMapCreator. You can check on the OSM site what tags are good ones to use, or you can just use this amenity.
 
@@ -147,14 +158,14 @@ Then convert the file using OsmAndMapCreator. You can check on the OSM site what
 
 See
 [http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm](http://stackoverflow.com/questions/120797/how-do-i-set-the-proxy-to-be-used-by-the-jvm)
-Use `OsmAndMapCreator.bat` or `OsmAndMapCreator.sh` (depending on your operating system) to start OsmAndMapCreator. This invokes java, so you just need to add the xorresponding `-D... -D..` parameters to the invocation:
-<pre>
+Use `OsmAndMapCreator.bat` or `OsmAndMapCreator.sh` (depending on your operating system) to start OsmAndMapCreator. This invokes java, so you just need to add the corresponding `-D... -D..` parameters to the invocation:
+```
 javaw.exe <b>-Dhttp.proxyHost=10.0.0.100 -Dhttp.proxyPort=8080</b> -Xms64M -Xmx720M -cp "./OsmAndMapCreator.jar;./lib/\*.jar" net.osmand.swing.OsmExtractionUI
-</pre>
+```
 
 ## How to Produce Custom Vector Data for a Map
 
-It is possible to create a customized obf file with specific (own) vector data (hiking paths, speed cams, transport routes debug way info), and adjust the rendere to display it.
+It is possible to create a customized OBF file with specific (own) vector data (hiking paths, speed cams, transport routes debug way info), and adjust the renderer to display it.
 
 OsmAndMapCreator can process only OSM files (osm-xml, bz2, pbf). However the set of tags can be custom. To specify what tags/values need to be indexed by Creator please download and change [this](https://github.com/osmandapp/OsmAnd-resources/blob/master/obf_creation/rendering_types.xml) file. OsmAndMapCreator has an option to use custom rendering\_types.xml in the settings. Once file is created you can double check that data is present by utility binaryInspector with `-vmap` argument. This utility is packaged with OsmAndMapCreator.
 
