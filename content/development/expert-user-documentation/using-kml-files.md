@@ -2,7 +2,6 @@
 title: Using KML Files
 versions: '*'
 ---
-# Using KML Files
 
 In GoogleEarth (GE) you can add you own Placemarks on the map and collect them into a folder. From GE you can save the folder in kml format. When you have a different format you can use QGIS or other opensource software to convert to KML format. Maybe you can convert it directly to OSM. You may use any format containing your POIs, if you are able to convert it to OSM format. You can format KML to GPX [here](https://kml2gpx.com/).
 

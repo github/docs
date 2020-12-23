@@ -4,8 +4,6 @@ intro: 'Strategies and settings to avoid background trip recording being interru
 versions: '*'
 ---
 
-# Trip recording stops while screen is off
-
 If you experience this,
 * (1) check if not the corresponding setting 'Prevent standalone logging' is active in OsmAnd's settings under Plugin/Trip recording.
 * (2) update OsmAnd to 3.4 or higher. Different Android versions apply different strategies to reduce power consumption [by killing apps running in the background](https://dontkillmyapp.com/). New versions of Android therefore deploy a Foreground service while recording a trip, visible in the Android notification bar, in an effort to keep the app active.

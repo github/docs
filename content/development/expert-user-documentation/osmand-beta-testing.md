@@ -2,7 +2,6 @@
 title: OsmAnd Beta Testing
 versions: '*'
 ---
-# OsmAnd Beta Testing
 
 The Google Play Store offers to test beta versions of
 apps, which enables you to (temporarily) download and use the test
