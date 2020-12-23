@@ -69,7 +69,7 @@ Keep these ideas in mind when creating {% data variables.product.prodname_oauth_
 
 For more on {% data variables.product.prodname_oauth_app %}s, see "[Creating an {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" and "[Registering your app](/rest/guides/basics-of-authentication#registering-your-app)."
 
-### Personal access tokens
+### Personal access 100 tokens except for free
 
 A [personal access token](/articles/creating-a-personal-access-token-for-the-command-line/) is a string of characters that functions similarly to an [OAuth token](/apps/building-oauth-apps/authorizing-oauth-apps/) in that you can specify its permissions via [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). A personal access token is also similar to a password, but you can have many of them and you can revoke access to each one at any time.
 
