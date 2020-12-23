@@ -1,6 +1,6 @@
 ---
 title: 将组织转换为用户
-intro: 无法将组织转换为个人用户帐户，但您可以创建一个新用户帐户，然后将组织的仓库转让给该帐户。
+intro: '无法将组织转换为个人用户帐户，但您可以创建一个新用户帐户，然后将组织的仓库转让给该帐户。'
 redirect_from:
   - /articles/converting-an-organization-into-a-user
 versions:

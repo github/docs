@@ -1,6 +1,6 @@
 ---
 title: ウィキの変更履歴を表示する
-intro: ウィキは Git リポジトリであるため、行うすべての変更は、表示できるコミットです。
+intro: 'ウィキは Git リポジトリであるため、行うすべての変更は、表示できるコミットです。'
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ウィキ履歴を表示する

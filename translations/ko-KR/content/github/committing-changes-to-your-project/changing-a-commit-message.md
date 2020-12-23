@@ -7,19 +7,16 @@ intro: 'If a commit message contains unclear, incorrect, or sensitive informatio
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Rewriting the most recent commit message
 
 You can change the most recent commit message using the `git commit --amend` command.
 
-{% warning %}
-
 In Git, the text of the commit message is part of the commit. Changing the commit message will change the commit ID--i.e., the SHA1 checksum that names the commit. Effectively, you are creating a new commit that replaces the old one.
 
-{% endwarning %}
-
-#### Commit has not been pushed online
+### Commit has not been pushed online
 
 If the commit only exists in your local repository and has not been pushed to {% data variables.product.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
@@ -39,7 +36,7 @@ You can change the default text editor for Git by changing the `core.editor` set
 
 {% endtip %}
 
-#### Amending older or multiple commit messages
+### Amending older or multiple commit messages
 
 If you have already pushed the commit to {% data variables.product.product_location %}, you will have to force push a commit with an amended message.
 
@@ -49,7 +46,7 @@ We strongly discourage force pushing, since this changes the history of your rep
 
 {% endwarning %}
 
-**Amending the message of the most recently pushed commit**
+**Changing the message of the most recently pushed commit**
 
 1. Follow the [steps above](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
 2. Use the `push --force` command to force push over the old commit.
@@ -57,7 +54,7 @@ We strongly discourage force pushing, since this changes the history of your rep
   $ git push --force <em>example-branch</em>
   ```
 
-**Amending the message of older or multiple commit messages**
+**Changing the message of older or multiple commit messages**
 
 If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
 
@@ -93,7 +90,6 @@ If you need to amend the message for multiple commits or an older commit, you ca
     #
     # Note that empty commits are commented out
     ```
-
 3. Replace `pick` with `reword` before each commit message you want to change.
   ```shell
   pick e499d89 Delete CNAME
@@ -102,10 +98,10 @@ If you need to amend the message for multiple commits or an older commit, you ca
   ```
 4. Save and close the commit list file.
 5. In each resulting commit file, type the new commit message, save the file, and close it.
-6. Force-push the amended commits.
-  ```shell
-  $ git push --force
-  ```
+6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+```shell
+$ git push --force <em>example-branch</em>
+```
 
 For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
 

@@ -1,6 +1,6 @@
 ---
 title: Accessing the management console
-intro: 'Use the {% data variables.enterprise.management_console %} to set up and configure {% data variables.product.product_location %}, schedule maintenance windows, troubleshoot issues, and manage your license.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
   - /enterprise/admin/articles/about-the-management-console/
   - /enterprise/admin/articles/management-console-for-emergency-recovery/
@@ -10,8 +10,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/web-based-management-console/
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
-  - /enterprise/admin/configuration/accessing-the-management-console
-  - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
 ---
@@ -19,15 +17,15 @@ versions:
 ### About the {% data variables.enterprise.management_console %}
 
 Use the {% data variables.enterprise.management_console %} for basic administrative activities:
-- **Initial setup**: Walk through the initial setup process when first launching {% data variables.product.product_location_enterprise %} by visiting {% data variables.product.product_location_enterprise %}'s IP address in your browser.
+- **Initial setup**: Walk through the initial setup process when first launching {% data variables.product.product_location %} by visiting {% data variables.product.product_location %}'s IP address in your browser.
 - **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
-- **Scheduling maintenance windows**: Take your {% data variables.product.product_location_enterprise %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
+- **Scheduling maintenance windows**: Take your {% data variables.product.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
 - **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
 - **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
 
-You can always reach the {% data variables.enterprise.management_console %} using {% data variables.product.product_location_enterprise %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
+You can always reach the {% data variables.enterprise.management_console %} using {% data variables.product.product_location %}'s IP address, even when the instance is in maintenance mode, or there is a critical application failure or hostname or SSL misconfiguration.
 
-To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.product.product_location_enterprise %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
+To access the {% data variables.enterprise.management_console %}, you must use the administrator password established during initial setup of {% data variables.product.product_location %}. You must also be able to connect to the virtual machine host on port 8443. If you're having trouble reaching the {% data variables.enterprise.management_console %}, please check intermediate firewall and security group configurations.
 
 ### Accessing the {% data variables.enterprise.management_console %} as a site administrator
 

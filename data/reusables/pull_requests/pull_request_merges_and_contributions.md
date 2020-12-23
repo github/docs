@@ -1,6 +1,6 @@
 {% note %}
 
-**Notes:**{% if currentVersion != "free-pro-team@latest" %}
+**Notes:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - To appear on your profile contributions graph, co-authored commits must meet the same criteria as commits with one author.{% endif %}
 - When rebasing commits, the original authors of the commit and the person who rebased the commits, whether on the command line or on {% data variables.product.product_location %}, receive contribution credit.
 

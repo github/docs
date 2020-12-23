@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -14,7 +15,7 @@ versions:
 
 {% endnote %}
 
-Se o fluxo de trabalho de implantação de um repositório estiver integrado ao {% data variables.product.product_name %} por meio da API de implantações ou de um app do [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment), pessoas com acesso de leitura ao repositório poderão ter uma visão geral de todas as implantações atuais e ver um log de atividades de implantação passadas. Para obter mais informações, consulte "[Deployments](/v3/repos/deployments/)" (Implantações).
+Se o fluxo de trabalho de implantação de um repositório estiver integrado ao {% data variables.product.product_name %} por meio da API de implantações ou de um app do [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment), pessoas com acesso de leitura ao repositório poderão ter uma visão geral de todas as implantações atuais e ver um log de atividades de implantação passadas. Para obter mais informações, consulte "[Implantações](/rest/reference/repos#deployments)".
 
 Também é possível ver informações de implantação na guia "Conversation" (Conversa) de uma pull request.
 

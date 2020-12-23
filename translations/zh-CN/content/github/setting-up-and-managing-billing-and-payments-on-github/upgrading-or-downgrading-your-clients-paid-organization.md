@@ -12,7 +12,7 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**提示**：
 - 升级客户的组织之前，您可以[查看或更新组织存档的付款方式](/articles/adding-or-editing-a-payment-method)。
 - 这些说明适用于升级或降级*按席位订阅*的组织。 如果您的客户使用*旧的按仓库*方案支付 {% data variables.product.product_name %}，您可以升级或[降级](/articles/downgrading-your-github-subscription)其旧方案，或[将其组织切换为按席位定价](/articles/upgrading-your-github-subscription)。
 

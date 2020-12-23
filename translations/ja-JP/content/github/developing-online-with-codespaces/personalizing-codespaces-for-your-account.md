@@ -32,7 +32,7 @@ versions:
 
 `dotfiles` リポジトリへの変更は、新しい codespace ごとにのみ適用され、既存の codespace には影響しません。
 
-詳しい情報については、{% data variables.product.prodname_vscode %} ドキュメントの「[パーソナライズする](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing)」を参照してください。
+詳しい情報については、{% data variables.product.prodname_vscode %} ドキュメントの「[パーソナライズする](https://docs.microsoft.com/visualstudio/online/reference/personalizing)」を参照してください。
 
 {% note %}
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du große Dateien innerhalb Deines Repositorys verteilen musst, kannst Du Releases auf {% data variables.product.product_location %} erstellen. Releases erlauben Dir, Software, Release-Hinweise und Links zu Binärdateien zu paketieren, damit andere Personen diese nutzen können. Weitere Informationen findest Du unter „[Informationen zu Releases](/github/administering-a-repository/about-releases).“

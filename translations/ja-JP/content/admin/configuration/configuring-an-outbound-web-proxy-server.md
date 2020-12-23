@@ -1,6 +1,6 @@
 ---
 title: アウトバウンドのWebプロキシサーバの設定
-intro: 'プロキシサーバは、{% data variables.product.product_location_enterprise %}に追加のセキュリティのレベルをもたらしてくれます。'
+intro: 'プロキシサーバは、{% data variables.product.product_location %}に追加のセキュリティのレベルをもたらしてくれます。'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-a-proxy-server/
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data variables.product.product_location_enterprise %} に対してプロキシサーバーが有効である場合、送信先ホストが HTTP プロキシ除外として追加されていない限り、{% data variables.product.prodname_ghe_server %} によって送信されたアウトバウンドメッセージがプロキシサーバーを経由してまず最初に送信されます。 アウトバウンドのメッセージの種類には、webhook、Bundleのアップロード、レガシーのアバターのフェッチが含まれます。 プロキシサーバのURLは、たとえば`http://127.0.0.1:8123`といったように、プロトコル、ドメインもしくはIPアドレスにポート番号を加えたものです。
+{% data variables.product.product_location %} に対してプロキシサーバーが有効である場合、送信先ホストが HTTP プロキシ除外として追加されていない限り、{% data variables.product.prodname_ghe_server %} によって送信されたアウトバウンドメッセージがプロキシサーバーを経由してまず最初に送信されます。 アウトバウンドのメッセージの種類には、webhook、Bundleのアップロード、レガシーのアバターのフェッチが含まれます。 プロキシサーバのURLは、たとえば`http://127.0.0.1:8123`といったように、プロトコル、ドメインもしくはIPアドレスにポート番号を加えたものです。
 
 {% note %}
 
-**メモ:**  {% data variables.product.product_location_enterprise %}　を　{% data variables.product.prodname_dotcom_the_website %} に接続するには、`github.com` と `api.github.com` への接続がプロキシ設定で許可されている必要があります。 詳細は「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_dotcom_the_website %} に接続する](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)」を参照してください。
+**メモ:**  {% data variables.product.product_location %}　を　{% data variables.product.prodname_dotcom_the_website %} に接続するには、`github.com` と `api.github.com` への接続がプロキシ設定で許可されている必要があります。 詳細は「[{% data variables.product.prodname_ghe_server %} を {% data variables.product.prodname_dotcom_the_website %} に接続する](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)」を参照してください。
 
 {% endnote %}
 

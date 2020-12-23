@@ -54,7 +54,7 @@ versions:
 
 ### 解决和关闭支持事件单
 
-{% data variables.contact.premium_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, or workaround instructions,
+{% data variables.contact.premium_support %} 在提供解释、建议、使用说明或变通方法后，可能认为事件单已解决。
 
 如果您使用自定义或不支持的插件、模块或自定义代码，{% data variables.contact.premium_support %} 可能要求您在尝试解决问题时删除不支持的插件、模块或代码。 如果在不受支持的插件、模块或自定义代码删除后问题得以解决，{% data variables.contact.premium_support %} 可能认为事件单已解决。
 

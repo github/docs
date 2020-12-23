@@ -32,7 +32,7 @@ Some workflows require or benefit from rebasing instead of merging. Durch das Re
 
    {% note %}
 
-   **Hinweis:** Bei Merge-Konflikten wirst Du oberhalb der Schaltfläche **Merge <em>BRANCH</em> into <em>BRANCH</em>** (BRANCH per Merge in BRANCH fusionieren) von {% data variables.product.prodname_desktop %} gewarnt. Sie können die Branches erst mergen, nachdem Sie alle Konflikte behoben haben.
+   **Hinweis:** Bei Mergekonflikten werden Sie oberhalb der Schaltfläche **Merge <em>BRANCH</em> into <em>BRANCH</em>** (Branch in Branch mergen) von {% data variables.product.prodname_desktop %} gewarnt. Sie können die Branches erst mergen, nachdem Sie alle Konflikte behoben haben.
 
    {% endnote %}
 

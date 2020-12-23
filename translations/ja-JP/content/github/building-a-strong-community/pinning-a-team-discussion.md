@@ -1,11 +1,12 @@
 ---
 title: Team ディスカッションをピン止めする
-intro: 重要なディスカッションは、参照しやすいように Organization の Team ページにピン止めすることができ、必要がなくなったらピン止めを解除できます。
+intro: '重要なディスカッションは、参照しやすいように Organization の Team ページにピン止めすることができ、必要がなくなったらピン止めを解除できます。'
 redirect_from:
   - /articles/pinning-a-team-discussion
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.profile.access_profile %}

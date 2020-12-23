@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントへのユーザの SAML アクセスの表示および管理
-intro: Enterprise メンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。
+intro: 'Enterprise メンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。'
 permissions: Enterprise オーナーは、組織へのメンバーの SAML アクセスを表示したり管理したりすることもできます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 versions:

@@ -51,13 +51,13 @@ The record types match those found in the [migrated data](/enterprise/admin/guid
 | Teams                                    | `команда`                     |
 | Milestones                               | `контрольная точка`           |
 | Project boards                           | `проект`                      |
-| Вопросы                                  | `задача`                      |
+| Вопросы                                  | `проблема`                    |
 | Issue comments                           | `issue_comment`               |
 | Pull requests                            | `pull_request`                |
 | Pull request reviews                     | `pull_request_review`         |
 | Commit comments                          | `commit_comment`              |
 | Pull request review comments             | `pull_request_review_comment` |
-| Релизы                                   | `релиз`                       |
+| Релизы                                   | `версия`                      |
 | Actions taken on pull requests or issues | `issue_event`                 |
 | Protected branches                       | `protected_branch`            |
 
@@ -131,7 +131,7 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
 
 #### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). You'll need your access token for authentication:
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/reference/repos/#delete-a-repository). You'll need your access token for authentication:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>

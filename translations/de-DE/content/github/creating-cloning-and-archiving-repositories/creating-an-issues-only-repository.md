@@ -1,6 +1,6 @@
 ---
 title: Ein Repository nur für Issues erstellen
-intro: '{% data variables.product.product_name %} bietet keine Berechtigungen für den Zugriff ausschließlich auf Issues. Du kannst zu diesem Zweck aber ein zweites Repository erstellen, das nur die Issues enthält.'
+intro: '{% data variables.product.product_name %} bietet keine Berechtigungen für den Zugriff ausschließlich auf Issues. Sie können zu diesem Zweck aber ein zweites Repository erstellen, das nur die Issues enthält.'
 redirect_from:
   - /articles/issues-only-access-permissions/
   - /articles/is-there-issues-only-access-to-organization-repositories/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. Erstelle ein **privates** Repository, um den Quellcode von Deinem Projekt zu verwalten.

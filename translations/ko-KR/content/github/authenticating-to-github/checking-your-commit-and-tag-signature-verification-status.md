@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Checking your commit signature verification status
 
-1. On {% data variables.product.product_name %}, navigate to your pull request.
+1. On
+
+{% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
 3. Next to your commit's abbreviated commit hash, there is a box that shows whether your commit signature is verified or unverified. ![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 4. To view more detailed information about the commit signature, click **Verified** or **Unverified**. ![Verified signed commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)

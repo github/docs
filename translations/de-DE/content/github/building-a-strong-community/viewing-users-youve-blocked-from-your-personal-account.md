@@ -1,6 +1,6 @@
 ---
-title: 'Benutzer anzeigen, die Du für Dein persönliches Konto blockiert hast'
-intro: 'Du kannst eine Liste sämtlicher Benutzer anzeigen, die Du in Deinem persönlichen Konto blockiert hast.'
+title: Benutzer anzeigen, die Du für Dein persönliches Konto blockiert hast
+intro: Du kannst eine Liste sämtlicher Benutzer anzeigen, die Du in Deinem persönlichen Konto blockiert hast.
 redirect_from:
   - /articles/viewing-users-you-ve-blocked-from-your-personal-account
   - /articles/viewing-users-youve-blocked-from-your-personal-account

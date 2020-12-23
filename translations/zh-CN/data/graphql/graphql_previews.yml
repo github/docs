@@ -28,57 +28,6 @@
   owning_teams:
     - '@github/ecosystem-api'
 - 
-  title: 检查
-  description: 此预览支持由 GitHub 应用程序创建的读取检查。
-  toggled_by: ':antiope-preview'
-  announcement: null
-  updates: null
-  toggled_on:
-    - CheckAnnotationRange
-    - CheckAnnotationPosition
-    - CheckAnnotationSpan
-    - CheckAnnotation
-    - CheckAnnotationConnection.nodes
-    - CheckAnnotationData
-    - CheckAnnotationEdge.node
-    - CheckAnnotationLevel
-    - CheckConclusionState
-    - CheckStatusState
-    - CheckSuiteAutoTriggerPreference
-    - CheckRun
-    - CheckRunConnection.nodes
-    - CheckRunEdge.node
-    - CheckRunAction
-    - CheckRunFilter
-    - CheckRunOutput
-    - CheckRunOutputImage
-    - CheckRunType
-    - CheckSuite
-    - CheckSuiteConnection.nodes
-    - CheckSuiteEdge.node
-    - CheckSuiteFilter
-    - CreateCheckRunInput
-    - CreateCheckRunPayload
-    - CreateCheckSuiteInput
-    - CreateCheckSuitePayload
-    - Commit.checkSuites
-    - Mutation.createCheckRun
-    - Mutation.createCheckSuite
-    - Mutation.rerequestCheckSuite
-    - Mutation.updateCheckRun
-    - Mutation.updateCheckSuitePreferences
-    - 推送
-    - RequestableCheckStatusState
-    - RerequestCheckSuiteInput
-    - RerequestCheckSuitePayload
-    - UpdateCheckRunInput
-    - UpdateCheckRunPayload
-    - UpdateCheckSuitePayload.checkSuite
-    - UpdateCheckSuitePreferencesInput
-    - UpdateCheckSuitePreferencesPayload
-  owning_teams:
-    - '@github/ce-extensibility'
-- 
   title: >-
     MergeInfoPreview - 有关拉取请求合并状态的更多详细信息。
   description: >-
@@ -104,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: 访问仓库依赖关系图
   description: 此预览支持读取仓库依赖关系图。
@@ -153,7 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: 固定议题预览
   description: 此预览增加了对固定议题的支持。

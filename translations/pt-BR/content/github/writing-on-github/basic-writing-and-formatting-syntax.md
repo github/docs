@@ -1,69 +1,70 @@
 ---
-title: Sintaxe básica de escrita e formatação no GitHub
-intro: Crie formatação sofisticada para narração e código no GitHub com sintaxe simples.
+title: Basic writing and formatting syntax
+intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 redirect_from:
   - /articles/basic-writing-and-formatting-syntax
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Títulos
+### Headings
 
-Para criar um título, adicione de um a seis símbolos `#` antes do texto do título. O número de `#` que você usa determinará o tamanho do título.
-
-```
-# O título maior
-## O segundo maior título
-###### O título menor
-```
-
-![Títulos H1, H2 e H6 renderizados](/assets/images/help/writing/headings-rendered.png)
-
-### Estilizar texto
-
-Você pode dar ênfase usando texto em negrito, itálico ou tachado.
-
-| Estilo                     | Sintaxe            | Atalho              | Exemplo                                      | Resultado                                  |
-| -------------------------- | ------------------ | ------------------- | -------------------------------------------- | ------------------------------------------ |
-| Negrito                    | `** **` ou `__ __` | command/control + b | `**Esse texto está em negrito**`             | **Esse texto está em negrito**             |
-| Itálico                    | `* *` ou `_ _`     | command/control + i | `*Esse texto está em itálico*`               | *Esse texto está em itálico*               |
-| Tachado                    | `~~ ~~`            |                     | `~~Esse texto estava errado~~`               | ~~Esse texto estava errado~~               |
-| Negrito e itálico aninhado | `** **` e `_ _`    |                     | `**Esse texto é _extremamente_ importante**` | **Esse texto é _extremamente_ importante** |
-| Todo em negrito e itálico  | `*** ***`          |                     | `***Todo esse texto é importante***`         | ***Todo esse texto é importante***         |
-
-### Citar texto
-
-Você pode citar texto com um `>`.
+To create a heading, add one to six `#` symbols before your heading text. The number of `#` you use will determine the size of the heading.
 
 ```
-Nas palavras de Abraham Lincoln:
+# The largest heading
+## The second largest heading
+###### The smallest heading
+```
+
+![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
+
+### Styling text
+
+You can indicate emphasis with bold, italic, or strikethrough text.
+
+| Style | Syntax | Keyboard shortcut | Example | Output |
+| --- | --- | --- | --- | --- |
+| Bold | `** **` or `__ __` | command/control + b | `**This is bold text**` | **This is bold text** |
+| Italic | `* *` or `_ _` | command/control + i | `*This text is italicized*` | *This text is italicized* |
+| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
+| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
+| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
+
+### Quoting text
+
+You can quote text with a `>`.
+
+```
+In the words of Abraham Lincoln:
 
 > Pardon my French
 ```
 
-![Texto citado renderizado](/assets/images/help/writing/quoted-text-rendered.png)
+![Rendered quoted text](/assets/images/help/writing/quoted-text-rendered.png)
 
 {% tip %}
 
-**Dica:** ao exibir uma conversa, você pode citar textos automaticamente em um comentário destacando o texto e digitando `r`. É possível citar um comentário inteiro clicando em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Quote reply** (Resposta à citação). Para obter mais informações sobre atalhos de teclado, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts/)".
+**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing `r`. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/)."
 
 {% endtip %}
 
-### Citar código
+### Quoting code
 
-Você pode chamar código ou um comando em uma frase com aspas simples. O texto entre as aspas não será formatado.
+You can call out code or a command within a sentence with single backticks. The text within the backticks will not be formatted.
 
 ```
-Use 'git status' para listar todos os arquivos novos ou modificados que ainda não receberam commit.
+Use `git status` to list all new or modified files that haven't yet been committed.
 ```
 
-![Bloco de código inline renderizado](/assets/images/help/writing/inline-code-rendered.png)
+![Rendered inline code block](/assets/images/help/writing/inline-code-rendered.png)
 
-Para formatar código ou texto no próprio bloco distinto, use aspas triplas.
+To format code or text into its own distinct block, use triple backticks.
 
 <pre>
-Alguns comandos Git básicos são:
+Some basic Git commands are:
 ```
 git status
 git add
@@ -71,35 +72,35 @@ git commit
 ```
 </pre>
 
-![Bloco de código renderizado](/assets/images/help/writing/code-block-rendered.png)
+![Rendered code block](/assets/images/help/writing/code-block-rendered.png)
 
-Para obter mais informações, consulte "[Criar e destacar blocos de código](/articles/creating-and-highlighting-code-blocks)".
+For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
 
 ### Links
 
-Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` e, em seguida, o URL entre parênteses `( )`. Também é possível usar o atalho de teclado `command + k` para criar um link.
+You can create an inline link by wrapping link text in brackets `[ ]`, and then wrapping the URL in parentheses `( )`. You can also use the keyboard shortcut `command + k` to create a link.
 
-`Este site foi construído usando [GitHub Pages](https://pages.github.com/).`
+`This site was built using [GitHub Pages](https://pages.github.com/).`
 
-![Link renderizado](/assets/images/help/writing/link-rendered.png)
+![Rendered link](/assets/images/help/writing/link-rendered.png)
 
 {% tip %}
 
-**Dica:** o {% data variables.product.product_name %} cria links automaticamente quando URLs válidos são escritos em um comentário. Para obter mais informações, consulte "[Referências e URLs vinculados automaticamente](/articles/autolinked-references-and-urls)".
+**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLS](/articles/autolinked-references-and-urls)."
 
 {% endtip %}
 
-### Links de seção
+### Section links
 
 {% data reusables.repositories.section-links %}
 
-### Links relativos
+### Relative links
 
 {% data reusables.repositories.relative-links %}
 
-### Listas
+### Lists
 
-Você pode criar uma lista não ordenada precedendo uma ou mais linhas de texto com `-` ou `*`.
+You can make an unordered list by preceding one or more lines of text with `-` or `*`.
 
 ```
 - George Washington
@@ -107,9 +108,9 @@ Você pode criar uma lista não ordenada precedendo uma ou mais linhas de texto 
 - Thomas Jefferson
 ```
 
-![Lista não ordenada renderizada](/assets/images/help/writing/unordered-list-rendered.png)
+![Rendered unordered list](/assets/images/help/writing/unordered-list-rendered.png)
 
-Para ordenar a lista, coloque um número na frente de cada linha.
+To order your list, precede each line with a number.
 
 ```
 1. James Madison
@@ -117,125 +118,122 @@ Para ordenar a lista, coloque um número na frente de cada linha.
 3. John Quincy Adams
 ```
 
-![Lista ordenada renderizada](/assets/images/help/writing/ordered-list-rendered.png)
+![Rendered ordered list](/assets/images/help/writing/ordered-list-rendered.png)
 
-#### Listas aninhadas
+#### Nested Lists
 
-Você pode criar uma lista aninhada recuando um ou mais itens da lista abaixo de outro item.
+You can create a nested list by indenting one or more list items below another item.
 
-Para criar uma lista aninhada usando o editor web do {% data variables.product.product_name %} ou um editor de texto que usa uma fonte monoespaçada, como o [Atom](https://atom.io/), você pode alinhar sua lista visualmente. Digite caracteres de espaço na fonte do item da lista aninhada, até que o caractere de marcador da lista (`-` ou `*`) fique diretamente abaixo do primeiro caractere do texto no item acima dele.
-
-```
-1. Primeiro item da lista
-   - Primeiro item de lista aninhado
-     - Segundo item de lista aninhada
-```
-
-![Lista aninhada com alinhamento destacado](/assets/images/help/writing/nested-list-alignment.png)
-
-![Lista com dois níveis de itens aninhados](/assets/images/help/writing/nested-list-example-1.png)
-
-Para criar uma lista aninhada no editor de comentários do {% data variables.product.product_name %}, que não usa uma fonte monoespaçada, você pode observar o item da lista logo acima da lista aninhada e contar o número de caracteres que aparecem antes do conteúdo do item. Em seguida, digite esse número de caracteres de espaço na fonte do item da linha aninhada.
-
-Neste exemplo, você pode adicionar um item de lista aninhada abaixo do item de lista `100. Primeiro item da lista` recuando o item da lista aninhada com no mínimo cinco espaços, uma vez que há cinco caracteres (`100.`) antes de `Primeiro item da lista`.
+To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [Atom](https://atom.io/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (`-` or `*`) lies directly below the first character of the text in the item above it.
 
 ```
-100. Primeiro item da lista
-     - Primeiro item da lista aninhada
+1. First list item
+   - First nested list item
+     - Second nested list item
 ```
 
-![Lista com um item de lista aninhada](/assets/images/help/writing/nested-list-example-3.png)
+![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
 
-Você pode criar vários níveis de listas aninhadas usando o mesmo método. Por exemplo, como o primeiro item da lista aninhada tem sete espaços (`␣␣␣␣␣-␣`) antes do conteúdo da lista aninhada `Primeiro item da lista aninhada`, você precisaria recuar o segundo item da lista aninhada com sete espaços.
+![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
+
+To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
+
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
 
 ```
-100. Primeiro item da lista
-     - Primeiro item da lista aninhada
-       - Segundo item da lista aninhada
+100. First list item
+     - First nested list item
 ```
 
-![Lista com dois níveis de itens aninhados](/assets/images/help/writing/nested-list-example-2.png)
+![List with a nested list item](/assets/images/help/writing/nested-list-example-3.png)   
 
-Para obter mais exemplos, consulte a [Especificação de markdown em estilo GitHub](https://github.github.com/gfm/#example-265).
+You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven spaces (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
 
-### Listas de tarefas
+```
+100. First list item
+     - First nested list item
+       - Second nested list item
+```
+
+![List with two levels of nested items](/assets/images/help/writing/nested-list-example-2.png)    
+
+For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
+
+### Task lists
 
 {% data reusables.repositories.task-list-markdown %}
 
-Se a descrição de um item da lista de tarefas começar com parênteses, você precisará usar `\` para escape:
+If a task list item description begins with a parenthesis, you'll need to escape it with `\`:
 
-`- [ ] \(Optional) Abrir um problema de acompanhamento`
+`- [ ] \(Optional) Open a followup issue`
 
-Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/about-task-lists)".
+For more information, see "[About task lists](/articles/about-task-lists)."
 
-### Mencionar pessoas e equipes
+### Mentioning people and teams
 
-Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing `@` plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
-`@github/suporte O que você acha dessas atualizações?`
+`@github/support What do you think about these updates?`
 
-![@menção renderizada](/assets/images/help/writing/mention-rendered.png)
+![Rendered @mention](/assets/images/help/writing/mention-rendered.png)
 
-Quando você menciona uma equipe principal, os integrantes de suas equipes secundárias também recebem notificações, simplificando a comunicação com vários grupos de pessoas. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)".
+When you mention a parent team, members of its child teams also receive notifications, simplifying communication with multiple groups of people. For more information, see "[About teams](/articles/about-teams)."
 
-Digitar um símbolo `@` chamará uma lista de pessoas ou equipes em um projeto. A lista é filtrada à medida que você digita. Portanto, assim que você achar o nome da pessoa ou da equipe que está procurando, use as teclas de seta para selecioná-lo e pressione tab ou enter para completar o nome. Para equipes, digite nome da @organização/equipe e todos os integrantes dessa equipe serão inscritos na conversa.
+Typing an `@` symbol will bring up a list of people or teams on a project. The list filters as you type, so once you find the name of the person or team you are looking for, you can use the arrow keys to select it and press either tab or enter to complete the name. For teams, enter the @organization/team-name and all members of that team will get subscribed to the conversation.
 
-Os resultados do preenchimento automático são restritos aos colaboradores do repositório e qualquer outro participante no thread.
+The autocomplete results are restricted to repository collaborators and any other participants on the thread.
 
-### Fazer referências a problemas e pull requests
+### Referencing issues and pull requests
 
-Você pode trazer à tona uma lista de problemas e pull requests sugeridos no repositório digitando `#`. Digite o número ou o título do problema ou da pull request para filtrar a lista e, em seguida, pressione tab ou enter para completar o resultado destacado.
+You can bring up a list of suggested issues and pull requests within the repository by typing `#`. Type the issue or pull request number or title to filter the list, and then press either tab or enter to complete the highlighted result.
 
-Para obter mais informações, consulte "[Referências e URLs vinculados automaticamente](/articles/autolinked-references-and-urls)".
+For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-### Fazer referência a recursos externos
+### Referencing external resources
 
 {% data reusables.repositories.autolink-references %}
 
-{% endif %}
+### Content attachments
 
-### Anexos de conteúdo
+Some {% data variables.product.prodname_github_app %}s provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
 
-Alguns {% data variables.product.prodname_github_app %}s fornecem informações no {% data variables.product.product_name %} para URLs que são vinculados aos respectivos domínios registrados. O {% data variables.product.product_name %} renderiza as informações fornecidas pelo app sob o URL no texto ou comentário de um problema ou uma pull request.
+![Content attachment](/assets/images/help/writing/content-attachment.png)
 
-![Anexo de conteúdo](/assets/images/help/writing/content-attachment.png)
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
-Para ver anexos de conteúdo, você deve ter um {% data variables.product.prodname_github_app %} que use a API Content Attachments (anexos de conteúdo) instalada no repositório.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Instalar um app em sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um app em sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
+Content attachments will not be displayed for URLs that are part of a markdown link.
 
-Os anexos de conteúdo não serão exibidos para URLs que fazem parte de um link markdown.
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
 
-Para obter mais informações sobre como compilar um {% data variables.product.prodname_github_app %} que use anexos de conteúdo, consulte "[Usar anexos de conteúdo](/apps/using-content-attachments)".
+### Using emoji
 
-### Usar emoji
+You can add emoji to your writing by typing `:EMOJICODE:`.
 
-Você pode adicionar emoji à sua escrita digitando `:EMOJICODE:`.
+`@octocat :+1: This PR looks great - it's ready to merge! :shipit:`
 
-`@octocat :+1: Este PR parece ótimo - está pronto para o merge! :shipit:`
+![Rendered emoji](/assets/images/help/writing/emoji-rendered.png)
 
-![Emoji renderizado](/assets/images/help/writing/emoji-rendered.png)
+Typing `:` will bring up a list of suggested emoji. The list will filter as you type, so once you find the emoji you're looking for, press **Tab** or **Enter** to complete the highlighted result.
 
-Digitar `:` trará à tona uma lista de emojis sugeridos. A lista será filtrada à medida que você digita. Portanto, assim que encontrar o emoji que estava procurando, pressione **Tab** ou **Enter** para completar o resultado destacado.
+For a full list of available emoji and codes, check out [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com).
 
-Para obter uma lista completa de emojis e códigos disponíveis, confira [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com).
+### Paragraphs
 
-### Parágrafos
+You can create a new paragraph by leaving a blank line between lines of text.
 
-Você pode criar um parágrafo deixando uma linha em branco entre as linhas de texto.
+### Ignoring Markdown formatting
 
-### Ignorar formatação markdown
+You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using `\` before the Markdown character.
 
-Para informar ao {% data variables.product.product_name %} que deve ignorar a formatação markdown (ou usar escape nela), anteceda o caractere markdown com `\`.
+`Let's rename \*our-new-project\* to \*our-old-project\*.`
 
-`Vamos renomear \*our-new-project\* para \*our-old-project\*.`
+![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
 
-![Caractere com escape renderizado](/assets/images/help/writing/escaped-character-rendered.png)
+For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
-Para obter mais informações, consulte "[Sintaxe markdown](https://daringfireball.net/projects/markdown/syntax#backslash)" de Daring Fireball.
+### Further reading
 
-### Leia mais
-
-- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
-- "[Sobre escrita e formatação no GitHub](/articles/about-writing-and-formatting-on-github)"
-- "[Trabalhar com formatação avançada](/articles/working-with-advanced-formatting)"
-- "[Dominar o markdown](https://guides.github.com/features/mastering-markdown/)"
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+- "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
+- "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
+- "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"

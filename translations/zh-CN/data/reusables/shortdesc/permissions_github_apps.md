@@ -1,1 +1,1 @@
-When you create a GitHub App, you set the permissions that define the resources the app can access via the REST API.
+创建 GitHub 应用程序时，您可以设置权限，以定义应用程序可通过 REST API 访问的资源。

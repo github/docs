@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 [マイルストーンを作成](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)すると、作成した[マイルストーンをIssueやプルリクエストに関連づけ](/articles/associating-milestones-with-issues-and-pull-requests)できます。

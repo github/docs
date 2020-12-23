@@ -1,86 +1,94 @@
 ---
-title: Migrating to GitHub Container Registry for Docker images
-intro: 'If you''ve used the GitHub Packages Docker registry to store Docker images, you can migrate to the new {% data variables.product.prodname_container_registry %}.'
+title: 迁移到 Docker 映像的 GitHub Container Registry
+intro: '如果您已经使用 GitHub Packages Docker 注册表来存储 Docker 映像，可以迁移到新的 {% data variables.product.prodname_container_registry %}。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-### Key differences between {% data variables.product.prodname_github_container_registry %} and the Docker package registry
+### {% data variables.product.prodname_github_container_registry %} 与 Docker 软件包注册表之间的主要差异
 
 {% data reusables.package_registry.container-registry-beta %}
 
-The {% data variables.product.prodname_github_container_registry %} supersedes the existing Packages Docker registry and is optimized to support some of the unique needs of containers.
+{% data variables.product.prodname_github_container_registry %} 取代原有的Packages Docker 注册表，并且做了优化，可支持容器的一些独特需求。
 
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
 更多信息请参阅“[关于 {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry/about-github-container-registry)”。
 
-### Billing changes
+### 计费更改
 
 {% data reusables.package_registry.billing-for-container-registry %}
 
-### Domain changes
+### 域更改
 
-The domain for the {% data variables.product.prodname_container_registry %} is `ghcr.io`.
+{% data variables.product.prodname_container_registry %} 的域是 `ghcr.io`。
 
-| Registry                                                               | Example URL                                         |
-| ---------------------------------------------------------------------- | --------------------------------------------------- |
-| {% data variables.product.prodname_registry %} Docker registry    | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
+| 注册表                                                               | Example URL                                         |
+| ----------------------------------------------------------------- | --------------------------------------------------- |
+| {% data variables.product.prodname_registry %} Docker 注册表         | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_github_container_registry %} | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
-### Authenticating with the container registry
+### 使用容器注册表进行身份验证
 
-You will need to authenticate to the {% data variables.product.prodname_container_registry %} with the base URL `ghcr.io`. We recommend creating a new access token for using the {% data variables.product.prodname_container_registry %}.
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+您需要使用基本 URL `ghcr.io` 向 {% data variables.product.prodname_container_registry %} 验证。 我们建议创建新的访问令牌以使用 {% data variables.product.prodname_container_registry %}。
 
-### Migrating a Docker image using the Docker CLI
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-To move Docker images that you host on {% data variables.product.prodname_registry %} Docker registry, you must republish the images to {% data variables.product.prodname_container_registry %}. We recommend republishing your existing Docker images using the command line on your local machine.
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
-1. Sign in to the Docker registry using a temporary PAT with at least the `read:packages` scope. This PAT will only be used to sign in to the Docker registry to pull down images and can be deleted afterward.
+### 使用 Docker CLI 迁移 Docker 映像
+
+要移动您在 {% data variables.product.prodname_registry %} Docker 注册表上托管的 Docker 映像，您必须将映像重新发布到 {% data variables.product.prodname_container_registry %}。 我们建议在本地计算机上使用命令行重新发布现有的 Docker 映像。
+
+1. 使用作用域至少为 `read:packages` 的临时 PAT 登录到 Docker 注册表。 此 PAT 将仅用于登录到 Docker 注册表以下拉映像，然后可以删除。
   {% raw %}
   ```shell
   $ echo $READ_PACKAGES_TOKEN | docker login docker.pkg.github.com -u USERNAME --password-stdin
   ```
   {% endraw %}
-2. Pull down the image you'd like to migrate, replacing OWNER with the name of the user or organization account that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with tag for the image you want to install. For example, `docker pull docker.pkg.github.com/octo-org/octoshift/octoshift:latest` pulls the latest tag of the `octoshift/octoshift` image in the octo-org organization.
+2. 下拉要迁移的映像，将 OWNER 替换为拥有仓库的用户或组织帐户的名称，将 REPOSITORY 替换为包含项目的仓库，将 IMAGE_NAME 替换为包或映像的名称，将 VERSION 替换为要安装的映像的标记。 例如，`docker ull docker.pkg.github.com/octo-org/octoshift/octoshift:latest` 拉取 octo-org 组织中 `octoshift/octoshift` 映像的最新标记。
   ```shell
   $ docker pull docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
   ```
 
-3. Re-tag the image with the new domain and a new image name. 更多信息请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。 Use the same URL that you used in the previous step for the SOURCE URL. Replace the TARGET_OWNER with the user or organization that you are migrating the container image to and replace the TARGET_IMAGE_NAME with the new {% data variables.product.prodname_container_registry %} image name.
+3. 使用新域和新映像名称重新标记映像。 更多信息请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。 使用在上一步中用于 SOURCE URL 同一个URL。 将 TARGET_OWNER 替换为要将容器映像迁移到其中的用户或组织，将 TARGET_IMAGE_NAME 替换为新 {% data variables.product.prodname_container_registry %} 映像名称。
   ```shell
   $ docker tag docker.pkg.github.com/SOURCE_OWNER/SOURCE_REPOSITORY/SOURCE_IMAGE_NAME:VERSION ghcr.io/TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
   ```
 
-4. Sign in to the new {% data variables.product.prodname_container_registry %}. We recommend creating a new PAT limited to the `read:packages` and `write:packages` scopes since you no longer need the `repo` scope and your previous PAT may not have the `write:packages` scope.
+4. 登录到新的
+
+{% data variables.product.prodname_container_registry %}. 我们建议创建限于 `read:packages` 和 `write:packages` 范围的新 PAT，因为您不再需要 `repo` 范围，并且您之前的 PAT 不能具有 `write:packages` 范围。
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
   ```
   {% endraw %}
-5. Push your re-tagged image to the {% data variables.product.prodname_container_registry %}.
+5. 将重新标记的映像推送到 {% data variables.product.prodname_container_registry %}。
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE_NAME:VERSION
   ```
 
-### Updating your {% data variables.product.prodname_actions %} workflow
+### 更新 {% data variables.product.prodname_actions %} 工作流程
 
-If you have a {% data variables.product.prodname_actions %} workflow that uses a Docker image from the {% data variables.product.prodname_registry %} Docker registry, you may want to update your workflow to the {% data variables.product.prodname_container_registry %} to allow for anonymous access for public container images, finer-grain access permissions, and better storage and bandwidth compatibility for containers.
+{% data reusables.package_registry.feature-preview-for-container-registry %}
 
-1. Migrate your Docker images to the new {% data variables.product.prodname_container_registry %} at `ghcr.io`. For an example, see "[Migrating a Docker image using the Docker CLI](#migrating-a-docker-image-using-the-docker-cli)."
+如果您有 {% data variables.product.prodname_actions %} 工作流程使用来自 {% data variables.product.prodname_registry %} Docker 注册表的 Docker 映像，则可能需要将工作流程更新到 {% data variables.product.prodname_container_registry %}，以允许匿名访问公共容器映像、更细致的访问权限以及更好的容器存储和带宽兼容性。
 
-2. In your {% data variables.product.prodname_actions %} workflow file, update the package url from `https://docker.pkg.github.com` to `ghcr.io`.
+1. 将 Docker 映像迁移到 `ghcr.io` 上的新 {% data variables.product.prodname_container_registry %}。 例如，请参阅“[使用 Docker CLI 迁移 Docker 映像](#migrating-a-docker-image-using-the-docker-cli)”。
 
-3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub ACtions secret. {% data variables.product.prodname_github_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. 更多信息请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
+2. 在 {% data variables.product.prodname_actions %} 工作流程文件中，将包 url 从 `https://docker.pkg.github.com` 更新到 `ghcr.io`。
 
-4. In your {% data variables.product.prodname_actions %} workflow file, update the authentication PAT by replacing your Docker registry PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) with a new variable for your {% data variables.product.prodname_container_registry %} PAT, such as {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
+3. 将新的 {% data variables.product.prodname_container_registry %} 身份验证个人访问令牌 (PAT) 添加为 GitHub ACtions 密码。 {% data variables.product.prodname_github_container_registry %} 不支持对 PAT 使用 `GITHUB_TOKEN`，因此您必须使用不同的自定义变量，例如 `CR_PAT`。 更多信息请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
 
-#### Example of updated workflow
+4. 在 {% data variables.product.prodname_actions %} 工作流程文件中更新身份验证 PAT，将 Docker 注册表 PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) 替换为 {% data variables.product.prodname_container_registry %} PAT 的新变量，例如 {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}。
 
-If part of your workflow accessed a Docker image hosted by the Docker registry like this:
+#### 更新的工作流程示例
+
+如果工作流程的一部分访问由 Docker 注册表托管的 Docker 映像，如：
 
 {% raw %}
 ```yaml
@@ -91,7 +99,7 @@ docker push docker.pkg.github.com/github/octoshift/octoshift:$GITHUB_SHA
 ```
 {% endraw %}
 
-Then you'll need to update your workflow with the new {% data variables.product.prodname_container_registry %} URL and PAT like this:
+然后，您需要使用新的 URL 和 PAT {% data variables.product.prodname_container_registry %} 更新工作流程，如：
 
 {% raw %}
 ```yaml

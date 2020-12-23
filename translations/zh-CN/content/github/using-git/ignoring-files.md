@@ -8,6 +8,7 @@ intro: '您可以配置 Git 忽略您不想检入 {% data variables.product.prod
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 为单个仓库配置忽略的文件

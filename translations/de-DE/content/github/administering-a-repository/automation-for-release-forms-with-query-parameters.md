@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Abfrageparameter sind optionale Bestandteile einer URL, die Du anpassen kannst, um eine bestimmte Ansicht einer Webseite weiterzugeben, beispielsweise gefilterte Suchergebnisse, eine Issuevorlage oder die Seite mit dem Releaseformular auf {% data variables.product.prodname_dotcom %}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.
+Abfrageparameter sind optionale Bestandteile einer URL, die Sie anpassen können, um eine bestimmte Ansicht einer Webseite weiterzugeben, z. B. gefilterte Suchergebnisse, eine Issue-Vorlage oder die Seite mit dem Veröffentlichungsformular auf {% data variables.product.prodname_dotcom %}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.
 
 Du musst die erforderlichen Berechtigungen für jede Aktion haben, um den entsprechenden Abfrageparameter zu verwenden. Du benötigst beispielsweise die Berechtigung zum Erstellen von Releases, um das Releaseformular vorab auszufüllen. Weitere Informationen findest Du unter „[Verwalten von Releases in einem Repository](/github/administering-a-repository/managing-releases-in-a-repository)."
 

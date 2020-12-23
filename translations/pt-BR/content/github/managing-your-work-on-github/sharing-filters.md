@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode enviar a URL que geradas pelos problemas para qualquer usuário e ele verá a mesma exibição com filtro que você.

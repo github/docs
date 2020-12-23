@@ -12,6 +12,7 @@ intro: 'Auf der Seite mit den Einstellungen für das Organisationskonto gibt es 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

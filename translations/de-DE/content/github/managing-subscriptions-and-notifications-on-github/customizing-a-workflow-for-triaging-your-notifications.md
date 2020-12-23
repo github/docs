@@ -4,6 +4,7 @@ intro: 'Um einen idealen Workflow für das Selektieren Deiner Benachrichtigungen
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Beginne Deine Posteingang-Selektion

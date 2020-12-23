@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Administratorberechtigungen können den Zugriff von Organisationsmitgliedern und externen Mitarbeitern auf ein Repository der Organisation verwalten.
@@ -30,5 +31,5 @@ Wenn Du einen Mitarbeiter aus einem Repository Deiner Organisation entfernst, ve
 
 ### Weiterführende Informationen
 
-{% if currentVersion == "free-pro-team@latest" %}„[Interaktionen mit Deinem Repository einschränken](/articles/limiting-interactions-with-your-repository)“{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization)“

@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのステージの変更
-intro: 'プルリクエストのドラフトをレビュー準備完了としてマークしたり{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}、プルリクエストをドラフトに変換したりすることができます{% endif %}。'
+intro: 'ドラフトのプルリクエストをレビューの準備完了 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} としてマークするか、プルリクエストをドラフトに変換することができます{% endif %}。'
 permissions: リポジトリへの書き込み権限を持つユーザとプルリクエストの作者は、プルリクエストのステージを変更できます。
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストをレビュー準備完了としてマークする
@@ -18,7 +19,7 @@ versions:
 2. プルリクエストのリストで、レビューの準備ができたことを示すマークを付けたいプルリクエストクリックします。
 3. マージボックスで、[**Ready for review**] をクリックします。 ![[Ready for review] ボタン](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 ### プルリクエストをドラフトに変換する
 

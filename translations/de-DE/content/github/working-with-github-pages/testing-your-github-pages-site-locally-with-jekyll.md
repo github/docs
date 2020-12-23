@@ -1,6 +1,6 @@
 ---
 title: GitHub Pages-Website lokal mit Jekyll testen
-intro: 'Du kannst Deine {% data variables.product.prodname_pages %}-Website lokal erstellen, um damit eine Vorschau der Änderungen an Deiner Website zu prüfen und diese Änderungen zu testen.'
+intro: 'Sie können Ihre {% data variables.product.prodname_pages %}-Website lokal erstellen und damit eine Vorschau der Änderungen an Ihrer Website zu prüfen und diese Änderungen testen.'
 redirect_from:
   - /articles/setting-up-your-pages-site-locally-with-jekyll/
   - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
@@ -9,6 +9,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können eine {% data variables.product.prodname_pages %}-Website lokal testen.

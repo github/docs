@@ -1,6 +1,6 @@
 ---
 title: プルリクエスト中のブランチの削除と復元
-intro: リポジトリでの書き込みアクセスがある場合、クローズまたはマージされたプルリクエストに関連付けられているブランチを削除できます。 オープンなプルリクエストに関連付けられているブランチは削除できません。
+intro: 'リポジトリでの書き込みアクセスがある場合、クローズまたはマージされたプルリクエストに関連付けられているブランチを削除できます。 オープンなプルリクエストに関連付けられているブランチは削除できません。'
 redirect_from:
   - /articles/tidying-up-pull-requests/
   - /articles/restoring-branches-in-a-pull-request/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストに使用されるブランチを削除する
@@ -35,6 +36,5 @@ versions:
 
 ### 参考リンク
 
-- 「[リポジトリ内でのブランチの作成と削除](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)」{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+- 「[リポジトリ内でのブランチの作成と削除](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)」
 - 「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」
-{% endif %}

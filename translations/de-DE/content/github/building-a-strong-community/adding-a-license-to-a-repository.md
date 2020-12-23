@@ -1,6 +1,6 @@
 ---
 title: Eine Lizenz zu einem Repository hinzufügen
-intro: 'Du kannst eine Open-Source-Lizenz zu Deinem Repository hinzufügen, um anderen die Mitarbeit zu vereinfachen.'
+intro: Du kannst eine Open-Source-Lizenz zu Deinem Repository hinzufügen, um anderen die Mitarbeit zu vereinfachen.
 redirect_from:
   - /articles/adding-a-license-to-a-repository
 versions:
@@ -32,7 +32,7 @@ Open-Source-Lizenzen ermöglichen es anderen, das Projekt in Deinem Repository k
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

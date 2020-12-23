@@ -1,6 +1,6 @@
 ---
 title: Marketing-E-Mails von GitHub verwalten
-intro: 'Neben Benachrichtigungen und Konto-E-Mails versendet {% data variables.product.prodname_dotcom %} gelegentlich auch Marketing-E-Mails mit Neuigkeiten und Informationen zu unseren Produkten. Wenn Du die Marketing-E-Mails kündigst, bist Du von zukünftigen Kampagnen ausgeschlossen, sofern Du Deine {% data variables.product.prodname_dotcom %}-E-Mail-Einstellungen nicht wieder änderst.'
+intro: 'Neben Benachrichtigungen und Konto-E-Mails versendet {% data variables.product.prodname_dotcom %} gelegentlich auch Marketing-E-Mails mit Neuigkeiten und Informationen zu unseren Produkten. Wenn Sie die Marketing-E-Mails kündigen, sind Sie von zukünftigen Kampagnen ausgeschlossen, sofern Sie Ihre {% data variables.product.prodname_dotcom %}-E-Mail-Einstellungen nicht entsprechend ändern.'
 redirect_from:
   - /articles/managing-marketing-emails-from-github
 versions:

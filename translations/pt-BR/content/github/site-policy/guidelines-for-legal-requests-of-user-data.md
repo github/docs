@@ -125,7 +125,7 @@ No caso das contas da organização, podemos fornecer o(s) nome(s) e endereço(s
 Por favor, note que a informação disponível varia de caso a caso. Algumas das informações são opcionais para os usuários fornecerem. Noutros casos, podemos não ter recolhido ou mantido a informação.
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**Com uma ordem judicial *ou* um mandado de busca** — Não divulgaremos os logs de acesso à conta, a menos que sejamos obrigados a fazê-lo por (i) uma ordem judicial emitida conforme 18 U.S.C. Seção 2703(d), sobre a demonstração de fatos específicos e articuláveis que mostrem que há razões razoáveis para acreditar que a informação solicitada é relevante e material para uma investigação criminal em curso; ou (ii) um mandado de busca emitido nos termos dos procedimentos descritos nas Regras Federais de Processo Penal ou procedimentos de autorização estatal equivalentes, mediante demonstração de uma causa provável. Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause. Além das informações da conta de usuário não públicas listadas acima podemos fornecer logs de acesso à conta em resposta a uma ordem judicial ou mandado de busca, que podem incluir:
+**Com uma ordem judicial *ou* um mandado de busca** — Não divulgaremos os logs de acesso à conta, a menos que sejamos obrigados a fazê-lo por (i) uma ordem judicial emitida conforme 18 U.S.C. Seção 2703(d), sobre a demonstração de fatos específicos e articuláveis que mostrem que há razões razoáveis para acreditar que a informação solicitada é relevante e material para uma investigação criminal em curso; ou (ii) um mandado de busca emitido nos termos dos procedimentos descritos nas Regras Federais de Processo Penal ou procedimentos de autorização estatal equivalentes, mediante demonstração de uma causa provável. Seção 2703(d), após a demonstração de fatos específicos e articuláveis que mostrem que há razões razoáveis para acreditar que a informação solicitada é relevante e material para uma investigação criminal em curso; ou (ii) um mandado de busca emitido de acordo com os procedimentos descritos no Regimento Federal de Assuntos Penal ou procedimentos de mandado de Estado equivalente, após a demonstração de uma causa provável. Além das informações da conta de usuário não públicas listadas acima podemos fornecer logs de acesso à conta em resposta a uma ordem judicial ou mandado de busca, que podem incluir:
 
   - Quaisquer logs que revelaria os movimentos de um usuário ao longo de um período de tempo
   - Configurações de conta ou repositório privado (por exemplo, quais usuários têm certas permissões, etc.)
@@ -141,7 +141,8 @@ Por favor, note que a informação disponível varia de caso a caso. Algumas das
   - Comunicações ou documentação (como problemas ou Wikis) em repositórios privados
   - Qualquer chave de segurança usada para autenticação ou criptografia
 
-- <a name="in-exigent-circumstances"></a>**Sob circunstâncias críticas** — Se recebermos uma solicitação de informações sob certas circunstâncias críticas (onde acreditamos que a divulgação é necessária para evitar uma situação emergencial que envolva risco de morte ou graves lesões físicas para uma pessoa), podemos divulgar informações limitadas que determinarmos necessárias para permitir que a aplicação da lei responda à emergência da situação. Para qualquer informação além disso, precisaríamos de uma intimação, um mandado de busca ou ordem judicial, conforme descrito acima. Por exemplo, não divulgaremos o conteúdo de repositórios privados sem um mandado de busca. Antes de divulgar informações, confirmamos que o pedido veio de um agente de aplicação da lei, que uma autoridade enviou uma notificação oficial resumindo a situação emergencial, e a forma como as informações solicitadas ajudarão a responder à emergência.
+- <a name="in-exigent-circumstances"></a>
+**Sob circunstâncias críticas** — Se recebermos uma solicitação de informações sob certas circunstâncias críticas (onde acreditamos que a divulgação é necessária para evitar uma situação emergencial que envolva risco de morte ou graves lesões físicas para uma pessoa), podemos divulgar informações limitadas que determinarmos necessárias para permitir que a aplicação da lei responda à emergência da situação. Para qualquer informação além disso, precisaríamos de uma intimação, um mandado de busca ou ordem judicial, conforme descrito acima. Por exemplo, não divulgaremos o conteúdo de repositórios privados sem um mandado de busca. Antes de divulgar informações, confirmamos que o pedido veio de um agente de aplicação da lei, que uma autoridade enviou uma notificação oficial resumindo a situação emergencial, e a forma como as informações solicitadas ajudarão a responder à emergência.
 
 ### Reembolso de custos
 
@@ -149,7 +150,7 @@ Reservamo-nos o direito de solicitar o reembolso dos custos administrativos asso
 
 ### Conservação de dados
 
-We will take steps to preserve account records for up to 90 days upon formal request from U.S. law enforcement in connection with official criminal investigations, and pending the issuance of a court order or other process.
+Vamos tomar medidas para preservar os registros das conta por até 90 dias mediante solicitação formal dos EUA. aplicação da lei relacionada a investigações criminais oficiais e aguardando a emissão de uma decisão judicial ou outro processo.
 
 ### Envio de solicitação
 
@@ -176,7 +177,7 @@ Por favor, conceda-nos pelo menos duas semanas para que possamos analisar o seu 
 
 ### Pedidos de aplicação de lei estrangeira
 
-Como empresa dos Estados Unidos sediada na Califórnia, o GitHub não é obrigado a fornecer dados a governos estrangeiros em resposta a processo judicial emitido por autoridades estrangeiras. As autoridades responsáveis pela aplicação da lei estrangeira que desejem solicitar informações ao GitHub deverão entrar em contato com o Gabinete de Assuntos Internacionais da Divisão Penal do Departamento de Justiça dos Estados Unidos. O GitHub responderá prontamente às solicitações que forem emitidas via tribunal dos EUA, por meio de um contrato de assistência jurídica mútua (“MLAT”) ou carta rogatória. court by way of a mutual legal assistance treaty (“MLAT”) or letter rogatory.
+Como empresa dos Estados Unidos sediada na Califórnia, o GitHub não é obrigado a fornecer dados a governos estrangeiros em resposta a processo judicial emitido por autoridades estrangeiras. As autoridades responsáveis pela aplicação da lei estrangeira que desejem solicitar informações ao GitHub deverão entrar em contato com o Gabinete de Assuntos Internacionais da Divisão Penal do Departamento de Justiça dos Estados Unidos. O GitHub responderá prontamente às solicitações que forem emitidas via tribunal dos EUA, por meio de um contrato de assistência jurídica mútua (“MLAT”) ou carta rogatória. tribunal por meio de um tratado de assistência jurídica mútua (“MLAT”) ou de uma rogatória.
 
 ### Perguntas
 

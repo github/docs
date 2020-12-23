@@ -1,11 +1,12 @@
 ---
 title: 使用已保存回复
-intro: 对议题或拉取请求进行评论时，可添加您已设置的已保存回复。 已保存回复可以是整个评论；或者如果您想要自定义，可以添加或删除内容。
+intro: '对议题或拉取请求进行评论时，可添加您已设置的已保存回复。 已保存回复可以是整个评论；或者如果您想要自定义，可以添加或删除内容。'
 redirect_from:
   - /articles/using-saved-replies
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

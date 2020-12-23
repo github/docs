@@ -1,6 +1,6 @@
 ---
 title: Erste Schritte mit GitHub Pages
-intro: 'Du kannst eine grundlegende {% data variables.product.prodname_pages %}-Website für Dich selbst, für Deine Organisation oder für Dein Projekt einrichten.'
+intro: 'Sie können eine grundlegende {% data variables.product.prodname_pages %}-Website für sich selbst, für Ihre Organisation oder für Ihr Projekt einrichten.'
 redirect_from:
   - /categories/github-pages-basics
   - /articles/additional-customizations-for-github-pages/
@@ -10,5 +10,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

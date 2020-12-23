@@ -1,6 +1,6 @@
 ---
 title: 关于离开公司的最佳实践
-intro: 换工作是不可回避的生活现实。 如果您的 GitHub 用户帐户同时用于个人*和*工作用途，那么您在离开公司或组织的时候需要注意一些问题。
+intro: '换工作是不可回避的生活现实。 如果您的 GitHub 用户帐户同时用于个人*和*工作用途，那么您在离开公司或组织的时候需要注意一些问题。'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
 versions:

@@ -16,7 +16,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_codespaces %}
 
-{% data variables.product.prodname_codespaces %} is a cloud development environment available in your browser. 代码空间包括为特定仓库开发所需的一切，其中包括具有语法突出显示和自动完成功能的文本编辑器、终端、调试工具和 Git 命令，所有这些都集成在 {% data variables.product.prodname_dotcom %} 中。 您也可以在代码空间中安装 {% data variables.product.prodname_vscode %} 扩展以添加更多功能。
+{% data variables.product.prodname_codespaces %} 是适用于浏览器的云开发环境。 代码空间包括为特定仓库开发所需的一切，其中包括具有语法突出显示和自动完成功能的文本编辑器、终端、调试工具和 Git 命令，所有这些都集成在 {% data variables.product.prodname_dotcom %} 中。 您也可以在代码空间中安装 {% data variables.product.prodname_vscode %} 扩展以添加更多功能。
 
 {% data variables.product.prodname_codespaces %} 使开发人员更容易加入新公司或开始为开源项目做出贡献。 项目维护员可以配置仓库，以便在为仓库创建代码空间时自动包含项目的依赖项。 减少配置环境所用的时间，可以更快地开始编码。
 
@@ -44,7 +44,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_codespaces %} 的计费
 
-During the limited public beta, {% data variables.product.prodname_codespaces %} is free to use and users are limited to 2 codespaces. 计划和定价将在公开发布前公布。
+{% data reusables.codespaces.about-billing-for-codespaces %} 更多信息请参阅“[关于 {% data variables.product.prodname_codespaces %} 的计费](/github/developing-online-with-codespaces/about-billing-for-codespaces)”。
 
 ### 加入公测
 
@@ -54,4 +54,4 @@ During the limited public beta, {% data variables.product.prodname_codespaces %}
 
 如果在使用 {% data variables.product.prodname_codespaces %} 时遇到问题，请参阅“[代码空间故障排除](/github/developing-online-with-codespaces/troubleshooting-your-codespace)”。
 
-If you still need help or have feedback about {% data variables.product.prodname_codespaces %}, use the [Community Forum](https://github.community/c/codespaces-beta/45).
+如果您仍需帮助或有关于 {% data variables.product.prodname_codespaces %} 的反馈，请使用[社区论坛](https://github.community/c/codespaces-beta/45)。

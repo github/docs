@@ -1,6 +1,6 @@
 ---
 title: GitHub 帐户的类型
-intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 您的用户帐户可以是任意数量组织的成员。{% if currentVersion == "free-pro-team@latest" %}组织可属于企业帐户。{% endif %}'
+intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 您的用户帐户可以是任意数量组织的成员。{% if currentVersion == "free-pro-team@latest" %} 组织可属于企业帐户。{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,15 +10,17 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-有关各 {% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
+有关每个
+{% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
 {% endif %}
 
 ### 个人用户帐户
 
-Every person who uses {% data variables.product.product_location %} has their own user account, which includes:
+使用 {% data variables.product.product_location %} 的每个人都有其自己的用户帐户，其中包括：
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -38,7 +40,7 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 {% tip %}
 
-**Tips**:
+**提示**：
 
 - 您可以将一个帐户用于多种用途，例如个人用途和业务用途。 我们不建议创建多个帐户。 更多信息请参阅“[合并多个用户帐户](/articles/merging-multiple-user-accounts)”。
 - 用户帐户适用于人类，但必要时可将其提供给机器人，例如持续集成自动程序。
@@ -71,6 +73,6 @@ Every person who uses {% data variables.product.product_location %} has their ow
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}-“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”
+{% if currentVersion == "free-pro-team@latest" %}- "[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)"
 - “[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”{% endif %}
 - “[创建新组织帐户](/articles/creating-a-new-organization-account)”

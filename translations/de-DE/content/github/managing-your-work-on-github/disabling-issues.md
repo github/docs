@@ -1,11 +1,12 @@
 ---
 title: Issues deaktivieren
-intro: 'Du kannst Issues für Dein Repository deaktivieren, wenn Du keine Beiträge oder Fehlerberichte akzeptierst.'
+intro: Du kannst Issues für Dein Repository deaktivieren, wenn Du keine Beiträge oder Fehlerberichte akzeptierst.
 redirect_from:
   - /articles/disabling-issues
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -17,8 +18,9 @@ Wenn Du Issues zukünftig erneut aktivieren möchtest, sind alle Issues wieder v
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
+Please contact
 
-Wende Dich an {% data variables.contact.contact_support %}, wenn Du Issues wegen missbräuchlicher Verwendung durch Fremde deaktivieren möchtest.
+{% data variables.contact.contact_support %} if you want to turn off issues because of abuse from strangers.
 {% data reusables.policies.abuse %}
 
 {% endtip %}

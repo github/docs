@@ -1,6 +1,6 @@
 ---
 title: Einen Pull Request zu einem Issue verknüpfen
-intro: 'Du kannst einen Pull Request mit einem Issue verknüpfen, um{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} zu zeigen, dass eine Korrektur im Gang ist und{% endif %} den Issue automatisch zu schließen, wenn der Pull Request zusammenführt wird.'
+intro: 'You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.'
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -9,19 +9,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+
+{% endnote %}
 
 ### Über verknüpfte Issues und Pull Requests
 
-Du kannst einen Issue mit einem Pull-Request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}manuell oder {% endif %}mit einem unterstützten Schlüsselwort in der Pull-Request Beschreibung verknüpfen.
+You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}manually or {% endif %}using a supported keyword in the pull request description.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-Wenn Du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet.
-{% if currentVersion ver_lt "enterprise-server@2.21" %}Wenn der Pull Request und der Issue in unterschiedlichen Repositorys sind, wird {% data variables.product.product_name %} nach dem Zusammenführen des Pull Request den Link anzeigen, wenn die Person, die den Pull Request zusammenführt, auch die Berechtigung zum Schließen des Issue hat.{% endif %}{% endif %}
+Wenn Du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet. {% if currentVersion ver_lt "enterprise-server@2.21" %}If the pull request and the issue are in different repositories, {% data variables.product.product_name %} will display the link after the pull request is merged, if the person who merges the pull request also has permission to close the issue.{% endif %}
 
-Wenn Du einen verknüpften Pull Request in den Standard-Branch eines Repository zusammenführst, werden seine verknüpften Issues automatisch geschlossen. Weitere Informationen über den Standard-Branch findest Du auf „[Einstellungen des Standard-Branch](/github/administering-a-repository/setting-the-default-branch)."
+Wenn Du einen verknüpften Pull Request in den Standard-Branch eines Repository zusammenführst, werden seine verknüpften Issues automatisch geschlossen. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Einen Pull Request manuell mit einem Issue verknüpfen
 
 Jeder, der Schreibberechtigung auf ein Repository hat, kann einen Pull Request manuell mit einem Issue verknüpfen.
@@ -37,7 +42,7 @@ Du kannst bis zu 10 Issues manuell mit jedem Pull Request verknüpfen. Der Issue
 
 ### Einen Pull Request über ein Stichwort mit einem Issue verknüpfen
 
-Du kannst einen Pull Request mit einem Issue über unterstützte Schlüsselwörter in der Pull-Request-Beschreibung verknüpfen.
+You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch).
 
 * close (schließen)
 * closes (wird geschlossen)
@@ -57,9 +62,9 @@ Die Syntax für schließende Schlüsselwörter hängt davon ab, ob der Issue im 
 | Issue ist in einem unterschiedlichen Repository | *SCHLÜSSELWORT* *INHABER*/*REPOSITORY*#*ISSUE-NUMMER* | `Fixes octo-org/octo-repo#100`                                 |
 | Mehrfache Issues                                | Verwende für jeden Issue die vollständige Syntax      | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100` |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}Nur manuell verknüpfte Pull Requests können manuell getrennt werden. Um die Verknüpfung eines Issues zu lösen, den Du über ein Schlüsselwort verknüpft hast, musst Du die Pull-Request-Beschreibung bearbeiten, um das Schlüsselwort zu entfernen.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}Only manually linked pull requests can be manually unlinked. Um die Verknüpfung eines Issues zu lösen, den Du über ein Schlüsselwort verknüpft hast, musst Du die Pull-Request-Beschreibung bearbeiten, um das Schlüsselwort zu entfernen.{% endif %}
 
-Du kannst schließende Schlüsselwörter auch in einer Commit-Mitteilung verwenden. Der Issue wird geschlossen, wenn Du den Commit in den Standard-Branch zusammenführst{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, aber der Pull Request, der den Commit enthält, wird nicht als verknüpfter Pull Request aufgeführt werden{% endif %}.
+Du kannst schließende Schlüsselwörter auch in einer Commit-Mitteilung verwenden. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
 ### Weiterführende Informationen
 

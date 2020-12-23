@@ -35,7 +35,7 @@ versions:
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-### {% data variables.product.product_location_enterprise %}とのLDAPの設定
+### {% data variables.product.product_location %}とのLDAPの設定
 
 LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでインスタンスにサインインできるようになります。 ユーザが初めてサインインするときに、ディレクトリ内のLDAP属性を使ってプロフィール名、メールアドレス、SSHキーが設定されます。
 
@@ -43,7 +43,7 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 
 {% warning %}
 
-**警告：**{% data variables.product.product_location_enterprise %}でLDAPを設定する前に、利用するLDAPサービスがページ化された結果をサポートしていることを確認してください。
+**警告：**{% data variables.product.product_location %}でLDAPを設定する前に、利用するLDAPサービスがページ化された結果をサポートしていることを確認してください。
 
 {% endwarning %}
 
@@ -55,23 +55,23 @@ LDAPを設定した後、ユーザは自分のLDAPクレデンシャルでイン
 5. 設定を追加してください。
 
 ### LDAPの属性
-{% data variables.product.product_location_enterprise %}のlDAPの設定を完了させるために、以下の属性を使ってください。
+{% data variables.product.product_location %}のlDAPの設定を完了させるために、以下の属性を使ってください。
 
 | 属性名                                              | 種類 | 説明                                                                                                                                                                                                                                                           |
 | ------------------------------------------------ | -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Host`                                           | 必須 | LDAP のホスト。例: `ldap.example.com` あるいは `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できないなら、まず{% data variables.product.product_location_enterprise %}のDNSを設定してホスト名を内部のネームサーバを使って解決できるようにする必要があるかもしれません。                                                              |
+| `Host`                                           | 必須 | LDAP のホスト。例: `ldap.example.com` あるいは `10.0.0.30`。 ホスト名が内部ネットワークからしか利用できないなら、まず{% data variables.product.product_location %}のDNSを設定してホスト名を内部のネームサーバを使って解決できるようにする必要があるかもしれません。                                                                                |
 | `ポート`                                            | 必須 | ホストの LDAP サービスが待ち受けるポート。 例：389及び636（LDAPS用）。                                                                                                                                                                                                                 |
 | `Encryption`                                     | 必須 | LDAP サーバーとの通信をセキュアにするために使われる暗号化の方法。 例：plain（暗号化なし）、SSL/LDAPS（最初からの暗号化）、StartTLS（接続後に暗号化通信にアップグレード）。                                                                                                                                                          |
 | `Domain search user`                             | 任意 | ユーザのサインインの際に認証のためにユーザのルックアップを行う LDAP ユーザ。 これは通常、サードパーティとのインテグレーションのために特に作成されるサービスアカウントです。 `cn=Administrator,cn=Users,dc=Example,dc=com`のような完全修飾名を使ってください。 Active Directoryでは、ドメイン検索ユーザとして `[DOMAIN]\[USERNAME]`という構文（例：`WINDOWS\Administrator`）を使うこともできます。 |
 | `Domain search password`                         | 任意 | ドメイン検索ユーザのためのパスワード。                                                                                                                                                                                                                                          |
 | `Administrators group`                           | 任意 | このグループ内のユーザは、アプライアンスへサインインしたときにサイト管理者に昇格します。 LDAPの管理者グループを設定しなければ、アプライアンスに最初にサインインしたLDAPユーザが自動的にサイト管理者に昇格します。                                                                                                                                                |
 | `Domain base`                                    | 必須 | ユーザおよびグループの検索を行う LDAP サブツリーの完全修飾 `Distinguished Name` (DN)。 いくつでも追加できるが、それぞれのグループはユーザが属するのと同じドメインベースで定義されなければなりません。 制限されたユーザグループを指定したなら、それらのグループに属するユーザだけがスコープに入ります。 ドメインベースにはLDAPディレクトリツリーの最上位を指定し、制限されたユーザグループでアクセス制御することをおすすめします。                         |
-| `Restricted user groups`                         | 任意 | 指定された場合、このグループ内のユーザだけがログインできます。 指定が必要なのはグループのcommon name（CN）だけで、グループはいくつでも追加できます。 グループが指定されていなければ、指定されたドメインベースのスコープ内の*すべての*ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインできるようになります。                                              |
-| `User ID`                                        | 必須 | 認証を受けようとした LDAP ユーザを特定する LDAP 属性。 マッピングが確立されたら、ユーザは自分の {% data variables.product.prodname_ghe_server %} ユーザ名を変更できます。 このフィールドはほとんどのActive Directoryの環境では`sAMAccountName`にすべきですが、OpenLDAPなどの他のLDAPソリューションでは`uid`になることがあります。 デフォルト値は`uid`です。             |
-| `Profile name`                                   | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} プロフィールページに表示される名前。 LDAP Syncが有効化されていなければ、ユーザは自分のプロフィール名を変更できます。                                                                                                                                 |
-| `Emails`                                         | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントのメールアドレス。                                                                                                                                                                                  |
-| `SSH keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされた公開 SSH キー。 キーはOpenSSH形式でなければなりません。                                                                                                                                                 |
-| `GPG keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされたGPGキー。                                                                                                                                                                             |
+| `Restricted user groups`                         | 任意 | 指定された場合、このグループ内のユーザだけがログインできます。 指定が必要なのはグループのcommon name（CN）だけで、グループはいくつでも追加できます。 グループが指定されていなければ、指定されたドメインベースのスコープ内の*すべての*ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインできるようになります。                                                   |
+| `User ID`                                        | 必須 | 認証を受けようとした LDAP ユーザを特定する LDAP 属性。 マッピングが確立されたら、ユーザは自分の {% data variables.product.prodname_ghe_server %} ユーザ名を変更できます。 このフィールドはほとんどのActive Directoryの環境では`sAMAccountName`にすべきですが、OpenLDAPなどの他のLDAPソリューションでは`uid`になることがあります。 デフォルト値は`uid`です。                  |
+| `Profile name`                                   | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} プロフィールページに表示される名前。 LDAP Syncが有効化されていなければ、ユーザは自分のプロフィール名を変更できます。                                                                                                                                      |
+| `Emails`                                         | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントのメールアドレス。                                                                                                                                                                                       |
+| `SSH keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされた公開 SSH キー。 キーはOpenSSH形式でなければなりません。                                                                                                                                                      |
+| `GPG keys`                                       | 任意 | ユーザの {% data variables.product.prodname_ghe_server %} アカウントにアタッチされたGPGキー。                                                                                                                                                                                  |
 | `Disable LDAP authentication for Git operations` | 任意 | 選択した場合、ユーザが LDAP パスワードで Git の操作の認証を受けるのが[オフ](#disabling-password-authentication-for-git-operations)になります。                                                                                                                                                    |
 | `Enable LDAP certificate verification`           | 任意 | 選択した場合、LDAP 証明書の検証が[オン](#enabling-ldap-certificate-verification)になります。                                                                                                                                                                                       |
 | `Synchronization`                                | 任意 | 選択した場合、LDAP Sync が[オン](#enabling-ldap-sync)になります。                                                                                                                                                                                                            |
@@ -96,6 +96,12 @@ TLSと共に使うLDAPサーバの証明書を検証するには、LDAPの設定
 - 証明書が信頼されている認証局 (CA) によって署名されていること。
 
 #### LDAP Syncの有効化
+
+{% note %}
+
+**注釈:** LDAP Sync を使用する Team は、最大 1499 人のメンバーに制限されています。
+
+{% endnote %}
 
 LDAP Sync を使うと、{% data variables.product.prodname_ghe_server %} のユーザおよび Team のメンバーシップを、確立された LDAP グループに対して同期できます。 そうすることで、{% data variables.product.prodname_ghe_server %} 内で手作業で行う代わりに、LDAP サーバからユーザのロールベースのアクセス制御を確立できます。 詳細は「[チームを作成する](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)」を参照してください。
 
@@ -184,7 +190,7 @@ LDAP Sync が有効化されると、サイト管理者と Organization のオ�
 
 [API を使用して手動同期をトリガー](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)することもできます。
 
-### {% data variables.product.product_location_enterprise %}へのアクセスの削除
+### {% data variables.product.product_location %}へのアクセスの削除
 
 [LDAP Sync が有効化](#enabling-ldap-sync)されているなら、ユーザの LDAP のクレデンシャルを削除すれば、次の同期が行われた後にそのユーザのアカウントはサスペンドされます。
 

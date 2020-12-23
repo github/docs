@@ -1,6 +1,6 @@
 ---
 title: Wiederherstellungsmethoden bei der Zwei-Faktor-Authentifizierung konfigurieren
-intro: 'Du kannst verschiedene Wiederherstellungsmethoden einrichten, um auf Dein Konto zuzugreifen, wenn Du Deine Anmeldeinformation für die Zwei-Faktor-Authentifizierung verloren hast.'
+intro: Du kannst verschiedene Wiederherstellungsmethoden einrichten, um auf Dein Konto zuzugreifen, wenn Du Deine Anmeldeinformation für die Zwei-Faktor-Authentifizierung verloren hast.
 redirect_from:
   - /articles/downloading-your-two-factor-authentication-recovery-codes/
   - /articles/setting-a-fallback-authentication-number/
@@ -17,7 +17,7 @@ Neben der sicheren Speicherung Deiner Wiederherstellungscodes für die Zwei-Fakt
 
 ### Wiederherstellungscode für die Zwei-Faktor-Authentifizierung herunterladen
 
-{% data reusables.two_fa.about-recovery-codes %} Du kannst nach der Aktivierung der Zwei-Faktor-Authentifizierung Deine Wiederherstellungscodes auch jederzeit herunterladen.
+{% data reusables.two_fa.about-recovery-codes %} Sie können nach der Aktivierung der Zwei-Faktor-Authentifizierung Ihre Wiederherstellungscodes auch jederzeit herunterladen.
 
 Um Dein Konto zu schützen, solltest Du diese Wiederherstellungscode nicht öffentlich machen und nicht weitergeben. Wir empfehlen, die Codes mit einem sicheren Passwort-Manager zu speichern, beispielsweise mit:
 - [1Password](https://1password.com/)
@@ -91,7 +91,9 @@ Wenn Du ein Kontowiederherstellungstoken erzeugst oder abrufst, wird ein Ereigni
 
 Du kannst ein Kontowiederherstellungstoken erzeugen und bei einem Partner-Wiederherstellungsanbieter speichern.
 
-1. Melde Dich bei Deinem Facebook-Konto an, und kehre dann zu {% data variables.product.product_name %} zurück.
+1. Sign in to your Facebook account, then return to
+
+{% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 4. Um ein neues Token zu erzeugen, klicke unter „Recovery tokens“ (Wiederherstellungstoken) auf **Store new token** (Neues Token speichern). ![Schaltfläche zum Speichern eines neuen Wiederherstellungstokens](/assets/images/help/settings/store-new-recovery-token.png)

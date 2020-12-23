@@ -1,11 +1,12 @@
 ---
 title: Sichtbarkeit des Projektboards ändern
-intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du ein Projektboard als öffentlich oder privat festlegen.
+intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du ein Projektboard als öffentlich oder privat festlegen.'
 redirect_from:
   - /articles/changing-project-board-visibility
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.project-board-visibility %}

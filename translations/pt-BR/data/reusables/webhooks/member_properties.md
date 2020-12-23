@@ -1,1 +1,1 @@
-`member`|`object` | The [user](/v3/users/) that was added. `changes`|`object`| The changes to the collaborator permissions if the action was `edited`. `changes[old_permission][from]`|`string` | The previous permissions of the collaborator if the action was `edited`.
+`integrante`|`objeto` | O [usuário](/rest/reference/users) que foi adicionado. `alterações`|`objeto`| As alterações nas permissões do colaborador se a ação foi `editada`. `changes[old_permission][from]`|`string` | As permissões anteriores do colaborador se a ação foi `editada`.

@@ -10,7 +10,7 @@ versions:
 
 Organization で SAML SSO を施行すると、SAML アイデンティティプロバイダ (IdP) を介して認証していないすべてのメンバーは、管理者も含め、Organization から削除され、削除について知らせるメールが届きます。 Organization の IdP で 外部アイデンティティを設定していないボットとサービスアカウントも削除されます。 ボットとサービスアカウントの詳細については、「[SAML シングルサインオンでボットおよびサービスアカウントを管理する](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)」を参照してください。 Organization のメンバーが正常にシングルサインオンを完了すると、メンバーを復元できます。
 
-Organization が、Enterprise アカウントによって所有されている場合、Enterprise アカウントに SAML を有効化すると、Organization レベルの SAML 設定がオーバーライドされます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
+Organization が、Enterprise アカウントによって所有されている場合、Enterprise アカウントに SAML を有効化すると、Organization レベルの SAML 設定がオーバーライドされます。 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account)」を参照してください。
 
 {% tip %}
 

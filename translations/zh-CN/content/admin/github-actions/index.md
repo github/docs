@@ -1,6 +1,6 @@
 ---
-title: Managing GitHub Actions for your enterprise
-intro: 'Enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
+title: 管理企业的 GitHub Actions
+intro: '在 {% data variables.product.prodname_ghe_server %} 上启用 {% data variables.product.prodname_actions %}，并管理 {% data variables.product.prodname_actions %} 策略和设置。'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:

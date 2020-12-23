@@ -7,18 +7,20 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**Tipp:** Du kannst auch innerhalb eines Issues oder Pull Requests eine Kennzeichnung über das Dropdownmenü für Kennzeichnungen anwenden.
+**Tip:** You can apply up to a maximum of 100 labels to issues and pull requests.
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
-4. Klicke in der oberen rechten Ecke auf **Label** (Kennzeichnung), und gib den Namen einer vorhandenen Kennzeichnung ein. Klicke auf den Namen der Kennzeichnung, um sie mit den ausgewählten Elementen zu verknüpfen. ![Dropdownmenü „Issues Milestone assignment" (Issue-Meilenstein-Zuordnung)](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+4. Klicke in der oberen rechten Ecke auf **Label** (Kennzeichnung), und gib den Namen einer vorhandenen Kennzeichnung ein. Klicke auf den Namen der Kennzeichnung, um sie mit den ausgewählten Elementen zu verknüpfen. You can also apply a label in the Labels drop-down menu within an issue or pull request. ![Dropdownmenü „Issues Milestone assignment" (Issue-Meilenstein-Zuordnung)](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+
 
 ### Weiterführende Informationen
 

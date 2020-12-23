@@ -5,6 +5,7 @@ permissions: Organization owners can set base permissions for an organization.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About base permissions for an organization

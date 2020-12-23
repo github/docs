@@ -10,7 +10,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### 終了コードについて
@@ -24,7 +24,7 @@ versions:
 
 ### JavaScript アクションで失敗終了を設定する
 
-JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
+JavaScript アクションを作成している場合、アクションツールキットの [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) パッケージを使用してメッセージをログに記録し、失敗終了コードを設定できます。 例:
 
 ```javascript
 try {

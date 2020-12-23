@@ -1,11 +1,12 @@
 ---
 title: Commit-Rebasing für Pull-Requests konfigurieren
-intro: 'Du kannst Commit-Rebasing für alle Pull-Request-Merges auf {% data variables.product.product_location %} in Deinem Repository erzwingen, zulassen oder deaktivieren.'
+intro: 'Sie können Commit-Rebasing für alle Pull-Request-Merges auf {% data variables.product.product_location %} in Ihrem Repository erzwingen, zulassen oder deaktivieren.'
 redirect_from:
   - /articles/configuring-commit-rebasing-for-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %}

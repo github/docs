@@ -1,11 +1,12 @@
 ---
 title: Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten
-intro: 'Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository Deiner Organisation enthalten sind.'
+intro: Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository Deiner Organisation enthalten sind.
 redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Organisationsinhaber können die Standardkennzeichnungen für Repositorys in der Organisation verwalten.
@@ -17,7 +18,7 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -33,7 +34,7 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}
@@ -49,7 +50,7 @@ Standardkennzeichnungen sind in jedem neuen Repository Deiner Organisation beinh
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 {% data reusables.organizations.repository-defaults %}
 {% else %}
 {% data reusables.organizations.repository-labels %}

@@ -5,7 +5,7 @@ const detectedPlatforms = new Set()
 // Emphasize content for the visitor's OS (inferred from user agent string)
 
 export default function displayPlatformSpecificContent () {
-  let platform = getPlatformFromUserAgent()
+  let platform = getDefaultPlatform() || getPlatformFromUserAgent()
 
   // adjust platform names to fit existing mac/windows/linux scheme
   if (!platform) platform = 'mac' // default to 'mac' on mobile
@@ -76,6 +76,11 @@ function detectPlatforms (el) {
     const value = elClass.replace(/platform-/, '')
     if (supportedPlatforms.includes(value)) detectedPlatforms.add(value)
   })
+}
+
+function getDefaultPlatform () {
+  const el = document.querySelector('[data-default-platform]')
+  if (el) return el.dataset.defaultPlatform
 }
 
 function switcherLinks () {

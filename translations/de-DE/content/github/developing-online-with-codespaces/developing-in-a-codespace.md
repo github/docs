@@ -2,7 +2,7 @@
 title: In einem Codespace entwickeln
 intro: 'Du kannst einen Codespace auf {% data variables.product.product_name %} eröffnen und dann mithilfe der {% data variables.product.prodname_vscode %}-Funktionen entwickeln.'
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'Jeder kann in einem Codespace entwickeln, der seinem Benutzerkonto gehört.'
+permissions: Jeder kann in einem Codespace entwickeln, der seinem Benutzerkonto gehört.
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Störende Kommentare verwalten
-intro: 'Du kannst Kommentare zu Issues, Pull Requests und Commits {% if currentVersion == "free-pro-team@latest" %}ausblenden, bearbeiten{% else %}bearbeiten{% endif %} oder löschen.'
+intro: 'You can {% if currentVersion == "free-pro-team@latest" %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Einen Kommentar ausblenden
@@ -39,7 +40,7 @@ Jeder mit Schreibzugriff auf ein Repository kann Kommentare zu Issues, Pull Requ
 
 Jeder mit Schreibzugriff auf ein Repository kann Kommentare zu Issues, Pull Requests und Commits bearbeiten.
 
-Es ist angemessen, einen Kommentar zu bearbeiten und Inhalte zu entfernen, wenn der Kommentar nicht zu einer sachlichen Unterhaltung beiträgt oder den Verhaltenskodex Deiner Community{% if currentVersion == "free-pro-team@latest" %} oder die [Community-Richtlinien](/articles/github-community-guidelines) von GitHub{% endif %} verletzt.
+It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
 Wenn Du einen Kommentar bearbeitest, notiere den Ort, von dem der Inhalt entfernt wurde, und optional den Grund für das Entfernen.
 
@@ -59,7 +60,7 @@ Verfasser von Kommentaren und Personen mit Schreibzugriff auf ein Repository kö
 
 Personen mit Schreibzugriff auf ein Repository können Kommentare zu Issues, Pull Requests und Commits löschen. Organisationsinhaber, Team-Betreuer und die Verfasser des Kommentars können auch einen Kommentar auf einer Teamseite löschen.
 
-Das Löschen eines Kommentars ist die letzte Option für Dich als Moderator. Es ist angemessen, einen Kommentar zu löschen, wenn er nicht zu einer sachlichen Unterhaltung beiträgt oder den Verhaltenskodex Deiner Community{% if currentVersion == "free-pro-team@latest" %} oder die [Community-Richtlinien](/articles/github-community-guidelines) von GitHub{% endif %} verletzt.
+Das Löschen eines Kommentars ist die letzte Option für Dich als Moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
 Das Löschen eines Kommentars erstellt ein Zeitleistenereignis, das für alle Benutzer mit Lesezugriff auf das Repository sichtbar ist. Der Benutzername der Person, die den Kommentar gelöscht hat, ist jedoch nur für Benutzer mit Schreibzugriff auf das Repository zu sehen. Für Personen ohne Schreibzugriff ist das Zeitleistenereignis anonymisiert.
 

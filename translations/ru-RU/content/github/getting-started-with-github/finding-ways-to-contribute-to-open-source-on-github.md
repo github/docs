@@ -32,14 +32,14 @@ Some open-source projects provide mirrors on {% data variables.product.prodname_
 
 Here are a few prominent repositories that are mirrored on {% data variables.product.prodname_dotcom_the_website %}:
 
-- [android](https://github.com/android)
+- [Android Open Source Project](https://github.com/aosp-mirror)
 - [The Apache Software Foundation](https://github.com/apache)
 - [The Chromium Project](https://github.com/chromium)
-- [The Eclipse Foundation](https://github.com/eclipse)
+- [Eclipse Foundation](https://github.com/eclipse)
 - [The FreeBSD Project](https://github.com/freebsd)
-- [The Glasgow Haskell Compiler](https://github.com/ghc)
+- [Glasgow Haskell Compiler](https://github.com/ghc)
 - [GNOME](https://github.com/GNOME)
-- [The Linux kernel source tree](https://github.com/torvalds/linux)
+- [Linux kernel source tree](https://github.com/torvalds/linux)
 - [Qt](https://github.com/qt)
 
 To set up your own mirror, you can configure [a post-receive hook](https://git-scm.com/book/en/Customizing-Git-Git-Hooks) on your official project repository to automatically push commits to a mirror repository on {% data variables.product.product_name %}.

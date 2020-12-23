@@ -1,13 +1,13 @@
 ### Resolver conversas
 
-You can resolve a conversation in a pull request if you opened the pull request or if you have write access to the repository where the pull request was opened.
+É possível resolver uma conversa em um pull request se você abriu o pull request ou se você tem acesso de gravação ao repositório em que o pull request foi aberto.
 
-To indicate that a conversation on the **Files changed** tab is complete, click **Resolve conversation**.
+Para indicar que uma conversa na aba **Arquivos alterados** está completa, clique em **Resolver conversa**.
 
-![Pull request conversation with Resolve conversation button](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
+![Conversa de pull request com o botão de Resolver conversa](/assets/images/help/pull_requests/conversation-with-resolve-button.png)
 
-The entire conversation will be collapsed and marked as resolved, making it easier to find conversations that still need to be addressed.
+Toda a conversa será colapsada e marcada como resolvida, tornando mais fácil encontrar conversas que ainda precisam ser consideradas.
 
-![Resolved conversation](/assets/images/help/pull_requests/resolved-conversation.png)
+![Conversa resolvida](/assets/images/help/pull_requests/resolved-conversation.png)
 
-If the suggestion in a comment is out of your pull request's scope, you can open a new issue that tracks the feedback and links back to the original comment. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
+Se a sugestão em um comentário estiver fora do escopo do seu pull request, você pode abrir um novo problema que rastreia os comentários e relaciona o comentário original. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".

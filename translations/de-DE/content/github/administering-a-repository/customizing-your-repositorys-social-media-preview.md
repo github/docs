@@ -1,16 +1,17 @@
 ---
 title: Social-Media-Vorschau Deines Repositorys anpassen
-intro: 'Du kannst das Bild anpassen, das auf Social-Media-Plattformen angezeigt wird, wenn jemand auf Dein Repository verknüpft.'
+intro: Du kannst das Bild anpassen, das auf Social-Media-Plattformen angezeigt wird, wenn jemand auf Dein Repository verknüpft.
 redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du noch kein Bild hinzugefügt hast, werden sich Repository-Links erweitern, um grundlegende Informationen zum Repository sowie den Avatar des Inhabers anzeigen. Durch das Hinzufügen eines Bildes zu Deinem Repository vereinfachst Du die Identifizierung Deines Projekts auf den verschiedenen Social-Media-Kanälen.
 
-Du kannst ein Bild in ein privates Repository hochladen, aber Dein Bild kann nur von einem öffentlichen Repository her geteilt werden.
+{% if currentVersion != "github-ae@latest" %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
 {% tip %}
 Tipp: Dein Bild sollte eine PNG-, JPG- oder GIF-Datei mit weniger als 1 MB sein. Für eine optimale Darstellung empfehlen wir eine Bildgröße von 640 x 320 Pixeln.

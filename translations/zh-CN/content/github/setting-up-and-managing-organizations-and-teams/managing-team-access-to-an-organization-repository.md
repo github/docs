@@ -1,12 +1,13 @@
 ---
 title: 管理团队对组织仓库的访问
-intro: 您可以向团队授予仓库访问权限，删除团队的仓库访问权限，或者更改团队对仓库的权限级别。
+intro: '您可以向团队授予仓库访问权限，删除团队的仓库访问权限，或者更改团队对仓库的权限级别。'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program/
   - /articles/managing-team-access-to-an-organization-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 对仓库具有管理员权限的人员可以管理团队对仓库的访问权限。 团队维护员可以删除团队对仓库的访问权限。

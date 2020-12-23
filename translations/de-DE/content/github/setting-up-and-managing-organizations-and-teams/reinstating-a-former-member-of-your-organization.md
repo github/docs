@@ -1,14 +1,18 @@
 ---
 title: Ehemaliges Mitglied Deiner Organisation wieder einsetzen
-intro: 'Organisationsinhaber können ehemalige Organisationsmitglieder {% if currentVersion == "free-pro-team@latest" %}zum Wiedereintritt in Deine Organisation einladen{% else %}wieder zu Deiner Organisation hinzufügen{% endif%} und auswählen, ob auch die ehemalige Rolle, Zugriffsberechtigungen, Forks und Einstellungen der Person wiederhergestellt werden sollen.'
+intro: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: 'Organization owners can reinstate a former member of an organization.'
 ---
 
-Wenn Du [einen Benutzer aus Deiner Organisation entfernst](/articles/removing-a-member-from-your-organization), [ein Organisationsmitglied in einen externen Mitarbeiter umwandelst](/articles/converting-an-organization-member-to-an-outside-collaborator), oder wenn ein Benutzer aus Deiner Organisation entfernt wird, weil Du [von Mitgliedern und externen Mitarbeitern die Aktivierung der Zwei-Faktor-Authentifizierung (2FA) verlangst](/articles/requiring-two-factor-authentication-in-your-organization), bleiben die Zugriffsberechtigungen und Einstellungen des Benutzers drei Monate lang im System gespeichert. Du kannst die Berechtigungen dieses Benutzers wiederherstellen, wenn Du ihn innerhalb dieses Zeitrahmens wieder zur Organisation {% if currentVersion =="free-pro-team@latest" %}einlädst{% else %}hinzufügst{% endif %}.
+### About member reinstatement
+
+If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion != "github-ae@latest" %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion =="free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -21,21 +25,15 @@ Bei der Wiedereinsetzung eines ehemaligen Organisationsmitglieds kannst Du Folge
  - Issue-Zuweisungen innerhalb der Organisation
  - Repository-Abonnements (Benachrichtigungseinstellungen für das Beobachten, Nichtbeobachten oder Ignorieren der Repository-Aktivitäten)
 
-    {% tip %}
+{% if enterpriseServerVersions contains currentVersion %}
+Wenn ein Organisationsmitglied aus der Organisation entfernt wurde, weil es keine Zwei-Faktor-Authentifizierung verwendet, und Deine Organisation nach wie vor von Mitgliedern die 2FA verlangt, muss das ehemalige Mitglied die 2FA aktivieren, damit seine Mitgliedschaft wiederhergestellt werden kann.
+{% endif %}
 
-    {% if currentVersion == "free-pro-team@latest" %}
-    **Tips**:
-    - Wenn ein Organisationsmitglied aus der Organisation entfernt wurde, weil es keine Zwei-Faktor-Authentifizierung verwendet, und Deine Organisation nach wie vor von Mitgliedern die 2FA verlangt, muss das ehemalige Mitglied die 2FA aktivieren, damit seine Mitgliedschaft wiederhergestellt werden kann.
-    - Nur Organisationsinhaber können Benutzer zu einer Organisation einladen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
-    - Wenn Deine Organisation ein benutzerabhängiges Abonnement hat, muss eine ungenutzte Lizenz verfügbar sein, bevor Du ein ehemaliges Organisationsmitglied wieder einrichten kannst. Weitere Informationen finden Sie unter „[Informationen zur benutzerabhängigen Preisgestaltung](/articles/about-per-user-pricing)“. {% data reusables.organizations.org-invite-expiration %}
+{% if currentVersion == "free-pro-team@latest" %}
+Wenn Deine Organisation ein benutzerabhängiges Abonnement hat, muss eine ungenutzte Lizenz verfügbar sein, bevor Du ein ehemaliges Organisationsmitglied wieder einrichten kannst. Weitere Informationen finden Sie unter „[Informationen zur benutzerabhängigen Preisgestaltung](/articles/about-per-user-pricing)“. {% data reusables.organizations.org-invite-expiration %}
+{% endif %}
 
-   {% else %}
-    **Tips**:
-    - Wenn ein Organisationsmitglied aus der Organisation entfernt wurde, weil es keine Zwei-Faktor-Authentifizierung verwendet, und Deine Organisation nach wie vor von Mitgliedern die 2FA verlangt, muss das ehemalige Mitglied die 2FA aktivieren, damit seine Mitgliedschaft wiederhergestellt werden kann.
-    - Nur Organisationsinhaber können Benutzer zu einer Organisation hinzufügen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
-   {% endif %}
-
-   {% endtip %}
+### Ehemaliges Mitglied Deiner Organisation wieder einsetzen
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

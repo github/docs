@@ -1,12 +1,13 @@
 ---
 title: 设置团队的头像
-intro: 团队维护员和组织所有者可以设置团队的头像，这将在团队的页面中显示。
+intro: '团队维护员和组织所有者可以设置团队的头像，这将在团队的页面中显示。'
 redirect_from:
   - /articles/setting-your-team-s-profile-picture
   - /articles/setting-your-teams-profile-picture
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 除非您设置团队的头像，否则团队头像将与组织的头像一致。

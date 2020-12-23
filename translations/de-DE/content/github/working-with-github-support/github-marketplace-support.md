@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplace-Support
-intro: 'Wenn Du Unterstützung beim Kauf oder beim Bezahlen einer App von {% data variables.product.prodname_marketplace %} benötigst, wende Dich an den {% data variables.contact.contact_support %}. Wenn Du Hilfe beim Verwenden einer {% data variables.product.prodname_marketplace %}-App brauchst, wende Dich an den Anbieter der jeweiligen App.'
+intro: 'Wenn Sie Unterstützung beim Kauf oder beim Bezahlen einer App von {% data variables.product.prodname_marketplace %} benötigen, wenden Sie sich an den {% data variables.contact.contact_support %}. Wenn Sie Hilfe beim Verwenden einer {% data variables.product.prodname_marketplace %}-App brauchen, wenden Sie sich an den Anbieter der jeweiligen App.'
 redirect_from:
   - /articles/github-marketplace-support
 versions:
@@ -10,7 +10,7 @@ versions:
 
 ### App-Anbieter um Unterstützung bitten
 
-Jede App von {% data variables.product.prodname_marketplace %} enthält einen Link, über den Du das zugehörige Supportteam erreichen kannst.
+Jede App von {% data variables.product.prodname_marketplace %} umfasst einen Link, über den Sie das zugehörige Supportteam erreichen können.
 
 {% data reusables.marketplace.visit-marketplace %}
 2. Rufe die Seite Deiner App auf.

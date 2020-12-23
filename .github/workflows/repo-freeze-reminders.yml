@@ -1,0 +1,23 @@
+name: Repo Freeze Reminders
+
+on:
+  schedule:
+    - cron: '00 11 * * *' # once per day around 11:00am UTC
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
+jobs:
+  check-freezer:
+    name: Remind about deployment freezes
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
+    steps:
+      - name: Send Slack notification if repo is frozen
+        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
+        if: ${{ env.FREEZE == 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: info
+          text: All repo-sync runs will fail for ${{ github.repository }} because the repo is currently frozen!

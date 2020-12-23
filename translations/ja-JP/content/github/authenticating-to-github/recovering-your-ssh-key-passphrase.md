@@ -1,6 +1,6 @@
 ---
 title: SSH キーのパスフレーズのリカバリ
-intro: SSH キーのパスフレーズをなくした場合、ご使用のオペレーティングシステムによって、リカバリができることもあれば、SSH キーのパスフレーズを新たに生成することが必要なこともあります。
+intro: 'SSH キーのパスフレーズをなくした場合、ご使用のオペレーティングシステムによって、リカバリができることもあれば、SSH キーのパスフレーズを新たに生成することが必要なこともあります。'
 redirect_from:
   - /articles/how-do-i-recover-my-passphrase/
   - /articles/how-do-i-recover-my-ssh-key-passphrase/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}

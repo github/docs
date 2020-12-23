@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -18,7 +19,8 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
-4. In the upper-right corner, click **Label**, then start typing the name of an existing label. Click the label's name to associate it with the selected items. ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+4. In the upper-right corner, click **Label**, then start typing the name of an existing label. Click the label's name to associate it with the selected items. You can also apply a label in the Labels drop-down menu within an issue or pull request. ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+
 
 ### Дополнительная литература
 

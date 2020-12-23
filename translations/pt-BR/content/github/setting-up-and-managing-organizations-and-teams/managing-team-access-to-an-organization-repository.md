@@ -1,12 +1,13 @@
 ---
 title: Gerenciar o acesso da equipe em um repositório da organização
-intro: Você pode conceder e remover o acesso da equipe a um repositório ou mudar o nível de permissão dela no repositório.
+intro: 'Você pode conceder e remover o acesso da equipe a um repositório ou mudar o nível de permissão dela no repositório.'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program/
   - /articles/managing-team-access-to-an-organization-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Pessoas com acesso de administrador a um repositório podem gerenciar o acesso de equipes ao repositório. Mantenedores de equipes podem remover o acesso de uma equipe a um repositório.

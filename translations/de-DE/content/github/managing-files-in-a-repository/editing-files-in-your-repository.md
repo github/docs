@@ -1,12 +1,13 @@
 ---
 title: Dateien in Deinem Repository bearbeiten
-intro: 'Du kannst Dateien direkt auf {% data variables.product.product_name %} in jedem Deiner Repositorys mit dem Datei-Editor bearbeiten.'
+intro: 'Sie können Dateien direkt auf {% data variables.product.product_name %} in jedem Ihrer Repositorys mit dem Datei-Editor bearbeiten.'
 redirect_from:
   - /articles/editing-files/
   - /articles/editing-files-in-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

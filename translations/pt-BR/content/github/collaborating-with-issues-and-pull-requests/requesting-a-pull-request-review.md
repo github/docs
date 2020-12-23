@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Proprietários e colaboradores de um repositório pertencente a uma conta de usuário podem atribuir revisões de pull requests. Os integrantes da organização com permissões de triagem em um repositório podem atribuir uma revisão de pull request.
 
-Os proprietários e colaboradores podem atribuir uma revisão de pull request a qualquer pessoa que recebeu explicitamente [acesso de leitura](/articles/access-permissions-on-github) em um repositório pertencente a um usuário. Os integrantes da organização podem atribuir uma revisão de pull request para qualquer pessoa ou equipe com acesso de leitura em um repositório. O revisor ou a equipe receberão uma notificação informando que você solicitou a revisão de uma pull request. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Se você solicitar uma revisão de uma equipe e a atribuição de revisão de código estiver ativada, integrantes específicos serão solicitados e a equipe será removida como revisora. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+Os proprietários e colaboradores podem atribuir uma revisão de pull request a qualquer pessoa que recebeu explicitamente [acesso de leitura](/articles/access-permissions-on-github) em um repositório pertencente a um usuário. Os integrantes da organização podem atribuir uma revisão de pull request para qualquer pessoa ou equipe com acesso de leitura em um repositório. O revisor ou a equipe receberão uma notificação informando que você solicitou a revisão de uma pull request. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se você solicitou uma revisão de uma equipe e a atribuição de código estiver habilitada, será solicitado que integrantes específicos e a equipe sejam removidos como revisores. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% note %}
 

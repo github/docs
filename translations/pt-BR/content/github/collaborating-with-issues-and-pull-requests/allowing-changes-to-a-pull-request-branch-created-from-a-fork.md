@@ -7,6 +7,7 @@ permissions: Pessoas com acesso push ao repositório upstream de uma bifurcaçã
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Somente os autores da pull request ou aqueles com acesso push ao repositório upstream podem fornecer aos mantenedores de repositório upstream permissão para fazer commits em seus branch de comparação da pull request em uma bifurcação de propriedade do usuário. Para saber mais sobre repositórios upstream, consulte "[Sobre bifurcações](/articles/about-forks)".

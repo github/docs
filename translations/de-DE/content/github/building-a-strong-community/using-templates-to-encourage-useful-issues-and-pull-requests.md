@@ -1,6 +1,6 @@
 ---
 title: Verwenden von Vorlagen zur Förderung nützlicher Issues und Pull Requests
-intro: 'Repository-Betreuer können Vorlagen in einem Repository hinzufügen, damit Mitarbeiter hochwertige Issues und Pull Requests erstellen können.'
+intro: Repository-Betreuer können Vorlagen in einem Repository hinzufügen, damit Mitarbeiter hochwertige Issues und Pull Requests erstellen können.
 mapTopic: true
 redirect_from:
   - /github/building-a-strong-community/using-issue-and-pull-request-templates
@@ -9,5 +9,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

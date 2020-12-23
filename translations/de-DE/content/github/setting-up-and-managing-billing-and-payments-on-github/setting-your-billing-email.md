@@ -1,6 +1,6 @@
 ---
 title: E-Mail-Adresse für die Abrechnung festlegen
-intro: 'Die E-Mail-Adresse Deines Kontos für die Abrechnung ist diejenige Adresse, an die {% data variables.product.product_name %} Quittungen und andere Benachrichtigungen zu Deiner Abrechnung sendet.'
+intro: 'Die E-Mail-Adresse Ihres Kontos für die Abrechnung ist diejenige Adresse, an die {% data variables.product.product_name %} Quittungen und andere Benachrichtigungen zu Ihrer Abrechnung sendet.'
 redirect_from:
   - /articles/setting-your-personal-account-s-billing-email/
   - /articles/can-i-change-what-email-address-received-my-github-receipt/
@@ -13,7 +13,7 @@ versions:
 
 ### E-Mail-Adresse für die Abrechnung für Dein persönliches Konto festlegen
 
-{% data variables.product.product_name %} sendet Quittungen und andere Benachrichtigungen zu Deiner Abrechnung an die primäre E-Mail-Adresse Deines persönlichen Kontos.
+{% data variables.product.product_name %} sendet Quittungen und andere Benachrichtigungen zu Ihrer Abrechnung an die primäre E-Mail-Adresse Ihres persönlichen Kontos.
 
 Deine primäre E-Mail-Adresse ist die erste E-Mail-Adresse, die in den E-Mail-Einstellungen Deines Kontos aufgeführt ist. Die primäre E-Mail-Adresse Deines Kontos wird auch als E-Mail-Adresse für die Abrechnung verwendet.
 
@@ -21,7 +21,7 @@ Informationen zur Änderung Deiner E-Mail-Adresse für die Abrechnung findest Du
 
 ### E-Mail-Adresse für die Abrechnung für Deiner Organisation festlegen
 
-{% data variables.product.product_name %} sendet Quittungen und andere Benachrichtigungen zu Deiner Abrechnung an die für Deine Organisation festgelegte E-Mail-Adresse für die Abrechnung.
+{% data variables.product.product_name %} sendet Quittungen und andere Benachrichtigungen zu Ihrer Abrechnung an die für Ihre Organisation festgelegte E-Mail-Adresse für die Abrechnung.
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

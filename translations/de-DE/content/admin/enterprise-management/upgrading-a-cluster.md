@@ -50,7 +50,7 @@ Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {% data variables.product.
 #### Clusterknoten upgraden
 
 1. Aktivieren Sie den Wartungsmodus entsprechend Ihrem geplanten Fenster. Verbinden Sie sich dazu mit der Verwaltungsshell auf einem beliebigen Clusterknoten, und führen Sie `ghe-cluster-maintenance -s` aus.
-2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes. Führen Sie den Befehl `ghe-upgrade` aus, und geben Sie den Namen der Paketdatei an, die Sie in Schritt 4 [Upgrade vorbereiten](#preparing-to-upgrade) heruntergeladen haben:
+2. Stellen Sie **mit Ausnahme des primären MySQL-Knotens** eine Verbindung zur Verwaltungsshell der jeweiligen {% data variables.product.prodname_ghe_server %}-Knoten her. Führen Sie den Befehl `ghe-upgrade` aus, und geben Sie den Namen der Paketdatei an, die Sie in Schritt 4 [Upgrade vorbereiten](#preparing-to-upgrade) heruntergeladen haben:
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...

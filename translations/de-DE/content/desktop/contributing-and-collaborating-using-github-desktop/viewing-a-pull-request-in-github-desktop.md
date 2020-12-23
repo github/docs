@@ -1,7 +1,7 @@
 ---
 title: Viewing a pull request in GitHub Desktop
 shortTitle: Viewing a pull request
-intro: 'Du kannst die vorgeschlagenen Änderungen in offenen Pull Requests auf {% data variables.product.prodname_desktop %} anzeigen.'
+intro: 'Sie können die vorgeschlagenen Änderungen in offenen Pull Requests auf {% data variables.product.prodname_desktop %} anzeigen.'
 redirect_from:
   - /desktop/contributing-to-projects/accessing-a-pull-request-locally
   - /desktop/contributing-and-collaborating-using-github-desktop/accessing-a-pull-request-locally

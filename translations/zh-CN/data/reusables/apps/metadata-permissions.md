@@ -1,1 +1,1 @@
-If you set the metadata permission to `No access` and select a permission that requires repository access, GitHub will override your selection and set the metadata permission back to `Read-only`. To set the metadata permission to `No access`, you must set all permissions that require repository access to `No access` first.
+如果将元数据权限设置为 `No access` 并选择需要访问仓库的权限，GitHub 将覆盖您的选择并将元数据权限设回 `Read-only`。 要将元数据权限设置为 `No access`，必须先将需要访问仓库的所有权限设置为 `No access`。

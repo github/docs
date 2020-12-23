@@ -1,6 +1,6 @@
 ---
 title: 查看包
-intro: 您可以查看已发布到仓库的包的详细信息，也可以按组织或用户缩小结果范围。
+intro: '您可以查看已发布到仓库的包的详细信息，也可以按组织或用户缩小结果范围。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages
@@ -32,8 +32,8 @@ versions:
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-3. Under your organization name, click
-{% octicon "package" aria-label="The package icon" %} **Packages**.
+3. 在组织名称下，单击
+{% octicon "package" aria-label="The package icon" %} **包**.
 {% data reusables.package_registry.navigate-to-packages %}
 
 ### 查看您的包

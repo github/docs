@@ -1,6 +1,6 @@
 ---
 title: Sudo-Modus
-intro: '{% data variables.product.product_name %} fragt nach Deinem Passwort, wenn Du Deine E-Mail-Adresse ändern, Drittanbieteranwendungen autorisieren, neue öffentliche Schlüssel hinzufügen oder andere *durch sudo geschützte* Aktionen ausführen möchtest.'
+intro: '{% data variables.product.product_name %} fragt Sie nach Ihrem Passwort, wenn Sie Ihre E-Mail-Adresse ändern, Drittanbieteranwendungen autorisieren, neue öffentliche Schlüssel hinzufügen oder andere *durch Sudo geschützte* Aktionen ausführen möchten.'
 redirect_from:
   - /articles/sudo-mode
 versions:

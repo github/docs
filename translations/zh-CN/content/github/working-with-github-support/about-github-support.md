@@ -11,13 +11,13 @@ versions:
 
 支持选项因您的 {% data variables.product.prodname_dotcom_the_website %} 产品而异。 如果您有任何付费产品，您可以用英语联系 {% data variables.contact.github_support %}。 您的帐户可能还包括 {% data variables.contact.premium_support %}。
 
-|                                                        | {% data variables.product.prodname_gcf %} | 标准支持 | 高级支持 |
-| ------------------------------------------------------ | ---------------------------------------------- | ---- | ---- |
-| {% data variables.product.prodname_free_user %} | X                                              |      |      |
-| {% data variables.product.prodname_pro %}         | X                                              | X    |      |
-| {% data variables.product.prodname_team %}        | X                                              | X    |      |
-| {% data variables.product.prodname_ghe_cloud %} | X                                              | X    | X    |
-| {% data variables.product.prodname_ghe_server %} | X                                              | X    | X    |
+|                                                    | {% data variables.product.prodname_gcf %} | 标准支持 | 高级支持 |
+| -------------------------------------------------- | ----------------------------------------- | ---- | ---- |
+| {% data variables.product.prodname_free_user %}  | X                                         |      |      |
+| {% data variables.product.prodname_pro %}          | X                                         | X    |      |
+| {% data variables.product.prodname_team %}         | X                                         | X    |      |
+| {% data variables.product.prodname_ghe_cloud %}  | X                                         | X    | X    |
+| {% data variables.product.prodname_ghe_server %} | X                                         | X    | X    |
 
 要查看 {% data variables.product.prodname_dotcom %} 目前是否有任何影响服务的事件，或者要订阅和接收未来状态更新通知，请访问 {% data variables.product.prodname_dotcom %} 的[状态页面](https://www.githubstatus.com/)。
 

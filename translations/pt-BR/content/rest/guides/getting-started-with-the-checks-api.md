@@ -4,6 +4,7 @@ intro: 'A API de Execução de Verificações permite que você crie aplicativos
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visão Geral
@@ -36,9 +37,9 @@ Uma execução de verificação é um teste individual que faz parte de um conju
 
 ![Fluxo de trabalho das execuções de verificação](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-Se uma execução de verificação estiver em um estado incompleto por mais de 14 dias, a execução de verificação `conclusão` irá tornar-se `obsoleta` e será exibida em {% data variables.product.prodname_dotcom %} como obsoleto com
-{% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Somente {% data variables.product.prodname_dotcom %} pode marcar a execuções de verificação como `obsoleto`. Para obter mais informações sobre possíveis conclusões de uma execução de verificação, consulte o parâmetro [`conclusão`](/rest/reference/checks#create-a-check-run--parameters).
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+Se uma execução de verificação estiver em um estado incompleto por mais de 14 dias, a execução de verificação `conclusão` torna-se `obsoleta` e aparece em
+{% data variables.product.prodname_dotcom %} como obsoleto com {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Somente {% data variables.product.prodname_dotcom %} pode marcar a execuções de verificação como `obsoleto`. Para obter mais informações sobre possíveis conclusões de uma execução de verificação, consulte o parâmetro [`conclusão`](/rest/reference/checks#create-a-check-run--parameters).
 {% endif %}
 
 Assim que você receber o webhook de [`check_suite`](/webhooks/event-payloads/#check_suite), você poderá criar a execução de verificação, mesmo que a verificação não esteja completa. Você pode atualizar o `status` da execução de verificação, pois ele é completado com os valores de `queued`, `in_progress` ou `completed`, e você poderá atualizar a saída de `` conforme mais informações forem disponibilizadas. Uma verificação de execução pode conter registros de hora, um link para obter mais informações sobre o seu site externo, anotações detalhadas para linhas específicas de código, e informações sobre a análise realizada.

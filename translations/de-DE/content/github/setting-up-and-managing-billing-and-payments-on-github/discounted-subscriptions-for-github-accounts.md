@@ -18,11 +18,11 @@ versions:
 
 ### Rabatte für persönliche Konten
 
-Neben den unbegrenzten öffentlichen und privaten Repositorys für Studenten und Universitätsmitarbeiter mit {% data variables.product.prodname_free_user %} können verifizierte Studenten das {% data variables.product.prodname_student_pack %} beantragen, um zusätzliche Vorteile von {% data variables.product.prodname_dotcom %}-Partnern zu erhalten. Weitere Informationen findest Du unter „[Ein Studentenentwicklungspaket beantragen](/articles/applying-for-a-student-developer-pack).“
+Neben den unbegrenzten öffentlichen und privaten Repositorys für Studenten und Universitätsmitarbeiter mit {% data variables.product.prodname_free_user %} können verifizierte Studenten das {% data variables.product.prodname_student_pack %} beantragen, um zusätzliche Vorteile von {% data variables.product.prodname_dotcom %}-Partnern zu erhalten. For more information, see "[Apply for a student developer pack](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)."
 
 ### Rabatte für Schulen und Universitäten
 
-Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. Weitere Informationen findest Du unter „[{% data variables.product.prodname_dotcom %} für Lehre und Forschung nutzen](/articles/using-github-in-your-classroom-and-research)“. Weitere Informationen findest Du unter [{% data variables.product.prodname_education %}](https://education.github.com/).
+Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. For more information, see "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research)." Weitere Informationen findest Du unter „[{{ site.data.variables.product.prodname_dotcom }} für Lehre und Forschung nutzen](/articles/using-github-in-your-classroom-and-research)“. Weitere Informationen findest Du unter [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 ### Rabatte für gemeinnützige Organisationen und Bibliotheken
 

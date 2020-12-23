@@ -1,5 +1,5 @@
 ---
-title: 'Überprüfen, ob die Benutzer Deiner Organisation die 2FA aktiviert haben'
+title: Überprüfen, ob die Benutzer Deiner Organisation die 2FA aktiviert haben
 intro: 'Du kannst anzeigen, welche Organisationsinhaber, Mitglieder und externen Mitarbeiter die Zwei-Faktor-Authentifizierung aktiviert haben.'
 redirect_from:
   - /articles/viewing-whether-users-in-your-organization-have-2fa-enabled
@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**Hinweis:** Du kannst festlegen, dass alle Mitglieder{% if currentVersion == "free-pro-team@latest" %}einschließlich Inhabern, Abrechnungsmanagern und{% else %} und{% endif %} externen Mitarbeiter in Deiner Organisation die Zwei-Faktor-Authentifizierung aktiviert haben müssen. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
+**Note:** You can require that all members{% if currentVersion == "free-pro-team@latest" %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung in Ihrer Organisation erzwingen](/articles/requiring-two-factor-authentication-in-your-organization)“.
 
 {% endnote %}
 

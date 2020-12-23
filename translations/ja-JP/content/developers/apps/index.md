@@ -1,6 +1,6 @@
 ---
 title: アプリ
-intro: You can automate and streamline your workflow by building your own apps.
+intro: 独自のアプリケーションを構築して、ワークフローを自動化および効率化できます。
 redirect_from:
   - /early-access/integrations/
   - /early-access/integrations/authentication/
@@ -12,6 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% topic_link_in_list /getting-started-with-apps %}

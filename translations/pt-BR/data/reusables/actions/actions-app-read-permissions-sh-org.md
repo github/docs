@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_app %}s devem ter permissão da organização `self-hosted runners:read` para acessar o ponto final.

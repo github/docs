@@ -1,1 +1,1 @@
-`organization` | `object` | Webhook payloads contain the [`organization`](/v3/orgs/#get-an-organization) object when the webhook is configured for an organization or the event occurs from activity in a repository owned by an organization.
+`organização` | `objeto` Cargas do webhook contêm o objeto da [`organização`](/rest/reference/orgs#get-an-organization) quando o webhook é configurado para uma organização ou o evento ocorre a partir da atividade em um repositório pertencente a uma organização.

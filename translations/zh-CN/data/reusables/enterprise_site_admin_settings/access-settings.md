@@ -1,1 +1,1 @@
-1. 在任何页面的右上角，单击 {% octicon "rocket" aria-label="The rocket ship" %}。 ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. From an administrative account on {% data variables.product.product_name %}, click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page. ![用于访问站点管理员设置的火箭图标](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

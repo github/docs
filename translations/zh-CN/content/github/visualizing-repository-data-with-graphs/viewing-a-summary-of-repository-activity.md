@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果提交合作作者的提交已合并到仓库的默认分支并且他们是贡献最多提交的前 15 名用户，则提交合作作者将包括在提交活动摘要中。

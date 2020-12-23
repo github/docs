@@ -25,7 +25,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 
 ### Dein Profil als unterstützte Organisation vervollständigen
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -50,11 +50,11 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 
 ### Deine Bankinformationen einreichen
 
-Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkonto Deiner Organisation in einer unterstützten Region erhalten. Du kannst ein Unternehmensbankkonto über Dienste wie [Open Collective](https://opencollective.com/) und [Stripe Atlas](https://stripe.com/atlas) erhalten. {% data reusables.sponsors.stripe-supported-regions %}
+Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkonto Deiner Organisation in einer unterstützten Region erhalten. Du kannst ein Unternehmensbankkonto über Dienste wie [Open Collective](https://opencollective.com/) und [Stripe Atlas](https://stripe.com/atlas) erhalten. The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 For more information about setting up Stripe Connect using Open Collective, see [Setting up {% data variables.product.prodname_sponsors %}](https://docs.opencollective.com/help/collectives/github-sponsors) in the Open Collective Docs.
@@ -63,7 +63,7 @@ For more information about setting up Stripe Connect using Open Collective, see 
 
 {% data reusables.sponsors.tax-form-information-org %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +75,7 @@ Bevor Deine Organisation eine unterstütze Organisation werden kann, muss Du 2FA
 
 ### Deinen Antrag bei {% data variables.product.prodname_dotcom %} zur Genehmigung einreichen
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}

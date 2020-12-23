@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 查看评论的编辑历史记录详细信息
@@ -28,5 +29,5 @@ versions:
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}-“[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”{% endif %}
 - “[编辑评论](/articles/editing-a-comment)”

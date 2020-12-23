@@ -1,5 +1,5 @@
 ---
-title: Differences between clustering and high availability (HA)
+title: 配置群集与高可用性 (HA) 之间的差异
 intro: '{% data variables.product.prodname_ghe_server %} 高可用性配置 (HA) 是一种可提供冗余功能的主设备/辅助设备故障切换配置，而集群则通过在多个节点之间分配读写负载来提供冗余和可扩展性。'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha

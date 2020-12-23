@@ -37,14 +37,13 @@ versions:
 
 启用 {% data variables.product.prodname_github_connect %} 将不允许 {% data variables.product.prodname_dotcom_the_website %} 用户对 {% data variables.product.prodname_ghe_server %} 进行更改。
 
-{% if currentVersion ver_gt "enterprise-server@2.18" %}
-有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
-{% endif %}
+有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/graphql/guides/managing-enterprise-accounts)”。
 ### 启用 {% data variables.product.prodname_github_connect %}
 
-1. 登录到 {% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+1. 登录到
+
+{% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 5. 在“{% data variables.product.prodname_dotcom_the_website %} is not enabled yet”下，单击 **Enable {% data variables.product.prodname_github_connect %}**。 单击 **Enable {% data variables.product.prodname_github_connect %}**，即表明您同意 <a href="/articles/github-connect-addendum-to-the-github-enterprise-license-agreement/" class="dotcom-only">{% data variables.product.prodname_enterprise %} 许可协议的 {% data variables.product.prodname_github_connect %} 附录</a>。 ![Enable GitHub Connect 按钮](/assets/images/enterprise/business-accounts/enable-github-connect-button.png)
@@ -54,8 +53,7 @@ versions:
 
 与 {% data variables.product.prodname_ghe_cloud %} 断开连接后，{% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} 会从企业帐户或组织中删除，{% data variables.product.product_location_enterprise %} 上存储的凭据也会删除。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 5. 在要断开连接的企业帐户或组织旁，单击 **Disable {% data variables.product.prodname_github_connect %}**。 ![企业帐户或组织名称旁的 Disable GitHub Connect 按钮](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)

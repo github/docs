@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -14,7 +15,7 @@ versions:
 
 - Se preferir filtrar problemas e pull requests com a barra de pesquisa, use a sintaxe de pesquisa de marco. Para um marco denominado My Milestone (Meu Marco), a sintaxe de pesquisa deve ser: `milestone:"My Milestone"`.
 - Para limpar a seleção de filtro, clique em **Clear current search query, filters, and sorts** (Limpar consulta atual, filtros e ordenar).
--  Você também pode filtrar problemas ou pull requests usando o {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
+-  Você também pode filtrar problemas ou pull requests usando o {% data variables.product.prodname_cli %}. Para mais informações, consulte a "[`lista de problemas do gh`](https://cli.github.com/manual/gh_issue_list)" ou "[`lista pr do gh`](https://cli.github.com/manual/gh_pr_list)" na documentação de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 

@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Du kannst zu den verweisenden Websites, mit Ausnahme der Suchmaschinen und {% data variables.product.product_name %} selbst, über die Links navigieren, von denen aus auf die spezifischen Pfade verwiesen wurde. Der beliebte Inhalt wird mit dem spezifischen Inhalt verknüpft, der Traffic generiert hat.
+Sie können zu den verweisenden Websites, mit Ausnahme der Suchmaschinen und {% data variables.product.product_name %} selbst, über die Links navigieren, von denen aus auf die spezifischen Pfade verwiesen wurde. Der beliebte Inhalt wird mit dem spezifischen Inhalt verknüpft, der Traffic generiert hat.
 
 Verweisende Websites und beliebte Inhalte sind nach Ansichten und eindeutigen Besuchern sortiert. Informationen zu vollständigen Klonen und Besuchern werden stündlich aktualisiert. Demgegenüber werden die Abschnitte zu verweisenden Websites und beliebten Inhalten täglich aktualisiert. Alle Daten im Traffic-Diagramm verwenden unabhängig von Deinem Standort die Zeitzone UTC+0.
 

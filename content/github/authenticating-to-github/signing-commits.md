@@ -1,6 +1,6 @@
 ---
 title: Signing commits
-intro: 'You can sign commits locally using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}.'
+intro: You can sign commits locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
