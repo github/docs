@@ -50,7 +50,7 @@ We log the process to file (`-Djava.util.logging.config.file=logging.properties`
 
 **Note:** A 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
 
-The _batch.xml_ file is found in the _OsmAndMapCreator_ folder, together with the program, and contains settings for running the program. The line:
+The `batch.xml` file is found in the `OsmAndMapCreator` folder, together with the program, and contains settings for running the program. The line:
 
 ```
 process directory_for_osm_files=​"/opt/OpenStreetMap/osm_files" directory_for_index_files=​"/opt/OpenStreetMap/index_files" directory_for_generation=​"/opt/OpenStreetMap/gen_files"
@@ -60,7 +60,7 @@ specifies the working folders.
 The next line:
 
 ```
-skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true" indexTransport="true" indexAddress="true">
+skipExistingIndexesAt="/..." indexPOI="true" indexRouting="true" indexMap="true" indexTransport="true" indexAddress="true"
 ```
 
 contains options to modify parts of your map. If you don't need routing and/or addresses, you can skip these by setting the parameters to "false".
@@ -106,7 +106,7 @@ If you have your `process_directory_for_osm_files` on one disk and your `directo
 You can process a great deal of the map creation in memory instead of on disk. In your `batch.xml`, one of the top lines contains:
 
 ```
-<process\_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
+<process_attributes mapZooms="" renderingTypesFile="" zoomWaySmoothness="" osmDbDialect="sqlite" mapDbDialect="sqlite"/>
 ```
 
 * `osmDbDialect="sqlite" mapDbDialect="sqlite"` means your map generation process will take place on disk.
