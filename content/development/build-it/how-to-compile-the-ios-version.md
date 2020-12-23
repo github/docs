@@ -7,11 +7,11 @@ versions: '*'
 
 2. Install command-line tools: `<xmp>$ xcode-select --install</xmp>`
 
-3. [Install cmake](https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg) (exactly this version!)  
+3. [Install cmake](https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg) (exactly this version!)
 
-  * Add this line to your .zshrc file: `PATH="/Applications/CMake.app/Contents/bin":"$PATH"`
-  * Reload your .zshrc file: `source ~/.zshrc`
-  * Verify everything works: `cmake --version`
+    * Add this line to your .zshrc file: `PATH="/Applications/CMake.app/Contents/bin":"$PATH"`
+    * Reload your .zshrc file: `source ~/.zshrc`
+    * Verify everything works: `cmake --version`
 
 4. [Install brew](https://brew.sh), run
    ```/usr/bin/ruby -e "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install](https://raw.githubusercontent.com/Homebrew/install/master/install))"```
