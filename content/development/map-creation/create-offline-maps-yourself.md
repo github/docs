@@ -48,7 +48,7 @@ runs OsmAndMapcreator with our downloaded maps, processing all maps it will find
 
 We log the process to file (`-Djava.util.logging.config.file=logging.properties`), give OsmAndMapCreator a minimum amount of 256MB and a maximum amount of 2560MB (preferably more then 1024MB), and use the setup as specified in `batch.xml`.  
 
-**Note:** A 32bit Operating system can address up to approximately **1.5GB**, meaning -Xmx can be no greater than -Xmx1720M. Greater values are accepted without errors, but not used.
+**Note:** A 32bit Operating system can address up to approximately **1.5GB**, meaning `-Xmx` can be no greater than `-Xmx1720M`. Greater values are accepted without errors, but not used.
 
 The `batch.xml` file is found in the `OsmAndMapCreator` folder, together with the program, and contains settings for running the program. The line:
 
