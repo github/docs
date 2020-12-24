@@ -3,8 +3,6 @@ title: Uninstalling or Resetting OsmAnd without Losing Your Data
 versions: '*'
 ---
 
-Uninstalling or Resetting OsmAnd without Losing Your Data
-
 Please note that most versions of Android also remove an app's data
 folder when you uninstall an app (or when in Android's App manager
 settings you tap 'Clear data' to reset the app settings to default). If
@@ -21,8 +19,8 @@ SD card:
     clear data to reset the app, or uninstall/reinstall OsmAnd, as
     desired
 -   Start OsmAnd
--   On its 'First Start' screen tap: Get started -\> Change the data
-    folder to the SD card -\> Skip -\> Skip downloading maps
+-   On its 'First Start' screen tap: Get started `-\> Change the data
+    folder to the SD card -\> Skip -\> Skip downloading maps`
 -   Force-stop OsmAnd
 -   Using a file manager app, delete the newly created (almost empty)
     OsmAnd data folder, and rename your old (preserved) data folder back
