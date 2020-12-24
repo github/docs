@@ -18,10 +18,15 @@ On newer devices, typical power consumption for OsmAnd should be in this neighbo
 Device Funxtion | Battery Consumption per Hour
 --- | ---
 **Typical value for device asleep** with only standard apps active | 0.5 %
-**Screen on** may typically account for | 6%
-**GPS active** may typically account for | 5%
+**Screen on** may typically account for | 6 %
+**GPS active** may typically account for | 5 %
 **Net effect of OsmAnd running** in the background, e.g. for track recording: | 0.5 %
 **OsmAnd in the background not running the service for any purpose**: | 0
 
 The overall power consumption should result by adding these components as applicable, depending
-how you use OsnAmd. Please report if you see huge deviations.
+how you use OsnAmd. Please report if you see huge deviations:
+
+OsmAnd Funxtion | Battery Consumption per Hour
+--- | ---
+**Track recording** with screen off | 6 %
+**Navigation**  with screen on | 11 %
