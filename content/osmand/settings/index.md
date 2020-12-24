@@ -9,5 +9,5 @@ versions: '*'
 {% link_in_list /configure-map %}
 {% link_in_list /configure-screen %}
 
-Regarding plugin specofic settings, please check the respective Plugins section
+Regarding plugin specofic settings, please check the respective section under Plugins
 {% link_in_list /osmand/plugins %}
