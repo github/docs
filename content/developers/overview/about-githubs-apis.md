@@ -1,4 +1,7 @@
 ---
+Hello world
+Ekkarat Product Company
+application/vnd.github.v3.star+json
 title: About GitHub's APIs
 intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to extend and customize your {% data variables.product.prodname_dotcom %} experience.'
 redirect_from:
