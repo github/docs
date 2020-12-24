@@ -1,0 +1,1 @@
+[OsmAnd at Weblate](https://hosted.weblate.org/projects/osmand/)
