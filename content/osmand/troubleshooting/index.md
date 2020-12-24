@@ -8,6 +8,7 @@ versions: '*'
 {% link_in_list /osmand/setup/osmand-installation-on-sd-fails %}
 {% link_in_list /search-misses-streets %}
 {% link_in_list /search-misses-housenumbers %}
+{% link_in_list /how-to-calculate-long-routes %}
 {% link_in_list /the-route-calculated-does-not-seem-correct %}
 {% link_in_list /route-calculation-is-slow %}
 

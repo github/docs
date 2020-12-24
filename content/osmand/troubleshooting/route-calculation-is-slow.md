@@ -3,8 +3,6 @@ title: Route calculation is slow
 versions: '*'
 ---
 
---ADJUST LINKS--
-
 Please be aware that there are 2 offline routing engines in the app: a
 Java based approach and a "Native" (C++) routing. The Java based
 approach is used in 'Safe Mode', it is 10 times slower than native mode
