@@ -4,21 +4,19 @@ intro: "OsmAnd is a mobile application available for iOS and Android"
 versions: '*'
 ---
 
-{% homepage_link_with_intro /navigation %}
-{% homepage_link_with_intro /settings %}
-
+{% link_with_intro /navigation %}
+{% link_with_intro /settings %}
+{% link_with_intro /map %}
+{% link_with_intro  /plan-route %}
+{% link_with_intro  /plugins %}
+{% link_with_intro  /purchases %}
+{% link_with_intro  /troubleshooting %}
+{% link_with_intro  /development/expert-user-documentation %}
 
 ### Links with images
 ![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
-
 ![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
 
-### Links
-{% link_in_list /plan-route %}
-{% link_in_list /plugins %}
-{% link_in_list /purchases %}
-{% link_in_list /troubleshooting %}
-{% link_in_list /development/expert-user-documentation %}
 
 ## Get OsmAnd
 There are several possibilities to do that:
@@ -26,6 +24,3 @@ There are several possibilities to do that:
  - {% data reusables.links.osmand-plus-amazon %}
  - {% data reusables.links.osmand-maps-app-store %}
  - {% data reusables.links.osmand-huawei %} 
-
-## Win OsmAnd
-
