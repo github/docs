@@ -1,8 +1,9 @@
 ---
 title: Purchases
-intro: ""
+intro: "OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail."
 versions: '*'
 ---
+
 
 
 {% link_in_list /osmand-live %}
@@ -14,7 +15,6 @@ versions: '*'
 {% link_in_list /giftcards %}
 {% link_in_list /do-i-have-to-buy-OsmAnd-again %}
 
-intro: "OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail."
 ## Get OsmAnd
 There are several possibilities to do that:
  - {% data reusables.links.osmand-plus-google-play %}

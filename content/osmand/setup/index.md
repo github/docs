@@ -1,6 +1,6 @@
 ---
 title: "Setup"
-intro: "Questions around OsmAnd setup"
+intro: "Answers questions around OsmAnd setup"
 versions: '*'
 ---
 
