@@ -1,5 +1,5 @@
 ---
-title: I can't install, upgrade, or uninstall the app
+title: I can't install, upate, or uninstall the app
 versions: '*'
 ---
 
@@ -25,6 +25,7 @@ perform the freeze in the OsmAnd Free version. The 3C Toolbox does the trick, bu
 will find the "Guard Provider" process as "com.securitycore.miui\_t"
 under "Apps" with the filter on "System".
 
+
 ## I can't uninstall the app
 
 If you want to uninstall the app, e.g. to
@@ -38,3 +39,28 @@ In order to facilitate this in Android, OsmAnd is added to the
 To uninstall OsmAnd in such a case you need to go to (Android)
 `Settings --> Security --> Device administrators` and uncheck OsmAnd as a
 device administrator there. Afterwards you can uninstall OsmAnd as usual.
+
+
+## OsmAnd+ installation on the SD card fails
+(for Android version only)
+
+This happens only for the OsmAnd+ paid version and it is a known Google
+Play issue (this is reproducible for other paid applications copied to
+SD card).
+
+Symptoms: Application was installed on SD card and update fails
+
+Possible solution:
+
+-   Check here
+    http://www.newbiehelper.net/solve-couldnt-install-on-usb-storage-or-sd-card-error-in-android-2-2/
+-   If you have a running application, please make a backup
+-   Export your favorites and then uninstall the application completely
+-   Clear the cache of Google Play app and unmount the SD card
+-   Re-install the app
+
+Because this issue happens before the OsmAnd app even starts, this issue
+cannot be fixed in OsmAnd, but needs to be fixed by Google Play. Please
+turn to Google Play — Help — Contact Us and report the issue there so
+Google can fix it. (The issue happens only for some devices and Android
+versions.)
