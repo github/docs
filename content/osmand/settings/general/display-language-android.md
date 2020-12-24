@@ -14,3 +14,4 @@ You can change **{% data variables.android-values.preferred_locale %}** in {% da
 
 ### How to change {% data variables.android-values.preferred_locale %}
 1. {% data reusables.steps.open-menu %}
+2. {% data reusables.steps.drawer-settings %}
