@@ -58,7 +58,7 @@ ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
 You can also specify a private SSH key using the SSH config file (`~/.ssh/config`).
 
 ```shell
-Host <em>hostname</em>
+Host <em>iixixi</em>
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122
