@@ -8,5 +8,4 @@ versions: '*'
 {% _in_list /how-to-move-osmand-folder-to-sd-card %}
 {% _in_list /osmand-installation-on-sd-fails %}
 {% _in_list /uninstall-or-reset-without-losing-your-data %}
-
-- I can't install or upgrade the app
+{% _in_list /i-cannot-install-or-upgrade-the-app %}
