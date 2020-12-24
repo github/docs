@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting
-intro: "OsmAnd is a mobile application available for iOS and Android"
+intro: "Solutions for frequently encountered issues and troubleshooting"
 versions: '*'
 ---
 
-
-{% link_in_list /audio-video-notes %}
-{% link_in_list /nautical-charts %}
-{% link_in_list /osm-editing %}
-{% link_in_list /../setuo/i-cannot-install-or-upgrade-the-app %}
-{% link_in_list /../setuo/osmand-installation-on-sd-fails %}
+{% link_in_list /osmand/setup/i-cannot-install-or-upgrade-the-app %}
+{% link_in_list /osmand/setup/osmand-installation-on-sd-fails %}
+Or check out the topic specific sections:
+{% link_in_list /osmand/audio-video-notes %}
+{% link_in_list /osmand/nautical-charts %}
+{% link_in_list /osmand/osm-editing %}
