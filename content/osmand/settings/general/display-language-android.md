@@ -1,9 +1,7 @@
 ---
 title: "{% data variables.android-values.preferred_locale %}"
-intro: "Basic OsmAnd settings"
 versions: '*'
 ---
-
 Select preferred language for OsmAnd user interface. By default system device language is used.
 
 ### How to change {% data variables.android-values.preferred_locale %}
