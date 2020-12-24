@@ -4,9 +4,6 @@ intro: "Questions around using OsmAnd"
 versions: '*'
 ---
 
-I have a GPX file, how do I get it into OsmAnd?
-How to delete history
-Is there a way to have contour lines displayed in feet also, instead of meters?
-
-
-
+{% link_in_list /importing-a-gpx %}
+{% link_in_list /how-to-delete-the-history %}
+{% link_in_list /display-contour-lines-in-feet %}
