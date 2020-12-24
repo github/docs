@@ -7,6 +7,7 @@ versions: '*'
 {% link_in_list /osmand/setup/i-cannot-install-or-upgrade-the-app %}
 {% link_in_list /osmand/setup/osmand-installation-on-sd-fails %}
 {% link_in_list /search-misses-streets %}
+{% link_in_list /search-misses-housenumbers %}
 {% link_in_list /tts-does-not-function-properly %}
 {% link_in_list /contour-lines-or-hillshades-do-not-show-up %}
 
