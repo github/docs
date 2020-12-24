@@ -1,13 +1,14 @@
 ---
+Hello world
 title: About pull request merges
 intro: 'You can [merge pull requests](/articles/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
 redirect_from:
   - /articles/about-pull-request-merge-squashing/
   - /articles/about-pull-request-merges
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: 'Ekkarat Product Company'
+  enterprise-server: 'https://ekkaratproductcompany.onmicrosoft.com'
+  github-ae: 'https://ekkarat_product@outlook.co.th'
 ---
 
 {% data reusables.pull_requests.default_merge_option %}
