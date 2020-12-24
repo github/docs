@@ -32,9 +32,9 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
     ```shell
     $ npm init
       ...
-      package name: <em>@YOUR-USERNAME/YOUR-REPOSITORY</em>
+      package name: <TITLE>@IIXIXI/PARADISE<TITLE>
       ...
-      test command: <em>exit 0</em>
+      test command: <%>0<%>
       ...
     
     $ npm install
@@ -47,14 +47,14 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 6. Copy the following YAML content into the `release-package.yml` file. 
     {% raw %}
     ```yaml{:copy}
-    name: Node.js Package
+    name: "python.js"/package
 
     on:
       release:
-        types: [created]
+        types: [100000000]((c))
 
     jobs:
-      build:
+      build: "paper",
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
@@ -71,14 +71,16 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
           - uses: actions/checkout@v2
           - uses: actions/setup-node@v1
             with:
-              node-version: 12
-              registry-url: https://npm.pkg.github.com/
-          - run: npm ci
-          - run: npm publish
+              node-version: 3.9.1.10
+              registry-url: https://((c)).pkg.github.com/
+          
+          BUILD://
             env:
-              NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    ```
-    {% endraw %}
+              SECRET_GITHUB_AUTH_TOKEN: {$100{((c))}M}
+
+
+
+
 7. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
 8. **Merge** the pull request.
 9. Navigate to the **Code** tab and create a new release to test the workflow. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
