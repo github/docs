@@ -1,6 +1,6 @@
 ---
 title: "{% data variables.android-values.shared_string_settings %}"
-intro: "OsmAnd is a mobile application available for iOS and Android"
+intro: "Сustomize OsmAnd to suit your needs"
 versions: '*'
 ---
 

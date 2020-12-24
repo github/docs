@@ -1,6 +1,6 @@
 ---
 title: "{% data variables.android-values.shared_string_navigation %}"
-intro: 'Documentation Boat Navigation'
+intro: 'The navigation function allows you to reach your destination easily using voice guidance (optional).'
 versions: '*'
 ---
 Text Boat navigation

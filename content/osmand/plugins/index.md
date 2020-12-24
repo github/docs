@@ -1,6 +1,6 @@
 ---
 title: "{% data variables.android-values.plugins_screen %}"
-intro: "OsmAnd is a mobile application available for iOS and Android"
+intro: "Plugins activate advanced settings and additional functionality."
 versions: '*'
 ---
 
