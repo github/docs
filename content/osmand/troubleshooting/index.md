@@ -8,6 +8,8 @@ versions: '*'
 {% link_in_list /osmand/setup/osmand-installation-on-sd-fails %}
 {% link_in_list /search-misses-streets %}
 {% link_in_list /search-misses-housenumbers %}
+{% link_in_list /the-route-calculated-does-not-seem-correct %}
+
 {% link_in_list /tts-does-not-function-properly %}
 {% link_in_list /contour-lines-or-hillshades-do-not-show-up %}
 {% link_in_list /development/expert-user-documentation/trip-recording-stops-while-screen-is-off %}
