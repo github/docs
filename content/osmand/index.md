@@ -9,8 +9,9 @@ versions: '*'
 
 
 ### Links with images
-![Contour lines](/assets/icons/android/ic_map.svg) {% link /map %}
-![Contour lines](/assets/icons/android/ic_map.svg) {% link /map %}
+![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
+
+![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
 
 ### Links
 {% link_in_list /plan-route %}
