@@ -4,4 +4,4 @@ intro: "OsmAnd is a mobile application available for iOS and Android"
 versions: '*'
 ---
 
-content
+{% data reusables.links.osmand-plus-google-play %}
