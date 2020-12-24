@@ -4,8 +4,6 @@ title: "How to delete the history"
 versions: '*'
 ---
 
-How to delete the history
-
 To remove search history, please open the Search menu, make a long tap
 on any search result and select which results to delete. You can also
 enable the select all option in the upper-left corner of the screen to
