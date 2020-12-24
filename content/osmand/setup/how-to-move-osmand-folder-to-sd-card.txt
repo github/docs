@@ -1,0 +1,22 @@
+---
+title: How to move OsmAnd's home (maps) folder to the external SD card?
+versions: '*'
+---
+
+(for Android version only)
+
+In order to move the OsmAnd home (maps) folder to an external SD card:
+
+-   Go to Settings (on the start screen)-\> OsmAnd Settings-\> [Data
+    storage folder (for Android version
+    only)](https://osmand.net/features/start#Setting_OsmAnd_for_your_region_android).
+-   Change the value to a path pointing to the external SD card, on many
+    Android systems it may contain "/storage/extSdCard" or similar.
+    Please note that some versions of Android strictly limit your choice
+    of which path will be write-accessible for apps.
+-   Then you can move the contents of OsmAnd's data folder from the
+    internal memory to the external SD card , either using the built-in
+    "move" option the OsmAnd app provides when changng the data folder,
+    or using a built-in file manager app on the device, or via
+    connecting the device to a computer as external storage and
+    performing the move from there.
