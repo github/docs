@@ -8,7 +8,10 @@ OsmAnd Trip recording plugin is an essential tool for runners, sportsmen and tou
 
 ![Trip recording](/assets/images/plugins/placeholder-intro.png)
 
-##### How to use
+#### How to use
 {% link_in_list /trip-recording-android %}
 {% link_in_list /trip-recording-ios %}
 
+#### Trip recording settings
+{% link_in_list /trip-recording-settings-android %}
+{% link_in_list /settings-ios %}
