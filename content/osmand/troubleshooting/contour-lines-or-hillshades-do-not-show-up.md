@@ -3,7 +3,7 @@ title: "Contour lines or hillshades do not show up"
 versions: '*'
 ---
 
---LINKS NEED UPDATEUNG ONCE MIGRATED--
+--LINKS NEED UPDATING ONCE MIGRATED--
 
 ## Android
 Please follow these steps:
