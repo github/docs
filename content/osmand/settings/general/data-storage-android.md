@@ -12,8 +12,9 @@ Select the preferred data storage folder for OsmAnd data. By default, {% data va
 5. {% data reusables.steps.settings-osmand-data-storage-screen %}
 
 ### Difference between storages
-{% data variables.android-values.storage_directory_internal_app %}
-{% data variables.android-values.storage_directory_shared %}
-{% data variables.android-values.storage_directory_external %}
-{% data variables.android-values.storage_directory_multiuser %}
-{% data variables.android-values.storage_directory_manual %}
+**{% data variables.android-values.storage_directory_internal_app %}**
+**{% data variables.android-values.storage_directory_shared %}**
+Internal device memory available for all applications.
+**{% data variables.android-values.storage_directory_external %}**
+**{% data variables.android-values.storage_directory_multiuser %}**
+**{% data variables.android-values.storage_directory_manual %}**
