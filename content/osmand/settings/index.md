@@ -8,4 +8,6 @@ versions: '*'
 {% link_in_list /general %}
 {% link_in_list /configure-map %}
 {% link_in_list /configure-screen %}
-{% link_with_intro /navigation %}
+
+Regarding plugin specofic settings, please check the respective Plugins section
+{% link_in_list /osmand/plugins %}
