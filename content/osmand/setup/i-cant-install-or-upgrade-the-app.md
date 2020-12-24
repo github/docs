@@ -1,5 +1,5 @@
 ---
-title: I can't install or upgrade the app
+title: I can't install, upgrade, or uninstall the app
 versions: '*'
 ---
 
