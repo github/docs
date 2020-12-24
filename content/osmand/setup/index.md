@@ -1,10 +1,10 @@
 ---
 title: "Setup"
-intro: "Questions around OsmAnd setuop"
+intro: "Questions around OsmAnd setup"
 versions: '*'
 ---
 
-{% _in_list /why-does-osmand-require-xpermission-x %}
+{% _in_list /why-does-osmand-require-permission-x %}
 - Why does OsmAnd require permission X?
 - How to move OsmAnd's home (maps) folder to the external SD card?
 - How do I use my SD card with OsmAnd under Android 4.4+ and 5?
