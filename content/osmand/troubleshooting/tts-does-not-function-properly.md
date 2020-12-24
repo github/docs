@@ -3,8 +3,6 @@ title: "TTS does not function properly"
 versions: '*'
 ---
 
-TTS does not function properly
-
 TTS issues will usually have to be fixed in your **Android configuration
 and settings**, not within the OsmAnd app!
 
