@@ -12,7 +12,7 @@ General -> Safe mode` and make sure the option is disabled.
 
 For native routing there are different limitations for different phones,
 depending on memory and processor. In general, native routing should
-handle \< 300 km routes nicely. The route calculation should take
+handle < 300 km routes nicely. The route calculation should take
 between 15 sec and 4 minutes. If there is no result within 7-8 minutes
 the routing engine will likely crash.
 
