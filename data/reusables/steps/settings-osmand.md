@@ -1,2 +1,2 @@
 Tap on **{% data variables.android-values.osmand_settings %}** button.
-![Settings](/assets/images/steps/drawer-settings.png)
+![Settings](/assets/images/steps/settings-osmand.png)
