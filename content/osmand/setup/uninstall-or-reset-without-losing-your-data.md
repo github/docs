@@ -25,7 +25,7 @@ SD card:
 -   Using a file manager app, delete the newly created (almost empty)
     OsmAnd data folder, and rename your old (preserved) data folder back
 -   Restart OsmAnd
--   Go to Settings / Download maps: Your existing offline maps should
+-   Go to `Settings / Download maps`: Your existing offline maps should
     now be listed on tab Local. Go to the tab Update and tap the refresh
     icon, this should make OsmAnd finally aware maps are already present
     and can be used.
