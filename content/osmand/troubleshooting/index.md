@@ -14,6 +14,7 @@ versions: '*'
 
 {% link_in_list /tts-does-not-function-properly %}
 {% link_in_list /contour-lines-or-hillshades-do-not-show-up %}
+{% link_in_list /osmand/user-hints/osmand-power-comsummption %}
 {% link_in_list /development/expert-user-documentation/trip-recording-stops-while-screen-is-off %}
 
 Also check out the plugin specific sections:
