@@ -3,7 +3,7 @@ title: "Offline search by address does not show all streets"
 versions: '*'
 ---
 
---ADJUST LINK--
+--ADJUST LINK find-something-on-map once migrated--
 
 Most of these issues are map data issues and should be double-checked
 via [OpenStreetMap](https://www.openstreetmap.org/). If you can see that
