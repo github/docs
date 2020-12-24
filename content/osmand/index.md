@@ -5,11 +5,11 @@ versions: '*'
 ---
 
 {% homepage_link_with_intro /navigation %}
+{% homepage_link_with_intro /settings %}
 
 
-{% link_in_list /navigation %}
-{% link_in_list /settings %}
-{% link_in_list /map %}
+### Links
+{% link /map %}
 {% link_in_list /plan-route %}
 {% link_in_list /plugins %}
 {% link_in_list /purchases %}
