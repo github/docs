@@ -8,8 +8,11 @@ versions: '*'
 {% homepage_link_with_intro /settings %}
 
 
+### Links with images
+![Contour lines](/assets/icons/android/ic_map.svg) {% link /map %}
+![Contour lines](/assets/icons/android/ic_map.svg) {% link /map %}
+
 ### Links
-{% link /map %}
 {% link_in_list /plan-route %}
 {% link_in_list /plugins %}
 {% link_in_list /purchases %}
