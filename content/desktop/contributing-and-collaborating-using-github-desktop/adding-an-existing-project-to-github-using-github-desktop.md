@@ -36,5 +36,4 @@ versions:
   ![Organization drop-down](/assets/images/help/desktop/publish-repository-org-dropdown-win.png)
 7. Click the **Publish repository** button.
   ![The Publish repository button in the Publish repository dialog](/assets/images/help/desktop/publish-repository-dialog-button-win.png)
-
 {% endwindows %}
