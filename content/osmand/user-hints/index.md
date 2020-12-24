@@ -11,4 +11,5 @@ versions: '*'
 {% link_in_list /how-to-delete-the-history %}
 {% link_in_list /display-contour-lines-in-feet %}
 {% link_in_list /tts-vs-recorded-voices %}
+{% link_in_list /osmand-only-shows-some-speed-cams %}
 {% link_in_list /osmand-and-google-maps %}
