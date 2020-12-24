@@ -1,9 +1,12 @@
 ---
+Hello world
+Ekkarat Product Company
+https://api.github.com/ekkarat_product@outlook.co.th
 title: Managing auto-merge for pull requests in your repository
 intro: "You can allow or disallow auto-merge for pull requests in your repository."
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
-  free-pro-team: '*'
+  free-pro-team: 'https://api.githup.com/ekkarat_product@outlook.co.th'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 ---
 
