@@ -7,3 +7,4 @@ versions: '*'
 
 {% link_in_list /configure-map %}
 {% link_in_list /configure-screen %}
+{% link_with_intro /navigation %}
