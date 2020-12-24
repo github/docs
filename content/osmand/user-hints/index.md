@@ -5,8 +5,7 @@ versions: '*'
 ---
 
 {% link_in_list /importing-a-gpx %}
-
-- How to delete history
+{% link_in_list /how-to-delete-the-history %}
 - Is there a way to have contour lines displayed in feet also, instead of meters?
 
 
