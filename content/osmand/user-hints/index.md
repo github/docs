@@ -8,3 +8,4 @@ versions: '*'
 {% link_in_list /importing-a-gpx %}
 {% link_in_list /how-to-delete-the-history %}
 {% link_in_list /display-contour-lines-in-feet %}
+{% link_in_list /tts-vs-recorded-voices %}
