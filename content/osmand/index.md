@@ -4,6 +4,9 @@ intro: "OsmAnd is a mobile application available for iOS and Android"
 versions: '*'
 ---
 
+{% homepage_link_with_intro /navigation %}
+
+
 {% link_in_list /navigation %}
 {% link_in_list /settings %}
 {% link_in_list /map %}
