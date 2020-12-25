@@ -1,6 +1,6 @@
 ---
 title: "Setup"
-intro: "Answers questions around OsmAnd setup"
+intro: "Answers questions around installing OsmAnd, selecting the data storage, and permissions."
 versions: '*'
 ---
 
