@@ -23,5 +23,6 @@ Other functionality:
 {% link_in_list /contour-lines-or-hillshades-do-not-show-up %}
 {% link_in_list /osmand/tips-and-tricks/osmand-power-comsummption %}
 {% link_in_list /development/expert-user-documentation/trip-recording-stops-while-screen-is-off %}
+{% link_in_list /osmand-only-shows-some-speed-cams %}
 
 Also check out the {% link /osmand/plugins %} pages for respective topics.
