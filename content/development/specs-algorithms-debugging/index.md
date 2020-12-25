@@ -1,9 +1,8 @@
 ---
 title: Specifications, Algorithms, Debugging
+intro: "Our repository for all specifications, functional descriptions, and test procedures,, for all core functionality like routing, rendering, search, voice navigation etc."
 versions: '*'
 ---
-
-Our repository for all specifications, functional descriptions, and test procedures,, for all core functionality like routing, rendering, search, voice navigation etc.
 
 Specifications:
 {% link_in_list /obf-data-structure %}
