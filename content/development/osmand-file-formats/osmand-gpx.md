@@ -1,5 +1,5 @@
 ---
-title: GPX (Routes / Tracks) - .gpx
+title: GPX Routes, Tracks - .gpx
 intro: 'Documentation about GPX'
 versions: '*'
 ---

@@ -1,5 +1,5 @@
 ---
-title: Binary Map Format - .obf
+title: OsmAnd Binary Maps - .obf
 intro: OBF Format Specification
 versions: '*'
 ---
