@@ -20,15 +20,15 @@ versions: '*'
 
 3. You may use our [debug.keystore](https://github.com/osmandapp/Osmand/tree/master/keystores) to make builds compatible with the nightly build.
 
-    * ** Get the source code:**
-     ```
-	 repo init -u https://github.com/osmandapp/OsmAnd-manifest -m readonly.xml && repo sync
-     ```
-    * **Gradle**:
-     ```
-	 cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug
-     ```
-    * **Android Studio**:
-     ```
-	 import android project` and choose flavor `assembleFreedevLegacyFatDebug
-     ```
+4. ** Get the source code:**
+ ```
+ repo init -u https://github.com/osmandapp/OsmAnd-manifest -m readonly.xml && repo sync
+ ```
+5. **Gradle**:
+ ```
+ cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug
+ ```
+6. **Android Studio**:
+ ```
+ import android project` and choose flavor `assembleFreedevLegacyFatDebug
+ ```
