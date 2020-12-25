@@ -1,6 +1,6 @@
 ---
 title: "{% data variables.android-values.shared_string_navigation %}"
-intro: 'The navigation function allows you to reach your destination easily using voice guidance (optional).'
+intro: 'The navigation functionality guides you to your destinations, by displaying routes, offering turn-by-turn instructions, and optional voice guidance.'
 versions: '*'
 ---
 Text Boat navigation
