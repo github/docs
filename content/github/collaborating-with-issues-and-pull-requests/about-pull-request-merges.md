@@ -27,7 +27,12 @@ More than one commit | The pull request title, followed by the pull request numb
 
 #### Squashing and merging a long-running branch
 
-If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
+IfRebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
+If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.product.product_location %} you must:
+
+Rebase the topic branch (or head branch) onto the base branch locally on the command line
+Resolve any merge conflicts on the command line.
+Force-push the rebased commits to the pull request's topic branch (or remote head branch). you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
 
 When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit. 
 
