@@ -1,5 +1,5 @@
 ---
-title: Opting into or out of the GitHub Archive Program for your public repository
+Title: Opting into or out of the GitHub Archive Program for your public repository
 intro: 'You can manage whether {% data variables.product.prodname_dotcom %} includes your public repository in the {% data variables.product.prodname_archive %} to help ensure the long-term preservation of the world''s open source software.'
 permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 versions:
