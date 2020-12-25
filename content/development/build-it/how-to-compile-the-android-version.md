@@ -3,7 +3,7 @@ title: How to Compile the Android Version
 versions: '*'
 ---
 
-1. First of all you need to setup the development environment, see {% link /setup-the-dev-environment %}.
+1. First setup the development environment, see {% link /setup-the-dev-environment %}.
 
 2. Specify the environment variables and install the software (check [build.gradle](https://github.com/osmandapp/Osmand/blob/master/OsmAnd/build.gradle#L32)):
 
