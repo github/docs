@@ -29,6 +29,6 @@ versions: '*'
 	 cd android/OsmAnd && ../gradlew cleanNoTranslate assembleFreedevLegacyFatDebug
      ```
     * **Android Studio**:
-    ```
-	import android project` and choose flavor `assembleFreedevLegacyFatDebug
-    ```
+     ```
+	 import android project` and choose flavor `assembleFreedevLegacyFatDebug
+     ```
