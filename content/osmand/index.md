@@ -23,7 +23,7 @@ OsmAnd is available via
 {% link_with_intro /troubleshooting %}
 {% link_with_intro /development/expert-user-documentation %}
 
-### Links with images
+## Links with images
 ![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
 
 
