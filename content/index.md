@@ -4,7 +4,6 @@ featuredLinks:
   gettingStarted:
     - /osmand
   popular:
-  tips-and-tricks
     - /osmand/tips-and-tricks
     - /osmand/purchases/osmand-live-android
     - /osmand/purchases/osmand-live-ios
