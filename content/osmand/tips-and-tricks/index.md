@@ -1,6 +1,6 @@
 ---
 title: "Tips and Tricks"
-intro: "Tips and Tricks around using OsmAnd"
+intro: "Tips and Tricks around using OsmAnd, e.g. marking places, searching things, working with GPX files, specific use cases."
 versions: '*'
 ---
 
