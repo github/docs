@@ -4,6 +4,14 @@ intro: "OsmAnd provides global offline map browsing and offline navigation for A
 versions: '*'
 ---
 
+## Get OsmAnd
+OsmAnd is available via
+ - {% data reusables.links.osmand-plus-google-play %}
+ - {% data reusables.links.osmand-plus-amazon %}
+ - {% data reusables.links.osmand-maps-app-store %}
+ - {% data reusables.links.osmand-huawei %}
+
+## User Documentation
 {% link_with_intro /setup %}
 {% link_with_intro /settings %}
 {% link_with_intro /navigation %}
@@ -17,12 +25,5 @@ versions: '*'
 
 ### Links with images
 ![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
-![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
 
 
-## Get OsmAnd
-There are several possibilities to do that:
- - {% data reusables.links.osmand-plus-google-play %}
- - {% data reusables.links.osmand-plus-amazon %}
- - {% data reusables.links.osmand-maps-app-store %}
- - {% data reusables.links.osmand-huawei %} 
