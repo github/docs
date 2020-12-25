@@ -3,8 +3,6 @@ title: "What is the difference between TTS (text to speech) and recorded voices?
 versions: '*'
 ---
 
---ADJUST ALL LINKS--
-
 TTS (text to speech) synthesizes any voice prompt just from a specified
 text "on the fly", while recorded voices depend on combining every
 command from a set of snippets pre-recorded from a human voice.
@@ -27,6 +25,7 @@ shortcomings like gaps and unnatural intonation, and some phrases may be
 missing entirely, where for a maintenance like adding new commands we
 could not get access to the original speakers any more.
 
-Read more about Voice prompts
-[here](https://osmand.net/features/start#Voice_prompts) and
-[here](https://osmand.net/features/navigation#Voice_guidance).
+Read more about Voice prompts:
+- [Voice guidance](https://osmand.net/features/navigation#Voice_guidance)
+- [Adjusting voice prompts](https://osmand.net/features/start#Voice_prompts)
+- {% link /osmand/troubleshooting/tts-does-not-function-properly %}

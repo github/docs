@@ -3,8 +3,6 @@ title: How to calculate routes longer than 250km?
 versions: '*'
 ---
 
---ADJUST LINKS ONCE MIGRATED--
-
 Long routes (> 250km) cmay not yet be calculated by OsmAnd's
 offline routing engine, or calculation takes a loing time. If the app does not show a route after 7-8
 minutes of calculation time, consider [placing

@@ -3,8 +3,6 @@ title: How to search an address via postcode
 versions: '*'
 ---
 
---ADJUST LINKS--
-
 In order to find [an address by a
 postcode](https://osmand.net/features/find-something-on-map#Find_by_address_A):
 
