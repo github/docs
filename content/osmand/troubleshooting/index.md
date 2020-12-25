@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-intro: "Solutions for frequently encountered issues and troubleshooting"
+intro: "Solutions for frequently encountered issues, and troubleshooting."
 versions: '*'
 ---
 
