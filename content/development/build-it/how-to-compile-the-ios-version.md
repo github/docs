@@ -12,11 +12,11 @@ versions: '*'
 
 3. [Install cmake](https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg) (exactly this version!)
 
-    * Add this line to your .zshrc file:  
-	```
-	PATH="/Applications/CMake.app/Contents/bin":"$PATH"
-	```
-    * Reload your .zshrc file:  
+* Add this line to your .zshrc file:  
+```
+PATH="/Applications/CMake.app/Contents/bin":"$PATH"
+```
+* Reload your .zshrc file:  
 	```
 	source ~/.zshrc
 	```
