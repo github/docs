@@ -24,8 +24,4 @@ Other functionality:
 {% link_in_list /osmand/hints-for-users/osmand-power-comsummption %}
 {% link_in_list /development/expert-user-documentation/trip-recording-stops-while-screen-is-off %}
 
-Also check out the plugin specific sections:
-
-{% link_in_list /osmand/plugins/audio-video-notes %}
-{% link_in_list /osmand/plugins/nautical-charts %}
-{% link_in_list /osmand/plugins/osm-editing %}
+Also check out the {% link /osmand/plugins %} pages for respective topics.
