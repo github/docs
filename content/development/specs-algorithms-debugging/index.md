@@ -3,12 +3,6 @@ title: Specifications, Algorithms, Debugging
 intro: "Our repository for all specifications, functional descriptions, and test procedures, for all core functionality like routing, rendering, search, voice navigation, etc."
 versions: '*'
 ---
-
-Specifications:
-{% link_in_list /obf-data-structure %}
-{% link_in_list /osmands-metainfo-format %}
-{% link_in_list /osmands-sqlite-format %}
-
 Functional Descriptions:
 {% link_in_list /osmand-intents %}
 {% link_in_list /background-track-recording %}

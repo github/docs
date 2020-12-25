@@ -4,6 +4,7 @@ versions: '*'
 ---
 
 ## Introduction
+Talk about *.travel.obf, *.wiki.obf, *.roads.obf, ..
 
 Many questions are about content of and issues with map data in the application. This topic unveils some technical details of the internal data format and data processing. It can be interesting for non-developers who are familar with the OSM data structure.
 

@@ -6,9 +6,10 @@ versions: '*'
 
 Here we collect information structured into the following categories: 
 
-{% link_in_list /expert-user-documentation %}
-{% link_in_list /specs-algorithms-debugging %}
-{% link_in_list /build-it %}
-{% link_in_list /map-creation %}
-{% link_in_list /contributing-to-osmand %}
-{% link_in_list /contributing-geodata %}
+{% link_with_intro /expert-user-documentation %}
+{% link_with_intro /osmand-file-formats %}
+{% link_with_intro /specs-algorithms-debugging %}
+{% link_with_intro /build-it %}
+{% link_with_intro /map-creation %}
+{% link_with_intro /contributing-to-osmand %}
+{% link_with_intro /contributing-geodata %}
