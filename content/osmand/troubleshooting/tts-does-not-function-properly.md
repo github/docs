@@ -3,7 +3,7 @@ title: "TTS does not function properly"
 versions: '*'
 ---
 
-TTS issues will usually have to be fixed in your **Android configuration
+Text-to-Speech (TTS) issues will usually have to be fixed in your **Android configuration
 and settings**, not within the OsmAnd app!
 
 Which TTS languages are supported on your device and the sound quality
