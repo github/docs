@@ -1,6 +1,6 @@
 ---
-title: "Hints for Users"
-intro: "Questions around using OsmAnd"
+title: "Tips and Tricks"
+intro: "Tips and Tricks around using OsmAnd"
 versions: '*'
 ---
 

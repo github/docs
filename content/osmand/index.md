@@ -12,7 +12,7 @@ versions: '*'
 {% link_with_intro  /plugins %}
 {% link_with_intro  /purchases %}
 {% link_with_intro  /troubleshooting %}
-{% link_with_intro /hints-for-users %}
+{% link_with_intro /tips-and-tricks %}
 {% link_with_intro  /development/expert-user-documentation %}
 
 ### Links with images

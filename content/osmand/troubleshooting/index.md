@@ -21,7 +21,7 @@ Searching and navigation:
 Other functionality:
 
 {% link_in_list /contour-lines-or-hillshades-do-not-show-up %}
-{% link_in_list /osmand/hints-for-users/osmand-power-comsummption %}
+{% link_in_list /osmand/tips-and-tricks/osmand-power-comsummption %}
 {% link_in_list /development/expert-user-documentation/trip-recording-stops-while-screen-is-off %}
 
 Also check out the {% link /osmand/plugins %} pages for respective topics.
