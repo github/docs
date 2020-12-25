@@ -1,5 +1,5 @@
 ---
-title: "User Hints"
+title: "Hints for Users"
 intro: "Questions around using OsmAnd"
 versions: '*'
 ---
