@@ -11,9 +11,9 @@ versions: '*'
 {% link_with_intro  /plan-route %}
 {% link_with_intro  /plugins %}
 {% link_with_intro  /purchases %}
-{% link_with_intro  /troubleshooting %}
 {% link_with_intro /tips-and-tricks %}
-{% link_with_intro  /development/expert-user-documentation %}
+{% link_with_intro /troubleshooting %}
+{% link_with_intro /development/expert-user-documentation %}
 
 ### Links with images
 ![Contour lines](/assets/images/icons/android/ic_map.svg) {% link /map %}
