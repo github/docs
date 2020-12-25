@@ -12,3 +12,4 @@ versions: '*'
 {% link_with_intro /osmand-obf %}
 {% link_with_intro /osmand-metainfo %}
 {% link_with_intro /osmand-sqlite %}
+{% link_with_intro /osmand-voice-package %}

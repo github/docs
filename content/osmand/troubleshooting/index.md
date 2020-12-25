@@ -17,6 +17,7 @@ Searching and navigation:
 {% link_in_list /the-calculated-route-does-not-seem-correct %}
 {% link_in_list /route-calculation-is-slow %}
 {% link_in_list /tts-does-not-function-properly %}
+{% link_in_list /trip-recording-stops-while-screen-is-off %}
 
 Other functionality:
 
