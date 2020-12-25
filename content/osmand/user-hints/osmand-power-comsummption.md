@@ -3,8 +3,6 @@ title: OsmAnd seems to drain too much battery power
 versions: '*'
 ---
 
-OsmAnd seems to drain too much battery power
-
 There have on and off been user reports about this. We made lots of
 measurements and could never really reproduce it, even though under some
 circumstances OsmAnd is reported responsible for 90% of the battery
