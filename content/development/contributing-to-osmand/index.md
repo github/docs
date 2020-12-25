@@ -1,6 +1,6 @@
 ---
 title: Contributing to OsmAnd
-inntro: "Explains how you can and should contribute to OsmAnd."
+intro: "Explains how you can and should contribute to OsmAnd."
 versions: '*'
 ---
 
