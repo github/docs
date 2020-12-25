@@ -1,5 +1,6 @@
 ---
-title: Specification of OsmAnd's Metainfo Format
+title: OsmAnd Tiles Directory - .metainfo
+intro: Specification of OsmAnd's Metainfo Format
 versions: '*'
 ---
 

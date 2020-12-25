@@ -1,5 +1,5 @@
 ---
-title: Tiles SQLite Format
+title: Tiles SQLite Format - .sqlite
 intro: Specification of OsmAnd's SQLite Format
 versions: '*'
 ---
@@ -25,6 +25,6 @@ The SQLIte format used in OsmAnd is based on the "BigPlanet" SQLite as supported
 ||"image"|Blob of image bytes.|
 ||"time"|Integer. Time stamp when image was downloaded.|
 
-
+This format is also used by Hillshade and Slope files distributed by OsmAnd application.
 
 The class supporting this is SQLiteTileSource at or near [https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java\#L33](https://github.com/osmandapp/Osmand/blob/master/OsmAnd/src/net/osmand/plus/SQLiteTileSource.java#L33).

@@ -1,6 +1,6 @@
 ---
-title: OsmAnd Rendering style
-intro: 'Documentation about files supported by OsmAnd'
+title: OsmAnd Rendering style - .render.xml
+intro: 'Documentation about rendering style'
 versions: '*'
 ---
 

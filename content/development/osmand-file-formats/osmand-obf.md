@@ -1,5 +1,6 @@
 ---
-title: OBF Format Specification
+title: Binary Map Format - .obf
+intro: OBF Format Specification
 versions: '*'
 ---
 
