@@ -1,6 +1,6 @@
 ---
 title: "{% data variables.android-values.shared_string_map %}"
-intro: "OsmAnd is a mobile application available for iOS and Android"
+intro: "The map is a core element of the OsmAnd app. This section talks about how to obtain map data, and how to set up the map appearance."
 versions: '*'
 ---
 
