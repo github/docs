@@ -17,7 +17,7 @@ versions: '*'
 {% link_in_list /osmand-beta-testing %}
 {% link_in_list /installing-different-builds %}
 
-## How to use dev utilties
+## How to use dev utilities
 {% link_in_list /how-to-inspect-an-obf %}
 {% link_in_list /debug-obf-routing-on-pc %}
 
