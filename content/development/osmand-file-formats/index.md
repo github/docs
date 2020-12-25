@@ -1,6 +1,6 @@
 ---
 title: OsmAnd File Formats
-intro: 'Documentation about files supported by OsmAnd'
+intro: 'Documentation of files supported by OsmAnd'
 versions: '*'
 ---
 
