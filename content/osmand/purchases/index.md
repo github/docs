@@ -1,6 +1,6 @@
 ---
 title: Purchases
-intro: "OsmAnd has plenty of features and offers its full functional in the free version. In addition to that, you can expand your possibilities even further with paid OsmAnd services. Let's take a look at each of them in detail."
+intro: "OsmAnd offers its full functionality and most features already in the free version. In addition, you can expand your possibilities with paid OsmAnd services. Let's take a look at them in detail."
 versions: '*'
 ---
 
