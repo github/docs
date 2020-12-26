@@ -19,7 +19,7 @@ versions:
 
 ### Tab test
 
-{% capture example_capture %}Something to reuse, e.g. in _tabs_.{% endcapture %}
+{% capture example_capture %}{% octicon "link-external" aria-label="The external link icon" %}Something to reuse, e.g. in _tabs_.{% endcapture %}
 
 {% tabs "shell" %}
 
@@ -33,7 +33,7 @@ echo "::set-output name=var::$VAR"
 
 This is a `tab`!
 - With a list
-- just for funsies
+- just for funsies {% octicon "squirrel" aria-label="Sideway view of a squirrel with arms raised" %}
 
 {% tab "PowerShell" %}
 
