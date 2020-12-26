@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Ao [criar um marco](/articles/creating-and-editing-milestones-for-issues-and-pull-requests), você pode [associá-lo a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests).

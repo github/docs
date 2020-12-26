@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Use o menu Sort (Ordenar) para ordenar os resultados por relevância, número de estrelas, número de bifurcações e data da atualização dos itens.

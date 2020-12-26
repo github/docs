@@ -7,6 +7,7 @@ permissions: People with push access to the upstream repository of a fork owned 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Only pull request authors can give upstream repository maintainers, or those with push access to the upstream repository, permission to make commits to their pull request's compare branch in a user-owned fork. To learn more about upstream repositories, see "[About forks](/articles/about-forks)."

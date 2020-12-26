@@ -53,13 +53,15 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 You can use the `set-output` command in your workflow to set the same value:
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 The following table shows which toolkit functions are available within a workflow:
 
@@ -162,6 +164,25 @@ Creates an error message and prints the message to the log. You can optionally p
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### 예시
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+
 ### Masking a value in log
 
 `::add-mask::{value}`
@@ -257,7 +278,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 
 Running `$action_state` in a future step will now return `yellow`
 
-#### Multline strings
+#### Multiline strings
+
 For multiline strings, you may use a delimiter with the following syntax.
 
 ```
@@ -266,7 +288,8 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-#### 예시
+##### 예시
+
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
 ```
 steps:

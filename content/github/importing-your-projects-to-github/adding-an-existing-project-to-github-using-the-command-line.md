@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 {% data reusables.repositories.migrating-from-codeplex %}
 
@@ -26,7 +27,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -63,7 +64,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -100,7 +101,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell

@@ -7,6 +7,7 @@ intro: 'Sie können mit Personen, Repositorys und Organisationen auf {% data var
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
@@ -21,7 +22,7 @@ Klicke auf der Profilseite einer Person auf **Follow** (Folgen), um ihr zu folge
 
 ### Ein Repository beobachten
 
-Du kannst ein Repository beobachten, um über neue Pull Requests und Issues benachrichtigt zu werden. Wenn der Inhaber das Repository aktualisiert, siehst Du die Änderungen auf Deinem persönlichen Dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Du kannst ein Repository beobachten, um über neue Pull Requests und Issues benachrichtigt zu werden. Wenn der Inhaber das Repository aktualisiert, siehst Du die Änderungen auf Deinem persönlichen Dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Klicke oben bei einem Repository, das Du beobachten möchtest, auf **Watch** (Beobachten).
 

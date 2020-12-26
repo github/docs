@@ -1,10 +1,11 @@
 ---
 title: Autenticação
-intro: 'Você pode usar a autenticação integrada do {% data variables.product.prodname_ghe_server %} ou escolher entre CAS, LDAP ou SAML para integrar suas contas e gerenciar centralmente o acesso dos usuários à {% data variables.product.product_location_enterprise %}.'
+intro: Você pode configurar como os usuários conectam-se a {% data variables.product.product_name %}.
 redirect_from:
   - /enterprise/admin/authentication
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -18,5 +19,9 @@ versions:
     {% link_in_list /using-ldap %}
     {% link_in_list /allowing-built-in-authentication-for-users-outside-your-identity-provider %}
     {% link_in_list /changing-authentication-methods %}
-
-
+{% topic_link_in_list /managing-identity-and-access-for-your-enterprise %}
+    {% link_in_list /about-identity-and-access-management-for-your-enterprise %}
+    {% link_in_list /configuring-saml-single-sign-on-for-your-enterprise %}
+    {% link_in_list /configuring-user-provisioning-for-your-enterprise %}
+{% topic_link_in_list /configuring-authentication-and-provisioning-with-your-identity-provider %}
+    {% link_in_list /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad %}

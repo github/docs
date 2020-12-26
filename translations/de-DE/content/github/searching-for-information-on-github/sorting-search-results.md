@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Über das Sortiermenü kannst Du die Ergebnisse nach Relevanz, Anzahl der Sterne, Anzahl der Forks und dem letzten Änderungsdatum sortieren.

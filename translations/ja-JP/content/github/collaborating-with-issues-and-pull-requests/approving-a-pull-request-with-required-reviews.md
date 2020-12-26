@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 必須レビューに関する詳しい情報については[プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)を参照してください。

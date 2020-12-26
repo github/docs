@@ -1,6 +1,6 @@
 ---
 title: Desabilitar e habilitar um fluxo de trabalho
-intro: Você pode desabilitar e reabilitar um fluxo de trabalho usando {% data variables.product.prodname_dotcom %} ou a API REST.
+intro: 'Você pode desabilitar e reabilitar um fluxo de trabalho usando {% data variables.product.prodname_dotcom %} ou a API REST.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

@@ -70,7 +70,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 
 ### 参考リンク
 
-- [Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)
+- [Okta を使用して Enterprise アカウントの SAML シングルサインオンおよび SCIM を設定する](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)
 - [Organization の Team 同期を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)
 - Okta ドキュメントの「[Understanding SAML](https://developer.okta.com/docs/concepts/saml/)」
 - Okta ドキュメントの「[Understanding SCIM](https://developer.okta.com/docs/concepts/scim/)」

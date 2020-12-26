@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du zum Ausführen von Git-Vorgängen einen nicht verifizierten Schlüssel verwendest, wirst Du dazu aufgefordert, ein Audit Deiner SSH-Schlüssel durchzuführen.

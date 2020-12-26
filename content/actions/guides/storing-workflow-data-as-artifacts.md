@@ -108,8 +108,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-![Image of workflow upload artifact workflow run](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Configuring a custom artifact retention period
 
@@ -131,7 +129,7 @@ The `retention-days` value cannot exceed the retention limit set by the reposito
 
 During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact)action to download artifacts that were previously uploaded in the same workflow run. 
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/v3/actions/artifacts/)."
+After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
 
 #### Downloading artifacts during a workflow run
 
@@ -171,12 +169,12 @@ Jobs that are dependent on a previous job's artifacts must wait for the dependen
 
 Job 1 performs these steps:
 - Performs a math calculation and saves the result to a text file called `math-homework.txt`.
-- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the name `homework`. The action places the file in a directory named `homework`.
+- Uses the `upload-artifact` action to upload the `math-homework.txt` file with the artifact name `homework`.
 
 Job 2 uses the result in the previous job:
 - Downloads the `homework` artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
-- Reads the value in the `homework/math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt`.
-- Uploads the `math-homework.txt` file. This upload overwrites the previous upload because both of the uploads share the same name.
+- Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
+- Uploads the `math-homework.txt` file. This upload overwrites the previously uploaded artifact because they share the same name.
 
 Job 3 displays the result uploaded in the previous job:
 - Downloads the `homework` artifact.
@@ -238,7 +236,12 @@ jobs:
           echo The result is $value
 ```
 
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

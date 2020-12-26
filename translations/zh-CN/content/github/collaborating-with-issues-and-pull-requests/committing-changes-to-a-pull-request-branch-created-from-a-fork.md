@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在拉取请求分支上进行提交必须满足以下条件：
@@ -24,7 +25,7 @@ versions:
 
 1. 在
 
-{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+{% data variables.product.product_name %} 上，导航到创建拉取请求分支的复刻（或仓库副本）的主页面。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

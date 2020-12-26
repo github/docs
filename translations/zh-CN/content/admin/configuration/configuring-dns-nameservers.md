@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-指定的域名服务器必须解析 {% data variables.product.product_location_enterprise %} 的主机名。
+指定的域名服务器必须解析 {% data variables.product.product_location %} 的主机名。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -28,7 +28,7 @@ versions:
   ```
 3. 附加任何 `nameserver` 条目，然后保存文件。
 4. 验证变更后，请保存文件。
-5. 要向 {% data variables.product.product_location_enterprise %} 添加新的域名服务器条目，请输入：
+5. 要向 {% data variables.product.product_location %} 添加新的域名服务器条目，请输入：
   ```shell
   $ sudo service resolvconf restart
   ```

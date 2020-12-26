@@ -1,6 +1,6 @@
 ---
-title: REST endpoints for the GitHub Marketplace API
-intro: 'To help manage your app on {% data variables.product.prodname_marketplace %}, use these {% data variables.product.prodname_marketplace %} API endoints.'
+title: GItHub Marketplace API用のRESTエンドポイント
+intro: '{% data variables.product.prodname_marketplace %}上でのアプリケーションの管理を支援するために、以下の{% data variables.product.prodname_marketplace %} APIエンドポイントを使ってください。'
 redirect_from:
   - /apps/marketplace/github-marketplace-api-endpoints/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints/
@@ -11,20 +11,20 @@ versions:
 
 
 
-Here are some useful endpoints available for Marketplace listings:
+以下は、Marketplaceのリストで利用できる便利なエンドポイントです。
 
-* [List plans](/v3/apps/marketplace/#list-plans)
-* [List accounts for a plan](/v3/apps/marketplace/#list-accounts-for-a-plan)
-* [Get a subscription plan for an account](/v3/apps/marketplace/#get-a-subscription-plan-for-an-account)
-* [List subscriptions for the authenticated user](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)
+* [プランのリスト](/rest/reference/apps#list-plans)
+* [プランのアカウントのリスト](/rest/reference/apps#list-accounts-for-a-plan)
+* [アカウントのサブスクリプションプランの取得](/rest/reference/apps#get-a-subscription-plan-for-an-account)
+* [認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 
-See these pages for details on how to authenticate when using the {% data variables.product.prodname_marketplace %} API:
+{% data variables.product.prodname_marketplace %} APIを使用する際の認証の受け方の詳細については、以下のページを参照してください。
 
-* [Authorization options for OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps/)
-* [Authentication options for GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/)
+* [OAuth Appの認可オプション](/apps/building-oauth-apps/authorizing-oauth-apps/)
+* [GitHub Appの認可オプション](/apps/building-github-apps/authenticating-with-github-apps/)
 
 {% note %}
 
-**Note:** [Rate limits for the REST API](/v3/#rate-limiting) apply to all {% data variables.product.prodname_marketplace %} API endpoints.
+**ノート:** [REST APIのためのレート制限](/rest#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
 
 {% endnote %}

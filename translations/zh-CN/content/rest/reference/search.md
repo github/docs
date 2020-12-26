@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 搜索 API 可帮助您搜索要查找的特定条目。 例如，您可以在仓库中找到用户或特定文件。 就像您在 Google 上执行搜索一样。 它旨在帮助您找到要查找的一个或几个结果。 就像在 Google 上搜索一样，有时您希望查看几页搜索结果，以便找到最能满足您需求的条目。 为了满足这一需求， {% data variables.product.product_name %} 搜索 API **为每个搜索提供最多 1,000 个结果**。
 
-您可以使用查询缩小搜索范围。 要了解有关搜索查询语法的更多信息，请查看“[构建搜索查询](/v3/search/#constructing-a-search-query)”。
+您可以使用查询缩小搜索范围。 要了解有关搜索查询语法的更多信息，请查看“[构建搜索查询](/rest/reference/search#constructing-a-search-query)”。
 
 ### 排列搜索结果
 
@@ -17,7 +18,7 @@ versions:
 
 ### 速率限制
 
-搜索 API 有自定义速率限制。 对于使用[基本身份验证](/v3/#authentication)、[OAuth](/v3/#authentication) 或[客户端 ID 和密码](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
+搜索 API 有自定义速率限制。 对于使用[基本身份验证](/rest#authentication)、[OAuth](/rest#authentication) 或[客户端 ID 和密码](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)的请求，您每分钟最多可以提出 30 个请求。 对于未经身份验证的请求，速率限制允许您每分钟最多提出 10 个请求。
 
 {% data reusables.enterprise.rate_limit %}
 
@@ -27,16 +28,22 @@ versions:
 
 搜索 API 中的每个端点都使用[查询参数](https://en.wikipedia.org/wiki/Query_string)对 {% data variables.product.product_name %} 进行搜索。 有关包含端点和查询参数的示例，请参阅搜索 API 中的各个端点。
 
-查询可以包含 GitHub.com 上支持的搜索限定符的任意组合。 搜索查询的格式为：
+查询可以包含在 {% data variables.product.product_name %} 上支持的搜索限定符的任意组合中。 搜索查询的格式为：
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 例如，如果您要搜索 `defunkt` 拥有的在自述文件中包含单词 `GitHub` 和 `Octocat` 的所有_仓库_，您可以在_搜索仓库_端点中使用以下查询：
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**注意：** 请务必使用语言的首选 HTML 编码器构造查询字符串。 例如：
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 有关可用限定符及其格式的完整列表和使用示例，请参阅“[在 GitHub 上搜索](/articles/searching-on-github/)”。 有关如何使用运算符匹配特定数量、日期或排除结果，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax/)”。

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 これを解決するには、リポジトリからデプロイキーを削除し、代わりに[キーを自分のユーザアカウントに追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。

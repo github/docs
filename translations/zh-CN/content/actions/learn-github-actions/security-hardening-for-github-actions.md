@@ -26,7 +26,7 @@ versions:
 为了帮助防止意外泄露，{% data variables.product.product_name %} 使用一种机制尝试对运行日志中显示的任何密码进行编校。 此编校会寻找任何已配置密码的精确匹配项，以及值的常见编码，如 Base64。 但是，由于密码值可以通过多种方式转换，因此不能保证此编校。 因此，你应该采取某些积极主动的步骤和良好的做法，以帮助确保密码得到编校， 并限制与密码相关的其他风险：
 
 - **切勿将结构化数据用作密码**
-    - 非结构化数据可能导致日志中的密码编校失败，因为编校很大程度上取决于查找特定密码值的完全匹配项。 例如，不要使用 JSON、XML 或 YAML（或类似）的 Blob 来封装密码值，否则会显著降低密码被正确编校的可能性。 而应为每个敏感值创建单独的密码。
+    - 结构化数据可能导致日志中的密码编校失败，因为编校很大程度上取决于查找特定密码值的完全匹配项。 例如，不要使用 JSON、XML 或 YAML（或类似）的 Blob 来封装密码值，否则会显著降低密码被正确编校的可能性。 而应为每个敏感值创建单独的密码。
 - **注册工作流程中使用的所有密码**
     - 如果密码用于生成工作流程中的另一个敏感值，则该生成的值应正式[注册为密码](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret)，使其出现在日志中时将会得到编校。 例如，如果使用私钥生成签名的 JWT 来访问 Web API，请确保将该 JWT 注册为密码，否则，如果它进入日志输出，则不会得到编校。
     - 注册密码也适用于任何类型的转换/编码。 如果以某种方式（如 Base64 或 URL 编码）转换您的密码，请确保将新值也注册为密码。
@@ -54,6 +54,8 @@ versions:
   **警告** 提交 SHA 的简短版本不安全，绝不可用于指定操作的 Git 引用。 由于仓库网络的工作方式，任何用户都可以复刻仓库，将精心编写的提交推送到与短 SHA 冲突的仓库。 这会导致该 SHA 上的后续克隆失败，因为它成为不明确的提交。 因此，使用缩短的 SHA 的任何工作流程将立即失败。
 
   {% endwarning %}
+
+
 * **审核操作的源代码**
 
   确保操作按照预期处理仓库和密码的内容。 例如，确认密码未发送到非预期主机，或者没有被无意中记录。
@@ -92,6 +94,45 @@ versions:
 
 因此，自托管的运行器几乎[永远不能用于 {% data variables.product.product_name %} 上的公共仓库](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)，因为任何用户都可以打开针对仓库的拉取请求并破坏环境。 同样，在私有仓库上使用自托管运行器时也要小心，因为任何可以复刻仓库并打开 PR 的人（通常是对仓库具有读取权限的人）都能够破坏自托管运行器环境，包括访问密码以及可授予仓库写入权限的特权 `GITHUB_TOKEN` 。
 
+在组织或企业级别定义自托管运行器时， {% data variables.product.product_name %} 可将多个仓库中的工作流程安排到同一个运行器中。 因此，这些环境的安全危害可能会导致广泛的影响。 为了帮助缩小损害范围，可以通过将自托管运行器组织到单独的组中来创建边界。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
+
 您还应考虑自托管运行器机器的环境：
 - 配置为自托管运行器的计算机上存储哪些敏感信息？ 例如，私有 SSH 密钥、API 访问令牌等。
 - 计算机是否可通过网络访问敏感服务？ 例如，Azure 或 AWS 元数据服务。 此环境中的敏感信息量应保持在最低水平，您应该始终注意，任何能够调用工作流程的用户都有权访问此环境。
+
+某些客户可能会尝试通过实施在每次作业执行后自动销毁自托管运行器的系统来部分降低这些风险。 但是，此方法可能不如预期有效，因为无法保证自托管运行器只运行一个作业。
+
+### 审核 {% data variables.product.prodname_actions %} 事件
+
+您可以使用审核日志来监控组织中的管理任务。 审核日志记录操作类型、操作的运行时间以及执行操作的用户帐户。
+
+例如，您可以使用审核日志跟踪 `action:org.update_actions_secret` 事件，以跟踪组织机密的更改： ![审核日志条目](/assets/images/help/repository/audit-log-entries.png)
+
+以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 有关使用审核日志的更多信息，请参阅“[查看组织的审核日志](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)”。
+
+#### 机密管理的事件
+| 操作                                  | 描述                                                                                                                                                  |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.create_actions_secret`  | 组织管理员[创建 {% data variables.product.prodname_actions %} 机密](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)时触发。 |
+| `action:org.remove_actions_secret`  | 组织管理员删除 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+| `action:org.update_actions_secret`  | 组织管理员更新 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+| `action:repo.create_actions_secret` | 仓库管理员[创建 {% data variables.product.prodname_actions %} 机密](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)时触发。    |
+| `action:repo.remove_actions_secret` | 仓库管理员删除 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+| `action:repo.update_actions_secret` | 仓库管理员更新 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+
+#### 自托管运行器的事件
+| 操作                                        | 描述                                                                                                                                 |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.register_self_hosted_runner`  | 组织所有者[注册新的自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)时触发。 |
+| `action:org.remove_self_hosted_runner`    | 组织所有者[删除自托管运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)时触发。         |
+| `action:repo.register_self_hosted_runner` | 仓库管理员[注册新的自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)时触发。    |
+| `action:repo.remove_self_hosted_runner`   | 仓库管理员[删除自托管运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)时触发。            |
+
+#### 自托管运行器组的事件
+| 操作                                        | 描述                                                                                                                                                                 |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `action:org.runner_group_created`         | 组织管理员[删除自托管运行器](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)时触发。 |
+| `action:org.runner_group_removed`         | 组织管理员删除自托管运行器组时触发。                                                                                                                                                 |
+| `action:org.runner_group_renamed`         | 组织管理员重命名自托管运行器组时触发。                                                                                                                                                |
+| `action:org.runner_group_runners_added`   | 组织管理员[添加自托管运行器到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)时触发。                |
+| `action:org.runner_group_runners_removed` | 组织管理员从组中删除自托管运行器时触发。                                                                                                                                               | 

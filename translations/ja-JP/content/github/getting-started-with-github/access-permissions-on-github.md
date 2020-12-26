@@ -9,6 +9,7 @@ intro: '個人のリポジトリにはコラボレータに読み取り/書き�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 個人ユーザアカウント
@@ -17,7 +18,7 @@ versions:
 
 ### Organization アカウント
 
-Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳しい情報については、以下を参照してください。
+Organization のメンバーは、*owner* (オーナー){% if currentVersion == "free-pro-team@latest" %}、*billing manager* (支払いマネージャー)、{% endif %}あるいは *member* (メンバー) ロールを保持することができます。 オーナーは、Organization に対する完全な管理者アクセスを持ち{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャーは支払いの設定を管理できます{% endif %}。 メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳しい情報については、以下を参照してください。
 - 「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」
 - [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
 - [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)
@@ -27,7 +28,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 ### Enterprise アカウント
 
-*Enterprise のオーナー*は、Enterprise アカウントに対して最大の力を持ち、Enterprise アカウントであらゆるアクションを取ることができます。 *支払いマネージャー*は、Enterprise アカウントの支払い設定を管理できます。 Enterprise アカウントが所有する Organization のメンバーと外部コラボレーターは、自動的に Enterprise アカウントのメンバーになりますが、Enterprise アカウントそのものやその設定にはアクセスできません。 詳細は「[Enterprise アカウントのロール](/articles/roles-for-an-enterprise-account)」を参照してください。
+*Enterprise のオーナー*は、Enterprise アカウントに対して最大の力を持ち、Enterprise アカウントであらゆるアクションを取ることができます。 *支払いマネージャー*は、Enterprise アカウントの支払い設定を管理できます。 Enterprise アカウントが所有する Organization のメンバーと外部コラボレーターは、自動的に Enterprise アカウントのメンバーになりますが、Enterprise アカウントそのものやその設定にはアクセスできません。 詳しい情報については、「[Enterprise アカウントのロール](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)」を参照してください。
 
 {% data reusables.gated-features.enterprise-accounts %}
 

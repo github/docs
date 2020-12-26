@@ -175,7 +175,7 @@ A aparência do Serviço é Copyright © GitHub, Inc. Todos os direitos reservad
 
 #### 2.5.2 Violação de direitos autorais e política DMCA.
 
-Se o Cliente for proprietário de direitos autorais e acreditar que o Conteúdo no Serviço viola seus direitos autorais, ele poderá notificar o GitHub de acordo com a [Lei dos Direitos Autorais do Milênio Digital](https://github.com/contact/dmca) (DMCA – Digital Millenium Copyright Act Policy) usando o [Formulário DMCA](https://github.com/contact/dmca-notice) ou pelo e-mail copyright@github.com.
+Se o Cliente for proprietário de direitos autorais e acreditar que o Conteúdo no Serviço viola seus direitos autorais, ele poderá notificar o GitHub de acordo com a [Lei dos Direitos Autorais do Milênio Digital](https://github.com/contact/dmca) (DMCA – Digital Millennium Copyright Act Policy) usando o [Formulário DMCA](https://github.com/contact/dmca-notice) ou pelo e-mail copyright@github.com.
 
 #### 2.5.3 Logotipos e marcas registradas do GitHub.
 

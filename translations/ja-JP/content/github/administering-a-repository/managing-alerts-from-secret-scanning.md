@@ -1,6 +1,7 @@
 ---
 title: シークレットスキャンからのアラートを管理する
 intro: リポジトリにチェックインしたシークレットのアラートを表示したりクローズしたりすることができます。
+product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'
 ---

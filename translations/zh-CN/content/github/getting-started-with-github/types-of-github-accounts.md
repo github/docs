@@ -1,6 +1,6 @@
 ---
 title: GitHub 帐户的类型
-intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
+intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 您的用户帐户可以是任意数量组织的成员。{% if currentVersion == "free-pro-team@latest" %} 组织可属于企业帐户。{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,11 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-For a full list of features for each
-{% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
+有关每个
+{% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
 {% endif %}
 
 ### 个人用户帐户
@@ -72,6 +73,6 @@ For a full list of features for each
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
+{% if currentVersion == "free-pro-team@latest" %}- "[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)"
 - “[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”{% endif %}
 - “[创建新组织帐户](/articles/creating-a-new-organization-account)”

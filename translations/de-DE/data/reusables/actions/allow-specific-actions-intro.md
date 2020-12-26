@@ -1,4 +1,4 @@
-When you select the **Allow select actions**, there are additional options that you need to choose to configure the allowed actions:
+When you choose **Allow select actions**, local actions are allowed, and there are additional options for allowing other specific actions:
 
 - **Allow actions created by {% data variables.product.prodname_dotcom %}:** You can allow all actions created by {% data variables.product.prodname_dotcom %} to be used by workflows. Actions created by {% data variables.product.prodname_dotcom %} are located in the `actions` and `github` organization. For more information, see the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
 - **Allow Marketplace actions by verified creators:** You can allow all {% data variables.product.prodname_marketplace %} actions created by verified creators to be used by workflows. When GitHub has verified the creator of the action as a partner organization, the {% octicon "verified" aria-label="The verified badge" %} badge is displayed next to the action in {% data variables.product.prodname_marketplace %}.

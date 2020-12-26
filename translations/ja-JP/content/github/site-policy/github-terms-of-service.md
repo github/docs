@@ -32,11 +32,11 @@ GitHubをご利用いただきありがとうございます。 また、こち�
 | [N. 保証免責](#n-disclaimer-of-warranties)                       | 当社は、サービスを現状有姿で提供し、本サービスについて一切の約束も保証も行いません。 **このセクションは特によくお読みください。何を期待できるかを理解しておく必要があります。**                                          |
 | [O. 責任の制限](#o-limitation-of-liability)                       | 当社は、サービスを利用するかもしくは利用できないことに起因する損害または損失、あるいはその他本契約に基づいて発生する損害または損失については責任を負いません。 **このセクションは特によくお読みください。お客様に対する当社の義務を制限する内容になっています。** |
 | [P. 免責・補償](#p-release-and-indemnification)                   | あなたはサービスの利用に対するすべての責任を負います。                                                                                                         |
-| [Q. 本利用規約の変更](#q-changes-to-these-terms)                     | 当社は本契約を変更する場合がありますが、お客様の権利に影響する変更を行う場合は30日前に通知します。                                                                                  |
+| [Q. 本利用規約の変更](#q-changes-to-these-terms)                     | We may modify this agreement, but we will give you 30 days' notice of material changes.                                             |
 | [R. 雑則](#r-miscellaneous)                                    | 法の選択を含む法的詳細については、このセクションをご覧ください。                                                                                                    |
 
 ### GitHub 利用規約
-Effective date: April 2, 2020
+発効日：2020年11月16日
 
 
 ### A. 定義
@@ -98,7 +98,7 @@ GitHub の「サービス」の「ユーザアカウント」には、いくつ�
 「サービス」の利用中に、お客様は「ユーザ生成コンテンツ」を作成またはアップロードすることができます。 お客様は、「コンテンツ」の形式に関係なく、お客様が「サービス」に投稿、アップロード、リンクするか、またはその他「サービス」を介して利用可能にする「ユーザ生成コンテンツ」のコンテンツおよびその結果生じる損害に対して単独で責任を負います。 当社は、お客様の「ユーザ生成コンテンツ」のいかなる公開表示または悪用に対しても責任を負いません。
 
 #### 2. GitHub によるコンテンツの削除
-We do not pre-screen User-Generated Content, but we have the right (though not the obligation) to refuse or remove any User-Generated Content that, in our sole discretion, violates any [GitHub terms or policies](/github/site-policy).
+We have the right to refuse or remove any User-Generated Content that, in our sole discretion, violates any laws or [GitHub terms or policies](/github/site-policy). User-Generated Content displayed on GitHub for mobile may be subject to mobile app stores' additional terms.
 
 #### 3. コンテンツの所有権、投稿する権利、ライセンスの付与
 お客様は、「あなたのコンテンツ」の所有権および責任を保持します。 お客様が自身で作成していないものや権利を所有していないものを投稿する場合、お客様は投稿する「コンテンツ」に責任を負うこと、お客様に投稿する権利がある「コンテンツ」のみを送信すること、および投稿する「コンテンツ」に関連する第三者のライセンスを完全に遵守することに同意するものとします。
@@ -106,9 +106,9 @@ We do not pre-screen User-Generated Content, but we have the right (though not t
 お客様は「あなたのコンテンツ」の所有権と責任を保持しているため、当社は、セクション D.4〜D.7 に記載されている特定の法的権限を当社および GitHub の他の「ユーザ」に付与することを求めます。 かかるライセンス付与は、「あなたのコンテンツ」に適用されます。 お客様が、当社が「サービス」を実行するために必要な権限を GitHub に付与するライセンスをあらかじめ伴うような「コンテンツ」をアップロードする場合、追加のライセンスは必要ありません。 お客様は、セクション D.4〜D.7 で付与された権利のいずれに対しても支払いを受け取らないことを理解するものとします。 他の「ユーザ」がフォークした場合を除き、当社のサーバーから「あなたのコンテンツ」を削除すると、当社に付与したライセンスは終了します。
 
 #### 4. 当社へのライセンス許可
-当社には、「あなたのコンテンツ」のホスト、公開および共有などを行うための法的権利が必要です。 お客様は、当社およびその後継者に、「あなたのコンテンツ」を保存、解析、および表示し、「ウェブサイト」のレンダリングおよび「サービス」の提供のために必要に応じて付随的な複製を作成する権利を付与します。 これには、「あなたのコンテンツ」が音楽やビデオなどのものである場合、データベースにコピーしてバックアップを作成する、お客様および他のユーザに表示する、検索インデックスに解析するか、またはその他サーバー上で分析する、他のユーザと共有する、並びに実行するなどの操作を行う権利が含まれます。
+当社には、「あなたのコンテンツ」のホスト、公開および共有などを行うための法的権利が必要です。 You grant us and our legal successors the right to store, archive, parse, and display Your Content, and make incidental copies, as necessary to provide the Service, including improving the Service over time. This license includes the right to do things like copy it to our database and make backups; show it to you and other users; parse it into a search index or otherwise analyze it on our servers; share it with other users; and perform it, in case Your Content is something like music or video.
 
-このライセンスは、「あなたのコンテンツ」を販売またはその他の方法で配布する、あるいは「サービス」の提供以外で使用する権利を GitHub に付与するものではありません。
+This license does not grant GitHub the right to sell Your Content. It also does not grant GitHub the right to otherwise distribute or use Your Content outside of our provision of the Service, except that as part of the right to archive Your Content, GitHub may permit our partners to store and archive Your Content in public repositories in connection with the [GitHub Arctic Code Vault and GitHub Archive Program](https://archiveprogram.github.com/).
 
 #### 5. 他のユーザへのライセンス許可
 Issue、コメント、他の「ユーザ」のリポジトリへのコントリビューションなど、お客様が公に投稿する「ユーザ生成コンテンツ」は、他者によって閲覧される場合があります。 リポジトリを公に表示するように設定することにより、お客様は、他者がリポジトリを表示および「フォーク」できるようになることに同意するものとします (これは、他者が管理するリポジトリ内のお客様のリポジトリから他者が「コンテンツ」の独自の複製を作成できることを意味します)。
@@ -116,7 +116,7 @@ Issue、コメント、他の「ユーザ」のリポジトリへのコントリ
 お客様が自身のページおよびリポジトリを公に表示するように設定した場合、お客様は GitHub の「サービス」を通じて「あなたのコンテンツ」を使用、表示、および実演し、また GitHub の機能を通じて許可される限りにおいて (フォークなど) のみ GitHub 上で「あなたのコンテンツ」を複製する、非独占的かつ世界的ライセンスを GitHub の各「ユーザ」に付与します。 お客様が[ライセンスを採用](/articles/adding-a-license-to-a-repository/#including-an-open-source-license-in-your-repository)した場合、他の権利を付与することができます。 お客様が作成または所有していない「コンテンツ」をアップロードする場合には、アップロードする「コンテンツ」が、これらの権限を GitHub の他の「ユーザ」に付与する条項に基づいて必ずライセンスされるよう図る責任を負います。
 
 #### 6. リポジトリのライセンス下でのコントリビューション
-お客様がライセンスの通知を含むリポジトリに対してコントリビューションを行う際、お客様は必ず同じ条件のもとで自身のコントリビューションをライセンスし、それらの条件下で自身のコントリビューションをライセンスする権利を有することに同意するものとします。 お客様が、コントリビューターライセンス契約など、異なる条件のもとでコントリビューションのライセンスを別途締結している場合は、その契約が優先されます。
+Whenever you add Content to a repository containing notice of a license, you license that Content under the same terms, and you agree that you have the right to license that Content under those terms. If you have a separate agreement to license that Content under different terms, such as a contributor license agreement, that agreement will supersede.
 
 おそらくこれはすでに当たり前のことでしょう。 実際、 これはオープンソースコミュニティの規範として広く受け入れられています。一般的には、「インバウンド=アウトバウンド」という短縮形で呼ばれます。 このことを明示的にしているにすぎません。
 
@@ -126,7 +126,7 @@ Issue、コメント、他の「ユーザ」のリポジトリへのコントリ
 本契約が適用法で強制できない範囲において、帰属なしで「あなたのコンテンツ」を使用し、「ウェブサイト」のレンダリングと「サービス」の提供に必要な「あなたのコンテンツ」の合理的な適応を行うために必要な権利を GitHub に付与します。
 
 ### E. プライベートリポジトリ
-**趣旨の要約:** *お客様は、プライベートリポジトリにアクセスできます。 当社はプライベートリポジトリのコンテンツを機密として扱い、サポート上の理由がある場合、同意がある場合、またはセキュリティ上の理由で必要な場合にのみこれにアクセスします。*
+**Short version:** *We treat the content of private repositories as confidential, and we only access it as described in our Privacy Statement—for security purposes, to assist the repository owner with a support matter, to maintain the integrity of the Service, to comply with our legal obligations, if we have reason to believe the contents are in violation of the law, or with your consent.*
 
 #### 1. プライベートリポジトリの制御
 一部の「アカウント」には、「ユーザ」が「コンテンツ」へのアクセスを制御することを可能にするプライベートリポジトリがある場合があります。
@@ -135,15 +135,14 @@ Issue、コメント、他の「ユーザ」のリポジトリへのコントリ
 GitHub は、プライベートリポジトリのコンテンツを機密情報とみなします。 GitHub は、プライベートリポジトリのコンテンツを不正な使用、アクセス、または開示から保護します。これは、同様の性質の独自の機密情報を保護するために使用する方法と同じで、いかなる場合も一定以上の合理的な注意が払われるものとします。
 
 #### 3. アクセス
-GitHub personnel may only access the content of your private repositories in the following situations:
-- サポート上の理由で、お客様の同意と認識がある場合。 サポート上の理由で GitHub がプライベートリポジトリにアクセスする場合、所有者の同意と認識がある場合にのみアクセスします。
-- GitHub のシステムおよび「サービス」の継続的な機密性、整合性、可用性、復元力を維持するためにアクセスが必要な場合など、セキュリティ上の理由でアクセスが必要な場合。
+GitHub personnel may only access the content of your private repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
 お客様は、自身のプライベートリポジトリへのアクセスを追加することもできます。 例:
 - プライベートリポジトリにある「あなたのコンテンツ」への追加の権利を必要とする GitHub の各種サービスまたは機能を有効にするなどが考えられます。 こうした権利はサービスまたは機能によって異なる場合がありますが、GitHub は引き続きプライベートリポジトリの「コンテンツ」を機密として扱います。 これらのサービスまたは機能が、GitHub の「サービス」の提供に必要な以上の権利を追加で必要とする場合、当社はその件について説明を行います。
 
-#### 4. 除外
-プライベートリポジトリのコンテンツが法律または本「規約」に違反していると考えられる理由がある場合、当社はそのコンテンツにアクセスし、レビューして削除する権利を有します。 また、[法律により強制された](/github/site-policy/github-privacy-statement#for-legal-disclosure)場合は、当社はプライベートリポジトリのコンテンツを開示する場合があります。
+また、[法律により強制された](/github/site-policy/github-privacy-statement#for-legal-disclosure)場合は、当社はプライベートリポジトリのコンテンツを開示する場合があります。
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ### F. 著作権侵害と DMCA ポリシー
 当社のウェブサイトのコンテンツが著作権を侵害していると思われる場合は、[デジタルミレニアム著作権法ポリシー](/articles/dmca-takedown-policy/)に従ってご連絡ください。 あなたが著作権所有者であり、GitHub のコンテンツがあなたの権利を侵害していると思われる場合は、[便利な DMCA フォーム](https://github.com/contact/dmca)またはメール (copyright@github.com) でお問い合わせください。 虚偽または根拠のない削除通知を送信すると、法的責任が生じる場合があります。 削除リクエストを送信する前に、フェアユースやライセンス使用などの法的使用を検討する必要があります。
@@ -216,9 +215,9 @@ GitHub は、高スループットアクセスまたは GitHub の「サービ�
 
 **使用量に基づく支払い:** 「サービス」の一部の機能は、使用量に基づいて請求されます。 かかる「サービス」機能は、限られた使用量および期間であれば、追加料金なしでご利用のプランで使用できる場合があります。 ご利用のプランに含まれる数量を超えて有料の「サービス」機能を購入することを選択した場合、お客様は前月の実際の使用量に基づいてかかる「サービス」機能の料金を支払います。 かかる購入に対する毎月の支払いは、後払いで定期的に請求されます。 詳しくは、[GitHub 追加製品の利用規約](/github/site-policy/github-additional-product-terms)を参照してください。
 
-**請求:** 請求書払いの「ユーザ」の場合、「ユーザ」は、いかなる種類の控除も相殺もなく料金の全額を米ドルの前払いで支払うことに同意するものとします。 Dollars. 「ユーザ」は、GitHub による請求日から 30 日以内に料金を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 「ユーザ」が定められた期限に料金を支払わなかった場合、普通法または衡平法に基づく法的措置を取ることに加え、GitHub は次の権利を留保します。(i) 過去の未払い金に対して毎月 1.0% か、法律により許容される最高額の金利のうち、いずれか低い額の金利を課し、かつ回収に要するあらゆる費用を課すこと、および (ii) 該当する注文書を解約すること。 本「契約」に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
+**請求:** 請求書払いの「ユーザ」の場合、「ユーザ」は、いかなる種類の控除も相殺もなく料金の全額を米ドルの前払いで支払うことに同意するものとします。 設定しなければなりません。 「ユーザ」は、GitHub による請求日から 30 日以内に料金を支払う必要があります。 本「契約」に基づいて支払われる金額は、本「契約」に別段の定めがある場合を除き、返金できません。 「ユーザ」が定められた期限に料金を支払わなかった場合、普通法または衡平法に基づく法的措置を取ることに加え、GitHub は次の権利を留保します。(i) 過去の未払い金に対して毎月 1.0% か、法律により許容される最高額の金利のうち、いずれか低い額の金利を課し、かつ回収に要するあらゆる費用を課すこと、および (ii) 該当する注文書を解約すること。 本「契約」に関して課されたか、負うようになったあらゆる税金、料金、関税、および政府による査定 (GitHub の純利益に基づく税金を除く) について、お客様は全責任を負います。
 
-#### 4. 承認
+#### 4. 認可
 本「規約」に同意することにより、お客様は GitHub に対して承認した料金について、登録されたクレジットカード、PayPal アカウント、またはその他の承認された支払い方法に請求する許可を当社に与えるものとします。
 
 #### 5. 支払いの責任
@@ -286,9 +285,9 @@ GitHub は、「サービス」がお客様の要件を満たすこと、「サ�
 お客様は、本「契約」のお客様の違反を含むがこれに限定されない、「ウェブサイト」および「サービス」の利用に起因する、弁護士費用を含むあらゆる請求、負債、および費用から当社を補償し、弁護し、無害に保つことに同意します。ただし、GitHub が (1) 請求、要求、訴訟または法的手続きの書面による通知を速やかにあなたに提供する、(2) 請求、要求、訴訟または法的手続きの弁護および和解の単独の支配権をお客様に与える (ただし、和解によって GitHub のすべての責任が無条件に解除されない限り、お客様は請求、要求、訴訟または法的手続きを和解できないことを条件とします)、並びに (3) お客様の費用負担により、合理的なあらゆる支援をお客様に提供することを条件とします。
 
 ### Q. 本規約の変更
-**趣旨の要約:** *当社は規約に重要な変更があった場合にそれをユーザに知らせたいと思う一方、それほど重要ではない変更があることも事実で、たとえば誤字を修正するたびにお客様の手を焼かせるのは不本意です。 そのため、本契約は適宜変更される場合がありますが、当社がユーザに通知を行うのは、お客様の権利に影響する変更があった場合で、この場合、当社はかかる変更に慣れるための時間を提供します。*
+**趣旨の要約:** *当社は規約に重要な変更があった場合にそれをユーザに知らせたいと思う一方、それほど重要ではない変更があることも事実で、たとえば誤字を修正するたびにお客様の手を焼かせるのは不本意です。 So while we may modify this agreement at any time, we will notify users of any material changes and give you time to adjust to them.*
 
-当社は、独自の裁量により、いつでも本「利用規約」を修正する権利を留保し、かかる修正があった場合には本「利用規約」を更新します。 価格の変更などの本「契約」の重要な変更があった場合、当社は、変更が有効になる 30 日以上前に、「ウェブサイト」に通知を掲載することで、その旨を「ユーザ」に通知します。 重要でない変更については、お客様が「ウェブサイト」を継続して利用することをもって、本「利用規約」の改訂に同意したものとみなされます。 これらの「条項」におけるすべての変更は、[サイトポリシー](https://github.com/github/site-policy)リポジトリで確認できます。
+当社は、独自の裁量により、いつでも本「利用規約」を修正する権利を留保し、かかる修正があった場合には本「利用規約」を更新します。 We will notify our Users of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on our Website or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, your continued use of the Website constitutes agreement to our revisions of these Terms of Service. これらの「条項」におけるすべての変更は、[サイトポリシー](https://github.com/github/site-policy)リポジトリで確認できます。
 
 当社は予告の有無にかかわらず、「ウェブサイト」(またはその一部) を常時およびその時々に変更し、一時的または永続的に停止する権利を留保します。
 

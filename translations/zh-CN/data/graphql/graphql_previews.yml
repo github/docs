@@ -53,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: 访问仓库依赖关系图
   description: 此预览支持读取仓库依赖关系图。
@@ -102,7 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: 固定议题预览
   description: 此预览增加了对固定议题的支持。

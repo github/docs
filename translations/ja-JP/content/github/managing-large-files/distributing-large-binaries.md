@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリ内で大きなファイルを配布する必要がある場合は、{% data variables.product.product_location %}でリリースを作成できます。 リリースでは、他の人が使用できるように、ソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージ化できます。 詳細は「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。

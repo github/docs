@@ -8,6 +8,7 @@ intro: 'Você pode usar tokens OAuth para interagir com {% data variables.produc
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Etapa 1: Obtenha um token OAuth
@@ -42,4 +43,4 @@ Para evitar esses alertas, você pode usar o cache de senhas do Git. Para obter 
 
 ### Leia mais
 
-- "[Autorizando aplicativos OAuth](/v3/oauth/)"
+- "[Autorizando aplicativos OAuth](/developers/apps/authorizing-oauth-apps)"

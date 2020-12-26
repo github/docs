@@ -22,5 +22,5 @@ You can use {% data variables.product.prodname_code_scanning %} webhooks to buil
 ### 参考リンク
 
 * "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)"
-* "[Configuring code scanning in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system)"
+* "[Using {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} with your existing CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system)"
 * "[SARIF support for code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)"

@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The `git filter-branch` command and the BFG Repo-Cleaner rewrite your repository's history, which changes the SHAs for existing commits that you alter and any dependent commits. Changed commit SHAs may affect open pull requests in your repository. We recommend merging or closing all open pull requests before removing files from your repository.
@@ -37,6 +38,12 @@ To replace all text listed in `passwords.txt` wherever it can be found in your r
 
 ```shell
 $ bfg --replace-text passwords.txt
+```
+
+After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
+
+```shell
+$ git push --force
 ```
 
 See the [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
@@ -134,7 +141,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
 
   {% endnote %}
 
-## Avoiding accidental commits in the future
+### Avoiding accidental commits in the future
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
@@ -145,5 +152,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 
 ### 더 읽을거리
 
-- [`git filter-branch` main page](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

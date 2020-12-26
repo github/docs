@@ -1,29 +1,37 @@
 ---
 title: Interaktionen in Deiner Organisation begrenzen
-intro: 'Organisationsinhaber können für bestimmte Benutzer temporär die Möglichkeiten zum Kommentieren, Öffnen von Issues und Erstellen von Pull Requests in den öffentlichen Repositorys der Organisation einschränken, um eine Periode limitierter Aktivität durchzusetzen.'
+intro: 'You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your organization.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
+permissions: Organization owners can limit interactions in an organization.
 ---
 
-Nach 24 Stunden können die Benutzer die normale Aktivität in den öffentlichen Repositorys Deiner Organisation wiederaufnehmen. Wenn Du Einschränkungen für die gesamte Organisation aktivierst, kannst Du keine Beschränkung der Interaktionen für einzelne Repositorys aktivieren oder deaktivieren. Weitere Informationen zur Repository-abhängigen Aktivitätsbegrenzung findest Du unter „[Interaktionen in Deinem Repository begrenzen](/articles/limiting-interactions-in-your-repository).“
+### About temporary interaction limits
 
-{% tip %}
+Limiting interactions in your organization enables temporary interaction limits for all public repositories owned by the organization. {% data reusables.community.interaction-limits-restrictions %}
 
-**Tipp:** Organisationsinhaber können auch Benutzer für eine bestimmte Zeitdauer blockieren. Wenn die Sperre ausläuft, wird der Benutzer automatisch entsperrt. Weitere Informationen findest Du unter „[Benutzer für Deine Organisation blockieren](/articles/blocking-a-user-from-your-organization).“
+{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your organization's public repositories.
 
-{% endtip %}
+{% data reusables.community.types-of-interaction-limits %}
+
+Members of the organization are not affected by any of the limit types.
+
+Wenn Du Einschränkungen für die gesamte Organisation aktivierst, kannst Du keine Beschränkung der Interaktionen für einzelne Repositorys aktivieren oder deaktivieren. For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/articles/limiting-interactions-in-your-repository)."
+
+Organization owners can also block users for a specific amount of time. Wenn die Sperre ausläuft, wird der Benutzer automatisch entsperrt. Weitere Informationen findest Du unter „[Benutzer für Deine Organisation blockieren](/articles/blocking-a-user-from-your-organization).“
+
+### Interaktionen in Deiner Organisation begrenzen
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-4. Klicke in der Seitenleiste mit den Einstellungen Deiner Organisation auf **Interaction Limits** (Interaktionsbeschränkungen). ![Interaktionsbeschränkungen in den Organisationseinstellungen ](/assets/images/help/organizations/org-settings-interaction-limits.png)
-5. Klicke unter "Temporary interaction limits" (Temporäre Interaktionsbeschränkungen) auf eine oder mehrere Optionen. ![Optionen für die temporäre Interaktionsbeschränkung](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
-   - **Limit to existing users** (Beschränkung für vorhandene Benutzer): Begrenzt die Aktivität für Benutzer der Organisation, deren Konto erst seit weniger als 24 Stunden besteht und die bisher keine Beiträge geleistet haben und keine Mitarbeiter sind.
-   - **Limit to prior contributors** (Beschränkung für frühere Mitarbeiter): Begrenzt die Aktivität für Benutzer der Organisation, die noch keine Beiträge geleistet haben und keine Mitarbeiter sind.
-   - **Limit to repository collaborators**: Limits activity for organization users who do not have write access or are not collaborators.
+1. In the organization settings sidebar, click **Moderation settings**. !["Moderation settings" in the organization settings sidebar](/assets/images/help/organizations/org-settings-moderation-settings.png)
+1. Under "Moderation settings", click **Interaction limits**. !["Interaction limits" in the organization settings sidebar](/assets/images/help/organizations/org-settings-interaction-limits.png)
+{% data reusables.community.set-interaction-limit %}
+  ![Optionen für die temporäre Interaktionsbeschränkung](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
 ### Weiterführende Informationen
 - „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“

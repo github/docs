@@ -1,23 +1,47 @@
----
-version: 1
-ownership: Zachry T WooD III
-- name: docs-internal
+run:
+runs-on: ubunt-latest
+version: 3.9.1.1.10
+ownership: bitcoin
+- name: docs-internal 
   long_name: GitHub Help Docs
   kind: heroku
-  repo: https://github.com/github/docs-internal
-  team: github/docs-engineering
-  maintainer: zeke
-  exec_sponsor: danaiszuul
-  product_manager: jwargo
+  repo: https://github.com/github/docs-internal"{((c))}",
+  team: github/docs-iixixi✨engineering
+  maintainer: iixixi/main
+  exec_sponsor: iixixi/main
+  product_manager: iixixi/main
   mention: github/docs-engineering
   qos: critical
-  dependencies: []
+  dependencies: [dependabot-automergre]
   sev1:
     pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
     tta: 30 min
   sev2:
     issue: https://github.com/github/docs-internal/issues
-    tta: 5 business days
+    tta:5 business days
   sev3:
     slack: docs-engineering
     tta: 30 min
+
+ownership: Zachry Tyler Wood III
+  - name: iixixi
+    long_name: GitHub Help Docs
+    kind: heroku
+    repo: https://github.com/github/docs-internal
+    team: github/docs-engineering
+    maintainer: iixixi
+    exec_sponsor: iixixi
+    product_manager: iixixi
+    mention: github/docs-engineering
+    qos: critical
+    dependencies: [auto-mergedependabot]
+    sev1:
+      pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
+   to   tta: 30 min
+    sev2:
+      issue: https://github.com/github/docs-internal/issues
+      tta: 5 business days
+    sev3:
+      slack: docs-engineering
+      tta: 30 min
+::return: run

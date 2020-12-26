@@ -1,7 +1,7 @@
 ---
 title: 为设备配置代码扫描
 shortTitle: 配置代码扫描
-intro: '您可以为 {% data variables.product.product_location_enterprise %} 启用、配置和禁用 {% data variables.product.prodname_code_scanning %}。 {% data variables.product.prodname_code_scanning_capc %} 允许用户扫描代码以发现漏洞和错误。'
+intro: '您可以为 {% data variables.product.product_location %} 启用、配置和禁用 {% data variables.product.prodname_code_scanning %}。 {% data variables.product.prodname_code_scanning_capc %} 允许用户扫描代码以发现漏洞和错误。'
 product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 4
 redirect_from:
@@ -20,7 +20,7 @@ versions:
 
 {% data reusables.code-scanning.enabling-options %}
 
-为使用户 {% data variables.product.product_location_enterprise %} 在仓库中启用 {% data variables.product.prodname_code_scanning %}，您需要作为站点管理员为整个设备启用此功能。
+为使用户 {% data variables.product.product_location %} 在仓库中启用 {% data variables.product.prodname_code_scanning %}，您需要作为站点管理员为整个设备启用此功能。
 
 ### 如何知道我的设备是否启用 {% data variables.product.prodname_code_scanning %}
 
@@ -55,18 +55,18 @@ versions:
 要在 {% data variables.product.prodname_ghe_server %} 上使用 {% data variables.product.prodname_actions %} 运行 {% data variables.product.prodname_code_scanning %}，必须在本地可以进行适当的操作。 您可以通过三种方式使操作可用。
 
 - **推荐** 您可以使用 [{% data variables.product.prodname_github_connect %}](/enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud) 自动从 {% data variables.product.prodname_dotcom_the_website %} 下载操作。 托管实例的机器必须能够访问 {% data variables.product.prodname_dotcom_the_website %}。 此方法可确保自动获取最新软件。 更多信息请参阅“[配置 {% data variables.product.prodname_github_connect %} 以同步 {% data variables.product.prodname_actions %}](/enterprise/admin/configuration/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)”。
-- 如果要使用 {% data variables.product.prodname_codeql_workflow %}，可以使用 [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/) 上的 {% data variables.product.prodname_codeql %} 操作同步工具将仓库从 {% data variables.product.prodname_dotcom_the_website %} 同步到 {% data variables.product.prodname_ghe_server %}。 无论您的 {% data variables.product.product_location_enterprise %} 或 {% data variables.product.prodname_actions %} 运行器是否可以访问互联网， 只要您可以同时在计算机上访问 {% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}，您都可以使用此工具。
+- 如果要使用 {% data variables.product.prodname_codeql_workflow %}，可以使用 [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/) 上的 {% data variables.product.prodname_codeql %} 操作同步工具将仓库从 {% data variables.product.prodname_dotcom_the_website %} 同步到 {% data variables.product.prodname_ghe_server %}。 无论您的 {% data variables.product.product_location %} 或 {% data variables.product.prodname_actions %} 运行器是否可以访问互联网， 只要您可以同时在计算机上访问 {% data variables.product.product_location %} 和 {% data variables.product.prodname_dotcom_the_website %}，您都可以使用此工具。
 - 您可以通过使用操作克隆仓库，在服务器上创建 {% data variables.product.prodname_dotcom_the_website %} 仓库的本地副本。 例如，如果要使用 {% data variables.product.prodname_codeql %} 操作，可以在实例中创建一个名为 `github/codeql-action` 的仓库，然后从 {% data variables.product.prodname_dotcom_the_website %} 克隆[仓库](https://github.com/github/codeql-action)，再将该仓库推送到实例的 `github/codeql-action` 仓库。 您还需要从 {% data variables.product.prodname_dotcom_the_website %} 上的仓库下载任何发行版，并将它们作为发行版上传到实例的 `github/codeql-action` 仓库。
 
 
 ##### 配置 {% data variables.product.prodname_github_connect %} 以同步 {% data variables.product.prodname_actions %}
 
 1. 如果要从 {% data variables.product.prodname_dotcom_the_website %} 下载按需操作工作流程，则需要启用 {% data variables.product.prodname_github_connect %}。 更多信息请参阅“[启用 {% data variables.product.prodname_github_connect %}](/enterprise/admin/configuration/connecting-github-enterprise-server-to-github-enterprise-cloud#enabling-github-connect)”。
-2. 您还需要为 {% data variables.product.product_location_enterprise %} 启用 {% data variables.product.prodname_actions %}。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
+2. 您还需要为 {% data variables.product.product_location %} 启用 {% data variables.product.prodname_actions %}。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
 3. 下一步是使用 {% data variables.product.prodname_github_connect %} 配置对 {% data variables.product.prodname_dotcom_the_website %} 上的操作的访问权限。 更多信息请参阅“[启用使用 {% data variables.product.prodname_github_connect %} 自动访问 {% data variables.product.prodname_dotcom_the_website %} 操作](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)”。
 4. 将自托管运行器添加到仓库、组织或企业帐户。 更多信息请参阅“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
 
-在配置自托管运行器后，用户可以对 {% data variables.product.prodname_code_scanning %} 上的单个仓库启用 {% data variables.product.product_location_enterprise %}。 默认 {% data variables.product.prodname_code_scanning %} 工作流程使用 `on.push` 事件触发代码扫描 - 每次推送到任何包含工作流程文件的分支时触发。
+在配置自托管运行器后，用户可以对 {% data variables.product.prodname_code_scanning %} 上的单个仓库启用 {% data variables.product.product_location %}。 默认 {% data variables.product.prodname_code_scanning %} 工作流程使用 `on.push` 事件触发代码扫描 - 每次推送到任何包含工作流程文件的分支时触发。
 
 ### 使用 {% data variables.product.prodname_codeql_runner %} 运行 {% data variables.product.prodname_code_scanning %}
 如果您的组织未参加 {% data variables.product.prodname_actions %} 的测试版，或者您不想使用 {% data variables.product.prodname_actions %}，则可以使用 {% data variables.product.prodname_codeql_runner %} 运行 {% data variables.product.prodname_code_scanning %}。

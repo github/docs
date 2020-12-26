@@ -61,7 +61,7 @@ versions:
     - 仓库
     - 团队 ![订阅事件复选框](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
-13. 要启用 {% data variables.product.prodname_github_app %} 访问 {% data variables.product.product_location_enterprise %} 中任何用户或组织的数据，请在“此 {% data variables.product.prodname_github_app %} 可安装在何处？”下，选择 **Any account（任何帐户）**。 ![启用访问任何帐户的单选按钮](/assets/images/help/apps/github_apps_installation_options_any_account.png)
+13. 要启用 {% data variables.product.prodname_github_app %} 访问 {% data variables.product.product_location %} 中任何用户或组织的数据，请在“此 {% data variables.product.prodname_github_app %} 可安装在何处？”下，选择 **Any account（任何帐户）**。 ![启用访问任何帐户的单选按钮](/assets/images/help/apps/github_apps_installation_options_any_account.png)
 14. 单击**创建 {% data variables.product.prodname_github_app %}**。 ![创建 GitHub 应用程序按钮](/assets/images/help/apps/github_apps_create_github_app.png)
 15. 检查应用程序的配置。
 16. 在“Private keys（私钥）”下，单击 **Generate a private key（生成私钥）**。 ![生成私钥按钮](/assets/images/help/apps/generate-private-key.png)

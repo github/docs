@@ -1,6 +1,6 @@
 ---
 title: 设置提交电子邮件地址
-intro: '您可以在与您所执行的基于 Web 的 Git 操作（例如编辑与合并）关联的 {% data variables.product.product_name %} 上设置主电子邮件地址。'
+intro: 'You can set the email address that is used to author commits on {% data variables.product.product_name %} and on your computer.'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于提交电子邮件地址
@@ -37,7 +38,7 @@ versions:
 
 您也可以选择阻止从命令行推送的提交显示您的个人电子邮件地址。 更多信息请参阅“[阻止推送的命令行显示您的个人电子邮件地址](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)”。{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account/){% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings{% endif %}.
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% if currentVersion != "github-ae@latest" %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -1,11 +1,12 @@
 ---
 title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Required co-author information
@@ -30,7 +31,7 @@ For more information, see "[Setting your commit email address](/articles/setting
 
 ### Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -67,10 +68,10 @@ After you've made changes in a file using the web editor on {% data variables.pr
 The new commit and message will appear on {% data variables.product.product_location %}.
 
 ### 더 읽을거리
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
 - "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"
 - "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
 - "[Changing a commit message](/articles/changing-a-commit-message)"
-- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation
+- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation

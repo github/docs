@@ -1,7 +1,7 @@
 ---
-title: Sharing workflows with your organization
-shortTitle: Sharing workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, and self-hosted runners.'
+title: 与组织共享工作流程
+shortTitle: 与组织共享工作流程
+intro: '了解如何通过共享工作流模板、机密和自托管运行器，使用组织功能与团队协作。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
@@ -14,7 +14,7 @@ versions:
 
 ### 概览
 
-If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
+如果需要与您的团队共享工作流程和其他 {% data variables.product.prodname_actions %} 功能，则考虑在 {% data variables.product.prodname_dotcom %} 组织内协作。 组织允许您集中存储和管理机密、构件和自托管运行器。 您也可以在 `.github` 仓库中创建工作流程模板，并与您组织中的其他用户共享。
 
 ### 创建工作流程模板
 
@@ -85,9 +85,9 @@ If you need to share workflows and other {% data variables.product.prodname_acti
 1. 组织的工作流程模板位于其自己名为“_组织名称_创建的工作流程”的区域中。 在您想要使用的模板名称下，单击 **Set up this workflow（设置此工作流程）**。 ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 
-### Sharing secrets within an organization
+### 在组织内共享机密
 
-You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
+您可以在组织内集中管理您的机密，然后将其提供给选定的仓库。 这也意味着您可以在一个位置更新机密，并且将更改应用于使用该机密的所有仓库工作流程。
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
@@ -102,13 +102,13 @@ You can centrally manage your secrets within an organization, and then make them
 1. 从 **Repository access（仓库访问权限）**下拉列表，选择访问策略。
 1. 单击 **Add secret（添加密码）**。
 
-### Share self-hosted runners within an organization
+### 在组织内共享自托管运行器
 
-Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
+组织管理员可以将其自托管的运行器添加到组，然后创建控制哪些仓库可访问该组的策略。
 
 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
 
 ### 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
+要继续了解 {% data variables.product.prodname_actions %}，请参阅“[{% data variables.product.prodname_actions %} 的安全强化](/actions/learn-github-actions/security-hardening-for-github-actions)”。

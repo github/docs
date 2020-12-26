@@ -9,6 +9,7 @@ intro: 'After you open a pull request in a repository, collaborators or team mem
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About pull request comments

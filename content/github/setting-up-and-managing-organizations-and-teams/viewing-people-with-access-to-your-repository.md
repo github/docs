@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Administrators can use this information to help off-board people, gather data for compliance, and other general security checkups.

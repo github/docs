@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Der Befehl `git filter-branch` und BFG Repo-Cleaner schreiben den Verlauf Deines Repositorys neu, was die SHAs verändert für bestehende und davon abhängige Commits, die Du veränderst. Geänderte Commit-SHAs können sich auf offene Pull Requests in Deinem Repository auswirken. Wir raten dringend, alle offenen Pull Requests zusammenzuführen oder zu schließen, bevor Du Dateien aus Deinem Repository entfernst.
@@ -37,6 +38,12 @@ Um allen Text in der Datei `passwords.txt` zu ersetzen, unabhängig davon, wo er
 
 ```shell
 $ bfg --replace-text passwords.txt
+```
+
+After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
+
+```shell
+$ git push --force
 ```
 
 Ausführliche Informationen zum Download und zur Verwendung von [BFG Repo-Cleaner](http://rtyley.github.io/bfg-repo-cleaner/) findest Du in seiner Dokumentation.
@@ -134,7 +141,7 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
 
   {% endnote %}
 
-## Versehentliche Commits künftig vermeiden
+### Versehentliche Commits künftig vermeiden
 
 Durch einige einfache Tricks vermeidest Du den versehentlichen Commit von Änderungen, die nicht festgeschrieben werden sollen:
 
@@ -145,5 +152,5 @@ Durch einige einfache Tricks vermeidest Du den versehentlichen Commit von Änder
 
 ### Weiterführende Informationen
 
-- [Hauptseite zu `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git-Tools – Verlauf umschreiben](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

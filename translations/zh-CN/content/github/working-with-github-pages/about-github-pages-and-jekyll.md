@@ -21,13 +21,14 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 Jekyll
 
 Jekyll 是一个静态站点生成器，内置 {% data variables.product.prodname_pages %} 支持和简化的构建过程。 Jekyll 使用 Markdown 和 HTML 文件，并根据您选择的布局创建完整静态网站。 Jekyll 支持 Markdown 和 Lick，这是一种可在网站上加载动态内容的模板语言。 更多信息请参阅 [Jekyll](https://jekyllrb.com/)。
 
-Windows 并未正式支持 Jekyll。 更多信息请参阅 Jekyll 文档中的“[Windows 上的 Jekyll](http://jekyllrb.com/docs/windows/#installation)”。
+Windows 并未正式支持 Jekyll。 For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
 我们建议将 Jekyll 用于 {% data variables.product.prodname_pages %}。 如果您喜欢，可以使用其他静态站点生成器或者在本地或其他服务器上自定义构建过程。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)”。
 

@@ -10,9 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% data reusables.notifications.outbound_email_tip %}
 
 リポジトリへのプッシュに対する各メール通知は、新しいコミットとそれらのコミットだけを含む diff へのリンクのリストを含みます。 このメール通知には以下が含まれます:
 
@@ -24,7 +25,7 @@ versions:
 - コミットの一部として変更されたファイル群
 - コミットメッセージ
 
-リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
+リポジトリへのプッシュに対して受け取るメール通知はフィルタリングできます。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." プッシュのメール通知を無効にすることもできます。 詳しい情報については、「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}」を参照してください。
 
 ### リポジトリへのプッシュに対するメール通知の有効化
 
@@ -36,7 +37,7 @@ versions:
 7. **Save settings（設定の保存）**をクリックしてください。 ![設定保存のボタン](/assets/images/help/settings/save_notification_settings.png)
 
 ### 参考リンク
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - 「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications)」
 {% else %}
 - 「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」

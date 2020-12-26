@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -29,7 +30,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. Lege bei der Eingabeaufforderung die Art des Schlüssels fest, den Du willst, oder drücke `Enter` (Eingabetaste), um die Standardeinstellung `RAS and DSA` zu akzeptieren.
+4. Legen Sie bei der Eingabeaufforderung die gewünschte Schlüsselart fest, oder drücken Sie die **Eingabetaste**, um die Standardeinstellung `RSA and RSA` (RSA und RSA) zu akzeptieren.
 5. Gib die gewünschte Schlüsselgröße ein. Den Schlüssel muss mindestens `4096` Bits sein.
 6. Gib die Zeitdauer für die Gültigkeit des Schlüssels ein. Drücke `Enter` (Eingabetaste), um die Standardeinstellung festzulegen, die vorgibt, dass der Schlüssel nicht abläuft.
 7. Überprüfe, dass Deine Einstellungen korrekt sind.

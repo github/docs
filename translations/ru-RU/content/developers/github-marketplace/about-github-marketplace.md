@@ -1,6 +1,6 @@
 ---
 title: About GitHub Marketplace
-intro: 'Learn the basics to prepare your app for review before joining {% data variables.product.prodname_marketplace %}.'
+intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps and actions publicly with all {% data variables.product.product_name %} users.'
 redirect_from:
   - /apps/marketplace/getting-started/
   - /marketplace/getting-started
@@ -14,52 +14,41 @@ versions:
 
 {% data reusables.actions.actions-not-verified %}
 
-To learn about publishing {% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}, see "[{% data variables.product.prodname_actions %} in the {% data variables.product.prodname_marketplace %}](/marketplace/actions/)."
+To learn about publishing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_marketplace %}, see "[Publishing actions in GitHub Marketplace](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
 ### Приложения
 
-You can list verified and unverified apps in {% data variables.product.prodname_marketplace %}. Unverified apps do not go through the security, testing, and verification cycle {% data variables.product.prodname_dotcom %} requires for verified apps.
+Anyone can share their apps with other users on {% data variables.product.prodname_marketplace %} but only listings that are verified by {% data variables.product.company_short %} can include paid plans. For more information, see "[About verified creators](/developers/github-marketplace/about-verified-creators)."
 
-Verified apps have a green badge in {% data variables.product.prodname_marketplace %}. Unverified apps have a grey badge next to their listing and are only available as free apps.
+If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" or "[Building {% data variables.product.prodname_oauth_app %}s](/developers/apps/building-oauth-apps)."
 
-![Green verified and grey unverified badge](/assets/images/marketplace/marketplace_verified_badges.png)
-
-If you're interested in creating an app for {% data variables.product.prodname_marketplace %}, but you're new to {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s, see "[Building apps](/apps/)."
-
-{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}. See "[Differences between GitHub and OAuth apps](/apps/differences-between-apps/)" for more details. To learn more about switching from OAuth to {% data variables.product.prodname_github_apps %}, see [Migrating OAuth Apps to {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/).
+{% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_app %}s in {% data variables.product.prodname_marketplace %}. For more information, see "[Differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_app %}s](/apps/differences-between-apps/)" and "[Migrating {% data variables.product.prodname_oauth_app %}s to {% data variables.product.prodname_github_apps %}](/apps/migrating-oauth-apps-to-github-apps/)."
 
 If you have questions about {% data variables.product.prodname_marketplace %}, please contact {% data variables.contact.contact_support %} directly.
 
-#### Unverified Apps
+### Publishing an app to {% data variables.product.prodname_marketplace %}
 
-Unverified apps do not need to meet the "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" or go through the "[Security review process](/marketplace/getting-started/security-review-process/)".
+When you have finished creating your app, you can share it with other users by publishing it to {% data variables.product.prodname_marketplace %}. In summary, the process is:
 
-{% data reusables.marketplace.unverified-apps %} Having a published paid plan will prevent you from being able to submit an unverified app. You must remove paid plans or keep them in draft mode before publishing an unverified app.
+1. Review your app carefully to ensure that it will behave as expected in other repositories and that it follows best practice guidelines. For more information, see "[Security best practices for apps](/developers/github-marketplace/security-best-practices-for-apps)" and "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app#best-practice-for-customer-experience)."
 
-To list your unverified app in {% data variables.product.prodname_marketplace %}, you only need to create a "[Listing on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/)" and submit it as an unverified listing.
+1. Add webhook events to the app to track user billing requests. For more information about the {% data variables.product.prodname_marketplace %} API, webhook events, and billing requests, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-{% data reusables.marketplace.launch-with-free %}
+1. Create a draft {% data variables.product.prodname_marketplace %} listing. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)."
 
-#### Verified Apps
+1. Add a pricing plan. For more information, see "[Setting pricing plans for your listing](/developers/github-marketplace/setting-pricing-plans-for-your-listing)."
 
-If you've already built an app and you're interested in submitting a verified listing in {% data variables.product.prodname_marketplace %}, start here:
+1. Check whether your app meets the requirements for listing on {% data variables.product.prodname_marketplace %} as a free or a paid app. For more information, see "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
 
-1. [Getting started with {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/)<br/>Learn about requirements, guidelines, and the app submission process.
+1. Read and accept the terms of the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/articles/github-marketplace-developer-agreement/)."
 
-1. [Integrating with the {% data variables.product.prodname_marketplace %} API](/marketplace/integrating-with-the-github-marketplace-api/)<br/>Before you can list your app on {% data variables.product.prodname_marketplace %}, you'll need to integrate billing flows using the {% data variables.product.prodname_marketplace %} API and webhook events.
+1. Submit your listing for publication in {% data variables.product.prodname_marketplace %}, requesting verification if you want to sell the app. For more information, see "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication)."
 
-1. [Listing on {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/) <br/>Create a draft {% data variables.product.prodname_marketplace %} listing, configure webhook settings, and set up pricing plans.
+An onboarding expert will contact you with any questions or further steps. For example, if you have added a paid plan, you will need to complete the verification process and complete financial onboarding. As soon as your listing is approved the app is published to {% data variables.product.prodname_marketplace %}.
 
-1. [Selling your app](/marketplace/selling-your-app/)<br/>Learn about pricing plans, billing cycles, and how to receive payment from {% data variables.product.prodname_dotcom %} for your app.
+### Seeing how your app is performing
 
-1. [{% data variables.product.prodname_marketplace %} Insights](/marketplace/github-marketplace-insights/)<br/>See how your app is performing in {% data variables.product.prodname_marketplace %}. You can use metrics collected by {% data variables.product.prodname_dotcom %} to guide your marketing campaign and  be successful in {% data variables.product.prodname_marketplace %}.
+You can access metrics and transactions for your listing. Дополнительные сведения см. в:
 
-1. [{% data variables.product.prodname_marketplace %} transactions](/marketplace/github-marketplace-transactions/)<br/>Download and view transaction data for your {% data variables.product.prodname_marketplace %} listing.
-
-### Reviewing your app
-
-We want to make sure that the apps offered on {% data variables.product.prodname_marketplace %} are safe, secure, and well tested. The {% data variables.product.prodname_marketplace %} onboarding specialists will review your app to ensure that it meets all requirements. Follow the guidelines in these articles before submitting your app:
-
-
-* [Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)
-* [Security review process](/marketplace/getting-started/security-review-process/)
+- "[Viewing metrics for your listing](/developers/github-marketplace/viewing-metrics-for-your-listing)"
+- "[Viewing transactions for your listing](/developers/github-marketplace/viewing-transactions-for-your-listing)"

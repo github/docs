@@ -41,7 +41,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.save-custom-domain %}
 5. お使いの DNS プロバイダにアクセスし、サブドメインがサイトのデフォルトドメインを指す `CNAME` レコードを作成します。 たとえば、サイトで `www.example.com` というサブドメインを使いたい場合、`www.example.com` が `<user>.github.io` を指す`CNAME` レコードを作成します。 If you want to use the subdomain `www.anotherexample.com` for your organization site, create a `CNAME` record that points `www.anotherexample.com` to `<organization>.github.io`. The `CNAME` file should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name.
-{% data reusables.pages.contact-dns-provider %}{% data reusables.pages.default-domain-information %}
+{% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. DNS レコードが正しくセットアップされたことを確認するには、 `dig` コマンドを使います。_WWW.EXAMPLE.COM_ は、お使いのサブドメインに置き換えてください。
 ```shell

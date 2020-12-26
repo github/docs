@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -28,7 +29,7 @@ assignees: octocat
 ```
 {% note %}
 
-**注釈:** YAML で予約済みの文字を `:` などの引用符で囲む必要があります。 たとえば、`":bug: Bug"` です。
+**注釈:** フロントマター値に `:` などの YAML 予約文字が含まれている場合は、値全体を引用符で囲む必要があります。 たとえば、`":bug: Bug"` または `":new: triage needed, :bug: bug"` などです。
 
 {% endnote %}
 
@@ -38,7 +39,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Issue テンプレートを追加する
 

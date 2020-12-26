@@ -79,7 +79,7 @@ Content-Length: 0123
 ]
 ```
 
-The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match.
+The message body is a JSON array that contains one or more objects with the following contents. When multiple matches are found, {% data variables.product.prodname_dotcom %}  may send a single message with more than one secret match. Your endpoint should be able to handle requests with a large number of matches without timing out.
 
 * **Token**: The value of the secret match.
 * **Type**: The unique name you provided to identify your regular expression.
@@ -139,7 +139,7 @@ func main() {
     fmt.Printf("Error preparing request: %s\n", err)
     os.Exit(1)
   }
-  
+
   if len(os.Getenv("GITHUB_PRODUCTION_TOKEN")) == 0 {
     fmt.Println("Need to define environment variable GITHUB_PRODUCTION_TOKEN")
     os.Exit(1)

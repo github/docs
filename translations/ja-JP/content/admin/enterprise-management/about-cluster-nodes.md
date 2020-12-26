@@ -63,7 +63,7 @@ versions:
 #### クラスタの図の例
 {% note %}
 
-**注意：これは例に過ぎません。**組織にとって最適なクラスタの設計は、組織に特有の要求に依存します。 Talk to your dedicated representative or {% data variables.contact.contact_enterprise_sales %} so we can help you determine the best cluster configuration.
+**注意：これは例に過ぎません。**組織にとって最適なクラスタの設計は、組織に特有の要求に依存します。 専任の担当者または {% data variables.contact.contact_enterprise_sales %} にご相談ください。最適なクラスタ設定を決めるためのお手伝いをいたします。
 
 {% endnote %}
 

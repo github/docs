@@ -15,7 +15,7 @@ versions:
 
 {% data reusables.codespaces.about-configuration %}
 
-If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes tools for Node.js, JavaScript, TypeScript, Python, C++, Java, C#, .NET Core, PHP, and PowerShell. For more information about the base Linux image, see the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) repository.
+If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes tools for Python, Node.js, JavaScript, TypeScript, C++, Java, C#, F#, .NET Core, PHP, PowerShell, Go, Ruby, and Rust. For more information about the base Linux image, see the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) repository.
 
 {% data reusables.codespaces.about-personalization %} {% data reusables.codespaces.codespace-config-order %} Weitere Informationen findest Du unter „[{% data variables.product.prodname_codespaces %} für Dein Konto personalisieren](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)."
 
@@ -61,7 +61,6 @@ Du kannst Konfigurationsschlüssel verwenden, die von {% data variables.product.
 - `settings`
 - `extensions`
 - `forwardPorts`
-- `devPort`
 - `postCreateCommand`
 
 #### Docker-, Dockerfile- oder Image-Einstellungen
@@ -73,13 +72,9 @@ Du kannst Konfigurationsschlüssel verwenden, die von {% data variables.product.
 - `remoteEnv`
 - `containerUser`
 - `remoteUser`
-- `updateRemoteUserUID`
 - `mounts`
-- `workspaceMount`
-- `workspaceFolder`
 - `runArgs`
 - `overrideCommand`
-- `shutdownAction`
 - `dockerComposeFile`
 
 Weitere Informationen über die verfügbaren Einstellungen für `devcontainer.json` findest Du unter [devcontainer.json-Referenz](https://aka.ms/vscode-remote/devcontainer.json) in der {% data variables.product.prodname_vscode %}-Dokumentation.

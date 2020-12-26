@@ -19,7 +19,7 @@ versions:
 
 {% note %}
 
-**Note**: Because regularly polling {% data variables.product.product_location_enterprise %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)".
+**Note**: Because regularly polling {% data variables.product.product_location %} with continuous integration (CI) or build servers can effectively cause a denial of service attack that results in problems, we recommend using webhooks to push updates. For more information, see "[About webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)".
 
 {% endnote %}
 

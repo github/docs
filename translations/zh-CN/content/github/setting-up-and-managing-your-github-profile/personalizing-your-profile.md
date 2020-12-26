@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 更改头像
@@ -51,7 +52,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 有关个人资料自述文件的更多信息，请参阅“[管理个人资料自述文件](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
+要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 
 {% endif %}
 

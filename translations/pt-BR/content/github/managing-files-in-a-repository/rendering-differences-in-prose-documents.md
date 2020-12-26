@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits e pull requests que incluem documentos de prosa podem representar esses documentos com as exibições *source* (original) e *rendered* (renderizada).

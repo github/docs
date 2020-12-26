@@ -32,7 +32,7 @@ Se nenhum desses arquivos for encontrado, quaisquer arquivos ou pastas nos `dotf
 
 Quaisquer alterações no repositório de `dotfiles` serão aplicadas apenas a cada novo codespace e não afetarão nenhum codespace existente.
 
-Para obter mais informações, consulte [Personalizar](https://docs.microsoft.com/en-us/visualstudio/online/reference/personalizing) na documentação do {% data variables.product.prodname_vscode %}.
+Para obter mais informações, consulte [Personalizar](https://docs.microsoft.com/visualstudio/online/reference/personalizing) na documentação do {% data variables.product.prodname_vscode %}.
 
 {% note %}
 

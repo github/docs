@@ -33,7 +33,7 @@ versions:
 
 {% note %}
 
-**メモ:** リポジトリを無視することもできます。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {% data reusables.policies.abuse %}{% endif %}
+**メモ:** リポジトリを無視することもできます。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% if currentVersion == "free-pro-team@latest" %}乱用を経験し、Team を無視したい場合は、私たちがサポートしますので、[サポートに連絡してください](/contact)。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

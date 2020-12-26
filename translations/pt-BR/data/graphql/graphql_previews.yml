@@ -53,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: Acesso aos Repositórios com Gráfico de Dependência
   description: Esta visualização adiciona suporte para a leitura em um repositório com gráfico de dependência.
@@ -102,7 +102,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: Visualização de Issues fixados
   description: Esta visualização adiciona suporte para os issues fixos.

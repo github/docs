@@ -18,7 +18,7 @@ versions:
 
 {% note %}
 
-**Observação**: fazer sondagens regularmente na {% data variables.product.product_location_enterprise %} com integração contínua (CI, Continuous Integration) ou criar servidores pode causar um ataque de negação de serviço e gerar problemas. Portanto, recomendamos o uso de webhooks para fazer push das atualizações. Para obter mais informações, consulte "[Sobre webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)".
+**Observação**: fazer sondagens regularmente na {% data variables.product.product_location %} com integração contínua (CI, Continuous Integration) ou criar servidores pode causar um ataque de negação de serviço e gerar problemas. Portanto, recomendamos o uso de webhooks para fazer push das atualizações. Para obter mais informações, consulte "[Sobre webhooks](/enterprise/{{ currentVersion }}/user/articles/about-webhooks/)".
 
 {% endnote %}
 

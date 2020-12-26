@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -128,7 +129,7 @@ At GitHub, we've used a version of [Janky][janky] to manage our CI for years. Th
 
 All of this communication is funneled back to our chat rooms. You don't need to build your own CI setup to use this example. You can always rely on [GitHub integrations][integrations].
 
-[status API]: /v3/repos/statuses/
+[status API]: /rest/reference/repos#statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

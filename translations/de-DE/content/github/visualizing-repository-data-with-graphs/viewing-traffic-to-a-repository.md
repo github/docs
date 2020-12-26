@@ -1,6 +1,6 @@
 ---
-title: Viewing traffic to a repository
-intro: 'Anyone with push access to a repository can view its traffic, including full clones (not fetches), visitors from the past 14 days, referring sites, and popular content in the traffic graph.'
+title: Traffic zu einem Repository anzeigen
+intro: 'Personen mit Push-Zugriff auf ein Repository können den zugehörigen Traffic anzeigen, darunter die vollständigen Klone (keine Abrufe), die Besucher der letzten 14 Tage, die verweisenden Websites und die beliebten Inhalte im Traffic-Diagramm.'
 product: 'This repository insights graph is available in public repositories with {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_free_team %} for organizations, and in public and private repositories with {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[About repository graphs](/articles/about-repository-graphs)" and "[{% data variables.product.prodname_dotcom %}''s products](/articles/github-s-products)."{% endif %}'
 redirect_from:
   - /articles/viewing-traffic-to-a-repository
@@ -8,21 +8,20 @@ versions:
   free-pro-team: '*'
 ---
 
-You can navigate to referring sites, excluding search engines and {% data variables.product.product_name %} itself, from the links the specific paths were referred from. The popular content links to the specific content that generated traffic.
+Sie können zu den verweisenden Websites, mit Ausnahme der Suchmaschinen und {% data variables.product.product_name %} selbst, über die Links navigieren, von denen aus auf die spezifischen Pfade verwiesen wurde. Der beliebte Inhalt wird mit dem spezifischen Inhalt verknüpft, der Traffic generiert hat.
 
-Referring sites and popular content are ordered by views and unique visitors. Full clones and visitor information update hourly, while referring sites and popular content sections update daily. All data in the traffic graph uses the UTC+0 timezone, regardless of your location.
+Verweisende Websites und beliebte Inhalte sind nach Ansichten und eindeutigen Besuchern sortiert. Informationen zu vollständigen Klonen und Besuchern werden stündlich aktualisiert. Demgegenüber werden die Abschnitte zu verweisenden Websites und beliebten Inhalten täglich aktualisiert. Alle Daten im Traffic-Diagramm verwenden unabhängig von Deinem Standort die Zeitzone UTC+0.
 
 {% tip %}
 
-**Tip:** You can hover over a specific day in the traffic graph to view the exact data for that day.
+**Tipp:** Du kannst den Mauszeiger über einen bestimmten Tag im Traffic-Diagramm bewegen, um die exakten Daten für den jeweiligen Tag anzuzeigen.
 
 {% endtip %}
 
-![Repository traffic graphs with tooltip](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
+![Repository-Traffic-Diagramm mit QuickInfo](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
 
-### Accessing the traffic graph
+### Auf das Traffic-Diagramm zugreifen
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Traffic**.
-![Traffic tab](/assets/images/help/graphs/traffic_tab.png)
+3. Klicke auf der linken Seitenleiste auf **Traffic**. ![Registerkarte „Traffic“](/assets/images/help/graphs/traffic_tab.png)

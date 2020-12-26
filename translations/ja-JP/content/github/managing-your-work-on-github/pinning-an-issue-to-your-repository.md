@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![ピン止めした Issue](/assets/images/help/issues/pinned-issues.png)

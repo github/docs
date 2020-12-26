@@ -232,12 +232,19 @@ Jenkins Pipeline
 
   ```yaml
 pipeline {
-  agent none
-  stages {
-    stage('Run Tests') {
-      parallel {
-        stage('Test On MacOS') {
-          agent { label "macos" }
+agent none
+stages {
+  stage('Run Tests') {
+    matrix {
+      axes {
+        axis {
+          name: 'PLATFORM'
+          values: 'macos', 'linux'
+        }
+      }
+      agent { label "${PLATFORM}" }
+      stages {
+        stage('test') {
           tools { nodejs "node-12" }
           steps {
             dir("scripts/myapp") {
@@ -246,19 +253,10 @@ pipeline {
             }
           }
         }
-        stage('Test On Linux') {
-          agent { label "linux" }
-          tools { nodejs "node-12" }
-          steps {
-            dir("script/myapp") {
-              sh(script: "npm install -g bats")
-              sh(script: "bats tests")
-            }
-          }
-        }
       }
     }
   }
+}
 }
   ```
 

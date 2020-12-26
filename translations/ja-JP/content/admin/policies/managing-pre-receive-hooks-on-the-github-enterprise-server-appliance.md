@@ -11,8 +11,7 @@ versions:
 
 ### pre-receiveフックの作成
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 4. **Add pre-receive hook（pre-receiveフックの追加）**をクリックしてください。 ![pre-receive フックを追加する](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
@@ -25,16 +24,14 @@ versions:
 
 ### pre-receiveフックの編集
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. 編集したい pre-receive フックの隣の {% octicon "pencil" aria-label="The edit icon" %} をクリックします。 ![pre-receiveの編集](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
 ### pre-receiveフックの削除
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. 削除したい pre-receive フックの隣の {% octicon "x" aria-label="X symbol" %} をクリックします。 ![pre-receiveの編集](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)

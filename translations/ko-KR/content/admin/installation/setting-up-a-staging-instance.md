@@ -1,6 +1,6 @@
 ---
 title: Setting up a staging instance
-intro: 'You can use a *staging instance* to test modifications before they are applied to {% data variables.product.product_location_enterprise %}. For example, you could use a staging instance to test new {% data variables.product.prodname_ghe_server %} updates or to practice importing migration data.'
+intro: 'You can use a *staging instance* to test modifications before they are applied to {% data variables.product.product_location %}. For example, you could use a staging instance to test new {% data variables.product.prodname_ghe_server %} updates or to practice importing migration data.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:

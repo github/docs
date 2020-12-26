@@ -1,4 +1,4 @@
-{% if currentVersion == "enterprise-server@2.22" %}
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 {% note %}
 

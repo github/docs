@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 必须在 Git 中[配置指向上游仓库的远程仓库](/articles/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。
-3. 从上游仓库获取分支及其各自的提交。 对 `master` 的提交将存储在本地分支 `upstream/master` 中。
+3. 从上游仓库获取分支及其各自的提交。 对 `BRANCHNAME` 的提交将存储在本地分支 `upstream/BRANCHNAME` 中。
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -20,16 +21,16 @@ versions:
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
-  >  * [new branch]      master     -> upstream/master
+  >  * [new branch]      main     -> upstream/main
   ```
-4. 检出复刻的本地 `master` 分支。
+4. 检出复刻的本地默认分支 - 在本例中，我们使用 `main`。
   ```shell
-  $ git checkout master
-  > Switched to branch 'master'
+  $ git checkout main
+  > Switched to branch 'main'
   ```
-5. 将来自 `upstream/master` 的更改合并到本地 `master` 分支中。 这会使复刻的 `master` 分支与上游仓库同步，而不会丢失本地更改。
+5. 将上游默认分支 - 本例中为 `upstream/main` - 的更改合并到本地默认分支。 这会使复刻的默认分支与上游仓库同步，而不会丢失本地更改。
   ```shell
-  $ git merge upstream/master
+  $ git merge upstream/main
   > Updating a422352..5fdff0f
   > Fast-forward
   >  README                    |    9 -------
@@ -39,7 +40,7 @@ versions:
   >  create mode 100644 README.md
   ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
   ```shell
-  $ git merge upstream/master
+  $ git merge upstream/main
   > Updating 34e91da..16c56ad
   > Fast-forward
   >  README.md                 |    5 +++--

@@ -1,10 +1,11 @@
 ---
 title: チケットのサブミットの準備
-intro: '{% data variables.contact.github_support %} が素早くお客様をご支援できるよう、サポートチケットをオープンする前にこのページのお願いをご確認ください。'
+intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 チケットをサブミットする前に以下の作業を済ませておいてください。
@@ -16,13 +17,11 @@ versions:
 - {% data variables.contact.github_support %} との進行中のやりとりがあれば、既存のチケット番号があるかを確認してください。
 - {% data variables.contact.github_support %} と連絡を取り合うのに適した人を決めてください。
 
-詳しい情報については[チケットのサブミット](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)を参照してください。
-
 ### 担当者の選択
 
 特にチケットの優先度が {% data variables.product.support_ticket_priority_urgent %} の場合、{% data variables.contact.github_support %} に問い合わせるユーザは、次のことを確認してください。
 
  - 社内のシステム、ツール、ポリシー、実務をよく知っていること。
- - {% data variables.product.prodname_ghe_server %} に熟練したユーザであること。
+ - {% data variables.product.product_name %} に熟練したユーザであること。
  - 問題のトラブルシューティングに必要なすべてのサービスへの完全なアクセスと権限を持っていること。
  - 推奨された変更をネットワーク及び該当する製品に行う権限を持っていること。

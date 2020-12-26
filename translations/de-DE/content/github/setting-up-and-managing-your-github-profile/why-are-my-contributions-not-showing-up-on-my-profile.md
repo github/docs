@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Gezählte Beiträge
@@ -28,19 +29,19 @@ Außerdem muss **mindestens eine** der folgenden Voraussetzung erfüllt sein:
 - Du bist ein Repository-Mitarbeiter oder ein Mitglied der Organisation, welcher das Repository gehört.
 - Du hast das Repository geforkt.
 - Du hast einen Pull Request oder Issue im Repository geöffnet.
-- Du hast das Repository mit Sternen versehen.
-{% if currentVersion != "free-pro-team@latest" %}
+- Sie haben das Repository mit Sternen versehen.
+
 ### Allgemeine Ursachen für nicht gezählte Beiträge
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### Die Commit-Erstellung liegt weniger als 24 Stunden zurück
 
 Nachdem Du einen Commit erstellt hast, der die Anforderung erfüllt, um als Beitrag gezählt zu werden, kann es bis zu 24 Stunden dauern, bis der Beitrag in Deinem Beteiligungsdiagramm angezeigt wird.
 
-#### Du hast Deinem Profil Deine lokale Git-Commit-E-Mail-Adresse nicht hinzugefügt
+#### Your local Git commit email isn't connected to your account
 
-Commits must be made with an email address that has been added to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 Du kannst die für einen Commit verwendete E-Mail-Adresse überprüfen. Füge dazu `.patch` am Ende einer Commit-URL hinzu, also beispielsweise <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -53,7 +54,7 @@ Subject: [PATCH] updated index for better welcome message
 
 Bei der im Feld `From:` (Von) angegebenen E-Mail-Adresse handelt es sich um die Adresse, die in den [Einstellungen für die lokale Git-Konfiguration](/articles/set-up-git) festgelegt wurde. In diesem Beispiel lautet die für den Commit verwendete E-Mail-Adresse `octocat@nowhere.com`.
 
-Falls Deinem {% data variables.product.product_name %}-Profil die für den Commit verwendete E-Mail-Adresse nicht hinzugefügt wurde, musst Du Deinem {% data variables.product.product_name %}-Konto [die E-Mail-Adresse hinzufügen](/articles/adding-an-email-address-to-your-github-account). Beim Hinzufügen der neuen Adresse wird Dein Beteiligungsdiagramm automatisch neu erstellt.
+If the email address used for the commit is not connected to your account on {% data variables.product.product_name %}, {% if currentVersion == "github-ae@latest" %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your {% data variables.product.product_name %} account. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 

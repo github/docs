@@ -9,6 +9,7 @@ intro: 'リポジトリのプルリクエストのオープン後、コラボレ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### プルリクエストのコメントについて
@@ -54,5 +55,5 @@ Pull Request レビューへの行コメント追加に関する 詳しい情報
 ### 参考リンク
 
 - 「[コードスニペットへのパーマリンクを作成する](/articles/creating-a-permanent-link-to-a-code-snippet/)」
-{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
+{% if currentVersion == "free-pro-team@latest" %}-「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」
 {% endif %}

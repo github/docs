@@ -50,17 +50,12 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 要将自托管的运行器添加到企业帐户，您必须是组织所有者。
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 要在
 {% data variables.product.product_location %} 的企业级添加自托管运行器，您必须是网站管理员。
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. 单击 **Self-hosted runners（自托管运行器）**选项卡。

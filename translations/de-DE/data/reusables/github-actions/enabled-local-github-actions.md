@@ -1,1 +1,1 @@
-Wenn Du nur lokale Aktionen aktivierst, können Workflows nur Aktionen ausführen, die sich in Deinem Repository oder Deiner Organisation befinden.
+When you enable local actions only, workflows can only run actions located in your repository, organization, or enterprise.

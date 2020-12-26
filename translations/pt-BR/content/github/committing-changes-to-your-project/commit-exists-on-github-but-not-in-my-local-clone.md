@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você usa `git show` para exibir um commit específico na linha de comando, é possível que veja um erro fatal.

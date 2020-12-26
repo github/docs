@@ -37,7 +37,7 @@ versions:
 
   {% data reusables.enterprise_installation.necessary_ports %}
 4. 也可以将浮动 IP 关联到实例。 根据 OpenStack 设置，您可能需要将浮动 IP 分配给项目并将其关联到实例。 请联系您的系统管理员以确定您是否属于这种情况。 更多信息请参阅 OpenStack 文档中的“[为实例分配浮动 IP 地址](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)”。
-5. 使用在前几步创建的映像、数据卷和安全组启动 {% data variables.product.product_location_enterprise %}。 有关说明，请参阅 OpenStack 指南“[启动和管理实例](https://docs.openstack.org/horizon/latest/user/launch-instances.html)”。
+5. 使用在前几步创建的映像、数据卷和安全组启动 {% data variables.product.product_location %}。 有关说明，请参阅 OpenStack 指南“[启动和管理实例](https://docs.openstack.org/horizon/latest/user/launch-instances.html)”。
 
 ### 配置 {% data variables.product.prodname_ghe_server %} 实例
 

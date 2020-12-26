@@ -8,7 +8,9 @@ versions:
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %} {% data reusables.github-actions.actions-spending-limit %}
+{% data reusables.github-actions.actions-billing %}
+
+{% data reusables.github-actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
 Minuten werden jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
 
@@ -51,7 +53,7 @@ Die Anzahl der Aufträge, die Du gleichzeitig über alle Repositories in Deinem 
 Am Ende des Monats berechnet {% data variables.product.prodname_dotcom %} die Minuten- und Speicherkosten, die über den in Deinem Konto enthaltenen Kontingent liegen. Wenn Deine Organisation beispielsweise {% data variables.product.prodname_team %} verwendet und unbegrenzte Ausgaben zulässt, würde der Verbrauch von 15.000 Minuten die gesamten Speicher- und Minutenkosten um 56 $ überschreiten, abhängig von den Betriebssystemen, die zur Ausführung der Aufträge verwendet werden.
 
 - 5.000 (3.000 Linux und 2.000 Windows) Minuten = 56 $ (24 $ + 32 $).
-  - 3,000 Linux Minuten zu je 0.008 $ = 24 $.
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2.000 Windows Minuten zu je 0.016 $ = 32 $.
 
 Am Ende jedes Monates wird {% data variables.product.prodname_dotcom %} Deine Datenübertragung auf das nächste GB aufrunden.
@@ -69,8 +71,8 @@ Deine {% data variables.product.prodname_actions %}-Nutzung teilt das bestehende
 
 ### Über Ausgabenlimits
 
-Standardmäßig wird Dein Konto ein Ausgabenlimit von 0 $ für die Nutzung von {% data variables.product.prodname_actions %} haben. Um die Nutzung von Minuten und Speicher für private Repositories über die Kontingente Deines Kontos hinaus zu ermöglichen, kannst Du das Ausgabenlimit erhöhen oder unbegrenzte Ausgaben zulassen. Weitere Informationen findest Du unter „[Ausgabenlimits für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
+{% data reusables.github-actions.actions-spending-limit-detailed %}
 
-{% data reusables.github-actions.spending-limit-enterprise-account %}
+For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-actions)."
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

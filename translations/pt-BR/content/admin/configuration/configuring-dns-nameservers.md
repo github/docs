@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Os servidores de nomes que você especificar devem resolver o nome de host da {% data variables.product.product_location_enterprise %}.
+Os servidores de nomes que você especificar devem resolver o nome de host da {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -28,7 +28,7 @@ Os servidores de nomes que você especificar devem resolver o nome de host da {%
   ```
 3. Adicione quaisquer entradas `nameserver` e salve o arquivo.
 4. Depois de verificar suas alterações, salve o arquivo.
-5. Para adicionar suas novas entradas de servidor de nomes à {% data variables.product.product_location_enterprise %}, insira:
+5. Para adicionar suas novas entradas de servidor de nomes à {% data variables.product.product_location %}, insira:
   ```shell
   $ sudo service resolvconf restart
   ```

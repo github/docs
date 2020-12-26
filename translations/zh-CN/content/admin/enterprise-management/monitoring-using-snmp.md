@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启用 SNMP，以便监视 {% data variables.product.product_location_enterprise %} 的健康状态并了解何时向主机增加更多内存、存储空间或处理器能力。
+SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启用 SNMP，以便监视 {% data variables.product.product_location %} 的健康状态并了解何时向主机增加更多内存、存储空间或处理器能力。
 
 {% data variables.product.prodname_enterprise %} 采用标准 SNMP 安装，因此您可以充分利用 Nagios 或其他任何监视系统可用的[多种插件](http://www.monitoring-plugins.org/doc/man/check_snmp.html)。
 
@@ -28,7 +28,7 @@ SNMP 是一种用于通过网络监视设备的公共标准。 强烈建议启�
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-这应该返回 {% data variables.product.product_location_enterprise %} 主机上的系统时间。
+这应该返回 {% data variables.product.product_location %} 主机上的系统时间。
 
 ### 基于用户的安全性
 

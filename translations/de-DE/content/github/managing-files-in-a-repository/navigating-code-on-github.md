@@ -10,6 +10,7 @@ versions:
 ### Über Code-Navigation auf {% data variables.product.prodname_dotcom %}
 
 Code-Navigationsfunktionen verwenden die [Semantik](https://github.com/github/semantic) der Open-Source-Bibliothek. Die folgenden Sprachen werden unterstützt:
+- C#
 - CodeQL
 - Go
 - Java

@@ -8,6 +8,9 @@ intro: 'Existem muitos recursos Git e {% data variables.product.product_name %} 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+authors:
+  - GitHub
 ---
 
 ### Usar o Git

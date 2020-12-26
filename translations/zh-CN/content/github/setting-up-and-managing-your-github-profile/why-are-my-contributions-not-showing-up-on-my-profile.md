@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 计算的贡献
@@ -29,18 +30,18 @@ versions:
 - 您已复刻该仓库。
 - 您已打开仓库中的拉取请求或议题。
 - 您已为仓库加星标。
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### 贡献未计算的常见原因
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### 24 小时内进行的提交
 
 进行满足计为贡献要求的提交后，您可能需要等待最长 24 小时才能看到在贡献图中显示的贡献。
 
-#### 您尚未将本地 Git 提交电子邮件添加到个人资料
+#### Your local Git commit email isn't connected to your account
 
-Commits must be made with an email address that has been added to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits must be made with an email address that is connected to your account on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% if currentVersion == "free-pro-team@latest" %} For more information about `noreply` email addresses, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
 
 您可以通过将 `.patch` 添加到提交 URL 结尾来检查用于提交的电子邮件地址，例如 <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>：
 
@@ -53,7 +54,7 @@ Subject: [PATCH] updated index for better welcome message
 
 `From:` 字段中的电子邮件地址是在[本地 git 配置设置](/articles/set-up-git)中设置的地址。 在本例中，用于提交的电子邮件地址是 `octocat@nowhere.com`。
 
-如果用于提交的电子邮件地址尚未添加到 {% data variables.product.product_name %} 个人资料，您必须[添加电子邮件地址](/articles/adding-an-email-address-to-your-github-account)到 {% data variables.product.product_name %} 帐户。 您的贡献图将在添加新地址后自动重建。
+If the email address used for the commit is not connected to your account on {% data variables.product.product_name %}, {% if currentVersion == "github-ae@latest" %}change the email address used to author commits in Git. For more information, see "[Setting your commit email address](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#setting-your-commit-email-address-in-git)."{% else %}you must [add the email address](/articles/adding-an-email-address-to-your-github-account) to your {% data variables.product.product_name %} account. Your contributions graph will be rebuilt automatically when you add the new address.{% endif %}
 
 {% warning %}
 
