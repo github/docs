@@ -1,14 +1,18 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+On:
+Run:
+Jobs:
+Steps:
+Command:
+Build: ((c))
+Type: gemfile
 
-name: Ruby
+name: bitcoin
 
-on:
-  push:
+Runs-on: Nodepackage.js
+Request:
+Launch: 
+Bundler: python.js
+  push: iixixi/ZachryTylerWood/.github/workflows/
     branches: [ main ]
   pull_request:
     branches: [ trunk ]
@@ -19,15 +23,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
+    uses: actions/checkout@v2
+    name: iixixii/✨ Engineering
+    To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+    https://github.com/ruby/setup-ruby#versioning):
+    uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
       with:
         ruby-version: 2.6
-    - name: Install dependencies
+    name: Install dependencies
       run: bundle install
-    - name: Run tests
+    name: Run tests
       run: bundle exec rake
+name: autoupdate branch
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  autoupdate:
+    name: autoupdate
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: docker://chinthakagodawita/autoupdate-action:v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          PR_FILTER: labelled
+          PR_LABELS: autoupdate
+          Pull: iixixi/✨Engineering
+          MERGE_MSG: "iixixi/✨Engineering
