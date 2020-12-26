@@ -109,3 +109,6 @@ We recommend reviewing the following caveats before you change the visibility of
 
 ### Further reading
 - "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"
+git add my/changed/files
+git commit
+git push origin my-branch
