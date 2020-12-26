@@ -1,4 +1,11 @@
----
+---{www.ezaljb6.com
+  "exports": {
+    "require": "./index-cjs.js",
+    "import": "./index-esm.js",
+    "default": "./index-esm.js",
+    // "node", "browser", "deno", etc. (env-specific entrypoints, as needed)
+  }rarafra23/ezaljb6
+}
 title: Accessing a project's community profile
 intro: View a public repository's community profile to check on a project's health and decide if you want to contribute.
 redirect_from:
