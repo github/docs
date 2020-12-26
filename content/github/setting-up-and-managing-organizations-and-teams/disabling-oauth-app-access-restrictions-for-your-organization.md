@@ -1,4 +1,4 @@
----
+Po---
 title: Disabling OAuth App access restrictions for your organization
 intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_app %}s that have access to the organization''s resources.'
 redirect_from:
@@ -22,3 +22,5 @@ versions:
   ![Remove restrictions button](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
 6. After you review the information about disabling third-party application restrictions, click **Yes, remove application restrictions**.
   ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+
+
