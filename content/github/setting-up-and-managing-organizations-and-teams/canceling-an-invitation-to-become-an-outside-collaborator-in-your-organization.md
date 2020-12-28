@@ -20,3 +20,4 @@ For each pending collaborator, you can cancel all invitations to join organizati
   !["Cancel invitation" button](/assets/images/help/organizations/cancel-pending-collaborators.png)
 7. Click **Cancel invitations for pending collaborators**.
   ![Button to confirm cancelation](/assets/images/help/organizations/confirm-cancelation-of-pending-collaborators.png)
+ 
