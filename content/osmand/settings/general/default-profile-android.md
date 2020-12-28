@@ -1,8 +1,8 @@
 ---
-title: "{% data variables.android-values.application_dir %} on Android"
+title: "{% data variables.android-values.settings_preset %} on Android"
 versions: '*'
 ---
-Select the preferred data storage folder for OsmAnd data. By default, {% data variables.android-values.storage_directory_internal_app %} is used.
+Select the profile that will be used on application start.
 
 ### How to change {% data variables.android-values.application_dir %}
 1. {% data reusables.steps.open-menu %}

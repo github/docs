@@ -1,9 +1,10 @@
 ---
-title: "{% data variables.android-values.preferred_locale %} on Android"
+title: "{% data variables.android-values.preferred_locale %}"
+intro: "Select preferred language for OsmAnd user interface. By default system device language is used."
 versions: '*'
 ---
-Select preferred language for OsmAnd user interface. By default system device language is used.
 
+{% android %}
 ### How to change {% data variables.android-values.preferred_locale %}
 1. {% data reusables.steps.open-menu %}
 2. {% data reusables.steps.drawer-settings %}
@@ -12,3 +13,8 @@ Select preferred language for OsmAnd user interface. By default system device la
 5. {% data reusables.steps.settings-osmand-display-language-dialog %}
 
 {% data reusables.notes.display-language-note %}
+
+{% endandroid %}
+
+{% ios %}
+{% endios %}
