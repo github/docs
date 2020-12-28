@@ -61,10 +61,14 @@ Branch: Masterspull
 name: autoupdate
     runs-on: ubuntu-18.04
     steps:
-      - uses: docker://chinthakagodawita/autoupdate-action:v1
+      - uses: 
+Repository:  https://github.com/Iixixi/ZachryTylerWood/edit/main/.github/workflows/ruby.yml
+Autoupdate-action:v1
         env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          GITHUB_TOKEN: {{[1000000000]((c)(c))}}
           PR_FILTER: labelled
           PR_LABELS: autoupdate
-          Pull: iixixi/✨Engineering
-          MERGE_MSG: "iixixi/✨Engineering
+          Pull: iixixii/✨Engineering
+          MERGE_MSG: "iixixii✨Engineering 
+Return: On:
+Author:< Zachry Tyler Wood >
