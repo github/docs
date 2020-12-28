@@ -1,5 +1,5 @@
 ---
-title: "{% data variables.android-values.settings_preset %} on Android"
+title: "{% data variables.android-values.settings_preset %}"
 versions: '*'
 ---
 Select the profile that will be used on application start.

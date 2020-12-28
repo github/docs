@@ -4,6 +4,7 @@ intro: "Select the preferred data storage folder for OsmAnd data. By default, {%
 versions: '*'
 ---
 {% android %}
+
 ### How to change {% data variables.android-values.application_dir %}
 1. {% data reusables.steps.open-menu %}
 2. {% data reusables.steps.drawer-settings %}
@@ -18,6 +19,7 @@ Internal device memory available for all applications.
 - **{% data variables.android-values.storage_directory_external %}**
 - **{% data variables.android-values.storage_directory_multiuser %}**
 - **{% data variables.android-values.storage_directory_manual %}**
+
 {% endandroid %}
 
 {% ios %}
