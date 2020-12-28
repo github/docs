@@ -25,25 +25,40 @@ jobs:
     steps:
     uses: actions/checkout@v2
     name: iixixii/✨ Engineering
-    To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    https://github.com/ruby/setup-ruby#versioning):
-    uses: ruby/setup-ruby@v1
+    Automate: {workflow}setup-ruby
+    https://github.com/ruby/setup-ruby
+versioning:
+    uses: ruby/setup-ruby@v1.3.9.0.2.sdk
       uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
       with:
         ruby-version: 2.6
     name: Install dependencies
-      run: bundle install
-    name: Run tests
-      run: bundle exec rake
-name: autoupdate branch
-
-on:
-  push:
-    branches:
-      - main
+      run: 
+bundle: python.js
+install: CircleCI
+Import: Heroku.instsller
+name: CI
+Run: test:
+tests: 
+run:
+bundle: CircleCI
+execute: rake.js
+name: CI
+autoupdate: tree
+Push:
+branches: Trunk
+Pull_request: 
+Branches: master
+push: 
+ branches: base-@main
 jobs:
-  autoupdate:
-    name: autoupdate
+ Steps:
+  autoupdate: 
+Command:
+Run:
+Merge:
+Branch: Masterspull
+name: autoupdate
     runs-on: ubuntu-18.04
     steps:
       - uses: docker://chinthakagodawita/autoupdate-action:v1
