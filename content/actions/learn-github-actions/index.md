@@ -1,4 +1,4 @@
----
+--- access granted
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
 intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
@@ -41,3 +41,4 @@ versions:
 {% link_with_intro /migrating-from-gitlab-cicd-to-github-actions %}
 {% link_with_intro /migrating-from-jenkins-to-github-actions %}
 {% link_with_intro /migrating-from-travis-ci-to-github-actions %}
+Access granted
