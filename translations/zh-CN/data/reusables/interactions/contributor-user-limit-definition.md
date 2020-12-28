@@ -1,1 +1,1 @@
-**Contributors only:** When you limit interactions to `contributors_only`,  users who have not previously contributed and are not collaborators will be temporarily restricted
+**仅参与者：**当您将交互限制为 `contributors_only`时，以前未参与并且不是协作者的用户将暂时受到限制。

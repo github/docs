@@ -1,11 +1,12 @@
 ---
 title: Organization のプロジェクトボード権限
-intro: Organization のオーナーと、プロジェクトボード管理者権限を持つユーザーは、Organization のプロジェクトボードに対する読み取り、書き込み、管理の各権限を誰が持つかをカスタマイズすることができます。
+intro: 'Organization のオーナーと、プロジェクトボード管理者権限を持つユーザーは、Organization のプロジェクトボードに対する読み取り、書き込み、管理の各権限を誰が持つかをカスタマイズすることができます。'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 権限の概要

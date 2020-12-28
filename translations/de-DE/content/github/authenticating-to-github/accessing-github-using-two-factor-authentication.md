@@ -15,13 +15,13 @@ With two-factor authentication enabled, you'll need to provide an authentication
 
 ### Einen 2FA-Code bei der Anmeldung in die Website bereitstellen
 
-Nachdem Du Dich mit Deinem Passwort bei {% data variables.product.product_name %} angemeldet hast, wirst Du aufgefordert, einen Authentifizierungscode aus {% if currentVersion == "free-pro-team@latest" %}einer SMS oder {% endif %}Deiner TOTP-App einzugeben.
+After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% if currentVersion == "free-pro-team@latest" %}a text message or{% endif %} your TOTP app.
 
-Nachdem Du Dich mit Deinem Passwort bei {% data variables.product.product_name %} angemeldet hast, wirst Du erst dann wieder aufgefordert, Deinen 2FA-Authentifizierungscode anzugeben, wenn Du Dich abgemeldet hast, ein neues Gerät verwendest oder Deine Sitzung abläuft.
+Nachdem Sie sich mit Ihrem Passwort bei {% data variables.product.product_name %} angemeldet haben, werden Sie erst dann wieder aufgefordert, Ihren Authentifizierungscode für die Zwei-Faktor-Authentifizierung anzugeben, wenn Sie sich abgemeldet haben, ein neues Gerät verwenden oder Ihre Sitzung abläuft.
 
 #### Einen Code über eine TOTP-Anwendung generieren
 
-Wenn Du Dich dafür entschieden hast, die Zwei-Faktor-Authentifizierung mit einer TOTP-Anwendung auf Deinem Smartphone einzurichten, kannst Du jederzeit einen Authentifizierungscode für {% data variables.product.product_name %} generieren. In den meisten Fällen wird beim bloßen Starten der Anwendung ein neuer Code generiert. Spezifische Anweisungen findest Du in der Dokumentation Deiner Anwendung.
+Wenn Sie sich dafür entschieden haben, die Zwei-Faktor-Authentifizierung mit einer TOTP-Anwendung auf Ihrem Smartphone einzurichten, können Sie jederzeit einen Authentifizierungscode für {% data variables.product.product_name %} generieren. In den meisten Fällen wird beim bloßen Starten der Anwendung ein neuer Code generiert. Spezifische Anweisungen findest Du in der Dokumentation Deiner Anwendung.
 
 Wenn Du die mobile Anwendung nach der Konfiguration der Zwei-Faktor-Authentifizierung löschst, musst Du Deinen Wiederherstellungscode angeben, um Zugriff auf Dein Konto zu erhalten. Weitere Informationen findest Du unter „[Dein Konto beim Verlust der Anmeldeinformationen für die Zwei-Faktor-Authentifizierung wiederherstellen](/articles/recovering-your-account-if-you-lose-your-2fa-credentials),“
 
@@ -29,7 +29,7 @@ Wenn Du die mobile Anwendung nach der Konfiguration der Zwei-Faktor-Authentifizi
 
 #### Eine SMS empfangen
 
-Wenn Du die Zwei-Faktor-Authentifizierung per SMS einrichtest, sendet Dir {% data variables.product.product_name %} eine SMS mit Deinem Authentifizierungscode.
+Wenn Sie die Zwei-Faktor-Authentifizierung per SMS einrichten, sendet Ihnen {% data variables.product.product_name %} eine SMS mit Ihrem Authentifizierungscode.
 
 {% endif %}
 
@@ -41,7 +41,7 @@ Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, müssen Sie beim 
 
 Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, müssen Sie bei der Authentifizierung bei {% data variables.product.product_name %} in der Befehlszeile über HTTPS-URLs ein persönliches Zugriffstoken erstellen, das Sie als Passwort verwenden können.
 
-Wenn Sie in der Befehlszeile nach einem Benutzernamen und einem Passwort gefragt werden, verwenden Sie Ihren {% data variables.product.product_name %}-Benutzernamen und Ihr persönliches Zugriffstoken. In der Eingabeaufforderung wird nicht angegeben, dass Sie Ihr persönliches Zugriffstoken eingeben sollen, wenn Sie nach Ihrem Passwort gefragt werden.
+Wenn Du in der Befehlszeile nach einem Benutzernamen und einem Passwort gefragt wirst, verwende Deinen {% data variables.product.product_name %}-Benutzernamen und Dein persönliches Zugriffstoken. In der Eingabeaufforderung wird nicht angegeben, dass Sie Ihr persönliches Zugriffstoken eingeben sollen, wenn Sie nach Ihrem Passwort gefragt werden.
 
 Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
 

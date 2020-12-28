@@ -1,11 +1,12 @@
 ---
 title: 'Error: Key already in use'
-intro: このエラーは、他のアカウントやリポジトリにすでに追加されているキーを追加 (/articles/adding-a-new-ssh-key-to-your-github-account) しようとする場合に発生します。
+intro: 'このエラーは、他のアカウントやリポジトリにすでに追加されているキーを追加 (/articles/adding-a-new-ssh-key-to-your-github-account) しようとする場合に発生します。'
 redirect_from:
   - /articles/error-key-already-in-use
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### キーが使用されている場所を見つける

@@ -1,1 +1,1 @@
-1. Click **Publish**. ![Botão Publish (Publicar)](/assets/images/help/sponsors/publish-goal-button.png)
+1. Clique em **Publicar**. ![Botão Publish (Publicar)](/assets/images/help/sponsors/publish-goal-button.png)

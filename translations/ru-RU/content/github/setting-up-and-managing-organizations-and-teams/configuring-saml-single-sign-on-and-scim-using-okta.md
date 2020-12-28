@@ -15,8 +15,8 @@ SAML SSO controls and secures access to organization resources like repositories
 
 After you enable SCIM, the following provisioning features are available for any users that you assign your {% data variables.product.prodname_ghe_cloud %} application to in Okta.
 
-| Feature                | Description                                                                                                                                                               |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Feature                | Description                                                                                                                                                          |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Push New Users         | When you create a new user in Okta, the user will receive an email to join your {% data variables.product.prodname_dotcom %} organization.                           |
 | Push User Deactivation | When you deactivate a user in Okta, Okta will remove the user from your {% data variables.product.prodname_dotcom %} organization.                                   |
 | Push Profile Updates   | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your {% data variables.product.prodname_dotcom %} organization. |
@@ -70,7 +70,7 @@ After you enable SCIM, the following provisioning features are available for any
 
 ### Дополнительная литература
 
-- "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
 - "[Managing team synchronization for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Understanding SAML](https://developer.okta.com/docs/concepts/saml/) in the Okta documentation
 - [Understanding SCIM](https://developer.okta.com/docs/concepts/scim/) in the Okta documentation

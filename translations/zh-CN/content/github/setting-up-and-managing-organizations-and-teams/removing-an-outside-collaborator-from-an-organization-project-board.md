@@ -1,11 +1,12 @@
 ---
 title: 从组织项目板删除外部协作者
-intro: 作为组织所有者或项目板管理员，您可以删除外部协作者对项目板的访问权限。
+intro: '作为组织所有者或项目板管理员，您可以删除外部协作者对项目板的访问权限。'
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.profile.access_profile %}

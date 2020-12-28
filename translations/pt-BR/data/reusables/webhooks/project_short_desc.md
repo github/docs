@@ -1,1 +1,1 @@
-Activity related to project boards. {% data reusables.webhooks.action_type_desc %} For more information, see the "[projects](/v3/projects)" REST API.
+Atividade relacionada aos quadros de projeto. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte A API REST dos "[projetos](/rest/reference/projects)".

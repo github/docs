@@ -1,1 +1,1 @@
-1. Next to the repository you want to restore, click **Restore**. ![Restore button](/assets/images/help/settings/restore-button.png)
+1. Ao lado do repositório que você deseja restaurar, clique em **Restaurar**. ![Botão de restaurar](/assets/images/help/settings/restore-button.png)

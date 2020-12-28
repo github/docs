@@ -11,13 +11,13 @@ versions:
 
 サポートのオプションは、お使いの{% data variables.product.prodname_dotcom_the_website %}の製品によって異なります。 有料の製品を使っている場合は、英語で{% data variables.contact.github_support %}に連絡できます。 アカウントには{% data variables.contact.premium_support %}が含まれていることもあります。
 
-|                                                        | {% data variables.product.prodname_gcf %} | Standard Support | Premium Support |
-| ------------------------------------------------------ | ---------------------------------------------- | ---------------- | --------------- |
-| {% data variables.product.prodname_free_user %} | X                                              |                  |                 |
-| {% data variables.product.prodname_pro %}         | X                                              | X                |                 |
-| {% data variables.product.prodname_team %}        | X                                              | X                |                 |
-| {% data variables.product.prodname_ghe_cloud %} | X                                              | X                | X               |
-| {% data variables.product.prodname_ghe_server %} | X                                              | X                | X               |
+|                                                    | {% data variables.product.prodname_gcf %} | Standard Support | Premium Support |
+| -------------------------------------------------- | ----------------------------------------- | ---------------- | --------------- |
+| {% data variables.product.prodname_free_user %}  | X                                         |                  |                 |
+| {% data variables.product.prodname_pro %}          | X                                         | X                |                 |
+| {% data variables.product.prodname_team %}         | X                                         | X                |                 |
+| {% data variables.product.prodname_ghe_cloud %}  | X                                         | X                | X               |
+| {% data variables.product.prodname_ghe_server %} | X                                         | X                | X               |
 
 {% data variables.product.prodname_dotcom %}上のサービスに影響するインシデントが発生しているかの確認、あるいは将来のステータスの更新の通知をサブスクライブして受信するためには、{% data variables.product.prodname_dotcom %}の[ステータスページ](https://www.githubstatus.com/)にアクセスしてください。
 

@@ -1,5 +1,5 @@
 ---
-title: Editing a GitHub App's permissions
+title: Editar permissões do aplicativo GitHub
 intro: '{% data reusables.shortdesc.editing_permissions_for_github_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/editing-a-github-app-s-permissions/
@@ -7,26 +7,21 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Note:** Updated permissions won't take effect on an installation until the owner of the account or organization approves the changes. You can use the [InstallationEvent webhook](/webhooks/event-payloads/#installation) to find out when people accept new permissions for your app. One exception is [user-level permissions](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions), which don't require the account owner to approve permission changes.
+**Observação:** As permissões atualizadas não terão efeito sobre uma instalação até que o proprietário da conta ou organização aprove as alterações. Você pode usar o [webhook do InstallationEvent](/webhooks/event-payloads/#installation) para descobrir quando as pessoas aceitam novas permissões para seu aplicativo. Uma exceção são as [permissões de nível de usuário](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions), que não exigem que o proprietário da conta aprove as alterações de permissão.
 
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Select the GitHub App whose permissions you want to change.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
-5. In the left sidebar, click **Permissions & webhooks**.
-![Permissions and webhooks](/assets/images/github-apps/github_apps_permissions_and_webhooks.png)
-6. Modify the permissions you'd like to change. For each type of permission, select either "Read-only", "Read & write", or "No access" from the dropdown.
-![Permissions selections for your GitHub App](/assets/images/github-apps/github_apps_permissions_post2dot13.png)
-7. In "Subscribe to events", select any events to which you'd like to subscribe your app.
-![Permissions selections for subscribing your GitHub App to events](/assets/images/github-apps/github_apps_permissions_subscribe_to_events.png)
-8. Optionally, in "Add a note to users", add a note telling your users why you are changing the permissions that your GitHub App requests.
-![Input box to add a note to users explaining why your GitHub App permissions have changed](/assets/images/github-apps/github_apps_permissions_note_to_users.png)
-9. Click **Save changes**.
-![Button to save permissions changes](/assets/images/github-apps/github_apps_save_changes.png)
+4. Selecione o aplicativo GitHub cujas permissões você deseja alterar. ![Seleção de aplicativo](/assets/images/github-apps/github_apps_select-app.png)
+5. Na barra lateral esquerda, clique em **Permissions & webhooks** (Permissões e webhooks). ![Permissões e webhooks](/assets/images/github-apps/github_apps_permissions_and_webhooks.png)
+6. Modifique as permissões que você deseja alterar. Para cada tipo de permissão, selecione "Somente leitura", "Ler & gravar" ou "Sem acesso" no menu suspenso. ![Seleção de permissões para o seu aplicativo GitHub](/assets/images/github-apps/github_apps_permissions_post2dot13.png)
+7. Em "Assinar eventos", selecione quaisquer eventos que você deseja que seu aplicativo assine. ![Seleção de permissões para seu aplicativo GitHub assinar eventos](/assets/images/github-apps/github_apps_permissions_subscribe_to_events.png)
+8. Opcionalmente, em "Adicionar uma observação para os usuários", adicione uma observação informando aos usuários o por que você esta mudando as permissões que o seu aplicativo GitHub solicita. ![Caixa de entrada para adicionar uma observação aos usuários explicando por que as permissões do seu aplicativo GitHub foram alteradas](/assets/images/github-apps/github_apps_permissions_note_to_users.png)
+9. Clique em **Save changes** (Salvar alterações). ![Botão para salvar alterações de permissões](/assets/images/github-apps/github_apps_save_changes.png)

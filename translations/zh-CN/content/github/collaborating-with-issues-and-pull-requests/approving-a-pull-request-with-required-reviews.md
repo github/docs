@@ -1,11 +1,12 @@
 ---
 title: 批准需要审查的拉取请求
-intro: 如果您的仓库需要审查，拉取请求必须由对仓库具有写入或管理员权限的人员进行特定数量的批准审查，然后才可合并。
+intro: '如果您的仓库需要审查，拉取请求必须由对仓库具有写入或管理员权限的人员进行特定数量的批准审查，然后才可合并。'
 redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 有关必需审查的更多信息，请参阅“[关于拉取请求的必需审查](/articles/about-required-reviews-for-pull-requests)”。

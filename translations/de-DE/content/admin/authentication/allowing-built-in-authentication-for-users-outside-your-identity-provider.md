@@ -45,6 +45,6 @@ Wenn ein Benutzer die Einladung akzeptiert, kann er sich anstatt über den IdP m
 
 ### Weiterführende Informationen
 
-- „[LDAP verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap)“
+- „[LDAP verwenden](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap)“
 - „[SAML verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)“
 - „[CAS verwenden](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)“

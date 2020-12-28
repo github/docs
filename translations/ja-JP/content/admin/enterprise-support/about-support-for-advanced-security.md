@@ -70,8 +70,8 @@ versions:
 
 {% data reusables.support.github-can-modify-ticket-priority %}
 
-|                                優先度                                 | 説明                                                                                                                               |
-|:------------------------------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------- |
+|                              優先度                              | 説明                                                                                                                          |
+|:-------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------- |
 |  {% data variables.product.support_ticket_priority_high %}  | {% data variables.product.prodname_advanced_security %} は、機能しない、停止している、またはエンドユーザがソフトウェアの利用を合理的に継続できないほどの影響があり、回避策がないものです。 |
 | {% data variables.product.support_ticket_priority_normal %} | {% data variables.product.prodname_advanced_security %}の機能が不安定であり、エンドユーザの利用や生産性に支障があります。                                  |
 |  {% data variables.product.support_ticket_priority_low %}   | {% data variables.product.prodname_advanced_security %}は安定して動作していますが、ドキュメントの更新、見かけ上の欠陥、拡張といったソフトウェア上の軽微な変更をエンドユーザが求めています。 |

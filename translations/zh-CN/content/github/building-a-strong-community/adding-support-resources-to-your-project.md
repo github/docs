@@ -6,13 +6,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 要将人们定向到特定的支持资源，您可以将 SUPPORT 文件添加到仓库的根文件夹 `docs` 或 `.github`。 当有人在您的仓库中创建议题时，就会看到项目 SUPPORT 文件的链接。
 
 ![支持指南](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-您可以为组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}或用户帐户{% endif %}创建默认的支持资源。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+您可以为组织或用户帐户创建默认支持资源。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+
+{% endif %}
 
 {% tip %}
 

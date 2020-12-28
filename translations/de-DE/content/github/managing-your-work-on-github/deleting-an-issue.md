@@ -1,11 +1,12 @@
 ---
 title: Einen Issue löschen
-intro: 'Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Issue dauerhaft aus einem Repository löschen.'
+intro: Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Issue dauerhaft aus einem Repository löschen.
 redirect_from:
   - /articles/deleting-an-issue
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst nur Issues in einem Repository löschen, das Deinem Benutzerkonto gehört. Du kannst keine Issues in einem Repository eines anderen Benutzerkontos löschen, selbst dann nicht, wenn Du dort Mitarbeiter bist.

@@ -1,6 +1,6 @@
 ---
 title: Dein Profil personalisieren
-intro: 'Du kannst Informationen zu Deiner Person für andere {% data variables.product.product_name %}-Benutzer bereitstellen, indem Du ein Profilbild einrichtest und eine Biografie zum Profil hinzufügst.'
+intro: 'Sie können Informationen zu Ihrer Person für andere {% data variables.product.product_name %}-Benutzer bereitstellen, indem Sie ein Profilbild einrichten und eine Biografie zum Profil hinzufügen.'
 redirect_from:
   - /articles/adding-a-bio-to-your-profile/
   - /articles/setting-your-profile-picture/
@@ -11,13 +11,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Dein Profilbild ändern
 
-Mit Deinem Profilbild kannst Du überall auf {% data variables.product.product_name %} in Pull Requests, Kommentaren, Beiträge-Seiten und Diagrammen leichter identifiziert werden.
+Mit Ihrem Profilbild können Sie überall auf {% data variables.product.product_name %} in Pull Requests, Kommentaren, Beiträge-Seiten und Diagrammen leichter identifiziert werden.
 
-Wenn Du ein Konto anlegst, stellt {% data variables.product.product_name %} Dir ein zufällig generiertes „Identicon“ bereit. [Dein Identicon](https://github.com/blog/1586-identicons) wird aus einem Hash Deiner Benutzer-ID erzeugt. Seine Farbe und sein Muster lassen sich daher nicht steuern. Du kannst das Identicon durch ein Bild ersetzen, das Dich repräsentiert.
+Wenn Sie ein Konto anlegen, stellt {% data variables.product.product_name %} Ihnen ein zufällig generiertes „Identicon“ bereit. [Dein Identicon](https://github.com/blog/1586-identicons) wird aus einem Hash Deiner Benutzer-ID erzeugt. Seine Farbe und sein Muster lassen sich daher nicht steuern. Du kannst das Identicon durch ein Bild ersetzen, das Dich repräsentiert.
 
 {% tip %}
 
@@ -40,18 +41,18 @@ Wenn Du ein Konto anlegst, stellt {% data variables.product.product_name %} Dir 
 
 ### Deinen Profilnamen ändern
 
-Du kannst den Namen, der in Deinem Profil angezeigt wird, ändern. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} Dieser Name kann auch neben Kommentaren angezeigt werden, die Du bei privaten Repositorys einer Organisation hinterlässt. Weitere Informationen findest Du unter „[Anzeige der Mitgliedsnamen in Deiner Organisation verwalten](/articles/managing-the-display-of-member-names-in-your-organization)“.{% endif %}
+Du kannst den Namen, der in Deinem Profil angezeigt wird, ändern. This name may also be displayed next to comments you make on private repositories owned by an organization. Weitere Informationen findest Du unter „[Anzeige der Mitgliedsnamen in Deiner Organisation verwalten](/articles/managing-the-display-of-member-names-in-your-organization)“.
 
 {% data reusables.user_settings.access_settings %}
 2. Gib unter „Name“ den Namen ein, der in Deinem Profil angezeigt werden soll. ![Feld „Name“ (Name) in den Profileinstellungen](/assets/images/help/profile/name-field.png)
 
 ### Eine Biografie zu Deinem Profil hinzufügen
 
-Füge eine Biografie zu Deinem Profil hinzu, um anderen {% data variables.product.product_name %}-Benutzern Informationen zu Deiner Person bereitzustellen. Mit [@Erwähnungen](/articles/basic-writing-and-formatting-syntax) und Emojis kannst Du Informationen dazu angeben, wo Du gerade arbeitest oder früher gearbeitet hast, welche Tätigkeit Du ausübst oder welche Kaffeesorte Du trinkst.
+Fügen Sie eine Biografie zu Ihrem Profil hinzu, um anderen {% data variables.product.product_name %}-Benutzern Informationen zu Ihrer Person bereitzustellen. Mit [@Erwähnungen](/articles/basic-writing-and-formatting-syntax) und Emojis kannst Du Informationen dazu angeben, wo Du gerade arbeitest oder früher gearbeitet hast, welche Tätigkeit Du ausübst oder welche Kaffeesorte Du trinkst.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information on the profile README, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
+For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."
 
 {% endif %}
 
@@ -101,12 +102,12 @@ Wenn Sie die Option „Busy“ (Beschäftigt) auswählen, wird ein entsprechende
 
 When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.
 
-| Badge                                                           | Program                                                                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Badge                                                           | Program                                                              | Beschreibung                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | {% octicon "north-star" aria-label="The North Star icon" %}     | **{% data variables.product.prodname_arctic_vault %} Contributor** | If you authored any commit(s) on the default branch of a repository that was archived in the 2020 Arctic Vault program, you'll get an {% data variables.product.prodname_arctic_vault %} Contributor badge on your profile. For more information on the program, see [{% data variables.product.prodname_archive %}](https://archiveprogram.github.com). |
-| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Developer Program Member**                                              | If you're a registered member of the GitHub Developer Program, building an app with the GitHub API, you'll get a Developer Program Member badge on your profile. For more information on the GitHub Developer Program, see [GitHub Developer](/program/).                                                                                                            |
-| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub Sponsor**                                                        | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a GitHub Sponsor badge on your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)."                                 |
-| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                                   | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. Weitere Informationen zu {% data variables.product.prodname_pro %} finden Sie unter „[Produkte von {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro)“.                                    |
+| {% octicon "cpu" aria-label="The Developer Program icon" %}     | **Developer Program Member**                                         | If you're a registered member of the GitHub Developer Program, building an app with the GitHub API, you'll get a Developer Program Member badge on your profile. For more information on the GitHub Developer Program, see [GitHub Developer](/program/).                                                                                                  |
+| {% octicon "heart-fill" aria-label="The GitHub Sponsor icon" %} | **GitHub Sponsor**                                                   | If you sponsored an open source contributor through {% data variables.product.prodname_sponsors %} you'll get a GitHub Sponsor badge on your profile. For more information, see "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)."                            |
+| {% octicon "star-fill" aria-label="The star icon" %}            | **Pro**                                                              | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. Weitere Informationen zu {% data variables.product.prodname_pro %} finden Sie unter „[Produkte von {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products#github-pro)“.                                         |
 
 ### Disabling badges on your profile
 

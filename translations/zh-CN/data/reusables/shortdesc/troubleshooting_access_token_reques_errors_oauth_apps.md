@@ -1,1 +1,1 @@
-When exchanging a code for an access token, there are an additional set of errors that can occur. The format of these responses is determined by the accept header you pass.
+为访问令牌交换代码时，可能会发生另外一组错误。 这些响应的格式由您传递的接受标头确定。

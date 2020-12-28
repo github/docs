@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jeder, der Leseberechtigungen für ein Repository besitzt, kann einen Pull Request erstellen. Du benötigst jedoch Schreibberechtigungen, um einen Branch zu erstellen. Wenn Du einen neuen Branch für Deinen Pull Request erstellen möchtest, aber keine Schreibberechtigung hast, kannst Du das Repository zunächst forken. Weitere Informationen findest Du unter „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork)“ und „
@@ -21,7 +22,7 @@ Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möc
 
 ### Branch-Bereich und Ziel-Repository ändern
 
-Standardmäßig basieren Pull Requests auf dem [Standardbranch](/articles/setting-the-default-branch) des übergeordneten Repositorys.
+By default, pull requests are based on the parent repository's default branch. Weitere Informationen finden Sie unter „[Informationen zu Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)“.
 
 Wenn das standardmäßige übergeordnete Repository nicht korrekt ist, kannst Du über die Dropdownlisten sowohl das übergeordnete Repository als auch den Branch ändern. Du kannst über die Dropdownlisten auch Head- und Basis-Branches untereinander austauschen, um Diffs zwischen Referenzpunkten zu erstellen. Referenzen müssen hier Branch-Namen in Deinem GitHub-Repository sein.
 

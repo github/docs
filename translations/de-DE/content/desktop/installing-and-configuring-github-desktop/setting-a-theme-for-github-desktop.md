@@ -1,6 +1,6 @@
 ---
 title: Design für GitHub Desktop festlegen
-intro: 'Sie können ein Design festlegen, um das Erscheinungsbild von GitHub-Desktop anzupassen.'
+intro: Sie können ein Design festlegen, um das Erscheinungsbild von GitHub-Desktop anzupassen.
 redirect_from:
   - /desktop/getting-started-with-github-desktop/setting-a-theme-for-github-desktop
 versions:

@@ -11,8 +11,7 @@ versions:
 
 ### 创建预接收挂钩
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 4. 单击 **Add pre-receive hook**。 ![添加预接收挂钩](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
@@ -25,16 +24,14 @@ versions:
 
 ### 编辑预接收挂钩
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. 在要编辑的预接收挂钩旁边，单击 {% octicon "pencil" aria-label="The edit icon" %}。 ![编辑预接收挂钩](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
 ### 删除预接收挂钩
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. 在要删除的预接收挂钩旁边，单击 {% octicon "x" aria-label="X symbol" %}。 ![编辑预接收挂钩](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)

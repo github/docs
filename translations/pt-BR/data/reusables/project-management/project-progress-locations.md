@@ -1,1 +1,1 @@
-Quando a automação do quadro de projeto está habilitada, uma barra de progresso aparece acima do quadro de projeto, na página de listagem de projetos, na barra lateral do problema e nas referências ao projeto em outros quadros de projeto.
+Se o rastreamento de progresso estiver habilitado, uma barra de progresso aparecerá acima do quadro de projetos, na página de listagem do projeto, na barra lateral de questões e em referências ao projeto em outros quadros de projetos.

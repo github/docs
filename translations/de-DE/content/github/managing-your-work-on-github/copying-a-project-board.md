@@ -1,6 +1,6 @@
 ---
 title: Ein Projektboard kopieren
-intro: 'Du kannst ein Projektboard kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig genutzter oder stark angepasster Projektboards unterstützt die Standardisierung von Workflows.'
+intro: Du kannst ein Projektboard kopieren, um schnell ein neues Projekt zu erstellen. Das Kopieren häufig genutzter oder stark angepasster Projektboards unterstützt die Standardisierung von Workflows.
 redirect_from:
   - /articles/copying-a-project-board
 versions:

@@ -1,16 +1,17 @@
 ---
 title: Issues und Pull Requests anderen GitHub-Benutzern zuweisen
-intro: 'Zugewiesene Bearbeiter stellen klar, wer bestimmte Issues und Pull Requests bearbeitet.'
+intro: Zugewiesene Bearbeiter stellen klar, wer bestimmte Issues und Pull Requests bearbeitet.
 redirect_from:
   - /articles/assigning-issues-and-pull-requests-to-other-github-users
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jeder, der über Schreibberechtigungen für ein Repository verfügt, kann Issues und Pull Requests zuweisen.
 
-Du kannst jedem Issue oder Pull Request bis zu 10 Personen zuweisen (auch Dich selber),{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} jeden, der den Issue oder Pull Request kommentiert hat,{% endif %} jeden, der Schreibberechtigungen für das Repository hat, sowie Organisationsmitglieder mit Leseberechtigung für das Repository. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github).“
+You can assign up to 10 people to each issue or pull request, including yourself, anyone who has commented on the issue or pull request, anyone with write permissions to the repository, and organization members with read permissions to the repository. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {% data variables.product.prodname_dotcom %}](/articles/access-permissions-on-github).“
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

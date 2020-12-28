@@ -1,1 +1,1 @@
-`requested_reviewer` | `object` | The person requested to review the pull request. `review_requester` | `object` | The person who requested a review.
+`requested_reviewer` | `object` | 请求审查拉取请求的人。 `review_requester` | `object` | 请求审查的人。

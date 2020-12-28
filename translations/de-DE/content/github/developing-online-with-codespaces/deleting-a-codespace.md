@@ -1,8 +1,8 @@
 ---
 title: Einen Codespace löschen
-intro: 'Du kannst einen Codespace löschen, wenn Du ihn nicht länger benötigst.'
+intro: Du kannst einen Codespace löschen, wenn Du ihn nicht länger benötigst.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'Jeder kann einen Codespace löschen, der seinem Benutzerkonto gehört.'
+permissions: Jeder kann einen Codespace löschen, der seinem Benutzerkonto gehört.
 redirect_from:
   - /github/developing-online-with-github-codespaces/deleting-a-codespace
 versions:

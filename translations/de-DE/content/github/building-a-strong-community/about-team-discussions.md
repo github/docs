@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-purpose %}
@@ -26,7 +27,7 @@ Wenn jemand eine öffentliche Diskussion auf der Seite eines Teams veröffentlic
 
 {% tip %}
 
-**Tipp:** Abhängig von Deinen Benachrichtigungseinstellungen erhältst Du Updates per E-Mail, über die Seite mit den Webbenachrichtigungen auf {% data variables.product.product_name %} oder beide. Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}„[Über E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" und „[Über Webbenachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Tipp:** Abhängig von Deinen Benachrichtigungseinstellungen erhältst Du Updates per E-Mail, über die Seite mit den Webbenachrichtigungen auf {% data variables.product.product_name %} oder beide. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" and "[About web notifications](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
 
 {% endtip %}
 
@@ -34,7 +35,7 @@ Wenn Dein Benutzername in einer Teamdiskussion erwähnt wird, erhältst Du stand
 
 Um Benachrichtigungen für Teamdiskussionen zu deaktivieren, kannst Du einen bestimmten Diskussionsbeitrag kündigen oder Deine Benachrichtigungseinstellungen so ändern, dass Du die Diskussionen eines bestimmten Teams nicht mehr beobachtest oder vollständig ignorierst. Du kannst Benachrichtigungen für einen bestimmten Diskussionsbeitrag abonnieren, auch wenn Du die Diskussionen dieses Teams nicht beobachtest.
 
-Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Deine Abonnements anschauen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)"{% else %}„[Benachrichtigungen abonnieren oder kündigen](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"{% endif %} und „[Verschachtelte Teams](/articles/about-teams/#nested-teams)."
+For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
 
 ### Weiterführende Informationen
 

@@ -1,6 +1,6 @@
 ---
 title: Team innerhalb der Hierarchie Deiner Organisation verschieben
-intro: Team-Betreuer und Organisationsinhaber können ein Team einem übergeordneten Team unterordnen oder das übergeordnete Team eines untergeordneten Teams ändern oder entfernen.
+intro: 'Team-Betreuer und Organisationsinhaber können ein Team einem übergeordneten Team unterordnen oder das übergeordnete Team eines untergeordneten Teams ändern oder entfernen.'
 redirect_from:
   - /articles/changing-a-team-s-parent/
   - /articles/moving-a-team-in-your-organization-s-hierarchy
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organisationsinhaber können das übergeordnete Team jedes Teams ändern. Team-Betreuer können das übergeordnete Team eines Teams ändern, wenn sie sowohl im untergeordneten als auch im übergeordneten Team Betreuer sind. Team-Betreuer ohne Betreuer-Berechtigungen im untergeordneten Team können das Hinzufügen eines übergeordneten oder untergeordneten Teams anfordern. Weitere Informationen findest Du unter „[Hinzufügen oder Ändern eines übergeordneten Teams anfordern](/articles/requesting-to-add-or-change-a-parent-team)“ und „[Hinzufügen eines untergeordneten Teams anfordern](/articles/requesting-to-add-a-child-team).“

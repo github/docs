@@ -1,6 +1,6 @@
 ---
 title: Tipos de contas do GitHub
-intro: 'Sua conta de usuário é o que identifica você no {% data variables.product.product_location %}. Ela pode ser integrante de qualquer número de organizações.{% if currentVersion == "free-pro-team@latest" %} As organizações podem pertencer a contas corporativas.{% endif %}'
+intro: 'Sua conta de usuário é o que identifica você no {% data variables.product.product_location %}. A sua conta de usuário pode ser integrante de qualquer quantidade de organizações{% if currentVersion == "free-pro-team@latest" %} As organizações podem pertencer às contas corporativas.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,10 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-Para uma lista completa de recursos para cada {% data variables.product.product_name %} produto, consulte produtos do "[{% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
+Para obter uma lista completa de recursos para cada
+produto de {% data variables.product.product_name %}, consulte "[ produtos de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Contas de usuário pessoais
@@ -71,6 +73,6 @@ Com contas corporativas, é possível gerenciar centralmente a política e a cob
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Inscrevendo-se em uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
 - "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
 - "[Criar uma conta de organização](/articles/creating-a-new-organization-account)"

@@ -6,7 +6,6 @@ redirect_from:
   - /enterprise/admin/clustering/about-clustering
   - /enterprise/admin/clustering/clustering-overview/
   - /enterprise/admin/enterprise-management/about-clustering
-  - /enterprise/admin/enterprise-management/about-clustering
 versions:
   enterprise-server: '*'
 ---

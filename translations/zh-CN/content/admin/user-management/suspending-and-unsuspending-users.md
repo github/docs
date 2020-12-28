@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/articles/suspended-users/
   - /enterprise/admin/articles/suspending-and-unsuspending-users/
   - /enterprise/admin/user-management/suspending-and-unsuspending-users
-intro: '如果用户离开公司或者调动到公司的其他部门，您应当移除或修改他们访问 {% data variables.product.product_location_enterprise %} 的能力。'
+intro: '如果用户离开公司或者调动到公司的其他部门，您应当移除或修改他们访问 {% data variables.product.product_location %} 的能力。'
 versions:
   enterprise-server: '*'
 ---
@@ -27,7 +27,7 @@ fatal: The remote end hung up unexpectedly
 
 {% tip %}
 
-**注**：如果已为 {% data variables.product.product_location_enterprise %} [启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)，那么当用户从 LDAP 目录服务器中移除时，他们也将被自动挂起。 为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
+**注**：如果已为 {% data variables.product.product_location %} [启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)，那么当用户从 LDAP 目录服务器中移除时，他们也将被自动挂起。 为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
 
 {% endtip %}
 
@@ -65,8 +65,7 @@ fatal: The remote end hung up unexpectedly
 
 您可以创建自定义消息，被挂起的用户会在尝试登录时看到此消息。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
 5. 单击 **Add message**。 ![Add message](/assets/images/enterprise/site-admin-settings/add-message.png)
@@ -84,4 +83,4 @@ fatal: The remote end hung up unexpectedly
   ```
 
 ### 延伸阅读
-- "[暂停用户](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- "[暂停用户](/rest/reference/enterprise-admin#suspend-a-user)"

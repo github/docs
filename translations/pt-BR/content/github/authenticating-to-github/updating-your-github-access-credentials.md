@@ -1,6 +1,6 @@
 ---
-title: Atualizar credenciais de acesso do GitHub
-intro: 'As credenciais do {% data variables.product.product_name %} incluem não só a sua senha, mas também os tokens de acesso, as chaves SSH e os tokens da API do aplicativo que você usa para se comunicar com o {% data variables.product.product_name %}. Se houver necessidade, você mesmo pode redefinir todas essas credenciais de acesso.'
+title: Updating your GitHub access credentials
+intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -8,53 +8,55 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Solicitar uma nova senha
+{% if currentVersion != "github-ae@latest" %}
+### Requesting a new password
 
-1. Para solicitar uma nova senha, visite {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
-2. Digite o endereço de e-mail associado à sua conta pessoal do {% data variables.product.product_name %} e clique em **Send password reset email** (Enviar e-mail de redefinição de senha). O e-mail será enviado para o endereço de e-mail de backup, se você tiver um configurado. ![Caixa de diálogo para solicitar e-mail de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
-3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
-4. Depois de clicar no link contido no e-mail, você precisará digitar uma nova senha.![Caixa para recuperar senha](/assets/images/help/settings/password_recovery_page.png)
+1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+2. Enter the email address associated with your personal {% data variables.product.product_name %} account, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
+  ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
+3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
+4. After clicking on the link in your email, you'll be asked to enter a new password.
+  ![Password recovery box](/assets/images/help/settings/password_recovery_page.png)
 
 {% tip %}
 
-Para evitar que você perca a senha, sugerimos que você use um gerenciador de senhas seguras, como [LastPass](https://lastpass.com/), [1Password](https://1password.com/), ou [Keeper](https://keepersecurity.com/).
+To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/), [1Password](https://1password.com/), or [Keeper](https://keepersecurity.com/).
 
 {% endtip %}
 
-### Alterar uma senha existente
+### Changing an existing password
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
+1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.user_settings.security %}
-{%- else %}
-{% data reusables.user_settings.account_settings %}
-{%- endif %}
-4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Consulte "[Criar uma senha forte](/articles/creating-a-strong-password)" para obter ajuda sobre esse assunto.
-5. Clique em **Update password** (Atualizar senha).
+4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
+5. Click **Update password**.
 
 {% tip %}
 
-Para maior segurança, além de alterar a senha, habilite também a autenticação de dois fatores. Consulte [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication) para ver mais detalhes.
+For greater security, enable two-factor authentication in addition to changing your password. See [About two-factor authentication](/articles/about-two-factor-authentication) for more details.
 
 {% endtip %}
+{% endif %}
+### Updating your access tokens
 
-### Atualizar tokens de acesso
+See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para ver instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+### Updating your SSH keys
 
-### Atualizar chaves SSH
+See "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)" for instructions on reviewing and deleting SSH keys. To generate and add new SSH keys, see "[Generating an SSH key](/articles/generating-an-ssh-key)."
 
-Consulte "[Revisar as chaves SSH](/articles/reviewing-your-ssh-keys)" para ver instruções sobre como revisar e excluir chaves SSH. Para gerar e adicionar novas chaves SSH, consulte "[Gerar uma chave SSH](/articles/generating-an-ssh-key)".
+### Resetting API tokens
 
-### Redefinir tokens da API
+If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
 
-Se você tiver algum aplicativo registrado no {% data variables.product.product_name %}, talvez precise redefinir os tokens OAuth dele. Para obter mais informações, consulte o ponto de extremidade "[Redefinir uma autorização](/rest/reference/apps#reset-an-authorization)".
+{% if currentVersion != "github-ae@latest" %}
+### Preventing unauthorized access
 
-### Impedir acesso não autorizado
-
-Consulte "[Impedir acesso não autorizado](/articles/preventing-unauthorized-access)" para obter mais dicas sobre como proteger a conta e impedir acesso não autorizado.
+For more tips on securing your account and preventing unauthorized access, see "[Preventing unauthorized access](/articles/preventing-unauthorized-access)."
+{% endif %}

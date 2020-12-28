@@ -35,14 +35,8 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_short %} alerts.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -54,14 +48,8 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to security alerts.
-
-{% note %}
-
-**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
-
-{% endnote %}
 
 ![Dependencies graph](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -93,6 +81,25 @@ You can also enable or disable the dependency graph for all repositories owned b
    !["Enable" button for the dependency graph](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Security & analysis tab.
+
+### Changing the "Used by" package
+
+If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)." 
+
+The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects. 
+
+!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+
+Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+
+The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package.
+  ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
 ### Troubleshooting the dependency graph

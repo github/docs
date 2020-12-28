@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -21,10 +22,10 @@ Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explan
 
 Ensure that your own SSH key is set up and working. You can use [our guide on generating SSH keys][generating-keys] if you've not done this yet.
 
-You can test that your local key works by entering `ssh -T git@github.com` in the terminal:
+You can test that your local key works by entering `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` in the terminal:
 
 ```shell
-$ ssh -T git@github.com
+$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
 # Attempt to SSH in to github
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not provide
 > shell access.
@@ -47,7 +48,7 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
 
 ### Testing SSH agent forwarding
 
-To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@github.com` once more.  If all is well, you'll get back the same prompt as you did locally.
+To test that agent forwarding is working with your server, you can SSH into your server and run `ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}` once more.  If all is well, you'll get back the same prompt as you did locally.
 
 If you're unsure if your local key is being used, you can also inspect the `SSH_AUTH_SOCK` variable on your server:
 
@@ -63,7 +64,7 @@ If the variable is not set, it means that agent forwarding is not working:
 $ echo "$SSH_AUTH_SOCK"
 # Print out the SSH_AUTH_SOCK variable
 > <em>[No output]</em>
-$ ssh -T git@github.com
+$ ssh -T git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}
 # Try to SSH to github
 > Permission denied (publickey).
 ```
@@ -78,7 +79,7 @@ SSH forwarding only works with SSH URLs, not HTTP(s) URLs. Check the *.git/confi
 
 ```shell
 [remote "origin"]
-  url = git@github.com:<em>yourAccount</em>/<em>yourProject</em>.git
+  url = git@{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}hostname{% else %}github.com{% endif %}:<em>yourAccount</em>/<em>yourProject</em>.git
   fetch = +refs/heads/*:refs/remotes/origin/*
 ```
 
@@ -93,7 +94,7 @@ Sometimes, system configurations disallow SSH agent forwarding. You can check if
 ```shell
 $ ssh -v <em>example.com</em>
 # Connect to example.com with verbose debug output
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config

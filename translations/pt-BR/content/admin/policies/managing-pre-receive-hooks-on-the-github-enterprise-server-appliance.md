@@ -11,8 +11,7 @@ versions:
 
 ### Criar hooks pre-receive
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 4. Clique em **Add pre-receive hook** (Adicionar hooks pre-receive). ![Adicionar hook pre-receive](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
@@ -25,16 +24,14 @@ versions:
 
 ### Editar hooks pre-receive
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 1. Ao lado do hook pre-receive que deseja editar, clique em {% octicon "pencil" aria-label="The edit icon" %}.![Editar hooks pre-receive](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
 ### Excluir hooks pre-receive
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 2. Ao lado do hook pre-receive que deseja excluir, clique em {% octicon "x" aria-label="X symbol" %}.![Editar hooks pre-receive](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)

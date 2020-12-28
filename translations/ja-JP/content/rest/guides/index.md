@@ -1,15 +1,14 @@
 ---
 title: ガイド
-intro: REST APIおよび認証の初歩や、さまざまなタスクでREST APIを使用する方法について学びましょう。
+intro: 'REST APIおよび認証の初歩や、さまざまなタスクでREST APIを使用する方法について学びましょう。'
 redirect_from:
   - /guides/
   - /v3/guides
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
 
 ドキュメンテーションのこのセクションは、実際の{% data variables.product.product_name %} APIアプリケーションを使う準備を整えることを目的としています。 認証から結果の操作、結果を他のアプリケーションと組み合わせる方法に至るまで、必要な情報をすべて網羅しています。
 

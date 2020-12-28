@@ -1,6 +1,6 @@
 ---
 title: Testinstanz einrichten
-intro: 'Sie können eine *Testinstanz* verwenden, um Änderungen zu testen, bevor sie auf {% data variables.product.product_location_enterprise %} angewendet werden. So können Sie eine Testinstanz beispielsweise verwenden, um neue {% data variables.product.prodname_ghe_server %}-Updates zu testen oder das Importieren von Migrationsdaten zu üben.'
+intro: 'Sie können eine *Testinstanz* verwenden, um Änderungen zu testen, bevor sie auf {% data variables.product.product_location %} angewendet werden. So können Sie eine Testinstanz beispielsweise verwenden, um neue {% data variables.product.prodname_ghe_server %}-Updates zu testen oder das Importieren von Migrationsdaten zu üben.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:

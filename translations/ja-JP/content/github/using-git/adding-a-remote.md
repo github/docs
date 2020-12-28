@@ -1,11 +1,12 @@
 ---
 title: リモートの追加
-intro: 新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。
+intro: '新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。'
 redirect_from:
   - /articles/adding-a-remote
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote add` コマンドは 2 つの引数を取ります:

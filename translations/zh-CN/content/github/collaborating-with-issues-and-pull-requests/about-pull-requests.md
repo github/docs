@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于拉取请求
@@ -26,7 +27,7 @@ versions:
 其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. 更多信息请参阅“[查看仓库的部署活动](/articles/viewing-deployment-activity-for-your-repository)”。
+您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/articles/viewing-deployment-activity-for-your-repository)”。
 {% endif %}
 
 对提议的更改感到满意后，您可以合并拉取请求。 如果您在使用共享仓库模型，可以创建一个拉取请求，然后您或其他人将您的功能分支中的更改合并到您在拉取请求中指定的基础分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
@@ -52,6 +53,13 @@ You can see information about the branch's current deployment status and past de
 在创建拉取请求时，可以选择创建可直接审查的拉取请求，或草稿拉取请求。 草稿拉取请求不能合并，也不会自动向代码所有者申请审查草稿拉取请求。 有关创建草稿拉取请求的更多信息，请参阅“[创建拉取请求](/articles/creating-a-pull-request)”和“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”。
 
 {% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
+
+### 比较页和拉取请求页上的提交之间的差异
+
+比较页和拉取请求页使用不同的方法来计算已更改文件的差异：
+
+- 比较页显示头部引用的提示与头部及基础引用当前的共同上层节点（即合并基础）之间的差异。
+- 拉请求页面显示在创建拉取请求时头部引用头与头部和基础的共同上层节点之间的差异。 因此，用于比较的合并基础可能不同。
 
 ### 延伸阅读
 

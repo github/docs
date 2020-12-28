@@ -1,8 +1,16 @@
 name: Auto Merge Dependency Updates
 
 on:
-  - pull_request
-  - pull_request_review
+  pull_request:
+    paths:
+      - 'package*.json'
+      - 'Gemfile*'
+      - 'Dockerfile'
+      - '.github/workflows/**'
+  pull_request_review:
+    types:
+      - edited
+      - submitted
 
 jobs:
   run:

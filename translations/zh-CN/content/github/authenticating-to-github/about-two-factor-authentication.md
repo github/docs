@@ -1,6 +1,6 @@
 ---
 title: 关于双重身份验证
-intro: 双重身份验证（或 2FA）是登录网站或应用时使用的额外保护层。 启用 2FA 时，必须使用您的用户名和密码登录，并提供另一种只有您知道或可以访问的身份验证形式。
+intro: '{% data reusables.two_fa.about-2fa %}启用 2FA 时，必须使用您的用户名和密码登录，并提供另一种只有您知道或可以访问的身份验证形式。'
 redirect_from:
   - /articles/about-two-factor-authentication
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-对于 {% data variables.product.product_name %}，第二种身份验证形式是应用程序在移动设备上生成的代码{% if currentVersion == "free-pro-team@latest" %}或发送的短信 (SMS){% endif %}。 在启用 2FA 后，只要有人尝试登录您的 {% data variables.product.product_name %} 帐户，{% data variables.product.product_name %} 就会生成验证码。 别人登录您的帐户的唯一方式是知道您的密码，并且获取您的手机上的验证码。
+对于 {% data variables.product.product_name %}，第二种身份验证形式是应用程序在移动设备上生成的代码{% if currentVersion == "free-pro-team@latest" %} 或发送的短信 (SMS){% endif %}。 在启用 2FA 后，只要有人尝试登录您的 {% data variables.product.product_name %} 帐户，{% data variables.product.product_name %} 就会生成验证码。 别人登录您的帐户的唯一方式是知道您的密码，并且获取您的手机上的验证码。
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
@@ -34,6 +34,6 @@ versions:
 
 ### 您的组织中需要双重身份验证
 
-组织所有者可要求组织成员{% if currentVersion == "free-pro-team@latest" %}、帐单管理员{% endif %}和外部协作者使用双重身份验证保护其个人帐户的安全。 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
+组织所有者可要求组织成员{% if currentVersion == "free-pro-team@latest" %}、帐单管理员{% endif %} 和外部协作者使用双重身份验证保护其个人帐户的安全。 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
 
 {% data reusables.two_fa.auth_methods_2fa %}

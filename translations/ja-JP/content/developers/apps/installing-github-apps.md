@@ -1,62 +1,63 @@
 ---
-title: Installing GitHub Apps
-intro: 'When your app is public, anyone can install your app on their repository through {% if currentVersion == "free-pro-team@latest" %} the {% data variables.product.prodname_marketplace %} or {% endif %}an installation URL. When your app is private, you can only install the app on repositories that you own.'
+title: GitHub Appのインストール
+intro: 'アプリケーションがパブリックなら、{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_marketplace %}あるいは{% endif %}インストールURLを通じて、誰でも自分のリポジトリにそのアプリケーションをインストールできます。 アプリケーションがプライベートの場合は、あなたが所有するリポジトリにあなただけがそのアプリケーションをインストールできます。'
 redirect_from:
   - /apps/installing-github-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
 
-**Note:** Your {% data variables.product.prodname_github_app %} will have access to any repositories the app creates, even if someone only installs your app on selected repositories.
+**ノート:** {% data variables.product.prodname_github_app %}は、誰かがアプリケーションを選択したリポジトリにだけインストールした場合でも、アプリケーションが作成するすべてのリポジトリにアクセスできます。
 
 {% endnote %}
 
-### Installing your private GitHub App on your repository
+### プライベートなGitHub Appのリポジトリへのインストール
 
-Once you create a private GitHub App, you can install it on one of your org or user repositories. For more information, see "[Private installation flow](/apps/managing-github-apps/making-a-github-app-public-or-private/#private-installation-flow)."
+プライベートなGitHub Appを作成した場合、自分のOrganizationあるいはユーザリポジトリにそれをインストールできます。 詳しい情報については「[プライベートインストールのフロー](/apps/managing-github-apps/making-a-github-app-public-or-private/#private-installation-flow)」を参照してください。
 
-1. From the [GitHub Apps settings page](https://github.com/settings/apps), select your app.
-2. In the left sidebar, click **Install App**.
-3. Click **Install** next to the organization or user account containing the correct repository.
-4. Install the app on all repositories or select repositories. ![App installation permissions](/assets/images/install_permissions.png)
-5. Once installed, you will see configuration options for the app on your selected account. You can make changes here, or repeat the previous steps to install the app on another account.
+1. [GitHub Appsの設定ページ](https://github.com/settings/apps)から、アプリケーションを選択してください。
+2. 左のサイドバーで、**Install App（アプリケーションのインストール）**をクリックしてください。
+3. 適切なリポジトリを含むOrganizationもしくはユーザアカウントの隣の** Install（インストール）**をクリックしてください。
+4. すべてのリポジトリ、もしくは選択したリポジトリにアプリケーションをインストールしてください。 ![アプリケーションのインストール権限](/assets/images/install_permissions.png)
+5. インストールが終わると、選択したアカウントでアプリケーションの設定オプションが表示されます。 ここで変更をすることも、あるいは先のステップを繰り返して他のアカウントへアプリケーションをインストールすることもできます。
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Offering your app in the GitHub Marketplace
+### GitHub Marketplaceでのアプリケーションの提供
 
-You can offer a paid or free version of your app in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), where people can search for and view details about your app. {% data variables.product.prodname_marketplace %} automatically installs a GitHub App when an order is complete.
+[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace)では有料あるいは無料バージョンのアプリケーションを提供でき、ユーザがアプリケーションについて検索したり表示したりできます。 {% data variables.product.prodname_marketplace %}は注文が完了すると、自動的にGitHub Appをインストールします。
 
-See "[Getting started with GitHub Marketplace](/marketplace/getting-started/)" to learn more about listing your app on {% data variables.product.prodname_marketplace %}.
+{% data variables.product.prodname_marketplace %}上でのアプリケーションのリストに関してさらに学ぶには、「[GitHub Marketplaceの利用を始める](/marketplace/getting-started/)」を参照してください。
 
-To learn more about how users can install your app from {% data variables.product.prodname_marketplace %}, see "[Purchasing and installing apps in GitHub Marketplace](/articles/purchasing-and-installing-apps-in-github-marketplace)".
+{% data variables.product.prodname_marketplace %}からユーザがアプリケーションをインストールする方法の詳細については、「[GitHub Marketplaceでのアプリケーションの購入とインストール](/articles/purchasing-and-installing-apps-in-github-marketplace)」を参照してください。
 
 {% endif %}
 
-### Allowing people to install your public app on their repository
+### ユーザがパブリックなアプリケーションをリポジトリにインストールできるようにする
 
-You can enable others to install your public app by providing the installation URL in places like your app's homepage. You can then point to your app's homepage from the landing page on GitHub.
+アプリケーションのホームページのような場所にインストールURLを提供して、パブリックなアプリケーションをユーザがインストールできるようにすることができます。 そして、GitHub上のランディングページからアプリケーションのホームページを指すようにできます。
 
- If you are migrating from an OAuth App to a GitHub App, you can use query parameters to preselect the repositories and account when installing the GitHub App. See "[Migrating OAuth Apps to GitHub Apps](/apps/migrating-oauth-apps-to-github-apps/)" to learn more.
+ OAuth AppからGitHub Appに移行しているなら、GitHub Appをインストールする際にリポジトリとアカウントを事前選択するよう、クエリパラメータを利用できます。 詳細については「[OAuth AppからGitHub Appへの移行](/apps/migrating-oauth-apps-to-github-apps/)」を参照してください。
 
-These steps assume you have [built a {% data variables.product.prodname_github_app %}](/apps/building-github-apps/):
+以下のステップでは、[{% data variables.product.prodname_github_app %}を構築](/apps/building-github-apps/)済みであるものとしています。
 
-1. From the [GitHub Apps settings page](https://github.com/settings/apps), select the public app you want to configure for others to install.
-2. In "Homepage URL," type the URL for your app's homepage and click **Save changes**. ![Homepage URL](/assets/images/github-apps/github_apps_homepageURL.png)
-3. GitHub provides a landing page for your app that includes a link to your app's "Homepage URL." To visit the landing page on GitHub, copy the URL from "Public link" and paste it into a browser. ![Public link](/assets/images/github-apps/github_apps_public_link.png)
-4. Create a homepage for your app that includes the app installation URL: `https://github.com/apps/<app name>/installations/new`.
+1. [GitHub Appの設定ページ](https://github.com/settings/apps)から、他のユーザがインストールできるように設定したいパブリックなアプリケーションを選択してください。
+2. "Homepage URL（ホームページのURL）"にアプリケーションのホームページのURLを入力し、**Save changes（変更を保存）**をクリックしてください。 ![ホームページのURL](/assets/images/github-apps/github_apps_homepageURL.png)
+3. GitHubは、アプリケーションの「ホームページURL」へのリンクを含むアプリケーションのためのランディングページを提供します。 GitHub上のランディングページにアクセスするには、「Public link（公開リンク）」からURLをコピーし、ブラウザに貼り付けてください。 ![公開リンク](/assets/images/github-apps/github_apps_public_link.png)
+4. `{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new`というアプリケーションのインストールURLを含む、アプリケーションのためのホームページを作成してください。
 
-### Authorizing users during installation
+### インストール中のユーザの認可
 
-You can simplify the authorization process by completing it during app installation. To do this, select **Request user authorization (OAuth) during installation** when creating or modifying your app in GitHub. See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" to learn more.
+認可のプロセスは、アプリケーションのインストール中に完了させることでシンプルにできます。 そのためには、GitHub上でアプリケーションを作成もしくは変更する際に**Request user authorization (OAuth) during installation（インストール中にユーザの認可（OAuth）をリクエスト）**を選択してください。 詳細については「[GitHub Appの作成](/apps/building-github-apps/creating-a-github-app/)を参照してください。
 
-Once someone has installed your app, you will need to get an access token for the user. See steps 2 and 3 in "[Identifying a users on your site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" to learn more.
-### Preserving an application state during installation
+誰かがアプリケーションをインストールしたら、そのユーザのアクセストークンを取得する必要があります。 詳細については「[サイトでのユーザの特定](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)」のステップ2と3を参照してください。
+### インストール中のアプリケーションの状態の保持
 
-You can provide a `state` parameter in an app's installation URL to preserve the state of the application page and return people back to that state after they install, authenticate, or accept updates to your GitHub App. For example, you could use the `state` to correlate an installation to a user or account.
+アプリケーションのインストールURLに`state`パラメータを提供して、アプリケーションページの状態を保持して、インストールや認可、GitHub Appの更新を受け付けた後にその状態に戻れるようにできます。 たとえば、`state`を使ってインストールをユーザあるいはアカウントと関連づけることができます。
 
-To preserve a state, add it to the installation URL:
+状態を保持するには、インストールURLに追加します。
 
-`https://github.com/apps/<app name>/installations/new?state=AB12t`
+`{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new?state=AB12t`

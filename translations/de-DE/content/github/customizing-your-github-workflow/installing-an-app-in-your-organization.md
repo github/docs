@@ -1,6 +1,6 @@
 ---
 title: Eine App in Deiner Organisation installieren
-intro: 'Du kannst Apps von {% data variables.product.prodname_marketplace %} zur Verwendung in Deiner Organisation installieren.'
+intro: 'Sie können Apps von {% data variables.product.prodname_marketplace %} zur Verwendung in Ihrer Organisation installieren.'
 redirect_from:
   - /articles/installing-an-app-in-your-organization
 versions:
@@ -15,7 +15,7 @@ Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonne
 
 {% data reusables.marketplace.free-trials %}
 
-### Eine {% data variables.product.prodname_github_app %} in Deiner Organisation installieren
+### Eine {% data variables.product.prodname_github_app %} in Ihrer Organisation installieren
 
 {% data reusables.marketplace.visit-marketplace %}
 {% data reusables.marketplace.browse-to-app %}
@@ -28,7 +28,7 @@ Wenn Du einen kostenpflichtigen Plan auswählst, bezahlst Du für das App-Abonne
 {% data reusables.marketplace.select-installation-repos %}
 {% data reusables.marketplace.review-app-perms-install %}
 
-### Eine {% data variables.product.prodname_oauth_app %} in Deiner Organisation erstellen
+### Eine {% data variables.product.prodname_oauth_app %} in Ihrer Organisation erstellen
 
 {% data reusables.saml.saml-session-oauth %}
 

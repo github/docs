@@ -1,6 +1,6 @@
 ---
 title: オープンソースコントリビューターに対する GitHub スポンサーについて
-intro: オープンソースプロジェクトに貢献すれば、スポンサードコントリビューターとなって、作業に対する報酬を得られます。
+intro: 'オープンソースプロジェクトに貢献すれば、スポンサードコントリビューターとなって、作業に対する報酬を得られます。'
 redirect_from:
   - /articles/about-github-sponsors-for-sponsored-developers
   - /github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-sponsored-developers

@@ -1,5 +1,5 @@
 ---
-title: Configuring high availability
+title: 配置高可用性
 redirect_from:
   - /enterprise/admin/installation/configuring-github-enterprise-server-for-high-availability
   - /enterprise/admin/guides/installation/high-availability-cluster-configuration/

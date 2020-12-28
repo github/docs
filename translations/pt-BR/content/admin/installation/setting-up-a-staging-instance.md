@@ -1,6 +1,6 @@
 ---
 title: Configurar uma instância de preparo
-intro: 'É possível usar uma *instância de preparo* para testar as modificações antes de aplicá-las à {% data variables.product.product_location_enterprise %}. Por exemplo, você pode usar uma instância de teste para avaliar novas atualizações do {% data variables.product.prodname_ghe_server %} ou praticar a importação de dados de migração.'
+intro: 'É possível usar uma *instância de preparo* para testar as modificações antes de aplicá-las à {% data variables.product.product_location %}. Por exemplo, você pode usar uma instância de teste para avaliar novas atualizações do {% data variables.product.prodname_ghe_server %} ou praticar a importação de dados de migração.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:

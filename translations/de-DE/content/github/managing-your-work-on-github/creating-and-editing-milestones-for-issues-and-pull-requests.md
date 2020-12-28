@@ -1,12 +1,13 @@
 ---
 title: Meilensteine für Issues und Pull Requests erstellen und bearbeiten
-intro: 'Du kannst einen Meilenstein erstellen, um den Fortschritt von Gruppen von Issues oder Pull Requests in einem Repository zu verfolgen.'
+intro: Du kannst einen Meilenstein erstellen, um den Fortschritt von Gruppen von Issues oder Pull Requests in einem Repository zu verfolgen.
 redirect_from:
   - /articles/creating-milestones-for-issues-and-pull-requests/
   - /articles/creating-and-editing-milestones-for-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

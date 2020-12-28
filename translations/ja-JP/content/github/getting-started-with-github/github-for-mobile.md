@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### {% data variables.product.prodname_mobile %}について
+### {% data variables.product.prodname_mobile %} について
 
 現在、{% data variables.product.prodname_mobile %} は {% data variables.product.prodname_dotcom_the_website %} ユーザが Android および iOS アプリとして利用できます。
 
@@ -23,6 +23,16 @@ versions:
 
 Android または iOS に {% data variables.product.prodname_mobile %} をインストールするには、「[{% data variables.product.prodname_mobile %}](https://github.com/mobile)」を参照してください。
 
+### {% data variables.product.prodname_mobile %} でサポートされている言語
+
+{% data variables.product.prodname_mobile %} は次の言語で利用できます。
+
+- 日本語
+- ポルトガル語 (ブラジル)
+- スペイン語
+
+デバイスの言語をサポートされている言語に設定すると、{% data variables.product.prodname_mobile %} はデフォルトでその言語になります。 {% data variables.product.prodname_mobile %} の [**Settings**] メニューで {% data variables.product.prodname_mobile %} の言語を変更できます。
+
 ### iOS で {% data variables.product.prodname_mobile %} のユニバーサルリンクを管理する
 
 {% data variables.product.prodname_mobile %} は、iOS のユニバーサルリンクを自動的に有効にします。 {% data variables.product.product_name %} リンクをタップすると、リンク先 URL が Safari ではなく {% data variables.product.prodname_mobile %} で開きます。 詳しい情報については、Apple Developer サイトの「[Universal Links](https://developer.apple.com/ios/universal-links/)」を参照してください。
@@ -33,8 +43,9 @@ Android または iOS に {% data variables.product.prodname_mobile %} をイン
 
 ### フィードバックを送る
 
-{% data variables.product.prodname_mobile %} に関するフィードバックまたは機能のリクエストがある場合は、<a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> にメールでお問い合わせください。
+{% data variables.product.prodname_mobile %} でバグを見つけた場合は、<a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> までメールでお知らせください。
 
+[GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22) で {% data variables.product.prodname_mobile %} の機能リクエストやその他のフィードバックを送信できます。
 
 ### iOS のベータリリースをオプトアウトする
 

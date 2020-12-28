@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Benachrichtigungen und Abonnements
@@ -20,7 +21,12 @@ Du kannst Benachrichtigungen abonnieren für:
 - Eine Unterhaltung in einem spezifischen Issue, Pull Request oder Gist.
 - Alle Aktivitäten in einem Repository oder in einer Team-Diskussion.
 - CI-Aktivität wie beispielsweise der Status von Workflows in Repositorys, die mit {% data variables.product.prodname_actions %} aufgesetzt wurden.
+{% if currentVersion == "free-pro-team@latest" %}
+- Issues, pulls requests, releases and discussions (if enabled) in a repository.
+{% endif %}
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - Releases in einem Repository.
+{% endif %}
 
 Du kannst auch automatisch alle Repositorys überwachen, auf die Du Push-Zugriff hast, mit Ausnahme von Forks. Du kannst jedes andere Repository, auf das Du Zugriff hast, manuell verfolgen durch klicken auf **Watch** (Beobachten).
 
@@ -53,7 +59,8 @@ Um Deine Abonnements übersichtlich zu halten, überprüfe Deine Abonnements und
 Um anzupassen, wie Du Aktualisierungen für bestimmte Pull Requests oder Issues erhalten möchtest, kannst Du Deine Einstellungen innerhalb des Issues oder Pull Requests konfigurieren. Weitere Informationen findest Du unter „[Eine einzelne Benachrichtigung selektieren](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
 
 {% if currentVersion == "free-pro-team@latest" %}
-Du kannst Push-Benachrichtigungen in der {% data variables.product.prodname_mobile %}-App aktivieren. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
+You can enable push notifications in the
+{% data variables.product.prodname_mobile %} app. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 {% endif %}
 
 ### Gründe für den Erhalt von Benachrichtigungen

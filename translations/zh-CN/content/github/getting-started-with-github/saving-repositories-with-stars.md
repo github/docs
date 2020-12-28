@@ -1,6 +1,6 @@
 ---
 title: 使用星标保存仓库
-intro: '您可以对仓库{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}和主题{% endif %}加星标，以跟踪您认为有趣的项目{% if currentVersion == "free-pro-team@latest" %}，并发现消息馈送中的相关内容{% endif %}。'
+intro: '您可以对仓库和主题标星以跟踪您感兴趣的项目{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}。'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在 {% data variables.explore.your_stars_page %} 上搜索、排序和筛选星标仓库和主题。'
@@ -19,7 +20,8 @@ versions:
 标星操作便于以后再次找到仓库或主题。 您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
 
 {% if currentVersion == "free-pro-team@latest" %}
-您可以对仓库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 对仓库或主题加星标时，{% data variables.product.product_name %} 可能会在消息馈送的发现视图中推荐相关内容。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+您可以对仓库和主题标星以发现类似项目
+{% data variables.product.product_name %} 上的企业设置来设置公告横幅。 对仓库或主题加星标时，{% data variables.product.product_name %} 可能会在消息馈送的发现视图中推荐相关内容。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 {% endif %}
 
 对仓库加星标也可表示赞赏仓库维护员的工作。 许多 {% data variables.product.prodname_dotcom %} 的仓库评级取决于仓库拥有的星标数。 此外，[Explore](https://github.com/explore) 也会根据星标数显示最受欢迎的仓库。
@@ -42,7 +44,7 @@ versions:
 
 ### 浏览好友的星标
 
- 在页面右下角，可以浏览好友的星标。 You can use this to find new repositories and topics to star.
+ 在页面右下角，可以浏览好友的星标。 您可以使用它来查找新的仓库和主题以标星。
 
 ![查看好友的星标](/assets/images/help/stars/stars_jump_to_a_friend.png)
 

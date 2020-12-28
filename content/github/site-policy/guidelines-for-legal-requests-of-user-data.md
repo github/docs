@@ -194,7 +194,6 @@ In addition to the non-public user account information and account access logs m
   - Any security keys used for authentication or encryption
 
 - <a name="in-exigent-circumstances"></a>
-
 **Under exigent circumstances** —
 If we receive a request for information under certain exigent circumstances (where we believe the disclosure is necessary to prevent an emergency involving danger of death or serious physical injury to a person), we may disclose limited information that we determine necessary to enable law enforcement to address the emergency. For any information beyond that, we would require a subpoena, search warrant, or court order, as described above. For example, we will not disclose contents of private repositories without a search warrant. Before disclosing information, we confirm that the request came from a law enforcement agency, an authority sent an official notice summarizing the emergency, and how the information requested will assist in addressing the emergency.
 
@@ -216,8 +215,6 @@ c/o Corporation Service Company
 2710 Gateway Oaks Drive, Suite 150N
 Sacramento, CA 95833-3505
 ```
-
-You may also send a courtesy copy to legal@support.github.com.
 
 Please make your requests as specific and narrow as possible, including the following information:
 

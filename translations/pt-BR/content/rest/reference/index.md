@@ -1,10 +1,11 @@
 ---
 title: Referência
 shortTitle: Referência
-intro: View reference documentation to learn about the resources available in the GitHub REST API.
+intro: Veja documentação de referência para aprender os recursos disponíveis na API REST do GitHub.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Índice
@@ -14,8 +15,6 @@ versions:
 {% link_in_list /apps %}
 {% link_in_list /billing %}
 {% link_in_list /checks %}
-<!-- uncomment code-scanning when it's been added to openAPI -->
-<!-- {% link_in_list /code-scanning %} -->
 {% link_in_list /codes-of-conduct %}
 {% link_in_list /code-scanning %}
 {% link_in_list /emojis %}
@@ -38,6 +37,7 @@ versions:
 {% link_in_list /repos %}
 {% link_in_list /scim %}
 {% link_in_list /search %}
+{% link_in_list /secret-scanning %}
 {% link_in_list /teams %}
 {% link_in_list /users %}
 {% link_in_list /permissions-required-for-github-apps %}

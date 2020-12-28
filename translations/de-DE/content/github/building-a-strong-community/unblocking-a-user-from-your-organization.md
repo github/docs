@@ -1,6 +1,6 @@
 ---
 title: Sperre eines Benutzers für Deine Organisation aufheben
-intro: Organisationsinhaber können die Sperre eines zuvor blockierten Benutzers aufheben. Damit wird dessen Zugriff auf die Repositorys der Organisation wiederhergestellt.
+intro: 'Organisationsinhaber können die Sperre eines zuvor blockierten Benutzers aufheben. Damit wird dessen Zugriff auf die Repositorys der Organisation wiederhergestellt.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:

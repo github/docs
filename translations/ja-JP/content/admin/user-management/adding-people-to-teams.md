@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
   - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
   - /enterprise/admin/user-management/adding-people-to-teams
-intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location_enterprise %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
+intro: 'Team が作成されると、Organization の管理者はユーザを {% data variables.product.product_location %} から Team に追加し、どのリポジトリにアクセスできるようにするかを決定できます。'
 versions:
   enterprise-server: '*'
 ---

@@ -1,1 +1,1 @@
-  1. In the labels list, to the right of the label you want to delete, click  **Delete**.
+  1. Na lista de etiquetas, à direita da etiqueta que você deseja excluir, clique em **Excluir**.

@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-GraphQL APIに対しては、直接[イントロスペクションを行え](/v4/guides/intro-to-graphql/#discovering-the-graphql-api)ます。
+GraphQL APIに対しては、直接[イントロスペクションを行え](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api)ます。
 
 あるいは、こちらから最新バージョンのパブリックスキーマをダウンロードすることもできます。
 
@@ -16,8 +17,16 @@ GraphQL APIに対しては、直接[イントロスペクションを行え](/v4
 
 [{% octicon "desktop-download" aria-label="The desktop download icon" %}`schema.docs.graphql`](/public/schema.docs.graphql)
 
-{% else %}
+{% endif %}
 
-[{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-enterprise.graphql`](/public/{{ currentVersion }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
+{% if enterpriseServerVersions contains currentVersion %}
+
+[{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-enterprise.graphql`](/public/ghes-{{ allVersions[currentVersion].currentRelease }}/schema.docs-enterprise.graphql) ({{ allVersions[currentVersion].versionTitle }})
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+
+[{% octicon "desktop-download" aria-label="The desktop download icon" %} `schema.docs-ghae.graphql`](/public/ghae/schema.docs-ghae.graphql) ({{ allVersions[currentVersion].versionTitle }})
 
 {% endif %}

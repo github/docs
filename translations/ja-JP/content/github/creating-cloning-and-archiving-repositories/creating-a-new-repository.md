@@ -12,6 +12,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -20,23 +21,23 @@ versions:
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.product_location %} documentation.
+**ヒント**: {% data variables.product.prodname_cli %} を使用してリポジトリを作成することもできます。 詳しい情報については、{% data variables.product.prodname_cli %} ドキュメントの「[`gh repo create`](https://cli.github.com/manual/gh_repo_create)」を参照してください。
 
 {% endtip %}
 {% endif %}
 
-{% data reusables.repositories.create_new %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-2. また、既存のリポジトリのディレクトリ構造とファイルを持つリポジトリを作成するには、[**Choose a template**] ドロップダウンでテンプレートリポジトリを選択します。 あなたが所有するテンプレートリポジトリ、あなたがメンバーとして属する Organization が所有するテンプレートリポジトリ、使ったことがあるテンプレートリポジトリが表示されます。 詳細は「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。 ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-3. 必要に応じて、テンプレートを使用する場合、デフォルトのブランチだけでなく、テンプレートのすべてのブランチからのディレクトリ構造とファイルを含めるには、[**Include all branches**] を選択します。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}{% endif %}
+{% data reusables.repositories.create_new %}
+2. また、既存のリポジトリのディレクトリ構造とファイルを持つリポジトリを作成するには、[**Choose a template**] ドロップダウンでテンプレートリポジトリを選択します。 あなたが所有するテンプレートリポジトリ、あなたがメンバーとして属する Organization が所有するテンプレートリポジトリ、使ったことがあるテンプレートリポジトリが表示されます。 詳細は「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。 ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+3. 必要に応じて、テンプレートを使用する場合、デフォルトのブランチだけでなく、テンプレートのすべてのブランチからのディレクトリ構造とファイルを含めるには、[**Include all branches**] を選択します。 ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
 3. [Owner] ドロップダウンで、リポジトリを作成するアカウントを選択します。 ![[Owner] ドロップダウンメニュー](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}テンプレートを使っていない場合、{% else %}{% endif %}リポジトリに自動入力できる数多くのオプションアイテムがあります。 既存のリポジトリを {% data variables.product.product_name %}にインポートする場合は、このようなオプションはどれも選択しないでください。マージコンフリクトが起きる可能性があります。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.15" %}ユーザインターフェースを使用して新しいファイルを追加または作成する、または{% endif %}コマンドラインを使用して後で新しいファイルを追加することができます。 詳細は「[コマンドラインを使って Git リポジトリをインポートする](/articles/importing-a-git-repository-using-the-command-line/)」、「[コマンドラインを使ってリポジトリにファイルを追加する](/articles/adding-a-file-to-a-repository-using-the-command-line)」、「[マージコンフリクトに対処する](/articles/addressing-merge-conflicts/)」を参照してください。
+6. テンプレートを使用していない場合は、リポジトリに自動入力できるオプションアイテムがいくつかあります。 既存のリポジトリを {% data variables.product.product_name %}にインポートする場合は、このようなオプションはどれも選択しないでください。マージコンフリクトが起きる可能性があります。 ユーザインターフェースを使用して新しいファイルを追加または作成する、またはコマンドラインを使用して後で新しいファイルを追加することができます。 詳細は「[コマンドラインを使って Git リポジトリをインポートする](/articles/importing-a-git-repository-using-the-command-line/)」、「[コマンドラインを使ってリポジトリにファイルを追加する](/articles/adding-a-file-to-a-repository-using-the-command-line)」、「[マージコンフリクトに対処する](/articles/addressing-merge-conflicts/)」を参照してください。
     - 自分のプロジェクトについて説明するドキュメントである README を作成できます。 詳しい情報については「[README について](/articles/about-readmes/)」を参照してください。
-    - 無視するルールを記載した *.gitignore* ファイルを作成できます。 詳細は「[ファイルを無視する](/articles/ignoring-files)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+    - 無視するルールを記載した *.gitignore* ファイルを作成できます。 詳しい情報については、「[ファイルを無視する](/articles/ignoring-files)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
     - 自分のプロジェクトにソフトウェアライセンスを追加することができます。 詳細は「[リポジトリのライセンス](/articles/licensing-a-repository)」を参照してください。{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}
@@ -48,5 +49,4 @@ versions:
 
 - "[Organization のリポジトリへのアクセスを管理する](/articles/managing-access-to-your-organization-s-repositories)"
 - [オープンソースガイド](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.16" %}
-- "[README で空のリポジトリを初期化する](/articles/initializing-an-empty-repository-with-a-readme)"{% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -1,7 +1,7 @@
 ---
 title: GitHub Desktop を使用したコントリビューションとコラボレーション
 shortTitle: コントリビューションとコラボレーション
-intro: GitHub Desktopを使って、プロジェクトを管理し、有意義なコミットを作成し、プロジェクトの履歴をコマンドラインではなくアプリで追跡しましょう。
+intro: 'GitHub Desktopを使って、プロジェクトを管理し、有意義なコミットを作成し、プロジェクトの履歴をコマンドラインではなくアプリで追跡しましょう。'
 redirect_from:
   - /desktop/contributing-to-projects
 versions:

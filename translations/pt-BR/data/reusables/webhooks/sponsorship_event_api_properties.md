@@ -1,3 +1,3 @@
-| Tecla  | Tipo     | Descrição                                        |
-| ------ | -------- | ------------------------------------------------ |
-| `Ação` | `string` | A ação que foi executada. This can be `created`. |
+| Tecla  | Tipo     | Descrição                                    |
+| ------ | -------- | -------------------------------------------- |
+| `Ação` | `string` | A ação que foi executada. Pode ser `criado`. |

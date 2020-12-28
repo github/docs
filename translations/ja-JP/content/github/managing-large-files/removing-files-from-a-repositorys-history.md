@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -14,10 +15,6 @@ versions:
 **警告**: この手順では、ファイルをコンピュータのリポジトリと {% data variables.product.product_location %} から恒久的に削除します。 ファイルが重要なものである場合は、ローカルバックアップコピーをリポジトリ外にあるディレクトリに作成してください。
 
 {% endwarning %}
-
-### 以前のコミットで追加されたファイルを削除する
-
-以前のコミットでファイルを追加した場合は、リポジトリの履歴から削除する必要があります。 リポジトリの履歴からファイルを削除するには、BFG Repo-Cleaner または `git filter-branch` コマンドを使用できます。 詳細は「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」を参照してください。
 
 ### プッシュされていない直近のコミットで追加されたファイルを削除する
 
@@ -42,3 +39,7 @@ versions:
   $ git push
   # 書き換えられサイズが小さくなったコミットをプッシュする
   ```
+
+### 以前のコミットで追加されたファイルを削除する
+
+以前のコミットでファイルを追加した場合は、リポジトリの履歴から削除する必要があります。 リポジトリの履歴からファイルを削除するには、BFG Repo-Cleaner または `git filter-branch` コマンドを使用できます。 詳細は「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」を参照してください。

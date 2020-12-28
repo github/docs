@@ -1,1 +1,1 @@
-2. Under your repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**. ![Issues tab](/assets/images/help/repository/repo-tabs-issues.png)
+2. No nome do repositório, clique em {% octicon "issue-opened" aria-label="The issues icon" %} **problemas**. ![Aba de problemas](/assets/images/help/repository/repo-tabs-issues.png)

@@ -1,12 +1,13 @@
 ---
 title: 处理注释
-intro: 使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。
+intro: '使用 REST API，您可以访问和管理拉取请求、议题或提交中的注释。'
 redirect_from:
   - /guides/working-with-comments/
   - /v3/guides/working-with-comments
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -96,8 +97,8 @@ end
 [commit comment]: https://github.com/octocat/Spoon-Knife/commit/cbc28e7c8caee26febc8c013b0adfb97a4edd96e#commitcomment-4049848
 [sample PR]: https://github.com/octocat/Spoon-Knife/pull/1176
 [platform-samples]: https://github.com/github/platform-samples/tree/master/api/ruby/working-with-comments
-[issues]: /v3/issues/comments/
+[issues]: /rest/reference/issues#comments
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[PR Review API]: /v3/pulls/comments/
-[commit comment API]: /v3/repos/comments/#get-a-commit-comment
+[PR Review API]: /rest/reference/pulls#comments
+[commit comment API]: /rest/reference/repos#get-a-commit-comment

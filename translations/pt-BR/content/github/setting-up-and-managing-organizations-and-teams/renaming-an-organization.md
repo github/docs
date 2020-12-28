@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -28,7 +29,7 @@ Depois que você altera o nome da organização, o nome antigo da organização 
 #### Alterações que não são automáticas
 
 Depois de alterar o nome da organização:
-- Os links para a página de perfil da organização anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, retornarão um erro 404. Recomendamos que você atualize os links para a organização de outros sites{% if currentVersion == "free-pro-team@latest" %}, como os perfis do LinkedIn ou do Twitter{% endif %}.
+- Os links para a página de perfil da organização anterior, como `https://{% data variables.command_line.backticks %}/previousorgname`, retornarão um erro 404. Recomendamos que você atualize os links para a sua organização a partir de outros sites{% if currentVersion == "free-pro-team@latest" %}, como, por exemplo, os seus perfis do LinkedIn ou do Twitter{% endif %}.
 - As solicitações de API que usam o nome antigo da organização retornarão um erro 404. Recomendamos que você atualize o nome da organização nas solicitações de API.
 - Não há nenhum redirecionamento automático da [@menção](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) para equipes que usam o nome antigo da organização.
 

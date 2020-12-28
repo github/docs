@@ -5,9 +5,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-The Checks API enables you to build GitHub Apps that run powerful checks against code changes in a repository. Você pode criar os aplicativos que realizam integração contínua, linting ou serviços de varredura de código e fornecem feedback detalhado sobre commits. For more information, see "[Getting started with the checks API](/rest/guides/getting-started-with-the-checks-api)" and "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
+A API de Verificação permite que você crie aplicativos do GitHub que executam verificações poderosas contra alterações de código em um repositório. Você pode criar os aplicativos que realizam integração contínua, linting ou serviços de varredura de código e fornecem feedback detalhado sobre commits. Para mais informações, consulte "[Começar com a API de verificações](/rest/guides/getting-started-with-the-checks-api)" e "[Criar testes de CI com a API de verificações](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)".
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -23,7 +24,7 @@ The Checks API enables you to build GitHub Apps that run powerful checks against
 
 {% note %}
 
-  **Note:** A GitHub App only receives one [`check_suite`](/webhooks/event-payloads/#check_suite) event per commit SHA, even if you push the commit SHA to more than one branch. To find out when a commit SHA is pushed to a branch, you can subscribe to branch [`create`](/webhooks/event-payloads/#create) events.
+  **Observação:** Um aplicativo GitHub recebe apenas um evento [`check_suite`](/webhooks/event-payloads/#check_suite) por SHA de commit SHA, mesmo se você fizer push do SHA do commit para mais de um branch. Para descobrir quando um SHA do commit é enviado para um branch, você pode assinar os eventos do branch [`criar`](/webhooks/event-payloads/#create).
 
 {% endnote %}
 

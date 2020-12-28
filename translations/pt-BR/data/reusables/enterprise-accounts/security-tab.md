@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, clique em **Security** (Segurança). ![Security tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/enterprise-account-settings-security-tab.png)
+1. Na barra lateral esquerda, clique em **Security** (Segurança). ![Aba Segurança na barra lateral de configurações da conta corporativa](/assets/images/help/business-accounts/enterprise-account-settings-security-tab.png)

@@ -1,11 +1,12 @@
 ---
 title: Sobre conflitos de merge
-intro: Os conflitos de merge acontecem quando você faz merge de branches que têm commits concorrentes e o Git precisa da sua ajuda para decidir quais alterações incorporar n merge final.
+intro: 'Os conflitos de merge acontecem quando você faz merge de branches que têm commits concorrentes e o Git precisa da sua ajuda para decidir quais alterações incorporar n merge final.'
 redirect_from:
   - /articles/about-merge-conflicts
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Muitas vezes, o Git pode resolver diferenças entre branches e fazer merge deles automaticamente. Normalmente, as alterações são em linhas diferentes, ou até mesmo em arquivos diferentes, o que facilita o entendimento do merge pelos computadores. No entanto, às vezes, há alterações conflitantes que o Git não pode resolver sem a sua ajuda. Geralmente, os conflitos de merge acontecem quando as pessoas fazem alterações diferentes na mesma linha do mesmo arquivo ou quando uma pessoa edita um arquivo e outra pessoa exclui o mesmo arquivo.

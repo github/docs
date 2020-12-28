@@ -6,27 +6,27 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 本文介绍构成官方 {% data variables.product.product_name %} REST API 的资源。 如果您有任何问题或要求，请联系 {% data variables.contact.contact_support %}。
 
-
 ### 当前版本
 
-默认情况下，对 `{% data variables.product.api_url_code %}` 的所有请求都会收到 REST API 的 **v3** [版本](/v3/versions)。 我们建议您[通过 `Accept` 标头明确请求此版本](/v3/media/#request-specific-version)。
+默认情况下，对 `{% data variables.product.api_url_code %}` 的所有请求都会收到 REST API 的 **v3** [版本](/developers/overview/about-githubs-apis)。 我们建议您[通过 `Accept` 标头明确请求此版本](/rest/overview/media-types#request-specific-version)。
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-有关 GitHub GraphQL API 的信息，请参阅 [v4 文档](/v4)。 有关迁移到 GraphQL 的信息，请参阅“[从 REST 迁移](/v4/guides/migrating-from-rest/)”。
+有关 GitHub GraphQL API 的信息，请参阅 [v4 文档](/graphql)。 有关迁移到 GraphQL 的信息，请参阅“[从 REST 迁移](/graphql/guides/migrating-from-rest-to-graphql)”。
 
 {% endif %}
 
 ### 架构
 
-{% if currentVersion == "free-pro-team@latest" %}所有 API 访问都通过 HTTPS 进行，{% else %}API {% endif %}可以从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
+{% if currentVersion == "free-pro-team@latest" %}所有 API 访问都通过 HTTPS 进行，{% else %}API{% endif %} 从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
 作为 JSON 发送和接收。
 
 ```shell
@@ -36,13 +36,12 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -77,7 +76,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 ### 身份验证
 
-通过 {% data variables.product.product_name %} API v3 进行身份验证有两种方法。  在某些情况下，要求身份验证的请求将返回 `404 Not Found`，而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
+{% if currentVersion == "github-ae@latest" %} 我们建议通过 [web 应用程序流程](/developers/apps/authorizing-oauth-apps#web-application-flow)创建 OAuth2 令牌来向 {% data variables.product.product_name %} REST API 验证。 {% else %} 通过 {% data variables.product.product_name %} REST API 验证有两种方式。{% endif %} 需要身份验证的请求有时将返回 `404 Not Found`，而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
 
 #### 基本验证
 
@@ -97,8 +96,9 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% endnote %}
 
-阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  请注意，OAuth2 令牌可使用生产应用程序的 [web 应用程序流](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)来获取。
+阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  请注意，OAuth2 令牌可使用生产应用程序的 [web 应用程序流](/developers/apps/authorizing-oauth-apps#web-application-flow)来获取。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 键/密钥
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -109,9 +109,9 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 使用 `client_id` 和 `client_secret`_不会_验证为用户，只会识别您的 OAuth 应用程序以提高速率限制。 权限仅授予用户，而不授予应用程序，因此只会返回未经验证用户可以看到的数据。 因此，您应该仅在服务器到服务器的场景中使用 OAuth2 键/密钥。 不要将 OAuth 应用程序的客户端密钥泄露给用户。
 
-{% if currentVersion != "free-pro-team@latest" %}
 在私有模式下无法使用 OAuth2 键和密钥进行身份验证，尝试验证时会返回 `401 Unauthorized`。 更多信息请参阅“[启用私有模式](/enterprise/admin/installation/enabling-private-mode)”。
 {% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 阅读[有关未经验证速率限制的更多信息](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)。
@@ -135,9 +135,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 在短时间内检测到多个使用无效凭据的请求后，API 将暂时拒绝该用户的所有身份验证尝试（包括使用有效凭据的尝试），并返回 `403 Forbidden`：
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,22 +165,13 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 您可以向根端点发出 `GET` 请求，以获取 REST API 支持的所有端点类别：
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion != "free-pro-team@latest" %}
-
-{% note %}
-
-**注：**对于 {% data variables.product.prodname_ghe_server %}，[与所有其他端点一样](/v3/enterprise-admin/#endpoint-urls)，您需要传递用户名和密码。
-
-{% endnote %}
-
-{% endif %}
 
 ### GraphQL 全局节点 ID
 
-请参阅“[使用全局节点 ID](/v4/guides/using-global-node-ids)”指南，详细了解如何通过 REST API 查找 `node_id` 以及如何在 GraphQL 操作中使用它们。
+请参阅“[使用全局节点 ID](/graphql/guides/using-global-node-ids)”指南，详细了解如何通过 REST API 查找 `node_id` 以及如何在 GraphQL 操作中使用它们。
 
 ### 客户端错误
 
@@ -271,13 +262,15 @@ API v3 尽可能对每个操作使用适当的 HTTP 请求方法。
 
 ### 分页
 
-默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `?page` 参数指定更多页面。 对于某些资源，您还可以使用 `?per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `?per_page` 参数，相关示例请参阅[事件](/v3/activity/events/)。
+默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `page` 参数指定更多页面。 对于某些资源，您还可以使用 `per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `per_page` 参数，相关示例请参阅[事件](/rest/reference/activity#events)。
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-请注意，页码从 1 开始，省略 `?page` 参数将返回第一页。
+请注意，页码从 1 开始，省略 `page` 参数将返回第一页。
+
+有些端点使用基于光标的分页。 光标是指向结果集中位置的字符串。 使用基于光标的分页时，结果集中没有固定的“页”概念，因此无法导航到特定页面。 相反，您可以使用 `before` 或 `after` 参数遍历结果。
 
 有关分页的更多信息，请查看我们的[分页浏览][pagination-guide]指南。
 
@@ -289,14 +282,18 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-[链接标头](http://tools.ietf.org/html/rfc5988)包括分页信息：
+[链接标头](http://tools.ietf.org/html/rfc5988)包括分页信息： 例如：
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _该示例包括换行符，以提高可读性。_
 
-此 `Link` 响应标头包含一个或多个[超媒体](/v3/#hypermedia)链接关系，其中一些可能需要扩展为 [URI 模板](http://tools.ietf.org/html/rfc6570)。
+或者，如果端点使用基于光标的分页：
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
+
+此 `Link` 响应标头包含一个或多个[超媒体](/rest#hypermedia)链接关系，其中一些可能需要扩展为 [URI 模板](http://tools.ietf.org/html/rfc6570)。
 
 可能的 `rel` 值为：
 
@@ -321,7 +318,7 @@ _该示例包括换行符，以提高可读性。_
 
 {% data reusables.enterprise.rate_limit %}
 
-请注意[搜索 API 具有自定义速率限制规则](/v3/search/#rate-limit)。
+请注意，[搜索 API 具有自定义速率限制规则](/rest/reference/search#rate-limit)。
 
 任何 API 请求返回的 HTTP 标头都显示当前速率限制状态：
 
@@ -364,7 +361,7 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-您可以[检查速率限制状态](/v3/rate_limit)，而不会引发 API 命中。
+您可以[检查速率限制状态](/rest/reference/rate-limit)，而不会引发 API 命中。
 
 #### 提高 OAuth 应用程序的未经验证速率限制
 
@@ -595,9 +592,9 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 
 #### 明确提供带有时区信息的 ISO 8601 时间戳
 
-对于允许指定时间戳的 API 调用，我们使用这种明确的时间戳。 这方面的示例是[提交 API](/v3/git/commits)。
+对于允许指定时间戳的 API 调用，我们使用这种明确的时间戳。 这方面的示例是[提交 API](/rest/reference/git#commits)。
 
-这些时间戳看起来像 `2014-02-27T15:05:06+01:00`。 另请参阅[本示例](/v3/git/commits/#example-input)，了解如何指定这些时间戳。
+这些时间戳看起来像 `2014-02-27T15:05:06+01:00`。 另请参阅[本示例](/rest/reference/git#example-input)，了解如何指定这些时间戳。
 
 #### 使用 `Time-Zone` 标头
 
@@ -607,7 +604,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-这意味着当您在这个标题定义的时区做出 API 调用时，我们会生成一个时间戳。 例如，[内容 API](/v3/repos/contents/)为每个添加或更改生成 git 提交，并使用当前时间作为时间戳。 此标头将确定用于生成当前时间戳的时区。
+这意味着当您在这个标题定义的时区做出 API 调用时，我们会生成一个时间戳。 例如，[内容 API](/rest/reference/repos#contents)为每个添加或更改生成 git 提交，并使用当前时间作为时间戳。 此标头将确定用于生成当前时间戳的时区。
 
 #### 使用用户的最后一个已知时区
 

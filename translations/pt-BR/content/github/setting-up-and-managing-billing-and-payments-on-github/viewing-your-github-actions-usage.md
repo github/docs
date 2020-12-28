@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Você também pode visualizar os minutos de execução do trabalho faturáveis para uma execução de fluxo de trabalho individual. Para obter mais informações, consulte "[Gerenciar a execução de fluxos de trabalho](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-billable-job-execution-minutes)".
+Você também pode visualizar os minutos de execução do trabalho faturáveis para uma execução de fluxo de trabalho individual. Para obter mais informações, consulte "[Visualizar o tempo de execução do trabalho](/actions/managing-workflow-runs/viewing-job-execution-time)".
 
 ### Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta de usuário
 
@@ -43,6 +43,8 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Em "{% data variables.product.prodname_actions %}", veja os detalhes do uso de transferência de dados por cada organização em sua conta corporativa. ![Detalhes do uso de minutos](/assets/images/help/billing/actions-minutes-enterprise.png)
+1. Em "
+{% data variables.product.prodname_actions %}", visualize os detalhes do uso da transferência de dados por organização na sua conta corporativa.
+  ![Detalhes do uso de minutos](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

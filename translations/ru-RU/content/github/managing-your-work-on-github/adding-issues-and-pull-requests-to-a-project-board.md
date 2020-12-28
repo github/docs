@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can add issue or pull request cards to your project board by:
@@ -54,15 +55,8 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-label="The Gear icon" %}**. ![Project board button in sidebar](/assets/images/help/projects/sidebar-project.png)
 2. Click the **Recent**, **Repository**,**User**, or **Organization** tab for the project board you would like to add to. ![Recent, Repository and Organization tabs](/assets/images/help/projects/sidebar-project-tabs.png)
 3. Type the name of the project in **Filter projects** field. ![Project board search box](/assets/images/help/projects/sidebar-search-project.png)
-4. Select one or more project boards where you want to add the issue or pull request. ![Selected project board](/assets/images/help/projects/sidebar-select-project.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-5. Click
-{% octicon "triangle-down" aria-label="The down triangle icon" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the project board column you select.
-  ![Move card to column menu](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
-{% else %}
-5. On the right side of an issue or pull request, click **PROJECT-BOARD-NAME (awaiting triage)**. ![Link to project board](/assets/images/help/projects/sidebar-project-board-link.png)
-6. In your project board, click **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)**. ![Add cards button](/assets/images/help/projects/add-cards-pending-button.png)
-7. Drag the card for your issue or pull request from the **Triage** section, to the desired column on the project board. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-{% endif %}
+4. Select one or more project boards where you want to add the issue or pull request. ![Selected project board](/assets/images/help/projects/sidebar-select-project.png)
+5. Click {% octicon "triangle-down" aria-label="The down triangle icon" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the project board column you select. ![Move card to column menu](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ### Дополнительная литература
 

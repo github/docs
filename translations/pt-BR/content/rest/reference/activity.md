@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% for operation in currentRestOperations %}
@@ -13,11 +14,11 @@ versions:
 
 ## Eventos
 
-The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events. These events power the various activity streams on the site.
+A API de eventos é uma API somente leitura para os eventos de {% data variables.product.prodname_dotcom %}. Esses eventos alimentam os vários fluxos de atividades no site.
 
-The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." For more information, see the "[Issue Events API](/rest/reference/issues#events)."
+A API de eventos pode retornar diferentes tipos de eventos acionados por atividade em {% data variables.product.product_name %}. The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{{ site.data.variables.product.prodname_dotcom }} Event types](/developers/webhooks-and-events/github-event-types)." Para obter mais informações, consulte a "[API de Eventos de problema](/rest/reference/issues#events)".
 
-Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
+Os eventos são otimizados para sondagem a com o cabeçalho "ETag". Se nenhum novo evento for iniciado, você verá uma resposta "304 Not Modified" e seu limite de taxa atual não será alterado. Há também um cabeçalho "X-Poll-Interval" que especifica quantas vezes (em segundos) você pode fazer uma sondagem. Em tempos de alta carga do servidor, o tempo pode aumentar. Obedeça o cabeçalho.
 
 ``` shell
 $ curl -I {% data variables.product.api_url_pre %}/users/tater/events
@@ -32,9 +33,9 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-Events support pagination, however the `per_page` option is unsupported. The fixed page size is 30 items. Fetching up to ten pages is supported, for a total of 300 events. For information, see "[Traversing with pagination](/rest/guides/traversing-with-pagination)."
+Os eventos são compatíveis com a paginação. No entanto, a opção `per_page` não é compatível. O tamanho fixo da página é de 30 itens. É possível obter até dez páginas para um total de 300 eventos. Para obter informações, consulte "[Deslocar-se com a paginação](/rest/guides/traversing-with-pagination)".
 
-Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
+Apenas eventos criados nos últimos 90 dias serão incluídos nas linhas de tempo. Eventos mais antigos que 90 dias não serão incluídos (mesmo que o número total de eventos na linha do tempo seja inferior a 300).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'events' %}{% include rest_operation %}{% endif %}
@@ -46,9 +47,9 @@ Only events created within the past 90 days will be included in timelines. Event
   {% if operation.subcategory == 'feeds' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-### Example of getting an Atom feed
+### Exemplo de como obter um feed do Atom
 
-To get a feed in Atom format, you must specify the `application/atom+xml` type in the `Accept` header. For example, to get the Atom feed for GitHub security advisories:
+Para obter um feed no formato Atom você deve especificar o tipo `application/atom+xml` no cabeçalho `Aceitar`. Por exemplo, para obter o feed do Atom para consultorias de segurança do GitHub:
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
@@ -99,24 +100,24 @@ Status: 200 OK
 
 ## Notificações
 
-Users receive notifications for conversations in repositories they watch including:
+Os usuários recebem notificações de conversas em repositórios que inspecionam, incluindo:
 
-* Issues and their comments
-* Pull Requests and their comments
-* Comments on any commits
+* Problemas e seus comentários
+* Pull Requests e seus comentários
+* Comentários em quaisquer commits
 
-Notifications are also sent for conversations in unwatched repositories when the user is involved including:
+As notificações também são enviadas para conversas em repositórios não inspecionados quando o usuário está envolvido, incluindo:
 
 * **@mentions**
-* Issue assignments
-* Commits the user authors or commits
-* Any discussion in which the user actively participates
+* Tarefas de problemas
+* Commits que o usuário cria ou faz commit
+* Qualquer discussão de que o usuário participa ativamente
 
-All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
+Todas as chamadas de notificação da API requerem escopos da API para `notificações` ou `repositórios`.  Fazer isto dará acesso somente-leitura a algum problema e fará commit do conteúdo. Você ainda precisará do escopo de `repositório` para acessar problemas e commits de seus respectivos pontos de extremidade.
 
-Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+Notificações retornam como "correntes".  Uma corrente contém informações sobre a discussão atual de um problema, pull request ou commit.
 
-Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
+As notificações são otimizadas para sondagem com o cabeçalho `Last-Modified`.  Se não houver novas notificações, você verá uma resposta `304 Not Modified`, deixando a sua taxa de limite atual inalterada.  Há um cabeçalho `X-Poll-Interval` que especifica com que frequência (em segundos) que você pode fazer a sondagem.  Em tempos de alta carga do servidor, o tempo pode aumentar.  Obedeça o cabeçalho.
 
 ``` shell
 # Add authentication to your requests
@@ -132,49 +133,49 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Notification reasons
+### Motivos de notificação
 
-When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
+Ao recuperar respostas da API de Notificações, cada carga tem uma carga denominada `drazão`. Estas correspondem a eventos que ativam uma notificação.
 
-Here's a list of potential `reason`s for receiving a notification:
+Aqui está uma lista da potencial `razão` para receber uma notificação:
 
-| Reason Name        | Descrição                                                                                                                                                                                                  |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `assign`           | You were assigned to the issue.                                                                                                                                                                            |
-| `autor`            | You created the thread.                                                                                                                                                                                    |
-| `comentário`       | You commented on the thread.                                                                                                                                                                               |
-| `convite`          | You accepted an invitation to contribute to the repository.                                                                                                                                                |
-| `manual`           | You subscribed to the thread (via an issue or pull request).                                                                                                                                               |
-| `menção`           | You were specifically **@mentioned** in the content.                                                                                                                                                       |
-| `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% if currentVersion == "free-pro-team@latest" %}
-| `security_alert`   | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
-| `state_change`     | You changed the thread state (for example, closing an issue or merging a pull request).                                                                                                                    |
-| `assinado`         | You're watching the repository.                                                                                                                                                                            |
-| `team_mention`     | You were on a team that was mentioned.                                                                                                                                                                     |
+| Nome da razão      | Descrição                                                                                                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assign`           | O problema foi atribuído a você.                                                                                                                                                                               |
+| `autor`            | Você criou a corrente.                                                                                                                                                                                         |
+| `comentário`       | Você comentou na corrente.                                                                                                                                                                                     |
+| `convite`          | Você aceitou um convite para contribuir com o repositório.                                                                                                                                                     |
+| `manual`           | Você assinou a corrente (por meio de um problema ou pull request).                                                                                                                                             |
+| `menção`           | Você foi especificamente **@mentioned** no conteúdo.                                                                                                                                                           |
+| `review_requested` | Foi solicitado que você ou uma equipe da qual você é integrante revise um pull request.{% if currentVersion == "free-pro-team@latest" %}
+| `security_alert`   | O {% data variables.product.prodname_dotcom %} descobriu uma [vulnerabilidade de segurança](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) no seu repositório.{% endif %}
+| `state_change`     | Você alterou o estado da corrente (por exemplo, fechando um problema ou mesclando um pull request).                                                                                                            |
+| `assinado`         | Você está inspecionando o repositório.                                                                                                                                                                         |
+| `team_mention`     | Você estava em uma equipe que foi mencionada.                                                                                                                                                                  |
 
-Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
+Observe que a `razão` é modificada em uma base de corrente e pode mudar se a `razão` em uma notificação posterior for diferente.
 
-For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
+Por exemplo, se você é o autor de um problema, as notificações subsequentes sobre essa problema terão uma `razão` do `autor`. Portanto, se você for  **@mentioned** no mesmo problema, as notificações que você buscar subsequentemente terão uma `razão` a `mencionar`. A `razão` permanece como `menção`, independentemente se você já foi mencionado novamente.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'notifications' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Starring
+## Marcar com uma estrela
 
-Repository starring is a feature that lets users bookmark repositories. Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed.
+Marcar o repositório como uma estrela é uma funcionalidade que permite aos usuários favoritar os repositórios. As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade.
 
-### Starring vs. Watching
+### Marcar como estrela vs. Inspecionar
 
-In August 2012, we [changed the way watching works](https://github.com/blog/1204-notifications-stars) on {% data variables.product.prodname_dotcom %}. Many API client applications may be using the original "watcher" endpoints for accessing this data. You can now start using the "star" endpoints instead (described below). For more information, see the [Watcher API Change post](https://developer.github.com/changes/2012-09-05-watcher-api/) and the "[Repository Watching API](/rest/reference/activity#watching)."
+Em agosto de 2012, [mudamos a forma como a inspeção funciona](https://github.com/blog/1204-notifications-stars) em {% data variables.product.prodname_dotcom %}. Muitas aplicações de cliente da API podem estar usando os pontos de extremidade originais de "inspetor" para acessar estes dados. Agora você pode começar a usar os pontos de extremidade "estrela" (descritos abaixo). Para obter mais informações, consulte a [Post de alteração da API de Inspeção](https://developer.github.com/changes/2012-09-05-watcher-api/) e a [API de Inspeção do repositório](/rest/reference/activity#watching)".
 
-### Custom media types for starring
+### Tipos de mídia personalizados para marcar como estrela
 
-There is one supported custom media type for the Starring REST API. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
+Existe um tipo de mídia personalizado com suporte para a API REST estrelada. Ao usar este tipo de mídia personalizada, você receberá uma resposta com a propriedade do registro de tempo `starred_at`, que indica o tempo que a estrela foi criada. A resposta também tem uma segunda propriedade que inclui o recurso retornado quando o tipo de mídia personalizado não está incluído. A propriedade que contém o recurso será `usuário` ou `repositório`.
 
     application/vnd.github.v3.star+json
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'starring' %}{% include rest_operation %}{% endif %}
@@ -182,7 +183,7 @@ For more information about media types, see "[Custom media types](/rest/overview
 
 ## Inspecionando
 
-Watching a repository registers the user to receive notifications on new discussions, as well as events in the user's activity feed. For simple repository bookmarks, see "[Repository starring](/rest/reference/activity#starring)."
+Inspecionar um repositório registra o usuário para receber notificações de novas discussões, bem como eventos no feed de atividade do usuário. Para favoritar um repositório de forma simples, consulte "[Marcar repositórios com uma estrela](/rest/reference/activity#starring)".
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'watching' %}{% include rest_operation %}{% endif %}

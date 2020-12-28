@@ -1,6 +1,6 @@
 ---
 title: 複数のユーザアカウントをマージする
-intro: 業務用と個人用に別々のアカウントを持っている場合は、アカウントをマージできます。
+intro: '業務用と個人用に別々のアカウントを持っている場合は、アカウントをマージできます。'
 redirect_from:
   - /articles/can-i-merge-two-accounts/
   - /articles/keeping-work-and-personal-repositories-separate/

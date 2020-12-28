@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+layout: graphql-explorer
 ---
 
-您可以转到 https://developer.github.com/v4/explorer 访问 GitHub 的 GraphQL Explorer。

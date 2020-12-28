@@ -1,6 +1,6 @@
 ---
 title: Accessing the management console
-intro: 'Mit der {% data variables.enterprise.management_console %} können Sie {% data variables.product.product_location %} einrichten und konfigurieren, Wartungsfenster planen, Fehler beheben und Ihre Lizenz verwalten.'
+intro: '{% data reusables.enterprise_site_admin_settings.about-the-management-console %}'
 redirect_from:
   - /enterprise/admin/articles/about-the-management-console/
   - /enterprise/admin/articles/management-console-for-emergency-recovery/
@@ -17,15 +17,15 @@ versions:
 ### Informationen zur {% data variables.enterprise.management_console %}
 
 {% data variables.enterprise.management_console %} für grundlegende Verwaltungsaktivitäten verwenden:
-- **Initial setup** (Ersteinrichtung): Durchlaufen Sie beim ersten Start von {% data variables.product.product_location_enterprise %} den Ersteinrichtungsprozess. Rufen Sie dazu in Ihrem Browser die IP-Adresse Ihrer {% data variables.product.product_location_enterprise %} auf.
+- **Initial setup** (Ersteinrichtung): Durchlaufen Sie beim ersten Start von {% data variables.product.product_location %} den Ersteinrichtungsprozess. Rufen Sie dazu in Ihrem Browser die IP-Adresse Ihrer {% data variables.product.product_location %} auf.
 - **Configuring basic settings for your instance** (Grundlegende Einstellungen für Ihre Instanz konfigurieren): Auf der Seite „Settings“ (Einstellungen) können Sie DNS, den Hostnamen, SSL, die Benutzerauthentifizierung, E-Mail, Überwachungsdienste und die Protokollweiterleitung konfigurieren.
-- **Scheduling maintenance windows** (Wartungsfenster planen): Nehmen Sie Ihre {% data variables.product.product_location_enterprise %} offline, während Sie eine Wartung mithilfe der {% data variables.enterprise.management_console %} oder der Verwaltungsshell durchführen.
+- **Scheduling maintenance windows** (Wartungsfenster planen): Nehmen Sie Ihre {% data variables.product.product_location %} offline, während Sie eine Wartung mithilfe der {% data variables.enterprise.management_console %} oder der Verwaltungsshell durchführen.
 - **Troubleshooting** (Fehlerbehebung): Generieren Sie ein Support-Bundle, oder zeigen Sie allgemeine Diagnoseinformationen an.
 - **License management** (Lizenzverwaltung): Zeigen Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz an, oder aktualisieren Sie sie.
 
-Sie können jederzeit mithilfe der IP-Adresse von {% data variables.product.product_location_enterprise %} auf die {% data variables.enterprise.management_console %} zugreifen, selbst wenn sich die Instanz im Wartungsmodus befindet oder wenn ein kritischer Anwendungsfehler oder eine falsche Hostnamen- oder SSL-Konfiguration vorliegt.
+Sie können jederzeit mithilfe der IP-Adresse von {% data variables.product.product_location %} auf die {% data variables.enterprise.management_console %} zugreifen, selbst wenn sich die Instanz im Wartungsmodus befindet oder wenn ein kritischer Anwendungsfehler oder eine falsche Hostnamen- oder SSL-Konfiguration vorliegt.
 
-Verwenden Sie das während der Ersteinrichtung von {% data variables.product.product_location_enterprise %} festgelegte Administratorpasswort, um auf die {% data variables.enterprise.management_console %} zuzugreifen. Zudem müssen Sie auf Port 8443 eine Verbindung zum Host der virtuellen Maschine herstellen können. Wenn Sie Probleme haben, auf {% data variables.enterprise.management_console %} zuzugreifen, sollten Sie die Konfigurationen für die Zwischenfirewall und für die Sicherheitsgruppe überprüfen.
+Verwenden Sie das während der Ersteinrichtung von {% data variables.product.product_location %} festgelegte Administratorpasswort, um auf die {% data variables.enterprise.management_console %} zuzugreifen. Zudem müssen Sie auf Port 8443 eine Verbindung zum Host der virtuellen Maschine herstellen können. Wenn Sie Probleme haben, auf {% data variables.enterprise.management_console %} zuzugreifen, sollten Sie die Konfigurationen für die Zwischenfirewall und für die Sicherheitsgruppe überprüfen.
 
 ### Auf die {% data variables.enterprise.management_console %} als ein Websiteadministrator zugreifen
 

@@ -1,21 +1,23 @@
 ---
 title: Einen externen Mitarbeiter in ein Organisationsmitglied umwandeln
-intro: 'Wenn Du einem externen Mitarbeiter der Repositorys Deiner Organisation umfassendere Berechtigungen innerhalb Deiner Organisation gewähren möchtest, kannst Du {% if currentVersion == "free-pro-team@latest" %}ihn dazu einladen, Mitglied Deiner Organisation zu werden{% else %}ihn zu einem Mitglied Deiner Organisation machen{% endif %}.'
+intro: 'If you would like to give an outside collaborator on your organization''s repositories broader permissions within your organization, you can {% if currentVersion == "free-pro-team@latest" %}invite them to become a member of{% else %}make them a member of{% endif %} the organization.'
 redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite users to join{% else %}add users to{% endif %} an organization.
 ---
 
-{% tip %}
+{% if currentVersion == "free-pro-team@latest" %}
+Wenn Deine Organisation ein benutzerabhängiges Abonnement abgeschlossen hat, muss eine Lizenz verfügbar sein, bevor Du ein neues Mitglied zur Organisation einladen oder ein ehemaliges Organisationsmitglied wieder einsetzen kannst. Weitere Informationen finden Sie unter „[Informationen zur benutzerabhängigen Preisgestaltung](/articles/about-per-user-pricing)“.
+{% data reusables.organizations.org-invite-expiration %}{% endif %}
 
-**Tips**:
-- Nur Organisationsinhaber können {% if currentVersion == "free-pro-team@latest" %}Benutzer zum Beitritt zur Organisation einladen{% else %}Benutzer zur Organisation hinzufügen{% endif %}. Weitere Informationen findest Du unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)“.{% if currentVersion == "free-pro-team@latest" %}
-- Wenn Deine Organisation ein benutzerabhängiges Abonnement abgeschlossen hat, muss eine Lizenz verfügbar sein, bevor Du ein neues Mitglied zur Organisation einladen oder ein ehemaliges Organisationsmitglied wieder einsetzen kannst. Weitere Informationen finden Sie unter „[Informationen zur benutzerabhängigen Preisgestaltung](/articles/about-per-user-pricing)“. {% data reusables.organizations.org-invite-expiration %}{% endif %}
-- Wenn Deine Organisation [die Zwei-Faktor-Authentifizierung für Mitglieder vorschreibt](/articles/requiring-two-factor-authentication-in-your-organization), müssen die Benutzer{% if currentVersion == "free-pro-team@latest" %}, die Du einlädst, [die Zwei-Faktor-Authentifizierung aktivieren](/articles/securing-your-account-with-two-factor-authentication-2fa), bevor sie die Einladung annehmen können.{% else %}[ die Zwei-Faktor-Authentifizierung aktivieren](/articles/securing-your-account-with-two-factor-authentication-2fa), bevor Du sie zur Organisation hinzufügen kannst.{% endif %}
-
-{% endtip %}
+{% if currentVersion != "github-ae@latest" %}
+If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users
+{% if currentVersion == "free-pro-team@latest" %}you invite must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

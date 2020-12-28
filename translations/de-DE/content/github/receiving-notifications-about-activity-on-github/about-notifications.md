@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Benachrichtigungen
-intro: 'Benachrichtigungen bieten aktuelle Informationen zu den Aktivitäten und Unterhaltungen, an denen Du interessiert bist. Du kannst Benachrichtigungen auf {% data variables.product.product_name %} oder über Deinen E-Mail-Client erhalten.'
+intro: 'Benachrichtigungen bieten aktuelle Informationen zu den Aktivitäten und Unterhaltungen, an denen Du interessiert bist. Sie können Benachrichtigungen auf {% data variables.product.product_name %} empfangen oder über Ihren E-Mail-Client.'
 versions:
   enterprise-server: <2.21
 ---
@@ -33,9 +33,8 @@ Die Benachrichtigungen, die Du erhältst, sind entweder *Teilnahmebenachrichtigu
 
 #### Beobachtungsbenachrichtigungen
 
-{% data variables.product.product_name %} versendet *Beobachtungsbenachrichtigungen* bei Aktualisierungen in Repositorys oder Teamdiskussionen, die Du gerade beobachtest. {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}Weitere Informationen findest Du auf „[Beobachtung von Repositorys aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
-
-{% endif %}In folgenden Fällen erhältst Du eine Benachrichtigung:
+{% data variables.product.product_name %} versendet *Beobachtungsbenachrichtigungen* bei Aktualisierungen in Repositorys oder Teamdiskussionen, die Du gerade beobachtest.  {% data reusables.notifications.auto-watch %}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
+In folgenden Fällen erhältst Du eine Benachrichtigung:
   - Ein Issue wird geöffnet.
   - Ein Kommentar wird einem offenen Issue hinzugefügt.
   - Ein Pull Request wird geöffnet.
@@ -53,4 +52,4 @@ Du kannst außerdem die Aktivitäten von Personen, denen Du folgst, von Reposito
 - „[Repositorys auflisten, die Du beobachtest](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
 - „[Beobachten von Repositorys aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"
 - „[Beobachten von Teamdiskussionen aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-team-discussions)"
-- „[Abonnieren und Kündigen von Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
+- „[Abonnieren oder Kündigen von Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"

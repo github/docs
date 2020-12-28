@@ -1,6 +1,6 @@
 ---
 title: 配置基本设置
-intro: 您可以访问隐私保护设置，将帐户连接到 GitHub Desktop，以及配置 Git。
+intro: '您可以访问隐私保护设置，将帐户连接到 GitHub Desktop，以及配置 Git。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-basic-settings
 versions:

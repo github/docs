@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 以下のようにして、プロジェクトボードに Issue またはプルリクエストカードを追加できます:
@@ -54,15 +55,8 @@ versions:
 1. Issue あるいはプルリクエストの右側で、[**Projects {% octicon "gear" aria-label="The Gear icon" %}**] をクリックします。 ![サイドバーのプロジェクトボードボタン](/assets/images/help/projects/sidebar-project.png)
 2. 追加したいプロジェクトボードの [**Recent**]、[**Repository**]、[**User**]、[**Organization**] タブをクリックします。 ![Recent、Repository、Organization タブ](/assets/images/help/projects/sidebar-project-tabs.png)
 3. [**Filter projects**] フィールドにプロジェクト名を入力します。 ![プロジェクトボードの検索ボックス](/assets/images/help/projects/sidebar-search-project.png)
-4. Issueまたはプルリクエストを追加する1つ以上のプロジェクトボードを選択します。 ![Selected project board](/assets/images/help/projects/sidebar-select-project.png){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-5. Click
-{% octicon "triangle-down" aria-label="The down triangle icon" %}, then click the column where you want your issue or pull request. カードが、選択したプロジェクトボードの列の下部に移動します。
-  ![[Move card to column] メニュー](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
-{% else %}
-5. Issue あるいはプルリクエストの右側で、[**PROJECT-BOARD-NAME (awaiting triage)**] (プロジェクトボード名、トリアージ待ち) をクリックします。 ![プロジェクトボードへのリンク](/assets/images/help/projects/sidebar-project-board-link.png)
-6. プロジェクトボードで [**{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)**] をクリックします。 ![カードの追加ボタン](/assets/images/help/projects/add-cards-pending-button.png)
-7. [**Triage**] セクションから Issue あるいはプルリクエストのカードを、プロジェクトボードの希望する列へドラッグします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
-{% endif %}
+4. Issueまたはプルリクエストを追加する1つ以上のプロジェクトボードを選択します。 ![選択されたプロジェクトボード](/assets/images/help/projects/sidebar-select-project.png)
+5. {% octicon "triangle-down" aria-label="The down triangle icon" %} をクリックし、Issueまたはプルリクエストが必要な列をクリックします。 カードが、選択したプロジェクトボードの列の下部に移動します。 ![[Move card to column] メニュー](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ### 参考リンク
 

@@ -4,10 +4,11 @@ redirect_from:
   - /articles/why-doesn-t-graphs-work-with-ie-8/
   - /articles/why-don-t-graphs-work-with-ie8/
   - /articles/supported-browsers
-intro: '{% data variables.product.product_name %} は、最新の Web ブラウザをサポートするよう設計されています。 [Chrome](https://www.google.com/chrome/)、[Firefox](http://www.mozilla.org/firefox/)、[Safari](http://www.apple.com/safari/)、 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.16" %}Internet Explorer 11、 {% endif %}および [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)の現在のバージョンをサポートしています。'
+intro: '{% data variables.product.product_name %} は、最新の Web ブラウザをサポートするよう設計されています。 [Chrome](https://www.google.com/chrome/)、[Firefox](http://www.mozilla.org/firefox/)、[Safari](http://www.apple.com/safari/)、[Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge)の現在のバージョンがサポートされています。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Firefox の延長サポートリリース

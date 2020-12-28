@@ -14,18 +14,18 @@ Para configurar o botão de patrocinador, edite um arquivo _FUNDING.yml_ na past
 
 Você pode adicionar um nome de usuário, de pacote ou de projeto por plataforma de financiamento externa e até quatro URLs personalizadas. Você pode adicionar até quatro organizações ou desenvolvedores patrocinados no {% data variables.product.prodname_sponsors %}. Adicione cada plataforma em uma nova linha, usando a seguinte sintaxe:
 
-| Plataforma                                                                         | Sintaxe                                                                  |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: PROJECT-NAME`                                         |
+| Plataforma                                                                    | Sintaxe                                                                  |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: PROJECT-NAME`                                         |
 | [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` or `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
-| [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: USERNAME`                                                    |
-| [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: USERNAME`                                                        |
-| [Liberapay](https://en.liberapay.com/)                                             | `liberapay: USERNAME`                                                    |
-| [Open Collective](https://opencollective.com/)                                     | `open_collective: USERNAME`                                              |
-| [Otechie](https://otechie.com/)                                                    | `otechie: USERNAME`                                                      |
-| [Patreon](https://www.patreon.com/)                                                | `patreon: USERNAME`                                                      |
-| [Tidelift](https://tidelift.com/)                                                  | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                   |
-| URL personalizado                                                                  | `custom: LINK1` ou `custom: [LINK1, LINK2, LINK3, LINK4]`                |
+| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: USERNAME`                                                    |
+| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: USERNAME`                                                        |
+| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: USERNAME`                                                    |
+| [Open Collective](https://opencollective.com/)                                | `open_collective: USERNAME`                                              |
+| [Otechie](https://otechie.com/)                                               | `otechie: USERNAME`                                                      |
+| [Patreon](https://www.patreon.com/)                                           | `patreon: USERNAME`                                                      |
+| [Tidelift](https://tidelift.com/)                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                   |
+| URL personalizado                                                             | `custom: LINK1` ou `custom: [LINK1, LINK2, LINK3, LINK4]`                |
 
 Em Tidelift, use a sintaxe `platform-name/package-name` com os seguintes nomes de plataforma:
 

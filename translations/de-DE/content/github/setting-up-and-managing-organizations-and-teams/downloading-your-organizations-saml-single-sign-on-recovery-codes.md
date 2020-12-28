@@ -24,7 +24,7 @@ Wiederherstellungscode sollten nicht öffentlich gemacht und nicht weitergegeben
 
   {% endnote %}
 
-7. Wenn Du einen Wiederherstellungscode genutzt hast, um wieder Zugriff auf {% data variables.product.product_name %} zu erhalten, kannst Du diesen Code nicht mehr verwenden. Der Zugriff auf {% data variables.product.product_name %} ist nur 24 Stunden lang verfügbar, bevor Du dazu aufgefordert wirst, Dich mit Single Sign-On anzumelden.
+7. Wenn Sie einen Wiederherstellungscode genutzt haben, um wieder Zugriff auf {% data variables.product.product_name %} zu erhalten, können Sie diesen Code nicht mehr verwenden. Der Zugriff auf {% data variables.product.product_name %} ist nur 24 Stunden lang verfügbar, bevor Sie dazu aufgefordert werden, sich mit Single Sign-On anzumelden.
 
 ### Weiterführende Informationen
 

@@ -1,5 +1,5 @@
 {% tip %}
 
-**Tip:** To successfully merge a pull request into a base branch that has required status checks enabled, the pull request's head branch must be up-to-date with the base branch.
+**Dica:** Para fazer o merge com sucesso de um pull request em um branch-base que tem as verificações de status obrigatório habilitadas, o branch principal do pull request deve estar atualizado com o branch-base.
 
 {% endtip %}

@@ -5,9 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.notifications.auto-watch %} For more information, see "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)."
-{% endif %}
 
 You can also watch and unwatch releases in a repository. For more information, see "[Watching and unwatching releases for a repository](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)."
 

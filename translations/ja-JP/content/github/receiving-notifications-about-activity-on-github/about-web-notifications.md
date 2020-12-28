@@ -7,7 +7,7 @@ versions:
 
 *参加*と *Watch* 対象との通知の違いについては、「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」を参照してください。
 
-アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。
+アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。 Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。
 
 {% data reusables.notifications.shared_state %}
 
@@ -19,6 +19,6 @@ versions:
 
 ### 参考リンク
 
-- [Watch しているリポジトリのリスト](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)
+- 「[Watch しているリポジトリのリスト](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)」
 - [リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)
 - 「[通知のサブスクライブとサブスクライブ解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)」

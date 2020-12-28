@@ -1,6 +1,6 @@
 ---
 title: 保護されたブランチを設定する
-intro: リポジトリのオーナーか、リポジトリの管理者権限がある場合、リポジトリのブランチ保護をカスタマイズし、2 つ以上のプルリクエストレビューを要求したり、プルリクエストのマージを許可する前に特定のステータスチェックを必須としたりするなど、特定のワークフローを強制できます。
+intro: 'リポジトリのオーナーか、リポジトリの管理者権限がある場合、リポジトリのブランチ保護をカスタマイズし、2 つ以上のプルリクエストレビューを要求したり、プルリクエストのマージを許可する前に特定のステータスチェックを必須としたりするなど、特定のワークフローを強制できます。'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/configuring-protected-branches
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

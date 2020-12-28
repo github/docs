@@ -5,9 +5,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Auf {% data variables.product.product_name %} kannst Du den Commit-Verlauf eines Repositorys anzeigen, indem Du:
+Auf {% data variables.product.product_name %} können Sie den Commit-Verlauf eines Repositorys anzeigen, indem Sie
 
 - Direkt zur [Commit-Seite](https://github.com/mozilla/rust/commits/master) eines Repositorys nagivierst
 - Auf eine Datei und dann auf **History** (Verlauf) klickst, um zum [Commit-Verlauf für eine bestimmte Datei ](https://github.com/mozilla/rust/commits/master/README.md) zu gelangen
@@ -18,7 +19,7 @@ Bei Git gibt es mehrere Möglichkeiten, den Verlauf eines Repositorys anzuzeigen
 
 Für den Commit-Verlauf einer Datei nutzt {% data variables.product.product_name %} explizit diese einfache Strategie. So wird der Verlauf vereinfacht, indem Commits, die sich nicht auf das endgültige Ergebnis ausgewirkt haben, weggelassen werden. Wenn beispielsweise ein Nebenbranch eine Änderung vorgenommen und sie dann rückgängig gemacht hat, wird dieser Commit nicht im Branch-Verlauf aufgeführt. Damit erhöht sich die Effizienz bei Branch-Reviews, da nur Commits angezeigt werden, die sich auf die Datei auswirken.
 
-Diese gekürzte Ansicht enthält möglicherweise nicht immer alle Informationen, die Du benötigst. Wenn Du den gesamten Verlauf einsehen willst, bietet {% data variables.product.product_name %} eine Ansicht mit mehr Informationen auf der Commit-Seite eines Repositorys.
+Diese gekürzte Ansicht enthält möglicherweise nicht immer alle Informationen, die Du benötigst. Wenn Sie den gesamten Verlauf einsehen möchten, bietet {% data variables.product.product_name %} eine Ansicht mit weiteren Informationen auf der Commit-Seite eines Repositorys.
 
 Weitere Informationen zum Umgang von Git mit Commit-Verläufen findest Du im Abschnitt „[Vereinfachter Verlauf](https://git-scm.com/docs/git-log#_history_simplification)“ im Hilfe-Artikel `git log`.
 

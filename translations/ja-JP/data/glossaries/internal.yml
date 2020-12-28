@@ -737,7 +737,7 @@
   description: >-
     実際にチェックアウトしたファイルのツリー。ワーキングツリーには通常、HEAD コミットのツリーのコンテンツに加え、ローカルで変更を加えたがまだコミットしていない分が含まれています。
 - 
-  term: WYSIWIG
+  term: WYSIWYG
   description: >-
     What You See Is What You Get。画面上のテキストは、レンダリングされた際に全く同様に表示される、という意味の頭字語。
 - 

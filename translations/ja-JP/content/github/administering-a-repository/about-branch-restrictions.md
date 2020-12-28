@@ -1,23 +1,24 @@
 ---
 title: ブランチ制限について
-intro: 'Organization に属するリポジトリ内のブランチは、特定のユーザ{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、{% else %} または{% endif %}チーム{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、またはアプリ{% endif %}のみがブランチにプッシュできるように設定できます。'
+intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-ブランチ制限を有効化している場合、権限を与えられたユーザ{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}または{% endif %}チーム{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、またはアプリ{% endif %}のみが、保護されたブランチにプッシュできます。 詳細については、「[ブランチ制限の有効化](/articles/enabling-branch-restrictions)」と「[保護されたブランチについて](/articles/about-protected-branches) 」を参照してください。 保護されたブランチの設定では、保護されたブランチへのプッシュアクセスを持つユーザ{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}または{% endif %}チーム{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、またはアプリ{% endif %}を表示および編集できます。
+When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. 詳細については、「[ブランチ制限の有効化](/articles/enabling-branch-restrictions)」と「[保護されたブランチについて](/articles/about-protected-branches) 」を参照してください。 You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
 
-保護されたブランチをへのプッシュアクセスを与えられる対象は、リポジトリへの`書き込み`アクセスを持つユーザ{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}または{% endif %}チーム{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、またはインストールされたアプリ{% data variables.product.prodname_github_apps %}{% endif %}のみです。
+You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with `write` access to a repository.
 
-リポジトリに対する管理者権限を持つ人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}とアプリ{% endif %}は、保護されたブランチに常にプッシュできます。
+People and apps with admin permissions to a repository are always able to push to a protected branch.
 
 {% tip %}
 
-**注釈:** [Include administrators] が選択されていて、ブランチでステータスチェック必須にしており、かつステータスチェックが失敗した場合は、管理者権限を持つ人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}やアプリ{% endif %}であっても、保護されたブランチに変更をプッシュしようとすれば失敗することになります。 詳しい情報については、「[ステータスチェック必須の有効化](/articles/enabling-required-status-checks)」を参照してください。
+**Note:** If "Include administrators" is selected, you've enabled required status checks on the branch, and if any status checks fail, any attempt to push changes to the protected branch will also fail, even for people and apps with admin permissions. 詳しい情報については、「[ステータスチェック必須の有効化](/articles/enabling-required-status-checks)」を参照してください。
 
 {% endtip %}
 

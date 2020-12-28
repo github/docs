@@ -15,8 +15,8 @@ SAML SSO steuert und sichert den Zugriff auf Organisationsressourcen wie Reposit
 
 Nachdem Du SCIM aktiviert hast, stehen Dir folgende Bereitstellungsfunktionen für alle Benutzer zur Verfügung, denen Du Deine {% data variables.product.prodname_ghe_cloud %}-Anwendung in Okta zuweist.
 
-| Funktion                     | Beschreibung                                                                                                                                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Funktion                     | Beschreibung                                                                                                                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Push neuer Benutzer          | Wenn Du in Okta einen neuen Benutzer erstellst, wird der Benutzer eine E-Mail-Einladung zu Deiner {% data variables.product.prodname_dotcom %}-Organisation erhalten.                             |
 | Push Benutzer-Deaktivierung  | Wenn Du einen Benutzer in Okta deaktivierst, wird ihn Okta auch von Deiner {% data variables.product.prodname_dotcom %}-Organisation entfernen.                                                   |
 | Push Profil-Aktualisierungen | Wenn Du ein Benutzerprofil in Okta aktualisierst, wird Okta die Metadaten für die Mitgliedschaft des Benutzers in Deiner {% data variables.product.prodname_dotcom %}-Organisation aktualisieren. |
@@ -70,7 +70,7 @@ Nachdem Du SCIM aktiviert hast, stehen Dir folgende Bereitstellungsfunktionen f�
 
 ### Weiterführende Informationen
 
-- "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
+- "[Configuring SAML single sign-on and SCIM for your enterprise account using Okta](/github/setting-up-and-managing-your-enterprise/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta)"
 - „[Teamsynchronisierung für Deine Organisation verwalten](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [SAML verstehen](https://developer.okta.com/docs/concepts/saml/) in der Okta-Dokumentation
 - [SCIM verstehen](https://developer.okta.com/docs/concepts/scim/) in der Okta-Dokumentation

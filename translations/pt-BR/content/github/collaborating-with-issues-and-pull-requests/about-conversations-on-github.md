@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Discussões no {% data variables.product.product_name %}
@@ -19,7 +20,7 @@ Os problemas são úteis para discutir detalhes específicos de um projeto, como
 
 ### Reagir às ideias nos comentários
 
-Você pode concordar ou discordar de uma ideia em uma conversa. Quando você adiciona uma reação a um comentário ou ao texto de uma discussão de equipe, de um problema ou de uma pull request, as pessoas inscritas na conversa não receberão uma notificação. Para obter mais informações sobre assinaturas, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Cadastrando-se e descadastrando-se de notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"{% endif %}."
+Você pode concordar ou discordar de uma ideia em uma conversa. Quando você adiciona uma reação a um comentário ou ao texto de uma discussão de equipe, de um problema ou de uma pull request, as pessoas inscritas na conversa não receberão uma notificação. Para obter mais informações sobre assinaturas, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Assinar e cancelar a assinatura das notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}".
 
 ![Exemplo de um problema com reações](/assets/images/help/repository/issue-reactions.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 「Available for hire」チェックボックスは何をするのか？
+title: '「Available for hire」チェックボックスは何をするのか？'
 intro: '[**Available for hire**] を使って、GitHub の GitHub Jobs ポストを表示します。'
 redirect_from:
   - /articles/what-does-the-available-for-hire-checkbox-do

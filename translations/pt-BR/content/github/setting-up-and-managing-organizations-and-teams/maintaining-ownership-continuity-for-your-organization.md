@@ -9,6 +9,7 @@ permissions: Os proprietários da organização podem promover qualquer integran
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre a manutenção da continuidade da propriedade da sua organização

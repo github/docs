@@ -91,7 +91,9 @@ versions:
 
 您可以生成帐户恢复令牌并通过合作伙伴的恢复提供程序存储它。
 
-1. 登录您的 Facebook 帐户，然后返回到 {% data variables.product.product_name %}。
+1. 登录到您的 Facebook 帐户，然后返回
+
+{% data variables.product.product_name %} 上的企业设置来设置公告横幅。
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 4. 要生成新令牌，请在“Recovery tokens（恢复令牌）”下，单击 **Store new token（存储新令牌）**。 ![用于存储新恢复令牌的按钮](/assets/images/help/settings/store-new-recovery-token.png)

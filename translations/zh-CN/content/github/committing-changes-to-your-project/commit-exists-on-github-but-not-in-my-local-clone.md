@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 使用 `git show` 在命令行上查看特定提交时，可能会收到致命错误。

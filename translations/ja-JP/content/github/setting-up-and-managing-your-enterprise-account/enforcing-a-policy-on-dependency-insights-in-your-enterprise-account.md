@@ -1,6 +1,6 @@
 ---
 title: dependency insightsに関するポリシーを施行する
-intro: あなたの Enterprise アカウントが所有しているすべての Organization にわたって、メンバーに dependency insights の表示を許可または不許可に設定できます。また、コードオーナーが Organization レベルで設定を管理できるよう許可できます。
+intro: 'あなたの Enterprise アカウントが所有しているすべての Organization にわたって、メンバーに dependency insights の表示を許可または不許可に設定できます。また、コードオーナーが Organization レベルで設定を管理できるよう許可できます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-a-policy-on-dependency-insights/
