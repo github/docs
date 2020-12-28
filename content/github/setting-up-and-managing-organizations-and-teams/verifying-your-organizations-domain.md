@@ -39,3 +39,5 @@ On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of
 {% data reusables.organizations.continue-verifying-domain %}
 11. Optionally, once the "Verified" badge is visible on your organization's profile page, you can delete the TXT entry from the DNS record at your domain hosting service.
 ![Verified badge](/assets/images/help/organizations/verified-badge.png)
+
+
