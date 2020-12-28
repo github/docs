@@ -9,11 +9,9 @@ versions: '*'
 {% link_in_list /data-storage %}
 
 #### {% data variables.android-values.settings_privacy_and_security %}
-{% data variables.android-values.analytics_pref_title %}
-
-{% data variables.android-values.dialogs_and_notifications_title %}
-
-{% data variables.android-values.proxy_pref_title %}
+{% link_in_list /analytics %}
+{% link_in_list /dialogs-and-notifications %}
+{% link_in_list /proxy %}
 
 #### {% data variables.android-values.shared_string_legal %}
-{% data variables.android-values.uninstall_speed_cameras %}
+{% link_in_list /speed-cameras %}
