@@ -21,6 +21,9 @@ versions: '*'
     {% link_in_list /be-social %}
 
 
+{% topic_link_in_list /general-test %}
+{% link_in_list /data-storage-test %}
+
 {% link_in_list /general %}
 {% link_in_list /configure-map %}
 {% link_in_list /configure-screen %}
