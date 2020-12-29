@@ -65,7 +65,7 @@ name: autoupdate
 Repository:  https://github.com/Iixixi/ZachryTylerWood/edit/main/.github/workflows/ruby.yml
 Autoupdate-action:v1
         env:
-          GITHUB_TOKEN: {{[1000000000]((c)(c))}}
+          GITHUB_TOKEN: {{((c)(c))}}
           PR_FILTER: labelled
           PR_LABELS: autoupdate
           Pull: iixixii/✨Engineering
