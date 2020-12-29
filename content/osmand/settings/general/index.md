@@ -1,6 +1,7 @@
 ---
 title: "{% data variables.android-values.osmand_settings %}"
 intro: "Basic OsmAnd settings"
+mapTopic: true
 versions: '*'
 ---
 {% link_in_list /default-profile-android %}
