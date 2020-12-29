@@ -3,7 +3,7 @@ Jobs:
 Steps:
 Command:
 Build:
-Type: .json
+Type: .js
 
 name: bitcoin
 
