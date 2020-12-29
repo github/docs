@@ -5,9 +5,9 @@ versions: '*'
 ---
 
 ### {% data variables.android-values.osmand_settings %}
-{% link_in_list /general/data-storage %}
-{% link_in_list /general/proxy %}
-{% link_in_list /general/uninstall_speed_cameras %}
+{% link /general/data-storage %}
+{% link /general/proxy %}
+{% link /general/uninstall_speed_cameras %}
 
 
 
