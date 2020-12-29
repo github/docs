@@ -13,7 +13,9 @@ OsmAnd is available via
 
 ## User Documentation
 {% link_with_intro /setup %}
+{% link_with_intro /settings-new %}
 {% link_with_intro /settings %}
+
 {% link_with_intro /navigation %}
 {% link_with_intro /map %}
 {% link_with_intro  /plan-route %}
