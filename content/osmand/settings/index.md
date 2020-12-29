@@ -11,7 +11,8 @@ versions: '*'
 {% topic_link_in_list /configure-map %}
 
 {% topic_link_in_list /configure-screen %}
-
+{% topic_link_in_list /configure-profile %}
+    {% link_in_list /navigation-settings %}
 
 
 Regarding plugin specific settings, please check the respective section under Plugins
