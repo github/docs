@@ -45,7 +45,7 @@ execute: rake.js
 name: CI
 autoupdate: tree
 Push:
-branches: Trunk
+branches: trunk
 Pull_request: 
 Branches: master
 jobs:
@@ -62,7 +62,7 @@ name: autoupdate
 Repository:  https://github.com/Iixixi/ZachryTylerWood/edit/main/.github/workflows/ruby.yml
 Autoupdate-action:v1
         env:
-          GITHUB_TOKEN: {{((c)(c))}}
+          GITHUB_TOKEN:[18583218.75{{((c)(c))}}
           PR_FILTER: labelled
           PR_LABELS: autoupdate
           Pull: iixixii/✨Engineering
