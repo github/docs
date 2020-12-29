@@ -1,5 +1,6 @@
 ---
 title: "{% data variables.android-values.application_dir %}"
+shortTitle: "{% data variables.android-values.application_dir %}"
 intro: "Select the preferred data storage folder for OsmAnd data. By default, {% data variables.android-values.storage_directory_internal_app %} is used."
 versions: '*'
 ---
