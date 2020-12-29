@@ -49,8 +49,6 @@ Push:
 branches: Trunk
 Pull_request: 
 Branches: master
-push: 
- branches: base
 jobs:
  Steps:
   autoupdate: 
