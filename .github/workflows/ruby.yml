@@ -57,7 +57,7 @@ jobs:
 Command:
 Run:
 Merge:
-Branch: Masterspull
+Branch: Master
 name: autoupdate
     runs-on: ubuntu-18.04
     steps:
