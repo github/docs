@@ -58,5 +58,6 @@ PR_FILTER: labelled
 PR_LABELS: autoupdate
 Pull: iixixii/✨Engineering
 MERGE_MSG: "iixixii✨Engineering 
-Return: Run:
+Build:
+Return: Run
 
