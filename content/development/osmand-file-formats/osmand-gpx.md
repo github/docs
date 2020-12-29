@@ -11,11 +11,13 @@ The OsmAnd's GPX file format conforms to the GPX 1.1 specification with addition
 ## Track appearance
 The following parameters are used to customize the appearance of a track on the map. They are used inside the "gpx" tag and apply to all tracks contained in the gpx.
 #### Parameters
-* **show_arrows** [*true, false*] - show / hide arrows along the path line.
-* **width** [*thin, medium, bold, 1-24*] - width of the track line on the map. The thin, medium, and bold are style depended values (should be defined as currentTrackWidth attribute).
-* **color** [*#AARRGGBB, #RRGGBB*] - color of a track line on the map. Hex value.
-* **split_type** [*no_split, distance, time*] - split type for a track.
-* **split_interval** [*double*] - split interval for a track. Distance (meters), time (seconds).
+|Name|Spec and Purpose|
+|:--------|:---------------|
+|[show_arrows]|Bool. "true" or "false". Show / hide arrows along the path line.|
+|[width]|String. "thin", "medium", "bold" or number 1-24. Width of the track line on the map. The thin, medium, and bold are style depended values (should be defined as currentTrackWidth attribute).|
+|[color]|String. Hex value "#AARRGGBB" or "#RRGGBB". Color of a track line on the map.|
+|[split_type]|String. "no_split", "distance" or "time". Split type for a track.|
+|[split_interval]|Double. Split interval for a track. Distance (meters), time (seconds).|
 
 #### Example:
 ```xml
@@ -57,16 +59,16 @@ A gpx file may contain several routes. Each of them is contained in a specific s
 ```xml
 <trk>
   <trkseg>
-    <!-- List of segment points. The order of the points corresponds to the order and length of the route segments (<route><segment length="x" ... />). -->
-    <!-- The value of the "length" attribute corresponds to the number of points in this segment of the route. -->
+    // List of segment points. The order of the points corresponds to the order and length of the route segments (<route><segment length="x" ... />).
+    // The value of the "length" attribute corresponds to the number of points in this segment of the route.
     <trkpt ... ></trkpt>
     <extensions>
-      <!-- List of route segments -->
+      // List of route segments
       <route>
         <segment ... />
       </route>
-      <!-- Properties of segments included in the route. -->
-      <!-- This data is taken from offline maps during the initial construction of a route. -->
+      // Properties of segments included in the route.
+      // This data is taken from offline maps during the initial construction of a route.
       <types>
         <type ... />
       </types>
@@ -74,14 +76,14 @@ A gpx file may contain several routes. Each of them is contained in a specific s
   </trkseg>
 </trk>
 
-<!-- List of intermediate route points. If there are multiple routes, the order of the rte list matches the order of the route segments. -->
+// List of intermediate route points. If there are multiple routes, the order of the rte list matches the order of the route segments.
 <rte>
   <rtept ... />
-    <!-- For routes built with the "Plan route", the parameters of key points are saved. -->
+    // For routes built with the "Plan route", the parameters of key points are saved.
     <extensions>
-      <!-- Route profile type for next segment (car, bicycle, pedestrian, etc.). -->
+      // Route profile type for next segment (car, bicycle, pedestrian, etc.).
       <profile>...</profile>
-      <!-- The index of the point in the gpx segment that corresponds to the first point of the calculated route for this segment. -->
+      // The index of the point in the gpx segment that corresponds to the first point of the calculated route for this segment.
       <trkpt_idx>...</trkpt_idx>
     </extensions>
   </rtept>
