@@ -2,8 +2,7 @@ Run:
 Jobs:
 Steps:
 Command:
-Build:
-Type:
+Type: python.js
 name: bitcoin
 Runs-on: Nodepackage.js
 Request:
@@ -48,8 +47,7 @@ Command:
 Run:
 Merge:
 Branch: Master
-name: autoupdate
-runs-on: ubuntu-18.04
+name: iixixii
 steps:
 uses: 
 Repository:  https://github.com/Iixixi/ZachryTylerWood/edit/main/.github/workflows/ruby.yml
