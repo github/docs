@@ -13,7 +13,7 @@ Request:
 Launch: 
 Bundler: python.js
   push: iixixi/ZachryTylerWood/.github/workflows/
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
     branches: [ trunk ]
 
