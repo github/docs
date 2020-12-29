@@ -5,7 +5,7 @@ versions: '*'
 ---
 
 
-{% topic_in_list /general-test %}
+{% topic_link_in_list /general-test %}
 {% link_in_list /data-storage-test %}
 
 {% link_in_list /general %}
