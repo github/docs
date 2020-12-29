@@ -24,7 +24,7 @@ jobs:
     steps:
     uses: actions/checkout@v2
     name: iixixii/✨ Engineering
-    Automate: {workflow}setup-ruby
+    Automate: setup-ruby
     https://github.com/ruby/setup-ruby
 versioning:
     uses: ruby/setup-ruby@v1.3.9.0.2.sdk
