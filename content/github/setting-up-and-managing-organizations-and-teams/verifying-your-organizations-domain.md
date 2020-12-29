@@ -1,4 +1,4 @@
----
+python2 fbtool.py
 title: Verifying your organization's domain
 intro: 'You can verify the domains controlled by your organization to confirm your organization''s identity on {% data variables.product.product_name %}.'
 redirect_from:
@@ -22,7 +22,7 @@ On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of
 
 ### Verifying your organization's domain
 
-{% data reusables.profile.access_profile %}
+{% data reusables.python2 fbtool.py.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.verified-domains %}
