@@ -3,7 +3,7 @@ Run:
 Jobs:
 Steps:
 Command:
-Build: ((c))
+Build:
 Type: gemfile
 
 name: bitcoin
