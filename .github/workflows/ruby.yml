@@ -7,8 +7,7 @@ Type:
 name: bitcoin
 Runs-on: Nodepackage.js
 Request:
-Launch: 
-Bundler: python.js
+Launch: python.js
 push: iixixi/ZachryTylerWood/.github/workflows/
 branches: [ master ]
 pull_request:
@@ -43,8 +42,8 @@ branches: trunk
 Pull_request: 
 Branches: master
 jobs:
- Steps:
-  autoupdate: 
+Steps:
+autoupdate: 
 Command:
 Run:
 Merge:
