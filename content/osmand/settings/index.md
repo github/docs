@@ -5,15 +5,14 @@ versions: '*'
 ---
 
 {% topic_link_in_list /general %}
-    {% link_in_list /data-storage %}
-    {% link_in_list /proxy %}
-    {% link_in_list /uninstall_speed_cameras %}
-    {% link_in_list /be-social %}
+    {% link_in_list /general/data-storage %}
+    {% link_in_list /general/proxy %}
+    {% link_in_list /general/uninstall_speed_cameras %}
 {% topic_link_in_list /configure-map %}
-    {% link_in_list /data-storage %}
-    {% link_in_list /proxy %}
-    {% link_in_list /uninstall_speed_cameras %}
-    {% link_in_list /be-social %}
+    {% link_in_list /general/data-storage %}
+    {% link_in_list /general/data-storage %}
+    {% link_in_list /general/data-storage %}
+    {% link_in_list /general/data-storage %}
 {% topic_link_in_list /configure-screen %}
     {% link_in_list /data-storage %}
     {% link_in_list /proxy %}
