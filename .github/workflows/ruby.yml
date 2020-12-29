@@ -11,8 +11,6 @@ push: iixixi/ZachryTylerWood/.github/workflows/
 branches: [ master ]
 pull_request:
 branches: [ trunk ]
-jobs:
-test:
 runs-on: ubuntu-latest
 steps:
 uses: actions/checkout@v2
