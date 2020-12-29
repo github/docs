@@ -7,7 +7,7 @@ versions: '*'
 ### Table of Contents
 
 {% topic_link_in_list /general %}
-    {% link_in_list /data-storage %}
+    {% link_in_list /general/data-storage %}
     {% link_in_list /analytics %}
     {% link_in_list /display-language %}
 
