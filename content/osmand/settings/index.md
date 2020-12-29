@@ -4,7 +4,7 @@ intro: "Сustomize OsmAnd to suit your needs, in particular setup the map screen
 versions: '*'
 ---
 
-### {% topic_link_in_list /general %}
+### {% data variables.android-values.osmand_settings %}
 {% link_in_list /general/data-storage %}
 {% link_in_list /general/proxy %}
 {% link_in_list /general/uninstall_speed_cameras %}
