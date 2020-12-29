@@ -4,6 +4,22 @@ intro: "Сustomize OsmAnd to suit your needs, in particular setup the map screen
 versions: '*'
 ---
 
+{% topic_link_in_list /general %}
+    {% link_in_list /data-storage %}
+    {% link_in_list /proxy %}
+    {% link_in_list /uninstall_speed_cameras %}
+    {% link_in_list /be-social %}
+{% topic_link_in_list /configure-map %}
+    {% link_in_list /data-storage %}
+    {% link_in_list /proxy %}
+    {% link_in_list /uninstall_speed_cameras %}
+    {% link_in_list /be-social %}
+{% topic_link_in_list /configure-screen %}
+    {% link_in_list /data-storage %}
+    {% link_in_list /proxy %}
+    {% link_in_list /uninstall_speed_cameras %}
+    {% link_in_list /be-social %}
+
 
 {% link_in_list /general %}
 {% link_in_list /configure-map %}
