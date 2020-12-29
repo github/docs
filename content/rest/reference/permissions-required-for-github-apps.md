@@ -5,8 +5,6 @@ redirect_from:
   - /v3/apps/permissions
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
 ---
 
 ### About {% data variables.product.prodname_github_app %} permissions
