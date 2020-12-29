@@ -5,9 +5,12 @@ versions: '*'
 ---
 
 
-{% topic_in_list /general %}
-{% link_in_list /general/configure-map %}
-{% link_in_list /general/configure-screen %}
+{% topic_in_list /general-test %}
+{% link_in_list /data-storage-test %}
+
+{% link_in_list /general %}
+{% link_in_list /configure-map %}
+{% link_in_list /configure-screen %}
 
 Regarding plugin specific settings, please check the respective section under Plugins
 {% link_in_list /osmand/plugins %}

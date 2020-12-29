@@ -1,6 +1,6 @@
 ---
 title: "{% data variables.android-values.osmand_settings %}"
-intro: "Basic OsmAnd settings"
+intro: "Basic OsmAnd settings Test"
 mapTopic: true
 versions: '*'
 ---
