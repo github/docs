@@ -5,4 +5,4 @@ intro: "Basic OsmAnd settings"
 versions: '*'
 ---
 
-{% topic_in_list /data-storage %}
+{% link_in_list /data-storage %}
