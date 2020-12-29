@@ -5,9 +5,9 @@ versions: '*'
 ---
 
 ### {% data variables.android-values.osmand_settings %}
-{% link /general/data-storage %}
-{% link /general/proxy %}
-{% link /general/uninstall_speed_cameras %}
+{% link /general/display-language %}
+{% link /general/dialogs-and-notifications %}
+{% link /general/analytics %}
 
 
 
