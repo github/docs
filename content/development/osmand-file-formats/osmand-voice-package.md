@@ -1,6 +1,6 @@
 ---
 title: Voice packages
-intro: 'Documentation about recorded and TTS-synthetized voice packages used to speak navigation instructions'
+intro: 'The recorded and TTS-synthesized voice packages producing the navigation voice prompts'
 versions: '*'
 ---
 

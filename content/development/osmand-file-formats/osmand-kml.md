@@ -1,6 +1,6 @@
 ---
 title: KML Tracks - .kml, .kmz
-intro: 'Documentation about KML'
+intro: 'OsmAnd can import or convert KML location information'
 versions: '*'
 ---
 

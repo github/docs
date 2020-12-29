@@ -1,6 +1,6 @@
 ---
 title: OsmAnd Binary Maps - .obf
-intro: OBF Format Specification
+intro: "OsmAnd's format to store vectorized location data like maps"
 versions: '*'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Routing Configuration - .routing.xml
-intro: 'Documentation about OsmAnd Routing Configuration'
+intro: 'OsmAnd's routing configuration file'
 versions: '*'
 ---
 
