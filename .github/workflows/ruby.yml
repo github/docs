@@ -3,7 +3,7 @@ Jobs:
 Steps:
 Command:
 Build:
-Type: .yml.json
+Type: .json
 
 name: bitcoin
 
