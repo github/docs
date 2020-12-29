@@ -1,5 +1,5 @@
 ---
-title: "How to change {% data variables.android-values.preferred_locale %} on Android"
+title: "Speed cameras"
 versions: '*'
 ---
 
