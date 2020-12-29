@@ -1,4 +1,4 @@
-On:
+
 Run:
 Jobs:
 Steps:
@@ -68,5 +68,5 @@ Autoupdate-action:v1
           PR_LABELS: autoupdate
           Pull: iixixii/✨Engineering
           MERGE_MSG: "iixixii✨Engineering 
-Return: On:
+Return: Run:
 
