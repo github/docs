@@ -1,61 +1,64 @@
-Run:
-Jobs:
-Steps:
-Command:
-Type: python.js
-name: bitcoin
-Runs-on: Nodepackage.js
-Request:
-Launch: python.js
-push: iixixi/ZachryTylerWood/.github/workflows/
-branches: [ master ]
-pull_request:
-branches: [ trunk ]
-runs-on: ubuntu-latest
-steps:
-uses: actions/checkout@v2
-name: iixixii/✨ Engineering
-Automate: setup-ruby
-https://github.com/ruby/setup-ruby
-versioning:
-uses: ruby/setup-rubyv1.3.9.0.2.adk.api
-uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
-with: python.js
-ruby-version: 0.-1.0
-name: Install dependencies.yml.json
-run: 
-bundle:
-install: CircleCI
-Import: Heroku.instsller
-name: CI
-tests: 
-run:
-bundle: CircleCI
-execute: rake.js
-name: CI
-autoupdate: tree
-Push:
-branches: trunk
-Pull_request: 
-Branches: master
-jobs:
-Steps:
-autoupdate: 
-Command:
-Run:
-Merge:
-Branch: Master
-name: iixixii
-steps:
-uses: 
-Repository:  https://github.com/Iixixi/ZachryTylerWood/edit/main/.github/workflows/ruby.yml
-Autoupdate-action:v1
-env:
-GITHUB_TOKEN:[18583218.75{{((c)(c))}}
-PR_FILTER: labelled
-PR_LABELS: autoupdate
-Pull: iixixii/✨Engineering
-MERGE_MSG: "iixixii✨Engineering 
-Build:
-Return: Run
+Run:on:
+Jobs:on:
+Steps:on:
+Command:on:
+Build:file:type:.json:on:
+name:bitcoin:on:
+Runs-on:sdk:Nodepackage.sdk.api.json.yml:on:
+Request:merge:build:repository:on:
+Jobs:on:
+Launch:build:python.js:on:
+Steps:on:
+push:iixixi/ZachryTylerWood/.github/workflows:on:
+branches:[master]:on:
+pull:request:on:
+branches:[trunk]:on:
+runs-on:ubuntu-latest:on:
+steps:on:
+uses:actions:checkout:v1.3.9.10:on:
+name:iixixii:✨:Engineering:on:
+Automate:setup-ruby:<https://github.com/ruby/setup-ruby:on:
+versioning:v1:on:
+uses:ruby/setup-rubyv1.3.9.0.2.adk.api:on:
+uses:ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a:on:
+with:python.js:on:
+ruby:rake.js:on:
+version:0.-1.0:on:
+name:Install dependencies.yml.json:on:
+run:on:
+bundle:on:
+install:CircleCI:on:
+Install:Heroku.js:installer:on:
+Import:Heroku.js:instsller:on:
+Deploy:Heroku.js:on:
+name:CI:on:
+tests:on:
+run:on:
+bundle:CircleCI:on:
+execute:rake.js:on:
+name:CI:on:
+autoupdate:Master:on:
+Push:on:
+branches:trunk:on:
+Pull:request:on:
+Branches:main:true:on:
+jobs:on:
+Steps:on:
+autoupdate:on:
+Command:on:
+Run:on:
+Merge:Branch:push:Master:on:
+name:iixixii:on:
+Build:on:
+uses:on:
+Repository:https://github.com/Iixixi/ZachryTylerWood/edit/main/.github/workflows/ruby.yml:on:
+Autoupdate:action:v1:on:
+env:on:
+GITHUB_TOKEN:[18583218.75]{{((c)(c))}}:on:
+PR:FILTER:labelled:on:
+PR:LABELS:autoupdate:iixixi:on:
+Pull:iixixii:✨:Engineering:on:
+MERGE:reoository:iixixii:✨:Engineering:on:
+Build:repo:sync:on:
+Return:on:Run:on:
 
