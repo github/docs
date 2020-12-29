@@ -1,6 +1,6 @@
 ---
 title: Map Rendering style - .render.xml
-intro: 'Documentation about rendering style'
+intro: 'Rendering styles producing the map appearance'
 versions: '*'
 ---
 
