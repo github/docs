@@ -4,6 +4,9 @@ intro: "Plan future routes and trips"
 versions: '*'
 ---
 
+
+
+----------
 The **'Plan a route'** feature allows you to measure distances on the map, create GPX tracks or add new segments to your own ones, to snap your track to the nearest available road with one of your navigation profiles. This interface has replaced the older 'Measure distance' tool. We've added new functions and created a completely new look for the utmost convenience to create a route for your trip.
 
 To use this feature, simply go to the main OsmAnd menu and press  _'Plan a route'_. You'll see the map with a toolbar below. Start by putting the first point on the map and adding the next ones (one or more). To do that, press the  _'Add'_  button or just touch a spot on the map. You'll see the total distance on the toolbar. You can also undo or redo the steps using the arrow buttons.
