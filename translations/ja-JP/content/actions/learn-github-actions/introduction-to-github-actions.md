@@ -34,7 +34,7 @@ versions:
 
 #### イベント
 
-イベントは、ワークフローをトリガーする特定のアクティビティです。 たとえば、誰かがコミットをリポジトリにプッシュした場合、あるいはIssueもしくはプルリクエストが作成された場合、{% data variables.product.prodname_dotcom %}からアクティビティを発生させることができます。 You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
+イベントは、ワークフローをトリガーする特定のアクティビティです。 たとえば、誰かがコミットをリポジトリにプッシュした場合、あるいはIssueもしくはプルリクエストが作成された場合、{% data variables.product.prodname_dotcom %}からアクティビティを発生させることができます。 また外部のイベント発生時にワークフローをトリガーするために、「[リポジトリディスパッチWebフック](/rest/reference/repos#create-a-repository-dispatch-event)」を使用できます。 ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
 
 #### Jobs
 
@@ -42,7 +42,7 @@ versions:
 
 #### ステップ
 
-A step is an individual task that can run commands in a job. A step can be either an _action_ or a shell command. ジョブの各ステップは同じランナーで実行され、そのジョブのアクションが互いにデータを共有できるようにします。
+_ステップ_は、_ジョブ_の中でコマンドを実行できる個々のタスクです。 _ステップ_は_アクション_かシェルコマンドです。 ジョブの各ステップは同じランナーで実行され、そのジョブのアクションが互いにデータを共有できるようにします。
 
 #### アクション
 
@@ -50,7 +50,7 @@ _アクション_は、_ジョブ_を作成するために_ステップ_に結�
 
 #### ランナー
 
-A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. {% data variables.product.prodname_dotcom %} がホストするランナーを使用することも、自分でランナーをホストすることもできます。 ランナーは、使用可能なジョブをリッスンし、一度に 1 つのジョブを実行し、進行状況、ログ、および結果を {% data variables.product.prodname_dotcom %} に返します。 {% data variables.product.prodname_dotcom %}ホストランナーでは、ワークフロー内の各ジョブは新しい仮想環境で実行されます。
+_ランナー_は、「 [{% data variables.product.prodname_actions %} ランナーアプリケーション](https://github.com/actions/runner)」がインストールされたサーバーです。 {% data variables.product.prodname_dotcom %} がホストするランナーを使用することも、自分でランナーをホストすることもできます。 ランナーは、使用可能なジョブをリッスンし、一度に 1 つのジョブを実行し、進行状況、ログ、および結果を {% data variables.product.prodname_dotcom %} に返します。 {% data variables.product.prodname_dotcom %}ホストランナーでは、ワークフロー内の各ジョブは新しい仮想環境で実行されます。
 
 {% data variables.product.prodname_dotcom %} ホストランナーは、Ubuntu Linux、Microsoft Windows、および macOS に基づいています。 {% data variables.product.prodname_dotcom %} ホストランナーの詳細については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners)」を参照してください。 別のオペレーティングシステムが必要な場合、または特定のハードウェア設定が必要な場合は、自分のランナーをホストできます。 セルフホストランナーの詳細については、「[自分のランナーをホストする](/actions/hosting-your-own-runners)」を参照してください。
 
@@ -197,14 +197,14 @@ YAML 構文を使用してワークフローファイルを作成する方法を
 
 #### ワークフローファイルの視覚化
 
-この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 Each step executes a single action or shell command. ステップ 1 と 2 は、ビルド済みのコミュニティアクションを使用します。 Steps 3 and 4 run shell commands directly on the runner. ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
+この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 各ステップでは一つのアクションかシェルコマンドを実行します。 ステップ 1 と 2 は、ビルド済みのコミュニティアクションを使用します。 ステップ 3 と 4 は、ランナー上でシェルコマンドを直接実行します。 ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
 
 ![ワークフローの概要](/assets/images/help/images/overview-actions-event.png)
 
 
 ### ジョブのアクティビティを表示する
 
-Once your job has started running, you can {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
+ジョブの実行が開始されてからは、実行の進捗の可視化グラフを {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} で確認でき、{% data variables.product.prodname_dotcom %} の各ステップのアクティビティを{% endif %} で確認できます。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。 ![リポジトリに移動](/assets/images/help/images/learn-github-actions-repository.png)
