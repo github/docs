@@ -10,10 +10,10 @@ versions: '*'
 {% link_with_intro /map %}
 {% link_with_intro /hud %}
 {% link_with_intro /navigation %}
+{% link_with_intro /search %}
 {% link_with_intro /personal %}
 {% link_with_intro /plan-route %}
 {% link_with_intro /purchases %}
-{% link_with_intro /settings %}
 {% link_with_intro /troubleshooting %}
 
 
