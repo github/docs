@@ -14,7 +14,6 @@ versions: '*'
 {% link_with_intro /plan-route %}
 {% link_with_intro /purchases %}
 {% link_with_intro /settings %}
-{% link_with_intro /plugins %}
 {% link_with_intro /troubleshooting %}
 
 
