@@ -1,8 +1,17 @@
 ---
-title: "Setup"
-intro: "Answers questions around installing OsmAnd, selecting the data storage, and permissions."
+title: "First steps"
+intro: "First steps with OsmAnd, how to install, to download maps"
 versions: '*'
 ---
+Here is description about
+- First steps
+- View Map
+- Initial troubleshooting (Storage, etc)
+- Initial download & import data 
+- Introduction of Main menus like Drawer and Context Menu
+- Profiles
+- Search (for now here)
+
 
 {% link_in_list /i-cant-install-update-uninstall-the-app %}
 {% link_in_list /why-does-osmand-require-xpermission-x %}
