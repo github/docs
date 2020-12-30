@@ -8,8 +8,8 @@ versions: '*'
 
 {% topic_link_in_list /general %}
     {% link_in_list /general/data-storage %}
-    {% link_in_list /analytics %}
-    {% link_in_list /display-language %}
+    {% link_in_list /general/analytics %}
+    {% link_in_list /general/display-language %}
 
 {% topic_link_in_list /configure-screen %}
     {% link_in_list /speed-cameras %}
