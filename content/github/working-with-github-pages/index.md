@@ -12,10 +12,11 @@ redirect_from:
   - /categories/working-with-github-pages
 product: '{% data reusables.gated-features.pages %}'
 versions:
-  free-pro-team: '*'
+  free-gi/pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 
 
 ### Table of Contents
