@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-Du kannst die Möglichkeit der Änderung der Sichtbarkeit von Repositorys ausschließlich auf Organisationsinhaber beschränken oder auch Mitgliedern mit Administratorberechtigungen für ein Repository erlauben, die Sichtbarkeit des Repositorys von privat auf öffentlich oder von öffentlich auf privat zu ändern.
+You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
 
 {% warning %}
 
@@ -24,3 +24,7 @@ Du kannst die Möglichkeit der Änderung der Sichtbarkeit von Repositorys aussch
 {% data reusables.organizations.member-privileges %}
 5. Deaktiviere unter „Repository visibility change“ (Änderung der Sichtbarkeit von Repositorys) das Kontrollkästchen **Allow members to change repository visibilities for this organization** (Mitgliedern die Änderung der Sichtbarkeit von Repositorys für diese Organisation erlauben). ![Kontrollkästchen zur Erlaubnis der Änderung der Sichtbarkeit von Repositorys durch Mitglieder](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Klicke auf **Save** (Speichern).
+
+### Weiterführende Informationen
+
+- „[Über Sichtbarkeit von Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)"

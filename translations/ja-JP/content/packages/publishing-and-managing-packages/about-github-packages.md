@@ -182,7 +182,7 @@ Subdomain Isolation の詳しい情報については、「[Subdomain Isolation 
 
 ### パッケージの管理
 
-You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/v4/guides/forming-calls/)」を参照してください。
+You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 webhookを設定して、パッケージの公開や更新といったパッケージ関連のイベントにサブスクライブできます。 詳しい情報については、「[`package` webhookイベント](/webhooks/event-payloads/#package)」を参照してください。
 

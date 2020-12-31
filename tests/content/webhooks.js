@@ -1,5 +1,5 @@
 const { difference } = require('lodash')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const { latest } = require('../../lib/enterprise-server-releases')
 const allVersions = Object.values(require('../../lib/all-versions'))
 const payloadVersions = allVersions.map(v => v.miscVersionName)

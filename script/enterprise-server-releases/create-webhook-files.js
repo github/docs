@@ -5,6 +5,7 @@ const mkdirp = require('mkdirp').sync
 const path = require('path')
 const program = require('commander')
 const allVersions = require('../../lib/all-versions')
+const payloadsDir = 'lib/webhooks/static'
 
 // [start-readme]
 //
@@ -18,20 +19,22 @@ program
   .option('-o, --oldVersion <version>', 'The version to copy the payloads from. Must be in <plan@release> format.')
   .parse(process.argv)
 
-if (!(program.newVersion && program.oldVersion)) {
+const newVersion = program.newVersion
+const oldVersion = program.oldVersion
+
+if (!(newVersion && oldVersion)) {
   console.log('Error! You must provide --newVersion and --oldVersion.')
   process.exit(1)
 }
 
-if (!(Object.keys(allVersions).includes(program.newVersion) && Object.keys(allVersions).includes(program.oldVersion))) {
-  console.log('Error! You must provide the full name of a supported version, e.g., enterprise-server@2.22.')
+if (!(Object.keys(allVersions).includes(newVersion) && Object.keys(allVersions).includes(oldVersion))) {
+  console.log('Error! You must provide the full name of a currently supported version, e.g., enterprise-server@2.22.')
   process.exit(1)
 }
 
-const newVersionDirName = allVersions[program.newVersion].miscVersionName
-const oldVersionDirName = allVersions[program.oldVersion].miscVersionName
+const newVersionDirName = allVersions[newVersion].miscVersionName
+const oldVersionDirName = allVersions[oldVersion].miscVersionName
 
-const payloadsDir = 'lib/webhooks/static'
 const srcDir = path.join(payloadsDir, oldVersionDirName)
 const destDir = path.join(payloadsDir, newVersionDirName)
 

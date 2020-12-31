@@ -40,7 +40,7 @@ versions:
 
 ### 使用 SAML SSO 添加成员到组织
 
-在启用 SAML SSO 后，可通过多种方式向组织添加新成员。 组织所有者可在 {% data variables.product.product_name %} 上或使用 API 手动邀请新成员。 更多信息请参阅“[邀请用户加入组织](/articles/inviting-users-to-join-your-organization)”和“[成员](/v3/orgs/members/#add-or-update-organization-membership)”。
+在启用 SAML SSO 后，可通过多种方式向组织添加新成员。 组织所有者可在 {% data variables.product.product_name %} 上或使用 API 手动邀请新成员。 更多信息请参阅“[邀请用户加入组织](/articles/inviting-users-to-join-your-organization)”和“[成员](/rest/reference/orgs#add-or-update-organization-membership)”。
 
 {% data reusables.organizations.team-synchronization %}
 

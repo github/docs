@@ -19,13 +19,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% mac %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copy the SSH public key to your clipboard.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ pbcopy &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ pbcopy &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -46,13 +46,13 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% windows %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copy the SSH public key to your clipboard.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
-  $ clip &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ clip &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
 
   {% tip %}
@@ -73,16 +73,16 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
 {% linux %}
 
-1. Copie a chave SSH na área de transferência.
+1. Copy the SSH public key to your clipboard.
 
-  Se o arquivo da chave SSH tiver um nome diferente do código de exemplo, modifique o nome do arquivo para corresponder à sua configuração atual. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
+  If your SSH public key file has a different name than the example code, modify the filename to match your current setup. Ao copiar sua chave, não adicione novas linhas nem espaços em branco.
 
   ```shell
   $ sudo apt-get install xclip
   # Baixa e instala xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -selection clipboard &lt; ~/.ssh/id_rsa.pub
-  # Copies the contents of the id_rsa.pub file to your clipboard
+  $ xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+  # Copies the contents of the id_ed25519.pub file to your clipboard
   ```
   {% tip %}
 

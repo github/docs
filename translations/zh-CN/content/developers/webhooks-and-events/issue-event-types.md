@@ -10,7 +10,7 @@ versions:
 ---
 
 
-Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/v3/issues/events) and the [Timeline Events API](/v3/issues/timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
+Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/rest/reference/issues#events) and the [Timeline Events API](/rest/reference/issues#timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
 
 GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
@@ -129,7 +129,7 @@ A comment was added to the issue or pull request.
 | `html_url`           | `字符串` | The HTML URL of the issue comment.                                                                                                              |
 | `issue_url`          | `字符串` | The HTML URL of the issue.                                                                                                                      |
 | `id`                 | `整数`  | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `字符串` | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
+| `node_id`            | `字符串` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                       |
 | `用户`                 | `对象`  | The person who commented on the issue.                                                                                                          |
 | `created_at`         | `字符串` | The timestamp indicating when the comment was added.                                                                                            |
 | `updated_at`         | `字符串` | The timestamp indicating when the comment was updated or created, if the comment is never updated.                                              |
@@ -152,19 +152,19 @@ A commit was added to the pull request's `HEAD` branch.
 
 {% data reusables.issue-events.timeline_events_object_properties %}
 
-| 名称            | 类型                 | 描述                                                                                                                                                           |
-| ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `sha`         | `字符串`              | The SHA of the commit in the pull request.                                                                                                                   |
-| `node_id`     | `字符串`              | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                                         |
-| `url`         | `字符串`              | The REST API URL to retrieve the commit.                                                                                                                     |
-| `html_url`    | `字符串`              | The HTML URL of the commit.                                                                                                                                  |
-| `作者`          | `对象`               | The person who authored the commit.                                                                                                                          |
-| `提交者`         | `对象`               | The person who committed the commit on behalf of the author.                                                                                                 |
-| `树`           | `对象`               | The Git tree of the commit.                                                                                                                                  |
-| `message`     | `字符串`              | 提交消息.                                                                                                                                                        |
-| `父项`          | `array of objects` | A list of parent commits.                                                                                                                                    |
-| `verfication` | `对象`               | The result of verifying the commit's signature. For more information, see "[Signature verification object](/v3/git/commits/#signature-verification-object)." |
-| `event`       | `字符串`              | The event value is `"committed"`.                                                                                                                            |
+| 名称            | 类型                 | 描述                                                                                                                                                              |
+| ------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sha`         | `字符串`              | The SHA of the commit in the pull request.                                                                                                                      |
+| `node_id`     | `字符串`              | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                                       |
+| `url`         | `字符串`              | The REST API URL to retrieve the commit.                                                                                                                        |
+| `html_url`    | `字符串`              | The HTML URL of the commit.                                                                                                                                     |
+| `作者`          | `对象`               | The person who authored the commit.                                                                                                                             |
+| `提交者`         | `对象`               | The person who committed the commit on behalf of the author.                                                                                                    |
+| `树`           | `对象`               | The Git tree of the commit.                                                                                                                                     |
+| `message`     | `字符串`              | 提交消息.                                                                                                                                                           |
+| `父项`          | `array of objects` | A list of parent commits.                                                                                                                                       |
+| `verfication` | `对象`               | The result of verifying the commit's signature. For more information, see "[Signature verification object](/rest/reference/git#signature-verification-object)." |
+| `event`       | `字符串`              | The event value is `"committed"`.                                                                                                                               |
 
 ### connected
 
@@ -583,7 +583,7 @@ The pull request was reviewed.
 | 名称                   | 类型    | 描述                                                                                                                                              |
 | -------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`                 | `整数`  | The unique identifier of the event.                                                                                                             |
-| `node_id`            | `字符串` | The [Global Node ID](/v4/guides/using-global-node-ids) of the event.                                                                            |
+| `node_id`            | `字符串` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.                                                                       |
 | `用户`                 | `对象`  | The person who commented on the issue.                                                                                                          |
 | `正文`                 | `字符串` | The review summary text.                                                                                                                        |
 | `commit_id`          | `字符串` | The SHA of the latest commit in the pull request at the time of the review.                                                                     |

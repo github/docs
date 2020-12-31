@@ -10,7 +10,13 @@ versions:
   github-ae: '*'
 ---
 
+### About issues
+
 You can collect user feedback, report software bugs, and organize tasks you'd like to accomplish with issues in a repository. Issues can act as more than just a place to report software bugs.
+
+Other conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %}
+
+{% data reusables.discussions.you-cannot-convert-a-discussion %}
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 

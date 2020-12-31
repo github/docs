@@ -16,4 +16,4 @@ Os painéis de problemas e pull requests estão disponíveis na parte superior d
 
 ### Leia mais
 
-- {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}”[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[Visualizar as suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listar os repositórios que você está inspecionando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

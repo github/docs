@@ -13,10 +13,10 @@ versions:
 
 以下は、Marketplaceのリストで利用できる便利なエンドポイントです。
 
-* [プランのリスト](/v3/apps/marketplace/#list-plans)
-* [プランのアカウントのリスト](/v3/apps/marketplace/#list-accounts-for-a-plan)
-* [アカウントのサブスクリプションプランの取得](/v3/apps/marketplace/#get-a-subscription-plan-for-an-account)
-* [認証されたユーザのサブスクリプションのリスト](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)
+* [プランのリスト](/rest/reference/apps#list-plans)
+* [プランのアカウントのリスト](/rest/reference/apps#list-accounts-for-a-plan)
+* [アカウントのサブスクリプションプランの取得](/rest/reference/apps#get-a-subscription-plan-for-an-account)
+* [認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 
 {% data variables.product.prodname_marketplace %} APIを使用する際の認証の受け方の詳細については、以下のページを参照してください。
 
@@ -25,6 +25,6 @@ versions:
 
 {% note %}
 
-**ノート:** [REST APIのためのレート制限](/v3/#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
+**ノート:** [REST APIのためのレート制限](/rest#rate-limiting)は、{% data variables.product.prodname_marketplace %} APIのすべてのエンドポイントに適用されます。
 
 {% endnote %}

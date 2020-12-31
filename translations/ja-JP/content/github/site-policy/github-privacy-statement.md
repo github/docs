@@ -201,7 +201,7 @@ Organizationでお客様のユーザ個人情報を処理する方法および�
 
 #### サードパーティアプリケーション
 
-お客様は、アカウントで「Developer Products」として知られるサードパーティアプリケーションを有効化または追加することを選択できます。 このDeveloper Productsは、お客様がGitHubを利用するにあたって、必ずしも必要なものではありません。 当社は、MarketplaceからDeveloper Productを購入する場合などお客様の要望があったとき、ユーザ個人情報を第三者と共有します。しかし、第三者のDeveloper Productの利用およびユーザ個人情報を共有する量の選択については、お客様がその責を負うものとします。 お客様のGitHubプロフィールを利用してDeveloper Productに認証した場合、どの情報が提供されるのか[API documentation](/v3/users/)で確認できます。
+お客様は、アカウントで「Developer Products」として知られるサードパーティアプリケーションを有効化または追加することを選択できます。 このDeveloper Productsは、お客様がGitHubを利用するにあたって、必ずしも必要なものではありません。 当社は、MarketplaceからDeveloper Productを購入する場合などお客様の要望があったとき、ユーザ個人情報を第三者と共有します。しかし、第三者のDeveloper Productの利用およびユーザ個人情報を共有する量の選択については、お客様がその責を負うものとします。 お客様のGitHubプロフィールを利用してDeveloper Productに認証した場合、どの情報が提供されるのか[API documentation](/rest/reference/users)で確認できます。
 
 #### GitHub Pages
 

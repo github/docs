@@ -98,13 +98,19 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
         IdentityFile ~/.ssh/id_ed25519
       ```
 
+     {% note %}
+
+     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+
+     {% endnote %}
+
 3. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu, und speichern Sie Ihre Passphrase in der Keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 
-  **Hinweis:** Die Option `-K` ist die Standardversion von `ssh-add` von Apple, bei der die Passphrase für das Hinzufügen eines SSH-Schlüssels zum SSH-Agenten in Deiner Keychain gespeichert wird.
+  **Hinweis:** Die Option `-K` ist die Standardversion von `ssh-add` von Apple, bei der die Passphrase für das Hinzufügen eines SSH-Schlüssels zum SSH-Agenten in Deiner Keychain gespeichert wird. If you chose not to add a passphrase to your key, run the command without the `-K` option.
 
   Wenn Sie die Standardversion von Apple nicht installiert haben, tritt möglicherweise ein Fehler auf. Weitere Informationen zum Beheben dieses Fehlers finden Sie unter [Fehler: „ssh-add: illegal option -- K“](/articles/error-ssh-add-illegal-option-k)“.
 

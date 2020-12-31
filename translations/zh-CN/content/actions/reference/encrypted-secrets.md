@@ -43,11 +43,11 @@ versions:
 
 {% endwarning %}
 
-您还可以使用 REST API 管理密码。 更多信息请参阅“[密码](/v3/actions/secrets/)”。
+您还可以使用 REST API 管理密码。 更多信息请参阅“[密码](/rest/reference/actions#secrets)”。
 
 #### 限制凭据权限
 
-生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/v3/guides/managing-deploy-keys/#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
+生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
 
 ### 为仓库创建加密密码
 

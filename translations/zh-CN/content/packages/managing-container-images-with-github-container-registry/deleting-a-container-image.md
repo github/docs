@@ -16,10 +16,6 @@ versions:
 
 删除公共包时，请注意，您可能会破坏依赖于包的项目。
 
-### 保留的包版本和名称
-
-{% data reusables.package_registry.package-immutability %}
-
 ### 删除 {% data variables.product.prodname_dotcom %} 上用户拥有的容器映像版本
 
 {% data reusables.package_registry.package-settings-from-user-level %}

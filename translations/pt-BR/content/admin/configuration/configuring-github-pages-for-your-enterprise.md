@@ -1,6 +1,6 @@
 ---
-title: Configuring GitHub Pages for your enterprise
-intro: 'You can enable or disable {% data variables.product.prodname_pages %} for your enterprise and choose whether to make sites publicly accessible.'
+title: Configurar o GitHub Pages para a sua empresa
+intro: 'Você pode habilitar ou desabilitar {% data variables.product.prodname_pages %} para a sua empresa e escolher se deseja tornar os sites acessíveis ao público.'
 redirect_from:
   - /enterprise/admin/guides/installation/disabling-github-enterprise-pages/
   - /enterprise/admin/guides/installation/configuring-github-enterprise-pages/
@@ -13,13 +13,13 @@ versions:
   github-ae: '*'
 ---
 
-### Enabling public sites for {% data variables.product.prodname_pages %}
+### Habilitar sites públicos para {% data variables.product.prodname_pages %}
 
-{% if enterpriseServerVersions contains currentVersion %}If private mode is enabled on your enterprise, the {% else %}The {% endif %}public cannot access {% data variables.product.prodname_pages %} sites hosted by your enterprise unless you enable public sites.
+{% if enterpriseServerVersions contains currentVersion %}Se o modo privado for habilitado na sua empresa, o {% else %}O {% endif %}público não poderá acessar sites de {% data variables.product.prodname_pages %} hospedados pela sua empresa, a menos que você habilite os sites públicos.
 
 {% warning %}
 
-**Warning:** If you enable public sites for {% data variables.product.prodname_pages %}, every site in every repository on your enterprise will be accessible to the public.
+**Aviso:** Se você habilitar sites públicos para {% data variables.product.prodname_pages %}, todos os sites em cada repositório da sua empresa serão acessíveis ao público.
 
 {% endwarning %}
 
@@ -33,15 +33,15 @@ versions:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
-5. Under "Pages policies", select **Public {% data variables.product.prodname_pages %}**. ![Checkbox to enable public {% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/public-github-pages-checkbox.png)
+5. Em "Páginas políticas", selecione **{% data variables.product.prodname_pages %}públicas**. ![Caixa de seleção para habilitar as {% data variables.product.prodname_pages %} públicas](/assets/images/enterprise/business-accounts/public-github-pages-checkbox.png)
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
-### Disabling {% data variables.product.prodname_pages %} for your enterprise
+### Desabilitar {% data variables.product.prodname_pages %} para a sua empresa
 
 {% if enterpriseServerVersions contains currentVersion %}
-If subdomain isolation is disabled for your enterprise, you should also disable
-{% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/admin/configuration/enabling-subdomain-isolation)".
+Se o isolamento de subdomínio estiver desabilitado para sua empresa, você também deverá desabilitar
+{% data variables.product.prodname_pages %} para proteger você de possíveis vulnerabilidades de segurança. Para obter mais informações, consulte "[Habilitar o isolamento de subdomínio](/admin/configuration/enabling-subdomain-isolation)".
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
@@ -54,12 +54,12 @@ If subdomain isolation is disabled for your enterprise, you should also disable
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
-5. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**. ![Caixa de seleção para desabilitar o{% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png)
+5. Em "Páginas políticas", desmarque **{% data variables.product.prodname_pages %}públicas**. ![Caixa de seleção para desabilitar o{% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png)
 {% data reusables.enterprise-accounts.pages-policies-save %}
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Leia mais
 
-- "[Enabling private mode](/admin/configuration/enabling-private-mode)"
+- "[Habilitar o modo privado](/admin/configuration/enabling-private-mode)"
 {% endif %}

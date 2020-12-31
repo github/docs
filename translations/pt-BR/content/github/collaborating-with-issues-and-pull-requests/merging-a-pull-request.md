@@ -45,7 +45,7 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
 
    {% note %}
 
-   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+   **Observação:** O seletor de e-mail não está disponível para merge de rebase, que não cria um commit de merge, ou para merge de combinação por squash, que credita o usuário que criou a pull request como o autor do commit cuja combinação foi feita por squash.
 
    {% endnote %}
 
