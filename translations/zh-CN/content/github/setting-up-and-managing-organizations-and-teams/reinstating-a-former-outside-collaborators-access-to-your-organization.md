@@ -1,33 +1,34 @@
 ---
-title: Reinstating a former outside collaborator's access to your organization
-intro: 'If you required two-factor authentication in your organization and an outside collaborator was removed from the organization for not having 2FA enabled, you can reinstate a former outside collaborator''s access permissions for organization repositories, forks, and settings.'
+title: 恢复前外部协作者对组织的访问权限
+intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-If an outside collaborator's access to your organization's private repositories is removed because you've [required members and outside collaborators to enable two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
-When you reinstate a former outside collaborator, you can restore:
- - The user's former access to organization repositories
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+恢复前外部协作者时，您可以恢复以下各项：
+ - 用户对组织仓库以前的访问权限
+ - 组织拥有的仓库的任何私有复刻
+ - 组织团队的成员身份
+ - 组织仓库以前的访问权限和权限
+ - 组织仓库的星标
+ - 组织中的议题分配
+ - 仓库订阅（关注、不关注或忽略仓库活动的通知设置）
 
 {% tip %}
 
-**Tips**:
- - Only organization owners can reinstate outside collaborators' access to an organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
+**提示**：
+ - 只有组织所有者才能恢复外部协作者对组织的访问权限。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
  - The reinstating a member flow on {% data variables.product.product_location %} may use the term "member" to describe reinstating an outside collaborator but if you reinstate this person and keep their previous privileges, they will only have their previous [outside collaborator permissions](/articles/permission-levels-for-an-organization/#outside-collaborators).{% if currentVersion == "free-pro-team@latest" %}
- - If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[About per-user pricing](/articles/about-per-user-pricing)."{% endif %}
+ - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。{% endif %}
 
 {% endtip %}
 
@@ -37,37 +38,35 @@ When you reinstate a former outside collaborator, you can restore:
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
-6. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Invite and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Invite and start fresh**.
+6. 通过单击 **Invite and reinstate（邀请并恢复）**选择恢复外部协作者在组织中以前的权限，或通过单击 **Invite and start fresh（邀请并重新开始）**选择清除其以前的权限并设置新的访问权限。
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Invite and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Invite and reinstate** instead. Once this person accepts the invitation, you can convert them to an organization member by [inviting them to join the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **警告：**如果想要将外部协作者升级为组织成员，则选择 **Invite and start fresh（邀请并重新开始）**，然后为此人员选择新角色。 但是，请注意，如果您选择重新开始，则此人员组织仓库的私人复刻将会丢失。 要使前外部协作者成为您组织的成员*并*保留其私有复刻，请选择 **Invite and reinstate（邀请并恢复）**。 此人员接受邀请后，您可以通过[邀请他们作为成员加入组织](/articles/converting-an-outside-collaborator-to-an-organization-member)，将其转换为组织成员。
 
   {% endwarning %}
 
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
+  ![选择是否恢复设置](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
-6. Choose to restore the outside collaborator's previous privileges in the organization by clicking **Add and reinstate** or choose to clear their previous privileges and set new access permissions by clicking **Add and start fresh**.
+6. 通过单击 **Add and reinstate（添加并恢复）**选择恢复外部协作者在组织中以前的权限，或通过单击 **Add and start fresh（添加并重新开始）**选择清除其以前的权限并设置新的访问权限。
 
   {% warning %}
 
-  **Warning:** If you want to upgrade the outside collaborator to a member of your organization, then choose **Add and start fresh** and choose a new role for this person. Note, however, that this person's private forks of your organization's repositories will be lost if you choose to start fresh. To make the former outside collaborator a member of your organization *and* keep their private forks, choose **Add and reinstate** instead. Then, you can convert them to an organization member by [adding them to the organization as a member](/articles/converting-an-outside-collaborator-to-an-organization-member).
+  **警告：**如果想要将外部协作者升级为组织成员，则选择 **Add and start fresh（添加并重新开始）**，然后为此人员选择新角色。 但是，请注意，如果您选择重新开始，则此人员组织仓库的私人复刻将会丢失。 要使前外部协作者成为您组织的成员*并*保留其私有复刻，请选择 **Add and reinstate（添加并恢复）**。 然后，您可以通过[将他们作为成员添加到组织](/articles/converting-an-outside-collaborator-to-an-organization-member)，将其转换为组织成员。
 
   {% endwarning %}
 
-  ![Choose to restore settings or not](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
+  ![选择是否恢复设置](/assets/images/help/organizations/choose_whether_to_restore_org_member_info_ghe.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Send invitation**.
-  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png)
+7. 如果已清除前外部协作者以前的权限，请为该用户选择一个角色，并（可选）将其添加到某些团队，然后单击 **Send invitation（发送邀请）**。 ![角色和团队选项及发送邀请按钮](/assets/images/help/organizations/add-role-send-invitation.png)
 {% else %}
-7. If you cleared the previous privileges for a former outside collaborator, choose a role for the user and optionally add them to some teams, then click **Add member**.
-  ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png)
+7. 如果已清除前外部协作者以前的权限，请为该用户选择一个角色，并（可选）将其添加到某些团队，然后单击 **Add member（添加成员）**。 ![角色和团队选项及添加成员按钮](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-8. The invited person will receive an email inviting them to the organization. They will need to accept the invitation before becoming an outside collaborator in the organization. {% data reusables.organizations.cancel_org_invite %}
+8. 被邀请的人员将收到邀请其加入组织的电子邮件。 它们需要接受邀请，然后才能成为组织中的外部协作者。 {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
-### Further Reading
+### 延伸阅读
 
-- "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
+- "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"

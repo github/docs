@@ -1,1 +1,1 @@
-- **Matriz de trabalho** - A matriz de trabalho pode gerar no máximo 256 trabalhos por execução de fluxo de trabalho. Este limite também se aplica a executores auto-hospedados.
+Uma matriz de tarefas pode gerar 256 tarefas no máximo por execução do fluxo de trabalho. Este limite também se aplica a executores auto-hospedados.

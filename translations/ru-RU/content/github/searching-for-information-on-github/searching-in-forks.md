@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 To show forks in [repository search](/articles/searching-for-repositories) results, add `fork:true` or `fork:only` to your query.

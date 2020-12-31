@@ -4,10 +4,11 @@ redirect_from:
   - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
-intro: '如果您 [使用 HTTPS 克隆 {% data variables.product.product_name %} 仓库](/github/using-git/whit-remote-url-should-i-us)，您可以使用凭据小助手告诉 Git 记住您的凭据。'
+intro: '如果您 [使用 HTTPS 克隆 {% data variables.product.product_name %} 仓库](/github/using-git/which-remote-url-should-i-use)，您可以使用凭据小助手告诉 Git 记住您的凭据。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您使用 SSH 克隆 {% data variables.product.product_name %} 仓库，则可使用 SSH 密钥进行身份验证，而不是使用其他凭据。 有关设置 SSH 连接的信息，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。

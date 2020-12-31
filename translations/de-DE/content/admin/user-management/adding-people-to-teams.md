@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
   - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
   - /enterprise/admin/user-management/adding-people-to-teams
-intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Benutzer von {% data variables.product.product_location_enterprise %} zum Team hinzufügen und festlegen, auf welche Repositorys sie zugreifen dürfen.'
+intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Benutzer von {% data variables.product.product_location %} zum Team hinzufügen und festlegen, auf welche Repositorys sie zugreifen dürfen.'
 versions:
   enterprise-server: '*'
 ---

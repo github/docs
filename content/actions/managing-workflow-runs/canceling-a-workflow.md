@@ -17,9 +17,14 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
+1. From the list of workflow runs, click the name of the `queued` or `in progress` run that you want to cancel.
+![Name of workflow run](/assets/images/help/repository/in-progress-run.png)
 1. In the upper-right corner of the workflow, click **Cancel workflow**.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+ ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite-updated.png)
+{% else %}
  ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
+{% endif %}
 
 ### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
 

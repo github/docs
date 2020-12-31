@@ -1,11 +1,12 @@
 ---
 title: Definir políticas para sua empresa
-intro: 'Você pode definir as políticas em {% data variables.product.prodname_enterprise %} para reduzir o risco e aumentar a qualidade.'
+intro: 'Você pode definir as políticas em {% data variables.product.product_name %} para reduzir o risco e aumentar a qualidade.'
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

@@ -6,7 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
+{% note %}
+
+**注釈:** 自分の Organization またはユーザ所有のプロジェクトボードにリポジトリをリンクするには、リポジトリで Issue が有効になっている必要があります。 リポジトリに対して Issue が有効かどうかを確認する方法にいては、「[Issue を無効化する](/github/managing-your-work-on-github/disabling-issues)」を参照してください。
+
+{% endnote %}
 
 プロジェクトボードへの書き込み権限があれば誰でも、その Organization またはユーザアカウントが所有するリポジトリをプロジェクトボードにリンクできます。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization/)」または「[ユーザ所有のプロジェクトボードの権限レベル](/articles/permission-levels-for-user-owned-project-boards/)」を参照してください。
 

@@ -4,6 +4,7 @@ intro: 'A API de Execução de Verificações permite que você crie aplicativos
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visão Geral
@@ -36,7 +37,7 @@ Uma execução de verificação é um teste individual que faz parte de um conju
 
 ![Fluxo de trabalho das execuções de verificação](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 Se uma execução de verificação estiver em um estado incompleto por mais de 14 dias, a execução de verificação `conclusão` torna-se `obsoleta` e aparece em
 {% data variables.product.prodname_dotcom %} como obsoleto com {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. Somente {% data variables.product.prodname_dotcom %} pode marcar a execuções de verificação como `obsoleto`. Para obter mais informações sobre possíveis conclusões de uma execução de verificação, consulte o parâmetro [`conclusão`](/rest/reference/checks#create-a-check-run--parameters).
 {% endif %}

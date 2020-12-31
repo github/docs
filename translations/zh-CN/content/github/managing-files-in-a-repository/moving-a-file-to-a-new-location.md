@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 除了更改文件位置之外，您也可以在同一提交中[更新文件内容](/articles/editing-files-in-your-repository)或[提供新名称](/articles/renaming-a-file)。

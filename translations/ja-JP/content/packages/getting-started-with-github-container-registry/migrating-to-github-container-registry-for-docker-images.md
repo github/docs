@@ -31,6 +31,8 @@ versions:
 
 ### コンテナレジストリで認証する
 
+{% data reusables.package_registry.feature-preview-for-container-registry %}
+
 {% data variables.product.prodname_container_registry %} は、 ベース URL `ghcr.io` で認証する必要があります。 {% data variables.product.prodname_container_registry %} を使用するために、新しいアクセストークンの作成をお勧めします。
 
 {% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
@@ -72,13 +74,15 @@ versions:
 
 ### {% data variables.product.prodname_actions %} ワークフローを更新する
 
+{% data reusables.package_registry.feature-preview-for-container-registry %}
+
 {% data variables.product.prodname_registry %} Docker レジストリから Docker イメージを使用する {% data variables.product.prodname_actions %} ワークフローがある場合、ワークフローを {% data variables.product.prodname_container_registry %} に更新するといいでしょう。そうすればパブリックコンテナのイメージへの匿名アクセスが可能になり、きめ細かいアクセス権限を設定でき、コンテナに対するストレージと帯域幅が向上します。
 
 1. `ghcr.io` にある新しい {% data variables.product.prodname_container_registry %} に Docker イメージを移行します。 例については、「[Docker CLI を使用して Docker イメージを移行する](#migrating-a-docker-image-using-the-docker-cli)」を参照してください。
 
 2. {% data variables.product.prodname_actions %} ワークフローファイルで、パッケージ URL を `https://docker.pkg.github.com` から `ghcr.io` に更新します。
 
-3. 新しい {% data variables.product.prodname_container_registry %} 認証個人アクセストークン (PAT) を GitHub Actions シークレットとして追加します。 {% data variables.product.prodname_github_container_registry %} は PAT において `GITHUB_TOKEN` の使用をサポートしていないので、`CR_PAT` などの別のカスタム変数を使用する必要があります。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} は PAT において `GITHUB_TOKEN` の使用をサポートしていないので、`CR_PAT` などの別のカスタム変数を使用する必要があります。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
 
 4. {% data variables.product.prodname_actions %} ワークフローファイルにおいて、Docker レジストリ PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} をコンテナレジストリ {% data variables.product.prodname_container_registry %} PAT の新しい変数 (たとえば {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}) に置き換えて、認証 PAT を更新します。
 

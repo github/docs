@@ -4,11 +4,12 @@ intro: 'You can set the default branch name new repositories that you create on 
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
 ---
 
 ### デフォルトブランチ名について
 
-When you create a new repository on {% data variables.product.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+When you create a new repository on {% data variables.product.product_location %}, the repository contains one branch, which is the default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories you create. デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
 {% data reusables.branches.set-default-branch %}
 

@@ -41,7 +41,7 @@ Os trabalhos e as etapas no Azure Pipelines são muito semelhantes a trabalhos e
 
 ### Migrar etapas de script
 
-Você pode executar um script ou um comando de shell como uma etapa em um fluxo de trabalho. No Azure Pipelines, as etapas do script podem ser especificadas usando a chave `script`, ou usando as chaves `bash`, `powershell`, ou `pwsh`. É possível especificar os scripts como entrada para uma [tarefa de Bash](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) ou a como uma [tarefa de PowerShell](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
+Você pode executar um script ou um comando de shell como uma etapa em um fluxo de trabalho. No Azure Pipelines, as etapas do script podem ser especificadas usando a chave `script`, ou usando as chaves `bash`, `powershell`, ou `pwsh`. É possível especificar os scripts como entrada para uma [tarefa de Bash](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) ou a como uma [tarefa de PowerShell](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
 
 Em {% data variables.product.prodname_actions %}, todos os scripts são especificados usando a chave `executar`. Para selecionar um shell específico, você pode especificar a chave `shell` ao fornecer o script. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 

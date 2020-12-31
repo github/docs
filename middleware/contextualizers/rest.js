@@ -1,12 +1,8 @@
 const rest = require('../../lib/rest')
 const { getVersionedPathWithLanguage } = require('../../lib/path-utils')
-const { getOldVersionFromNewVersion } = require('../../lib/old-versions-utils')
 
 module.exports = async function (req, res, next) {
   req.context.rest = rest
-
-  // TODO need to update this to the new versions in coordination with the updater scripts
-  const currentOldVersion = getOldVersionFromNewVersion(req.context.currentVersion)
 
   // link to include in `Works with GitHub Apps` notes
   // e.g. /ja/rest/reference/apps or /en/enterprise/2.20/user/rest/reference/apps
@@ -28,7 +24,7 @@ module.exports = async function (req, res, next) {
   // ignore empty strings or bare `/`
   if (!category || category.length < 2) return next()
 
-  const operationsForCurrentProduct = req.context.rest.operations[currentOldVersion] || []
+  const operationsForCurrentProduct = req.context.rest.operations[req.context.currentVersion] || []
 
   // find all operations with a category matching the current path
   req.context.currentRestOperations = operationsForCurrentProduct.filter(operation => operation.category === category)

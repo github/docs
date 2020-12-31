@@ -1,16 +1,17 @@
 ---
 title: Managing global webhooks
-intro: 'Site administrators can view, add, edit, and delete global webhooks to track events at the instance level.'
+intro: 'Site administrators can view, add, edit, and delete global webhooks to track events for the enterprise.'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About global webhooks
 
-You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management on your instance. For example, you can configure your webhooks to execute whenever:
+You can use global webhooks to automatically monitor, respond to, or enforce rules for user and organization management for your enterprise. For example, you can configure your webhooks to execute whenever:
 - A user account is created or deleted
 - An organization is created or deleted
 - A collaborator is added to or removed from a repository
@@ -20,11 +21,9 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 
 {% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
-
 ### Adding a global webhook
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Click **Add webhook**. ![Add webhook button on Webhooks page in Admin center](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
@@ -47,8 +46,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 
 ### Editing a global webhook
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Next to the webhook you'd like to edit, click **Edit**. ![Edit button next to a webhook](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
@@ -57,8 +55,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 
 ### Deleting a global webhook
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Next to the webhook you'd like to delete, click **Delete**. ![Delete button next to a webhook](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
@@ -66,8 +63,7 @@ You can use global webhooks to automatically monitor, respond to, or enforce rul
 
 ### Viewing recent deliveries and responses
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. In the list of webhooks, click the webhook for which you'd like to see deliveries. ![List of webhooks with links to view each webhook](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)

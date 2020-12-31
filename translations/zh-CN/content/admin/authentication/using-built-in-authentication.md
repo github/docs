@@ -1,6 +1,6 @@
 ---
 title: 使用内置身份验证
-intro: '当您使用默认身份验证方法时，所有身份验证详细信息都将存储在 {% data variables.product.product_location_enterprise %} 中。 如果您尚未建立身份验证提供程序（例如 LDAP、SAML 或 CAS），内置身份验证将是默认方法。'
+intro: '当您使用默认身份验证方法时，所有身份验证详细信息都将存储在 {% data variables.product.product_location %} 中。 如果您尚未建立身份验证提供程序（例如 LDAP、SAML 或 CAS），内置身份验证将是默认方法。'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication

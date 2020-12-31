@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您在仓库中实施了分支保护，便可设置必需审查。 有关实施分支保护的更多信息，请参阅“[配置受保护分支](/articles/configuring-protected-branches/)”。 有关设置必需审查的更多信息，请参阅“[对拉取请求启用必需审查](/articles/enabling-required-reviews-for-pull-requests)”。

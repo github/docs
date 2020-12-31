@@ -22,28 +22,28 @@ versions:
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 4. Em "Configurar recursos de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**. ![Botão "Habilitar" ou "Desabilitar" para "Configurar recursos de segurança e análise" ](/assets/images/help/repository/security-and-analysis-disable-or-enable.png)
 
-### Concessão de acesso a {% data variables.product.prodname_dependabot_alerts %}
+### Conceder acesso aos alertas de segurança
 
-Depois que você habilitar o {% data variables.product.prodname_dependabot_alerts %} para um repositório em uma organização, proprietários da organização e administradores de repositórios poderão ver os alertas por padrão. Você pode dar acesso a outras equipes e pessoas aos alertas de um repositório.
+Depois de habilitar alertas de {% data variables.product.prodname_dependabot %} ou {% data variables.product.prodname_secret_scanning %} para um repositório em uma organização, os proprietários da organização e os administradores de repositório podem visualizar os alertas por padrão. Você pode dar acesso a outras equipes e pessoas aos alertas de um repositório.
 
 {% note %}
 
-Os proprietários e administradores de repositórios da organização só podem conceder acesso para visualizar {% data variables.product.prodname_dependabot_alerts %} a pessoas ou equipes que tenham acesso de gravação no repositório.
+Os proprietários e administradores da organização só podem conceder acesso para ver os alertas de segurança, como os alertas de {% data variables.product.prodname_dependabot %} e {% data variables.product.prodname_secret_scanning %} para pessoas ou equipes que têm acesso de gravação ao repositório.
 
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Em "Alertas dependabot", no campo de busca, comece a digitar o nome da pessoa ou equipe que você gostaria de encontrar, em seguida, clique em um nome na lista de correspondências. ![Campo de busca para conceder acesso de pessoas ou equipes aos alertas do Dependabot](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
-5. Clique em **Save changes** (Salvar alterações). ![Botão "salvar alterações" para alterações nas configurações de alerta do Dependabot](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
+4. Em "Acesso aos alertas", no campo de pesquisa, comece a digitar o nome da pessoa ou equipe que você gostaria de encontrar e, em seguida, clique em um nome na lista de correspondências. ![Campo de busca para conceder acesso de pessoas ou equipes aos alertas de segurança](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+5. Clique em **Save changes** (Salvar alterações). ![Botão de "Salvar as alterações" para alterações nas configurações do alerta de segurança](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
 
-### Revogar acesso à {% data variables.product.prodname_dependabot_alerts %}
+### Remover o acesso aos alertas de segurança
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Em "Alertas dependabot", à direita da pessoa ou da equipe cujo acesso você deseja remover, clique em {% octicon "x" aria-label="X symbol" %}. ![Botão "X" para remover o acesso de alguém aos alertas do Dependabot para o seu repositório](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+4. Em "Acesso aos alertas", à direita da pessoa ou da equipe cujo acesso você deseja remover, clique em {% octicon "x" aria-label="X symbol" %}. ![Botãi "x" para remover o acesso de alguém aos alertas de segurança do seu repositório](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
 
 ### Leia mais
 

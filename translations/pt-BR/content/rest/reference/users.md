@@ -5,20 +5,25 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Muitos dos recursos na API de usuários fornecem um atalho para obter informações sobre o usuário autenticado atualmente. Se uma URL de solicitação não incluir um parâmetro `{username}`, a resposta será para o usuário conectado (e você deve passar [as informações de autenticação](/rest/overview/resources-in-the-rest-api#authentication) com a sua solicitação). Informações privadas adicionais, como, por exemplo, se um usuário tem autenticação de dois fatores habilitada, são incluídas quando autenticadas através da autenticação básica ou do OAuth com o escopo `usuário`.
+Muitos dos recursos na API de usuários fornecem um atalho para obter informações sobre o usuário autenticado atualmente. If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request).{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.{% endif %}
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" %}
 ## Bloquear usuários
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'blocking' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ## E-mails
 
 O gerenciamento de endereços de e-mail através da API requer que você efetue a autenticação por meio de autenticação básica, ou através do OAuth com um escopo correto para o ponto de extremidade.
@@ -26,6 +31,8 @@ O gerenciamento de endereços de e-mail através da API requer que você efetue 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'emails' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+
+{% endif %}
 
 ## Seguidores
 

@@ -1,6 +1,6 @@
 ---
 title: Sobre o aplicativo
-intro: 'Você pode construir integrações com as APIs do {% data variables.product.prodname_dotcom %} para adicionar flexibilidade e reduzir o atrito em seu próprio fluxo de trabalho. Você também pode compartilhar integrações com outros em [{% data variables.product.prodname_marketplace %}] (https://github.com/marketplace).'
+intro: 'Você pode construir integrações com as APIS de {% data variables.product.prodname_dotcom %} para adicionar flexibilidade e reduzir fricção no seu próprio fluxo de trabalho.{% if currentVersion == "free-pro-team@latest" %} Você também pode compartilhar integrações com outras pessoas em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os aplicativos no {% data variables.product.prodname_dotcom %} permitem que você automatize e melhore seu fluxo de trabalho. Você pode criar aplicativos para melhorar o seu fluxo de trabalho.{% if currentVersion == "free-pro-team@latest" %} Você também pode compartilhar ou vender aplicativos em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace). Para aprender como listar um aplicativo no {% data variables.product.prodname_marketplace %}, consulte "[Introdução ao GitHub Marketplace](/marketplace/getting-started/)".{% endif %}
@@ -66,13 +67,13 @@ Tenha isso em mente ao criar {% data variables.product.prodname_oauth_app %}s:
 * Não crie um {% data variables.product.prodname_oauth_app %} para atuar como um aplicativo para sua equipe ou empresa. {% data variables.product.prodname_oauth_app %}s efetuam a autenticação como um único usuário. Portanto, se uma pessoa criar um {% data variables.product.prodname_oauth_app %} para a empresa usar e depois sair da empresa, ninguém mais terá acesso a ele.{% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.oauth-apps-restrictions %}{% endif %}
 
-Para obter mais informações sobre {% data variables.product.prodname_oauth_app %}, consulte "[Criar um {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" e "[Registrando seu aplicativo](/v3/guides/basics-of-authentication/#registering-your-app)".
+Para obter mais informações sobre {% data variables.product.prodname_oauth_app %}, consulte "[Criar um {% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/creating-an-oauth-app/)" e "[Registrando seu aplicativo](/rest/guides/basics-of-authentication#registering-your-app)".
 
 ### Tokens de acesso pessoal
 
 Um [token de acesso pessoal](/articles/creating-a-personal-access-token-for-the-command-line/) é uma string de caracteres que funciona da mesma forma que um [token do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/), cujas permissões você pode especificar por meio de [escopos](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). Um token de acesso pessoal também é semelhante a uma senha, mas você pode ter muitos delas e você pode revogar o acesso a cada uma a qualquer momento.
 
-Como exemplo, você pode habilitar um token de acesso pessoal para escrever em seus repositórios. Em seguida, se você executar um comando cURL ou escrever um script que [cria um problema](/v3/issues/#create-an-issue) no seu repositório, você informaria o token de acesso pessoal para efetuar a autenticação. Você pode armazenar o token de acesso pessoal como uma variável de ambiente para evitar ter de digitá-lo toda vez que você usá-lo.
+Como exemplo, você pode habilitar um token de acesso pessoal para escrever em seus repositórios. Em seguida, se você executar um comando cURL ou escrever um script que [cria um problema](/rest/reference/issues#create-an-issue) no seu repositório, você informaria o token de acesso pessoal para efetuar a autenticação. Você pode armazenar o token de acesso pessoal como uma variável de ambiente para evitar ter de digitá-lo toda vez que você usá-lo.
 
 Tenha em mente essas ideias ao usar os tokens de acesso pessoais:
 

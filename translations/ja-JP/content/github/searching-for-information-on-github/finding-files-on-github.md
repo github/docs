@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -18,7 +19,7 @@ versions:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. リポジトリ名の下で、[**Find file**] をクリックします。 ![[Find file] ボタン](/assets/images/help/search/find-file-button.png)
 {% else %}
 2. ファイルの一覧の上にある [**Go to file**] をクリックします。 ![[Find file] ボタン](/assets/images/help/search/find-file-button.png)

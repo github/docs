@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Du startest, stelle sicher, dass Dir Folgendes vorliegt:

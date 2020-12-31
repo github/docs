@@ -8,6 +8,7 @@ intro: 'Du kannst Git so konfigurieren, dass Dateien ignoriert werden, die Du ni
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Ignorierte Dateien für ein einzelnes Repository konfigurieren

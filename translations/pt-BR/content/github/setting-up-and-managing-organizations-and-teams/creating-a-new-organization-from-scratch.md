@@ -1,11 +1,13 @@
 ---
 title: Criar uma organização do início
 intro: Crie uma organização para aplicar permissões de acesso refinadas aos repositórios.
-redirect_from:
-  - /articles/creating-a-new-organization-from-scratch
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+redirect_from:
+  - /articles/creating-a-new-organization-from-scratch
+  - /admin/user-management/creating-organizations
 ---
 
 Quando você cria uma organização do zero, ela não tem repositórios associados a ela. Para obter mais informações sobre como adicionar repositórios à sua organização, consulte "[Criar um repositório](/articles/creating-a-new-repository)" e "[Transferir um repositório](/articles/transferring-a-repository)."

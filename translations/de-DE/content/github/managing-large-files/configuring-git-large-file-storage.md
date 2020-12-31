@@ -7,17 +7,18 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn in Ihrem Repository bereits Dateien vorhanden sind, für die Sie {% data variables.product.product_name %} verwenden möchten, müssen Sie sie zunächst aus dem Repository entfernen und lokal zu {% data variables.large_files.product_name_short %} hinzufügen. Weitere Informationen findest Du unter „[Eine Datei in Deinem Repository zu {% data variables.large_files.product_name_short %} verschieben](/articles/moving-a-file-in-your-repository-to-git-large-file-storage).“
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% tip %}
 
-**Hinweis:** Bevor Du versuchst, eine große Datei zu {% data variables.product.product_name %} zu übertragen, stelle sicher, dass Du {% data variables.large_files.product_name_short %} auf Deiner Appliance aktiviert hast. Weitere Informationen findest Du unter „[Git Large File Storage auf GitHub Enterprise Server konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/).“
+**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. Weitere Informationen findest Du unter „[Git Large File Storage auf GitHub Enterprise Server konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/).“
 
 {% endtip %}
 
@@ -58,5 +59,5 @@ Wenn in Ihrem Repository bereits Dateien vorhanden sind, für die Sie {% data va
 
 ### Weiterführende Informationen
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 - "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

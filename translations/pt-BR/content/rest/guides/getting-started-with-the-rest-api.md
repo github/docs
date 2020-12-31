@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -23,7 +24,7 @@ Não há uma maneira mais fácil dar os primeiros passos do que através do [cUR
 Vamos começar testando a nossa configuração. Abra uma instrução de comando e digite o comando a seguir:
 
 ```shell
-$ curl {% data variables.product.api_url_pre %}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -34,7 +35,7 @@ Em seguida, vamos fazer `GET` para o [perfil de GitHub][users api] de [Chris Wan
 
 ```shell
 # GET /users/defunkt
-$ curl {% data variables.product.api_url_pre %}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
@@ -48,13 +49,12 @@ $ curl {% data variables.product.api_url_pre %}/users/defunkt
 Mmmmm, tem sabor de [JSON][json]. Vamos adicionar o sinalizador `-i` para incluir cabeçalhos:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -111,7 +111,13 @@ Ao efetuar a autenticação, você deverá ver seu limite de taxa disparado para
 
 Você pode facilmente [criar um **token de acesso pessoal**][personal token] usando a sua [página de configurações de tokens de acesso pessoal][tokens settings]:
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![Seleção de Token Pessoal](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![Seleção de Token Pessoal](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### Obtenha seu próprio perfil de usuário
 
@@ -364,33 +370,33 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[repos-api]: /v3/repos/
-[repos-api]: /v3/repos/
+[repos-api]: /rest/reference/repos
+[repos-api]: /rest/reference/repos
 [pages]: http://pages.github.com
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
-[issues-api]: /v3/issues/
-[link-header]: http://www.w3.org/wiki/LinkHeader/
-[conditional-requests]: /v3/#conditional-requests
-[rate-limiting]: /v3/#rate-limiting
-[rate-limiting]: /v3/#rate-limiting
-[users api]: /v3/users/#get-a-user
+[issues-api]: /rest/reference/issues
+[link-header]: https://www.w3.org/wiki/LinkHeader
+[conditional-requests]: /rest#conditional-requests
+[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest#rate-limiting
+[users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt
 [json]: http://en.wikipedia.org/wiki/JSON
-[authentication]: /v3/#authentication
+[authentication]: /rest#authentication
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [personal token]: /articles/creating-an-access-token-for-command-line-use
 [tokens settings]: https://github.com/settings/tokens
-[pagination]: /v3/#pagination
-[get repo]: /v3/repos/#get-a-repository
-[create repo]: /v3/repos/#create-a-repository-for-the-authenticated-user
-[create issue]: /v3/issues/#create-an-issue
+[pagination]: /rest#pagination
+[get repo]: /rest/reference/repos#get-a-repository
+[create repo]: /rest/reference/repos#create-a-repository-for-the-authenticated-user
+[create issue]: /rest/reference/issues#create-an-issue
 [auth guide]: /guides/basics-of-authentication
-[user repos api]: /v3/repos/#list-repositories-for-the-authenticated-user
-[other user repos api]: /v3/repos/#list-repositories-for-a-user
-[org repos api]: /v3/repos/#list-organization-repositories
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[get issues api]: /v3/issues/#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /v3/issues/#list-repository-issues
+[user repos api]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[other user repos api]: /rest/reference/repos#list-repositories-for-a-user
+[org repos api]: /rest/reference/repos#list-organization-repositories
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
+[repo issues api]: /rest/reference/issues#list-repository-issues
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag

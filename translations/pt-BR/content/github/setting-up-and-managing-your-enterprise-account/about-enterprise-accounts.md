@@ -27,6 +27,8 @@ Para obter mais informações sobre acesso e gerenciamento de integrantes, consu
 
 Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".
 
+{% if currentVersion == "free-pro-team@latest" %}
+
 ### Gerenciar organizações vinculadas à sua conta corporativa
 
 As organizações são contas compartilhadas, onde grupos de pessoas podem colaborar em vários projetos de uma vez. Os proprietários podem gerenciar o acesso dos integrantes aos dados e projetos da organização com recursos sofisticados de segurança e administrativos. Para obter mais informações, consulte "[Sobre organizações](/articles/about-organizations)".
@@ -34,6 +36,8 @@ As organizações são contas compartilhadas, onde grupos de pessoas podem colab
 Os proprietários corporativos podem criar organizações e vinculá-las à empresa. Após adição das organizações à conta corporativa, você pode gerenciar e aplicar as políticas das organizações. Opções específicas de aplicação variam de acordo com a configuração; normalmente, é possível optar por aplicar uma única política para cada organização na sua conta corporativa ou permitir que proprietários definam a política no nível da organização.
 
 Para obter mais informações, consulte "[Gerenciar organizações na sua conta corporativa](/articles/managing-organizations-in-your-enterprise-account)" e "[Configurar políticas para organizações em sua conta corporativa](/articles/setting-policies-for-organizations-in-your-enterprise-account)".
+
+{% endif %}
 
 ### Gerenciando as licenças {% data variables.product.prodname_ghe_server %} vinculadas à sua conta corporativa
 

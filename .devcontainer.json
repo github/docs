@@ -1,0 +1,18 @@
+// Codespaces environment for docs.github.com
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json 
+{
+    "name": "docs.github.com",
+    "service": "container-doc",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "cSpell.language": ",en"
+    },
+    // Install pre-requisites, and start to serve docs.github.com locally
+    "postCreateCommand": "npm install && npm start",
+    "forwardPorts": [4000],
+    // Visual Studio Code extensions which help authoring for docs.github.com.
+    "extensions": [
+        "yzhang.markdown-all-in-one",
+        "streetsidesoftware.code-spell-checker"
+    ]
+}

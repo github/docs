@@ -25,12 +25,12 @@ versions:
 
 You can authenticate to {% data variables.product.prodname_registry %} with Gradle using either Gradle Groovy or Kotlin DSL by editing your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file to include your personal access token. You can also configure Gradle Groovy and Kotlin DSL to recognize a single package or multiple packages in a repository.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your
 {% data variables.product.prodname_ghe_server %} instance.
 {% endif %}
 
-Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository. {% data reusables.package_registry.lowercase-name-field %}
+Replace *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, *REPOSITORY* with the name of the repository containing the package you want to publish, and *OWNER* with the name of the user or organization account on {% data variables.product.prodname_dotcom %} that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 {% note %}
 

@@ -1,1 +1,1 @@
-{% data variables.product.prodname_codeql %} also runs a build for Go projects to set up the project. However, in contrast to the other compiled languages, all Go files in the repository are extracted, not just those that are built. Custom build commands are not supported for Go.
+{% data variables.product.prodname_codeql %} 也运行 Go 项目的构建来设置项目。 但是，与其他编译语言相比，仓库中的所有 Go 文件都是提取的，而不仅仅是构建的文件。 Go 不支持自定义构建命令。

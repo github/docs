@@ -65,22 +65,22 @@ You can use the `set-output` command in your workflow to set the same value:
 
 The following table shows which toolkit functions are available within a workflow:
 
-| Toolkit function| Equivalent workflow command|
-| -------------   |  ------------- |
-| `core.addPath` |  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %}    |
-| `core.debug` |  `debug`   |
-| `core.error`   |   `error`   |
-| `core.endGroup`   |   `endgroup`   |
-| `core.exportVariable`   | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %}    |
-| `core.getInput`        |     Accessible using environment variable `INPUT_{NAME}`          |
-| `core.getState`   |  Accessible using environment variable `STATE_{NAME}`   |
-| `core.isDebug`   |   Accessible using environment variable `RUNNER_DEBUG`  |
-| `core.saveState`  |  `save-state`    |
-| `core.setFailed` |   Used as a shortcut for `::error` and `exit 1`   |
-| `core.setOutput`       |  `set-output`      |
-| `core.setSecret`     |  `add-mask`      |
-| `core.startGroup`   |  `group`    |
-| `core.warning`  |    `warning file` |
+| Toolkit function | Equivalent workflow command |
+| ----------------- |  ------------- |
+| `core.addPath`    | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %} |
+| `core.debug`      | `debug` |
+| `core.error`      | `error` |
+| `core.endGroup`   | `endgroup` |
+| `core.exportVariable` | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %} |
+| `core.getInput`   | Accessible using environment variable `INPUT_{NAME}` |
+| `core.getState`   | Accessible using environment variable `STATE_{NAME}` |
+| `core.isDebug`    |  Accessible using environment variable `RUNNER_DEBUG` |
+| `core.saveState`  | `save-state` |
+| `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` |
+| `core.setOutput`  | `set-output` |
+| `core.setSecret`  | `add-mask` |
+| `core.startGroup` | `group` |
+| `core.warning`    | `warning file` |
 
 {% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Setting an environment variable
@@ -159,6 +159,25 @@ Creates an error message and prints the message to the log. You can optionally p
 ``` bash
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
+
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+
+#### Example
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
 ### Masking a value in log
 
@@ -255,7 +274,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 
 Running `$action_state` in a future step will now return `yellow`
 
-#### Multline strings
+#### Multiline strings
+
 For multiline strings, you may use a delimiter with the following syntax. 
 
 ```
@@ -264,7 +284,8 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-#### Example
+##### Example
+
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
 ```
 steps:

@@ -8,6 +8,7 @@ intro: 'GitHub のコラボレーティブな開発へのアプローチは、�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リモート URL は、「コードがここに保存されています」ということを表現する Git のしゃれた方法です。 その URL は、GitHub 上のあなたのリポジトリや、他のユーザーのフォーク、さらにはまったく異なるサーバーだったりします。

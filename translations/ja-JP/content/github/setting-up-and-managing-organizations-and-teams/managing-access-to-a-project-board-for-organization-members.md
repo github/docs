@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 デフォルトでは、Organization のメンバーはその Organization のプロジェクトボードに対する書き込みアクセスを持ちます。ただし、Organization のオーナーまたはプロジェクトボード管理者が、特定のプロジェクトボードに異なる権限を設定している場合は例外です。

@@ -37,7 +37,7 @@ versions:
 
   {% data reusables.enterprise_installation.necessary_ports %}
 4. Ordnen Sie der Instanz optional eine Floating-IP zu. In Abhängigkeit Ihrer OpenStack-Einrichtung müssen Sie dem Projekt ggf. eine Floating-IP zuordnen und sie mit der Instanz verknüpfen. Wenden Sie sich an Ihren Systemadministrator, um zu ermitteln, ob dies bei Ihnen der Fall ist. Weitere Informationen finden Sie unter „[Allocate a floating IP address to an instance](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html#allocate-a-floating-ip-address-to-an-instance)“ in der OpenStack-Dokumentation.
-5. Starten Sie {% data variables.product.product_location_enterprise %} mit dem Image, Daten-Volume und der Sicherheitsgruppe, das bzw. die Sie in den vorherigen Schritten erstellt haben. Anweisungen finden Sie im OpenStack-Leitfaden „[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)“.
+5. Starten Sie {% data variables.product.product_location %} mit dem Image, Daten-Volume und der Sicherheitsgruppe, das bzw. die Sie in den vorherigen Schritten erstellt haben. Anweisungen finden Sie im OpenStack-Leitfaden „[Launch and manage instances](https://docs.openstack.org/horizon/latest/user/launch-instances.html)“.
 
 ### {% data variables.product.prodname_ghe_server %}-Instanz konfigurieren
 

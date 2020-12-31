@@ -27,7 +27,7 @@ versions:
 
 要从 {% data variables.product.prodname_dotcom_the_website %} 导出仓库数据，请使用 <a href="/rest/reference/migrations" class="dotcom-only">Migrations API</a>。
 
-Migrations API 目前正处于预览阶段，这意味着端点和参数未来可能发生变化。 要访问 Migrations API，您必须在 `Accept` 标头中提供自定义[媒体类型](/v3/media)：`application/vnd.github.wyandotte-preview+json`。 以下示例包括自定义媒体类型。
+Migrations API 目前正处于预览阶段，这意味着端点和参数未来可能发生变化。 要访问 Migrations API，您必须在 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)：`application/vnd.github.wyandotte-preview+json`。 以下示例包括自定义媒体类型。
 
 ### 生成迁移存档
 
@@ -37,7 +37,7 @@ Migrations API 目前正处于预览阶段，这意味着端点和参数未来�
 
 2. 向<a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">迁移端点</a>发送 `POST` 请求，开始迁移。 您需要：
     * 身份验证的访问令牌。
-    * 想要迁移的[仓库列表](/v3/repos/#list-organization-repositories)：
+    * 想要迁移的[仓库列表](/rest/reference/repos#list-organization-repositories)：
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
       -H "Accept: application/vnd.github.wyandotte-preview+json" \

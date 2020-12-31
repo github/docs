@@ -1,20 +1,25 @@
 ---
-title: Creating a template repository
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, branches,{% endif %} and files.'
+title: テンプレートリポジトリを作成する
+intro: '既存のリポジトリをテンプレートにして、自分や他のユーザが同じディレクトリ構造{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}、ブランチ、{% endif %}およびファイルで新しいリポジトリを生成できるようにすることができます。'
+permissions: リポジトリに対する管理者権限があるユーザなら誰でも、リポジトリをテンプレート化できます。
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Anyone with admin permissions to a repository can make the repository a template.
+{% note %}
 
-To create a template repository, you must create a repository, then make the repository a template. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)."
+**注釈**: テンプレートリポジトリには、{% data variables.large_files.product_name_short %} を使用して保存されたファイルを含めることはできません。
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} They can also choose to include all the other branches in your repository.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
+{% endnote %}
+
+テンプレートリポジトリを作成するには、リポジトリを作成して、そのリポジトリをテンプレート化する必要があります。 リポジトリの作成に関する詳細は「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
+
+リポジトリをテンプレートにすると、リポジトリにアクセスできるユーザは誰でも、デフォルトブランチと同じディレクトリ構造とファイルで新しいリポジトリを生成できます。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} また、リポジトリに他のすべてのブランチを含めることもできます。{% endif %} 詳しい情報については、「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Select **Template repository**.
-  ![Checkbox to make a repository a template](/assets/images/help/repository/template-repository-checkbox.png)
+1. [**Template repository**] を選択します。 ![リポジトリをテンプレート化するチェックボックス](/assets/images/help/repository/template-repository-checkbox.png)

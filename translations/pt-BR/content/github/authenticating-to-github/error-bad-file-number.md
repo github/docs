@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Ao executar SSH ou comandos do Git remotos, o tempo limite da conexão pode expirar:

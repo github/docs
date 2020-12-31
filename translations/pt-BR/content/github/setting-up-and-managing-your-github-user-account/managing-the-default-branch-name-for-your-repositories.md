@@ -4,6 +4,7 @@ intro: 'Você pode definir os novos repositórios com nome do branch-padrão que
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
 ---
 
 ### Sobre o gerenciamento do nome do brancc-padrão

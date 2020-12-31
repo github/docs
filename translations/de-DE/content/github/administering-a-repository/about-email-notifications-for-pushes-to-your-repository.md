@@ -10,9 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% data reusables.notifications.outbound_email_tip %}
 
 In jeder E-Mail-Benachrichtigung für einen Push an ein Repository werden die neuen Commits und Links zu einem Diff aufgelistet, der nur diese Commits enthält. In der E-Mail-Benachrichtigung siehst Du Folgendes:
 
@@ -24,7 +25,7 @@ In jeder E-Mail-Benachrichtigung für einen Push an ein Repository werden die ne
 - Die Dateien, die im Rahmen des Commits geändert wurden
 - Die Commit-Mitteilung
 
-Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repository erhältst. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." Du kannst auch E-Mail-Benachrichtigungen für Pushes ausschalten. Weitere Informationen findest Du unter „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}.“
+Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repository erhältst. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." Du kannst auch E-Mail-Benachrichtigungen für Pushes ausschalten. Weitere Informationen findest Du unter „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}.“
 
 ### E-Mail-Benachrichtigungen für Pushes in Dein Repository aktivieren
 
@@ -36,7 +37,7 @@ Du kannst E-Mail-Benachrichtigungen filtern, die Du für Pushes an ein Repositor
 7. Klicke auf **Save settings** (Einstellungen speichern). ![Schaltfläche „Save settings“ (Einstellungen speichern)](/assets/images/help/settings/save_notification_settings.png)
 
 ### Weiterführende Informationen
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 {% else %}
 - „[Über Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"

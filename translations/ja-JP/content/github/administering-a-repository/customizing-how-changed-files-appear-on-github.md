@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 *.gitattributes* ファイルを使って、特定の属性で指定した「パターン」と一致するファイルをマークします。 *.gitattributes* ファイルでは _.gitignore_ ファイルと同じマッチングルールが使用されます。 詳細は Git ドキュメント「[PATTERN FORMAT](https://www.git-scm.com/docs/gitignore#_pattern_format)」を参照してください。

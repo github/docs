@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -18,7 +19,7 @@ versions:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. Klicke unter dem Namen des Repositorys auf **Find file** (Datei suchen). ![Schaltfläche „Find file“ (Datei finden)](/assets/images/help/search/find-file-button.png)
 {% else %}
 2. Above the list of files, click **Go to file**. ![Schaltfläche „Find file“ (Datei finden)](/assets/images/help/search/find-file-button.png)

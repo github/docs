@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} 完整性检查可确保推送中所有引用的 {% data variables.large_files.product_name_short %} 文件均已正确上传。 如果检查检测到尚未上传的引用文件，您将收到错误消息，并且您的推送将被阻止。

@@ -33,7 +33,7 @@ versions:
 
 #### Watch 対象の通知
 
-{% data variables.product.product_name %} は、あなたが Watch しているリポジトリあるいは Team のディスカッションに更新があった場合、*Watch* 通知を送信します。  {% data reusables.notifications.auto-watch %}For more information, see "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
+{% data variables.product.product_name %} は、あなたが Watch しているリポジトリあるいは Team のディスカッションに更新があった場合、*Watch* 通知を送信します。  {% data reusables.notifications.auto-watch %} 詳細は、「[リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)」を参照してください。
 通知は以下の場合に送られます:
   - Issue がオープンされた場合。
   - コミットがオープンな Issue に追加された場合。

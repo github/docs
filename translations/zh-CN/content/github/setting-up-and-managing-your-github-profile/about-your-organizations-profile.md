@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以选择为组织添加说明、地点、网站和电子邮件地址，以及将重要仓库固定于页面顶部。

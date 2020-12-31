@@ -79,7 +79,7 @@ Você pode usar o `GITHUB_TOKEN` para fazer chamadas de API autenticada. Este ex
 
 ### Permissões para o `GITHUB_TOKEN`
 
-Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/v3/apps/permissions/). "
+Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/rest/reference/permissions-required-for-github-apps). "
 
 | Permissão               | Tipo de acesso   | Acesso pelos repositórios bifurcados |
 | ----------------------- | ---------------- | ------------------------------------ |

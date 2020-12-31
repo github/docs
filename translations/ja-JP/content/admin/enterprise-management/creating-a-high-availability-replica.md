@@ -49,7 +49,7 @@ versions:
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. レプリカを別のデータセンターに設定するには、datacenter オプションに異なる値を設定します。 具体的な値は、それらが互いに異なる限り、どのようなものでもかまいません。 各ノードで `ghe-repl-node` コマンドを実行し、データセンターを指定します。
+3. デフォルトでは、レプリカは同じデータセンターに設定され、同じノードにある既存のノードからシードを試行します。 レプリカを別のデータセンターに設定するには、datacenter オプションに異なる値を設定します。 具体的な値は、それらが互いに異なる限り、どのようなものでもかまいません。 各ノードで `ghe-repl-node` コマンドを実行し、データセンターを指定します。
 
   プライマリでは以下のコマンドを実行します。
   ```shell

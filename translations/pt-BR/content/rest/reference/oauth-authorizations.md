@@ -4,12 +4,8 @@ redirect_from:
   - /v3/oauth_authorizations
   - /v3/oauth-authorizations
 versions:
-  free-pro-team: '*'
   enterprise-server: '*'
 ---
-
-{% data reusables.apps.deprecating_token_oauth_authorizations %}
-{% data reusables.apps.deprecating_password_auth %}
 
 Você pode usar esta API para gerenciar o acesso do aplicativo OAuth à sua conta. Você só pode acessar esta API através da [Autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) usando seu nome de usuário e senha, não tokens.
 

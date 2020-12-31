@@ -49,4 +49,4 @@ Se o comando `analisar` para o {% data variables.product.prodname_codeql_runner 
 
    {% endnote %}
 
-1. O código é criado em um contêiner ou em uma máquina separada. Se você usar uma criação em contêiner ou se você externalizar a criação para outra máquina, certifique-se de executar {% data variables.product.prodname_codeql_runner %} no contêiner ou na máquina onde a tarefa de criação ocorrer.
+1. O código é criado em um contêiner ou em uma máquina separada. Se você usar uma criação em contêiner ou se você externalizar a criação para outra máquina, certifique-se de executar {% data variables.product.prodname_codeql_runner %} no contêiner ou na máquina onde a tarefa de criação ocorrer. Para obter mais informações, consulte "[Executar a varredura de código do CodeQL em um contêiner](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container)".

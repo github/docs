@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 
 1. 在仓库名称下，单击 **Releases（发布）**。 ![发布选项卡](/assets/images/help/releases/release-link.png)
 

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn für ein Team kein Profilbild festgelegt ist, wird stattdessen das Profilbild der Organisation angezeigt.

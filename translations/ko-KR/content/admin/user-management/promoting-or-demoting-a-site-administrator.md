@@ -19,8 +19,7 @@ For information about promoting a user to an organization owner, see the `ghe-or
 
 ### Promoting a user from the enterprise settings
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. In the upper-right corner of the page, click **Add owner**. ![Button to add an admin](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +27,7 @@ For information about promoting a user to an organization owner, see the `ghe-or
 
 ### Demoting a site administrator from the enterprise settings
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. In the upper-left corner of the page, in the "Find an administrator" search field, type the username of the person you want to demote. ![Search field to find an administrator](/assets/images/help/business-accounts/business-account-search-for-admin.png)

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -14,10 +15,6 @@ versions:
 **Warnung**: Mit den hier beschriebenen Verfahren löschst Du Dateien dauerhaft aus dem Repository auf Deinem Computer und von {% data variables.product.product_location %}. Wichtige Dateien solltest Du vor dem Entfernen unbedingt lokal in einem Verzeichnis außerhalb des Repositorys sichern.
 
 {% endwarning %}
-
-### Entfernen einer Datei, die in einem früheren Commit hinzugefügt wurde
-
-Wenn Du eine Datei in einem früheren Commit hinzugefügt hast, musst Du sie aus Deinem Repository-Verlauf entfernen. Um Dateien aus dem Verlauf Deines Repository zu entfernen, kannst Du den BFG Repo-Cleaner oder den Befehl `git filter-branch` verwenden. Weitere Informationen findest Du unter „[Vertrauliche Daten aus einem Repository entfernen](/github/authenticating-to-github/removing-sensitive-data-from-a-repository).“
 
 ### Datei entfernen, die beim letzten noch nicht übertragenen Commit hinzugefügt wurde
 
@@ -42,3 +39,7 @@ Wenn eine Datei bei Ihrem letzten Commit hinzugefügt wurde und dieses noch nich
   $ git push
   # Uebertrage unseren neu geschriebenen, kleineren Commit
   ```
+
+### Entfernen einer Datei, die in einem früheren Commit hinzugefügt wurde
+
+Wenn Du eine Datei in einem früheren Commit hinzugefügt hast, musst Du sie aus Deinem Repository-Verlauf entfernen. Um Dateien aus dem Verlauf Deines Repository zu entfernen, kannst Du den BFG Repo-Cleaner oder den Befehl `git filter-branch` verwenden. Weitere Informationen findest Du unter „[Vertrauliche Daten aus einem Repository entfernen](/github/authenticating-to-github/removing-sensitive-data-from-a-repository).“

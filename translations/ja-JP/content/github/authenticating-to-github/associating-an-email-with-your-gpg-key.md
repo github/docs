@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -25,7 +26,7 @@ versions:
   ```shell
   $ gpg> adduid
   ```
-6. プロンプトに従って、本名、メールアドレス、あればコメントを入力してください。 エントリーは、`N`、`C`、`E` を選択して変更できます。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+6. プロンプトに従って、本名、メールアドレス、あればコメントを入力してください。 エントリーは、`N`、`C`、`E` を選択して変更できます。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} 詳しい情報については、「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

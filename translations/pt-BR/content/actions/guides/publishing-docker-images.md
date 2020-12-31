@@ -50,7 +50,7 @@ Para fazer push para o Docker Hub, você deverá ter uma conta Docker Hub e ter 
 
 As opções `build-push-action` necessárias para o Docker Hub são:
 
-* `nome de usuário` e `senha`: Este é o seu nome de usuário e senha do Docker Hub. Recomendamos armazenar seu nome de usuário e senha do Docker Hub como segredos encriptados no repositório {% data variables.product.prodname_dotcom %} para que não sejam expostos no seu arquivo de fluxo de trabalho. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+* `nome de usuário` e `senha`: Este é o seu nome de usuário e senha do Docker Hub. Recomendamos armazenar seu nome de usuário e senha do Docker Hub como segredos encriptados no seu repositório de {% data variables.product.prodname_dotcom %} para que não sejam expostos no seu arquivo de fluxo de trabalho. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 * `repositório`: Seu repositório do Docker Hub no formato `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}

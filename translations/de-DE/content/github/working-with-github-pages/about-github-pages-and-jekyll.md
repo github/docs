@@ -21,13 +21,14 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Jekyll
 
 Jekyll ist ein Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %} und einem vereinfachten Build-Prozess. Jekyll erstellt aus Markdown- und HTML-Dateien eine statische Website und nutzt dabei die von Dir ausgewählten Layouts. Jekyll unterstützt Markdown und Liquid, eine Vorlagensprache, die dynamische Inhalte auf Deiner Website lädt. Weitere Informationen findest Du auf der Website zu [Jekyll](https://jekyllrb.com/).
 
-Jekyll wird von Windows nicht offiziell unterstützt. Weitere Informationen findest Du unter „[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)“ (Jekyll unter Windows) in der Jekyll-Dokumentation.
+Jekyll wird von Windows nicht offiziell unterstützt. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
 Wir empfehlen, Jekyll mit {% data variables.product.prodname_pages %} zu verwenden. Wenn Du möchtest, kannst Du aber auch andere Generatoren für statische Websites verwenden oder Deinen eigenen Build-Prozess lokal oder auf einem anderen Server anpassen. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators).“
 

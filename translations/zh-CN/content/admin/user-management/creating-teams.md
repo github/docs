@@ -9,7 +9,7 @@ versions:
 
 团队是 {% data variables.product.prodname_dotcom %} 许多协作功能的中心，例如团队 @提及，此功能可以通知相关方您想要请求他们的输入或注意。 更多信息请参阅“[组织仓库的权限级别](/enterprise/{{ currentVersion }}/user/articles/repository-permission-levels-for-an-organization/)”。
 
-一个团队可以代表您的公司内的一个组，或者包含具有特定兴趣或专业知识的人。 例如，{% data variables.product.product_location_enterprise %} 上的可访问性专家团队可能包括来自多个不同部门的人。 团队可以体现职能关注，对公司现有的部门层次结构进行补充。
+一个团队可以代表您的公司内的一个组，或者包含具有特定兴趣或专业知识的人。 例如，{% data variables.product.product_location %} 上的可访问性专家团队可能包括来自多个不同部门的人。 团队可以体现职能关注，对公司现有的部门层次结构进行补充。
 
 组织可以创建包含多个级别的嵌套团队来反映公司或小组的层级结构。 更多信息请参阅“[关于团队](/enterprise/{{ currentVersion }}/user/articles/about-teams/#nested-teams)”。
 
@@ -28,7 +28,7 @@ versions:
 
 ### 创建启用 LDAP 同步的团队
 
-使用 LDAP 进行用户身份验证的实例可以使用 LDAP 同步管理团队的成员。 在 **LDAP group（LDAP 组）** 字段中设置组的 **Distinguished Name（识别名称）**(DN) 会在您的 LDAP 服务器上将团队映射到 LDAP 组。 如果您使用 LDAP 同步管理团队的成员，将无法管理 {% data variables.product.product_location_enterprise %} 内的团队。 启用 LDAP 同步后，映射的团队将以配置的间隔定期在后台同步成员。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
+使用 LDAP 进行用户身份验证的实例可以使用 LDAP 同步管理团队的成员。 在 **LDAP group（LDAP 组）** 字段中设置组的 **Distinguished Name（识别名称）**(DN) 会在您的 LDAP 服务器上将团队映射到 LDAP 组。 如果您使用 LDAP 同步管理团队的成员，将无法管理 {% data variables.product.product_location %} 内的团队。 启用 LDAP 同步后，映射的团队将以配置的间隔定期在后台同步成员。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

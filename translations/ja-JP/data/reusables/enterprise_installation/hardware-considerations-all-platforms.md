@@ -1,28 +1,24 @@
 - [Minimum requirements](#minimum-requirements)
+- [Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)
 - [ストレージ](#storage)
 - [CPU and memory](#cpu-and-memory)
 
 #### Minimum requirements
 
-We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location_enterprise %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
+We recommend different hardware configurations depending on the number of user licenses for {% data variables.product.product_location %}. If you provision more resources than the minimum requirements, your instance will perform and scale better.
 
-{% data reusables.enterprise_installation.hardware-rec-table %} For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
-
-{% if currentVersion == "enterprise-server@2.22" %}
-
-If you enable the beta for {% data variables.product.prodname_actions %} on your instance, we recommend planning for additional capacity.
+{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} If you enable the beta for {% data variables.product.prodname_actions %}, review the following requirements and recommendations.
 
 - You must configure at least one runner for {% data variables.product.prodname_actions %} workflows. 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
 - You must configure external blob storage. 詳しい情報については、「[{% data variables.product.prodname_actions %} の有効化とストレージの設定](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)」をご覧ください。
+- You may need to configure additional CPU and memory resources. The additional resources you need to provision for {% data variables.product.prodname_actions %} depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
 
-The additional CPU and memory resources you need to provision for your instance depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
-
-| Maximum jobs per minute | vCPUs |     メモリ |
-|:----------------------- | -----:| -------:|
-| Light testing           |     4 | 30.5 GB |
-| 25                      |     8 |   61 GB |
-| 35                      |    16 |  122 GB |
-| 100                     |    32 |  244 GB |
+    | Maximum jobs per minute | Additional vCPUs | Additional memory |
+    |:----------------------- | ----------------:| -----------------:|
+    | Light testing           |                4 |           30.5 GB |
+    | 25                      |                8 |             61 GB |
+    | 35                      |               16 |            122 GB |
+    | 100                     |               32 |            244 GB |
 
 {% endif %}
 
@@ -32,7 +28,7 @@ We recommend a high-performance SSD with high input/output operations per second
 
 Your instance requires a persistent data disk separate from the root disk. 詳しい情報については「[システムの概要](/enterprise/admin/guides/installation/system-overview)」を参照してください。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 If you enable the beta of {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %} 2.22, you'll need to configure external blob storage. 詳しい情報については、「[{% data variables.product.prodname_actions %} の有効化とストレージの設定](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)」をご覧ください。
 

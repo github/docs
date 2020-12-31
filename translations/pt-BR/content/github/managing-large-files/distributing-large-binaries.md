@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você precisar distribuir arquivos grandes dentro do seu repositório, você poderá criar versões no {% data variables.product.product_location %}. As versões permitem que você empacote software, notas de versão e links para arquivos binários para que outras pessoas possam usar. Para mais informações, acesse "[Sobre as versões](/github/administering-a-repository/about-releases)".

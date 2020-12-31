@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 gists
@@ -17,9 +18,9 @@ versions:
 
 Gist 可为公共或秘密。 公共 gists 显示在 {% data variables.gists.discover_url %} 中，人们可在其中浏览新建的 gists。 它们也可供搜索，因此，如果您希望其他人查找和查看您的工作，便可使用公共 gists。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} 秘密 gists 不是私人的。 如果将秘密 gist 的 URL 发送给朋友，他们可以查看。 但是，如果您不认识的人发现该 URL，也能看到您的 gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} 秘密 gists 不是私人的。 如果将秘密 gist 的 URL 发送给朋友，他们可以查看。 但是，如果您不认识的人发现该 URL，也能看到您的 gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 如果您的站点管理员禁用了私有模式，您也可以使用匿名 gists，可以是公共 gists 或秘密 gists。
 
@@ -32,7 +33,11 @@ Secret gists don't show up in {% data variables.gists.discover_url %}{% if curre
 - 有人在 gist 中提及您。
 - 您单击任何 gist 顶部的 **Subscribe（订阅）**订阅了 gist。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 您可以在个人资料中置顶 Gist，使其他人更容易看到它们。 更多信息请参阅“[将项目嵌入到个人资料](/articles/pinning-items-to-your-profile)”。
+
+{% endif %}
 
 您可以到 {% data variables.gists.gist_homepage %} 单击 **All Gists（所有 Gists）**发现其他人创建的 gists。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {% data variables.gists.gist_search_url %} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/articles/searching-code)相同。
 
@@ -50,7 +55,7 @@ Gist 支持地图 GeoJSON 文件。 这些地图显示在嵌入的 Gist 中，�
 
 也可以将桌面上的文本文件直接拖放到 Gist 编辑器中。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 您也可以使用 {% data variables.product.prodname_cli %} 创建 Gist。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh Gist 创建`](https://cli.github.com/manual/gh_gist_create)”。

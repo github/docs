@@ -86,7 +86,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. 关闭与 {% data variables.product.product_location_enterprise %} 的连接：
+8. 关闭与 {% data variables.product.product_location %} 的连接：
   ```shell
   $ exit
   > logout

@@ -1,15 +1,16 @@
 ---
 title: Reinstating a former outside collaborator's access to your organization
-intro: 'If you required two-factor authentication in your organization and an outside collaborator was removed from the organization for not having 2FA enabled, you can reinstate a former outside collaborator''s access permissions for organization repositories, forks, and settings.'
+intro: "You can reinstate a former outside collaborator's access permissions for organization repositories, forks, and settings."
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-If an outside collaborator's access to your organization's private repositories is removed because you've [required members and outside collaborators to enable two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+When an outside collaborator's access to your organization's private repositories is removed, the user's access privileges and settings are saved for three months. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

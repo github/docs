@@ -11,7 +11,7 @@ versions:
 
 ### About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location_enterprise %}.
+Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
 
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains.
 

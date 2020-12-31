@@ -1,6 +1,6 @@
 ---
 title: Exporting migration data from your enterprise
-intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
+intro: 'プラットフォームの変更、およびトライアルインスタンスから本番インスタンスに移行するには、インスタンスを準備して、リポジトリをロックし、移行アーカイブを生成することで、{% data variables.product.prodname_ghe_server %} インスタンスから移行データをエクスポートできます。'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the {% data variables.product.prodname_ghe_server %} source instance
+### {% data variables.product.prodname_ghe_server %} ソースインスタンスを準備する
 
 1. {% data variables.product.prodname_ghe_server %} ソースのサイト管理者であることを確認します。 そのための最善の方法は、[インスタンスへのSSH](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)が可能であることを確認することです。
 
@@ -21,7 +21,7 @@ versions:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the {% data variables.product.prodname_ghe_server %} source repositories
+### {% data variables.product.prodname_ghe_server %} ソースリポジトリをエクスポートする
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
@@ -86,7 +86,7 @@ versions:
     ```
     * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. {% data variables.product.product_location_enterprise %} への接続をクローズします。
+8. {% data variables.product.product_location %} への接続をクローズします。
   ```shell
   $ exit
   > logout

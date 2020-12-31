@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Standardmäßig können Issues in den Repositorys einer Organisation nicht gelöscht werden. Ein Organisationsinhaber muss diese Funktion erst für alle Repositorys der Organisation aktivieren.

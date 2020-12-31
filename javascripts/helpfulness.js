@@ -1,17 +1,15 @@
 import { sendEvent } from './events'
 
 export default function helpfulness () {
-  const forms = Array.from(document.querySelectorAll('.js-helpfulness'))
+  const form = document.querySelector('.js-helpfulness')
   const texts = Array.from(document.querySelectorAll('.js-helpfulness input, .js-helpfulness textarea'))
   const votes = Array.from(document.querySelectorAll('.js-helpfulness [type=radio]'))
-  if (!forms.length || !texts.length || !votes.length) return
+  if (!form || !texts.length || !votes.length) return
 
-  forms.forEach(form => {
-    form.addEventListener('submit', async evt => {
-      evt.preventDefault()
-      await submitForm(evt.target)
-      updateDisplay(form, 'end')
-    })
+  form.addEventListener('submit', async evt => {
+    evt.preventDefault()
+    await submitForm(evt.target)
+    updateDisplay(form, 'end')
   })
 
   votes.forEach(voteEl => {

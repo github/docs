@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在新增 GPG 密钥到 {% data variables.product.product_name %} 帐户之前，您应该已：

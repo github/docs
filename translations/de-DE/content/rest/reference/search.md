@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
 
-You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/v3/search/#constructing-a-search-query)."
+You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
 
 ### Ranking search results
 
@@ -17,7 +18,7 @@ Unless another sort option is provided as a query parameter, results are sorted 
 
 ### Rate limit
 
-The Search API has a custom rate limit. For requests using [Basic Authentication](/v3/#authentication), [OAuth](/v3/#authentication), or [client ID and secret](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
+The Search API has a custom rate limit. For requests using [Basic Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 
 {% data reusables.enterprise.rate_limit %}
 
@@ -27,16 +28,22 @@ See the [rate limit documentation](/rest/reference/rate-limit) for details on de
 
 Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {% data variables.product.product_name %}. See the individual endpoint in the Search API for an example that includes the endpoint and query parameters.
 
-A query can contain any combination of search qualifiers supported on GitHub.com. The format of the search query is:
+A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
 
 ```
-q=SEARCH_KEYWORD_1+SEARCH_KEYWORD_N+QUALIFIER_1+QUALIFIER_N
+SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
 For example, if you wanted to search for all _repositories_ owned by `defunkt` that contained the word `GitHub` and `Octocat` in the README file, you would use the following query with the _search repositories_ endpoint:
 
 ```
-q=GitHub+Octocat+in:readme+user:defunkt
+GitHub Octocat in:readme user:defunkt
+```
+
+**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. Ein Beispiel:
+```javascript
+// JavaScript
+const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
 See "[Searching on GitHub](/articles/searching-on-github/)" for a complete list of available qualifiers, their format, and an example of how to use them. For information about how to use operators to match specific quantities, dates, or to exclude results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax/)."

@@ -43,11 +43,11 @@ Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se
 
 {% endwarning %}
 
-Você também pode gerenciar segredos usando o API REST. Para obter mais informações, consulte "[Segredos](/v3/actions/secrets/)".
+Você também pode gerenciar segredos usando o API REST. Para obter mais informações, consulte "[Segredos](/rest/reference/actions#secrets)".
 
 #### Permissões limitadas de credenciais
 
-Ao gerar credenciais, recomendamos que você conceda as permissões mínimas possíveis. Por exemplo, em vez de usar credenciais pessoais, use [chaves de implantação](/v3/guides/managing-deploy-keys/#deploy-keys) ou uma conta de serviço. Considere conceder permissões somente leitura se isso o necessário e limite o acesso tanto quanto possível. Ao gerar um token de acesso pessoal (PAT), selecione o menor escopo necessário.
+Ao gerar credenciais, recomendamos que você conceda as permissões mínimas possíveis. Por exemplo, em vez de usar credenciais pessoais, use [chaves de implantação](/developers/overview/managing-deploy-keys#deploy-keys) ou uma conta de serviço. Considere conceder permissões somente leitura se isso o necessário e limite o acesso tanto quanto possível. Ao gerar um token de acesso pessoal (PAT), selecione o menor escopo necessário.
 
 ### Criar segredos encriptados para um repositório
 
@@ -105,7 +105,7 @@ steps:
 ```
 {% endraw %}
 
-Evite a transmissão de segredos entre processos da linha de comando sempre que possível. Os processos da linha de comando podem ser visíveis para outros usuários (usando o comando `ps`) ou capturado por [eventos de auditoria de segurança](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ajudar a proteger os segredos, considere o uso de variáveis de ambiente, `STDIN`, ou outros mecanismos compatíveis com o processo de destino.
+Evite a transmissão de segredos entre processos da linha de comando sempre que possível. Os processos da linha de comando podem ser visíveis para outros usuários (usando o comando `ps`) ou capturado por [eventos de auditoria de segurança](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ajudar a proteger os segredos, considere o uso de variáveis de ambiente, `STDIN`, ou outros mecanismos compatíveis com o processo de destino.
 
 Se você passar segredos dentro de uma linha de comando, inclua-os dentro das regras de aspas corretas. Muitas vezes, os segredos contêm caracteres especiais que não intencionalmente podem afetar o seu shell. Para escapar desses caracteres especiais, use aspas com suas variáveis de ambiente. Por exemplo:
 

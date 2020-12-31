@@ -15,7 +15,6 @@ versions:
     {% link_in_list /recommended-alert-thresholds %}
     {% link_in_list /setting-up-external-monitoring %}
     {% link_in_list /configuring-collectd %}
-    {% link_in_list /log-forwarding %}
     {% link_in_list /monitoring-using-snmp %}
 {% topic_link_in_list /updating-the-virtual-machine-and-physical-resources %}
     {% link_in_list /upgrade-requirements %}

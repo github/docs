@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} は、{% data variables.product.product_name %} リポジトリでの geoJSON および topoJSON マップ ファイルのレンダリングをサポートしています。 `.geojson` または `.topojson` 拡張子を使って、通常と同じようにファイルをコミットするだけです。 `.json` 拡張子の付いたファイルもサポートされますが、`type` が `FeatureCollection`、`GeometryCollection`、または `topology` に設定されている場合に限られます。 コミット後、GitHub.com で geoJSON ファイルのパスに移動してください。
@@ -50,7 +51,7 @@ GeoJSON マップを {% data variables.product.product_name %} 以外の場所�
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**注釈**: `ref` は、個々のコミットへのブランチまたはハッシュ (`2391ae` など) にすることができます。
 
 {% endtip %}
 

@@ -11,7 +11,7 @@ versions:
 
 ### 关于子域隔离
 
-子域隔离可以减少跨站脚本和其他相关漏洞。 更多信息请参阅 Wikipedia 上的“[跨站脚本](http://en.wikipedia.org/wiki/Cross-site_scripting)”。 我们强烈建议在 {% data variables.product.product_location_enterprise %} 上启用子域隔离。
+子域隔离可以减少跨站脚本和其他相关漏洞。 更多信息请参阅 Wikipedia 上的“[跨站脚本](http://en.wikipedia.org/wiki/Cross-site_scripting)”。 我们强烈建议在 {% data variables.product.product_location %} 上启用子域隔离。
 
 启用子域隔离后，{% data variables.product.prodname_ghe_server %} 会以子域替代多个路径。
 

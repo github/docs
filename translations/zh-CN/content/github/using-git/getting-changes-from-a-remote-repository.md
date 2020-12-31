@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 与[远程仓库](/articles/about-remote-repositories)交互时，这些命令非常有用。 `clone` 和 `fetch` 用于从仓库的远程 URL 将远程代码下载到您的本地计算机，`merge` 用于将其他人的工作与您的工作合并在一起，而 `pull` 是 `fetch` 和 `merge` 的组合。

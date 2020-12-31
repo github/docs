@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 外部协作者并未明确是组织的成员，但对组织的项目板具有访问权限。

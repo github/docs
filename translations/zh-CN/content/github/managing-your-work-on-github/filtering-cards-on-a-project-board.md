@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 On a card, you can click any assignee, milestone, or label to filter the project board by that qualifier. To clear the search, you can click the same assignee, milestone, or label again.
@@ -21,7 +22,7 @@ On a card, you can click any assignee, milestone, or label to filter the project
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡{% endif %}
 
 1. 导航到包含要过滤的卡的项目板。

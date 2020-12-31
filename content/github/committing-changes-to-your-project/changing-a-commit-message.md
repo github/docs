@@ -7,6 +7,7 @@ intro: 'If a commit message contains unclear, incorrect, or sensitive informatio
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Rewriting the most recent commit message

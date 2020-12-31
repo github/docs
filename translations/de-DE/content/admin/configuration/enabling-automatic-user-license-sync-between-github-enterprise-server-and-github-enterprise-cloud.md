@@ -19,8 +19,7 @@ Darüber hinaus können Sie Informationen zu {% data variables.product.prodname_
 
 Vor der Aktivierung der Lizenzsynchronisierung auf {% data variables.product.product_location_enterprise %} müssen Sie zwischen {% data variables.product.product_location_enterprise %} und {% data variables.product.prodname_dotcom_the_website %} eine Verbindung herstellen. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %} mit {% data variables.product.prodname_ghe_cloud %} verbinden](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)“.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 5. Verwenden Sie unter „Server can sync user license count and usage“ (Server kann Anzahl und Nutzung der Benutzerlizenzen synchronisieren) das Dropdownmenü, und wählen Sie **Enabled** (Aktiviert) aus. ![Dropdownmenü zum Aktivieren der automatischen Synchronisierung von Benutzerlizenzen](/assets/images/enterprise/site-admin-settings/enable-user-license-drop-down.png)

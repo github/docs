@@ -1,6 +1,6 @@
 ---
 title: Validar configurações de domínio
-intro: 'Antes de iniciar a {% data variables.product.product_location_enterprise %} pela primeira vez, verifique se as configurações de domínio estão ajustadas adequadamente.'
+intro: 'Antes de iniciar a {% data variables.product.product_location %} pela primeira vez, verifique se as configurações de domínio estão ajustadas adequadamente.'
 redirect_from:
   - /enterprise/admin/installation/validating-your-domain-settings
   - /enterprise/admin/configuration/validating-your-domain-settings

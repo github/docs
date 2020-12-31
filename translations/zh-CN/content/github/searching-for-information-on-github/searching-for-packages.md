@@ -6,6 +6,7 @@ permissions: 任何人都可以搜索他们有权访问的包。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+  github-ae: '*'
 ---
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
@@ -14,9 +15,9 @@ versions:
 
 您可以在所有 {% data variables.product.product_name %} 中全局搜索包，也可以在特定组织内搜索包。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 You can only search for packages on
-{% data variables.product.product_location_enterprise %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
+{% data variables.product.product_name %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
 {% endif %}
 
 {% data reusables.search.syntax_tips %}

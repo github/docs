@@ -8,9 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
+### READMEについて
+
+README ファイルをリポジトリに追加して、プロジェクトに関する重要な情報を伝えることができます。 README は、リポジトリライセンス {% if currentVersion == "free-pro-team@latest" %}、コントリビューションガイドライン、行動規範 {% elsif enterpriseServerVersions contains currentVersion %}、コントリビューションガイドライン {% endif %} とともに、プロジェクトへの要望を伝え、コントリビューションの管理を支援します。
+
+プロジェクトのガイドラインの提供方法の詳細については、{% if currentVersion == "free-pro-team@latest" %}「[プロジェクトに行動規範を追加する](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)」および {% endif %}「[健全なコントリビューションのためのプロジェクトの設定](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)」を参照してください。
 
 多くの場合、READMEはリポジトリへの訪問者が最初に目にするアイテムです。 通常、README ファイルには以下の情報が含まれています:
 - このプロジェクトが行うこと
@@ -23,9 +28,13 @@ README ファイルをリポジトリのルート、`docs`、または隠れデ�
 
 ![github/scientistリポジトリのメインページとそのREADMEファイル](/assets/images/help/repository/repo-with-readme.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21"%}
 
 {% data reusables.profile.profile-readme %}
+
+{% endif %}
 
 ![ユーザ名/ユーザ名リポジトリの README ファイル](/assets/images/help/repository/username-repo-with-readme.png)
 

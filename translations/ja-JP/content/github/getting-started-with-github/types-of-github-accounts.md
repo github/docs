@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの種類
-intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
+intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 ユーザーアカウントは、任意の数の Organization のメンバーになることができます。{% if currentVersion == "free-pro-team@latest" %} Organization は Enterprise アカウントに所属できます。{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -10,11 +10,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-For a full list of features for each
-{% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
+各
+{% data variables.product.product_name %} 製品の機能の完全なリストについては、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
 {% endif %}
 
 ### 個人ユーザアカウント
@@ -39,7 +40,7 @@ For a full list of features for each
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 
 - 個人での使用や仕事での使用など、1 つのアカウントを複数の目的で使用できます。 複数のアカウントを作成することはおすすめしません。 詳細は「[複数のユーザアカウントをマージする](/articles/merging-multiple-user-accounts)」を参照してください。
 - ユーザアカウントは人間のためのものですが、必要に応じて継続的インテグレーションボットなどのロボットに付与することもできます。
@@ -72,6 +73,6 @@ Enterprise アカウントを使用すると、複数の {% data variables.produ
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
+{% if currentVersion == "free-pro-team@latest" %}- 「[新しい {% data variables.product.prodname_dotcom %} アカウントにサインアップする](/articles/signing-up-for-a-new-github-account)」
 - 「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」{% endif %}
 - 「[新しい Organization アカウントを作成する](/articles/creating-a-new-organization-account)」

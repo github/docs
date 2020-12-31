@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O {% data variables.large_files.product_name_short %} manipula arquivos grandes armazenando referências ao arquivo no repositório, mas não no próprio arquivo. Para trabalhar em torno da arquitetura do Git, o {% data variables.large_files.product_name_short %} cria um arquivo de ponteiro que atua como uma referência ao arquivo real (que é armazenado em algum outro lugar). O {% data variables.product.product_name %} gerencia esse arquivo de ponteiro no seu repositório. Quando você clona o repositório, o {% data variables.product.product_name %} usa o arquivo de ponteiro como um mapa para encontrar o arquivo grande para você.
@@ -41,11 +42,13 @@ size 84977953
 
 Ele rastreia a `version` (versão) do {% data variables.large_files.product_name_short %} que você está usando, seguida por um identificador exclusivo para o arquivo (`oid`). Ele também armazena o `size` (tamanho) do arquivo final.
 
-{% tip %}
+{% note %}
 
-**Dica**: o {% data variables.large_files.product_name_short %} não pode ser usado com os sites do {% data variables.product.prodname_pages %}.
+**Atenção**:
+- {% data variables.large_files.product_name_short %} não pode ser usado com sites de {% data variables.product.prodname_pages %}.
+- {% data variables.large_files.product_name_short %} não pode ser usado com repositórios de modelos.
 
-{% endtip %}
+{% endnote %}
 
 ### Leia mais
 

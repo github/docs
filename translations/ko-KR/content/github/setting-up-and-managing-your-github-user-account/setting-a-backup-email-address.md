@@ -1,11 +1,12 @@
 ---
 title: Setting a backup email address
-intro: Use a backup email address to securely reset your password if you can no longer access your primary email address.
+intro: Use a backup email address as an additional destination for security-relevant account notifications{% if currentVersion != "github-ae@latest" %} and to securely reset your password if you can no longer access your primary email address{% endif %}.
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

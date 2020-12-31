@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-O SNMP é um padrão comum para monitorar dispositivos em uma rede. É altamente recomendável ativar o SNMP para monitorar a integridade da {% data variables.product.product_location_enterprise %} e saber quando adicionar mais memória, armazenamento ou potência do processador à máquina host.
+O SNMP é um padrão comum para monitorar dispositivos em uma rede. É altamente recomendável ativar o SNMP para monitorar a integridade da {% data variables.product.product_location %} e saber quando adicionar mais memória, armazenamento ou potência do processador à máquina host.
 
 O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP padrão que permite aproveitar [vários plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponíveis para Nagios ou qualquer outro sistema de monitoramento.
 
@@ -28,7 +28,7 @@ O {% data variables.product.prodname_enterprise %} tem uma instalação SNMP pad
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-Isso deve retornar o horário do sistema no host do {% data variables.product.product_location_enterprise %}.
+Isso deve retornar o horário do sistema no host do {% data variables.product.product_location %}.
 
 ### Segurança baseada no usuário
 

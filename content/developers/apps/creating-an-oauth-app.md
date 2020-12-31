@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -43,5 +44,12 @@ versions:
 ![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. In "Authorization callback URL", type the callback URL of your app.
 ![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+   {% note %}
+
+   **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
+
+   {% endnote %}
+{% endif %}
 10. Click **Register application**.
 ![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)
