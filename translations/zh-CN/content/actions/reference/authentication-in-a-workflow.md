@@ -79,7 +79,7 @@ versions:
 
 ### `GITHUB_TOKEN` 的权限
 
-有关 {% data variables.product.prodname_github_apps %} 可通过各种权限访问的 API 端点的信息，请参阅“[{% data variables.product.prodname_github_app %} 权限](/v3/apps/permissions/)”。
+有关 {% data variables.product.prodname_github_apps %} 可通过各种权限访问的 API 端点的信息，请参阅“[{% data variables.product.prodname_github_app %} 权限](/rest/reference/permissions-required-for-github-apps)”。
 
 | 权限       | 访问类型 | 通过复刻的仓库访问 |
 | -------- | ---- | --------- |

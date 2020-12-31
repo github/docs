@@ -148,7 +148,7 @@ steps:
 
 #### Caching dependencies
 
-The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 To enable caching, set the following.
 
@@ -165,7 +165,7 @@ This will configure bundler to install your gems to `vendor/cache`. For each suc
 
 **Caching without setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` Action directly. For more information, see "[Caching dependencies to speed up your workflow](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
+For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 
 {% raw %}
 ```yaml

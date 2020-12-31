@@ -86,6 +86,40 @@ Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde vo
 
 
 
+##### Usar vários repositórios em um servidor
+
+Se você usar vários repositórios em um servidor, você deverá gerar um par de chaves dedicado para cada um. Você não pode reutilizar uma chave de implantação para vários repositórios.
+
+No arquivo de configuração do SSH do servidor (geralmente `~/.ssh/config`), adicione uma entrada de pseudônimo para cada repositório. Por exemplo:
+
+
+
+```bash
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1
+        Hostname {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+```
+
+
+* `Host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}meu-GHE-hostname.com{% endif %}-repo-0` - Pseudônimo do repositório.
+* `Nome de host {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}meu-GHE-hostname.com{% endif %}` - Configura o nome de host a ser usado com o pseudônimo.
+* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Atribui uma chave privada ao pseudônimo.
+
+Em seguida, você pode usar o apelido do host para interagir com o repositório usando SSH, que usará a chave de deploy exclusiva atribuída a esse pseudônimo. Por exemplo:
+
+
+
+```bash
+$ git clone git@{% if currentVersion == "free-pro-team@latest" %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+```
+
+
+
+
 ### Usuários máquina
 
 Se o seu servidor precisar acessar vários repositórios, você poderá criar uma conta nova no {% data variables.product.product_name %} e anexar uma chave SSH que será usada exclusivamente para automação. Como esta conta do {% data variables.product.product_name %} não será usada por uma pessoa, ela será denominada _usuário máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).

@@ -1,4 +1,4 @@
-# Use this variable wherever backticks are necessary: https://github.com/github/docs-internal/pull/1176#discussion-diff-19853931
+# Use this variable wherever backticks are necessary
 backticks: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 

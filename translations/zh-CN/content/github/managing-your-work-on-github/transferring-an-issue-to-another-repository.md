@@ -11,7 +11,7 @@ versions:
 
 要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)”。
 
-您只能在同一用户或组织帐户拥有的仓库之间转让议题。 您无法将私有仓库的议题转让给公共仓库。
+You can only transfer issues between repositories owned by the same user or organization account.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
 转让议题时，评论和受理人将保留。 The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。
 

@@ -22,7 +22,7 @@ header summary,
 }
 
 .nav-mobile-dropdown {
-  @media (max-width: $width-md) {
+  @media (max-width: $width-md - 1) {
     display: none;
     visibility: hidden;
   }
@@ -88,5 +88,11 @@ header summary,
     cursor: default;
     content: " ";
     background: transparent;
+  }
+}
+
+.nav-dropdown  {
+  @media (min-width: 1012px) and (max-width: 1279px) {
+    right: 0;
   }
 }

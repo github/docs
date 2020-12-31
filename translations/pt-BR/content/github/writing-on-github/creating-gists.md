@@ -18,7 +18,7 @@ Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e c
 
 Os gists podem ser públicos ou secretos. Os gists públicos são mostrados no {% data variables.gists.discover_url %}, onde as pessoas podem navegar por novos gists à medida que eles são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
+Os gists secretos não aparecem em {% data variables.gists.discover_url %} e não são pesquisáveis. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
 
 {% if enterpriseServerVersions contains currentVersion %}
 
@@ -33,7 +33,11 @@ Você receberá uma notificação quando:
 - Alguém mencionar você em um gist.
 - Você assinar um gist, clicando em **Subscribe** (Assinar) no topo de qualquer gist.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 Você pode fixar os gists no seu perfil para que outras pessoas possam vê-los facilmente. Para obter mais informações, consulte "[Fixar itens ao seu perfil](/articles/pinning-items-to-your-profile)".
+
+{% endif %}
 
 É possível descobrir gists que outras pessoas criaram acessando a {% data variables.gists.gist_homepage %} e clicando em **All Gists** (Todos os gists). Isso levará você a uma página com todos os gists classificados e exibidos por data de criação ou atualização. Também é possível pesquisar gists por linguagem com {% data variables.gists.gist_search_url %}. A pesquisa de gist usa a mesma sintaxe de pesquisa que a [pesquisa de código](/articles/searching-code).
 

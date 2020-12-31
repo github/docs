@@ -1,5 +1,5 @@
 ---
-title: About Dependabot version updates
+title: Sobre as atualizações da versão do Dependabot
 intro: 'Você pode usar o {% data variables.product.prodname_dependabot %} para manter os pacotes que usa atualizados para as versões mais recentes.'
 redirect_from:
   - /github/administering-a-repository/about-dependabot
@@ -18,7 +18,7 @@ Você habilita o {% data variables.product.prodname_dependabot_version_updates %
 
 Quando {% data variables.product.prodname_dependabot %} identifica uma dependência desatualizada, ele cria uma pull request para atualizar o manifesto para a última versão da dependência. Para dependências de vendor, {% data variables.product.prodname_dependabot %} levanta um pull request para substituir diretamente a dependência desatualizada pela nova versão. Você verifica se os seus testes passam, revisa o changelog e lança observações incluídas no resumo do pull request e, em seguida, faz a mesclagem. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
-Se você habilitar atualizações de segurança, {% data variables.product.prodname_dependabot %} também promove pull requests para atualizar dependências vulneráveis. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+Se você habilitar atualizações de segurança, {% data variables.product.prodname_dependabot %} também promove pull requests para atualizar dependências vulneráveis. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -32,13 +32,13 @@ Se tiver habilitado atualizações de segurança, às vezes você verá atualiza
 
 ### Repositórios e ecossistemas suportados
 
+É possível configurar atualizações de versão para repositórios que contenham um manifesto de dependência ou arquivo de bloqueio para um dos gerentes de pacotes suportados. Para alguns gerenciadores de pacotes, você também pode configurar o armazenamento para dependências. Para obter mais informações, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)".
+
 {% note %}
 
-{% data reusables.dependabot.private-dependencies %}
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
 
 {% endnote %}
-
-É possível configurar atualizações de versão para repositórios que contenham um manifesto de dependência ou arquivo de bloqueio para um dos gerentes de pacotes suportados. Para alguns gerenciadores de pacotes, você também pode configurar o armazenamento para dependências. Para obter mais informações, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor)".
 
 {% data reusables.dependabot.supported-package-managers %}
 

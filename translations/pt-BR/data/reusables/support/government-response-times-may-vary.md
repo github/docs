@@ -1,7 +1,7 @@
 {% if currentVersion == "github-ae@latest" %}
 {% note %}
 
-**Note:** Response times and hours of operation may differ for {% data variables.product.prodname_ghe_managed %} for Government. Your Technical Support Account Manager (TSAM) will confirm during your onboarding.
+**Observação:** A resposta pode ser diferente para {% data variables.product.prodname_ghe_managed %} no caso das entidades governamentais. Seu Administrador de Conta de Suporte Técnico (TSAM) irá confirmar durante sua integração.
 
 {% endnote %}
 {% endif %}

@@ -10,5 +10,6 @@ versions:
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_with_intro /enabling-github-packages-for-your-enterprise %}
+{% link_with_intro /quickstart-for-configuring-minio-storage %}
 {% link_with_intro /configuring-packages-support-for-your-enterprise %}
 {% link_with_intro /configuring-third-party-storage-for-packages %}

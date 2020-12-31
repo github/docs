@@ -18,7 +18,7 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 {% tip %}
 
-**Note:** Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. Para obter mais informações, consulte "[Configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
+**Observação:** antes de tentar fazer push de um arquivo grande no {% data variables.product.product_name %}, certifique-se de que habilitou o {% data variables.large_files.product_name_short %} no seu aplicativo. Para obter mais informações, consulte "[Configurar o Git Large File Storage no GitHub Enterprise Server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise-server/)".
 
 {% endtip %}
 
@@ -59,5 +59,5 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 ### Leia mais
 
-- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+- "[Colaboração com {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 - "[Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}

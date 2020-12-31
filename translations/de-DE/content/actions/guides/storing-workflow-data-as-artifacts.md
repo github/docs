@@ -108,8 +108,6 @@ jobs:
           pfad: output/test/code-coverage.html
 ```
 
-![Bild mit Workflow-Ausführung des Workflow-Upload-Artefakts](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Configuring a custom artifact retention period
 
@@ -131,7 +129,7 @@ The `retention-days` value cannot exceed the retention limit set by the reposito
 
 During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact)action to download artifacts that were previously uploaded in the same workflow run.
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/v3/actions/artifacts/)."
+After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
 
 #### Herunterladen von Artefakten während einer Workflowausführung
 
@@ -238,7 +236,12 @@ Jobs:
           echo Das Ergebnis ist $value
 ```
 
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen weitergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![Workflow, der zum Durchführen mathematischer Operationen Daten zwischen Aufträgen weitergibt](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

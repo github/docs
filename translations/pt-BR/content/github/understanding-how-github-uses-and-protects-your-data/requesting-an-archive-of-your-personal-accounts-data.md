@@ -10,7 +10,7 @@ versions:
 
 O {% data variables.product.product_name %} os metadados de repositório e de perfil da atividade da conta pessoal. Você pode exportar os dados da conta pessoal por meio das configurações do {% data variables.product.prodname_dotcom_the_website %} ou com a API de migração de usuários.
 
-Para obter mais informações sobre os dados que {% data variables.product.product_name %} armazena e que estão disponíveis para exportação, consulte "[Fazer download do arquivo de migração de usuário](/v3/migrations/users/#download-a-user-migration-archive)" e "[Sobre o uso dos seus dados pelo {% data variables.product.product_name %}](/articles/about-github-s-use-of-your-data).
+Para obter mais informações sobre os dados que {% data variables.product.product_name %} armazena e que estão disponíveis para exportação, consulte "[Fazer download do arquivo de migração de usuário](/rest/reference/migrations#download-a-user-migration-archive)" e "[Sobre o uso dos seus dados pelo {% data variables.product.product_name %}](/articles/about-github-s-use-of-your-data).
 
 Quando você solicita a exportação dos seus dados pessoais por meio das configurações do {% data variables.product.prodname_dotcom_the_website %}, o {% data variables.product.product_name %} empacota seus dados pessoais em um arquivo `tar.gz` e envia um e-mail para seu endereço de e-mail principal com um link para download.
 

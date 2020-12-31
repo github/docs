@@ -23,7 +23,7 @@ To troubleshoot, ensure [you're authenticating correctly](/guides/getting-starte
 
 Most API calls accessing a list of resources (_e.g._, users, issues, _etc._) support pagination. If you're making requests and receiving an incomplete set of results, you're probably only seeing the first page. You'll need to request the remaining pages in order to get more results.
 
-It's important to *not* try and guess the format of the pagination URL. Not every API call uses the same structure. Instead, extract the pagination information from [the Link Header](/v3/#pagination), which is sent with every request.
+It's important to *not* try and guess the format of the pagination URL. Not every API call uses the same structure. Instead, extract the pagination information from [the Link Header](/rest#pagination), which is sent with every request.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Basic authentication errors
@@ -52,7 +52,7 @@ curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 
 #### Calls to OAuth Authorizations API
 
-If you're making [OAuth Authorization API](/enterprise-server@2.22/rest/reference/oauth-authorizations) calls to manage your OAuth app's authorizations or to generate access tokens, similar to this example:
+If you're making [OAuth Authorization API](/enterprise-server/rest/reference/oauth-authorizations) calls to manage your OAuth app's authorizations or to generate access tokens, similar to this example:
 
 ```bash
 curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'

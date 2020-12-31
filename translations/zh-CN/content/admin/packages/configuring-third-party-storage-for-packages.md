@@ -13,7 +13,7 @@ versions:
 
 {% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_registry %} 使用外部 Blob 存储来存储您的软件包。 所需存储量取决于您使用 {% data variables.product.prodname_registry %} 的情况。
 
-目前，{% data variables.product.prodname_registry %} 支持使用 Amazon Web Services (AWS) S3 的 Blob 存储。 还支持 MinIO，但配置当前未在 {% data variables.product.product_name %} 界面中实现。 您可以按照 AWS S3 的说明使用 MinIO 进行存储，输入 MinIO 配置的类似信息。
+目前，{% data variables.product.prodname_registry %} 支持使用 Amazon Web Services (AWS) S3 的 Blob 存储。 还支持 MinIO，但配置当前未在 {% data variables.product.product_name %} 界面中实现。 您可以按照 AWS S3 的说明使用 MinIO 进行存储，输入 MinIO 配置的类似信息。 在 {% data variables.product.prodname_dotcom %} 上为 {% data variables.product.prodname_registry %} 配置第三方存储之前，必须使用第三方存储提供商设置存储桶。 有关安装和运行 MinIO 存储桶以用于 {% data variables.product.prodname_registry %} 的详细信息，请参阅“[配置 MinIO 存储快速入门](/admin/packages/quickstart-for-configuring-minio-storage)”。
 
 为了获得最佳体验，我们建议对 {% data variables.product.prodname_registry %} 使用专用存储桶，与用于 {% data variables.product.prodname_actions %} 存储的存储桶分开。
 
@@ -22,9 +22,9 @@ versions:
 {% warning %}
 
 **警告：**
-- It's critical you set the restrictive access policies you want for your storage bucket because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. For more information, see [Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html) in the AWS Documentation.
-- We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-- Make sure to configure the bucket you'll want to use in the future. 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
+- 为存储桶设置所需的限制性访问策略至关重要，因为 {% data variables.product.company_short %} 不会将特定对象权限或其他访问控制列表 (ACL) 应用于存储桶配置。 例如，如果将存储桶设为公共，则在公共互联网上可以访问存储桶中的数据。 更多信息请参阅 AWS 文档中的[设置存储桶和对象访问权限](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)。
+- 我们建议对 {% data variables.product.prodname_registry %} 使用专用存储桶，与用于 {% data variables.product.prodname_actions %} 存储的存储桶分开。
+- 请确保配置将来要使用的存储桶。 在开始使用 {% data variables.product.prodname_registry %} 后，我们不建议更改存储系统。
 
 {% endwarning %}
 

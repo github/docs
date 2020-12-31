@@ -20,6 +20,8 @@ Wenn sich mehr Benutzer {% data variables.product.product_location %} anschließ
 
 {% endnote %}
 
+#### Minimum requirements
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Größe der Datenpartition erhöhen

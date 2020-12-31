@@ -118,13 +118,13 @@ $ curl -i -H "Authorization: Bearer YOUR_JWT" -H "Accept: application/vnd.github
 
 ### {% data variables.product.prodname_github_app %} として API エンドポイントにアクセスする
 
-{% data variables.product.prodname_github_app %} の概要を取得するために使用できる REST API エンドポイントの一覧については、「[GitHub App](/v3/apps/)」を参照してください。
+{% data variables.product.prodname_github_app %} の概要を取得するために使用できる REST API エンドポイントの一覧については、「[GitHub App](/rest/reference/apps)」を参照してください。
 
 ### インストールとして認証を行う
 
 インストールとして認証を行うと、そのインストールの API でアクションを実行できます。 インストールとして認証を行う前に、インストールアクセストークンを作成する必要があります。 インストールアクセストークンは、認証を行うため {% data variables.product.prodname_github_app %} により使用されます。
 
-デフォルトでは、インストールトークンのスコープは、インストールがアクセスできるすべてのリポジトリにアクセスできるよう設定されています。 `repository_ids` パラメータを使用すると、インストールアクセストークンのスコープを特定のリポジトリに限定できます。 詳細については、[アプリケーション (エンドポイント) に対するアクセストークンの作成](/v3/apps/#create-an-installation-access-token-for-an-app)を参照してください。 インストールアクセストークンは {% data variables.product.prodname_github_app %} によって設定された権限を持ち、1 時間後に期限切れになります。
+デフォルトでは、インストールトークンのスコープは、インストールがアクセスできるすべてのリポジトリにアクセスできるよう設定されています。 `repository_ids` パラメータを使用すると、インストールアクセストークンのスコープを特定のリポジトリに限定できます。 詳細については、[アプリケーション (エンドポイント) に対するアクセストークンの作成](/rest/reference/apps#create-an-installation-access-token-for-an-app)を参照してください。 インストールアクセストークンは {% data variables.product.prodname_github_app %} によって設定された権限を持ち、1 時間後に期限切れになります。
 
 インストールアクセストークンを作成するには、[上記で生成した](#jwt-payload) JWT を API リクエストの Authorization ヘッダに含めます。
 
@@ -144,7 +144,7 @@ $ curl -i -X POST \
 ```
 {% endif %}
 
-レスポンスには、インストールアクセストークン、有効期限、トークンの権限、およびトークンがアクセスできるリポジトリが含まれます。 レスポンスのフォーマットに関する詳しい情報については、[アプリケーション (エンドポイント) に対するアクセストークンの作成](/v3/apps/#create-an-installation-access-token-for-an-app)を参照してください。
+レスポンスには、インストールアクセストークン、有効期限、トークンの権限、およびトークンがアクセスできるリポジトリが含まれます。 レスポンスのフォーマットに関する詳しい情報については、[アプリケーション (エンドポイント) に対するアクセストークンの作成](/rest/reference/apps#create-an-installation-access-token-for-an-app)を参照してください。
 
 インストールアクセストークンで認証を行うには、インストールアクセストークンを API リクエストの Authorization ヘッダに含めます。
 
@@ -168,9 +168,9 @@ $ curl -i \
 
 ### インストールとして API エンドポイントにアクセスする
 
-インストールアクセストークンを使用して {% data variables.product.prodname_github_app %} の概要を取得するために利用できる REST API エンドポイントの一覧については、「[利用可能なエンドポイント](/v3/apps/available-endpoints/)」を参照してください。
+インストールアクセストークンを使用して {% data variables.product.prodname_github_app %} の概要を取得するために利用できる REST API エンドポイントの一覧については、「[利用可能なエンドポイント](/rest/overview/endpoints-available-for-github-apps)」を参照してください。
 
-インストールに関連するエンドポイントの一覧については、「[インストール](/v3/apps/installations/)」を参照してください。
+インストールに関連するエンドポイントの一覧については、「[インストール](/rest/reference/apps#installations)」を参照してください。
 
 ### インストールによる HTTP ベースの Git アクセス
 

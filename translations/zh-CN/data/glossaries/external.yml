@@ -390,7 +390,7 @@
 - 
   term: main
   description: >-
-    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "main" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
 - 
   term: master
   description: >-

@@ -1,6 +1,6 @@
 ---
 title: 概要
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and secure your deployments.{% else %}, secure your deployments, and join {% data variables.product.prodname_dotcom %}''s Developer Program.{% endif %}'
+intro: '{% data variables.product.prodname_dotcom %}のAPIに付いて学び、{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}デプロイメントをセキュアにしてください。{% else %}デプロイメントをセキュアにし、{% data variables.product.prodname_dotcom %}の開発者プログラムに参加してください。{% endif %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

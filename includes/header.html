@@ -1,5 +1,7 @@
 <div class="border-bottom border-gray-light no-print">
+  {% unless error == '404' %}
   {% include header-notification %}
+  {% endunless %}
 
   <header class="container-xl px-3 px-md-6 pt-3 pb-2 position-relative d-flex flex-justify-between width-full {% if error == '404' %} d-md-none {% endif %}">
 
