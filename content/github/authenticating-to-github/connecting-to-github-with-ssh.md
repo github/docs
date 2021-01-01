@@ -14,6 +14,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
+  github-ae: 'git@github.com:bcgit/bc-csharp.git'
 ---
 
