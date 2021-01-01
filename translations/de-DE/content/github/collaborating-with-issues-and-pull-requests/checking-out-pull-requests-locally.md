@@ -7,6 +7,7 @@ permissions: Personen mit Schreibzugriff auf eine Repository können einen Remot
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}
@@ -18,7 +19,7 @@ versions:
 ### Einen aktiven Pull Request lokal ändern
 
 {% data reusables.repositories.sidebar-pr %}
-2. Klicke in der Liste der Pull-Requests auf die Pull-Requests, die Du ändern möchtest.{% if currentVersion == "free-pro-team@latest" %}
+2. In the list of pull requests, click the pull request you'd like to modify.{% if currentVersion == "free-pro-team@latest" %}
 3. Um auszuwählen, wo Du den Pull Request öffnen willst, wähle das Dropdownmenü „**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**" und klicke auf eine der Registerkarten. ![Link um auf die Pull-Request-Anweisungen in der Befehlszeile zuzugreifen](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. Klicke im Merge-Feld auf **Befehlszeilenanweisungen**. Führen Sie nacheinander die Schritte durch, um den vorgeschlagenen Pull Request herunterzuladen. ![Links zum Zugriff auf Anleitungen zu Befehlszeilen-Pull-Requests](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. Klicke optional zur Ansicht der vorgeschlagenen Änderungen mit {% data variables.product.prodname_desktop %} auf **öffne dies mit {% data variables.product.prodname_desktop %}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}

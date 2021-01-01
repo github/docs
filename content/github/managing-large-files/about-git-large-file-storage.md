@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} handles large files by storing references to the file in the repository, but not the actual file itself. To work around Git's architecture, {% data variables.large_files.product_name_short %} creates a pointer file which acts as a reference to the actual file (which is stored somewhere else). {% data variables.product.product_name %} manages this pointer file in your repository. When you clone the repository down, {% data variables.product.product_name %} uses the pointer file as a map to go and find the large file for you.
@@ -39,11 +40,13 @@ size 84977953
 
 It tracks the `version` of {% data variables.large_files.product_name_short %} you're using, followed by a unique identifier for the file (`oid`). It also stores the `size` of the final file.
 
-{% tip %}
+{% note %}
 
-**Tip**: {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
-
-{% endtip %}
+**Notes**:
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
+  
+{% endnote %}
 
 ### Further reading
 

@@ -1,11 +1,12 @@
 ---
 title: Datei umbenennen
-intro: 'Du kannst jede Datei Deines Repositorys direkt in {% data variables.product.product_name %} umbenennen. Dabei kannst Du die Datei nicht nur umbenennen, sondern auch [an einen anderen Speicherort verschieben](/articles/moving-a-file-to-a-new-location).'
+intro: 'Sie können jede Datei Ihrer Repositorys direkt in {% data variables.product.product_name %} umbenennen. Dabei kannst Du die Datei nicht nur umbenennen, sondern auch [an einen anderen Speicherort verschieben](/articles/moving-a-file-to-a-new-location).'
 redirect_from:
   - /articles/renaming-a-file
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

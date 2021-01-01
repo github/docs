@@ -7,7 +7,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/provisioning-and-installation/
   - /enterprise/admin/guides/installation/setting-up-a-github-enterprise-instance/
   - /enterprise/admin/installation/setting-up-a-github-enterprise-server-instance
-  - /enterprise/admin/installation/setting-up-a-github-enterprise-server-instance
 mapTopic: true
 versions:
   enterprise-server: '*'

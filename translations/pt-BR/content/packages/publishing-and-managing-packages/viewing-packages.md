@@ -1,6 +1,6 @@
 ---
 title: Visualizar pacotes
-intro: É possível ver informações sobre pacotes publicados em um repositório e limitar os resultados por organização ou usuário.
+intro: 'É possível ver informações sobre pacotes publicados em um repositório e limitar os resultados por organização ou usuário.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages

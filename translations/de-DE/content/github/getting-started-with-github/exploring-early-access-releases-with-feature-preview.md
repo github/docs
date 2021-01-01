@@ -1,6 +1,6 @@
 ---
 title: Early-Access-Versionen mit Funktionsvorschau erkunden
-intro: 'Du kannst die Funktions-Vorschau benutzen, um Produkte oder Funktionen zu sehen, die sich in der Beta-Version befinden und um jede der Funktionen für Dein Konto zu aktivieren oder zu deaktivieren.'
+intro: Du kannst die Funktions-Vorschau benutzen, um Produkte oder Funktionen zu sehen, die sich in der Beta-Version befinden und um jede der Funktionen für Dein Konto zu aktivieren oder zu deaktivieren.
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
 versions:
@@ -21,5 +21,5 @@ Die Produkte und Funktionen von {% data variables.product.product_name %} könne
 
 Du kannst eine Liste der Funktionen sehen, die in der Beta-Version verfügbar sind, und eine kurze Beschreibung für jede Funktion. Jede Funktion enthält einen Link, um Feedback zu geben.
 
-1. Klicke in der oberen rechten Ecke einer beliebigen Seite auf Dein Profilfoto und dann auf **Feature preview** (Funktions-Vorschau). ![Schaltfläche „Feature preview" (Funktions-Vorschau)](/assets/images/help/settings/feature-preview-button.png)
+{% data reusables.feature-preview.feature-preview-setting  %}
 2. Klicke optional auf der rechten Seite einer Funktion auf **Aktivieren** oder **Deaktivieren**. ![Schaltfläche „Enable" (Aktivieren) in der Funktions-Vorschau](/assets/images/help/settings/enable-feature-button.png)

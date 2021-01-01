@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/auditing-ssh-keys
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Depois de iniciada, a auditoria desabilita todas as chaves SSH e força os usuários a aprová-las ou rejeitá-las antes que eles possam clonar, fazer pull ou fazer push para qualquer repositório. Auditorias são úteis nos casos em que um funcionário ou contratado sai da empresa e você deve garantir a verificação de todas as chaves.

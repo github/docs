@@ -1,6 +1,6 @@
 ---
 title: Mitglieder in Teams organisieren
-intro: 'Du kannst Organisationsmitglieder in Teams einteilen, die mit kaskadierenden Zugriffsberechtigungen und Erwähnungen die Struktur Deines Unternehmens oder Deiner Gruppe widerspiegeln.'
+intro: Du kannst Organisationsmitglieder in Teams einteilen, die mit kaskadierenden Zugriffsberechtigungen und Erwähnungen die Struktur Deines Unternehmens oder Deiner Gruppe widerspiegeln.
 redirect_from:
   - /articles/setting-up-teams-improved-organization-permissions/
   - /articles/setting-up-teams-for-accessing-organization-repositories/
@@ -15,5 +15,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

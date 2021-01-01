@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Wenn Du einen Pull Request an das Basis-Repository aus einem geforkten Repository heraus erstellst, sendet {% data variables.product.prodname_dotcom %} das Ereignis `pull_request` an das Basis-Repository, und im geforkten Repository treten keine Pull-Request-Ereignisse ein.
+Wenn Sie einen Pull Request an das Basis-Repository aus einem geforkten Repository heraus erstellen, sendet {% data variables.product.prodname_dotcom %} das Ereignis `pull_request` an das Basis-Repository, und im geforkten Repository treten keine Pull-Request-Ereignisse ein.
 
 Workflows werden standardmäßig nicht für geforkte Repositorys ausgeführt. Du musst GitHub Actions auf der Registerkarte **Actions** (Aktionen) im geforkten Repository aktivieren.
 

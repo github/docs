@@ -1,6 +1,6 @@
 ---
-title: Enabling GitHub Container Registry for your organization
-intro: 'In an organization, organization admins can allow organization members to publish public or private container images to {% data variables.product.prodname_github_container_registry %}.'
+title: Organization で GitHub Container Registry を有効化する
+intro: 'Organization では、Organization 管理者が Organization メンバーに対して、{% data variables.product.prodname_github_container_registry %} にパブリックまたはプライベートでコンテナイメージを公開することを許可できます。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -8,14 +8,14 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-Before organization members can publish container images to {% data variables.product.prodname_github_container_registry %}, an organization admin must enable package creation.
+Organization のメンバーがコンテナイメージを {% data variables.product.prodname_github_container_registry %} に公開するには、Organization の管理者がパッケージの作成を有効にする必要があります。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Package creation", choose whether you want to enable the creation of public or private container images.
-    - To enable organization members to create a public container image, click **Public**.
-    - To enable organization members to create a private container image that is only visible to other organization members, click **Private**. You can further customize the visibility of a private container image. For more information, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
+5. [Package creation] で、コンテナイメージ作成をパブリックで有効にするか、それともプライベートで有効にするか選択します。
+    - Organization のメンバーがパブリックのコンテナイメージを作成できるようにするには、[**Public**] をクリックします。
+    - Organization のメンバーに、Organization のメンバーのみが表示できるプライベートコンテナイメージの作成をできるようにするには、[**Private**] をクリックします。 プライベートコンテナイメージの可視性については、さらに細かくカスタマイズできます。 詳しい情報については、「[コンテナイメージにアクセス制御と可視性を設定する](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)」を参照してください。
 
-    ![Options to enable public or private packages ](/assets/images/help/package-registry/package-creation-org-settings.png)
+    ![パブリックまたはプライベートパッケージを有効にするオプション ](/assets/images/help/package-registry/package-creation-org-settings.png)

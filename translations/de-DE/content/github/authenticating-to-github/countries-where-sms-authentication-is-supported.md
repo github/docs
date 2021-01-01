@@ -1,6 +1,6 @@
 ---
-title: 'Länder, in denen die SMS-Authentifizierung unterstützt wird'
-intro: 'Wegen den Auslieferungs-Erfolgsquoten für SMS unterstützt {% data variables.product.product_name %} die Zwei-Faktor-Authentifizierung per SMS nur in bestimmten Ländern.'
+title: Länder, in denen die SMS-Authentifizierung unterstützt wird
+intro: 'Wegen der Auslieferungserfolgsquoten unterstützt {% data variables.product.product_name %} die Zwei-Faktor-Authentifizierung per SMS nur in bestimmten Ländern.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:

@@ -6,9 +6,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Abfrageparameter sind optionale Bestandteile einer URL, die Du anpassen kannst, um eine bestimmte Ansicht einer Webseite freizugeben, beispielsweise Suchfilterergebnisse oder eine Issue-Vorlage auf {% data variables.product.prodname_dotcom %}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.
+Abfrageparameter sind optionale Bestandteile einer URL, die Sie anpassen können, um eine bestimmte Ansicht einer Webseite freizugeben, beispielsweise Suchfilterergebnisse oder eine Issue-Vorlage auf {% data variables.product.prodname_dotcom %}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.
 
 {% tip %}
 
@@ -22,15 +23,15 @@ Wenn Du eine ungültige URL mithilfe von Suchparametern erstellst oder wenn Du n
 
 ### Unterstützte Abfrageparameter
 
-| Abfrageparameter | Beispiel                                                                                                                                                                                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Text`           | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&body=Fixes+the+problem.` erstellt einen Pull Request zum Vergleich der Branches `master` und `pull-request-test` mit dem Kommentar „Fixes the problem“ (Behebt das Problem) im Text des Pull Requests. |
-| `title`          | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` erstellt einen Issue mit der Kennzeichnung „bug“ (Fehler) und dem Titel „New bug report“ (Neuer Fehlerbericht).                                                                                            |
-| `labels`         | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&labels=bug` erstellt einen Pull Request zum Vergleich der Branches `master` und `pull-request-test` mit der Kennzeichnung „bug“ (Fehler).                                                              |
-| `Vorlage`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` erstellt einen Issue mit einer Vorlage im Issue-Text.                                                                                                                                                               |
-| `Meilensteine`   | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` erstellt einen Issue mit dem Meilenstein „testing milestones“ (Meilensteine testen).                                                                                                                              |
-| `assignees`      | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` erstellt einen Issue und weist ihn @octocat zu.                                                                                                                                                                              |
-| `projects`       | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` erstellt einen Issue mit dem Titel „Bug fix“ (Fehlerbehebung) und fügt ihn dem Projektboard 1 der Organisation hinzu.                                                                                    |
+| Abfrageparameter | Beispiel                                                                                                                                                                                                                                                        |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Text`           | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&body=Fixes+the+problem.` creates a pull request, comparing the branches `main` and `pull-request-test`, with the comment "Fixes the problem" in the pull request body. |
+| `title`          | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` erstellt einen Issue mit der Kennzeichnung „bug“ (Fehler) und dem Titel „New bug report“ (Neuer Fehlerbericht).                                                          |
+| `labels`         | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&labels=bug` creates a pull request, comparing the branches `main` and `pull-request-test`, with the label "bug."                                                       |
+| `Vorlage`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` erstellt einen Issue mit einer Vorlage im Issue-Text.                                                                                                                             |
+| `Meilensteine`   | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` erstellt einen Issue mit dem Meilenstein „testing milestones“ (Meilensteine testen).                                                                                            |
+| `assignees`      | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` erstellt einen Issue und weist ihn @octocat zu.                                                                                                                                            |
+| `projects`       | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` erstellt einen Issue mit dem Titel „Bug fix“ (Fehlerbehebung) und fügt ihn dem Projektboard 1 der Organisation hinzu.                                                  |
 
 ### Issues und Pull Requests mit benutzerdefinierten Vorlagen ausfüllen
 

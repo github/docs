@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 As bifurcações são listadas em ordem alfabética pelo nome de usuário da pessoa que bifurcou o repositório. É possível clicar no nome de usuário para ser redirecionado à página de perfil {% data variables.product.product_name %} do usuário ou clicar no nome da bifurcação para ser redirecionado à bifurcação específica do repositório.

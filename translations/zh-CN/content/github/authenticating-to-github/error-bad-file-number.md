@@ -1,18 +1,19 @@
 ---
-title: 错误：文件编号错误
+title: '错误：文件编号错误'
 intro: 此错误通常表示您无法连接到服务器。 这通常由防火墙和代理服务器造成。
 redirect_from:
   - /articles/error-bad-file-number
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 运行远程 Git 命令或 SSH 时，您的连接可能会超时：
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
-> OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
 > ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out

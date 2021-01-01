@@ -1,12 +1,13 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or personal access token on {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% if currentVersion != "github-ae@latest" %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.password-authentication-deprecation %}
@@ -15,14 +16,12 @@ versions:
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app. ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
 2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
-3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`. ![GitHub Password Entry in Keychain](/assets/images/help/setup/keychain-entry.png)
+3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
 4. Edit or delete the entry accordingly.
 
 ### Deleting your credentials via the command line
 
 Through the command line, you can use the credential helper directly to erase the keychain entry.
-
-To do this, type the following command:
 
 ```shell
 $ git credential-osxkeychain erase

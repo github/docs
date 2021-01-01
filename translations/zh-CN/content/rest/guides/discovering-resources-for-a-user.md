@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 向 {% data variables.product.product_name %} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
 
@@ -92,19 +93,19 @@ end
 
 作为应用程序开发者，您通常希望您的应用程序被授权访问用户的所有组织（公共和私有）。 上述工作流程恰好能满足您的要求。
 
-[basics-of-authentication]: /v3/guides/basics-of-authentication/
-[list-public-orgs]: /v3/orgs/#list-organizations-for-a-user
-[list-repositories-for-current-user]: /v3/repos/#list-repositories-for-the-authenticated-user
-[list-orgs-for-current-user]: /v3/orgs/#list-organizations-for-the-authenticated-user
-[list-teams]: /v3/teams/#list-teams
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
-[make-authenticated-request-for-user]: /v3/guides/basics-of-authentication/#making-authenticated-requests
+[basics-of-authentication]: /rest/guides/basics-of-authentication
+[list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user
+[list-repositories-for-current-user]: /rest/reference/repos#list-repositories-for-the-authenticated-user
+[list-orgs-for-current-user]: /rest/reference/orgs#list-organizations-for-the-authenticated-user
+[list-teams]: /rest/reference/teams#list-teams
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
+[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
-[publicize-membership]: /v3/orgs/members/#set-public-organization-membership-for-the-authenticated-user
-[register-oauth-app]: /v3/guides/basics-of-authentication/#registering-your-app
+[publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
+[register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/

@@ -1,16 +1,16 @@
 ---
 title: GitHub ActionsのためのDockerfileサポート
 shortTitle: Docker
-intro: Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。
+intro: 'Dockerコンテナアクション用の`Dockerfile`を作成する際には、いくつかのDockerの命令がGitHub Actionsやアクションのメタデータファイルとどのように関わるのかを知っておく必要があります。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
-  - /アクション/ビルディングアクション/ドッカーファイルサポート-githubアクション
+  - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### Dockerfileの命令について

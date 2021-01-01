@@ -1,11 +1,12 @@
 ---
 title: Externen Mitarbeiter von einem Projektboard der Organisation entfernen
-intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du den Zugriff eines externen Mitarbeiters auf ein Projektboard entfernen.
+intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du den Zugriff eines externen Mitarbeiters auf ein Projektboard entfernen.'
 redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.profile.access_profile %}

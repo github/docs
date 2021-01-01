@@ -1,3 +1,3 @@
-You can create up to ten sponsorship tiers for sponsors to choose from. Each tier has its own monthly payment amount in US dollars and benefits, such as receiving early access to new versions or being featured in the project's README.
+Você pode criar até dez camadas de patrocínio para escolher. Cada camada tem seu próprio montante de pagamento mensal em dólares e benefícios nos EUA, como receber acesso antecipado a novas versões ou ser destacado no README do projeto.
 
-Once you have a sponsor on a tier, you can't edit the price of that tier. Instead, you must retire the tier and create a new tier. Existing sponsors will remain on the retired tier until they change their sponsorship tier or cancel their sponsorship.
+Depois de ter um patrocinador em uma camada, você não pode editar o preço dessa camada. Em vez disso, você deve se retirar a camada e criar uma nova. Os patrocinadores existentes permanecerão na camada aposentada até mudar a sua camada de patrocínio ou cancelarem seu patrocínio.

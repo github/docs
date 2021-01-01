@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Wir empfehlen Dir, {% if currentVersion == "free-pro-team@latest" %}Organisationsmitglieder, externe Mitarbeiter und Abrechnungsmanager{% else %}Organisationsmitglieder und externe Mitarbeiter{% endif %} mindestens eine Woche vor der Erzwingung von 2FA in Deiner Organisation zu benachrichtigen.
+We recommend that you notify {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} at least one week before you require 2FA in your organization.
 
 Wenn Du für Deine Organisation die Zwei-Faktor-Authentifizierung vorschreibst, werden Mitglieder, externe Mitarbeiter und Abrechnungsmanager (einschließlich Bot-Konten), die keine 2FA verwenden, aus der Organisation entfernt und verlieren den Zugriff auf die Repositorys der Organisation. Gleichzeitig verlieren sie auch den Zugriff auf ihre Forks der privaten Repositorys der Organisation.
 

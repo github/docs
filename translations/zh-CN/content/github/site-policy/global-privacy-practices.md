@@ -7,27 +7,27 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: July 22, 2020
+生效日期：2020 年 7 月 22 日。
 
-GitHub provides the same high standard of privacy protection—as described in GitHub’s [Privacy Statement](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices)—to all our users and customers around the world, regardless of their country of origin or location, and GitHub is proud of the level of notice, choice, accountability, security, data integrity, access, and recourse we provide.
+如 GitHub 的[隐私声明](/github/site-policy/github-privacy-statement#githubs-global-privacy-practices)所述，GitHub 为世界各地的所有用户和客户提供同样的高标准隐私保护，不论其原籍国或所在地，GitHub 为我们提供的通知、选择、问责、安全、数据完整性、访问和追索水准而感到自豪。
 
-GitHub also complies with certain legal frameworks relating to the transfer of data from the European Economic Area, the United Kingdom, and Switzerland (collectively, “EU”) to the United States. When GitHub engages in such transfers, GitHub relies on Standard Contractual Clauses as the legal mechanism to help ensure your rights and protections travel with your personal information. In addition, GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks. To learn more about the European Commission’s decisions on international data transfer, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en).
+GitHub 还遵守有关从欧洲经济区、英国和瑞士（统称为"欧盟"）向美国传输数据的某些法律框架。 进行此类传输时，GitHub 依赖标准合同条款作为法律机制，以帮助确保您的权利和保护与您的个人信息同行。 此外，GitHub 还通过了欧盟-美国和瑞士-美国隐私盾框架的认证。 要了解有关欧洲委员会关于国际数据传输之决定的更多信息，请参阅[欧洲委员会网站](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_en)上的这篇文章。
 
-### Standard Contractual Clauses
+### 标准合同条款
 
-GitHub relies on the European Commission-approved Standard Contractual Clauses (“SCCs”) as a legal mechanism for data transfers from the EU. SCCs are contractual commitments between companies transferring personal data, binding them to protect the privacy and security of such data. GitHub adopted SCCs so that the necessary data flows can be protected when transferred outside the EU to countries which have not been deemed by the European Commission to adequately protect personal data, including protecting data transfers to the United States.
+GitHub 依靠欧洲委员会批准的标准合同条款 (“SCCs”) 作为从欧盟转移数据的法律机制。 SCCs 是公司之间转移个人数据的合同承诺，约束他们保护这些数据的隐私和安全。 GitHub 采用了 SCCs，以便将数据从欧盟转移到被欧洲委员会视为无法充分保护个人数据（包括保护向美国的数据转移）的国家/地区时，可以保护必要的数据流。
 
-To learn more about SCCs, see this article on the [European Commission website](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en).
+要了解有关 SCCs 的更多信息，请参阅[欧洲委员会网站](https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection/standard-contractual-clauses-scc_en)上的这篇文章。
 
 ### 隐私盾框架
 
-GitHub is certified to the EU-US and Swiss-US Privacy Shield Frameworks and the commitments they entail, although GitHub does not rely on the EU-US Privacy Shield Framework as a legal basis for transfers of personal information in light of the judgment of the Court of Justice of the EU in Case C-311/18.
+GitHub 已通过了欧盟-美国和瑞士-美国隐私盾框架及其所含承诺的认证，尽管 GitHub 并不依赖欧盟-美国隐私盾框架作为个人信息转移的法律依据（根据欧盟法院在 C-311/18 案中的判决）。
 
-The EU-US and Swiss-US Privacy Shield Frameworks are set forth by the US Department of Commerce regarding the collection, use, and retention of User Personal Information transferred from the European Union, the UK, and Switzerland to the United States. GitHub 已通过美国商务部遵守隐私盾原则的认证。 If our vendors or affiliates process User Personal Information on our behalf in a manner inconsistent with the principles of either Privacy Shield Framework, GitHub remains liable unless we prove we are not responsible for the event giving rise to the damage.
+欧盟-美国和瑞士-美国隐私盾框架是美国商务部针对从欧盟、英国和瑞士转移到美国的用户个人信息之收集、使用和保留而制定的框架。 GitHub 已通过美国商务部遵守隐私盾原则的认证。 如果我们的供应商或关联公司处理用户个人信息的方式与任一隐私盾框架的原则不一致，则除非我们证明我们对造成损害的事件没有责任，否则 GitHub 仍会负责。
 
-For purposes of our certifications under the Privacy Shield Frameworks, if there is any conflict between the terms in these Global Privacy Practices and the Privacy Shield Principles, the Privacy Shield Principles shall govern. 要详细了解隐私盾原则和查看我们的认证，请访问[隐私盾网站](https://www.privacyshield.gov/)。
+为尊重我们在隐私盾框架下的认证，如果这些全球隐私实践中的条款与隐私盾原则之间存在任何冲突，以隐私盾原则为准。 要详细了解隐私盾原则和查看我们的认证，请访问[隐私盾网站](https://www.privacyshield.gov/)。
 
-The Privacy Shield Frameworks are based on seven principles, and GitHub adheres to them in the following ways:
+隐私盾框架基于七项原则，GitHub 通过以下方式遵循这些原则：
 
 - **通知**
   - 我们在收集您的个人信息时会通知您。
@@ -59,7 +59,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
 
 #### 争议解决流程
 
-As further explained in the [Resolving Complaints](/github/site-policy/github-privacy-statement#resolving-complaints) section of our [Privacy Statement](/github/site-policy/github-privacy-statement), we encourage you to contact us should you have a Privacy Shield-related (or general privacy-related) complaint. For any complaints that cannot be resolved with GitHub directly, we have selected to cooperate with the relevant EU Data Protection Authority, or a panel established by the European data protection authorities, for resolving disputes with EU individuals, and with the Swiss Federal Data Protection and Information Commissioner (FDPIC) for resolving disputes with Swiss individuals. 如果您需要适用的数据保护当局联系人的信息，请联系我们。
+如我们的[隐私声明](/github/site-policy/github-privacy-statement)中[解决投诉](/github/site-policy/github-privacy-statement#resolving-complaints)部分所述，如果您有与隐私盾相关（或与一般隐私保护相关）的投诉，建议您联系我们。 对于 GitHub 无法直接解决的任何投诉，我们会选择与相关的欧盟数据保护当局或他们成立的小组合作，解决与欧盟人士的争议；与瑞士联邦数据保护和信息专员 (FDPIC) 合作，解决与瑞士人士的争议。 如果您需要适用的数据保护当局联系人的信息，请联系我们。
 
 此外，如果您是欧盟成员国的居民，您有权向当地监管机构提出投诉。
 
@@ -67,6 +67,6 @@ As further explained in the [Resolving Complaints](/github/site-policy/github-pr
 
 在某些有限的情况下，如果所有其他形式的争议解决均未成功，作为最后手段，欧盟、欧洲经济区 (EEA)、瑞士和英国人士可以诉诸具有约束力的隐私盾仲裁。 要详细了解这种解决方法及其适用性，请认真阅读[隐私盾](https://www.privacyshield.gov/article?id=ANNEX-I-introduction)。 仲裁不是强制性的；它是您可以选择使用的工具。
 
-We are subject to the jurisdiction of the US Federal Trade Commission (FTC).
+我们受美国联邦贸易委员会 (FTC) 的管辖。
 
 更多信息请参阅我们的[隐私声明](/articles/github-privacy-statement/)。

@@ -1,6 +1,6 @@
 ---
 title: 查看订阅和结算日期
-intro: 您可以在帐户的计费设置中查看帐户的订阅、其他付费功能和产品以及下一个结算日期。
+intro: '您可以在帐户的计费设置中查看帐户的订阅、其他付费功能和产品以及下一个结算日期。'
 redirect_from:
   - /articles/finding-your-next-billing-date/
   - /articles/finding-your-personal-account-s-next-billing-date/

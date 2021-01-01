@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 身份验证
 
-您可以匿名读取公开 Gist {% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "2.9" %}并为没有令牌的匿名用户创建它们。{% else %}，但是您必须登录到 GitHub 才能创建 Gist。{% endif %} 要代表用户读取或写入 Gist，您需要 Gist OAuth 作用域和令牌。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。
+您可以匿名读取公开 Gist {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}并为没有令牌的匿名用户创建它们。{% else %}，但是您必须登录到 GitHub 才能创建 Gist。{% endif %} 要代表用户读取或写入 Gist，您需要 Gist OAuth 作用域和令牌。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 

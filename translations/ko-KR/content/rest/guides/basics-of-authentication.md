@@ -8,8 +8,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 In this section, we're going to focus on the basics of authentication. Specifically, we're going to create a Ruby server (using [Sinatra][Sinatra]) that implements the [web flow][webflow] of an application in several different ways.
@@ -47,8 +47,10 @@ get '/' do
 end
 ```
 
-Your client ID and client secret keys come from [your application's configuration page][app settings]. You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as [environment variables][about env vars]--which is exactly what we've done here.
+Your client ID and client secret keys come from [your application's configuration page][app settings].
+{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
+{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
+[environment variables][about env vars]--which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
 
@@ -106,7 +108,7 @@ After a successful app authentication, {% data variables.product.product_name %}
 
 #### Checking granted scopes
 
-In the future, users will be able to [edit the scopes you requested][edit scopes post], and your application might be granted less access than you originally asked for. So, before making any requests with the token, you should check the scopes that were granted for the token by the user.
+Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
 
 The scopes that were granted are returned as a part of the response from exchanging a token.
 
@@ -128,7 +130,7 @@ Also, since there's a hierarchical relationship between scopes, you should check
 
 Checking for scopes only before making requests is not enough since it's possible that users will change the scopes in between your check and the actual request. In case that happens, API calls you expected to succeed might fail with a `404` or `401` status, or return a different subset of information.
 
-To help you gracefully handle these situations, all API responses for requests made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes]. This header contains the list of scopes of the token that was used to make the request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/v3/apps/oauth_applications/#check-a-token\]{% else %}\[check a token for validity\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}. Use this information to detect changes in token scopes, and inform your users of changes in available application functionality.
+To help you gracefully handle these situations, all API responses for requests made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes]. This header contains the list of scopes of the token that was used to make the request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/rest/reference/apps#check-a-token\]{% else %}\[check a token for validity\]\[/rest/reference/apps#check-an-authorization\]{% endif %}. Use this information to detect changes in token scopes, and inform your users of changes in available application functionality.
 
 #### Making authenticated requests
 
@@ -173,7 +175,8 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 It'd be a pretty bad model if we required users to log into the app every single time they needed to access the web page. For example, try navigating directly to `http://localhost:4567/basic`. You'll get an error.
 
 What if we could circumvent the entire "click here" process, and just _remember_ that, as long as the user's logged into
-{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat, because _that's exactly what we're going to do_.
+{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat,
+because _that's exactly what we're going to do_.
 
 Our little server above is rather simple. In order to wedge in some intelligent authentication, we're going to switch over to using sessions for storing tokens. This will make authentication transparent to the user.
 
@@ -302,6 +305,5 @@ Also, if we had never authorized this application to access our {% data variable
 [libraries]: /libraries/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[edit scopes post]: https://developer.github.com/changes/2013-10-04-oauth-changes-coming/
 [new oauth app]: https://github.com/settings/applications/new
 [app settings]: https://github.com/settings/developers

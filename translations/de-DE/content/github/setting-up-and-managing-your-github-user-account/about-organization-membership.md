@@ -1,11 +1,12 @@
 ---
 title: Informationen zur Organisationsmitgliedschaft
-intro: 'Du kannst Mitglied einer Organisation werden, um mit Mitarbeitern oder Open-Source-Mitwirkenden in vielen Repositorys gleichzeitig zusammenzuarbeiten.'
+intro: Du kannst Mitglied einer Organisation werden, um mit Mitarbeitern oder Open-Source-Mitwirkenden in vielen Repositorys gleichzeitig zusammenzuarbeiten.
 redirect_from:
   - /articles/about-organization-membership
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Ein Organisationsinhaber kann Dich einladen, seiner Organisation als Mitglied, Abrechnungsmanager oder Inhaber beizutreten. Ein Organisationsinhaber oder Mitglied mit Administratorberechtigungen für ein Repository kann Dich einladen, als externer Mitarbeiter in einem oder mehreren Repositorys zusammenzuarbeiten. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".

@@ -39,7 +39,7 @@ Se não tiver, você pode usar a ferramenta SSL Converter para converter seu cer
 
 ### Instalação parada após upload de chave
 
-Se a {% data variables.product.product_location_enterprise %} parar de funcionar após o upload de uma chave SSL, [entre em contato com o suporte do {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/support) informando detalhes específicos, inclusive uma cópia do seu certificado SSL.
+Se a {% data variables.product.product_location %} parar de funcionar após o upload de uma chave SSL, [entre em contato com o suporte do {% data variables.product.prodname_enterprise %}](https://enterprise.github.com/support) informando detalhes específicos, inclusive uma cópia do seu certificado SSL.
 
 ### Erros de validade de certificado
 

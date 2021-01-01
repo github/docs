@@ -3,7 +3,6 @@ title: Removing users from teams and organizations
 intro: 'If a member of your organization no longer requires access to certain repositories, you can remove them from the team that allows that access. If a member of your organization no longer requires access to any repositories owned by the organization, you can remove them from the organization.'
 redirect_from:
   - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
-  - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
 versions:
   enterprise-server: '*'
 ---

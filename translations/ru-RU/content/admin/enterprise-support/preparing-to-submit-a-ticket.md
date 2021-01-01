@@ -1,12 +1,11 @@
 ---
 title: Preparing to submit a ticket
-intro: 'Help {% data variables.contact.github_support %} help you faster by following these suggestions before you open a support ticket.'
+intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
 redirect_from:
-  - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
-  - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Before submitting a ticket, you should:
@@ -18,13 +17,11 @@ Before submitting a ticket, you should:
 - Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
 - Determine the best person to contact {% data variables.contact.github_support %}.
 
-For more information, see "[Submitting a ticket](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)."
-
 ### Choosing a contact person
 
 Especially for tickets with {% data variables.product.support_ticket_priority_urgent %} priority, the person contacting {% data variables.contact.github_support %} should:
 
  - Be knowledgeable in your internal systems, tools, policies, and practices.
- - Be a proficient user of {% data variables.product.prodname_ghe_server %}.
+ - Be a proficient user of {% data variables.product.product_name %}.
  - Have full access and permissions to any services that are required to troubleshoot the issue.
  - Be authorized to make the recommended changes to your network and any applicable products.

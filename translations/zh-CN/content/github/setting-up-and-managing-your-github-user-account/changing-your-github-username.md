@@ -14,7 +14,7 @@ versions:
 
 ### 关于用户名更改
 
-您可以将用户名更改为当前未使用的另一个用户名。{% if currentVersion == "free-pro-team@latest" %} 如果所需的用户名不可用，您在键入所需的用户名时将看到您是否可以申请释放该用户名的信息。
+You can change your username to another username that is not currently in use.{% if currentVersion == "free-pro-team@latest" %} If the username you want is not available, you'll see information about whether you can request the username to be released when you type in the desired username.
 
 如果该用户名不符合释放条件，并且您不持有该用户名的商标，则可选择其他用户名或保留您当前的用户名。 {% data variables.contact.github_support %} 无法为您释放不可用的用户名。 更多信息请参阅“[更改用户名](#changing-your-username)”。{% endif %}
 
@@ -34,11 +34,11 @@ versions:
 
 ### 指向以前的个人资料页面的链接
 
-更改用户名后，指向以前的个人资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previoususername`）将返回 404 错误。 我们建议从其他位置更新指向 {% data variables.product.product_name %} 帐户的所有链接{% if currentVersion == "free-pro-team@latest" %}，例如您的 LinkedIn 或 Twitter 个人资料{% endif %}。
+更改用户名后，指向以前的个人资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previoususername`）将返回 404 错误。 We recommend updating any links to your {% data variables.product.product_name %} account from elsewhere{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profile{% endif %}.
 
 ### 您的 Git 提交
 
-{% if currentVersion == "free-pro-team@latest"%}与您的 {% data variables.product.product_name %} 提供的 `noreply` 电子邮件地址关联的 Git 提交不会归于新的用户名，并且不会在您的贡献图中显示。{% endif %}如果您的 Git 提交与您已[添加到 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account)的其他电子邮件地址关联，{% if currentVersion == "free-pro-team@latest"%}包括基于 ID 的 {% data variables.product.product_name %} 提供的 `noreply` 电子邮件地址，{% endif %}它们在您更改用户名后将继续归于您并在您的贡献图中显示。 有关设置电子邮件地址的更多详细信息，请参阅“[设置您的提交电子邮件地址](/articles/setting-your-commit-email-address)”。
+{% if currentVersion == "free-pro-team@latest"%}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. 有关设置电子邮件地址的更多详细信息，请参阅“[设置您的提交电子邮件地址](/articles/setting-your-commit-email-address)”。
 
 ### 更改用户名
 
@@ -53,5 +53,5 @@ versions:
 ### 延伸阅读
 
 - “[更改远程的 URL](/articles/changing-a-remote-s-url)”
-- “[我的提交为什么链接到错误的用户？](/articles/why-are-my-commits-linked-to-the-wrong-user)”{% if currentVersion == "free-pro-team@latest" %}
+- "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
 - "[{% data variables.product.prodname_dotcom %} 用户名策略](/articles/github-username-policy)"{% endif %}

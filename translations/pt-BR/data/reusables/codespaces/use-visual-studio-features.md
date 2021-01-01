@@ -1,1 +1,1 @@
-Depois de abrir um código, você pode desenvolver usando recursos do {% data variables.product.prodname_vscode %}, como edição de texto, depuração e comandos Git. For more information, see the [{% data variables.product.prodname_vscode %} documentation](https://code.visualstudio.com/docs).
+Você pode editar código, depurar e usar comandos do Git ao mesmo tempo que faz o desenvolvimento em um codespace com {% data variables.product.prodname_vscode %}. For more information, see the [{% data variables.product.prodname_vscode %} documentation](https://code.visualstudio.com/docs).

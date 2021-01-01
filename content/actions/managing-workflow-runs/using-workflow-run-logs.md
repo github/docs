@@ -14,9 +14,7 @@ You can see whether a workflow run is in progress or complete from the workflow 
 
 If the run is complete, you can see whether the result was a success, failure, canceled, or neutral. If the run failed, you can view and search the build logs to diagnose the failure and re-run the workflow. You can also view billable job execution minutes, or download logs and build artifacts.
 
- ![Annotated workflow run image](/assets/images/help/repository/annotated-workflow.png)
-
-{% data variables.product.prodname_actions %} use the Checks API to output statuses, results, and logs for a workflow. {% data variables.product.prodname_dotcom %} creates a new check suite for each workflow run. The check suite contains a check run for each job in the workflow, and each job includes steps. {% data variables.product.prodname_actions %} are run as a step in a workflow. For more information about the Checks API, see "[Checks](/v3/checks/)."
+{% data variables.product.prodname_actions %} use the Checks API to output statuses, results, and logs for a workflow. {% data variables.product.prodname_dotcom %} creates a new check suite for each workflow run. The check suite contains a check run for each job in the workflow, and each job includes steps. {% data variables.product.prodname_actions %} are run as a step in a workflow. For more information about the Checks API, see "[Checks](/rest/reference/checks)."
 
 {% data reusables.github-actions.invalid-workflow-files %}
 
@@ -30,13 +28,11 @@ For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Se
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-{% data reusables.repositories.navigate-to-job %}
-6. To expand the log for a failed step, click the step.
-  ![Failed step name](/assets/images/help/repository/failed-check-step.png)
-7. Optionally, to get a link to a specific line in the logs, click on the step's line number. You can copy the link from the address bar of your web browser.
-  ![Button to copy link](/assets/images/help/repository/copy-link-button.png)
+{% data reusables.repositories.navigate-to-workflow-superlinter %}
+{% data reusables.repositories.view-run-superlinter %}
+{% data reusables.repositories.navigate-to-job-superlinter %}
+{% data reusables.repositories.view-failed-job-results-superlinter %}
+{% data reusables.repositories.view-specific-line-superlinter %}
 
 ### Searching logs
 
@@ -44,13 +40,22 @@ You can search the build logs for a particular step. When you search logs, only 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-{% data reusables.repositories.navigate-to-job %}
-6. To expand each step you want to include in your search, click the step.
+{% data reusables.repositories.navigate-to-workflow-superlinter %}
+{% data reusables.repositories.view-run-superlinter %}
+{% data reusables.repositories.navigate-to-job-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
+{% else %}
+  ![Search box to search logs](/assets/images/help/repository/search-log-box-updated.png)
+{% endif %}
+{% else %}
+1. To expand each step you want to include in your search, click the step.
   ![Step name](/assets/images/help/repository/failed-check-step.png)
-7. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
+1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
   ![Search box to search logs](/assets/images/help/repository/search-log-box.png)
+{% endif %}
 
 ### Downloading logs
 
@@ -58,12 +63,20 @@ You can download the log files from your workflow run. You can also download a w
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
-1. In the left sidebar, select any job.
-   ![Select a workflow job](/assets/images/help/repository/workflow-job.png)
-2. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+{% data reusables.repositories.navigate-to-workflow-superlinter %}
+{% data reusables.repositories.view-run-superlinter %}
+{% data reusables.repositories.navigate-to-job-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+1. In the upper right corner, click {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} and select **Download log archive**.
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
+  {% else %}
+  ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated.png)
+  {% endif %}
+{% else %}
+1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down.png)
+{% endif %}
 
 ### Deleting logs
 
@@ -71,10 +84,26 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow %}
-{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-workflow-superlinter %}
+{% data reusables.repositories.view-run-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
+    {% else %}
+    ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+    {% endif %}
+2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated-2.png)
+  {% else %}
+  ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)
+  {% endif %}
+After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+{% else %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
 2. To delete the log files, click the **Delete all logs** button and review the confirmation prompt. 
   ![Delete all logs](/assets/images/help/repository/delete-all-logs.png)
-After deleting logs, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+{% endif %}

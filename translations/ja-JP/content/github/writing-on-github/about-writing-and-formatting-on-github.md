@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 [Markdown](http://daringfireball.net/projects/markdown/) は、プレーンテキストをフォーマットするための読みやすく書きやすい構文です。

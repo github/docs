@@ -14,11 +14,12 @@ intro: 'No centro do {% data variables.product.product_name %} há um sistema de
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Para usar o Git na linha de comando, você precisará fazer download, instalar e configurar o Git no computador. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} Você também pode instalar {% data variables.product.prodname_cli %} para usar {% data variables.product.product_name %} na linha de comando. Para obter mais informações sobre {% data variables.product.prodname_cli %}, consulte a documentação de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) .{% endif %}
+Para usar o Git na linha de comando, você precisará fazer download, instalar e configurar o Git no computador. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "github-ae@latest" %} Você também pode instalar {% data variables.product.prodname_cli %} para usar {% data variables.product.product_name %} na linha de comando. Para obter mais informações sobre {% data variables.product.prodname_cli %}, consulte a documentação de [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) .{% endif %}
 
-Se quiser trabalhar com o Git , mas não quiser usar a linha de comando, você poderá baixar e instalar o cliente do [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obter mais informações, consulte "[Instalar e configurar o {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
+Se quiser trabalhar com o Git, mas não quiser usar a linha de comando, você poderá baixar e instalar o cliente do [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obter mais informações, consulte "[Instalar e configurar o {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
 
 Se não precisar trabalhar nos arquivos localmente, o {% data variables.product.product_name %} permite a execução de diversas ações relacionadas ao Git diretamente no navegador, incluindo:
 

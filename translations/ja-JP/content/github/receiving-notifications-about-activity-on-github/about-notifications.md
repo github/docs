@@ -9,9 +9,9 @@ versions:
 
 受信する通知は、*参加*通知か*Watch対象の*通知です。 どちらの種類の通知も、Webの通知あるいはメール通知として受信できます。 詳しい情報については、以下を参照してください。
 
-- [Web 通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)
+- 「[Web 通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)」
 - 「[メール通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)」
-- 「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」
+- [通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)
 
 {% data reusables.notifications.outbound_email_tip %}
 
@@ -33,9 +33,8 @@ versions:
 
 #### Watch 対象の通知
 
-{% data variables.product.product_name %} は、あなたが Watch しているリポジトリあるいは Team のディスカッションに更新があった場合、*Watch* 通知を送信します。 {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}詳細は、「[リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)」を参照してください。
-
-{% endif %}通知は以下の場合に送られます:
+{% data variables.product.product_name %} は、あなたが Watch しているリポジトリあるいは Team のディスカッションに更新があった場合、*Watch* 通知を送信します。  {% data reusables.notifications.auto-watch %} 詳細は、「[リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)」を参照してください。
+通知は以下の場合に送られます:
   - Issue がオープンされた場合。
   - コミットがオープンな Issue に追加された場合。
   - プルリクエストがオープンされた場合。
@@ -50,7 +49,7 @@ versions:
 
 ### 参考リンク
 
-- [Watch しているリポジトリのリスト](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)
+- 「[Watch しているリポジトリのリスト](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)」
 - [リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)
 - 「[Team ディスカッションの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-team-discussions)」
 - 「[通知のサブスクライブとサブスクライブ解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)」

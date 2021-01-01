@@ -5,11 +5,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
 
-Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/v3/issues).
+Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/rest/reference/issues).
 
 ### Custom media types for pull requests
 
@@ -32,16 +33,16 @@ If a diff is corrupt, contact {% data variables.contact.contact_support %}. Incl
 
 Pull Requests have these possible link relations:
 
-| Name              | Description                                                                                                                                      |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `self`            | The API location of this Pull Request.                                                                                                           |
-| `html`            | The HTML location of this Pull Request.                                                                                                          |
-| `задача`          | The API location of this Pull Request's [Issue](/v3/issues/).                                                                                    |
-| `комментарии`     | The API location of this Pull Request's [Issue comments](/v3/issues/comments/).                                                                  |
-| `review_comments` | The API location of this Pull Request's [Review comments](/v3/pulls/comments/).                                                                  |
-| `review_comment`  | The [URL template](/v3/#hypermedia) to construct the API location for a [Review comment](/v3/pulls/comments/) in this Pull Request's repository. |
-| `commits`         | The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).                                                              |
-| `statuses`        | The API location of this Pull Request's [commit statuses](/v3/repos/statuses/), which are the statuses of its `head` branch.                     |
+| Name              | Description                                                                                                                                                  |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `self`            | The API location of this Pull Request.                                                                                                                       |
+| `html`            | The HTML location of this Pull Request.                                                                                                                      |
+| `проблема`        | The API location of this Pull Request's [Issue](/rest/reference/issues).                                                                                     |
+| `комментарии`     | The API location of this Pull Request's [Issue comments](/rest/reference/issues#comments).                                                                   |
+| `review_comments` | The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).                                                                   |
+| `review_comment`  | The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository. |
+| `commits`         | The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).                                                                          |
+| `statuses`        | The API location of this Pull Request's [commit statuses](/rest/reference/repos#statuses), which are the statuses of its `head` branch.                      |
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}

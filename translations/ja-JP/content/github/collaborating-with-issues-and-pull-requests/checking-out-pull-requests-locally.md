@@ -7,6 +7,7 @@ permissions: リポジトリへの書き込みアクセスを持つユーザは�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}
@@ -44,7 +45,7 @@ versions:
   [main] $ git checkout <em>BRANCHNAME</em>
   > Switched to a new branch '<em>BRANCHNAME</em>'
   ```
-7. これで、このブランチに対して任意の操作を実行できます。 You can run some local tests, or merge other branches into the branch.
+7. これで、このブランチに対して任意の操作を実行できます。 ローカルテストを実行するか、他のブランチをブランチにマージすることができます。
 8. 準備ができたら、新しいブランチをプッシュできます。
   ```shell
   [pull-inactive-pull-request] $ git push origin <em>BRANCHNAME</em>

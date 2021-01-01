@@ -1,3 +1,3 @@
-首次启用版本更新时，您可能有很多过时的依赖项，其中一些可能为许多落后于最新版本的版本。 {% data variables.product.prodname_dependabot %} checks for outdated dependencies as soon as it's enabled. 根据您配置更新的清单文件的数量，您可能会在添加配置文件后几分钟内看到新的版本更新拉取请求。
+首次启用版本更新时，您可能有很多过时的依赖项，其中一些可能为许多落后于最新版本的版本。 {% data variables.product.prodname_dependabot %} 将在其启用后立即检查过时的依赖项。 根据您配置更新的清单文件的数量，您可能会在添加配置文件后几分钟内看到新的版本更新拉取请求。
 
-To keep pull requests manageable and easy to review, {% data variables.product.prodname_dependabot_short %} raises a maximum of five pull requests to start bringing dependencies up to the latest version. 如果您在下次预定更新之前合并第一批拉取请求中的一些请求，则接下来的拉取请求最多可以打开五个（您可以更改此限制）。
+为使拉取请求保持可管理和易于审查，{% data variables.product.prodname_dependabot %} 最多将提出五个拉取请求，以便开始将依赖项更新至最新版本。 如果您在下次预定更新之前合并第一批拉取请求中的一些请求，则接下来的拉取请求最多可以打开五个（您可以更改此限制）。

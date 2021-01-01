@@ -1,6 +1,6 @@
 ---
 title: GitHub-Erweiterungen und -Integrationen
-intro: 'Mit {% data variables.product.product_name %}-Erweiterungen kannst Du problemlos in {% data variables.product.product_name %}-Repositorys mit Anwendungen von Drittanbietern zusammenarbeiten.'
+intro: 'Mit {% data variables.product.product_name %}-Erweiterungen können Sie problemlos in {% data variables.product.product_name %}-Repositorys mit Anwendungen von Drittanbietern zusammenarbeiten.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications/
   - /articles/github-extensions-and-integrations
@@ -10,7 +10,7 @@ versions:
 
 ### Editor-Tools
 
-Um Deinen Workflow zu optimieren, kannst Du in Editor-Werkzeugen von Drittanbietern wie Atom, Unity oder Visual Studio eine Verbindung zu {% data variables.product.product_name %} herstellen.
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and Visual Studio.
 
 #### {% data variables.product.product_name %} für Atom
 
@@ -30,8 +30,12 @@ Mit der {% data variables.product.prodname_dotcom %}-Erweiterung für Visual Stu
 
 ### Projektmanagement-Tools
 
-Um Deinen Workflow zu optimieren, kannst Du Dein persönliches {% data variables.product.product_name %}-Konto oder Deine Organisation in Projektmanagement-Tools von Drittanbietern wie Jira integrieren.
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira or Slack.
 
 #### Jira Cloud und {% data variables.product.product_name %}.com-Integration
 
-Du kannst Jira Cloud in Dein persönliches Organisations-Konto integrieren, um Commits und Pull Requests zu scannen und relevante Metadaten und Hyperlinks in allen erwähnten Jira-Issues zu erstellen.
+Sie können Jira Cloud in Ihr persönliches Konto oder Organisations-Konto integrieren, um Commits und Pull Requests zu scannen und relevante Metadaten und Hyperlinks in allen erwähnten Jira-Issues zu erstellen. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+
+#### Slack and {% data variables.product.product_name %} integration
+
+You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.

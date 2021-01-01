@@ -1,1 +1,1 @@
-codespaceをオープンした後は、テキスト編集、デバッギング、Gitコマンドといった{% data variables.product.prodname_vscode %}の機能を使って開発を行えます。 詳しい情報については[{% data variables.product.prodname_vscode %}のドキュメンテーション](https://code.visualstudio.com/docs)を参照してください。
+You can edit code, debug, and use Git commands while developing in a codespace with {% data variables.product.prodname_vscode %}. 詳しい情報については[{% data variables.product.prodname_vscode %}のドキュメンテーション](https://code.visualstudio.com/docs)を参照してください。

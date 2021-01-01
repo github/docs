@@ -1,37 +1,37 @@
 ---
-title: Testing webhooks
-intro: 'Review your webhook deliveries on {% data variables.product.prodname_dotcom %}, including the HTTP Request and payload as well as the response.'
+title: webhookのテスト
+intro: '{% data variables.product.prodname_dotcom %} で webhook のデリバリを確認します。これには、HTTP リクエストとペイロード、およびレスポンスが含まれます。'
 redirect_from:
   - /webhooks/testing
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
+[ローカルサーバーを設定](/webhooks/configuring/)したら、次にコードを制限までプッシュしてみることができます。 そのために、GitHub の webhook ビューは、デプロイされたペイロードをテストするためのツールを提供しています。
 
-Now that you've [configured your local server](/webhooks/configuring/), you might be interested in pushing your code to the limits. To that end, GitHub's webhooks view provides some tooling for testing your deployed payloads.
+### 最近のデリバリの一覧表示
 
-### Listing recent deliveries
+すべての webhook には独自の \[Recent Deliveries\] (最近のデリバリ) セクションがあり、デリバリの成功（緑色のチェック）や失敗（赤色の x）が一目でわかります。 また、各デリバリの試行時期を特定することもできます。
 
-Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a deployment was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
-
-{% data variables.product.product_name %} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
+{% data variables.product.product_name %} は、各 webhook デリバリのログを {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} 日間保持します。
 
 ![[Recent Deliveries] ビュー](/assets/images/webhooks_recent_deliveries.png)
 
-### Digging into results
+### 結果を詳しく確認する
 
-By expanding an individual delivery, you'll be able to witness *precisely* what information GitHub is attempting to send to your server. This includes both the HTTP Request and Response.
+個別のデリバリを展開すると、GitHub がサーバーに送信しようとしている情報を*正確に*確認できます。 これには、HTTP リクエストとレスポンスの両方が含まれます。
 
-#### Request
+#### リクエスト
 
-The webhook delivery view provides information on which Headers were sent by GitHub. It also includes details about the JSON payload.
+webhook デリバリ ビューには、GitHub によって送信されたヘッダに関する情報が表示されます。 これには、JSON ペイロードに関する詳細も含まれています。
 
-![Viewing a payload request](/assets/images/payload_request_tab.png)
+![ペイロードリクエストの表示](/assets/images/payload_request_tab.png)
 
 #### レスポンス
 
-The response tab lists how your server replied once it received the payload from GitHub. This includes the status code, the headers, and any additional data within the response body.
+[Response] タブには、サーバーが GitHub からペイロードを受信した後の応答方法が一覧表示されます。 これには、ステータスコード、ヘッダ、およびレスポンス本文内の追加データが含まれます。
 
 ![ペイロードレスポンスの表示](/assets/images/payload_response_tab.png)

@@ -1,1 +1,1 @@
-1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** and then in the list of branches, click the branch that you want to base your new branch on.
+1. 在应用程序顶部，单击 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**，然后在分支列表中单击要将新分支作为基础的分支。

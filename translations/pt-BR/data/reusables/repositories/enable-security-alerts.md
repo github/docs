@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" %}
-Your site administrator must enable
-Your site administrator must enable security alerts for vulnerable dependencies for {% data variables.product.product_location_enterprise %} before you can use this feature. For more information, see "[Enabling security alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+{% if enterpriseServerVersions contains currentVersion %}
+O seu administrador do site deve habilitar
+{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %}alertas de segurança{% endif %} para dependências vulneráveis para {% data variables.product.product_location %} antes de você poder usar este recurso. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)".
 {% endif %}

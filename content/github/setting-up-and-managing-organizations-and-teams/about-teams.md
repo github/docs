@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![List of teams in an organization](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,9 +20,9 @@ For more information, see:
 
 ![Image of a team mention](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-You can also use LDAP Sync to synchronize {% data variables.product.product_location_enterprise %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location_enterprise %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+You can also use LDAP Sync to synchronize {% data variables.product.product_location %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
 {% endif %}
 
@@ -55,11 +56,7 @@ To easily understand who shares a parent team's permissions and mentions, you ca
 
 You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
-
-{% endif %}
 
 ### Preparing to nest teams in your organization
 

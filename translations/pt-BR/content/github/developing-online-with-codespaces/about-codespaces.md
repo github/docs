@@ -44,7 +44,7 @@ Todos os desenvolvedores podem criar um ou mais codespaces para qualquer reposit
 
 ### Sobre a cobrança do {% data variables.product.prodname_codespaces %}
 
-Durante o beta público limitado, {% data variables.product.prodname_codespaces %} pode ser usado livremente e os usuários estão limitados a 2 codespaces. Os planos e os preços serão anunciados antes da disponibilidade para o público em geral.
+{% data reusables.codespaces.about-billing-for-codespaces %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-billing-for-codespaces)".
 
 ### Juntar-se ao beta
 

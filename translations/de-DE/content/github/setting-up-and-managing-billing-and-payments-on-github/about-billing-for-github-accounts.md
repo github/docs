@@ -18,7 +18,7 @@ Weitere Informationen zu den für Dein Konto verfügbaren Produkten findest Du u
 
 Du kannst zwischen einer monatlichen oder jährlichen Abrechnung wählen und Dein Abonnement jederzeit herauf- oder herabstufen. Weitere Informationen findest Du unter „[Abrechnung für Dein {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account).“
 
-Du kannst andere Funktionen und Produkte mit Deinen vorhandenen {% data variables.product.product_name %}-Zahlungsinformationen erwerben. Weitere Informationen findest Du unter „[Informationen zur Abrechnung auf {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github).“
+Sie können andere Funktionen und Produkte mit Ihren vorhandenen {% data variables.product.product_name %}-Zahlungsinformationen erwerben. Weitere Informationen findest Du unter „[Informationen zur Abrechnung auf {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github).“
 
 {% tip %}
 

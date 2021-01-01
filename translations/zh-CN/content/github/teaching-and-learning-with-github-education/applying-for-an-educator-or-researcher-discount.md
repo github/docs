@@ -17,8 +17,8 @@ versions:
 
 要申请教育者或研究人员折扣，您必须：
 - 是教育者、教师或研究人员
-- Have a verifiable school-issued email address
-- Upload documents that prove your school affiliation
+- 具有学校分发的可验证电子邮件地址
+- 上传证明您的学校隶属关系文件
 - 拥有 [{% data variables.product.prodname_dotcom %} 用户帐户](/articles/signing-up-for-a-new-github-account)
 
 ### 申请教育者或研究人员折扣
@@ -44,7 +44,7 @@ versions:
 
 {% data reusables.education.upgrade-page %}
 1. 单击 {% octicon "plus" aria-label="The plus symbol" %} **Create an organization（创建组织）**。 ![创建组织按钮](/assets/images/help/education/create-org-button.png)
-3. 阅读信息，然后单击 **Create organization（创建组织）**。 ![Create organization button](/assets/images/help/education/create-organization-button.png)
+3. 阅读信息，然后单击 **Create organization（创建组织）**。 ![创建组织按钮](/assets/images/help/education/create-organization-button.png)
 4. 在“Choose a plan（选择计划）”下，单击 **选择 {% data variables.product.prodname_free_team %}**。
 5. 按照提示创建组织。
 {% data reusables.education.upgrade-page %}

@@ -1,1 +1,1 @@
-After creating and registering an OAuth App, you can make changes to it.
+Depois de criar e registrar um aplicativo OAuth, você pode fazer alterações nele.

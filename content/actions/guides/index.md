@@ -29,10 +29,20 @@ You can use {% data variables.product.prodname_actions %} to create custom conti
 {% link_in_list /about-continuous-integration %}
 {% link_in_list /setting-up-continuous-integration-using-workflow-templates %}
 {% link_in_list /building-and-testing-nodejs %}
+{% link_in_list /building-and-testing-powershell %}
 {% link_in_list /building-and-testing-python %}
+{% link_in_list /building-and-testing-ruby %}
 {% link_in_list /building-and-testing-java-with-maven %}
 {% link_in_list /building-and-testing-java-with-gradle %}
 {% link_in_list /building-and-testing-java-with-ant %}
+
+### Creating custom continuous deployment workflows
+
+You can use {% data variables.product.prodname_actions %} to create custom continuous deployment (CD) workflows that deploy projects to a number of cloud partner ecosystems.
+
+ {% link_in_list /deploying-to-amazon-elastic-container-service %}
+ {% link_in_list /deploying-to-azure-app-service %}
+ {% link_in_list /deploying-to-google-kubernetes-engine %}
 
 ### Publishing software packages
 

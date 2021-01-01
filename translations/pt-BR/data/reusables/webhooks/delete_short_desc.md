@@ -1,1 +1,1 @@
-A Git branch or tag is deleted. For more information, see the "[Git data](/v3/git/)" REST API.
+Um branch ou tag do Git é excluído. Para obter mais informações, consulte a API REST de "[dados do Git](/rest/reference/git).

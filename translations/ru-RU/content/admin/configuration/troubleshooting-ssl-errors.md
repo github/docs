@@ -6,8 +6,6 @@ redirect_from:
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
-  - /enterprise/admin/configuration/troubleshooting-ssl-errors
-  - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
 ---
@@ -41,7 +39,7 @@ Otherwise, you can use the SSL Converter tool to convert your certificate into t
 
 ### Unresponsive installation after uploading a key
 
-If {% data variables.product.product_location_enterprise %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
+If {% data variables.product.product_location %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
 
 ### Certificate validity errors
 

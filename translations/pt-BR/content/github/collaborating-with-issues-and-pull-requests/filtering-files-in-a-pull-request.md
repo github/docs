@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Você pode filtrar arquivos em uma pull request pelo tipo de extensão do arquivo, como  `.html` ou `.js`, sem extensão,  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} propriedade de código, {% endif %} ou dotfiles.
+Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo, como `. tml` ou `.js`, falta de uma extensão, propriedade de código ou dotfiles.
 
 {% tip %}
 
-**Dica:** para simplificar a visualização do diff da pull request, também é possível ocultar temporariamente os arquivos excluídos{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} ou aqueles que você já visualizou {% endif %}no diff da pull request, a partir menu suspenso file filter (filtro de arquivo).
+**Dica:** para simplificar a visualização do diff do pull request, também é possível ocultar temporariamente os arquivos excluídos ou aqueles que você já visualizou no diff do pull request a partir menu suspenso Filtro de arquivo.
 
 {% endtip %}
 

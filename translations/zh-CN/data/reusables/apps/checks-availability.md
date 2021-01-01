@@ -1,1 +1,1 @@
-Write permission for the Checks API is only available to GitHub Apps. OAuth Apps and authenticated users can view check runs and check suites, but they are not able to create them. If you aren't building a GitHub App, you might be interested in the [Statuses API](/v3/repos/statuses/).
+检查 API 的写入权限仅适用于 GitHub 应用程序。 OAuth 应用程序和经过身份验证的用户可以查看检查运行和检查套件，但无法创建它们。 如果您没有构建 GitHub 应用程序，您可能对[状态 API](/rest/reference/repos#statuses) 感兴趣。

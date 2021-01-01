@@ -1,11 +1,12 @@
 ---
 title: 从组织中删除成员
-intro: 如果组织的成员不再需要访问组织拥有的任何仓库，则可以从组织中删除他们。
+intro: '如果组织的成员不再需要访问组织拥有的任何仓库，则可以从组织中删除他们。'
 redirect_from:
   - /articles/removing-a-member-from-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 只有组织所有者才能从组织中删除成员。

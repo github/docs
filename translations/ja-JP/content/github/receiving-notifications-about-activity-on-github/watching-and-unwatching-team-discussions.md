@@ -21,14 +21,16 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.notifications %}
-{% data reusables.user_settings.automatic_watching_box %}[**Automatically watch teams**] を選択します。 ![Team を自動的に Watch するためのチェックボックス](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.automatic_watching_box %}[**Automatically watch teams**] を選択します。
+![Team を自動的に Watch するためのチェックボックス](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### 単一Team ディスカッションを Watch する
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
-{% data reusables.organizations.watch-team-options %}[**Watch**] をクリックして、通知オプションを開きます。 次に、[**Watching**] をクリックします。 ![特定の Team のドロップダウンメニューの Watch オプション](/assets/images/help/notifications/specific-team-watch-options.png)
+{% data reusables.organizations.watch-team-options %}[**Watch**] をクリックして、通知オプションを開きます。 次に、[**Watching**] をクリックします。
+![特定の Team のドロップダウンメニューの Watch オプション](/assets/images/help/notifications/specific-team-watch-options.png)
 
 ### 参加するすべての新しい Team の Team ディスカッションを Watch 解除する
 
@@ -36,14 +38,16 @@ Team に参加するときに Team ディスカッション通知を自動的に
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.notifications %}
-{% data reusables.user_settings.automatic_watching_box %}[**Automatically watch teams**] を選択解除します。 ![デフォルトで選択されているチームの自動 Watch 設定](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.automatic_watching_box %}[**Automatically watch teams**] を選択解除します。
+![デフォルトで選択されているチームの自動 Watch 設定](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### 単一 Team ディスカッションを Watch 解除する
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
-{% data reusables.organizations.watch-team-options %}[**Unwatch**] をクリックして、通知オプションを開きます。 次に、[**Not watching**] をクリックします。 ![特定の Team のドロップダウンメニューの Watch オプション](/assets/images/help/notifications/specific-team-unwatch.png)
+{% data reusables.organizations.watch-team-options %}[**Unwatch**] をクリックして、通知オプションを開きます。 次に、[**Not watching**] をクリックします。
+![特定の Team のドロップダウンメニューの Watch オプション](/assets/images/help/notifications/specific-team-unwatch.png)
 
 {% note %}
 

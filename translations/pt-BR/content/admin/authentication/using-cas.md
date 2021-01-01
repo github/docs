@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/about-cas-authentication/
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
-intro: 'O CAS é um protocolo de logon único (SSO) para vários aplicativos da web. Uma conta de usuário CAS não consome uma {% if currentVersion ver_gt "enterprise-server@2.16" %}licença de{% else %}usuário{% endif %} até o usuário fazer login.'
+intro: 'O CAS é um protocolo de logon único (SSO) para vários aplicativos da web. Uma conta de usuário CAS não ocupa uma {% if currentVersion ver_gt "enterprise-server@2.16" %}licença de usuário{% else %}estação{% endif %} até que o usuário se conecte.'
 versions:
   enterprise-server: '*'
 ---
@@ -25,14 +25,14 @@ versions:
 
 Os atributos a seguir estão disponíveis.
 
-| Nome do atributo  | Tipo        | Descrição                                                                   |
-| ----------------- | ----------- | --------------------------------------------------------------------------- |
+| Nome do atributo  | Tipo        | Descrição                                                              |
+| ----------------- | ----------- | ---------------------------------------------------------------------- |
 | `nome de usuário` | Obrigatório | Nome do usuário no {% data variables.product.prodname_ghe_server %}. |
 
 ### Configurar o CAS
 {% warning %}
 
-**Aviso:** antes de configurar o CAS na {% data variables.product.product_location_enterprise %}, observe que os usuários não poderão usar seus nomes e senhas do CAS para autenticar solicitações de API ou operações do Git por HTTP/HTTPS. Para isso, eles deverão [criar tokens de acesso](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
+**Aviso:** antes de configurar o CAS na {% data variables.product.product_location %}, observe que os usuários não poderão usar seus nomes e senhas do CAS para autenticar solicitações de API ou operações do Git por HTTP/HTTPS. Para isso, eles deverão [criar tokens de acesso](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use).
 
 {% endwarning %}
 

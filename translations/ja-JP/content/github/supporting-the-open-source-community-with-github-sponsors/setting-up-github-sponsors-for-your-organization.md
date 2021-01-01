@@ -25,7 +25,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 ### スポンサードOrganizationプロフィールを記入する
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -50,11 +50,11 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 ### 銀行口座情報をサブミットする
 
-スポンサードOrganizationは、組織の専用銀行口座への支払いを、サポートされている地域で受け取る必要があります。 業務用の銀行口座は、[Open Collective](https://opencollective.com/)や[Stripe Atlas](https://stripe.com/atlas)といったサービスで設置できます。 {% data reusables.sponsors.stripe-supported-regions %}
+スポンサードOrganizationは、組織の専用銀行口座への支払いを、サポートされている地域で受け取る必要があります。 業務用の銀行口座は、[Open Collective](https://opencollective.com/)や[Stripe Atlas](https://stripe.com/atlas)といったサービスで設置できます。 The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 Open Collective を使用して Stripe Connect を設定する方法については、Open Collective のドキュメンテーションで「[{% data variables.product.prodname_sponsors %} の設定](https://docs.opencollective.com/help/collectives/github-sponsors)」を参照してください。
@@ -63,7 +63,7 @@ Open Collective を使用して Stripe Connect を設定する方法について
 
 {% data reusables.sponsors.tax-form-information-org %}
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -75,7 +75,7 @@ Organization がスポンサード Organization になるには、{% data variab
 
 ### {% data variables.product.prodname_dotcom %} に申請をサブミットして承認を求める
 
-{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.request-approval %}
 
 {% data reusables.sponsors.github-review-app %}

@@ -1,14 +1,15 @@
 ---
 title: Organization 内でリポジトリの可視性の変更を制限する
-intro: Organization のデータを保護するために、Organization 内でリポジトリの可視性を変更するための権限を設定できます。
+intro: 'Organization のデータを保護するために、Organization 内でリポジトリの可視性を変更するための権限を設定できます。'
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-リポジトリの可視性を変更する資格を Organization のオーナーのみに制限すること、またはプライベートからパブリックまたはパブリックからプライベートに可視性を変更することをリポジトリの管理者権限を所有するメンバーに許可することができます。
+You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
 
 {% warning %}
 
@@ -23,3 +24,7 @@ versions:
 {% data reusables.organizations.member-privileges %}
 5. [Repository visibility change] の下で、[**Allow members to change repository visibilities for this organization**] の選択を解除します。 ![リポジトリ可視性変更をメンバーに許可するチェックボックス](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. [**Save**] をクリックします。
+
+### 参考リンク
+
+- 「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」

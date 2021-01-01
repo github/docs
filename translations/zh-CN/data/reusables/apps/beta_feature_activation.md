@@ -1,2 +1,2 @@
-4. In the left sidebar, click **Beta Features**. ![GitHub Apps or OAuth Apps section](/assets/images/github-apps/beta-features-option.png)
-5. Next to the beta feature you want to enable for your app, click **Opt-in**. ![Opt-in button to enable a beta feature](/assets/images/github-apps/enable-beta-features.png)
+4. 在左边栏中，单击 **Beta Features（测试版功能）**。 ![GitHub 应用程序或 OAuth 应用程序部分](/assets/images/github-apps/beta-features-option.png)
+5. 在您要为应用程序启用的测试版功能旁边，单击“**Opt-in（加入）**。。 ![用于启用测试版功能的选择加入按钮](/assets/images/github-apps/enable-beta-features.png)

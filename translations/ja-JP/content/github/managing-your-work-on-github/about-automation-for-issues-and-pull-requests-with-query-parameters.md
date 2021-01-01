@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 クエリパラメータはカスタマイズ可能なURLのオプション部分で、{% data variables.product.prodname_dotcom %}上の検索フィルタの結果やIssueテンプレートといった特定のWebページビューを共有できます。 独自のクエリパラメータを作成するには、キーと値のペアをマッチさせなければなりません。

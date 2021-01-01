@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume. Most of the time, you might even find that you're asking for _too much_ information, and in order to keep our servers happy, the API will automatically [paginate the requested items][pagination].
 
@@ -19,9 +20,9 @@ In this guide, we'll make some calls to the {% data variables.product.product_na
 
 To start with, it's important to know a few facts about receiving paginated items:
 
-1. Different API calls respond with different defaults. For example, a call to [List public repositories](/v3/repos/#list-public-repositories) provides paginated items in sets of 30, whereas a call to the GitHub Search API provides items in sets of 100
+1. Different API calls respond with different defaults. For example, a call to [List public repositories](/rest/reference/repos#list-public-repositories) provides paginated items in sets of 30, whereas a call to the GitHub Search API provides items in sets of 100
 2. You can specify how many items to receive (up to a maximum of 100); but,
-3. For technical reasons, not every endpoint behaves the same. For example, [events](/v3/activity/events/) won't let you set a maximum for items to receive. Be sure to read the documentation on how to handle paginated results for specific endpoints.
+3. For technical reasons, not every endpoint behaves the same. For example, [events](/rest/reference/activity#events) won't let you set a maximum for items to receive. Be sure to read the documentation on how to handle paginated results for specific endpoints.
 
 Information about pagination is provided in [the Link header](http://tools.ietf.org/html/rfc5988) of an API call. For example, let's make a curl request to the search API, to find out how many times Mozilla projects use the phrase `addClass`:
 
@@ -31,8 +32,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 The `-I` parameter indicates that we only care about the headers, not the actual content. In examining the result, you'll notice some information in the Link header that looks like this:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 Let's break that down. `rel="next"` says that the next page is `page=2`. This makes sense, since by default, all paginated queries start at page `1.` `rel="last"` provides some more information, stating that the last page of results is on page `34`. Thus, we have 33 more pages of information about `addClass` that we can consume. Nice!
 
@@ -48,10 +49,10 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 Here's the link header once more:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 As expected, `rel="next"` is at 15, and `rel="last"` is still 34. But now we've got some more information: `rel="first"` indicates the URL for the _first_ page, and more importantly, `rel="prev"` lets you know the page number of the previous page. Using this information, you could construct some UI that lets users jump between the first, previous, next, or last list of results in an API call.
 
@@ -65,8 +66,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 Notice what it does to the header response:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 As you might have guessed, the `rel="last"` information says that the last page is now 20. This is because we are asking for more information per page about our results.
 
@@ -200,7 +201,7 @@ puts "The prev page link is #{prev_page_href}"
 puts "The next page link is #{next_page_href}"
 ```
 
-[pagination]: /v3/#pagination
+[pagination]: /rest#pagination
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/traversing-with-pagination
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [personal token]: /articles/creating-an-access-token-for-command-line-use

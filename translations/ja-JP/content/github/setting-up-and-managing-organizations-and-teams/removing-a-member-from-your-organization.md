@@ -1,11 +1,12 @@
 ---
 title: Organization からメンバーを削除する
-intro: Organization のメンバーが、Organization が所有するリポジトリへのアクセスを必要としなくなった場合、そのメンバーを Organization から削除することができます。
+intro: 'Organization のメンバーが、Organization が所有するリポジトリへのアクセスを必要としなくなった場合、そのメンバーを Organization から削除することができます。'
 redirect_from:
   - /articles/removing-a-member-from-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organization からメンバーを削除できるのは、Organization のオーナーだけです。

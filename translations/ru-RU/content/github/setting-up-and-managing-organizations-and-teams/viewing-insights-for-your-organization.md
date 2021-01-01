@@ -36,7 +36,7 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 3. Under your organization name, click {% octicon "graph" aria-label="The bar graph icon" %} **Insights**. ![Insights tab in the main organization navigation bar](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. To view dependencies for this organization, click **Dependencies**. ![Dependencies tab under the main organization navigation bar](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. To view dependency insights for all your {% data variables.product.prodname_ghe_cloud %} organizations, click **My organizations**. ![My organizations button under dependencies tab](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
-6. You can click the results in the **Open security advisories** and **Licenses** graphs to filter by a vulnerability status, a license, or a combination of the two. ![My organizations vulnerabilities and licences graphs](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
+6. You can click the results in the **Open security advisories** and **Licenses** graphs to filter by a vulnerability status, a license, or a combination of the two. ![My organizations vulnerabilities and licenses graphs](/assets/images/help/organizations/org-insights-dependencies-graphs.png)
 7. You can click on {% octicon "package" aria-label="The package icon" %} **dependents** next to each vulnerability to see which dependents in your organization are using each library. ![My organizations vulnerable dependents](/assets/images/help/organizations/org-insights-dependencies-vulnerable-item.png)
 
 
@@ -45,4 +45,4 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
    - "[About organizations](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - "[Changing the visibility of your organization's dependency insights](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)"
-   - "[Enforcing a policy on dependency insights in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+   - "[Enforcing a policy on dependency insights in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"

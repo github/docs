@@ -1,11 +1,12 @@
 ---
 title: 必須レビューでのプルリクエストの承認
-intro: リポジトリでレビューが必須になっているなら、プルリクエストがマージできるようになるためには、リポジトリに _書き込み_ あるいは _管理_ 権限を持つ人からの承認レビューが指定された数だけ必要です。
+intro: 'リポジトリでレビューが必須になっているなら、プルリクエストがマージできるようになるためには、リポジトリに _書き込み_ あるいは _管理_ 権限を持つ人からの承認レビューが指定された数だけ必要です。'
 redirect_from:
   - /articles/approving-a-pull-request-with-required-reviews
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 必須レビューに関する詳しい情報については[プルリクエストのための必須レビューについて](/articles/about-required-reviews-for-pull-requests)を参照してください。

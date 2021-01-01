@@ -1,1 +1,1 @@
-1. At the top of the app, click {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch**, then click the branch that you want to delete.
+1. 在应用程序顶部，单击 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**，然后单击要删除的分支。

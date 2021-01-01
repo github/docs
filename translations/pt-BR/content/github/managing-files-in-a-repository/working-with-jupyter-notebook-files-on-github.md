@@ -6,12 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-Os recursos interativos do notebook, como plots personalizados de JavaScript, não funcionam no seu repositório no {% data variables.product.product_location %}. Para ver um exemplo, consulte [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+Os recursos interativos do notebook, como plots personalizados de JavaScript, não funcionam no seu repositório no {% data variables.product.product_location %}. Para ver um exemplo, consulte [*Linking e Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
-Para exibir o Jupyter Notebook com conteúdo JavaScript renderizado ou compartilhar arquivos do seu notebook com outras pessoas, use [nbviewer](https://nbviewer.jupyter.org/). Para ver um exemplo, consulte [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) renderizado no nbviewer.
+Para exibir o Jupyter Notebook com conteúdo JavaScript renderizado ou compartilhar arquivos do seu notebook com outras pessoas, use [nbviewer](https://nbviewer.jupyter.org/). Para ver um exemplo, consulte [*Linking e Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) representados no nbviewer.
 
 Para exibir uma versão totalmente interativa do Jupyter Notebook, configure um servidor de notebook localmente. Para obter mais informações, consulte a [documentação oficial do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html).
 

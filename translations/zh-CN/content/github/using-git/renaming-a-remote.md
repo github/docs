@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git remote rename` 命令使用两个参数：
@@ -15,7 +16,7 @@ versions:
 
 ### 示例
 
-These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
+以下示例假设您[使用 HTTPS 克隆](/articles/which-remote-url-should-i-use/#cloning-with-https-urls)，即推荐使用的方法。
 
 ```shell
 $ git remote -v

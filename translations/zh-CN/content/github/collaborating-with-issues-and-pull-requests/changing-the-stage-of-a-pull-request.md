@@ -1,6 +1,6 @@
 ---
 title: 更改拉取请求的阶段
-intro: '您可以将拉取请求草稿标记为可供审查{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}或将拉取请求转换为草稿{% endif %}。'
+intro: '您可以将拉取请求草稿标记为可供审查{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 或将拉取请求转换为草稿{% endif %}。'
 permissions: 具有仓库写入权限的人员和拉取请求作者可以更改拉取请求的阶段。
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 将拉取请求草稿标记为可供审查
@@ -18,7 +19,7 @@ versions:
 2. 在“Pull Requests（拉取请求）”列表中，单击要标记为可供审查的拉取请求。
 3. 在合并框中，单击 **Ready for review（可供审查）**。 ![可供审查按钮](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 ### 将拉取请求转换为草稿
 

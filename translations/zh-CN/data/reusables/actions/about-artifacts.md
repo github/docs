@@ -1,1 +1,1 @@
-Artifacts enable you to share data between jobs in a workflow and store data once that workflow has completed.
+构件允许您在工作流程完成后，分享工作流程中作业之间的数据并存储数据。

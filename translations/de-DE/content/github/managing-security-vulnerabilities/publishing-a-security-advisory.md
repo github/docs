@@ -1,6 +1,6 @@
 ---
 title: Einen Sicherheitshinweis veröffentlichen
-intro: 'Du kannst einen Sicherheitshinweis veröffentlichen, um Deine Community über eine Sicherheitslücke in Deinem Projekt zu informieren.'
+intro: Du kannst einen Sicherheitshinweis veröffentlichen, um Deine Community über eine Sicherheitslücke in Deinem Projekt zu informieren.
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/publishing-a-maintainer-security-advisory

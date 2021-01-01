@@ -1,11 +1,12 @@
 ---
 title: 返信テンプレートの作成
-intro: 同じコメントを何度も頻繁に追加する場合は、返信テンプレートを作成しておくと便利です。
+intro: '同じコメントを何度も頻繁に追加する場合は、返信テンプレートを作成しておくと便利です。'
 redirect_from:
   - /articles/creating-a-saved-reply
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

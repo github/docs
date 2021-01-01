@@ -6,11 +6,11 @@ versions:
   free-pro-team: '*'
 ---
 
-欢迎使用 GitHub Marketplace ("Marketplace")！ 我们很高兴在这里与您邂逅。 在访问或使用 GitHub Marketplace 之前，请仔细阅读这些服务条款（“Marketplace 条款”）。 GitHub Marketplace 是一个供您购买（免费或付费）可用于 GitHub.com 帐户的开发者产品（“开发者产品”）的平台。 开发者产品虽然通过 GitHub, Inc. （"GitHub"、“我们”）出售，但可能由 GitHub 或第三方软件提供者开发和维护，并可能需要您同意单独的服务条款 。 使用和/或购买开发者产品需遵守这些 Marketplace 条款，需支付适用的费用，可能还需要遵守该开发者产品的第三方许可者（“产品提供者”）规定的其他条款。
+欢迎使用 GitHub Marketplace ("Marketplace")！ 我们很高兴在这里与您邂逅。 在访问或使用 GitHub Marketplace 之前，请仔细阅读这些服务条款（“Marketplace 条款”）。 GitHub Marketplace is a platform that allows you to select developer apps or actions (for free or for a charge) that can be used with your GitHub.com account ("Developer Products"). Although offered by GitHub, Inc. ("GitHub", "we", "us"), Developer Products may be developed and maintained by either GitHub or by third-party software providers. Your selection or use of Developer Products is subject to these Marketplace Terms and any applicable fees, and may require you to agree to additional terms as provided by the third party licensor of that Developer Product (the "Product Provider").
 
 使用 Marketplace，即表示您同意遵守这些 Marketplace 条款。
 
-生效日期：2017 年 10 月 11 日
+Effective Date: November 20, 2020
 
 ### A. GitHub.com 的服务条款
 
@@ -50,11 +50,11 @@ Marketplace 由 GitHub 提供，受
 
 ### E. 您的数据和 GitHub 隐私政策
 
-**隐私。**当您购买或订阅开发者产品时，GitHub 必须与产品提供者分享某些个人信息（定义见 GitHub 隐私声明），以便为您提供开发者产品，无论您的隐私设置如何。 GitHub 分享信息的多少取决于您所选开发者产品的要求，最少会分享您的用户帐户名称、ID 和主电子邮件地址，最多会分享您仓库内容的访问权限，包括阅读和修改您私有数据的权限。 通过 OAuth 授予权限时，您可以查看开发者产品要求的权限范围，然后选择接受或拒绝。 根据 [GitHub 隐私声明](/articles/github-privacy-statement/)，我们只向产品提供者提供完成交易必需的最少量信息。</p> 
+**Privacy.** When you select or use a Developer Product, GitHub may share certain Personal Information (as defined in the [GitHub Privacy Statement](/articles/github-privacy-statement/)) with the Product Provider (if any such Personal Information is received from you) in order to provide you with the Developer Product, regardless of your privacy settings. GitHub 分享信息的多少取决于您所选开发者产品的要求，最少会分享您的用户帐户名称、ID 和主电子邮件地址，最多会分享您仓库内容的访问权限，包括阅读和修改您私有数据的权限。 通过 OAuth 授予权限时，您可以查看开发者产品要求的权限范围，然后选择接受或拒绝。 
 
-如果您通过帐户设置取消开发者产品服务并撤销访问权限，则产品提供者将无法再访问您的帐户。 产品提供者负责在其规定的时间内从其系统中删除您的个人信息。 请联系产品提供者以确保您的帐户以被正确终止。
+If you cease using the Developer Product and revoke access through your account settings, the Product Provider will no longer be able to access your account. 产品提供者负责在其规定的时间内从其系统中删除您的个人信息。 请联系产品提供者以确保您的帐户以被正确终止。
 
-**数据安全免责声明。** 当您购买或订阅开发者产品时， 开发者产品的安全性及其对您数据的保管是产品提供者的责任。 您有责任出于自己的安全性 、风险和合规性考虑，了解购买和使用开发者产品的相关安全因素。
+**Data Security and Privacy Disclaimer.** When you select or use a Developer Product, the security of the Developer Product and the custodianship of your data, including your Personal Information (if any), is the responsibility of the Product Provider. You are responsible for understanding the security and privacy considerations of the selection or use of the Developer Product for your own security and privacy risk and compliance considerations.
 
 
 
@@ -78,7 +78,7 @@ GitHub.com 会不时检查远程服务器（由 GitHub 或第三方托管）上�
 
 ### I. 免责声明；责任限制；免赔与保障赔偿
 
-**免责声明。** 您使用 Marketplace 和通过 Marketplace 获取的任何开发者产品均应自担风险。 Other than as expressly stated, GitHub provides Marketplace and Developer Products “AS IS” and “AS AVAILABLE.” 对于 Marketplace 和开发者产品，GitHub 不作任何明示或暗示的保证或承诺，包括但不限于通过 Marketplace 和开发者产品获取的特定功能、其可靠性、可用性或满足您需求的能力。
+**免责声明。** 您使用 Marketplace 和通过 Marketplace 获取的任何开发者产品均应自担风险。 除明确声明外，GitHub 将“按原样”和“视情况”提供 Marketplace 和开发者产品。 对于 Marketplace 和开发者产品，GitHub 不作任何明示或暗示的保证或承诺，包括但不限于通过 Marketplace 和开发者产品获取的特定功能、其可靠性、可用性或满足您需求的能力。
 
 我们保留随时和不时修改或停用（临时或永久）Marketplace 或其任何部分的权利，可能通知，也可能不通知。
 

@@ -19,8 +19,8 @@ You can also clone a repository directly from {% data variables.product.prodname
   ![Clone menu option in the Mac app](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![Location tabs in the Clone a repository menu](/assets/images/help/desktop/choose-repository-location-mac.png)
-{% data reusables.desktop.cloning-repository-list %}  
-![Clone a repository list](/assets/images/help/desktop/clone-a-repository-list-mac.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![Clone a repository list](/assets/images/help/desktop/clone-a-repository-list-mac.png)
 4. Click **Choose...** and, using the Finder window, navigate to a local path where you want to clone the repository. ![The choose button](/assets/images/help/desktop/clone-choose-button-mac.png)
 5. Click **Clone**. ![The clone button](/assets/images/help/desktop/clone-button-mac.png)
 
@@ -32,8 +32,8 @@ You can also clone a repository directly from {% data variables.product.prodname
   ![Clone menu option in the Windows app](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![Location tabs in the Clone a repository menu](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}     
-![Clone a repository list](/assets/images/help/desktop/clone-a-repository-list-win.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![Clone a repository list](/assets/images/help/desktop/clone-a-repository-list-win.png)
 4. Click **Choose...** and, using Windows Explorer, navigate to a local path where you want to clone the repository. ![The choose button](/assets/images/help/desktop/clone-choose-button-win.png)
 5. Click **Clone**. ![The clone button](/assets/images/help/desktop/clone-button-win.png)
 

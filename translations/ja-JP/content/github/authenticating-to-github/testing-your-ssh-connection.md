@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH 接続をテストする前に、次のことを済ませておく必要があります:
@@ -23,14 +24,6 @@ SSH 接続をテストする前に、次のことを済ませておく必要が�
   ```
 
   以下のような警告が表示される場合があります:
-
-  ```shell
-  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  > Are you sure you want to continue connecting (yes/no)?
-  ```
-
-  また、以下のように表示される場合もあります:
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.

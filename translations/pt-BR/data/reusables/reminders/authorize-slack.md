@@ -1,1 +1,1 @@
-1. Under "Slack workspace", click **Authorize Slack workspace** and follow the instructions. ![Authorize Slack workspace button](/assets/images/help/settings/scheduled-reminders-authorize-slack.png)
+1. Em "Área de trabalho do Slack", clique em **Autorizar área de trabalho do Slack** e siga as instruções. ![Botão de Autorizar área de trabalho do Slack](/assets/images/help/settings/scheduled-reminders-authorize-slack.png)

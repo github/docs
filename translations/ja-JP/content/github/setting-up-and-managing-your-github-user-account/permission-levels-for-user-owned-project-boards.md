@@ -1,11 +1,12 @@
 ---
 title: ユーザー所有のプロジェクトボードの権限レベル
-intro: ユーザーアカウントが所有するプロジェクトボードには、プロジェクトボードオーナーとコラボレーターの 2 つの権限レベルがあります。
+intro: 'ユーザーアカウントが所有するプロジェクトボードには、プロジェクトボードオーナーとコラボレーターの 2 つの権限レベルがあります。'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 権限の概要

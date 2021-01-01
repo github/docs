@@ -1,1 +1,1 @@
-1. In the left sidebar, click **GitHub Apps**. ![Seção de aplicativos do GitHub](/assets/images/settings/github_apps.png)
+1. Na barra lateral esquerda, clique em **Aplicativos GitHub**. ![Seção de aplicativos do GitHub](/assets/images/settings/github_apps.png)

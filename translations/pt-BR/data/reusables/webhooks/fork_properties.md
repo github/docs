@@ -1,3 +1,3 @@
-| Tecla    | Tipo     | Descrição                                                         |
-| -------- | -------- | ----------------------------------------------------------------- |
-| `forkee` | `objeto` | The created [`repository`](/v3/repos/#get-a-repository) resource. |
+| Tecla    | Tipo     | Descrição                                                                    |
+| -------- | -------- | ---------------------------------------------------------------------------- |
+| `forkee` | `objeto` | O recurso do [`repositório`](/rest/reference/repos#get-a-repository) criado. |

@@ -1,6 +1,6 @@
 ---
 title: Abrechnungsplan für eine GitHub Marketplace-App heraufstufen
-intro: 'Du kannst Deine {% data variables.product.prodname_marketplace %}-App jederzeit auf einen anderen Plan heraufstufen.'
+intro: 'Sie können Ihre {% data variables.product.prodname_marketplace %}-App jederzeit auf einen anderen Plan heraufstufen.'
 redirect_from:
   - /articles/upgrading-an-app-for-your-personal-account/
   - /articles/upgrading-an-app-for-your-organization/

@@ -1,1 +1,1 @@
-You only see this event in responses when project boards have been [enabled](/articles/disabling-project-boards-in-a-repository) in the repository.
+Você só vê esse evento nas respostas quando os quadros de projeto estão [habilitados](/articles/disabling-project-boards-in-a-repository) no repositório.

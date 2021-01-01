@@ -1,12 +1,13 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: '{% data variables.product.product_name %} でユーザ名、パスワード、たまは個人アクセストークンを変更した場合は、保存されている認証情報を `git-credential-osxkeychain` ヘルパーで更新する必要があります。'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% if currentVersion != "github-ae@latest" %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.password-authentication-deprecation %}
@@ -15,14 +16,12 @@ versions:
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app. ![スポットライト検索バー](/assets/images/help/setup/keychain-access.png)
 2. キーチェーン Access で、**{% data variables.command_line.backticks %}** を探してください。
-3. `{% data variables.command_line.backticks %}` の「internet password」エントリを見つけてください。 ![キーチェーンの GitHub パスワード入力内容](/assets/images/help/setup/keychain-entry.png)
+3. `{% data variables.command_line.backticks %}` の「internet password」エントリを見つけてください。
 4. 適宜、エントリを編集または削除します。
 
 ### コマンドラインで認証情報を削除する
 
-コマンドラインを通じて、認証情報ヘルパーを使ってキーチェーン エントリを直接、削除できます。
-
-これを行うために、次のコマンドを入力してください:
+Through the command line, you can use the credential helper directly to erase the keychain entry.
 
 ```shell
 $ git credential-osxkeychain erase
@@ -31,7 +30,7 @@ protocol=https
 > <em>[Press Return]</em>
 ```
 
-成功した場合、何もプリントアウトされません。 動作をテストするには、{% data variables.product.product_location %} からリポジトリをクローンしてみます。 パスワードを尋ねられた場合、キーチェーンは削除されています。
+成功した場合、何もプリントアウトされません。 To test that it works, try and clone a repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
 ### 参考リンク
 

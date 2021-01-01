@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines Codespace
-intro: 'Du kannst einen Codespace in einem Repository-Branch erstellen, um Online zu entwickeln.'
+intro: Du kannst einen Codespace in einem Repository-Branch erstellen, um Online zu entwickeln.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'Jeder kann einen Codespace für jedes öffentliche Repository erstellen, oder für jedes Repository, das seinem Benutzerkonto gehört.'
 redirect_from:

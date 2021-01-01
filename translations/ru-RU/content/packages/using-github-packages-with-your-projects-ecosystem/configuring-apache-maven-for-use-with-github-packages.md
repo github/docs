@@ -27,13 +27,13 @@ You can authenticate to {% data variables.product.prodname_registry %} with Apac
 
 In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your personal access token.
 
-In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}*REPOSITORY* with the name of the repository you'd like to publish a package to or install a package from, and *OWNER* with the name of the user or organization account that owns the repository. {% data reusables.package_registry.lowercase-name-field %}
+In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}*REPOSITORY* with the name of the repository you'd like to publish a package to or install a package from, and *OWNER* with the name of the user or organization account that owns the repository. Because uppercase letters aren't supported, you must use lowercase letters for the repository owner even if the {% data variables.product.prodname_dotcom %} user or organization name contains uppercase letters.
 
 If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
@@ -76,7 +76,7 @@ If your instance has subdomain isolation enabled:
 </settings>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
 ```
@@ -133,8 +133,8 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing
 
-{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
-  {% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
+  {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation enabled:
   {% endif %}
   ```
@@ -146,7 +146,7 @@ For more information on creating a package, see the [maven.apache.org documentat
      </repository>
   </distributionManagement>
   ```
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation disabled:
   ```
   <distributionManagement>

@@ -28,7 +28,7 @@ The license grant included with the Software is not for GitHub's trademarks, whi
 
 The names GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, Atom, the Octocat, and related GitHub logos and/or stylized names are trademarks of GitHub. You agree not to display or use these trademarks in any manner without GitHub's prior, written permission, except as allowed by GitHub's Logos and Usage Policy: https://github.com/logos.
 
-### Приватность
+### Конфиденциальность
 
 The Software may collect personal information. You may control what information the Software collects in the settings panel. If the Software does collect personal information on GitHub's behalf, GitHub will process that information in accordance with the [GitHub Privacy Statement](/articles/github-privacy-statement/).
 

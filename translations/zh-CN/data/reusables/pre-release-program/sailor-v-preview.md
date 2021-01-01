@@ -1,7 +1,7 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% note %}
 
-**Note:** You can now use the REST API to add a reason when you lock an issue, and you will see lock reasons in responses that include issues or pull requests. You will also see lock reasons in `locked` events. This feature is currently available for developers to preview. See the [blog post](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview) for full details. To access this feature, you must provide a custom [media type](/v3/media) in the `Accept` header:
+**注：**您现在可以使用 REST API 在锁定议题时添加原因，并且在包含议题或拉取请求的响应中会看到锁定原因。 在 `locked` 事件中也会看到锁定原因。 此功能目前可供开发者预览。 有关完整详情，请参阅[博客文章](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)。 要访问此功能，必须在 `Accept` 标头中提供自定义[媒体类型](/rest/overview/media-types)：
 
 ```
 application/vnd.github.sailor-v-preview+json

@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: July 20, 2020
+Version Effective Date: November 16, 2020
 
 只要单击“我同意”或类似按钮或者使用任何产品（定义如下），即表示客户接受本协议的条款和条件。 如果客户代表法人实体签订本协议，则客户表示其拥有确保该法人实体受本协议约束的法律权限。
 
@@ -29,13 +29,13 @@ Version Effective Date: July 20, 2020
 
 * 第 3 部分：GitHub Enterprise Cloud 服务条款；
 
-* EXHIBIT A: Definitions.
+* 附件 A：定义。
 
 如果客户从授权的 GitHub 经销商购买了任何产品，本协议的以下部分将替换为客户与 GitHub 经销商协作一致的条款：第 1.1 条（期限与终止）；1.2（付款）；第 2.3 条（交付）；以及第 2.4 条（验证）。
 
 ## 第 1 部分：一般条款和条件
 
-第 1 部分规定适用于客户购买和使用任何产品的条款和条件。 Capitalized terms used but not defined in the body of this Agreement are defined in Exhibit A.
+第 1 部分规定适用于客户购买和使用任何产品的条款和条件。 本协议正文中使用但未定义的术语在附件 A 中定义。
 
 ### 1.1 期限与终止。
 
@@ -161,11 +161,11 @@ GitHub 将采取合理的努力更正客户向 GitHub 告知的软件中任何�
 
 #### 1.13.2 美国政府用户。 政府用户.
 
-产品完全使用私人基金开发，被视为联邦联邦收购条例 12.212 和 27.405-3 以及国防联邦收购条例补充 227.7202-3 所述的“商业计算机软件”和“商业计算机软件文档”。 The Products are licensed to the U.S. 产品作为受限制的计算机软件和有限权利数据许可给美国政府最终用户。 没有技术数据或计算机软件是在本协议下开发的。 Any use, disclosure, modification, distribution, or reproduction of the Products or Documentation by the U.S. Government or its contractors is subject to the restrictions set forth in this Agreement. 禁止所有其他使用。
+产品完全使用私人基金开发，被视为联邦联邦收购条例 12.212 和 27.405-3 以及国防联邦收购条例补充 227.7202-3 所述的“商业计算机软件”和“商业计算机软件文档”。 产品许可给美国 产品作为受限制的计算机软件和有限权利数据许可给美国政府最终用户。 没有技术数据或计算机软件是在本协议下开发的。 美国政府或其承包商对产品或文档的任何使用、披露、修改、分发或重制， 需遵守本协议所述的限制。 禁止所有其他使用。
 
 #### 1.13.3 出口。
 
-The Products are subject to export restrictions by the U.S. </em>产品受美国政府实施的出口和制裁限制以及某些外国政府的进口限制之约束，客户在使用产品时应遵守所有适用的进出口法律法规。 客户不得也不得允许任何第三方从美国转移或出口产品，或者允许出口或再出口产品的任何部分或任何直接派生品到：(i) 被禁运或恐怖主义支持的国家（或其任何国民或居民）；(ii) 美国商务部的拒绝订购表（Table of Denial Orders）或美国财政部的特别指定国民（Specially Designated Nationals）名单中的任何人；(iii) 被限制或禁止出口或再出口的任何国家/地区，或者美国政府或其任何机构要求出口或再出口时获取出口许可证或其他政府批准但未事先获得此类许可证或批准的国家/地区；或 (iv) 违反美国或外国机构或机关的任何进出口限制、法律或法规的其他实体或个人。 Commerce Department's Table of Denial Orders or U.S. Treasury Department's list of Specially Designated Nationals; (iii) to any country to which such export or re-export is restricted or prohibited, or as to which the U.S. government or any agency thereof requires an export license or other governmental approval at the time of export or re-export without first obtaining such license or approval; or (iv) otherwise in violation of any export or import restrictions, laws or regulations of any United States or foreign agency or authority. 客户表示并保证 (a) 客户不是任何此类被禁国家的国民或居民或受其控制，也不在任何此类被禁方名单中，以及 (b) 客户的任何数据都不在《美国国际军火贩运条例》的控制下。 International Traffic in Arms Regulations. 客户承认并同意，事先未获得美国政府的允许，产品不得用于设计或开发核能、化学或生物武器或导弹技术。 Government.
+产品受美国政府实施的出口限制 </em>产品受美国政府实施的出口和制裁限制以及某些外国政府的进口限制之约束，客户在使用产品时应遵守所有适用的进出口法律法规。 客户不得也不得允许任何第三方从美国转移或出口产品，或者允许出口或再出口产品的任何部分或任何直接派生品到：(i) 被禁运或恐怖主义支持的国家（或其任何国民或居民）；(ii) 美国商务部的拒绝订购表（Table of Denial Orders）或美国财政部的特别指定国民（Specially Designated Nationals）名单中的任何人；(iii) 被限制或禁止出口或再出口的任何国家/地区，或者美国政府或其任何机构要求出口或再出口时获取出口许可证或其他政府批准但未事先获得此类许可证或批准的国家/地区；或 (iv) 违反美国或外国机构或机关的任何进出口限制、法律或法规的其他实体或个人。 美国商务部的拒绝订购表（Table of Denial Orders）或美国 财政部的特别指定国民（Specially Designated Nationals）名单中的任何人；(iii) 被限制或禁止出口或再出口的任何国家/地区，或者美国 政府或其任何机构要求出口或再出口时获取出口许可证或其他政府批准但未事先获得此类许可证或批准的国家/地区；或 (iv) 违反美国或外国机构或机关的任何进出口限制、法律或法规的其他实体或个人。 客户表示并保证 (a) 客户不是任何此类被禁国家的国民或居民或受其控制，也不在任何此类被禁方名单中，以及 (b) 客户的任何数据都不在《美国国际军火贩运条例》的控制下。 《美国国际军火贩运条例》。 客户承认并同意，事先未获得美国政府的允许，产品不得用于设计或开发核能、化学或生物武器或导弹技术。 政府。
 
 #### 1.13.4 未经许可不得公开。
 
@@ -197,7 +197,7 @@ GitHub 如果因其合理控制力之外的特殊原因（包括天灾、自然�
 
 #### 1.13.11 修正；偏好顺序。
 
-GitHub 有权利独自裁量随时修订本协议，并在发生任何此类修正时更新本协议。 本协议如有重大更改，如价格变动，GitHub 将至少在更改生效前 30 天在服务上发布通知，向客户通知本协议的重大变更。 对于非重大修改，客户继续使用服务即表示同意我们对本协议的修订。 客户在我们的[站点政策](https://github.com/github/site-policy)仓库中可查看本协议的所有更改。 如果本协议条款与任何订单或 SOW 有任何冲突，则订单或 SOW 的条款只管制该订单或 SOW。
+GitHub 有权利独自裁量随时修订本协议，并在发生任何此类修正时更新本协议。 GitHub will notify Customer of material changes to this Agreement, such as price increases, at least 30 days prior to the change taking effect by posting a notice on the Service or sending email to the primary email address specified in your GitHub account. Customer's continued use of the Service after those 30 days constitutes agreement to those revisions of this Agreement. For any other modifications, Customer's continued use of the Service constitutes agreement to our revisions of this Agreement. 客户在我们的[站点政策](https://github.com/github/site-policy)仓库中可查看本协议的所有更改。 如果本协议条款与任何订单或 SOW 有任何冲突，则订单或 SOW 的条款只管制该订单或 SOW。
 
 #### 1.13.12 可分割性。
 
@@ -259,7 +259,7 @@ GitHub 将在客户下载软件和许可密钥的安全网站上提供软件的�
 
 **(ii)** 用户登录名不能多人共享。
 
-**(iii)** Customer must not use the Service (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction, (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC), or (c) if Customer is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. 更多信息请参阅 [GitHub 的出口管制政策](/articles/github-and-export-controls)。
+**(iii)** 客户在以下情况下不得使用服务 (a) 违反美国或任何其他司法管辖区的出口管制或制裁法律；(b) 如果位于或普通居住于遭受美国 “外国资产管制办公室”(OFAC) 全面制裁的国家或地区；或 (c) 如果客户是[特别指定的国民 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) 或代表其工作，或者是遭受类似封锁或被拒绝方禁令的个人。 更多信息请参阅 [GitHub 的出口管制政策](/articles/github-and-export-controls)。
 
 #### 3.1.3 帐户安全。
 
@@ -271,7 +271,7 @@ GitHub 将在客户下载软件和许可密钥的安全网站上提供软件的�
 
 #### 3.1.5 U.S. 联邦政府条款。 5. 美国联邦政府条款.
 
-If Customer is a U.S. federal government agency or otherwise accessing or using any portion of the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+如果客户是美国 联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国 联邦政府修正](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。
 
 ### 3.2 遵守法律；可接受的使用；隐私。
 
@@ -282,7 +282,7 @@ If Customer is a U.S. federal government agency or otherwise accessing or using 
 客户对服务的使用必须遵守 [GitHub 可接受的使用政策](/articles/github-acceptable-use-policies)和 [GitHub 社区指导方针](/articles/github-community-guidelines)。 客户不得在任何司法管辖区将服务用于非法、淫秽、冒犯性或欺诈性内容或活动，例如鼓吹或造成伤害；干扰或违反网络或系统的完整性或安全性；避开过滤器；发送主动、辱骂或欺诈性消息、病毒或有害代码；或者违反第三方权利。
 
 #### 3.2.3 隐私。
-[The GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. 任何个人、实体或服务从服务收集数据都必须遵守 [GitHub 隐私声明](/articles/github-privacy-statement)，特别是收集用户个人信息（定义见“GitHub 隐私声明”）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
+[GitHub 隐私声明](/articles/github-privacy-statement)和 [GitHub 数据保护附录](/github/site-policy/github-data-protection-addendum)详细介绍了 GitHub 的隐私保护和数据使用实践，以及 GitHub 在处理和保护客户个人数据方面的义务。 任何个人、实体或服务从服务收集数据都必须遵守 [GitHub 隐私声明](/articles/github-privacy-statement)，特别是收集用户个人信息（定义见“GitHub 隐私声明”）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
 
 ### 3.3 内容责任；所有权；许可权利。
 
@@ -296,7 +296,7 @@ If Customer is a U.S. federal government agency or otherwise accessing or using 
 **(ii)** 客户免费授予第 3.3.3 至 3.3.6 条所述的权利，用于这两条所述的目的，直到客户从 GitHub 服务器中删除客户内容，但公开发布以及外部用户已经复刻的内容除外，这些内容的有效期直到所有客户内容复刻从 GitHub 服务器中删除。 如果客户上传的客户内容具有已经向 GitHub 授予运行服务所需的许可，则无需其他许可。
 
 #### 3.3.3 向 GitHub 授予的许可。
-客户向 GitHub 授予存储、剖析和显示客户内容的权利，并仅在提供服务需要时才创建偶尔的副本。 这些权利包括将客户内容复制到 GitHub 数据库和制作备份；向客户以及客户选择要向其显示内容的人员显示客户内容；将客户内容剖析为搜索索引或在 GitHub 的服务器上分析；与客户选择要共享的外部用户共享客户内容；以及执行客户内容，有点像音乐或视频一样。 这些权利适用于公共和私有仓库。 此许可并未向 GitHub 授予销售客户内容或者在服务外部分发或使用内容的权利。 客户向 GitHub 授予以无归属方式使用客户内容所需的权利，以及根据提供服务的需要对客户内容进行合理改编的权利。
+Customer grants to GitHub the right to store, parse, and display Customer Content, and make incidental copies, only as necessary to provide the Service. 这些权利包括将客户内容复制到 GitHub 数据库和制作备份；向客户以及客户选择要向其显示内容的人员显示客户内容；将客户内容剖析为搜索索引或在 GitHub 的服务器上分析；与客户选择要共享的外部用户共享客户内容；以及执行客户内容，有点像音乐或视频一样。 这些权利适用于公共和私有仓库。 此许可并未向 GitHub 授予销售客户内容或者在服务外部分发或使用内容的权利。 客户向 GitHub 授予以无归属方式使用客户内容所需的权利，以及根据提供服务的需要对客户内容进行合理改编的权利。
 
 #### 3.3.4 向外部用户授予的许可。
 **(i)** 客户快速发布的任何内容，包括议题、评论以及对外部用户仓库的贡献，都可供其他人查看。 只要将其仓库设置为公开显示，即表示客户同意允许外部用户查看客户的仓库以及对其复刻。
@@ -318,19 +318,22 @@ If Customer is a U.S. federal government agency or otherwise accessing or using 
 GitHub 将客户私有仓库中的客户内容视为客户的机密信息。 GitHub 将根据本第 1.4 条对私有仓库的客户内容实施保护和严格保密。
 
 #### 3.4.3 访问。
-GitHub 只能在以下情况下访问客户的私有仓库 (i) 经客户同意并确认，出于支持原因，或者 (ii) 出于安全原因而需要访问时。  客户可选择对其私有仓库启用其他访问权限。 例如，客户可向不同的 GitHub 服务或功能授予对私有仓库中客户内容的额外访问权限。 这些权利可能根据服务或功能而不同，但 GitHub 仍会将客户私有仓库中的客户内容视为客户的机密信息。 如果这些服务或功能除了提供服务所需的权限之前，还需要其他权限，GitHub 将会说明这些权限。
+GitHub personnel may only access Customer’s Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents).
 
-#### 3.4.4 除外条款。
-如果 GitHub 有理由相信私有仓库的内容违反法律或本协议，则 GitHub 有权利访问、检查和删除该内容。 此外，法律可能要求 GitHub 披露客户私有仓库中的内容。 除非法律要求另有约束或者是回应安全威胁或其他安全风险，否则 GitHub 对此类操作需发出通知。
+客户可选择对其私有仓库启用其他访问权限。 例如，客户可向不同的 GitHub 服务或功能授予对私有仓库中客户内容的额外访问权限。 这些权利可能根据服务或功能而不同，但 GitHub 仍会将客户私有仓库中的客户内容视为客户的机密信息。 如果这些服务或功能除了提供服务所需的权限之前，还需要其他权限，GitHub 将会说明这些权限。
 
-### 3.5. Intellectual Property Notices.
+此外，我们可能[按法律要求](/github/site-policy/github-privacy-statement#for-legal-disclosure)披露您的私有仓库的内容。
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+
+### 3.5. 知识产权通告。
 
 #### 3.5.1 GitHub 对内容的权利。
 服务外观的版权归 © GitHub, Inc. 所有。 未经 GitHub 明确的书面许可，客户不得重复、复制或重复使用 HTML/CSS、Javascript 或者可视设计元素或概念的任何部分。
 
 #### 3.5.2 版权侵权和 DMCA 政策。
 
-如果客户是版权所有者，并且认为服务上的内容侵犯了其版权，则客户可根据 GitHub 的[数字千禧年版权法政策](https://github.com/contact/dmca)联系 GitHub - 通过其 [DMCA 表](https://github.com/contact/dmca-notice)联系 GitHub 或发电子邮件到 copyright@github.com。
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 3.5.3 GitHub 商标和徽标。
 
@@ -339,9 +342,9 @@ GitHub 只能在以下情况下访问客户的私有仓库 (i) 经客户同意�
 ### 3.6 暂停。
 GitHub 有权利因违反本协议或为了保护服务的完整性、操作性和安全性而随时暂停服务的全部或部分，包括删除内容，在通知后立即生效，除非法律或法律程序禁止发出该等通知，或者妨碍预防对服务或任何第三方的迫切伤害。 GitHub 通常以横幅或者在此类暂停时或暂停之前发电子邮件的形式来提供通知。 GitHub 将根据需要自由裁量善意定制任何暂停，以保持服务的完整性、操作性和安全性。
 
-### 3.7 Service Level Agreement.
+### 3.7 服务等级协议。
 
-GitHub’s quarterly uptime commitment for the Service is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). Customer will be entitled to a service credit if GitHub does not meet its service level.
+GitHub 在[企业服务等级协议](/github/site-policy/github-enterprise-service-level-agreement)中提供了对服务的季度正常运行时间承诺。 如果 GitHub 不符合其服务等级，客户将有权获得服务积分。
 
 ### 3.8 服务更改。
 GitHub 通过更新和添加新功能来更改服务。 根据第 3.7 条，GitHub 保留随时临时或永久修改或中止服务（或其任何部分）的权利，可能通知或不通知。
@@ -350,7 +353,7 @@ GitHub 通过更新和添加新功能来更改服务。 根据第 3.7 条，GitH
 
 某些服务功能可能受 [GitHub 附加产品条款](/github/site-policy/github-additional-product-terms)中规定的附加条款的约束。 客户访问或使用这些功能，即表示同意 GitHub 附加产品条款。
 
-## EXHIBIT A: DEFINITIONS
+## 附件 A：定义
 
 **“活跃用户”**是指在断电时尝试访问服务的用户。
 

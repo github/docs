@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/user-management/auditing-ssh-keys
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 发起后，审计会禁用所有现有的 SSH 密钥并强制用户批准或拒绝它们，然后他们才能克隆、拉取任意仓库或推送至仓库。 审核在员工或合同工离开公司时十分有用，您需要确保所有密钥均已验证。

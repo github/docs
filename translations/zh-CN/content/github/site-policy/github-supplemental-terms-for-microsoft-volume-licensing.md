@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: July 20, 2020
+版本生效日期：2020 年 7 月 20 日
 
 以下 GitHub 补充条款（包括任何适用的订单）用于补充客户的 Microsoft 批量许可协议（“**Microsoft 客户协议**”），并与 Microsoft 客户协议一起管辖客户对产品（定义见下文）的使用。 Microsoft 客户协议通过此引用并入本协议。  这些补充条款中使用但未定义的大写术语采用 Microsoft 客户协议中赋予的含义。
 
@@ -25,9 +25,9 @@ Version Effective Date: July 20, 2020
 
 * 第 2 部分：GitHub Enterprise Cloud 服务条款；
 
-* SECTION 3: General Provisions; and
+* 第 3 部分：一般规定；以及
 
-* EXHIBIT A: Definitions.
+* 附件 A：定义。
 
 
 
@@ -43,11 +43,11 @@ GitHub 授予客户非独占、不可转让、全球、免版税、有限期的�
 
 除了法律或适用的第三方许可明确允许之外，客户及其附属公司不得也不得允许任何第三方：(i) 再许可、销售、租赁、出租、转让、让渡或再分发软件；(ii) 出于第三方利益而托管软件；(iii) 披露或允许任何第三方访问软件，本第 1 部分明确许可的除外；(iv) 入侵或修改许可密钥，或者避开或更改任何许可注册过程；(v) 修改软件或创建派生作品，或者将软件与其他软件合并，客户修改除外；(vi) 反汇编、反编译、绕过任何代码混淆，或者对软件全部或部分进行逆向工程或尝试推导其任何源代码；(vii) 修改、遮盖或删除软件或文档中包含的任何所有权通告；或 (viii) 以这些 GitHub 补充条款未明确允许的其他方式使用或复制软件或文档。
 
-### 1.3 Delivery.
+### 1.3 交付。
 
-GitHub 将在安全、有密码保护的网站提供许可密钥给客户下载。 All deliveries under this Section 1 will be electronic. 为避免疑问，客户负责安装任何软件，并承认 GitHub 在提供许可密钥后对软件没有进一步的交付义务。 当有更新时，GitHub 将放在同一网站上供下载。 客户必须在商业合理的基础上更新软件，但每年不少于一 (1) 次。 客户负责对其用户名和密码保密。
+GitHub 将在安全、有密码保护的网站提供许可密钥给客户下载。 本第 1 部分的所有交付都是电子形式。 为避免疑问，客户负责安装任何软件，并承认 GitHub 在提供许可密钥后对软件没有进一步的交付义务。 当有更新时，GitHub 将放在同一网站上供下载。 客户必须在商业合理的基础上更新软件，但每年不少于一 (1) 次。 客户负责对其用户名和密码保密。
 
-### 1.4 Verification.
+### 1.4 验证。
 
 在 GitHub 请求时，客户应及时向 GitHub 提供软件生成的报告，以便我们验证客户是否按照这些 GitHub 补充条款使用软件。 对于超出这些 GitHub 补充条款的任何其他使用，GitHub 将向客户开发票，从其首次使用之日起生效。
 
@@ -55,13 +55,13 @@ GitHub 将在安全、有密码保护的网站提供许可密钥给客户下载�
 
 GitHub 将根据 Microsoft 客户协议所述为软件提供技术支持。 GitHub 可能根据[支持条款](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise)， 按照订单或 SOW 中指定的支持级别、费用和订阅期为软件和服务提供增强的支持服务（包括 Premium、Premium Plus 和工程直接支持服务）。 即使 Microsoft 客户协议中有任何相反的规定，(i) GitHub 也将尽合理努力更正客户反馈的软件中任何重大、可重现的错误，但在以下情况下不负责提供支持：(a) 有人（除 GitHub 之外）修改软件；(b) 客户以对软件或其性能不利的方式改变其操作系统或环境；(c) 客户以 Microsoft 客户协议、本第 1 条或文档中未授权的方式使用软件；或 (d) 客户意外事件或疏忽，或滥用软件；(ii) GitHub 仅在原始发布日期后一 (1) 年内或最后更新后六 (6) 个月内（以较晚者为准）支持特定发行版。
 
-### 1.6 Updates; Releases.
+### 1.6 更新；发行版。
 
-#### 1.6.1 Generally.
+#### 1.6.1 一般。
 
 GitHub 将在客户下载软件和许可密钥的安全网站上提供软件的更新和发行版。
 
-#### 1.6.2 Supported Releases.
+#### 1.6.2 支持的发行版。
 
 对软件发行版，GitHub 只提供从原始发行日期起一 (1) 年的支持，或提供从发行版最近更新日期起六 (6) 个月的支持（取较长者）。 如果客户需要软件早期发行版的支持，必须根据共同商定的订单或 SOW 支付支持费用。
 
@@ -77,19 +77,19 @@ GitHub 将在客户下载软件和许可密钥的安全网站上提供软件的�
 
 GitHub 保证，自首次下载之日起九十 (90) 天内，未经修改的软件实质上符合其文档所述。 GitHub 不保证客户对软件的使用不会中断或者软件的运行没有错误。 如果客户以本第 1 部分和文档未明确允许的任何方式修改或使用软件，则此保证将不适用。 GitHub 因违反此有限保证而产生的唯一责任以及客户获得的唯一补偿将按照 Microsoft 客户协议中的规定。
 
-## SECTION 2: GITHUB ENTERPRISE CLOUD TERMS OF SERVICE
+## 第 2 部分：GITHUB ENTERPRISE CLOUD 服务条款
 
-Upon creation of a Corporate Account and/or an Organization on the Service by Customer or by GitHub on Customer’s behalf, this Section 2 details terms applicable to Customer’s use of the Service.
+当客户或 GitHub 代表客户在服务上创建公司帐户和/或组织时，本第 2 部分详述适用于客户使用服务的条款。
 
-### 2.1 Account Terms.
+### 2.1 帐户条款。
 
-#### 2.1.1 Account Controls.
+#### 2.1.1 帐户控制。
 
   **(i) 用户。**客户承认，用户对其个人帐户及其中的内容保留最终的管理控制权。 [GitHub 的标准服务条款](/github/site-policy/github-terms-of-service)管辖用户对服务的使用，但本第 2 部分下所述的用户活动除外。
 
-  **(ii) 组织。**根据本第 2 部分，客户对代表客户创建的任何组织以及发布到其组织内仓库的用户生成内容具有最终管理控制权。 This Section 2 will govern the use of Customer’s Organization(s).
+  **(ii) 组织。**根据本第 2 部分，客户对代表客户创建的任何组织以及发布到其组织内仓库的用户生成内容具有最终管理控制权。 本第 2 部分将管辖客户组织的使用。
 
-#### 2.1.2 Account Requirements.
+#### 2.1.2 帐户要求。
 
 要创建帐户，客户必须符合以下条件：
 
@@ -97,91 +97,91 @@ Upon creation of a Corporate Account and/or an Organization on the Service by Cu
 
 **(ii)** 用户登录名不能多人共享。
 
-**(iii)** Customer must not use the Service (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction, (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC), or (c) if Customer is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. For more information, please see [GitHub’s Trade Controls policy](/github/site-policy/github-and-trade-controls).
+**(iii)** 客户在以下情况下不得使用服务 (a) 违反美国或任何其他司法管辖区的出口管制或制裁法律；(b) 如果位于或普通居住于遭受美国 “外国资产管制办公室”(OFAC) 全面制裁的国家或地区；或 (c) 如果客户是[特别指定的国民 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) 或代表其工作，或者是遭受类似封锁或被拒绝方禁令的个人。 更多信息请参阅 [GitHub 的贸易管制政策](/github/site-policy/github-and-trade-controls)。
 
-#### 2.1.3 Account Security.
+#### 2.1.3 帐户安全。
 
-客户负责：(i) 在其公司帐户下发布的所有内容和发生的活动；(ii) 保持其帐户登录凭据的安全；以及 (iii) 在获悉通过其帐户对服务的任何未授权使用或访问时及时[通知 GitHub](https://support.github.com/contact)。  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 2.1.3.
+客户负责：(i) 在其公司帐户下发布的所有内容和发生的活动；(ii) 保持其帐户登录凭据的安全；以及 (iii) 在获悉通过其帐户对服务的任何未授权使用或访问时及时[通知 GitHub](https://support.github.com/contact)。  GitHub 对客户不遵守本第 2.1.3 所造成的任何损失或损害概不负责。
 
-#### 2.1.4 Additional Terms.
+#### 2.1.4 其他条款。
 
 在某些情况下，第三方的条款可能适用于客户对服务的使用。 例如，客户可能是本身具有条款或许可协议的组织的成员；客户可能下载与服务相集成的应用程序；或者，客户可能使用服务向另一项服务验证。 尽管 Microsoft 客户协议（包括这些 GitHub 补充条款）是 GitHub 与客户的完整协议，但其他方的条款将控制他们与客户的关系。
 
 #### 2.1.5 U.S. 联邦政府条款。 5. 美国联邦政府条款.
 
-If Customer is a U.S. 如果客户是美国联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国联邦政府修正](https://help.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。 Federal Government Amendment</a> applies, and Customer agrees to its provisions.
+如果客户是美国 如果客户是美国联邦政府机构或者在政府部门访问或使用服务的任何部分，则[美国联邦政府修正](https://help.github.com/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)适用，并且客户同意其条款。 联邦政府修正</a>适用，并且客户同意其条款。
 
-### 2.2 Compliance with Laws; Acceptable Use; Privacy.
+### 2.2 遵守法律；可接受的使用；隐私。
 
-#### 2.2.1 Compliance with Laws and Regulations.
+#### 2.2.1 遵守法律法规。
 
 客户对服务的使用不得违反任何相关法律，包括版权法或商标法、出口管制法律或其司法管辖区的法规。
 
-#### 2.2.2 Acceptable Use.
+#### 2.2.2 可接受的使用。
 
-Customer’s use of the Service must comply with [GitHub's Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies) and [GitHub’s Community Guidelines](/github/site-policy/github-community-guidelines). 客户不得在任何司法管辖区将服务用于非法、淫秽、冒犯性或欺诈性内容或活动，例如鼓吹或造成伤害；干扰或违反网络或系统的完整性或安全性；避开过滤器；发送主动、辱骂或欺诈性消息、病毒或有害代码；或者违反第三方权利。
+客户对服务的使用必须遵守 [GitHub 可接受的使用政策](/github/site-policy/github-acceptable-use-policies)和 [GitHub 社区指导方针](/github/site-policy/github-community-guidelines)。 客户不得在任何司法管辖区将服务用于非法、淫秽、冒犯性或欺诈性内容或活动，例如鼓吹或造成伤害；干扰或违反网络或系统的完整性或安全性；避开过滤器；发送主动、辱骂或欺诈性消息、病毒或有害代码；或者违反第三方权利。
 
-#### 2.2.3 Privacy.
-[The GitHub Privacy Statement](/github/site-policy/github-privacy-statement) and the [GitHub Data Protection Addendum](/github/site-policy/github-data-protection-addendum) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement), particularly in regards to the collection of Users' Personal Information (as defined in the GitHub Privacy Statement). 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
+#### 2.2.3 隐私。
+[GitHub 隐私声明](/github/site-policy/github-privacy-statement)和 [GitHub 数据保护附录](/github/site-policy/github-data-protection-addendum)详细介绍了 GitHub 的隐私保护和数据使用实践，以及 GitHub 在处理和保护客户个人数据方面的义务。 任何个人、实体或服务从服务收集数据都必须遵守 [GitHub 隐私声明](/github/site-policy/github-privacy-statement)，特别是收集用户个人信息（如“GitHub 隐私声明”中的定义）时。 如果客户从 GitHub 收集任何用户个人信息，则客户仅将其用于外部用户已授权的目的。 客户将合理保护任何此类个人信息，并且客户会及时响应 GitHub 或外部用户的投诉、删除请求以及“不要联系”请求。
 
-### 2.3 Content Responsibility; Ownership; License Rights.
+### 2.3 内容责任；所有权；许可权利。
 
 #### 2.3.1 关于用户生成内容的责任。
 客户在使用服务时可能创建或上传用户生成的内容。 客户对其通过服务发布、上传、链接或以其他方式提供的用户生成内容独自负责，无论用户生成的内容是何种形式。 GitHub 对用户生成内容的任何公开显示或滥用概不负责。
 
-#### 2.3.2 Ownership of Content, Right to Post, and License Grants.
+#### 2.3.2 内容所有权、发布权利和许可授予。
 
 **(i)** 客户保留客户创建或拥有的客户内容的所有权。 客户承认：(a) 对客户内容负责，(b) 只会提供客户有权利发布的客户内容（包括第三方或用户生成的内容），以及 (c) 客户将完全遵守与客户发布的客户内容相关的任何第三方许可。
 
-**(ii)** Customer grants the rights set forth in Sections 2.3.3 through 2.3.6, free of charge and for the purposes identified in those sections until such time as Customer removes Customer Content from GitHub servers, except for Content Customer has posted publicly and that External Users have Forked, in which case the license is perpetual until such time as all Forks of Customer Content have been removed from GitHub servers. 如果客户上传的客户内容具有已经向 GitHub 授予运行服务所需的许可，则无需其他许可。
+**(ii)** 客户免费授予第 2.3.3 至 2.3.6 条所述的权利，用于这两条所述的目的，直到客户从 GitHub 服务器中删除客户内容，但公开发布以及外部用户已经复刻的内容除外，这些内容的有效期直到所有客户内容复刻从 GitHub 服务器中删除。 如果客户上传的客户内容具有已经向 GitHub 授予运行服务所需的许可，则无需其他许可。
 
-#### 2.3.3 License Grant to GitHub.
+#### 2.3.3 向 GitHub 授予的许可。
 客户向 GitHub 授予存储、剖析和显示客户内容的权利，并仅在提供服务需要时才创建偶尔的副本。 这些权利包括将客户内容复制到 GitHub 数据库和制作备份；向客户以及客户选择要向其显示内容的人员显示客户内容；将客户内容剖析为搜索索引或在 GitHub 的服务器上分析；与客户选择要共享的外部用户共享客户内容；以及执行客户内容，有点像音乐或视频一样。 这些权利适用于公共和私有仓库。 此许可并未向 GitHub 授予销售客户内容或者在服务外部分发或使用内容的权利。 客户向 GitHub 授予以无归属方式使用客户内容所需的权利，以及根据提供服务的需要对客户内容进行合理改编的权利。
 
-#### 2.3.4 License Grant to External Users.
+#### 2.3.4 向外部用户授予的许可。
 **(i)** 客户快速发布的任何内容，包括议题、评论以及对外部用户仓库的贡献，都可供其他人查看。 只要将其仓库设置为公开显示，即表示客户同意允许外部用户查看客户的仓库以及对其复刻。
 
-**(ii)** 如果客户将其页面和仓库设为公开显示，客户向外部用户授予非独占、全球许可，允许他们通过服务使用、显示和执行客户内容，以及通过 GitHub 提供的功能（例如通过复刻）只在服务上重制允许的客户内容。 Customer may grant further rights to Customer Content if Customer [adopts a license](/github/building-a-strong-community/adding-a-license-to-a-repository#including-an-open-source-license-in-your-repository). 如果客户上传其未创建或拥有的客户内容，则客户负责确保其上传的客户内容根据向外部用户授予这些许可的条款进行许可。
+**(ii)** 如果客户将其页面和仓库设为公开显示，客户向外部用户授予非独占、全球许可，允许他们通过服务使用、显示和执行客户内容，以及通过 GitHub 提供的功能（例如通过复刻）只在服务上重制允许的客户内容。 如果客户[采用许可](/github/building-a-strong-community/adding-a-license-to-a-repository#including-an-open-source-license-in-your-repository)，则可以授予对客户内容的更多权利。 如果客户上传其未创建或拥有的客户内容，则客户负责确保其上传的客户内容根据向外部用户授予这些许可的条款进行许可。
 
-#### 2.3.5 Contributions Under Repository License.
+#### 2.3.5 仓库许可下的参与。
 只要客户参与包含许可通告的仓库，则表示客户在相同的条款下许可该等参与，并且同意其有权利在这些条款下许可该等参与。 如果客户使用单独的协议在不同的条款下许可其参与，如参与者许可协议，则该协议优先。
 
-#### 2.3.6 Moral Rights.
-客户对其上传、发布或提交到服务任何部分的客户内容保留所有精神权利，包括完整性和归属的权利。 However, Customer waives these rights and agrees not to assert them against GitHub, solely to enable GitHub to reasonably exercise the rights granted in Section 2.3, but not otherwise.
+#### 2.3.6 精神权利。
+客户对其上传、发布或提交到服务任何部分的客户内容保留所有精神权利，包括完整性和归属的权利。 但客户对 GitHub 放弃这些权利并且同意不宣称这些权利，唯一目的是让 GitHub 合理行使第 2.3 条中宣称的权利，而没有任何其他目的。
 
 ### 2.4 私有仓库。
 
-#### 2.4.1 Control.
+#### 2.4.1 控制。
 
 客户负责管理对其私有仓库的访问，包括邀请、组织和团队的管理控制以及访问的终止。
 
-#### 2.4.2 Confidentiality.
+#### 2.4.2 保密。
 
 GitHub 将客户私有仓库中的客户内容视为客户的机密信息。 GitHub 将根据 Microsoft 客户协议中适用的保密条款 ，对私有仓库的客户内容进行严格的保护和保密。
 
-#### 2.4.3 Access.
+#### 2.4.3 访问。
 
 GitHub 只能在以下情况下访问客户的私有仓库 (i) 经客户同意并确认，出于支持原因，或者 (ii) 出于安全原因而需要访问时。  客户可选择对其私有仓库启用其他访问权限。 例如，客户可向不同的 GitHub 服务或功能授予对私有仓库中客户内容的额外访问权限。 这些权利可能根据服务或功能而不同，但 GitHub 仍会将客户私有仓库中的客户内容视为客户的机密信息。 如果这些服务或功能除了提供服务所需的权限之前，还需要其他权限，GitHub 将会说明这些权限。
 
-#### 2.4.4 Exclusions.
+#### 2.4.4 除外条款。
 
 如果 GitHub 有理由认为私有仓库的内容违反法律或这些 GitHub 补充条款，则 GitHub 有权访问、审查和删除该内容。 此外，法律可能要求 GitHub 披露客户私有仓库中的内容。 除非法律要求另有约束或者是回应安全威胁或其他安全风险，否则 GitHub 对此类操作需发出通知。
 
-### 2.5. Intellectual Property Notices.
+### 2.5. 知识产权通告。
 
-#### 2.5.1 GitHub's Rights to Content.
+#### 2.5.1 GitHub 对内容的权利。
 
 服务外观的版权归 © GitHub, Inc. 所有。 未经 GitHub 明确的书面许可，客户不得重复、复制或重复使用 HTML/CSS、Javascript 或者可视设计元素或概念的任何部分。
 
-#### 2.5.2 Copyright Infringement and DMCA Policy.
+#### 2.5.2 版权侵权和 DMCA 政策。
 
-如果客户是版权所有者，并且认为服务上的内容侵犯了其版权，则客户可根据 GitHub 的[数字千禧年版权法政策](https://github.com/contact/dmca)联系 GitHub - 通过其 [DMCA 表](https://github.com/contact/dmca-notice)联系 GitHub 或发电子邮件到 copyright@github.com。
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
-#### 2.5.3 GitHub Trademarks and Logos.
+#### 2.5.3 GitHub 商标和徽标。
 
 如果客户要使用 GitHub 的商标，客户必须遵守 GitHub 的所有商标指导方针，包括 [GitHub 徽标和使用页面](https://github.com/logos)中的政策。
 
-### 2.6 Suspension.
+### 2.6 暂停。
 
 在客户违反了 Microsoft 客户协议（包括这些 GitHub 补充条款）的情况下，或者 GitHub 出于保护服务的完整性、可操作性和安全性的目的，GitHub 有权随时暂停对服务的全部或任何部分的访问，暂停立即生效，可能通知，也可能不通知。 除非法律或法律程序禁止，或为了防止对服务或任何第三方迫在眉睫的伤害，否则 GitHub 通常会在此类暂停时或之前以横幅或电子邮件的形式提供通知。 GitHub 将根据需要自由裁量善意定制任何暂停，以保持服务的完整性、操作性和安全性。
 
@@ -189,13 +189,13 @@ GitHub 只能在以下情况下访问客户的私有仓库 (i) 经客户同意�
 
 出于合同目的，客户 (1) 同意通过其提交的电子邮件地址或通过服务接收电子形式的通信；和 (2) 同意 GitHub 以电子形式提供的所有服务条款、协议、通知、披露和其他通信可满足任何法律要求（如果以书面形式提供的这些通信可满足法律要求）。 本部分不影响客户不可放弃的权利。
 
-### 2.8 Service Level Agreement.
+### 2.8 服务等级协议。
 
-GitHub’s quarterly uptime commitment for the Service is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). Customer will be entitled to a service credit if GitHub does not meet its service level.
+GitHub 在[企业服务等级协议](/github/site-policy/github-enterprise-service-level-agreement)中提供了对服务的季度正常运行时间承诺。 如果 GitHub 不符合其服务等级，客户将有权获得服务积分。
 
-### 2.9 Service Changes.
+### 2.9 服务更改。
 
-GitHub 通过更新和添加新功能来更改服务。 Subject to Section 2.8, GitHub reserves the right at any time to modify or discontinue, temporarily or permanently, the Service (or any part of it) with or without notice.
+GitHub 通过更新和添加新功能来更改服务。 根据第 2.8 条，GitHub 保留随时临时或永久修改或中止服务（或其任何部分）的权利，可能通知或不通知。
 
 ### 2.10 附加服务功能。
 
@@ -203,17 +203,17 @@ GitHub 通过更新和添加新功能来更改服务。 Subject to Section 2.8, 
 
 ## 第 3 部分：一般规定。
 
-This Section 3 sets forth the terms and conditions applicable to Customer’s purchase and use of any of the Products.
+第 3 部分规定适用于客户购买和使用任何产品的条款和条件。
 
 ### 3.1 期限；终止；终止的影响。
 
-#### 3.1.1 Term.
+#### 3.1.1 期限。
 这些 GitHub 补充条款的有效期持续至一方根据本第 3.1 部分终止它们。
 
 #### 3.1.2 为便利而终止；帐户注销。
 任一方都可终止订单或这些 GitHub 补充条款，不需要理由，但必须在当前订阅期结束前至少三十 (30) 天发出书面通知。 如果客户选择终止订单或这些 GitHub 补充条款，则客户有责任在屏幕顶部全局导航栏的 Settings（设置）中正确注销其 GitHub 帐户。 GitHub 无法通过回复电子邮件或电话申请来注销帐户。
 
-#### 3.1.3 Termination for Material Breach.
+#### 3.1.3 因实质违规而终止。
 如果一方违反这些 GitHub 补充条款下的实质性义务并且在收到通知后三十 (30) 天内未弥补违规的影响，则另一方可在通知后立即终止这些 GitHub 补充条款。  如果客户的帐户被暂停超过 90天，GitHub 可能会终止这些 GitHub 补充条款。
 
 #### 3.1.4 终止的影响。
@@ -228,7 +228,7 @@ This Section 3 sets forth the terms and conditions applicable to Customer’s pu
 ### 3.4 优先级
 如果补充条款与订单之间发生冲突，则订单事项以订单为准。 如果补充条款（包括任何订单）与 Microsoft 客户协议之间发生冲突，则补充条款只管辖其主题事项。
 
-## EXHIBIT A: DEFINITIONS
+## 附件 A：定义
 
 **“活跃用户”**是指在断电时尝试访问服务的用户。
 

@@ -1,11 +1,12 @@
 ---
 title: 'Error: Repository not found'
-intro: '{% if currentVersion == "free-pro-team@latest" %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないかリポジトリへのアクセス権がないことを意味します。 このエラーの解決策は、原因によっていくつかあります。{% else %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないか、リポジトリへのアクセス権がないか、 GitHub Enterprise のインスタンスがプライベートモードであることを意味します。 このエラーには、原因別にいくつかの解決策があります。{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないことを示しています。{% else %}リポジトリのクローン作成時にこのエラーが表示される場合は、リポジトリが存在しないか、リポジトリにアクセスする権限がないか、{% data variables.product.product_location %} がプライベートモードになっていることを示しています。{% endif %} 原因に応じて、このエラーに対するいくつかの解決策があります。'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### スペルを確認する
@@ -42,12 +43,10 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 詳細は「[GitHub アカウントに新しい GPG キーを追加する](/articles/adding-a-new-gpg-key-to-your-github-account)」を参照してください。
 
-{% if currentVersion != "free-pro-team@latest" %}
-
+{% if enterpriseServerVersions contains currentVersion %}
 ### インスタンスがプライベートモードであるかを確認する
 
 サイト管理者が GitHub Enterprise インスタンスでプライベートモードを有効にしている場合は、`git://` を介した匿名のクローンは無効化されます。 リポジトリをクローンできない場合は、サイト管理者にお問い合わせください。
-
 {% endif %}
 
 ### リポジトリが実際に存在することを確認する

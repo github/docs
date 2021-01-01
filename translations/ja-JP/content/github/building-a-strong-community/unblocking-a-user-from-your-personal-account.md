@@ -22,7 +22,7 @@ versions:
 ### プロフィールページからのユーザのブロックの解除
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. 左サイドバーで、ユーザプロフィール画像の下にある [**Unblock or report user**] をクリックします。 ![ユーザリンクのブロックの解除または報告](/assets/images/help/profile/profile-unblock-or-report-user.png)
+2. 左のサイドバーのユーザのプロフィール写真の下にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックしてから、[**Unblock or report user**] をクリックします。 ![ユーザリンクのブロックの解除または報告](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. [**Unblock user**] をクリックします。 ![ユーザのブロックの解除あるいは悪用のレポートの選択肢を持つモーダルボックス](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}

@@ -5,7 +5,8 @@ redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.

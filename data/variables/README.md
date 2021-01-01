@@ -18,7 +18,7 @@ nested:
     too: Yes!
 ```
 
-Its values would be accesible as:
+Its values would be accessible as:
 
 ```
 {% data foo.bar.meaning_of_life %}

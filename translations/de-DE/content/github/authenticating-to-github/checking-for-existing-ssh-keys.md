@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.ssh.dsa-support %}
@@ -20,8 +21,7 @@ versions:
 3. Überprüfe die Verzeichnisliste, um zu ermitteln, ob Du bereits einen öffentlichen SSH-Schlüssel besitzen. Standardmäßig lauten die Dateinamen der öffentlichen Schlüssel:
     - *id_rsa.pub*
     - *id_ecdsa.pub*
-    - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-    - *id_dsa.pub*{% endif %}
+    - *id_ed25519.pub*
 
 Wenn Du kein öffentliches und privates Schlüsselpaar besitzt oder wenn Du kein vorhandenes Schlüsselpaar für die Verbindung zu {% data variables.product.product_name %} verwenden möchtest, dann [erzeuge einen neuen SSH-Schlüssel](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 

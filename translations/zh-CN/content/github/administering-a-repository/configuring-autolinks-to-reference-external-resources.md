@@ -6,10 +6,11 @@ redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} commit messages, and release descriptions{% else %} and commit messages{% endif %} to external third-party services.
+任何对仓库具有管理员权限的人都可以配置自动链接引用，以将议题、拉取请求、{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %} 提交消息和发行版说明{% else %} 和提交消息{% endif %} 链接到外部第三方服务。
 
 如果您使用 Zendesk 跟踪用户报告的事件单，例如，您可以引用所打开拉取请求中的事件单号来解决问题。
 

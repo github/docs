@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 创建分支
@@ -21,15 +22,19 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+{% note %}
 
-If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
+**注意：**如果要删除的分支是仓库的默认分支，则在删除该分支之前必须选择新的默认分支。 更多信息请参阅“[更改默认分支](/github/administering-a-repository/changing-the-default-branch)”。
+
+{% endnote %}
+
+如果要删除的分支与打开的拉取请求关联，则在删除该分支之前必须合并或关闭拉取请求。 更多信息请参阅“[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)”和“[关闭拉取请求](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)”。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 1. 滚动到要删除的分支，然后单击 {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}。 ![删除分支](/assets/images/help/branches/branches-delete.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)”。

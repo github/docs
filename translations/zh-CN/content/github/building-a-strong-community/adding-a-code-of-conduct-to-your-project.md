@@ -1,6 +1,6 @@
 ---
 title: 为项目添加行为准则
-intro: 采用行为准则制定社区标准，宣示欢迎大家参与的包容性项目，并且阐述对滥用的处理程序。
+intro: '采用行为准则制定社区标准，宣示欢迎大家参与的包容性项目，并且阐述对滥用的处理程序。'
 redirect_from:
   - /articles/adding-a-code-of-conduct-to-your-project
 versions:

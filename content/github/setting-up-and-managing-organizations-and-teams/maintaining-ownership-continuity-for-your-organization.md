@@ -9,6 +9,7 @@ permissions: Organization owners can promote any member of an organization to an
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About maintaining ownership continuity for your organization

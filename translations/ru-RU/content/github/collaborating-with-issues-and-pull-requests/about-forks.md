@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Forking a repository is similar to copying a repository, with two major differences:
@@ -23,7 +24,7 @@ In open source projects, forks are often used to iterate on ideas or changes bef
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}or, if the repository is a template, use the repository as a template{% endif %}. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} and [Creating a repository from a template](/articles/creating-a-repository-from-a-template)"{% endif %}.
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. For more information, see "[Duplicating a repository](/articles/duplicating-a-repository)" and [Creating a repository from a template](/articles/creating-a-repository-from-a-template)".
 
 ### Дополнительная литература
 

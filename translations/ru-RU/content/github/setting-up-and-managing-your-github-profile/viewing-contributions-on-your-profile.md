@@ -1,6 +1,6 @@
 ---
 title: Viewing contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows off your pinned repositories as well as a graph of your repository contributions over the past year.'
+intro: 'Your {% data variables.product.product_name %} profile shows off {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}your pinned repositories as well as{% endif %} a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -8,13 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Your contribution graph shows activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Your contribution graph shows activity from public repositories. {% endif %}You can choose to show activity from {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}both public and {% endif %}private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if you have [added the email address you used for your local Git configuration to your {% data variables.product.product_name %} email settings](/articles/adding-an-email-address-to-your-github-account). For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
@@ -25,22 +26,26 @@ On your profile page, certain actions count as contributions:
 - Committing to a repository's default branch or `gh-pages` branch
 - Opening an issue
 - Proposing a pull request
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Popular repositories
 
-This section displays your repositories with the most watchers. Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."
+This section displays your repositories with the most watchers. {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}Once you [pin repositories to your profile](/articles/pinning-repositories-to-your-profile), this section will change to "Pinned repositories."{% endif %}
 
 ![Popular repositories](/assets/images/help/profile/profile_popular_repositories.png)
+
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Pinned repositories
 
 This section displays up to six public repositories and can include your repositories as well as repositories you've contributed to. To easily see important details about the repositories you've chosen to feature, each repository in this section includes a summary of the work being done, the number of [stars](/articles/saving-repositories-with-stars/) the repository has received, and the main programming language used in the repository. For more information, see "[Pinning repositories to your profile](/articles/pinning-repositories-to-your-profile)."
 
 ![Pinned repositories](/assets/images/help/profile/profile_pinned_repositories.png)
+
+{% endif %}
 
 ### Contributions calendar
 
@@ -79,9 +84,12 @@ The contribution activity section includes a detailed timeline of your work, inc
 
 ![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
 
+{% if currentVersion != "github-ae@latest" %}
 ### Viewing contributions from {% data variables.product.product_location_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
+If your site administrator has enabled
 
-If your site administrator has enabled {% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending your {% data variables.product.prodname_ghe_server %} contributions to your {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending your {% data variables.product.prodname_ghe_server %} contributions to your {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+{% endif %}
 
 ### Дополнительная литература
 

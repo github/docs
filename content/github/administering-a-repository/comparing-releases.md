@@ -5,6 +5,7 @@ permissions: People with read access to a repository can view and compare releas
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}

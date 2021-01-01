@@ -1,6 +1,6 @@
 ---
 title: Adicionar executores auto-hospedados
-intro: 'Você pode adicionar um executor auto-hospedado a {% data variables.product.prodname_actions %}.'
+intro: 'Você pode adicionar um executor auto-hospedado a {{ site.data.variables.product.prodname_actions }}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/adding-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners
@@ -50,16 +50,12 @@ Você pode adicionar executores auto-hospedados a uma empresa, onde podem ser at
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para adicionar um executor auto-hospedado a uma conta corporativa, você deve ser proprietário da organização.
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-Para adicionar um executor auto-hospedado no nível empresa do {% data variables.product.product_location %}, você deve ser um administrador do site.
+{% elsif enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
+Para adicionar um executor auto-hospedado no nível de empresa de
+{% data variables.product.product_location %}, você deve ser um administrador do site.
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Clique na aba **Executores auto-hospedados**.

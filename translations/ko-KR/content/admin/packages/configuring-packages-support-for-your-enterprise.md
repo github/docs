@@ -3,8 +3,6 @@ title: Configuring packages support for your enterprise
 intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by enabling or disabling each package ecosystem.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
-  - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
-  - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
 ---

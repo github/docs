@@ -41,6 +41,8 @@ Enterprise-Inhaber und Abrechnungsmanager können die Nutzung von {% data variab
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Unter „{% data variables.product.prodname_registry %}" siehst Du die Details der Nutzung der Datenübertragung für jede Organisation in Deinem Enterprise-Konto. ![Details zur Nutzung der Datenübertragung](/assets/images/help/billing/packages-data-enterprise.png)
+1. Under "
+{% data variables.product.prodname_registry %}", view details of usage of data transfer by each organization in your enterprise account.
+  ![Details zur Nutzung der Datenübertragung](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

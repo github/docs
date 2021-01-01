@@ -1,5 +1,6 @@
 ---
 title: Finding security vulnerabilities and errors in your code
+shortTitle: Finding vulnerabilities and coding errors
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code
@@ -18,10 +19,12 @@ versions:
     {% link_in_list /configuring-code-scanning %}
     {% link_in_list /configuring-the-codeql-workflow-for-compiled-languages %}
     {% link_in_list /troubleshooting-the-codeql-workflow %}
+    {% link_in_list /running-codeql-code-scanning-in-a-container %}
 {% topic_link_in_list /integrating-with-code-scanning %}
     {% link_in_list /about-integration-with-code-scanning %}
-    {% link_in_list /running-code-scanning-in-your-ci-system %}
-    {% link_in_list /configuring-code-scanning-in-your-ci-system %}
-    {% link_in_list /troubleshooting-code-scanning-in-your-ci-system %}
     {% link_in_list /uploading-a-sarif-file-to-github %}
     {% link_in_list /sarif-support-for-code-scanning %}
+{% topic_link_in_list /using-codeql-code-scanning-with-your-existing-ci-system %}
+    {% link_in_list /running-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /configuring-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /troubleshooting-codeql-code-scanning-in-your-ci-system %}

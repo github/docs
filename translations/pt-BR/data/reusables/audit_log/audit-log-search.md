@@ -8,7 +8,6 @@ O log lista as seguintes informações sobre cada ação:
 
 Observe que não é possível pesquisar as entradas usando texto. No entanto, é possível criar consultas de pesquisa usando diversos filtros. Muitos operadores usados ao consultar o log de auditoria, como `-`, `>`, ou `<`, correspondem ao mesmo formato de pesquisa no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 #### Pesquisar com base em operação
 
 Use o qualificador `operation` para limitar ações a tipos específicos de operações. Por exemplo:
@@ -20,7 +19,6 @@ Use o qualificador `operation` para limitar ações a tipos específicos de oper
   * `operation:remove` encontra todos os eventos nos quais um recurso foi removido.
   * `operation:restore` encontra todos os eventos nos quais um recurso foi restaurado.
   * `operation:transfer` encontra todos os eventos nos quais um recurso foi transferido.
-{% endif %}
 
 #### Pesquisar com base no repositório
 

@@ -1,33 +1,34 @@
 ---
-title: Recursos na API REST
-intro: 'Aprenda a navegar nos recursos fornecidos pela API de {% data variables.product.prodname_dotcom %}.'
+title: Resources in the REST API
+intro: 'Learn how to navigate the resources provided by the {% data variables.product.prodname_dotcom %} API.'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
-Isso descreve os recursos que formam a API REST oficial de {% data variables.product.product_name %}. Em caso de problema ou solicitação, entre em contato com {% data variables.contact.contact_support %}.
+This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
+### Current version
 
-### Versão atual
-
-Por padrão, todas as solicitações para `{% data variables.product.api_url_code %}` recebem a versão **v3** [](/v3/versions) da API REST. Nós incentivamos que você a [solicite explicitamente esta versão por meio do cabeçalho `Aceitar`](/v3/media/#request-specific-version).
+By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/developers/overview/about-githubs-apis) of the REST API.
+We encourage you to [explicitly request this version via the `Accept` header](/rest/overview/media-types#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-Para obter informações sobre a API do GraphQL do GitHub, consulte a [documentação v4](/v4). Para obter informações sobre migração para o GraphQL, consulte "[Fazendo a migração do REST](/v4/guides/migrating-from-rest/)".
+For information about GitHub's GraphQL API, see the [v4 documentation](/graphql). For information about migrating to GraphQL, see "[Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)."
 
 {% endif %}
 
-### Esquema
+### Schema
 
-{% if currentVersion == "free-pro-team@latest" %}Todo acesso à API é feito por meio de HTTPS, e{% else %}a API é{% endif %} acessada a partir de `{% data variables.product.api_url_code %}`.  Todos os dados são
-enviados e recebidos como JSON.
+{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  All data is
+sent and received as JSON.
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
@@ -36,56 +37,67 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
 ```
 
-Os campos em branco são incluídos como `null` em vez de serem omitidos.
+Blank fields are included as `null` instead of being omitted.
 
-Todos os registros de tempo são retornados no formato ISO 8601:
+All timestamps return in ISO 8601 format:
 
     YYYY-MM-DDTHH:MM:SSZ
 
-Para obter mais informações sobre fusos horários nos registros de tempo, consulte [esta seção](#timezones).
+For more information about timezones in timestamps, see [this section](#timezones).
 
-#### Apresentações resumidas
+#### Summary representations
 
-Ao buscar uma lista de recursos, a resposta inclui um _subconjunto_ dos atributos para esse recurso. Esta é a representação "resumo" do recurso. (Alguns atributos são computacionalmente caros para a API fornecer. Por razões de desempenho, a representação resumida exclui esses atributos. Para obter esses atributos, busque a representação "detalhada".)
+When you fetch a list of resources, the response includes a _subset_ of the
+attributes for that resource. This is the "summary" representation of the
+resource. (Some attributes are computationally expensive for the API to provide.
+For performance reasons, the summary representation excludes those attributes.
+To obtain those attributes, fetch the "detailed" representation.)
 
-**Exemplo**: ao receber uma lista de repositórios, você recebe a representação resumida de cada repositório. Aqui, buscamos a lista de repositórios pertencentes a à organização do [octokit](https://github.com/octokit):
+**Example**: When you get a list of repositories, you get the summary
+representation of each repository. Here, we fetch the list of repositories owned
+by the [octokit](https://github.com/octokit) organization:
 
     GET /orgs/octokit/repos
 
-#### Representações detalhadas
+#### Detailed representations
 
-Ao buscar um recurso individual, a resposta normalmente inclui _todos os_ atributos para esse recurso. Esta é a representação "detalhada" do recurso. (Note que a autorização por vezes influencia o valor de detalhes incluído na representação.)
+When you fetch an individual resource, the response typically includes _all_
+attributes for that resource. This is the "detailed" representation of the
+resource. (Note that authorization sometimes influences the amount of detail
+included in the representation.)
 
-**Exemplo**: ao receber um repositório individual, você recebe a representação detalhada do repositório. Aqui, nós buscamos o repositório [octokit/octokit.rb](https://github.com/octokit/octokit.rb):
+**Example**: When you get an individual repository, you get the detailed
+representation of the repository. Here, we fetch the
+[octokit/octokit.rb](https://github.com/octokit/octokit.rb) repository:
 
     GET /repos/octokit/octokit.rb
 
-A documentação fornece um exemplo de resposta para cada método da API. O exemplo da resposta ilustra todos os atributos retornados por esse método.
+The documentation provides an example response for each API method. The example
+response illustrates all attributes that are returned by that method.
 
-### Autenticação
+### Authentication
 
-Existem duas maneiras de efetuar a autenticação através da API v3 de {% data variables.product.product_name %}.  Solicitações que exigem autenticação retornarão `404 Not Found`, em vez de `403 Forbidden`, em alguns lugares.  Isso é para evitar a fuga acidental de repositórios privados para usuários não autorizados.
+{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
-#### Autenticação básica
+#### Basic authentication
 
 ```shell
 $ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
-#### Token do OAuth2 (enviado em um cabeçalho)
+#### OAuth2 token (sent in a header)
 
 ```shell
 $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
@@ -93,12 +105,13 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% note %}
 
-Observação: O GitHub recomenda enviar tokens do OAuth usando o cabeçalho de autorização.
+Note: GitHub recommends sending OAuth tokens using the Authorization header.
 
 {% endnote %}
 
-Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens do OAuth2 podem ser adquiridos usando o [fluxo de aplicação web](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) para aplicativos de produção.
+Read [more about OAuth2](/apps/building-oauth-apps/).  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -107,11 +120,11 @@ Leia [mais sobre o OAuth2](/apps/building-oauth-apps/).  Observe que os tokens d
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Usar o seu `client_id` e `client_secret` _ não_ autenticam você como usuário. Isso apenas irá identificar o seu aplicativo OAuth para aumentar o seu limite de taxa. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth application's client secret to your users.
+Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth application to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth application's client secret to your users.
 
-{% if currentVersion != "free-pro-team@latest" %}
 You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/enterprise/admin/installation/enabling-private-mode)".
 {% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-rate-limit-for-oauth-applications).
@@ -132,80 +145,80 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 > }
 ```
 
-After detecting several requests with invalid credentials within a short period, the API will temporarily reject all authentication attempts for that user (including ones with valid credentials) with `403 Forbidden`:
+After detecting several requests with invalid credentials within a short period,
+the API will temporarily reject all authentication attempts for that user
+(including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
-### Parâmetros
+### Parameters
 
-Many API methods take optional parameters. For `GET` requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter:
+Many API methods take optional parameters. For `GET` requests, any parameters not
+specified as a segment in the path can be passed as an HTTP query string
+parameter:
 
 ```shell
 $ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
-In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner` and `:repo` parameters in the path while `:state` is passed in the query string.
+In this example, the 'vmg' and 'redcarpet' values are provided for the `:owner`
+and `:repo` parameters in the path while `:state` is passed in the query
+string.
 
-For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON with a Content-Type of 'application/json':
+For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in the URL should be encoded as JSON
+with a Content-Type of 'application/json':
 
 ```shell
 $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
-### Ponto de extremidade raiz
+### Root endpoint
 
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion != "free-pro-team@latest" %}
-
-{% note %}
-
-**Note:** For {% data variables.product.prodname_ghe_server %}, [as with all other endpoints](/v3/enterprise-admin/#endpoint-urls), you'll need to pass your username and password.
-
-{% endnote %}
-
-{% endif %}
 
 ### GraphQL global node IDs
 
-See the guide on "[Using Global Node IDs](/v4/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
+See the guide on "[Using Global Node IDs](/graphql/guides/using-global-node-ids)" for detailed information about how to find `node_id`s via the REST API and use them in GraphQL operations.
 
 ### Client errors
 
-There are three possible types of client errors on API calls that receive request bodies:
+There are three possible types of client errors on API calls that
+receive request bodies:
 
 1. Sending invalid JSON will result in a `400 Bad Request` response.
-   
+
         HTTP/1.1 400 Bad Request
         Content-Length: 35
-       
+
         {"message":"Problems parsing JSON"}
 
 2. Sending the wrong type of JSON values will result in a `400 Bad
-Request` response.
-   
+   Request` response.
+
         HTTP/1.1 400 Bad Request
         Content-Length: 40
-       
+
         {"message":"Body should be a JSON object"}
 
-3. Sending invalid fields will result in a `422 Unprocessable Entity` response.
-   
+3. Sending invalid fields will result in a `422 Unprocessable Entity`
+   response.
+
         HTTP/1.1 422 Unprocessable Entity
         Content-Length: 149
-       
+
         {
           "message": "Validation Failed",
           "errors": [
@@ -217,95 +230,124 @@ Request` response.
           ]
         }
 
-All error objects have resource and field properties so that your client can tell what the problem is.  There's also an error code to let you know what is wrong with the field.  These are the possible validation error codes:
+All error objects have resource and field properties so that your client
+can tell what the problem is.  There's also an error code to let you
+know what is wrong with the field.  These are the possible validation error
+codes:
 
-| Error code name  | Descrição                                                                                                                              |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `missing`        | A resource does not exist.                                                                                                             |
-| `missing_field`  | A required field on a resource has not been set.                                                                                       |
-| `invalid`        | The formatting of a field is invalid.  Review the documentation for the for more specific information.                                 |
-| `already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names). |
-| `unprocessable`  | The inputs provided were invalid.                                                                                                      |
+Error code name | Description
+-----------|-----------|
+`missing` | A resource does not exist.
+`missing_field` | A required field on a resource has not been set.
+`invalid` | The formatting of a field is invalid.  Review the documentation for the for more specific information.
+`already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
+`unprocessable` | The inputs provided were invalid.
 
 Resources may also send custom validation errors (where `code` is `custom`). Custom errors will always have a `message` field describing the error, and most errors will also include a `documentation_url` field pointing to some content that might help you resolve the error.
 
 ### HTTP redirects
 
-API v3 uses HTTP redirection where appropriate. Os clientes devem assumir que qualquer solicitação pode resultar em redirecionamento. Receber um redirecionamento de HTTP *não* é um erro e os clientes devem seguir esse redirecionamento. As respostas de redirecionamento terão um campo do cabeçalho do tipo `Localização` que contém o URI do recurso ao qual o cliente deve repetir as solicitações.
+API v3 uses HTTP redirection where appropriate. Clients should assume that any
+request may result in a redirection. Receiving an HTTP redirection is *not* an
+error and clients should follow that redirect. Redirect responses will have a
+`Location` header field which contains the URI of the resource to which the
+client should repeat the requests.
 
-| Código de status | Descrição                                                                                                                                                                                                                                   |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `301`            | Redirecionamento permanente. O URI que você usou para fazer a solicitação foi substituído pelo especificado no campo do cabeçalho `Localização`. Este e todas as solicitações futuras deste recurso devem ser direcionadas para o novo URI. |
-| `302`, `307`     | Redirecionamento temporário. A solicitação deve ser repetida literalmente para o URI especificado no campo de cabeçalho `Localização`, mas os clientes devem continuar a usar o URI original para solicitações futuras.                     |
+Status Code | Description
+-----------|-----------|
+`301` | Permanent redirection. The URI you used to make the request has been superseded by the one specified in the `Location` header field. This and all future requests to this resource should be directed to the new URI.
+`302`, `307` | Temporary redirection. The request should be repeated verbatim to the URI specified in the `Location` header field but clients should continue to use the original URI for future requests.
 
-Outros códigos de status de redirecionamento podem ser usados de acordo com a especificação HTTP 1.1.
+Other redirection status codes may be used in accordance with the HTTP 1.1 spec.
 
-### Verbos HTTP
+### HTTP verbs
 
-Quando possível, a API v3 se esforça para usar verbos HTTP apropriados para cada ação.
+Where possible, API v3 strives to use appropriate HTTP verbs for each
+action.
 
-| Verbo    | Descrição                                                                                                                                                                                                                                                                                                                                                                   |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | Pode ser emitido contra qualquer recurso para obter apenas as informações de cabeçalho HTTP.                                                                                                                                                                                                                                                                                |
-| `GET`    | Usado para recuperar recursos.                                                                                                                                                                                                                                                                                                                                              |
-| `POST`   | Usado para criar recursos.                                                                                                                                                                                                                                                                                                                                                  |
-| `PATCH`  | Usado para atualizar recursos com dados parciais do JSON.  Por exemplo, um recurso de um problema tem atributos de `título` e `texto`.  Uma solicitação de PATCH pode aceitar um ou mais dos atributos para atualizar o recurso.  PATCH é um verbo HTTP relativamente novo e incomum. Portanto, os pontos de extremidade de recursos também aceitam solicitações de `POST`. |
-| `PUT`    | Usado para substituir recursos ou coleções. Para as solicitações de `PUT` sem atributo de `texto`, certifique-se de definir o cabeçalho `Content-Length` como zero.                                                                                                                                                                                                         |
-| `DELETE` | Usado para excluir recursos.                                                                                                                                                                                                                                                                                                                                                |
+Verb | Description
+-----|-----------
+`HEAD` | Can be issued against any resource to get just the HTTP header info.
+`GET` | Used for retrieving resources.
+`POST` | Used for creating resources.
+`PATCH` | Used for updating resources with partial JSON data.  For instance, an Issue resource has `title` and `body` attributes.  A PATCH request may accept one or more of the attributes to update the resource.  PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept `POST` requests.
+`PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
+`DELETE` |Used for deleting resources.
 
-### Hipermídia
+### Hypermedia
 
-Todos os recursos podem ter uma ou mais propriedades `*_url` vinculando outros recursos.  Estes tem o objetivo de fornecer URLs explícitas para que os clientes API apropriados não precisem construir URLs por conta própria.  É altamente recomendável que os clientes da API os utilizem.  Fazer isso tornará as futuras atualizações da API mais fáceis para os desenvolvedores.  Espera-se que todas as URLs sejam modelos de URI [RFC 6570][rfc] adequados.
+All resources may have one or more `*_url` properties linking to other
+resources.  These are meant to provide explicit URLs so that proper API clients
+don't need to construct URLs on their own.  It is highly recommended that API
+clients use these.  Doing so will make future upgrades of the API easier for
+developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.
 
-Então você pode expandir estes modelos usando algo como o [uri_template][uri] gem:
+You can then expand these templates using something like the [uri_template][uri]
+gem:
 
     >> tmpl = URITemplate.new('/notifications{?since,all,participating}')
     >> tmpl.expand
     => "/notifications"
-    
+
     >> tmpl.expand :all => 1
     => "/notifications?all=1"
-    
+
     >> tmpl.expand :all => 1, :participating => 1
     => "/notifications?all=1&participating=1"
 
-### Paginação
+[rfc]: http://tools.ietf.org/html/rfc6570
+[uri]: https://github.com/hannesg/uri_template
 
-Pedidos que retornam vários itens serão paginados para 30 itens por padrão.  Você pode especificar mais páginas com o parâmetro `?page`. Para alguns recursos, você também pode definir um tamanho de página até 100 com o parâmetro `?per_page`. Observe que, por razões técnicas, nem todos os pontos de extremidade respeitam o parâmetro `?per_page`, veja [eventos](/v3/activity/events/) por exemplo.
+### Pagination
+
+Requests that return multiple items will be paginated to 30 items by
+default.  You can specify further pages with the `page` parameter. For some
+resources, you can also set a custom page size up to 100 with the `per_page` parameter.
+Note that for technical reasons not all endpoints respect the `per_page` parameter,
+see [events](/rest/reference/activity#events) for example.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-Observe que a numeração da página é baseada em 1 e que, ao omitir o parâmetro `?page`, retornará a primeira página.
+Note that page numbering is 1-based and that omitting the `page`
+parameter will return the first page.
 
-Para obter mais informações sobre paginação, confira nosso guia sobre [Passar com paginação][pagination-guide].
+Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
+With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
+Instead, you can traverse the results by using the `before` or `after` parameters.
 
-#### Cabeçalho do link
+For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
+
+#### Link header
 
 {% note %}
 
-**Observação:** É importante formar chamadas com valores de cabeçalho de link, em vez de construir suas próprias URLs.
+**Note:** It's important to form calls with Link header values instead of constructing your own URLs.
 
 {% endnote %}
 
-O [cabeçalho do link](http://tools.ietf.org/html/rfc5988) inclui informações de paginação:
+The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information. For example:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
-_O exemplo inclui uma quebra de linha para legibilidade._
+_The example includes a line break for readability._
 
-Este `Link` de resposta contém um ou mais links de relações de [hipermídia](/v3/#hypermedia), alguns dos quais podem exigir expansão como [modelos de URI](http://tools.ietf.org/html/rfc6570).
+Or, if the endpoint uses cursor-based pagination:
 
-Os valores de `rel` possíveis são:
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
-| Nome      | Descrição                                                     |
-| --------- | ------------------------------------------------------------- |
-| `avançar` | A relação de link para a próxima página de resultados.        |
-| `last`    | A relação de link para a última página de resultados.         |
-| `first`   | The link relation for the first page of results.              |
-| `prev`    | The link relation for the immediate previous page of results. |
+This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
+
+The possible `rel` values are:
+
+Name | Description
+-----------|-----------|
+`next` |The link relation for the immediate next page of results.
+`last` |The link relation for the last page of results.
+`first` |The link relation for the first page of results.
+`prev` |The link relation for the immediate previous page of results.
 
 ### Rate limiting
 
@@ -321,7 +363,7 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 
 {% data reusables.enterprise.rate_limit %}
 
-Note that [the Search API has custom rate limit rules](/v3/search/#rate-limit).
+Note that [the Search API has custom rate limit rules](/rest/reference/search#rate-limit).
 
 The returned HTTP headers of any API request show your current rate limit status:
 
@@ -335,11 +377,11 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > X-RateLimit-Reset: 1372700873
 ```
 
-| Header Name             | Descrição                                                                                                              |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | The maximum number of requests you're permitted to make per hour.                                                      |
-| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window.                                                     |
-| `X-RateLimit-Reset`     | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time). |
+Header Name | Description
+-----------|-----------|
+`X-RateLimit-Limit` | The maximum number of requests you're permitted to make per hour.
+`X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window.
+`X-RateLimit-Reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
 
 If you need the time in a different format, any modern programming language can get the job done. For example, if you open up the console on your web browser, you can easily get the reset time as a JavaScript Date object.
 
@@ -364,7 +406,7 @@ If you exceed the rate limit, an error response returns:
 > }
 ```
 
-You can [check your rate limit status](/v3/rate_limit) without incurring an API hit.
+You can [check your rate limit status](/rest/reference/rate-limit) without incurring an API hit.
 
 #### Increasing the unauthenticated rate limit for OAuth applications
 
@@ -413,15 +455,17 @@ If your application triggers this rate limit, you'll receive an informative resp
 
 ### User agent required
 
-All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent` header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. Isso nos permite entrar em contato com você, em caso de problemas.
+All API requests MUST include a valid `User-Agent` header. Requests with no `User-Agent`
+header will be rejected. We request that you use your {% data variables.product.product_name %} username, or the name of your
+application, for the `User-Agent` header value. This allows us to contact you if there are problems.
 
-Aqui está um exemplo:
+Here's an example:
 
 ```shell
 User-Agent: Awesome-Octocat-App
 ```
 
-A cURL envia um cabeçalho válido do `User-Agent` por padrão. Se você fornecer um cabeçalho inválido de `User-Agent` via cURL (ou via um cliente alternativo), você receberá uma resposta `403 Forbidden`:
+cURL sends a valid `User-Agent` header by default. If you provide an invalid `User-Agent` header via cURL (or via an alternative client), you will receive a `403 Forbidden` response:
 
 ```shell
 $ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
@@ -436,15 +480,20 @@ $ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 
 {% endif %}
 
-### Solicitações condicionais
+### Conditional requests
 
-A maioria das respostas retorna um cabeçalho de </code>Etag`. Many responses also return a <code>Last-Modified` header. You can use the values of these headers to make subsequent requests to those resources using the `If-None-Match` and `If-Modified-Since` headers, respectively. If the resource has not changed, the server will return a `304 Not Modified`.
+Most responses return an `ETag` header. Many responses also return a `Last-Modified` header. You can use the values
+of these headers to make subsequent requests to those resources using the
+`If-None-Match` and `If-Modified-Since` headers, respectively. If the resource
+has not changed, the server will return a `304 Not Modified`.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
 
-**Note**: Making a conditional request and receiving a 304 response does not count against your [Rate Limit](#rate-limiting), so we encourage you to use it whenever possible.
+**Note**: Making a conditional request and receiving a 304 response does not
+count against your [Rate Limit](#rate-limiting), so we encourage you to use it
+whenever possible.
 
 {% endtip %}
 
@@ -486,9 +535,14 @@ $ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: T
 
 ### Cross origin resource sharing
 
-A API é compatível com Compartilhamento de Recursos de Origens Cruzadas (CORS) para solicitações de AJAX de qualquer origem. You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the HTML 5 Security Guide.
+The API supports Cross Origin Resource Sharing (CORS) for AJAX requests from
+any origin.
+You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors/), or
+[this intro](https://code.google.com/archive/p/html5security/wikis/CrossOriginRequestSecurity.wiki) from the
+HTML 5 Security Guide.
 
-Here's a sample request sent from a browser hitting `http://example.com`:
+Here's a sample request sent from a browser hitting
+`http://example.com`:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
@@ -511,7 +565,11 @@ Access-Control-Max-Age: 86400
 
 ### JSON-P callbacks
 
-You can send a `?callback` parameter to any GET call to have the results wrapped in a JSON function.  This is typically used when browsers want to embed {% data variables.product.product_name %} content in web pages by getting around cross domain issues.  The response includes the same data output as the regular API, plus the relevant HTTP Header information.
+You can send a `?callback` parameter to any GET call to have the results
+wrapped in a JSON function.  This is typically used when browsers want
+to embed {% data variables.product.product_name %} content in web pages by getting around cross domain
+issues.  The response includes the same data output as the regular API,
+plus the relevant HTTP Header information.
 
 ```shell
 $ curl {% data variables.product.api_url_pre %}?callback=foo
@@ -543,20 +601,22 @@ You can write a JavaScript handler to process the callback. Here's a minimal exa
       console.log(meta);
       console.log(data);
     }
-    
+
     var script = document.createElement('script');
     script.src = '{% data variables.product.api_url_code %}?callback=foo';
-    
+
     document.getElementsByTagName('head')[0].appendChild(script);
     </script>
     </head>
-    
+
     <body>
       <p>Open up your browser's console.</p>
     </body>
     </html>
 
-All of the headers are the same String value as the HTTP Headers with one notable exception: Link.  Link headers are pre-parsed for you and come through as an array of `[url, options]` tuples.
+All of the headers are the same String value as the HTTP Headers with one
+notable exception: Link.  Link headers are pre-parsed for you and come
+through as an array of `[url, options]` tuples.
 
 A link that looks like this:
 
@@ -595,9 +655,9 @@ Some requests that create new data, such as creating a new commit, allow you to 
 
 #### Explicitly providing an ISO 8601 timestamp with timezone information
 
-For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/v3/git/commits).
+For API calls that allow for a timestamp to be specified, we use that exact timestamp. An example of this is the [Commits API](/rest/reference/git#commits).
 
-These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/v3/git/commits/#example-input) for how these timestamps can be specified.
+These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this example](/rest/reference/git#example-input) for how these timestamps can be specified.
 
 #### Using the `Time-Zone` header
 
@@ -607,7 +667,7 @@ It is possible to supply a `Time-Zone` header which defines a timezone according
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/v3/repos/contents/) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
+This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the [Contents API](/rest/reference/repos#contents) generates a git commit for each addition or change and uses the current time as the timestamp. This header will determine the timezone used for generating that current timestamp.
 
 #### Using the last known timezone for the user
 
@@ -616,8 +676,5 @@ If no `Time-Zone` header is specified and you make an authenticated call to the 
 #### Defaulting to UTC without other timezone information
 
 If the steps above don't result in any information, we use UTC as the timezone to create the git commit.
-
-[rfc]: http://tools.ietf.org/html/rfc6570
-[uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination

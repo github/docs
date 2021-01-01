@@ -4,6 +4,7 @@ intro: 'When you review and investigate a single notification, you have several 
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Saving a single notification

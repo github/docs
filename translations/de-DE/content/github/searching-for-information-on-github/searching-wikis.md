@@ -1,14 +1,15 @@
 ---
 title: Wikis durchsuchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du Wikis durchsuchen und die Suchergebnisse mit den nachfolgenden Qualifizierern der Wiki-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie Wikis durchsuchen und die Suchergebnisse mit den folgenden Kennzeichnern der Wiki-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-wikis
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst Wikis global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
+Sie können Wikis global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% data reusables.search.syntax_tips %}
 

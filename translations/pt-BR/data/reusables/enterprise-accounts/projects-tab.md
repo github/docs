@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Projects**. ![Projects tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/settings-projects-tab.png)
+1. Na barra lateral esquerda, clique em **Projetos**. ![Aba Projetos na barra lateral de configurações da conta corporativa](/assets/images/help/business-accounts/settings-projects-tab.png)

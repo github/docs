@@ -1,6 +1,6 @@
 ---
-title: Administrar comentarios negativos
-intro: 'Puedes {% if currentVersion == "free-pro-team@latest" %}ocultar, editar,{% else %}editar{% endif %} o eliminar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.'
+title: Managing disruptive comments
+intro: 'You can {% if currentVersion == "free-pro-team@latest" %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -10,69 +10,76 @@ versions:
   enterprise-server: '*'
 ---
 
-### Ocultar un comentario
+### Hiding a comment
 
-Cualquiera con acceso de escritura a un repositorio puede ocultar comentarios en reportes de problemas, solicitudes de extracción y confirmaciones.
+Anyone with write access to a repository can hide comments on issues, pull requests, and commits. 
 
-Si un comentario está fuera de tema, desactualizado o resuelto, es posible que desees ocultar un comentario para mantener la conversación enfocada o hacer que una solicitud de extracción sea más fácil de navegar o revisar. Los comentarios ocultos se minimizan pero las personas con acceso de lectura a un repositorio puede expandirlos.
+If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 
-![Contenido minimizado](/assets/images/help/repository/hidden-comment.png)
+![Minimized comment](/assets/images/help/repository/hidden-comment.png)
 
-1. Navega hasta el comentario que deseas ocultar.
-2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Hide (Ocultar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar y Eliminar](/assets/images/help/repository/comment-menu.png)
-3. Utilizando el menú desplegable "Choose a reason" (Elige una razón), haz clic en una razón para ocultar el comentario. Después haz clic en **Hide comment (Ocultar comentario)**.
+1. Navigate to the comment you'd like to hide.
+2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
+  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete options](/assets/images/help/repository/comment-menu.png)
+3. Using the "Choose a reason" drop-down menu, click a reason to hide the comment. Then click, **Hide comment**.
   {% if currentVersion == "free-pro-team@latest" %}
-  ![Elija la razón para ocultar el menú desplegable de comentarios](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
+  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
-  ![Elija la razón para ocultar el menú desplegable de comentarios](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
+  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-### Desocultar un comentario
+### Unhiding a comment
 
-Cualquiera con acceso de escritura a un repositorio puede volver a mostrar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.
+Anyone with write access to a repository can unhide comments on issues, pull requests, and commits.
 
-1. Navega hasta el comentario que deseas desocultar.
-2. En la esquina superior derecha del comentario, haz clic en **{% octicon "fold" aria-label="The fold icon" %} Show comment (Mostrar comentario)**. ![Mostrar el texto del comentario](/assets/images/help/repository/hidden-comment-show.png)
-3. En el lateral derecho del comentario expandido, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} (el ícono de kebab horizontal), después **Unhide (Desocultar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Desocultar y Eliminar](/assets/images/help/repository/comment-menu-hidden.png)
+1. Navigate to the comment you'd like to unhide.
+2. In the upper-right corner of the comment, click **{% octicon "fold" aria-label="The fold icon" %} Show comment**.
+   ![Show comment text](/assets/images/help/repository/hidden-comment-show.png)
+3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
+   ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
 
-### Editar un comentario
+### Editing a comment
 
-Cualquiera con acceso de escritura a un repositorio puede editar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.
+Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
 
-Es correcto editar un comentario y eliminar el contenido que no contribuya a la conversación y viole el código de conducta de tu comunidad {% if currentVersion == "free-pro-team@latest" %} o [las pautas de la comunidad de GitHub ](/articles/github-community-guidelines){% endif %}.
+It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
-Cuando editas un comentario, toma nota de la ubicación desde la que se ha eliminado el contenido y, de manera opcional, la razón por la que se lo eliminó.
+When you edit a comment, note the location that the content was removed from and optionally, the reason for removing it.
 
-Cualquier persona con acceso de lectura a un repositorio puede ver el historial de edición del comentario. El menú desplegable **editado** en la parte superior del comentario contiene un historial de las ediciones y muestra el usuario y el registro de horario de cada edición.
+Anyone with read access to a repository can view a comment's edit history. The **edited** dropdown at the top of the comment contains a history of edits showing the user and timestamp for each edit.
 
-![Comentario con nota adicional que el contenido fue redactado](/assets/images/help/repository/content-redacted-comment.png)
+![Comment with added note that content was redacted](/assets/images/help/repository/content-redacted-comment.png)
 
-Los autores de los comentarios y cualquiera con acceso de escritura a un repositorio puede también eliminar información sensible de un historial de edición de los comentarios. Para obtener más información, consulta "[Rastrear los cambios en un comentario](/github/building-a-strong-community/tracking-changes-in-a-comment)".
+Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/github/building-a-strong-community/tracking-changes-in-a-comment)."
 
-1. Navega hasta el comentario que deseas editar.
-2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Edit (Editar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar, Eliminar e Informar](/assets/images/help/repository/comment-menu.png)
-3. En la ventana de comentario, elimina el contenido que deseas eliminar, después escribe `[REDACTED]` para reemplazarlo. ![Ventana de comentario con contenido redactado](/assets/images/help/issues/redacted-content-comment.png)
-4. En la parte inferior del comentario, escribe una nota que indique que has editado el comentario, y de forma opcional, la razón por la que editaste el comentario. ![Ventana de comentario con nota adicional que indica que el contenido fue redactado](/assets/images/help/issues/note-content-redacted-comment.png)
-5. Haz clic en **Update comment (Actualizar comentario)**.
+1. Navigate to the comment you'd like to edit.
+2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
+  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
+3. In the comment window, delete the content you'd like to remove, then type `[REDACTED]` to replace it.
+  ![Comment window with redacted content](/assets/images/help/issues/redacted-content-comment.png)
+4. At the bottom of the comment, type a note indicating that you have edited the comment, and optionally, why you edited the comment.
+  ![Comment window with added note that content was redacted](/assets/images/help/issues/note-content-redacted-comment.png)
+5. Click **Update comment**.
 
-### Eliminar un comentario
+### Deleting a comment
 
-Cualquiera con acceso de escritura a un repositorio puede borrar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones. Los propietarios de organizaciones, mantenedores de equipos, y el autor del comentario también pueden borrarlo en la página del equipo.
+Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
 
-Eliminar un comentario es tu último recurso como moderador. Es correcto eliminar un comentario si el comentario entero no añade un contenido constructivo a una conversación y viola el código de conducta de tu comunidad{% if currentVersion == "free-pro-team@latest" %} o [las pautas de la comunidad de GitHub](/articles/github-community-guidelines){% endif %}.
+Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
-Eliminar un comentario crea un evento cronológico que es visible para todos aquellos que tienen acceso de lectura al repositorio. Sin embargo, el nombre de usuario de la persona que eliminó el comentario solo es visible para personas con acceso de escritura al repositorio. Para cualquiera que no tenga acceso de escritura, el evento de cronología es anónimo.
+Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
 
-![Evento cronológico anónimo para un comentario eliminado](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
+![Anonymized timeline event for a deleted comment](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-Si un comentario contiene algún contenido constructivo que sume a la conversación en cuanto a la propuesta o a la solicitud de extracción, puedes editar el comentario.
+If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
 
 {% note %}
 
-**Nota:** el comentario inicial (o cuerpo) de una propuesta o solicitud de extracción no puede eliminarse. Por el contrario, pueden editar los cuerpos de la propuesta o de la solicitud de extracción para eliminar el contenido no deseado.
+**Note:** The initial comment (or body) of an issue or pull request can't be deleted. Instead, you can edit issue and pull request bodies to remove unwanted content.
 
 {% endnote %}
 
-1. Navega hasta el comentario que deseas eliminar.
-2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Delete (Eliminar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar, Eliminar e Informar](/assets/images/help/repository/comment-menu.png)
-3. De forma opcional, escribe un comentario señalando que eliminaste un comentario y el porqué.
+1. Navigate to the comment you'd like to delete.
+2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
+  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
+3. Optionally, write a comment noting that you deleted a comment and why.

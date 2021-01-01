@@ -1,6 +1,6 @@
 ---
 title: 关于每用户定价
-intro: 通过每用户定价，组织根据团队规模付款，以访问团队高级协作和管理工具，并选择性访问安全、合规和部署控件。
+intro: '通过每用户定价，组织根据团队规模付款，以访问团队高级协作和管理工具，并选择性访问安全、合规和部署控件。'
 redirect_from:
   - /articles/about-per-user-pricing
 versions:

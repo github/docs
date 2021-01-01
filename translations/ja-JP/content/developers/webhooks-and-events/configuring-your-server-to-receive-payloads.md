@@ -1,40 +1,41 @@
 ---
-title: Configuring your server to receive payloads
-intro: Learn to set up a server to manage incoming webhook payloads.
+title: ペイロードを受信するようサーバーを設定する
+intro: 受信するwebhookのペイロードを管理するためのサーバー設定を学んでください。
 redirect_from:
   - /webhooks/configuring
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 
-Now that our webhook is ready to deliver messages, we'll set up a basic Sinatra server to handle incoming payloads.
+webhookがメッセージを配信する準備ができたので、受信するペイロードを処理するための基本的なSinatraサーバーをセットアップしましょう。
 
-Recall that we specifically set our webhook URL to `http://localhost:4567/payload`. Since we're developing locally, we'll need to expose our local development environment to the Internet, so that GitHub can send out messages, and our local server can process them.
+webhookのURLは`http://localhost:4567/payload`に設定したことを思い出してください。 開発をローカルで行っているので、ローカルの開発環境をインターネットに公開し、GitHubがメッセージを送信して、ローカルサーバーでそれを処理できるようにしてやらなければなりません。
 
 注釈: このプロジェクトの完全なソースコードは、[platform-samplesリポジトリ][platform samples]からダウンロードできます。
 
-### Using ngrok
+### ngrokの利用
 
-First, we'll install a program to expose our local host to the Internet. We'll use ngrok to do this. [ngrok is a free download](https://ngrok.com/download) available for all major operating systems.
+最初に、ローカルホストをインターネットに公開するプログラムをインストールします。 そのためにngrokを使用します。 すべての主要なオペレーティングシステムについて、[ngrokは無料でダウンロード](https://ngrok.com/download)できます。
 
-When you're done with that, you can expose your localhost by running `./ngrok http 4567` on the command line. You should see a line that looks something like this:
+ダウンロードができたら、コマンドラインで`./ngrok http 4567`と実行すればローカルホストを公開できます。 以下のような行が表示されるはずです。
 
 ```shell
 $ Forwarding    http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
-Copy that funky `*.ngrok.io` URL! We're now going to go *back* to the Payload URL and pasting this server into that field. It should look something like `http://7e9ea9dc.ngrok.io/payload`.
+この格好いい`*.ngrok.io` というURLをコピーしてください! ここでペイロードのURLに*もどり*、このサーバーをそのフィールドに貼り付けます。 `http://7e9ea9dc.ngrok.io/payload`のようになるはずです。
 
-By doing this, we've set ourselves up to expose our localhost at path `/payload` to the Internet.
+こうすることで、ローカルホストを`/payload`というパスでインターネットに公開するようセットアップできました。
 
-### Writing the server
+### サーバーの作成
 
-Now comes the fun part! We want our server to listen to `POST` requests, at `/payload`, because that's where we told GitHub our webhook URL was. Since ngrok is exposing our local environment, we don't need to set up a real server somewhere online, and can happily test out our code locally.
+ここからが面白いところです! サーバーを`/payload`で`POST`リクエストに対して待ち受けさせたいですが、これはGitHubにそこがwebhookのURLだと伝えたからです。 ngrokはローカル環境を公開しているので、オンラインでどこかに本物のサーバーをセットアップする必要はなく、ローカルでコードをうまくテストできます。
 
-Let's set up a little Sinatra app to do something with the information. Our initial setup might look something like this:
+小さなSinatraのアプリケーションをセットアップして、この情報で何かをさせてみましょう。 初期のセットアップは以下のようになるでしょう。
 
 ``` ruby
 require 'sinatra'
@@ -46,11 +47,11 @@ post '/payload' do
 end
 ```
 
-(シナトラの仕組みに詳しくない方は、[Sinatraのガイド][Sinatra]を読むことをお勧めします。)
+(Sinatraの仕組みに詳しくない方は、[Sinatraのガイド][Sinatra]を読むことをお勧めします。)
 
 このサーバーを起動してください。
 
-Since we set up our webhook to listen to events dealing with `Issues`, go ahead and create a new Issue on the repository you're testing with. Once you create it, switch back to your terminal. You should see something like this in your output:
+webhookは`Issues`と関連するイベントを待ち受けるようにセットアップしたので、先へ進んで新しいIssueをテストしているリポジトリで作成してください。 作成できたら、ターミナルに戻ってください。 以下のような出力があるでしょう。
 
 ```shell
 $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.rb
@@ -61,9 +62,9 @@ $ ~/Developer/platform-samples/hooks/ruby/configuring-your-server $ ruby server.
 > I got some JSON: {"action"=>"opened", "issue"=>{"url"=>"...
 ```
 
-Success! You've successfully configured your server to listen to webhooks. Your server can now process this information any way you see fit. For example, if you were setting up a "real" web application, you might want to log some of the JSON output to a database.
+成功です! webhookを待ち受けるようにサーバーを設定することに成功しました。 これでサーバーは、適切だと考えられる方法でこの情報を処理できるようになりました。 たとえば、「本物の」Webアプリケーションをセットアップしているなら、JSONの出力をデータベースに記録したいかもしれません。
 
-For additional information on working with webhooks for fun and profit, head on over to the [Testing Webhooks](/webhooks/testing) guide.
+楽しみと利益のためにwebhookを扱うための追加情報については、[webhookのテスト](/webhooks/testing)ガイドを参照してください。
 
 [platform samples]: https://github.com/github/platform-samples/tree/master/hooks/ruby/configuring-your-server
 [Sinatra]: http://www.sinatrarb.com/

@@ -9,9 +9,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-在使用[GitHub API 或](/v3/auth/#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
+在使用[GitHub API 或](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
 
 {% if currentVersion == "free-pro-team@latest" %}如果要使用 PAT 访问使用 SAML SSO 的组织所拥有的资源，则必须授权 PAT。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/articles/about-authentication-with-saml-single-sign-on)”和“[授权个人访问令牌用于 SAML 单点登录](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。{% endif %}
 
@@ -27,8 +28,8 @@ versions:
 5. 给令牌一个描述性名称。 ![令牌说明字段](/assets/images/help/settings/token_description.png)
 6. 选择要授予此令牌的作用域或权限。 要使用令牌从命令行访问仓库，请选择 **repo（仓库）**。 ![选择令牌作用域](/assets/images/help/settings/token_scopes.gif)
 7. 单击 **Generate token（生成令牌）**。 ![生成令牌按钮](/assets/images/help/settings/generate_token.png)
-8. 单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 将令牌复制到剪贴板。 出于安全原因，离开此页面后，您将无法再次看到令牌。{% if currentVersion == "free-pro-team@latest" %} ![新创建的令牌](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![新创建的令牌](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. 单击 {% octicon "clippy" aria-label="The copy to clipboard icon" %} 将令牌复制到剪贴板。 出于安全原因，离开此页面后，您将无法再次看到令牌。{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
+![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
 
    {% warning %}
 

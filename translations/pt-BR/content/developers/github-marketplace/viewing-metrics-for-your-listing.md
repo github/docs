@@ -47,7 +47,8 @@ Para acessar as perspectivas do {% data variables.product.prodname_marketplace %
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Selecione o {% data variables.product.prodname_github_app %} para o qual você gostaria de ver perspectivas.
+4. Selecione o
+{% data variables.product.prodname_github_app %} para o qual você gostaria de ver Insights.
 {% data reusables.user-settings.edit_marketplace_listing %}
 6. Clique na aba **Perspectivas**.
 7. Opcionalmente, selecione um período de tempo diferente, clicando no menu suspenso Período, no canto superior direito da página de Insights. ![Período de tempo do Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)

@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.

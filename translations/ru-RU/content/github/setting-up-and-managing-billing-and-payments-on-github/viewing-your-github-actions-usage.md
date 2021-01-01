@@ -6,7 +6,7 @@ versions:
   free-pro-team: '*'
 ---
 
-You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Managing a workflow run](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-billable-job-execution-minutes)."
+You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
 
 ### Viewing {% data variables.product.prodname_actions %} usage for your user account
 
@@ -43,6 +43,8 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_actions %}", view details of usage of data transfer by each organization in your enterprise account. ![Details of usage of minutes](/assets/images/help/billing/actions-minutes-enterprise.png)
+1. Under "
+{% data variables.product.prodname_actions %}", view details of usage of data transfer by each organization in your enterprise account.
+  ![Details of usage of minutes](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

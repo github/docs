@@ -6,7 +6,8 @@ redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 组织所有者可以管理组织的 SSH 认证中心 (CA)。

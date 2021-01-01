@@ -1,11 +1,12 @@
 ---
 title: 审查您的授权应用程序 (OAuth)
-intro: 您应检查授权的应用程序，以验证没有授权具有扩展权限的新应用程序，例如那些可以访问您的私有仓库的应用程序。
+intro: '您应检查授权的应用程序，以验证没有授权具有扩展权限的新应用程序，例如那些可以访问您的私有仓库的应用程序。'
 redirect_from:
   - /articles/reviewing-your-authorized-applications-oauth
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

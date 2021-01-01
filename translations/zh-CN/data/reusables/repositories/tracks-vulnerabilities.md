@@ -1,6 +1,5 @@
-We add vulnerabilities to the {% data variables.product.prodname_advisory_database %} from the following sources:
+我们从以下来源添加漏洞到 {% data variables.product.prodname_advisory_database %}：
 - [国家漏洞数据库](https://nvd.nist.gov/)
 - 机器学习和人工审查结合检测 {% data variables.product.prodname_dotcom %} 上公共提交中的漏洞
-- Security advisories reported on {% data variables.product.prodname_dotcom %}
-- The [npm Security advisories](https://www.npmjs.com/advisories) database
-- [FriendsOfPHP](https://github.com/FriendsOfPHP/security-advisories)
+- {% data variables.product.prodname_dotcom %} 上报告的安全通告
+- [npm 安全通告](https://www.npmjs.com/advisories)数据库

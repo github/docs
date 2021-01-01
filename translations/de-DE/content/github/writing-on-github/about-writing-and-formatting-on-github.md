@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 [Markdown](http://daringfireball.net/projects/markdown/) ist eine einfach zu lesende, leicht zu schreibende Syntax zur Formatierung von Klartext.

@@ -1,5 +1,5 @@
 ---
-title: 'Möglichkeiten finden, um zu Open-Source auf GitHub beizutragen'
+title: Möglichkeiten finden, um zu Open-Source auf GitHub beizutragen
 intro: 'Du kannst Möglichkeiten finden, um zu Open-Source-Projekten auf {% data variables.product.product_name %} beizutragen, die für Dich relevant sind.'
 redirect_from:
   - /articles/where-can-i-find-open-source-projects-to-work-on/
@@ -32,12 +32,12 @@ Einige Open-Source-Projekte stellen zusätzlich zu den an anderer Stelle gehoste
 
 Nachfolgend findest Du einige bekannte Repositorys, die auf {% data variables.product.prodname_dotcom_the_website %} gespiegelt werden:
 
-- [android](https://github.com/android)
+- [Android Open Source Project](https://github.com/aosp-mirror)
 - [The Apache Software Foundation](https://github.com/apache)
 - [The Chromium Project](https://github.com/chromium)
-- [The Eclipse Foundation](https://github.com/eclipse)
+- [Eclipse Foundation](https://github.com/eclipse)
 - [The FreeBSD Project](https://github.com/freebsd)
-- [The Glasgow Haskell Compiler](https://github.com/ghc)
+- [Glasgow Haskell Compiler](https://github.com/ghc)
 - [GNOME](https://github.com/GNOME)
 - [Linux kernel source tree](https://github.com/torvalds/linux)
 - [Qt](https://github.com/qt)

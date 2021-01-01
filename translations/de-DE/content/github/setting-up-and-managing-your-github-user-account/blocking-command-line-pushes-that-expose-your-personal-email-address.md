@@ -1,5 +1,5 @@
 ---
-title: 'Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen'
+title: Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen
 intro: 'Wenn Du festgelegt hast, dass Deine E-Mail-Adresse beim Durchführen webbasierter Vorgänge nicht offengelegt wird, kannst Du auch Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen könnten.'
 redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address

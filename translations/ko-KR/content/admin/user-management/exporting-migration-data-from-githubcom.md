@@ -9,7 +9,6 @@ redirect_from:
   - /enterprise/admin/guides/migrations/preparing-the-github-com-source-organization
   - /enterprise/admin/guides/migrations/exporting-the-github-com-organization-s-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
-  - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
 ---
@@ -28,7 +27,7 @@ versions:
 
 To export repository data from {% data variables.product.prodname_dotcom_the_website %}, use <a href="/rest/reference/migrations" class="dotcom-only">the Migrations API</a>.
 
-The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. To access the Migrations API, you must provide a custom [media type](/v3/media) in the `Accept` header: `application/vnd.github.wyandotte-preview+json`. The examples below include the custom media type.
+The Migrations API is currently in a preview period, which means that the endpoints and parameters may change in the future. To access the Migrations API, you must provide a custom [media type](/rest/overview/media-types) in the `Accept` header: `application/vnd.github.wyandotte-preview+json`. The examples below include the custom media type.
 
 ### Generating a migration archive
 
@@ -38,7 +37,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
 2. Start a migration by `POST`ing to <a href="/rest/reference/migrations#start-an-organization-migration" class="dotcom-only">the migration endpoint</a>. You'll need:
     * Your access token for authentication.
-    * A [list of the repositories](/v3/repos/#list-organization-repositories) you want to migrate:
+    * A [list of the repositories](/rest/reference/repos#list-organization-repositories) you want to migrate:
       ```shell
       curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X POST \
       -H "Accept: application/vnd.github.wyandotte-preview+json" \

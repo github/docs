@@ -1,6 +1,6 @@
 ---
 title: Eine benutzerdefinierte Domäne für Deine GitHub Pages-Website konfigurieren
-intro: 'Du kannst den Domänen-Namen Deiner {% data variables.product.prodname_pages %}-Website anpassen.'
+intro: 'Sie können den Domain-Namen Ihrer {% data variables.product.prodname_pages %}-Website anpassen.'
 redirect_from:
   - /articles/tips-for-configuring-an-a-record-with-your-dns-provider/
   - /articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/

@@ -1,6 +1,6 @@
 ---
 title: ステージングインスタンスのセットアップ
-intro: '変更が {% data variables.product.product_location_enterprise %} に適用される前に、*ステージングインスタンス*を使用して変更をテストできます。 たとえば、ステージングインスタンスを使用すれば、{% data variables.product.prodname_ghe_server %} の新しい更新をテストしたり、移行データのインポートを練習したりできます。'
+intro: '変更が {% data variables.product.product_location %} に適用される前に、*ステージングインスタンス*を使用して変更をテストできます。 たとえば、ステージングインスタンスを使用すれば、{% data variables.product.prodname_ghe_server %} の新しい更新をテストしたり、移行データのインポートを練習したりできます。'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:

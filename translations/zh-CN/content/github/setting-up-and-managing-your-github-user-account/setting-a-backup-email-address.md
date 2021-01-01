@@ -1,11 +1,12 @@
 ---
 title: 设置备用电子邮件地址
-intro: 如果您无法再访问主电子邮件地址，请使用备用电子邮件地址以安全地重置您的密码。
+intro: Use a backup email address as an additional destination for security-relevant account notifications{% if currentVersion != "github-ae@latest" %} and to securely reset your password if you can no longer access your primary email address{% endif %}.
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.access_settings %}

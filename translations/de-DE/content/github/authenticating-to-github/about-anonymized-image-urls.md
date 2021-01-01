@@ -1,6 +1,6 @@
 ---
 title: Informationen zu anonymisierten Bild-URLs
-intro: 'Wenn Du ein Bild auf {% data variables.product.product_name %} hochlädst, wird die URL des Bildes geändert, sodass Deine Informationen nicht rückverfolgbar sind.'
+intro: 'Wenn Sie ein Bild auf {% data variables.product.product_name %} hochladen, wird die URL des Bildes geändert, sodass Ihre Informationen nicht rückverfolgbar sind.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls
@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Zum Hosten Ihrer Bilder verwendet {% data variables.product.product_name %} den [Open-Source-Projekt-Camo](https://github.com/atmos/camo). Camo erzeugt für jedes Bild, das mit `https://camo.githubusercontent.com/` beginnt, einen anonymen URL-Proxy und verbirgt Deine Browserdaten und ähnliche Informationen vor anderen Benutzern.
+Zum Hosten Ihrer Bilder verwendet {% data variables.product.product_name %} den [Open-Source-Projekt-Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each image which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
 
 Jeder, der Deine anonymisierte Bild-URL direkt oder indirekt erhält, kann Dein Bild anzeigen. Beschränke vertrauliche Bilder zu deren Schutz auf ein privates Netzwerk oder einen Server, der eine Authentifizierung erfordert, anstatt Camo zu verwenden.
 

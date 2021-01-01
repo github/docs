@@ -8,15 +8,16 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Jedes {% data variables.product.product_name %}-Repository enthält einen Abschnitt für das Verwalten von Dokumentationen, ein so genanntes Wiki. Du kannst das Wiki Deines Repositorys verwenden, um ausführliche Informationen über Dein Projekt auszutauschen, beispielsweise über seine Verwendung, seine Gestaltung und seine Kernprinzipien. Eine README-Datei zeigt schnell, was Dein Projekt bezweckt, wohingegen Du ein Wiki verwenden kannst, um zusätzliche Dokumentation bereitzustellen. Weitere Informationen finden Sie unter „[Informationen zu README-Dateien](/articles/about-readmes/)“.
 
-Mit Wikis kannst Du Inhalte wie überall sonst auf {% data variables.product.product_name %} verfassen. Weitere Informationen findest Du unter „[Erste Schritte zum Schreiben und Formatieren auf {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)“. Wir verwenden [unsere Open-Source Markup-Bibliothek](https://github.com/github/markup), um verschiedene Formate in HTML zu konvertieren, sodass Du entscheiden kannst, in Markdown oder jedem anderen unterstützten Format zu schreiben.
+Mit Wikis können Sie Inhalte wie überall sonst auf {% data variables.product.product_name %} verfassen. Weitere Informationen findest Du unter „[Erste Schritte zum Schreiben und Formatieren auf {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)“. Wir verwenden [unsere Open-Source Markup-Bibliothek](https://github.com/github/markup), um verschiedene Formate in HTML zu konvertieren, sodass Du entscheiden kannst, in Markdown oder jedem anderen unterstützten Format zu schreiben.
 
-Wikis sind in öffentlichen Repositorys für die Öffentlichkeit zugänglich und in privaten Repositorys auf Personen mit Zugriff auf das Repository beschränkt. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/articles/setting-repository-visibility).“
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}If you create a wiki in a public repository, the wiki is available to {% if enterpriseServerVersions contains currentVersion %}anyone with access to {% data variables.product.product_location %}{% else %}the public{% endif %}. {% endif %}If you create a wiki in an internal or private repository, {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}people{% elsif currentVersion == "github-ae@latest" %}enterprise members{% endif %} with access to the repository can also access the wiki. Weitere Informationen findest Du unter „[Sichtbarkeit eines Repositorys festlegen](/articles/setting-repository-visibility).“
 
-Du kannst Wikis direkt auf {% data variables.product.product_name %} bearbeiten, oder Du kannst Wiki-Dateien lokal bearbeiten. Standardmäßig können nur Personen mit Schreibzugriff auf Dein Repository Änderungen an Wikis vornehmen, jedoch kannst Du jedermann auf {% data variables.product.product_name %} erlauben, an einem Wiki in einem öffentlichen Repository mitzuwirken. Weitere Informationen findest Du unter „[Zugriffsberechtigungen für Wikis ändern](/articles/changing-access-permissions-for-wikis)“.
+Sie können Wikis direkt auf {% data variables.product.product_name %} bearbeiten, oder Sie können Wiki-Dateien lokal bearbeiten. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.product.product_location %} to contribute to a wiki in {% if currentVersion == "github-ae@latest" %}an internal{% else %}a public{% endif %} repository. Weitere Informationen findest Du unter „[Zugriffsberechtigungen für Wikis ändern](/articles/changing-access-permissions-for-wikis)“.
 
 ### Weiterführende Informationen
 

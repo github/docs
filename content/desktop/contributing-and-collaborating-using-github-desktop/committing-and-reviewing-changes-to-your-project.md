@@ -35,17 +35,25 @@ As you make changes to files in your text editor and save them locally, you will
 
 #### Creating a partial commit
 
-If one file contains multiple changes, but you only want *some* of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
+If one file contains multiple changes, but you only want some of those changes to be included in a commit, you can create a partial commit. The rest of your changes will remain intact, so that you can make additional modifications and commits. This allows you to make separate, meaningful commits, such as keeping line break changes in a commit separate from code or prose changes.
 
-When you review the diff of the file, the lines that will be included in the commit are highlighted in blue. To exclude the change, click the changed line so the blue disappears.
+{% note %}
 
-![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
+**Note:** Split diff displays are currently in beta and subject to change.
 
-#### Discarding changes
+{% endnote %}
 
-You can discard all the uncommitted changes in one file, a range of files, or discard all changes in all files since the last commit.
+1. To choose how your changes are displayed, in the top-right corner of the changed file, use {% octicon "gear" aria-label="The Gear icon" %} to select **Unified** or **Split**.
+  ![Gear icon with unified and split diffs](/assets/images/help/desktop/gear-diff-select.png)
+2. To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
+  ![Unselected lines in a file](/assets/images/help/desktop/partial-commit.png)
 
-{% mac %}
+### 3. Discarding changes
+If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
+
+Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
+
+#### Discarding changes in one or more files
 
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
@@ -53,30 +61,25 @@ You can discard all the uncommitted changes in one file, a range of files, or di
 {% data reusables.desktop.confirm-discard-files %}
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
-{% tip %}
+#### Discarding changes in one or more lines
+You can discard one or more changed lines that are uncommitted.
 
-**Tip:** The changes you discarded are saved in a dated file in the Trash and you can recover them until the Trash is emptied.
+{% note %}
 
-{% endtip %}
+**Note:** Discarding single lines is disabled in a group of changes that adds and removes lines.
 
-{% endmac %}
+{% endnote %}
 
-{% windows %}
+To discard one added line, in the list of changed lines, right click on the line you want to discard and select **Discard added line**.
 
-{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
-  ![Discard Changes option in context menu](/assets/images/help/desktop/discard-changes-win.png)
-{% data reusables.desktop.confirm-discard-files %}
-  ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-win.png)
+  ![Discard single line in the confirmation dialog](/assets/images/help/desktop/discard-single-line.png)
 
-{% tip %}
+To discard a group of changed lines, right click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
-**Tip:** The changes you discarded are saved in a file in the Recycle Bin and you can recover them until it is emptied.
+  ![Discard a group of added lines in the confirmation dialog](/assets/images/help/desktop/discard-multiple-lines.png)
 
-{% endtip %}
 
-{% endwindows %}
-
-### 3. Write a commit message and push your changes
+### 4. Write a commit message and push your changes
 
 Once you're satisfied with the changes you've chosen to include in your commit, write your commit message and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
 

@@ -1,12 +1,13 @@
 ---
 title: Remover integrantes da organização de uma equipe
-intro: Os usuários com permissões de *proprietário* ou *mantenedor de equipe* podem remover integrantes de uma equipe. Isso pode ser necessário se um usuário não precisar mais acessar um repositório ao qual a equipe tem acesso ou se um usuário deixar de participar dos projetos de uma equipe.
+intro: 'Os usuários com permissões de *proprietário* ou *mantenedor de equipe* podem remover integrantes de uma equipe. Isso pode ser necessário se um usuário não precisar mais acessar um repositório ao qual a equipe tem acesso ou se um usuário deixar de participar dos projetos de uma equipe.'
 redirect_from:
   - /articles/removing-organization-members-from-a-team-early-access-program/
   - /articles/removing-organization-members-from-a-team
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}

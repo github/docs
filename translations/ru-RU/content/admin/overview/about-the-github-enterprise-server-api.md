@@ -7,8 +7,6 @@ redirect_from:
   - /enterprise/admin/articles/using-the-api/
   - /enterprise/admin/categories/api/
   - /enterprise/admin/overview/about-the-github-enterprise-server-api
-  - /enterprise/admin/overview/about-the-github-enterprise-server-api
-  - /enterprise/admin/overview/about-the-github-enterprise-server-api
 versions:
   enterprise-server: '*'
 ---
@@ -17,5 +15,5 @@ For the complete documentation for {% data variables.product.prodname_enterprise
 
 - Perform changes to the {% data variables.enterprise.management_console %}. For more information, see "[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)."
 - Collect statistics about your instance. For more information, see "[Admin stats](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)."
-- Configure LDAP sync. For more information, see "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)."{% if currentVersion ver_gt "enterprise-server@2.18" %}
-- Manage your enterprise account. For more information, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."{% endif %}
+- Configure LDAP sync. For more information, see "[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)."
+- Manage your enterprise account. For more information, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."

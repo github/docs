@@ -1,7 +1,7 @@
 ---
-title: 'Eine Einladung zurückziehen, externen Mitarbeiter Deiner Organisation zu werden'
-intro: 'Du kannst alle Einladungen für eine Person zurückziehen, externer Mitarbeiter auf Repositorys zu werden, die Deiner Organisation gehören.'
-permissions: 'Organisationsinhaber können Einladungen zurückziehen, externer Mitarbeiter in der Organisation zu werden.'
+title: Eine Einladung zurückziehen, externen Mitarbeiter Deiner Organisation zu werden
+intro: Du kannst alle Einladungen für eine Person zurückziehen, externer Mitarbeiter auf Repositorys zu werden, die Deiner Organisation gehören.
+permissions: Organisationsinhaber können Einladungen zurückziehen, externer Mitarbeiter in der Organisation zu werden.
 versions:
   free-pro-team: '*'
 ---

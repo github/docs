@@ -1,1 +1,1 @@
-1. Under "Description", type a description to help others understand and use your label. ![Field to type a label description](/assets/images/help/issues/label-description-field.png)
+1. Em "Descrição", digite uma descrição para ajudar outras pessoas a entender e usar a sua etiqueta. ![Campo para digitar uma descrição da etiqueta](/assets/images/help/issues/label-description-field.png)

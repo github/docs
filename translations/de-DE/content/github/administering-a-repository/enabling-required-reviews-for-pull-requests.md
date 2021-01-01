@@ -1,12 +1,13 @@
 ---
 title: Erforderliche Reviews für Pull-Requests aktivieren
-intro: 'Repository-Administratoren können erforderliche Reviews vorschreiben, sodass Pull Requests eine bestimmte Anzahl an genehmigenden Reviews aufweisen müssen, bevor sie zusammengeführt werden.'
+intro: Repository-Administratoren können erforderliche Reviews vorschreiben, sodass Pull Requests eine bestimmte Anzahl an genehmigenden Reviews aufweisen müssen, bevor sie zusammengeführt werden.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/enabling-required-reviews-for-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Du erforderliche Reviews auf einem Branch aktivierst, musst Du zunächst den Branch als geschützten Branch aufsetzen. Weitere Informationen finden Sie unter „[Geschützte Branches konfigurieren](/github/administering-a-repository/configuring-protected-branches)“.
