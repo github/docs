@@ -88,3 +88,5 @@ If you unblock {% data variables.product.prodname_dependabot %}, you can manuall
 
 - **Security updates**—display the {% data variables.product.prodname_dependabot %} alert that shows the error you have fixed and click **Create {% data variables.product.prodname_dependabot %} security update**.
 - **Version updates**—display the log file for the manifest that shows the error that you have fixed and click **Check for updates**.
+
+You can also visit the Insights / Dependabot tab for the repository, and click "Check for updates".
