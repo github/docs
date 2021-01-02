@@ -262,6 +262,7 @@ steps:
 
 ### Setting an environment variable
 
+{% raw %}
 ```
 steps:
   - name: Set the value
@@ -273,6 +274,7 @@ steps:
     run: |
         echo '${{ env.name }}'
 ```
+{% endraw %}
 
 Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
