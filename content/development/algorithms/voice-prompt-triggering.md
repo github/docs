@@ -16,27 +16,31 @@ versions: '*'
 
 ## Base Profile Default Speeds
 While these are now also user-adjustable, the defaults are
-* DRIVING: 12.5 m/s (45 km/h)
-* CYCLING: 2.77 m/s (10 km/h)
-* WALKING: 1.11 m/s (4 km/h)
-* BOAT: 1.38 m/s (5 km/h)
-* SKI: 1.38  m/s (5 km/h)
-* AIRCRAFT: 40 m/s (144 km/h)
+* Driving: 12.5 m/s (45 km/h)
+* Cycling: 2.77 m/s (10 km/h)
+* Walking: 1.11 m/s (4 km/h)
+* Boat: 1.38 m/s (5 km/h)
+* Ski: 1.38  m/s (5 km/h)
+* Aircraft: 40 m/s (144 km/h)
 
 ## Trigger Behavior
-Prompt type | Trigger time | Trigger distance | Speed correction | Arrival setting | Comment
+Prompt type | Trigger time (sec) | Trigger distance (m) | Speed correction | Arrival setting | Comment
 --- | --- | --- | --- | --- | --
-Turn now | DRIVING: 7 sec <br> CYCLING: 3.2 sec <br> WALKING: 2 sec | DRIVING: 45 m <br> CYCLING: 10 m <br> WALKING: 4 m | :heavy_check_mark: | :heavy_check_mark: | Time = max(8, sqrt(speed * 3.6)) <br> Dist = speed * 3.6
-Turn in X m | 22 sec | DRIVING: 275 m <br> CYCLING: 60 m <br> WALKING: 25 m | :heavy_check_mark: |  | Skipped if less 15 seconds before turn
+Turn now | Driving: 7 s<br> Cycling: 3.2 s<br> Walking: 2 s | Driving: 45 m <br> Cycling: 10 m <br> Walking: 4 m | :heavy_check_mark: | :heavy_check_mark: | Time = max(8, sqrt(speed * 3.6)) <br> Dist = speed * 3.6
+Turn in X m | 22 s | Driving: 275 m <br> Cycling: 60 m <br> Walking: 25 m | :heavy_check_mark: |  | Skipped if less 15 seconds before turn
+Prepare to turn in X m | 115 s | Driving: 1 500 m <br> Cycling: 320 m <br> Walking: - m |  |  | Skipped if less 90 seconds before turn<br>Skipped if speed < 10 kmh
+Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
+------------
+Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
 
 
 Prompt type | Trigger,<br>Lead intervals|Refactored:<br>[typical trigger distance] | Speed correction | Arrival announcement
 --- | --- | --- | --- | ---
-Go Ahead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[DRIVING: 3600 m, WALKING: 600 m] |  
-LONG_PREPARE_TURN | Only available for high speed vehicles (speed > 100 kmh) feedback<br>DRIVING: DISABLED<br>CYCLING: DISABLED<br>WALKING: DISABLED
-PREPARE_TURN | Not available for low speed vehicles (speed < 10 kmh) feedback<br>DRIVING: 1500 m - 1200 m<br>CYCLING: 200 m - 120 m<br>WALKING: DISABLED | PREPARE_DISTANCE = DEFAULT_SPEED * 115<br><br>[DRIVING: 1380 m, WALKING: 230 m]
-TURN_IN | DRIVING: 300 m - 168 m or <25 sec<br>CYCLING: 80 m - 60 m or <16 sec<br>WALKING: 50 m - 30 m or <25 sec | TURN_IN_DISTANCE = DEFAULT_SPEED  * 22<br><br>[DRIVING: 264 m, WALKING: 44 m] | :heavy_check_mark:
-TURN_NOW | DRIVING: <60 m or <5 sec<br>CYCLING: <30 m or <6 sec<br>WALKING: 15 m or <7.5 sec | TURN_NOW_DISTANCE so that POSITIONING_TOLERANCE and DEFAULT_SPEED allow for a 3.6 sec lead time * manual_factor<br><br>[DRIVING: 43 m, WALKING: 12 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
+Go Ahead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[Driving: 3600 m, Walking: 600 m] |  
+LONG_PREPARE_TURN | Only available for high speed vehicles (speed > 100 kmh) feedback<br>Driving: DISABLED<br>Cycling: DISABLED<br>Walking: DISABLED
+PREPARE_TURN | Not available for low speed vehicles (speed < 10 kmh) feedback<br>Driving: 1500 m - 1200 m<br>Cycling: 200 m - 120 m<br>Walking: DISABLED | PREPARE_DISTANCE = DEFAULT_SPEED * 115<br><br>[Driving: 1380 m, Walking: 230 m]
+TURN_IN | Driving: 300 m - 168 m or <25 sec<br>Cycling: 80 m - 60 m or <16 sec<br>Walking: 50 m - 30 m or <25 sec | TURN_IN_DISTANCE = DEFAULT_SPEED  * 22<br><br>[Driving: 264 m, Walking: 44 m] | :heavy_check_mark:
+TURN_NOW | Driving: <60 m or <5 sec<br>Cycling: <30 m or <6 sec<br>Walking: 15 m or <7.5 sec | TURN_NOW_DISTANCE so that POSITIONING_TOLERANCE and DEFAULT_SPEED allow for a 3.6 sec lead time * manual_factor<br><br>[Driving: 43 m, Walking: 12 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
 Make a U-turn when possible | Mostly suppressed now. Should only sound if no route in forward direction was found at all (e.g. if you are heading down a one way road), or if a route in forward direction
 ALARMS | 150 m<br>(100 m for TRAFFIC_CALMING) | LONG_ALARM_ANNOUNCE_RADIUS = 12 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[144 m, 24 m]<br>SHORT_ALARM_ANNOUNCE_RADIUS = 7 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[84 m, 14 m]<br><br>**Suggestion:** Factor in current speed like for TURN_NOW, remove ARRIVAL_DISTANCE_FACTOR
 APPROACH a point | 1400 m | LONG_PNT_ANNOUNCE_RADIUS = 60 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[1920 m, 120 m]<br>SHORT_PNT_ANNOUNCE_RADIUS = 15 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[180 m, 30 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
