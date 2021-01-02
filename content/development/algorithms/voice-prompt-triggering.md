@@ -5,13 +5,18 @@ versions: '*'
 
 **(Compiled by Hardy 2013, last reviewed 2021-01)**
 ## Principle
-* Far-out prompts are simply triggered based on a **lead distance threshold**, derived by converting a meaningful lead time via the DEFAULT_SPEED of the base profile.
-* For close prompts there is a combined approach using the
-   * **lead distance threshold**, derived as above, but no later than the
-   * **lead time threshold** as calculated using the current speed.
-   * We pre-pone by the **POSITIONING_TOLERANCE** to allow for the possible distance over-estimation due to the positioning error.
+* Far-out prompts are simply triggered based on a **lead distance threshold**, derived by converting a meaningful lead time via the **{% data variables.android-values.default_speed_setting_title %}** of the profile.
+* User can change **{% data variables.android-values.default_speed_setting_title %}** of the profile and it will affect trigger distance for voice prompts.
+* *Note*: **{% data variables.android-values.default_speed_setting_title %}** also affects the calculated route time 
+* Another way to change voice prompts is to configure setting **{% data variables.android-values.arrival_distance %}**.  Check the column **Arrival setting** to see which voice prompts will be affected. Trigger distance will be multiplied by this factor
+**{% data variables.android-values.arrival_distance %}** | Distance multiplier
+--- | --- 
+**{% data variables.android-values.arrival_distance_factor_early %}** | 1.5
+**{% data variables.android-values.arrival_distance_factor_normally %}** | 1
+**{% data variables.android-values.arrival_distance_factor_late %}** | 0.5
+**{% data variables.android-values.arrival_distance_factor_at_last %}** | 0.25
+* For close prompts together with **distance threshold**, **time threshold** is also used (see column Time threshold used). So, if the current speed will be greater than **{% data variables.android-values.default_speed_setting_title %}** then announcement will be triggered earlier to guarantee same **time threshold** going to the point with current speed.
 * In addition, there is a user-configurable overall `VOICE_PROMPT_DELAY`, particularly needed for output type _Phone call audio_, where we emulate a call to a car stereo which comes with a noticeable delay. (Also all distances to be used in the prompts anticipate `VOICE_PROMPT_DELAY`!)
-* For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting `ARRIVAL_DISTANCE_FACTOR` scaling the lead distance by a factor between 0.25 and 1.5.
 * We mute prompts immediately once they appear to refer actions already passed, or if your direction of travel seems no in line with a current route.
 
 ## Base Profile Default Speeds
