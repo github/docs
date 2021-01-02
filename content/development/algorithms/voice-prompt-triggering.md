@@ -28,7 +28,7 @@ Prompt type | Trigger time (sec) | Trigger distance (m) | Time threshold used | 
 --- | --- | --- | --- | --- | --
 Turn now | Driving: 7 s<br> Cycling: 3.2 s<br> Walking: 2 s | Driving: 45 m <br> Cycling: 10 m <br> Walking: 4 m | :heavy_check_mark: | :heavy_check_mark: | Time = max(8, sqrt(speed * 3.6)) <br> Dist = speed * 3.6
 Turn in X m | 22 s | Driving: 275 m <br> Cycling: 60 m <br> Walking: 25 m | :heavy_check_mark: |  | Skipped if less 15 seconds before turn
-Prepare to turn in X m | 115 s | Driving: 1 500 m <br> Cycling: 320 m <br> Walking: - m |  |  | Skipped if less 90 seconds before turn<br>Skipped if speed < 10 kmh
+Prepare to turn in X m | 115 s | <ul><li>Driving: 1 500 m </li><li>Cycling: 320 m </li><li> Walking: - m </li></ul>|  |  | Skipped if less 90 seconds before turn<br>Skipped if speed < 10 kmh
 Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
 Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
 Arrive to finish or intermediate point | 5 s | Driving: 60 m <br> Cycling: 25 m <br> Walking: 12 m | |:heavy_check_mark: | Min 12m
