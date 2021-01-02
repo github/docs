@@ -16,11 +16,20 @@ versions: '*'
 
 ## Base Profile Default Speeds
 While these are now also user-adjustable, the defaults are
-* DRIVING: 12 m/s (43 km/h)
-* CYCLING: 5 m/s (18 km/h)
-* WALKING: 2 m/s (7.2 km/h)
+* DRIVING: 12.5 m/s (45 km/h)
+* CYCLING: 2.77 m/s (10 km/h)
+* WALKING: 1.11 m/s (4 km/h)
+* BOAT: 1.38 m/s (5 km/h)
+* SKI: 1.38  m/s (5 km/h)
+* AIRCRAFT: 40 m/s (144 km/h)
 
 ## Trigger Behavior
+Prompt type | Trigger time | Trigger distance | Speed correction | Arrival setting | Comment
+--- | --- | --- | --- | --- | --
+Turn now | DRIVING: 7 sec <br> CYCLING: 3.2 sec <br> WALKING: 2 sec | DRIVING: 45 m <br> CYCLING: 10 m <br> WALKING: 4 m | :heavy_check_mark: | :heavy_check_mark: | Time = max(8, sqrt(speed * 3.6)) <br> Dist = speed * 3.6
+Turn in X m | 22 sec | DRIVING: 275 m <br> CYCLING: 60 m <br> WALKING: 25 m | :heavy_check_mark: |  | Skipped if less 15 seconds before turn
+
+
 Prompt type | Trigger,<br>Lead intervals|Refactored:<br>[typical trigger distance] | Speed correction | Arrival announcement
 --- | --- | --- | --- | ---
 Go Ahead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[DRIVING: 3600 m, WALKING: 600 m] |  
