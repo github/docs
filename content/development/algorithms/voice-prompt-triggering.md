@@ -9,6 +9,7 @@ versions: '*'
 * User can change **{% data variables.android-values.default_speed_setting_title %}** of the profile and it will affect trigger distance for voice prompts.
 * *Note*: **{% data variables.android-values.default_speed_setting_title %}** also affects the calculated route time 
 * Another way to change voice prompts is to configure setting **{% data variables.android-values.arrival_distance %}**.  Check the column **Arrival setting** to see which voice prompts will be affected. Trigger distance will be multiplied by this factor
+
 **{% data variables.android-values.arrival_distance %}** | Distance multiplier
 --- | --- 
 **{% data variables.android-values.arrival_distance_factor_early %}** | 1.5
