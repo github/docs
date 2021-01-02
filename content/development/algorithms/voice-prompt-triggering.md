@@ -23,7 +23,7 @@ While these are now also user-adjustable, the defaults are
 * WALKING: 2 m/s = 7.2 km/h
 
 ## Trigger Behavior
-Prompt type | Trigger | Refactored:
+Prompt type | Trigger<br>Lead intervals| Refactored:<br>[typical trigger distance]
 --- | --- | ---
 GoAhead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[DRIVING 3600 m, WALKING 600 m]
 <del>LONG_PREPARE_TURN</del> | We now suppress this prompt as per user feedback<br><del>DRIVING: 3000 m - 2000 m<br>CYCLING: 500 m - 300 m<br>PEDESTRIAN: 100 m - 70 m</del>
