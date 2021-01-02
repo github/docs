@@ -272,7 +272,7 @@ steps:
   - name: Use the value
     id: step_two
     run: |
-        echo '${{ env.name }}'
+        echo "${{ env.name }}"
 ```
 {% endraw %}
 
