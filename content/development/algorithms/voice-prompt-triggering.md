@@ -7,11 +7,9 @@ versions: '*'
 ## Principle
 * Far-out prompts are simply triggered based on a fixed lead distance (which can depend on the base profile, see below)
 * For close prompts there is a combined approach using a
-   * **lead distance threshold** derived from the DEFAULT_SPEED of the base profile,
-but no later than a
+   * **lead distance threshold**, derived from the DEFAULT_SPEED of the base profile, but no later than a
    * **lead time threshold**, calculated from the current speed
-We pre-pone by the
-   * POSITIONING_TOLERANCE to allow for the possible distance over-estimation due to the positioning error.
+   * We pre-pone by the **POSITIONING_TOLERANCE** to allow for the possible distance over-estimation due to the positioning error.
 * In addition, there is a user-configurable overall `VOICE_PROMPT_DELAY`, particularly needed for output type _Phone call audio_, where we emulate a call to a car stereo which comes with a noticeable delay. (Also all distances to be used in the prompts anticipate `VOICE_PROMPT_DELAY`!)
 * For the announcement of TARGETS and INTERMEDIATE TARGETS, there is an additional user setting `ARRIVAL_DISTANCE_FACTOR` impacting the lead distance
 * We mute prompts immediately once they appear to refer actions already passed, or if your direction of travel seems no in line with a current route.
