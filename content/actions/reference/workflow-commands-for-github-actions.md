@@ -262,7 +262,17 @@ steps:
 
 ### Setting an environment variable
 
-`echo "{name}={value}" >> $GITHUB_ENV`
+```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo "{name}={value}" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+        echo '${{ env.name }}'
+```
 
 Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
 
