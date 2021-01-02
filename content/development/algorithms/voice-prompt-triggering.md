@@ -28,21 +28,15 @@ Prompt type | Trigger time (sec) | Trigger distance (m) | Time threshold used | 
 --- | --- | --- | --- | --- | --
 Turn now | Driving: 7 s<br> Cycling: 3.2 s<br> Walking: 2 s | Driving: 45 m <br> Cycling: 10 m <br> Walking: 4 m | :heavy_check_mark: | :heavy_check_mark: | Time = max(8, sqrt(speed * 3.6)) <br> Dist = speed * 3.6
 Turn in X m | 22 s | Driving: 275 m <br> Cycling: 60 m <br> Walking: 25 m | :heavy_check_mark: |  | Skipped if less 15 seconds before turn
-Prepare to turn in X m | 115 s | <ul><li>Driving: 1 500 m </li><li>Cycling: 320 m </li><li> Walking: - m </li></ul>|  |  | Skipped if less 90 seconds before turn<br>Skipped if speed < 10 kmh
-Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
+Prepare to turn in X m | 115 s | Driving: 1 500 m <br> Cycling: 320 m <br> Walking: - m |  |  | Skipped if less 90 seconds before turn<br>Skipped if speed < 10 kmh
 Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
 Arrive to finish or intermediate point | 5 s | Driving: 60 m <br> Cycling: 25 m <br> Walking: 12 m | |:heavy_check_mark: | Min 12m
-Off-route announcement | 20 s | Driving: 280 m <br> Cycling: 55 m <br> Walking: 22 m | | :heavy_check_mark: | Could be dsiabled
+Off-route announcement | 20 s | Driving: 250 m <br> Cycling: 55 m <br> Walking: 22 m | | :heavy_check_mark: | Could be dsiabled
+Approach POI / waypoint | 60 s | Driving: 750 m <br> Cycling: 165 m <br> Walking: 66 m | :heavy_check_mark: | :heavy_check_mark: | Limit to max 1 pnt at a time
+Arrived at POI / waypoint | 15 s | Driving: 180 m <br> Cycling: 40 m <br> Walking: 16 m | :heavy_check_mark: | :heavy_check_mark: | Limit to max 3 pnts at a time
+Approach alarm | 12 s | Driving: 150 m <br> Cycling: 33 m <br> Walking: 13 m | :heavy_check_mark: | :heavy_check_mark: | 
+Pass alarm | 7 s | Driving: 90 m <br> Cycling: 20 m <br> Walking: 8 m | :heavy_check_mark: | :heavy_check_mark: | Traffic calming uses *pass alarm* for approach prompt and filters duplicate in this radius
+GPS signal lost | 20 s | - | | | Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action.
+Go Ahead | | >3000 m | | | after route calculation if no other prompt is due, or after a turn if next turn is more than *Long Prepare*
 
-
-Prompt type | Trigger,<br>Lead intervals|Refactored:<br>[typical trigger distance] | Speed correction | Arrival announcement
---- | --- | --- | --- | ---
-Go Ahead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[Driving: 3600 m, Walking: 600 m] |  
-ALARMS | 150 m<br>(100 m for TRAFFIC_CALMING) | LONG_ALARM_ANNOUNCE_RADIUS = 12 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[144 m, 24 m]<br>SHORT_ALARM_ANNOUNCE_RADIUS = 7 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[84 m, 14 m]<br><br>**Suggestion:** Factor in current speed like for TURN_NOW, remove ARRIVAL_DISTANCE_FACTOR
-APPROACH a point | 1400 m | LONG_PNT_ANNOUNCE_RADIUS = 60 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[1920 m, 120 m]<br>SHORT_PNT_ANNOUNCE_RADIUS = 15 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[180 m, 30 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
-ARRIVE at destination or intermediate destination point | 5 sec * ARRIVAL_DISTANCE_FACTOR | **Suggestion:** Use 2 * TURN_NOW
-ARRIVE at waypoint | | **Suggestion:** Treat like ARRIVE at destination
-PASSING nearby POI | no threshold | **Suggestion:** Treat like ARRIVE at destination, but for its along-the-route distance component
-PASSING nearby FAVORITE | no threshold | **Suggestion:** Treat like ARRIVE at destination, but for its along-the-route distance component
-GPS signal lost | Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action.
 
