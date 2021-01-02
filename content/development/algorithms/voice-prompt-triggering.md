@@ -7,7 +7,7 @@ versions: '*'
 ## Principle
 * Far-out prompts are simply triggered based on a fixed lead distance (which can depend on the base profile, see below)
 * For close prompts there is a combined approach using a
-   * **lead distance threshold**, but no later than a
+   * <del>**lead distance threshold**, but no later than a</del>
    * **lead time threshold**, calculated from the
    * **current speed**, but no less than the
    * **DEFAULT_SPEED of the base profile**. We pre-pone by the
