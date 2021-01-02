@@ -16,18 +16,18 @@ versions: '*'
 
 ## Base Profile Default Speeds
 While these are now also user-adjustable, the defaults are
-* DRIVING: 12 m/s = 43 km/h
-* CYCLING: 5 m/s = 18 km/h)
-* WALKING: 2 m/s = 7.2 km/h
+* DRIVING: 12 m/s (43 km/h)
+* CYCLING: 5 m/s (18 km/h)
+* WALKING: 2 m/s (7.2 km/h)
 
 ## Trigger Behavior
 Prompt type | Trigger,<br>Lead intervals| Refactored:<br>[typical trigger distance]
 --- | --- | ---
-GoAhead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[DRIVING 3600 m, WALKING 600 m]
-<del>LONG_PREPARE_TURN</del> | We now suppress this prompt as per user feedback<br><del>DRIVING: 3000 m - 2000 m<br>CYCLING: 500 m - 300 m<br>PEDESTRIAN: 100 m - 70 m</del>
-PREPARE_TURN | DRIVING: 1500 m - 1200 m<br>CYCLING: 200 m - 120 m<br>WALKING: 100 m - 70 m | PREPARE_DISTANCE = DEFAULT_SPEED * 115<br><br>[DRIVING 1380 m, WALKING 230 m]
-TURN_IN | DRIVING: 300 m - 168 m or <25 sec<br>CYCLING: 80 m - 60 m or <16 sec<br>WALKING: 50 m - 30 m or <25 sec | TURN_IN_DISTANCE = DEFAULT_SPEED  * 22<br><br>[DRIVING 264 m, WALKING 44 m]
-TURN_NOW | DRIVING: <60 m or <5 sec<br>CYCLING: <30 m or <6 sec<br>WALKING: 15 m or <7.5 sec | TURN_NOW_DISTANCE = (POSITIONING_TOLERANCE + DEFAULT_SPEED \* 2.5) * manual_factor<br><br>[DRIVING 42 m, WALKING 17 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
+GoAhead | >3000 m out, after route calculation if no other prompt is due, or after a turn if next turn is more than PREPARE_LONG_DISTANCE away | PREPARE_LONG_DISTANCE = DEFAULT_SPEED * 300<br><br>[DRIVING: 3600 m, WALKING: 600 m]
+<del>LONG_PREPARE_TURN</del> | We now suppress this prompt as per user feedback<br><del>DRIVING: 3000 m - 2000 m<br>CYCLING: 500 m - 300 m<br>WALKING: 100 m - 70 m</del>
+PREPARE_TURN | DRIVING: 1500 m - 1200 m<br>CYCLING: 200 m - 120 m<br>WALKING: 100 m - 70 m | PREPARE_DISTANCE = DEFAULT_SPEED * 115<br><br>[DRIVING: 1380 m, WALKING: 230 m]
+TURN_IN | DRIVING: 300 m - 168 m or <25 sec<br>CYCLING: 80 m - 60 m or <16 sec<br>WALKING: 50 m - 30 m or <25 sec | TURN_IN_DISTANCE = DEFAULT_SPEED  * 22<br><br>[DRIVING: 264 m, WALKING: 44 m]
+TURN_NOW | DRIVING: <60 m or <5 sec<br>CYCLING: <30 m or <6 sec<br>WALKING: 15 m or <7.5 sec | TURN_NOW_DISTANCE = (POSITIONING_TOLERANCE + DEFAULT_SPEED \* 2.5) * manual_factor<br><br>[DRIVING: 42 m, WALKING: 17 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
 Make a U-turn when possible | Mostly suppressed now. Should only sound if no route in forward direction was found at all (e.g. if you are heading down a one way road), or if a route in forward direction
 ALARMS | 150 m<br>(100 m for TRAFFIC_CALMING) | LONG_ALARM_ANNOUNCE_RADIUS = 12 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[144 m, 24 m]<br>SHORT_ALARM_ANNOUNCE_RADIUS = 7 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[84 m, 14 m]<br><br>**Suggestion:** Factor in current speed like for TURN_NOW, remove ARRIVAL_DISTANCE_FACTOR
 APPROACH a point | 1400 m | LONG_PNT_ANNOUNCE_RADIUS = 60 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[1920 m, 120 m]<br>SHORT_PNT_ANNOUNCE_RADIUS = 15 \* DEFAULT_SPEED \* ARRIVAL_DISTANCE_FACTOR<br>[180 m, 30 m]<br><br>**Suggestion:** Remove ARRIVAL_DISTANCE_FACTOR
