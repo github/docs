@@ -1,14 +1,13 @@
 Run:
-On: ubuntu-latest:
-Build:heroku: repo-sync:autobot:
+On:ubuntu-latest:
+Build:heroku:repo-sync:autobot:on:
 Name:autogenerate:@iixixii/github.comCI:
 Run:
 Build:
 Script:{secret_token}:((c)((r))}:
 Jobs::
-
-Build:-Steps:-"ext": "js,json,yml,md,html,scss":
-  -  "assets",
+Build:-Steps:-"ext":"js,json,yml,md,html,scss":
+  -"assets",
     -"scripts":
    - "translations":
     -"dist",:
@@ -18,4 +17,6 @@ Build:-Steps:-"ext": "js,json,yml,md,html,scss":
 Return:{[100]}(M){[((C)(R))]}}:
 Pull:
 Branch:tree.Read.me:
-Push: to trunk:
+Push:
+Push
+ trunk:
