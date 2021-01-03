@@ -31,7 +31,7 @@ Você pode achar útil ter um entendimento básico do seguinte:
 * [Aplicativos do GitHub](/apps/about-apps)
 * [Webhooks](/webhooks)
 * [Linguagem de programação Ruby](https://www.ruby-lang.org/en/)
-* [APIs REST](/v3)
+* [APIs REST](/rest)
 * [Sinatra](http://sinatrarb.com/)
 
 Mas é possível acompanhar o processo em qualquer nível de experiência. Nós vamos nos conectar a informações de que você precisa ao longo do caminho!
@@ -143,11 +143,11 @@ Antes que a etiqueta possa ser _adicionada_ em qualquer lugar, você precisará 
 
 {% tip %}
 
-**Dica**: Não seria ótimo se o aplicativo pudesse criar a etiqueta de forma programática? [Ele pode](/v3/issues/labels/#create-a-label)! Adicione o código para fazer isso por conta própria depois de concluir as etapas deste guia.
+**Dica**: Não seria ótimo se o aplicativo pudesse criar a etiqueta de forma programática? [Ele pode](/rest/reference/issues#create-a-label)! Adicione o código para fazer isso por conta própria depois de concluir as etapas deste guia.
 
 {% endtip %}
 
-Agora que o rótulo foi criado, você pode programar seu aplicativo para usar a API REST para [adicionar a etiqueta a qualquer problema recém-aberto](/v3/issues/labels/#add-labels-to-an-issue).
+Agora que o rótulo foi criado, você pode programar seu aplicativo para usar a API REST para [adicionar a etiqueta a qualquer problema recém-aberto](/rest/reference/issues#add-labels-to-an-issue).
 
 ### Etapa 4. Adicionar gerenciamento de etiqueta
 

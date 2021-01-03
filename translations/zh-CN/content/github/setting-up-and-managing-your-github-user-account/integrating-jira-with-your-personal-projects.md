@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.developer_settings %}
-3. 在左侧边栏中，单击 **{% data variables.product.prodname_oauth_app %}**。 ![左侧边栏中的 { site.data.variables.product.prodname_oauth_app }} 选项卡](/assets/images/help/settings/developer-settings-oauth-apps.png)
+3. 在左侧边栏中，单击 **{% data variables.product.prodname_oauth_app %}**。 ![{% data variables.product.prodname_oauth_app %}s tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. 单击 **Register a new application（注册新应用程序）**。
 4. 在 **Application name（应用程序名称）**下输入 "Jira"。
 5. 在 **Homepage URL（主页 URL）**下，输入 Jira 实例的完整 URL。

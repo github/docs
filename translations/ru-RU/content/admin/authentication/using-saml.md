@@ -29,7 +29,7 @@ Each {% data variables.product.prodname_ghe_server %} username is determined by 
 
 The `NameID` element is required even if other attributes are present.
 
-A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecyle of the user.
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 

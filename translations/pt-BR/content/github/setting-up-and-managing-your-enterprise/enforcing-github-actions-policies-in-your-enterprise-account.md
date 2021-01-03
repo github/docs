@@ -2,6 +2,8 @@
 title: Aplicar políticas do GitHub Actions na sua conta corporativa
 intro: 'Os proprietários de empresas podem habilitar, desabilitar limitar {% data variables.product.prodname_actions %} para uma conta corporativa.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'

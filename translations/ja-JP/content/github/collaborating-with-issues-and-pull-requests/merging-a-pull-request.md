@@ -43,6 +43,12 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+
+   {% endnote %}
+
 6. [**Confirm merge**]、[**Confirm squash and merge**] をクリックするか、[**Confirm rebase and merge**] をクリックします。
 6. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。
 

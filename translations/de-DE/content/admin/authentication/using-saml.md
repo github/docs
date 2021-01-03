@@ -29,7 +29,7 @@ Jeder {% data variables.product.prodname_ghe_server %}-Benutzername wird nach Pr
 
 Das Element `NameID` ist selbst dann erforderlich, wenn andere Attribute vorhanden sind.
 
-Zwischen `NameID` und dem {% data variables.product.prodname_ghe_server %}-Benutzernamen wird eine Zuordnung erstellt, daher sollte `NameID` persistent, eindeutig und für den Lebenszyklus des Benutzers nicht änderbar sein.
+A mapping is created between the `NameID` and the {% data variables.product.prodname_ghe_server %} username, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% note %}
 

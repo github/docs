@@ -25,6 +25,10 @@ Cada pessoa que sugeriu uma alteração incluída no commit será uma coautora d
 4. No campo de mensagem do commit, digite uma mensagem curta e relevante que descreva a alteração que você fez no arquivo ou arquivos. ![Campo Commit message (Mensagem do commit)](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. Clique em **Commit changes** (Fazer commit das alterações). ![Botão Commit changes (Fazer commit de alterações)](/assets/images/help/pull_requests/commit-changes-button.png)
 
+### Ressolicitar uma revisão
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Abrir um problema para uma sugestão fora do escopo
 
 Se alguém sugerir alterações na sua pull request que estão fora do escopo dela, abra um novo problema para acompanhar o feedback. Para obter mais informações, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".

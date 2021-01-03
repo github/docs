@@ -183,6 +183,6 @@ To troubleshoot, if your `docs` folder was accidentally moved, try moving the `d
 
 このエラーは、コードに認識されない Liquid タグが含まれていることを意味します。
 
-トラブルシューティングするには、エラーメッセージで示されているファイルの Liquid タグがすべて Jekyll のデフォルトの変数に一致し、タグ名に誤入力がないことを確認します。 デフォルトの変数のリストは、Jekyll のドキュメンテーションで「[変数](https://jekyllrb.com/docs/variables/)」を参照してください。
+トラブルシューティングするには、エラーメッセージで示されているファイルの Liquid タグがすべて Jekyll のデフォルトの変数に一致し、タグ名に誤入力がないことを確認します。 For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
 
 認識されないタグの主な原因は、サポート対象外のプラグインです。 サイトをローカルで生成し、静的なファイルを {% data variables.product.product_name %} にプッシュすることで、サポート対象外のプラグインを使用している場合は、そのプラグインで Jekyll のデフォルトの変数と異なるタグが使われていないかどうか確認してください。 サポート対象のプラグインについては、「[{% data variables.product.prodname_pages %} と Jekyll について](/articles/about-github-pages-and-jekyll#plugins)」を参照してください。

@@ -63,6 +63,8 @@ const resultTemplate = (item) => {
 }
 
 export default function () {
+  if (!document.querySelector('#search-results-container')) return
+
   window.initialPageLoad = true
   const opts = {
 

@@ -13,7 +13,11 @@ Um Personen auf bestimmte Support-Ressourcen zu verweisen, kannst Du eine SUPPOR
 
 ![Support-Richtlinien](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-You can create default support resources for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default support resources for your organization or user account. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 {% tip %}
 

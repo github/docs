@@ -24,12 +24,13 @@ versions:
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
         env:
           super_secret: ${{ secrets.SUPERSECRET }}
         run: |
-          example-command "$SUPER_SECRET"
+          example-command "$super_secret"
 ```
 {% endraw %}
 
@@ -49,13 +50,14 @@ jobs:
       - run: ./setup_server.sh
   build:
     needs: setup
+    runs-on: ubuntu-latest
     steps:
       - run: ./build_server.sh
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 更多信息请参阅 [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)。
@@ -104,7 +106,7 @@ jobs:
 ```
 {% endraw %}
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)”。
+更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ### 使用数据库和服务容器
 
@@ -141,7 +143,7 @@ jobs:
 ```yaml
 jobs:
   example-job:
-      runs-on: [self-hosted, linux, x64, gpu]
+    runs-on: [self-hosted, linux, x64, gpu]
 ```
 
 更多信息请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。

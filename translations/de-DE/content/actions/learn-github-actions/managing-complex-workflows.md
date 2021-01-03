@@ -24,12 +24,13 @@ This example action demonstrates how to reference an existing secret as an envir
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
         env:
           super_secret: ${{ secrets.SUPERSECRET }}
         run: |
-          example-command "$SUPER_SECRET"
+          example-command "$super_secret"
 ```
 {% endraw %}
 
@@ -49,13 +50,14 @@ jobs:
       - run: ./setup_server.sh
   build:
     needs: setup
+    runs-on: ubuntu-latest
     steps:
       - run: ./build_server.sh
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds).
@@ -104,7 +106,7 @@ jobs:
 ```
 {% endraw %}
 
-Weitere Informationen findest Du unter „[Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)“.
+Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 ### Datenbanken und Service-Container verwenden
 
@@ -141,7 +143,7 @@ This example shows how a workflow can use labels to specify the required runner:
 ```yaml
 jobs:
   example-job:
-      runs-on: [self-hosted, linux, x64, gpu]
+    runs-on: [self-hosted, linux, x64, gpu]
 ```
 
 For more information, see  ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."

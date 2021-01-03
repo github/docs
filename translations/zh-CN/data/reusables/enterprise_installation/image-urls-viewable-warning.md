@@ -1,5 +1,5 @@
 {% warning %}
 
-**警告：**如果您在拉取请求或议题评论中添加了图像附件，则任何人都可以查看匿名图像 URL，无需身份验证，即使该拉取请求位于私有仓库中或者启用了私有模式。 要对敏感图像保密，请从需要身份验证的私有网络或服务器提供它们。
+**Warning:** If you add an image attachment to a pull request or issue comment, anyone can view the anonymized image URL without authentication{% if enterpriseServerVersions contains currentVersion %}, even if the pull request is in a private repository, or if private mode is enabled. To prevent unauthorized access to the images, ensure that you restrict network access to the systems that serve the images, including {% data variables.product.product_location %}{% endif %}.{% if currentVersion == "github-ae@latest" %} To prevent unauthorized access to image URLs on {% data variables.product.product_name %}, consider restricting network traffic to your enterprise. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."{% endif %}
 
 {% endwarning %}

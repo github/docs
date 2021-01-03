@@ -21,7 +21,7 @@ versions:
 
 发行版基于 [Git 标记](https://git-scm.com/book/en/Git-Basics-Tagging)，这些标记会标记仓库历史记录中的特定点。 标记日期可能与发行日期不同，因为它们可在不同的时间创建。 有关查看现有标记的更多信息，请参阅“[查看仓库的发行版和标记](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)”。
 
-当仓库中发布新发行版时您可以接收通知，但不会接受有关仓库其他更新的通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching releases for a repository](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
+当仓库中发布新发行版时您可以接收通知，但不会接受有关仓库其他更新的通知。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}”[关注和取消关注仓库的发行版](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}”。
 
 对仓库具有读取访问权限的任何人都可以查看和比较发行版，但只有对仓库具有写入权限的人员才能管理发行版。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”。
 
@@ -32,12 +32,12 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 如果发行版修复了安全漏洞，您应该在仓库中发布安全通告。
-{% data variables.product.prodname_dotcom %} 审查每个发布的安全通告，并且可能使用它向受影响的仓库发送 {% data variables.product.prodname_dependabot_short %} 警报。 更多信息请参阅“[关于 GitHub 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+{% data variables.product.prodname_dotcom %} 审查每个发布的安全通告，并且可能使用它向受影响的仓库发送 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[关于 GitHub 安全通告](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
 您可以查看依赖项图的 **Dependents（依赖项）**选项卡，了解哪些仓库和包依赖于您仓库中的代码，并因此可能受到新发行版的影响。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
 
-您也可以使用发行版 API 来收集信息，例如人们下载发行版资产的次数。 更多信息请参阅“[发行版](/v3/repos/releases/)”。
+您也可以使用发行版 API 来收集信息，例如人们下载发行版资产的次数。 更多信息请参阅“[发行版](/rest/reference/repos#releases)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 存储和带宽配额

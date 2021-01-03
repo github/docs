@@ -1,7 +1,9 @@
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-  {% tip %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-  {% data variables.product.product_location %}上でアウトバウンドメールのサポートが有効化されている場合にのみ、メール通知を受信することになります。 詳しい情報については、サイト管理者にお問い合わせください。
+{% note %}
 
-  {% endtip %}
+**Note**: You'll only receive email notifications if outbound email support is enabled on {% data variables.product.product_location %}. 詳しい情報については、サイト管理者にお問い合わせください。
+
+{% endnote %}
+
 {% endif %}

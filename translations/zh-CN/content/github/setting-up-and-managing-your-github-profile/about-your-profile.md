@@ -13,7 +13,7 @@ versions:
 
 您可以在传记中加入您的个人信息，比如您以前工作的地方、您参与过的项目，或者其他人可能想知道的个人兴趣。 更多信息请参阅“[添加传记到个人资料](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -23,19 +23,17 @@ versions:
 
 人们在访问您的个人资料时会看到您的贡献活动时间表，如您打开的议题和拉取请求、您进行的提交，以及您审查的拉取请求。 您可以选择只显示公共贡献或同时包含私人的匿名化贡献。 更多信息请参阅“[在个人资料页面中查看贡献](/articles/viewing-contributions-on-your-profile-page)”或“[在您的个人资料中公开或隐藏私人贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)”。
 
-他们还可以查看：
+People who visit your profile can also see the following information.
 
-- 你拥有或参与的仓库和 gists。 您可以通过将仓库和 Gist 固定到个人资料中来展示您的最佳作品。 更多信息请参阅“[将项目嵌入到个人资料](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)”。
-- 您标星的仓库。 更多信息请参阅“[使用星标保存仓库](/articles/saving-repositories-with-stars/)”
-- 您在经常参与的组织、仓库和团队中的活动概述。 For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
-- 为您参与 {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %} 或 {% data variables.product.company_short %} 开发者计划等计划做宣传的徽章。
-- 您是否在使用 {% data variables.product.prodname_pro %}。 更多信息请参阅“[个性化您的个人资料](/articles/personalizing-your-profile)”。{% endif %}
+- 你拥有或参与的仓库和 gists。 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can showcase your best work by pinning repositories and gists to your profile. 更多信息请参阅“[将项目嵌入到个人资料](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)”。{% endif %}
+- 您标星的仓库。 For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)."
+- 您在经常参与的组织、仓库和团队中的活动概述。 For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."{% if currentVersion == "free-pro-team@latest" %}
+- Badges that show if you use {% data variables.product.prodname_pro %} or participate in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program. 更多信息请参阅“[个性化您的个人资料](/github/setting-up-and-managing-your-github-profile/personalizing-your-profile#displaying-badges-on-your-profile)”。{% endif %}
 
 您还可以在个人资料上设置状态，以提供有关您的可用性的信息。 更多信息请参阅“[设置状态](/articles/personalizing-your-profile/#setting-a-status)”。
 
 ### 延伸阅读
 
 - "[如何设置我的头像？](/articles/how-do-i-set-up-my-profile-picture)“
-- "[将仓库嵌入到个人资料](/articles/pinning-repositories-to-your-profile)"
 - "[在个人资料中公开或隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
 - "[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)"

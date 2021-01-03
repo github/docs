@@ -34,7 +34,7 @@ Para obter mais informações, consulte "[Tipos de mídia](/rest/overview/media-
 
 ## Commits
 
-Um commit do Git é um instantâneo da hierarquia ([árvore do Git](/v3/git/trees)) e o conteúdo dos arquivos ([Blob do Git](/v3/git/blobs)) em um repositório do Git. Estes pontos de extremidade permitem ler e escrever [objetos de commit](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects) no seu banco de dados do Git em {% data variables.product.product_name %}.
+Um commit do Git é um instantâneo da hierarquia ([árvore do Git](/rest/reference/git#trees)) e o conteúdo dos arquivos ([Blob do Git](/rest/reference/git#blobs)) em um repositório do Git. Estes pontos de extremidade permitem ler e escrever [objetos de commit](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects) no seu banco de dados do Git em {% data variables.product.product_name %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'commits' %}{% include rest_operation %}{% endif %}
@@ -50,7 +50,7 @@ Uma referência do Git (`git ref`) é apenas um arquivo que contém um hash SHA-
 
 ## Tags
 
-Uma tag do Git é semelhante a uma [Referência do Git](/v3/git/refs), mas o commit do Git para o qual ela aponta nunca muda. As tags do Git são úteis quando você deseja apontar para versões específicas. Esses pontos de extremidade permitem ler e escrever [tags dos objetos](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags) em seu banco de dados Git em {% data variables.product.product_name %}. A API de tags do Git é compatível apenas com [objetos de tags anotadas](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags), não tags leves.
+Uma tag do Git é semelhante a uma [Referência do Git](/rest/reference/git#refs), mas o commit do Git para o qual ela aponta nunca muda. As tags do Git são úteis quando você deseja apontar para versões específicas. Esses pontos de extremidade permitem ler e escrever [tags dos objetos](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags) em seu banco de dados Git em {% data variables.product.product_name %}. A API de tags do Git é compatível apenas com [objetos de tags anotadas](https://git-scm.com/book/en/v1/Git-Internals-Git-References#Tags), não tags leves.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'tags' %}{% include rest_operation %}{% endif %}

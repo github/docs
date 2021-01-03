@@ -4,6 +4,7 @@ intro: 'Você pode usar o logon único (SSO) da Linguagem de Markup da Declaraç
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-single-sign-on-and-scim-for-your-enterprise-account-using-okta
+  - /github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
 ---

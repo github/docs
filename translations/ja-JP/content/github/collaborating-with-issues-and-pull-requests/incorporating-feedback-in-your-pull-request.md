@@ -25,6 +25,10 @@ versions:
 4. コミットメッセージのフィールドに、ファイルに対する変更内容を説明する、短くわかりやすいコミットメッセージを入力します。 ![Commit messageフィールド](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. [**Commit changes**] をクリックします。 ![[Commit changes] ボタン](/assets/images/help/pull_requests/commit-changes-button.png)
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### スコープ外の提案に対する Issue のオープン
 
 プルリクエストの変更が提案され、その変更がプルリクエストのスコープ外である場合、フィードバックを追跡するために新しい Issue をオープンすることができます。 詳しい情報については「[コメントからIssueを開く](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)」を参照してください。

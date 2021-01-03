@@ -232,7 +232,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 ]
 ```
 
-すでに上記でリポジトリのリストを取得しているので、それぞれを調べて、[言語をリスト化するAPIメソッド][language API]を呼びましょう。
+Since we already have a list of repositories above, let's inspect each one, and call [the language listing API method][language API]:
 
 ``` ruby
 repos.each do |repo|
@@ -264,7 +264,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(D3ツリーマップの魔力をもっと詳しく知りたければ、[この簡単なチュートリアル][language API]を確認しましょう。)
+(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
 
 仕上げに、このJSON情報を同じERBテンプレートに渡します。
 
@@ -333,7 +333,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_cou
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
 [D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

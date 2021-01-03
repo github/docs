@@ -164,6 +164,25 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### 对日志行分组
+
+```
+::group::{title}
+::endgroup::
+```
+
+在日志中创建一个可扩展的组。 要创建组，请使用 `group` 命令并指定 `title`。 打印到 `group` 与 `endgroup` 命令之间日志的任何内容都会嵌套在日志中可扩展的条目内。
+
+#### 示例
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
+![工作流运行日志中的可折叠组](/assets/images/actions-log-group.png)
+
 ### 在日志中屏蔽值
 
 `::add-mask::{value}`
@@ -260,6 +279,7 @@ echo "action_state=yellow" >> $GITHUB_ENV
 在未来步骤中运行 `$action_state` 现在会返回 `yellow`
 
 #### 多行字符串
+
 对于多行字符串，您可以使用具有以下语法的分隔符。
 
 ```
@@ -268,7 +288,8 @@ echo "action_state=yellow" >> $GITHUB_ENV
 {delimiter}
 ```
 
-#### 示例
+##### 示例
+
 在此示例中， 我们使用 `EOF` 作为分隔符，并将 `JSON_RESPONSE` 环境变量设置为 cURL 响应的值。
 ```
 steps:

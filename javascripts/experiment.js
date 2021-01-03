@@ -40,5 +40,5 @@ export default function () {
   // const testName = '$test-name$'
   // const xbucket = bucket(testName)
   // if (xbucket === TREATMENT) { ... }
-  // x.addEventListener('click', evt => evt.preventDefault(); await sendSuccess(testName); evt())
+  // x.addEventListener('click', () => { sendSuccess(testName) })
 }

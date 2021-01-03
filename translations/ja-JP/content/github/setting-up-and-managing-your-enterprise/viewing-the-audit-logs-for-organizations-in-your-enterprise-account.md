@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account/
   - /articles/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

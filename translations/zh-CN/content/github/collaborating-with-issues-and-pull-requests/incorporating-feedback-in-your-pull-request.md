@@ -25,6 +25,10 @@ versions:
 4. 在提交消息字段中，输入简短、有意义的提交消息，以描述对文件的更改。 ![提交消息字段](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
 5. 单击 **Commit changes（提交更改）**。 ![提交更改按钮](/assets/images/help/pull_requests/commit-changes-button.png)
 
+### 重新请求审核
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### 为范围外建议开一个议题
 
 如果有人建议更改您的拉取请求，并且更改超出拉请求的范围，则可以新开一个议题来跟踪反馈。 更多信息请参阅“[从评论打开议题](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)”。

@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: July 22, 2020
+生效日期：2020 年 11 月 16 日
 
 感谢您将自己的源代码、项目和个人信息交托给 GitHub Inc. （“GitHub”、“我们”）。 保管您的私人信息是一项重大责任，我们希望您了解我们的处理方式。
 
@@ -150,15 +150,31 @@ GitHub 可能会从第三方收集用户个人信息。 例如，如果您报名
 
 请注意：《2018 年加州消费者隐私法案》(“CCPA”) 要求企业在其隐私政策中声明，他们是否会披露个人信息以换取金钱或其他有价值的报酬。 虽然 CCPA 只涵盖加州居民，但我们自愿将人们控制自己的数据之核心权利扩展到我们的_所有_用户，而不仅仅是居住在加州的用户。 您可以在[此处](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act)了解有关 CCPA 以及我们如何遵守它的更多信息。
 
-### 其他重要信息
+### 仓库内容
 
-#### 仓库内容
+#### Access to private repositories
 
-GitHub 人员[不会访问私有仓库，除非](/github/site-policy/github-terms-of-service#e-private-repositories)出于安全原因，或者为了协助仓库所有者解决支持问题、保持服务的完整性或履行我们的法律义务而需要这样做。 不过，虽然我们一般不搜索您的仓库中的内容，但可能扫描我们的服务器和内容，以根据算法指纹技术检测某些令牌或安全签名、已知活动的恶意软件或其他已知违反我们条款的内容，例如暴力极端主义或恐怖主义内容或儿童剥削图片。 我们的服务条款提供了[更多详细信息](/github/site-policy/github-terms-of-service#e-private-repositories)。
+If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for
+- security purposes
+- to assist the repository owner with a support matter
+- to maintain the integrity of the Service
+- to comply with our legal obligations
+- if we have reason to believe the contents are in violation of the law, or
+- 经您同意.
 
-如果您的仓库是公共仓库，则任何人都可以查看其内容。 如果您的公共仓库中含有私人、机密或[敏感个人信息](https://gdpr-info.eu/art-9-gdpr/)，例如电子邮件地址或密码，则该信息可能会被搜索引擎索引或被第三方使用。
+However, while we do not generally search for content in your repositories, we may scan our servers and content to detect certain tokens or security signatures, known active malware, known vulnerabilities in dependencies, or other content known to violate our Terms of Service, such as violent extremist or terrorist content or child exploitation imagery, based on algorithmic fingerprinting techniques (collectively, "automated scanning"). Our Terms of Service provides more details on [private repositories](/github/site-policy/github-terms-of-service#e-private-repositories).
+
+Please note, you may choose to disable certain access to your private repositories that is enabled by default as part of providing you with the Service (for example, automated scanning needed to enable Dependency Graph and Dependabot alerts).
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+
+#### Public repositories
+
+如果您的仓库是公共仓库，则任何人都可以查看其内容。 If you include User Personal Information, [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/), or confidential information, such as email addresses or passwords, in your public repository, that information may be indexed by search engines or used by third parties.
 
 更多信息请参阅[公共仓库中的用户个人信息](/github/site-policy/github-privacy-statement#public-information-on-github)。
+
+### 其他重要信息
 
 #### GitHub 上的公共信息
 
@@ -166,7 +182,7 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 与您的内容相关的用户个人信息可能被第三方收集在这些 GitHub 数据汇编中。 如果您不希望自己的用户个人信息出现在第三方的 GitHub 数据汇编中，请不要公开自己的用户个人信息，并确保在您的用户个人资料和 [Git 提交设置](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)中[将您的电子邮件地址配置为私密](https://github.com/settings/emails)。 在当前版本中，用户的电子邮件地址默认设置为私密，但旧版 GitHub 的用户可能需要更新其设置。
 
-如果您要汇编 GitHub 数据，则必须遵守我们有关[搜刮](/github/site-policy/github-acceptable-use-policies#5-scraping-and-api-usage-restrictions)和[隐私](/github/site-policy/github-acceptable-use-policies#6-privacy)的服务条款，并且只能出于我们用户授权的目的使用所收集的任何面向公众的用户个人信息。 例如，如果 GitHub 用户出于身份识别和归因的目的而将电子邮件地址设为公开，则您不得将该电子邮件地址用于商业广告。 我们希望您合理地保护从 GitHub 收集的任何用户个人信息，并且必须及时回应 GitHub 或 GitHub 用户的投诉以及删除和“别碰”要求。
+If you would like to compile GitHub data, you must comply with our Terms of Service regarding [information usage](/github/site-policy/github-acceptable-use-policies#5-information-usage-restrictions) and [privacy](/github/site-policy/github-acceptable-use-policies#6-privacy), and you may only use any public-facing User Personal Information you gather for the purpose for which our user authorized it. For example, where a GitHub user has made an email address public-facing for the purpose of identification and attribution, do not use that email address for the purposes of sending unsolicited emails to users or selling User Personal Information, such as to recruiters, headhunters, and job boards, or for commercial advertising. 我们希望您合理地保护从 GitHub 收集的任何用户个人信息，并且必须及时回应 GitHub 或 GitHub 用户的投诉以及删除和“别碰”要求。
 
 同样，GitHub 上项目包含的公开用户个人信息可能在协作过程中被收集。 如果您要针对 GitHub 上的任何用户个人信息问题提出投诉，请参阅我们的[解决投诉](/github/site-policy/github-privacy-statement#resolving-complaints)部分。
 
@@ -185,7 +201,7 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 #### 第三方应用程序
 
-您可以选择在自己的帐户中启用或添加第三方应用程序（称为“开发者产品”）。 这些开发者产品并非使用 GitHub 的必要条件。 我们会在您要求时（例如从 Marketplace 购买开发者产品）将您的用户个人信息分享给第三方；但是，对于您使用第三方开发者产品以及您选择与之分享的用户个人信息，您自行负责。 您可以查看我们的 [API 文档](/v3/users/)，以了解您使用自己的 GitHub 个人资料向开发者产品验证时会提供哪些信息。
+您可以选择在自己的帐户中启用或添加第三方应用程序（称为“开发者产品”）。 这些开发者产品并非使用 GitHub 的必要条件。 我们会在您要求时（例如从 Marketplace 购买开发者产品）将您的用户个人信息分享给第三方；但是，对于您使用第三方开发者产品以及您选择与之分享的用户个人信息，您自行负责。 您可以查看我们的 [API 文档](/rest/reference/users)，以了解您使用自己的 GitHub 个人资料向开发者产品验证时会提供哪些信息。
 
 #### GitHub Pages
 
@@ -219,7 +235,7 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 #### Cookie
 
-GitHub 使用 cookie 让服务交互变得简单而有意义。 Cookie 是网站通常存储在访客的计算机硬盘或移动设备上的小型文本文件。 我们使用 cookie（以及类似技术，例如 HTML5 localStorage）保持登录状态、记住您的首选项，并为 GitHub 的未来开发提供信息。 出于安全目的，我们使用 cookie 来识别设备。 使用我们的网站，即表示您同意我们将这些类型的 cookie 放在您的计算机或设备上。 如果您禁止浏览器或设备接受这些 cookie，则将无法登录或使用 GitHub 的服务。
+GitHub uses cookies and similar technologies (e.g., HTML5 localStorage) to make interactions with our service easy and meaningful. Cookie 是网站通常存储在访客的计算机硬盘或移动设备上的小型文本文件。 We use cookies and similar technologies (hereafter collectively "cookies") to provide you our services, for example, to keep you logged in, remember your preferences, identify your device for security purposes, and provide information for future development of GitHub. 使用我们的网站，即表示您同意我们将这些类型的 cookie 放在您的计算机或设备上。 如果您禁止浏览器或设备接受这些 cookie，则将无法登录或使用 GitHub 的服务。
 
 我们提供了一个有关 [cookie 和跟踪技术](/github/site-policy/github-subprocessors-and-cookies)的网页，介绍我们设置的 cookie、对这些 cookie 的需求以及它们的类型（临时或永久）。 它还列出了我们的第三方分析提供商和其他服务提供商，并明确说明了允许他们跟踪我们网站的哪些部分。
 
@@ -300,7 +316,7 @@ GitHub 处理美国境内外的个人信息，并依靠标准合同条款作为�
 
 ### 隐私声明的变更
 
-GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 对于本隐私声明的非重大变更或不影响您权利的变更，我们建议用户经常查看我们的站点政策仓库。
+GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
 ### 许可
 

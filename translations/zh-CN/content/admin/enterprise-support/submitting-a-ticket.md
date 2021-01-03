@@ -1,6 +1,6 @@
 ---
 title: 提交事件单
-intro: 'You can submit a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
+intro: '您可以使用 {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} 或{% endif %}支持门户提交支持单。'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
@@ -13,8 +13,8 @@ versions:
 在提交事件单之前，您应当收集 {% data variables.contact.github_support %} 的有用信息并选择联系人。 更多信息请参阅“[准备提交事件单](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)”。
 
 {% if enterpriseServerVersions contains currentVersion %}
-After submitting your support request and optional diagnostic information,
-{% data variables.contact.github_support %} may ask you to download and share a support bundle with us. 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
+在提交支持请求和可选诊断信息后，
+{% data variables.contact.github_support %} 可能要求您下载并与我们分享支持包。 更多信息请参阅“[将数据提供给 {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)”。
 
 ### 使用 {% data variables.contact.enterprise_portal %} 提交事件单
 
@@ -51,13 +51,13 @@ After submitting your support request and optional diagnostic information,
 {% if currentVersion == "github-ae@latest" %}
 ### 使用 {% data variables.contact.ae_azure_portal %}提交事件单
 
-Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft documentation.
+商业客户可以在 {% data variables.contact.contact_ae_portal %} 中提交支持请求。 政府客户应该使用[政府客户的 Azure 门户网站](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。 更多信息请参阅 Microsoft 文档中的 "[创建 Azure 支持请求](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)"。
 
-For urgent issues, to ensure a quick response, after you submit a ticket, please call the support hotline immediately. Your Technical Support Account Manager (TSAM) will provide you with the number to use in your onboarding session.
+对于紧急问题，为了确保快速反应，在提交支持单后，请立即呼叫支持热线。 技术支持客户经理 (TSAM) 将为您提供一个编号供在登录会话中使用。
 
 {% endif %}
 
 ### 延伸阅读
 
-- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
-- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}
+- "[关于 {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[关于 {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}

@@ -3,6 +3,8 @@ title: Enterprise アカウントでオーナーのいない Organization を管
 intro: Enterprise アカウントで現在オーナーがいない Organization のオーナーになることができます。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 permissions: Enterprise オーナーは、Enterprise アカウントでオーナーのいない Organization を管理できます。
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

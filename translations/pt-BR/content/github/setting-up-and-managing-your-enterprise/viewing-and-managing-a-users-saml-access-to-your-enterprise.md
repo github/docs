@@ -1,10 +1,11 @@
 ---
-title: Viewing and managing a user's SAML access to your enterprise
+title: Visualizar e gerenciar o acesso SAML de um usuário à sua empresa
 intro: 'Você pode visualizar e revogar a identidade vinculada de um integrante da empresa, as sessões ativas e as credenciais autorizadas.'
 permissions: Os proprietários das empresas podem visualizar e gerenciar o acesso de SAML de um integrante na organização.
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

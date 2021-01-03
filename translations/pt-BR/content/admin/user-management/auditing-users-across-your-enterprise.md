@@ -1,6 +1,6 @@
 ---
-title: Auditing users across your enterprise
-intro: 'The audit log dashboard shows site administrators the actions performed by all users and organizations across your enterprise within the past 90 days, including details such as who performed the action, what the action was, and when the action was performed.'
+title: Auditar de usuários em toda a sua empresa
+intro: 'O painel de log de auditoria mostra aos administradores do site as ações realizadas por todos os usuários e organizações de sua empresa nos últimos 90 dias incluindo detalhes como quem executou a ação, qual era a ação e quando a ação foi realizada.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -12,7 +12,7 @@ versions:
 
 ### Acessar o log de auditoria
 
-The audit log dashboard gives you a visual display of audit data across your enterprise.
+O painel de log de auditoria oferece uma exibição visual de dados de auditoria na sua empresa.
 
 ![Painel de log de auditoria da instância](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
@@ -22,9 +22,9 @@ The audit log dashboard gives you a visual display of audit data across your ent
 
 No mapa, você pode aplicar zoom e visão panorâmica para ver os eventos do mundo todo. Posicione o mouse sobre um país para ver a contagem de eventos ocorridos nele.
 
-### Searching for events across your enterprise
+### Pesquisar eventos na sua empresa
 
-The audit log lists the following information about actions made within your enterprise:
+O log de auditoria lista as seguintes informações sobre as ações feitas na sua empresa:
 
 * [O repositório](#search-based-on-the-repository) em que a ação ocorreu;
 * [O usuário](#search-based-on-the-user) que fez a ação;
@@ -37,7 +37,7 @@ The audit log lists the following information about actions made within your ent
 
 **Notas:**
 
-- Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
+- Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. {% data variables.product.product_name %} é compatível com muitos operadores para fazer pesquisa em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)".
 - Para pesquisar eventos com mais de 90 dias, use o qualificador `created`.
 
 {% endwarning %}
@@ -66,13 +66,13 @@ Só é possível usar o nome de usuário do {% data variables.product.product_na
 
 O qualificador `org` limita as ações a uma organização específica. Por exemplo:
 
-* `org:my-org` localiza todos os eventos que ocorreram na organização `my-org`;
+* `org:my-org` encontrou todos os eventos que ocorreram na organização `minha-org`.
 * `org:my-org action:team` localiza todos os eventos de equipe que ocorreram na organização `my-org`;
-* `org:my-org` exclui todos os eventos que ocorreram na organização `my-org`.
+* `-org:my-org` exclui todos os eventos que ocorreram na organização `minha-org`.
 
 #### Pesquisar com base na ação
 
-O qualificador `action` pesquisa eventos específicos, agrupados em categorias. For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para informações sobre os eventos associados a essas categorias, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
 
 | Categoria | Descrição                                                                         |
 | --------- | --------------------------------------------------------------------------------- |

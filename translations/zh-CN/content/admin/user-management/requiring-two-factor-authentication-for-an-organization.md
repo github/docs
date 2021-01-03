@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.product.product_location %}. 组织管理员可以要求成员启用双重身份验证。
+使用 LDAP 或内置身份验证时，{% data variables.product.product_location %} 将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 

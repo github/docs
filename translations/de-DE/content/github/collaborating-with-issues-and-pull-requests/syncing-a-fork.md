@@ -13,7 +13,7 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
-3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits to `main` will be stored in a local branch, `upstream/main`.
+3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -23,12 +23,12 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
-4. Check out your fork's local `main` branch.
+4. Check out your fork's local default branch - in this case, we use `main`.
   ```shell
   $ git checkout main
   > Switched to branch 'main'
   ```
-5. Merge the changes from `upstream/main` into your local `main` branch. This brings your fork's `main` branch into sync with the upstream repository, without losing your local changes.
+5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
   ```shell
   $ git merge upstream/main
   > Updating a422352..5fdff0f

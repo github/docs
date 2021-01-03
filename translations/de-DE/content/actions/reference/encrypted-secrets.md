@@ -43,11 +43,11 @@ Du kannst verschlüsselte Geheimnisse in einer Workflow-Datei verwenden und lese
 
 {% endwarning %}
 
-Sie können Geheimnisse auch mit der REST-API verwalten. Weitere Informationen finden Sie unter "[Secrets](/v3/actions/secrets/)".
+Sie können Geheimnisse auch mit der REST-API verwalten. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
 #### Einschränken von Anmeldeinformationsberechtigungen
 
-Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Berechtigungen zu erteilen. Anstatt z.B. persönliche Anmeldeinformationen zu verwenden, solltest Du [Bereitstellen von Schlüsseln](/v3/guides/managing-deploy-keys/#deploy-keys) oder einen „Service-Account“ (Dienstkonto) benuzen. Ziehe in Erwägung, Nur-Lese-Berechtigungen zu gewähren, wenn dies ausreicht, und schränke den Zugriff so weit wie möglich ein. Wähle beim Generieren eines persönlichen Zugriffstokens („personal access token“, PAT) die geringsmöglichen Anwendungsbereiche („scopes“) aus.
+Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Berechtigungen zu erteilen. Anstatt z.B. persönliche Anmeldeinformationen zu verwenden, solltest Du [Bereitstellen von Schlüsseln](/developers/overview/managing-deploy-keys#deploy-keys) oder einen „Service-Account“ (Dienstkonto) benuzen. Ziehe in Erwägung, Nur-Lese-Berechtigungen zu gewähren, wenn dies ausreicht, und schränke den Zugriff so weit wie möglich ein. Wähle beim Generieren eines persönlichen Zugriffstokens („personal access token“, PAT) die geringsmöglichen Anwendungsbereiche („scopes“) aus.
 
 ### Erstellen verschlüsselter Geheimnisse für ein Repository
 
@@ -105,7 +105,7 @@ steps:
 ```
 {% endraw %}
 
-Wann immer dies möglich ist, vermeide die Übergabe von Geheimnissen zwischen Prozessen von der Befehlszeile aus. Befehlszeilen-Prozesse können für andere Benutzer (mithilfe des Befehls `ps`) sichtbar sein oder von [„security audit events“ (Ereignissen zur Sicherheits-Überprüfung)](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing) erfasst werden. Um den Schutz von Geheimnissen zu unterstützen, solltest Du die Verwendung von Umgebungsvariablen, `STDIN` oder andere vom Zielprozess unterstützte Mechanismen in Betracht ziehen.
+Wann immer dies möglich ist, vermeide die Übergabe von Geheimnissen zwischen Prozessen von der Befehlszeile aus. Befehlszeilen-Prozesse können für andere Benutzer (mithilfe des Befehls `ps`) sichtbar sein oder von [„security audit events“ (Ereignissen zur Sicherheits-Überprüfung)](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing) erfasst werden. Um den Schutz von Geheimnissen zu unterstützen, solltest Du die Verwendung von Umgebungsvariablen, `STDIN` oder andere vom Zielprozess unterstützte Mechanismen in Betracht ziehen.
 
 Wenn Sie Geheimnisse innerhalb einer Kommandozeile übergeben müssen, umschließe sie im Rahmen der gültigen Quotierungsregeln. Geheimnisse enthalten oft Sonderzeichen, die in Deiner Shell unbeabsichtigte Wirkungen entfalten können. Um diese Sonderzeichen zu vermeiden, verwende Deine Umgebungsvariablen mit Anführungszeichen. Ein Beispiel:
 

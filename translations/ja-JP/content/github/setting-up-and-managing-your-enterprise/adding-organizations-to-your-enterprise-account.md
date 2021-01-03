@@ -4,6 +4,7 @@ intro: Enterprise アカウント内に、新しい Organization を作成して
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

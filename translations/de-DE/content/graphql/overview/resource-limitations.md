@@ -11,11 +11,11 @@ versions:
 
 ## Node limit
 
-To pass [schema](/v4/guides/intro-to-graphql#schema) validation, all GraphQL API v4 [calls](/v4/guides/forming-calls) must meet these standards:
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API v4 [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
-* Clients must supply a `first` or `last` argument on any [connection](/v4/guides/intro-to-graphql#connection).
+* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
 * Values of `first` and `last` must be within 1-100.
-* Individual calls cannot request more than 500,000 total [nodes](/v4/guides/intro-to-graphql#node).
+* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
 
 #### Calculating nodes in a call
 
@@ -121,7 +121,7 @@ These two examples show how to calculate the total nodes in a call.
 
 The GraphQL API v4 limit is different from the REST API v3's [rate limits](/rest/overview/resources-in-the-rest-api#rate-limiting).
 
-Why are the API rate limits different? With [GraphQL](/v4/), one GraphQL call can replace [multiple REST calls](/v4/guides/migrating-from-rest/). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
+Why are the API rate limits different? With [GraphQL](/graphql), one GraphQL call can replace [multiple REST calls](/graphql/guides/migrating-from-rest-to-graphql). A single complex GraphQL call could be the equivalent of thousands of REST requests. While a single GraphQL call would fall well below the REST API rate limit, the query might be just as expensive for GitHub's servers to compute.
 
 To accurately represent the server cost of a query, the GraphQL API v4 calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
 

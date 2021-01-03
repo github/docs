@@ -1,6 +1,12 @@
 {% if currentVersion == "enterprise-server@2.22" %}
 
-启用测试功能的实例的最低要求在下表中用**粗体**表示。 更多信息请参阅“[{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)”。 |{% endif %}
+{% note %}
+
+**Note**: If you enable beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. 启用测试功能的实例的最低要求在下表中用**粗体**表示。 For more information about the features in beta, see "[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)."
+
+{% endnote %}
+|
+{% endif %}
 | 用户许可              |                                                                                                                                  vCPU |                                                                                                                                            内存 |                                                                                                                                       附加的存储容量 |  根存储容量 |
 |:----------------- | -------------------------------------------------------------------------------------------------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------:| ------:|
 | 试用版、演示版或 10 个轻度用户 |   2{% if currentVersion == "enterprise-server@2.22" %}<br/>或 [**4**](#beta-features-in-github-enterprise-server-222){% endif %} |   16 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>或 [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>或 [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 200 GB |
@@ -9,8 +15,14 @@
 | 5000-8000         | 12{% if currentVersion == "enterprise-server@2.22" %}<br/>或 [**16**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                         96 GB |                                                                                                                                        750 GB | 200 GB |
 | 8000-10000+       | 16{% if currentVersion == "enterprise-server@2.22" %}<br/>或 [**20**](#beta-features-in-github-enterprise-server-222){% endif %} | 128 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>或 [**160 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |                                                                                                                                       1000 GB | 200 GB |
 
+For more information about adjusting resources for an existing instance, see "[Increasing storage capacity](/enterprise/admin/installation/increasing-storage-capacity)" and "[Increasing CPU or memory resources](/enterprise/admin/installation/increasing-cpu-or-memory-resources)."
+
 {% if currentVersion == "enterprise-server@2.22" %}
 
 #### {% data variables.product.prodname_ghe_server %} 2.22 中的测试功能
 
-如果您在 {% data variables.product.prodname_ghe_server %} 2.22 中启用测试功能，则您的实例需要额外的硬件资源。 有关测试功能的更多信息，请参阅 {% data variables.product.prodname_enterprise %} 网站上的 [2.22 系列发行说明](https://enterprise.github.com/releases/series/2.22)。{% endif %}
+You can sign up for beta features available in {% data variables.product.prodname_ghe_server %} 2.22 such as {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_code_scanning %}. For more information, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22#release-2.22.0) on the {% data variables.product.prodname_enterprise %} website.
+
+If you enable beta features for {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information, see "[Minimum requirements](#minimum-requirements)".
+
+{% endif %}

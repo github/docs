@@ -16,10 +16,6 @@ versions:
 
 {% endwarning %}
 
-### 以前のコミットで追加されたファイルを削除する
-
-以前のコミットでファイルを追加した場合は、リポジトリの履歴から削除する必要があります。 リポジトリの履歴からファイルを削除するには、BFG Repo-Cleaner または `git filter-branch` コマンドを使用できます。 詳細は「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」を参照してください。
-
 ### プッシュされていない直近のコミットで追加されたファイルを削除する
 
 ファイルが直近のコミットで追加され、{% data variables.product.product_location %} にプッシュしていない場合は、ファイルを削除してコミットを修正することができます。
@@ -43,3 +39,7 @@ versions:
   $ git push
   # 書き換えられサイズが小さくなったコミットをプッシュする
   ```
+
+### 以前のコミットで追加されたファイルを削除する
+
+以前のコミットでファイルを追加した場合は、リポジトリの履歴から削除する必要があります。 リポジトリの履歴からファイルを削除するには、BFG Repo-Cleaner または `git filter-branch` コマンドを使用できます。 詳細は「[機密データをリポジトリから削除する](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)」を参照してください。

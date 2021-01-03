@@ -28,7 +28,7 @@ versions:
 
 `marketplace_purchase` webhookから`effective_date`と`marketplace_purchase`を読み取り、顧客が購入したプラン、支払いサイクルの開始時点、次の支払いサイクルの開始時点を判断してください。
 
-アプリケーションが無料トライアルを提供しているなら、webhookから`marketplace_purchase[on_free_trial]`属性を読んでください。 この値が`true`なら、アプリケーションは無料トライアルの開始日(`effective_date`)と、無料トライアルの終了日(`free_trial_ends_on`)を追跡しなければなりません。 アプリケーションのUIに無料トライアルの残日数を表示するのには、`free_trial_ends_on`の日付を使ってください。 これはバナーか、[支払いUI](/marketplace/selling-your-app/billing-customers-in-github-marketplace/#providing-billing-services-in-your-apps-ui)のいずれでも行えます。 無料トライアルの終了前のキャンセルの処理方法を学ぶには、「[プランのキャンセル](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)」を参照してください。 無料トライアルの終了時点での無料トライアルから有料プランへの移行方法を知るには、「[プランのアップグレードとダウングレード](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/)」を参照してください。
+アプリケーションが無料トライアルを提供しているなら、webhookから`marketplace_purchase[on_free_trial]`属性を読んでください。 この値が`true`なら、アプリケーションは無料トライアルの開始日(`effective_date`)と、無料トライアルの終了日(`free_trial_ends_on`)を追跡しなければなりません。 アプリケーションのUIに無料トライアルの残日数を表示するのには、`free_trial_ends_on`の日付を使ってください。 これはバナーか、[支払いUI](/marketplace/selling-your-app/billing-customers-in-github-marketplace/#providing-billing-services-in-your-apps-ui)のいずれでも行えます。 To learn how to handle cancellations before a free trial ends, see "[Handling plan cancellations](/developers/github-marketplace/handling-plan-cancellations)." See "[Handling plan changes](/developers/github-marketplace/handling-plan-changes)" to find out how to transition a free trial to a paid plan when a free trial expires.
 
 `marketplace_purchase`イベントペイロードの例については「[{% data variables.product.prodname_marketplace %} webhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
 
@@ -68,7 +68,7 @@ versions:
 
 ### ステップ 4. 顧客アカウントのプロビジョニング
 
-アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 [ステップ3 認可](#step-3-authorization)で受け取った顧客のアクセストークンを使い、 「[認証されたユーザのサブスクリプションのリスト](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)」エンドポイントを呼び出してください。 レスポンスには顧客の`account`情報が含まれ、その顧客が無料トライアルを利用しているかが示されます（`on_free_trial`）。 この情報を使って、セットアップとプロビジョニングを完了させてください。
+アプリケーションは、すべての新規購入に対して顧客アカウントをプロビジョニングしなければなりません。 [ステップ3 認可](#step-3-authorization)で受け取った顧客のアクセストークンを使い、 「[認証されたユーザのサブスクリプションのリスト](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)」エンドポイントを呼び出してください。 レスポンスには顧客の`account`情報が含まれ、その顧客が無料トライアルを利用しているかが示されます（`on_free_trial`）。 この情報を使って、セットアップとプロビジョニングを完了させてください。
 
 {% data reusables.marketplace.marketplace-double-purchases %}
 
@@ -76,6 +76,6 @@ versions:
 
 Organizationのメンバーがアプリケーションへのアクセスを受け取る方法は、カスタマイズできます。 いくつかの例を挙げましょう。
 
-**定額料金:** Organizationに対して定額料金での購入が行われたなら、アプリケーションはAPI経由で[Organizationの全メンバーを取得](/v3/orgs/members/#list-organization-members)して、Organizationの管理者に対してどのメンバーがインテグレーター側で有料ユーザとなるかの選択を求めることができます。
+**定額料金:** Organizationに対して定額料金での購入が行われたなら、アプリケーションはAPI経由で[Organizationの全メンバーを取得](/rest/reference/orgs#list-organization-members)して、Organizationの管理者に対してどのメンバーがインテグレーター側で有料ユーザとなるかの選択を求めることができます。
 
 **ユニット単位の料金:** ユニットシートごとにプロビジョニングする方法の1つは、ユーザがアプリケーションにログインしたときにシートを使用できるようにすることです。 顧客がシートカウントの閾値に達した場合、アプリケーションはユーザに対して{% data variables.product.prodname_marketplace %}を通じてアップグレードする必要があることを警告できます。

@@ -59,7 +59,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select **Allow specific actions** and add your required actions to the list. ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. 单击 **Save（保存）**。
 
 {% endif %}

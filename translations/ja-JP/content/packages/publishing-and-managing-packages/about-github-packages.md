@@ -26,6 +26,8 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
+![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+
 {% endif %}
 
 #### パッケージの表示
@@ -34,17 +36,17 @@ versions:
 
 #### パッケージの権限と可視性について
 {% if currentVersion == "free-pro-team@latest" %}
-|       | パッケージレジストリ                                                                                                                                                                                                                                                                           | {% data variables.product.prodname_github_container_registry %}
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-| ホスト場所 | 1 つのリポジトリに複数のパッケージをホストできます。                                                                                                                                                                                                                                                          | 1 つの Organization またはユーザアカウントに複数のコンテナをホストできます。                                          |
-| 権限    | {{ site.data.reusables.package_registry.public-or-private-packages }} パッケージはリポジトリの権限を継承するので、{{ site.data.variables.product.prodname_dotcom }}のロールとTeamを使い、各パッケージをインストールしたり公開したりできる人を制限できます。 リポジトリの読み取り権限を持っている人は、パッケージを依存関係としてプロジェクトにインストールでき、書き込み権限を持っている人は新しいパッケージのバージョンを公開できます。 | コンテナイメージごとに、他のユーザが持つアクセスレベルを選択できます。 コンテナイメージへのアクセス権限は、Organization およびリポジトリの権限とは別になります。 |
+|       | パッケージレジストリ                                                                                                                                                                                                                                                                 | {% data variables.product.prodname_github_container_registry %}
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| ホスト場所 | 1 つのリポジトリに複数のパッケージをホストできます。                                                                                                                                                                                                                                                | 1 つの Organization またはユーザアカウントに複数のコンテナをホストできます。                                          |
+| 権限    | {% data reusables.package_registry.public-or-private-packages %} パッケージはリポジトリの権限を継承するので、{% data variables.product.prodname_dotcom %}のロールとTeamを使い、各パッケージをインストールしたり公開したりできる人を制限できます。 リポジトリの読み取り権限を持っている人は、パッケージを依存関係としてプロジェクトにインストールでき、書き込み権限を持っている人は新しいパッケージのバージョンを公開できます。 | コンテナイメージごとに、他のユーザが持つアクセスレベルを選択できます。 コンテナイメージへのアクセス権限は、Organization およびリポジトリの権限とは別になります。 |
  可視性 | {% data reusables.package_registry.public-or-private-packages %} | それぞれのコンテナイメージに可視性を設定できます。 プライベートコンテナイメージは、Organization 内でアクセス権を付与されたユーザおよび Team のみに表示されます。 パブリックコンテナは誰でも表示できます。 | 匿名アクセス | 該当なし | パブリックコンテナイメージには匿名でアクセスできます。
 
 {% else %}
-|       | パッケージレジストリ                                                                                                                                                                                                                                                                           |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ホスト場所 | 1 つのリポジトリに複数のパッケージをホストできます。                                                                                                                                                                                                                                                          |
-| 権限    | {{ site.data.reusables.package_registry.public-or-private-packages }} パッケージはリポジトリの権限を継承するので、{{ site.data.variables.product.prodname_dotcom }}のロールとTeamを使い、各パッケージをインストールしたり公開したりできる人を制限できます。 リポジトリの読み取り権限を持っている人は、パッケージを依存関係としてプロジェクトにインストールでき、書き込み権限を持っている人は新しいパッケージのバージョンを公開できます。 |
+|       | パッケージレジストリ                                                                                                                                                                                                                                                                 |
+| ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ホスト場所 | 1 つのリポジトリに複数のパッケージをホストできます。                                                                                                                                                                                                                                                |
+| 権限    | {% data reusables.package_registry.public-or-private-packages %} パッケージはリポジトリの権限を継承するので、{% data variables.product.prodname_dotcom %}のロールとTeamを使い、各パッケージをインストールしたり公開したりできる人を制限できます。 リポジトリの読み取り権限を持っている人は、パッケージを依存関係としてプロジェクトにインストールでき、書き込み権限を持っている人は新しいパッケージのバージョンを公開できます。 |
 | 可視性   | {% data reusables.package_registry.public-or-private-packages %}
 
 {% endif %}
@@ -83,7 +85,7 @@ versions:
 #### パッケージレジストリのサポート
 
 {% if currentVersion == "free-pro-team@latest" %}
-パッケージレジストリは、`PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Gemfile は `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
+パッケージレジストリは、`PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Gemfile は `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
 
 {% else %}
 
@@ -98,8 +100,8 @@ versions:
 | ---------- | ----------------------------- | ------------------------------------- | ------------ | ----------------------------------------------------- |
 | JavaScript | Nodeのパッケージマネージャー              | `package.json`                        | `npm`        | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`      |
 | Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
-| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
+| Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 | .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
@@ -161,15 +163,15 @@ Subdomain Isolation の詳しい情報については、「[Subdomain Isolation 
 パッケージをインストールあるいは公開するには、適切なスコープを持つトークンを使い、ユーザアカウントがそのリポジトリに対する適切な権限を持っていなければなりません。
 
 例:
--  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントはそのリポジトリの読み取り権限を持っていなければなりません。 リポジトリがプライベートの場合は、トークンは`repo`スコープも持っていなければなりません。
+-  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントはそのリポジトリの読み取り権限を持っていなければなりません。
 - {% data variables.product.product_name %}上の特定バージョンのプライベートパッケージを削除するには、トークンは`delete:packages`及び`repo`スコープを持っていなければなりません。 パブリックなパッケージは削除できません。 詳しい情報については「[パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package)」を参照してください。
 
-| スコープ              | 説明                                                                                               | リポジトリの権限         |
-| ----------------- | ------------------------------------------------------------------------------------------------ | ---------------- |
-| `read:packages`   | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール                             | 読み取り             |
-| `write:packages`  | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開                                  | 書き込み             |
-| `delete:packages` | {% data variables.product.prodname_registry %}からの特定バージョンのプライベートパッケージの削除                          | 管理               |
-| `repo`            | プライベートリポジトリ内の特定パッケージのインストール、アップロード、削除（`read:packages`、`write:packages`あるいは`delete:packages`と併せて） | 読み取り、書き込み、あるいは管理 |
+| スコープ              | 説明                                                                             | リポジトリの権限        |
+| ----------------- | ------------------------------------------------------------------------------ | --------------- |
+| `read:packages`   | {% data variables.product.prodname_registry %}からのパッケージのダウンロードとインストール           | 読み取り            |
+| `write:packages`  | {% data variables.product.prodname_registry %}へのパッケージのアップロードと公開                | 書き込み            |
+| `delete:packages` | {% data variables.product.prodname_registry %}からの特定バージョンのプライベートパッケージの削除        | 管理              |
+| `repo`            | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write, or admin |
 
 {% data variables.product.prodname_actions %}ワークフローを作成する際には、`GITHUB_TOKEN`を使って{% data variables.product.prodname_registry %}にパッケージを公開してインストールでき、個人アクセストークンを保存して管理する必要はありません。
 
@@ -180,7 +182,7 @@ Subdomain Isolation の詳しい情報については、「[Subdomain Isolation 
 
 ### パッケージの管理
 
-You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/v4/guides/forming-calls/)」を参照してください。
+You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 webhookを設定して、パッケージの公開や更新といったパッケージ関連のイベントにサブスクライブできます。 詳しい情報については、「[`package` webhookイベント](/webhooks/event-payloads/#package)」を参照してください。
 

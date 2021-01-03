@@ -87,7 +87,7 @@ steps:
 
 ### アクションで入力と出力を使用する
 
-多くの場合、アクションは入力を受け入れたり要求したりして、使用できる出力を生成します。 たとえば、アクションでは、ファイルへのパス、ラベルの名前、またはアクション処理の一部として使用するその他のデータを指定する必要がある場合があります。
+多くの場合、アクションは入力を受け入れたり要求したりして、使用できる出力を生成します。 For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
 アクションの入力と出力を確認するには、リポジトリのルートディレクトリにある `action.yml` または `action.yaml` を確認してください。
 

@@ -6,6 +6,7 @@ redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
@@ -48,8 +49,7 @@ Across all organizations owned by your enterprise account, you can allow members
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. On the **Repository policies** tab, under "Repository invitations", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Under "Repository invitations", use the drop-down menu and choose a policy.  
-   ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+4. Under "Repository invitations", use the drop-down menu and choose a policy. ![Drop-down menu with outside collaborator invitation policy options](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
 
 ### Enforcing a policy on changing repository visibility
 

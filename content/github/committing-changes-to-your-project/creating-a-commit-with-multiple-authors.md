@@ -31,7 +31,7 @@ For more information, see "[Setting your commit email address](/articles/setting
 
 ### Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
 ![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -75,4 +75,4 @@ The new commit and message will appear on {% data variables.product.product_loca
 - "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"
 - "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
 - "[Changing a commit message](/articles/changing-a-commit-message)"
-- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation
+- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation

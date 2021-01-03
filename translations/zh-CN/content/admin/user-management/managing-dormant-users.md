@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-intro: A user account is considered to be dormant if it has not been active for at least a month.{% if enterpriseServerVersions contains currentVersion %} You may choose to suspend dormant users to free up user licenses.{% endif %}
+intro: 如果用户帐户至少在一个月内未激活，则被视为休眠状态。{% if enterpriseServerVersions contains currentVersion %} 您可以选择暂停休眠用户以释放用户许可。{% endif %}
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -15,7 +15,7 @@ versions:
 - 登录 {% data variables.product.product_name %}。
 - 评论问题和拉取请求。
 - 创建、删除、关注仓库和加星标。
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+- 推送提交。{% if currentversion ver_gt "enterprise-server@2.21" or currentversion == "github-ae@latest" %}
 - 使用个人访问令牌或 SSH 密钥访问资源。{% endif %}
 
 ### 查看休眠用户

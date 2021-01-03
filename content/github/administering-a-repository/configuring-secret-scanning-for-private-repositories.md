@@ -1,6 +1,7 @@
 ---
 title: Configuring secret scanning for private repositories
 intro: 'You can configure how {% data variables.product.product_name %} scans your private repositories for secrets.'
+product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a private repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
 versions:
   free-pro-team: '*'

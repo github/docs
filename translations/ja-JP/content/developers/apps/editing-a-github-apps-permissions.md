@@ -19,7 +19,7 @@ versions:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Select the GitHub App whose permissions you want to change. ![App selection](/assets/images/github-apps/github_apps_select-app.png)
+4. Select the GitHub App whose permissions you want to change. ![アプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
 5. 左サイドバーで、[**Permissions & webhooks**] をクリックします。 ![Permissions and webhooks](/assets/images/github-apps/github_apps_permissions_and_webhooks.png)
 6. Modify the permissions you'd like to change. For each type of permission, select either "Read-only", "Read & write", or "No access" from the dropdown. ![Permissions selections for your GitHub App](/assets/images/github-apps/github_apps_permissions_post2dot13.png)
 7. In "Subscribe to events", select any events to which you'd like to subscribe your app. ![Permissions selections for subscribing your GitHub App to events](/assets/images/github-apps/github_apps_permissions_subscribe_to_events.png)

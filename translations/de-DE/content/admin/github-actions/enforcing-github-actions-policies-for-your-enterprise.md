@@ -12,7 +12,7 @@ versions:
 
 ### About {% data variables.product.prodname_actions %} permissions for your enterprise
 
-When you enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, it is enabled for all organizations in your enterprise. You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in an organization.
+When you enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, it is enabled for all organizations in your enterprise. You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
 
 ### Managing {% data variables.product.prodname_actions %} permissions for your enterprise
 

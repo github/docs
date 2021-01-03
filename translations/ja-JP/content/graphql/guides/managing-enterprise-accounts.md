@@ -33,7 +33,7 @@ Enterprise APIを利用すると、以下のことができます。
 - Enterpriseアカウントへの管理者の招待。
 - Enterpriseアカウント内での新しいOrganizationの作成。
 
-Enterprise Accounts APIで利用できるフィールドのリストについては、「[Enterprise Accounts APIのGraphQLフィールドと型](/v4/guides/managing-enterprise-accounts/#graphql-fields-and-types-for-the-enterprise-accounts-api)」を参照してください。
+Enterprise Accounts APIで利用できるフィールドのリストについては、「[Enterprise Accounts APIのGraphQLフィールドと型](/graphql/guides/managing-enterprise-accounts#graphql-fields-and-types-for-the-enterprise-accounts-api)」を参照してください。
 
 ### EnterpriseアカウントでGraphQLを使い始める
 
@@ -187,12 +187,12 @@ fragment repositories on Organization {
 }
 ```
 
-GraphQLの使い始め方に関する詳しい情報については「[GraphQLの紹介](/v4/guides/intro-to-graphql/)」及び「[GraphQLでの呼び出しの作成](/v4/guides/forming-calls/)」を参照してください。
+GraphQLの使い始め方に関する詳しい情報については「[GraphQLの紹介](/graphql/guides/introduction-to-graphql)」及び「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 ### Enterprise Accounts APIでのGraphQLのフィールドと型
 
 Enterprise Accounts APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型の概要を以下に示します。
 
-Enterprise APIで利用できる新しいクエリ、ミューテーション、スキーマ定義された型に関する詳しい情報については、任意の[GraphQLリファレンスページ](/v4/)の詳細なGraphQLの定義があるサイドバーを見てください。
+For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
 
-GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳しい情報については「[Explorerの利用](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。 認証やレート制限の詳細など その他の情報については[ガイド](/v4/guides)を参照してください。
+GitHub上のGraphQL Explorer内からリファレンスドキュメントにアクセスできます。 詳しい情報については「[Explorerの利用](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs)」を参照してください。 認証やレート制限の詳細など その他の情報については[ガイド](/graphql/guides)を参照してください。

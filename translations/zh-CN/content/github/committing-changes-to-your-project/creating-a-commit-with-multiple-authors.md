@@ -1,6 +1,6 @@
 ---
 title: 创建有多个作者的提交
-intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 合作提交在 {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} 上可见，并且可包含在个人资料贡献图和仓库统计信息中{% endif %}。'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
@@ -31,7 +31,7 @@ versions:
 
 ### 使用 {% data variables.product.prodname_desktop %} 创建合作提交
 
-可以使用 {% data variables.product.prodname_desktop %} 创建合作提交。 更多信息请参阅“[编写提交消息并推送更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)”和 [{% data variables.product.prodname_desktop %}](https://desktop.github.com)。
+可以使用 {% data variables.product.prodname_desktop %} 创建合作提交。 更多信息请参阅“[编写提交消息并推送更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)”和 [{% data variables.product.prodname_desktop %}](https://desktop.github.com)。
 
 ![添加合作作者到提交消息](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -74,4 +74,4 @@ versions:
 - “[查看仓库活动的摘要](/articles/viewing-a-summary-of-repository-activity)”
 - “[查看项目的贡献者](/articles/viewing-a-projects-contributors)”
 - “[更改提交消息](/articles/changing-a-commit-message)”
-- {% data variables.product.prodname_desktop %} 文档中的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)”
+- {% data variables.product.prodname_desktop %} 文档中的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)”

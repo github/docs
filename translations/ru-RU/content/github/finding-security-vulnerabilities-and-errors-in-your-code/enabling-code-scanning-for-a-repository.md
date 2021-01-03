@@ -58,7 +58,7 @@ After you enable {% data variables.product.prodname_code_scanning %}, you can mo
 
 1. Review the logging output from the actions in this workflow as they run.
 
-1. After a scan completes, you can view alerts from a completed scan. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
+1. After a scan completes, you can view alerts from a completed scan. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 {% note %}
 

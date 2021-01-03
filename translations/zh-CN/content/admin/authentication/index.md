@@ -1,6 +1,6 @@
 ---
 title: 身份验证
-intro: You can configure how users sign into {% data variables.product.product_name %}.
+intro: 您可以配置用户如何登录到 {% data variables.product.product_name %}。
 redirect_from:
   - /enterprise/admin/authentication
 versions:

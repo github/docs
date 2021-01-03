@@ -66,9 +66,9 @@ Sie können nur einen {% data variables.product.product_name %}-Benutzernamen ve
 
 Der Kennzeichner `org` begrenzt Aktionen auf eine bestimmte Organisation. Ein Beispiel:
 
-* `org:my-org` sucht nach allen Ereignissen in Bezug auf die Organisation `my-org`.
+* `org:my-org` finds all events that occurred for the `my-org` organization.
 * `org:my-org action:team` sucht nach allen Teamereignissen, die in der Organisation `my-org` durchgeführt wurden.
-* `-org:my-org` schließt alle Ereignisse in Bezug auf die Organisation`my-org` aus.
+* `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
 #### Suche nach der Art der durchgeführten Aktion
 

@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: July 22, 2020
+Effective date: November 16, 2020
 
 Vielen Dank, dass Sie GitHub Inc. ("GitHub", "wir") Ihren Quellcode, Ihre Projekte und Ihre persönlichen Informationen anvertrauen. Die Speicherung Ihrer persönlichen Daten ist eine große Verantwortung, und wir möchten, dass Sie wissen, wie wir diese handhaben.
 
@@ -150,15 +150,31 @@ Wir verkaufen Ihre personenbezogenen Benutzerinformationen **nicht** gegen eine 
 
 Bitte beachten Sie: Der California Consumer Privacy Act of 2018 ("CCPA") verpflichtet Unternehmen, in ihren Datenschutzrichtlinien anzugeben, ob sie personenbezogene Daten gegen eine finanzielle oder sonstige Gegenleistung offenlegen. While CCPA only covers California residents, we voluntarily extend its core rights for people to control their data to _all_ of our users, not just those who live in California. Weitere Informationen über den CCPA und wie wir diesen umsetzen, finden Sie [hier](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act).
 
-### Weitere wichtige Informationen
+### Repository-Inhalt
 
-#### Repository-Inhalt
+#### Access to private repositories
 
-Personal von GitHub [haben keinen Zugang zu privaten Repositorys](/github/site-policy/github-terms-of-service#e-private-repositories), es sei denn, dies ist aus Sicherheitsgründen, zur Unterstützung des Repository-Eigentümers bei einer Supportanfrage, zur Aufrechterhaltung der Integrität des Dienstes oder zur Erfüllung unserer rechtlichen Verpflichtungen erforderlich. However, while we do not generally search for content in your repositories, we may scan our servers and content to detect certain tokens or security signatures, known active malware, or other content known to violate our Terms, such as violent extremist or terrorist content or child exploitation imagery based on algorithmic fingerprinting techniques. Unsere Nutzungsbedingungen enthalten [weitere Details](/github/site-policy/github-terms-of-service#e-private-repositories).
+If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for
+- security purposes
+- to assist the repository owner with a support matter
+- to maintain the integrity of the Service
+- to comply with our legal obligations
+- if we have reason to believe the contents are in violation of the law, or
+- mit Ihrer Zustimmung.
 
-Wenn Ihr Repository öffentlich ist, kann jeder seinen Inhalt anzeigen. Wenn Sie private, vertrauliche oder [Sensible personenbezogene Daten](https://gdpr-info.eu/art-9-gdpr/), wie z.B. E-Mail-Adressen oder Passwörter, in Ihr öffentliches Repository eingeben, können diese Informationen von Suchmaschinen indexiert oder von Dritten verwendet werden.
+However, while we do not generally search for content in your repositories, we may scan our servers and content to detect certain tokens or security signatures, known active malware, known vulnerabilities in dependencies, or other content known to violate our Terms of Service, such as violent extremist or terrorist content or child exploitation imagery, based on algorithmic fingerprinting techniques (collectively, "automated scanning"). Our Terms of Service provides more details on [private repositories](/github/site-policy/github-terms-of-service#e-private-repositories).
+
+Please note, you may choose to disable certain access to your private repositories that is enabled by default as part of providing you with the Service (for example, automated scanning needed to enable Dependency Graph and Dependabot alerts).
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+
+#### Public repositories
+
+Wenn Ihr Repository öffentlich ist, kann jeder seinen Inhalt anzeigen. If you include User Personal Information, [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/), or confidential information, such as email addresses or passwords, in your public repository, that information may be indexed by search engines or used by third parties.
 
 Weitere Informationen finden Sie unter [Personenbezogene Benutzerdaten in öffentlichen Repositorys](/github/site-policy/github-privacy-statement#public-information-on-github).
+
+### Weitere wichtige Informationen
 
 #### Öffentliche Informationen auf GitHub
 
@@ -166,7 +182,7 @@ Viele GitHub-Dienste und -Funktionen sind öffentlich zugänglich. Wenn Ihre Inh
 
 Ihre personenbezogenen Benutzerdaten in Verbindung mit Ihren Inhalten könnten von Dritten im Rahmen dieser Erfassungen von GitHub-Daten gesammelt werden. Wenn Sie nicht möchten, dass Ihre personenbezogenen Benutzerdaten in den GitHub-Datensammlungen von Dritten erscheinen, machen Sie Ihre personenbezogenen Benutzerdaten bitte nicht öffentlich zugänglich und stellen Sie sicher, dass [Ihre E-Mail-Adresse in Ihrem Benutzerprofil](https://github.com/settings/emails) und in Ihren [Git Commit-Einstellungen als privat konfiguriert ist](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address). Wir setzen derzeit standardmäßig die E-Mail-Adresse der Benutzer auf privat, aber alte GitHub-Benutzer müssen möglicherweise ihre Einstellungen aktualisieren.
 
-Wenn Sie GitHub-Daten zusammenstellen möchten, müssen Sie unsere Nutzungsbedingungen in Bezug auf [Scraping](/github/site-policy/github-acceptable-use-policies#5-scraping-and-api-usage-restrictions) und [Datenschutz](/github/site-policy/github-acceptable-use-policies#6-privacy) erfüllen, und Sie dürfen alle öffentlich zugänglichen personenbezogenen Daten, die Sie sammeln, nur für den Zweck verwenden, für den unser Benutzer dies autorisiert hat. Wenn z. B. ein GitHub-Benutzer eine E-Mail-Adresse zum Zwecke der Identifizierung und Zuordnung öffentlich zugänglich gemacht hat, dürfen Sie Sie diese E-Mail-Adresse nicht für kommerzielle Werbung verwenden. Wir erwarten von Ihnen, dass Sie einen angemessenen Schutz aller personenbezogenen Daten von Benutzern, die Sie von dem Dienst erfasst haben garantieren, und Beschwerden, Aufforderungen zur Löschung und Kontaktverbote von uns oder anderen Benutzern umgehend beantworten.
+If you would like to compile GitHub data, you must comply with our Terms of Service regarding [information usage](/github/site-policy/github-acceptable-use-policies#5-information-usage-restrictions) and [privacy](/github/site-policy/github-acceptable-use-policies#6-privacy), and you may only use any public-facing User Personal Information you gather for the purpose for which our user authorized it. For example, where a GitHub user has made an email address public-facing for the purpose of identification and attribution, do not use that email address for the purposes of sending unsolicited emails to users or selling User Personal Information, such as to recruiters, headhunters, and job boards, or for commercial advertising. Wir erwarten von Ihnen, dass Sie einen angemessenen Schutz aller personenbezogenen Daten von Benutzern, die Sie von dem Dienst erfasst haben garantieren, und Beschwerden, Aufforderungen zur Löschung und Kontaktverbote von uns oder anderen Benutzern umgehend beantworten.
 
 Ebenso können Projekte auf GitHub öffentlich zugängliche personenbezogene Benutzerdaten enthalten, die im Rahmen des kollaborativen Prozesses erfasst werden. Wenn Sie eine Beschwerde über persönliche Benutzerdaten auf GitHub haben, lesen Sie bitte unseren Abschnitt [Beilegung von Beschwerden](/github/site-policy/github-privacy-statement#resolving-complaints).
 
@@ -185,7 +201,7 @@ Bitte wenden Sie sich an die Kontoinhaber, um weitere Informationen darüber zu 
 
 #### Anwendungen Dritter
 
-Sie haben die Möglichkeit, Ihrem Konto Drittanbieter-Anwendungen, die als "Entwicklerprodukte" bezeichnet werden, hinzuzufügen bzw. diese zu aktivieren. Diese Entwicklerprodukte sind für Ihre Nutzung von GitHub nicht erforderlich. Wir geben Ihre personenbezogenen Benutzerdaten an Dritte weiter, wenn Sie uns darum bitten, z. B. durch den Kauf eines Entwicklerprodukts über den Marketplace; Sie sind jedoch für Ihre Nutzung des Entwicklerprodukts von Drittanbietern sowie für die Menge der personenbezogenen Benutzerinformationen, die Sie mit diesem Produkt teilen möchten, selber verantwortlich. Sie können unsere [API-Dokumentation](/v3/users/) einsehen um zu erfahren, welche Informationen bereitgestellt werden, wenn Sie sich mit Ihrem GitHub-Profil bei einem Entwicklerprodukt authentifizieren.
+Sie haben die Möglichkeit, Ihrem Konto Drittanbieter-Anwendungen, die als "Entwicklerprodukte" bezeichnet werden, hinzuzufügen bzw. diese zu aktivieren. Diese Entwicklerprodukte sind für Ihre Nutzung von GitHub nicht erforderlich. Wir geben Ihre personenbezogenen Benutzerdaten an Dritte weiter, wenn Sie uns darum bitten, z. B. durch den Kauf eines Entwicklerprodukts über den Marketplace; Sie sind jedoch für Ihre Nutzung des Entwicklerprodukts von Drittanbietern sowie für die Menge der personenbezogenen Benutzerinformationen, die Sie mit diesem Produkt teilen möchten, selber verantwortlich. Sie können unsere [API-Dokumentation](/rest/reference/users) einsehen um zu erfahren, welche Informationen bereitgestellt werden, wenn Sie sich mit Ihrem GitHub-Profil bei einem Entwicklerprodukt authentifizieren.
 
 #### GitHub Pages
 
@@ -219,7 +235,7 @@ Die von Ihnen angegebene E-Mail-Adresse [über Ihre Git-Commit-Einstellungen](/g
 
 #### Cookies
 
-GitHub verwendet Cookies, um die Interaktion mit unserem Dienst einfach und sinnvoll zu machen. Cookies sind kleine Textdateien, die oft von Websites auf Computer-Festplatten oder mobilen Geräten von Besuchern gespeichert werden. Wir verwenden Cookies (und ähnliche Technologien wie HTML5 localStorage), um Sie eingeloggt zu halten, Ihre Präferenzen zu speichern und Informationen für die zukünftige Entwicklung von GitHub bereitzustellen. Wir verwenden Cookies aus Sicherheitsgründen, um ein Gerät zu identifizieren. Durch die Nutzung unserer Website erklären Sie sich damit einverstanden, dass wir diese Arten von Cookies auf Ihrem Computer oder Gerät speichern. Wenn Sie die Speicherung von Cookies auf Ihrem Browser oder Gerät deaktivieren, können Sie sich weder anmelden noch die Dienste von GitHub nutzen.
+GitHub uses cookies and similar technologies (e.g., HTML5 localStorage) to make interactions with our service easy and meaningful. Cookies sind kleine Textdateien, die oft von Websites auf Computer-Festplatten oder mobilen Geräten von Besuchern gespeichert werden. We use cookies and similar technologies (hereafter collectively "cookies") to provide you our services, for example, to keep you logged in, remember your preferences, identify your device for security purposes, and provide information for future development of GitHub. Durch die Nutzung unserer Website erklären Sie sich damit einverstanden, dass wir diese Arten von Cookies auf Ihrem Computer oder Gerät speichern. Wenn Sie die Speicherung von Cookies auf Ihrem Browser oder Gerät deaktivieren, können Sie sich weder anmelden noch die Dienste von GitHub nutzen.
 
 Auf unserer Webseite [Cookies und Tracking](/github/site-policy/github-subprocessors-and-cookies) beschreiben wir die von uns gesetzten Cookies, die Voraussetzungen für diese Cookies und die unterschiedlichen Arten von Cookies (temporär oder permanent). Die Website enthält außerdem eine Liste unserer externen Analyse- und Dienstanbieter sowie genaue Angaben darüber, welche Teile unserer Website von diesen Anbietern erfasst werden dürfen.
 
@@ -300,7 +316,7 @@ Im unwahrscheinlichen Fall, dass es zu einem Streit zwischen Ihnen und GitHub ü
 
 ### Änderungen an unserer Datenschutzerklärung
 
-GitHub kann unsere Datenschutzerklärung von Zeit zu Zeit ändern, wobei die meisten Änderungen eher geringfügig sein dürften. Wir werden die Benutzer über unsere Website mindestens 30 Tage vor Inkrafttreten der Änderung über wesentliche Änderungen dieser Datenschutzerklärung informieren, indem wir eine Benachrichtigung auf unserer Homepage veröffentlichen oder E-Mails an die primäre E-Mail-Adresse versenden, die in Ihrem GitHub-Konto angegeben ist. Wir werden auch unser [Websiterichtlinien-Repository](https://github.com/github/site-policy/) aktualisieren, das alle Änderungen an dieser Richtlinie nachverfolgt. Für Änderungen an dieser Datenschutzerklärung, die keine wesentlichen Änderungen sind oder ihre Rechte nicht beeinträchtigen, empfehlen wir Benutzern, regelmäßig unser Websiterichtlinien-Repository zu besuchen.
+GitHub kann unsere Datenschutzerklärung von Zeit zu Zeit ändern, wobei die meisten Änderungen eher geringfügig sein dürften. Wir werden die Benutzer über unsere Website mindestens 30 Tage vor Inkrafttreten der Änderung über wesentliche Änderungen dieser Datenschutzerklärung informieren, indem wir eine Benachrichtigung auf unserer Homepage veröffentlichen oder E-Mails an die primäre E-Mail-Adresse versenden, die in Ihrem GitHub-Konto angegeben ist. Wir werden auch unser [Websiterichtlinien-Repository](https://github.com/github/site-policy/) aktualisieren, das alle Änderungen an dieser Richtlinie nachverfolgt. For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
 ### Lizenz
 

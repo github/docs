@@ -6,6 +6,7 @@ redirect_from:
   - /articles/enforcing-repository-management-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-repository-management-policies-for-organizations-in-your-enterprise-account/
   - /articles/enforcing-repository-management-policies-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---
@@ -48,8 +49,7 @@ versions:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. 在 **Repository policies（仓库策略）**选项卡中的“Repository invitations（仓库邀请）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. 在“Repository invitations（仓库邀请）”下，使用下拉菜单并选择策略。  
-   ![带有外部协作者邀请策略选项的下拉菜单](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
+4. Under "Repository invitations", use the drop-down menu and choose a policy. ![带有外部协作者邀请策略选项的下拉菜单](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
 
 ### 实施有关更改仓库可见性的策略
 

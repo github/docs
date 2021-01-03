@@ -37,7 +37,10 @@ prodname_unified_search: 'gemeinsame Suche'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: 'Education Community'
+prodname_education_community_with_url: 'the [GitHub Education Community](https://education.github.community)'
 prodname_classroom: 'GitHub Classroom'
+prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
+prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
 #GitHub CLI
 prodname_cli: 'GitHub CLI'
@@ -69,6 +72,8 @@ ae_azure_ad_app_link: 'the [GitHub AE application](https://azuremarketplace.micr
 prodname_actions: 'GitHub Actions'
 #GitHub Debug
 prodname_debug: 'GitHub Debug'
+#GitHub Discussions
+prodname_discussions: 'GitHub Discussions'
 #GitHub Packages
 prodname_registry: 'GitHub Packages'
 prodname_github_container_registry: 'GitHub Container Registry'
@@ -118,11 +123,10 @@ prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscription with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
-prodname_dependabot: 'GitHub Dependabot'
-prodname_dependabot_short: 'Dependabot'
-prodname_dependabot_alerts: 'GitHub Dependabot alerts'
-prodname_dependabot_security_updates: 'GitHub Dependabot security updates'
-prodname_dependabot_version_updates: 'GitHub Dependabot version updates'
+prodname_dependabot: 'Dependabot'
+prodname_dependabot_alerts: 'Dependabot alerts'
+prodname_dependabot_security_updates: 'Dependabot security updates'
+prodname_dependabot_version_updates: 'Dependabot version updates'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive-Programm'
 prodname_arctic_vault: 'Arctic Code Vault'

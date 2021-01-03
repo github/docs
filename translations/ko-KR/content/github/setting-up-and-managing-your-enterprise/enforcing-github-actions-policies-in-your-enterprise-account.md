@@ -2,6 +2,8 @@
 title: Enforcing GitHub Actions policies in your enterprise account
 intro: 'Enterprise owners can disable, enable, and limit {% data variables.product.prodname_actions %} for an enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
+redirect_from:
+  - /github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
@@ -32,7 +34,7 @@ You can disable all workflows for an enterprise or set a policy that configures 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under **Policies**, select **Allow specific actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow select actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### Enabling workflows for private repository forks
 

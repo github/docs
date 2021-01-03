@@ -183,6 +183,6 @@ Zur Fehlerbehebung prüfe, ob alle Ausgabe-Tags in der Datei, die in der Fehlerm
 
 Dieser Fehler bedeutet, dass Dein Code ein nicht erkanntes Liquid-Tag enthält.
 
-Zur Fehlerbehebung prüfe, ob alle Liquid-Tags in der Datei, die in der Fehlermeldung genannt ist, den Jekyll-Standardvariablen entsprechen und ob die Tag-Namen korrekt geschrieben sind. Eine Liste der Standardvariablen findest Du unter „[Variables](https://jekyllrb.com/docs/variables/)“ (Variablen) in der Jekyll-Dokumentation.
+Zur Fehlerbehebung prüfe, ob alle Liquid-Tags in der Datei, die in der Fehlermeldung genannt ist, den Jekyll-Standardvariablen entsprechen und ob die Tag-Namen korrekt geschrieben sind. For a list of default variables, see "[Variables](https://jekyllrb.com/docs/variables/)" in the Jekyll documentation.
 
 Nicht unterstützte Plug-ins sind häufig die Quelle für unbekannte Tags. Wenn Sie ein nicht unterstütztes Plug-in auf der Website verwenden, also die Website lokal erstellen und die statischen Dateien per Push-Verfahren an {% data variables.product.product_name %} übertragen, darf das Plug-in keine Tags umfassen, die nicht in den Jekyll-Standardvariablen aufgeführt sind. Eine Liste der unterstützten Plug-ins findest Du unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll#plugins).“

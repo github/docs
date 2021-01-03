@@ -26,7 +26,7 @@ Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key
 To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
 
 - **Never use structured data as a secret**
-    - Unstructured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
+    - Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
 - **Register all secrets used within workflows**
     - If a secret is used to generate another sensitive value within a workflow, that generated value should be formally [registered as a secret](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret), so that it will be redacted if it ever appears in the logs. For example, if using a private key to generate a signed JWT to access a web API, be sure to register that JWT as a secret or else it won’t be redacted if it ever enters the log output.
     - Registering secrets applies to any sort of transformation/encoding as well. If your secret is transformed in some way (such as Base64 or URL-encoded), be sure to register the new value as a secret too.
@@ -54,6 +54,8 @@ This means that a compromise of a single action within a workflow can be very si
   **Warning:** The short version of the commit SHA is insecure and should never be used for specifying an action's Git reference. Because of how repository networks work, any user can fork the repository and push a crafted commit to it that collides with the short SHA. This causes subsequent clones at that SHA to fail because it becomes an ambiguous commit. As a result, any workflows that use the shortened SHA will immediately fail.
 
   {% endwarning %}
+
+
 * **Audit the source code of the action**
 
   Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
@@ -92,13 +94,17 @@ This list describes the recommended approaches for accessing repository data wit
 
 As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be cautious when using self-hosted runners on private repositories, as anyone who can fork the repository and open a PR (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the more privileged `GITHUB_TOKEN` which grants write-access permissions on the repository.
 
+When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+
 You should also consider the environment of the self-hosted runner machines:
 - What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.
 - Does the machine have network access to sensitive services? For example, Azure or AWS metadata services. The amount of sensitive information in this environment should be kept to a minimum, and you should always be mindful that any user capable of invoking workflows has access to this environment.
 
+Some customers might attempt to partially mitigate these risks by implementing systems that automatically destroy the self-hosted runner after each job execution. However, this approach might not be as effective as intended, as there is no way to guarantee that a self-hosted runner only runs one job.
+
 ### Auditing {% data variables.product.prodname_actions %} events
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account perfomed the action.
+You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account performed the action.
 
 For example, you can use the audit log to track the `action:org.update_actions_secret` event, which tracks changes to organization secrets: ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
 
@@ -130,5 +136,3 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `action:org.runner_group_renamed`         | Triggered when an organization admin renames a self-hosted runner group.                                                                                                                                                  |
 | `action:org.runner_group_runners_added`   | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                |
 | `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                           | 
-
-

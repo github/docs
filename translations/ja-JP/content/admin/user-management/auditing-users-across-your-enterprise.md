@@ -66,9 +66,9 @@ The audit log lists the following information about actions made within your ent
 
 `org` 修飾子は、特定の Organization にアクションを限定します。 例:
 
-* `org:my-org`は`my-org`というOrganizationで生じたすべてのイベントを検索します。
+* `org:my-org` finds all events that occurred for the `my-org` organization.
 * `org:my-org action:team`は`my-org`というOrganization内で行われたすべてのteamイベントを検索します。
-* `-org:my-org`は`my-org`というOrganizationで生じたすべてのイベントを除外します。
+* `-org:my-org` excludes all events that occurred for the `my-org` organization.
 
 #### 実行されたアクションに基づく検索
 

@@ -4,6 +4,7 @@ intro: 您可以在企业帐户中创建要管理的新组织。
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

@@ -32,12 +32,12 @@ People with admin permissions to a repository can choose whether
 
 {% if currentVersion == "free-pro-team@latest" %}
 If a release fixes a security vulnerability, you should publish a security advisory in your repository.
-{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_short %} alerts to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+{% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_alerts %} to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 You can view the **Dependents** tab of the dependency graph to see which repositories and packages depend on code in your repository, and may therefore be affected by a new release. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {% endif %}
 
-You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[Releases](/v3/repos/releases/)."
+You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[Releases](/rest/reference/repos#releases)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Storage and bandwidth quotas

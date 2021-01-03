@@ -26,7 +26,7 @@ module.exports = {
   testPathIgnorePatterns: [
     'node_modules/',
     'vendor/',
-    'tests/helpers.js',
+    'tests/helpers/',
     ...isBrowser ? [] : ['tests/browser/browser.js']
   ],
   testMatch: [

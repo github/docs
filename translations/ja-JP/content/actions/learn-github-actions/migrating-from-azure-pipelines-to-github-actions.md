@@ -41,7 +41,7 @@ Azure Pipelinesのジョブとステップは、{% data variables.product.prodna
 
 ### スクリプトのステップの移行
 
-スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
+スクリプトやシェルのコマンドを、ワークフロー中のステップとして実行できます。 Azure Pipelinesでは、スクリプトのステップは`script`キー、あるいは`bash`、`powershell`、`pwsh`といったキーで指定できます。 スクリプトはまた、[Bashタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops)あるいは[PowerShellタスク](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops)への入力としても指定できます。
 
 {% data variables.product.prodname_actions %}では、すべてのスクリプトは`run`キーを使って指定されます。 特定のシェルを選択するには、スクリプトを提供する際に`shell`キーを指定します。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 

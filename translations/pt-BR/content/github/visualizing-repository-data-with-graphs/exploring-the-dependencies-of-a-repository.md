@@ -37,7 +37,7 @@ Se foram detectadas vulnerabilidades no repositório, estas são exibidas na par
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
 Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas serão exibidas na parte superior da visualização para usuários com acesso ao
-Alertas de {% data variables.product.prodname_dependabot_short %}.
+{% data variables.product.prodname_dependabot_alerts %}.
 
 {% note %}
 

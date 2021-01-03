@@ -43,6 +43,12 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Observação:** O seletor de e-mail não está disponível para merge de rebase, que não cria um commit de merge, ou para merge de combinação por squash, que credita o usuário que criou a pull request como o autor do commit cuja combinação foi feita por squash.
+
+   {% endnote %}
+
 6. Clique em **Confirm merge** (Confirmar merge), **Confirm squash and merge** (Confirmar combinação por squash e merge) ou **Confirm rebase and merge** (Confirmar rebase e merge).
 6. Opcionalmente, [exclua o branch](/articles/deleting-unused-branches). Assim, a lista de branches do repositório ficará limpa.
 

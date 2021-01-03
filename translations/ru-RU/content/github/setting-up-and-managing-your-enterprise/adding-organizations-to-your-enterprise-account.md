@@ -4,6 +4,7 @@ intro: You can create new organizations to manage within your enterprise account
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 versions:
   free-pro-team: '*'
 ---

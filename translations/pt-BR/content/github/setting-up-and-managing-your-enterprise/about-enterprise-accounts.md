@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
+  - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -19,13 +20,13 @@ Uma conta corporativa permite que você gerencie múltiplas organizações {% da
 - Segurança (logon único, autenticação de dois fatores)
 - Solicitações e compartilhamento de pacote de suporte com {% data variables.contact.enterprise_support %}
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." Para obter mais informações sobre como gerenciar suas configurações de cobrança de {% data variables.product.prodname_ghe_server %}, consulte "[Gerenciar cobrança para sua empresa](/admin/overview/managing-billing-for-your-enterprise)".
 
 Para obter mais informações sobre o {% data variables.product.prodname_ghe_cloud %} e {% data variables.product.prodname_ghe_server %}, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Para atualizar para {% data variables.product.prodname_enterprise %} ou para começar com uma conta corporativa, entre em contato com {% data variables.contact.contact_enterprise_sales %}.
 
-For more information about member access and management, see "{% if currentVersion == "free-pro-team@latest" %}[Managing users in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Managing users, organizations, and repositories](/admin/user-management){% endif %}."
+Para obter mais informações sobre acesso e gerenciamento de integrantes, consulte "{% if currentVersion == "free-pro-team@latest" %}[Gerenciar usuários na sua empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Gerenciar usuários, organizações e repositórios](/admin/user-management){% endif %}."
 
-Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".
+Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/graphql/guides/managing-enterprise-accounts)".
 
 {% if currentVersion == "free-pro-team@latest" %}
 

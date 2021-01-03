@@ -24,6 +24,7 @@ versions:
   {% if operation.subcategory == 'artifacts' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ## 权限
 
 权限 API 允许您设置允许哪些组织和仓库运行 {% data variables.product.prodname_actions %}，以及允许运行哪些操作。 更多信息请参阅“[使用限制、计费和管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)”。
@@ -33,6 +34,7 @@ versions:
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'permissions' %}{% include rest_operation %}{% endif %}
 {% endfor %}
+{% endif %}
 
 ## 密码
 

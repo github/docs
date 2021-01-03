@@ -1,6 +1,6 @@
 ---
 title: 备份仓库
-intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+intro: '您可以使用{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git 和{% endif %} API {% if currentVersion == "free-pro-team@latest" %}或第三方工具{% endif %}备份仓库。'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
@@ -11,7 +11,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-要下载仓库的存档，您可以使用 API 进行用户或组织迁移。 更多信息请参阅“[迁移](/v3/migrations/)”。
+要下载仓库的存档，您可以使用 API 进行用户或组织迁移。 更多信息请参阅“[迁移](/rest/reference/migrations)”。
 {% else %}
 
 您可以手动下载和备份仓库：
@@ -21,18 +21,18 @@ versions:
 
 克隆仓库或 wiki 时，仅下载 Git 数据，例如项目文件和提交历史记录。 您可以使用我们的 API 将 {% data variables.product.product_name %} 仓库的其他元素导出到您的本地计算机：
 
-- [议题](/v3/issues/#list-issues-for-a-repository)
-- [拉取请求](/v3/pulls/#list-pull-requests)
+- [议题](/rest/reference/issues#list-issues-for-a-repository)
+- [拉取请求](/rest/reference/pulls#list-pull-requests)
 - [复刻](/rest/reference/repos#list-forks)
 - [评论](/rest/reference/issues#list-issue-comments-for-a-repository)
 - [里程碑](/rest/reference/issues#list-milestones)
 - [标签](/rest/reference/issues#list-labels-for-a-repository)
 - [关注者](/rest/reference/activity#list-watchers)
 - [空想家](/rest/reference/activity#list-stargazers)
-- [项目](/v3/projects/#list-repository-projects)
+- [项目](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
-Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+一旦您拥有 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}所有要备份内容的本地版本，您就可以创建一个 zip 存档并{% else %}下载您的存档。您可以{% endif %}将其复制到外部硬盘和/或将其上传到基于云的备份服务，例如 [Google Drive](https://www.google.com/drive/) 或 [Dropbox](https://www.dropbox.com/)。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 第三方备份工具

@@ -78,7 +78,7 @@ versions:
 
 ### パッケージを公開する
 
-*nuget.config*で認証を受けることによって、パッケージを{% data variables.product.prodname_registry %}に公開できます。 公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 パッケージの作成に関する詳しい情報については、Microsoftのドキュメンテーション中の「[クイック スタート: パッケージの作成と公開 (dotnet CLI)](https://docs.microsoft.com/ja-jp/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)」を参照してください。
+*nuget.config*で認証を受けることによって、パッケージを{% data variables.product.prodname_registry %}に公開できます。 公開の際には、*nuget.config*認証ファイルで使用する*csproj*ファイル中で、`OWNER`に同じ値を使わなければなりません。 *.csproj*ファイル中でバージョン番号を指定もしくはインクリメントし、`dotnet pack`コマンドを使ってそのバージョンのための*.nuspec*ファイルを作成してください。 For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -160,7 +160,7 @@ versions:
 
 ### パッケージをインストールする
 
-プロジェクトで{% data variables.product.prodname_dotcom %}からパッケージを利用するのは、*nuget.org*からパッケージを使用するのに似ています。 パッケージの依存関係を*.csproj*ファイルに追加し、パッケージ名とバージョンを指定してください。 プロジェクトでの*.csproj*ファイルの利用に関する詳しい情報については、Microsoftのドキュメンテーションの「[パッケージ利用のワークフロー](https://docs.microsoft.com/ja-jp/nuget/consume-packages/overview-and-workflow)」を参照してください。
+プロジェクトで{% data variables.product.prodname_dotcom %}からパッケージを利用するのは、*nuget.org*からパッケージを使用するのに似ています。 パッケージの依存関係を*.csproj*ファイルに追加し、パッケージ名とバージョンを指定してください。 For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 

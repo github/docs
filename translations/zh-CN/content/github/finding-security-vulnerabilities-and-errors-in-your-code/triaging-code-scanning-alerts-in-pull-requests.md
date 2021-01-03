@@ -3,7 +3,7 @@ title: Triaging code scanning alerts in pull requests
 shortTitle: Triaging alerts in pull requests
 intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'If you have write permission to a repository, you can resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
+permissions: 'If you have read permission for a repository, you can see annotations on pull requests. With write permission, you can see detailed information and resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -31,9 +31,9 @@ When you look at the **Files changed** tab for a pull request, you see annotatio
 
 ![Alert annotation within a pull request diff](/assets/images/help/repository/code-scanning-pr-annotation.png)
 
-Some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://help.semmle.com/QL/learn-ql/intro-to-data-flow.html)."
+If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://help.semmle.com/QL/learn-ql/intro-to-data-flow.html)."
 
-For more information about an alert, click **Show more details** on the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
+To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
 
 In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
 
@@ -41,11 +41,11 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 
 ### {% if currentVersion == "enterprise-server@2.22" %}Resolving{% else %}Fixing{% endif %} an alert on your pull request
 
-Anyone with write permission for a repository can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on a pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
+Anyone with push access to a pull request can fix a {% data variables.product.prodname_code_scanning %} alert that's identified on that pull request. If you commit changes to the pull request this triggers a new run of the pull request checks. If your changes fix the problem, the alert is closed and the annotation removed.
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-If you don't think that an alert needs to be fixed, you can close the alert manually. {% data reusables.code-scanning.close-alert-examples %} The **Close** button is available in annotations and in the alerts view if you have write permission for the repository.
+If you don't think that an alert needs to be fixed, users with write permission can close the alert manually. {% data reusables.code-scanning.close-alert-examples %} The **Close** button is available in annotations and in the alerts view if you have write permission for the repository.
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 

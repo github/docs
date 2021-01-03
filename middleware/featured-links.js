@@ -1,5 +1,4 @@
-const findPage = require('../lib/find-page')
-const getApplicableVersions = require('../lib/get-applicable-versions')
+const findPageInVersion = require('../lib/find-page-in-version')
 const { getVersionedPathWithLanguage } = require('../lib/path-utils')
 
 // this middleware adds properties to the context object
@@ -30,20 +29,16 @@ async function getLinkData (rawLinks, context) {
       ? getVersionedPathWithLanguage(link.href, context.currentVersion, context.currentLanguage)
       : getVersionedPathWithLanguage(link, context.currentVersion, context.currentLanguage)
 
-    const linkedPage = findPage(href, context.pages, context.redirects, context.currentLanguage)
+    const linkedPage = findPageInVersion(href, context.pages, context.redirects, context.currentLanguage, context.currentVersion)
     if (!linkedPage) continue
-
-    const applicableVersions = getApplicableVersions(linkedPage.versions, linkedPage.fullPath)
-
-    // skip link if this is not the homepage and the link's versions do not include the current version
-    if (context.currentVersion !== 'homepage' && !applicableVersions.includes(context.currentVersion)) continue
 
     const opts = { textOnly: true, encodeEntities: true }
 
     links.push({
       href,
       title: await linkedPage.renderTitle(context, opts),
-      intro: await linkedPage.renderProp('intro', context, opts)
+      intro: await linkedPage.renderProp('intro', context, opts),
+      page: linkedPage
     })
   }
 

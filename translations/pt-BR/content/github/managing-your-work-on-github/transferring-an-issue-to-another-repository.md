@@ -11,7 +11,7 @@ versions:
 
 Para transferir um problema aberto para outro repositório, é preciso ter permissões de gravação no repositório em que o problema está e no repositório para onde você está transferindo o problema. Para obter mais informações, consulte "[Níveis de permissão do repositório para organizações](/articles/repository-permission-levels-for-an-organization)".
 
-Você somente pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou organização. É possível transferir um problema de um repositório privado para um repositório público.
+You can only transfer issues between repositories owned by the same user or organization account.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}You can't transfer an issue from a private repository to a public repository.{% endif %}
 
 Quando você transfere um problema, os comentários e responsáveis são mantidos. As etiquetas e os marcos do problema não são retidos. Esse problema permanecerá em qualquer quadro de projeto pertencente ao usuário ou à organização e será removido dos quadros de projeto de todos os repositórios. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards)".
 

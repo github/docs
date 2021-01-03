@@ -29,9 +29,16 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Written support through our support portal 24 hours per day, 7 days per week
   - Phone support 24 hours per day, 7 days per week
   - A{% if currentVersion == "github-ae@latest" %}n enhanced{% endif %} Service Level Agreement (SLA) {% if enterpriseServerVersions contains currentVersion %}with guaranteed initial response times{% endif %}
-  - Access to premium content{% if enterpriseServerVersions contains currentVersion %}
-  - Scheduled health checks{% endif %}
-  - Managed services
+{% if currentVersion == "github-ae@latest" %}
+  - An assigned Technical Service Account Manager
+  - Quarterly support reviews
+  - Managed Admin services
+{% else if enterpriseServerVersions contains currentVersion %}
+  - Technical account managers
+  - Access to premium content
+  - Scheduled health checks
+  - Managed Admin hours
+{% endif %}
 
 {% data reusables.support.government-response-times-may-vary %}
 

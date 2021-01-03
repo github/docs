@@ -43,6 +43,12 @@ Wenn Du die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch
 
 {% data reusables.files.choose-commit-email %}
 
+   {% note %}
+
+   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+
+   {% endnote %}
+
 6. Klicke auf **Confirm merge** (Merge bestätigen), **Confirm squash and merge** (Squash und Merge bestätigen) oder **Confirm rebase and merge** (Rebase und Merge bestätigen).
 6. Optional kannst Du auch [den Branch löschen](/articles/deleting-unused-branches). So bleibt die Liste der Branches in Ihrem Repository ordentlich.
 

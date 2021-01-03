@@ -25,6 +25,6 @@ People who have installed a GitHub App, also called installation owners, can onl
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. {% data variables.product.prodname_github_app %} you want to suspend.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
+![アプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
 6. Next to the suspension settings for the installation, click **Suspend** or **Unsuspend**. ![Suspend a GitHub App](/assets/images/github-apps/suspend-a-github-app.png)

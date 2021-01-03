@@ -1,6 +1,6 @@
 ---
 title: 关于 SSH
-intro: '使用 SSH 协议可以连接远程服务器和服务并向它们验证。 With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
+intro: '使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 {% data variables.product.product_name %}，而无需在每次访问时都提供用户名和个人访问令牌。'
 redirect_from:
   - /articles/about-ssh
 versions:

@@ -5,9 +5,7 @@ product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
 versions:
-  free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 For more information about the terms that govern {% data variables.product.prodname_insights %}, see your {% data variables.product.prodname_ghe_one %} subscription agreement.

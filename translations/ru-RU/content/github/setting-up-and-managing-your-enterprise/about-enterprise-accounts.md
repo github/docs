@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
+  - /github/setting-up-and-managing-your-enterprise-account/about-enterprise-accounts
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -19,13 +20,13 @@ An enterprise account allows you to manage multiple {% data variables.product.pr
 - Security (single sign-on, two factor authentication)
 - Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %} For more information about managing your {% data variables.product.prodname_ghe_cloud %} subscription, see "[Viewing the subscription and usage for your enterprise account](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)." For more information about managing your {% data variables.product.prodname_ghe_server %} billing settings, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
 
 For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." To upgrade to {% data variables.product.prodname_enterprise %} or to get started with an enterprise account, contact {% data variables.contact.contact_enterprise_sales %}.
 
 For more information about member access and management, see "{% if currentVersion == "free-pro-team@latest" %}[Managing users in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Managing users, organizations, and repositories](/admin/user-management){% endif %}."
 
-For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 

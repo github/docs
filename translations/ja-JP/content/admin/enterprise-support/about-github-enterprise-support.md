@@ -29,9 +29,16 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - GitHub Enterprise サポートページを通じた書面による 24 時間 365 日のサポート
   - 24 時間 365 日の電話サポート
   - A{% if currentVersion == "github-ae@latest" %}n enhanced{% endif %} Service Level Agreement (SLA) {% if enterpriseServerVersions contains currentVersion %}with guaranteed initial response times{% endif %}
-  - Access to premium content{% if enterpriseServerVersions contains currentVersion %}
-  - Scheduled health checks{% endif %}
-  - 管理されたサービス
+{% if currentVersion == "github-ae@latest" %}
+  - An assigned Technical Service Account Manager
+  - Quarterly support reviews
+  - Managed Admin services
+{% else if enterpriseServerVersions contains currentVersion %}
+  - Technical account managers
+  - プレミアムコンテンツへのアクセス
+  - 定期的なヘルスチェック
+  - Managed Admin hours
+{% endif %}
 
 {% data reusables.support.government-response-times-may-vary %}
 

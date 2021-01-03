@@ -26,7 +26,7 @@ versions:
 偶発的な開示を防ぐために、{% data variables.product.product_name %} は、実行ログに表示されるシークレットを編集しようとするメカニズムを使用しています。 この編集は、設定されたシークレットの完全一致、および Base64 などの値の一般的なエンコーディングを検索します。 ただし、シークレットの値を変換する方法は複数あるため、この編集は保証されません。 そのため、シークレットを確実に編集し、シークレットに関連する他のリスクを制限するために実行する必要がある、特定の予防的ステップと推奨事項は次のとおりです。
 
 - **構造化データをシークレットとして使用しない**
-    - 非構造化データは、ログ内のシークレットの編集失敗の原因となる可能性があります。これは、編集が特定のシークレット値の完全一致を見つけることに大きく依存しているためです。 たとえば、JSON、XML、または YAML（または同様）の Blob を使用してシークレット値をカプセル化しないでください。シークレットが適切に編集される可能性が大幅に低下するためです。 代わりに、機密値ごとに個別のシークレットを作成します。
+    - Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. たとえば、JSON、XML、または YAML（または同様）の Blob を使用してシークレット値をカプセル化しないでください。シークレットが適切に編集される可能性が大幅に低下するためです。 代わりに、機密値ごとに個別のシークレットを作成します。
 - **ワークフロー内で使用されるすべてのシークレットを登録する**
     - シークレットを使用してワークフロー内で別の機密値を生成する場合は、生成された値を正式に[シークレットとして登録](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret)して、ログに表示されたときに編集されるようにする必要があります。 たとえば、秘密鍵を使用して署名済み JWT を生成し、Web API にアクセスする場合は、その JWT をシークレットとして登録してください。そうしない場合、ログ出力に入力されても編集されません。
     - シークレットの登録は、あらゆる種類の変換/エンコーディングにも適用されます。 シークレットが何らかの方法で変換された場合（Base64 や URL エンコードなど）、新しい値もシークレットとして登録してください。
@@ -54,6 +54,8 @@ versions:
   **警告:** コミット SHA の短いバージョンは安全ではないため、アクションの Git リファレンスの指定には使用しないでください。 リポジトリネットワークの仕組みにより、どのユーザもリポジトリをフォークし、短い SHA と衝突するよう細工されたコミットをプッシュできます。 これにより、その SHA の後続のクローンがあいまいなコミットになるため失敗します。 その結果、短縮された SHA を使用するワークフローはすぐに失敗します。
 
   {% endwarning %}
+
+
 * **アクションのソースコードを監査する**
 
   アクションが想定どおりにリポジトリとシークレットのコンテンツを処理していることを確認します。 たとえば、シークレットが意図しないホストに送信されていないか、または誤ってログに記録されていないかを確認します。
@@ -92,13 +94,17 @@ versions:
 
 そのため、[{% data variables.product.product_name %} のパブリックリポジトリにセルフホストランナーを使用することはほとんどありません](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)。これは、ユーザがリポジトリに対してプルリクエストを開き、環境を危険にさらす可能性があるためです。 同様に、プライベートリポジトリでセルフホストランナーを使用する場合は注意してください。リポジトリをフォークして PR を開くことができるユーザ（一般にリポジトリへの読み取りアクセス権を持つユーザ）は、シークレットへのアクセスと、リポジトリへの書き込みアクセス許可を付与する、より特権的な `GITHUB_TOKEN` を取得して、セルフホストのランナー環境を危険にさらすことができるためです。
 
+When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
+
 次のように、セルフホストランナーマシンの環境も考慮する必要があります。
 - セルフホストランナーとして設定されたマシンにはどのような機密情報が存在するか。 たとえば、SSH 秘密鍵、API アクセストークンなどです。
 - マシンが機密性の高いサービスにネットワークアクセス可能か。 たとえば、Azure または AWS メタデータサービスなどです。 この環境での機密情報量は最小限に抑える必要があります。ワークフローを呼び出すことができるすべてのユーザがこの環境にアクセスできることを常に意識しておいてください。
 
+Some customers might attempt to partially mitigate these risks by implementing systems that automatically destroy the self-hosted runner after each job execution. However, this approach might not be as effective as intended, as there is no way to guarantee that a self-hosted runner only runs one job.
+
 ### Auditing {% data variables.product.prodname_actions %} events
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account perfomed the action.
+You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account performed the action.
 
 For example, you can use the audit log to track the `action:org.update_actions_secret` event, which tracks changes to organization secrets: ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
 
@@ -130,5 +136,3 @@ The following tables describe the {% data variables.product.prodname_actions %} 
 | `action:org.runner_group_renamed`         | Triggered when an organization admin renames a self-hosted runner group.                                                                                                                                                  |
 | `action:org.runner_group_runners_added`   | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                |
 | `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                           | 
-
-

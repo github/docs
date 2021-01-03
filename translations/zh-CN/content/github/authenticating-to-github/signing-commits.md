@@ -1,6 +1,6 @@
 ---
 title: 对提交签名
-intro: You can sign commits locally using GPG or S/MIME.
+intro: 您可以使用 GPG 或 S/MIME 在本地对提交进行签名。
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/

@@ -12,7 +12,7 @@ versions:
 
 ### 关于企业的 {% data variables.product.prodname_actions %} 权限
 
-在 {% data variables.product.prodname_ghe_server %} 上启用 {% data variables.product.prodname_actions %} 时，它会对您企业中的所有组织启用。 您可以选择对企业中的所有组织禁用 {% data variables.product.prodname_actions %}，或只允许特定的组织。 您还可以限制公共操作的使用，以使人们只能使用组织中存在的本地操作。
+在 {% data variables.product.prodname_ghe_server %} 上启用 {% data variables.product.prodname_actions %} 时，它会对您企业中的所有组织启用。 您可以选择对企业中的所有组织禁用 {% data variables.product.prodname_actions %}，或只允许特定的组织。 您还可以限制公共操作的使用，以使人们只能使用您的企业中存在的本地操作。
 
 ### 管理企业的 {% data variables.product.prodname_actions %} 权限
 
