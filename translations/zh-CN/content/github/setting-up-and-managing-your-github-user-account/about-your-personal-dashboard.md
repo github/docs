@@ -15,7 +15,7 @@ versions:
 
 个人仪表板是登录 {% data variables.product.product_name %} 时显示的第一页。
 
-登录后要访问个人仪表板，请单击 {% data variables.product.product_url %} 上任何页面左上角的 {% octicon "mark-github" aria-label="The github octocat logo" %}。
+登录后要访问个人仪表板，请单击 {% data variables.product.product_name %} 上任何页面左上角的 {% octicon "mark-github" aria-label="The github octocat logo" %}。
 
 ### 查找近期活动
 
@@ -39,11 +39,11 @@ The list of top repositories is automatically generated, and can include any rep
 
 当您关注的用户执行以下操作时，您会在消息馈送中看到更新：
 - 对仓库标星。
-- 关注另一用户。
-- 创建公共仓库。
+- Follows another user.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Creates a public repository.{% endif %}
 - 在您关注的仓库上打开具有“需要帮助”或“良好的第一个议题”标签的议题或拉取请求。
-- 推送提交到您关注的仓库。
-- 对公共仓库复刻。
+- Pushes commits to a repository you watch.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- Forks a public repository.{% endif %}
 
 有关对仓库标星和关注人员的更多信息，请参阅“[使用星标保存仓库](/articles/saving-repositories-with-stars/)" and "[关注人员](/articles/following-people)”。
 

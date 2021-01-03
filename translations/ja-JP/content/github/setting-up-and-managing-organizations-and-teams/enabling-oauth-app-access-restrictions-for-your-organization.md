@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**Warnings**:
+**警告**:
 - {% data variables.product.prodname_oauth_app %} のアクセス制限を有効化すると、Organization のアクセスでの以前に認証されたすべての {% data variables.product.prodname_oauth_app %} と SSH キーが取り消されます。 詳しい情報については、「[{% data variables.product.prodname_oauth_app %}のアクセス制限について](/articles/about-oauth-app-access-restrictions)」を参照してください。
 - {% data variables.product.prodname_oauth_app %} のアクセス制限を設定したら、Organization のプライベートなデータへのアクセスを必要とするすべての {% data variables.product.prodname_oauth_app %} を再認証してください。 Organization のすべてのメンバーは新しい SSH キーを作成する必要があり、Organization は必要に応じて新しいデプロイキーを作成する必要があります。
 - {% data variables.product.prodname_oauth_app %} のアクセス制限が有効化されると、アプリケーションで OAuth トークンを使用して {% data variables.product.prodname_marketplace %} 取引に関する情報にアクセスできます。

@@ -3,7 +3,7 @@ title: Qual URL remote eu devo usar?
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: 'Existem várias maneiras de clonar repositórios disponíveis no {% data variables.product.prodname_dotcom %}.'
+intro: 'Existem várias maneiras de clonar repositórios disponíveis no {% data variables.product.product_location %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,7 +16,7 @@ Para obter informações sobre como configurar ou alterar URL remota, consulte "
 
 ### Clonando com as URLs de HTTPS
 
-As URLs de clone de `https://` estão disponíveis em todos os repositórios, públicos e privados. Essas URLs funcionam mesmo se você estiver atrás de um firewall ou proxy.
+The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
 Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um repositório remote usando URLS de HTTPS na linha de comando, o Git solicitará o seu nome de usuário e sua senha do {% data variables.product.product_name %}. {% data reusables.user_settings.password-authentication-deprecation %}
 
@@ -44,7 +44,7 @@ Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um rep
 
 {% tip %}
 
-**Dica**: Você pode usar uma URL com SSH para clonar um repositório para o seu computador ou como uma forma segura de implantar seu código nos servidores de produção. Você também pode usar o encaminhamento de agente SSH com o seu script de implantação para evitar o gerenciamento de chaves no servidor. Para obter mais informações, consulte "[Usar o encaminhamento do agente SSH](/v3/guides/using-ssh-agent-forwarding/)."
+**Dica**: Você pode usar uma URL com SSH para clonar um repositório para o seu computador ou como uma forma segura de implantar seu código nos servidores de produção. Você também pode usar o encaminhamento de agente SSH com o seu script de implantação para evitar o gerenciamento de chaves no servidor. Para obter mais informações, consulte "[Usar o encaminhamento do agente SSH](/developers/overview/using-ssh-agent-forwarding)."
 
 {% endtip %}
 
@@ -60,9 +60,9 @@ Você também pode instalar o {% data variables.product.prodname_cli %} para usa
 ### Clonar com o Subversion
 
 Você também pode usar um cliente de [Subversion](https://subversion.apache.org/) para acessar qualquer repositório no {% data variables.product.prodname_dotcom %}. O Subversion oferece um conjunto de recursos diferente do Git. Para obter mais informações, consulte "[Quais são as diferenças entre Subversion e Git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
-You can also access repositories on
+Você também pode acessar repositórios em
 
-{% data variables.product.prodname_dotcom %} from Subversion clients. Para obter mais informações, consulte "[Suporte para clientes do Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
+{% data variables.product.prodname_dotcom %} dos clientes de Subversion. Para obter mais informações, consulte "[Suporte para clientes do Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)".
 {% endif %}
 
 ### Leia mais

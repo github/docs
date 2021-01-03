@@ -11,7 +11,11 @@ versions:
 
 Depois que você cria modelos de problema e pull request no repositório, os contribuidores podem usá-los para abrir problemas ou descrever as alterações propostas nas respectivas pull requests, de acordo com as diretrizes de contribuição do repositório. Para obter mais informações sobre como adicionar diretrizes de contribuição a um repositório, consulte "[Configurar diretrizes para contribuidores de repositório](/articles/setting-guidelines-for-repository-contributors)".
 
-You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default issue and pull request templates for your organization or user account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 ### Modelos de problema
 

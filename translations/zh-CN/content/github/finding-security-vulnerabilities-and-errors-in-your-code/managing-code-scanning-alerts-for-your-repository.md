@@ -32,7 +32,7 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 ### Viewing the alerts for a repository
 
-Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)."
+Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. 更多信息请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests)”。
 
 You need write permission to view a summary of all the alerts for a repository on the **Security** tab. By default, alerts are shown for the default branch.
 

@@ -5,7 +5,6 @@ redirect_from:
   - /articles/enabling-anonymous-git-read-access-for-a-repository
 versions:
   enterprise-server: '*'
-  github-ae: '*'
 ---
 
 在以下情况下，仓库管理员可以更改特定仓库的匿名 Git 读取权限设置：

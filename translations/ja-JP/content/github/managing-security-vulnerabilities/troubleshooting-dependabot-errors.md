@@ -76,6 +76,12 @@ There are separate limits for security and version update pull requests, so that
 
 The best way to resolve this error is to merge or close some of the existing pull requests and trigger a new pull request manually. For more information, see "[Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually)."
 
+#### {% data variables.product.prodname_dependabot %} can't resolve your dependency files
+
+**Version updates only.** If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, you will see the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files".
+
+{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+
 ### Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 
 If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.

@@ -25,7 +25,7 @@ Para renovar um token de acesso do usuário para servidor, você pode trocar o `
 
   `POST https://github.com/login/oauth/access_token`
 
-Esta solicitação de retorno de chamada enviará um novo token de acesso e um novo token de atualização.  Essa solicitação de retorno de chamada é semelhante à solicitação do OAuth que usaria para trocar um `código` temporário por um token de acesso. Para obter mais informações, consulte "[Identificando e autorizando usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" e "[Princípios básicos da autenticação](/v3/guides/basics-of-authentication/#providing-a-callback)".
+Esta solicitação de retorno de chamada enviará um novo token de acesso e um novo token de atualização.  Essa solicitação de retorno de chamada é semelhante à solicitação do OAuth que usaria para trocar um `código` temporário por um token de acesso. Para obter mais informações, consulte "[Identificando e autorizando usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#2-users-are-redirected-back-to-your-site-by-github)" e "[Princípios básicos da autenticação](/rest/guides/basics-of-authentication#providing-a-callback)".
 
 #### Parâmetros
 

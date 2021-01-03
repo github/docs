@@ -1,6 +1,6 @@
 ---
 title: Visão Geral
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and secure your deployments.{% else %}, secure your deployments, and join {% data variables.product.prodname_dotcom %}''s Developer Program.{% endif %}'
+intro: 'Aprenda sobre as APIs de {% data variables.product.prodname_dotcom %}''{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} e proteja suas implantações.{% else %}, proteja as suas implantações e participe do Programa de Desenvolvedor de {% data variables.product.prodname_dotcom %}.{% endif %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -32,7 +32,16 @@ versions:
 
 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#automatic-watching)”。
 
-To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." 许多人忘记了他们过去选择关注的仓库。 从“Watched repositories（已关注仓库）”页面，您可以快速取消关注仓库。 有关取消订阅方式的更多信息，请参阅“[管理订阅](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)”。
+To see an overview of your repository subscriptions, see "[Reviewing repositories that you're watching](#reviewing-repositories-that-youre-watching)." Many people forget about repositories that they've chosen to watch in the past. From the "Watched repositories" page you can quickly unwatch repositories. For more information on ways to unsubscribe, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
+{% if currentVersion == "free-pro-team@latest" %}
+{% tip %}
+
+**Tip:** You can select the types of event to be notified of by using the **Custom** option of the **Watch/Unwatch** dropdown list in your [watching page](https://github.com/watching) or on any repository page on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository)" below.
+
+{% endtip %}
+{% endif %}
+
+许多人忘记了他们过去选择关注的仓库。 从“Watched repositories（已关注仓库）”页面，您可以快速取消关注仓库。 For more information on ways to unsubscribe, see "[Unwatch recommendations](https://github.blog/changelog/2020-11-10-unwatch-recommendations/)" on {% data variables.product.prodname_blog %} and "[Managing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)." You can also create a triage workflow to help with the notifications you receive. For guidance on triage workflows, see "[Customizing a workflow for triaging your notifications](/github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications)."
 
 ### 查看所有订阅
 
@@ -55,20 +64,38 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 ### 查看您目前关注的仓库
 
 1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉菜单单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
-
-3. 评估您正在关注的仓库，确定它们更新是否仍然相关和有用。 关注某仓库后，您将收到该仓库所有对话的通知。
-
+2. 评估您正在关注的仓库，确定它们更新是否仍然相关和有用。 关注某仓库后，您将收到该仓库所有对话的通知。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
   ![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+  ![已关注的通知页面](/assets/images/help/notifications-v2/watched-notifications-custom.png)
+{% endif %}
 
   {% tip %}
 
-  **提示：**不关注仓库，只考虑关注仓库的发行版，或者完全取消关注仓库。 取消关注仓库后，当您被@提及或参与帖子时仍然会收到通知。 只关注仓库的发行版时，仅当有新版本发行、您参与帖子或者您或您所在团队被@提及时才会收到通知。
+  **Tip:** Instead of watching a repository, consider only receiving notifications {% if currentVersion == "free-pro-team@latest" %}when there are updates to issues, pull requests, releases or discussions (if enabled for the repository), or any combination of these options,{% else %}for releases in a repository,{% endif %} or completely unwatching a repository.
+
+  取消关注仓库后，当您被@提及或参与帖子时仍然会收到通知。 When you configure to receive notifications for certain event types, you're only notified when there are updates to these event types in the repository, you're participating in a thread, or you or a team you're on is @mentioned.
 
   {% endtip %}
 
 ### 配置单个仓库的关注设置
 
-您可以选择关注还是取消关注单个仓库。 也可以选择仅在有新发行版时才收到通知或者忽略单个仓库。
+您可以选择关注还是取消关注单个仓库。 You can also choose to only be notified of {% if currentVersion == "free-pro-team@latest" %}certain event types such as issues, pull requests, discussions (if enabled for the repository) and {% endif %}new releases, or completely ignore an individual repository.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。 ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png)
+2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+  ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+   ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options-custom.png)
+{% data reusables.notifications-v2.custom-notifications-beta %}
+The **Custom** option allows you to further customize notifications so that you're only notified when specific events happen in the repository, in addition to participating and @mentions.
+
+   ![Custom watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options-custom2.png)
+
+If you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
+
+{% endif %}

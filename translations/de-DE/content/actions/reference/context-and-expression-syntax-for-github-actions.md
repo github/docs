@@ -75,7 +75,7 @@ Bei der Eigenschaftsdereferenzierungs-Syntax muss der Eigenschaftsname
 - mit `a-Z` oder `_` beginnen,
 - mit `a-Z`, `0-9`, `-` oder `_` weitergehen.
 
-#### **`github`-Kontext**
+#### `github`-Kontext
 
 Der `github`-Kontext enthält Informationen zum Workflow-Lauf und zu dem Ereignis, das den Lauf ausgelöst hat. Sie können die meisten `github`-Kontextdaten in Umgebungsvariablen lesen. Weitere Informationen über Umgebungsvariablen findest Du unter „[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)“.
 
@@ -103,7 +103,7 @@ Der `github`-Kontext enthält Informationen zum Workflow-Lauf und zu dem Ereigni
 | `github.workflow`         | `string` | Der Name des Workflows. Wenn in der Workflow-Datei kein `name` (Name) festgelegt ist, entspricht der Wert dieser Eigenschaft dem vollständigen Pfad der Workflow-Datei im Repository.                                                                                                                                                                                                                                                                                                                            |
 | `github.workspace`        | `string` | Das Standardarbeitsverzeichnis für Schritte und der Standardspeicherort Deines Repositorys bei Verwendung der Aktion [ `checkout`](https://github.com/actions/checkout).                                                                                                                                                                                                                                                                                                                                         |
 
-#### **`env`-Kontext**
+#### `env`-Kontext
 
 Der `env`-Kontext enthält Umgebungsvariablen, die in einem Workflow, Job oder Schritt gesetzt wurden. Weitere Informationen über das Setzen von Umgebungsvariablen in Deinem Workflow findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)“.
 
@@ -117,7 +117,7 @@ Du kannst den `env`-Kontext nur im Wert der Schlüssel `with` und `name` verwend
 | `env.<env name>` | `string` | Der Wert einer bestimmten Umgebungsvariable.                                                                                              |
 
 
-#### **`job`-Kontext**
+#### `job`-Kontext
 
 Der `job`-Kontext enthält Informationen zum gerade ausgeführten Auftrag.
 
@@ -133,7 +133,7 @@ Der `job`-Kontext enthält Informationen zum gerade ausgeführten Auftrag.
 | `job.services.<service id>.ports`   | `Objekt` | Die offengelegten Ports des Service-Containers                                                                                                                                                                                                       |
 | `job.status`                              | `string` | Der aktuelle Status des Auftrags. Mögliche Werte sind `success` (erfolgreich), `failure` (fehlgeschlagen) oder `cancelled` (abgebrochen).                                                                                                            |
 
-#### **`steps`-Kontext**
+#### `steps`-Kontext
 
 Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Auftrag, die bereits ausgeführt wurden.
 
@@ -145,7 +145,7 @@ Der `steps`-Kontext enthält Informationen zu den Schritten im aktuellen Auftrag
 | `steps.<step id>.outcome`                     | `string` | Das Ergebnis eines abgeschlossenen Schritts bevor [`continue-on-error` (bei Fehler weitermachen)](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) angewendet wird. Mögliche Werte sind `success` (erfolgreich), `failure` (fehlgeschlagen), `cancelled` (abgebrochen) oder `skipped` (übersprungen). Wenn ein Schritt mit `continue-on-error` (bei Fehler weitermachen) fehlschlägt, ist `outcome` (Ergebnis) `failure` zwar (Fehler), aber `conclusion` (Schlussfolgerung) ist am Ende `success` (Erfolg).   |
 | `steps.<step id>.outputs.<output name>` | `string` | Der Wert einer bestimmten Ausgabe                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
-#### **`runner`-Kontext**
+#### `runner`-Kontext
 
 Der `runner`-Kontext enthält Informationen über den Runner, der den aktuellen Job ausführt.
 
@@ -155,7 +155,7 @@ Der `runner`-Kontext enthält Informationen über den Runner, der den aktuellen 
 | `runner.temp`        | `string` | Der Pfad des temporären Verzeichnisses für den Runner. Dieses Verzeichnis ist zu Beginn jedes Auftrags garantiert leer, sogar bei selbst-gehosteten Runnern.                                                                                                                                                                                 |
 | `runner.tool_cache`  | `string` | Der Pfad des Verzeichnisses, das einige der vorinstallierten Tools für {% data variables.product.prodname_dotcom %}-gehostete Runner enthält. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)". |
 
-#### **`needs`-Kontext**
+#### `needs`-Kontext
 
 Der `needs`-Kontext enthält Ausgaben von allen Jobs, die als Abhängigkeit des aktuellen Jobs definiert sind. Weitere Informationen zur Definition von Jobabhängigkeiten findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)“.
 

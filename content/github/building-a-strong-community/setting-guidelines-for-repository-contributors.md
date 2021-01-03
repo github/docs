@@ -20,7 +20,11 @@ For contributors, the guidelines help them verify that they're submitting well-f
 
 For both owners and contributors, contribution guidelines save time and hassle caused by improperly created pull requests or issues that have to be rejected and re-submitted.
 
-You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. For more information, see "[Creating a default community health file](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 {% tip %}
 
@@ -54,5 +58,5 @@ If you're stumped, here are some good examples of contribution guidelines:
 
 ### Further reading
 - The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}

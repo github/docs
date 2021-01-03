@@ -60,7 +60,11 @@ jobs:
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. Ein Beispiel:
 
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
+  {% else %}
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)
+  {% endif %}
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
   ```
@@ -91,7 +95,7 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endnote %}
 
-Du kannst Abhängigkeiten auch im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen. Weitere Informationen findest Du unter „[Abhängigkeiten im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“.
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
@@ -119,7 +123,7 @@ jobs:
 
 #### Abhängigkeiten „cachen“ (zwischenspeichern)
 
-You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 PowerShell caches its dependencies in different locations, depending on the runner's operating system. For example, the `path` location used in the following Ubuntu example will be different for a Windows operating system.
 

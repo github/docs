@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-以下配置文件禁用默认查询，并指定一组要运行的自定义查询。 它还配置 {% data variables.product.prodname_codeql %} 以扫描  _src_ 目录中的文件（相对于根目录），并且排除 _node_modules_ 目录（也相对于根目录）以及名称以 _est.js_ 结尾的任何文件。
+以下配置文件禁用默认查询，并指定一组要运行的自定义查询。 It also configures {% data variables.product.prodname_codeql %} to scan files in the _src_ directory (relative to the root), except for the _src/node_modules_ directory, and except for files whose name ends in _.test.js_. Files in _src/node_modules_ and files with names ending _.test.js_ are therefore excluded from analysis.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"
@@ -24,9 +24,9 @@ queries:
   - name: Use a query suite file (run queries from a query suite in this repo)
     uses: ./codeql-qlpacks/complex-python-qlpack/rootAndBar.qls
 
-paths-ignore: 
-  - node_modules
-  - '**/*.test.js'
 paths:
   - src 
+paths-ignore: 
+  - src/node_modules
+  - '**/*.test.js'
 ```

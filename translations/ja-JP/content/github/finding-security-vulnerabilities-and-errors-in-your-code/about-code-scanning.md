@@ -20,7 +20,7 @@ versions:
 
 {% data variables.product.prodname_code_scanning %} がコードに潜在的な脆弱性またはエラーを見つけた場合、{% data variables.product.prodname_dotcom %} はリポジトリにアラートを表示します。 アラートを引き起こしたコードを修正すると、{% data variables.product.prodname_dotcom %}はそのアラートを閉じます。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用します。 詳細については、「[{% data variables.product.prodname_actions %}について](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。
+{% data variables.product.prodname_code_scanning_capc %} は {% data variables.product.prodname_actions %} を使用します。 For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
 {% data variables.product.prodname_code_scanning %} を始めるには、「[{% data variables.product.prodname_code_scanning %} の有効化](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)」を参照してください。
 

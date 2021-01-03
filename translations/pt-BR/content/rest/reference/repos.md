@@ -29,7 +29,7 @@ versions:
 
 ### Tipos de mídia personalizados para comentários de commit
 
-Estes são os tipos de mídia compatíveis com os comentários do commit. Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/v3/media/).
+Estes são os tipos de mídia compatíveis com os comentários do commit. Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
@@ -65,7 +65,7 @@ Estes pontos de extremidade da API permitem criar, modificar e excluir conteúdo
 
 ### Tipos de mídia personalizados para conteúdo do repositório
 
-Os [LEIAMEs](/v3/repos/contents/#get-a-repository-readme), [arquivos](/v3/repos/contents/#get-repository-content) e [links simbólicos](/v3/repos/contents/#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
+Os [LEIAMEs](/rest/reference/repos#get-a-repository-readme), [arquivos](/rest/reference/repos#get-repository-content) e [links simbólicos](/rest/reference/repos#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
@@ -74,13 +74,13 @@ Use o tipo de mídia `.raw` para recuperar o conteúdo do arquivo.
 
 Para arquivos de markup, como Markdown ou AsciiDoc, você pode recuperar o HTML interpretado usando o tipo de mídia `.html`. As linguagens de markup são processadas em HTML usando nossa [biblioteca de markup](https://github.com/github/markup) de código aberto.
 
-[Todos os objetos](/v3/repos/contents/#get-repository-content) são compatíveis com o seguinte tipo de mídia personalizado:
+[Todos os objetos](/rest/reference/repos#get-repository-content) são compatíveis com o seguinte tipo de mídia personalizado:
 
     application/vnd.github.VERSION.object
 
 Use o parâmetro do tipo de mídia do `objeto` para recuperar o conteúdo em um formato de objeto consistente independentemente do tipo de conteúdo. Por exemplo, em vez de um array de objetos para um diretório, a resposta será um objeto com um atributo de `entrada` contendo o array de objetos.
 
-You can read more about the use of media types in the API [here](/v3/media/).
+Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'contents' %}{% include rest_operation %}{% endif %}

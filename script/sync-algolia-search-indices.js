@@ -14,7 +14,9 @@ main()
 async function main () {
   const sync = require('../lib/algolia/sync')
   const opts = {
-    dryRun: 'DRY_RUN' in process.env
+    dryRun: 'DRY_RUN' in process.env,
+    language: process.env.LANGUAGE,
+    version: process.env.VERSION
   }
   await sync(opts)
 }

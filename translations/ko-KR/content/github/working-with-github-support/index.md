@@ -2,6 +2,7 @@
 title: Working with GitHub Support
 redirect_from:
   - /categories/working-with-github-support
+  - /forum
 versions:
   free-pro-team: '*'
 ---

@@ -21,16 +21,17 @@ versions:
 
 ### Notification delivery options
 
-You have three basic options for notification delivery:
-  - the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}
-  - the notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
-  - an email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
+You can receive notifications for activity on {% data variables.product.product_name %} in the following locations.
+
+  - The notifications inbox in the {% data variables.product.product_name %} web interface{% if currentVersion == "free-pro-team@latest" %}
+  - The notifications inbox on {% data variables.product.prodname_mobile %}, which syncs with the inbox on {% data variables.product.product_name %}{% endif %}
+  - An email client that uses a verified email address, which can also sync with the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Choosing your notification settings](#choosing-your-notification-settings)."
 {% endif %}
 
-{% data reusables.notifications-v2.tip-for-syncing-email-and-your-inbox-on-github %}
+{% data reusables.notifications.shared_state %}
 
 #### Benefits of the notifications inbox
 
@@ -58,8 +59,20 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ### About participating and watching notifications
 
-When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. To see repositories that you're watching, see [https://github.com/watching](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+When you watch a repository, you're subscribing to updates for activity in that repository. Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see "[About team discussions](/github/building-a-strong-community/about-team-discussions)."
 
+To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see "[Managing subscriptions and notifications on GitHub](/github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github)."
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+#### Configuring notifications
+{% endif %}
+You can configure notifications for a repository on the repository page, or on your watching page.{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} You can choose to only receive notifications for releases in a repository, or ignore all notifications for a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+
+#### About custom notifications
+{% data reusables.notifications-v2.custom-notifications-beta %}
+You can customize notifications for a repository, for example, you can choose to only be notified when updates to one or more types of events (issues, pull request, releases, discussions) happen within a repository, or ignore all notifications for a repository.
+{% endif %} For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository)."
+
+#### Participating in conversations
 Anytime you comment in a conversation or when someone @mentions your username, you are _participating_ in a conversation. By default, you are automatically subscribed to a conversation when you participate in it. You can unsubscribe from a conversation you've participated in manually by clicking **Unsubscribe** on the issue or pull request or through the **Unsubscribe** option in the notifications inbox.
 
 For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox on {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} and {% data variables.product.prodname_mobile %}{% endif %}.
@@ -94,7 +107,9 @@ Choose a default email address where you want to send updates for conversations 
   - Pull request pushes.
   - Your own updates, such as when you open, comment on, or close an issue or pull request.
 
-Depending on the organization that owns the repository, you can also send notifications to different email addresses for specific repositories. For example, you can send notifications for a specific public repository to a verified personal email address. Your organization may require the email address to be verified for a specific domain. For more information, see “[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+Depending on the organization that owns the repository, you can also send notifications to different email addresses. Your organization may require the email address to be verified for a specific domain. For more information, see "[Choosing where your organization’s email notifications are sent](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-where-your-organizations-email-notifications-are-sent)."
+
+You can also send notifications for a specific repository to an email address. For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 

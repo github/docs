@@ -31,13 +31,9 @@ Em circunstâncias especiais, como por razões legais ou para estar de acordo co
 
 {% else %}
 
-At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.
+No momento, {% data variables.product.prodname_registry %} em {% data variables.product.product_location %} não é compatível com a exclusão de pacotes públicos.
 
 {% endif %}
-
-### Versões e nomes de pacotes reservados
-
-{% data reusables.package_registry.package-immutability %}
 
 ### Excluir uma versão de um pacote privado no {% data variables.product.product_name %}
 
