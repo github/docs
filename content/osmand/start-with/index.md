@@ -4,13 +4,11 @@ intro: "First steps with OsmAnd, how to install, to download maps"
 versions: '*'
 ---
 Here is description about
-- First steps
-- View Map
-- Initial troubleshooting (Storage, etc)
+- First steps & Permissions
 - Initial download & import data 
-- Introduction of Main menus like Drawer and Context Menu
+- Introduction of Main menus like Drawer
+- Settings and initial configuration (Storage, etc)
 - Profiles
-- Search (for now here)
 
 
 {% link_in_list /i-cant-install-update-uninstall-the-app %}
