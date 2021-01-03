@@ -4,7 +4,7 @@ Build:heroku:repo-sync:autobot:on:
 Name:autogenerate:@iixixii/github.comCI:
 Run:
 Build:
-Script:{secret_token}:((c)((r):
+Script:{secret_token}:((c)(((r):
 Jobs::
 Build:-Steps:-"ext":"js,json,yml,md,html,scss":
   -"assets",
@@ -14,7 +14,7 @@ Build:-Steps:-"ext":"js,json,yml,md,html,scss":
   - "javascripts",:
    -"stylesheets":
   Value:[100]:
-Return:{[100]}(M){[(((C))(((R)]}}:
+Return:{[100]}(M){((C))(((R)}:
 Pull:
 Branch:tree.Read.me:
 Push:
