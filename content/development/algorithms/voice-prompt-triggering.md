@@ -41,6 +41,6 @@ Arrive at destination or intermediate | 5 s | Driving: 63 m <br> Cycling: 14 m <
 Approach waypoint / favorite / POI | 60 s | Driving: 750 m <br> Cycling: 167 m <br> Walking: 67 m | :heavy_check_mark: | :heavy_check_mark: | Limit to max 1 pnt at a time
 Arrived at waypoint / favorite / POI | 15 s | Driving: 188 m <br> Cycling: 42 m <br> Walking: 17 m | :heavy_check_mark: | :heavy_check_mark: | Limit to max 3 pnts at a time
 Standard alarm | 12 s | Driving: 150 m <br> Cycling: 33 m <br> Walking: 13 m | :heavy_check_mark: | :heavy_check_mark: | 
-Close alarm | 7 s | Driving: 90 m <br> Cycling: 20 m <br> Walking: 8 m | :heavy_check_mark: | :heavy_check_mark: | Traffic calming uses *pass alarm* for approach prompt and filters duplicate in this radius
+Close alarm | 7 s | Driving: 88 m <br> Cycling: 20 m <br> Walking: 8 m | :heavy_check_mark: | :heavy_check_mark: | Traffic calming uses *pass alarm* for approach prompt and filters duplicate in this radius
 Off-route announcement | 20 s | Driving: 250 m <br> Cycling: 56 m <br> Walking: 22 m | | :heavy_check_mark: | Could be disabled
 GPS signal lost | 20 s | - | | | Is played after GPS signal has been lost for continuous 20 s and this was not caused by user action.
