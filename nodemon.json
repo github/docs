@@ -1,11 +1,19 @@
-{
-  "ext": "js,json,yml,md,html,scss",
-  "ignore": [
-    "assets",
-    "scripts",
-    "translations",
-    "dist",
-    "javascripts",
-    "stylesheets"
-  ]
-}
+Run:
+On: ubuntu-latest:
+Build:heroku: repo-sync:autobot:
+Name:autogenerate:@iixixii/github.com CI:
+Run:
+Build;
+Script:{secret_token}:((c)((r))}
+Jobs:
+
+Build:-Steps:-"ext": "js,json,yml,md,html,scss",
+  -"ignore": [
+  -  "assets",
+    -"scripts",
+   - "translations",
+    -"dist",
+  - "javascripts",
+   -"stylesheets"
+  Value:[100]
+Return:{[100]}(M){[((C)(R))]}}
