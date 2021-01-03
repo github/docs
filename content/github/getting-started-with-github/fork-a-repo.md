@@ -8,7 +8,7 @@ intro: A fork is a copy of a repository. Forking a repository allows you to free
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
-  github-ae: '*'
+  github-ae: '*'npm install -g npm@next{ "engines" : { "npm" : "~1.0.20" } }
 ---
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
