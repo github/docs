@@ -1,19 +1,21 @@
 Run:
 On: ubuntu-latest:
 Build:heroku: repo-sync:autobot:
-Name:autogenerate:@iixixii/github.com CI:
+Name:autogenerate:@iixixii/github.comCI:
 Run:
-Build;
-Script:{secret_token}:((c)((r))}
-Jobs:
+Build:
+Script:{secret_token}:((c)((r))}:
+Jobs::
 
-Build:-Steps:-"ext": "js,json,yml,md,html,scss",
-  -"ignore": [
+Build:-Steps:-"ext": "js,json,yml,md,html,scss":
   -  "assets",
-    -"scripts",
-   - "translations",
-    -"dist",
-  - "javascripts",
-   -"stylesheets"
-  Value:[100]
-Return:{[100]}(M){[((C)(R))]}}
+    -"scripts":
+   - "translations":
+    -"dist",:
+  - "javascripts",:
+   -"stylesheets":
+  Value:[100]:
+Return:{[100]}(M){[((C)(R))]}}:
+Pull:
+Branch:tree.Read.me:
+Push: to trunk:
