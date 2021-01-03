@@ -33,14 +33,14 @@ While these are now also user-adjustable, the defaults are
 Prompt type | Trigger time (sec) | Trigger distance (m) | Time threshold used | Arrival setting | Comment
 --- | --- | --- | --- | --- | --
 Turn now | Driving: 7 s<br> Cycling: 3.2 s<br> Walking: 2 s | Driving: 45 m <br> Cycling: 10 m <br> Walking: 4 m | :heavy_check_mark: | :heavy_check_mark: | Time = max(8, sqrt(speed * 3.6)) <br> Dist = speed * 3.6
-Turn in X m | 22 s | Driving: 275 m <br> Cycling: 60 m <br> Walking: 25 m | :heavy_check_mark: |  | Skipped if less 15 seconds before turn
-Prepare to turn in X m | 115 s | Driving: 1 500 m <br> Cycling: 320 m <br> Walking: - m |  |  | Skipped if less 90 seconds before turn<br>Skipped if speed < 10 kmh
-Long Prepare to turn in X m | 300 s | Driving: - m <br> Cycling: - m <br> Walking: - m |  |  | Skipped if less 250 seconds before turn<br>Skipped if speed < 110 kmh
+Turn in X m | 22 s | Driving: 275 m <br> Cycling: 60 m <br> Walking: 25 m | :heavy_check_mark: |  | TO CHECK: Skipped if less 15 seconds before turn
+Prepare to turn in X m | 115 s | Driving: 1 500 m <br> Cycling: 320 m <br> Walking: - |  |  | Skipped if less 150 meters before "Turn in"<br>TO CHECK: Skipped if speed < 10 km/h
+Long Prepare to turn in X m | 300 s | Driving: - <br> Cycling: - <br> Walking: - |  |  | Skipped if speed < 108 km/h
 Go Ahead | >300 s | Driving: 3750 m <br> Cycling: 833 m <br> Walking: 333 m | | | after route calculation if no other prompt is due, or after a turn if next turn is more than *Long Prepare*
-Arrive at destination or intermediate | 5 s | Driving: 60 m <br> Cycling: 25 m <br> Walking: 12 m | |:heavy_check_mark: | Min 12m
+Arrive at destination or intermediate | 5 s | Driving: 60 m <br> Cycling: 25 m <br> Walking: 12 m | |:heavy_check_mark: | Min 12 m
 Approach waypoint / favorite / POI | 60 s | Driving: 750 m <br> Cycling: 165 m <br> Walking: 66 m | :heavy_check_mark: | :heavy_check_mark: | Limit to max 1 pnt at a time
 Arrived at waypoint / favorite / POI | 15 s | Driving: 180 m <br> Cycling: 40 m <br> Walking: 16 m | :heavy_check_mark: | :heavy_check_mark: | Limit to max 3 pnts at a time
 Standard alarm | 12 s | Driving: 150 m <br> Cycling: 33 m <br> Walking: 13 m | :heavy_check_mark: | :heavy_check_mark: | 
 Close alarm | 7 s | Driving: 90 m <br> Cycling: 20 m <br> Walking: 8 m | :heavy_check_mark: | :heavy_check_mark: | Traffic calming uses *pass alarm* for approach prompt and filters duplicate in this radius
-Off-route announcement | 20 s | Driving: 250 m <br> Cycling: 55 m <br> Walking: 22 m | | :heavy_check_mark: | Could be dsiabled
-GPS signal lost | 20 s | - | | | Is played after GPS signal has been lost for continuous 20 sec and this was not caused by user action.
+Off-route announcement | 20 s | Driving: 250 m <br> Cycling: 55 m <br> Walking: 22 m | | :heavy_check_mark: | Could be disabled
+GPS signal lost | 20 s | - | | | Is played after GPS signal has been lost for continuous 20 s and this was not caused by user action.
