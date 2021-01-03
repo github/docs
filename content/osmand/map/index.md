@@ -3,11 +3,7 @@ title: "{% data variables.android-values.shared_string_map %}"
 intro: "The map is a core element of the OsmAnd app. This section talks about how to obtain map data and how to set up the map appearance."
 versions: '*'
 ---
-Information about map
-- What's map 
-- Configure Map all elements
-- Search results on the map
-
+Introduction about the map and what it includes. Explanation about coordinates.
 
 {% link_with_intro /configure-map-menu %}
 {% link_with_intro /online-raster-maps %}
