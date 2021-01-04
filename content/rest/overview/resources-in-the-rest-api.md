@@ -42,8 +42,9 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
@@ -239,7 +240,7 @@ Error code name | Description
 -----------|-----------|
 `missing` | A resource does not exist.
 `missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for the for more specific information.
+`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
 `already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
 `unprocessable` | The inputs provided were invalid.
 
@@ -270,7 +271,7 @@ Verb | Description
 `HEAD` | Can be issued against any resource to get just the HTTP header info.
 `GET` | Used for retrieving resources.
 `POST` | Used for creating resources.
-`PATCH` | Used for updating resources with partial JSON data.  For instance, an Issue resource has `title` and `body` attributes.  A PATCH request may accept one or more of the attributes to update the resource.  PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept `POST` requests.
+`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
 `PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
 `DELETE` |Used for deleting resources.
 
