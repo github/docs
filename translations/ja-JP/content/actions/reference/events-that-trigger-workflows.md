@@ -137,9 +137,9 @@ jobs:
 
 #### `repository_dispatch`
 
-| webhook イベントのペイロード                                                   | アクティビティタイプ | `GITHUB_SHA`               | `GITHUB_REF`    |
-| -------------------------------------------------------------------- | ---------- | -------------------------- | --------------- |
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a        | `GITHUB_REF` ブランチ上の直近のコミット | ディスパッチを受信したブランチ |
+| webhook イベントのペイロード                                                   | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------------------------- | ---------- | ----------------- | ------------ |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a        | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -698,6 +698,8 @@ on:
 #### `workflow_run`
 
 {% data reusables.webhooks.workflow_run_desc %}
+
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------------------- | ---------- | ----------------- | ------------ |

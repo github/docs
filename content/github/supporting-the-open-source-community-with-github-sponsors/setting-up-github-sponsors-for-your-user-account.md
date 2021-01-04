@@ -26,7 +26,7 @@ If you have a bank account in a supported region, {% data variables.product.prod
 
 After {% data variables.product.prodname_dotcom %} reviews your application, you can set up your sponsored developer profile so that people can start sponsoring you.
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}
 {% data reusables.sponsors.short-bio %}
 {% data reusables.sponsors.add-introduction %}
@@ -40,7 +40,7 @@ After {% data variables.product.prodname_dotcom %} reviews your application, you
 
 {% data reusables.sponsors.maximum-tier %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.click-add-tier %}
 {% data reusables.sponsors.tier-price-description %}
@@ -54,14 +54,14 @@ If you live in a supported region, you can follow these instructions to submit y
 
 {% data reusables.sponsors.double-check-stripe-info %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.create-stripe-account %}
 
 ### Submitting your tax information
 
 {% data reusables.sponsors.tax-form-information-dev %}
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}
 {% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
@@ -73,7 +73,7 @@ Before you can become a sponsored developer, you must enable 2FA on your {% data
 
 ### Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 
-{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 4. Click **Request approval**.
   ![Request approval button](/assets/images/help/sponsors/request-approval-button.png)
 

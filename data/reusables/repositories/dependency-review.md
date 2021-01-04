@@ -1,0 +1,3 @@
+{% if currentVersion == "free-pro-team@latest" %}
+Additionally, {% data variables.product.prodname_dotcom %} can review any dependencies added, updated, or removed in a pull request made against the default branch of a repository, and flag any changes that would introduce a vulnerability into your project. This allows you to spot and deal with vulnerable dependencies before, rather than after, they reach your codebase. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+{% endif %}

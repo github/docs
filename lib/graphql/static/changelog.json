@@ -1,5 +1,18 @@
 [
   {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `hasVerifiedOwner` was added to object type `MarketplaceListing`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2020-12-09"
+  },
+  {
     "date": "2020-11-13",
     "schemaChanges": [
       {

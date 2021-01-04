@@ -1,6 +1,6 @@
 ---
 title: プルリクエストの作成方法
-intro: 'リポジトリへの、変更の提案、または変更における共同作業をするには、プルリクエストを作成できます。 These changes are proposed in a *branch*, which ensures that the default branch only contains finished and approved work.'
+intro: 'リポジトリへの、変更の提案、または変更における共同作業をするには、プルリクエストを作成できます。 これらの変更は「ブランチ」を介して提案され、デフォルトブランチには完成していて、かつ承認された作業のみが含まれるようにします。'
 redirect_from:
   - /articles/creating-a-pull-request
 versions:
@@ -33,7 +33,7 @@ base リポジトリを変更するとき、プルリクエストの通知も変
 
 {% tip %}
 
-**Tips**:
+**ヒント**:
 - 比較ビューを使用して、どの時間枠であっても比較対象として設定できます。 詳しい情報については「[コミットを比較する](/github/committing-changes-to-your-project/comparing-commits)」を参照してください。
 - プロジェクトメンテナーはプルリクエストテンプレートをリポジトリに追加できます。 テンプレートにはプルリクエスト本文にある情報のプロンプトが含まれます。 詳しい情報については[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)を参照してください。
 

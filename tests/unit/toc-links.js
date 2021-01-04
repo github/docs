@@ -1,4 +1,4 @@
-const loadPages = require('../../lib/pages')
+const { loadPages } = require('../../lib/pages')
 const renderContent = require('../../lib/render-content')
 const allVersions = Object.keys(require('../../lib/all-versions'))
 

@@ -37,7 +37,7 @@ Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, d
       ```
     - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
       ```shell
-      $ ghe-repl-teardown -u <em>UUNID</em>
+      $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
 ### Weiterführende Informationen

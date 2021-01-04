@@ -2,7 +2,6 @@
 title: API プレビュー
 intro: API プレビューを使用して新機能を試し、これらの機能が正式なものになる前にフィードバックを提供できます。
 redirect_from:
-  - /early-access/
   - /v3/previews
 versions:
   free-pro-team: '*'
@@ -54,7 +53,7 @@ pre-receive フックの環境を作成、一覧表示、更新、削除しま�
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### インテグレーション
 
-API を介して[インテグレーション](/early-access/integrations/)を管理します。
+API を介して[インテグレーション](/v3/integrations)を管理します。
 
 **カスタムメディアタイプ:** `machine-man-preview` **発表日:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)
 {% endif %}

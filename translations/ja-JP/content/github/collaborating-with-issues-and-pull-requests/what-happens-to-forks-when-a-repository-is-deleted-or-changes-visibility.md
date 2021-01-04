@@ -60,7 +60,7 @@ versions:
 
 {% note %}
 
-**Note:** {% data reusables.gated-features.internal-repos %}
+**注釈:** {% data reusables.gated-features.internal-repos %}
 
 {% endnote %}
 

@@ -1,5 +1,43 @@
+const semver = require('semver')
 const renderContent = require('../../lib/render-content')
 const patterns = require('../../lib/patterns')
+const enterpriseReleases = require('../../lib/enterprise-server-releases').supported
+
+/**
+ * Turn { [key]: { notes, intro, date } }
+ * into [{ version, notes, intro, date }]
+ */
+function sortPatchKeys (release, version) {
+  const keys = Object.keys(release)
+    .map(key => ({ version: `${version}.${key}`, patchVersion: key, ...release[key] }))
+  return keys
+    .sort((a, b) => {
+      if (semver.gt(a.version, b.version)) return -1
+      if (semver.lt(a.version, b.version)) return 1
+      return 0
+    })
+}
+
+/**
+ * Render each note in the given patch, by looping through the
+ * sections and rendering either `note` or `note.notes` in the
+ * case of a sub-section
+ */
+async function renderPatchNotes (patch, ctx) {
+  // Run the notes through the markdown rendering pipeline
+  for (const key in patch.sections) {
+    await Promise.all(patch.sections[key].map(async (noteOrHeading, index) => {
+      patch.sections[key][index] = typeof noteOrHeading === 'string'
+        ? await renderContent(noteOrHeading, ctx)
+        : {
+            ...noteOrHeading,
+            notes: await Promise.all(noteOrHeading.notes.map(note => renderContent(note, ctx)))
+          }
+    }))
+  }
+
+  return patch
+}
 
 module.exports = async (req, res, next) => {
   // The `/release-notes` sub-path
@@ -22,44 +60,23 @@ module.exports = async (req, res, next) => {
   }
 
   const releaseNotes = allReleaseNotes[versionString]
-  const keys = Object.keys(releaseNotes)
-  // Turn { [key]: { notes, intro, date } }
-  // into [{ version, notes, intro, date }]
-  const patches = keys
-    .sort((a, b) => {
-      if (a > b) return -1
-      if (a < b) return 1
-      return 0
-    })
-    .map(key => ({ version: `${requestedVersion}.${key}`, ...releaseNotes[key] }))
+  const patches = sortPatchKeys(releaseNotes, requestedVersion)
 
-  const renderedPatches = await Promise.all(patches.map(async patch => {
-    // Render the intro block, it might contain markdown formatting
-    patch.intro = await renderContent(patch.intro, req.context)
+  req.context.releaseNotes = await Promise.all(patches.map(async patch => renderPatchNotes(patch, req.context)))
 
-    // Run the notes through the markdown rendering pipeline
-    patch.notes = await Promise.all(patch.notes.map(async note => {
-      if (note.note) note.note = await renderContent(note.note, req.context)
-      return note
-    }))
+  // Put together information about other releases
+  req.context.releases = enterpriseReleases.map(version => {
+    const ret = { version }
+    if (!req.context.site.data['release-notes']) return ret
+    const release = req.context.site.data['release-notes'][version.replace(/\./g, '-')]
+    if (!release) return ret
+    const patches = sortPatchKeys(release, version)
+    return { ...ret, patches }
+  })
 
-    // Sort the notes into sections
-    // Takes an array of notes: Array<{ note, type }>
-    // Turns it into { [type]: [{ note }] }
-    patch.sortedNotes = patch.notes.reduce((prev, curr) => {
-      const existingObj = prev.find(o => o.title === curr.type)
-      if (!existingObj) {
-        prev.push({ title: curr.type, notes: [curr] })
-      } else {
-        existingObj.notes.push(curr)
-      }
-      return prev
-    }, [])
-
-    return patch
-  }))
-
-  req.context.releaseNotes = renderedPatches
+  const releaseIndex = enterpriseReleases.findIndex(release => release === requestedVersion)
+  req.context.nextRelease = enterpriseReleases[releaseIndex - 1]
+  req.context.prevRelease = enterpriseReleases[releaseIndex + 1]
 
   return next()
 }

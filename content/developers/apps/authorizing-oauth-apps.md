@@ -272,7 +272,9 @@ The optional `redirect_uri` parameter can also be used for localhost URLs. If th
 
 For the `http://localhost/path` callback URL, you can use this `redirect_uri`:
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### Creating multiple tokens for OAuth Apps
 

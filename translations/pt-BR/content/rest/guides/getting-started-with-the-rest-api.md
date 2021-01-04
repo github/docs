@@ -376,7 +376,7 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 [nanoc]: http://nanoc.ws/
 [gitignore templates]: https://github.com/github/gitignore
 [issues-api]: /rest/reference/issues
-[link-header]: http://www.w3.org/wiki/LinkHeader/
+[link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
 [rate-limiting]: /rest#rate-limiting
 [rate-limiting]: /rest#rate-limiting

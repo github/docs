@@ -9,4 +9,4 @@ These scripts update the [static JSON files](../../lib/graphql/static) used to
 render GraphQL docs. See the [`lib/graphql/README`](../../lib/graphql/README.md)
 for more info.
 
-**Note**: The changelog script pulls content from [the internal-developer repo](https://github.com/github/internal-developer.github.com/tree/master/content/v4/changelog). It relies on [graphql-docs automation](https://github.com/github/graphql-docs/blob/master/lib/graphql_docs/update_internal_developer/change_log.rb) running daily to update the changelog files in internal-developer.
+**Note**: The changelog script pulls content from the internal-developer repo. It relies on graphql-docs automation running daily to update the changelog files in internal-developer.

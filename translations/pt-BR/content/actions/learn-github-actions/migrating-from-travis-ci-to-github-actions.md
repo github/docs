@@ -165,9 +165,9 @@ git:
 
 #### Usando variáveis de ambiente em uma matriz
 
-Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+O Travis CI e {% data variables.product.prodname_actions %} podem adicionar variáveis de ambiente personalizadas a uma matriz de teste, que permite que você faça referência à variável em uma etapa posterior.
 
-In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.github-actions.matrix-variable-example %}
 
 ### Principais recursos em {% data variables.product.prodname_actions %}
 
@@ -322,7 +322,7 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+O armazenamento em cache de {% data variables.product.prodname_actions %} só é aplicável a executores hospedados em {% data variables.product.prodname_dotcom %}.  Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 ### Exemplos de tarefas comuns
 

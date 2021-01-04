@@ -29,6 +29,18 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 
 ![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
 
+{% if currentVersion == "free-pro-team@latest" %}
+### Reviewing dependency changes
+
+If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+
+{% data reusables.repositories.changed-files %}
+
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+
+   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+{% endif %}
+
 ### Marcar um arquivo como visualizado
 
 Quando terminar de revisar um arquivo, você pode marcar o arquivo como visualizado, e o arquivo será aninhado. Se o arquivo for alterado após ser visualizado, será desmarcado como visualizado.
@@ -53,8 +65,5 @@ Quando terminar de revisar os arquivos que deseja incluir na pull request, envie
 
 ### Leia mais
 
-- "[Sobre revisões de solicitação pull](/articles/about-pull-request-reviews)"
-- "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)"
-- "[Aprovar uma pull request com revisões obrigatórias](/articles/approving-a-pull-request-with-required-reviews)"
-- "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)"
-- "[Filtrar pull requests por status de revisão](/articles/filtering-pull-requests-by-review-status)"
+- "[Sobre revisões obrigatórias para pull requests](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
+- "[Filtrar pull requests por status de revisão](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"
