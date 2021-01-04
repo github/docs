@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: **December 19, 2020**
+Effective date: **December 30, 2020**
 
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -36,7 +36,6 @@ When we share your information with third party subprocessors, such as our vendo
 | Microsoft | Microsoft Services | United States | United States |
 | Monday.com | Team collaboration and project management platform | United States | Israel |
 | Nexmo | SMS notification provider | United States | United States |
-| Oracle | Corporate financial system | United States | United States |
 | Salesforce.com | Customer relations management | United States | United States |
 | Sendgrid | Transactional mail services provider | United States | United States |
 | Sentry.io | Application monitoring provider | United States | United States |
