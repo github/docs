@@ -22,3 +22,4 @@ For choice and flexibility in how and when you use {% data variables.product.pro
 ### Further reading
 
 - "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+
