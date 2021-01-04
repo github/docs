@@ -13,7 +13,7 @@ versions:
 
 ### About caching workflow dependencies
 
-Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies. For caching ruby gems, consider using the [ruby maintained action which allows for cached bundle installs on initiation](https://github.com/ruby/setup-ruby/blob/master/README.md#caching-bundle-install-automatically).
+Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies. For caching ruby gems, consider using the ruby maintained action which allows for cached bundle installs on initiation. See [Caching Bundle Install](https://github.com/ruby/setup-ruby/blob/master/README.md#caching-bundle-install-automatically) for more.
 
 Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
 
