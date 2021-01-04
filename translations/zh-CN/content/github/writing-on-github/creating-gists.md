@@ -33,7 +33,11 @@ Secret gists don't show up in {% data variables.gists.discover_url %} and are no
 - 有人在 gist 中提及您。
 - 您单击任何 gist 顶部的 **Subscribe（订阅）**订阅了 gist。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 您可以在个人资料中置顶 Gist，使其他人更容易看到它们。 更多信息请参阅“[将项目嵌入到个人资料](/articles/pinning-items-to-your-profile)”。
+
+{% endif %}
 
 您可以到 {% data variables.gists.gist_homepage %} 单击 **All Gists（所有 Gists）**发现其他人创建的 gists。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {% data variables.gists.gist_search_url %} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/articles/searching-code)相同。
 

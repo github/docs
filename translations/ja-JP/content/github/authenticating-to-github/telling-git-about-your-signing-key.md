@@ -1,6 +1,6 @@
 ---
 title: Git へ署名キーを伝える
-intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
+intro: "ローカルでコミットに署名するには、使用する GPG または X.509 キーがあることを Git に知らせる必要があります。"
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key

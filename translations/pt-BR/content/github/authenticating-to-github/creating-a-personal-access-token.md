@@ -12,7 +12,7 @@ versions:
   github-ae: '*'
 ---
 
-Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas para autenticação no {% data variables.product.product_name %} ao usar a [API do GitHub](/v3/auth/#via-oauth-and-personal-access-tokens) ou a [linha de comando](#using-a-token-on-the-command-line).
+Os tokens de acesso pessoal (PATs) são uma alternativa para o uso de senhas para autenticação no {% data variables.product.product_name %} ao usar a [API do GitHub](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) ou a [linha de comando](#using-a-token-on-the-command-line).
 
 {% if currentVersion == "free-pro-team@latest" %}Se você deseja usar um PAT para acessar recursos pertencentes a uma organização que usa SAML SSO, você deve autorizar o PAT. Para mais informações consulte "[Sobre autenticação com logon único SAML](/articles/about-authentication-with-saml-single-sign-on)" e "[Autorizando um token de acesso pessoal para uso com logon único SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).{% endif %}
 

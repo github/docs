@@ -1,6 +1,6 @@
 ---
 title: Informar ao Git sobre a chave de assinatura
-intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
+intro: "Para assinar commits localmente, você precisa informar ao Git que há uma chave GPG ou X.509 que você gostaria de usar."
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key

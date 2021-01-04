@@ -12,26 +12,25 @@ versions:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-### About {% data variables.product.prodname_code_scanning %}
+### Informationen zu {% data variables.product.prodname_code_scanning %}
 
-{% data reusables.code-scanning.about-code-scanning %}
+With {% data variables.product.prodname_code_scanning %}, developers can quickly and automatically analyze the code in a {% data variables.product.prodname_dotcom %} repository to find security vulnerabilities and coding errors.
 
 You can use {% data variables.product.prodname_code_scanning %} to find, triage, and prioritize fixes for existing problems in your code. {% data variables.product.prodname_code_scanning_capc %} also prevents developers from introducing new problems. You can schedule scans for specific days and times, or trigger scans when a specific event occurs in the repository, such as a push.
 
-If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. After you fix the code that triggered the alert, {% data variables.product.prodname_dotcom %} closes the alert. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+If {% data variables.product.prodname_code_scanning %} finds a potential vulnerability or error in your code, {% data variables.product.prodname_dotcom %} displays an alert in the repository. Nachdem Du den Code korrigiert hast, der die Meldung ausgelöst hat, schließt {% data variables.product.prodname_dotcom %} die Meldung. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use the {% data variables.product.prodname_code_scanning %} API.
-For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/v3/code-scanning)."
+You can view and contribute to the queries for {% data variables.product.prodname_code_scanning %} in the [`github/codeql`](https://github.com/github/codeql) repository. For more information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
-To get started with {% data variables.product.prodname_code_scanning %}, see "[Enabling {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+To get started with {% data variables.product.prodname_code_scanning %}, see "[Enabling {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)."
 
-### About {% data variables.product.prodname_codeql %}
+### Informationen zu {% data variables.product.prodname_codeql %}
 
-You can use {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}, a semantic code analysis engine. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers. 
+{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}. {% data variables.product.prodname_codeql %} treats code as data, allowing you to find potential vulnerabilities in your code with greater confidence than traditional static analyzers.
 
 {% data variables.product.prodname_ql %} is the query language that powers {% data variables.product.prodname_codeql %}. {% data variables.product.prodname_ql %} is an object-oriented logic programming language. {% data variables.product.company_short %}, language experts, and security researchers create the queries used for {% data variables.product.prodname_code_scanning %}, and the queries are open source. The community maintains and updates the queries to improve analysis and reduce false positives. For more information, see [{% data variables.product.prodname_codeql %}](https://securitylab.github.com/tools/codeql) on the GitHub Security Lab website.
 
-{% data variables.product.prodname_code_scanning_capc %} with {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
+For more information about API endpoints for {% data variables.product.prodname_code_scanning %}, see  "[{% data variables.product.prodname_code_scanning_capc %}](http://developer.github.com/v3/code-scanning)."
 
 {% data reusables.code-scanning.supported-languages %}
 
@@ -39,9 +38,9 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-### About billing for {% data variables.product.prodname_code_scanning %}
+### Informationen zur Abrechnung für {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)."
+{% data variables.product.prodname_code_scanning_capc %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).“
 
 {% endif %}
 
@@ -53,7 +52,7 @@ You can view and contribute to the queries for {% data variables.product.prodnam
 
 {% data reusables.code-scanning.get-started-uploading-third-party-data %}
 
-### Further reading
+### Weiterführende Informationen
 
 {% if currentVersion == "free-pro-team@latest" %}
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}

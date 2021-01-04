@@ -11,7 +11,7 @@ versions:
   github-ae: '*'
 ---
 
-Sie können Code global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Um den Code aller öffentlichen Repositorys zu durchsuchen, musst Du bei einem {% data variables.product.product_name %}-Konto angemeldet sein. Weitere Informationen findest Du unter „[Informationen zur Suche auf GitHub](/articles/about-searching-on-github).“
+{% data reusables.search.you-can-search-globally %} For more information, see "[About searching on GitHub](/articles/about-searching-on-github)."
 
 Du kannst Code nur mit den diesen Qualifizierern der Codesuche durchsuchen. Spezifische Qualifizierer für Repositorys, Benutzer oder Commits funktionieren bei der Durchsuchung von Code nicht.
 
@@ -21,16 +21,16 @@ Du kannst Code nur mit den diesen Qualifizierern der Codesuche durchsuchen. Spez
 
 Aufgrund der Komplexität der Codesuche gelten bei der Durchführung der Suche Einschränkungen:
 
-- {% data reusables.search.required_login %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- {% data reusables.search.required_login %}{% endif %}
 - Code in [Forks](/articles/about-forks) ist nur durchsuchbar, wenn für den Fork mehr Sterne vergeben wurden als für das übergeordnete Repository. Forks mit weniger Sternen als das übergeordnete Repository sind **nicht** für die Codesuche indiziert. Um Forks mit mehr Sternen als das übergeordnete Repository in die Suchergebnisse einzuschließen, musst Du Deiner Abfrage `fork:true` oder `fork:only` hinzufügen. Weitere Informationen finden Sie unter „[Forks durchsuchen](/articles/searching-in-forks)“.
 - Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
 - Nur Dateien kleiner 384 KB sind durchsuchbar.{% else %}* Nur Dateien kleiner 5 MB sind durchsuchbar.
 - Nur die ersten 500 KB jeder Datei sind durchsuchbar.{% endif %}
 - Nur Repositorys mit weniger als 500.000 Dateien sind durchsuchbar.
-- Angemeldete Benutzer können alle öffentlichen Repositorys durchsuchen.
-- Deine Quellcode-Suche muss mindestens einen Suchbegriff enthalten, ausgenommen bei [`filename`-Suchen](#search-by-filename). Beispielsweise ist eine Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ungültig, [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist dagegen gültig.
+- Ihre Suchabfrage nach Code muss mindestens einen Suchbegriff enthalten. Ausgenommen hiervon sind Suchen nach [`filename`](#search-by-filename). Beispielsweise ist eine Suche nach [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) ungültig, [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) ist dagegen gültig.
 - Die Suchergebnisse können maximal zwei gefundene Fragmente der gleichen Datei anzeigen, selbst wenn die Datei mehr Treffer enthält.
-- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. Diese Zeichen werden bei der Suche schlicht ignoriert.
+- Folgende Platzhalterzeichen können in Suchabfragen nicht verwendet werden: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. Diese Zeichen werden bei der Suche ignoriert.
 
 ### Suche nach Dateiinhalten oder Dateipfad
 

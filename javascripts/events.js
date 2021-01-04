@@ -125,7 +125,7 @@ function getPerformance () {
   )
   const nav = performance?.getEntriesByType('navigation')?.[0]
   return {
-    firstContentfulPaint: paint ? paint / 1000 : undefined,
+    firstContentfulPaint: paint ? paint.startTime / 1000 : undefined,
     domInteractive: nav ? nav.domInteractive / 1000 : undefined,
     domComplete: nav ? nav.domComplete / 1000 : undefined,
     render: nav ? (nav.responseEnd - nav.requestStart) / 1000 : undefined

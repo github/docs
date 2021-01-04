@@ -20,7 +20,7 @@ GitHubプラットフォームとの統合に興味はありますか。 [同じ
 いくつかのステップを踏むことで、GitHubから配信されるペイロードを安全に受信できます。
 
 1. 受信サーバーは必ずHTTPS接続にしてください。 By default, GitHub will verify SSL certificates when delivering payloads.{% if currentVersion == "free-pro-team@latest" %}
-1. [フック配信時に使用するIPアドレス](/github/authenticating-to-github/about-githubs-ip-addresses)をサーバーの許可リストに追加できます。 正しいIPアドレスを常に確認していることを確かめるため、[`/meta`エンドポイントを使用して](/v3/meta/#meta)GitHubが使用するアドレスを見つけることができます。{% endif %}
+1. [フック配信時に使用するIPアドレス](/github/authenticating-to-github/about-githubs-ip-addresses)をサーバーの許可リストに追加できます。 正しいIPアドレスを常に確認していることを確かめるため、[`/meta`エンドポイントを使用して](/rest/reference/meta#meta)GitHubが使用するアドレスを見つけることができます。{% endif %}
 1. ペイロードがGitHubから配信されていることを確実に保証するため、[シークレットトークン](/webhooks/securing/)を提供します。 シークレットトークンを強制することにより、サーバーが受信するあらゆるデータが確実にGitHubから来ていることを保証できます。 サービスの*ユーザごと*に異なるシークレットトークンを提供するのが理想的です。 そうすれば、1つのトークンが侵害されても、他のユーザは影響を受けません。
 
 ### 同期作業より非同期作業を優先する
@@ -49,7 +49,7 @@ Note that even with a background job running, GitHub still expects your server t
 
 GitHubは、リダイレクトのステータスコードを提供することにより、リソースがいつ移動したかを明示します。 このリダイレクトに従ってください。 すべてのリダイレクト応答は、`Location`ヘッダに、移動する新しいURIを設定します。 リダイレクトを受け取ったら、削除する可能性がある非推奨のパスをリクエストしている場合、新しいURIにしたがってコードを更新するようお勧めします。
 
-アプリケーションをリダイレクトに従うよう設計する際に気をつけるべき[HTTPステータスコードのリスト](/v3/#http-redirects)をご用意しています。
+アプリケーションをリダイレクトに従うよう設計する際に気をつけるべき[HTTPステータスコードのリスト](/rest#http-redirects)をご用意しています。
 
 ### 手動でURLをパースしない
 

@@ -1,6 +1,6 @@
 ---
 title: 准备提交事件单
-intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
+intro: '在打开支持单之前，您可以按照以下建议通过 {% data variables.contact.enterprise_support %} 加快问题的解决。'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:

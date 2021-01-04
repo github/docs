@@ -83,4 +83,4 @@ You can create a custom message that suspended users will see when attempting to
   ```
 
 ### Дополнительная литература
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"

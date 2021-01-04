@@ -85,7 +85,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: Visualização de Issues fixados
   description: Esta visualização adiciona suporte para os issues fixos.

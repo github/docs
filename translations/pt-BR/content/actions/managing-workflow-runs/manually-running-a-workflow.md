@@ -10,9 +10,9 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Configuring a workflow to run manually
+### Configurar um fluxo de trabalho para ser executado manualmente
 
-Para executar um fluxo de trabalho manualmente, o fluxo de trabalho deve ser configurado para ser executado no evento `workflow_dispatch`. For more information about configuring the `workflow_dispatch` event, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
+Para executar um fluxo de trabalho manualmente, o fluxo de trabalho deve ser configurado para ser executado no evento `workflow_dispatch`. Para obter mais informações sobre a configuração do evento `workflow_despatch`, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#workflow_dispatch)".
 
 ### Executar um fluxo de trabalho em {% data variables.product.prodname_dotcom %}
 

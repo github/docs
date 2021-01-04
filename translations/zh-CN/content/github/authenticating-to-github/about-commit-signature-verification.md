@@ -1,6 +1,6 @@
 ---
 title: 关于提交签名验证
-intro: 'Using GPG or S/MIME, you can sign tags and commits locally. 这些标记或提交在 {% data variables.product.product_name %} 上标示为已验证，便于其他人信任更改来自可信的来源。'
+intro: '使用 GPG 或 S/MIME，您可以在本地对标记和提交进行签名。 这些标记或提交在 {% data variables.product.product_name %} 上标示为已验证，便于其他人信任更改来自可信的来源。'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/

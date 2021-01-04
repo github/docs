@@ -1,30 +1,30 @@
 ---
-title: Configuring user provisioning for your enterprise
-shortTitle: Configuring user provisioning
-intro: You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).
-permissions: Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.
+title: 为企业配置用户预配
+shortTitle: 配置用户预配
+intro: 您可以为企业配置跨域身份管理 (SCIM)，以在将 {% data variables.product.product_location %} 的应用程序分配给身份提供商 (IdP) 上的用户时，就自动在 {% data variables.product.product_location %} 上预配用户帐户。
+permissions: 企业所有者可在 {% data variables.product.product_name %} 上为企业配置用户预配。
 product: '{% data reusables.gated-features.saml-sso %}'
 versions:
   github-ae: '*'
 ---
 
-### About user provisioning for your enterprise
+### 关于企业的用户预配
 
-{% data reusables.saml.ae-uses-saml-sso %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)."
+{% data reusables.saml.ae-uses-saml-sso %} 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
 
-{% data reusables.scim.after-you-configure-saml %} For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
+{% data reusables.scim.after-you-configure-saml %} 有关 SCIM 的更多信息，请参阅 IETF 网站上的[跨域身份管理系统：协议 (RFC 7644)](https://tools.ietf.org/html/rfc7644)。
 
 {% if currentVersion == "github-ae@latest" %}
 
-Configuring provisioning allows your IdP to communicate with {% data variables.product.product_location %} when you assign or unassign the application for {% data variables.product.product_name %} to a user on your IdP. When you assign the application, your IdP will prompt {% data variables.product.product_location %} to create an account and send an onboarding email to the user. When you unassign the application, your IdP will communicate with {% data variables.product.product_name %} to invalidate any SAML sessions and disable the member's account.
+配置预配允许 IdP 在您将 {% data variables.product.product_name %} 的应用程序分配或取消分配给 IdP 上的用户时与 {% data variables.product.product_location %} 通信。 当您分配应用程序时，IdP 将提示 {% data variables.product.product_location %} 创建帐户并向用户发送一封登录电子邮件。 取消分配应用程序时，IdP 将与 {% data variables.product.product_name %} 通信以取消任何 SAML 会话并禁用成员的帐户。
 
-To configure provisioning for your enterprise, you must enable provisioning on {% data variables.product.product_name %}, then install and configure a provisioning application on your IdP.
+要为企业配置预配，必须在 {% data variables.product.product_name %} 上启用预配，然后在 IdP 上安装和配置预配应用程序。
 
-The provisioning application on your IdP communicates with {% data variables.product.product_name %} via our SCIM API for enterprises. For more information, see "[GitHub Enterprise administration](/rest/reference/enterprise-admin#scim)" in the {% data variables.product.prodname_dotcom %} REST API documentation.
+IdP 上的预配应用程序通过企业的 SCIM API 与 {% data variables.product.product_name %} 通信。 更多信息请参阅 {% data variables.product.prodname_dotcom %} REST API 文档中的“[GitHub Enterprise 管理](/rest/reference/enterprise-admin#scim)”。
 
 {% endif %}
 
-### Supported identity providers
+### 支持的身份提供程序
 
 {% data reusables.scim.supported-idps %}
 
@@ -32,41 +32,49 @@ The provisioning application on your IdP communicates with {% data variables.pro
 
 {% if currentVersion == "github-ae@latest" %}
 
-To automatically provision and deprovision access to {% data variables.product.product_location %} from your IdP, you must first configure SAML SSO when you initialize {% data variables.product.product_name %}. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
+要自动预配和解除预配从 IdP 访问 {% data variables.product.product_location %}，必须先在初始化 {% data variables.product.product_name %} 时配置 SAML SSO。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)。”
 
-You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.product_name %}.
+您必须对 IdP 具有管理访问权限，才能配置应用程序进行 {% data variables.product.product_name %} 的用户预配。
 
 {% endif %}
 
-### Enabling user provisioning for your enterprise
+### 为企业启用用户预配
 
 {% if currentVersion == "github-ae@latest" %}
 
-1. While signed into
+1. 作为企业所有者登录到
 
-{% data variables.product.product_location %} as an enterprise owner, create a personal access token with **admin:enterprise** scope. 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+{% data variables.product.product_location %} 时，创建作用域为 **admin:enterprise** 的个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
   {% note %}
 
   **注意**：
-    - To create the personal access token, we recommend using the account for the first enterprise owner that you created during initialization. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)."
-    - You'll need this personal access token to configure the application for SCIM on your IdP. Store the token securely in a password manager until you need the token again later in these instructions.
+    - 要创建个人访问令牌，我们建议使用初始化期间创建的第一个企业所有者的帐户。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)。”
+    - 您需要此个人访问令牌在 IdP 上为 SCIM 配置应用程序。 将令牌安全地存储在密码管理器中，直到您稍后在这些说明中再次需要该令牌。
 
   {% endnote %}
   {% warning %}
 
-  **Warning**: If the user account for the enterprise owner who creates the personal access token is deactivated or deprovisioned, your IdP will no longer provision and deprovision user accounts for your enterprise automatically. Another enterprise owner must create a new personal access token and reconfigure provisioning on the IdP.
+  **警告**：如果创建个人访问令牌的企业所有者的用户帐户已停用或取消预配，则您的 IdP 将不再自动预配和取消预配企业用户帐户。 另一个企业所有者必须创建新的个人访问令牌，并在 IdP 上重新配置预配。
 
   {% endwarning %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "SCIM User Provisioning", select **Require SCIM user provisioning**. ![Checkbox for "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
-1. 单击 **Save（保存）**。 ![Save button under "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-scim-save.png)
-1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP. The application on your IdP requires two values to provision or deprovision user accounts on {% data variables.product.product_location %}.
+1. 在“SAML User Provisioning（SAML 用户预配）”下，选择 **Require SCIM user provisioning（需要 SAML 用户预配）**。 ![企业安全性设置内的"Require SCIM user provisioning（需要 SCIM 用户预配）"复选框](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
+1. 单击 **Save（保存）**。 ![企业安全性设置中"Require SCIM user provisioning（需要 SCIM 用户预配）"下的 Save（保存）按钮](/assets/images/help/enterprises/settings-scim-save.png)
+1. 在 IdP 上 {% data variables.product.product_name %} 的应用程序中配置用户预配。
 
-  | 值             | Other names                         | 描述                                                                                                          | 示例                                          |
-  |:------------- |:----------------------------------- |:----------------------------------------------------------------------------------------------------------- |:------------------------------------------- |
-  | URL           | Tenant URL                          | URL to the SCIM provisioning API for your enterprise on {% data variables.product.prodname_ghe_managed %} | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code>                   |
-  | Shared secret | Personal access token, secret token | Token for application on your IdP to perform provisioning tasks on behalf of an enterprise owner            | Personal access token you created in step 1 |
+  以下 IdP 提供有关为 {% data variables.product.product_name %} 配置预配的文档。 如果您的 IdP 未列出，请与您的 IdP 联系，以请求 {% data variables.product.product_name %}。
+
+  | IdP      | 更多信息                                                                                                                                                                              |
+  |:-------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Azure AD | [教程：Microsoft 文档中的“配置 {% data variables.product.prodname_ghe_managed %} 进行自动用户预配](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial)” |
+
+  IdP 上的应用程序需要两个值来预配或取消预配 {% data variables.product.product_location %} 上的用户帐户。
+
+  | 值    | 其他名称        | 描述                                                                         | 示例                        |
+  |:---- |:----------- |:-------------------------------------------------------------------------- |:------------------------- |
+  | URL  | 租户 URL      | {% data variables.product.prodname_ghe_managed %} 上企业的 SCIM 预配 API 的 URL | <code>https://<em>YOUR-GITHUB-AE-HOSTNAME</em>/scim/v2</code> |
+  | 共享机密 | 个人访问令牌、机密令牌 | IdP 上的应用程序用于代表企业所有者执行预配任务的令牌                                               | 您在步骤 1 中创建的个人访问令牌         |
 
 {% endif %}

@@ -1,10 +1,10 @@
 ---
-title: Customizing user messages for your enterprise
+title: Personalizar mensagens de usuário para sua empresa
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message/
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
-intro: 'You can create custom messages that users will see on the{% if enterpriseServerVersions contains currentVersion %} sign in and sign out pages{% else %} sign out page{% endif %}{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} or in an announcement banner at the top of every page{% endif %}.'
+intro: 'Você pode criar mensagens personalizadas que os usuários verão nas{% if enterpriseServerVersions contains currentVersion %} páginas de login e logout{% else %} página de logout{% endif %}{% if currentVersion ver_gt "enterprise-server@2. 1" ou versão atual == "github-ae@latest" %} ou em um banner de anúncio na parte superior de cada página{% endif %}.'
 versions:
   enterprise-server: '*'
   github-ae: '*'
@@ -51,7 +51,7 @@ Você pode definir um banner de anúncio global para ser exibido para todos os u
 
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 
-You can also set an announcement banner{% if enterpriseServerVersions contains currentVersion %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% if enterpriseServerVersions contains currentVersion %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+Você também pode definir um banner de anúncio{% if enterpriseServerVersions contains currentVersion %} no shell administrativo usando um utilitário de linha de comando ou{% endif %} usando a API. Para obter mais informações, consulte {% if enterpriseServerVersions contains currentVersion %}"[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" e {% endif %}"[Administração de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
 
 {% else %}
 

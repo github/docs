@@ -62,7 +62,7 @@ A publicação de uma consultor de segurança elimina a bifurcação privada tem
 4. Na lista "consultoria de segurança", clique na consultoria de segurança que deseja publicar. ![Consultoria de segurança na lista](/assets/images/help/security/security-advisory-in-list.png)
 5. Na parte inferior da página, clique em **Publicar consultoria**. ![Botão Publish advisory (Publicar consultoria)](/assets/images/help/security/publish-advisory-button.png)
 
-### {% data variables.product.prodname_dependabot_alerts %} para consultoria de segurança publicada
+### {% data variables.product.prodname_dependabot_alerts %} para o aviso de segurança publicado
 
 {% data reusables.repositories.github-reviews-security-advisories %}
 

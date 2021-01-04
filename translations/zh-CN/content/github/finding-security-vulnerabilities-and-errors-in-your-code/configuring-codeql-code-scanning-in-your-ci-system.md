@@ -95,7 +95,7 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 
 默认情况下，当您运行 `analyze` 命令时，{% data variables.product.prodname_codeql_runner %} 上传来自 {% data variables.product.prodname_code_scanning %} 的结果。 您也可以使用 `upload` 命令单独上传 SARIF 文件。
 
-上传数据后，{% data variables.product.prodname_dotcom %} 将在您的仓库中显示警报。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
+上传数据后，{% data variables.product.prodname_dotcom %} 将在您的仓库中显示警报。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
 
 ### {% data variables.product.prodname_codeql_runner %} 命令引用
 

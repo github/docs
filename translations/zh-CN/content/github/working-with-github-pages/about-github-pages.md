@@ -150,4 +150,4 @@ MIME 类型是服务器发送到浏览器的标头，提供有关浏览器所请
 ### 延伸阅读
 
 - {% data variables.product.prodname_learning %} 上的 [{% data variables.product.prodname_pages %}](https://lab.github.com/githubtraining/github-pages)
-- "[{% data variables.product.prodname_pages %}](/v3/repos/pages)"
+- "[{% data variables.product.prodname_pages %}](/rest/reference/repos#pages)"
