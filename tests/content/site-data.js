@@ -75,7 +75,7 @@ describe('siteData module (English)', () => {
     expect(reusable.includes('1. ')).toBe(true)
   })
 
-  test.skip('encodes bracketed parentheticals to prevent them from becoming links', async () => {
+  test.skip('encodes bracketed parentheses to prevent them from becoming links', async () => {
     const reusable = get(data, 'ja.site.data.reusables.organizations.team_name')
     const expectation = `reusable should contain a bracket followed by a space. Actual value: ${reusable}`
     expect(reusable.includes(']&nbsp;('), expectation).toBe(true)
