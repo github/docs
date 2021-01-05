@@ -54,7 +54,7 @@ Repositories owned by an organization can grant more granular access. For more i
 
 ### Further reading
 
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-on-a-repository-owned-by-a-user-account)"
+- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
 - "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[Organizing members into teams](/articles/organizing-members-into-teams)"

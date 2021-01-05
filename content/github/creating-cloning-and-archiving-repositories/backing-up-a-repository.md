@@ -10,7 +10,7 @@ versions:
 ---
 {% if currentVersion == "free-pro-team@latest" %}
 
-To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/v3/migrations/)."
+To download an archive of your repository, you can use the API for user or organization migrations. For more information, see "[Migrations](/rest/reference/migrations)."
 {% else %}
 
 You can download and back up your repositories manually:
@@ -20,15 +20,15 @@ You can download and back up your repositories manually:
 
 When you clone a repository or wiki, only Git data, such as project files and commit history, is downloaded. You can use our API to export other elements of your {% data variables.product.product_name %} repository to your local machine:
 
-- [Issues](/v3/issues/#list-issues-for-a-repository)
-- [Pull requests](/v3/pulls/#list-pull-requests)
+- [Issues](/rest/reference/issues#list-issues-for-a-repository)
+- [Pull requests](/rest/reference/pulls#list-pull-requests)
 - [Forks](/rest/reference/repos#list-forks)
 - [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
 - [Milestones](/rest/reference/issues#list-milestones)
 - [Labels](/rest/reference/issues#list-labels-for-a-repository)
 - [Watchers](/rest/reference/activity#list-watchers)
 - [Stargazers](/rest/reference/activity#list-stargazers)
-- [Projects](/v3/projects/#list-repository-projects)
+- [Projects](/rest/reference/projects#list-repository-projects)
 {% endif %}
 
 Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).

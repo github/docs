@@ -1,1 +1,1 @@
-`organização` | `objeto` Cargas do webhook contêm o objeto da [`organização`](/v3/orgs/#get-an-organization) quando o webhook é configurado para uma organização ou o evento ocorre a partir da atividade em um repositório pertencente a uma organização.
+`organização` | `objeto` Cargas do webhook contêm o objeto da [`organização`](/rest/reference/orgs#get-an-organization) quando o webhook é configurado para uma organização ou o evento ocorre a partir da atividade em um repositório pertencente a uma organização.

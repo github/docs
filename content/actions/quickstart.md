@@ -60,8 +60,13 @@ Committing the workflow file in your repository triggers the `push` event and ru
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the **Lint code base** job.
+   ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
+{% else %}
 1. In the left sidebar, click the **Lint code base** job.
    ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
+{% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
 ### More starter workflows
@@ -103,7 +108,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
     # When the event is triggered, GitHub Actions will run the jobs indicated
     jobs:
       say_hello:
-        # Uses a ubuntu-lates runner to complete the requested steps
+        # Uses a ubuntu-latest runner to complete the requested steps
         runs-on: ubuntu-latest
         steps:
         - run: |
@@ -118,7 +123,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workfow you want to run.
+1. In the left sidebar, click the workflow you want to run.
    ![Select say hello job](/assets/images/help/repository/say-hello-job.png)
 1. On the right, click the **Run workflow** drop-down and click **Run workflow**. Optionally, you can enter a custom message into the "Person to greet" input before running the workflow.
    ![Trigger the manual workflow](/assets/images/help/repository/manual-workflow-trigger.png)

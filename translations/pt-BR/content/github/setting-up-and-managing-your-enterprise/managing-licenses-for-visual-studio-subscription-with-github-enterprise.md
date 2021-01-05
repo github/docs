@@ -3,6 +3,7 @@ title: Gerenciar licenças para a assinatura do Visual Studio com o GitHub Enter
 intro: 'Você pode gerenciar o licenciamento de {% data variables.product.prodname_enterprise %} para {% data variables.product.prodname_vss_ghe %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
+  - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
   - /github/articles/about-the-github-and-visual-studio-bundle
   - /articles/about-the-github-and-visual-studio-bundle
   - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
@@ -36,7 +37,7 @@ Para usar a parte de {% data variables.product.prodname_enterprise %} da licenç
 
 Depois de atribuir uma licença para {% data variables.product.prodname_vss_ghe %} em {% data variables.product.prodname_vss_admin_portal_with_url %}, você pode visualizar o número de licenças de {% data variables.product.prodname_enterprise %} disponíveis para a sua conta corporativa. Para obter mais informações, consulte "[Exibir a assinatura e o uso de sua conta corporativa](/github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account)".
 
-Você também pode ver convites pendentes de {% data variables.product.prodname_enterprise %} para inscritos em {% data variables.product.prodname_vss_admin_portal_with_url %}. A lista de convites pendentes inclui assinantes que ainda não são integrantes de pelo menos uma organização na sua conta corporativa. For more information, see "[Viewing people in your enterprise](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)."
+Você também pode ver convites pendentes de {% data variables.product.prodname_enterprise %} para inscritos em {% data variables.product.prodname_vss_admin_portal_with_url %}. A lista de convites pendentes inclui assinantes que ainda não são integrantes de pelo menos uma organização na sua conta corporativa. Para obter mais informações, consulte "[Visualizar pessoas na sua empresa](/github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators)".
 
 ### Leia mais
 

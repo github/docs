@@ -1,3 +1,3 @@
-1. アプリケーションサーバーから、`github/insights-releases`の[リリースページ](https://github.com/github/insights-releases/releases/latest)上の最新の{% data variables.product.prodname_insights %}リリースにアクセスしてください。
+1. From the application server, navigate to the latest release of {% data variables.product.prodname_insights %} on the Releases page for `github/insights-releases`.
 2. 最新のリリースをダウンロードするために、"Assets（アセット）"の下の`insights-VERSION.tar.gz`をクリックしてください。 ![アセットのインストール](/assets/images/help/insights/installation-tgz.png)
 3. ディレクトリをUnzipしてください。

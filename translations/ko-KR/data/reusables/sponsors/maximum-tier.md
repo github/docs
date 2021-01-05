@@ -1,1 +1,1 @@
-The maximum price is US$6000 per month.
+The maximum price is US$12,000 per month.

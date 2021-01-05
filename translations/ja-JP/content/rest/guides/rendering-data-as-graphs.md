@@ -232,7 +232,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 ]
 ```
 
-すでに上記でリポジトリのリストを取得しているので、それぞれを調べて、[言語をリスト化するAPIメソッド][language API]を呼びましょう。
+すでに上記でリポジトリのリストを取得しているので、それぞれを調べて、[言語をリスト化するAPIメソッド][language API]を呼び出しましょう。
 
 ``` ruby
 repos.each do |repo|
@@ -241,7 +241,7 @@ repos.each do |repo|
 end
 ```
 
-From there, we'll cumulatively add each language found to a list of languages:
+そこから、見つかった各言語を言語のリストに次々に追加していきます。
 
 ``` ruby
 repo_langs.each do |lang, count|
@@ -333,7 +333,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json, :language_byte_cou
 [Octokit]: https://github.com/octokit/octokit.rb
 [D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
 [D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /v3/repos/#list-repository-languages
-[language API]: /v3/repos/#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
+[language API]: /rest/reference/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
 [new oauth application]: https://github.com/settings/applications/new

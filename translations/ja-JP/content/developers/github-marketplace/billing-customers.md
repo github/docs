@@ -13,19 +13,19 @@ versions:
 
 ### 支払いを理解する
 
-顧客は、アプリケーションの購入時に月次あるいは年次の支払いサイクルを選択できます。 顧客が行う支払いサイクルとプランの選択に対するすべての変更は、`marketplace_purchase`イベントを発生させます。 `marketplace_purchase` webhookのペイロードを参照すれば、顧客がどの支払いサイクルを選択したのか、そして次の支払日がいつ始まるのか（`effective_date`）を知ることができます。 webhookのペイロードに関する詳しい情報については「[{% data variables.product.prodname_marketplace %}のwebhookイベント](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)」を参照してください。
+顧客は、アプリケーションの購入時に月次あるいは年次の支払いサイクルを選択できます。 顧客が行う支払いサイクルとプランの選択に対するすべての変更は、`marketplace_purchase`イベントを発生させます。 `marketplace_purchase` webhookのペイロードを参照すれば、顧客がどの支払いサイクルを選択したのか、そして次の支払日がいつ始まるのか（`effective_date`）を知ることができます。 webhookのペイロードに関する情報については、「[{% data variables.product.prodname_marketplace %} APIのwebhookイベント](/developers/github-marketplace/webhook-events-for-the-github-marketplace-api)」を参照してください。
 
 ### アプリケーションのUIにおける支払いサービスの提供
 
-アプリケーションのWebサイトでは、顧客が以下のアクションを行えなければなりません。
-- 顧客は個人及びOrganizationアカウントで別々に{% data variables.product.prodname_marketplace %}のプランを変更したりキャンセルしたりできなければなりません。
+アプリケーションのWebサイトからは、顧客が以下のアクションを行えなければなりません。
+- 顧客は、個人とOrganizationのアカウントで別々に{% data variables.product.prodname_marketplace %}のプランを変更したり、キャンセルしたりできなければなりません。
 {% data reusables.marketplace.marketplace-billing-ui-requirements %}
 
 ### アップグレード、ダウングレード、キャンセルのための支払いサービス
 
-明確で一貫性のある支払いプロセスを保つために、アップグレード、ダウングレード、キャンセルについて以下のガイドラインに従ってください。 {% data variables.product.prodname_marketplace %}の購入イベントに関する詳細な手順については「[支払いのフロー](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)」を参照してください。
+明確で一貫性のある支払いプロセスを保つために、アップグレード、ダウングレード、キャンセルについて以下のガイドラインに従ってください。 {% data variables.product.prodname_marketplace %}の購入イベントに関する詳細な指示については、「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
-`marketplace_purchase` webhookの`effective_date`キーを使えば、プランの変更がいつ生じるのかを確認し、定期的に[プランのアカウントのリスト](/v3/apps/marketplace/#list-accounts-for-a-plan)を同期できます。
+`marketplace_purchase` webhookの`effective_date`キーを使えば、プランの変更がいつ生じるのかを確認し、定期的に[プランのアカウントのリスト](/rest/reference/apps#list-accounts-for-a-plan)を同期できます。
 
 #### アップグレード
 
@@ -33,7 +33,7 @@ versions:
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-アプリケーションへのアップグレードやダウングレードのワークフローの構築に関する情報については「[プランのアップグレード及びダウングレード](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/)」を参照してください。
+アプリケーションでのアップグレード及びダウングレードワークフローの構築に関する情報については、「[プラン変更の処理](/developers/github-marketplace/handling-plan-changes)」を参照してください。
 
 #### ダウングレードとキャンセル
 
@@ -45,4 +45,4 @@ versions:
   {% data reusables.marketplace.cancellation-clarification %}
 - 顧客が後でプランを継続したくなった場合には、GitHubを通じてプランをアップグレードできるようにします。
 
-アプリケーションへのキャンセルのワークフローの構築に関する情報については「[プランのキャンセル](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)」を参照してください。
+アプリケーションでのキャンセルのワークフローの構築に関する情報については、「[プランのキャンセルの処理](/developers/github-marketplace/handling-plan-cancellations)」を参照してください。

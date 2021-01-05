@@ -37,7 +37,7 @@ versions:
 
 {% data variables.product.prodname_github_connect %} を有効化しても、{% data variables.product.prodname_dotcom_the_website %} のユーザは {% data variables.product.prodname_ghe_server %} を変更できるようになりません。
 
-GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/v4/guides/managing-enterprise-accounts)」を参照してください。
+GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/graphql/guides/managing-enterprise-accounts)」を参照してください。
 ### {% data variables.product.prodname_github_connect %} の有効化
 
 1. まず、

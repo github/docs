@@ -1,6 +1,6 @@
 ---
 title: 查找代码中的安全漏洞和错误
-shortTitle: Finding vulnerabilities and coding errors
+shortTitle: 查找漏洞和编码错误
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code

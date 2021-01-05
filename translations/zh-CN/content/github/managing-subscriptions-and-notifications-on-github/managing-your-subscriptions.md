@@ -11,7 +11,7 @@ versions:
 
 {% note %}
 
-**注：**您可以选择忽略仓库，而不取消订阅。 如果忽略仓库，将不会收到任何通知。 我们不建议忽略仓库，因为这样您被@提及时将不会收到通知。 {% if currentVersion == "free-pro-team@latest" %}If you're experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {% data reusables.policies.abuse %}{% endif %}
+**注：**您可以选择忽略仓库，而不取消订阅。 如果忽略仓库，将不会收到任何通知。 我们不建议忽略仓库，因为这样您被@提及时将不会收到通知。 {% if currentVersion == "free-pro-team@latest" %}如果您遇到滥用并且想忽略某个仓库，请联系 {% data variables.contact.contact_support %} 获取帮助。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ versions:
 
 {% data reusables.notifications.access_notifications %}
 1. 从通知收件箱中选择您想要取消订阅的通知。
-2. Use the **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} drop-down to click **Unsubscribe.** ![主收件箱中的取消订阅选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. 使用 **selected（已选择）** {% octicon "triangle-down" aria-label="The down triangle icon" %} 下拉列表单击 **Unsubscribe（取消订阅）**。 ![主收件箱中的取消订阅选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### 从订阅页面取消订阅通知
 
@@ -55,6 +55,13 @@ versions:
 {% data reusables.notifications.access_notifications %}
 1. 在左侧边栏中的仓库列表下，使用“Manage notifications（管理通知）”下拉按钮单击 **Watched repositories（已关注的仓库）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
     - 取消关注仓库
     - 只关注某仓库的发行版
     - 忽略某仓库的所有通知
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}
+    - 取消关注仓库
+    - 忽略某仓库的所有通知
+    - 自定义接收通知的事件类型（议题、拉取请求、发布或讨论，如有启用）
+{% endif %}

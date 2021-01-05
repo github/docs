@@ -1,6 +1,6 @@
 ---
 title: Habilitar restrições de branch
-intro: 'You can enforce branch restrictions so that only certain users, teams, or apps can push to a protected branch in repositories owned by your organization.'
+intro: 'Você pode impor restrições de branch para que apenas alguns usuários, equipes ou aplicativos possam fazer push em um branch protegido em repositórios pertencentes à sua organização.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/enabling-branch-restrictions

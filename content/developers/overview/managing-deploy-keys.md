@@ -44,7 +44,9 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 * Users don't have to change their local SSH settings.
 * Multiple tokens (one for each user) are not needed; one token per server is enough.
 * A token can be revoked at any time, turning it essentially into a one-use password.
+{% if enterpriseServerVersions contains currentVersion %}
 * Generating new tokens can be easily scripted using [the OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization).
+{% endif %}
 
 ##### Cons
 

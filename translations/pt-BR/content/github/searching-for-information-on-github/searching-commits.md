@@ -96,14 +96,11 @@ Para pesquisar commits em todos os repositórios de um determinado usuário ou o
 | <code>org:<em>ORGNAME</em></code> | [**test org:github**](https://github.com/search?utf8=%E2%9C%93&q=test+org%3Agithub&type=Commits) identifica as mensagens do commit com a palavra "test" nos repositórios de @github.                                                  |
 | <code>repo:<em>USERNAME/REPO</em></code> | [**language repo:defunkt/gibberish**](https://github.com/search?utf8=%E2%9C%93&q=language+repo%3Adefunkt%2Fgibberish&type=Commits) identifica as mensagens do commit com a palavra "language" no repositório "gibberish" de @defunkt. |
 
-### Filtrar repositórios públicos ou privados
+### Filtrar por visibilidade do repositório
 
-O qualificador `is` identifica commits públicos ou privados.
+O qualificador `is` corresponde a commits dos repositórios com a visibilidade especificada. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility).
 
-| Qualifier    | Exemplo                                                                                                 |
-| ------------ | ------------------------------------------------------------------------------------------------------- |
-| `is:public`  | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) identifica os commits públicos.   |
-| `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) identifica os commits privados. |
+| Qualificador | Exemplo | ------------- | ------------- |{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) corresponde aos dos repositórios públicos.{% endif %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) corresponde aos commits dos repositórios internos. | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) corresponde aos commits dos repositórios privados.
 
 ### Leia mais
 

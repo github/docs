@@ -1,5 +1,4 @@
 const { get } = require('lodash')
-const env = require('lil-env-thing')
 const { liquid } = require('../lib/render-content')
 const patterns = require('../lib/patterns')
 const layouts = require('../lib/layouts')
@@ -66,7 +65,7 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // `?json` query param for debugging request context
-  if ('json' in req.query && !env.production) {
+  if ('json' in req.query && process.env.NODE_ENV !== 'production') {
     if (req.query.json.length > 1) {
       // deep reference: ?json=page.permalinks
       return res.json(get(context, req.query.json))

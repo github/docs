@@ -27,10 +27,18 @@ versions:
 
 ### 身份验证和密码
 
-{% data variables.product.prodname_dotcom %} 提供一个令牌，可用于代表 {% data variables.product.prodname_actions %} 进行身份验证。 您还可以将敏感信息作为密码存储在组织或仓库中。 {% data variables.product.prodname_dotcom %} 对所有密码加密。
+{% data variables.product.prodname_dotcom %} 提供一个令牌，可用于代表 {% data variables.product.prodname_actions %} 进行身份验证。 您还可以将敏感信息存储在您的组织{% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@3. %}、仓库或者环境{% else %} 或仓库{% endif %} 中。 {% data variables.product.prodname_dotcom %} 对所有密码加密。
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### 环境
+
+工作流程作业可以引用具有保护规则或环境特定机密的环境。
+
+{% link_in_list /environments %}
+{% endif %}
 
 ### {% data variables.product.prodname_dotcom %} 托管的运行器
 

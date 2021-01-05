@@ -7,12 +7,15 @@ versions:
   free-pro-team: '*'
 ---
 
+{% data reusables.sponsors.org-sponsors-release-phase %}
+
+### Sobre atualizações de patrocínio
+
 Quando você atualiza a camada do patrocínio, a alteração entra em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing %}
-{% data reusables.user_settings.subscriptions-tab %}
-{% data reusables.sponsors.change-tier %}
-4. No lado direito da página, próximo ao nível selecionado, clique em **Edit** (Editar). ![Botão Edit tier (Editar nível)](/assets/images/help/billing/edit-tier-button.png)
+### Atualizar um patrocínio
+
+{% data reusables.sponsors.navigate-to-sponsored-account %}
+{% data reusables.sponsors.sponsorship-dashboard %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.update-sponsorship %}

@@ -23,7 +23,7 @@ versions:
 
 大多数访问资源列表（_例如_，用户、议题_等_）的 API 调用都支持分页。 如果您发出了请求但收到了不完整的结果集，您可能只看到第一页。 您需要请求剩余的页面以获取更多结果。
 
-*切勿*尝试和猜测分页 URL 的格式。 并非每个 API 调用都使用相同的结构。 您应该从随每个请求一起发送的[链接标头](/v3/#pagination)中提取分页信息。
+*切勿*尝试和猜测分页 URL 的格式。 并非每个 API 调用都使用相同的结构。 您应该从随每个请求一起发送的[链接标头](/rest#pagination)中提取分页信息。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 基本身份验证错误
@@ -52,7 +52,7 @@ curl -H 'Authorization: token my-oauth-token' https://api.github.com/user/repos
 
 #### 调用 OAuth 授权 API
 
-如果要调用 [OAuth 授权 API](/enterprise-server@2.22/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
+如果要调用 [OAuth 授权 API](/enterprise-server/rest/reference/oauth-authorizations) 来管理 OAuth 应用的授权或生成访问令牌，类似于以下示例：
 
 ```bash
 curl -u my_username:my_password -X POST "https://api.github.com/authorizations" -d '{"scopes":["public_repo"], "note":"my token", "client_id":"my_client_id", "client_secret":"my_client_secret"}'

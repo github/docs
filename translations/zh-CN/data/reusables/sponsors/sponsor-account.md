@@ -1,0 +1,1 @@
+1. Click **Sponsor _ACCOUNT_**. ![赞助按钮](/assets/images/help/sponsors/sponsor-developer-button.png)
