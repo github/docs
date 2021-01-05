@@ -25,6 +25,8 @@ The following table shows, for each package manager, whether {% data variables.p
 
 -`yarn` (apenas v1) (especifique `npm`)
 
+-`.gradle.kts` files, for Kotlin projects (specify `gradle`)
+
 -`pipenv`, `pip-compile` e `poetry` (especifique `pip`)
 
 Por exemplo, se você usa o `poetry` para gerenciar suas dependências do Python e quer que {% data variables.product.prodname_dependabot %} monitore seu arquivo de manifesto de dependência para novas versões, use `pacote-ecosystem: "pip"` no seu arquivo *dependabot.yml*.

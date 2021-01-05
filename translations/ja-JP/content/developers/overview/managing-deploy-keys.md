@@ -43,7 +43,9 @@ SSHキーを使いたくないなら、[OAuthトークンでHTTPS][git-automatio
 * ユーザはローカルのSSH設定を変更する必要がない。
 * 複数のトークン（ユーザごと）が必要ない。サーバーごとに1つのトークンで十分。
 * トークンはいつでも取り消しできるので、本質的には使い捨てのパスワードにすることができる。
+{% if enterpriseServerVersions contains currentVersion %}
 * 新しいトークンの作成は、[OAuth API](/rest/reference/oauth-authorizations#create-a-new-authorization)を使って容易にスクリプト化できる。
+{% endif %}
 
 ##### 短所
 

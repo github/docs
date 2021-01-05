@@ -40,7 +40,7 @@ Para que os proprietários do código recebam solicitações de revisão, o arqu
 
 ### Sintaxe de CODEOWNERS
 
-A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Você também pode consultar um usuário por um endereço de e-mail que tenha sido adicionado à respectiva conta do {% data variables.product.product_name %}, por exemplo `user@example.com`.
+Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usadas nos arquivos [gitignore](https://git-scm.com/docs/gitignore#_pattern_format), com [algumas exceções](#syntax-exceptions). O padrão é seguido por um ou mais nomes de usuário ou nomes de equipe do {% data variables.product.prodname_dotcom %} usando o formato padrão `@username` ou `@org/team-name`. Você também pode consultar um usuário por um endereço de e-mail que tenha sido adicionado à respectiva conta do {% data variables.product.product_name %}, por exemplo `user@example.com`.
 
 Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
 #### Exemplo de um arquivo CODEOWNERS
@@ -84,11 +84,11 @@ apps/ @octocat
 # subdirectories.
 /docs/ @doctocat
 ```
-#### Syntax exceptions
-There are some syntax rules for gitignore files that do not work in CODEOWNERS files:
-- Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
-- Using `!` to negate a pattern
-- Using `[ ]` to define a character range
+#### Exceções de sintaxe
+Existem algumas regras de sintaxe para arquivos gitignore que não funcionam em arquivos CODEOWNERS:
+- Fugir de um padrão que começa com `#` usando `\` para que seja tratado como um padrão e não como um comentário
+- Usar `!` para negar um padrão
+- Usar `[ ]` para definir um intervalo de caracteres
 
 
 

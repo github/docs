@@ -16,7 +16,7 @@ versions:
 
 ## ディスカッション
 
-Team ディスカッション API を使用すると、Team のページに投稿されたディスカッションを取得、作成、編集、削除できます。 Team のディスカッションは、リポジトリやプロジェクトに原生されない会話をするために利用できます。 Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッション投稿を作成や表示できます。 The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. To learn more about commenting on a discussion post, see the [team discussion comments API](/rest/reference/teams#discussion-comments). この API は、Team の Organization の、認証済みメンバーのみが利用できます。
+Team ディスカッション API を使用すると、Team のページに投稿されたディスカッションを取得、作成、編集、削除できます。 Team のディスカッションは、リポジトリやプロジェクトに原生されない会話をするために利用できます。 Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッション投稿を作成や表示できます。 The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. ディスカッションの投稿に対するコメントの詳細については、「[Team ディスカッションのコメント API](/rest/reference/teams#discussion-comments)」を参照してください。 この API は、Team の Organization の、認証済みメンバーのみが利用できます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}

@@ -46,11 +46,11 @@ versions:
 
 以下のワークフローの例では、Dockerの`build-push-action`アクションを使ってDockerイメージをビルドし、ビルドが成功すれば構築されたイメージをDocker Hubにプッシュします。
 
-Docker Hubにプッシュするためには、Docker Hubのアカウントを持っており、Docker Hubのレジストリを作成していなければなりません。 詳しい情報についてはDockerのドキュメンテーション中の「[Share images on Docker Hub](https://docs.docker.com/get-started/part3/)」を参照してください。
+Docker Hubにプッシュするためには、Docker Hubのアカウントを持っており、Docker Hubのレジストリを作成していなければなりません。 For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 Docker Hubに必要な`build-push-action`のオプションは以下のとおりです。
 
-* `username`及び`password`: Docker Hubのユーザ名とパスワードです。 We recommend storing your Docker Hub username and password as encrypted secrets in your {% data variables.product.prodname_dotcom %} repository so they aren't exposed in your workflow file. 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+* `username`及び`password`: Docker Hubのユーザ名とパスワードです。 We recommend storing your Docker Hub username and password as secrets so they aren't exposed in your workflow file. 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 * `repository`: `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`フォーマットでのDocker Hubのリポジトリ。
 
 {% raw %}

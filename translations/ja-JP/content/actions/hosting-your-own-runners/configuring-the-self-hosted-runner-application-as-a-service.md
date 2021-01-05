@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+defaultPlatform: linux
 ---
 
 {% data variables.product.prodname_actions %} の支払いを管理する
