@@ -8,7 +8,7 @@ GitHub.
 Test are written using [jest](https://ghub.io/jest), a framework maintained
 by Facebook and used by many teams at GitHub. Jest is convenient in that it
 provides everything: a test runner, an assertion library, code coverage analysis,
-custom reporters for diferent types of test output, etc.
+custom reporters for different types of test output, etc.
 
 ### Running all the tests
 

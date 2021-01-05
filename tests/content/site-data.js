@@ -84,9 +84,9 @@ describe('siteData module (English)', () => {
   test('warn if any YAML reusables are found', async () => {
     const reusables = require('walk-sync')(path.join(__dirname, '../../data/reusables'))
     expect(reusables.length).toBeGreaterThan(100)
-    const yamlResuables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
-    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlResuables.join('\n')}`
-    expect(yamlResuables.length, message).toBe(0)
+    const yamlReusables = reusables.filter(filename => filename.endsWith('.yml') || filename.endsWith('.yaml'))
+    const message = `reusables are now written as individual Markdown files. Please migrate the following YAML files to Markdown:\n${yamlReusables.join('\n')}`
+    expect(yamlReusables.length, message).toBe(0)
   })
 
   test('all non-English data has matching English data', async () => {
