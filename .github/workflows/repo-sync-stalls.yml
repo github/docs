@@ -38,8 +38,8 @@ jobs:
 
             // Remove all pull requests that don't have the 
             // 'automated-reposync-pr' label
-            pulls = pulls.filter(pr =>
-              pr.data.labels.some(label => label.name === 'automated-reposync-pr')
+            pulls.data = pulls.data.filter(pr =>
+              pr.labels.some(label => label.name === 'automated-reposync-pr')
             )
 
             // Search for pull requests that have been open too long
