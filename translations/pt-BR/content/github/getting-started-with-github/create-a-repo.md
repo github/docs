@@ -16,7 +16,7 @@ Você pode armazenar vários projetos nos repositórios do {% data variables.pro
 
 {% elsif enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-You can store a variety of projects in {% data variables.product.product_name %} repositories, including innersource projects. With innersource, you can share code to make better, more reliable software. For more information on innersource, see {% data variables.product.company_short %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+Você pode armazenar uma série de projetos em repositórios de {% data variables.product.product_name %}, incluindo projetos de innersource. Com o innersource, você pode compartilhar código para criar um software melhor e mais confiável. Para obter mais informações sobre innersource, consulte o whitepaper de {% data variables.product.company_short %}"[Uma introdução ao innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)".
 
 {% endif %}
 

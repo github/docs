@@ -99,4 +99,4 @@ versions:
 ### 延伸阅读
 
 - "[管理仓库](/insights/installing-and-configuring-github-insights/managing-repositories)"
-- [{% data variables.product.prodname_insights %} 和组织的数据保护](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} 和组织的数据保护</a>"

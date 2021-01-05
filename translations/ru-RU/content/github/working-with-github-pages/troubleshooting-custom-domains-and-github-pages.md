@@ -39,11 +39,7 @@ Make sure your site does not:
 - Use more than one `www` subdomain. For example, both `www.example.com` and `www.anotherexample.com`.
 - Use both an apex domain and custom subdomain. For example, both `example.com` and `docs.example.com`.
 
-{% warning %}
-
-**Warning:** We strongly recommend not using wildcard DNS records, such as `*.example.com`. A wildcard DNS record will allow anyone to host a {% data variables.product.prodname_pages %} site at one of your subdomains.
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 For a list of supported custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)."
 
