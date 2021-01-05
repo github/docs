@@ -26,6 +26,10 @@ featuredLinks:
     - /actions/reference/environment-variables
 changelog:
   - 
+    title: 工作流程可视化
+    date: '2020-12-08'
+    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
+  - 
     title: 11 月 16 日删除 set-env 和 add-path 命令
     date: '2020-11-09'
     href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
@@ -33,14 +37,6 @@ changelog:
     title: Ubuntu-latest 工作流程将使用 Ubuntu-20.04
     date: '2020-10-29'
     href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
-  - 
-    title: MacOS Big Sur 预览
-    date: '2020-10-29'
-    href: https://github.blog/changelog/2020-10-29-github-actions-macos-big-sur-preview
-  - 
-    title: 自托管运行器组访问权限更改
-    date: '2020-10-16'
-    href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/

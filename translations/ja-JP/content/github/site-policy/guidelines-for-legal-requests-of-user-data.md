@@ -162,8 +162,6 @@ GitHub, Inc. c/o Corporation Service Company
 Sacramento, CA 95833-3505
 ```
 
-また、legal@support.github.com に写しを送信することもできます。
-
 要求を送る際は、次の情報を含めて、できるだけ具体的かつ範囲を絞った内容にしてください。
 
 - 情報の要求を発行する機関に関する完全な情報

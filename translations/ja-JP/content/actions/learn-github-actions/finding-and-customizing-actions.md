@@ -76,7 +76,7 @@ steps:
 
 #### ブランチの使用
 
-特定のブランチを参照するということは、アクションが常にターゲットブランチの最新の更新を含み使用することを示しますが、それらの更新に重大な変更が含まれる場合、問題が発生する可能性があります。 この例では、`@main` という名前のブランチを対象としています。
+Referring to a specific branch means that the action will always use the latest updates on the target branch, but can create problems if those updates include breaking changes. この例では、`@main` という名前のブランチを対象としています。
 
 ```yaml
 steps:
