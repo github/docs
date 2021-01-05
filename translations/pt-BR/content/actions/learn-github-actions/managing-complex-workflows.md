@@ -1,7 +1,7 @@
 ---
 title: Gerenciar fluxos de trabalhos complexos
 shortTitle: Gerenciar fluxos de trabalhos complexos
-intro: 'Este aba mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, armazenamento em cache, criação de matrizes e etiquetas.'
+intro: 'Este guia mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredo, trabalhos dependentes, cache, matrizes de compilação{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ambientes,{% endif %} e etiquetas.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -147,6 +147,12 @@ jobs:
 ```
 
 Para obter mais informações, consulte  ["Usar etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Usar ambientes
+
+Você pode configurar ambientes com regras de proteção e segredos. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Ambientes](/actions/reference/environments)".
+{% endif %}
 
 ### Próximas etapas
 

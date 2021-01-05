@@ -163,8 +163,6 @@ c/o Corporation Service Company
 Sacramento, CA 95833-3505, USA.
 ```
 
-Sie können auch eine Kopie an legal@support.github.com senden.
-
 Bitte formulieren Sie Ihre Wünsche so spezifisch und begrenzt wie möglich, einschließlich der folgenden Informationen:
 
 - Vollständige Informationen über die Behörde, die die Anfrage ausstellt
