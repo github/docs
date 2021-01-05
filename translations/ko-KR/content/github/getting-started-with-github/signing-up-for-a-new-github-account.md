@@ -1,5 +1,6 @@
 ---
 title: Signing up for a new GitHub account
+shortTitle: Sign up for a new GitHub account
 intro: '{% data variables.product.product_name %} offers user accounts for individuals and organizations for teams of people working together.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
@@ -9,9 +10,8 @@ versions:
 
 For more information about account types and products, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)" and "[{% data variables.product.product_name %}'s products](/articles/github-s-products)."
 
-1. Go to {% data variables.product.product_name %}'s [Pricing]({% data variables.product.pricing_url %}) page.
-2. Read the information about the different products and subscriptions that {% data variables.product.product_name %} offers, then click the upgrade button under the subscription you'd like to choose.
-3. Follow the prompts to create your personal account or organization.
+{% data reusables.accounts.create-account %}
+1. Follow the prompts to create your personal account or organization.
 
 ### 다음 단계
 

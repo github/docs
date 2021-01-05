@@ -45,16 +45,16 @@ Um die URL des lokalen Repositorys zu ermitteln, öffne die Befehlszeile und gib
 ```shell
 $ git remote -v
 # Zeigt vorhandene Remote-Repositorys an
-> origin  https://github.com/github/reactivecocoa.git (fetch)
-> origin  https://github.com/github/reactivecocoa.git (push)
+> origin  https://github.com/ghost/reactivecocoa.git (fetch)
+> origin  https://github.com/ghost/reactivecocoa.git (push)
 
-$ git remote set-url origin https://github.com/github/ReactiveCocoa.git
+$ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Ändert die origin-Remote-URL
 
 $ git remote -v
 # Überprüft die neue Remote-URL
-> origin  https://github.com/github/ReactiveCocoa.git (fetch)
-> origin  https://github.com/github/ReactiveCocoa.git (push)
+> origin  https://github.com/ghost/ReactiveCocoa.git (fetch)
+> origin  https://github.com/ghost/ReactiveCocoa.git (push)
 ```
 
 Alternativ können Sie die URL auch über unsere [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)-Anwendung ändern.

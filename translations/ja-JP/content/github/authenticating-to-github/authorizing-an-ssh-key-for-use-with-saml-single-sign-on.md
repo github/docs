@@ -20,7 +20,7 @@ versions:
 {% data reusables.user_settings.ssh %}
 3. 認可したい SSH キーの隣の [**Enable SSO**] (SSO を有効化) または [**Disable SSO**] (SSOを無効化) をクリックします。 ![SSO トークン認可ボタン](/assets/images/help/settings/ssh-sso-button.png)
 4. SSH キーを認可する Organization を見つけます。
-5. Click **Authorize**. ![トークン認可ボタン](/assets/images/help/settings/ssh-sso-authorize.png)
+5. [**Authorize**] をクリックします。 ![トークン認可ボタン](/assets/images/help/settings/ssh-sso-authorize.png)
 
 ### 参考リンク
 
