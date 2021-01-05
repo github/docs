@@ -36,6 +36,7 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 - Databricks
 - Datadog
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity
@@ -79,6 +80,8 @@ Quando o {% data variables.product.prodname_secret_scanning %} detecta um segred
 
 Os administradores do repositório e proprietários da organização podem conceder acesso a alertas de {% data variables.product.prodname_secret_scanning %} aos usuários e à equipe. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)".
 
+To monitor results from {% data variables.product.prodname_secret_scanning %} across your private repositories or your organization, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
+
 O {% data variables.product.product_name %} atualmente verifica repositórios públicos para encontrar segredos emitidos pelos seguintes provedores de serviços.
 
 - Adafruit
@@ -90,6 +93,7 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 - CloudBees CodeShip
 - Databricks
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity

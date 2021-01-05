@@ -1,5 +1,5 @@
 {% note %}
 
-**Nota:** O ambiente virtual do MacOS 11.0 é atualmente fornecido apenas como visualização. A etiqueta do fluxo de trabalho do YAML `macos-latest` ainda usa o ambiente virtual do MacOS 10.15.
+**Note:** The macOS 11.0 virtual environment is currently provided as a preview only. The `macos-latest` YAML workflow label still uses the macOS 10.15 virtual environment.
 
 {% endnote %}

@@ -108,8 +108,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-![工作流程上传构件工作流程运行的图像](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### 配置自定义构件保留期
 
@@ -238,7 +236,12 @@ jobs:
           echo The result is $value
 ```
 
+工作流程运行运行将会存档它生成的任何构件。 有关下载存档的构件的更多信息，请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”。
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![要在作业之间传递数据以执行数学工作流程](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

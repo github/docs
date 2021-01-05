@@ -58,6 +58,16 @@ The current version of your enterprise is returned in the response header of eve
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
+
+## Log de auditoria
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 ## Cobrança
 
 {% for operation in currentRestOperations %}

@@ -51,6 +51,7 @@ Form and inputs using .ais- prefix gets added by Algolia InstantSearch.js */
 
 .ais-Hits-item {
   list-style: none;
+  overflow: hidden;
 
   &:hover {
     background: $blue-000;
