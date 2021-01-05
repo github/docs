@@ -8,7 +8,7 @@ describe('find page', () => {
   jest.setTimeout(1000 * 1000)
 
   test('falls back to the English page if it can\'t find a localized page', async () => {
-    const page = new Page({
+    const page = await Page.init({
       relativePath: 'page-that-does-not-exist-in-translations-dir.md',
       basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'en'
@@ -24,7 +24,7 @@ describe('find page', () => {
   })
 
   test('follows redirects', async () => {
-    const page = new Page({
+    const page = await Page.init({
       relativePath: 'page-with-redirects.md',
       basePath: path.join(__dirname, '../fixtures'),
       languageCode: 'en'

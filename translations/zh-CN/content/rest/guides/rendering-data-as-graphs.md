@@ -232,7 +232,7 @@ erb :lang_freq, :locals => { :languages => languages.to_json}
 ]
 ```
 
-Since we already have a list of repositories above, let's inspect each one, and call [the language listing API method][language API]:
+我们在前面已经获取了仓库列表，现在我们来检查每个仓库，然后调用[语言列表 API 方法][language API]：
 
 ``` ruby
 repos.each do |repo|
@@ -264,7 +264,7 @@ end
 language_bytes = [ :name => "language_bytes", :elements => language_byte_count]
 ```
 
-(For more information on D3 tree map magic, check out [this simple tutorial][language API].)
+（有关 D3 树图魔方的更多信息，请查看[这个简单教程][language API]。）
 
 最后，我们将这些 JSON 信息传递到同一个 ERB 模板：
 

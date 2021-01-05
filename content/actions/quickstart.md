@@ -60,8 +60,13 @@ Committing the workflow file in your repository triggers the `push` event and ru
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the **Lint code base** job.
+   ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
+{% else %}
 1. In the left sidebar, click the **Lint code base** job.
    ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
+{% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
 ### More starter workflows

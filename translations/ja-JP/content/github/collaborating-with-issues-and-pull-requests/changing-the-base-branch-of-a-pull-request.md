@@ -23,7 +23,7 @@ versions:
 
 {% tip %}
 
-**Tip:** When you open a pull request, {% data variables.product.product_name %} will set the base to the commit that branch references. If the branch is updated in the future, {% data variables.product.product_name %} will not update the base branch's commit.
+**参考:** プルリクエストを開くと、{% data variables.product.product_name %} はそのブランチが参照するコミットにベースを設定します。 ブランチが今後更新される場合、{% data variables.product.product_name %} はベースブランチのコミットを更新しません。
 
 {% endtip %}
 

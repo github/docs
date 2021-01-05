@@ -15,7 +15,7 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. ジョブの概要の下で、ジョブの実行時間を表示できます。 請求対象となるジョブの実行時間を表示するには、[**Run and billable time details**] をクリックします。 ![実行および支払請求可能な時間の詳細リンク](/assets/images/help/repository/view-run-billable-time.png)
+1. ジョブの概要の下で、ジョブの実行時間を表示できます。 To view details about the billable job execution time, click the time under **Billable time**. ![実行および支払請求可能な時間の詳細リンク](/assets/images/help/repository/view-run-billable-time.png)
 
    {% note %}
 

@@ -24,7 +24,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
   ```
   {% note %}
 
-  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  **注釈:** Ed25519 アルゴリズムをサポートしないレガシーシステムを使用している場合は、以下を使用します。
   ```shell
    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
   ```
@@ -89,7 +89,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
+    * `~/.ssh/config` ファイルを開いて修正し、`id_ed25519` キーのデフォルトの場所と名前を使用していない場合は`~/.ssh/id_ed25519` を置き換えます。
 
       ```
       Host *
@@ -100,7 +100,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
      {% note %}
 
-     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     **注釈:** キーにパスフレーズを追加しない場合は、`UseKeychain` 行を省略してください。
 
      {% endnote %}
 
@@ -110,7 +110,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
   ```
   {% note %}
 
-  **メモ: ** `-K` オプションは、`ssh-add` の Apple の標準バージョン内にあり、ssh-agent に SSH キーを追加する際にキーチェーンにパスフレーズを保存します。 If you chose not to add a passphrase to your key, run the command without the `-K` option.
+  **メモ: ** `-K` オプションは、`ssh-add` の Apple の標準バージョン内にあり、ssh-agent に SSH キーを追加する際にキーチェーンにパスフレーズを保存します。 キーにパスフレーズを追加しない場合は、`-K` オプションを指定せずにコマンドを実行します。
 
   Apple の標準バージョンをインストールしていない場合は、エラーが発生する場合があります。 このエラーの解決方法についての詳細は、「[エラー: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)」を参照してください。
 

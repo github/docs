@@ -41,7 +41,8 @@ You can search for the following information across all repositories you can acc
 
 - [仓库](/articles/searching-for-repositories)
 - [主题](/articles/searching-topics)
-- [议题和拉取请求](/articles/searching-issues-and-pull-requests)
+- [Issues and pull requests](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
+- [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [代码](/articles/searching-code)
 - [提交](/articles/searching-commits)
 - [Users](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}

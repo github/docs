@@ -14,5 +14,5 @@ API の詳細については、[GitHub REST API](/rest) および [GitHub GraphQ
 
 ### 参考リンク
 
-- "[Backing up a repository](/articles/backing-up-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
+- 「[リポジトリをバックアップする](/articles/backing-up-a-repository)」{% if currentVersion == "free-pro-team@latest" %}
 - "[インテグレーションについて](/articles/about-integrations)"{% endif %}

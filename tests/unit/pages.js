@@ -10,6 +10,8 @@ const entities = new Entities()
 const { chain, difference } = require('lodash')
 
 describe('pages module', () => {
+  jest.setTimeout(60 * 1000)
+
   let pages
 
   beforeAll(async (done) => {
@@ -147,12 +149,7 @@ describe('pages module', () => {
     })
 
     test('has an identical key list to the deep permalinks of the array', async () => {
-      const allPermalinks = pages.flatMap(page => page.permalinks.map(pl => {
-        if (pl.href === '/es/enterprise-server@2.22/insights/installing-and-configuring-github-insights/updating-github-insights') {
-          console.log('Source page:', page.relativePath)
-        }
-        return pl.href
-      })).sort()
+      const allPermalinks = pages.flatMap(page => page.permalinks.map(pl => pl.href)).sort()
       const allPageUrls = Object.keys(pageMap).sort()
 
       expect(allPageUrls).toEqual(allPermalinks)

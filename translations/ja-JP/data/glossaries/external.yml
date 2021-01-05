@@ -390,7 +390,7 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
 - 
   term: master
   description: >-
@@ -449,7 +449,7 @@
   description: >-
     Organization の 1 つ以上のリポジトリに対するアクセス権が付与されているが、その Organization に対する他のアクセス権がなく、その Organization のメンバーでもないユーザ。
 - 
-  term: Открытое программное обеспечение, sometimes used untranslated
+  term: オープンソース
   description: >-
     オープンソースソフトウェアとは、誰でも自由に使用、修正、および（修正済みと未修正のいずれの形式でも）共有できるソフトウェアです。今日では、「オープンソース」の概念はソフトウェアの枠を超えてコラボレーションの哲学をいうことが多く、そのコラボレーションの素材について誰でもオンラインでフォーク、修正、ディスカッション、コントリビューションができます。
 - 

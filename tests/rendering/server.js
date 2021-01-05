@@ -1,6 +1,7 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head } = require('../helpers/supertest')
+const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const { loadPages } = require('../../lib/pages')
@@ -356,7 +357,7 @@ describe('server', () => {
     })
   })
 
-  describe.skip('Early Access articles', () => {
+  describeViaActionsOnly('Early Access articles', () => {
     let hiddenPageHrefs, hiddenPages
 
     beforeAll(async (done) => {
