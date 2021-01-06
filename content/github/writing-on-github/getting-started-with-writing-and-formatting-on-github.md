@@ -1,5 +1,5 @@
 ---
-title: Getting started with writing and formatting on GitHub
+title: Powercoders
 redirect_from:
   - /articles/markdown-basics/
   - /articles/things-you-can-do-in-a-text-area-on-github/
