@@ -10,6 +10,8 @@ versions:
   github-ae: '*'
 ---
 
+new
+
 ### About pull requests
 
 {% note %}
