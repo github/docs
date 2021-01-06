@@ -159,7 +159,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-      // set version to the latest enteprise version
+      // set version to the latest enterprise version
       const context = {
         currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentLanguage: 'en',
@@ -364,6 +364,18 @@ describe('Page class', () => {
 
       expect(nonEnterpriseDefaultPlan in page.versions).toBe(false)
       expect(page.versions['enterprise-server']).toBe('*')
+    })
+  })
+
+  describe('platform specific content', () => {
+    test('page.defaultPlatform frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'actions/hosting-your-own-runners/configuring-the-self-hosted-runner-application-as-a-service.md',
+        basePath: path.join(__dirname, '../../content'),
+        languageCode: 'en'
+      })
+      expect(page.defaultPlatform).toBeDefined()
+      expect(page.defaultPlatform).toBe('linux')
     })
   })
 })

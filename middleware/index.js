@@ -56,6 +56,7 @@ module.exports = function (app) {
 
   // *** Config and context for rendering ***
   app.use(require('./find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(require('./block-robots'))
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency

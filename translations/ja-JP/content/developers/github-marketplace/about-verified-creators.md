@@ -1,43 +1,43 @@
 ---
-title: About verified creators
-intro: 'Each organization that wants to sell apps on {% data variables.product.prodname_marketplace %} must follow a verification process. Their identity is checked and their billing process reviewed.'
+title: 検証済みの作者について
+intro: 'アプリケーションを{% data variables.product.prodname_marketplace %}で販売したいOrganizationは、検証プロセスに従う必要があります。 検証プロセスでは、身元確認や支払いプロセスの確認を行います。'
 versions:
   free-pro-team: '*'
 ---
 
-### About verified creators
+### 検証済みの作者について
 
-A verified creator is an organization that {% data variables.product.company_short %} has checked. Anyone can share their apps with other users on {% data variables.product.prodname_marketplace %} but only organizations that are verified by {% data variables.product.company_short %} can sell apps. For more information about organizations, see "[About organizations](/github/setting-up-and-managing-organizations-and-teams/about-organizations)."
+検証済みの作者とは、{% data variables.product.company_short %}が確認したOrganizationのことです。 誰でも他のユーザと{% data variables.product.prodname_marketplace %}でアプリケーションを共有できますが、アプリケーションを販売できるのは{% data variables.product.company_short %}に検証されたOrganizationのみです。 Organizationに関する詳細な情報については、「[Organizationについてorganizations](/github/setting-up-and-managing-organizations-and-teams/about-organizations)」を参照してください。
 
-The verification process aims to protect users. For example, it verifies the seller's identity, checks that their {% data variables.product.product_name %} organization is set up securely, and that they can be contacted for support.
+検証プロセスは、ユーザの保護を目的としています。 このプロセスでは、販売者の身元、{% data variables.product.product_name %} Organization が安全に設定されていること、サポートのために連絡が取れることなどを確認します。
 
-After passing the verification checks, any apps that the organization lists on {% data variables.product.prodname_marketplace %} are shown with a verified creator badge {% octicon "verified" aria-label="Verified creator badge" %}. The organization can now add paid plans to any of their apps. Each app with a paid plan also goes through a financial onboarding process to check that it's set up to handle billing correctly.
+検証確認に合格すると、そのOrganizationが{% data variables.product.prodname_marketplace %}で掲載するすべてのアプリケーションに検証済みの作者バッジ{% octicon "verified" aria-label="Verified creator badge" %}が表示されます。 この状態になると、Organizationは有料プランを任意のアプリケーションに追加できます。 有料プランのある各アプリケーションについては、支払いの処理が正しく設定されていることを確認するため、財務オンボーディングプロセスも実施します。
 
-![verified creator badges](/assets/images/marketplace/marketplace_verified_creator_badges_apps.png)
+![検証済み作者のバッジ](/assets/images/marketplace/marketplace_verified_creator_badges_apps.png)
 
-In addition to the verified creator badge, you'll also see badges for unverified and verified apps. These apps were published using the old method for verifying individual apps.
+検証済みの作者バッジの他に、未検証および検証済みのアプリケーションのバッジも表示されます。 これらのアプリケーションは、以前の方法を用いて、個々のアプリケーションを検証して公開されたものです。
 
 ![検証済みの緑と未検証の灰色のバッジ](/assets/images/marketplace/marketplace_verified_badges.png)
 
-For information on finding apps to use, see "[Searching {% data variables.product.prodname_marketplace %}](/github/searching-for-information-on-github/searching-github-marketplace)."
+使用するアプリケーションの探し方に関する情報については、「[{% data variables.product.prodname_marketplace %}の検索](/github/searching-for-information-on-github/searching-github-marketplace)」を参照してください。
 
-### About the verification process
+### 検証プロセスについて
 
-The first time you request verification for a listing of one of your apps, you will enter the verification process.  An onboarding expert will guide you through the process. This includes checking:
+アプリケーションの1つのリストに関する検証を初めてリクエストすると、検証プロセスが始まります。  オンボーディングの専門家が、プロセスを案内してくれます。 これには以下のチェックが含まれます。
 
-- Profile information - The basic profile information is populated accurately and appropriately.
-- Security - The organization has enabled two-factor authentication.
-- Verified domain - The organization has verified the domain of the site URL.
-- Purchase webhook event - The event is handled correctly by the app.
+- プロフィール情報 - 基本的なプロフィール情報が正しく適切に展開されていること。
+- セキュリティ - Organizationが2要素認証を有効化していること。
+- 検証ドメイン - OrganizationがサイトのURLのドメインを検証していること。
+- 購入webhookイベント - イベントがアプリケーションによって正しく処理されること。
 
-When your organization is verified, all your apps are shown with a verified creator badge. You are now able to offer paid plans for any of your apps.
+Organizationが検証されると、アプリケーションは検証済み作者のバッジ付きで表示されます。 これで、アプリケーションに有料プランを提供できるようになります。
 
-For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
+{% data variables.product.prodname_marketplace %}でアプリケーションをリストするための要件に関する情報については、「[{% data variables.product.prodname_marketplace %}上にアプリケーションをリストするための要件](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)」を参照してください。
 
-{% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to do this, see: "[Submitting your listing for publication](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)."
+{% data reusables.marketplace.app-transfer-to-org-for-verification %} これを行う方法については「[公開のためのリストのサブミット](/developers/github-marketplace/submitting-your-listing-for-publication#transferring-an-app-to-an-organization-before-you-submit)」を参照してください。
 
 {% note %}
 
-**Note:** This verification process for apps replaces the previous process where individual apps were verified. The current process is similar to the verification process for actions. If you have apps that were verified under the old process, these will not be affected by the changes. The {% data variables.product.prodname_marketplace %} team will contact you with details of how to migrate to organization-based verification.
+**ノート:** アプリケーションのためのこの検証プロセスは、個々のアプリケーションが検証された以前のプロセスを置き換えます。 現在のプロセスは、Actionsのための検証プロセスに似ています。 旧プロセスの下で検証されたアプリケションを持っている場合、それらはこの変更には影響されません。 {% data variables.product.prodname_marketplace %}チームは、Organizationベースの検証への移行方法の詳細について、お客様に連絡します。
 
 {% endnote %}

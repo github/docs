@@ -14,8 +14,6 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Qualquer pessoa com acesso de `gravar` em um repositório pode criar, ler e usar secredos.
-
 ### Sobre o segredo `GITHUB_TOKEN`
 
 O {% data variables.product.prodname_dotcom %} cria automaticamente um segredo `GITHUB_TOKEN` para uso no fluxo de trabalho. Você pode usar o `GITHUB_TOKEN` para autenticar em uma execução de fluxo de trabalho.

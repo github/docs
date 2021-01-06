@@ -52,30 +52,30 @@ versions:
     {% raw %}
     **アクション.yml**
     ```yaml
-    name:「 Hello World」
-    の説明:「 誰かに挨拶する」
-    入力:
-      誰が挨拶する:入力
-        説明の#id:「誰を迎えるか」が必要
-        です:true
-        デフォルト
-      : 
-        デフォルト:
-    の乱数:説明:${{ steps.random-number-generator.outputs.random-id }}
-    の
-        値:
-      使用:
- 
-        - 実行:エコーこんにちは{{ inputs.who-to-greet }}。
-          シェル: バッシュ
-        - id: 乱数ジェネレータ
-          実行: echo "::セット出力名=ランダム id::$(エコー $RANDOM)"
-          シェル: バッシュ
-        - 実行: ${{ github.action_path }}/goodbye.sh
-          シェル: bash
+    name: 'Hello World'
+    description: 'Greet someone'
+    inputs:
+      who-to-greet:  # id of input
+        description: 'Who to greet'
+        required: true
+        default: 'World'
+    outputs:
+      random-number: 
+        description: "Random number"
+        value: ${{ steps.random-number-generator.outputs.random-id }}
+    runs:
+      using: "composite"
+      steps: 
+        - run: echo Hello ${{ inputs.who-to-greet }}.
+          shell: bash
+        - id: random-number-generator
+          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          shell: bash
+        - run: ${{ github.action_path }}/goodbye.sh
+          shell: bash
     ```
     {% endraw %}
-  このファイルは、入力</code> に誰が挨拶 `を定義し、ランダムに生成された数値を <code>乱数` 出力変数にマップし、 `goodbye.sh` スクリプトを実行します。 また、複合実行ステップアクションの実行方法をランナーに指示します。
+  This file defines the `who-to-greet` input, maps the random generated number to the `random-number` output variable, and runs the `goodbye.sh` script. また、複合実行ステップアクションの実行方法をランナーに指示します。
 
   出力の管理の詳細については、「複合実行手順の出力</code> を[`する」</a>参照してください。 </p>
 
@@ -119,18 +119,18 @@ versions:
 ```yaml
 on: [push]
 
-ジョブ:
+jobs:
   hello_world_job:
-    実行: ubuntu-latest
-    名: こんにちは
-    ステップを言うジョブ:
-    - 使用: アクション/checkout@v2
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - uses: actions/checkout@v2
     - id: foo
-      使用: アクション/ハローワールドコンポジットランステップaction@v1
-      :
-        誰が挨拶: 'モナ・ザ・オクトキャット'
-    - 実行: エコー乱数 ${{ steps.foo.outputs.random-number }} 
-      シェル:
+      uses: actions/hello-world-composite-run-steps-action@v1
+      with:
+        who-to-greet: 'Mona the Octocat'
+    - run: echo random-number ${{ steps.foo.outputs.random-number }} 
+      shell: bash
 ```
 
 

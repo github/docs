@@ -9,13 +9,19 @@ versions:
   free-pro-team: '*'
 ---
 
-Wenn in einer Organisation beschränkte E-Mail-Benachrichtigungen aktiviert sind, können die Mitglieder der Organisation E-Mail-Benachrichtigungen zu den Aktivitäten der Organisation nur an E-Mail-Adressen innerhalb der hierfür verifizierten Domäne der Organisation erhalten. Weitere Informationen findest Du unter „[Domäne Deiner Organisation verifizieren](/articles/verifying-your-organization-s-domain).“
+### About email restrictions
+
+When restricted email notifications are enabled in an organization, members can only use an email address associated with the organization's verified domains to receive email notifications about organization activity. Weitere Informationen findest Du unter „[Domäne Deiner Organisation verifizieren](/articles/verifying-your-organization-s-domain).“
 
 Externe Mitarbeiter unterliegen nicht den Einschränkungen für E-Mail-Benachrichtigungen für verifizierte Domänen. Weitere Informationen zu externen Mitarbeitern findest Du unter „[Berechtigungsebenen für eine Organisation](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)."
+
+If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified for the enterprise account, in addition to any domains verified for the organization. For more information, see "[Verifying your enterprise account's domain](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)."
+
+### E-Mail-Benachrichtigungen auf eine genehmigte Domäne beschränken
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.verified-domains %}
-5. Aktiviere unter „Enforcement preferences“ (Durchsetzungspräferenzen) das Kontrollkästchen **Restrict email notifications to domain email** (E-Mail-Benachrichtigungen auf eine genehmigte E-Mail-Domäne beschränken) aus. ![Kontrollkästchen zur Beschränkung von E-Mail-Benachrichtigungen auf eine genehmigte E-Mail-Domäne](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)
+{% data reusables.organizations.restrict-email-notifications %}
 6. Klicke auf **Save** (Speichern).

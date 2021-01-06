@@ -76,11 +76,11 @@ Existem limites separados para solicitações de atualização de versões e seg
 
 A melhor maneira de resolver este erro é fazer o merge ou fechar alguns dos pull requests existentes e acionar um novo pull request manualmente. Para obter mais informações, consulte "[Acionar um pull request de {% data variables.product.prodname_dependabot %} manualmente](#triggering-a-dependabot-pull-request-manually)".
 
-#### {% data variables.product.prodname_dependabot %} can't resolve your dependency files
+#### {% data variables.product.prodname_dependabot %} não pode resolver seus arquivos de dependência
 
-**Version updates only.** If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, you will see the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files".
+**Somente atualizações da versão.** Se {% data variables.product.prodname_dependabot %} tentar verificar se referências de dependências precisam ser atualizadas em um repositório, mas não for possível acessar um ou mais arquivos referenciados, você verá a mensagem de erro "{% data variables.product.prodname_dependabot %} não pode resolver seus arquivos de dependência de LANGUAGE".
 
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[About Dependabot version updates](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
 
 ### Acionar um pull request de {% data variables.product.prodname_dependabot %} manualmente
 

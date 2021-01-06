@@ -17,7 +17,7 @@ You can link to a particular row by clicking the row number, or select multiple 
 
 ### Searching data
 
-If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automagically:
+If you want to find a certain value in your dataset, you can start typing in the search bar directly above the file. The rows will filter automatically:
 
 ![Searching for values](/assets/images/help/repository/searching_csvs.gif)
 

@@ -41,8 +41,9 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
@@ -235,14 +236,14 @@ API v3 酌情使用 HTTP 重定向。 客户端应假定任何请求都可能会
 
 API v3 尽可能对每个操作使用适当的 HTTP 请求方法。
 
-| 请求方法     | 描述                                                                                                                                |
-| -------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | 可以针对任何资源发出以仅获取 HTTP 标头信息。                                                                                                         |
-| `GET`    | 用于检索资源。                                                                                                                           |
-| `POST`   | 用于创建资源。                                                                                                                           |
-| `PATCH`  | 用于通过部分 JSON 数据更新资源。  例如，议题资源具有 `title` 和 `body` 属性。  PATCH 请求可以接受一个或多个属性来更新资源。  PATCH 是一个相对较新且不常见的 HTTP 请求方法，因此资源端点也接受 `POST` 请求。 |
-| `PUT`    | 用于替换资源或集合。 对于没有 `body` 属性的 `PUT` 请求，请确保将 `Content-Length` 标头设置为零。                                                                 |
-| `DELETE` | 用于删除资源。                                                                                                                           |
+| 请求方法     | 描述                                                                             |
+| -------- | ------------------------------------------------------------------------------ |
+| `HEAD`   | 可以针对任何资源发出以仅获取 HTTP 标头信息。                                                      |
+| `GET`    | 用于检索资源。                                                                        |
+| `POST`   | 用于创建资源。                                                                        |
+| `PATCH`  | 用于通过部分 JSON 数据更新资源。 例如，议题资源具有 `title` 和 `body` 属性。 `PATCH` 请求可以接受一个或多个属性来更新资源。 |
+| `PUT`    | 用于替换资源或集合。 对于没有 `body` 属性的 `PUT` 请求，请确保将 `Content-Length` 标头设置为零。              |
+| `DELETE` | 用于删除资源。                                                                        |
 
 ### 超媒体
 

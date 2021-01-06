@@ -1,6 +1,6 @@
 ---
-title: Configure default settings for assignment repositories
-shortTitle: Configure defaults for assignment repositories
+title: 課題リポジトリのデフォルト設定の構成
+shortTitle: 課題リポジトリのデフォルトの構成
 intro: You can use the Probot Settings app to configure the default settings for repositories that {% data variables.product.prodname_classroom %} creates for an assignment.
 permissions: Organization owners can configure default settings for assignment repositories by installing a {% data variables.product.prodname_github_app %} for the organization.
 versions:

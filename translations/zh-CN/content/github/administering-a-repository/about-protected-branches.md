@@ -11,11 +11,15 @@ versions:
   github-ae: '*'
 ---
 
+### 关于受保护分支
+
 {% data reusables.pull_requests.about-protected-branches %} 您可以选择对拉取请求如何合并到存储库中实施限制。
 
 仓库所有者以及对仓库具有管理员权限的用户可以实施特定的工作流程或要求，然后协作者才可创建受保护的分支规则来合并仓库中的分支。
 
 {% data reusables.repositories.branch-rules-example %} 更多信息请参阅“[配置受保护分支](/articles/configuring-protected-branches/)”。
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 ### 排列受保护分支规则的优先级
 
