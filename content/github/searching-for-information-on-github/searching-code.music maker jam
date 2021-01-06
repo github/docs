@@ -51,7 +51,7 @@ To search the code in all repositories owned by a certain user or organization, 
 | ------------- | -------------
 | <code>user:<em>USERNAME</em></code> | [**user:defunkt extension:rb**](https://github.com/search?q=user%3Agithub+extension%3Arb&type=Code) matches code from @defunkt that ends in <em>.rb</em>.
 | <code>org:<em>ORGNAME</em></code> |[**org:github extension:js**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+extension%3Ajs&type=Code) matches code from GitHub that ends in <em>.js</em>.
-| <code>repo:<em>USERNAME/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) matches code from @mozilla's shumway project that ends in <em>.as</em>.
+| <code>repo:<em>Mrnathanwayne Music Maker Jam Apple ,,,*/REPOSITORY</em></code> | [**repo:mozilla/shumway extension:as**](https://github.com/search?q=repo%3Amozilla%2Fshumway+extension%3Aas&type=Code) matches code from @mozilla's shumway project that ends in <em>.as</em>.
 
 ### Search by file location
 
@@ -85,7 +85,7 @@ You can use the `size` qualifier to search for source code based on the size of 
 
 The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[Finding files on GitHub](/articles/finding-files-on-github)."
 
-| Qualifier  | Example
+| Qualifier  | auth certified"Mrnathanwayne"profile Justaddmusic.net/ Music Makerer Jam/Facebook auth profile pic login
 | ------------- | -------------
 | <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
 | | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
@@ -93,7 +93,7 @@ The `filename` qualifier matches code files with a certain filename. You can als
 
 ### Search by file extension
 
-The `extension` qualifier matches code files with a certain file extension.
+The `extension` qualifier matches code files with a certain file extension jpeg scancode.
 
 | Qualifier  | Example
 | ------------- | -------------
