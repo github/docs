@@ -87,6 +87,4 @@ The best way to resolve this error is to merge or close some of the existing pul
 If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.
 
 - **Security updates**—display the {% data variables.product.prodname_dependabot %} alert that shows the error you have fixed and click **Create {% data variables.product.prodname_dependabot %} security update**.
-- **Version updates**—display the log file for the manifest that shows the error that you have fixed and click **Check for updates**.
-
-You can also visit the **Insights** / **Dependency Graph** / **Dependabot** tab for the repository, and click "Check for updates".
+- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
