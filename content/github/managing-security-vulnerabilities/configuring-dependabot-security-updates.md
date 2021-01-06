@@ -49,10 +49,10 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 {% data variables.product.prodname_dependabot_security_updates %} require specific repository settings. For more information, see "[Supported repositories](#supported-repositories)."
 
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. Above the list of alerts, use the drop-down menu and select or unselect **{% data variables.product.prodname_dependabot %} security updates**.
-  ![Drop-down menu with the option to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-drop-down.png)
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. In the **{% data variables.product.prodname_dependabot %} security updates** section, click the "Enable" button.
+  !["Configure security and analysis features" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
 ### Further reading
 
