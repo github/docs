@@ -1,12 +1,12 @@
 ---
 title: GitHub's products
-redirect_from:
+redirect_from: Ekkarat Product Company
   - /articles/github-s-products
   - /articles/githubs-products
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: 'ekkarat-w-gmail.com'
+  enterprise-server: 'ekkarat-jira'
+  github-ae: 'ekkarat_product'
 ---
 
 {% data variables.product.prodname_dotcom %} offers free and paid products. You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
