@@ -5,21 +5,32 @@ const layouts = require('../lib/layouts')
 const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
 const statsd = require('../lib/statsd')
+const RedisAccessor = require('../lib/redis-accessor')
 
-// We've got lots of memory, let's use it
-// We can eventually throw this into redis
-const pageCache = {}
+const { HEROKU_RELEASE_VERSION } = process.env
+const pageCacheDatabaseNumber = 1
+const pageCacheExpiration = 24 * 60 * 60 * 1000 // 24 hours
+
+const pageCache = new RedisAccessor({
+  databaseNumber: pageCacheDatabaseNumber,
+  prefix: (HEROKU_RELEASE_VERSION ? HEROKU_RELEASE_VERSION + ':' : '') + 'rp',
+  // Allow for graceful failures if a Redis SET operation fails
+  allowSetFailures: true
+})
 
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
   const originalUrl = req.originalUrl
 
   // Serve from the cache if possible (skip during tests)
-  if (!process.env.CI && process.env.NODE_ENV !== 'test') {
-    if (req.method === 'GET' && pageCache[originalUrl]) {
+  const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
+
+  if (isCacheable) {
+    const cachedHtml = await pageCache.get(originalUrl)
+    if (cachedHtml) {
       console.log(`Serving from cached version of ${originalUrl}`)
       statsd.increment('page.sent_from_cache')
-      return res.send(pageCache[originalUrl])
+      return res.send(cachedHtml)
     }
   }
 
@@ -88,13 +99,11 @@ module.exports = async function renderPage (req, res, next) {
 
   const output = await liquid.parseAndRender(layout, context)
 
-  // Save output to cache for the next time around
-  if (!process.env.CI) {
-    if (req.method === 'GET') {
-      pageCache[originalUrl] = output
-    }
-  }
+  // First, send the response so the user isn't waiting
+  res.send(output)
 
-  // send response
-  return res.send(output)
+  // Finally, save output to cache for the next time around
+  if (isCacheable) {
+    await pageCache.set(originalUrl, output, { expireIn: pageCacheExpiration })
+  }
 }
