@@ -11,7 +11,8 @@ Most typical issues:
 - How to import and use (navigate, view) certain type of files GPX / KML / Paper maps / Garmin
 - Trip recording or navigation stops while screen is off
 - Battery consumption
-- Purchases or Plugins are not working (Contour 
+- Purchases or Plugins are not working (Contour lines installation)
+- Voice navigation doesn't function properly
 - Download / Update maps
 - GPS location is not found
 - Privacy issues (delete history / check internet usage / permissions)
