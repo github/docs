@@ -71,4 +71,4 @@ curl -u my_username:my_password -X POST "https://api.github.com/authorizations" 
 
 Then you must switch to the [web application flow](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow) to generate access tokens.
 
-{% endif %}
+{% endif %}p7ll
