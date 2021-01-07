@@ -8,7 +8,6 @@
 //
 // [end-readme]
 
-const program = require('commander')
 const Redis = require('ioredis')
 
 const { REDIS_URL, HEROKU_RELEASE_VERSION, HEROKU_PRODUCTION_APP } = process.env
@@ -21,12 +20,8 @@ const startTime = Date.now()
 const expirationDuration = 30 * 60 * 1000 // 30 minutes
 const expirationTimestamp = startTime + expirationDuration // 30 minutes from now
 
-program
-  .description('Purge the Redis rendered page cache')
-  .option('-d, --dry-run', 'print keys to be purged without actually purging')
-  .parse(process.argv)
-
-const dryRun = program.dryRun
+// print keys to be purged without actually purging
+const dryRun = ['-d', '--dry-run'].includes(process.argv[2])
 
 // verify environment variables
 if (!REDIS_URL) {
