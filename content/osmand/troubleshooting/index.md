@@ -8,10 +8,12 @@ Most typical issues:
 - Installation / Data transfer
 - Search results are incomplete or incorrect
 - Route calculation is very slow or not correct
-- How to import and use (navigate, view) certain type of files GPX / KML / Paper maps
+- How to import and use (navigate, view) certain type of files GPX / KML / Paper maps / Garmin
 - Trip recording or navigation stops while screen is off
 - Battery consumption
-- Purchases or Plugins are not working
+- Purchases or Plugins are not working (Contour 
+- Download / Update maps
+- GPS location is not found
 - Privacy issues (delete history / check internet usage / permissions)
 
 Link example:
