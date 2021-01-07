@@ -117,7 +117,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 {% if currentVersion ver_lt "enterprise-server@3.1" %}
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.
+**注釈:** デバイスフローは現在パブリックベータであり、変更されることがあります。
 
 {% endnote %}
 {% endif %}
@@ -265,7 +265,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 `http://localhost/path`というコールバックURLに対して、以下の`redirect_uri`が利用できます。
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### OAuthアプリケーションに複数のトークンを作成する
 

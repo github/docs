@@ -3,7 +3,7 @@ title: Creating a pull request from a fork
 intro: You can create a pull request to propose changes you've made to a fork of an upstream repository.
 redirect_from:
   - /articles/creating-a-pull-request-from-a-fork
-permissions: Anyone with write access to a repository can create a pull request from user-owned fork.
+permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

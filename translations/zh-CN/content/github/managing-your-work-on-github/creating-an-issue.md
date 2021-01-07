@@ -1,7 +1,7 @@
 ---
 title: 创建议题
 intro: '议题可用于跟踪漏洞、增强功能或其他请求。'
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: '具有读取权限的人可以在启用了议题的仓库中创建议题。'
 redirect_from:
   - /articles/creating-an-issue
 versions:

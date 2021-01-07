@@ -13,6 +13,9 @@ versions:
 これらの追加ログは、ワークフローを含むリポジトリにシークレットを設定することで有効になるため、同じ権限要件が適用されます。
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- {% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 

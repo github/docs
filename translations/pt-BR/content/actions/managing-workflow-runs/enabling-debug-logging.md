@@ -13,6 +13,9 @@ versions:
 Esses registros adicionais são habilitados pela definição dos segredos no repositório que contém o fluxo de trabalho. Portanto, aplicam-se os mesmos requisitos de permissão:
 
 - {% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- {% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% endif %}
 - {% data reusables.github-actions.permissions-statement-secrets-organization %}
 - {% data reusables.github-actions.permissions-statement-secrets-api %}
 
