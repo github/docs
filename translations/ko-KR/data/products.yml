@@ -5,10 +5,12 @@
 productsInOrder:
   - github
   - admin
+  - discussions
   - actions
   - 패키지
   - developers
   - rest
   - graphql
   - insights
+  - education
   - desktop

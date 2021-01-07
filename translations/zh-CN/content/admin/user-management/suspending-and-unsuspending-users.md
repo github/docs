@@ -83,4 +83,4 @@ fatal: The remote end hung up unexpectedly
   ```
 
 ### 延伸阅读
-- "[Suspend a user](/rest/reference/enterprise-admin#suspend-a-user)"
+- "[暂停用户](/rest/reference/enterprise-admin#suspend-a-user)"

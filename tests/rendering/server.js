@@ -1,6 +1,7 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get, getDOM, head } = require('../helpers/supertest')
+const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const { loadPages } = require('../../lib/pages')
@@ -105,7 +106,7 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500')
     expect($('h1').text()).toBe('Ooops!')
-    expect($('code').text().startsWith('Error: OH NOEZ')).toBe(true)
+    expect($('code').text().startsWith('Error: Intentional error')).toBe(true)
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
@@ -356,7 +357,7 @@ describe('server', () => {
     })
   })
 
-  describe.skip('Early Access articles', () => {
+  describeViaActionsOnly('Early Access articles', () => {
     let hiddenPageHrefs, hiddenPages
 
     beforeAll(async (done) => {

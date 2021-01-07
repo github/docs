@@ -94,7 +94,7 @@ For urgent issues, we {% else %}We{% endif %} are available 24 hours per day, 7 
 | Day after Thanksgiving      | Fourth Friday in November   |
 | Christmas Eve               | December 24                 |
 | Christmas Day               | December 25                 |
-| Day after Christmas         | December 26                 |
+| Day after Christmas         | December 28                 |
 | New Year's Eve              | December 31                 |
 
 #### 日本の祝日

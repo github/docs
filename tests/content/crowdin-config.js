@@ -4,13 +4,15 @@ const ignoredPagePaths = config.files[0].ignore
 const ignoredDataPaths = config.files[2].ignore
 
 describe('crowdin.yml config file', () => {
+  jest.setTimeout(60 * 1000)
+
   let pages
   beforeAll(async (done) => {
     pages = await loadPages()
     done()
   })
 
-  test('has expected file stucture', async () => {
+  test('has expected file structure', async () => {
     expect(config.files.length).toBe(3)
     expect(config.files[0].source).toBe('/content/**/*.md')
     expect(config.files[0].ignore).toContain('/content/README.md')

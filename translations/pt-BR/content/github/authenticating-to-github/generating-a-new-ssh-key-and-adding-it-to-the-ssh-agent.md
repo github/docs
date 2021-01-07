@@ -100,7 +100,7 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
 
      {% note %}
 
-     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
+     **Observação:** Se você optou por não adicionar uma frase secreta à sua chave, você deve omitir a linha `UseKeychain`.
 
      {% endnote %}
 
@@ -110,7 +110,7 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
   ```
   {% note %}
 
-  **Observação:** a opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent. If you chose not to add a passphrase to your key, run the command without the `-K` option.
+  **Observação:** a opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent. Se você optou por não adicionar uma frase secreta à sua chave, execute o comando sem a opção `-K`.
 
   Caso não tenha a versão standard da Apple instalada, você poderá receber uma mensagem de erro. Para obter mais informações sobre como resolver esse erro, consulte "[Erro: ssh-add: opção ilícita -- K](/articles/error-ssh-add-illegal-option-k)".
 
@@ -126,8 +126,8 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
 
 1. Certifique-se de que o ssh-agent está em execução. Você pode usar as instruções "Lançamento automático do ssh-agent" em "[Trabalhando com palavras-chave SSH](/articles/working-with-ssh-key-passphrases)" ou iniciá-lo manualmente:
   ```shell
-  # inicie o ssh-agent em segundo plano
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

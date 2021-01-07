@@ -1,7 +1,7 @@
 ---
-title: Configuring Dependabot security updates
+title: 配置 Dependabot 安全更新
 intro: '您可以使用 {% data variables.product.prodname_dependabot_security_updates %} 或手动拉取请求轻松地更新有漏洞的依赖项。'
-shortTitle: Configuring Dependabot security updates
+shortTitle: 配置 Dependabot 安全更新
 redirect_from:
   - /articles/configuring-automated-security-fixes
   - /github/managing-security-vulnerabilities/configuring-automated-security-fixes
@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### About configuring {% data variables.product.prodname_dependabot_security_updates %}
+### 关于配置 {% data variables.product.prodname_dependabot_security_updates %}
 
 You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 

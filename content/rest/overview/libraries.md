@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -111,6 +112,7 @@ Library name | Repository
 
 Library name | Repository
 |---|---|
+**gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub)
 **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi)
 **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
 **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas)

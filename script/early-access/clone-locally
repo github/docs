@@ -6,11 +6,13 @@
 #
 # [end-readme]
 
+set -e
+
 # Go up a directory
 pushd .. > /dev/null
 
 if [ -d "docs-early-access" ]; then
-  echo "A 'docs-early-access' directory already exists! Try script/early-access/feature-branch.js."
+  echo "A 'docs-early-access' directory already exists!"
   popd > /dev/null
   exit 0
 fi

@@ -1,10 +1,11 @@
 const { liquid } = require('../../lib/render-content')
 const { loadPageMap } = require('../../lib/pages')
 const entities = new (require('html-entities').XmlEntities)()
-const { set } = require('lodash')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
 describe('liquid helper tags', () => {
+  jest.setTimeout(60 * 1000)
+
   const context = {}
   let pageMap
   beforeAll(async (done) => {
@@ -13,11 +14,16 @@ describe('liquid helper tags', () => {
     context.currentVersion = nonEnterpriseDefaultVersion
     context.pages = pageMap
     context.redirects = []
-    context.site = {}
+    context.site = {
+      data: {
+        reusables: {
+          example: 'a rose by any other name\nwould smell as sweet'
+        }
+      }
+    }
     context.page = {
       relativePath: 'desktop/index.md'
     }
-    set(context.site, 'data.reusables.example', 'a rose by any other name\nwould smell as sweet')
     done()
   })
 
@@ -81,8 +87,6 @@ describe('liquid helper tags', () => {
   })
 
   describe('indented_data_reference tag', () => {
-    set(context.site, 'data.reusables.example', 'a rose by any other name\nwould smell as sweet')
-
     test('without any number of spaces specified', async () => {
       const template = '{% indented_data_reference site.data.reusables.example %}'
       const expected = `  a rose by any other name
@@ -114,5 +118,48 @@ would smell as sweet`
       const output = await liquid.parseAndRender(template, context)
       expect(output).toBe(expected)
     })
+  })
+
+  describe('data tag', () => {
+    test(
+      'handles bracketed array access within for-in loop',
+      async () => {
+        const template = `
+{% for term in site.data.glossaries.external %}
+### {% data glossaries.external[forloop.index0].term %}
+{% data glossaries.external[forloop.index0].description %}
+---
+{% endfor %}`
+
+        const localContext = { ...context }
+        localContext.site = {
+          data: {
+            variables: {
+              fire_emoji: ':fire:'
+            },
+            glossaries: {
+              external: [
+                { term: 'lit', description: 'Awesome things. {% data variables.fire_emoji %}' },
+                { term: 'Zhu Li', description: '_"Zhu Li, do the thing!"_ :point_up:' }
+              ]
+            }
+          }
+        }
+
+        const expected = `
+
+### lit
+Awesome things. :fire:
+---
+
+### Zhu Li
+_"Zhu Li, do the thing!"_ :point_up:
+---
+`
+
+        const output = await liquid.parseAndRender(template, localContext)
+        expect(output).toBe(expected)
+      }
+    )
   })
 })

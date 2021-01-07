@@ -12,6 +12,7 @@ const patterns = require('../lib/patterns')
 const authenticateToAWS = require('../lib/authenticate-to-aws.js')
 const readlineSync = require('readline-sync')
 const { execSync } = require('child_process')
+const enterpriseServerVersions = Object.keys(allVersions).filter(v => v.startsWith('enterprise-server@'))
 const uploadScript = path.join(process.cwd(), 'script/upload-images-to-s3.js')
 
 // ignore the non-enterprise default version
@@ -51,7 +52,8 @@ async function main () {
         page,
         site: siteData,
         currentVersion: version,
-        currentLanguage: 'en'
+        currentLanguage: 'en',
+        enterpriseServerVersions
       }
 
       const rendered = await renderContent(page.markdown, context)
