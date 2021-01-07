@@ -3,24 +3,7 @@ title: "Tips and Tricks"
 intro: "Tips and Tricks around using OsmAnd, e.g. marking places, searching things, working with GPX files, specific use cases."
 versions: '*'
 ---
-
-Map viewing and searching:
-
-{% link_in_list /mark-places %}
-{% link_in_list /how-to-search-an-address-via-postcode %}
-{% link_in_list /how-to-delete-the-history %}
-
-Working with GPX-files:
-{% link_in_list /importing-a-gpx %}
-{% link_in_list /gpx-navigation-options %}
-
-Other functionality:
-{% link_in_list /tts-vs-recorded-voices %}
-{% link_in_list /display-contour-lines-in-feet %}
-{% link_in_list /osmand-and-google-maps %}
-{% link_in_list /osmand/setup/uninstall-or-reset-without-losing-your-data %}
-{% link_in_list /osmand-power-comsummption %}
-
+- [Is there a way to have contour lines displayed in feet also, instead of meters?](#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
 
 ### Is there a way to have contour lines displayed in feet also, instead of meters?
 
