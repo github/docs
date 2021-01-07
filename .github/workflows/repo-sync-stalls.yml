@@ -36,6 +36,13 @@ jobs:
               return
             }
 
+            // Remove all pull requests that don't have the 
+            // 'automated-reposync-pr' label
+            pulls.data = pulls.data.filter(pr =>
+              pr.labels.some(label => label.name === 'automated-reposync-pr')
+            )
+
+            // Search for pull requests that have been open too long
             pulls.data.forEach(pr => {
               const timeDelta = Date.now() - Date.parse(pr.created_at);
               const minutesOpen = timeDelta / 1000 / 60;

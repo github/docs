@@ -193,9 +193,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-Para fazer a autenticação no seu registro privado, você deverá armazenar seu token de autenticação npm como um segredo nas configurações do seu repositório. Por exemplo, crie um segredo denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Para efetuar a autenticação com seu registro privado, você precisará armazenar seu token de autenticação npm como um segredo. Por exemplo, crie um repositório secreto denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-No exemplo abaixo, o segredo `NPM_TOKEN` armazena o token de autenticação npm. A ação `setup-node` configura o arquivo *.npmrc* para ler o token de autenticação npm a partir da variável de ambiente `NODE_AUTH_TOKEN`. Ao usar a ação `setup-node` para criar um arquivo *.npmrc*, você deverá definir a variável de ambiente `NPM_AUTH_TOKEN` com o segredo que contém seu token de autenticação npm.
+No exemplo abaixo, o segredo `NPM_TOKEN` armazena o token de autenticação npm. A ação `setup-node` configura o arquivo *.npmrc* para ler o token de autenticação npm a partir da variável de ambiente `NODE_AUTH_TOKEN`. Ao usar a ação `setup-node` para criar um arquivo *.npmrc*, você deverá definir a variável de ambiente `NODE_AUTH_TOKEN` com o segredo que contém seu token de autenticação npm.
 
 Antes de instalar as dependências, use a ação `setup-node` para criar o arquivo *.npmrc* file. A ação tem dois parâmetros de entrada. O parâmetro `node-version` define a versão do Node.js e o parâmetro `registry-url` define o registro-padrão. Se o registro do seu pacote usar escopos, você deverá usar o parâmetro `escopo`. Para obter mais informações, consulte [`npm-scope`](https://docs.npmjs.com/misc/scope).
 

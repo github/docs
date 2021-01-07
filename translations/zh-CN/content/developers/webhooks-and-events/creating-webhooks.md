@@ -54,15 +54,15 @@ Web 挂钩需要设置几个配置选项才能使用。 我们将在下面介绍
 
 事件是 web 挂钩的核心。 当仓库上发生特定操作时，就会触发这些 web 挂钩，而服务器的有效负载 URL 会截获它们并采取行动。
 
-A full list of webhook events, and when they execute, can be found in [the webhooks API][hooks-api] reference.
+有关 web 挂钩事件的完整列表以及它们在什么情况下执行，请参阅 [web 挂钩 API][hooks-api] 参考资料。
 
-Since our webhook is dealing with Issues in a repository, we'll click **Let me select individual events** and then **Issues**. Make sure you select **Active** to receive issue events for triggered webhooks. You can also select all events using the default option.
+由于我们的 web 挂钩与仓库中的议题相关，因此我们单击 **Let me select individual events（让我选择单个事件）**，然后单击 **Issues（议题）**。 确保选择 **Active（激活）**以接收触发 web 挂钩的议题事件。 您还可以使用默认选项选择所有事件。
 
-When you're finished, click **Add webhook**. 唷！ Now that you created the webhook, it's time to set up our local server to test the webhook. Head on over to [Configuring Your Server](/webhooks/configuring/) to learn how to do that.
+完成后，单击 **Add webhook（添加 web 挂钩）**。 唷！ 现在您创建了 web 挂钩，是时候设置我们的本地服务器来测试 web 挂钩了。 请参阅[配置服务器](/webhooks/configuring/)了解如何进行测试。
 
-#### Wildcard Event
+#### 通配符事件
 
-To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
+要为所有事件配置 web 挂钩，请使用通配符 (`*`) 来指定 web 挂钩事件。 添加通配符事件时，我们将用通配符事件替换您配置的任何现有事件，并向您发送所有受支持事件的有效负载。 您还会自动获取我们可能在将来添加的任何新事件。
 
 [webhooks-overview]: /webhooks/
 [webhook-api]: /rest/reference/repos#hooks
