@@ -16,8 +16,8 @@ versions:
 
 更多信息请参阅[官方 {% data variables.product.prodname_education %}](https://education.github.com/partners/schools) 网页。
 
-Teachers can manage a course on software development with {% data variables.product.prodname_education %}. {% data variables.product.prodname_classroom %} allows you to distribute code, provide feedback, and manage coursework using {% data variables.product.product_name %}. For more information, see "[Manage coursework with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom)."
+教师可以使用 {% data variables.product.prodname_education %} 管理软件开发课程。 {% data variables.product.prodname_classroom %} 可用于发布代码、提供反馈，以及使用 {% data variables.product.product_name %} 管理课程。 更多信息请参阅“[使用 {% data variables.product.prodname_classroom %} 管理课程](/education/manage-coursework-with-github-classroom)”。
 
 要详细了解学生领导者和教师的培训计划，请参阅 "[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)" 和 "[Campus Advisors](https://education.github.com/teachers/advisors)"。
 
-如果您是学生或教师并且您的学校未作为 {% data variables.product.prodname_education %} 学校与 {% data variables.product.prodname_dotcom %} 合作，您也可以个人申请使用 {% data variables.product.prodname_dotcom %} 的折扣。 For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)."
+如果您是学生或教师并且您的学校未作为 {% data variables.product.prodname_education %} 学校与 {% data variables.product.prodname_dotcom %} 合作，您也可以个人申请使用 {% data variables.product.prodname_dotcom %} 的折扣。 更多信息请参阅“[使用 {% data variables.product.prodname_dotcom %} 做家庭作业](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)”或“[在课堂上和研究中使用 {% data variables.product.prodname_dotcom %}](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)”。

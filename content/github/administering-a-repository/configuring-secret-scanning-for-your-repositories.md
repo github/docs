@@ -1,8 +1,10 @@
 ---
-title: Configuring secret scanning for private repositories
+title: Configuring secret scanning for your repositories
 intro: 'You can configure how {% data variables.product.product_name %} scans your private repositories for secrets.'
-product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a private repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
+redirect_from:
+  - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
+product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   free-pro-team: '*'
 ---
@@ -14,8 +16,19 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. To the right of "Secret scanning", click **Enable**.
-![Enable secret scanning for your repository](/assets/images/help/repository/enable-secret-scanning.png)
+
+{% if currentVersion == "free-pro-team@latest" %}
+4. If "{% data variables.product.prodname_secret_scanning_caps %}" is not shown on the page, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-dotcom.png)
+5. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
+   ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/help/repository/enable-ghas-confirmation-dotcom.png)
+6. When you enable {% data variables.product.prodname_GH_advanced_security %} this may automatically enable {% data variables.product.prodname_secret_scanning %} for the repository (this is controlled by the organization configuration). If "{% data variables.product.prodname_secret_scanning_caps %}" is shown with an **Enable** button, you still need to enable {% data variables.product.prodname_secret_scanning %} by clicking **Enable**. If you see a **Disable** button, {% data variables.product.prodname_secret_scanning %} is already enabled.
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-dotcom.png){% endif %}
+
+   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+4. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
+   ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/help/repository/enable-secret-scanning-ghe.png)
+   {% endif %}
 
 ### Excluding alerts from {% data variables.product.prodname_secret_scanning %} in private repositories
 

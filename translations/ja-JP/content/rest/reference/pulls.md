@@ -1,5 +1,5 @@
 ---
-title: Pulls
+title: Pull Request
 redirect_from:
   - /v3/pulls
 versions:

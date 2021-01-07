@@ -209,6 +209,8 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 ##### `runs.steps[*].run`
 
 **Required** The command you want to run. This can be inline or a script in your action repository:
+
+{% raw %}
 ```yaml
 runs:
   using: "composite"
@@ -216,6 +218,7 @@ runs:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+{% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
 

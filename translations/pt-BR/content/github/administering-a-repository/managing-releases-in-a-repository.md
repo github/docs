@@ -20,7 +20,7 @@ versions:
 ### Sobre o gerenciamento da versão
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
+Você também pode publicar uma ação a partir de uma versão específica em {% data variables.product.prodname_marketplace %}. Para obter mais informações, consulte "<a href="/actions/creating-actions/publishing-actions-in-github-marketplace" class="dotcom-only">Publicar uma ação no {% data variables.product.prodname_marketplace %}</a>"
 {% endif %}
 Você pode escolher se
 

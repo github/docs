@@ -166,7 +166,7 @@ Para criar um aplicativo Probot, siga as etapas a seguir:
     }
     ```
 
-4. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Navegue até [localhost:3000](http://localhost:3000)e clique no botão **Registrar aplicativo GitHub**:
+4. [Execute o aplicativo GitHub localmente](https://probot.github.io/docs/development/#running-the-app-locally). Acesse `http://localhost:3000` e clique no botão **Registrar aplicativo GitHub**:
 
    ![Registrar um aplicativo GitHub do Probot](/assets/images/github-apps/github_apps_probot-registration.png)
 

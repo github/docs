@@ -80,17 +80,6 @@ Manage [projects](/rest/reference/projects).
 **Custom media type:** `cloak-preview`
 **Announced:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
 
-{% if currentVersion == "free-pro-team@latest" %}
-### User blocking
-
-Users can [block other users](/rest/reference/users#blocking). Organizations can [block users](/rest/reference/orgs#blocking), too.
-
-**Custom media type:** `giant-sentry-fist-preview`
-**Announced:** [2011-05-31](https://github.com/blog/862-block-the-bullies)
-**Update 1:** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users)
-**Update 2:** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page)
-{% endif %}
-
 ### Repository topics
 
 View a list of [repository topics](/articles/about-topics/) in [calls](/rest/reference/repos) that return repository results.

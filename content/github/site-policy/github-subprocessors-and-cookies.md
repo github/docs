@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: **December 30, 2020**
+Effective date: **January 6, 2021**
 
 GitHub provides a great deal of transparency regarding how we use your data, how we collect your data, and with whom we share your data. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -25,12 +25,9 @@ When we share your information with third party subprocessors, such as our vendo
 | Braintree (PayPal) | Subscription credit card payment processor | United States | United States |
 | Clearbit | Marketing data enrichment service | United States | United States |
 | Discourse | Community forum software provider | United States | United States |
-| DiscoverOrg | Marketing data enrichment service | United States | United States |
 | Eloqua | Marketing campaign automation | United States | United States |
 | Google Apps | Internal company infrastructure | United States | United States |
 | Google Analytics | Analytics and performance | United States | United States |
-| LinkedIn Navigator | Data enrichment service | United States | United States |
-| Magic Robot | Campaign reporting (Salesforce Add-on) | United States | United States |
 | MailChimp | Customer ticketing mail services provider | United States | United States |
 | Mailgun | Transactional mail services provider | United States | United States |
 | Microsoft | Microsoft Services | United States | United States |

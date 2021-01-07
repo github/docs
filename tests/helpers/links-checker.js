@@ -224,7 +224,7 @@ async function buildInitialContext () {
 
 async function buildPathContext (initialContext, page, permalink) {
   // Create a new object with path-specific properties.
-  // Note this is cherry-picking properties currently only needed by the middlware below;
+  // Note this is cherry-picking properties currently only needed by the middleware below;
   // See middleware/context.js for the rest of the properties we are NOT refreshing per page.
   // If we find this causes problems for link checking, we can call `contextualize` on
   // every page. For now, this cherry-picking approach is intended to improve performance so
