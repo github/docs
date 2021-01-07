@@ -74,8 +74,8 @@ Exchange this `code` for an access token:
 
 Name | Type | Description
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.
+`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
 `code` | `string` | **Required.** The code you received as a response to Step 1.
 `redirect_uri` | `string` | The URL in your application where users are sent after authorization.
 `state` | `string` | The unguessable random string you provided in Step 1.
