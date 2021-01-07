@@ -9,9 +9,7 @@ Installation:
 {% link_in_list /osmand/start-with/i-cant-install-update-uninstall-the-app %}
 {% link_in_list /osmand/start-with/osmand-installation-on-sd-fails %}
 
-Tips & Tricks:
-
-{% link_with_intro /tips-and-tricks/ %} 
+{% link_with_intro /faq %} 
 
 Searching and navigation:
 
