@@ -135,12 +135,12 @@ _検索_
 - [`PATCH /repos/:owner/:repo`](/rest/reference/repos#update-a-repository) (:write)
 - [`DELETE /repos/:owner/:repo`](/rest/reference/repos#delete-a-repository) (:write)
 {% if currentVersion == "free-pro-team@latest" %}
-- [`Get GET /repos/:owner/:repo/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-a-repository) (:read)
+- [`GET /repos/:owner/:repo/actions/runners/downloads`](/rest/reference/actions#list-runner-applications-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runners`](/rest/reference/actions#list-self-hosted-runners-for-a-repository) (:read)
 - [`GET /repos/:owner/:repo/actions/runners/:runner_id`](/rest/reference/actions#get-a-self-hosted-runner-for-a-repository) (:read)
 - [`DELETE /repos/:owner/:repo/actions/runners/:runner_id`](/rest/reference/actions#delete-a-self-hosted-runner-from-a-repository) (:write)
 - [`POST /repos/:owner/:repo/actions/runners/registration-token`](/rest/reference/actions#create-a-registration-token-for-a-repository) (:write)
-- [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write)git
+- [`POST /repos/:owner/:repo/actions/runners/remove-token`](/rest/reference/actions#create-a-remove-token-for-a-repository) (:write)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
 - [`PUT /repos/:owner/:repo/automated-security-fixes`](/rest/reference/repos#enable-automated-security-fixes) (:write)
@@ -472,7 +472,7 @@ _アサインされた人_
 
 _イベント_
 - [`GET /repos/:owner/:repo/issues/:issue_number/events`](/rest/reference/issues#list-issue-events) (:read)
-- [Get an issue event](/rest/reference/issues#get-an-issue-event) (:read)
+- [`GET /repos/:owner/:repo/issues/events/:event_id`](/rest/reference/issues#get-an-issue-event) (:read)
 
 _ラベル_
 - [`GET /repos/:owner/:repo/issues/:issue_number/labels`](/rest/reference/issues#list-labels-for-an-issue) (:read)
@@ -822,7 +822,7 @@ _Team_
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
-### Permission on "secret scanning alerts"
+### "secret scanning alerts"に対する権限
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)
 

@@ -460,7 +460,7 @@ jobs:
 
 您可以配置工作流程在 CI 测试通过时将 Python 包发布到您想要的任何包注册表。
 
-您可以使用仓库密码存储发布软件包所需的访问令牌或凭据。 下面的示例使用 `twine` 和 `dist` 创建包并发布到 PyPI。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+您可以使用密码存储发布软件包所需的访问令牌或凭据。 下面的示例使用 `twine` 和 `dist` 创建包并发布到 PyPI。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 {% raw %}
 
