@@ -22,16 +22,16 @@ Para uma visão geral do processo de criação e envio de uma listagem, consulte
 
 ### Pré-requisitos para publicação com verificação
 
-Before you request verification of your listing, you'll need to integrate the {% data variables.product.prodname_marketplace %} billing flows and webhook into your app. Para obter mais informações, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
+Antes de solicitar a verificação do seu anúncio, você precisará integrar os fluxos de cobrança de {% data variables.product.prodname_marketplace %} e webhook no seu aplicativo. Para obter mais informações, consulte "[Usar a API de {% data variables.product.prodname_marketplace %} no seu aplicativo](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
 Se você cumpriu os requisitos para o anúncio integrou-se à API de {% data variables.product.prodname_marketplace %}, envie o seu anúncio. Para obter mais informações, consulte "[Requisitos para listar um app](/developers/github-marketplace/requirements-for-listing-an-app)".
 
 {% data reusables.marketplace.app-transfer-to-org-for-verification %} Para informações sobre como fazer isso, consulte: "[Transferir um aplicativo para uma organização antes de enviar](#transferring-an-app-to-an-organization-before-you-submit)" abaixo.
 
-### Transferring an app to an organization before you submit
+### Transferir um aplicativo para uma organização antes de enviar
 
-You cannot sell an app that's owned by a user account. You need to transfer the app to an organization that is already a verified creator, or that can request verification for a listing for the app. For details, see:
+Você não pode vender um app que pertence a uma conta de usuário. Você precisa transferir o aplicativo para uma organização que já é um criador verificado ou que possa solicitar verificação para um anúncio do aplicativo. Para detalhes, consulte:
 
-1. "[Creating an organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)"
+1. "[Criar uma organização do zero](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)"
 
-1. "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)"
+1. "[Transferir a propriedade de um aplicativo GitHub](/developers/apps/transferring-ownership-of-a-github-app)" ou "[Transferir a propriedade de um aplicativo OAuth](/developers/apps/transferring-ownership-of-an-oauth-app)"

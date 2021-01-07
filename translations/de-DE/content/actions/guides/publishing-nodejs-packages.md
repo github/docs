@@ -44,7 +44,7 @@ Wenn Du Schritte in Deinen Workflow einfügst, um die `publishConfig`-Felder in 
 
 Jedes Mal, wenn Du ein neues Release erstellst, kannst Du einen Workflow anstoßen, um Dein Paket zu veröffentlichen. Der Workflow im folgenden Beispiel wird von dem Ereignis `release` vom Typ `created` angestoßen. Der Workflow veröffentlicht das Paket im npm-Registry sofern es die CI-Tests besteht.
 
-Um in Deinem Workflow authentifizierte Operationen gegenüber der npm-Registry durchzuführen, musst Du Dein npm-Authentifizierungstoken als Geheimnis in Deinen Repository-Einstellungen ablegen. Erstelle z.B. ein Geheimnis namens `NPM_TOKEN`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
 Standardmäßig verwendet npm das Feld `name` der Datei *package.json*, um die npm-Registry zu ermitteln. Wenn Du in einem globalen Namespace veröffentlichst, brauchst Du nur den Paketnamen anzugeben. Zum Beispiel würdest Du ein Paket namens `npm-hello-world-test` auf `https://www.npmjs.com/package/npm-hello-world-test` veröffentlichen.
 

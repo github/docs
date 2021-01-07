@@ -44,7 +44,7 @@ Se você adicionar etapas ao seu fluxo de trabalho para configurar os campos `pu
 
 Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado quando o evento `versão` é acionado com o tipo `criado`. O fluxo de trabalho publica o pacote no registro npm se o teste de CI for aprovado.
 
-Para executar operações autenticadas com o registro npm em seu fluxo de trabalho, você deverá armazenar seu token de autenticação npm como um segredo nas configurações do repositório. Por exemplo, crie um segredo denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Para executar operações autenticadas para o registro npm em seu fluxo de trabalho, você precisará armazenar seu token de autenticação npm como um segredo. Por exemplo, crie um repositório secreto denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 Por padrão, o npm usa o campo `nome` do arquivo *package.json* para determinar o registro do npm. Ao publicar em um namespace global, você precisa incluir apenas o nome do pacote. Por exemplo, você publicaria um pacote denominado `npm-hello-world-test` em `https://www.npmjs.com/package/npm-hello-world-test`.
 

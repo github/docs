@@ -11,17 +11,33 @@ versions:
   free-pro-team: '*'
 ---
 
-### Enabling or disabling security and analysis features
+{% if currentVersion == "free-pro-team@latest" %}
+### Enabling or disabling security and analysis features for public repositories
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
+You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**.
+  !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
+{% endif %}
+
+### Enabling or disabling security and analysis features{% if currentVersion == "free-pro-team@latest" %} for private repositories{% endif %}
+
+You can manage the security and analysis features for your {% if currentVersion == "free-pro-team@latest" %}private or internal {% endif %}repository. If your organization or enterprise has a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**.
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable.png)
+4. Under "Configure security and analysis features", to the right of the feature, click **Disable** or **Enable**. {% if currentVersion == "free-pro-team@latest" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
+  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
+  {% endif %}
+  {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
+  {% endif %}
 
 ### Granting access to security alerts
 

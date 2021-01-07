@@ -265,7 +265,9 @@ O parâmetro opcional `redirect_uri` também pode ser usado para URLs do localhh
 
 Para a URL de retorno de chamada `http://localhost/path`, você poderá usar este `redirect_uri`:
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### Criar vários tokens para aplicativos OAuth
 

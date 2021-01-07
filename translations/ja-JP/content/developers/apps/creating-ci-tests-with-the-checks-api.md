@@ -832,7 +832,7 @@ end
 
 ### トラブルシューティング
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
+以下は、いくつかの一般的な問題と推奨される解決策です。 他の問題が生じた場合は、{% data variables.product.prodname_support_forum_with_url %}で助けやアドバイスを求めることができます。
 
 * **Q:** アプリケーションが GitHub にコードをプッシュしません。 RuboCop が自動的に行う修正が表示されません。
 
@@ -858,7 +858,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### おわりに
 
-このガイドの手順を一通り終えたら、Checks API を使用して CI サーバーを作成することの基本が習得できています。 To review, you:
+このガイドの手順を一通り終えたら、Checks API を使用して CI サーバーを作成することの基本が習得できています。 振り返ると、以下を行いました。
 
 * Checks API イベントを受信し、チェック実行を作成するようサーバーを設定しました。
 * リポジトリ内のコードをチェックし、エラーのアノテーションを作成するため RuboCop を使用しました。
@@ -866,7 +866,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### 次のステップ
 
-Here are some ideas for what you can do next:
+以下は、次に行えることのいくつかのアイデアです。
 
 * 現在、[Fix this] ボタンは常に表示されています。 ここまで書いたコードを更新し、RuboCop がエラーを見つけた時にのみ [Fix this] ボタンが表示されるようにしましょう。
 * RuboCop がファイルを head ブランチに直接コミットしないようにしたい場合、head ブランチに基づいて新しいブランチで[プルリクエストを作成する](/rest/reference/pulls#create-a-pull-request)ようにコードを更新できます。
