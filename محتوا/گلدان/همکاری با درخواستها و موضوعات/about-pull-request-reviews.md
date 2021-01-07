@@ -59,4 +59,4 @@ For more information, see "[About required reviews for pull requests](/articles/
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Enabling required reviews for pull requests](/articles/enabling-required-reviews-for-pull-requests)"
 - "[Viewing a pull request review](/articles/viewing-a-pull-request-review)"
-- "[Setting guidelines for repository contributors](/articles/setting-guidelines-for-repository-contributors)"
+- "[Setting guidelines for repostory contributors](/articles/setting-guidelines-for-repository-contributors)"
