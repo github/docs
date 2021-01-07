@@ -688,7 +688,17 @@ steps:
 
 #### Custom shell
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`, as in this example
+
+```yaml
+steps:
+  - name: Display the path
+    run: |
+      print %ENV
+    shell: perl {0}
+```
+
+The command needs to be installed in the environment, please check [the documentation on virtual environments](https://github.com/actions/virtual-environments) for the list of commands, languages and utilities available.
 
 #### Exit codes and error action preference
 
