@@ -5,7 +5,6 @@ const Redis = require('ioredis')
 const isProduction = process.env.NODE_ENV === 'production'
 const { REDIS_URL } = process.env
 const rateLimitDatabaseNumber = 0
-const redisUrl = `${REDIS_URL}/${rateLimitDatabaseNumber}`
 
 module.exports = rateLimit({
   // 1 minute (or practically unlimited outside of production)
@@ -16,5 +15,5 @@ module.exports = rateLimit({
   // Or anything with a status code less than 400
   skipSuccessfulRequests: true,
   // When available, use Redis
-  store: REDIS_URL && new RedisStore({ client: new Redis(redisUrl) })
+  store: REDIS_URL && new RedisStore({ client: new Redis(REDIS_URL, { db: rateLimitDatabaseNumber }) })
 })
