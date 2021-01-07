@@ -305,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Fügt für alle nachfolgenden Aktionen im aktuellen Auftrag vor der Systemvariablen `PATH` ein Verzeichnis hinzu. Die gerade ausgeführte Aktion kann nicht auf die neue Pfadvariable zugreifen.
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### Beispiel
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

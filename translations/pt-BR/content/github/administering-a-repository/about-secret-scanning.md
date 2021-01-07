@@ -80,7 +80,7 @@ Quando o {% data variables.product.prodname_secret_scanning %} detecta um segred
 
 Os administradores do repositório e proprietários da organização podem conceder acesso a alertas de {% data variables.product.prodname_secret_scanning %} aos usuários e à equipe. Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)".
 
-To monitor results from {% data variables.product.prodname_secret_scanning %} across your private repositories or your organization, you can use the {% data variables.product.prodname_secret_scanning %} API. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
+Para monitorar os resultados de {% data variables.product.prodname_secret_scanning %} nos seus repositórios privados ou na sua organização, você pode usar a API de {% data variables.product.prodname_secret_scanning %}. Para obter mais informações sobre pontos de extremidade da API, consulte "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)".
 
 O {% data variables.product.product_name %} atualmente verifica repositórios públicos para encontrar segredos emitidos pelos seguintes provedores de serviços.
 

@@ -1,5 +1,5 @@
 ---
-title: Use GitHub in your classroom and research
+title: Use o GitHub em aula e pesquisas
 intro: 'Como educador ou pesquisador, use o {% data variables.product.prodname_dotcom %} para colaborar no seu trabalho em sala de aula, em um grupo de pesquisa ou de alunos, e muito mais.'
 mapTopic: true
 redirect_from:
