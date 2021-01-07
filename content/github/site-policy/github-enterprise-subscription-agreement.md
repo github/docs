@@ -1,5 +1,6 @@
 ---
 title: GitHub Enterprise Subscription Agreement
+hidden: true
 redirect_from:
   - /articles/github-enterprise-agreement/
   - /articles/github-enterprise-subscription-agreement
@@ -7,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: November 16, 2020
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
 
 BY CLICKING THE "I AGREE" OR SIMILAR BUTTON OR BY USING ANY OF THE PRODUCTS (DEFINED BELOW), CUSTOMER ACCEPTS THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF CUSTOMER IS ENTERING INTO THIS AGREEMENT ON BEHALF OF A LEGAL ENTITY, CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE LEGAL ENTITY TO THIS AGREEMENT.
 
