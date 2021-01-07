@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-版本生效日期：2020 年 11 月 13 日
+Version Effective Date: December 14, 2020
 
 创建帐户后，您有权访问许多不同的功能和产品，它们都是服务的一部分。 由于其中许多功能和产品具有不同的功能，因此可能需要特定于该功能或产品的附加条款和条件。 Below, we've listed those features and products, along with the corresponding additional terms that apply to your use of them.
 
@@ -46,13 +46,11 @@ GitHub Pages 受某些特定带宽和使用限制的约束，可能不适用于�
 ### 5. Actions 和 Packages
 
 #### a. Actions 的使用
-GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件开发生命周期工作流程。 Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/actions). Your Actions compute usage is displayed within [your account settings](https://github.com/settings/billing), and you will be notified by email in advance of reaching the limit of your included quantities. 如果要超出自带空间使用 Actions，您可以[启用超限](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)。
+GitHub Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-自带和付费空间的计算用量以分钟为单位计算，具体取决于您执行的 Actions 类型（例如 Linux、Windows、macOS）。 每个 Action 的作业或任务所用的时间将取整到最接近的分钟数。 要判断自带空间是否充足，可以用倍数乘以执行每个作业或任务所用的时间量（取整之前），具体取决于 Action 的类型。 超限分钟数按[规定的每分钟价格](https://github.com/features/actions)收费，具体取决于您执行的 Actions 类型。 Actions 和 Packages 共用存储空间，您的存储空间用量显示在您的[帐户设置](https://github.com/settings/billing)中。 For additional details about included quantity usage calculations, see the [Actions documentation](/actions).
-
-对 Actions 和任何 Action 服务元素的使用，不得违反协议、[可接受使用政策](/github/site-policy/github-acceptable-use-policies)或 GitHub Actions [服务限制](/actions/reference/usage-limits-billing-and-administration/#usage-limits)。 此外，Actions 不得用于：
+Actions and any elements of the Actions service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions). 此外，Actions 不得用于：
 - 密码破解;
-- 使用我们的服务器破坏、非授权访问或尝试非授权访问任何服务、设备、数据、帐户或网络（[GitHub 漏洞赏金计划](https://bounty.github.com)授权的活动除外）；
+- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 - 出于商业目的，提供兜售 Actions 或任何 Actions 元素的独立或集成应用程序或服务；
 - 任何给我们的服务器带来负担的活动，如果这种负担与提供给用户的收益不成比例（例如，不要将 Action 用作内容交付网络或作为无服务器应用程序的一部分，但收益低负担也低的 Action 可能没问题）；或
 - 与使用 GitHub Actions 的仓库相关的软件项目创建、测试、部署或发布无关的任何其他活动。
@@ -60,16 +58,7 @@ GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件
 为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能会导致作业终止，或者您使用 GitHub Actions 的权限受限。
 
 #### b. Packages 的使用
-GitHub Packages 可用于下载、发布和管理内容包。 每个帐户计划都自带可用于 Packages 的带宽和存储空间，具体数量可查阅 [Packages 文档](/github/managing-packages-with-github-package-registry/about-github-package-registry)。 Actions 和 Packages 共用这两个服务功能之间的存储空间。 存储和带宽用量显示在您的[帐户设置](https://github.com/settings/billing)中，在达到自带空间的上限之前您会收到电子邮件通知。 如果要超出自带的带宽和存储空间使用 Packages，您可以[启用超限](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)。
-
-带宽用量根据仓库中通过 Packages 传出的数据量计算，但是通过 Actions 的包传输不会计入您的自带或付费数量。 Packages bandwidth usage is limited by the [Acceptable Use Policy](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), and included bandwidth quantities are determined by your [account plan](https://github.com/pricing).
-
-Actions 和 Packages 存储用量是这两个服务功能之间的共用量。 存储用量按一个月的加权平均数计算，不会每月重置。 Public and private repositories have different included storage quantities, and the included quantities for private repositories depend on your [account plan](https://github.com/pricing).
-
-#### c. Actions 和 Packages 的付款与计费
-Actions 和 Packages 根据用量计费。 不能单独购买额外的 Actions 或 Packages 数量。  对于按月计费的客户，必须有记录在档的付款方式才能选择支付这些服务功能的额外数量。 除非您是按发票计费的客户，否则将根据您上个月的用量每月定期向您收费。 对于发票客户，必须在 GitHub 发票日期后的三十 (30) 天内支付费用。 对于预付服务功能超限费用的客户，未使用的预付分钟数不会结转到下一个计费期，也不会退款。
-
-您可以在[帐户设置](https://github.com/settings/billing/cost_management)中设置每月支出限额。 在达到自带空间上限和指定的付费额外数量支出限额之前，您会收到电子邮件通知。
+GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
 
 ### 6. Learning Lab
 
@@ -108,3 +97,13 @@ GitHub Advanced Security is licensed on a "Unique Committer" basis. A "Unique Co
 #### b. GitHub Advisory Database 的许可
 
 GitHub Advisory Database 的许可采用[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)原则。 有关署名条款，请参阅 <https://github.com/advisories> 上的 GitHub Advisory Database，或者所使用的单独 GitHub Advisory Database 记录（以 <https://github.com/advisories> 为前缀）。
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation 可随时禁用 SQL Server 映像。
+
+#### b. Third-party components
+
+软件包含第三方许可给 GitHub 的组件，其中包括其许可证需要 GitHub 为可用组件提供源代码的软件。 这些组件的源代码将在请求时提供。

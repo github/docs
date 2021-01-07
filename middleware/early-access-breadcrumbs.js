@@ -40,8 +40,8 @@ module.exports = async (req, res, next) => {
 
   // get Early Access category path
   // e.g., `enforcing-best-practices-with-github-policies` in /free-pro-team@latest/early-access/github/enforcing-best-practices-with-github-policies
-  const categoryPath = path.posix.join('/', req.context.currentVersion, 'early-access', pathParts[0], pathParts[1])
-  const category = req.context.pages[path.posix.join('/en', categoryPath)]
+  const categoryPath = path.posix.join('/', 'en', req.context.currentVersion, 'early-access', pathParts[0], pathParts[1])
+  const category = req.context.pages[categoryPath]
 
   if (!category) return next()
 
@@ -54,7 +54,7 @@ module.exports = async (req, res, next) => {
 
   // for Early Access purposes, we don't need to differentiate between map topics and articles breadcrumbs
   const mapTopicOrArticlePath = path.posix.join(categoryPath, pathParts[2])
-  const mapTopicOrArticle = req.context.pages[path.posix.join('/en', mapTopicOrArticlePath)]
+  const mapTopicOrArticle = req.context.pages[mapTopicOrArticlePath]
 
   if (!mapTopicOrArticle) return next()
 

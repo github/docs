@@ -14,6 +14,11 @@ module.exports = function (app) {
   app.use(require('morgan')('dev', { skip: (req, res) => !isDevelopment }))
   if (isDevelopment) app.use(require('./webpack'))
 
+  // *** Observability ***
+  if (process.env.DD_API_KEY) {
+    app.use(require('./connect-datadog'))
+  }
+
   // *** Early exits ***
   // Don't use the proxy's IP, use the requester's for rate limiting
   // See https://expressjs.com/en/guide/behind-proxies.html
@@ -51,6 +56,7 @@ module.exports = function (app) {
 
   // *** Config and context for rendering ***
   app.use(require('./find-page')) // Must come before archived-enterprise-versions, breadcrumbs, featured-links, products, render-page
+  app.use(require('./block-robots'))
 
   // *** Rendering, 2xx responses ***
   // I largely ordered these by use frequency
@@ -74,6 +80,7 @@ module.exports = function (app) {
   app.use(require('./contextualizers/webhooks'))
   app.use(require('./breadcrumbs'))
   app.use(require('./early-access-breadcrumbs'))
+  app.use(require('./enterprise-server-releases'))
   app.use(require('./dev-toc'))
   app.use(require('./featured-links'))
 

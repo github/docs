@@ -1,0 +1,2 @@
+1. 在任何页面的右上角，单击您的个人资料照片，然后单击 **{% data variables.product.prodname_sponsors %}**。 ![{% data variables.product.prodname_sponsors %} 按钮](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
+2. If a list of your sponsored and eligible accounts is shown, to the right of the account you want to manage, click **Dashboard**. ![开发者赞助者仪表板按钮](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)

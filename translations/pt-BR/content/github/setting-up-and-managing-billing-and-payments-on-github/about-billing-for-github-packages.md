@@ -10,6 +10,8 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
+{% data reusables.package_registry.packages-spending-limit-brief %} Para obter mais informações, consulte "[Sobre limites de gastos](#about-spending-limits)".
+
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
 A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
@@ -50,8 +52,8 @@ Se uso de {% data variables.product.prodname_registry %} compartilha a data de c
 
 ### Sobre limites de gastos
 
-Por padrão, sua conta terá um limite de gastos de $0 para o uso de {% data variables.product.prodname_registry %}. Para habilitar a transferência de armazenamento e dados para pacotes privados além dos valores incluídos em sua conta, você pode aumentar o limite de gastos ou permitir gastos ilimitados. Para obter mais informações, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)".
+{% data reusables.package_registry.packages-spending-limit-detailed %}
 
-{% data reusables.package_registry.spending-limit-enterprise-account %}
+Para obter informações sobre como gerenciar e alterar o limite de gastos da sua conta, consulte "[Gerenciar seu limite de gastos para {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)".
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}
