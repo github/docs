@@ -11,6 +11,7 @@ versions:
 ---
 
 {% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.not-available %}
 
 ### Automatic build for a compiled language fails
 
