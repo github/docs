@@ -1,5 +1,5 @@
-const findPageInVersion = require('../lib/find-page-in-version')
-const { getVersionedPathWithLanguage } = require('../lib/path-utils')
+const path = require('path')
+const removeFPTFromPath = require('../lib/remove-fpt-from-path')
 
 // this middleware adds properties to the context object
 module.exports = async (req, res, next) => {
@@ -25,11 +25,10 @@ async function getLinkData (rawLinks, context) {
   const links = []
 
   for (const link of rawLinks) {
-    const href = link.href
-      ? getVersionedPathWithLanguage(link.href, context.currentVersion, context.currentLanguage)
-      : getVersionedPathWithLanguage(link, context.currentVersion, context.currentLanguage)
+    const linkPath = link.href || link
+    const href = removeFPTFromPath(path.join('/', context.currentLanguage, context.currentVersion, linkPath))
 
-    const linkedPage = findPageInVersion(href, context.pages, context.redirects, context.currentLanguage, context.currentVersion)
+    const linkedPage = context.pages[href] || context.pages[context.redirects[href]]
     if (!linkedPage) continue
 
     const opts = { textOnly: true, encodeEntities: true }

@@ -5,7 +5,6 @@ const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const isArchivedVersion = require('../lib/is-archived-version')
 const got = require('got')
-const findPage = require('../lib/find-page')
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions
@@ -77,7 +76,7 @@ function getFallbackRedirects (req, requestedVersion) {
   const pathWithNewVersion = req.path.replace(requestedVersion, latest)
 
   // look for a page with the same path on a currently supported version
-  const currentlySupportedPage = findPage(pathWithNewVersion, req.context.pages, req.context.redirects)
+  const currentlySupportedPage = req.context.pages[pathWithNewVersion] || req.context.pages[req.context.redirects[pathWithNewVersion]]
   if (!currentlySupportedPage) return
 
   // get an array of viable old paths

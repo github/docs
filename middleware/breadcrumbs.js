@@ -1,5 +1,6 @@
 const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 
 module.exports = async (req, res, next) => {
   if (!req.context.page) return next()
@@ -16,9 +17,6 @@ module.exports = async (req, res, next) => {
   // drop first '/'
   pathParts.shift()
 
-  // drop the version segment so pathParts now starts with /product
-  pathParts.shift()
-
   const productPath = path.posix.join('/', req.context.currentProduct)
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
@@ -29,6 +27,19 @@ module.exports = async (req, res, next) => {
   req.context.breadcrumbs.product = {
     href: path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath),
     title: product.title
+  }
+
+  // drop the version segment so pathParts now starts with /product
+  if (!process.env.FEATURE_REMOVE_FPT) {
+    pathParts.shift()
+  }
+
+  if (process.env.FEATURE_REMOVE_FPT) {
+    // if this is not FPT, drop the version segment so pathParts now starts with /product
+    // if this is FPT, there is no version segment so pathParts already starts with /product
+    if (req.context.currentVersion !== nonEnterpriseDefaultVersion) {
+      pathParts.shift()
+    }
   }
 
   if (!pathParts[1]) return next()

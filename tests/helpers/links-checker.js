@@ -3,10 +3,8 @@ const { union, uniq } = require('lodash')
 const fs = require('fs')
 const path = require('path')
 
-const { getVersionStringFromPath } = require('../../lib/path-utils')
 const patterns = require('../../lib/patterns')
 const { deprecated } = require('../../lib/enterprise-server-releases')
-const findPageInVersion = require('../../lib/find-page-in-version')
 const rest = require('../../middleware/contextualizers/rest')
 const graphql = require('../../middleware/contextualizers/graphql')
 const contextualize = require('../../middleware/context')
@@ -145,11 +143,8 @@ class LinksChecker {
         if (gheVersionInLink && deprecated.includes(gheVersionInLink[1])) continue
         // ------ END ONEOFF EXCLUSIONS -------///
 
-        // the link at this point should include a version via lib/rewrite-local-links
-        const versionFromHref = getVersionStringFromPath(link)
-
         // look for linked page
-        const linkedPage = findPageInVersion(link, context.pages, context.redirects, this.languageCode, versionFromHref)
+        const linkedPage = context.pages[link] || context.pages[context.redirects[link]]
         this.checkedLinksCache.add(link)
 
         if (!linkedPage) {
