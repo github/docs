@@ -11,7 +11,7 @@ Installation:
 
 Tips & Tricks:
 
-{% link_in_list /tips-and-tricks/} 
+{% link_with_intro /tips-and-tricks/ %} 
 
 Searching and navigation:
 
