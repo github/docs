@@ -19,4 +19,4 @@ Organizationを{% data variables.product.prodname_insights %}に追加した後�
 
 ### 参考リンク
 - [{% data variables.product.prodname_insights %}で利用できるメトリクス](/insights/exploring-your-usage-of-github-enterprise/metrics-available-with-github-insights)
-- [{% data variables.product.prodname_insights %}とOrganizationのデータ保護](/github/site-policy/github-insights-and-data-protection-for-your-organization)
+- <a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %}とOrganizationのデータ保護</a>

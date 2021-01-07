@@ -91,7 +91,7 @@ O branch de referência do pull request alterado.
 |:------------------------- |:--------------------------:|:--------------------------------:|
 | <ul><li>Pull requests</li></ul> |           **X**            |                                  |
 
- ### Propriedades do objeto do evento
+#### Propriedades do objeto do evento
 
 {% data reusables.issue-events.issue-event-common-properties %}
 

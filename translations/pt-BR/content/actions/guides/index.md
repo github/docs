@@ -36,6 +36,14 @@ Você pode usar o {% data variables.product.prodname_actions %} para criar fluxo
 {% link_in_list /building-and-testing-java-with-gradle %}
 {% link_in_list /building-and-testing-java-with-ant %}
 
+### Criar fluxos de trabalho personalizados de de implantação contínua
+
+Você pode usar {% data variables.product.prodname_actions %} para criar fluxos de trabalho personalizados de implantação contínua (CDD) que implementam projetos em vários ecossistemas parceiros em nuvem.
+
+ {% link_in_list /deploying-to-amazon-elastic-container-service %}
+ {% link_in_list /deploying-to-azure-app-service %}
+ {% link_in_list /deploying-to-google-kubernetes-engine %}
+
 ### Publicar pacotes de software
 
 Você pode automatizar pacotes de software de publicação como parte do fluxo de trabalho de entrega contínua (CD). Os pacotes podem ser publicados em qualquer host de pacote e em {% data reusables.gated-features.packages %}.

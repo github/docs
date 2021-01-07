@@ -36,7 +36,7 @@ versions:
 
 イベントは、ワークフローをトリガーする特定のアクティビティです。 たとえば、誰かがコミットをリポジトリにプッシュした場合、あるいはIssueもしくはプルリクエストが作成された場合、{% data variables.product.prodname_dotcom %}からアクティビティを発生させることができます。 You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
 
-#### Jobs
+#### ジョブ
 
 ジョブは、同じランナーで実行される一連のステップです。 デフォルトでは、複数のジョブを含むワークフローは、それらのジョブを並行して実行します。 ジョブを順番に実行するようにワークフローを設定することもできます。 たとえば、ワークフローにコードのビルドとテストという2つのシーケンシャルなジョブを持たせ、テストジョブをビルドジョブのステータスに依存させることができます。 ビルドジョブが失敗した場合は、テストジョブは実行されません。
 

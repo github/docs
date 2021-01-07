@@ -47,7 +47,7 @@ if (!fs.existsSync(newSchemaFile)) {
   process.exit(1)
 }
 
-// the other files are objects with vers3091iuions as keys, so we need to require them
+// the other files are objects with versions as keys, so we need to require them
 const previewsFile = path.join(graphqlStaticDir, 'previews.json')
 const changesFile = path.join(graphqlStaticDir, 'upcoming-changes.json')
 const objectsFile = path.join(graphqlStaticDir, 'prerendered-objects.json')

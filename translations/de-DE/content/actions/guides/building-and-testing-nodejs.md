@@ -193,9 +193,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-Um Dich bei Deiner privaten Registry zu authentifizieren, musst Du in Deinen Repository-Einstellungen Dein npm-Authentifizierungs-Token als Geheimnis ablegen. Erstelle z.B. ein Geheimnis namens `NPM_TOKEN`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
+To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
-Im folgenden Beispiel enthält das Geheimnis `NPM_TOKEN` den npm-Authentifizierungs-Token. Die Aktion `setup-node` konfiguriert die Datei *.npmrc*, um den npm-Authentifizierung-Token aus der Umgebungsvariablen `NODE_AUTH_TOKEN` zu lesen. Wenn Du die Aktion `setup-node` verwendest, um eine Datei *.npmrc* zu erstellen, musst Du die Umgebungsvariable `NPM_AUTH_TOKEN` auf das Geheimnis setzen, das Deinen npm-Authentifizierungs-Token enthält.
+Im folgenden Beispiel enthält das Geheimnis `NPM_TOKEN` den npm-Authentifizierungs-Token. Die Aktion `setup-node` konfiguriert die Datei *.npmrc*, um den npm-Authentifizierung-Token aus der Umgebungsvariablen `NODE_AUTH_TOKEN` zu lesen. When using the `setup-node` action to create an *.npmrc* file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 
 Bevor Du Abhängigkeiten installierst, verwende die Aktion `setup-node`, um die Datei *.npmrc* zu erstellen. Die Aktion hat zwei Eingabeparameter. Der Parameter `node-version` legt die Version von Node.js fest und der Parameter `registry-url` bestimmt die Standard-Registry. Wenn Deine Paket-Registry Geltungsbereiche verwendet, musst Du den Parameter `scope` verwenden. Weitere Informationen findest Du unter [`npm-scope`](https://docs.npmjs.com/misc/scope).
 

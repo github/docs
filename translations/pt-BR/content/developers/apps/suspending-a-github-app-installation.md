@@ -7,13 +7,11 @@ versions:
   free-pro-team: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
 **Observação:** {% data reusables.pre-release-program.suspend-installation-beta %}
 
 {% endnote %}
-{% endif %}
 
 ### Suspender um aplicativo GitHub
 

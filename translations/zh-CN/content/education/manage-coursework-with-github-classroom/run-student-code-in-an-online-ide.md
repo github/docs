@@ -1,21 +1,21 @@
 ---
-title: Run student code in an online IDE
-intro: You can run the code from a student assignment within the online integrated development environment (IDE) that you configured for the assignment.
+title: 于在线 IDE 中运行学生代码
+intro: 您可以在为作业配置的在线集成开发环境 (IDE) 中运行学生作业中的代码。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
 ---
 
-### About student code and online IDEs
+### 关于学生代码和在线 IDE
 
-If you configure an online integrated development environment (IDE) for an assignment, you can run the code within the online IDE. You don't need to clone the assignment repository to your computer.
+如果为作业配置在线集成开发环境 (IDE)，您可以在在线 IDE 中运行代码。 您不需要复制作业仓库到您的计算机。
 
-For more information about online IDEs, see "[Integrate {% data variables.product.prodname_classroom %} with an online IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."
+有关在线 IDE 的更多信息，请参阅“[集成 {% data variables.product.prodname_classroom %} 与在线 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)”。
 
-### Running student code in the online IDE
+### 在在线 IDE 中运行学生代码
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of the submission, click **View IDE**. !["View IDE" button for submission using an online IDE](/assets/images/help/classroom/assignments-click-view-ide.png)
+1. 在提交的右侧，请单击 **View IDE（查看 IDE）**。 ![使用在线 IDE 提交的"查看 IDE"按钮](/assets/images/help/classroom/assignments-click-view-ide.png)
