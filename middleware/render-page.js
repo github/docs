@@ -20,12 +20,17 @@ const pageCache = new RedisAccessor({
 
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
-  const originalUrl = req.originalUrl
+
+  // Remove any query string (?...) and/or fragment identifier (#...)
+  const originalUrl = new URL(req.originalUrl, 'https://docs.github.com').pathname
 
   // Serve from the cache if possible (skip during tests)
   const isCacheable = !process.env.CI && process.env.NODE_ENV !== 'test' && req.method === 'GET'
 
-  if (isCacheable) {
+  // Is the request for JSON debugging info?
+  const isRequestingJsonForDebugging = 'json' in req.query && process.env.NODE_ENV !== 'production'
+
+  if (isCacheable && !isRequestingJsonForDebugging) {
     const cachedHtml = await pageCache.get(originalUrl)
     if (cachedHtml) {
       console.log(`Serving from cached version of ${originalUrl}`)
@@ -76,7 +81,7 @@ module.exports = async function renderPage (req, res, next) {
   }
 
   // `?json` query param for debugging request context
-  if ('json' in req.query && process.env.NODE_ENV !== 'production') {
+  if (isRequestingJsonForDebugging) {
     if (req.query.json.length > 1) {
       // deep reference: ?json=page.permalinks
       return res.json(get(context, req.query.json))
