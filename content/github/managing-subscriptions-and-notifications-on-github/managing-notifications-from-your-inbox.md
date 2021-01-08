@@ -86,31 +86,16 @@ Custom filters do not currently support:
 
 ### Supported queries for custom filters
 
-There are three types of filters that you can use:
+These are the types of filters that you can use:
   - Filter by repository with `repo:`
   - Filter by discussion type with `is:`
-  - Filter by notification reason with `reason:`
+  - Filter by notification reason with `reason:`{% if currentVersion == "free-pro-team@latest" %}
+  - Filter by notification author with `author:`
+  - Filter by notification owner with `owner:`{% endif %}
 
-To add a `repo:` filter, you must include the owner of the repository in the query. For example, `repo:atom/atom` represents the Atom repository owned by the Atom organization.
+#### Supported `repo:` queries
 
-#### Supported `reason:` queries
-
-To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
-
-| Query | Description |
-|-----------------|-------------|
-| `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
-| `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
-| `reason:comment`| When you commented on an issue, pull request, or team discussion.
-| `reason:participating` | When you have commented on an issue, pull request, or team discussion or you have been @mentioned.
-| `reason:invitation` | When you're invited to a team, organization, or repository.
-| `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
-| `reason:mention` | You were directly @mentioned.
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
-| `reason:security-alert` | When a security alert is issued for a repository.{% endif %}
-| `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
-| `reason:team-mention` | When a team you're a member of is @mentioned.
-| `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
+To add a `repo:` filter, you must include the owner of the repository in the query: `repo:organization/repository`. An owner is the user or the organization who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octocat-repo` will show notifications triggered in the  octocat-repo repository owned by the octo-org organization.
 
 #### Supported `is:` queries
 
@@ -137,3 +122,49 @@ You can also use the `is:` query to describe how the notification was triaged.
 - `is:done`
 - `is:unread`
 - `is:read`
+
+#### Supported `reason:` queries
+
+To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)."
+
+| Query | Description |
+|-----------------|-------------|
+| `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
+| `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
+| `reason:comment`| When you commented on an issue, pull request, or team discussion.
+| `reason:participating` | When you have commented on an issue, pull request, or team discussion or you have been @mentioned.
+| `reason:invitation` | When you're invited to a team, organization, or repository.
+| `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
+| `reason:mention` | You were directly @mentioned.
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert` | When a security alert is issued for a repository.{% endif %}
+| `reason:state-change`  | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged.
+| `reason:team-mention` | When a team you're a member of is @mentioned.
+| `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
+
+{% if currentVersion == "free-pro-team@latest" %}
+#### Supported `author:` queries
+
+To filter notifications by user, you can use the `author:` query, and specify the username for the {% data variables.product.prodname_dotcom %} account. For example, to see notifications triggered by the Octocat user, use `author:Octocat`.
+
+#### Supported `owner:` queries
+
+To filter notifications by owner, you can use the  `owner` query. An owner is the user or the organization who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. To add an `owner:` filter, you must include the organization, or the user and organization, in the query: `repo:organization` or `repo:organization/repository`. This query is useful if you belong to several organizations, and want to see notifications for an organization in particular, or for a specific user within that organization.
+
+For example, to see notifications from the octo-org organization, use `owner:octo-org`. To see notifications from the Octocat {% data variables.product.prodname_dotcom %} user within the octo-org organization, use `owner:Octocat/octo-org`. 
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+### {% data variables.product.prodname_dependabot %} custom filters
+
+{% if currentVersion == "free-pro-team@latest" %}
+If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save these custom filters:
+- `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
+- `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
+- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+If you use {% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}
+
+For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
+{% endif %}
