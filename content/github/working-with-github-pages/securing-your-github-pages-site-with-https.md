@@ -52,3 +52,26 @@ Assets are commonly found in the following locations:
 | CSS        | `<link rel="stylesheet" href="http://example.com/css/main.css">` | `<link rel="stylesheet" href="https://example.com/css/main.css">`
 | JavaScript   |  `<script type="text/javascript" src="http://example.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://example.com/js/main.js"></script>`
 | Image        |  `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>`  | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>`  
+
+### Cloudflare DNS
+When using Cloudflare to handle your DNS will they by default process any requests done towards your domain and proxy it through them.  
+Because of this behaviour will GitHub be unable to resolve your DNS properly which makes HTTPS enforcement impossible.
+
+To fix this, follow these basic steps:
+
+1. Go to https://cloudflare.com and login into your Cloudflare account
+2. Select the domain that you use on GitHub Pages
+3. Switch to the DNS settings of your domain
+4. Click the `CNAME` entry that points to `<user>.github.io`
+5. Click the orange Cloud icon to turn it to gray and click the "Save" button
+{% note %}
+
+**Note:** It may take up to 72 hours for changes to update accross the internet.
+
+{% endnote %}
+
+{% warning %}
+
+**Warning:** If you are using other services from Cloudflare may the disabling of proxying requests have unwanted side effects for those services.
+
+{% endwarning %}
