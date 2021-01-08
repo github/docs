@@ -65,9 +65,7 @@ To fix this, follow these basic steps:
 4. Click the `CNAME` entry that points to `<user>.github.io`
 5. Click the orange Cloud icon to turn it to gray and click the "Save" button
 {% note %}
-
 **Note:** It may take up to 72 hours for changes to update accross the internet.
-
 {% endnote %}
 
 {% warning %}
