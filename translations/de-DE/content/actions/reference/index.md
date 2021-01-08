@@ -27,10 +27,18 @@ You can configure workflows to run when specific GitHub events occur, at a sched
 
 ### Authentication and secrets
 
-{% data variables.product.prodname_dotcom %} stellt ein Token zur Verfügung, mit dem Du Dich im Namen von {% data variables.product.prodname_actions %} authentifizieren kannst. You can also store sensitive information as a secret in your organization or repository. {% data variables.product.prodname_dotcom %} encrypts all secrets.
+{% data variables.product.prodname_dotcom %} stellt ein Token zur Verfügung, mit dem Du Dich im Namen von {% data variables.product.prodname_actions %} authentifizieren kannst. You can also store sensitive information as a secret in your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repository, or environments{% else %} or repository{% endif %}. {% data variables.product.prodname_dotcom %} encrypts all secrets.
 
 {% link_in_list /authentication-in-a-workflow %}
 {% link_in_list /encrypted-secrets %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Environments
+
+Workflow jobs can reference environments that have protection rules or environment-specific secrets.
+
+{% link_in_list /environments %}
+{% endif %}
 
 ### {% data variables.product.prodname_dotcom %}-gehostete Runner
 

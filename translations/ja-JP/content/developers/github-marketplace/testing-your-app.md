@@ -1,6 +1,6 @@
 ---
 title: アプリをテストする
-intro: 'リストを{% data variables.product.prodname_marketplace %}にサブミットする前に、APIとwebhookを使ってアプリケーションをテストし、顧客に理想的な体験を提供できるようにすることをGitHubはおすすめします。 Before an onboarding expert approves your app, it must adequately handle the billing flows.'
+intro: 'リストを{% data variables.product.prodname_marketplace %}にサブミットする前に、APIとwebhookを使ってアプリケーションをテストし、顧客に理想的な体験を提供できるようにすることをGitHubはおすすめします。 オンボーディングの専門家の検証前に、アプリケーションは支払いフローを適切に処理しなければなりません。'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
@@ -13,7 +13,7 @@ versions:
 
 ### アプリケーションのテスト
 
-You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。 For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+ドラフトの{% data variables.product.prodname_marketplace %}リストを使って、それぞれの支払いフローをシミュレートできます。 リストがドラフト状態にあるということは、まだそれが承認のためにサブミットされていないということです。 ドラフトの{% data variables.product.prodname_marketplace %}リストを使って行った購入は、実際の取引には_ならず_、GitHubはクレジットカードへの課金をしません。 詳細な情報については、「[アプリケーションのリストのドラフト](/developers/github-marketplace/drafting-a-listing-for-your-app)」及び「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
 #### 変更のテストのために開発アプリケーションをドラフトリストと使用する
 

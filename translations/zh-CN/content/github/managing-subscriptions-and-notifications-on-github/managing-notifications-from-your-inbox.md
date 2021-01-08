@@ -1,6 +1,6 @@
 ---
 title: 从收件箱管理通知
-intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}.'
+intro: '使用收件箱快速分类并在电子邮件{% if currentVersion == "free-pro-team@latest" %} 与手机{% endif %} 之间同步您的通知。'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -82,7 +82,7 @@ versions:
   - 区分 `is:issue`、`is:pr` 及 `is:pull-request` 查询过滤器。 这些查询将返回议题和拉取请求。
   - 创建超过 15 个自定义过滤器。
   - 更改默认过滤器或其顺序。
-  - Search [exclusion](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
+  - 使用 `NOT` 或 `-QUALIFIER` 进行[排除](/github/searching-for-information-on-github/understanding-the-search-syntax#exclude-certain-results)搜索。
 
 ### 支持的自定义过滤器查询
 
@@ -97,24 +97,24 @@ versions:
 
 要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
 
-| 查询                        | 描述                                                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                                                                                  |
-| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                                                                             |
-| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                                                                                |
-| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                                                                          |
-| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                                                                                  |
-| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                                                                             |
-| `reason:mention`          | 您被直接@提及。                                                                                                           |
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
-| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
-| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                                                                                  |
-| `reason:team-mention`     | 您所在的团队被@提及时。                                                                                                       |
-| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                                                                          |
+| 查询                        | 描述                                                              |
+| ------------------------- | --------------------------------------------------------------- |
+| `reason:assign`           | 分配给您的议题或拉取请求有更新时。                                               |
+| `reason:author`           | 当您打开拉取请求或议题并且有更新或新评论时。                                          |
+| `reason:comment`          | 当您评论了议题、拉取请求或团队讨论时。                                             |
+| `reason:participating`    | 当您评论了议题、拉取请求或团队讨论或者被@提及时。                                       |
+| `reason:invitation`       | 当您被邀请加入团队、组织或仓库时。                                               |
+| `reason:manual`           | 当您在尚未订阅的议题或拉取请求上单击 **Subscribe（订阅）**时。                          |
+| `reason:mention`          | 您被直接@提及。                                                        |
+| `reason:review-requested` | 您或您所属的团队被请求审查拉取请求。{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | 为仓库发出安全警报时。{% endif %}
+| `reason:state-change`     | 当拉取请求或议题的状态改变时。 例如，议题已关闭或拉取请求合并时。                               |
+| `reason:team-mention`     | 您所在的团队被@提及时。                                                    |
+| `reason:ci-activity`      | 当仓库有 CI 更新时，例如新的工作流程运行状态。                                       |
 
 #### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
+要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 例如，要仅查看仓库邀请更新，则使用 `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}，要仅查看 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} 安全{% endif %}警报，则使用 `is:repository-vulnerability-alert`。{% endif %}
 
 - `is:check-suite`
 - `is:commit`
@@ -128,8 +128,8 @@ versions:
 - `is:discussions`{% endif %}
 
 {% if currentVersion != "github-ae@latest" %}
-For information about reducing noise from notifications for
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+有关减少
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}通知干扰的信息，请参阅“[配置漏洞依赖项的通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)”。
 {% endif %}
 
 您还可以使用 `is:` 查询来描述如何对通知进行分类。

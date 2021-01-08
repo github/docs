@@ -30,15 +30,15 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 ![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
 
 {% if currentVersion == "free-pro-team@latest" %}
-### Reviewing dependency changes
+### Revisar alterações de dependência
 
-If the pull request contains changes to dependencies you can use the dependency review for a manifest or lock file to see what has changed and check whether the changes introduce security vulnerabilities. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
+Se o pull request contiver alterações em dependências, você poderá usar a revisão de dependências para um manifesto ou arquivo de bloqueio para ver o que mudou e verificar se as alterações introduzem vulnerabilidades de segurança. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
 {% data reusables.repositories.changed-files %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the rich diff button.
+1. À direita do cabeçalho para um manifesto ou arquivo de bloqueio, mostre a revisão de dependências clicando no botão de diff avançado.
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 {% endif %}
 
 ### Marcar um arquivo como visualizado

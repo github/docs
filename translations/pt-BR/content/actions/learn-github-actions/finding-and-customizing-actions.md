@@ -76,7 +76,7 @@ etapas:
 
 #### Usar branches
 
-Fazer referência a um branch específico significa que a ação sempre incluirá as atualizações mais recentes no branch de destino, mas pode criar problemas se essas atualizações incluírem alterações significativas. Este exemplo é direcionado a um branch denominado `@main`:
+Fazer referência a um branch específico significa que a ação sempre usará as atualizações mais recentes no branch de destino, mas pode criar problemas se essas atualizações incluírem alterações significativas. Este exemplo é direcionado a um branch denominado `@main`:
 
 ```yaml
 steps:
