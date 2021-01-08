@@ -1,6 +1,6 @@
 ---
 title: "Personal data"
-intro: "OsmAnd allows to store differ"
+intro: "OsmAnd allows to store and manage different map data like maps, points and tracks"
 versions: '*'
 ---
 Deal with personal data

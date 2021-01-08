@@ -4,6 +4,7 @@ intro: "Search information"
 versions: '*'
 ---
 
-- Widgets
-- Rulers
-- Different 
+- Search POI
+- Search Address
+- Search Postcode
+- Configure custom search for specific categories

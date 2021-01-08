@@ -1,7 +1,12 @@
 ---
-title: How to move OsmAnd's home (maps) folder to the external SD card?
+title: Storage
+intro: How to configure, access and change data storage for maps, tracks and other personal data
 versions: '*'
 ---
+
+- Favorite backups
+- Folder structure (iOS / Android)
+- 
 
 (for the Android version only)
 

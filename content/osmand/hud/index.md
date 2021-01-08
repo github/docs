@@ -4,6 +4,8 @@ intro: "There are multiple widgets and static instruments that could be overlaid
 versions: '*'
 ---
 
+- Layout
+- Configure screen
 - Widgets
 - Rulers
-- Different 
+

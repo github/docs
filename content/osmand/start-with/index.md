@@ -1,18 +1,18 @@
 ---
-title: "First steps"
+title: "First steps and setup"
 intro: "First steps with OsmAnd, how to install, to download maps"
 versions: '*'
 ---
-Here is description about
-- First steps & Permissions
-- Initial download & import data 
-- Introduction of Main menus like Drawer
-- Settings and initial configuration (Storage, etc)
+- Install application 
+{% link_with_intro /permissions %}
+- Initial maps download & import data 
+- Introduction of Main menus like Drawer and Concepts
+- Global Settings and initial configuration 
+{% link_with_intro /storage %}
 - Profiles
+{% link_with_intro /reinstall %}
 
 
-{% link_in_list /i-cant-install-update-uninstall-the-app %}
-{% link_in_list /why-does-osmand-require-xpermission-x %}
-{% link_in_list /how-to-move-osmand-folder-to-sd-card %}
-{% link_in_list /osmand-installation-on-sd-fails %}
-{% link_in_list /uninstall-or-reset-without-losing-your-data %}
+
+<!-- {% link_in_list /i-cant-install-update-uninstall-the-app %}-->
+
