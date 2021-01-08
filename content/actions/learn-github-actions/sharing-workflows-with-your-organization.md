@@ -32,22 +32,22 @@ This procedure demonstrates how to create a workflow template and metadata file.
 
    ```yaml
    name: Octo Organization CI
-   
+
    on:
      push:
        branches: [ $default-branch ]
      pull_request:
        branches: [ $default-branch ]
-   
+
    jobs:
      build:
        runs-on: ubuntu-latest
-       
+
        steps:
-       - uses: actions/checkout@v2
-       
-       - name: Run a one-line script
-         run: echo Hello from Octo Organization
+         - uses: actions/checkout@v2
+
+         - name: Run a one-line script
+           run: echo Hello from Octo Organization
    ```
 1. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
    ```yaml
@@ -75,7 +75,7 @@ To add another workflow template, add your files to the same `workflow-templates
 
 ![Workflow template files](/assets/images/help/images/workflow-template-files.png)
 
-### Using a workflow template
+### Using a workflow template from your organization
 
 This procedure demonstrates how a member of your organization can find and use a workflow template to create a new workflow. An organization's workflow templates can be used by anyone who is a member of the organization.
 

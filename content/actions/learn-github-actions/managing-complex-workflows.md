@@ -154,6 +154,17 @@ For more information, see  ["Using labels with self-hosted runners](/actions/hos
 You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
 {% endif %}
 
+### Using a workflow template
+
+{% data reusables.actions.workflow-template-overview %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+1. If your repository already has existing workflows: In the upper-left corner, click **New workflow**.
+  ![Create a new workflow](/assets/images/help/repository/actions-new-workflow.png)
+1. Under the name of the template you'd like to use, click **Set up this workflow**.
+  ![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png)
+
 ### Next steps
 
 To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."
