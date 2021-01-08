@@ -4,7 +4,7 @@ intro: "Solutions and hints for frequently encountered issues."
 versions: '*'
 ---
 
-Most typical issues:
+### Most typical issue categories
 - Installation / Data transfer
 - Search results are incomplete or incorrect
 - Route calculation is very slow or not correct
