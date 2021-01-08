@@ -54,7 +54,7 @@ No Windows, o arquivo `codeql-runner-win.exe` normalmente não exige alteração
 Após concluído o download do {% data variables.product.prodname_codeql_runner %} e verificado que pode ser executado, você deve disponibilizar o executor para cada servidor de CI que você pretende usar para {% data variables.product.prodname_code_scanning %}. É importante notar que cada servidor de CI que você pretende usar para {% data variables.product.prodname_code_scanning %} deve ter o {% data variables.product.prodname_codeql_runner %}. Você pode configurar cada servidor para copiar o executor a partir de um local central interno ou você pode usar a API REST para obter o executor direto do GitHub, por exemplo:
 
 ```shell
-wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20200826/codeql-runner-linux 
+wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
 chmod +x codeql-runner-linux
 ```
 
@@ -129,7 +129,7 @@ Este exemplo é semelhante ao exemplo anterior. No entanto, desta vez, o reposit
     > ...
     > CodeQL environment output to "/srv/checkout/example-repo-2/codeql-runner/codeql-env.json"
       and "/srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
-      Exporte essas variáveis para processos futuros para que a criação possa ser rastreada, por exemplo, executando "
+      Exporte essas variáveis para processos futuros para que o CodeQL possa monitorar a compilação, por exemplo, executando "
       . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
       ```
 

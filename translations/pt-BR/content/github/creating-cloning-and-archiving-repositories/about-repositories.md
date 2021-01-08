@@ -1,6 +1,6 @@
 ---
 title: Sobre repositórios
-intro: A repository contains all of your project's files and each file's revision history. You can discuss and manage your project's work within the repository.
+intro: Um repositório contém todos os arquivos do seu projeto e o histórico de revisão de cada arquivo. Você pode discutir e gerenciar o trabalho do projeto dentro do repositório.
 redirect_from:
   - /articles/about-repositories
 versions:
@@ -22,11 +22,11 @@ Com
 Cada pessoa e organização podem ter repositórios ilimitados e convidar um número ilimitado de colaboradores para todos os repositórios.
 {% endif %}
 
-You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."
+Você pode usar repositórios para gerenciar seu trabalho e colaborar com outras pessoas.
+- Você pode usar problemas para coletar feedback do usuário, relatar erros de software e organizar tarefas que você gostaria de realizar. Para obter mais informações, consulte "[Sobre problemas](/github/managing-your-work-on-github/about-issues)".
 - {% data reusables.discussions.you-can-use-discussions %}
-- You can use pull requests to propose changes to a repository. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
-- You can use project boards to organize and prioritize your issues and pull requests. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)".
+- É possível usar pull requests para propor alterações em um repositório. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+- Você pode usar quadros de projeto para organizar e priorizar seus problemas e pull requests. Para obter mais informações, consulte "[Sobre quadros de projeto](/github/managing-your-work-on-github/about-project-boards)".
 
 {% data reusables.repositories.repo-size-limit %}
 

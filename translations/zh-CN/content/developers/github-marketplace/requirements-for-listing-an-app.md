@@ -53,7 +53,7 @@ versions:
 - {% data variables.product.prodname_github_app %} 应至少有 100 个安装设施。
 - {% data variables.product.prodname_oauth_app %} 应至少有 200 个用户。
 - 所有付费应用程序必须处理关于新购买、升级、降级、取消和免费试用的 {% data variables.product.prodname_marketplace %} 购买事件。 更多信息请参阅下面的“[付费应用程序的计费要求](#billing-requirements-for-paid-apps)”。
-- 发布组织必须具有经过验证的域，并且必须启用双重身份验证。 更多信息请参阅“[在组织中要求双重身份验证](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization.")”。
+- 发布组织必须具有经过验证的域，并且必须启用双重身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)”。
 
 当您准备在 {% data variables.product.prodname_marketplace %} 上发布应用程序时，您必须请求验证上架信息。
 

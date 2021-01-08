@@ -1,33 +1,33 @@
 ---
-title: About using Repl.it with GitHub Classroom
-shortTitle: About using Repl.it
-intro: You can configure Repl.it as the online  integrated development environment (IDE) for assignments in {% data variables.product.prodname_classroom %}.
+title: GitHub ClassroomでRepl.itを使用する
+shortTitle: Repl.itの使用について
+intro: Repl.itを、{% data variables.product.prodname_classroom %}の課題のためのオンライン統合開発環境 (IDE) として設定できます。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/student-experience-replit
 ---
 
-### About Repl.it
+### Repl.itについて
 
-Repl.it is an online integrated development environment (IDE) that supports multiple programming languages. Students can write, edit, run, test, and debug code in a browser with Repl.it. For more information about online IDEs and {% data variables.product.prodname_classroom %}, see "[Integrate {% data variables.product.prodname_classroom %} with an online IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."
+Repl.itは、複数の複数のプログラミング言語をサポートするオンライン統合開発環境 (IDE) です。 生徒はRepl.itを使ってブラウザでコードを記述、編集、実行、テスト、デバッグできます。 オンラインIDEおよび{% data variables.product.prodname_classroom %}に関する詳しい情報については、「[{% data variables.product.prodname_classroom %}とオンラインIDEの統合](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)」を参照してください。
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
-The first time the student clicks the button to visit Repl.it, the student must sign into Repl.it with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on Repl.it.
+生徒がボタンをクリックして、初めてRepl.itにアクセスする際は、{% data variables.product.product_name %}認証情報でMakeCode Arcadeにサインインする必要があります。 サインインすると、生徒はRepl.itで完全に構成された、課題リポジトリのコードが含まれる開発環境にアクセスできます。
 
-For more information about working on Repl.it, see the [Repl.it Quickstart Guide](https://docs.repl.it/misc/quick-start#the-repl-environment).
+Repl.itでの作業に関する詳しい情報については、[Repl.itクイックスタートガイド](https://docs.repl.it/misc/quick-start#the-repl-environment)を参照してください。
 
-For group assignments, students can use Repl.it Multiplayer to work collaboratively. For more information, see the [Repl.it Multiplayer](https://repl.it/site/multiplayer) website.
+グループ課題の場合、生徒はRepl.it Multiplayerを利用して共同作業を行うことができます。 詳しい情報については、[Repl.it Multiplayer](https://repl.it/site/multiplayer)のウェブサイトを参照してください。
 
-### About submission of assignments with Repl.it
+### Repl.itによる課題の提出について
 
-By default, Repl.it is configured to push to the assignment repository on {% data variables.product.product_location %}. After making progress on an assignment with Repl.it, students should push changes to {% data variables.product.product_location %} using the version control functionality in the left sidebar.
+デフォルトでは、Repl.itは{% data variables.product.product_location %}の課題リポジトリにプッシュするよう設定されています。 MakeCode Arcadeで課題を進めた後、生徒は左サイドバーのバージョン管理機能を使って、変更を{% data variables.product.product_location %}にプッシュする必要があります。
 
-![Repl.it version control functionality](/assets/images/help/classroom/ide-replit-version-control-button.png)
+![Repl.itのバージョン管理機能](/assets/images/help/classroom/ide-replit-version-control-button.png)
 
-For more information about using Git on Repl.it, see the [Repl.it + Git Tutorial](https://repl.it/talk/learn/Replit-Git-Tutorial/23331) on the Repl.it website.
+Repl.itにおけるGitの利用に関する詳しい情報については、Repl.itウェブサイト上の[Repl.it + Git Tutorial](https://repl.it/talk/learn/Replit-Git-Tutorial/23331)を参照してください。
 
 ### 参考リンク
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- [READMEについて](/github/creating-cloning-and-archiving-repositories/about-readmes)
