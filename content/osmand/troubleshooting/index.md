@@ -20,8 +20,12 @@ Most typical issues:
 Link example:
 - [Import GPX file](#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
 
+# Installation / Data transfer
+
 ### Contour lines or hillshades do not show up
 It should be linked to plugins
+
+# Search results are incomplete or incorrect
 
 ### Is there a way to have contour lines displayed in feet also, instead of meters?
 
