@@ -175,7 +175,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 #### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 还包括允许您在仓库和组织级别限制对密码的访问的策略。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@3.0" %}环境保护规则可要求工作流程获得手动批准才能访问环境机密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 #### 在作业和工作流程之间共享文件
 

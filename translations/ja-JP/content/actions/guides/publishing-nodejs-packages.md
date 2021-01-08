@@ -44,7 +44,7 @@ Node.jsプロジェクトのためのCIワークフローの作成に関する�
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすればnpmレジストリにパッケージを公開します。
 
-ワークフロー中でnpmレジストリに対して認証を受けた操作を行うためには、npmの認証トークンをリポジトリの設定中にシークレットとして保存しなければなりません。 たとえば`NPM_TOKEN`というシークレットを生成してください。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 デフォルトでは、npmは*package.json*ファイルの`name`フィールドを使ってnpmレジストリを決めます。 グローバルな名前空間に公開する場合は、パッケージ名だけを含める必要があります。 たとえば`https://www.npmjs.com/package/npm-hello-world-test`に`npm-hello-world-test`という名前のパッケージを公開できます。
 

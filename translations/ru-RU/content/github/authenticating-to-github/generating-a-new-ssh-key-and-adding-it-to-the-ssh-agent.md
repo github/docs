@@ -127,7 +127,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
   # start the ssh-agent in the background
-  $ eval $(ssh-agent -s)
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 
