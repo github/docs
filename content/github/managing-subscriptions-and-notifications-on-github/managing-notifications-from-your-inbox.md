@@ -145,13 +145,13 @@ To filter notifications by why you've received an update, you can use the `reaso
 {% if currentVersion == "free-pro-team@latest" %}
 #### Supported `author:` queries
 
-To filter notifications by user, you can use the `author:` query, and specify the username for the {% data variables.product.prodname_dotcom %} account. For example, to see notifications triggered by the Octocat user, use `author:octocat`.
+To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull-request, gists, discussions etc) for which you are being notified. For example, to see notifications for threads created by @octocat, use `author:octocat`.
 
 #### Supported `owner:` queries
 
-To filter notifications by owner, you can use the  `owner` query. An owner is the user or the organization who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. To add an `owner:` filter, you must include the organization, or the user and organization, in the query: `repo:organization` or `repo:organization/repository`. This query is useful if you belong to several organizations, and want to see notifications for a specific organization, or for a specific user within that organization.
+To filter notifications by owner, you can use the  `owner` query. An owner is the user or the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
 
-For example, to see notifications from the octo-org organization, use `owner:octo-org`. To see notifications from the Octocat {% data variables.product.prodname_dotcom %} user within the octo-org organization, use `owner:octocat/octo-org`. 
+For example, to see notifications from the octo-org organization, use `owner:octo-org`. 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
