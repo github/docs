@@ -48,7 +48,7 @@ Os clientes podem iniciar uma avaliação gratuita para qualquer plano pago de u
 
 Os testes gratuitos têm uma duração fixa de 14 dias. Os clientes são notificados 4 dias antes do final do período de teste (no 11o dia do teste grátis) de que seu plano será atualizado. No final do teste grátis, os clientes serão inscritos automaticamente no plano que estão testando, caso não efetuem o cancelamento.
 
-Para mais informações, consulte: "[Como gerenciar novas compras e testes grátis](/developers/github-marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)".
+Para mais informações, consulte: "[Como gerenciar novas compras e testes grátis](/developers/github-marketplace/handling-new-purchases-and-free-trials/)".
 
 {% note %}
 

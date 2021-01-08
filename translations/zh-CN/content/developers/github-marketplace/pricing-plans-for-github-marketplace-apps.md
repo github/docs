@@ -48,7 +48,7 @@ versions:
 
 免费试用的固定期限为 14 天。 客户在试用期结束前 4 天（免费试用期第 11 天）收到通知，他们的计划将升级。 在免费试用结束时，如果客户不取消，他们将自动注册到他们正在试用的计划中。
 
-更多信息请参阅“[处理新购买和免费试用](/developers/github-marketplace/integrating-with-the-github-marketplace-api/handling-new-purchases-and-free-trials/)”。
+更多信息请参阅“[处理新购买和免费试用](/developers/github-marketplace/handling-new-purchases-and-free-trials/)”。
 
 {% note %}
 

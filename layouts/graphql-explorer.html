@@ -11,13 +11,13 @@
       <main class="container-xl px-3 px-md-6 my-4 my-lg-4 d-xl-flex">
         <article class="markdown-body width-full">
           <div class="d-lg-flex flex-justify-between">
-            <div class="d-flex flex-items-center" style="height: 39px;">
+            <div class="d-flex flex-items-center breadcrumbs-wrapper">
               {% include breadcrumbs %}
             </div>
           </div>
 
           <h1 class="border-bottom-0">{{ page.title }}</h1>
-      
+
           <div class="mt-2">
             <div>
               <iframe id="graphiql" class="graphql-explorer" scrolling="no" src="{{ graphql.explorerUrl }}">

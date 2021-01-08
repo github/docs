@@ -1,12 +1,13 @@
 ---
 title: GitHub Enterprise Server License Agreement
+hidden: true
 redirect_from:
   - /articles/github-enterprise-server-license-agreement
 versions:
   free-pro-team: '*'
 ---
 
-Effective Date: April 1, 2020
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
 
 PLEASE READ THIS AGREEMENT CAREFULLY AS IT GOVERNS YOUR USE OF THE PRODUCTS (AS DEFINED BELOW), UNLESS WE HAVE EXECUTED A SEPARATE WRITTEN AGREEMENT WITH YOU FOR THAT PURPOSE.
 

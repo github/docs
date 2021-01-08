@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o patrocínio
-intro: You can manage who can see your sponsorship and whether you receive email updates from the sponsored account.
+intro: Você pode gerenciar quem pode ver seu patrocínio e se você recebe atualizações de e-mail de uma conta patrocinada.
 redirect_from:
   - /articles/managing-your-sponsorship
 versions:
@@ -17,9 +17,9 @@ versions:
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
 {% data reusables.sponsors.update-sponsorship %}
 
-### Managing email updates for your sponsorship
+### Gerenciar atualizações de e-mail para seu patrocínio
 
-You can choose whether an account you sponsor can send you email updates about their work. The sponsored account will not have access to your email address.
+Você pode escolher se uma conta que você patrocina pode enviar para você atualizações de e-mail sobre o trabalho deles. A conta patrocinada não terá acesso ao seu endereço de e-mail.
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -31,5 +31,5 @@ You can choose whether an account you sponsor can send you email updates about t
 
 ### Leia mais
 
-- "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)"
-- "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)"
+- "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)"
+- "[Fazer o downgrade de um patrocínio](/articles/downgrading-a-sponsorship)"
