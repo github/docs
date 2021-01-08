@@ -4,7 +4,7 @@ intro: "Solutions and hints for frequently encountered issues."
 versions: '*'
 ---
 
-### Most typical issue categories
+## Most typical issue categories
 - Installation / Data transfer
 - Search results are incomplete or incorrect
 - Route calculation is very slow or not correct
@@ -21,15 +21,15 @@ Link example:
 - [Import GPX file](#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
 
 
-### Contour lines or hillshades do not show up
+## Contour lines or hillshades do not show up
 It should be linked to plugins
 
 
-### Is there a way to have contour lines displayed in feet also, instead of meters?
+## Is there a way to have contour lines displayed in feet also, instead of meters?
 
 Unfortunately not. This would require the generation of completely separate contour line data with different geometry and labels. You can obviously generate maps yourself using GDAL and OsmAndMapCreator but that requires technical environment check [Technical Documentation](/development).
 
-### I have a GPX file, how do I get it into OsmAnd?
+## I have a GPX file, how do I get it into OsmAnd?
 - Android
     - You can [download and open it](https://osmand.net/features/trip-planning#Planning_trip_using_GPX_track) via File Browser or Dropbox and select OsmAnd as a target application
     - You can put it in OsmAnd home folder: osmand/tracks/(optional\_sub-folder)/your\_file.gpx
@@ -37,33 +37,33 @@ Unfortunately not. This would require the generation of completely separate cont
     - To open [a GPX file in OsmAnd](https://osmand.net/features/trip-planning#Planning_trip_using_GPX_track),
 just download it and select OsmAnd as an app to open it. That's it: you'll view the file normally in the application.
 
-### How to delete search history
+## How to delete search history
 To remove search history, please open the Search menu, make a long tap on any search result and select which results to delete. You can also enable the select all option in the upper-left corner of the screen to remove all of the search results. After that, please press the Trash icon in the upper-right corner of the screen.
 
 You can also follow [this guide](https://osmand.net/features/find-something-on-map) to learn more about the search in OsmAnd.
 
-### Contour lines or hillshades do not show up
+## Contour lines or hillshades do not show up
 Should we add content here? If yes, we need to update it.
 
-### OsmAnd only shows some speed cams
+## OsmAnd only shows some speed cams
 Should we add content here? If yes, we need to update it.
 
-### Route calculation is slow 
+## Route calculation is slow 
 Should we add content here? If yes, we need to update it.
 
-### How to calculate routes longer than 250km?
+## How to calculate routes longer than 250km?
 Should we add content here? If yes, we need to update it.
 
-### Offline search by address does not show all streets
+## Offline search by address does not show all streets
 Should we add content here? If yes, we need to update it.
 
-### The calculated route does not seem correct
+## The calculated route does not seem correct
 Should we add content here? If yes, we need to update it.
 
-### Trip recording or navigation stops while screen is off
+## Trip recording or navigation stops while screen is off
 Should we add content here? If yes, we need to update it.
 
-### "How to mark different places on the map
+## How to mark different places on the map
 *It looks like duplicated content for Personal Data category*
 You can leave notes for future usage in several forms:
 
@@ -76,12 +76,12 @@ You can leave notes for future usage in several forms:
 -   [Search](https://osmand.net/features/find-something-on-map#Find_Points_of_Interest_A).
 
 
-### Why does OsmAnd not offer access to Google Maps?
+## Why does OsmAnd not offer access to Google Maps?
 
 Firstly, OsmAnd is meant to support OpenStreetMap and tries to go that path as far as possible. Secondly, there are licensing issues, so OsmAnd cannot be distributed with Google Maps data.
 
 
-### OsmAnd seems to drain too much battery power
+## OsmAnd seems to drain too much battery power
 
 There have on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though under some circumstances OsmAnd is reported responsible for 90% of the battery usage. Please be aware that OsmAnd does not run anything in background except a service while needed for ongoing functionality live navigation or track recording. The presence of the service is displayed in the Android notification area. If you do not see anything there, OsmAnd is not consuming any power at all in the background.
 
@@ -104,7 +104,7 @@ OsmAnd Function | Battery Consumption<br>per Hour
 **Navigation**  with screen on | 12 %
 
 
-### What is the difference between TTS (text to speech) and recorded voices?
+## What is the difference between TTS (text to speech) and recorded voices?
 
 TTS (text to speech) synthesizes any voice prompt just from a specified text "on the fly", while recorded voices depend on combining every command from a set of snippets pre-recorded from a human voice.
 
@@ -119,7 +119,7 @@ Read more about Voice prompts:
 - {% link /osmand/troubleshooting/tts-does-not-function-properly %}
 
 
-# TTS does not function properly
+## TTS does not function properly
 
 Text-to-Speech (TTS) issues will usually have to be fixed in your **Android configuration and settings**, not within the OsmAnd app!
 
