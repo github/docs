@@ -6,9 +6,9 @@ redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: '*google*'
+  enterprise-server: '*FFHixio*'
+  github-ae: '*hafixo*'
 ---
 
 ### About protected branches
