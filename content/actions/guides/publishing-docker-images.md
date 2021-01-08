@@ -46,7 +46,7 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 In the example workflow below, we use the Docker `build-push-action` action to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
-To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Share images on Docker Hub](https://docs.docker.com/get-started/part3/)" in the Docker documentation.
+To push to Docker Hub, you will need to have a Docker Hub account, and have a Docker Hub repository created. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
 
 The `build-push-action` options required for Docker Hub are:
 

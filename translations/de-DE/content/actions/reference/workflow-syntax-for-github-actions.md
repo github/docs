@@ -187,7 +187,7 @@ Weitere Informationen zur Cron-Syntax findest Du unter „[Ereignisse, die Workf
 
 ### `env`
 
-Eine `map` mit Umgebungsvariablen, die für alle Jobs und Schritte im Workflow verfügbar sind. Darüber hinaus kannst Du auch Umgebungsvariablen festlegen, die ausschließlich für einen Job oder Schritt bereitstehen. Weitere Informationen findest Du unter [`jobs.<job_id>.env`](#jobsjob_idenv) und [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
+Eine `map` mit Umgebungsvariablen, die für alle Jobs und Schritte im Workflow verfügbar sind. Darüber hinaus kannst Du auch Umgebungsvariablen festlegen, die ausschließlich für einen Job oder Schritt bereitstehen. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -223,7 +223,7 @@ defaults:
 
 Ein Workflow-Lauf besteht aus mindestens einem Auftrag. Die Aufträge werden standardmäßig parallel ausgeführt. Sollen Aufträge sequenziell ausgeführt werden, können Sie mit dem Stichwort `jobs.<job_id>.needs` eine Abhängigkeit von anderen Aufträgen definieren.
 
-Jeder Job läuft in einer Umgebung, die mit `runs-on` angegeben wird.
+Each job runs in a runner environment specified by `runs-on`.
 
 Innerhalb der Nutzungsbeschränkungen des Workflows kannst Du unbegrenzt viele Jobs ausführen. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
@@ -320,6 +320,39 @@ runs-on: [self-hosted, linux]
 
 Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)“ und „[Selbst-gehostete Runner in einem Workflow verwenden](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)“.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### `jobs.<job_id>.environment`
+
+The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+
+You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
+
+##### Example using a single environment name
+
+```yaml
+environment: staging_environment
+```
+
+##### Example using environment name and URL
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+The URL can be an expression and can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+#### Beispiel
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
+
 ### `jobs.<job_id>.outputs`
 
 Eine `map` der Ausgaben eines Jobs. Ausgaben eines Jobs stehen allen nachgelagerten Jobs zur Verfügung, die von diesem Job abhängen. Weitere Informationen zur Definition von Abhängigkeiten zwischen Jobs findest Du unter [`Jobs.<job_id>.needs`](#jobsjob_idneeds).
@@ -354,7 +387,7 @@ jobs:
 
 ### `jobs.<job_id>.env`
 
-Eine `map` mit Umgebungsvariablen, die für alle Schritte im Auftrag verfügbar sind. Darüber hinaus können Sie Umgebungsvariablen für den gesamten Workflow oder für einen einzelnen Schritt festlegen. Weitere Informationen finden Sie unter [`env`](#env) und [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
+Eine `map` mit Umgebungsvariablen, die für alle Schritte im Auftrag verfügbar sind. Darüber hinaus können Sie Umgebungsvariablen für den gesamten Workflow oder für einen einzelnen Schritt festlegen. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -429,11 +462,11 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.id`
+### `jobs.<job_id>.steps[*].id`
 
 Eindeutige Kennung für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter „[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)“.
 
-### `jobs.<job_id>.steps.if`
+### `jobs.<job_id>.steps[*].if`
 
 Mit der Bedingung `if` gibst Du an, dass ein Schritt nur dann ausgeführt werden soll, wenn eine bestimmte Bedingung erfüllt ist. Du kannst eine Bedingung mit jedem unterstützten Kontext und Ausdruck erstellen.
 
@@ -463,11 +496,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### `jobs.<job_id>.steps.name`
+### `jobs.<job_id>.steps[*].name`
 
 Name Deines Schritts, der auf {% data variables.product.prodname_dotcom %} angezeigt wird.
 
-### `jobs.<job_id>.steps.uses`
+### `jobs.<job_id>.steps[*].uses`
 
 Wählt eine Aktion aus, die als Teil eines Schritts im Auftrag ausgeführt wird. Eine Aktion ist eine wiederverwendbare Code-Einheit. Sie können eine Aktion verwenden, die im selben Repository wie der Workflow, in einem öffentlichen Repository oder in einem [veröffentlichten Docker-Container-Image](https://hub.docker.com/) definiert ist.
 
@@ -570,7 +603,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-### `jobs.<job_id>.steps.run`
+### `jobs.<job_id>.steps[*].run`
 
 Führt Befehlszeilen-Programme über die Betriebssystem-Shell aus. Wenn Du keinen `name` angibst, wird standardmäßig der im Befehl `run` angegebene Text als Name für den Schritt übernommen.
 
@@ -675,7 +708,7 @@ Für integrierte Shell-Schlüsselwörter gelten die folgenden Standards, die dur
   - Wenn Du das Fail-Fast-Verhalten uneingeschränkt nutzen möchtest, hast Du anscheinend keine andere Wahl, als Dein Skript so zu schreiben, dass jeder Fehlercode geprüft und eine entsprechende Reaktion eingeleitet wird. Dieses Verhalten kann nicht standardmäßig bereitgestellt werden; Du musst es explizit in Dein Skript schreiben.
   - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. Dieses Verhalten ist intern mit dem vorherigen Standardverhalten von `sh` und `pwsh` konsistent und ist der Standard für `cmd.exe`, weshalb dieses Verhalten unverändert bleibt.
 
-### `jobs.<job_id>.steps.with`
+### `jobs.<job_id>.steps[*].with`
 
 Eine `map` der Eingabeparameter, die in der Aktion definiert sind. Jeder Eingabeparameter ist ein Schlüssel-Wert-Paar. Eingabeparameter werden als Umgebungsvariablen festgelegt. Die Variable erhält das Präfix `INPUT_` und wird in Großbuchstaben umgewandelt.
 
@@ -695,7 +728,7 @@ jobs:
           last_name: Octocat      
 ```
 
-### `jobs.<job_id>.steps.with.args`
+### `jobs.<job_id>.steps[*].with.args`
 
 Ein `string`, der die Eingaben für einen Docker-Container definiert. Beim Start des Containers übergibt {% data variables.product.prodname_dotcom %} die `args`-Anweisung an den `ENTRYPOINT` des Containers. Ein `array of strings` wird von diesem Parameter nicht unterstützt.
 
@@ -718,7 +751,7 @@ Die `args`-Anweisungen werden anstelle der `CMD`-Anweisung in einem `Dockerfile`
 1. Verwenden Sie Standardwerte, die die Verwendung der Aktion ohne Angabe von `args` erlauben.
 1. Wenn die Aktion einen Schalter `--help` oder Ähnliches anbietet, verwende diesen als Standard, um eine selbstständige Dokumentation der Aktion herbeizuführen.
 
-### `jobs.<job_id>.steps.with.entrypoint`
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
 Überschreibt den Docker-`ENTRYPOINT` im `Dockerfile` oder legt ihn fest, sofern er noch nicht angegeben wurde. Im Gegensatz zur Docker `ENTRYPOINT`-Anweisung, die eine Shell- und eine ausführbare Form aufweist, akzeptiert das Stichwort `entrypoint` nur einen einzigen Schritt, der die entsprechende ausführbare Datei definiert.
 
@@ -734,7 +767,7 @@ steps:
 
 The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-### `jobs.<job_id>.steps.env`
+### `jobs.<job_id>.steps[*].env`
 
 Legt Umgebungsvariablen für Schritte fest, die in der Runner-Umgebung verwendet werden sollen. Darüber hinaus können Sie Umgebungsvariablen für den gesamten Workflow oder für einen Auftrag festlegen. Weitere Informationen finden Sie unter [`env`](#env) und [`jobs.<job_id>.env`](#jobsjob_idenv).
 
@@ -755,11 +788,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.continue-on-error`
+### `jobs.<job_id>.steps[*].continue-on-error`
 
 Verhindert das Fehlschlagen eines Auftrags, wenn ein Schritt fehlschlägt. Leg `true` fest, damit ein Auftrag auch dann erfolgreich abgeschlossen werden kann, wenn dieser Schritt fehlschlägt.
 
-### `jobs.<job_id>.steps.timeout-minutes`
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
 Maximaler Zeitraum in Minuten für die Ausführung des Schritts, bevor der Prozess abgebrochen wird.
 
@@ -769,7 +802,7 @@ Die maximale Anzahl von Minuten, die ein Job ausgeführt wird, bevor {% data var
 
 ### `jobs.<job_id>.strategy`
 
-Mit einer Strategie wird eine Build-Matrix für die Aufträge erstellt. Sie können verschiedene Varianten einer Umgebung definieren, in denen die einzelnen Aufträge ausgeführt werden.
+Mit einer Strategie wird eine Build-Matrix für die Aufträge erstellt. You can define different variations to run each job in.
 
 ### `jobs.<job_id>.strategy.matrix`
 

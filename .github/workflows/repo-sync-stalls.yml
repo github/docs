@@ -36,6 +36,13 @@ jobs:
               return
             }
 
+            // Remove all pull requests that don't have the 
+            // 'automated-reposync-pr' label
+            pulls.data = pulls.data.filter(pr =>
+              pr.labels.some(label => label.name === 'automated-reposync-pr')
+            )
+
+            // Search for pull requests that have been open too long
             pulls.data.forEach(pr => {
               const timeDelta = Date.now() - Date.parse(pr.created_at);
               const minutesOpen = timeDelta / 1000 / 60;
@@ -51,4 +58,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: Repo sync appears to be stalled for ${{github.repository}}. See https://github.com/${{github.repository}}/pulls?q=is%3Apr+is%3Aopen+repo+sync
+          text: Repo sync appears to be stalled for ${{github.repository}}. See https://github.com/${{github.repository}}/pulls?q=is%3Apr+is%3Aopen+label%3Aautomated-reposync-pr

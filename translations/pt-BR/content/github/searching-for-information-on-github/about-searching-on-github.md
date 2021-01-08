@@ -37,12 +37,12 @@ A pesquisa do {% data variables.product.product_name %} usa um cluster do Elasti
 
 ### Tipos de pesquisa no {% data variables.product.prodname_dotcom %}
 
-You can search for the following information across all repositories you can access on {% data variables.product.product_location %}.
+Você pode pesquisar as seguintes informações em todos os repositórios que você pode acessar em {% data variables.product.product_location %}.
 
 - [Repositórios](/articles/searching-for-repositories)
 - [Tópicos](/articles/searching-topics)
-- [Issues and pull requests](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
-- [Discussions](/github/searching-for-information-on-github/searching-discussions){% endif %}
+- [Problemas e pull requests](/articles/searching-issues-and-pull-requests){% if currentVersion == "free-pro-team@latest" %}
+- [Discussões](/github/searching-for-information-on-github/searching-discussions){% endif %}
 - [Código](/articles/searching-code)
 - [Commits](/articles/searching-commits)
 - [Usuários](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}

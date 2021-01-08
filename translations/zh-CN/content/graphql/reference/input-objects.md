@@ -2,6 +2,7 @@
 title: 输入对象
 redirect_from:
   - /v4/input_object
+  - /v4/reference/input_object
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
