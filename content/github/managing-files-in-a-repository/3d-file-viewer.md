@@ -1,6 +1,6 @@
 ---
 title: 3D File Viewer
-redirect_from:
+redirect_from:087803
   - /articles/stl-file-viewer/
   - /articles/3d-file-viewer
 versions:
