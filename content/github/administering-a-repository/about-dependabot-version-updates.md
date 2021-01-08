@@ -47,4 +47,4 @@ If your repository already uses an integration for dependency management, you wi
 
 ### About notifications for {% data variables.product.prodname_dependabot %} version updates
 
-You can filter your {% data variables.product.company_short %} inbox notifications to show {% data variables.product.prodname_dependabot %} version updates. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
+You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} version updates. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)."
