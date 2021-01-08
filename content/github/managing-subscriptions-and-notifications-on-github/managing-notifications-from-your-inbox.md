@@ -145,7 +145,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 {% if currentVersion == "free-pro-team@latest" %}
 #### Supported `author:` queries
 
-To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull-request, gists, discussions etc) for which you are being notified. For example, to see notifications for threads created by @octocat, use `author:octocat`.
+To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
 
 #### Supported `owner:` queries
 
