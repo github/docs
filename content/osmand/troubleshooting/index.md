@@ -4,7 +4,7 @@ intro: "Solutions and hints for frequently encountered issues."
 versions: '*'
 ---
 
-Most typical issues:
+### Most typical issue categories
 - Installation / Data transfer
 - Search results are incomplete or incorrect
 - Route calculation is very slow or not correct
@@ -20,8 +20,10 @@ Most typical issues:
 Link example:
 - [Import GPX file](#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
 
+
 ### Contour lines or hillshades do not show up
 It should be linked to plugins
+
 
 ### Is there a way to have contour lines displayed in feet also, instead of meters?
 
