@@ -4,6 +4,16 @@ files:
     ignore:
       - '/content/README.md'
       - '/content/early-access'
+      - '/content/github/site-policy/github-enterprise-cloud-evaluation-agreement.md'
+      - '/content/github/site-policy/github-enterprise-service-level-agreement.md'
+      - '/content/github/site-policy/github-enterprise-server-license-agreement.md'
+      - '/content/github/site-policy/github-supplemental-terms-for-microsoft-volume-licensing.md'
+      - '/content/github/site-policy/github-ae-product-specific-terms.md'
+      - '/content/github/site-policy/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users.md'
+      - '/content/github/site-policy/github-enterprise-subscription-agreement.md'
+      - '/content/github/site-policy/github-data-protection-addendum.md'
+      - '/content/github/site-policy/github-connect-addendum-to-the-github-enterprise-license-agreement.md'
+      - '/content/github/site-policy/github-ae-data-protection-agreement.md'
   - source: /data/**/*.yml
     translation: /translations/%locale%/%original_path%/%original_file_name%
   - source: /data/**/*.md

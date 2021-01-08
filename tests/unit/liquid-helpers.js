@@ -59,7 +59,7 @@ describe('liquid helper tags', () => {
     const template = '{% link_with_intro /contributing-and-collaborating-using-github-desktop %}'
     const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`]
     const expected = `<a class="link-with-intro Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
-  <h4 class="link-with-intro-title">${page.title}<span class="Bump-link-symbol">→</span></h4>
+  <h2 class="link-with-intro-title f4">${page.title}<span class="Bump-link-symbol">→</span></h2>
 </a>
 <p class="link-with-intro-intro">${page.intro}</p>`
     const output = entities.decode(await liquid.parseAndRender(template, context))

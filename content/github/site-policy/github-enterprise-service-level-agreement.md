@@ -1,5 +1,6 @@
 ---
 title: GitHub Enterprise Service Level Agreement
+hidden: true
 redirect_from:
   - /github-enterprise-cloud-addendum/
   - /github-business-cloud-addendum/
@@ -7,6 +8,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+
 **Short version:** GitHub guarantees a 99.9% quarterly uptime commitment for the applicable GitHub service (the “**Service Level**” or “**SLA**”). If GitHub does not meet the SLA, then Customer will be entitled to a service credit to Customer’s account (“**Service Credits**”).
 
 For definitions of each Service feature (“**Service Feature**”) and to review historical and current Uptime, visit the [GitHub Status Page](https://www.githubstatus.com/). Capitalized terms used but not defined in this SLA have the meaning assigned in Customer’s applicable agreement.
