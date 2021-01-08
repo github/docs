@@ -1,6 +1,6 @@
 ---
 title: 将拉取请求链接到议题
-intro: 'You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.'
+intro: '您可以将拉取请求链接到议题，以显示修复正在进行中，并在合并拉取请求时自动关闭该议题。'
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/

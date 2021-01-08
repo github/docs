@@ -40,7 +40,7 @@ Para substituir todo o texto relacionado no `passwords.txt` sempre que ele for e
 $ bfg --replace-text passwords.txt
 ```
 
-After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}.
+Depois que os dados confidenciais são removidos, você deve fazer push forçado das suas alterações para {% data variables.product.product_name %}.
 
 ```shell
 $ git push --force

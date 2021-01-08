@@ -214,7 +214,7 @@ A função `always()` configura o trabalho para continuar processando mesmo se h
 
 ### Publicar na Galeria do PowerShell
 
-Você pode configurar o seu fluxo de trabalho para publicar o seu módulo do PowerShell para a Galeria PowerShell quando o seu teste de passar. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu pacote. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Você pode configurar o seu fluxo de trabalho para publicar o seu módulo do PowerShell para a Galeria PowerShell quando o seu teste de passar. Você pode usar segredos para armazenar quaisquer tokens ou credenciais necessárias para publicar seu pacote. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 O exemplo a seguir cria um pacote e usa `Publish-Module` para publicá-lo na Galeria do PowerShell:
 

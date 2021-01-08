@@ -106,7 +106,7 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500')
     expect($('h1').text()).toBe('Ooops!')
-    expect($('code').text().startsWith('Error: OH NOEZ')).toBe(true)
+    expect($('code').text().startsWith('Error: Intentional error')).toBe(true)
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
