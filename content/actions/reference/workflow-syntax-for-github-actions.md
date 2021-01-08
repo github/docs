@@ -676,7 +676,7 @@ steps:
     shell: pwsh
 ```
 
-#### Example running a script using PowerShell Desktop
+#### Example: Using PowerShell Desktop to run a script
 
 ```yaml
 steps:
