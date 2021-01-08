@@ -12,7 +12,7 @@ versions:
 Before testing your SSH connection, you should have:
 - [Checked for existing SSH keys](/articles/checking-for-existing-ssh-keys)
 - [Generated a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-- [Added a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
+- [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account)
 
 When you test your connection, you'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. For more information on working with SSH key passphrases, see ["Working with SSH key passphrases"](/articles/working-with-ssh-key-passphrases).
 
