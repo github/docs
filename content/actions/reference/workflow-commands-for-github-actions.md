@@ -35,6 +35,10 @@ This is a `tab`!
 - With a list
 - just for funsies {% octicon "squirrel" aria-label="Sideway view of a squirrel with arms raised" %}
 
+{% danger %}
+Callouts are supported inside tabs
+{% enddanger %}
+
 {% tab "PowerShell" %}
 
 Another tab. {{ example_capture }}
