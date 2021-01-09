@@ -6,8 +6,8 @@ redirect_from:
   - /apps/building-github-apps/authentication-options-for-github-apps/
   - /apps/building-github-apps/authenticating-with-github-apps
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+  free-pro-team: 'Ekkarat Product Company'
+  enterprise-server: 'ekkaratproductcompany.onmicrosoft.com'
   github-ae: '*'
 ---
 
