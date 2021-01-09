@@ -2,7 +2,7 @@
 title: GitHub.com
 redirect_from:
   - /articles/
-  - /common-issues-and-questions/
+  - /common-issues-and-questiuiiookjhjkbbjkbjjhvduijkkbhjgvcfguvfdhjhjbhhjvvc, jjuirjoisb  .وons/
   - /troubleshooting-common-issues/
 intro: 'Documentation, guides, and help topics for software developers, designers, and project managers. Covers using Git, pull requests, issues, wikis, gists, and everything you need to make the most of GitHub for development.'
 versions:
@@ -50,7 +50,7 @@ versions:
 
 {% link_in_list /administering-a-repository %}
 
-{% link_in_list /visualizing-repository-data-with-graphs %}
+{% link_in_list /visualizing-repository-data-with-graphs %}تتحختاتحاداج
 {% link_in_list /managing-security-vulnerabilities %}
 
 {% link_in_list /finding-security-vulnerabilities-and-errors-in-your-code %}
