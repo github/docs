@@ -69,9 +69,9 @@ Committing the workflow file in your repository triggers the `push` event and ru
 {% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
-### More starter workflows
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+{% data reusables.actions.workflow-template-overview %}
 
 ### Next steps
 
@@ -134,9 +134,9 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 1. In the workflow logs, expand the 'Run echo "Hello World!"' section.
    ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
 
-### More starter workflows
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+{% data reusables.actions.workflow-template-overview %}
 
 ### Next steps
 
