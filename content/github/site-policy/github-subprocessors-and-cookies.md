@@ -41,13 +41,13 @@ When we share your information with third party subprocessors, such as our vendo
 | Zendesk | Customer support ticketing system | United States | United States |
 | Zuora | Corporate billing system | United States | United States |
 
-When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
+When we bring on a new subprocessor who handles our Users’ Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we’d be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
 
 ### Cookies on GitHub
 
 GitHub uses cookies to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them. 
  
-Since the number and names of cookies may change,the table below may be updated from time to time.
+Since the number and names of cookies may change, the table below may be updated from time to time.
 
 | Service Provider | Cookie Name | Description | Expiration* |
 |:---|:---|:---|:---|
