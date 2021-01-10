@@ -187,7 +187,7 @@ cron構文に関する詳しい情報については、「[ワークフローを
 
 ### `env`
 
-ワークフロー中のすべてのジョブやステップから利用できる環境変数の`map`です。 1つのジョブあるいはステップからだけ利用できる環境変数を設定することもできます。 詳しい情報については「[`jobs.<job_id>.env`](#jobsjob_idenv)」及び「[`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)を参照してください。
+ワークフロー中のすべてのジョブやステップから利用できる環境変数の`map`です。 1つのジョブあるいはステップからだけ利用できる環境変数を設定することもできます。 For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -223,7 +223,7 @@ defaults:
 
 1つのワークフロー実行は、1つ以上のジョブからなります。 デフォルトでは、ジョブは並行して実行されます。 ジョブを逐次的に実行するには、`jobs.<job_id>.needs`キーワードを使用して他のジョブに対する依存関係を定義します。
 
-それぞれのジョブは、`runs-on`で指定された環境で実行されます。
+Each job runs in a runner environment specified by `runs-on`.
 
 ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
@@ -320,6 +320,39 @@ runs-on: [self-hosted, linux]
 
 詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)」及び「[ワークフロー内でのセルフホストランナーの利用](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)」を参照してください。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### `jobs.<job_id>.environment`
+
+The environment that the job references. All environment protection rules must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+
+You can provide the environment as only the environment `name`, or as an environment object with the `name` and `url`. The URL maps to `environment_url` in the deployments API. For more information about the deployments API, see "[Deployments](/rest/reference/repos#deployments)."
+
+##### Example using a single environment name
+
+```yaml
+environment: staging_environment
+```
+
+##### Example using environment name and URL
+
+```yaml
+environment:
+  name: production_environment
+  url: https://github.com
+```
+
+The URL can be an expression and can use any context except for the `secrets` context. For more information about expressions, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+
+#### サンプル
+{% raw %}
+```yaml
+environment:
+  name: production_environment
+  url: ${{ steps.step_name.outputs.url_output }}
+```
+{% endraw %}
+{% endif %}
+
 ### `jobs.<job_id>.outputs`
 
 ジョブからの出力の`map`です。 ジョブの出力は、そのジョブに依存しているすべての下流のジョブから利用できます。 ジョブの依存関係の定義に関する詳しい情報については[`jobs.<job_id>.needs`](#jobsjob_idneeds)を参照してください。
@@ -354,7 +387,7 @@ jobs:
 
 ### `jobs.<job_id>.env`
 
-ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)」を参照してください。
+ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -429,11 +462,11 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.id`
+### `jobs.<job_id>.steps[*].id`
 
 ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-### `jobs.<job_id>.steps.if`
+### `jobs.<job_id>.steps[*].if`
 
 条件文の`if`を使って、条件が満たされなければステップを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
@@ -463,11 +496,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### `jobs.<job_id>.steps.name`
+### `jobs.<job_id>.steps[*].name`
 
 {% data variables.product.prodname_dotcom %}で表示されるステップの名前。
 
-### `jobs.<job_id>.steps.uses`
+### `jobs.<job_id>.steps[*].uses`
 
 ジョブでステップの一部として実行されるアクションを選択します。 アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
 
@@ -570,7 +603,7 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-### `jobs.<job_id>.steps.run`
+### `jobs.<job_id>.steps[*].run`
 
 オペレーティングシステムのシェルを使用してコマンドラインプログラムを実行します。 `name`を指定しない場合、ステップ名はデフォルトで`run`コマンドで指定された文字列になります。
 
@@ -675,7 +708,7 @@ steps:
   - 各エラーコードをチェックしてそれぞれに対応するスクリプトを書く以外、フェイルファースト動作を完全にオプトインする方法はないようです。 デフォルトでその動作を指定することはできないため、この動作はスクリプトに記述する必要があります。
   - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. この動作は、これ以前の`sh`および`pwsh`のデフォルト動作と内部的に一貫しており、`cmd.exe`のデフォルトなので、この動作には影響しません。
 
-### `jobs.<job_id>.steps.with`
+### `jobs.<job_id>.steps[*].with`
 
 アクションによって定義される入力パラメータの`map`。 各入力パラメータはキー/値ペアです。 入力パラメータは環境変数として設定されます。 変数の前には`INPUT_`が付けられ、大文字に変換されます。
 
@@ -695,7 +728,7 @@ jobs:
           last_name: Octocat      
 ```
 
-### `jobs.<job_id>.steps.with.args`
+### `jobs.<job_id>.steps[*].with.args`
 
 Dockerコンテナへの入力を定義する`文字列`。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。 このパラメータは、`文字列の配列`をサポートしません。
 
@@ -718,7 +751,7 @@ steps:
 1. `args`を指定せずにアクションを利用できるよう、デフォルトを使ってください。
 1. アクションが`--help`フラグやそれに類するものを備えている場合は、アクションを自己ドキュメント化するためのデフォルトとして利用してください。
 
-### `jobs.<job_id>.steps.with.entrypoint`
+### `jobs.<job_id>.steps[*].with.entrypoint`
 
 `Dockerfile`中のDockerの`ENTRYPOINT`をオーバーライドします。あるいは、もしそれが指定されていなかった場合に設定します。 shellやexec形式を持つDockerの`ENTRYPOINT`命令とは異なり、`entrypoint`キーワードは実行する実行可能ファイルを定義する単一の文字列だけを受け付けます。
 
@@ -734,7 +767,7 @@ steps:
 
 The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-### `jobs.<job_id>.steps.env`
+### `jobs.<job_id>.steps[*].env`
 
 ランナー環境でステップが使う環境変数を設定します。 ワークフロー全体あるいはジョブのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.env`](#jobsjob_idenv)」を参照してください。
 
@@ -755,11 +788,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps.continue-on-error`
+### `jobs.<job_id>.steps[*].continue-on-error`
 
 ステップが失敗してもジョブが失敗にならないようにします。 `true`に設定すれば、このステップが失敗した場合にジョブが次へ進めるようになります。
 
-### `jobs.<job_id>.steps.timeout-minutes`
+### `jobs.<job_id>.steps[*].timeout-minutes`
 
 プロセスがkillされるまでにステップが実行できる最大の分数。
 
@@ -769,7 +802,7 @@ steps:
 
 ### `jobs.<job_id>.strategy`
 
-strategy (戦略) によって、ジョブのビルドマトリクスが作成されます。 各ジョブを実行する環境のバリエーションを定義できます。
+strategy (戦略) によって、ジョブのビルドマトリクスが作成されます。 You can define different variations to run each job in.
 
 ### `jobs.<job_id>.strategy.matrix`
 

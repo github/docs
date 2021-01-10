@@ -106,7 +106,7 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500')
     expect($('h1').text()).toBe('Ooops!')
-    expect($('code').text().startsWith('Error: OH NOEZ')).toBe(true)
+    expect($('code').text().startsWith('Error: Intentional error')).toBe(true)
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
@@ -221,30 +221,30 @@ describe('server', () => {
     // TODO disable the mini TOC tests when we replace it with sticky TOC header
     test('renders mini TOC in articles with more than one heading', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github/githubs-products')
-      expect($('h3#in-this-article').length).toBe(1)
-      expect($('h3#in-this-article + ul li a').length).toBeGreaterThan(1)
+      expect($('h2#in-this-article').length).toBe(1)
+      expect($('h2#in-this-article + ul li a').length).toBeGreaterThan(1)
     })
 
     test('renders mini TOC in articles that includes h4s when specified by frontmatter', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account')
-      expect($('h3#in-this-article').length).toBe(1)
-      expect($('h3#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
-      expect($('h3#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article').length).toBe(1)
+      expect($('h2#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
       const $ = await getDOM('/en/github/visualizing-repository-data-with-graphs/about-repository-graphs')
-      expect($('h3#in-this-article').length).toBe(0)
+      expect($('h2#in-this-article').length).toBe(0)
     })
 
     test('does not render mini TOC in articles with no headings', async () => {
       const $ = await getDOM('/en/github/authenticating-to-github/reviewing-your-deploy-keys')
-      expect($('h3#in-this-article').length).toBe(0)
+      expect($('h2#in-this-article').length).toBe(0)
     })
 
     test('does not render mini TOC in non-articles', async () => {
       const $ = await getDOM('/github/getting-started-with-github')
-      expect($('h3#in-this-article').length).toBe(0)
+      expect($('h2#in-this-article').length).toBe(0)
     })
   })
 
@@ -459,16 +459,16 @@ describe('server', () => {
       expect($('.markdown-body ul li a').length).toBeGreaterThan(5)
     })
 
-    test('map topic renders with h4 links to articles', async () => {
+    test('map topic renders with h2 links to articles', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
-      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h4`).length).toBe(1)
+      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h2`).length).toBe(1)
     })
 
-    test('map topic renders with one intro for every h4', async () => {
+    test('map topic renders with one intro for every h2', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
-      const $h4s = $('article a.link-with-intro')
-      expect($h4s.length).toBeGreaterThan(3)
-      $h4s.each((i, el) => {
+      const $h2s = $('article a.link-with-intro')
+      expect($h2s.length).toBeGreaterThan(3)
+      $h2s.each((i, el) => {
         expect($(el).next()[0].name).toBe('p')
       })
     })
@@ -635,10 +635,10 @@ describe('extended Markdown', () => {
 
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('h3#in-this-article').length).toBe(1)
-    expect($('h3#in-this-article + ul li.extended-markdown.mac').length).toBeGreaterThan(1)
-    expect($('h3#in-this-article + ul li.extended-markdown.windows').length).toBeGreaterThan(1)
-    expect($('h3#in-this-article + ul li.extended-markdown.linux').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article').length).toBe(1)
+    expect($('h2#in-this-article + ul li.extended-markdown.mac').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + ul li.extended-markdown.windows').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + ul li.extended-markdown.linux').length).toBeGreaterThan(1)
   })
 })
 

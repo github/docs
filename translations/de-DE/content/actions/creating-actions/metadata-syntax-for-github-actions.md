@@ -117,6 +117,7 @@ läuft:
 {% endraw %}
 
 #### `outputs.<output_id>.value`
+
 **Erforderliche** Der Wert, dem der Ausgabeparameter zugeordnet wird. Sie können dies auf eine `Zeichenfolge` oder einen Ausdruck mit Kontext festlegen. Sie können z. B. die `Schritte` Kontext verwenden, um den `Wert` einer Ausgabe auf den Ausgabewert eines Schritts festzulegen.
 
 For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
@@ -204,9 +205,11 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
 
 **Erforderliche** Die Ausführungsschritte, die Sie in dieser Aktion ausführen möchten.
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **Erforderliche** Der Befehl, den Sie ausführen möchten. Dies kann inline oder ein Skript in Ihrem Aktions-Repository sein:
+
+{% raw %}
 ```yaml
 läuft:
   mit: "composite"
@@ -214,8 +217,9 @@ läuft:
     - ausführen:{{ github.action_path }}/test/script.sh
       Shell: bash
 ```
+{% endraw %}
 
-Alternativ können Sie `$GITHUB_ACTION_PATH`verwenden:
+Alternatively, you can use `$GITHUB_ACTION_PATH`:
 
 ```yaml
 läuft:
@@ -225,27 +229,27 @@ läuft:
       Shell: bash
 ```
 
-Weitere Informationen finden Sie unter "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-##### `runs.steps.shell`
+##### `runs.steps[*].shell`
 
-**Erforderliche** Die Shell, in der Sie den Befehl ausführen möchten. Sie können eine der hier aufgeführten Shells [](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)verwenden.
+**Required** The shell where you want to run the command. You can use any of the shells listed [here](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell).
 
-##### `runs.steps.name`
+##### `runs.steps[*].name`
 
-**Optionaler** Der Name des zusammengesetzten Ausführungsschritts.
+**Optional** The name of the composite run step.
 
-##### `runs.steps.id`
+##### `runs.steps[*].id`
 
-**Optionaler** Ein eindeutiger Bezeichner für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+**Optional** A unique identifier for the step. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
-##### `runs.steps.env`
+##### `runs.steps[*].env`
 
-**Optionale**  Legt eine `Zuordnung` von Umgebungsvariablen nur für diesen Schritt fest. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
-##### `runs.steps.working-directory`
+##### `runs.steps[*].working-directory`
 
-**Optionale**  Gibt das Arbeitsverzeichnis an, in dem der Befehl ausgeführt wird.
+**Optional**  Specifies the working directory where the command is run.
 
 ### `runs` for Docker actions
 

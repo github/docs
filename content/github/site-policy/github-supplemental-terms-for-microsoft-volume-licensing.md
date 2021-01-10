@@ -1,5 +1,6 @@
 ---
 title: GitHub Supplemental Terms for Microsoft Volume Licensing
+hidden: true
 redirect_from:
   - /articles/GitHub-Supplemental-Terms-for-Microsoft-Volume-Licensing/
   - /articles/github-supplemental-terms-for-microsoft-volume-licensing
@@ -7,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: July 20, 2020
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
 
 The following GitHub Supplemental Terms (including any applicable Order Forms) supplement Customer's Microsoft volume licensing agreement ("**Microsoft Customer Agreement**") and, together with the Microsoft Customer Agreement, govern Customer's use of the Products (as defined below). The Microsoft Customer Agreement is incorporated herein by this reference.  Capitalized terms used but not defined in these supplemental terms have the meanings assigned to them in the Microsoft Customer Agreement.
 

@@ -193,9 +193,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-プライベートリポジトリで認証を受けるには、npm認証トークンをリポジトリ設定中にシークレットとして保存しなければなりません。 たとえば`NPM_TOKEN`というシークレットを生成してください。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-以下の例では、`NPM_TOKEN`というシークレットにはnpmの認証トークンが保存されます。 `setup-node`アクションは、環境変数の`NODE_AUTH_TOKEN`からnpmの認証トークンを読み取るよう*.npmrc*ファイルを設定します。 `setup-node`アクションを使って*.npmrc*ファイルを作成する場合、環境変数の`NPM_AUTH_TOKEN`にnpmの認証トークンを含むシークレットを設定しなければなりません。
+以下の例では、`NPM_TOKEN`というシークレットにはnpmの認証トークンが保存されます。 `setup-node`アクションは、環境変数の`NODE_AUTH_TOKEN`からnpmの認証トークンを読み取るよう*.npmrc*ファイルを設定します。 When using the `setup-node` action to create an *.npmrc* file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 
 依存関係をインストールする前に、`setup-node`アクションを使って*.npmrc*ファイルを作成してください。 このアクションには2つの入力パラメーターがあります。 `node-version`パラメーターはNode.jsのバージョンを設定し、`registry-url`パラメーターはデフォルトのレジストリを設定します。 パッケージレジストリがスコープを使うなら、`scope`パラメーターを使わなければなりません。 詳しい情報については[`npm-scope`](https://docs.npmjs.com/misc/scope)を参照してください。
 

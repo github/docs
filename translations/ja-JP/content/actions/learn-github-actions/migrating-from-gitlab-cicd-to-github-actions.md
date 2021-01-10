@@ -20,7 +20,7 @@ GitLab CI/CD と {% data variables.product.prodname_actions %} は、どちら�
 
 いくつかの違いがありますので、このガイドでは、ワークフローを {% data variables.product.prodname_actions %} に移行できるようにする際の重要な違いを説明します。
 
-### Jobs
+### ジョブ
 
 GitLab CI/CD のジョブは、{% data variables.product.prodname_actions %} のジョブと非常によく似ています。 どちらのシステムでも、ジョブは以下の特徴を持ちます。
 

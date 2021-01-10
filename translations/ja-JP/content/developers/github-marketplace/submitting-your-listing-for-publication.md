@@ -1,6 +1,6 @@
 ---
-title: Submitting your listing for publication
-intro: 'You can submit your listing for the {% data variables.product.prodname_dotcom %} community to use.'
+title: 公開のためのリストのサブミット
+intro: '{% data variables.product.prodname_dotcom %}コミュニティに利用してもらうためにリストをサブミットできます。'
 redirect_from:
   - /marketplace/listing-on-github-marketplace/submitting-your-listing-for-review
   - /developers/github-marketplace/submitting-your-listing-for-review
@@ -10,28 +10,28 @@ versions:
 
 
 
-Once you've completed the listing for your app, you'll see two buttons that allow you to request publication of the listing with or without verification. The **Request** button for "Publish without verification" is disabled if you have published any paid pricing plans in the listing.
+アプリケーションのリストを完成させると、検証ありもしくは検証なしでのリストの公開をリクエストできる2つのボタンが表示されます。 「検証なしでの公開」のための**リクエスト**ボタンは、リスト中で有料プランを公開している場合、無効化されています。
 
 ![未検証及び検証済みリクエストボタン](/assets/images/marketplace/marketplace-request-button.png)
 
 {% data reusables.marketplace.launch-with-free %}
 
-After you submit your listing for review, an onboarding expert will reach out to you with additional information.
+レビューのためにリストをサブミットすると、オンボーディングの専門家が追加情報をもって連絡してきます。
 
-For an overview of the process for creating and submitting a listing, see "[About {% data variables.product.prodname_marketplace %}](/developers/github-marketplace/about-github-marketplace#publishing-an-app-to-github-marketplace)."
+リストの作成とサブミットのプロセスの概要については、「[{% data variables.product.prodname_marketplace %}について](/developers/github-marketplace/about-github-marketplace#publishing-an-app-to-github-marketplace)」を参照してください。
 
-### Prerequisites for publishing with verification
+### 検証付きでの公開のための前提条件
 
-Before you request verification of your listing, you'll need to integrate the {% data variables.product.prodname_marketplace %} billing flows and webhook into your app. For more information, see "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+リストの検証をリクエストする前に、{% data variables.product.prodname_marketplace %}の支払いフローとwebhookをアプリケーションに統合しなければなりません。 詳しい情報については「[アプリケーションでの{% data variables.product.prodname_marketplace %} APIの利用](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)」を参照してください。
 
-If you've met the requirements for listing and you've integrated with the {% data variables.product.prodname_marketplace %} API, go ahead and submit your listing. For more information, see "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
+リストの要件を満たしており、{% data variables.product.prodname_marketplace %} APIと統合してあれば、先へ進んでリストをサブミットしてください。 詳しい情報については、「[アプリケーションを載せるための要件](/developers/github-marketplace/requirements-for-listing-an-app)」を参照してください。
 
-{% data reusables.marketplace.app-transfer-to-org-for-verification %} For information on how to do this, see: "[Transferring an app to an organization before you submit](#transferring-an-app-to-an-organization-before-you-submit)" below.
+{% data reusables.marketplace.app-transfer-to-org-for-verification %} その方法に関する情報としては、以下の「[サブミットの前にアプリケーションをOrganizationに移譲する](#transferring-an-app-to-an-organization-before-you-submit)」を参照してください。
 
-### Transferring an app to an organization before you submit
+### サブミットの前にアプリケーションをOrganizationに移譲する
 
-You cannot sell an app that's owned by a user account. You need to transfer the app to an organization that is already a verified creator, or that can request verification for a listing for the app. For details, see:
+ユーザアカウントが所有するアプリケーションを販売することはできません。 検証済みの作者となっているOrganizationか、アプリケーションのリストの検証をリクエストできるOrganizationに、アプリケーションを移譲しなければなりません。 詳細については以下を参照してください。
 
-1. "[Creating an organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)"
+1. 「[Organizationを最初から作成する](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)」
 
-1. "[Transferring ownership of a GitHub App](/developers/apps/transferring-ownership-of-a-github-app)" or "[Transferring ownership of an OAuth App](/developers/apps/transferring-ownership-of-an-oauth-app)"
+1. 「[GitHub Appの所有権の移譲](/developers/apps/transferring-ownership-of-a-github-app)」あるいは「[OAuth Appの所有権の移譲](/developers/apps/transferring-ownership-of-an-oauth-app)」

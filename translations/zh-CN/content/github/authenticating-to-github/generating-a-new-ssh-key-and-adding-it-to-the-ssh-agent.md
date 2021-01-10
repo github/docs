@@ -126,8 +126,8 @@ versions:
 
 1. 确保 ssh-agent 正在运行。 您可以根据“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”中的“自动启动 ssh-agent”说明，或者手动启动它：
   ```shell
-  # 在后台启动 ssh-agent
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 
