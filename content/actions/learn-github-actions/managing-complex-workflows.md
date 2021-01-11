@@ -5,6 +5,7 @@ intro: 'This guide shows you how to use the advanced features of {% data variabl
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
