@@ -50,7 +50,8 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
     ```
     {% endraw %}
 3. To run your workflow, scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
-    ![Commit workflow file](/assets/images/commit-workflow-file.png)
+    ![Commit workflow file](/asse
+    ts/images/commit-workflow-file.png)
 
 Committing the workflow file in your repository triggers the `push` event and runs your workflow.
 
