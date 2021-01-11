@@ -5,21 +5,37 @@ versions: '*'
 
 1. **Install XCode from AppStore (not BETA!)**
 2. **Install XCode command-line tools:** 
-`$ xcode-select --install`
+```
+$ xcode-select --install
+```
 Or in case of errors try to dowlnload and install it from Apple site:
-`https://developer.apple.com/download/more/?name=for%20Xcode`
+```
+https://developer.apple.com/download/more/?name=for%20Xcode
+```
 3. **Install CMake (exactly this version!):**
-`https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg`
+```
+https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg
+```
 Open your .zshrc file: 
-`$ sudo nano .zshrc`
+```
+$ sudo nano .zshrc
+```
 Add this line and save file: 
-`PATH="/Applications/CMake.app/Contents/bin":"$PATH"`
+```
+PATH="/Applications/CMake.app/Contents/bin":"$PATH"
+```
 Reload your .zshrc file: 
-`$ source ~/.zshrc`
+```
+$ source ~/.zshrc
+```
 Verify everything works: 
-`$ cmake --version`
+```
+$ cmake --version
+```
 4. **Create folder for OsmAnd repositories**
-`$ mkdir OsmAnd && cd OsmAnd`
+```
+$ mkdir OsmAnd && cd OsmAnd
+```
 5. **Clone all OsmAnd repositories:**
 ```
 $ git clone https://github.com/osmandapp/OsmAnd-build.git build
