@@ -20,3 +20,4 @@ For more information, see  "[Introduction to GraphQL](/graphql/guides/introducti
 {% for item in graphql.schemaForCurrentVersion.scalars %}
   {% include graphql-scalar %}
 {% endfor %}
+(600x80)
