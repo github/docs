@@ -3,8 +3,8 @@ title: How to Compile the iOS Version
 versions: '*'
 ---
 
-1. **Install XCode from AppStore (not BETA!)**
-2. **Install XCode command-line tools:** 
+### 1. **Install XCode from AppStore (not BETA!)**
+### 2. **Install XCode command-line tools:** 
 ```
 $ xcode-select --install
 ```
@@ -12,7 +12,7 @@ Or in case of errors try to dowlnload and install it from Apple site:
 ```
 https://developer.apple.com/download/more/?name=for%20Xcode
 ```
-3. **Install CMake (exactly this version!):**
+#### 3. **Install CMake (exactly this version!):**
 ```
 https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg
 ```
@@ -32,11 +32,11 @@ Verify everything works:
 ```
 $ cmake --version
 ```
-4. **Create folder for OsmAnd repositories**
+#### 4. **Create folder for OsmAnd repositories**
 ```
 $ mkdir OsmAnd && cd OsmAnd
 ```
-5. **Clone all OsmAnd repositories:**
+##### 5. **Clone all OsmAnd repositories:**
 ```
 $ git clone https://github.com/osmandapp/OsmAnd-build.git build
 $ git clone https://github.com/osmandapp/OsmAnd-core.git core
@@ -46,7 +46,7 @@ $ git clone https://github.com/osmandapp/Osmand.git -b master android
 $ git clone https://github.com/osmandapp/OsmAnd-resources.git resources
 $ git clone https://github.com/osmandapp/osmandapp.github.io.git help
 ```
-6. **Run prepare.sh**
+##### 6. **Run prepare.sh**
 ```
 $ cd ios
 $ ./prepare.sh
