@@ -51,14 +51,14 @@ $ git clone https://github.com/osmandapp/osmandapp.github.io.git help
 $ cd ios
 $ ./prepare.sh
 ```
-In case of error 'Xcode not set up properly. You may need to confirm the license...':
+In case of error `Xcode not set up properly. You may need to confirm the license...`:
+
 switch XCodeCommandLineTools to XCode app, confirm the license and swith it back.
 
 ```
 $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 $ sudo xcodebuild -license accept
 $ sudo xcode-select --switch /Library/Developer/CommandLineTools
-
 ```
 Or in case of another errors:
 Get your XCode CLang version number.
