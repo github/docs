@@ -2,7 +2,7 @@
 title: Setting up and managing your GitHub profile
 shortTitle: Profiles
 redirect_from:
-  - /categories/setting-up-and-managing-your-github-profile
+  - /categories/setting-up-and-managing-your-github4-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
