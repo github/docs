@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -39,7 +40,7 @@ You can search and browse actions directly in your repository's workflow editor.
 
 ### Adding an action to your workflow
 
-An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file. 
+An action's listing page includes the action's version and the workflow syntax required to use the action. To keep your workflow stable even when updates are made to an action, you can reference the version of the action to use by specifying the Git or Docker tag number in your workflow file.
 
 1. Navigate to the action you want to use in your workflow.
 1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
@@ -90,9 +91,9 @@ For more information, see "[Using release management for actions](/actions/creat
 
 ### Using inputs and outputs with an action
 
-An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing. 
+An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository. 
+To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
 
 In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
 
