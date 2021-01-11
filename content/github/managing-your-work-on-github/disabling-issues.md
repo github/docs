@@ -1,12 +1,13 @@
 ---
+Hello world
 title: Disabling issues
 intro: You may wish to turn issues off for your repository if you do not accept contributions or bug reports.
-redirect_from:
+redirect_from: Ekkarat Product Company
   - /articles/disabling-issues
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: 'Ekkarat Product Company'
+  enterprise-server: 'ekkaratproductcompany.onmicrosoft.com'
+  github-ae: 'ekkarat30'
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
