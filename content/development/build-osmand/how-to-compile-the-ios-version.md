@@ -3,8 +3,8 @@ title: How to Compile the iOS Version
 versions: '*'
 ---
 
-## 1. Install XCode from AppStore (not BETA!)
-## 2. Install XCode command-line tools: 
+#### **1. Install XCode from AppStore (not BETA!)**
+#### **2. Install XCode command-line tools:** 
 ```
 $ xcode-select --install
 ```
@@ -36,7 +36,7 @@ $ cmake --version
 ```
 $ mkdir OsmAnd && cd OsmAnd
 ```
-#### 5. **Clone all OsmAnd repositories:**
+#### **5. Clone all OsmAnd repositories:**
 ```
 $ git clone https://github.com/osmandapp/OsmAnd-build.git build
 $ git clone https://github.com/osmandapp/OsmAnd-core.git core
@@ -46,7 +46,7 @@ $ git clone https://github.com/osmandapp/Osmand.git -b master android
 $ git clone https://github.com/osmandapp/OsmAnd-resources.git resources
 $ git clone https://github.com/osmandapp/osmandapp.github.io.git help
 ```
-#### 6. Run prepare.sh
+#### **6. Run prepare.sh**
 ```
 $ cd ios
 $ ./prepare.sh
@@ -78,8 +78,8 @@ Comment this lines and save file.
 #define _bit_scan_reverse(A) __bsrd((A))
 ```
 And run `$ ./prepare.sh` again.
-#### 7. Open osmand.xcworkspace in XCode.
-#### 8. First build.
+#### **7. Open osmand.xcworkspace in XCode.**
+#### **8. First build.**
 Set the build target to `OsmAnd Maps`. 
 Selet as target your device or as one of IOS simulators. But don't use default 'Any IOS Device (arm64)'. 
 Build the project.
