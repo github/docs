@@ -3,63 +3,118 @@ title: How to Compile the iOS Version
 versions: '*'
 ---
 
-1. Install XCode (not BETA!)
+### 1. Install XCode from AppStore (not BETA!)
 
-2. Install command-line tools:  
-   ```
-   $ xcode-select --install
-   ```
 
-3. [Install cmake](https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg) (exactly this version!)
 
-   * Add this line to your `.zshrc` file:
-    ```
-    PATH="/Applications/CMake.app/Contents/bin":"$PATH"
-    ```
-   * Reload your `.zshrc` file:
-    ```
-    source ~/.zshrc
-    ```
-   * Verify everything works:
-    ```
-    cmake --version
-    ```
+### 2. Install XCode command-line tools: 
 
-4. [Install brew](https://brew.sh), run
-   ```
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-   ```
+`$ xcode-select --install`
 
-5. Install imagemagick with librsvg
-   ```
-   brew install https://github.com/Homebrew/homebrew-core/raw/46a2ef7c9f0380b8e19f8dfe37270caa27581353/Formula/imagemagick.rb --with-librsvg
-   ```
+Or in case of errors try to dowlnload and install it from Apple site:
 
-6. `mkdir OsmAnd` and `cd OsmAnd`
+`https://developer.apple.com/download/more/?name=for%20Xcode`
 
-7. Clone manually or via google repo tool: 
-   ```
-   https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml   --with-librsvg
-   ```
-   ```
-   $ mkdir ~/bin
-   $ PATH=~/bin:$PATH
-   $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-   $ chmod a+x ~/bin/repo
-   $ repo init -u https://github.com/osmandapp/OsmAnd-manifest/blob/master/jenkins_ios.xml
-   ```
 
-   After doing this, the repo is installed, but **"google repo tool couldn’t obtain manifest"**.
 
-   If cloned manually, in some cases a “revision” is specified. You should use `git clone -b`, for the example
-   ```
-   <project path="core-legacy" name="osmandapp/OsmAnd-core.git" revision="legacy_core" />
-   ```
-   use:
-   ```
-   git clone https://github.com/osmandapp/OsmAnd-core.git -b legacy_core core-legacy
-   ```
-   
-8. Run `./ios/prepare.sh`
+### 3. Install CMake (exactly this version!):
 
-9. Open `osmand.xcworkspace` in XCode and build (the target should be -> OsmAnd Maps)
+`https://github.com/Kitware/CMake/releases/download/v3.11.2/cmake-3.11.2-Darwin-x86_64.dmg`
+
+Open your .zshrc file: 
+
+`$ sudo nano .zshrc`
+
+Add this line and save file: 
+
+`PATH="/Applications/CMake.app/Contents/bin":"$PATH"`
+
+Reload your .zshrc file: 
+
+`$ source ~/.zshrc`
+
+Verify everything works: 
+
+`$ cmake --version`
+
+
+
+### 4. Create folder for OsmAnd repositories
+
+`$ mkdir OsmAnd && cd OsmAnd`
+
+
+
+### 5. Clone all OsmAnd repositories:
+```
+$ git clone https://github.com/osmandapp/OsmAnd-build.git build
+$ git clone https://github.com/osmandapp/OsmAnd-core.git core
+$ git clone https://github.com/osmandapp/OsmAnd-core.git -b legacy_core core-legacy
+$ git clone https://github.com/osmandapp/OsmAnd-ios.git ios
+$ git clone https://github.com/osmandapp/Osmand.git -b master android
+$ git clone https://github.com/osmandapp/OsmAnd-resources.git resources
+$ git clone https://github.com/osmandapp/osmandapp.github.io.git help
+```
+
+
+### 6. Run prepare.sh
+```
+$ cd ios
+$ ./prepare.sh
+```
+
+In case of error 'Xcode not set up properly. You may need to confirm the license...':
+
+switch XCodeCommandLineTools to XCode app, confirm the license and swith it back.
+
+```
+$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+$ sudo xcodebuild -license accept
+$ sudo xcode-select --switch /Library/Developer/CommandLineTools
+
+```
+
+Or in case of another errors:
+
+Get your XCode CLang version number.
+
+```
+$ ls /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/
+12.0.0
+```
+
+
+Replace `{CLANG_VERSION}` in this command with your version and open file:
+
+```
+$ sudo nano /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/{CLANG_VERSION}/include/ia32intrin.h
+
+example:
+$ sudo nano /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include/ia32intrin.h
+```
+
+Comment this lines and save file.
+
+```
+#define _bit_scan_forward(A) __bsfd((A))
+#define _bit_scan_reverse(A) __bsrd((A))
+```
+
+And run `$ ./prepare.sh` again.
+
+
+
+### 7. Open osmand.xcworkspace in XCode.
+
+
+
+### 8. First build.
+
+Set the build target to `OsmAnd Maps`. 
+
+Selet as target your device or as one of IOS simulators. But don't use default 'Any IOS Device (arm64)'. 
+
+Build the project.
+
+In case of build erros you can delete `baked` and `binaries` folders in `OsmAnd` directory. And try to build again.
+
