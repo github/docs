@@ -12,8 +12,8 @@ redirect_from:
   - /articles/connecting-to-github-with-ssh
 mapTopic: true
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: '#'
+  enterprise-server: '#'
+  github-ae: '#'
 ---
 
