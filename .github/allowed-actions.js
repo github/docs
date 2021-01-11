@@ -35,4 +35,4 @@ module.exports = [
   'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0',
   'EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575',
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58'
-]
+] accept
