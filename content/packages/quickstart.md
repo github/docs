@@ -22,7 +22,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
     ```
     {% endraw %}
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
-    {% raw %}
+    {% raw %z
     ```javascript{:copy}
     alert("Hello, World!");
     ```
