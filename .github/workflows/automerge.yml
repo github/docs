@@ -20,7 +20,7 @@ on:
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'automerge') || contains(github.event.pull_request.labels.*.name, 'autosquash')
+    if: (contains(github.event.pull_request.labels.*.name, 'automerge') || contains(github.event.pull_request.labels.*.name, 'autosquash')) && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     steps:
       - name: automerge
         uses: 'pascalgn/automerge-action@c9bd182'

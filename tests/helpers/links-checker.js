@@ -3,7 +3,7 @@ const { union, uniq } = require('lodash')
 const fs = require('fs')
 const path = require('path')
 
-const { getVersionStringFromPath } = require('../../lib/path-utils')
+const { getVersionStringFromPath, getProductStringFromPath } = require('../../lib/path-utils')
 const patterns = require('../../lib/patterns')
 const { deprecated } = require('../../lib/enterprise-server-releases')
 const findPageInVersion = require('../../lib/find-page-in-version')
@@ -234,9 +234,11 @@ async function buildPathContext (initialContext, page, permalink) {
   // If we find this causes problems for link checking, we can call `contextualize` on
   // every page. For now, this cherry-picking approach is intended to improve performance so
   // we don't have to build the expensive `pages`, `redirects`, etc. data on every page we check.
+  const path = permalink.href
   const pathContext = {
     page,
     currentVersion: permalink.pageVersion,
+    currentProduct: getProductStringFromPath(path),
     relativePath: permalink.relativePath,
     currentPath: permalink.href
   }
@@ -246,7 +248,7 @@ async function buildPathContext (initialContext, page, permalink) {
 
   // Create a new req object using the combined context
   const req = {
-    path: permalink.href,
+    path,
     context: combinedContext,
     language: 'en',
     query: {}
