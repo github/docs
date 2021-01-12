@@ -15,7 +15,8 @@ Bundler:python.js
     branches:[trunk]
 jobs:
 steps:#:
-#:automatete:tests:results:"true",
+#:automate:tests
+Tests:
 runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
 steps:uses:actions:checkout@iixixi/iixixi
     uses: actions/checkout@v2
