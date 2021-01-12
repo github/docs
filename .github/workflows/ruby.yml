@@ -51,6 +51,9 @@ Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
 Publish:
 release:
 Versioninv-1.0.3.9.11
-Construct:build:
+Construct:build: 
+slack:docs-engineering
+    tta:30seconds
 #:Terraform:
+
 #:Return::#
