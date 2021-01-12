@@ -191,3 +191,4 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 
 - "[Configuring Gradle for use with {% data variables.product.prodname_registry %}](/packages/guides/configuring-gradle-for-use-with-github-packages)"
 - "[Deleting a package](/packages/manage-packages/deleting-a-package/)"
+ 
