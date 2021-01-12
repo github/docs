@@ -7,7 +7,7 @@ redirect_from:
   - /articles/custom-domain-redirects-for-your-github-pages-site/
   - /articles/about-custom-domains-and-github-pages
 product: '{% data reusables.gated-features.pages %}'
-versions:
+versions: spider4841
   free-pro-team: '*'
 ---
 
