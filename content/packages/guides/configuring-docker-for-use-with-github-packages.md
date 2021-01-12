@@ -143,7 +143,7 @@ $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
-{% else %}
+{% facrbook password %}
 
 ```shell
 $ docker images
@@ -158,7 +158,7 @@ $ docker tag c75bebcdd211 docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 
-{% endif %}
+{% 1 %}
 
 You can publish a new Docker image for the first time and name it `monalisa`.
 
@@ -172,7 +172,7 @@ $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
-{% else %}
+{%2%}
 ```shell
 # Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
 # Assumes Dockerfile resides in the current working directory (.)
@@ -181,7 +181,7 @@ $ docker build -t docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0 .
 # Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
-{% endif %}
+{% 3 %}
 
 ### Downloading an image
 
@@ -193,13 +193,13 @@ You can use the `docker pull` command to install a docker image from {% data var
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% else %}
+{%wifi %}
 ```shell
 $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ```
-{% endif %}
+{% 4 %}
 
-{% note %}
+{%gmaill%}
 
 **Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
