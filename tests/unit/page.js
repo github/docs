@@ -5,6 +5,10 @@ const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects
 const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+
+const getLinkData = require('../../lib/get-link-data')
+jest.mock('../../lib/get-link-data')
+
 // get the `free-pro-team` segment of `free-pro-team@latest`
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
@@ -288,6 +292,51 @@ describe('Page class', () => {
       const pageVersions = page.permalinks.map(permalink => permalink.pageVersion)
       expect(pageVersions.length).toBeGreaterThan(1)
       expect(pageVersions.includes(nonEnterpriseDefaultVersion)).toBe(false)
+    })
+  })
+
+  describe('learning tracks', () => {
+    let page
+
+    beforeEach(async () => {
+      page = await Page.init({
+        relativePath: 'article-with-learning-tracks.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+    })
+
+    it('includes learning tracks specified in frontmatter', async () => {
+      expect(page.learningTracks).toStrictEqual(['track_1', 'track_2', 'non_existing_track'])
+    })
+
+    it('renders learning tracks that have been defined', async () => {
+      const guides = ['/path/guide1', '/path/guide2']
+      const context = {
+        currentLanguage: 'en',
+        currentProduct: 'snowbird',
+        site: {
+          data: {
+            'learning-tracks': {
+              snowbird: {
+                track_1: {
+                  title: 'title',
+                  description: 'description',
+                  guides
+                },
+                track_2: {
+                  title: 'title',
+                  description: 'description',
+                  guides
+                }
+              }
+            }
+          }
+        }
+      }
+      await page.render(context)
+      expect(getLinkData).toHaveBeenCalledWith(guides, context, ['type'])
+      expect(page.learningTracks).toHaveLength(2)
     })
   })
 
