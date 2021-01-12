@@ -4,7 +4,7 @@ intro: "Online / Raster maps displayed as main map or as Underlay / Overlay"
 versions: '*'
 ---
 
-### Introduction
+## Introduction
 OsmAnd Online maps are an extensive addition to the already comprehensive base of OpenStreetMap data the application uses. You can add layers to your map with information from a different source, beginning with the satellite, or hiking routes view and ending with quite specific data like fire hydrants' locations. You can also change the main source of the map from vector maps to online tiles.
 ![Online_maps](/assets/images/plugins/online-maps/online-maps.png)
 
@@ -26,7 +26,28 @@ Online map formats of OsmAnd:
 -   No additional layers available like transport or POI on the map.
 -   It is not possible to rotate map with readable text (text will be rotated with the map itself, thus will not be easily readable).
 
-### How to use for Android
+## Purpose raster maps
+
+## Common use of raster maps
+
+## How to use Underlay / Overlay layers
+
+## Installation
+
+### Installation with URL
+### Installation with UI
+### Installation with SQLite/Metainfo copy
+
+## Size and clear
+
+## Backup / Export / Import
+
+## Creation on new maps in PC
+
+### MOBAC
+### Others
+
+## How to use for Android
 First, turn on the Online maps plugin in the _app menu-> Plugins-> Online maps_.
 
 To select an online map as your basic map, please go to _Configure map-> Map source_ and select the preferable one from the list. If you do not see the desired map on the list, select _Install more..._ to view the entire list of installs available. Also, you can define or edit your map source by clicking to _Define/Edit..._.
