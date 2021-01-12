@@ -26,7 +26,7 @@ You can write your own actions to use in your workflow or share the actions you 
 
 Actions can run directly on a machine or in a Docker container. You can define an action's inputs, outputs, and environment variables.
 
-### Types of actions
+### Types of actions {#my-test-id}
 
 You can build Docker container and JavaScript actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)."
 
@@ -163,4 +163,4 @@ While both {% data variables.product.prodname_actions %} and {% data variables.p
 
 ### Further reading
 
-- "[Development tools for {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"
+- "[Development tools for {% data variables.product.prodname_actions %}](#my-test-id)"
