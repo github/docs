@@ -91,7 +91,7 @@ These are the types of filters that you can use:
   - Filter by discussion type with `is:`
   - Filter by notification reason with `reason:`{% if currentVersion == "free-pro-team@latest" %}
   - Filter by notification author with `author:`
-  - Filter by organization who owns the asset you're receiving notifications for with `org:`{% endif %}
+  - Filter by organization owning the asset you're receiving notifications for with `org:`{% endif %}
 
 #### Supported `repo:` queries
 
