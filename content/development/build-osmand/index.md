@@ -10,7 +10,7 @@ versions: '*'
 ### Build tools
 
 ## How to install Beta And Test versions
-{% link_in_list /osmand-builds %}
+{% link_with_intro /osmand-builds %}
 
 ## How to create sample API apps
 ### Using AIDL
