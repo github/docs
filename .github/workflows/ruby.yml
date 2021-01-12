@@ -48,11 +48,11 @@ jobs:
           Pull:iixixi
           MERGE_MSG:@iixixi
 Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
-Publish:
-release:
-Versioninv-1.0.3.9.11
-Construct:build: 
-slack:docs-engineering
-    tta:30seconds
-#:Terraform:
-#:Return::#
+Publish: iixixi.json
+release: publish
+Versioni: v-1.0.3.9.11
+Construct: build: 
+slack: docs-engineering
+tta: 30seconds
+#: Terraform:
+#: Return::#
