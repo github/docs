@@ -149,7 +149,7 @@ To filter notifications by user, you can use the `author:` query. An author is t
 
 #### Supported `org:` queries
 
-To filter notifications by organization, you can use the  `org` query. The organization is the owner of the asset (a repository, for example) for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+To filter notifications by organization, you can use the  `org` query. The organization to specify is the owner of the asset (a repository, for example) for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
 
 For example, to see notifications from the octo-org organization, use `org:octo-org`. 
 
