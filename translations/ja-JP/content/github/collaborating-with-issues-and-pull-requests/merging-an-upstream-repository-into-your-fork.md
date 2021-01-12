@@ -11,7 +11,7 @@ versions:
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
-3. マージ先のブランチをチェックアウトします。 Usually, you will merge into the default branch.
+3. マージ先のブランチをチェックアウトします。 通常、デフォルトブランチにマージします。
   ```shell
   $ git checkout <em>master</em>
   ```

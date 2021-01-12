@@ -11,17 +11,21 @@ versions:
   github-ae: '*'
 ---
 
+### Informationen zu geschützten Branches
+
 {% data reusables.pull_requests.about-protected-branches %} Du kannst entscheiden, Einschränkungen zu erzwingen über die Art und Weise, wie ein Pull Request in Dein Repository zusammengeführt wird.
 
 Durch das Erstellen von Regeln für geschützte Branches können Repository-Inhaber und Personen mit Administratorberechtigung für ein Repository bestimmte Workflows oder Anforderungen erzwingen, bevor ein Mitarbeiter einen Branch in Dein Repository überführen kann.
 
 {% data reusables.repositories.branch-rules-example %} Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“
 
+{% data reusables.pull_requests.you-can-auto-merge %}
+
 ### Priorisierung von Regeln für geschützte Branches
 
-Wenn ein Repository mehrere Branch-Schutzregeln hat, die dieselben Branches betreffen, haben die Regeln, die einen spezifischen Branch-Namen enthalten, die höchste Priorität. Wenn es mehr als eine Branch-Schutzregel gibt, die auf den gleichen spezifischen Branch-Namen verweist, hat die zuerst erstellte Branch-Regel eine höhere Priorität.
+Wenn es für ein Repository mehrere Regeln für geschützte Branches gibt, die dieselben Branches betreffen, haben die Regeln, die einen spezifischen Branch-Namen enthalten, die höchste Priorität. Wenn es mehr als eine Regel für geschützte Branches gibt, die auf den gleichen spezifischen Branch-Namen verweist, hat die zuerst erstellte Branch-Regel eine höhere Priorität.
 
-Branch-Schutzregeln mit einem Sonderzeichen, wie `*`, `?` oder `]` werden in der Reihenfolge ihrer Erstellung angewendet, sodass ältere Regeln mit diesen Zeichen eine höhere Priorität haben.
+Regeln für geschützte Branches mit einem Sonderzeichen, wie `*`, `?` oder `]`, werden in der Reihenfolge ihrer Erstellung angewendet, sodass ältere Regeln mit diesen Zeichen eine höhere Priorität haben.
 
 ### Einstellungen für geschützte Branches
 

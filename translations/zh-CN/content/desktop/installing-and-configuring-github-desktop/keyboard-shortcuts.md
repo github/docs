@@ -51,6 +51,7 @@ MacOS 上的 GitHub Desktop 快捷键
 | <kbd>⌘</kbd><kbd>2</kbd>             | 显示提交历史记录                                                 |
 | <kbd>⌘</kbd><kbd>B</kbd>             | 显示所有分支                                                   |
 | <kbd>⌘</kbd><kbd>G</kbd>             | 转到提交摘要字段                                                 |
+| <kbd>⌘</kbd><kbd>Enter</kbd>         | 当摘要或描述字段处于活动状态时提交更改                                      |
 | <kbd>space</kbd>                     | 选择或取消选择所有突出显示的文件                                         |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | 创建新分支                                                    |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | 重命名当前分支                                                  |
@@ -104,6 +105,7 @@ Windows 上的 GitHub Desktop 键盘快捷键
 | <kbd>Ctrl</kbd><kbd>2</kbd>                 | 显示提交历史记录                                                 |
 | <kbd>Ctrl</kbd><kbd>B</kbd>                 | 显示所有分支                                                   |
 | <kbd>Ctrl</kbd><kbd>G</kbd>                 | 转到提交摘要字段                                                 |
+| <kbd>Ctrl</kbd><kbd>Enter</kbd>             | 当摘要或描述字段处于活动状态时提交更改                                      |
 | <kbd>space</kbd>                            | 选择或取消选择所有突出显示的文件                                         |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>N</kbd> | 创建新分支                                                    |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>R</kbd> | 重命名当前分支                                                  |

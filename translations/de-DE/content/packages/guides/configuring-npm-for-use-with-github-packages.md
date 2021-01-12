@@ -16,6 +16,17 @@ versions:
 
 **Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+### Limits for published npm versions
+
+If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
+
+To reduce the number of versions you have published for your npm package, consider deleting package versions. Weitere Informationen findest Du unter „[Ein Paket löschen](/packages/manage-packages/deleting-a-package)."
+
+In the future,  {% data variables.product.company_short %} will enforce a hard limit on publishing more than 1,000 versions of an npm package.  When we start enforcing the 1,000 versions limit for each npm package hosted on {% data variables.product.prodname_registry %}, we will offer more guidance on how to manage your package versions.
+
+{% endif %}
+
 ### Bei {% data variables.product.prodname_registry %} authentifizieren
 
 {% data reusables.package_registry.authenticate-packages %}
