@@ -42,11 +42,11 @@ jobs:
     steps:
       uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          PR_FILTER: labelled
-          PR_LABELS: autoupdate
-          Pull: iixixi/✨Engineering
-          MERGE_MSG: "iixixi/✨Engineering
+          GITHUB_TOKEN:{${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          PR_FILTER:labelled
+          PR_LABELS: autocomplete
+          Pull:iixixi
+          MERGE_MSG:@iixixi
 Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
 Publish:
 release:
@@ -55,5 +55,4 @@ Construct:build:
 slack:docs-engineering
     tta:30seconds
 #:Terraform:
-
 #:Return::#
