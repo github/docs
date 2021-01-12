@@ -38,7 +38,7 @@ versions:
 
 {% data reusables.pull_requests.resolving-conversations %}
 
-### Re-requesting a review
+### レビューを再リクエストする
 
 {% data reusables.pull_requests.re-request-review %}
 
