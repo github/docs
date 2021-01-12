@@ -1,19 +1,21 @@
-#:Run:
+:#:Run:
 Jobs:
 Steps:
 Command:Build:((c))((R))
 Type:gemfile
 name:bitcoin
 Runs-on:Nodepackage.js
-Request:
-Launch: 
+Request:pull:
+Branches:[mainbranch]
+Launch:[tree]
 Bundler:python.js
   push:@iixixi/ZachryTylerWood/.github/workflows/
-    branches:[ mainbranch ]
-  pull_request:
-    branches:[ trunk ]
+    branches:[mainbranch]
+  pull_request:push:
+    branches:[trunk]
 jobs:
-automatete:tests:results:"true",
+steps:#:
+#:automatete:tests:results:"true",
 runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
 steps:uses:actions:checkout@iixixi/iixixi
     uses: actions/checkout@v2
@@ -46,4 +48,9 @@ jobs:
           Pull: iixixi/✨Engineering
           MERGE_MSG: "iixixi/✨Engineering
 Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
-Return:#:Run
+Publish:
+release:
+Versioninv-1.0.3.9.11
+Construct:build:
+#:Terraform:
+#:Return::#
