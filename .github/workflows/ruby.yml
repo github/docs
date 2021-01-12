@@ -19,7 +19,7 @@ steps:#:
 runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
 steps:uses:actions:checkout@iixixi/iixixi
     uses: actions/checkout@v2
-    name: iixixii/✨ Engineering
+    name: iixixi/iixixi
     To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     https://github.com/ruby/setup-ruby#versioning):
     uses: ruby/setup-ruby@v1
