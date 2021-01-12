@@ -8,10 +8,7 @@ versions: '*'
 OsmAnd Online maps are an extensive addition to the already comprehensive base of OpenStreetMap data the application uses. You can add layers to your map with information from a different source, beginning with the satellite, or hiking routes view and ending with quite specific data like fire hydrants' locations. You can also change the main source of the map from vector maps to online tiles.
 ![Online_maps](/assets/images/plugins/online-maps/online-maps.png)
 
-Online map formats of OsmAnd:
-
--   [**SQ Lite format**](https://docs.osmand.net/en/main@latest/development/map-creation)
--   [**Metainfo format**](https://docs.osmand.net/en/main@latest/development/osmand-file-formats/osmand-metainfo)
+Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells). They are usually regularly-spaced and square. Rasters often look pixelated because each pixel has its own value or class.
 
 **Advantages:**
 
@@ -28,6 +25,13 @@ Online map formats of OsmAnd:
 
 ## Purpose raster maps
 
+Raster maps are used for showing additional information like satellite, hiking routes, weather pictures, slopes and hillshades, nautical symbols and others. 
+You can add layers to your map with information from a different source, beginning with the satellite, or hiking routes view and ending with quite specific data like fire hydrants' locations.
+
+![Online_maps](/assets/images/plugins/online-maps/om-example.png)
+
+
+
 ## Common use of raster maps
 
 ## How to use Underlay / Overlay layers
@@ -37,6 +41,10 @@ Online map formats of OsmAnd:
 ### Installation with URL
 ### Installation with UI
 ### Installation with SQLite/Metainfo copy
+Online map formats of OsmAnd:
+
+-   [**SQ Lite format**](https://docs.osmand.net/en/main@latest/development/map-creation)
+-   [**Metainfo format**](https://docs.osmand.net/en/main@latest/development/osmand-file-formats/osmand-metainfo)
 
 ## Size and clear
 
