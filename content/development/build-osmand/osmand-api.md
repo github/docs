@@ -1,5 +1,5 @@
 ---
-title: How to build sample app using OsmAnd API
+title: OsmAnd API, SDK - Samples
 intro: "In case you want to use OsmAnd as a library for your app, you might consider to use it via SDK or via API. Now these options are available only for Android."
 versions: '*'
 ---
@@ -62,5 +62,5 @@ Cons:
 Please check the example on (Github repo)[https://github.com/osmandapp/osmand-api-demo/tree/master/OsmAnd-qt-core-sample].
 Demo app (OsmAnd-map-sample.apk)[https://download.osmand.net/latest-night-build/OsmAnd-map-sample.apk].
 
-### License
+## License
 You might want to double check (OsmAnd's License)[https://osmand.net/help-online/license] and (complete version)[https://github.com/osmandapp/OsmAnd/blob/master/LICENSE].
