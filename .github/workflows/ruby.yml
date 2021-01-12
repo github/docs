@@ -1,28 +1,21 @@
-On:
-Run:
+#:Run:
 Jobs:
 Steps:
-Command:
-Build: ((c))
-Type: gemfile
-
-name: bitcoin
-
-Runs-on: Nodepackage.js
+Command:Build:((c))((R))
+Type:gemfile
+name:bitcoin
+Runs-on:Nodepackage.js
 Request:
 Launch: 
-Bundler: python.js
-  push: iixixi/ZachryTylerWood/.github/workflows/
-    branches: [ main ]
+Bundler:python.js
+  push:@iixixi/ZachryTylerWood/.github/workflows/
+    branches:[ mainbranch ]
   pull_request:
-    branches: [ trunk ]
-
+    branches:[ trunk ]
 jobs:
-  test:
-
-    runs-on: ubuntu-latest
-
-    steps:
+automatete:tests:results:"true",
+runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
+steps:uses:actions:checkout@iixixi/iixixi
     uses: actions/checkout@v2
     name: iixixii/✨ Engineering
     To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
@@ -33,23 +26,24 @@ jobs:
         ruby-version: 2.6
     name: Install dependencies
       run: bundle install
-    name: Run tests
-      run: bundle exec rake
-name: autoupdate branch
-
+name: Run tests
+run: bundle exec rake
+name:autoupdate branch
 on:
   push:
     branches:
-      - main
+      [main]
 jobs:
   autoupdate:
     name: autoupdate
     runs-on: ubuntu-18.04
     steps:
-      - uses: docker://chinthakagodawita/autoupdate-action:v1
+      uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           PR_FILTER: labelled
           PR_LABELS: autoupdate
           Pull: iixixi/✨Engineering
           MERGE_MSG: "iixixi/✨Engineering
+Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
+Return:#:Run
