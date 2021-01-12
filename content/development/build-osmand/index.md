@@ -1,21 +1,23 @@
 ---
-title: Build OsmAnd
-intro: "Here we talk about the development environment, compilation, etc."
+title: Build OsmAnd SDK Samples, OsmAnd API & Tools
+intro: "In case you want to reuse OsmAnd's code, create a sample app using OsmAnd's API or setup full development environment, this section will guide you through the process."
 versions: '*'
 ---
-## How to setup Build Environment
+{% link_with_intro /osmand-builds %}
+{% link_with_intro /osmand-api %}
+
+## How to setup full OsmAnd development environment
 {% link_in_list /setup-the-dev-environment %}
 {% link_in_list /how-to-compile-the-android-version %}
 {% link_in_list /how-to-compile-the-ios-version %}
-### Build tools
+{% link_in_list /how-to-compile-mapcreator-and-tools %}
 
-## How to install Beta And Test versions
-{% link_with_intro /osmand-builds %}
+### License
+You might want to double check (OsmAnd's License)[https://osmand.net/help-online/license] and (complete version)[https://github.com/osmandapp/OsmAnd/blob/master/LICENSE].
 
-## How to create sample API apps
-### Using AIDL
-### Using only OpenGL core
-### Using OsmAnd as SDK
+
+
+
 
 
 
