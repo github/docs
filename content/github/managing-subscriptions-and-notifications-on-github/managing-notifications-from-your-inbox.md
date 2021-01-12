@@ -95,7 +95,7 @@ These are the types of filters that you can use:
 
 #### Supported `repo:` queries
 
-To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the user or the organization who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository owned by the octo-org organization.
+To add a `repo:` filter, you must include the organisation or user of the repository in the query: `repo:owner/repository`. An owner is the user or the organization who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
 
 #### Supported `is:` queries
 
