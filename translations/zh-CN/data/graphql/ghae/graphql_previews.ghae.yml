@@ -85,7 +85,7 @@
   toggled_on:
     - Mutation.createContentAttachment
   owning_teams:
-    - '@github/ce-extensibility'
+    - '@github/feature-lifecycle'
 - 
   title: 固定议题预览
   description: 此预览增加了对固定议题的支持。

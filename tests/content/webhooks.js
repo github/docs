@@ -1,5 +1,5 @@
 const { difference } = require('lodash')
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const { latest } = require('../../lib/enterprise-server-releases')
 const allVersions = Object.values(require('../../lib/all-versions'))
 const payloadVersions = allVersions.map(v => v.miscVersionName)
@@ -56,7 +56,7 @@ describe('webhook payloads', () => {
     expect(ghesPayloads[dotcomOnlyPayload]).toBeUndefined()
     expect(ghaePayloads[dotcomOnlyPayload]).toBeUndefined()
 
-    // fallback handling is in middleware/contexturalizers/webhooks.js
+    // fallback handling is in middleware/contextualizers/webhooks.js
     const ghesPayloadsWithFallbacks = await getJSON(`/en/enterprise-server@${latest}/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion`)
     const ghaePayloadsWithFallbacks = await getJSON('/en/github-ae@latest/developers/webhooks-and-events?json=webhookPayloadsForCurrentVersion')
     expect(ghesPayloadsWithFallbacks[dotcomOnlyPayload]).toBeDefined()

@@ -25,7 +25,7 @@ versions:
 
 ### {% data variables.product.prodname_actions %} を使用する継続的インテグレーションについて
 
-{% data variables.product.prodname_actions %} を利用した CI では、リポジトリ内のコードをビルドしてテストを実行できるワークフローが利用できます。 ワークフローは、{% data variables.product.prodname_dotcom %} でホストされている仮想マシン、または自分がホストしているマシンで実行できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」および「[セルフホストランナーについて](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)」を参照してください。
+{% data variables.product.prodname_actions %} を利用した CI では、リポジトリ内のコードをビルドしてテストを実行できるワークフローが利用できます。 ワークフローは、{% data variables.product.prodname_dotcom %} でホストされている仮想マシン、または自分がホストしているマシンで実行できます。 For more information, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)" and "[About self-hosted runners](/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners)."
 
 CI ワークフローは、{% data variables.product.product_name %} イベントが発生したとき（たとえば、新しいコードがリポジトリにプッシュされたとき）、設定されたスケジュールで、またはリポジトリディスパッチ Webhook を使用して外部イベントが発生したときに実行するように設定できます。
 

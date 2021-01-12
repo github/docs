@@ -31,9 +31,18 @@ versions:
 {% link_in_list /building-and-testing-nodejs %}
 {% link_in_list /building-and-testing-powershell %}
 {% link_in_list /building-and-testing-python %}
+{% link_in_list /building-and-testing-ruby %}
 {% link_in_list /building-and-testing-java-with-maven %}
 {% link_in_list /building-and-testing-java-with-gradle %}
 {% link_in_list /building-and-testing-java-with-ant %}
+
+### 创建自定义持续部署工作流程
+
+您可以使用 {% data variables.product.prodname_actions %} 创建自定义连续部署 (CD) 工作流程，将项目部署到多个云合作伙伴生态系统。
+
+ {% link_in_list /deploying-to-amazon-elastic-container-service %}
+ {% link_in_list /deploying-to-azure-app-service %}
+ {% link_in_list /deploying-to-google-kubernetes-engine %}
 
 ### 发布软件包
 

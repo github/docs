@@ -1,6 +1,6 @@
 ---
-title: File attachments on issues and pull requests
-intro: 'When you open issue or update a pull request, you can use issue attachments to upload images of proposed features or screenshots of bugs.'
+title: Anexar arquivos em problemas e pull requests
+intro: 'Ao abrir um problema ou atualizar uma pull request, é possível usar a publicação de anexos para fazer upload de imagens de recursos propostos ou capturas de tela de erros.'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -9,33 +9,34 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
+
 {% warning %}
 
-**Warning:** If you add an image to a pull request or issue comment, anyone can view the anonymized image URL without authentication, even if the pull request is in a private repository{% if enterpriseServerVersions contains currentVersion %}, or if private mode is enabled{% endif %}. To keep sensitive images private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
+**Aviso:** caso você inclua uma imagem para uma pull request ou comentário de problemas, qualquer pessoa poderá ver a URL anônima de imagem sem autenticação, mesmo se a pull request estiver em um repositório privado{% if enterpriseServerVersions contains currentVersion %} ou se o modo privado estiver habilitado{% endif %}. Para manter imagens confidenciais privadas, use uma rede privada ou um servidor que requer autenticação. {% if currentVersion == "free-pro-team@latest" %}Para mais informações sobre URLs anônimas, consulte "[Sobre URLs de imagem anônima](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+Para anexar um arquivo a uma conversa sobre um problema ou pull request, arraste-o e solte-o dentro da caixa de comentários. Como alternativa, você pode clicar na barra na parte inferior da caixa de comentários para navegar, selecionar e adicionar um arquivo do seu computador.
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![Selecionar anexos do computador](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Tip:** In many browsers, you can copy-and-paste images directly into the box.
+**Dica:** Em muitos navegadores, você pode copiar e colar imagens diretamente na caixa.
 
 {% endtip %}
 
-The maximum size for files is 25MB and the maximum size for images is 10MB.
+O tamanho máximo é de 25MB para arquivos e 10MB para imagens.
 
-We support these files:
+Arquivos compatíveis:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
+* Arquivos log (*.log*)
+* Documentos do Microsoft Word (*.docx*), Powerpoint (*.pptx*), e Excel (*.xlsx*)
+* Arquivos de texto (*.txt*)
 * PDFs (*.pdf*)
 * ZIP (*.zip*, *.gz*)
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![Anexos GIF animados](/assets/images/help/pull_requests/dragging_images.gif)

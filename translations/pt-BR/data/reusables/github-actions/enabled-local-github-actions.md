@@ -1,1 +1,1 @@
-When you enable local actions only, workflows can only run actions located in your repository, organization, or enterprise.
+Ao habilitar apenas ações locais, os fluxos de trabalho só podem executar ações localizadas em seu repositório, organização ou empresa.

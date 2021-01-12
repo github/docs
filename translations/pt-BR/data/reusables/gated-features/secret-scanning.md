@@ -1,0 +1,1 @@
+{% data variables.product.prodname_secret_scanning_caps %} está disponível em repositórios públicos e em repositórios privados pertencentes a organizações com uma licença de {% data variables.product.prodname_advanced_security %}. {% data reusables.gated-features.more-info %}

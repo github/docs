@@ -3,6 +3,7 @@ title: Managing licenses for Visual Studio subscription with GitHub Enterprise
 intro: 'You can manage {% data variables.product.prodname_enterprise %} licensing for {% data variables.product.prodname_vss_ghe %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
+  - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-the-github-enterprise-and-visual-studio-bundle
   - /github/articles/about-the-github-and-visual-studio-bundle
   - /articles/about-the-github-and-visual-studio-bundle
   - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise

@@ -37,8 +37,8 @@ versions:
  - プルリクエストのレビューコメントをサブミットする
  - リポジトリをフォーク
  - ウィキページを作成
- - コミットをプッシュ
- - パブリックリポジトリを作成
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### さらなる情報
 

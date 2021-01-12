@@ -66,7 +66,7 @@ For more information, see the workflow extract in "[Automatic build for a compil
    * Building using a distributed build system external to GitHub Actions, using a daemon process.
    * {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
 
-  .NET Core 2 をターゲットとする `dotnet build` または `msbuild` を使用する C# プロジェクトでは、コードをビルドするときに、ワークフローの `run` ステップで `/p:UseSharedCompilation=false` を指定する必要があります。 .NET Core 3.0 以降では、`UseSharedCompilation` フラグは必要ありません。
+  For .NET Framework projects, and for C# projects using either `dotnet build` or `msbuild` that target .NET Core 2, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code. .NET Core 3.0 以降では、`UseSharedCompilation` フラグは必要ありません。
 
   For example, the following configuration for C# will pass the flag during the first build step.
 

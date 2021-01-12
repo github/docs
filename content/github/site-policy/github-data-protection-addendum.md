@@ -1,10 +1,11 @@
 ---
 title: GitHub Data Protection Addendum
+hidden: true
 versions:
   free-pro-team: '*'
 ---
 
-Version Effective Date: September 9, 2020
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
 
 ## INTRODUCTION
 

@@ -1,8 +1,10 @@
 const lodash = require('lodash')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
-const { get, getDOM, head } = require('../helpers')
+const { get, getDOM, head } = require('../helpers/supertest')
+const { describeViaActionsOnly } = require('../helpers/conditional-runs')
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+const { loadPages } = require('../../lib/pages')
 
 describe('server', () => {
   jest.setTimeout(60 * 1000)
@@ -53,8 +55,6 @@ describe('server', () => {
     expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
-    expect(csp.get('script-src').includes("'unsafe-eval'")).toBe(true) // exception for Algolia instantsearch
-    expect(csp.get('script-src').includes("'unsafe-inline'")).toBe(true)
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
@@ -92,7 +92,7 @@ describe('server', () => {
     expect($.res.statusCode).toBe(400)
   })
 
-  // see https://github.com/github/docs-internal/issues/12427
+  // see issue 12427
   test('renders a 404 for leading slashes', async () => {
     let $ = await getDOM('//foo.com/enterprise')
     expect($('h1').text()).toBe('Ooops!')
@@ -106,7 +106,7 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500')
     expect($('h1').text()).toBe('Ooops!')
-    expect($('code').text().startsWith('Error: OH NOEZ')).toBe(true)
+    expect($('code').text().startsWith('Error: Intentional error')).toBe(true)
     expect($('code').text().includes(path.join('node_modules', 'express', 'lib', 'router'))).toBe(true)
     expect($.text().includes('Still need help?')).toBe(true)
     expect($.res.statusCode).toBe(500)
@@ -132,7 +132,7 @@ describe('server', () => {
     expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
   })
 
-  // see https://github.com/github/docs-internal/issues/9678
+  // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM('/en/github/importing-your-projects-to-github/importing-a-git-repository-using-the-command-line')
     const articleIntro = $('.lead-mktg').text()
@@ -221,30 +221,30 @@ describe('server', () => {
     // TODO disable the mini TOC tests when we replace it with sticky TOC header
     test('renders mini TOC in articles with more than one heading', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github/githubs-products')
-      expect($('h3#in-this-article').length).toBe(1)
-      expect($('h3#in-this-article + ul li a').length).toBeGreaterThan(1)
+      expect($('h2#in-this-article').length).toBe(1)
+      expect($('h2#in-this-article + ul li a').length).toBeGreaterThan(1)
     })
 
     test('renders mini TOC in articles that includes h4s when specified by frontmatter', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account')
-      expect($('h3#in-this-article').length).toBe(1)
-      expect($('h3#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
-      expect($('h3#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
+      expect($('h2#in-this-article').length).toBe(1)
+      expect($('h2#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
+      expect($('h2#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
     })
 
     test('does not render mini TOC in articles with only one heading', async () => {
       const $ = await getDOM('/en/github/visualizing-repository-data-with-graphs/about-repository-graphs')
-      expect($('h3#in-this-article').length).toBe(0)
+      expect($('h2#in-this-article').length).toBe(0)
     })
 
     test('does not render mini TOC in articles with no headings', async () => {
       const $ = await getDOM('/en/github/authenticating-to-github/reviewing-your-deploy-keys')
-      expect($('h3#in-this-article').length).toBe(0)
+      expect($('h2#in-this-article').length).toBe(0)
     })
 
     test('does not render mini TOC in non-articles', async () => {
       const $ = await getDOM('/github/getting-started-with-github')
-      expect($('h3#in-this-article').length).toBe(0)
+      expect($('h2#in-this-article').length).toBe(0)
     })
   })
 
@@ -357,6 +357,46 @@ describe('server', () => {
     })
   })
 
+  describeViaActionsOnly('Early Access articles', () => {
+    let hiddenPageHrefs, hiddenPages
+
+    beforeAll(async (done) => {
+      const $ = await getDOM('/early-access')
+      hiddenPageHrefs = $('#article-contents ul > li > a').map((i, el) => $(el).attr('href')).get()
+
+      const allPages = await loadPages()
+      hiddenPages = allPages.filter(page => page.languageCode === 'en' && page.hidden)
+
+      done()
+    })
+
+    test('exist in the set of English pages', async () => {
+      expect(hiddenPages.length).toBeGreaterThan(0)
+    })
+
+    test('are listed at /early-access', async () => {
+      expect(hiddenPageHrefs.length).toBeGreaterThan(0)
+    })
+
+    test('are not listed at /early-access in production', async () => {
+      const oldNodeEnv = process.env.NODE_ENV
+      process.env.NODE_ENV = 'production'
+      const res = await get('/early-access', { followRedirects: true })
+      process.env.NODE_ENV = oldNodeEnv
+      expect(res.statusCode).toBe(404)
+    })
+
+    test('have noindex meta tags', async () => {
+      const $ = await getDOM(hiddenPageHrefs[0])
+      expect($('meta[content="noindex"]').length).toBe(1)
+    })
+
+    test('public articles do not have noindex meta tags', async () => {
+      const $ = await getDOM('/en/articles/set-up-git')
+      expect($('meta[content="noindex"]').length).toBe(0)
+    })
+  })
+
   describe('redirects', () => {
     test('redirects old articles to their English URL', async () => {
       const res = await get('/articles/deleting-a-team')
@@ -419,16 +459,16 @@ describe('server', () => {
       expect($('.markdown-body ul li a').length).toBeGreaterThan(5)
     })
 
-    test('map topic renders with h4 links to articles', async () => {
+    test('map topic renders with h2 links to articles', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
-      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h4`).length).toBe(1)
+      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/github/setting-up-and-managing-your-github-user-account/changing-your-github-username"] h2`).length).toBe(1)
     })
 
-    test('map topic renders with one intro for every h4', async () => {
+    test('map topic renders with one intro for every h2', async () => {
       const $ = await getDOM('/en/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings')
-      const $h4s = $('article a.link-with-intro')
-      expect($h4s.length).toBeGreaterThan(3)
-      $h4s.each((i, el) => {
+      const $h2s = $('article a.link-with-intro')
+      expect($h2s.length).toBeGreaterThan(3)
+      $h2s.each((i, el) => {
         expect($(el).next()[0].name).toBe('p')
       })
     })
@@ -595,10 +635,10 @@ describe('extended Markdown', () => {
 
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/en/github/using-git/associating-text-editors-with-git')
-    expect($('h3#in-this-article').length).toBe(1)
-    expect($('h3#in-this-article + ul li.extended-markdown.mac').length).toBeGreaterThan(1)
-    expect($('h3#in-this-article + ul li.extended-markdown.windows').length).toBeGreaterThan(1)
-    expect($('h3#in-this-article + ul li.extended-markdown.linux').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article').length).toBe(1)
+    expect($('h2#in-this-article + ul li.extended-markdown.mac').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + ul li.extended-markdown.windows').length).toBeGreaterThan(1)
+    expect($('h2#in-this-article + ul li.extended-markdown.linux').length).toBeGreaterThan(1)
   })
 })
 

@@ -40,7 +40,7 @@ http(s)://<em>hostname</em>/
 {% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### Authentifizierung
 
-Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** {% if enterpriseServerVersions contains currentVersion %}(which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) {% endif %}or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
 
 Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% if enterpriseServerVersions contains currentVersion %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
@@ -53,6 +53,16 @@ The current version of your enterprise is returned in the response header of eve
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+
+## Auditprotokoll
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'audit-log' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}
@@ -86,7 +96,7 @@ The IdP must use `{% data variables.product.api_url_code %}/scim/v2/enterprises/
 
 {% note %}
 
-**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/v3/auth/#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim).“
+**Note:** The enterprise SCIM API is only available to enterprises on [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Weitere Informationen zu SCIM findest Du unter „[Informationen zu SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim).“
 
 {% endnote %}
 

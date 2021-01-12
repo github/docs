@@ -20,7 +20,11 @@ Mitarbeitern helfen die Richtlinien, korrekt formulierte Pull Requests einzureic
 
 Sowohl Inhaber als auch Mitarbeiter sparen dank Beitragsrichtlinien Zeit und Mühen, die durch fehlerhaft formulierte Pull Requests oder Issues entstehen, die abgelehnt und erneut eingereicht werden müssen.
 
-You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+
+{% endif %}
 
 {% tip %}
 
@@ -45,7 +49,7 @@ You can create default contribution guidelines for your organization{% if curren
 
 ### Beispiele für Beitragsrichtlinien
 
-Wenn Du nun nicht sicher bist, was Du hier festlegen sollst, findest Du nachfolgend einige gute Beispiele für Beitragsrichtlinien:
+Wenn Sie nun nicht wissen, was Sie hier festlegen sollen, finden Sie nachfolgend einige gute Beispiele für Beitragsrichtlinien:
 
 - [Beitragsrichtlinien](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) für den Editor Atom
 - [Beitragsrichtlinien](https://github.com/rails/rails/blob/master/CONTRIBUTING.md) für Ruby on Rails
@@ -53,5 +57,5 @@ Wenn Du nun nicht sicher bist, was Du hier festlegen sollst, findest Du nachfolg
 
 ### Weiterführende Informationen
 - The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
-- „[Eine Lizenz zu einem Repository hinzufügen](/articles/adding-a-license-to-a-repository)“
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}

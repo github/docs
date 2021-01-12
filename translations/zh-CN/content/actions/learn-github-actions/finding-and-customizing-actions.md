@@ -76,7 +76,7 @@ steps:
 
 #### 使用分支
 
-引用特定分支意味着操作将始终使用包括目标分支上的最新更新，但如果这些更新包括重大更改，则可能会造成问题。 此示例针对名为 `@main`的分支：
+引用特定分支意味着操作将始终使用目标分支上的最新更新，但如果这些更新包括重大更改，则可能会造成问题。 此示例针对名为 `@main`的分支：
 
 ```yaml
 steps:
@@ -87,7 +87,7 @@ steps:
 
 ### 对操作使用输入和输出
 
-操作通常接受或需要输入并生成可以使用的输出。 For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
+操作通常接受或需要输入并生成可以使用的输出。 例如，操作可能要求您指定文件的路径、标签的名称或它将用作操作处理一部分的其他数据。
 
 要查看操作的输入和输出，请检查仓库根目录中的 `action.yml` 或 `action.yaml`。
 

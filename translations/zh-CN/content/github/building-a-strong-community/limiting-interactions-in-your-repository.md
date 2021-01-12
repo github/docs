@@ -1,30 +1,30 @@
 ---
 title: 限制仓库中的交互
-intro: 'You can temporarily enforce a period of limited activity for certain users on a public repository.'
+intro: '您可以临时对公共仓库中的某些用户限制活动一段时间。'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository
 versions:
   free-pro-team: '*'
-permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+permissions: 对仓库具有管理员权限的人可以临时限制该仓库中的交互。
 ---
 
 ### About temporary interaction limits
 
 {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your repository.
+{% data reusables.community.interaction-limits-duration %} 在限制期过后，用户可以在您的仓库中恢复正常活动。
 
 {% data reusables.community.types-of-interaction-limits %}
 
-You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/github/building-a-strong-community/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/github/building-a-strong-community/limiting-interactions-in-your-organization)."
+您也可以为用户帐户或组织拥有的所有仓库启用或活动限制。 如果启用了用户范围或组织范围的限制，则不能限制帐户拥有的单个仓库的活动。 更多信息请参阅“[限制用户帐户的交互](/github/building-a-strong-community/limiting-interactions-for-your-user-account)”和“[限制组织中的交互](/github/building-a-strong-community/limiting-interactions-in-your-organization)”。
 
 ### 限制仓库中的交互
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the left sidebar, click **Moderation settings**. !["Moderation settings" in repository settings sidebar](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**. ![仓库设置中的交互限制 ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. 在左侧边栏中，单击 **Moderation settings（仲裁设置）**。 ![仓库设置侧边栏中的"Moderation settings（仲裁设置）"](/assets/images/help/repository/repo-settings-moderation-settings.png)
+1. 在“Moderation settings（仲裁设置）”下，单击 **Interaction limits（交互限制）**。 ![仓库设置中的交互限制 ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/repository/temporary-interaction-limits-options.png)
 

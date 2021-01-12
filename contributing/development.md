@@ -32,6 +32,24 @@ As an alternative, you can simply use [GitHub Codespaces](https://github.com/fea
 
 In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
 
+### Debugging with VS Code
+
+This repo has configuration for debugging with VS Code's built-in Node Debugger.
+
+1. After running the build steps, start the app by running `npm run debug`.
+2. In VS Code, click on the Debugging icon in the Activity Bar to bring up the Debug view.
+3. In the Debug View, select the **'Node: Nodemon'** configuration, then press F5 or click the green play button. You should see all of your running node processes.
+4. Select the node process that's started with the `--inspect` flag.
+5. Debugger has now been attached. Enjoy!
+
+For more detailed instructions, please see this [VS Code recipe](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon). You can also learn more about debugging using VS Code [here](https://code.visualstudio.com/docs/editor/debugging).
+
+### Viewing a top-level table of contents
+
+While running the local server, you can visit [localhost:4000/dev-toc](http://localhost:4000/dev-toc) to view a top-level TOC of all the content in the site. This page is not available on https://docs.github.com. It was created for internal GitHub writers' use.
+
+At the `/dev-toc` path, you'll see a list of available versions. Click a version, and a list of products will appear. Note that the TOC content is versioned. If you are viewing `free-pro-team@latest` and you click the `Enterprise Admin` product, it will be empty, because there isn't any Admin content available on that version.
+
 ## Site structure
 
 This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.ws/), another Ruby static site generator.

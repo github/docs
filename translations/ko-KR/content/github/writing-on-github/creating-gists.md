@@ -33,7 +33,11 @@ You'll receive a notification when:
 - Someone mentions you in a gist.
 - You subscribe to a gist, by clicking **Subscribe** at the top any gist.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
+
+{% endif %}
 
 You can discover gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/articles/searching-code).
 

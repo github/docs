@@ -1,6 +1,6 @@
 ---
 title: Publicizing or hiding your private contributions on your profile
-intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from private repositories in addition to the activity shown from public repositories.'
+intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}private and internal{% else %}private{% endif %} repositories{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %} in addition to the activity from public repositories{% endif %}.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:

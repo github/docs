@@ -36,13 +36,13 @@ versions:
 
 イベントは、ワークフローをトリガーする特定のアクティビティです。 たとえば、誰かがコミットをリポジトリにプッシュした場合、あるいはIssueもしくはプルリクエストが作成された場合、{% data variables.product.prodname_dotcom %}からアクティビティを発生させることができます。 You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. ワークフローのトリガーに使用できるイベントの完全なリストについては、[ワークフローをトリガーするイベント](/actions/reference/events-that-trigger-workflows)を参照してください。
 
-#### Jobs
+#### ジョブ
 
 ジョブは、同じランナーで実行される一連のステップです。 デフォルトでは、複数のジョブを含むワークフローは、それらのジョブを並行して実行します。 ジョブを順番に実行するようにワークフローを設定することもできます。 たとえば、ワークフローにコードのビルドとテストという2つのシーケンシャルなジョブを持たせ、テストジョブをビルドジョブのステータスに依存させることができます。 ビルドジョブが失敗した場合は、テストジョブは実行されません。
 
 #### ステップ
 
-ステップは、コマンド（_アクション_と呼ばれる）を実行できる個々のタスクです。 ジョブの各ステップは同じランナーで実行され、そのジョブのアクションが互いにデータを共有できるようにします。
+A step is an individual task that can run commands in a job. A step can be either an _action_ or a shell command. ジョブの各ステップは同じランナーで実行され、そのジョブのアクションが互いにデータを共有できるようにします。
 
 #### アクション
 
@@ -50,7 +50,7 @@ _アクション_は、_ジョブ_を作成するために_ステップ_に結�
 
 #### ランナー
 
-ランナーは、{% data variables.product.prodname_actions %} ランナーアプリケーションがインストールされているサーバーです。 {% data variables.product.prodname_dotcom %} がホストするランナーを使用することも、自分でランナーをホストすることもできます。 ランナーは、使用可能なジョブをリッスンし、一度に 1 つのジョブを実行し、進行状況、ログ、および結果を {% data variables.product.prodname_dotcom %} に返します。 {% data variables.product.prodname_dotcom %}ホストランナーでは、ワークフロー内の各ジョブは新しい仮想環境で実行されます。
+A runner is a server that has the [{% data variables.product.prodname_actions %} runner application](https://github.com/actions/runner) installed. {% data variables.product.prodname_dotcom %} がホストするランナーを使用することも、自分でランナーをホストすることもできます。 ランナーは、使用可能なジョブをリッスンし、一度に 1 つのジョブを実行し、進行状況、ログ、および結果を {% data variables.product.prodname_dotcom %} に返します。 {% data variables.product.prodname_dotcom %}ホストランナーでは、ワークフロー内の各ジョブは新しい仮想環境で実行されます。
 
 {% data variables.product.prodname_dotcom %} ホストランナーは、Ubuntu Linux、Microsoft Windows、および macOS に基づいています。 {% data variables.product.prodname_dotcom %} ホストランナーの詳細については、「[{% data variables.product.prodname_dotcom %} ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners)」を参照してください。 別のオペレーティングシステムが必要な場合、または特定のハードウェア設定が必要な場合は、自分のランナーをホストできます。 セルフホストランナーの詳細については、「[自分のランナーをホストする](/actions/hosting-your-own-runners)」を参照してください。
 
@@ -197,20 +197,25 @@ YAML 構文を使用してワークフローファイルを作成する方法を
 
 #### ワークフローファイルの視覚化
 
-この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 各ステップでは、単一のアクションが実行されます。 ステップ 1 と 2 は、ビルド済みのコミュニティアクションを使用します。 ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
+この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 Each step executes a single action or shell command. ステップ 1 と 2 は、ビルド済みのコミュニティアクションを使用します。 Steps 3 and 4 run shell commands directly on the runner. ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
 
 ![ワークフローの概要](/assets/images/help/images/overview-actions-event.png)
 
 
 ### ジョブのアクティビティを表示する
 
-ジョブの実行が開始されると、{% data variables.product.prodname_dotcom %} で各ステップのアクティビティを表示できます。
+Once your job has started running, you can {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。 ![リポジトリに移動](/assets/images/help/images/learn-github-actions-repository.png)
 1. 左サイドバーで、表示するワークフローをクリックします。 ![ワークフロー結果のスクリーンショット](/assets/images/help/images/learn-github-actions-workflow.png)
 1. [Workflow runs] で、表示する実行の名前をクリックします。 ![ワークフロー実行のスクリーンショット](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the job you want to see. ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. View the results of each step. ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result.png)

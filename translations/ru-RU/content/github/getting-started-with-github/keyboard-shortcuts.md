@@ -117,35 +117,35 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 #### Moving a column
 
-| Keyboard shortcut                                                                            | Description                           |
-| -------------------------------------------------------------------------------------------- | ------------------------------------- |
-| <kbd>enter</kbd> or <kbd>space</kbd>                                                         | Start moving the focused column       |
-| <kbd>escape</kbd>                                                                            | Cancel the move in progress           |
-| <kbd>enter</kbd>                                                                             | Complete the move in progress         |
-| <kbd>←</kbd> or <kbd>h</kbd>                                                                 | Move column to the left               |
-| <kbd>command ←</kbd> or <kbd>command h</kbd> or <kbd>control ←</kbd> or <kbd>control h</kbd> | Move column to the leftmost position  |
-| <kbd>→</kbd> or <kbd>l</kbd>                                                                 | Move column to the right              |
-| <kbd>command →</kbd> or <kbd>command l</kbd> or <kbd>control →</kbd> or <kbd>control l</kbd> | Move column to the rightmost position |
+| Keyboard shortcut                                                                                    | Description                           |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| <kbd>enter</kbd> or <kbd>space</kbd>                                                                 | Start moving the focused column       |
+| <kbd>escape</kbd>                                                                                    | Cancel the move in progress           |
+| <kbd>enter</kbd>                                                                                     | Complete the move in progress         |
+| <kbd>←</kbd> or <kbd>h</kbd>                                                                         | Move column to the left               |
+| <kbd>command + ←</kbd> or <kbd>command + h</kbd> or <kbd>control + ←</kbd> or <kbd>control + h</kbd> | Move column to the leftmost position  |
+| <kbd>→</kbd> or <kbd>l</kbd>                                                                         | Move column to the right              |
+| <kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd> | Move column to the rightmost position |
 
 #### Moving a card
 
-| Keyboard shortcut                                                                                                    | Description                                        |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| <kbd>enter</kbd> or <kbd>space</kbd>                                                                                 | Start moving the focused card                      |
-| <kbd>escape</kbd>                                                                                                    | Cancel the move in progress                        |
-| <kbd>enter</kbd>                                                                                                     | Complete the move in progress                      |
-| <kbd>↓</kbd> or <kbd>j</kbd>                                                                                         | Move card down                                     |
-| <kbd>command ↓</kbd> or <kbd>command j</kbd> or <kbd>control ↓</kbd> or <kbd>control j</kbd>                         | Move card to the bottom of the column              |
-| <kbd>↑</kbd> or <kbd>k</kbd>                                                                                         | Move card up                                       |
-| <kbd>command ↑</kbd> or <kbd>command k</kbd> or <kbd>control ↑</kbd> or <kbd>control k</kbd>                         | Move card to the top of the column                 |
-| <kbd>←</kbd> or <kbd>h</kbd>                                                                                         | Move card to the bottom of the column on the left  |
-| <kbd>shift ←</kbd> or <kbd>shift h</kbd>                                                                             | Move card to the top of the column on the left     |
-| <kbd>command ←</kbd> or <kbd>command h</kbd> or <kbd>control ←</kbd> or <kbd>control h</kbd>                         | Move card to the bottom of the leftmost column     |
-| <kbd>command shift ←</kbd> or <kbd>command shift h</kbd> or <kbd>control shift ←</kbd> or <kbd>control shift h</kbd> | Move card to the top of the leftmost column        |
-| <kbd>→</kbd>                                                                                                         | Move card to the bottom of the column on the right |
-| <kbd>shift →</kbd> or <kbd>shift l</kbd>                                                                             | Move card to the top of the column on the right    |
-| <kbd>command →</kbd> or <kbd>command l</kbd> or <kbd>control →</kbd> or <kbd>control l</kbd>                         | Move card to the bottom of the rightmost column    |
-| <kbd>command shift →</kbd> or <kbd>command shift l</kbd> or <kbd>control shift →</kbd> or <kbd>control shift l</kbd> | Move card to the bottom of the rightmost column    |
+| Keyboard shortcut                                                                                                                    | Description                                        |
+| ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| <kbd>enter</kbd> or <kbd>space</kbd>                                                                                                 | Start moving the focused card                      |
+| <kbd>escape</kbd>                                                                                                                    | Cancel the move in progress                        |
+| <kbd>enter</kbd>                                                                                                                     | Complete the move in progress                      |
+| <kbd>↓</kbd> or <kbd>j</kbd>                                                                                                         | Move card down                                     |
+| <kbd>command + ↓</kbd> or <kbd>command + j</kbd> or <kbd>control + ↓</kbd> or <kbd>control + j</kbd>                                 | Move card to the bottom of the column              |
+| <kbd>↑</kbd> or <kbd>k</kbd>                                                                                                         | Move card up                                       |
+| <kbd>command + ↑</kbd> or <kbd>command + k</kbd> or <kbd>control + ↑</kbd> or <kbd>control + k</kbd>                                 | Move card to the top of the column                 |
+| <kbd>←</kbd> or <kbd>h</kbd>                                                                                                         | Move card to the bottom of the column on the left  |
+| <kbd>shift + ←</kbd> or <kbd>shift + h</kbd>                                                                                         | Move card to the top of the column on the left     |
+| <kbd>command + ←</kbd> or <kbd>command + h</kbd> or <kbd>control + ←</kbd> or <kbd>control + h</kbd>                                 | Move card to the bottom of the leftmost column     |
+| <kbd>command + shift + ←</kbd> or <kbd>command + shift + h</kbd> or <kbd>control + shift + ←</kbd> or <kbd>control + shift + h</kbd> | Move card to the top of the leftmost column        |
+| <kbd>→</kbd>                                                                                                                         | Move card to the bottom of the column on the right |
+| <kbd>shift + →</kbd> or <kbd>shift + l</kbd>                                                                                         | Move card to the top of the column on the right    |
+| <kbd>command + →</kbd> or <kbd>command + l</kbd> or <kbd>control + →</kbd> or <kbd>control + l</kbd>                                 | Move card to the bottom of the rightmost column    |
+| <kbd>command + shift + →</kbd> or <kbd>command + shift + l</kbd> or <kbd>control + shift + →</kbd> or <kbd>control + shift + l</kbd> | Move card to the bottom of the rightmost column    |
 
 #### Previewing a card
 
@@ -156,38 +156,38 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 {% if currentVersion == "free-pro-team@latest" %}
 ### {% data variables.product.prodname_actions %}
 
-| Keyboard shortcut                                     | Description                                                     |
-| ----------------------------------------------------- | --------------------------------------------------------------- |
-| <kbd>command space </kbd> or <kbd>control space</kbd> | In the workflow editor, get suggestions for your workflow file. |
+| Keyboard shortcut                                         | Description                                                     |
+| --------------------------------------------------------- | --------------------------------------------------------------- |
+| <kbd>command + space </kbd> or <kbd>control + space</kbd> | In the workflow editor, get suggestions for your workflow file. |
 
 {% endif %}
 
 ### Notification (Оповещения)
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
-| Keyboard shortcut  | Description    |
-| ------------------ | -------------- |
-| <kbd>e</kbd>       | Mark as done   |
-| <kbd>shift u</kbd> | Mark as unread |
-| <kbd>shift i</kbd> | Mark as read   |
-| <kbd>shift m</kbd> | Unsubscribe    |
+| Keyboard shortcut    | Description    |
+| -------------------- | -------------- |
+| <kbd>e</kbd>         | Mark as done   |
+| <kbd>shift + u</kbd> | Mark as unread |
+| <kbd>shift + i</kbd> | Mark as read   |
+| <kbd>shift + m</kbd> | Unsubscribe    |
 
 {% else %}
 
 | Keyboard shortcut                            | Description  |
 | -------------------------------------------- | ------------ |
 | <kbd>e</kbd> or <kbd>I</kbd> or <kbd>y</kbd> | Mark as read |
-| <kbd>shift m</kbd>                           | Mute thread  |
+| <kbd>shift + m</kbd>                         | Mute thread  |
 {% endif %}
 
 ### Сетевая диаграмма
 
-| Keyboard shortcut                        | Description              |
-| ---------------------------------------- | ------------------------ |
-| <kbd>←</kbd> or <kbd>h</kbd>             | Scroll left              |
-| <kbd>→</kbd> or <kbd>l</kbd>             | Scroll right             |
-| <kbd>↑</kbd> or <kbd>k</kbd>             | Scroll up                |
-| <kbd>↓</kbd> or <kbd>j</kbd>             | Scroll down              |
-| <kbd>shift ←</kbd> or <kbd>shift h</kbd> | Scroll all the way left  |
-| <kbd>shift →</kbd> or <kbd>shift l</kbd> | Scroll all the way right |
-| <kbd>shift ↑</kbd> or <kbd>shift k</kbd> | Scroll all the way up    |
-| <kbd>shift ↓</kbd> or <kbd>shift j</kbd> | Scroll all the way down  |
+| Keyboard shortcut                            | Description              |
+| -------------------------------------------- | ------------------------ |
+| <kbd>←</kbd> or <kbd>h</kbd>                 | Scroll left              |
+| <kbd>→</kbd> or <kbd>l</kbd>                 | Scroll right             |
+| <kbd>↑</kbd> or <kbd>k</kbd>                 | Scroll up                |
+| <kbd>↓</kbd> or <kbd>j</kbd>                 | Scroll down              |
+| <kbd>shift + ←</kbd> or <kbd>shift + h</kbd> | Scroll all the way left  |
+| <kbd>shift + →</kbd> or <kbd>shift + l</kbd> | Scroll all the way right |
+| <kbd>shift + ↑</kbd> or <kbd>shift + k</kbd> | Scroll all the way up    |
+| <kbd>shift + ↓</kbd> or <kbd>shift + j</kbd> | Scroll all the way down  |

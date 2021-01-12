@@ -1,5 +1,5 @@
 {% warning %}
 
-**Aviso:** Se você adicionar um anexo de imagem a uma pull request ou comentário de problema, qualquer um pode ver a URL de imagem anônima sem autenticação, mesmo se a pull request estiver em um repositório privado, ou se o modo privado estiver ativado. Para manter imagens confidenciais privadas, use uma rede privada ou um servidor que requer autenticação.
+**Warning:** If you add an image attachment to a pull request or issue comment, anyone can view the anonymized image URL without authentication{% if enterpriseServerVersions contains currentVersion %}, even if the pull request is in a private repository, or if private mode is enabled. To prevent unauthorized access to the images, ensure that you restrict network access to the systems that serve the images, including {% data variables.product.product_location %}{% endif %}.{% if currentVersion == "github-ae@latest" %} To prevent unauthorized access to image URLs on {% data variables.product.product_name %}, consider restricting network traffic to your enterprise. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)."{% endif %}
 
 {% endwarning %}

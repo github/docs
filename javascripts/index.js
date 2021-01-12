@@ -14,9 +14,10 @@ import experiment from './experiment'
 import copyCode from './copy-code'
 import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
-import filterCodeExamples from './filter-code-examples'
+import filterCards from './filter-cards'
 import allArticles from './all-articles'
 import devToc from './dev-toc'
+import showMore from './show-more'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -29,9 +30,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   print()
   localization()
   copyCode()
-  filterCodeExamples()
+  filterCards()
   allArticles()
   devToc()
+  showMore()
   await fillCsrf() // this must complete before any POST calls
   initializeEvents() // requires fillCsrf to complete
   experiment() // requires fillCsrf to complete

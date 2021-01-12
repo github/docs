@@ -48,12 +48,15 @@ $ npm login --registry=https://npm.pkg.github.com
 
 To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *PUBLIC-EMAIL-ADDRESS* with your email address.
 
+If {% data variables.product.prodname_registry %} is not your default package registry for using npm and you want to use the `npm audit` command, we recommend you use the `--scope` flag with the owner of the package when you authenticate to {% data variables.product.prodname_registry %}.
+
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-$ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+$ npm login --scope=@<em>OWNER</em> --registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
+
 > Username: <em>USERNAME</em>
 > Password: <em>TOKEN</em>
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
@@ -63,9 +66,10 @@ $ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}
 If your instance has subdomain isolation disabled:
 
 ```shell
-registry=https://npm.pkg.github.com/<em>OWNER</em>
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
-@<em>OWNER</em>:registry=https://npm.pkg.github.com
+$ npm login --scope=@<em>OWNER</em> --registry=https://<em>HOSTNAME</em>/_registry/npm/
+> Username: <em>USERNAME</em>
+> Password: <em>TOKEN</em>
+> Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 {% endif %}
 

@@ -1,4 +1,5 @@
 - [最低要求](#minimum-requirements)
+- [{% data variables.product.prodname_ghe_server %} 2.22 中的测试功能](#beta-features-in-github-enterprise-server-222)
 - [存储器](#storage)
 - [CPU 和内存](#cpu-and-memory)
 
@@ -6,23 +7,18 @@
 
 建议根据 {% data variables.product.product_location %} 的用户许可数选择不同的硬件配置。 如果预配的资源超过最低要求，您的实例将表现出更好的性能和扩展。
 
-{% data reusables.enterprise_installation.hardware-rec-table %} 有关为现有实例调整资源的更多信息，请参阅“[增加存储容量](/enterprise/admin/installation/increasing-storage-capacity)”和“[增加 CPU 或内存资源](/enterprise/admin/installation/increasing-cpu-or-memory-resources)”。
-
-{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-
-如果您为实例上的 {% data variables.product.prodname_actions %} 启用测试版，建议您规划额外的容量。
+{% data reusables.enterprise_installation.hardware-rec-table %}{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %} If you enable the beta for {% data variables.product.prodname_actions %}, review the following requirements and recommendations.
 
 - 您必须为 {% data variables.product.prodname_actions %} 工作流程配置至少一个运行器。 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”。
 - 您必须配置外部 Blob 存储。 更多信息请参阅“[启用 {% data variables.product.prodname_actions %} 和配置存储](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)”。
+- You may need to configure additional CPU and memory resources. The additional resources you need to provision for {% data variables.product.prodname_actions %} depend on the number of workflows your users run concurrently, and the overall levels of activity for users, automations, and integrations.
 
-需要为实例预配的额外 CPU 和内存资源取决于用户同时运行的工作流程数量，以及用户活动、自动化和集成的总体水平。
-
-| 每分钟最大作业数 | vCPU |      内存 |
-|:-------- | ----:| -------:|
-| 轻型测试     |    4 | 30.5 GB |
-| 25       |    8 |   61 GB |
-| 35       |   16 |  122 GB |
-| 100      |   32 |  244 GB |
+    | 每分钟最大作业数 | Additional vCPUs | Additional memory |
+    |:-------- | ----------------:| -----------------:|
+    | 轻型测试     |                4 |           30.5 GB |
+    | 25       |                8 |             61 GB |
+    | 35       |               16 |            122 GB |
+    | 100      |               32 |            244 GB |
 
 {% endif %}
 

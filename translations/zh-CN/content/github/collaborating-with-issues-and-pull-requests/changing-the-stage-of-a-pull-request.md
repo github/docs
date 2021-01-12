@@ -1,6 +1,6 @@
 ---
 title: 更改拉取请求的阶段
-intro: 'You can mark a draft pull request as ready for review{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} or convert a pull request to a draft{% endif %}.'
+intro: '您可以将拉取请求草稿标记为可供审查{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 或将拉取请求转换为草稿{% endif %}。'
 permissions: 具有仓库写入权限的人员和拉取请求作者可以更改拉取请求的阶段。
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:

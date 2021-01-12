@@ -163,13 +163,19 @@ git:
 </tr>
 </table>
 
+#### Using environment variables in a matrix
+
+Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+
 ### Key features in {% data variables.product.prodname_actions %}
 
 When migrating from Travis CI, consider the following key features in {% data variables.product.prodname_actions %}:
 
 #### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} also includes policies that allow you to limit access to secrets at the repository and organization level. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 #### Sharing files between jobs and workflows
 
@@ -281,7 +287,7 @@ jobs:
 
 ### Abhängigkeiten „cachen“ (zwischenspeichern)
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system. 
+Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
 
 <table>
 <tr>
@@ -316,7 +322,7 @@ cache: npm
 </tr>
 </table>
 
-Weitere Informationen findest Du unter „[Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern](/actions/guides/caching-dependencies-to-speed-up-workflows)“.
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 ### Beispiele für häufige Aufgaben
 

@@ -1,6 +1,6 @@
 ---
 title: Gerar logs de auditoria
-intro: '{% data variables.product.product_name %} keeps logs of audited{% if enterpriseServerVersions contains currentVersion %} system,{% endif %} user, organization, and repository events. Os logs são úteis para fins de depuração e conformidade interna e externa.'
+intro: '{% data variables.product.product_name %} mantém registros de{% if enterpriseServerVersions contains currentVersion %} sistema auditado,{% endif %} eventos de usuários, organização e repositórios. Os logs são úteis para fins de depuração e conformidade interna e externa.'
 redirect_from:
   - /enterprise/admin/articles/audit-logging/
   - /enterprise/admin/installation/audit-logging
@@ -10,22 +10,22 @@ versions:
   github-ae: '*'
 ---
 
-For a full list, see "[Audited actions](/admin/user-management/audited-actions)." For more information on finding a particular action, see "[Searching the audit log](/admin/user-management/searching-the-audit-log)."
+Para obter uma lista completa, consulte "[Ações auditadas](/admin/user-management/audited-actions)". Para obter mais informações sobre como encontrar uma ação em particular, consulte "[Pesquisar no log de auditoria](/admin/user-management/searching-the-audit-log)".
 
 ### Logs de push
 
-Todas as operações de push no Git têm um log. For more information, see "[Viewing push logs](/admin/user-management/viewing-push-logs)."
+Todas as operações de push no Git têm um log. Para obter mais informações, consulte "[Visualizar logs de push](/admin/user-management/viewing-push-logs)".
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### Eventos do sistema
 
 Todos os eventos auditados do sistema, inclusive pushes e pulls, são registrados em logs no caminho `/var/log/github/audit.log`. Os logs passam por rotação a cada 24 horas e ficam guardados por sete dias.
 
-O pacote de suporte inclui logs de sistema. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/admin/enterprise-support/providing-data-to-github-support)."
+O pacote de suporte inclui logs de sistema. Para obter mais informações, consulte "[Fornecer dados para suporte de {% data variables.product.prodname_dotcom %}](/admin/enterprise-support/providing-data-to-github-support)."
 
 ### Pacotes de suporte
 
-Todas as informações de auditoria são registradas no arquivo `audit.log`, no diretório `github-logs` de qualquer pacote de suporte. Se o encaminhamento de logs estiver habilitado, você poderá transmitir esses dados para um consumidor de fluxo de syslog externo, como o [Splunk](http://www.splunk.com/) ou o [Logstash](http://logstash.net/). Todas as entradas desse log usam a palavra-chave `github_audit` e podem ser filtradas por ela. For more information see "[Log forwarding](/admin/user-management/log-forwarding)."
+Todas as informações de auditoria são registradas no arquivo `audit.log`, no diretório `github-logs` de qualquer pacote de suporte. Se o encaminhamento de logs estiver habilitado, você poderá transmitir esses dados para um consumidor de fluxo de syslog externo, como o [Splunk](http://www.splunk.com/) ou o [Logstash](http://logstash.net/). Todas as entradas desse log usam a palavra-chave `github_audit` e podem ser filtradas por ela. Para obter mais informações, consulte "[Encaminhamento de registro](/admin/user-management/log-forwarding)".
 
 Por exemplo, esta entrada mostra que um repositório foi criado.
 

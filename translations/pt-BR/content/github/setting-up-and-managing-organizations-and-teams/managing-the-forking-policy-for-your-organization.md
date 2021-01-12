@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a política de bifurcação da sua organização
-intro: 'You can can allow or prevent the forking of any private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} and internal{% endif %} repositories owned by your organization.'
+intro: 'Você pode permitir ou impedir a bifurcação de qualquer repositório privado{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} ou interno{% endif %} pertencentes à sua organização.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -11,9 +11,9 @@ versions:
   github-ae: '*'
 ---
 
-By default, new organizations are configured to disallow the forking of private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} and internal{% endif %} repositories.
+Por padrão, as novas organizações são configuradas para impedir a bifurcação dos repositórios privados {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "github-ae@latest" %} e internos{% endif %}.
 
-If you allow forking of private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} or internal{% endif %} repository. Para obter mais informações, consulte "[Gerenciar a política de bifurcação do seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)".
+Se você permite a bifurcação do repositório privado{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} e interno{% endif %} no nível da organização você também pode configurar a capacidade de bifurcar um repositório privado específico{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "github-ae@latest" %} ou interno{% endif %}. Para obter mais informações, consulte "[Gerenciar a política de bifurcação do seu repositório](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)".
 
 {% data reusables.organizations.internal-repos-enterprise %}
 
