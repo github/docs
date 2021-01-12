@@ -79,4 +79,5 @@ As with a bare clone, a mirrored clone includes all remote branches and tags, bu
 ```shell
 $ git fetch -p origin
 $ git push --mirror
-```
+```/run 
+
