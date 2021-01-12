@@ -109,13 +109,22 @@ The `env` context contains environment variables that have been set in a workflo
 
 The `env` context syntax allows you to use the value of an environment variable in your workflow file. If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
 
-You can only use the `env` context in the value of the `with` and `name` keys, or in a step's `if` conditional. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+You can only use the `env` context in the value of certain keys in a step:
+
+- `if`
+- `name`
+- `run`
+- `with` (including `with.args` and `with.entrypoint`)
+- `env`
+- `continue-on-error` (required conversion from string to boolean)
+- `timeout-minutes` (requires conversion from string to number)
+
+ For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
-| `env.<env name>` | `string` | The value of a specific environment variable. |
-
+| `env.<env_name>` | `string` | The value of a specific environment variable. |
 
 #### `job` context
 
