@@ -1,5 +1,5 @@
 ---
-title: About protected branches
+title: Protected branches
 intro: 'Protected branches ensure that collaborators on your repository cannot make irrevocable changes to branches. Enabling protected branches also allows you to enable other optional checks and requirements, like required status checks and required reviews.'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
