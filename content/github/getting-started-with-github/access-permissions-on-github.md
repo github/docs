@@ -1,6 +1,5 @@
----
-title: Access permissions on GitHub
-redirect_from:
+#:bitore©®™ all rights reserved©™™<li><Zachry Tyler wood III<li>
+#:run:Name:Owner@iixixi/iixixi/ZTWIIIbitorefounderAccesspermissionsonGitHub
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
@@ -37,3 +36,4 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 ### Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+Return:#
