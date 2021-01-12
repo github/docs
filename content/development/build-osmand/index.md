@@ -1,5 +1,5 @@
 ---
-title: Build it
+title: Build OsmAnd
 intro: "Here we talk about the development environment, compilation, etc."
 versions: '*'
 ---

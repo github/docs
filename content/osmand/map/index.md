@@ -4,7 +4,7 @@ intro: "The map is a core element of the OsmAnd app. This section talks about ho
 versions: '*'
 ---
 Introduction about the map and what it includes. Explanation about coordinates, text size and zoom magnifier.
-Special words about my location / radius of my location.
+Special words about my location / radius of my location. Shortly about map interaction pan, zoom, click.
 
 {% link_with_intro /configure-map-menu %}
 {% link_with_intro /online-raster-maps %}
