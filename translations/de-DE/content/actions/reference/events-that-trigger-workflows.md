@@ -309,9 +309,9 @@ Führt den Workflow aus, wenn das Ereignis `issue_comment` eintritt. {% data reu
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Nutzlast des Webhook-Ereignisses                          | Aktivitätstypen                                                   | `GITHUB_SHA`                      | `GITHUB_REF`    |
-| --------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------- | --------------- |
-| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Letzter Commit im Standard-Branch | Standard-Branch |
+| Nutzlast des Webhook-Ereignisses                                                             | Aktivitätstypen                                                   | `GITHUB_SHA`                      | `GITHUB_REF`    |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------- | --------------- |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Letzter Commit im Standard-Branch | Standard-Branch |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -534,7 +534,7 @@ on:
 
 #### `pull_request_review`
 
-Führt Deinen Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/rest/reference/pulls#reviews)."
+Führt den Workflow aus, wenn das Ereignis `pull_request_review` eintritt. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Pull request reviews](/rest/reference/pulls#reviews)."
 
 | Nutzlast des Webhook-Ereignisses                                       | Aktivitätstypen                                            | `GITHUB_SHA`                                | `GITHUB_REF`                                |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
@@ -576,7 +576,13 @@ on:
 
 #### `pull_request_target`
 
-This event is similar to `pull_request`, except that it runs in the context of the base repository of the pull request, rather than in the merge commit. This means that you can more safely make your secrets available to the workflows triggered by the pull request, because only workflows defined in the commit on the base repository are run. For example, this event allows you to create workflows that label and comment on pull requests, based on the contents of the event payload.
+This event runs in the context of the base of the pull request, rather than in the merge commit as the `pull_request` event does.  This prevents executing unsafe workflow code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows you to do things like create workflows that label and comment on pull requests based on the contents of the event payload.
+
+{% warning %}
+
+**Warning:** The `pull_request_target` event is granted a read/write repository token and can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch, and to help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered.
+
+{% endwarning %}
 
 | Nutzlast des Webhook-Ereignisses                         | Aktivitätstypen                                                                                                                                                                                                                                                                                                                                      | `GITHUB_SHA`                      | `GITHUB_REF`   |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | -------------- |
@@ -725,4 +731,4 @@ on:
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} weitere Informationen findest Du unter „[Authentifizierung mit dem GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)“.
 
-Wenn Du einen Workflow aus einem Workflow-Lauf auslösen möchtest, kannst Du das Ereignis mithilfe eines persönlichen Zugangs-Tokens auslösen. Du musst einen persönlichen Zugangs-Token erstellen und ihn als Geheimnis speichern. Um Dein Nutzungskosten für {% data variables.product.prodname_actions %} zu minimieren, pass auf, dass Du keine rekursiven oder unbeabsichtigten Workflow-Läufe erzeugst. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und speichern](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)“.
+Wenn Du einen Workflow aus einem Workflow-Lauf auslösen möchtest, kannst Du das Ereignis mithilfe eines persönlichen Zugangs-Tokens auslösen. Du musst einen persönlichen Zugangs-Token erstellen und ihn als Geheimnis speichern. Um Dein Nutzungskosten für {% data variables.product.prodname_actions %} zu minimieren, pass auf, dass Du keine rekursiven oder unbeabsichtigten Workflow-Läufe erzeugst. For more information on storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."

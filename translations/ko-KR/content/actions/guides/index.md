@@ -36,6 +36,14 @@ You can use {% data variables.product.prodname_actions %} to create custom conti
 {% link_in_list /building-and-testing-java-with-gradle %}
 {% link_in_list /building-and-testing-java-with-ant %}
 
+### Creating custom continuous deployment workflows
+
+You can use {% data variables.product.prodname_actions %} to create custom continuous deployment (CD) workflows that deploy projects to a number of cloud partner ecosystems.
+
+ {% link_in_list /deploying-to-amazon-elastic-container-service %}
+ {% link_in_list /deploying-to-azure-app-service %}
+ {% link_in_list /deploying-to-google-kubernetes-engine %}
+
 ### Publishing software packages
 
 You can automate publishing software packages as part your continuous delivery (CD) workflow. Packages can be published to any package host and to {% data reusables.gated-features.packages %}.

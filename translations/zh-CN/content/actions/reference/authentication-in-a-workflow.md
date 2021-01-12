@@ -14,8 +14,6 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-对仓库具有 `write` 权限的任何人都可以创建、读取和使用密码。
-
 ### 关于 `GITHUB_TOKEN` 密码
 
 {% data variables.product.prodname_dotcom %} 会自动创建 `GITHUB_TOKEN` 密码以在工作流程中使用。 您可以使用 `GITHUB_TOKEN` 在工作流程运行中进行身份验证。
