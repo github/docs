@@ -16,7 +16,8 @@ jobs:
   repo-sync-stalls:
     runs-on: ubuntu-latest
     steps:
-      - name: Check if repo sync is stalled
+      - if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+        name: Check if repo sync is stalled
         uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
         with:
           github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
