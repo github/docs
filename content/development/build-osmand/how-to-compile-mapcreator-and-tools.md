@@ -1,5 +1,5 @@
 ---
-title: How to Compile the Android Version
+title: How to Compile OsmAndMapCreator and tools
 versions: '*'
 ---
 
