@@ -14,8 +14,6 @@ versions:
 {% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
-リポジトリに対して`write`アクセスがあるユーザなら、誰でもシークレットの作成、読み取りおよび使用ができます。
-
 ### `GITHUB_TOKEN`シークレットについて
 
 {% data variables.product.prodname_dotcom %}は、ワークフローで利用する`GITHUB_TOKEN`シークレットを自動的に生成します。 この`GITHUB_TOKEN`は、ワークフローの実行内での認証に利用できます。

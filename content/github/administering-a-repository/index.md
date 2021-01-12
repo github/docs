@@ -66,7 +66,7 @@ versions:
 {% topic_link_in_list /securing-your-repository %}
     {% link_in_list /about-securing-your-repository %}
     {% link_in_list /about-secret-scanning %}
-    {% link_in_list /configuring-secret-scanning-for-private-repositories %}
+    {% link_in_list /configuring-secret-scanning-for-your-repositories %}
     {% link_in_list /managing-alerts-from-secret-scanning %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-repository %}
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}

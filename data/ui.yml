@@ -142,3 +142,15 @@ product_landing:
   quick_start: Quickstart
   reference_guides: Reference guides
   overview: Overview
+product_sublanding:
+  start: Start
+  start_path: Start path
+  learning_paths: Learning paths
+  learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
+  more_guides: more guides
+  guideTypes:
+    overview: Overview
+    quick_start: Quickstart
+    tutorial: Tutorial
+    how_to: How-to guide
+    reference: Reference

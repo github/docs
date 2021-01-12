@@ -5,7 +5,7 @@ sections:
     - heading: GitHub Actions Beta
       notes:
         - |
-          [GitHub Actions](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. GitHub Actions on Enteprise Server includes tools to help you manage the service, including key metrics in the Management Console, audit logs and access controls to help you control the roll out.
+          [GitHub Actions](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. GitHub Actions on Enterprise Server includes tools to help you manage the service, including key metrics in the Management Console, audit logs and access controls to help you control the roll out.
 
           You will need to provide your own [storage](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage) and runners for GitHub Actions. AWS S3, Azure Blob Storage and MinIO are supported. Please review the [updated minimum requirements for your platform](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on GitHub Actions. To learn more, contact the GitHub Sales team or [sign up for the beta](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/775 {% endcomment %}
 

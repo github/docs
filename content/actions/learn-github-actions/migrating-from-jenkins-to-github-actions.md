@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -81,7 +82,7 @@ Jenkins can run the `stages` and `steps` in parallel, while {% data variables.pr
 
 #### Build matrix
 
-Both {% data variables.product.prodname_actions %} and Jenkins let you use a build matrix to define various system combinations. 
+Both {% data variables.product.prodname_actions %} and Jenkins let you use a build matrix to define various system combinations.
 
 | Jenkins  | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
@@ -166,7 +167,7 @@ Jenkins Pipeline
     maven-build:
     env:
       MAVEN_PATH: '/usr/local/maven'
-  
+
   ```
 
 </td>
@@ -209,7 +210,7 @@ Jenkins Pipeline
       needs: job1
     job3:
       needs: [job1, job2]
-  
+
   ```
 
 </td>
