@@ -15,8 +15,6 @@ Bundler:python.js
     branches:[trunk]
 jobs:
 steps:#:
-#:automate:tests
-Tests:
 runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
 steps:uses:actions:checkout@iixixi/iixixi
     uses: actions/checkout@v2
@@ -56,4 +54,6 @@ Construct: build:
 slack: docs-engineering
 tta: 30seconds
 #: Terraform:
+Automate:
+Tests:
 #: Return::#
