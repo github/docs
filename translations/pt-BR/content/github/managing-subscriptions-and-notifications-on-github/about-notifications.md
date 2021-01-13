@@ -22,7 +22,7 @@ Você pode optar por assinar notificações para:
 - Todas as atividades em um repositório ou em uma discussão em equipe.
 - Atividade CI, como o status de fluxos de trabalho nos repositórios configurados com {% data variables.product.prodname_actions %}.
 {% if currentVersion == "free-pro-team@latest" %}
-- Issues, pulls requests, releases and discussions (if enabled) in a repository.
+- Problemas, pull requests, versões e discussões (se habilitado) em um repositório.
 {% endif %}
 {% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - Lançamentos em um repositório.

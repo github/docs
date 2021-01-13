@@ -265,7 +265,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 对于 `http://localhost/path` 回调 URL，您可以使用此 `redirect_uri`：
 
-   http://localhost:1234/path
+```
+http://localhost:1234/path
+```
 
 ### 为 OAuth 应用程序创建多个令牌
 

@@ -42,4 +42,4 @@ versions:
 
 ### 延伸阅读
 
-- "[Apply for an educator or researcher discount](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- “[申请教育工作者或研究人员折扣](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)”

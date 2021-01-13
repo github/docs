@@ -1,21 +1,21 @@
 ---
-title: Managing your theme settings
-intro: You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses light mode or dark mode.
+title: Gerenciar as configurações de temas
+intro: Você pode gerenciar como {% data variables.product.product_name %} se parece com você definindo uma preferência de um tema que segue as configurações do sistema ou sempre usa o modo claro ou escuro.
 versions:
   free-pro-team: '*'
 ---
 
 {% note %}
 
-**Note:** Theme settings is currently in beta and subject to change.
+**Observação:** As configurações do tema estão atualmente em fase beta e sujeitas a alterações.
 
 {% endnote %}
 
-For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from two themes, light and dark, or you can configure {% data variables.product.product_name %} to follow your system settings. Some developers use dark theme for personal preference, to reduce power consumption on certain devices, or to reduce eye strain in low-light conditions.
+Por escolha e flexibilidade sobre como e quando você usa {% data variables.product.product_name %}, você pode configurar configurações de tema para mudar como {% data variables.product.product_name %} fica para você. Você pode escolher dois temas, claro e escuro, ou você pode configurar {% data variables.product.product_name %} para seguir as configurações do seu sistema. Alguns desenvolvedores usam tema escuro para preferências pessoais, para reduzir o consumo de energia em certos dispositivos ou para reduzir o cansaço da vista em condições de pouco brilho.
 
 {% data reusables.user_settings.access_settings %}
-1. In the user settings sidebar, click **Appearance**. !["Apperance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
-1. Under "Theme", select a theme preference. ![Radio buttons for theme settings](/assets/images/help/settings/theme-settings-radio-buttons.png)
+1. Na barra lateral de configurações do usuário, clique em **Aparência**. ![Aba "Aparência" na barra lateral de configurações do usuário](/assets/images/help/settings/appearance-tab.png)
+1. Em "Tema", selecione uma preferência de tema. ![Botões de opção para configurações de tema](/assets/images/help/settings/theme-settings-radio-buttons.png)
 
 ### Leia mais
 

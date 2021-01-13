@@ -1,11 +1,15 @@
 ---
 title: GitHub Connect Addendum to the GitHub Enterprise License Agreement
+hidden: true
 redirect_from:
   - /articles/github-com-connection-addendum-to-the-github-enterprise-license-agreement/
   - /articles/github-connect-addendum-to-the-github-enterprise-license-agreement
 versions:
   free-pro-team: '*'
 ---
+
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
+
 PLEASE READ THIS ADDENDUM CAREFULLY AS IT AMENDS THE TERMS OF YOUR ENTERPRISE LICENSE AGREEMENT WITH US AND SPECIFICALLY GOVERNS YOUR USE OF GITHUB CONNECT (AS DEFINED BELOW), UNLESS GITHUB (“WE” OR “US”) HAS EXECUTED A SEPARATE WRITTEN ADDENDUM WITH YOU FOR THAT PURPOSE.
 
 BY ACCESSING GITHUB CONNECT, YOU ACCEPT ALL THE TERMS AND CONDITIONS OF THIS ADDENDUM. IF YOU ARE ENTERING INTO THIS ADDENDUM ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY (“CUSTOMER”), YOU REPRESENT THAT YOU HAVE THE LEGAL AUTHORITY TO BIND CUSTOMER TO THIS AGREEMENT.

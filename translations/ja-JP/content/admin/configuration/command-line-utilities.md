@@ -283,7 +283,7 @@ $ ghe-saml-mapping-csv -u -n -f /path/to/file
 
 新しい値でSAMLマッピングを更新するには、次のようにします。
 ```shell
-$ ghe-saml-mapping-csv -u -n -f /path/to/file
+$ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
 #### ghe-service-list
