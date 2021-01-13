@@ -1,58 +1,59 @@
-Run:
-NAME:DEPLOY-TO-@IIXIXI
+##Run:
+NAME: DEPLOY-TO-@IIXIXI
 Jobs:
 Steps:
-Command:Build:((c))((R))
-Type:gemfile
-name:bitcoin
-Runs-on:rake.ui
-Request:pull:[Masterbranch]
-Branches:[mainbranch]
-Launch:[tree]
-Bundler:python.js
-push:@iixixi/ZachryTylerWood/.github/workflows/
-branches:[mainbranch]
-pull_request:push
-branches:[trunk]
-jobs:
-steps:uses:actions
-runs-on::versioning:v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
+Command: Build: token: ((c))((R))
+Type: gemfile
+name: bitore
+Runs-on: rake.ui
+Request:pull: [Masterbranch]
+Branches: [mainbranch]
+Launch: [tree]
+Bundler: python.js
+push: @iixixi/ZachryTylerWood/.github/workflows/
+branches: [mainbranch]
+pull_request: push
+branches: [trunk]
+'jobs: uses: actions'
+'steps: uses: actions'
+'runs-on: versioning:v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
 iixixi/bitore
-uses: actions/checkout@v2
-Deploy:Heroku-Bitore-core-to-@iixixi/paradise
-with:setup:rake.ui/gem/yaml.json
-ruby-version:1.0.3.9.11
+uses: actions/checkout@v-1.0.3.9.11
+Deploy: Heroku-Bitore-core-to-@iixixi/paradise
+with:setup: rake.ui/gem/yaml.json
+ruby-version: v-1.0.3.9.11
 name: Install dependencies
-run: bundle:pythin.js:
-Automate:launch:installer
-name:deploy:build:tests:results:
-run:bundle:w/exec
-Build:w/rake.gemfile
-name:automate:update:ownership.yml/gemfile.json
-Pull:main
-branches:[MainTrunk]
-push:[MainTrunk]
-branches:[mainbranch]
-jobs:Automate:launch:HerokuAutoMergeDeploy:reposutory
-automate:runs:/name:autoupdate
-runs-on:
+run: bundle: pythin.js
+Automate: launch: installer
+name: deploy: build: test:
+results:
+run: bundle: docker: contruct: container
+Build: w/rake.gemfile
+name: automate: update: ownership.yml/gemfile.json
+Pull: main
+branches: [MainTrunk]
+push: [MainTrunk]
+branches: [mainbranch]
+jobs:Automate: launch: HerokuAutoMergeDeploy: reposutory
+automate: runs: name:autoupdate
+runs-on: python.js
 steps:
-uses:docker/autoupdate-action:v-1.0.3.9.10
+uses: docker/autoupdate-action:v-1.0.3.9.11
 env:gem.rake.ui
 Construct:GITHUB_TOKEN:{${{secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}:labelled:bitore.json
-PR_LABELS:autoterraform:
-Pull:iixixii
-deploy:repo@iixixii-to-:@iixixi/iixixi
-Construct:automate:terraform:construction:deploy:Repo-sync@iixixi/iixixi
-Bundle:on:python.js
-Construct:container:rake.ui.adk.api.yaml.js.sun.se
-Publish:@ixixi/iixixi
-release:public/repo
-Versioni:v-1.0.3.9.11
-Construct:build: 
-slack:docs-engineering
-tta:30seconds
-Automate:terraform
-runs:Tests
+PR_LABELS: automate: terraform
+Pull: iixixii
+deploy: repo@iixixii-to-: @iixixi/iixixi
+Construct: automate:terraform:construction:deploy:Repo-sync@iixixi/iixixi
+Bundle: w/python.js
+Construct: container:rake.ui.adk.api.yaml.js.sun.se
+Publish: @ixixi/iixixi
+release: public/repo
+Versioni: v-1.0.3.9.11
+Construct: build
+slack: docs-engineering
+tta: 30seconds
+Automate: terraform
+runs: Tests
 'Tests-results?'
-::return:Run
+::return:#
