@@ -38,23 +38,16 @@ Comparision to default vector maps.
 - It is not possible to rotate map with readable text (text will be rotated with the map itself, thus will not be easily readable).
 
 
-## TODO
+## How to use Raster maps 
+### Preparation
 
+### Main map 
+Raster maps can be as Map source in OsmAnd (by default, oflline vector maps are enabled). You can choose one of its in the list or add yours.
+Android: menu - Configure map - Map source
+iOS: menu - Map - Map type
 ![Online_maps](/assets/images/plugins/online-maps/online-maps.png)
 
-It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
-
-
-
-## Raster maps as Map source
-Raster maps can be as Map source in OsmAnd (by default, oflline vector maps are enabled). You can choose one of its in the list or add yours.
-
-Android: menu - Configure map - Map source
-
-iOS: menu - Map - Map type
-
-## How to use Underlay / Overlay layers
-
+### Underlay / Overlay layers
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
@@ -63,6 +56,11 @@ Android: _app menu-> Configure map->_  _Underlay_  and an  _Overlay_
 
 iOS: _app menu-> Map-> Overlay / Underlay_
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
+
+
+## TODO
+It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
+
 
 ## Installation
 ### Installation with URL
