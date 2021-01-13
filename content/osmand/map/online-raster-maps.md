@@ -1,11 +1,14 @@
 ---
-title: "Online / Raster Maps"
-intro: "Online / Raster maps displayed as main map or as Underlay / Overlay"
+title: "Online / Offline Raster Maps"
+intro: "OsmAnd Raster maps is an extensive addition to the offline OpenStreetMap maps the application uses by default. Raster maps allow to combine different map sources with Vector Maps. You can display an overlay of hiking routes, live rain maps, live traffic data and an underlay of satellite imagery mixing with semi-transparent base vector map. You can also switch default maps to online web raster tiles."
 versions: '*'
 ---
 
-## Introduction
-OsmAnd Online maps are an extensive addition to the already comprehensive base of OpenStreetMap data the application uses. You can add layers to your map with information from a different source, beginning with the satellite, or hiking routes view and ending with quite specific data like fire hydrants' locations. You can also change the main source of the map from vector maps to online tiles.
+## Use cases
+
+Raster maps are used for showing additional information like satellite, hiking routes, weather pictures, slopes and hillshades, nautical symbols and others. You can add layers to your map with information from a different source.
+
+You can also change the main source of the map from vector maps to online tiles.
 ![Online_maps](/assets/images/plugins/online-maps/online-maps.png)
 
 Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells). They are usually regularly-spaced and square. Rasters often look pixelated because each pixel has its own value or class.
@@ -13,7 +16,6 @@ Online maps in OsmAnd are raster data. Raster data is made up of pixels (also re
 **Advantages:**
 
 -   To save traffic or storage space when offline map is not available. Usually for small areas, online tiles are more compact.
--   Test
 -   Display time is significantly faster, because maps are not rendered by the device.
 -   It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
 
@@ -26,7 +28,7 @@ Online maps in OsmAnd are raster data. Raster data is made up of pixels (also re
 
 ## Purpose raster maps
 
-Raster maps are used for showing additional information like satellite, hiking routes, weather pictures, slopes and hillshades, nautical symbols and others. You can add layers to your map with information from a different sources.
+
 
 ![Online_maps](/assets/images/plugins/online-maps/om-example.png)
 
