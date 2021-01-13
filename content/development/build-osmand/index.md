@@ -1,5 +1,5 @@
 ---
-title: Build OsmAnd, Tools and SDK & API Samples"
+title: Build OsmAnd, Tools and SDK & API Samples
 intro: "In case you want to reuse OsmAnd's code, create a sample app using OsmAnd's API or setup full development environment, this section will guide you through the process."
 versions: '*'
 ---
