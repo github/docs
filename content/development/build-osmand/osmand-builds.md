@@ -20,7 +20,7 @@ standard version from the Google Play Store.
 
 ### Activating the test version
 
-Register as tester for the OsmAnd free test version via the following (Google Group OsmAnd)[https://play.google.com/apps/testing/net.osmand]. Register for the OsmAnd+ paid test version via the following [Google Group OsmAnd+](https://play.google.com/apps/testing/net.osmand.plus/testing) (note: this is only possible if you are a registered user for the paid version)
+Register as tester for the OsmAnd free test version via the following [Google Group OsmAnd](https://play.google.com/apps/testing/net.osmand). Register for the OsmAnd+ paid test version via the following [Google Group OsmAnd+](https://play.google.com/apps/testing/net.osmand.plus/testing) (note: this is only possible if you are a registered user for the paid version)
 -   When you click the link to register, you will see a big blue or green panel advertising "Be a test user" (in your defined language).
 -   After clicking the "button" you will see the message "You are now a tester" with a green check-mark in front of it (and on repetitive actions it will show "You are a tester").
 -   Give Google some time to synchronize which can be anywhere between 10 seconds or 60 minutes.
