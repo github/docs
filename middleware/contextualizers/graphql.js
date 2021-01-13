@@ -11,6 +11,7 @@ const explorerUrl = process.env.NODE_ENV === 'production'
 module.exports = async (req, res, next) => {
   // ignore requests to non-GraphQL reference paths
   if (!req.path.includes('/graphql/')) return next()
+  if (!allVersions[req.context.currentVersion]) return next()
 
   // Get the relevant name of the GraphQL schema files for the current version
   // For example, free-pro-team@latest corresponds to dotcom,

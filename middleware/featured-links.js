@@ -1,6 +1,7 @@
 const path = require('path')
 const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 const removeFPTFromPath = require('../lib/remove-fpt-from-path')
+const findPage = require('../lib/find-page')
 
 // this middleware adds properties to the context object
 module.exports = async (req, res, next) => {
@@ -30,7 +31,7 @@ async function getLinkData (rawLinks, context) {
     const version = context.currentVersion === 'homepage' ? nonEnterpriseDefaultVersion : context.currentVersion
     const href = removeFPTFromPath(path.join('/', context.currentLanguage, version, linkPath))
 
-    const linkedPage = context.pages[href] || context.pages[context.redirects[href]]
+    const linkedPage = findPage(href, context.pages, context.redirects)
     if (!linkedPage) continue
 
     const opts = { textOnly: true, encodeEntities: true }
