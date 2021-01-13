@@ -5,12 +5,12 @@ Steps:
 Command:Build:((c))((R))
 Type:gemfile
 name:bitcoin
-Runs-on:Nodepackage.js
-Request:pull:
+Runs-on:rake.ui
+Request:pull:[Masterbranch]
 Branches:[mainbranch]
 Launch:[tree]
 Bundler:python.js
-  push:@iixixi/ZachryTylerWood/.github/workflows/
+push:@iixixi/ZachryTylerWood/.github/workflows/
     branches:[mainbranch]
   pull_request:push:
     branches:[trunk]
@@ -18,43 +18,46 @@ jobs:
 steps:#:
 runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
 steps:uses:actions:checkout@iixixi/iixixi
-    uses: actions/checkout@v2
-    name: iixixi/iixixi
-    To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    https://github.com/ruby/setup-ruby#versioning):
-    uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
-      with:
-        ruby-version: 2.6
-    name: Install dependencies
-      run: bundle install
-name: Run tests
-run: bundle exec rake
-name:autoupdate branch
-on:
-  push:
-    branches:
-      [main]
-jobs:
-  autoupdate:
-    name: autoupdate
-    runs-on: ubuntu-18.04
-    steps:
-      uses: docker://chinthakagodawita/autoupdate-action:v1
-        env:
-          GITHUB_TOKEN:{${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          PR_FILTER:labelled
-          PR_LABELS: autocomplete
-          Pull:iixixi
-          MERGE_MSG:@iixixi
-Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
-Publish: iixixi.json
-release: publish
-Versioni: v-1.0.3.9.11
-Construct: build: 
-slack: docs-engineering
-tta: 30seconds
-#: Terraform:
-Automate:
-Tests:
-#rturn:Run
+uses: actions/checkout@v2
+Deploy:Heroku-Bitcoin-core-to-@iixixi/paradise
+To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
+https://github.com/ruby/setup-ruby#versioning):
+uses:ruby/setup-ruby@v1
+uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
+with:setup-ruby.gemfile.yaml
+ruby-version:1.0.3.9.11
+name: Install dependencies
+run: bundle:pythin.js:
+Automate:launch:installer
+name:deploy:build:tests:results:
+run:bundle:w/exec
+Build:w/rake.gemfile
+name:automate:update:ownership.yml/gemfile.json
+Pull:
+branches:[MainTrunk]
+push:[MainTrunk]
+branches:[mainbranch]
+jobs:Automate:launch:HerokuAutoMergeDeploy:reposutory
+automate:runsname:autoupdate
+runs-on:
+steps:
+uses: docker://chinthakagodawita/autoupdate-action:v1
+env:gem.rake.ui
+GITHUB_TOKEN:{${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+PR_FILTER:labelled
+PR_LABELS:autoterraform:
+Pull:iixixi
+deploy:repo-to-:@iixixi
+Construct:automate:terraform:construct:Repo@iixixi/iixixi:
+Bundle:on:python.js
+Construct:container:rake.ui.adk.api.yaml.js.sun.se
+Publish:@ixixi/iixixi
+release:public/repo
+Versioni:v-1.0.3.9.11
+Construct:build: 
+slack:docs-engineering
+tta:30seconds
+Automate:terraform
+runs:Tests:
+Tests-results:
+#:return:Run
