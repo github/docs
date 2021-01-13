@@ -5,32 +5,42 @@ versions: '*'
 ---
 
 ## Use cases
-
-Raster maps are used for showing additional information like satellite, hiking routes, weather pictures, slopes and hillshades, nautical symbols and others. You can add layers to your map with information from a different source.
-
-You can also change the main source of the map from vector maps to online tiles.
-![Online_maps](/assets/images/plugins/online-maps/online-maps.png)
-
-Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells). They are usually regularly-spaced and square. Rasters often look pixelated because each pixel has its own value or class.
-
-**Advantages:**
-
--   To save traffic or storage space when offline map is not available. Usually for small areas, online tiles are more compact.
--   Display time is significantly faster, because maps are not rendered by the device.
--   It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
-
-**Main disadvantages:**
-
--   It is reasonable to use only for small areas since the size of online tiles for a country could be more than several GB.
--   No switch between different styles of the map.
--   No additional layers available like transport or POI on the map.
--   It is not possible to rotate map with readable text (text will be rotated with the map itself, thus will not be easily readable).
-
-## Purpose raster maps
-
-
+TODO Online sources example
+- 1st example
+- 2nd example
 
 ![Online_maps](/assets/images/plugins/online-maps/om-example.png)
+
+
+You can also change the main source of the map from vector maps to online tiles.
+
+## Raster Maps
+Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells) - set of small images (tiles). In contrast of vector maps which consists of binary data like roads, points, polygons. Raster map tiles are usually regularly-spaced and square. They often look pixelated because each pixel has its own value or class.
+
+Comparision to default vector maps.
+
+**Advantages:**
+- Display time is reasonably faster, because maps are not rendered by the device.
+- Raster maps could be loaded on the fly during map browse.
+- Possibility to preload data partially i.e. create offline cache and be able to download missing tiles on the fly.
+- Indefinite variety of external web-sources. Basically each web site with maps could be used as a source data.
+- The data could be updated after expiration like traffic tiles are updated every 20-30 minutes (configurable).
+
+**Disadvantages:**
+- Significantly bigger comparing to Vector maps. City example: Vector Map - 15 MB, Online 15th Zoom - 50 MB, 16th - 200 MB, 17th - 800 MB, ...
+- Places on raster maps are not clickable.
+- Not possible change map style or exclude certain objects.
+- Pixelized on zoom (if no high density tiles are not available).
+- It is not possible to rotate map with readable text (text will be rotated with the map itself, thus will not be easily readable).
+
+
+## TODO
+
+![Online_maps](/assets/images/plugins/online-maps/online-maps.png)
+
+It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
+
+
 
 ## Raster maps as Map source
 Raster maps can be as Map source in OsmAnd (by default, oflline vector maps are enabled). You can choose one of its in the list or add yours.
