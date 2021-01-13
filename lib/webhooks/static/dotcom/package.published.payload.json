@@ -31,8 +31,8 @@
           "id":24147,
           "version":"1.0.0",
           "summary":"A simple npm package to demonstrate GitHub Packages",
-          "body":"# hello-world-npm\n\nThis is a simple npm package that demonstrates the [Github Packages](https://github.com/features/package).\n\n## Installation \n\n`$ npm install`\n\n## Usage\n\n```\nconst myPackage = require('hello-world-node-package');\nmyPackage.helloWorld();\n```\n\n",
-          "body_html":"<h1>hello-world-npm</h1>\n<p>This is a simple npm package that demonstrates the <a href=\"https://github.com/features/package\">Github Package Registry</a>.</p>\n<h2>Installation</h2>\n<p><code>$ npm install</code></p>\n<h2>Usage</h2>\n<pre><code>const myPackage = require('hello-world-node-package');\nmyPackage.helloWorld();\n</code></pre>",
+          "body":"# hello-world-npm\n\nThis is a simple npm package that demonstrates the [GitHub Packages](https://github.com/features/package).\n\n## Installation \n\n`$ npm install`\n\n## Usage\n\n```\nconst myPackage = require('hello-world-node-package');\nmyPackage.helloWorld();\n```\n\n",
+          "body_html":"<h1>hello-world-npm</h1>\n<p>This is a simple npm package that demonstrates the <a href=\"https://github.com/features/package\">GitHub Package Registry</a>.</p>\n<h2>Installation</h2>\n<p><code>$ npm install</code></p>\n<h2>Usage</h2>\n<pre><code>const myPackage = require('hello-world-node-package');\nmyPackage.helloWorld();\n</code></pre>",
           "release":{
              "url":"https://api.github.com/repos/Codertocat/hello-world-npm/releases/17264286",
              "html_url":"https://github.com/Codertocat/hello-world-npm/releases/tag/1.0.0",
