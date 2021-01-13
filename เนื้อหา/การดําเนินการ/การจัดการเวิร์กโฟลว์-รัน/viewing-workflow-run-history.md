@@ -3,7 +3,7 @@ title: Viewing workflow run history
 intro: You can view logs for each run of a workflow. Logs include the status for each job and step in a workflow.
 product: '{% data reusables.gated-features.actions %}'
 versions:
-  free-pro-team: '*'
+  free-pro-team: 'Ekkarat304'
   enterprise-server: '>=2.22'
 ---
 
