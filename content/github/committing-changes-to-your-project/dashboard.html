@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            /* Create 2 equal columns that float next to each other */
+            .column {
+                float:left;
+                width: 50%;
+                padding: 10px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: black;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+                content: normal;
+                display: table;
+                clear: both;
+            }
+            
+            .h1 {
+                font-weight: bold;
+            }
+            
+            .h2 {
+                font-weight: bold;
+            }
+            
+        </style>
+	</head>
+    
+<body>
+    
+    <div class="row">
+    
+        <div class="column">
+            <h1><div class="month"></div></h1>
+            <h2>Total Sales</h2>
+            <div class="sales"></div>
+            <div></div>
+        </div>
+        
+        <div class="column">
+            <h2>Recent Records</h2>
+            <div class="record">
+                <div class="name"></div>
+                <div class="item"></div>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</body>
+    
+    
+</html>
+
+
+
