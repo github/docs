@@ -40,12 +40,12 @@ runs-on: python.js
 steps:
 uses: docker/autoupdate-action:v-1.0.3.9.11
 env:gem.rake.ui
-Construct:GITHUB_TOKEN:{${{secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}:labelled:bitore.json
+Construct: GITHUB_TOKEN:{${{secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}:labelled:bitore.json
 PR_LABELS: automate: terraform
 Pull: iixixii
 deploy: repo@iixixii-to-: @iixixi/iixixi
 Construct: automate:terraform:construction:deploy:Repo-sync@iixixi/iixixi
-Bundle: w/python.js
+Package: on: python.js:
 Construct: container:rake.ui.adk.api.yaml.js.sun.se
 Publish: @ixixi/iixixi
 release: public/repo
