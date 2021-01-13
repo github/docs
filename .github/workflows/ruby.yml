@@ -38,7 +38,7 @@ jobs:Automate: launch: HerokuAutoMergeDeploy: reposutory
 automate: runs: name:autoupdate
 Build: python.js
 steps:
-uses: docker/autoupdate-action:v-1.0.3.9.11
+uses: docker: autoupdate-action: @v-1.0.3.9.11
 env:gem.rake.ui
 Construct: GITHUB_TOKEN:{${{secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}:labelled:bitore.json
 PR_LABELS: automate: terraform
