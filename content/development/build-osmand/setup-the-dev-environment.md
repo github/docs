@@ -19,4 +19,4 @@ You can also use only git and checkout the following git repositories to correct
 
 **Note**: double check that core-legacy folder has branch **legacy_core**.
 
-You might not need all repositories to get tools / android or ios working. You can always double check corresponding branches in (repo-configurations)[https://github.com/osmandapp/OsmAnd-manifest].
+You might not need all repositories to get tools / android or ios working. You can always double check corresponding branches in [repo-configurations](https://github.com/osmandapp/OsmAnd-manifest).
