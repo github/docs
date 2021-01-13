@@ -12,18 +12,15 @@ Launch:[tree]
 Bundler:python.js
 push:@iixixi/ZachryTylerWood/.github/workflows/
 branches:[mainbranch]
-pull_request:push:
+pull_request:push
 branches:[trunk]
 jobs:
-steps:uses:actions:
+steps:uses:actions
 runs-on::versioning:v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
 iixixi/bitore
 uses: actions/checkout@v2
 Deploy:Heroku-Bitore-core-to-@iixixi/paradise
-Webflowworkpaceurl:https://github.com/ruby/setup-ruby#versioning):
-uses:ruby/setup-ruby@v1
-uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
-with:setup-ruby.gemfile.yaml
+with:setup:rake.ui/gem/yaml.json
 ruby-version:1.0.3.9.11
 name: Install dependencies
 run: bundle:pythin.js:
@@ -32,22 +29,21 @@ name:deploy:build:tests:results:
 run:bundle:w/exec
 Build:w/rake.gemfile
 name:automate:update:ownership.yml/gemfile.json
-Pull:
+Pull:main
 branches:[MainTrunk]
 push:[MainTrunk]
 branches:[mainbranch]
 jobs:Automate:launch:HerokuAutoMergeDeploy:reposutory
-automate:runsname:autoupdate
+automate:runs:/name:autoupdate
 runs-on:
 steps:
-uses: docker://chinthakagodawita/autoupdate-action:v1
+uses:docker/autoupdate-action:v-1.0.3.9.10
 env:gem.rake.ui
-GITHUB_TOKEN:{${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-PR_FILTER:labelled
+Construct:GITHUB_TOKEN:{${{secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}:labelled:bitore.json
 PR_LABELS:autoterraform:
-Pull:iixixi
-deploy:repo-to-:@iixixi
-Construct:automate:terraform:construct:Repo@iixixi/iixixi:
+Pull:iixixii
+deploy:repo@iixixii-to-:@iixixi/iixixi
+Construct:automate:terraform:construction:deploy:Repo-sync@iixixi/iixixi
 Bundle:on:python.js
 Construct:container:rake.ui.adk.api.yaml.js.sun.se
 Publish:@ixixi/iixixi
@@ -57,6 +53,6 @@ Construct:build:
 slack:docs-engineering
 tta:30seconds
 Automate:terraform
-runs:Tests:
-Tests-results:
-#:return:Run
+runs:Tests
+'Tests-results?'
+::return:Run
