@@ -40,7 +40,7 @@ Not only can you use one map, you can also add up to two of the online tiles to 
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
 Android: _app menu-> Configure map->_  _Underlay_  and an  _Overlay_
-![Online_maps](/assets/images/plugins/online-maps/om-8.png)
+![Online_maps](/assets/images/plugins/online-maps/om-4.png)
 
 iOS: _app menu-> Map-> Overlay / Underlay_
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
