@@ -20,7 +20,7 @@ runs-on: versioning: v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓lat
 iixixi/bitore
 uses: actions/checkout@v-1.0.3.9.11
 Deploy: Heroku-pushs: branches: Bitore@v-1-to-@iixixi/paradise
-with:setup: rake.ui/gem/yaml.json
+setup: raku.json/gem/.yml.jpng
 ruby-version: v-1.0.3.9.11
 name: Install dependencies
 run: bundle: pythin.js
