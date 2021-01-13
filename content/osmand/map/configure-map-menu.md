@@ -1,5 +1,5 @@
 ---
-title: "Configure map menu"
+title: "Configure Map"
 intro: ""
 versions: '*'
 ---
