@@ -13,6 +13,7 @@ Online maps in OsmAnd are raster data. Raster data is made up of pixels (also re
 **Advantages:**
 
 -   To save traffic or storage space when offline map is not available. Usually for small areas, online tiles are more compact.
+-   Test
 -   Display time is significantly faster, because maps are not rendered by the device.
 -   It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
 
