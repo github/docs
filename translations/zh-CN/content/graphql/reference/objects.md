@@ -2,6 +2,7 @@
 title: 对象
 redirect_from:
   - /v4/object
+  - /v4/reference/object
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

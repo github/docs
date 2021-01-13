@@ -214,7 +214,7 @@ The `always()` function configures the job to continue processing even if there 
 
 ### Publishing to PowerShell Gallery
 
-You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use repository secrets to store any tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use secrets to store any tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 The following example creates a package and uses `Publish-Module` to publish it to the PowerShell Gallery:
 

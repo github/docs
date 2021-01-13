@@ -646,7 +646,8 @@ You can override the default shell settings in the runner's operating system usi
 | All | `python` | Executes the python command. | `python {0}` |
 | Linux / macOS | `sh` | The fallback behavior for non-Windows platforms if no shell is provided and `bash` is not found in the path. | `sh -e {0}` |
 | Windows | `cmd` | {% data variables.product.prodname_dotcom %} appends the extension `.cmd` to your script name and substitutes for `{0}`. | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows | `powershell` | This is the default shell used on Windows. The Desktop PowerShell. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
+| Windows | `pwsh` | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead.| `pwsh -command ". '{0}'"`. |
+| Windows | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
 #### Example running a script using bash
 
@@ -673,6 +674,15 @@ steps:
   - name: Display the path
     run: echo ${env:PATH}
     shell: pwsh
+```
+
+#### Example: Using PowerShell Desktop to run a script
+
+```yaml
+steps:
+  - name: Display the path
+    run: echo ${env:PATH}
+    shell: powershell
 ```
 
 #### Example running a python script

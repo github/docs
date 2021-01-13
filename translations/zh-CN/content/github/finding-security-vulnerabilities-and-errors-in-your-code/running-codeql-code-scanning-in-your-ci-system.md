@@ -54,14 +54,8 @@ You should call the {% data variables.product.prodname_codeql_runner %} from the
 下载 {% data variables.product.prodname_codeql_runner %} 并确认它可执行后，应将运行器提供给您打算用于 {% data variables.product.prodname_code_scanning %} 的每个 CI 服务器。 It is important to notice that each CI server that you intend to use for {% data variables.product.prodname_code_scanning %} needs to have the {% data variables.product.prodname_codeql_runner %}. You might configure each server to copy the runner from a central, internal location, or you could use the REST API to get the runner direct from GitHub, for example:
 
 ```shell
-$ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
-    > Cleaning temp directory /srv/checkout/example-repo-2/codeql-runner
-    > ...
-    > CodeQL environment output to "/srv/checkout/example-repo-2/codeql-runner/codeql-env.json"
-      and "/srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
-      Please export these variables to future processes so the build can be traced, for example by running "
-      . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
+wget https://github.com/github/codeql-action/releases/latest/download/codeql-runner-linux
+chmod +x codeql-runner-linux
 ```
 
 除此之外，每个 CI 服务器还需要：
@@ -88,7 +82,7 @@ $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
 
 您可以配置 {% data variables.product.prodname_codeql_runner %} 存储 CodeQL 包的位置以便将来在服务器上进行分析，使用： <nobr>`--tools-dir`</nobr> 标志；并配置在分析过程中存储临时文件的位置，使用： <nobr>`--temp-dir`</nobr>.
 
-要查看运行器的命令行引用，请使用 `-h` 标志。 例如，要列出所有运行的命令：`codeql-runner-OS -h`，或列出所有可用于 `init` 命令运行的标志：`codeql-runner-OS init -h`（其中 `OS` 因使用的可执行文件而异）。 For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)."
+要查看运行器的命令行引用，请使用 `-h` 标志。 例如，要列出所有运行的命令：`codeql-runner-OS -h`，或列出所有可用于 `init` 命令运行的标志：`codeql-runner-OS init -h`（其中 `OS` 因使用的可执行文件而异）。 更多信息请参阅“[在 CI 系统中配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)”。
 
 #### 基本示例
 
@@ -135,7 +129,7 @@ $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
     > ...
     > CodeQL environment output to "/srv/checkout/example-repo-2/codeql-runner/codeql-env.json"
       and "/srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
-      Please export these variables to future processes so the build can be traced, for example by running "
+      Please export these variables to future processes so that CodeQL can monitor the build, for example by running "
       . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
       ```
 

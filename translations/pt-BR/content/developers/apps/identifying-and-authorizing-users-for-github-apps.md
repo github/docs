@@ -67,7 +67,7 @@ Se o usuário aceitar o seu pedido, O GitHub irá fazer o redirecionamento para 
 
 {% endnote %}
 
-Troque este `código` por um token de acesso. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} Quando os tokens com expiração estão habilitados, o token de acesso expira em 8 horas e o token de atualização expira em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
+Troque este `código` por um token de acesso. {% if currentVersion == "free-pro-team@latest" %} Quando os tokens vencidos estiverem habilitados, token de acesso irá expirar em 8 horas e o token de atualização irá expirar em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
 
 Os tokens de usuário expirados atualmente fazem parte da expiração do token beta de usuário para servidor e estão sujeitos a alterações. Para optar por participar do recurso beta do token de usuário para servidor com expiração, consulte "[Ativar os recursos beta para aplicativos](/developers/apps/activating-beta-features-for-apps)".{% endif %}
 

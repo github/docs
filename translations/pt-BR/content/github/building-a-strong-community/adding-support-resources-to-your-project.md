@@ -15,7 +15,7 @@ Para direcionar pessoas a recursos de suporte específicos, é possível adicion
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-You can create default support resources for your organization or user account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Você pode criar recursos padrão de suporte para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
 
 {% endif %}
 
