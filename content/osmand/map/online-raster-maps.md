@@ -25,16 +25,27 @@ Online maps in OsmAnd are raster data. Raster data is made up of pixels (also re
 
 ## Purpose raster maps
 
-Raster maps are used for showing additional information like satellite, hiking routes, weather pictures, slopes and hillshades, nautical symbols and others. 
-You can add layers to your map with information from a different source, beginning with the satellite, or hiking routes view and ending with quite specific data like fire hydrants' locations.
+Raster maps are used for showing additional information like satellite, hiking routes, weather pictures, slopes and hillshades, nautical symbols and others. You can add layers to your map with information from a different sources.
 
 ![Online_maps](/assets/images/plugins/online-maps/om-example.png)
 
-
-
-## Common use of raster maps
+## Raster maps as Map source
+Raster maps can be as Map source in OsmAnd (by default, oflline vector maps are enabled). You can choose one of its in the list or add yours.
+Android: menu - Configure map - Map source
+iOS: menu - Map - Map type
 
 ## How to use Underlay / Overlay layers
+
+Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
+You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
+
+Android: _app menu-> Configure map->_  _Underlay_  and an  _Overlay_
+![Online_maps](/assets/images/plugins/online-maps/om-8.png)
+
+iOS: _app menu-> Map-> Overlay / Underlay_
+![Online_maps](/assets/images/plugins/online-maps/om-8.png)
+
+You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
 ## Installation
 
