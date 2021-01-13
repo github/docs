@@ -95,7 +95,7 @@ These are the types of filters that you can use:
 
 #### Supported `repo:` queries
 
-To add a `repo:` filter, you must include the organization or user of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
+To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
 
 #### Supported `is:` queries
 
@@ -149,7 +149,7 @@ To filter notifications by user, you can use the `author:` query. An author is t
 
 #### Supported `org:` queries
 
-To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository which you are being notified of on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
 
 For example, to see notifications from the octo-org organization, use `org:octo-org`. 
 
