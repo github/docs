@@ -57,7 +57,11 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_API_URL` | Returns the API URL. For example: `{% data variables.product.api_url_code %}`.
 | `GITHUB_GRAPHQL_URL` | Returns the GraphQL API URL. For example: `{% data variables.product.graphql_url_code %}`.
 
-Using these environment variables, a workflow run's URL can be constructed: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+{% tip %}
+
+If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+
+{% endtip %}
 
 ### Naming conventions for environment variables
 
