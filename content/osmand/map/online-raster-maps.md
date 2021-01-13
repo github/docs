@@ -39,26 +39,22 @@ Comparision to default vector maps.
 
 
 ## How to use Raster maps 
-### Preparation
+### Enable plugin
 In order to use raster maps you need to enable [Online maps plugin](/osmand/plugins).
 
-### Main map 
-Raster maps can be as Map source in OsmAnd (by default, oflline vector maps are enabled). You can choose one of its in the list or add yours.
-Android: menu - Configure map - Map source
-iOS: menu - Map - Map type
+### Select map as Main / Underlay / Overlay layer
+Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in [Configure Map menu](/osmand/map/configure-map-menu). You can choose one of its in the list or add yours.
 
-### Underlay / Overlay layers
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
+TODO update screenshots: make 3 step by step
 ![Online_maps](/assets/images/plugins/online-maps/om-4.png)
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
 
-### Setup 
+### Tweak layer parameters
+In order to mix raster map layers better you can change layer transparency and also you can change vector map style (hide polygons), so the underlay layers will be more visible, especially useful for satellite imagery.
 
-
-## TODO
-It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
 
 
 ## Installation
@@ -93,6 +89,9 @@ iOS: _menu - Maps & Resources - Intalled - Online raster maps_. Choose your sour
 ## Backup / Export / Import
 
 With application profile feature......
+
+## TODO
+It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
 
 ## Creation on new maps in PC
 
