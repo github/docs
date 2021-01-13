@@ -14,9 +14,9 @@ push: @iixixi/ZachryTylerWood/.github/workflows/
 branches: [mainbranch]
 pull_request: push
 branches: [trunk]
-'jobs: uses: actions'
-'steps: uses: actions'
-'runs-on: versioning:v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
+jobs: uses: actions'
+steps: uses: actions'
+runs-on: versioning:v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
 iixixi/bitore
 uses: actions/checkout@v-1.0.3.9.11
 Deploy: Heroku-Bitore-core-to-@iixixi/paradise
