@@ -49,7 +49,7 @@ iOS: _app menu-> Map-> Overlay / Underlay_
 
 ## Installation
 ### Installation with URL
-Online maps can be added with a special link. Click to this link and choose OsmAnd for opening.:
+Online maps can be added with a special link. Click to this link and choose OsmAnd for opening:
 
 http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
 
@@ -70,7 +70,15 @@ Online map formats of OsmAnd:
 
 ## Size and clear
 
+For see size of Online map cache and clear it:
+
+Android: _menu - Download maps - Local - Online and cashed tile maps_. Choose your source for edit / clear all tiles / delete. 
+
+iOS: _menu - Maps & Resources - Intalled - Online raster maps_. Choose your source for clear cache / edit / delete.
+
 ## Backup / Export / Import
+
+With application profile feature......
 
 ## Creation on new maps in PC
 
