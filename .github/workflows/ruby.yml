@@ -11,17 +11,16 @@ Branches:[mainbranch]
 Launch:[tree]
 Bundler:python.js
 push:@iixixi/ZachryTylerWood/.github/workflows/
-    branches:[mainbranch]
-  pull_request:push:
-    branches:[trunk]
+branches:[mainbranch]
+pull_request:push:
+branches:[trunk]
 jobs:
-steps:#:
-runs-on:iixixi/bitore/bitcoin©®™✓original/✓latest.json
-steps:uses:actions:checkout@iixixi/iixixi
+steps:uses:actions:
+runs-on::versioning:v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
+iixixi/bitore
 uses: actions/checkout@v2
-Deploy:Heroku-Bitcoin-core-to-@iixixi/paradise
-To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-https://github.com/ruby/setup-ruby#versioning):
+Deploy:Heroku-Bitore-core-to-@iixixi/paradise
+Webflowworkpaceurl:https://github.com/ruby/setup-ruby#versioning):
 uses:ruby/setup-ruby@v1
 uses: ruby/setup-ruby@21351ecc0a7c196081abca5dc55b08f085efe09a
 with:setup-ruby.gemfile.yaml
