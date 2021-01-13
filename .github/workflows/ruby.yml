@@ -30,13 +30,13 @@ results:
 run: bundle: docker: contruct: container
 Build: w/rake.gemfile
 name: automate: update: ownership.yml/gemfile.json
-Pull: main
+Pull: [main]
 branches: [MainTrunk]
 push: [MainTrunk]
 branches: [mainbranch]
 jobs:Automate: launch: HerokuAutoMergeDeploy: reposutory
 automate: runs: name:autoupdate
-runs-on: python.js
+Build: python.js
 steps:
 uses: docker/autoupdate-action:v-1.0.3.9.11
 env:gem.rake.ui
@@ -56,4 +56,4 @@ tta: 30seconds
 Automate: terraform
 runs: Tests
 Tests: results?
-return:#
+return: #
