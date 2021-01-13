@@ -31,7 +31,9 @@ Raster maps are used for showing additional information like satellite, hiking r
 
 ## Raster maps as Map source
 Raster maps can be as Map source in OsmAnd (by default, oflline vector maps are enabled). You can choose one of its in the list or add yours.
+
 Android: menu - Configure map - Map source
+
 iOS: menu - Map - Map type
 
 ## How to use Underlay / Overlay layers
@@ -45,13 +47,23 @@ Android: _app menu-> Configure map->_  _Underlay_  and an  _Overlay_
 iOS: _app menu-> Map-> Overlay / Underlay_
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
 
-You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
-
 ## Installation
-
 ### Installation with URL
+Online maps can be added with a special link. Click to this link and choose OsmAnd for opening.:
+
+http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
+
+name=TEST - provide name for online map source
+
+template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45  - URL
+
+min_zoom=19max_zoom=20  -  Zoom levels
+
+
 ### Installation with UI
+
 ### Installation with SQLite/Metainfo copy
+
 Online map formats of OsmAnd:
 
 -   [**SQ Lite format**](https://docs.osmand.net/en/main@latest/development/map-creation)
