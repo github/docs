@@ -53,47 +53,46 @@ TODO update screenshots: make 3 step by step
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
 
 ### Tweak layer parameters
-In order to mix raster map layers better you can change layer transparency and also you can change vector map style (hide polygons), so the underlay layers will be more visible, especially useful for satellite imagery.
+In order to mix raster map layers better you can change layer transparency and also you can change vector map style (hide polygons), so the underlay layers will 
+be more visible, especially useful for satellite imagery.
+
+### Add new online raster map source
+To create raster map source you need to know **tile url**. This is a url that can distribute tiles in Merkaator projection. Here is a tile example url https://tile.osmand.net/hd/6/55/25.png, where is base part https://tile.osmand.net/hd/.
+Here we need to describe screens of adding new map source if you know "tile url".
 
 
-
-## Installation
-### Installation with URL
+## Copy online map sources 
+### Copy raster map package created on PC 
+OsmAndMapCreator / Mobac
+### Export / Import from OsmAnd
+### Magic URL to install map source
 Online maps can be added with a special link. Click to this link and choose OsmAnd for opening:
-
 http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
-
 name=TEST - **provide name for online map source**
-
 template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45  - **URL**
-
 min_zoom=19max_zoom=20  -  **Zoom levels**
 
-### Installation with UI
 
-### Installation with SQLite/Metainfo copy
+## Manage raster maps
+Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
 
-Online map formats of OsmAnd:
-
+### Sqlite vs Metainfo sources
+Comparision. Convert?
 -   [**SQ Lite format**](/development/map-creation)
 -   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
-
-## Size and clear
-
+### Clear raster map cache
+- UI to clear map tiles
 For see size of Online map cache and clear it:
-
 Android: _menu - Download maps - Local - Online and cashed tile maps_. Choose your source for edit / clear all tiles / delete. 
-
 iOS: _menu - Maps & Resources - Intalled - Online raster maps_. Choose your source for clear cache / edit / delete.
+### Change raster map parameters
+- Edit raster map parameters
+### Download / update tiles
 
-## Backup / Export / Import
-
-With application profile feature......
-
-## TODO
-It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
 
 ## Creation on new maps in PC
+Need to move to technical articles.
+It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
 
 Despite the plugin being called  _'Online Maps'_, you can use the maps without the internet, as well. You just need to save the parts of maps (often called tiles) to use them later. Online tiles can be helpful when you need just a small section of the map or a specific type of it to use in the limited area, but don't want to download the whole region. They can come in handy in endless situations.
 
