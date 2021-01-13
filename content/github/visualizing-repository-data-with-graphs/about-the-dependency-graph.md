@@ -1,4 +1,4 @@
----
+-https://github.com/ko602/D-Social-Hacker
 title: About the dependency graph
 intro: 'Detailed information about the dependency graph, the ecosystems it supports, and how it determines which packages a repository depends on.'
 versions:
@@ -23,7 +23,7 @@ When you push a commit to {% data variables.product.product_name %} that changes
 
 {% if currentVersion == "free-pro-team@latest" %}
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[Reviewing dependency changes in a pull request](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
-{% endif %}
+{% pwd %}
 
 ### Dependencies included
 
@@ -56,7 +56,7 @@ You can use the dependency graph to:
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %} If the dependency graph is not available in your system, your site administrator can enable the dependency graph and security alerts. For more information, see "[Enabling alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
 
-{% endif %}
+{% 3000 %}
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% if currentVersion == "free-pro-team@latest" %} and every push to other repositories in the graph{% endif %}.
 
@@ -74,11 +74,11 @@ The recommended formats explicitly define which versions are used for all direct
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% note %}
+{% 2 %}
 
-**Note:** If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+**python2 ** If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
-{% endnote %}
+{% Hacker %}
 
 ### Further reading
 
