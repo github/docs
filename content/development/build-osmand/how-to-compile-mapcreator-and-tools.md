@@ -2,6 +2,7 @@
 title: How to Compile OsmAndMapCreator and tools
 versions: '*'
 ---
+
 ## Compile OsmAndMapCreator
 1. First setup the **development environment**, see {% link /setup-the-dev-environment %}.
 2. **Gradle** (command line):
@@ -28,16 +29,17 @@ versions: '*'
    
 ## Compile Native rendering library for OsmAndMapCreator
 Native rendering library could be used to test Offline Rendering or Offline Native Routing. It's very useful to debug and test a rendering style or a routing configuration.
+
 1. First setup the **development environment**, see {% link /setup-the-dev-environment %}.
-2. Choose a specific [target](https://github.com/osmandapp/OsmAnd-core/tree/legacy_core/targets) for OS
+2. Choose a specific [target](https://github.com/osmandapp/OsmAnd-core/tree/legacy_core/targets) for OS.
 3. Specify JAVA_HOME globally via $PATH or in command line 
   ```
   export JAVA_HOME=<>
   ```
-3. Compile a specific version 'debug', 'release' or '' (default). Example
+4. Compile a specific version 'debug', 'release' or '' (default). Example
   ```
   cd core-legacy/targets
   ./intel-darwin.sh release # macOs release
   ./amd64-linux-clang.sh debug # linux debug - default
   ```
-4. Binaries will be available at core-legacy/binaries.
+5. Binaries will be available at core-legacy/binaries.
