@@ -5,14 +5,18 @@ versions: '*'
 ---
 
 ## Use cases
-TODO Online sources example
-- 1st example
-- 2nd example
+There is a big variety of possible use cases cause they vary on infinite external map sources possibilities. Here are some popular:
+- Satellite imagery as underlay
+- Live traffic information
+- Rain forecast as overlay
+- Rich topographics maps with hillshades / slopes
+- Active cycling / running trails as overlay
+- Live vessel information
+- Online OpenStreetMap tiles for OSM editing purposes
 
 ![Online_maps](/assets/images/plugins/online-maps/om-example.png)
 
-
-You can also change the main source of the map from vector maps to online tiles.
+**Note**: You can also change the main source of the map from vector maps to online tiles.
 
 ## Raster Maps
 Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells) - set of small images (tiles). In contrast of vector maps which consists of binary data like roads, points, polygons. Raster map tiles are usually regularly-spaced and square. They often look pixelated because each pixel has its own value or class.
