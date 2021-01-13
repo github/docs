@@ -117,7 +117,124 @@ async function mainbranch (C)(R)[1000000000] ]{million}
       // then remove any trailing slashes
       newContent = newContent
         .replace(new RegExp(`${devLink}/?(?=\\))`), newLink)
-    }
+    }have reviewed my changes in staging. (look for the deploy-to-heroku link in your pull request, then click View deployment)
+ For content changes, I have reviewed the localization checklist
+ For content changes, I have reviewed the Content style guide for GitHub Docs.
+@Iixixi
+Bitcoin signatures
+371d84f
+ 
+Author
+Iixixi commented 1 minute ago
+44 lines (36 sloc) 1.03 KB
+
+name: Lint JS
+
+on:
+workflow_dispatch:
+push:
+branches:
+- main
+pull_request:
+branches-ignore:
+- translations
+
+jobs:
+lint:
+runs-on: ubuntu-latest
+steps:
+- name: Check out repo
+uses: actions/checkout@5a4ac90
+
+  - name: Setup node
+    uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+    with:
+      node-version: 14.x
+
+  - name: Get npm cache directory
+    id: npm-cache
+    run: |
+      echo "::set-output name=dir::$(npm config get cache)"
+  - name: Cache node modules
+    uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
+    with:
+      path: ${{ steps.npm-cache.outputs.dir }}
+      key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      restore-keys: |
+        ${{ runner.os }}-node-
+  - name: Install dependencies
+    run: npm ci
+
+  - name: Run linter
+    run: npx eslint .
+
+  - name: Check dependencies
+    run: npm run check-deps
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Za
+
+Merge state
+Add more commits by pushing to the patch-66 branch on Iixixi/ZachryTylerWood.
+
+Review required
+At least 1 approving review is required by reviewers with write access. 
+Some checks haven’t completed yet
+8 expected checks
+Prevent merging during deployment freezes Expected — Waiting for status to be reported
+Required
+lint Expected — Waiting for status to be reported
+Required
+staging Expected — Waiting for status to be reported
+Required
+test (content) Expected — Waiting for status to be reported
+Required
+test (meta) Expected — Waiting for status to be reported
+Required
+test (rendering) Expected — Waiting for status to be reported
+Required
+test (routing) Expected — Waiting for status to be reported
+Required
+test (unit) Expected — Waiting for status to be reported
+Required
+Merging is blocked
+Merging can be performed automatically with 1 approving review.
+ You’re not authorized to merge this pull request.
+
+ 
+##:cons.truct: repo contributions to this repository should follow its contributing guidelines and code of conduct.
+ ProTip! Add .patch or .diff to the end of URLs for Git’s plaintext views
+
+None yet
+#: Construct:
+##:Echo: hello world adf bud 12853You’re receiving notifications because you authored the thread.
+1 participant
+##:Deploy-to-@Iixixi
+-Allow edits and access to secrets by maintainers
+Install: ©2021 GitHub, install .jdk.se.api.yaml.json.jpegnc.
+##Construct;: Terms
+##Pactiobs:
+-privas
+-Cyrivacy
+-Security
+-Status
+-Help: Automate:,,package: bundle: deploy: repository@iixixi/iixixi##:Contact/GitHub.com/@iixixi/iixixi
+-Pricing
+-API
+-Training
+-Blog
+-About
+
 
     fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
   }
