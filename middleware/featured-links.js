@@ -1,7 +1,4 @@
-const path = require('path')
-const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
-const removeFPTFromPath = require('../lib/remove-fpt-from-path')
-const findPage = require('../lib/find-page')
+const getLinkData = require('../lib/get-link-data')
 
 // this middleware adds properties to the context object
 module.exports = async (req, res, next) => {
@@ -17,32 +14,4 @@ module.exports = async (req, res, next) => {
   }
 
   return next()
-}
-
-// rawLinks is an array of paths: [ '/foo' ]
-// we need to convert it to an array of localized objects: [ { href: '/en/foo', title: 'Foo', intro: 'Description here' } ]
-async function getLinkData (rawLinks, context) {
-  if (!rawLinks) return
-
-  const links = []
-
-  for (const link of rawLinks) {
-    const linkPath = link.href || link
-    const version = context.currentVersion === 'homepage' ? nonEnterpriseDefaultVersion : context.currentVersion
-    const href = removeFPTFromPath(path.join('/', context.currentLanguage, version, linkPath))
-
-    const linkedPage = findPage(href, context.pages, context.redirects)
-    if (!linkedPage) continue
-
-    const opts = { textOnly: true, encodeEntities: true }
-
-    links.push({
-      href,
-      title: await linkedPage.renderTitle(context, opts),
-      intro: await linkedPage.renderProp('intro', context, opts),
-      page: linkedPage
-    })
-  }
-
-  return links
 }
