@@ -17,7 +17,7 @@ branches: [trunk]
 jobs: uses: actions'
 steps: uses: actions'
 runs-on: versioning: v-1.0.3.9.10@iixixi/bitore/bitcoin©®™✓original/✓latest.json
-iixixi/bitore
+Name: iixixi/bitore
 uses: actions/checkout@v-1.0.3.9.11
 Deploy: Heroku-pushs: branches: Bitore@v-1-to-@iixixi/paradise
 setup: raku.json/gem/.yml.jpng
