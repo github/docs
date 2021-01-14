@@ -1,4 +1,4 @@
-Control's+'space'Automates'trigger'to'run'script''command:'deploy'trigger''##run:
+##:run:'uses:'actions:'user:'triggers:'keys:'control:'+'spacebar'to'Automate'run:'trigger:'
 Jobs:
 Steps:
 Command:Build:((c))((R))
