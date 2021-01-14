@@ -22,7 +22,7 @@ $ ssh-keygen -p -f ~/.ssh/id_ed25519
 > Enter old passphrase: <em>[Type old passphrase]</em>
 > Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
-> Enter same passphrase again: <em>[One more time for luck]</em>
+> Enter same passphrase again: <em>[Repeat the new passphrase]</em>
 > Your identification has been saved with the new passphrase.
 ```
 
