@@ -3,6 +3,7 @@ title: GitHub Enterprise Cloud Evaluation Agreement
 hidden: true
 redirect_from:
   - /articles/github-enterprise-cloud-evaluation-agreement
+  - /github/site-policy/github-enterprise-cloud-evaluation-agreement
 versions:
   free-pro-team: '*'
 ---

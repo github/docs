@@ -1,6 +1,8 @@
 ---
 title: GitHub Data Protection Addendum
 hidden: true
+redirect_from:
+  - /github/site-policy/github-data-protection-addendum
 versions:
   free-pro-team: '*'
 ---
