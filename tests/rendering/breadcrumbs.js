@@ -52,13 +52,13 @@ describe('breadcrumbs', () => {
     test('English breadcrumbs link to English pages', async () => {
       const $ = await getDOM('/en/github/getting-started-with-github')
       const $breadcrumbs = $('.breadcrumbs a')
-      expect($breadcrumbs.eq(0).attr('href')).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+      expect($breadcrumbs.eq(0).attr('href')).toBe(`/en/github`)
     })
 
     test('localized breadcrumbs link to localize pages', async () => {
       const $ = await getDOM('/ja/github/getting-started-with-github')
       const $breadcrumbs = $('.breadcrumbs a')
-      expect($breadcrumbs.eq(0).attr('href')).toBe(`/ja/${nonEnterpriseDefaultVersion}/github`)
+      expect($breadcrumbs.eq(0).attr('href')).toBe(`/ja/github`)
     })
   })
 
@@ -88,7 +88,7 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/en/github`,
           title: 'GitHub.com'
         }
       }
@@ -99,11 +99,11 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github/authenticating-to-github?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/en/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
+          href: `/en/github/authenticating-to-github`,
           title: 'Authentication'
         }
       }
@@ -114,15 +114,15 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github/authenticating-to-github/keeping-your-account-and-data-secure?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/en/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
+          href: `/en/github/authenticating-to-github`,
           title: 'Authentication'
         },
         maptopic: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/keeping-your-account-and-data-secure`,
+          href: `/en/github/authenticating-to-github/keeping-your-account-and-data-secure`,
           title: 'Keeping your account and data secure'
         }
       }
@@ -133,19 +133,19 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github/authenticating-to-github/creating-a-strong-password?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/en/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github`,
+          href: `/en/github/authenticating-to-github`,
           title: 'Authentication'
         },
         maptopic: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/keeping-your-account-and-data-secure`,
+          href: `/en/github/authenticating-to-github/keeping-your-account-and-data-secure`,
           title: 'Keeping your account and data secure'
         },
         article: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/authenticating-to-github/creating-a-strong-password`,
+          href: `/en/github/authenticating-to-github/creating-a-strong-password`,
           title: 'Creating a strong password'
         }
       }
@@ -156,15 +156,15 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/github/site-policy/github-privacy-statement?json=breadcrumbs')
       const expected = {
         product: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github`,
+          href: `/en/github`,
           title: 'GitHub.com'
         },
         category: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/site-policy`,
+          href: `/en/github/site-policy`,
           title: 'Site policy'
         },
         article: {
-          href: `/en/${nonEnterpriseDefaultVersion}/github/site-policy/github-privacy-statement`,
+          href: `/en/github/site-policy/github-privacy-statement`,
           title: 'GitHub Privacy Statement'
         }
       }

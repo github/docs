@@ -34,10 +34,12 @@ describe('redirects', () => {
       languageCode: 'en'
     })
     page.buildRedirects()
-    expect(page.redirects['/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/en/articles']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
-    expect(page.redirects['/en/common-issues-and-questions']).toBe(`/en/${nonEnterpriseDefaultVersion}/github`)
+    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/github`]).toBe('/en/github')
+    expect(page.redirects['/articles']).toBe('/en/github')
+    expect(page.redirects['/en/articles']).toBe(`/en/github`)
+    expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/articles`]).toBe('/en/github')
+    expect(page.redirects['/common-issues-and-questions']).toBe('/en/github')
+    expect(page.redirects['/en/common-issues-and-questions']).toBe('/en/github')
     expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
     expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
@@ -49,7 +51,7 @@ describe('redirects', () => {
       languageCode: 'en'
     })
     page.buildRedirects()
-    const expected = `/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
+    const expected = `/en/github/collaborating-with-issues-and-pull-requests/about-conversations-on-github`
     expect(page.redirects['/en/articles/about-discussions-in-issues-and-pull-requests']).toBe(expected)
   })
 
@@ -125,7 +127,7 @@ describe('redirects', () => {
     test('redirect_from for renamed pages', async () => {
       const { res } = await get('/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop')
       expect(res.statusCode).toBe(301)
-      const expected = `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop`
+      const expected = `/ja/desktop/contributing-and-collaborating-using-github-desktop/changing-a-remotes-url-from-github-desktop`
       expect(res.headers.location).toBe(expected)
     })
   })
@@ -332,7 +334,7 @@ describe('redirects', () => {
   })
 
   describe('desktop guide', () => {
-    const desktopGuide = `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request`
+    const desktopGuide = `/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request`
     const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {

@@ -22,7 +22,7 @@ describe('header', () => {
   describe('language links', () => {
     test('lead to the same page in a different language', async () => {
       const $ = await getDOM('/en/github/administering-a-repository/enabling-required-status-checks')
-      expect($(`#languages-selector a[href="/ja/${nonEnterpriseDefaultVersion}/github/administering-a-repository/enabling-required-status-checks"]`).length).toBe(1)
+      expect($(`#languages-selector a[href="/ja/github/administering-a-repository/enabling-required-status-checks"]`).length).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {
@@ -68,7 +68,7 @@ describe('header', () => {
     test('include github and admin, and emphasize the current product', async () => {
       const $ = await getDOM('/en/articles/enabling-required-status-checks')
 
-      const github = $(`#homepages a.active[href="/en/${nonEnterpriseDefaultVersion}/github"]`)
+      const github = $(`#homepages a.active[href="/en/github"]`)
       expect(github.length).toBe(1)
       expect(github.text().trim()).toBe('GitHub.com')
       expect(github.attr('class').includes('active')).toBe(true)
@@ -82,15 +82,15 @@ describe('header', () => {
     test('point to homepages in the current page\'s language', async () => {
       const $ = await getDOM('/ja/articles/enabling-required-status-checks')
 
-      expect($(`#homepages a.active[href="/ja/${nonEnterpriseDefaultVersion}/github"]`).length).toBe(1)
+      expect($(`#homepages a.active[href="/ja/github"]`).length).toBe(1)
       expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
     })
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(`/en/enterprise/${oldestSupported}/user/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address`)
       expect($(`#homepages a.active[href="/en/enterprise-server@${latest}/admin"]`).length).toBe(0)
-      expect($(`#homepages a[href="/en/${nonEnterpriseDefaultVersion}/github"]`).length).toBe(1)
-      expect($(`#homepages a.active[href="/en/${nonEnterpriseDefaultVersion}/github"]`).length).toBe(1)
+      expect($(`#homepages a[href="/en/github"]`).length).toBe(1)
+      expect($(`#homepages a.active[href="/en/github"]`).length).toBe(1)
     })
   })
 })

@@ -16,11 +16,11 @@ describe('featuredLinks', () => {
       const $ = await getDOM('/en')
       const $featuredLinks = $('.featured-links a')
       expect($featuredLinks).toHaveLength(9)
-      expect($featuredLinks.eq(0).attr('href')).toBe(`/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/set-up-git`)
+      expect($featuredLinks.eq(0).attr('href')).toBe(`/en/github/getting-started-with-github/set-up-git`)
       expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(true)
 
-      expect($featuredLinks.eq(8).attr('href')).toBe(`/en/${nonEnterpriseDefaultVersion}/github/working-with-github-pages`)
+      expect($featuredLinks.eq(8).attr('href')).toBe(`/en/github/working-with-github-pages`)
       expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
       expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(true)
     })
@@ -58,7 +58,7 @@ describe('featuredLinks', () => {
     test('returns modified array of links', async () => {
       const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
       const expectedFirstLink = {
-        href: `/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/set-up-git`,
+        href: `/en/github/getting-started-with-github/set-up-git`,
         title: 'Set up Git'
       }
       expect(gettingStartedLinks[0].href).toEqual(expectedFirstLink.href)
