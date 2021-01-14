@@ -15,6 +15,7 @@ const ALLOW_LIST = new Set([
   'platform-samples',
   'github-services',
   'explore',
+  'enterprise-releases',
   'markup',
   'hubot',
   'VisualStudio',

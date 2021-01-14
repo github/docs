@@ -129,7 +129,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 npm 和 Yarn 依赖项管理器。 在构建和测试代码之前，可以使用 npm 和 Yarn 在工作流程中安装依赖项。 Windows 和 Linux {% data variables.product.prodname_dotcom %} 托管的运行器也安装了 Grunt、Gulp 和 Bower。
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 #### 使用 npm 的示例
 
@@ -193,9 +193,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-要验证您的私有注册表，需要将 npm 身份验证令牌在仓库设置中存储为密码。 例如，创建名为 `NPM_TOKEN` 的密码。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+要验证您的私有注册表，需要将 npm 身份验证令牌存储为密码。 例如，创建名为 `NPM_TOKEN` 的仓库密码。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-在下面的示例中，密码 `NPM_TOKEN` 用于存储 npm 身份验证令牌。 `setup-node` 操作配置 *.npmrc* 文件从 `NODE_AUTH_TOKEN` 环境变量读取 npm 身份验证令牌。 使用 `setup-node` 操作创建 *.npmrc* 文件时，必须使用包含 npm 身份验证令牌的密码设置 `NPM_AUTH_TOKEN` 环境变量。
+在下面的示例中，密码 `NPM_TOKEN` 用于存储 npm 身份验证令牌。 `setup-node` 操作配置 *.npmrc* 文件从 `NODE_AUTH_TOKEN` 环境变量读取 npm 身份验证令牌。 使用 `setup-node` 操作创建 *.npmrc* 文件时，必须使用包含 npm 身份验证令牌的密码设置 `NODE_AUTH_TOKEN` 环境变量。
 
 在安装依赖项之前，使用 `setup-node` 操作创建 *.npmrc* 文件。 该操作有两个输入参数。 `node-version` 参数设置 Node.js 版本，`registry-url` 参数设置默认注册表。 如果包注册表使用作用域，您必须使用 `scope` 参数。 更多信息请参阅 [`npm-scope`](https://docs.npmjs.com/misc/scope)。
 
@@ -227,7 +227,7 @@ always-auth=true
 
 #### 缓存依赖项示例
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache dependencies using a unique key, and restore the dependencies when you run future workflows using the `cache` action. 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用唯一密钥缓存依赖项， 并在使用`缓存`操作运行未来的工作流程时恢复依赖项。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”和 [`cache` 操作](https://github.com/marketplace/actions/cache)。
 
 {% raw %}
 ```yaml

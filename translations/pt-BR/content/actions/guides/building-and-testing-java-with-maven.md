@@ -53,7 +53,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -85,13 +85,13 @@ steps:
     with:
       java-version: 1.8
   - name: Run the Maven verify phase
-    run: mvn -B verify --file pom-ci.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
 ### Memorizar dependências
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache your dependencies to speed up your workflow runs. Após a conclusão bem-sucedida, o seu repositório local do Maven será armazenado na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
+Ao usar executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá armazenar em cache suas dependências para acelerar as execuções do seu fluxo de trabalho. Após a conclusão bem-sucedida, o seu repositório local do Maven será armazenado na infraestrutura do GitHub Actions. Para os fluxos de trabalho futuros, a cache será restaurada para que as dependências não precisem ser baixadas dos repositórios remotos do Maven. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizando dependências para acelerar os fluxos de trabalho</a>" e a ação [`cache`](https://github.com/marketplace/actions/cache).
 
 {% raw %}
 ```yaml
@@ -108,7 +108,7 @@ steps:
       key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
       restore-keys: ${{ runner.os }}-m2
   - name: Build with Maven
-    run: mvn -B package --file pom.xml
+    run: mvn --batch-mode --update-snapshots verify
 ```
 {% endraw %}
 
@@ -125,7 +125,7 @@ De modo geral, o Maven criará arquivos de saída como JARs, EARs ou WARs no dir
 steps:
   - uses: actions/checkout@v2
   - uses: actions/setup-java@v1
-  - run: mvn -B package --file pom.xml
+  - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
   - uses: actions/upload-artifact@v2
     with:

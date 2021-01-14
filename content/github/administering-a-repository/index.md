@@ -33,12 +33,14 @@ versions:
     {% link_in_list /restoring-a-deleted-repository %}
 {% topic_link_in_list /managing-branches-in-your-repository %}
     {% link_in_list /viewing-branches-in-your-repository %}
+    {% link_in_list /renaming-a-branch %}
     {% link_in_list /changing-the-default-branch %}
     {% link_in_list /deleting-and-restoring-branches-in-a-pull-request %}
 {% topic_link_in_list /configuring-pull-request-merges %}
     {% link_in_list /about-merge-methods-on-github %}
     {% link_in_list /configuring-commit-squashing-for-pull-requests %}
     {% link_in_list /configuring-commit-rebasing-for-pull-requests %}
+    {% link_in_list /managing-auto-merge-for-pull-requests-in-your-repository %}
     {% link_in_list /managing-the-automatic-deletion-of-branches %}
 {% topic_link_in_list /defining-the-mergeability-of-pull-requests %}
     {% link_in_list /about-protected-branches %}
@@ -65,7 +67,7 @@ versions:
 {% topic_link_in_list /securing-your-repository %}
     {% link_in_list /about-securing-your-repository %}
     {% link_in_list /about-secret-scanning %}
-    {% link_in_list /configuring-secret-scanning-for-private-repositories %}
+    {% link_in_list /configuring-secret-scanning-for-your-repositories %}
     {% link_in_list /managing-alerts-from-secret-scanning %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-repository %}
 {% topic_link_in_list /keeping-your-dependencies-updated-automatically %}

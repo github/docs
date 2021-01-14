@@ -75,7 +75,7 @@ env:
 - 以 `a-Z` 或 `_` 开头。
 - 后跟 `a-Z` `0-9` `-` 或 `_`。
 
-#### **`github` 上下文**
+#### `github` 上下文
 
 `github` 上下文包含有关工作流程运行以及触发运行的事件相关信息。 您可以读取环境变量中的大多数 `github` 上下文数据。 有关环境变量的更多信息，请参阅“[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”。
 
@@ -103,7 +103,7 @@ env:
 | `github.workflow`         | `字符串` | 工作流程的名称。 如果工作流程文件未指定 `name`，此属性的值将是仓库中工作流程文件的完整路径。                                                                                                                                                                      |
 | `github.workspace`        | `字符串` | 使用 [`checkout`](https://github.com/actions/checkout) 操作时步骤的默认工作目录和仓库的默认位置。                                                                                                                                              |
 
-#### **`env` 上下文**
+#### `env` 上下文
 
 `env` 上下文包含已在工作流程、作业或步骤中设置的环境变量。 有关在工作流程中设置环境变量的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)”。
 
@@ -117,7 +117,7 @@ env:
 | `env.<env name>` | `字符串` | 特定环境变量的值。                              |
 
 
-#### **`job` 上下文**
+#### `job` 上下文
 
 `job` 上下文包含当前正在运行的作业相关信息。
 
@@ -133,7 +133,7 @@ env:
 | `job.services.<service id>.ports`   | `对象`  | 服务容器显露的端口。                                                                                                                                             |
 | `job.status`                              | `字符串` | 作业的当前状态。 可能的值包括 `success`、`failure` 或 `cancelled`。                                                                                                     |
 
-#### **`steps` 上下文**
+#### `steps` 上下文
 
 `steps` 上下文包含当前作业中已经运行的步骤相关信息。
 
@@ -145,7 +145,7 @@ env:
 | `steps.<step id>.outcome`                     | `字符串` | 在 [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error) 应用之前完成的步骤的结果。 可能的值包括 `success`、`failure`、`cancelled` 或 `skipped`。 当 `continue-on-error` 步骤失败时，`outcome` 为 `failure`，但最终的 `conclusion` 为 `success`。 |
 | `steps.<step id>.outputs.<output name>` | `字符串` | 特定输出的值。                                                                                                                                                                                                                                                            |
 
-#### **`runner` 上下文**
+#### `runner` 上下文
 
 `runner` 上下文包含正在执行当前作业的运行器相关信息。
 
@@ -155,7 +155,7 @@ env:
 | `runner.temp`       | `字符串` | 运行器临时目录的路径。 此目录保证在每个作业开始时为空，即使在自托管的运行器上也是如此。                                                                                                                                                                          |
 | `runner.tool_cache` | `字符串` | 包含 {% data variables.product.prodname_dotcom %} 托管运行器一些预安装工具的目录路径。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管运行器的规范](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。 |
 
-#### **`needs` 上下文**
+#### `needs` 上下文
 
 `needs` 上下文包含定义为当前作业依赖项的所有作业的输出。 有关定义作业依赖项的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)”。
 

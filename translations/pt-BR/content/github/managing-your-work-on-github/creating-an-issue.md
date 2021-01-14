@@ -1,7 +1,7 @@
 ---
 title: Criar um problema
 intro: 'Os problemas podem ser usados para acompanhar erros, aprimoramentos ou outras solicitações.'
-permissions: 'People with read permissions can create an issue in a repository where issues are enabled.'
+permissions: 'Pessoas com permissões de leitura podem criar um problema em um repositório onde os problemas estão habilitados.'
 redirect_from:
   - /articles/creating-an-issue
 versions:

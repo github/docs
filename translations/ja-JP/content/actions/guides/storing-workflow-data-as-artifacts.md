@@ -108,8 +108,6 @@ versions:
           パス: output/test/code-coverage.html
 ```
 
-![ワークフローアップロード成果物ワークフロー実行の画像](/assets/images/help/repository/upload-build-test-artifact.png)
-
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### カスタムアーティファクトの保持期間を設定する
 
@@ -237,7 +235,12 @@ versions:
           エコー 結果は $value
 ```
 
+The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+![ジョブ間でデータを受け渡して数学を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% else %}
 ![ジョブ間でデータを受け渡して数学を実行するワークフロー](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -51,6 +51,7 @@ macOSでのGitHub Desktopキーボードショートカット
 | <kbd>⌘</kbd><kbd>2</kbd>             | コミット履歴を表示                                                  |
 | <kbd>⌘</kbd><kbd>B</kbd>             | 全てのブランチを表示                                                 |
 | <kbd>⌘</kbd><kbd>G</kbd>             | コミット概要のフィールドに移動                                            |
+| <kbd>⌘</kbd><kbd>Enter</kbd>         | 概要または説明フィールドがアクティブな場合に変更をコミット                              |
 | <kbd>space</kbd>                     | ハイライトされたすべてのファイルを選択または選択解除                                 |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>N</kbd> | 新規ブランチの作成                                                  |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>R</kbd> | 現在ブランチの名前を変更                                               |
@@ -104,6 +105,7 @@ WindowsでのGitHub Desktopキーボードのショートカット
 | <kbd>Ctrl</kbd><kbd>2</kbd>                 | コミット履歴を表示                                                  |
 | <kbd>Ctrl</kbd><kbd>B</kbd>                 | 全てのブランチを表示                                                 |
 | <kbd>Ctrl</kbd><kbd>G</kbd>                 | コミット概要のフィールドに移動                                            |
+| <kbd>Ctrl</kbd><kbd>Enter</kbd>             | 概要または説明フィールドがアクティブな場合に変更をコミット                              |
 | <kbd>space</kbd>                            | ハイライトされたすべてのファイルを選択または選択解除                                 |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>N</kbd> | 新規ブランチの作成                                                  |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>R</kbd> | 現在ブランチの名前を変更                                               |

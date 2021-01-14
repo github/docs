@@ -53,7 +53,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### 集成
 
-通过 API 管理[集成](/early-access/integrations/)。
+通过 API 管理[集成](/v3/integrations)。
 
 **自定义媒体类型：** `machine-man-preview` **公布日期：** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/)
 {% endif %}
