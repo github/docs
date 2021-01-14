@@ -118,7 +118,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
 ```
