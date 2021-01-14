@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplace API 的 web 挂钩事件
-intro: '{% data variables.product.prodname_marketplace %} app 从 Marketplace 购买事件 web 挂钩接收有关用户计划更改的信息。 当用户购买、取消或更改其付款计划时，就会触发 Marketplace 购买事件。 有关如何响应每类事件的详细信息，请参阅“[帐单流程](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)”。'
+intro: '{% data variables.product.prodname_marketplace %} app 从 Marketplace 购买事件 web 挂钩接收有关用户计划更改的信息。 当用户购买、取消或更改其付款计划时，就会触发 Marketplace 购买事件。'
 redirect_from:
   - /apps/marketplace/setting-up-github-marketplace-webhooks/about-webhook-payloads-for-a-github-marketplace-listing/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/

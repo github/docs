@@ -148,7 +148,7 @@ steps:
 
 #### Memorizar dependências
 
-If you are using {% data variables.product.prodname_dotcom %}-hosted runners, the `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
+Se você estiver usando executores hospedados em {% data variables.product.prodname_dotcom %}, as ações do `setup-ruby` fornecem um método para lidar automaticamente com o cache dos seus gems entre as execuções.
 
 Para habilitar o cache, defina o seguinte.
 
@@ -165,7 +165,7 @@ Isso irá configurar o bundler para instalar seus gems em `vendor/cache`. Para c
 
 **Fazer armazenamento em cache sem o setup-ruby**
 
-For greater control over caching, if you are using {% data variables.product.prodname_dotcom %}-hosted runners, you can use the `actions/cache` Action directly. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+Para maior controle sobre o cache, se você estiver usando executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá usar a ação `actions/cache` diretamente. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 
 {% raw %}
 ```yaml

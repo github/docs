@@ -17,7 +17,7 @@ Você não tem qualquer obrigação de escolher uma licença. Entretanto, sem um
 
 {% note %}
 
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other users of {% data variables.product.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
+**Observação:** Se você publicar seu código-fonte em um repositório público em {% data variables.product.product_name %}, {% if currentVersion == "free-pro-team@latest" %}de acordo com os [Termos de Serviço](/articles/github-terms-of-service), {% endif %}outros usuários de {% data variables.product.product_location %} terão o direito de visualizar e bifurcar o seu repositório. Se você já criou um repositório e não quer mais que os usuários tenham acesso a ele, você pode torná-lo privado. Ao alterar a visibilidade de um repositório para privado, as bifurcações existentes ou cópias locais criadas por outros usuários continuarão existindo. Para obter mais informações, consulte "[Configurar visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".
 
 {% endnote %}
 

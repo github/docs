@@ -8,8 +8,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-authors:
-  - GitHub
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,7 +44,7 @@ If you add steps in your workflow to configure the `publishConfig` fields in you
 
 Each time you create a new release, you can trigger a workflow to publish your package. The workflow in the example below runs when the `release` event triggers with type `created`. The workflow publishes the package to the npm registry if CI tests pass.
 
-To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret in your repository settings. For example, create a secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
 By default, npm uses the `name` field of the *package.json* file to determine the npm registry. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `npm-hello-world-test` to the `https://www.npmjs.com/package/npm-hello-world-test`.
 
