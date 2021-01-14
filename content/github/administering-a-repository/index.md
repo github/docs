@@ -33,6 +33,7 @@ versions:
     {% link_in_list /restoring-a-deleted-repository %}
 {% topic_link_in_list /managing-branches-in-your-repository %}
     {% link_in_list /viewing-branches-in-your-repository %}
+    {% link_in_list /renaming-a-branch %}
     {% link_in_list /changing-the-default-branch %}
     {% link_in_list /deleting-and-restoring-branches-in-a-pull-request %}
 {% topic_link_in_list /configuring-pull-request-merges %}
