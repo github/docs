@@ -29,17 +29,10 @@ module.exports = async (req, res, next) => {
     title: product.title
   }
 
-  // drop the version segment so pathParts now starts with /product
-  if (!process.env.FEATURE_REMOVE_FPT) {
+  // if this is not FPT, drop the version segment so pathParts now starts with /product
+  // if this is FPT, there is no version segment so pathParts already starts with /product
+  if (req.context.currentVersion !== nonEnterpriseDefaultVersion) {
     pathParts.shift()
-  }
-
-  if (process.env.FEATURE_REMOVE_FPT) {
-    // if this is not FPT, drop the version segment so pathParts now starts with /product
-    // if this is FPT, there is no version segment so pathParts already starts with /product
-    if (req.context.currentVersion !== nonEnterpriseDefaultVersion) {
-      pathParts.shift()
-    }
   }
 
   if (!pathParts[1]) return next()
