@@ -10,7 +10,7 @@ versions:
 
 ### エディタツール
 
-You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and Visual Studio.
+Atom、Unity、Visual Studio などのサードパーティのエディタツール内で {% data variables.product.product_name %} リポジトリに接続できます。
 
 #### {% data variables.product.product_name %} for Atom
 
@@ -30,12 +30,12 @@ You can connect to {% data variables.product.product_name %} repositories within
 
 ### プロジェクト管理ツール
 
-You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira or Slack.
+{% data variables.product.product_name %} の個人アカウントまたは Organization を Jira や Slack などのサードパーティのプロジェクト管理ツールと統合できます。
 
 #### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
-Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 詳細については、Marketplace の[Jira 統合アプリケーション](https://github.com/marketplace/jira-software-github)にアクセスしてください。
 
-#### Slack and {% data variables.product.product_name %} integration
+#### Slack と {% data variables.product.product_name %} の統合
 
-You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.
+Slack を個人アカウントまたは Organization アカウントと統合して、通知をサブスクライブし、Issue をクローズまたはオープンして、Slack を離れることなく Issue への豊富なリファレンスとプルリクエストを提供できます。 詳細については、Marketplace の[Slack 統合アプリケーション](https://github.com/marketplace/slack-github)にアクセスしてください。

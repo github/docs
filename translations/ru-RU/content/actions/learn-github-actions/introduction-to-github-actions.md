@@ -204,13 +204,18 @@ In this diagram, you can see the workflow file you just created and how the {% d
 
 ### Viewing the job's activity
 
-Once your job has started running, you can view each step's activity on {% data variables.product.prodname_dotcom %}.
+Once your job has started running, you can {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**. ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
 1. In the left sidebar, click the workflow you want to see. ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see. ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the job you want to see. ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
+{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. View the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% elsif currentVersion ver_gt "enterprise-server@2.22" %}
 1. Click on the job name to see the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
 1. Click on the job name to see the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)

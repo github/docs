@@ -4,7 +4,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Entrada em vigor desta versão: 13 de novembro de 2020
+Version Effective Date: December 14, 2020
 
 Quando você cria uma Conta, tem acesso a vários recursos e produtos diferentes que fazem parte do Serviço. Como muitos desses recursos e produtos oferecem diferentes funcionalidades, eles podem exigir termos e condições adicionais específicos para esse recurso ou produto. Abaixo, listamos esses recursos e produtos, juntamente com os termos adicionais correspondentes que se aplicam ao uso deles.
 
@@ -46,13 +46,11 @@ O GitHub Pages está sujeito a limites específicos de uso e largura de banda e 
 ### 5. Ações e Pacotes
 
 #### a. Uso das Ações
-As Ações GitHub permitem criar fluxos de trabalho personalizados do ciclo de vida de desenvolvimento de softwares diretamente no seu repositório GitHub. Cada Conta vem com quantidades de computação e armazenamento incluídas para uso com Ações, dependendo do seu plano de conta, que podem ser encontradas na [documentação de Ações](/actions). O uso de computação de suas Ações está disponível em [suas configurações da sua Conta](https://github.com/settings/billing), e você será notificado por e-mail antes de atingir o limite das quantidades incluídas. Se você deseja usar ações além das quantidades incluídas, poderá [permitir excedentes](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
+GitHub Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-O uso da computação para quantidades incluídas e pagas é calculado em minutos, com base no tipo de Ações que você executa (por exemplo, Linux, Windows, macOS). Os minutos usados ​​para cada trabalho ou tarefa da Ação serão arredondados para o minuto mais próximo. Para quantidades incluídas e dependendo do tipo de Ação, um multiplicador pode ser aplicado à quantidade de tempo usada para executar cada tarefa ou trabalho, antes de ser arredondada para o minuto mais próximo. Minutos excedentes são cobrados na [base de preço por minuto](https://github.com/features/actions) nos tipos de Ações que você executa. Ações e Pacotes compartilham armazenamento e seu uso de armazenamento é mostrado nas [configurações de conta](https://github.com/settings/billing). Para obter informações adicionais sobre os cálculos de uso de quantidade incluída, consulte a [documentação de Ações](/actions).
-
-Ações e quaisquer elementos do serviço de Ação não podem ser usados ​​em violação ao Acordo, à [Política de Uso Aceitável](/github/site-policy/github-acceptable-use-policies), ou às [limitações de serviço](/actions/reference/usage-limits-billing-and-administration/#usage-limits) das Ações do GitHub. Além disso, as Ações não devem ser usadas para:
+Actions and any elements of the Actions service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions). Além disso, as Ações não devem ser usadas para:
 - mineração de criptomoedas;
-- usar nossos servidores para interromper ou ganhar ou tentar ganhar acesso não autorizado a qualquer serviço, dispositivo, dados, conta ou rede (a menos que autorizado pelo [programa GitHub Bug Bounty](https://bounty.github.com))
+- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
 - fornecimento de um aplicativo ou serviço independente ou integrado que ofereça Ações ou quaisquer elementos de Ações para fins comerciais;
 - qualquer atividade que coloque um peso em nossos servidores, em que esse peso é desproporcional aos benefícios oferecidos aos usuários (por exemplo, não usar Ações como uma rede de entrega de conteúdo ou como parte de um aplicativo sem servidor, mas uma Ação de baixo benefício pode ser realizada se também tiver um peso baixo); ou
 - qualquer outra atividade não relacionada à produção, teste, implantação ou publicação do projeto de software associado ao repositório onde as Ações do GitHub são usadas.
@@ -60,16 +58,7 @@ Ações e quaisquer elementos do serviço de Ação não podem ser usados ​​
 Para evitar violações dessas limitações e abuso de Ações do GitHub, o GitHub pode monitorar seu uso das Ações do GitHub. O uso indevido de Ações do GitHub pode resultar no encerramento de trabalhos ou restrições na sua capacidade de usar as Ações do GitHub.
 
 #### b. Uso do pacotes
-Os Pacotes GitHub podem ser usados ​​para baixar, publicar e gerenciar pacotes de Conteúdo. Cada plano de Conta vem com uma largura de banda e quantidade de armazenamento incluídos para o uso com Pacotes, que podem ser encontrados na [documentação dos Pacotes](/github/managing-packages-with-github-package-registry/about-github-package-registry). Ações e Pacotes compartilham o armazenamento entre dois recursos de Serviço. O armazenamento e o uso da largura de banda são exibidos dentro de suas [configurações de conta](https://github.com/settings/billing), e você será notificado por e-mail antes de atingir o limite de suas quantidades incluídas. Se você quiser usar Pacotes além de suas quantidades de largura de banda e armazenamento incluídos, então você pode [permitir excedentes](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages).
-
-O uso da largura de banda é calculado com base na quantidade de dados transferidos de seus repositórios por meio de Pacotes, mas as transferências de pacote por meio de Ações não contarão para suas quantidades incluídas ou pagas. O uso da largura de banda dos pacotes é limitado pela [Política de Uso Aceitável](/github/site-policy/github-acceptable-use-policies#7-excessive-bandwidth-use), e a quantidade de largura de banda incluída é determinada por seu [plano de Conta](https://github.com/pricing).
-
-O uso de armazenamento pelas Ações e Pacotes é compartilhado entre os dois recursos de Serviço. O uso do armazenamento é calculado como uma média ponderada ao longo do mês e não é redefinido a cada mês. Os repositórios públicos e privados têm diferentes quantidades de armazenamento incluídas, e as quantidades incluídas para repositórios privados dependem de seu [plano de Conta](https://github.com/pricing).
-
-#### c. Pagamento e Faturamento para Ações e Pacotes
-O faturamento de Ações e Pacotes é baseado no uso. Quantidades adicionais de Ações ou Pacotes não podem ser adquiridos separadamente.  Para clientes com cobrança mensal, é necessário ter um método de pagamento registrado para optar por pagar por quantidades adicionais desses recursos do Serviço. Você será cobrado mensalmente, com base no seu uso no mês anterior, a menos que seja cobrado por fatura. Para clientes faturados, você deve pagar as taxas no prazo de trinta (30) dias a contar da data da fatura do GitHub. Para os clientes que pagam antecipadamente os excedentes dos recursos de Serviço, os minutos pré-pagos não utilizados não serão transferidos para o próximo período de cobrança e não serão reembolsados.
-
-Você pode definir um limite mensal de gastos em suas [configurações de conta](https://github.com/settings/billing/cost_management). Você será notificado por e-mail antes de atingir o limite das quantidades incluídas e o limite de gastos designado das suas quantidades adicionais pagas.
+GitHub Packages is billed on a usage basis. The [Packages documentation](/packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/github/site-policy/github-acceptable-use-policies).
 
 ### 6. Learning Lab
 
@@ -108,3 +97,13 @@ Precisamos do direito de submeter suas contribuições para o Banco de Dados Con
 #### b. Licença para o Banco de Dados Consultivo GitHub
 
 O Banco de Dados Consultivo GitHub está licenciado sob a [licença 4.0 Creative Commons Attribution](https://creativecommons.org/licenses/by/4.0/). O termo de atribuição pode ser cumprido linkando para o Banco de Dados Consultivo do GitHub em <https://github.com/advisories> ou para registros individuais do Banco de Dados Consultivo do GitHub usado e prefixado por <https://github.com/advisories>.
+
+### 13. GitHub Enterprise Server
+
+#### a. SQL Server Images
+
+You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. A Microsoft Corporation pode desativar o SQL Server Images a qualquer momento.
+
+#### b. Third-party components
+
+O Software inclui componentes licenciados para o GitHub por terceiros, como programas de software cujas licenças exigem que o GitHub disponibilize o código-fonte desses componentes, que será fornecido mediante solicitação.

@@ -59,7 +59,11 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+1. Under **Jobs** or in the visualization graph, click the **Lint code base** job. ![Lint コードベースジョブ](/assets/images/help/repository/superlinter-lint-code-base-job-updated.png)
+{% else %}
 1. 左サイドバーで、[**Lint code base**] をクリックします。 ![Lint コードベースジョブ](/assets/images/help/repository/superlinter-lint-code-base-job.png)
+{% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
 ### その他のスターターワークフロー
@@ -101,7 +105,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
     # When the event is triggered, GitHub Actions will run the jobs indicated
     jobs:
       say_hello:
-        # Uses a ubuntu-lates runner to complete the requested steps
+        # Uses a ubuntu-latest runner to complete the requested steps
         runs-on: ubuntu-latest
         steps:
         - run: |

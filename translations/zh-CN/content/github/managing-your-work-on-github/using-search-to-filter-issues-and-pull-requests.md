@@ -25,6 +25,7 @@ versions:
 - 过滤涉及但不一定[**@提及**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)的特定人员的议题和拉取请求：`state:open type:issue involves:octocat`
 - 按受理人过滤议题和拉取请求：`state:open type:issue assignee:octocat`
 - 按标签过滤议题和拉取请求：`state:open type:issue label:"bug"`
+- Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 对于议题，您还可以使用搜索来：

@@ -1,5 +1,6 @@
 ---
 title: Amendment to GitHub Terms of Service Applicable to U.S. Federal Government Users
+hidden: true
 redirect_from:
   - /articles/amendment-to-github-terms-of-service-applicable-to-government-users/
   - /articles/proposed-amendment-to-github-terms-of-service-applicable-to-u-s-federal-government-users/
@@ -8,6 +9,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
 ---
+
+_These terms apply to Customers who licensed the Products prior to January 4, 2021._
 
 {% tip %}
 

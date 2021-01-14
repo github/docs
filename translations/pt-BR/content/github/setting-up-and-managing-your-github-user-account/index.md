@@ -14,6 +14,7 @@ versions:
 
 {% topic_link_in_list /managing-user-account-settings %}
     {% link_in_list /about-your-personal-dashboard %}
+    {% link_in_list /managing-your-theme-settings %}
     {% link_in_list /changing-your-github-username %}
     {% link_in_list /merging-multiple-user-accounts %}
     {% link_in_list /converting-a-user-into-an-organization %}

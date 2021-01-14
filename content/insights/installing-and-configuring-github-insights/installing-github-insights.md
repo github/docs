@@ -108,4 +108,4 @@ To configure {% data variables.product.prodname_insights %} to connect to {% dat
 ### Further reading
 
 - "[Managing repositories](/insights/installing-and-configuring-github-insights/managing-repositories)"
-- "[{% data variables.product.prodname_insights %} and data protection for your organization](/github/site-policy/github-insights-and-data-protection-for-your-organization)"
+- "<a href="/github/site-policy/github-insights-and-data-protection-for-your-organization" class="dotcom-only">{% data variables.product.prodname_insights %} and data protection for your organization</a>"

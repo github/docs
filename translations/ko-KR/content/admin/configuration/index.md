@@ -31,9 +31,7 @@ versions:
     {% link_in_list /enabling-private-mode %}
     {% link_in_list /configuring-email-for-notifications %}
     {% link_in_list /configuring-rate-limits %}
-<!-- if currentVersion ver_gt "enterprise-server@2.15" -->
     {% link_in_list /configuring-applications %}
-<!-- endif -->
     {% link_in_list /troubleshooting-ssl-errors %}
     {% link_in_list /configuring-time-synchronization %}
     {% link_in_list /command-line-utilities %}
@@ -54,11 +52,7 @@ versions:
     {% link_in_list /connecting-github-enterprise-server-to-github-enterprise-cloud %}
     {% link_in_list /enabling-unified-search-between-github-enterprise-server-and-githubcom %}
     {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %}
-<!-- if currentVersion ver_gt "enterprise-server@2.16" -->
     {% link_in_list /enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server %}
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
-<!-- endif -->
-<!-- if currentVersion ver_gt "enterprise-server@2.21" -->
 {% topic_link_in_list /configuring-advanced-security-features %}
     {% link_in_list /configuring-code-scanning-for-your-appliance %}
-<!-- endif -->

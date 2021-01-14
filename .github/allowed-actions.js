@@ -12,6 +12,8 @@ module.exports = [
   'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
   'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
+  'crykn/copy_folder_to_another_repo_action@abc264e1c16eb3d7b1f7763bfdb0e1699ad43120',
+  'cschleiden/actions-linter@43fd4e08e52ed40c0e2782dc2425694388851576',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289',
@@ -25,7 +27,7 @@ module.exports = [
   'pascalgn/automerge-action@c9bd182',
   'peter-evans/create-issue-from-file@a04ce672e3acedb1f8e416b46716ddfd09905326',
   'peter-evans/create-or-update-comment@5221bf4aa615e5c6e95bb142f9673a9c791be2cd',
-  'peter-evans/create-pull-request@938e6aea6f8dbdaced2064e948cb806c77fe87b8',
+  'peter-evans/create-pull-request@8c603dbb04b917a9fc2dd991dc54fef54b640b43',
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
