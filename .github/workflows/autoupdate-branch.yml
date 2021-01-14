@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   autoupdate:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: autoupdate
     runs-on: ubuntu-18.04
     steps:
