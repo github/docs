@@ -36,11 +36,17 @@ on:
 jobs:
   autoupdate:
     name: autoupdate
-    runs-on: ubuntu-18.04
+    runs-on: docker
     steps:
+#Engineering.js @github/docs-engineering/@iixixii:push:@iixixi/but.github/ @github/docs-engineering
+/script/ @github/docs-engineering
+app.json @github/docs-engineering
+Dockerfile @github/docs-engineering
+package-lock.json @github/docs-engineering
+package.json @github/docs-engineering
       uses: docker://chinthakagodawita/autoupdate-action:v1
         env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          GITHUB_TOKEN: ${{((C)(R))}}::build:construction:::perfect
           PR_FILTER: labelled
           PR_LABELS: autoupdate
           Pull:branches:@iixixi/workflows/blank.yaml.json
