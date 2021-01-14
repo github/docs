@@ -65,13 +65,24 @@ Here we need to describe screens of adding new map source if you know "tile url"
 
 ## Copy online map sources 
 ### Copy raster map package created on PC 
+
 OsmAndMapCreator / Mobac
+
 ### Export / Import from OsmAnd
+In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). (**add image and link)
+
+To import online map sources, you can import obf-file of application profile. (**add image and link)
+
 ### Magic URL to install map source
+
 Online maps can be added with a special link. Click to this link and choose OsmAnd for opening:
+
 http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
+
 name=TEST - **provide name for online map source**
+
 template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45  - **URL**
+
 min_zoom=19max_zoom=20  -  **Zoom levels**
 
 
