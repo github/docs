@@ -106,10 +106,16 @@ steps:
     uses: actions/cache@v2
     with:
       path: ~/.gradle/caches
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+      # Use the Gradle version in the 'gradle-wrapper.properties' as a cache key. Invalidate caches when Gradle version changes
+      key: ${{ runner.os }}-gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
       restore-keys: ${{ runner.os }}-gradle
   - name: Build with Gradle
     run: ./gradlew build
+  - name: Cleanup Gradle Cache
+    # Clean up the Gradle caches before being cached by the Cache Action
+    run: |
+      rm -f ~/.gradle/caches/modules-2/modules-2.lock
+      rm -f ~/.gradle/caches/modules-2/gc.properties
 ```
 {% endraw %}
 
