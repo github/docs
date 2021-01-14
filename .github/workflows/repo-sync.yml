@@ -26,6 +26,7 @@ jobs:
           exit 1 # prevents further steps from running
 
   repo-sync:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: Repo Sync
     needs: check-freezer
     runs-on: ubuntu-latest
