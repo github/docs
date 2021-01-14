@@ -9,15 +9,17 @@ const explorerUrl = process.env.NODE_ENV === 'production'
   : 'http://localhost:3000'
 
 module.exports = async (req, res, next) => {
+  const currentVersionObj = allVersions[req.context.currentVersion]
   // ignore requests to non-GraphQL reference paths
-  if (!req.path.includes('/graphql/')) return next()
-  if (!allVersions[req.context.currentVersion]) return next()
-
+  // and to versions that don't exist
+  if (!req.path.includes('/graphql/') || !currentVersionObj) {
+    return next()
+  }
   // Get the relevant name of the GraphQL schema files for the current version
   // For example, free-pro-team@latest corresponds to dotcom,
   // enterprise-server@2.22 corresponds to ghes-2.22,
   // and github-ae@latest corresponds to ghae
-  const graphqlVersion = allVersions[req.context.currentVersion].miscVersionName
+  const graphqlVersion = currentVersionObj.miscVersionName
 
   req.context.graphql = {
     schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${graphqlVersion}`),

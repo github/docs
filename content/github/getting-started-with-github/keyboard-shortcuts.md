@@ -159,6 +159,10 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>command + space </kbd> or <kbd>control + space</kbd> | In the workflow editor, get suggestions for your workflow file.
+|<kbd>g</kbd> <kbd>f</kbd> | Go to the workflow file
+|<kbd>shift + t</kbd> or <kbd>T</kbd> | Toggle timestamps in logs
+|<kbd>shift + f</kbd> or <kbd>F</kbd> | Toggle fullscreen logs
+|<kbd>esc</kbd> | Exit fullscreen logs
 
 {% endif %}
 
