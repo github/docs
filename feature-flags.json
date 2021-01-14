@@ -1,5 +1,4 @@
 {
   "FEATURE_TEST_TRUE": true,
-  "FEATURE_TEST_FALSE": false,
-  "FEATURE_REMOVE_FPT": false
+  "FEATURE_TEST_FALSE": false
 }
