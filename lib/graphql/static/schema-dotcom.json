@@ -935,6 +935,40 @@
       ]
     },
     {
+      "name": "addEnterpriseSupportEntitlement",
+      "kind": "mutations",
+      "id": "addenterprisesupportentitlement",
+      "href": "/graphql/reference/mutations#addenterprisesupportentitlement",
+      "description": "<p>Adds a support entitlement to an enterprise member.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddEnterpriseSupportEntitlementInput!",
+          "id": "addenterprisesupportentitlementinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addenterprisesupportentitlementinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of adding the support entitlement.</p>"
+        }
+      ]
+    },
+    {
       "name": "addLabelsToLabelable",
       "kind": "mutations",
       "id": "addlabelstolabelable",
@@ -3464,6 +3498,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#user",
           "description": "<p>The viewer performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "removeEnterpriseSupportEntitlement",
+      "kind": "mutations",
+      "id": "removeenterprisesupportentitlement",
+      "href": "/graphql/reference/mutations#removeenterprisesupportentitlement",
+      "description": "<p>Removes a support entitlement from an enterprise member.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveEnterpriseSupportEntitlementInput!",
+          "id": "removeenterprisesupportentitlementinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#removeenterprisesupportentitlementinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of removing the support entitlement.</p>"
         }
       ]
     },
@@ -6158,6 +6226,214 @@
           "href": "/graphql/reference/objects#user",
           "isDeprecated": true,
           "deprecationReason": "<p>Assignees can now be mannequins. Use the <code>assignee</code> field instead. Removal on 2020-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeDisabledEvent",
+      "kind": "objects",
+      "id": "automergedisabledevent",
+      "href": "/graphql/reference/objects#automergedisabledevent",
+      "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "disabler",
+          "description": "<p>The user who disabled auto-merge for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        },
+        {
+          "name": "reason",
+          "description": "<p>The reason auto-merge was disabled.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "reasonCode",
+          "description": "<p>The reason_code relating to why auto-merge was disabled.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "AutoMergeEnabledEvent",
+      "kind": "objects",
+      "id": "automergeenabledevent",
+      "href": "/graphql/reference/objects#automergeenabledevent",
+      "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoRebaseEnabledEvent",
+      "kind": "objects",
+      "id": "autorebaseenabledevent",
+      "href": "/graphql/reference/objects#autorebaseenabledevent",
+      "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge (rebase) for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "AutoSquashEnabledEvent",
+      "kind": "objects",
+      "id": "autosquashenabledevent",
+      "href": "/graphql/reference/objects#autosquashenabledevent",
+      "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabler",
+          "description": "<p>The user who enabled auto-merge (squash) for this Pull Request.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>PullRequest referenced by event.</p>",
+          "type": "PullRequest",
+          "id": "pullrequest",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pullrequest"
         }
       ]
     },
@@ -15705,6 +15981,66 @@
                 "id": "identityproviderconfigurationstate",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#identityproviderconfigurationstate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "supportEntitlements",
+          "description": "<p>A list of members with a support entitlement.</p>",
+          "type": "EnterpriseMemberConnection!",
+          "id": "enterprisememberconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprisememberconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for support entitlement users returned from the connection.</p>",
+              "type": {
+                "name": "EnterpriseMemberOrder",
+                "id": "enterprisememberorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterprisememberorder"
               }
             }
           ]
@@ -57146,6 +57482,10 @@
         {
           "name": "REQUESTED",
           "description": "<p>The check suite or run has been requested.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
         }
       ]
     },
@@ -59100,6 +59440,22 @@
           "description": "<p>Represents a<code>automatic_base_change_succeeded</code>event on a given pull request.</p>"
         },
         {
+          "name": "AUTO_MERGE_DISABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_disabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_MERGE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_merge_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_REBASE_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_rebase_enabled</code>event on a given pull request.</p>"
+        },
+        {
+          "name": "AUTO_SQUASH_ENABLED_EVENT",
+          "description": "<p>Represents a<code>auto_squash_enabled</code>event on a given pull request.</p>"
+        },
+        {
           "name": "BASE_REF_CHANGED_EVENT",
           "description": "<p>Represents a<code>base_ref_changed</code>event on a given issue or pull request.</p>"
         },
@@ -59855,6 +60211,10 @@
         {
           "name": "QUEUED",
           "description": "<p>The check suite or run has been queued.</p>"
+        },
+        {
+          "name": "WAITING",
+          "description": "<p>The check suite or run is in waiting state.</p>"
         }
       ]
     },
@@ -61281,7 +61641,7 @@
       "kind": "unions",
       "id": "pullrequesttimelineitem",
       "href": "/graphql/reference/unions#pullrequesttimelineitem",
-      "description": "<p>An item in an pull request timeline.</p>",
+      "description": "<p>An item in a pull request timeline.</p>",
       "possibleTypes": [
         {
           "name": "AssignedEvent",
@@ -61466,6 +61826,26 @@
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
+        },
+        {
+          "name": "AutoMergeDisabledEvent",
+          "id": "automergedisabledevent",
+          "href": "/graphql/reference/objects#automergedisabledevent"
+        },
+        {
+          "name": "AutoMergeEnabledEvent",
+          "id": "automergeenabledevent",
+          "href": "/graphql/reference/objects#automergeenabledevent"
+        },
+        {
+          "name": "AutoRebaseEnabledEvent",
+          "id": "autorebaseenabledevent",
+          "href": "/graphql/reference/objects#autorebaseenabledevent"
+        },
+        {
+          "name": "AutoSquashEnabledEvent",
+          "id": "autosquashenabledevent",
+          "href": "/graphql/reference/objects#autosquashenabledevent"
         },
         {
           "name": "AutomaticBaseChangeFailedEvent",
@@ -62029,6 +62409,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddEnterpriseSupportEntitlementInput",
+      "kind": "inputObjects",
+      "id": "addenterprisesupportentitlementinput",
+      "href": "/graphql/reference/input-objects#addenterprisesupportentitlementinput",
+      "description": "<p>Autogenerated input type of AddEnterpriseSupportEntitlement.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the Enterprise which the admin belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of a member who will receive the support entitlement.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -66354,6 +66768,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "RemoveEnterpriseSupportEntitlementInput",
+      "kind": "inputObjects",
+      "id": "removeenterprisesupportentitlementinput",
+      "href": "/graphql/reference/input-objects#removeenterprisesupportentitlementinput",
+      "description": "<p>Autogenerated input type of RemoveEnterpriseSupportEntitlement.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the Enterprise which the admin belongs to.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "login",
+          "description": "<p>The login of a member who will lose the support entitlement.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
