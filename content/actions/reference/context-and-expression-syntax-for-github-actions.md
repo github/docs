@@ -75,6 +75,10 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
+#### Determining when to use contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
 #### `github` context
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
