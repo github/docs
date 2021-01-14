@@ -100,7 +100,9 @@ In addition to managing organization-level settings, organization owners have ad
 | Make a repository a template (see "[Creating a template repository](/articles/creating-a-template-repository)") | | | | | **X** |
 | Change a repository's settings | | | | | **X** |
 | Manage team and collaborator access to the repository | | | | | **X** |
-| Edit the repository's default branch | | | | | **X** |
+| Edit the repository's default branch | | | | | **X** |{% if currentVersion == "free-pro-team@latest" %}
+| Rename the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | | | **X** |
+| Rename a branch other than the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | **X** | **X** | **X** |{% endif %}
 | Manage webhooks and deploy keys | | | | | **X** |{% if currentVersion == "free-pro-team@latest" %}
 | [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository | | | | | **X** |
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository | | | | | **X** |
