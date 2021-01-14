@@ -24,14 +24,14 @@ describe('siteTree', () => {
   test('object order', () => {
     expect(Object.keys(siteTree)[0]).toBe('en')
     expect(Object.keys(siteTree.en)[0]).toBe(nonEnterpriseDefaultVersion)
-    expect(Object.keys(siteTree.en[nonEnterpriseDefaultVersion].products.github.categories)[0]).toBe(`/en/github/getting-started-with-github`)
+    expect(Object.keys(siteTree.en[nonEnterpriseDefaultVersion].products.github.categories)[0]).toBe('/en/github/getting-started-with-github')
   })
 
   test('object structure', () => {
     expect(nonEnterpriseDefaultVersion in siteTree.en).toBe(true)
     expect(`enterprise-server@${latestEnterpriseRelease}` in siteTree.en).toBe(true)
-    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.href`]).toBe(`/en/github`)
-    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/github/getting-started-with-github.href`]).toBe(`/en/github/getting-started-with-github`)
+    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.href`]).toBe('/en/github')
+    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/github/getting-started-with-github.href`]).toBe('/en/github/getting-started-with-github')
   })
 
   describe('localized titles', () => {
