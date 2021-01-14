@@ -123,7 +123,7 @@ jobs:
 
 #### Using a specific Python version
 
-You can configure a specific version of python. For example, 3.8. Alternatively, you can semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
+You can configure a specific version of python. For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
 {% raw %}
 ```yaml
