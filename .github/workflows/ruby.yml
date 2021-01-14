@@ -1,15 +1,15 @@
 #:Run:
 Jobs:
 Steps:
-Command:Build:((c))((R))
-Type:gemfile
-name:bitcoin
-Runs-on:Nodepackage.js
+Command: Build: token: ((C))((R)).gemfile
+Type: rake.uifile
+name: bitore
+Runs-on: @my'"username''/Repository/workflows/✨.json
 Request:
 Launch: 
-Bundler:python.js
+Bundle: with: python.js
   push:@iixixi/ZachryTylerWood/.github/workflows/
-    branches:[ mainbranch ]
+    branches: [ mainbranch ]
   pull_request:
     branches:[ trunk ]
 jobs:
@@ -28,7 +28,7 @@ steps:uses:actions:checkout@iixixi/iixixi
       run: bundle install
 name: Run tests
 run: bundle exec rake
-name:autoupdate branch
+name: autoupdate branch
 on:
   push:
     branches:
@@ -43,7 +43,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           PR_FILTER: labelled
           PR_LABELS: autoupdate
-          Pull: iixixi/✨Engineering
-          MERGE_MSG: "iixixi/✨Engineering
+          Request:Pull: @iixixii
+Request:
+Push:'"to'"@iixixi
 Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
 Return:#:Run
