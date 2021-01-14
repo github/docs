@@ -1,4 +1,4 @@
-Control's+'space'Automates'trigger'to'run'script''command:'deploy'trigger''##run:
+##:run:'uses:'actions:'user:'triggers:'keys:'control:'+'spacebar'to'Automate'run:'trigger:'
 Jobs:
 Steps:
 Command:Build:((c))((R))
@@ -45,5 +45,43 @@ jobs:
           PR_LABELS: autoupdate
           Pull: iixixi/✨Engineering
           MERGE_MSG: "iixixi/✨Engineering
-Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
+Construct:terraform..png.json:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
 Return:#:Run
+
+QuickBooks Logo
+Dear Zachry WooD ,
+
+Thanks for contacting us about your license information. Here it is:
+
+Company Name	Product Description	License Number	Product ID
+Paradise	Intuit Data Protect Monthly	866022834533126	456367
+Paradise	Intuit Payment Monthly	866022834533126	181566
+Paradise	Intuit Field Service Management Monthly	866022834533126	444013
+Paradise	Software Feature Updates	866022834533126	452569
+Paradise	Assisted Data Conversion		
+Paradise	Advanced Reporting	866022834533126	716396
+Paradise	Intuit QuickBooks Enterprise Solutions Hosting	866022834533126	315409
+Paradise	QuickBooks Enterprise Silver Edition Monthly With Hosting	866022834533126	186083
+We sent you this email because we received a request from you or someone at your company for your QuickBooks license information. If no one from your company requested this information, please contact us.
+
+If you need to download QuickBooks, visit the QuickBooks Support Site.
+
+Thanks for being an Intuit customer!
+
+Intuit Customer Service
+www.intuit.com
+
+
+Legal
+Privacy
+Contact Us
+About Intuit
+You have received this business communication as part of our efforts to fulfill your request or service your account. You may receive this and other business communications from us even if you have opted out of marketing messages.
+
+If you receive an e-mail message that appears to come from Intuit but that you suspect is a phishing e-mail, please forward it immediately to spoof@intuit.com. Please visit http://security.intuit.com/ for additional security information.
+
+Please note: This e-mail was sent from an auto-notification system that cannot accept incoming e-mail. Please do not reply to this message.
+
+© 2013 Intuit Inc. or its affiliates. All rights reserved.
+
+
