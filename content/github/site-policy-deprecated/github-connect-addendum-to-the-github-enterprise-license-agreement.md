@@ -4,6 +4,7 @@ hidden: true
 redirect_from:
   - /articles/github-com-connection-addendum-to-the-github-enterprise-license-agreement/
   - /articles/github-connect-addendum-to-the-github-enterprise-license-agreement
+  - /github/site-policy/github-connect-addendum-to-the-github-enterprise-license-agreement
 versions:
   free-pro-team: '*'
 ---
