@@ -17,7 +17,7 @@ sections:
           - Users now have the ability to [disable workflows and enable them at a later date](/enterprise-server@3.0/actions/managing-workflow-runs/disabling-and-enabling-a-workflow).
           - Workflow logs have been enhanced for a [better user experience](/enterprise-server@3.0/actions/managing-workflow-runs/using-workflow-run-logs).
           - Users can now use private images in container jobs and services.
-          - The max retention days for [artifacts and logs can now be customized](/free-pro-team@latest/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account).
+          - The max retention days for [artifacts and logs can now be customized](/enterprise-server@3.0/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account).
           - The runner group API now includes [labels](/enterprise-server@3.0/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners).
           - You can now create reusable actions using shell scripts with compose run steps.
           - [Encrypted secrets for an organization](/enterprise-server@3.0/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization) allows you to consolidate secrets across repositories.
@@ -133,7 +133,7 @@ sections:
     - After removing oneself as an Enterprise Owner, you are redirected to a 404 page. The operation is successful.
     - '`ghe-config-apply` occassionally fails with `ERROR: Failure waiting for nomad jobs to apply` until the Nomad job queue is cleared. This currently requires as admin to delete `/etc/nomad-jobs/queue`.'
     - When configuring a multiple replica node, the status of the replica can be incorrectly synchronized.
-    - Customers attempting to restore a 3.0 backup to a new instance should not pre-configure the instance, as it may lead to a bad state for user logins. We recommen restoring to a fresh, unconfigured instance.
+    - Customers attempting to restore a 3.0 backup to a new instance should not pre-configure the instance, as it may lead to a bad state for user logins. We recommend restoring to a fresh, unconfigured instance.
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.0 requires at least [GitHub Enterprise Backup Utilities 3.0.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance).'
