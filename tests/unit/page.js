@@ -315,6 +315,7 @@ describe('Page class', () => {
       const context = {
         currentLanguage: 'en',
         currentProduct: 'snowbird',
+        currentVersion: nonEnterpriseDefaultVersion,
         site: {
           data: {
             'learning-tracks': {
