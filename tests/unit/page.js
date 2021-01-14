@@ -431,7 +431,7 @@ describe('Page class', () => {
 })
 
 describe('catches errors thrown in Page class', () => {
-  test('frontmatter parsing error', () => {
+  test('frontmatter parsing error', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'page-with-frontmatter-error.md',
@@ -440,10 +440,10 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError('invalid frontmatter entry')
+    await expect(getPage).rejects.toThrowError('invalid frontmatter entry')
   })
 
-  test('missing versions frontmatter', () => {
+  test('missing versions frontmatter', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'page-with-missing-product-versions.md',
@@ -452,10 +452,10 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError('versions')
+    await expect(getPage).rejects.toThrowError('versions')
   })
 
-  test('English page with a version in frontmatter that its parent product is not available in', () => {
+  test('English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
@@ -467,7 +467,7 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 
-  test('non-English page with a version in frontmatter that its parent product is not available in', () => {
+  test('non-English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
@@ -476,6 +476,6 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+    await expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 })
