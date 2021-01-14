@@ -882,6 +882,120 @@ enum AuditLogOrderField {
 }
 
 """
+Represents a 'auto_merge_disabled' event on a given pull request.
+"""
+type AutoMergeDisabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who disabled auto-merge for this Pull Request
+  """
+  disabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event
+  """
+  pullRequest: PullRequest
+
+  """
+  The reason auto-merge was disabled
+  """
+  reason: String
+
+  """
+  The reason_code relating to why auto-merge was disabled
+  """
+  reasonCode: String
+}
+
+"""
+Represents a 'auto_merge_enabled' event on a given pull request.
+"""
+type AutoMergeEnabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who enabled auto-merge for this Pull Request
+  """
+  enabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+}
+
+"""
+Represents a 'auto_rebase_enabled' event on a given pull request.
+"""
+type AutoRebaseEnabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who enabled auto-merge (rebase) for this Pull Request
+  """
+  enabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+}
+
+"""
+Represents a 'auto_squash_enabled' event on a given pull request.
+"""
+type AutoSquashEnabledEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The user who enabled auto-merge (squash) for this Pull Request
+  """
+  enabler: User
+  id: ID!
+
+  """
+  PullRequest referenced by event.
+  """
+  pullRequest: PullRequest
+}
+
+"""
 Represents a 'automatic_base_change_failed' event on a given pull request.
 """
 type AutomaticBaseChangeFailedEvent implements Node {
@@ -2057,6 +2171,11 @@ enum CheckStatusState {
   The check suite or run has been requested.
   """
   REQUESTED
+
+  """
+  The check suite or run is in waiting state.
+  """
+  WAITING
 }
 
 """
@@ -22250,7 +22369,7 @@ type PullRequestTimelineConnection {
 }
 
 """
-An item in an pull request timeline
+An item in a pull request timeline
 """
 union PullRequestTimelineItem = AssignedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
 
@@ -22272,7 +22391,7 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -22352,6 +22471,26 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'automatic_base_change_succeeded' event on a given pull request.
   """
   AUTOMATIC_BASE_CHANGE_SUCCEEDED_EVENT
+
+  """
+  Represents a 'auto_merge_disabled' event on a given pull request.
+  """
+  AUTO_MERGE_DISABLED_EVENT
+
+  """
+  Represents a 'auto_merge_enabled' event on a given pull request.
+  """
+  AUTO_MERGE_ENABLED_EVENT
+
+  """
+  Represents a 'auto_rebase_enabled' event on a given pull request.
+  """
+  AUTO_REBASE_ENABLED_EVENT
+
+  """
+  Represents a 'auto_squash_enabled' event on a given pull request.
+  """
+  AUTO_SQUASH_ENABLED_EVENT
 
   """
   Represents a 'base_ref_changed' event on a given issue or pull request.
@@ -28941,6 +29080,11 @@ enum RequestableCheckStatusState {
   The check suite or run has been queued.
   """
   QUEUED
+
+  """
+  The check suite or run is in waiting state.
+  """
+  WAITING
 }
 
 """

@@ -9,13 +9,19 @@ versions:
   free-pro-team: '*'
 ---
 
-在组织中启用受限制的电子邮件通知后，成员只能在与组织经验证域关联的电子邮件地址接收有关组织活动的电子邮件通知。 更多信息请参阅“[验证组织的域](/articles/verifying-your-organization-s-domain)”。
+### About email restrictions
+
+When restricted email notifications are enabled in an organization, members can only use an email address associated with the organization's verified domains to receive email notifications about organization activity. 更多信息请参阅“[验证组织的域](/articles/verifying-your-organization-s-domain)”。
 
 外部协作者不受限于已验证域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)”。
+
+If your organization is owned by an enterprise account, organization members will be able to receive notifications from any domains verified for the enterprise account, in addition to any domains verified for the organization. For more information, see "[Verifying your enterprise account's domain](/github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain)."
+
+### 将电子邮件通知限于已批准的域
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.verified-domains %}
-5. 在“Enforcement preferences（强制执行首选项）”下，选择 **Restrict email notifications to domain email（将电子邮件通知限制为域电子邮件）**。 ![将电子邮件通知限制为经验证域电子邮件的复选框](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)
+{% data reusables.organizations.restrict-email-notifications %}
 6. 单击 **Save（保存）**。

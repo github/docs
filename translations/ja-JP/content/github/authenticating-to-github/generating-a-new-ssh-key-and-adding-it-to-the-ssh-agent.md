@@ -126,8 +126,8 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 1. ssh-agent が実行されていることを確認します. 「[SSH キーパスフレーズで操作する](/articles/working-with-ssh-key-passphrases)」の「ssh-agent を自動起動する」の手順を使用するか、手動で開始できます。
   ```shell
-  # ssh-agent をバックグラウンドで起動
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

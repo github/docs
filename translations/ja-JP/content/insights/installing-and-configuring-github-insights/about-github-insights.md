@@ -20,7 +20,7 @@ versions:
 
 ### サポートへの連絡
 
-{% data variables.contact.github_support %}から{% data variables.product.prodname_insights %}に関するサポートを受けることができます。 For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Submitting a ticket](/github/working-with-github-support/submitting-a-ticket)."{% else %}"[Reaching {% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support)."{% endif %}
+{% data variables.contact.github_support %}から{% data variables.product.prodname_insights %}に関するサポートを受けることができます。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" %}「[チケットのサブミット](/github/working-with-github-support/submitting-a-ticket)」「{% else %}"[{% data variables.contact.github_support %}](/enterprise/{{ currentVersion }}/admin/enterprise-support/reaching-github-support) への連絡」{% endif %}を参照してください。
 
 ### 参考リンク
 

@@ -5,11 +5,11 @@ versions:
   free-pro-team: '*'
 ---
 
-### About webhooks for events in your sponsored account
+### Sobre webhooks para eventos da sua conta patrocinada
 
-Para monitorar as alterações de seus patrocínios, como os cancelamentos no final de um período de pagamento, você pode criar webhooks para sua conta de usuário ou organização patrocinada. When you set up a webhook for your sponsored account, you'll receive updates when sponsorships are created, edited, or deleted. Para obter mais informações, consulte o [`evento de patrocínio` de webhook](/webhooks/event-payloads/#sponsorship).
+Para monitorar as alterações de seus patrocínios, como os cancelamentos no final de um período de pagamento, você pode criar webhooks para sua conta de usuário ou organização patrocinada. Ao configurar um webhook para sua conta patrocinada, você receberá atualizações quando patrocinadores forem criados, editados ou excluídos. Para obter mais informações, consulte o [`evento de patrocínio` de webhook](/webhooks/event-payloads/#sponsorship).
 
-### Managing webhooks for events in your sponsored account
+### Gerenciando webhooks para eventos na sua conta patrocinada
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-webhooks-tab %}
