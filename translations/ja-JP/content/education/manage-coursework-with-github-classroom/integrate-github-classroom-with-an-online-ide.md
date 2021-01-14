@@ -39,4 +39,4 @@ For all repositories, grant the app **read** access to metadata, administration,
 
 ### 参考リンク
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- [READMEについて](/github/creating-cloning-and-archiving-repositories/about-readmes)

@@ -36,7 +36,7 @@ Se tiver habilitado atualizações de segurança, às vezes você verá atualiza
 
 {% note %}
 
-{% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. See the details in the table below.
+{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Veja os detalhes na tabela abaixo.
 
 {% endnote %}
 

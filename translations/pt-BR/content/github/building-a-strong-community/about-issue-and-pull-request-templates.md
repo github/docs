@@ -13,7 +13,7 @@ Depois que você cria modelos de problema e pull request no repositório, os con
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
-You can create default issue and pull request templates for your organization or user account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+Você pode criar problemas padrão e modelos de pull request para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
 
 {% endif %}
 

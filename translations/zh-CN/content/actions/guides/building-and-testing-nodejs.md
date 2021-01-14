@@ -193,9 +193,9 @@ steps:
 
 {% data reusables.github-actions.setup-node-intro %}
 
-要验证您的私有注册表，需要将 npm 身份验证令牌在仓库设置中存储为密码。 例如，创建名为 `NPM_TOKEN` 的密码。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+要验证您的私有注册表，需要将 npm 身份验证令牌存储为密码。 例如，创建名为 `NPM_TOKEN` 的仓库密码。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
-在下面的示例中，密码 `NPM_TOKEN` 用于存储 npm 身份验证令牌。 `setup-node` 操作配置 *.npmrc* 文件从 `NODE_AUTH_TOKEN` 环境变量读取 npm 身份验证令牌。 使用 `setup-node` 操作创建 *.npmrc* 文件时，必须使用包含 npm 身份验证令牌的密码设置 `NPM_AUTH_TOKEN` 环境变量。
+在下面的示例中，密码 `NPM_TOKEN` 用于存储 npm 身份验证令牌。 `setup-node` 操作配置 *.npmrc* 文件从 `NODE_AUTH_TOKEN` 环境变量读取 npm 身份验证令牌。 使用 `setup-node` 操作创建 *.npmrc* 文件时，必须使用包含 npm 身份验证令牌的密码设置 `NODE_AUTH_TOKEN` 环境变量。
 
 在安装依赖项之前，使用 `setup-node` 操作创建 *.npmrc* 文件。 该操作有两个输入参数。 `node-version` 参数设置 Node.js 版本，`registry-url` 参数设置默认注册表。 如果包注册表使用作用域，您必须使用 `scope` 参数。 更多信息请参阅 [`npm-scope`](https://docs.npmjs.com/misc/scope)。
 
