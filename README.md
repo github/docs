@@ -22,7 +22,7 @@ As you're using the GitHub Docs, you may find something in an article that you'd
 
 <img src="./assets/images/contribution_cta.png" width="400">
 
-#### Open an issue
+#### Open an issue 
 
 If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
 
