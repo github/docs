@@ -1,6 +1,7 @@
 const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
 const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
+const removeFPTFromPath = require('../lib/remove-fpt-from-path')
 
 module.exports = async (req, res, next) => {
   if (!req.context.page) return next()
@@ -25,7 +26,7 @@ module.exports = async (req, res, next) => {
   }
 
   req.context.breadcrumbs.product = {
-    href: path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath),
+    href: removeFPTFromPath(path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath)),
     title: product.title
   }
 
@@ -40,7 +41,7 @@ module.exports = async (req, res, next) => {
   // get category path
   // e.g., `getting-started-with-github` in /free-pro-team@latest/github/getting-started-with-github
   // or /enterprise-server@2.21/github/getting-started-with-github
-  const categoryPath = path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath, pathParts[1])
+  const categoryPath = removeFPTFromPath(path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath, pathParts[1]))
 
   const category = product.categories[categoryPath]
 
