@@ -5,6 +5,7 @@ redirect_from:
   - /github-enterprise-cloud-addendum/
   - /github-business-cloud-addendum/
   - /articles/github-enterprise-cloud-addendum
+  - /github/site-policy/github-enterprise-service-level-agreement
 versions:
   free-pro-team: '*'
 ---
