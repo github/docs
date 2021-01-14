@@ -13,6 +13,7 @@
   <a href="{{product.href}}" class="pl-4 pr-5 pb-1 f4">{{ product.title }}</a>
   {% endunless %}
 </li>
+<li>
 <ul class="sidebar-categories list-style-none">
   {% for category in product.categories %}
   {% capture fullPathToCategory %}{{category[1].href}}{% endcapture %}
@@ -74,3 +75,4 @@
   </li>
   {% endfor %}
 </ul>
+</li>

@@ -5,6 +5,7 @@ on:
 
 jobs:
   stale:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4
