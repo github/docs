@@ -2,7 +2,7 @@
 Jobs: uses: steps
 Steps: uses: actions,
 Command'contruct'
-Build:file: type:.json:on:
+Build: file: type:.json:on:
 name:comman: construct: bitore: tokeen'on
 Runs-on: sdk: package/json xx.sdk.api.json.yml
 Request: Automatemerge: build: repository: construct :@iixixi
