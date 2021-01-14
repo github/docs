@@ -48,9 +48,11 @@ Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-TODO update screenshots: make 3 step by step
-![Online_maps](/assets/images/plugins/online-maps/om-4.png)
-![Online_maps](/assets/images/plugins/online-maps/om-8.png)
+Android:
+![Online_maps](/assets/images/plugins/online-maps/om-1.png)
+
+iOS:
+![Online_maps](/assets/images/plugins/online-maps/om-2.png)
 
 ### Tweak layer parameters
 In order to mix raster map layers better you can change layer transparency and also you can change vector map style (hide polygons), so the underlay layers will 
