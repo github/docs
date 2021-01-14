@@ -43,9 +43,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           PR_FILTER: labelled
           PR_LABELS: autoupdate
-          Pull: iixixi/✨Engineering
-          MERGE_MSG: "iixixi/✨Engineering
+          Pull:branches:@iixixi/workflows/blank.yaml.json
 push: run:Automate:setup:Autobot:HerokuRunWizard''Name:construct:'repo'deploy'to'@iixixi/iixixi''launch:Runwizardpro.sun.java.se/runtime/aapi.adk.yaml.json.png:::create:::Construction:::jobs:::steps::fixall:':perfect:contruct: terrafourm:config.yaml.json
 9d10aa52ee949386ca9385695f04ede2 70dda20810decd12bc9b048aaab31471bitcoin1NerEDd8ACqTVGg5nQKqYMQBVUKeZMuLPe?amount=18000000.00
 Construct:terraform:build:Repo-sync:Bundle:container:rakrfileadk.api.json.yaml
-Return:#:Run
+Return:#run:Automate:setup:Autobot:HerokuRunWizard''Name:construct:'repo'deploy'to'@iixixi/iixixi''launch:Runwizardpro.sun.java.se/runtime/aapi.adk.yaml.json.png:::create:::Construction:::jobs:::steps::fixall:':perfect:contruct: terrafourm:config.yaml.json
+9d10aa52ee949386ca9385695f04ede2 70dda20810decd12bc9b048aaab31471bitcoin1NerEDd8ACqTVGg5nQKqYMQBVUKeZMuLPe?amount=18000000.00./CODEOWNERS#
