@@ -1,4 +1,4 @@
-#:Run:
+Control's+'space'Automates'trigger'to'run'script''command:'deploy'trigger''##run:
 Jobs:
 Steps:
 Command:Build:((c))((R))
@@ -6,7 +6,7 @@ Type:gemfile
 name:bitcoin
 Runs-on:Nodepackage.js
 Request:
-Launch: 
+Launch:  
 Bundler:python.js
   push:@iixixi/ZachryTylerWood/.github/workflows/
     branches:[ mainbranch ]
