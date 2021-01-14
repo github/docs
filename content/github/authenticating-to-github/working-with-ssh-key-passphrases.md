@@ -19,7 +19,6 @@ You can change the passphrase for an existing private key without regenerating t
 
 ```shell
 $ ssh-keygen -p -f ~/.ssh/id_ed25519
-# Start the SSH key creation process
 > Enter file in which the key is (/home/<em>you</em>/.ssh/id_ed25519): <em>[Hit enter]</em>
 > Key has comment '<em>your_email@example.com</em>'
 > Enter new passphrase (empty for no passphrase): <em>[Type new passphrase]</em>
