@@ -1,5 +1,7 @@
 Control+space:Automate:trigger:jobs:uses:actions:
-Jobs:
+Jobs:Pull:branches:but
+Squash-and-merge:push:
+Branches:@iixixi/IixixiI/paradise
 Steps:
 Command:Build:((c))((R))
 Type:gemfile
