@@ -82,6 +82,7 @@ http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.v
 |Parameter of link|Example|
 |:--------|:---------------|
 |[Constant part]|http://osmand.net/add-tile-source|
+|[Separator]|?|
 |[Name]|name=TEST|
 |[URL]|template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45|
 |[Zoom levels]|min_zoom=9max_zoom=20|
@@ -92,20 +93,34 @@ You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/m
 Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
 
 ### Sqlite vs Metainfo sources
-OsmAnd Raster maps have two formats - SQ Lite and Metainfo:
+OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all tiles in 1 large package, Metainfo stores tiles by sorting them into folders depending on the zoom.:
 -   [**SQ Lite format**](/development/map-creation)
 -   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
-SQ Lite keeps all tiles in 1 large package, Metainfo stores tiles by sorting them into folders depending on the zoom.
 
 **Convert?**
 
 ### Clear raster map cache
-- UI to clear map tiles
-For see size of Online map cache and clear it:
-Android: _menu - Download maps - Local - Online and cashed tile maps_. Choose your source for edit / clear all tiles / delete. 
-iOS: _menu - Maps & Resources - Intalled - Online raster maps_. Choose your source for clear cache / edit / delete.
+Tiles are saved in the cache during using Online Raster maps as Main / Overlay / Underlay layer, you can see size of your SQ Lite or Metainfo file under name of your Online map in the list.
+
+For see size of Online map cache:
+
+iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps_. !!!ADD variable pictures
+
+Android: _menu -> Download maps -> Local -> Online and cashed tile maps_. !!!ADD variable pictures
+
+![Online_maps](/assets/images/plugins/online-maps/om-3.png)
+
+In order to clear map tiles cache you can do next:
+
+Android: _menu -> Download maps -> Local -> Online and cashed tile maps -> three dotes -> Delete_  !!!ADD variable pictures
+
+iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Delete_ !!!ADD variable pictures
+
 ### Change raster map parameters
+
+
 - Edit raster map parameters
+
 ### Download / update tiles
 
 
