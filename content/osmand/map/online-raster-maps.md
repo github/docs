@@ -77,7 +77,9 @@ In order to add new online raster map source go to:
 
 **iOS**   {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
 
-At this screen you need to add next parameters
+At this screen you need to add next parameters:
+
+![Online_maps](/assets/images/plugins/online-maps/om-4.png)
 
 |Parameter          |Description|
 |:------------|:---------------|
