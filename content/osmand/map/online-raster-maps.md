@@ -48,14 +48,14 @@ Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-Android:
+Android (**add way**):
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
-iOS:
+iOS(**add way**):
 ![Online_maps](/assets/images/plugins/online-maps/om-2.png)
 
 ### Tweak layer parameters
-In order to mix raster map layers better you can change layer transparency and also you can change vector map style (hide polygons), so the underlay layers will 
+In order to mix raster map layers better you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
 be more visible, especially useful for satellite imagery.
 
 ### Add new online raster map source
@@ -69,13 +69,13 @@ Here we need to describe screens of adding new map source if you know "tile url"
 OsmAndMapCreator / Mobac
 
 ### Export / Import from OsmAnd
-In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). (**add image and link)
+In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). [Application profile/import](/osmand/app-profile)(**add image and link)**.
 
-To import online map sources, you can import obf-file of application profile. (**add image and link)
+To import online map sources, you can import obf-file of application profile.  [Application profile/import](/osmand/app-profile)(**add image and link)
 
 ### Magic URL to install map source
 
-Online maps can be added with a special link. Click to this link and choose OsmAnd for opening:
+Online maps can be added with a special link to OsmAnd Raster map list. Click to this link and choose OsmAnd for opening:
 
 http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
 
@@ -83,8 +83,9 @@ name=TEST - **provide name for online map source**
 
 template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45  - **URL**
 
-min_zoom=19max_zoom=20  -  **Zoom levels**
+min_zoom=9  max_zoom=20  -  **Zoom levels**
 
+You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
 
 ## Manage raster maps
 Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
