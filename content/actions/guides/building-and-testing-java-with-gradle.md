@@ -105,9 +105,12 @@ steps:
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
-      path: ~/.gradle/caches
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      restore-keys: ${{ runner.os }}-gradle
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
 ```
