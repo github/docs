@@ -20,8 +20,8 @@ describe('header', () => {
 
   describe('language links', () => {
     test('lead to the same page in a different language', async () => {
-      const $ = await getDOM('/en/github/administering-a-repository/enabling-required-status-checks')
-      expect($('#languages-selector a[href="/ja/github/administering-a-repository/enabling-required-status-checks"]').length).toBe(1)
+      const $ = await getDOM('/github/administering-a-repository/managing-a-branch-protection-rule')
+      expect($(`#languages-selector a[href="/ja/github/administering-a-repository/managing-a-branch-protection-rule"]`).length).toBe(1)
     })
 
     test('display the native name and the English name for each translated language', async () => {
@@ -79,7 +79,7 @@ describe('header', () => {
     })
 
     test('point to homepages in the current page\'s language', async () => {
-      const $ = await getDOM('/ja/articles/enabling-required-status-checks')
+      const $ = await getDOM('/ja/github/administering-a-repository/defining-the-mergeability-of-pull-requests')
 
       expect($('#homepages a.active[href="/ja/github"]').length).toBe(1)
       expect($(`#homepages a[href="/ja/enterprise-server@${latest}/admin"]`).length).toBe(1)
