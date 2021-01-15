@@ -16,6 +16,16 @@ versions:
 
 You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
 
+
+hide:describe( 'Commands': () => (
+Issue { Writers: [ 'SatsukiYuuya']}),
+
+     hide:Const = Commands: Commands[
+        label: 'hello'
+        User: { name: 'Momotarou'}],
+
+
+
 ### Creating your first workflow
 
 1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
