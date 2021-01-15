@@ -73,11 +73,18 @@ To create a raster map source you need to know **tile URL**. This is URL that ca
 
 In order to add new online raster map source go to:
 
-Android - {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %} → {% data variables.shared_string_add %}
+**Android** - {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %} → {% data variables.android-values.shared_string_add %}
 
-iOS -  {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
+**iOS** -  {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
 
-Here we need to describe screens of adding a new map source if you know "tile URL".
+At this screen you need to add next parameters;
+|Parameter|Description|
+|:--------|:---------------|
+|[{% data variables.ios-values.fav_name %}]|{% data variables.ios-values.res_online_name_descr %}|
+|[URL]|Enter or copy and paste URL for online source|
+|[ZOOM LEVELS]|The map will be limited to the selected zooms|
+|[EXPIRE TIME]|Expiration time in minutes|
+|[Zoom levels]|min_zoom=9max_zoom=20|
 
 
 ## Copy online map sources 
