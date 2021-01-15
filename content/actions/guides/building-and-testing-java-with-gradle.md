@@ -116,7 +116,7 @@ steps:
 ```
 {% endraw %}
 
-This workflow will save the contents of your local Gradle package cache, located in the `.gradle/caches` directory of the runner's home directory. The cache key will be the hashed contents of the gradle build files, so changes to them will invalidate the cache.
+This workflow will save the contents of your local Gradle package cache, located in the `.gradle/caches` and `.gradle/wrapper` directories of the runner's home directory. The cache key will be the hashed contents of the gradle build files (including the gradle wrapper properties file), so changes to any of them will invalidate the cache.
 
 ### Packaging workflow data as artifacts
 
