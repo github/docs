@@ -87,6 +87,7 @@ At this screen you need to add next parameters;
 |[{% data variables.ios-values.res_mercator %}]|{% data variables.ios-values.res_pseudo_mercator %} or {% data variables.ios-values.res_elliptic_mercator %}|
 |[{% data variables.ios-values.res_source_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
 
+Click to "Save" button for adding new online raster map to the list.
 
 ## Copy online map sources 
 ### Copy raster map package created on PC 
