@@ -1903,13 +1903,13 @@ app_mode_utv: "Side by Side"
 app_mode_osm: "OSM"
 desert: "Desert"
 latest_version: "You have the latest version: %@"
-ios_release_3_80: "• Introduced \“Application Profiles\" with independent settings 
+ios_release_3_80: "• Introduced \"Application Profiles\" with independent settings 
 • New arrangement of settings by profiles and types: navigation, general, map and screen 
 • Ability to import or export profile settings 
 • Added data sources for Online photos 
 • Added ability to download online maps to cache 
 • Improved \"Search\" algorithms"
-ios_release_3_90: "• Introduced \“Application Profiles\" with independent settings 
+ios_release_3_90: "• Introduced \"Application Profiles\" with independent settings 
 • New arrangement of settings by profiles and types: navigation, general, map and screen 
 • Ability to import or export profile settings 
 • Added data sources for Online photos 
