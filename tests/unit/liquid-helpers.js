@@ -13,7 +13,12 @@ describe('liquid helper tags', () => {
     context.currentLanguage = 'en'
     context.currentVersion = nonEnterpriseDefaultVersion
     context.pages = pageMap
-    context.redirects = []
+    context.redirects = {
+      '/en/desktop/contributing-and-collaborating-using-github-desktop': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
+      '/ja/desktop/contributing-and-collaborating-using-github-desktop': `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
+      '/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories`,
+      '/en/github/writing-on-github/basic-writing-and-formatting-syntax': `/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`
+    }
     context.site = {
       data: {
         reusables: {
@@ -52,7 +57,7 @@ describe('liquid helper tags', () => {
 
   test('link_with_intro tag', async () => {
     const template = '{% link_with_intro /contributing-and-collaborating-using-github-desktop %}'
-    const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`]
+    const page = pageMap['/en/desktop/contributing-and-collaborating-using-github-desktop']
     const expected = `<a class="link-with-intro Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
   <h2 class="link-with-intro-title f4">${page.title}<span class="Bump-link-symbol">→</span></h2>
 </a>
@@ -63,7 +68,7 @@ describe('liquid helper tags', () => {
 
   test('homepage_link_with_intro tag', async () => {
     const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
-    const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`]
+    const page = pageMap['/en/github/writing-on-github/basic-writing-and-formatting-syntax']
     const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
   <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
   <p class="link-with-intro-intro f5">${page.intro}</p>
