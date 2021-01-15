@@ -1,6 +1,5 @@
 const path = require('path')
 const { getPathWithoutLanguage } = require('../lib/path-utils')
-const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
 
 module.exports = async (req, res, next) => {
   if (!req.context.page) return next()
