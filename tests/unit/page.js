@@ -86,8 +86,8 @@ describe('Page class', () => {
     test('rewrites links to include the current language prefix and version', async () => {
       const page = await Page.init(opts)
       const context = {
-        page: { version: nonEnterpriseDefaultVersion },
-        currentVersion: nonEnterpriseDefaultVersion,
+        page: { version: `enterprise-server@${enterpriseServerReleases.latest}` },
+        currentVersion: `enterprise-server@${enterpriseServerReleases.latest}`,
         currentPath: '/en/github/collaborating-with-issues-and-pull-requests/about-branches',
         currentLanguage: 'en'
       }
@@ -96,14 +96,14 @@ describe('Page class', () => {
       expect(page.markdown.includes('(/articles/about-pull-requests)')).toBe(true)
       expect(page.markdown.includes('(/en/articles/about-pull-requests)')).toBe(false)
       expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
+      expect($(`a[href="/en/${`enterprise-server@${enterpriseServerReleases.latest}`}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
     })
 
     test('rewrites links on prerendered GraphQL page include the current language prefix and version', async () => {
-      const graphqlVersion = allVersions[nonEnterpriseDefaultVersion].miscVersionName
+      const graphqlVersion = allVersions[`enterprise-server@${enterpriseServerReleases.latest}`].miscVersionName
       const $ = cheerio.load(prerenderedObjects[graphqlVersion].html)
       expect($('a[href^="/graphql/reference/input-objects"]').length).toBe(0)
-      expect($(`a[href^="/en/${nonEnterpriseDefaultVersion}/graphql/reference/input-objects"]`).length).toBeGreaterThan(0)
+      expect($(`a[href^="/en/enterprise-server@${enterpriseServerReleases.latest}/graphql/reference/input-objects"]`).length).toBeGreaterThan(0)
     })
 
     test('rewrites links in the intro to include the current language prefix and version', async () => {
@@ -118,7 +118,7 @@ describe('Page class', () => {
       await page.render(context)
       const $ = cheerio.load(page.intro)
       expect($('a[href="/articles/about-pull-requests"]').length).toBe(0)
-      expect($(`a[href="/en/${nonEnterpriseDefaultVersion}/articles/about-pull-requests"]`).length).toBeGreaterThan(0)
+      expect($('a[href="/en/articles/about-pull-requests"]').length).toBeGreaterThan(0)
     })
 
     test('does not rewrite links that include deprecated enterprise release numbers', async () => {
@@ -235,7 +235,7 @@ describe('Page class', () => {
 
     test('sets versioned values', async () => {
       const page = await Page.init(opts)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/github/collaborating-with-issues-and-pull-requests/about-branches`)
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en/github/collaborating-with-issues-and-pull-requests/about-branches')
       expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/github/collaborating-with-issues-and-pull-requests/about-branches`)
     })
 
@@ -245,9 +245,8 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}`)
-      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
       expect(page.permalinks.find(permalink => permalink.pageVersion === 'homepage').href).toBe('/en')
+      expect(page.permalinks.find(permalink => permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.oldestSupported}`).href).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
     })
 
     test('permalinks for dotcom-only pages', async () => {
@@ -256,7 +255,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/signing-up-for-a-new-github-account`)
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en/github/getting-started-with-github/signing-up-for-a-new-github-account')
       expect(page.permalinks.length).toBe(1)
     })
 
@@ -278,7 +277,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../fixtures'),
         languageCode: 'en'
       })
-      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe(`/en/${nonEnterpriseDefaultVersion}/products/actions/some-category/some-article`)
+      expect(page.permalinks.find(permalink => permalink.pageVersion === nonEnterpriseDefaultVersion).href).toBe('/en/products/actions/some-category/some-article')
       expect(page.permalinks.length).toBe(1)
     })
 
