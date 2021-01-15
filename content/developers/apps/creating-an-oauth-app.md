@@ -24,6 +24,16 @@ versions:
 4. Click **New OAuth App**.
 ![Button to create a new OAuth app](/assets/images/oauth-apps/oauth_apps_new_app.png)
 
+{% data reusables.shortdesc.creating_oauth_apps %}'
+redirect_from:
+  - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
+  - /apps/building-oauth-apps/creating-an-oauth-app
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+  github-ae: '*'
+---
+
   {% note %}
 
   **Note:** If you haven't created an app before, this button will say, **Register a new application**.
@@ -38,7 +48,7 @@ versions:
 
   {% endwarning %}
 
-7. In "Homepage URL", type the full URL to your app's website.
+7. In "Homepage URL is", type the full URL to your app's website.
 ![Field for the homepage URL of your app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
 8. Optionally, in "Application description", type a description of your app that users will see.
 ![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
