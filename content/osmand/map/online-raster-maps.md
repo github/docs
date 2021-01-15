@@ -58,7 +58,7 @@ You can choose one of its in the list or add yours.
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %} &#x2026;
+Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %};
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
 iOS: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} &#x2026;
@@ -78,11 +78,15 @@ Here we need to describe screens of adding a new map source if you know "tile UR
 
 You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/osmand/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
 
+Next, you can move your map package file(s) to OsmAnd-tiles directory:
 
-OsmAndMapCreator / Mobac
+For Android OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd. 
+
+For iOS OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd.
 
 ### Export / Import from OsmAnd
-In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). [Application profile/export](/osmand/app-profile) (**add image and link)**.
+In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). 
+[Application profile/export](/osmand/app-profile) (**add image and link)**.
 
 To import online map sources, you can import obf-file of application profile.  [Application profile/import](/osmand/app-profile) (**add image and link)
 
@@ -153,27 +157,3 @@ Next you can select your area by size of your screen device and click on the map
 Actions menu -> Download map or Update map !!!ADD variable pictures
 
 **Note**: the selected area is an area that you see on your screen.
-
-## Creation on new maps in PC
-Need to move to technical articles.
-It is possible to cache online maps with  [MapCreator](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)  or  [SASPlanet](https://www.facebook.com/georsgis/videos/vb.332654947303300/2224656661106781/?type=2&theater)  for the offline usage.
-
-Despite the plugin being called  _'Online Maps'_, you can use the maps without the internet, as well. You just need to save the parts of maps (often called tiles) to use them later. Online tiles can be helpful when you need just a small section of the map or a specific type of it to use in the limited area, but don't want to download the whole region. They can come in handy in endless situations.
-
-### MOBAC
-
-You can also create your own map tiles using the Mobile Atlas Creator (MOBAC) software. It is a free open-source map creating tool you can use to make offline tile maps from different sources. Just [download](http://mobac.sourceforge.net/) the program, then run it. In the format choosing dialogue pick OsmAnd SQ Lite or OsmAnd tile storage. SQ Lite is a single file with the selected area while tiles are separate pieces of the map gathered on your device. SQ Lite often happens to be more convenient as it is stored in one place and occupies less storage space. Select an area, then choose an 'atlas' option, press Add selection and then click Load to save your tiles. You can also pick the map source, zoom levels and other features before loading.
-
-### Others
-
-Download a specific  **[Map Creator tool](http://download.osmand.net/latest-night-build/OsmAndMapCreator-main.zip)**  developed by OsmAnd team.
-
-Select the area you need to download, click on the Preload area, then set the smallest and the largest zoom levels you want to display and download the tiles.
-
-For  **Android version**  you can copy them to your phone's  _osmand/tiles/*tile type*_  folder. You'll also need to open the  _Configure map-. Overlay map_  and choose OsmAnd online tiles.
-
-For  **iOS version**  you can choose SQ Lite file in your phone (any messenger or dropbox), OsmAnd will suggest to add it. You'll also need to open  _Map-> Overlay / Underlay or Map type_  and choose new map source.
-
-You can use the tool - **SASPlanet**. There are many offline tile maps from different sources in SASPlanet. Just [download](http://www.sasgis.org/forum/viewtopic.php?f=52&t=2441) the program, then run it. How to work with SASPlanet you can look [here](https://www.youtube.com/watch?v=-0h_Vp-OCTU). In the format choosing dialogue pick OsmAnd SQ Lite or OsmAnd tile storage. SQ Lite is a single file with the selected area while tiles are separate pieces of the map gathered on your device. SQ Lite often happens to be more convenient as it is stored in one place and occupies less storage space. Select an area, then choose an 'atlas' option, press Add selection and then click Load to save your tiles. You can also pick the map source, zoom levels and other features before loading.
-
-
