@@ -1,6 +1,6 @@
 ---
 title: Fork a repo
-redirect_from:
+redirect_from:Satsuki.Y
   - /fork-a-repo/
   - /forking/
   - /articles/fork-a-repo
