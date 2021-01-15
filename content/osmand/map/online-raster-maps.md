@@ -69,9 +69,9 @@ Here we need to describe screens of adding new map source if you know "tile url"
 OsmAndMapCreator / Mobac
 
 ### Export / Import from OsmAnd
-In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). [Application profile/import](/osmand/app-profile)(**add image and link)**.
+In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). [Application profile/export](/osmand/app-profile) (**add image and link)**.
 
-To import online map sources, you can import obf-file of application profile.  [Application profile/import](/osmand/app-profile)(**add image and link)
+To import online map sources, you can import obf-file of application profile.  [Application profile/import](/osmand/app-profile) (**add image and link)
 
 ### Magic URL to install map source
 
@@ -79,11 +79,11 @@ Online maps can be added with a special link to OsmAnd Raster map list. Click to
 
 http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
 
-name=TEST - **provide name for online map source**
-
-template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45  - **URL**
-
-min_zoom=9  max_zoom=20  -  **Zoom levels**
+|Parameter of link|Example|
+|:--------|:---------------|
+|[Name]|name=TEST|
+|[URL]|template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45|
+|[Zoom levels]|min_zoom=9  max_zoom=20|
 
 You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
 
