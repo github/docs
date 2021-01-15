@@ -40,21 +40,28 @@ Comparision to default vector maps.
 
 ## How to use Raster maps 
 ### Enable plugin
-In order to use raster maps you need to enable [Online maps plugin](/osmand/plugins):
+In order to use raster maps  in Android OsmAnd you need to enable [Online maps plugin](/osmand/plugins):
 
 Android: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.shared_string_online_maps %} → ![Overflow menu](/assets/images/icons/android/ic_overflow_menu_white.svg) → {% data variables.android-values.shared_string_enable %}.
 
+For iOS OsmAnd this feature works by default.
 
 ### Select map as Main / Underlay / Overlay layer
-Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in [Configure Map menu](/osmand/map/configure-map-menu). You can choose one of its in the list or add yours.
+Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in:
+
+Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %}
+
+iOS: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
+
+You can choose one of its in the list or add yours.
 
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-Android (**add way**):
+Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.layer_overlay %} / {% data variables.layer_underlay %}
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
-iOS(**add way**):
+iOS: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
 ![Online_maps](/assets/images/plugins/online-maps/om-2.png)
 
 ### Tweak layer parameters
