@@ -40,7 +40,10 @@ Comparision to default vector maps.
 
 ## How to use Raster maps 
 ### Enable plugin
-In order to use raster maps you need to enable [Online maps plugin](/osmand/plugins).
+In order to use raster maps you need to enable [Online maps plugin](/osmand/plugins):
+
+Android: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.shared_string_online_maps %} → ![Overflow menu](/assets/images/icons/android/ic_overflow_menu_white.svg) → {% data variables.android-values.shared_string_enable %}.
+
 
 ### Select map as Main / Underlay / Overlay layer
 Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in [Configure Map menu](/osmand/map/configure-map-menu). You can choose one of its in the list or add yours.
