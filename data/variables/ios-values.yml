@@ -34,18 +34,18 @@ map_settings_add_maps_hillshade: "Additional maps are needed to view hillshades 
 map_settings_add_maps_slopes: "Additional maps are needed to view slopes on the map"
 map_settings_legend: "Legend"
 
-"map_settings_show_slider_map" = "Show slider on the map";
-"map_settings_add_online_source" = "Add online source";
-"map_settings_hide_polygons" = "Hide polygons";
-"map_settings_hide_polygons_desc" = "This option affects only OsmAnd Offline vector maps";
-"map_settings_add_maps_desc" = "You can add new maps via link, or by importing SQLite files.";
-"map_settings_color_scheme" = "Color scheme";
-"map_settings_line_width" = "Line width";
-"map_settings_line_density" = "Line density";
-"map_settings_contour_zoom_level_descr" = "Select zoom level, from wich contour lines will be displayed";
-"map_settings_appearance" = "Appearance";
-"map_settings_line_density_slowdown_warning" = "High line density may slowdown map rendering";
-"map_settings_available_srtm_maps_descr" = "Additional maps are needed to view Hillshade on the map";
+map_settings_show_slider_map: "Show slider on the map";
+map_settings_add_online_source: "Add online source";
+map_settings_hide_polygons: "Hide polygons";
+map_settings_hide_polygons_desc: "This option affects only OsmAnd Offline vector maps";
+map_settings_add_maps_desc: "You can add new maps via link, or by importing SQLite files.";
+map_settings_color_scheme: "Color scheme";
+map_settings_line_width: "Line width";
+map_settings_line_density: "Line density";
+map_settings_contour_zoom_level_descr: "Select zoom level, from wich contour lines will be displayed";
+map_settings_appearance: "Appearance";
+map_settings_line_density_slowdown_warning: "High line density may slowdown map rendering";
+map_settings_available_srtm_maps_descr: "Additional maps are needed to view Hillshade on the map";
 
 plugins: "Plugins"
 open_map_settings: "Open Map Settings"
