@@ -15,6 +15,13 @@ Before you update {% data variables.product.prodname_insights %}, you can check 
 
 The update process will take up to 10 minutes. During this time, users cannot access {% data variables.product.prodname_insights %}.
 
+### Updating from {% data variables.product.prodname_insights %} 1.5.0-alpha.1
+
+To update {% data variables.product.prodname_insights %} from 1.5.0-alpha.1, you must navigate to the [GitHub App](/github/installing-and-configuring-github-insights/installing-github-insights#Creating a {% data variables.product.prodname_github_app %}) you created when you first installed {% data variables.product.prodname_insights %}. Edit the App Permissions to add:
+- Repository
+  - Issues: **Read-only**
+Then you may continue updating {% data variables.product.prodname_insights %} to the latest version.
+
 ### Updating from {% data variables.product.prodname_insights %} 0.4.0+
 
 To update {% data variables.product.prodname_insights %} from 0.4.0+, you can install the latest version. {% data variables.product.prodname_insights %} will ask to use the previous installation configuration.
