@@ -42,7 +42,7 @@ Comparision to default vector maps.
 ### Enable plugin
 In order to use raster maps  in Android OsmAnd you need to enable [Online maps plugin](/osmand/plugins):
 
-Android: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.shared_string_online_maps %} → ![Overflow menu](/assets/images/icons/android/ic_overflow_menu_white.svg) → {% data variables.android-values.shared_string_enable %}.
+Android: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.shared_string_online_maps %} → &#xe802; → {% data variables.android-values.shared_string_enable %}.
 
 For iOS OsmAnd this feature works by default.
 
@@ -58,10 +58,10 @@ You can choose one of its in the list or add yours.
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-**Android**: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %};
+**Android**: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
-**iOS**: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %};
+**iOS**: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
 ![Online_maps](/assets/images/plugins/online-maps/om-2.png)
 
 ### Tweak layer parameters
@@ -73,13 +73,14 @@ To create a raster map source you need to know **tile URL**. This is URL that ca
 
 In order to add new online raster map source go to:
 
-**Android** - {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %} → {% data variables.android-values.shared_string_add %}
+**Android**  {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %} → {% data variables.android-values.shared_string_add %}
 
-**iOS** -  {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
+**iOS**   {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
 
-At this screen you need to add next parameters;
+At this screen you need to add next parameters
+
 |Parameter|Description|
-|:--------|:---------------|
+|:--------|:------------------------------------------------|
 |[{% data variables.ios-values.fav_name %}]|{% data variables.ios-values.res_online_name_descr %}|
 |[{% data variables.ios-values.res_url %}]|{% data variables.ios-values.res_online_url_descr %}|
 |[{% data variables.ios-values.res_zoom_levels %}]|{% data variables.ios-values.res_zoom_levels_desc %}|
@@ -87,7 +88,7 @@ At this screen you need to add next parameters;
 |[{% data variables.ios-values.res_mercator %}]|{% data variables.ios-values.res_pseudo_mercator %} or {% data variables.ios-values.res_elliptic_mercator %}|
 |[{% data variables.ios-values.res_source_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
 
-Click to "Save" button for adding new online raster map to the list.
+Click to "Save" button for adding a new online raster map to the list.
 
 ## Copy online map sources 
 ### Copy raster map package created on PC 
