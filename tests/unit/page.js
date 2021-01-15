@@ -5,6 +5,10 @@ const prerenderedObjects = require('../../lib/graphql/static/prerendered-objects
 const allVersions = require('../../lib/all-versions')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
+
+const getLinkData = require('../../lib/get-link-data')
+jest.mock('../../lib/get-link-data')
+
 // get the `free-pro-team` segment of `free-pro-team@latest`
 const nonEnterpriseDefaultPlan = nonEnterpriseDefaultVersion.split('@')[0]
 
@@ -291,6 +295,51 @@ describe('Page class', () => {
     })
   })
 
+  describe('learning tracks', () => {
+    let page
+
+    beforeEach(async () => {
+      page = await Page.init({
+        relativePath: 'article-with-learning-tracks.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en'
+      })
+    })
+
+    it('includes learning tracks specified in frontmatter', async () => {
+      expect(page.learningTracks).toStrictEqual(['track_1', 'track_2', 'non_existing_track'])
+    })
+
+    it('renders learning tracks that have been defined', async () => {
+      const guides = ['/path/guide1', '/path/guide2']
+      const context = {
+        currentLanguage: 'en',
+        currentProduct: 'snowbird',
+        site: {
+          data: {
+            'learning-tracks': {
+              snowbird: {
+                track_1: {
+                  title: 'title',
+                  description: 'description',
+                  guides
+                },
+                track_2: {
+                  title: 'title',
+                  description: 'description',
+                  guides
+                }
+              }
+            }
+          }
+        }
+      }
+      await page.render(context)
+      expect(getLinkData).toHaveBeenCalledWith(guides, context, ['type'])
+      expect(page.learningTracks).toHaveLength(2)
+    })
+  })
+
   describe('Page.parseFrontmatter()', () => {
     it('throws an error on bad input', () => {
       const markdown = null
@@ -381,7 +430,7 @@ describe('Page class', () => {
 })
 
 describe('catches errors thrown in Page class', () => {
-  test('frontmatter parsing error', () => {
+  test('frontmatter parsing error', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'page-with-frontmatter-error.md',
@@ -390,10 +439,10 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError('invalid frontmatter entry')
+    await expect(getPage).rejects.toThrowError('invalid frontmatter entry')
   })
 
-  test('missing versions frontmatter', () => {
+  test('missing versions frontmatter', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'page-with-missing-product-versions.md',
@@ -402,10 +451,10 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError('versions')
+    await expect(getPage).rejects.toThrowError('versions')
   })
 
-  test('English page with a version in frontmatter that its parent product is not available in', () => {
+  test('English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
@@ -417,7 +466,7 @@ describe('catches errors thrown in Page class', () => {
     expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 
-  test('non-English page with a version in frontmatter that its parent product is not available in', () => {
+  test('non-English page with a version in frontmatter that its parent product is not available in', async () => {
     async function getPage () {
       return await Page.init({
         relativePath: 'admin/some-category/some-article-with-mismatched-versions-frontmatter.md',
@@ -426,6 +475,6 @@ describe('catches errors thrown in Page class', () => {
       })
     }
 
-    expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
+    await expect(getPage).rejects.toThrowError(/`versions` frontmatter.*? product is not available in/)
   })
 })

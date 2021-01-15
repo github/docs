@@ -173,7 +173,7 @@ describe('lint-files', () => {
         content = bodyContent
         isHidden = data.hidden === true
         isEarlyAccess = markdownRelPath.split('/').includes('early-access')
-        isSitePolicy = markdownRelPath.split('/').includes('site-policy')
+        isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
