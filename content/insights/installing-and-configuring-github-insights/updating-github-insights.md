@@ -17,8 +17,8 @@ The update process will take up to 10 minutes. During this time, users cannot ac
 
 ### Updating from {% data variables.product.prodname_insights %} 1.5.0-alpha.1
 
-To update {% data variables.product.prodname_insights %} from 1.5.0-alpha.1, you must first add the `read:issues` permission to your { % data variables.product.prodname_github_app % }.
-To do this, the navigate to the {% data variables.product.prodname_github_app % } that you created when you [first installed {% data variables.product.prodname_insights %}](/github/installing-and-configuring-github-insights/installing-github-insights#creating-a-github-app).
+To update {% data variables.product.prodname_insights %} from 1.5.0-alpha.1, you must first add the `read:issues` permission to your {% data variables.product.prodname_github_app %}.
+To do this, the navigate to the {% data variables.product.prodname_github_app %} that you created when you [first installed {% data variables.product.prodname_insights %}](/github/installing-and-configuring-github-insights/installing-github-insights#creating-a-github-app).
 Edit the App Permissions to add:
 - Repository
   - Issues: **Read-only**
