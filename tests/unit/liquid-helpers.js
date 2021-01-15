@@ -84,13 +84,6 @@ describe('liquid helper tags', () => {
     expect(output).toBe(expected)
   })
 
-  test('link_with_short_title tag', async () => {
-    const template = '{% link_with_short_title /contributing-and-collaborating-using-github-desktop %}'
-    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating</a>'
-    const output = await liquid.parseAndRender(template, context)
-    expect(output).toBe(expected)
-  })
-
   describe('indented_data_reference tag', () => {
     test('without any number of spaces specified', async () => {
       const template = '{% indented_data_reference site.data.reusables.example %}'
