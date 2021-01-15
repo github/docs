@@ -93,16 +93,15 @@ You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/m
 Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
 
 ### Sqlite vs Metainfo sources
-OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all tiles in 1 large package, Metainfo stores tiles by sorting them into folders depending on the zoom.:
+OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all tiles in 1 large package, Metainfo keeps one image file per tile:
 -   [**SQ Lite format**](/development/map-creation)
 -   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
 
-**Convert?**
+**Convert?** in Edit menu of online maps (Storage format)??
 
 ### Clear raster map cache
-Tiles are saved in the cache during using Online Raster maps as Main / Overlay / Underlay layer, you can see size of your SQ Lite or Metainfo file under name of your Online map in the list.
 
-For see size of Online map cache:
+Tiles are saved in the cache during using Online Raster maps as Main / Overlay / Underlay layer, you can see the size of your SQ Lite or Metainfo file under name of your Online map in the list:
 
 iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps_. !!!ADD variable pictures
 
@@ -112,17 +111,35 @@ Android: _menu -> Download maps -> Local -> Online and cashed tile maps_. !!!ADD
 
 In order to clear map tiles cache you can do next:
 
-Android: _menu -> Download maps -> Local -> Online and cashed tile maps -> three dotes -> Delete_  !!!ADD variable pictures
+Android: _menu -> Download maps -> Local -> Online and cashed tile maps -> three dotes -> Clear all tiles_  !!!ADD variable pictures
 
-iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Delete_ !!!ADD variable pictures
+iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Clear cache_ !!!ADD variable pictures
 
 ### Change raster map parameters
 
+In order to change raster map parameters:
 
-- Edit raster map parameters
+Android: _menu -> Download maps -> Local -> Online and cashed tile maps -> three dotes -> Edit_  !!!ADD variable pictures
+
+iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Edit_ !!!ADD variable pictures
+
+Here you can change Name of a map source; enter or copy and paste URL for an online source; change zoom levels; expiration time - cached tiles will be reloaded after specified time; choose Mercator Projection - Elliptic Mercator or Pseudo-Mercator projection; choose source format - SQ Lite or Metainfo.
 
 ### Download / update tiles
 
+Tiles are saved in cache when you use Online Raster maps as Main / Overlay / Underlay layer.
+
+In OsmAnd there is the feature to download / to update selected area. For this you can choose your online source as Map source:
+
+Android: menu - Configure map - Map source !!!ADD variable pictures
+
+iOS: menu - Map - Map type - Online maps !!!ADD variable pictures
+
+Next you can select your area by size of your screen device and click on the map:
+
+Actions menu -> Download map or Update map !!!ADD variable pictures
+
+**Note**: the selected area is an area that you see on your screen.
 
 ## Creation on new maps in PC
 Need to move to technical articles.
