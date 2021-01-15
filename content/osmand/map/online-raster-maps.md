@@ -79,14 +79,14 @@ In order to add new online raster map source go to:
 
 At this screen you need to add next parameters
 
-|Parameter|Description|
+|Parameter          |Description|
 |:------------|:---------------|
 |[{% data variables.ios-values.fav_name %}]|{% data variables.ios-values.res_online_name_descr %}|
 |[{% data variables.ios-values.res_url %}]|{% data variables.ios-values.res_online_url_descr %}|
 |[{% data variables.ios-values.res_zoom_levels %}]|{% data variables.ios-values.res_zoom_levels_desc %}|
 |[{% data variables.ios-values.res_expire_time %}]|{% data variables.ios-values.res_expire_time_desc %}|
 |[{% data variables.ios-values.res_mercator %}]|{% data variables.ios-values.res_pseudo_mercator %} or {% data variables.ios-values.res_elliptic_mercator %}|
-|[{% data variables.ios-values.res_source_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
+|[{% data variables.ios-values.res_source_format %}/{% data variables.android-values.storage_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
 
 Click to "Save" button for adding a new online raster map to the list.
 
