@@ -1,6 +1,12 @@
 /* Override Primer styles
 ------------------------------------------------------------------------------*/
 
+
+.markdown-body {
+    font-family: $font-osmand;
+    font-weight: $font-weight-normal;
+}
+
 .markdown-body {
   h1,
   h2,
@@ -8,8 +14,8 @@
   h4,
   h5,
   h6 {
-    font-family: $font-mktg;
-    font-weight: $font-weight-semibold;
+    font-family: $font-osmand;
+    font-weight: $font-weight-normal;
     padding-top: $spacer-3;
   }
 }

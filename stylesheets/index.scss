@@ -39,6 +39,7 @@ $marketing-font-path: "/dist/fonts/";
 @import "@primer/css/marketing/index.scss";
 
 // Additional styles
+@import "osmand-icons.scss";
 @import "new-mktg.scss";
 @import "type.scss";
 @import "nav.scss";
