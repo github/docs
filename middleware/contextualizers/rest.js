@@ -1,15 +1,16 @@
+const path = require('path')
 const rest = require('../../lib/rest')
-const { getVersionedPathWithLanguage } = require('../../lib/path-utils')
 
 module.exports = async function (req, res, next) {
   req.context.rest = rest
 
   // link to include in `Works with GitHub Apps` notes
   // e.g. /ja/rest/reference/apps or /en/enterprise/2.20/user/rest/reference/apps
-  req.context.restGitHubAppsLink = getVersionedPathWithLanguage(
-    '/developers/apps',
+  req.context.restGitHubAppsLink = path.join(
+    '/',
+    req.context.currentLanguage,
     req.context.currentVersion,
-    req.context.currentLanguage
+    '/developers/apps'
   )
 
   // ignore requests to non-REST reference paths

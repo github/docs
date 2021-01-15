@@ -16,9 +16,6 @@ module.exports = async (req, res, next) => {
   // drop first '/'
   pathParts.shift()
 
-  // drop the version segment so pathParts now starts with /product
-  pathParts.shift()
-
   const productPath = path.posix.join('/', req.context.currentProduct)
   const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
@@ -30,6 +27,9 @@ module.exports = async (req, res, next) => {
     href: path.posix.join('/', req.context.currentLanguage, req.context.currentVersion, productPath),
     title: product.title
   }
+
+  // drop the version segment so pathParts now starts with /product
+  pathParts.shift()
 
   if (!pathParts[1]) return next()
 

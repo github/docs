@@ -13,7 +13,12 @@ describe('liquid helper tags', () => {
     context.currentLanguage = 'en'
     context.currentVersion = nonEnterpriseDefaultVersion
     context.pages = pageMap
-    context.redirects = []
+    context.redirects = {
+      '/en/desktop/contributing-and-collaborating-using-github-desktop': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
+      '/ja/desktop/contributing-and-collaborating-using-github-desktop': `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
+      '/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories`,
+      '/en/github/writing-on-github/basic-writing-and-formatting-syntax': `/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`
+    }
     context.site = {
       data: {
         reusables: {
