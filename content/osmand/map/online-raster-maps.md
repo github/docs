@@ -49,19 +49,19 @@ For iOS OsmAnd this feature works by default.
 ### Select map as Main / Underlay / Overlay layer
 Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in:
 
-Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %}
+**Android**: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %}
 
-iOS: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
+**iOS**: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
 
 You can choose one of its in the list or add yours.
 
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %};
+**Android**: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %};
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
-iOS: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} &#x2026;
+**iOS**: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %};
 ![Online_maps](/assets/images/plugins/online-maps/om-2.png)
 
 ### Tweak layer parameters
@@ -70,6 +70,13 @@ be more visible, especially useful for satellite imagery.
 
 ### Add new online raster map source
 To create a raster map source you need to know **tile URL**. This is URL that can distribute tiles in Mercator Projection. Here is a tile example URL https://tile.osmand.net/hd/6/55/25.png, where is the base part https://tile.osmand.net/hd/.
+
+In order to add new online raster map source go to:
+
+Android - {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %} → {% data variables.shared_string_add %}
+
+iOS -  {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
+
 Here we need to describe screens of adding a new map source if you know "tile URL".
 
 
