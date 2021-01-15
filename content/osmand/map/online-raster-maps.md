@@ -81,10 +81,11 @@ At this screen you need to add next parameters;
 |Parameter|Description|
 |:--------|:---------------|
 |[{% data variables.ios-values.fav_name %}]|{% data variables.ios-values.res_online_name_descr %}|
-|[URL]|Enter or copy and paste URL for online source|
-|[ZOOM LEVELS]|The map will be limited to the selected zooms|
-|[EXPIRE TIME]|Expiration time in minutes|
-|[Zoom levels]|min_zoom=9max_zoom=20|
+|[{% data variables.ios-values.res_url %}]|{% data variables.ios-values.res_online_url_descr %}|
+|[{% data variables.ios-values.res_zoom_levels %}]|{% data variables.ios-values.res_zoom_levels_desc %}|
+|[{% data variables.ios-values.res_expire_time %}]|{% data variables.ios-values.res_expire_time_desc %}|
+|[{% data variables.ios-values.res_mercator %}]|{% data variables.ios-values.res_pseudo_mercator %} or {% data variables.ios-values.res_elliptic_mercator %}|
+|[{% data variables.ios-values.res_source_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
 
 
 ## Copy online map sources 
