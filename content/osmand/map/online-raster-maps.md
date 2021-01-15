@@ -42,26 +42,26 @@ Comparision to default vector maps.
 ### Enable plugin
 In order to use raster maps  in Android OsmAnd you need to enable [Online maps plugin](/osmand/plugins):
 
-Android: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.shared_string_online_maps %} → &#xe802; → {% data variables.android-values.shared_string_enable %}.
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.plugin_settings %} → {% data variables.android-values.shared_string_online_maps %} → &#xe802; → {% data variables.android-values.shared_string_enable %}.
 
-For iOS OsmAnd this feature works by default.
+For **iOS** OsmAnd this feature works by default.
 
 ### Select map as Main / Underlay / Overlay layer
 Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in:
 
-**Android**: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %}
+**Android** {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %}
 
-**iOS**: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
 
 You can choose one of its in the list or add yours.
 
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-**Android**: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
+**Android** {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
-**iOS**: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
 ![Online_maps](/assets/images/plugins/online-maps/om-2.png)
 
 ### Tweak layer parameters
@@ -95,13 +95,14 @@ Click to "Save" button for adding a new online raster map to the list.
 ## Copy online map sources 
 ### Copy raster map package created on PC 
 
-You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/osmand/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
+You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
 
 Next, you can move your map package file(s) to OsmAnd-tiles directory:
 
-For Android OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd. 
+For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd. 
 
-For iOS OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd.
+For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd.
+![Online_maps](/assets/images/plugins/online-maps/om-5.png)
 
 ### Export / Import from OsmAnd
 In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). 
