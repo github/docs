@@ -77,13 +77,14 @@ To import online map sources, you can import obf-file of application profile.  [
 
 Online maps can be added with a special link to OsmAnd Raster map list. Click to this link and choose OsmAnd for opening:
 
-http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=19max_zoom=20
+http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45&min_zoom=9max_zoom=20
 
 |Parameter of link|Example|
 |:--------|:---------------|
+|[Constant part]|http://osmand.net/add-tile-source|
 |[Name]|name=TEST|
 |[URL]|template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45|
-|[Zoom levels]|min_zoom=9  max_zoom=20|
+|[Zoom levels]|min_zoom=9max_zoom=20|
 
 You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
 
@@ -91,9 +92,13 @@ You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/m
 Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
 
 ### Sqlite vs Metainfo sources
-Comparision. Convert?
+OsmAnd Raster maps have two formats - SQ Lite and Metainfo:
 -   [**SQ Lite format**](/development/map-creation)
 -   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
+SQ Lite keeps all tiles in 1 large package, Metainfo stores tiles by sorting them into folders depending on the zoom.
+
+**Convert?**
+
 ### Clear raster map cache
 - UI to clear map tiles
 For see size of Online map cache and clear it:
