@@ -58,7 +58,7 @@ You can choose one of its in the list or add yours.
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.layer_overlay %} / {% data variables.layer_underlay %}
+Android: {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
 ![Online_maps](/assets/images/plugins/online-maps/om-1.png)
 
 iOS: {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
@@ -69,12 +69,15 @@ In order to mix raster map layers better you can change layer transparency (by u
 be more visible, especially useful for satellite imagery.
 
 ### Add new online raster map source
-To create raster map source you need to know **tile url**. This is a url that can distribute tiles in Merkaator projection. Here is a tile example url https://tile.osmand.net/hd/6/55/25.png, where is base part https://tile.osmand.net/hd/.
-Here we need to describe screens of adding new map source if you know "tile url".
+To create a raster map source you need to know **tile URL**. This is URL that can distribute tiles in Mercator Projection. Here is a tile example URL https://tile.osmand.net/hd/6/55/25.png, where is the base part https://tile.osmand.net/hd/.
+Here we need to describe screens of adding a new map source if you know "tile URL".
 
 
 ## Copy online map sources 
 ### Copy raster map package created on PC 
+
+You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/osmand/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
+
 
 OsmAndMapCreator / Mobac
 
