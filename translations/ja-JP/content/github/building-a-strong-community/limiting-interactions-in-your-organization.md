@@ -1,35 +1,35 @@
 ---
 title: Organization での操作を制限する
-intro: 'You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your organization.'
+intro: 'Organization が所有するすべてのパブリックリポジトリ内の特定のユーザに対して、一定期間アクティビティ制限を適用することができます。'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization
 versions:
   free-pro-team: '*'
-permissions: Organization owners can limit interactions in an organization.
+permissions: Organization のオーナーは、Organization 内のインタラクションを制限できます。
 ---
 
-### About temporary interaction limits
+### 一時的なインタラクションの制限について
 
-Limiting interactions in your organization enables temporary interaction limits for all public repositories owned by the organization. {% data reusables.community.interaction-limits-restrictions %}
+Organization 内のインタラクションを制限すると、Organization が所有するすべてのパブリックリポジトリに対して一時的なインタラクション制限が有効になります。 {% data reusables.community.interaction-limits-restrictions %}
 
-{% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your organization's public repositories.
+{% data reusables.community.interaction-limits-duration %} 制限期間が過ぎると、Organization はパブリックリポジトリで通常のアクティビティを再開できます。
 
 {% data reusables.community.types-of-interaction-limits %}
 
-Members of the organization are not affected by any of the limit types.
+Organization のメンバーは、いずれの制限タイプの影響も受けません。
 
-Organization 全体でアクティビティ制限を有効にした場合、個々のリポジトリに対して操作制限を有効化または無効化することはできません。 For more information on limiting activity for an individual repository, see "[Limiting interactions in your repository](/articles/limiting-interactions-in-your-repository)."
+Organization 全体でアクティビティ制限を有効にした場合、個々のリポジトリに対して操作制限を有効化または無効化することはできません。 個々のリポジトリのアクティビティ制限方法について詳しくは、「[リポジトリでのインタラクションを制限する](/articles/limiting-interactions-in-your-repository)」を参照してください。
 
-Organization owners can also block users for a specific amount of time. ブロックの期間が過ぎると、自動的にユーザのブロックは解除されます。 詳細は「[Organization からユーザをブロックする](/articles/blocking-a-user-from-your-organization)」を参照してください。
+Organization のオーナーは、特定の期間だけユーザをブロックすることもできます。 ブロックの期間が過ぎると、自動的にユーザのブロックは解除されます。 詳細は「[Organization からユーザをブロックする](/articles/blocking-a-user-from-your-organization)」を参照してください。
 
 ### Organization での操作を制限する
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
-1. In the organization settings sidebar, click **Moderation settings**. !["Moderation settings" in the organization settings sidebar](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. Under "Moderation settings", click **Interaction limits**. !["Interaction limits" in the organization settings sidebar](/assets/images/help/organizations/org-settings-interaction-limits.png)
+1. [organization settings] サイトバーで、[**Moderation settings**] をクリックします。 ![[organization settings] サイトバーの [Moderation settings]](/assets/images/help/organizations/org-settings-moderation-settings.png)
+1. [Moderation settings] で、[**Interaction limits**] をクリックします。 ![[organization settings] サイトバーの [Interaction limits] タブ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 {% data reusables.community.set-interaction-limit %}
   ![[Temporary interaction limits] のオプション](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 

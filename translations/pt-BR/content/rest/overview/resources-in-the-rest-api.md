@@ -42,8 +42,9 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
@@ -239,7 +240,7 @@ Error code name | Description
 -----------|-----------|
 `missing` | A resource does not exist.
 `missing_field` | A required field on a resource has not been set.
-`invalid` | The formatting of a field is invalid.  Review the documentation for the for more specific information.
+`invalid` | The formatting of a field is invalid.  Review the documentation for more specific information.
 `already_exists` | Another resource has the same value as this field.  This can happen in resources that must have some unique key (such as label names).
 `unprocessable` | The inputs provided were invalid.
 
@@ -270,7 +271,7 @@ Verb | Description
 `HEAD` | Can be issued against any resource to get just the HTTP header info.
 `GET` | Used for retrieving resources.
 `POST` | Used for creating resources.
-`PATCH` | Used for updating resources with partial JSON data.  For instance, an Issue resource has `title` and `body` attributes.  A PATCH request may accept one or more of the attributes to update the resource.  PATCH is a relatively new and uncommon HTTP verb, so resource endpoints also accept `POST` requests.
+`PATCH` | Used for updating resources with partial JSON data. For instance, an Issue resource has `title` and `body` attributes. A `PATCH` request may accept one or more of the attributes to update the resource.
 `PUT` | Used for replacing resources or collections. For `PUT` requests with no `body` attribute, be sure to set the `Content-Length` header to zero.
 `DELETE` |Used for deleting resources.
 
@@ -301,17 +302,21 @@ gem:
 ### Pagination
 
 Requests that return multiple items will be paginated to 30 items by
-default.  You can specify further pages with the `?page` parameter. For some
-resources, you can also set a custom page size up to 100 with the `?per_page` parameter.
-Note that for technical reasons not all endpoints respect the `?per_page` parameter,
+default.  You can specify further pages with the `page` parameter. For some
+resources, you can also set a custom page size up to 100 with the `per_page` parameter.
+Note that for technical reasons not all endpoints respect the `per_page` parameter,
 see [events](/rest/reference/activity#events) for example.
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-Note that page numbering is 1-based and that omitting the `?page`
+Note that page numbering is 1-based and that omitting the `page`
 parameter will return the first page.
+
+Some endpoints use cursor-based pagination. A cursor is a string that points to a location in the result set.
+With cursor-based pagination, there is no fixed concept of "pages" in the result set, so you can't navigate to a specific page.
+Instead, you can traverse the results by using the `before` or `after` parameters.
 
 For more information on pagination, check out our guide on [Traversing with Pagination][pagination-guide].
 
@@ -323,12 +328,16 @@ For more information on pagination, check out our guide on [Traversing with Pagi
 
 {% endnote %}
 
-The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information:
+The [Link header](http://tools.ietf.org/html/rfc5988) includes pagination information. For example:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _The example includes a line break for readability._
+
+Or, if the endpoint uses cursor-based pagination:
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
 
 This `Link` response header contains one or more [Hypermedia](/rest#hypermedia) link relations, some of which may require expansion as [URI templates](http://tools.ietf.org/html/rfc6570).
 

@@ -27,7 +27,8 @@ versions:
 - Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
 - 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
 - 只有每个文件的前 500 KB 可搜索。{% endif %}
-- 只有少于 500,000 个文件的仓库可搜索。
+- Only repositories with fewer than 500,000 files are searchable.{% if currentVersion == "free-pro-team@latest" %}
+- Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
 - 除了 [`filename`](#search-by-filename) 搜索以外，搜索源代码时必须始终包括至少一个搜索词。 例如，搜索 [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) 无效，而搜索 [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) 有效。
 - 搜索结果最多可显示同一文件的两个分段，但文件内可能有更多结果。
 - 您无法使用以下通配符作为搜索查询的一部分：<code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ]</code>. 搜索只会忽略这些符号。

@@ -1,10 +1,3 @@
-- title: Starter workflows
-  description: Workflow files for helping people get started with GitHub Actions
-  languages: TypeScript
-  href: actions/starter-workflows
-  tags:
-    - official
-    - workflow
 - title: Example services
   description: Example workflows using service containers
   languages: JavaScript
@@ -263,7 +256,7 @@
     - automation
 - title: Distribute funding in free and open source projects
   description: Continuous Distribution of funding to project contributors and dependencies
-  languages: 'Python, Docerfile, Shell, Ruby'
+  languages: 'Python, Dockerfile, Shell, Ruby'
   href: protontypes/libreselery
   tags:
     - sponsors
@@ -280,7 +273,7 @@
     - pull request
 - title: Codeowner validator
   description: Ensures the correctness of your GitHub CODEOWNERS file, supports public and private GitHub repositories and also GitHub Enterprise installations
-  languages: 'Go, Shell, Makefile, Docerfile'
+  languages: 'Go, Shell, Makefile, Dockerfile'
   href: mszostok/codeowners-validator
   tags:
     - codeowners
@@ -294,3 +287,9 @@
     - monorepo
     - copybara
     - workflow
+- title: Deploy static files to GitHub Pages
+  description: GitHub Action to publish website to GitHub Pages automatically
+  languages: 'TypeScript, JavaScript'
+  href: peaceiris/actions-gh-pages
+  tags:
+    - publishing

@@ -8,7 +8,7 @@ versions:
 
 **THESE TERMS AND CONDITIONS (THE "AGREEMENT") GOVERN YOUR PARTICIPATION IN GITHUB’S MARKETPLACE PROGRAM. BY ENROLLING TO PARTICIPATE IN THE MARKETPLACE PROGRAM OR BY CLICKING “I ACCEPT” BELOW, YOU ARE CONFIRMING THAT YOU UNDERSTAND THIS AGREEMENT, AND THAT YOU ACCEPT ALL OF ITS TERMS AND CONDITIONS.  IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY, YOU REPRESENT THAT YOU HAVE THE LEGAL AUTHORITY TO BIND THE ENTITY TO THIS AGREEMENT, IN WHICH CASE “YOU” WILL MEAN THE ENTITY YOU REPRESENT.**
 
-Effective Date: July 21, 2020
+Effective Date: January 1, 2021
 
 ### 1.	DEFINITIONS
 
@@ -143,7 +143,7 @@ In the event that your Listing is involuntarily removed because it is defective,
 
 **6.1**	GitHub will be the merchant of record for Developer Products purchased by End Users via Marketplace.
 
-**6.2**	 Prices for Marketplace Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing, and once set, such pricing cannot be changed. You may retire a pricing plan for an existing Listing and add a new pricing plan for such Listing, provided that such new pricing plan shall not negatively impact existing End Users. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 75% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 25% of the sales price will be allotted to and retained by GitHub.  At the end of each month and upon reaching a minimum value of $500 USD, GitHub will remit your share of payments.
+**6.2**	 Prices for Marketplace Listings of Developer Applications will be set in US Dollars (USD). Developer has complete control over setting pricing for each Listing, and once set, such pricing cannot be changed. You may retire a pricing plan for an existing Listing and add a new pricing plan for such Listing, provided that such new pricing plan shall not negatively impact existing End Users. The prices you set for Developer Products will determine the amount of payment you will receive. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub.  At the end of each month and upon reaching a minimum value of $500 USD, GitHub will remit your share of payments.
 
 **6.3**	Refund Requirements. You will be responsible for specifying the terms and conditions regarding refunds to your End Users. In no event shall GitHub be responsible for providing any support for refunds, nor shall GitHub be liable for payment of any refund.
 
@@ -169,7 +169,7 @@ UNDER NO CIRCUMSTANCES AND UNDER NO LEGAL THEORY (WHETHER IN CONTRACT, TORT, NEG
 
 **10.3**	GitHub may terminate this Agreement at any time if (a) you have breached any provision of this Agreement or (b) GitHub is required to do so by law.
 
-**10.4**	Effects of Termination by Developer. Upon receiving forty-five (45) days’ advanced written notice of termination from Developer, Developer will be disabled from taking on new customers via Marketplace. Any outstanding fees shall be remitted upon termination and removal of the Developer Product from Marketplace. If termination is initiated as a result of a GitHub modication to these terms (Section 11), the terms in effect immediately prior to such modification shall govern for the duration of the 45-day notice period until the date of actual termination.
+**10.4**	Effects of Termination by Developer. Upon receiving forty-five (45) days’ advanced written notice of termination from Developer, Developer will be disabled from taking on new customers via Marketplace. Any outstanding fees shall be remitted upon termination and removal of the Developer Product from Marketplace. If termination is initiated as a result of a GitHub modification to these terms (Section 11), the terms in effect immediately prior to such modification shall govern for the duration of the 45-day notice period until the date of actual termination.
 
 **10.5**	The obligations in Sections 2, 3, 4, 5, 8, 9 and 12-18 will survive any expiration or termination of this Agreement.
 

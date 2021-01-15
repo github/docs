@@ -18,7 +18,7 @@ versions:
 
 ### 关于公共仓库的 {% data variables.product.prodname_secret_scanning %}
 
- {% data variables.product.prodname_secret_scanning_caps %} is automatically enabled on public repositories, where it scans code for secrets, to check for known secret formats. When a match of your secret format is found in a public repository, {% data variables.product.company_short %} doesn't publicly disclose the information as an alert, but instead sends a payload to an HTTP endpoint of your choice. For an overview of how secret scanning works on public repositories, see "[Secret scanning](/developers/overview/secret-scanning)."
+ {% data variables.product.prodname_secret_scanning_caps %} 在公共仓库上自动启用，在其中会扫描密钥代码来检查已知的密码格式。 当在公共仓库中找到您的密码格式的匹配项时，{% data variables.product.company_short %} 不将信息作为警报公开，而是将有效负载发送到您选择的 HTTP 端点。 有关密码扫描如何在公共仓库上运行的概述，请参阅“[密码扫描](/developers/overview/secret-scanning)”。
 
 当您推送到公共仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码。 如果将私有仓库切换到公共仓库，{% data variables.product.product_name %} 会扫描整个仓库中的密码。
 
@@ -36,6 +36,7 @@ versions:
 - Databricks
 - Datadog
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity
@@ -67,7 +68,7 @@ versions:
 
 {% data reusables.secret-scanning.beta %}
 
-If you're a repository administrator or an organization owner, you can enable {% data variables.product.prodname_secret_scanning %} for private repositories that are owned by organizations. You can enable  {% data variables.product.prodname_secret_scanning %} for all your repositories, or for all new repositories within your organization. {% data variables.product.prodname_secret_scanning_caps %} is not available for user account-owned private repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)" and "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+如果您是仓库管理员或组织所有者，您可以为组织拥有的私有仓库启用 {% data variables.product.prodname_secret_scanning %}。 您可以启用对您所有的仓库或者您组织中的所有新仓库启用 {% data variables.product.prodname_secret_scanning %}。 {% data variables.product.prodname_secret_scanning_caps %} 不适用于用户帐户拥有的私有仓库。 更多信息请参阅“[管理仓库的安全性和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”或“[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”。
 
 将提交推送到启用了 {% data variables.product.prodname_secret_scanning %} 的私有仓库时，{% data variables.product.product_name %} 会扫描提交的内容中是否有密码：
 
@@ -77,7 +78,9 @@ If you're a repository administrator or an organization owner, you can enable {%
 
 - {% data variables.product.prodname_dotcom %} 在仓库中显示警报。 更多信息请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/github/administering-a-repository/managing-alerts-from-secret-scanning)”。
 
-Repository administrators and organization owners can grant users and team access to {% data variables.product.prodname_secret_scanning %} alerts. 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
+仓库管理员和组织所有者可以授予用户和团队访问 {% data variables.product.prodname_secret_scanning %} 警报。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”。
+
+要监控来自私有仓库或组织中的 {% data variables.product.prodname_secret_scanning %} 的结果，可以使用 {% data variables.product.prodname_secret_scanning %} API。 有关 API 端点的更多信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)”。
 
 {% data variables.product.product_name %} 当前会扫描私有仓库，查找以下服务提供商发布的密码。
 
@@ -90,6 +93,7 @@ Repository administrators and organization owners can grant users and team acces
 - CloudBees CodeShip
 - Databricks
 - Discord
+- Doppler
 - Dropbox
 - Dynatrace
 - Finicity
