@@ -80,7 +80,7 @@ In order to add new online raster map source go to:
 At this screen you need to add next parameters
 
 |Parameter|Description|
-|:--------|:---------------|
+|:------------|:---------------|
 |[{% data variables.ios-values.fav_name %}]|{% data variables.ios-values.res_online_name_descr %}|
 |[{% data variables.ios-values.res_url %}]|{% data variables.ios-values.res_online_url_descr %}|
 |[{% data variables.ios-values.res_zoom_levels %}]|{% data variables.ios-values.res_zoom_levels_desc %}|
