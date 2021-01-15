@@ -17,5 +17,3 @@ An article that is not available in Enterprise will have just one permalink:
 **If you are a content contributor:** You don't need to worry about supported versions when adding a link to a document. Following the examples above, if you want to reference an article you can just use its relative location:
 
 * `/github/getting-started-with-github/set-up-git`
-
-*(Please note that using a hard-coded link or supported version will result in an error when your submitted PR is automatically tested)*
