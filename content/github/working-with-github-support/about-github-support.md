@@ -23,9 +23,9 @@ To see if there are currently any incidents affecting services on {% data variab
 
 ### Contacting {% data variables.contact.github_support %}
 
-{% data variables.product.prodname_free_user %} user and organization accounts can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}. You can also contact {% data variables.contact.contact_support %} to report account, security, and abuse issues.
+You can use the {% data variables.contact.community_support_forum %} to browse topics, ask questions, share solutions, and interact directly with {% data variables.contact.community_support %}. 
 
-On paid accounts, you can either contact {% data variables.contact.contact_support %} and, depending on your plan, contact {% data variables.contact.premium_support %} or {% data variables.contact.contact_ent_support %}. For more information about contacting {% data variables.contact.premium_support %}, see "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud) or "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise)."
+To report account, security, and abuse issues, or to receive assisted support for a paid account, visit the {% data variables.contact.contact_support_portal %}. If you are an administrator for {% data variables.product.prodname_ghe_server %} without a user account on {% data variables.product.prodname_dotcom_the_website %}, visit the {% data variables.contact.contact_enterprise_portal %}.
 
 ### Granting {% data variables.contact.github_support %} temporary access to a private repository
 

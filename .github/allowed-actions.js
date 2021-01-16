@@ -13,6 +13,7 @@ module.exports = [
   'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'crykn/copy_folder_to_another_repo_action@abc264e1c16eb3d7b1f7763bfdb0e1699ad43120',
+  'cschleiden/actions-linter@43fd4e08e52ed40c0e2782dc2425694388851576',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289',
