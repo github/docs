@@ -1,4 +1,4 @@
----
+İ---
 title: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines/
