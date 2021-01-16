@@ -21,7 +21,9 @@ Repository owners and people with write access can enable {% data variables.prod
 When you first enable a {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
+1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
+**Settings**.
+![Public settings button](/assets/images/help/discussions/public-repo-settings.png)
 1. Under "Features", click **Set up discussions**.
   ![Set up a discussion button under "Features" for enabling or disabling discussions for a repository](/assets/images/help/discussions/setup-discussions-button.png)
 1. Under "Start a new discussion," edit the template to align with the resources and tone you want to set for your community.

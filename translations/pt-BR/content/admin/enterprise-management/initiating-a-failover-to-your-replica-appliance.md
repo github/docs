@@ -37,7 +37,7 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       ```
     - No novo primário, remova os UUIDs usando `ghe-repl-teardown`. Substitua *`UUID`* por um UUID que você recuperou na etapa anterior.
       ```shell
-      $ ghe-repl-teardown -u <em>UUNID</em>
+      $ ghe-repl-teardown -u <em>UUID</em>
       ```
 
 ### Leia mais

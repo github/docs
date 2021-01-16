@@ -831,7 +831,7 @@ end
 
 ### 疑难解答
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
+以下是一些常见问题和一些建议的解决方案。 如果您遇到任何其他问题，可以在 {% data variables.product.prodname_support_forum_with_url %} 中寻求帮助或建议。
 
 * **问：**我的应用程序没有将代码推送到 GitHub。 我没有看到 RuboCop 自动进行修复！
 
@@ -857,7 +857,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### 结论
 
-完成本指南后，您已经学会了使用检查 API 创建 CI 服务器的基础知识！ To review, you:
+完成本指南后，您已经学会了使用检查 API 创建 CI 服务器的基础知识！ 回顾一下：
 
 * 配置您的服务器来接收检查 API 事件并创建检查运行。
 * 使用 RuboCop 来检查仓库中的代码并为错误创建注释。
@@ -865,7 +865,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### 后续步骤
 
-Here are some ideas for what you can do next:
+以下是有关接下来可以做什么的一些想法：
 
 * 目前，始终显示“Fix this（修复此问题）”按钮。 更新您编写的代码，仅在 RuboCop 发现错误时显示“Fix this（修复此问题）”按钮。
 * 如果您不希望 RuboCop 将文件直接提交到头部分支，您可以更新代码，以使用基于头部分支的新分支[创建拉取请求](/rest/reference/pulls#create-a-pull-request)。

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 <div class="jumbotron libraries-jumbotron">
@@ -72,7 +73,7 @@ Library name | Repository |---|---| **GitHub PHP Client**|[tan-tan-kanarek/githu
 
 ### Python
 
-Library name | Repository |---|---| **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Oficial Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
+Library name | Repository |---|---| **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi) **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub) **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas) **github3.py**|[sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py) **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction) **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub) **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub) **github-flask**|[github-flask (Oficial Website)](http://github-flask.readthedocs.org) **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby
 
