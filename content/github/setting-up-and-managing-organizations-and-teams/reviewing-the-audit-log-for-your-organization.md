@@ -63,8 +63,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| [`team`](#team-category-actions) | Contains all activities related to teams in your organization.{% endif %}
+| [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
+| [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
 | [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.
 
 You can search for specific sets of actions using these terms. For example:
@@ -324,6 +324,8 @@ For more information, see "[Restricting publication of {% data variables.product
 
 | Action | Description
 |------------------|-------------------{% if currentVersion == "free-pro-team@latest"%}
+| `advanced_security_disabled` | Triggered when an organization admin disables {% data variables.product.prodname_GH_advanced_security %} for all existing private and internal repositories. For more information, see "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+| `advanced_security_enabled` | Triggered when an organization admin enables {% data variables.product.prodname_GH_advanced_security %} for all existing private and internal repositories.
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/articles/blocking-a-user-from-your-organization).
 | `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -451,7 +453,9 @@ For more information, see "[Restricting publication of {% data variables.product
 |------------------|-------------------
 | `access` | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.
 | `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/articles/inviting-collaborators-to-a-personal-repository).
-| `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
+| `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.{% if currentVersion == "free-pro-team@latest" %}
+| `advanced_security_disabled` | Triggered when a repository owner disables {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
+| `advanced_security_enabled` | Triggered when a repository owner enables {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 | `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
@@ -568,7 +572,6 @@ For more information, see "[Restricting publication of {% data variables.product
 | `waitlist_join` | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 #### `team` category actions
 
 | Action | Description
@@ -577,11 +580,12 @@ For more information, see "[Restricting publication of {% data variables.product
 | `add_repository` | Triggered when a team is given control of a repository.
 | `change_parent_team` | Triggered when a child team is created or [a child team's parent is changed](/articles/moving-a-team-in-your-organization-s-hierarchy).
 | `change_privacy` | Triggered when a team's privacy level is changed.
-| `create` | Triggered when a new team is created.
-| `destroy` | Triggered when a team is deleted from the organization.
+| `create` | Triggered when a new team is created.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`demote_maintainer` | Triggered when a user was demoted from a team maintainer to a team member. For more information, see "[Giving "team maintainer" permissions to an organization member](/github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %}
+| `destroy` | Triggered when a team is deleted from the organization.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Giving "team maintainer" permissions to an organization member](/github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %}
 | `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team).
 | `remove_repository` | Triggered when a repository is no longer under a team's control.
-{% endif %}
 
 #### `team_discussions` category actions
 
