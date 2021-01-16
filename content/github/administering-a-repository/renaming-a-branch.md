@@ -22,3 +22,31 @@ If you rename a branch, {% data variables.product.prodname_dotcom %} will automa
     ![Text field for typing new branch name](/assets/images/help/branch/branch-rename-type.png)
 1. Review the information about local environments, then click **Rename branch**.
     ![Local environment information and "Rename branch" button](/assets/images/help/branch/branch-rename-rename.png)
+
+#### Dangling HEAD
+
+After you've renamed a branch, it's possible for your local references to have a dangling `HEAD`, which may appear in such scenarios:
+
+```shellsession
+$ git fetch --prune
+From https://github.com/<ownername>/<reponame>
+ - [deleted]         (none)     -> origin/master
+   (refs/remotes/origin/HEAD has become dangling)
+```
+
+This can impair regular git maintenance, such as `git gc` with this failure message:
+
+```shellsession
+$ git gc
+fatal: bad object refs/remotes/origin/HEAD
+fatal: failed to run repack
+```
+
+One solution is to re-set the remote reference, like so:
+
+```shellsession
+$ git remote set-head origin --auto
+
+origin/HEAD set to main
+```
+after which `git gc` will succeed.
