@@ -27,7 +27,7 @@ The name of your workflow. {% data variables.product.prodname_dotcom %} displays
 
 ### `on`
 
-**Required** The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
+**Required**. The name of the {% data variables.product.prodname_dotcom %} event that triggers the workflow. You can provide a single event `string`, `array` of events, `array` of event `types`, or an event configuration `map` that schedules a workflow or restricts the execution of a workflow to specific files, tags, or branch changes. For a list of available events, see "[Events that trigger workflows](/articles/events-that-trigger-workflows)."
 
 {% data reusables.github-actions.actions-on-examples %}
 
@@ -286,7 +286,7 @@ In this example, `job3` uses the `always()` conditional expression so that it al
 
 ### `jobs.<job_id>.runs-on`
 
-**Required** The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
+**Required**. The type of machine to run the job on. The machine can be either a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner.
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
