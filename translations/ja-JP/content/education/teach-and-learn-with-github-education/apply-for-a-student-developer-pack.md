@@ -18,7 +18,7 @@ versions:
 - [{% data variables.product.prodname_dotcom %} のユーザアカウント](/articles/signing-up-for-a-new-github-account)を持っている
 - 最低でも 13 歳以上であること
 
-あなたの在学状況を証明する書類には、学生証、授業計画、成績証明書、所属または登録を証明する書類などのコピーがあげられます。
+Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
 
 学生としての在籍期間、定期的に現在の在学状況の再検証が求められることがあります。
 

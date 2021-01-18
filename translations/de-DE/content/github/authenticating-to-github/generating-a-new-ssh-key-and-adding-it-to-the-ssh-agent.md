@@ -126,8 +126,8 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 1. Stellen Sie sicher, dass ssh-agent ausgeführt wird. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
-  # Den SSH-Agenten im Hintergrund starten
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

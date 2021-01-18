@@ -13,14 +13,14 @@ versions:
 
 Os {% data reusables.organizations.owners-and-admins-can %} excluem um repositório da organização. Se a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios desta organização) tiver sido desabilitada, somente proprietários da organização poderão excluir repositórios da organização. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% if currentVersion != "github-ae@latest" %}Deleting a public repository will not delete any forks of the repository.{% endif %}
+{% if currentVersion != "github-ae@latest" %}Excluir um repositório público não excluirá nenhuma bifurcação do repositório.{% endif %}
 
 {% warning %}
 
 **Avisos**:
 
-- Deleting a repository will **permanently** delete release attachments and team permissions. Esta ação **não pode** ser desfeita.
-- Deleting a private {% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}or internal {% endif %}repository will delete all forks of the repository.
+- Excluir um repositório irá excluir **permanentemente** anexos da versão e permissões da equipe. Esta ação **não pode** ser desfeita.
+- Excluir um repositório privado {% if currentVersion ver_gt "enterprise-server@2. 9" or currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}ou interno {% endif %}irá excluir todas as bifurcações do repositório.
 
 {% endwarning %}
 

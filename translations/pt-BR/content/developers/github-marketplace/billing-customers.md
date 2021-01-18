@@ -33,7 +33,7 @@ Quando um cliente atualiza seu plano de preços ou altera seu ciclo de cobrança
 
 {% data reusables.marketplace.marketplace-failed-purchase-event %}
 
-For information about building upgrade and downgrade workflows into your app, see "[Handling plan changes](/developers/github-marketplace/handling-plan-changes)."
+Para obter informações sobre a criação fluxos de trabalho de atualização e downgrade no seu aplicativo, consulte "[Gerenciando alterações do plano](/developers/github-marketplace/handling-plan-changes)".
 
 #### Downgrades e cancelamentos
 
