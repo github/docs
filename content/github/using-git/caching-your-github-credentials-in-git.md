@@ -1,4 +1,4 @@
----
+V---
 title: Caching your GitHub credentials in Git
 redirect_from:
   - /firewalls-and-proxies/
