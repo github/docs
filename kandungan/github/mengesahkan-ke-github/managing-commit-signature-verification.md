@@ -7,8 +7,8 @@ redirect_from:
   - /articles/managing-commit-signature-verification
 mapTopic: true
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  free-pro-team: 'true'
+  enterprise-server: 'true'
+  github-ae: 'true'
 ---
 
