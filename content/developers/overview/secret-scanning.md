@@ -54,7 +54,7 @@ To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the
 * A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
 * The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
 
-Send this information to secret-scanning@github.com.
+Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 #### Create a secret alert service
 
