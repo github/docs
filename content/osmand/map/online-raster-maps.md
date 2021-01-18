@@ -108,14 +108,15 @@ For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, dow
 ![Online_maps](/assets/images/plugins/online-maps/om-5.png)
 
 ### Export / Import from OsmAnd
-In order to export online map sources, you can select them in the export file list of your [application profile](/osmand/app-profile):
 
-**Android** {% data variables.android-values.export_profile %} → {% data variables.android-values.select_data_to_export %} → {% data variables.android-values.shared_string_resources %} → {% data variables.quick_action_map_source_title %}  
-[Application profile/export](/osmand/app-profile)
+In order **to export** online map sources, you can select them in the export file list of your [application profile](/osmand/app-profile):
+
+**Android** {% data variables.android-values.export_profile %} → {% data variables.android-values.select_data_to_export %} → {% data variables.android-values.shared_string_resources %} → {% data variables.android-values.quick_action_map_source_title %}  
+
 
 **iOS** add way 
 
-To import online map sources, you can click to obf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.  [Application profile/import](/osmand/app-profile)
+In order **to import** online map sources, you can click to obf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.  [Application profile/import](/osmand/app-profile)
 
 **Android**  {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.shared_string_resources %} → {% data variables.android-values.quick_action_map_source_title %}
 
@@ -145,7 +146,12 @@ OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all ti
 -   [**SQ Lite format**](/development/map-creation)
 -   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
 
-**Convert?** in Edit menu of online maps (Storage format)??
+In order to change tile format you can choose {% data variables.android-values.storage_format %} in edit menu of online maps:
+
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %} → {% data variables.android-values.storage_format %} → {% data variables.android-values.storage_sqlite_db_file %} /  {% data variables.android-values.one_image_per_tile %}
+
+**iOS** 
+
 
 ### Clear raster map cache
 
