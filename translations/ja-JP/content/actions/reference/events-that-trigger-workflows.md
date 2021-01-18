@@ -131,7 +131,7 @@ jobs:
     steps:
     - run: |
         echo "Hello ${{ github.event.inputs.name }}!"
-        エコー "- ${{ github.event.inputs.home }}で!
+        echo "- in ${{ github.event.inputs.home }}!"
 ```
 {% endraw %}
 
@@ -224,7 +224,7 @@ on:
 
 #### `delete`
 
-誰かがブランチまたはタグを作成し、それによって `create` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
+誰かがブランチまたはタグを作成し、それによって `delete` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/rest/reference/git#delete-a-reference)」を参照してください。
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -309,9 +309,9 @@ on:
 
 {% data reusables.github-actions.branch-requirement %}
 
-| webhook イベントのペイロード                                        | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
-| --------------------------------------------------------- | ----------------------------------------------------------------- | ----------------- | ------------ |
-| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| webhook イベントのペイロード                                                                           | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------- | ------------ |
+| [`issue_comment`](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -576,7 +576,13 @@ on:
 
 #### `pull_request_target`
 
-このイベントは `pull_request` に似ていますが、マージコミットではなく、プルリクエストのベースリポジトリのコンテキストで実行される点で異なります。 つまり、ベースリポジトリのコミットで定義されたワークフローのみが実行されるため、プルリクエストによってトリガーされたワークフローでシークレットをより安全に使用できるようになります。 たとえば、このイベントでは、イベントペイロードの内容に基づいて、プルリクエストにラベルを付けてコメントを付けるワークフローを作成できます。
+This event runs in the context of the base of the pull request, rather than in the merge commit as the `pull_request` event does.  This prevents executing unsafe workflow code from the head of the pull request that could alter your repository or steal any secrets you use in your workflow. This event allows you to do things like create workflows that label and comment on pull requests based on the contents of the event payload.
+
+{% warning %}
+
+**Warning:** The `pull_request_target` event is granted a read/write repository token and can access secrets, even when it is triggered from a fork. Although the workflow runs in the context of the base of the pull request, you should make sure that you do not check out, build, or run untrusted code from the pull request with this event. Additionally, any caches share the same scope as the base branch, and to help prevent cache poisoning, you should not save the cache if there is a possibility that the cache contents were altered.
+
+{% endwarning %}
 
 | webhook イベントのペイロード                                       | アクティビティタイプ                                                                                                                                                                                                                                                                                                                                           | `GITHUB_SHA`       | `GITHUB_REF` |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
@@ -725,4 +731,4 @@ on:
 
 {% data reusables.github-actions.actions-do-not-trigger-workflows %} 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-ワークフローの実行からワークフローをトリガーしたい場合意は、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+ワークフローの実行からワークフローをトリガーしたい場合意は、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 For more information on storing a personal access token as a secret, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."

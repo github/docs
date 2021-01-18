@@ -14,7 +14,7 @@ versions:
 
 您可以在仓库中使用议题收集用户反馈，报告软件漏洞，并且组织要完成的任务。 议题不只是一个报告软件漏洞的地方。
 
-Other conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %}
+其他对话更适合讨论。 {% data reusables.discussions.you-can-use-discussions %}
 
 {% data reusables.discussions.you-cannot-convert-a-discussion %}
 

@@ -38,10 +38,10 @@ For information on when to use callout tags, see the [style guide](content-style
 
 To render syntax highlighting in command line instructions, we use triple backticks followed by the term `shell`.
 
-### Usage  
-  
-    ```shell  
-    git init <em>YOUR_REPO</em>  
+### Usage
+
+    ```shell
+    git init <em>YOUR_REPO</em>
     ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
@@ -62,9 +62,11 @@ Octicons are icons used across GitHub’s interface. We reference Octicons when 
 
 ### Usage
 
-`{% octicon "<name of octicon>" %}`  
-`{% octicon "plus" %}`
-`{% octicon "plus" aria-label="The plus icon" %}`
+```
+{% octicon "<name of octicon>" %}
+{% octicon "plus" %}
+{% octicon "plus" aria-label="The plus icon" %}
+```
 
 ## Operating system tags
 
@@ -79,6 +81,7 @@ These instructions are pertinent to Mac users.
 
 {% endmac %}
 ```
+
 ```
 {% windows %}
 
@@ -86,6 +89,7 @@ These instructions are pertinent to Windows users.
 
 {% endwindows %}
 ```
+
 ```
 {% linux %}
 
@@ -93,13 +97,8 @@ These instructions are pertinent to Windows users.
 
 {% endlinux %}
 ```
-```
-{% all %}
 
-Though rare, these instructions are pertinent to any other operating system.
-
-{% endall %}
-```
+You can define a default platform in the frontmatter, see the [content README](../content/README.md#defaultplatform).
 
 ## Reusable and variable strings of text
 

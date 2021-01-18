@@ -1,7 +1,7 @@
 ---
 title: Managing workflow runs
 shortTitle: Managing workflow runs
-intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
+intro: 'You can view the status and results of each step in your workflow, cancel a pending workflow, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}review deployments, {% endif %}view billable job execution minutes, debug and re-run a failed workflow, search and download logs, and download artifacts.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/viewing-your-repository-s-workflows
@@ -24,6 +24,7 @@ versions:
 {% link_in_list /manually-running-a-workflow %}
 {% link_in_list /re-running-a-workflow %}
 {% link_in_list /canceling-a-workflow %}
+{% link_in_list /reviewing-deployments %}
 {% link_in_list /disabling-and-enabling-a-workflow %}
 {% link_in_list /deleting-a-workflow-run %}
 {% link_in_list /viewing-job-execution-time %}
