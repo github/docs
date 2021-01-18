@@ -98,9 +98,11 @@ Click to "Save" button for adding a new online raster map to the list.
 
 You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
 
-Next, you can move your map package file(s) to OsmAnd-tiles directory:
+Next, you need to move your map package file(s) to OsmAnd-tiles directory:
 
-For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd. 
+For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+
+![Online_maps](/assets/images/plugins/online-maps/om-6.png)
 
 For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd.
 
@@ -177,20 +179,16 @@ In order to change raster map parameters:
 
 **iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Edit_ !!!ADD variable pictures
 
-Look at [the chart](/osmand/osmand/map/online-raster-maps#add-new-online-raster-map-source) for see all parameters and description.
+Look at [the table] to see all parameters and descriptions.
 
 ### Download / update tiles
 
 Tiles are saved in cache when you use Online Raster maps as Main / Overlay / Underlay layer.
 
-In OsmAnd there is the feature to download / to update selected area. For this you can choose your online source as Map source:
+In OsmAnd there is the feature to download / to update selected area. For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer). Next, you need to select the area by the size of your screen device and click on the map:
 
-Android: menu - Configure map - Map source !!!ADD variable pictures
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %}
 
-iOS: menu - Map - Map type - Online maps !!!ADD variable pictures
-
-Next you can select your area by size of your screen device and click on the map:
-
-Actions menu -> Download map or Update map !!!ADD variable pictures
+**iOS** 
 
 **Note**: the selected area is an area that you see on your screen.
