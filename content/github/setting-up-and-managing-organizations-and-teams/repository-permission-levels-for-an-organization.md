@@ -43,12 +43,13 @@ In addition to managing organization-level settings, organization owners have ad
 {% endwarning %}
 
 ### Repository access for each permission level
-
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** Repository permissions required for security features are listed in [Permission levels for code security features](#permission-levels-for-code-security-features) below.
+**Note:** Repository permissions required for actions related to security features are listed in "[Permission requirements for security features](#permission-requirements-for-security-features)" below.
 
 {% endnote %}
+{% endif %}
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|
@@ -129,7 +130,10 @@ In addition to managing organization-level settings, organization owners have ad
 | [Create new discussions and comment on existing discussions](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion) | **X** | **X** | **X** | **X** | **X** |
 | [Delete a discussion](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion) | | | | **X** | **X** |{% endif %}
 
-#### Permission levels for code security features
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+#### Permission requirements for security features
+
+In this section, you can find the repository permission levels required for {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_advanced_security %} features. 
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|{% if currentVersion == "free-pro-team@latest" %}
@@ -142,9 +146,10 @@ In addition to managing organization-level settings, organization owners have ad
 | [View dependency reviews](/github/collaborating-with-issues-and-pull-requests/reviewing-dependency-changes-in-a-pull-request) | **X** | **X** | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
 | [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository, and also resolve, revoke or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
+| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
+| [Resolve, revoke or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
 | [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **X** |{% endif %}
-
+{% endif %}
 
 ### Further reading
 
