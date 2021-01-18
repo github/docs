@@ -1,7 +1,7 @@
 ---
 title: 管理复杂的工作流程
 shortTitle: 管理复杂的工作流程
-intro: '本指南演示如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、从属作业、缓存、构建矩阵和标签。'
+intro: '本指南说明如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、相关作业、缓存、生成矩阵、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}环境{% endif %}和标签。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -147,6 +147,12 @@ jobs:
 ```
 
 更多信息请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### 使用环境
+
+您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[环境](/actions/reference/environments)”。
+{% endif %}
 
 ### 后续步骤
 

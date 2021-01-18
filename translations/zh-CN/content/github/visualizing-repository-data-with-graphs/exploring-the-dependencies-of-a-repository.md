@@ -39,12 +39,6 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to
 {% data variables.product.prodname_dependabot_alerts %} 的通知。
 
-{% note %}
-
-**注：**{% data variables.product.prodname_ghe_server %} 不会填充 **Dependents（依赖项）**视图。
-
-{% endnote %}
-
 ![依赖关系图](/assets/images/help/graphs/dependencies_graph_server.png)
 
 {% note %}
@@ -57,12 +51,6 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问安全警报的用户查看。
-
-{% note %}
-
-**注：**{% data variables.product.prodname_ghe_server %} 不会填充 **Dependents（依赖项）**视图。
-
-{% endnote %}
 
 ![依赖关系图](/assets/images/help/graphs/dependencies_graph_server.png)
 
@@ -93,9 +81,27 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 4. 阅读有关授予 {% data variables.product.product_name %} 只读访问仓库数据的消息，以启用依赖关系图，然后在“Dependency Graph（依赖关系图）”旁边单击 **Enable（启用）**。 ![依赖关系图的"启用"按钮](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 您可以随时单击 Security & analysis（安全性和分析）选项卡上“Dependency Graph（依赖关系图）”旁边的 **Disable（禁用）**来禁用依赖关系图。
+
+### Changing the "Used by" package
+
+If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+
+The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
+
+!["Used by" sidebar section](/assets/images/help/repository/used-by-section.png)
+
+Clicking any item in this section takes you to the **Dependents** tab of the dependency graph.
+
+The "Used by" section represents a single package from the repository. If you have admin permissions to a repository that contains multiple packages, you can choose which package the "Used by" section represents.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Under "Configure security and analysis features", click the drop-down menu in the "Used by counter" section and choose a package. ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
+
 {% endif %}
 
-### 依赖关系图疑难排解
+### 依赖项图疑难排解
 
 如果依赖关系图为空，则包含依赖项的文件可能有问题。 检查该文件以确保其格式对文件类型是正确的。
 

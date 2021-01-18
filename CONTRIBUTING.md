@@ -152,7 +152,7 @@ We (usually the docs team, but sometimes GitHub product managers, engineers, or 
 You should always review your own PR first.
 
 For content changes, make sure that you:
-- [ ] Confirm that the changes address every part of the content strategy plan from your issue (if there are differences, explain them).
+- [ ] Confirm that the changes address every part of the content design plan from your issue (if there are differences, explain them).
 - [ ] Review the content for technical accuracy.
 - [ ] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
 - [ ] Copy-edit the changes for grammar, spelling, and adherence to the style guide.
