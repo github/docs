@@ -136,4 +136,4 @@ In addition to managing organization-level settings, organization owners have ad
 
 - "[Managing access to your organization's repositories](/articles/managing-access-to-your-organization-s-repositories)"
 - "[Adding outside collaborators to repositories in your organization](/articles/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
+- "[Project board permissions for an organoization](/articles/project-board-permissions-for-an-organization)"
