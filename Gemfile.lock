@@ -10,10 +10,11 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   graphql (= 1.10.6)
   graphql-schema_comparator (~> 1.0.0)
 
 BUNDLED WITH
-   2.1.4
+   2.2.1

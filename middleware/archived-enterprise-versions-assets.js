@@ -25,7 +25,7 @@ module.exports = async (req, res, next) => {
     res.set('content-type', r.headers['content-type'])
     res.set('content-length', r.headers['content-length'])
     res.set('x-is-archived', 'true')
-    res.set('x-robots-tag', 'none')
+    res.set('x-robots-tag', 'noindex')
     res.send(r.body)
   } catch (err) {
     next()
