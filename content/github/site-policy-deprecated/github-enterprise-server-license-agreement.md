@@ -3,6 +3,7 @@ title: GitHub Enterprise Server License Agreement
 hidden: true
 redirect_from:
   - /articles/github-enterprise-server-license-agreement
+  - /github/site-policy/github-enterprise-server-license-agreement
 versions:
   free-pro-team: '*'
 ---

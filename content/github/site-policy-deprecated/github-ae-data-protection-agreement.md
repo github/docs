@@ -5,6 +5,7 @@ versions:
   free-pro-team: '*'
 redirect_from:
   - /github/site-policy/ghem-data-protection-addendum
+  - /github/site-policy/github-ae-data-protection-agreement
 ---
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021._

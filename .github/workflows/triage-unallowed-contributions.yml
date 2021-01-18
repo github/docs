@@ -104,6 +104,7 @@ jobs:
               body: reviewMessage,
               event: 'REQUEST_CHANGES'
             })
+            exit 1 # prevents further steps from running and fails workflow
       # When the most recent review was CHANGES_REQUESTED and the existing
       # PR no longer contains unallowed changes, dismiss the previous review
       - name: Dismiss pull request review

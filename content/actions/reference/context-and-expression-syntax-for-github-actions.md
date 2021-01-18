@@ -111,15 +111,14 @@ The `github` context contains information about the workflow run and the event t
 
 The `env` context contains environment variables that have been set in a workflow, job, or step. For more information about setting environment variables in your workflow, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)."
 
-The `env` context syntax allows you to use the value of an environment variable in your workflow file. If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
+The `env` context syntax allows you to use the value of an environment variable in your workflow file. You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 
-You can only use the `env` context in the value of the `with` and `name` keys, or in a step's `if` conditional. For more information on the step syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+If you want to use the value of an environment variable inside a runner, use the runner operating system's normal method for reading environment variables.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
-| `env.<env name>` | `string` | The value of a specific environment variable. |
-
+| `env.<env_name>` | `string` | The value of a specific environment variable. |
 
 #### `job` context
 

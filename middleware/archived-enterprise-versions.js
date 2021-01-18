@@ -4,8 +4,8 @@ const { latest, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedire
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const isArchivedVersion = require('../lib/is-archived-version')
-const got = require('got')
 const findPage = require('../lib/find-page')
+const got = require('got')
 
 // This module handles requests for deprecated GitHub Enterprise versions
 // by routing them to static content in help-docs-archived-enterprise-versions
