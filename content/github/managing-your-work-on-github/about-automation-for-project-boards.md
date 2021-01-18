@@ -1,7 +1,7 @@
 ---
 title: About automation for project boards
 intro: You can configure automatic workflows to keep the status of project board cards in sync with the associated issues and pull requests.
-redirect_from:
+redirect_from:spider4841
   - /articles/about-automation-for-project-boards
 versions:
   free-pro-team: '*'
