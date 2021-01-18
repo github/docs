@@ -13,7 +13,7 @@ versions:
 
 When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} results on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."
 
 {% note %}
 
@@ -42,7 +42,7 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 
 #### Contact {% data variables.product.prodname_dotcom %} to get the process started
 
-To get the enrollment process started, email secret-scanning@github.com.
+To get the enrollment process started, email <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 You will receive details on the {% data variables.product.prodname_secret_scanning %} program, and you will need to agree to {% data variables.product.prodname_dotcom %}'s terms of participation before proceeding.
 
@@ -284,11 +284,11 @@ For {% data variables.product.prodname_secret_scanning %} in public repositories
 
 #### Provide feedback for false positives
 
-We collect feedback on the validity of the detected individual secrets in partner responses. Email us at secret-scanning@github.com if you wish to to take part, and get feedback collection enabled.
+We collect feedback on the validity of the detected individual secrets in partner responses. If you wish to take part, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
-When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential.
+When we report secrets to you, we send a JSON array with each element containing the token, type identifier, and commit URL. When you send us feedback, you send us information about whether the detected token was a real or false credential. We accept feedback in the following formats.
 
-You can find below the two response formats that we support in terms of feedback:
+You can send us the raw token:
 
 ```
 [
@@ -304,7 +304,7 @@ You may also provide the token in hashed form after performing a one way cryptog
 ```
 [
   {
-    "token_hash": "The SHA 256 hashed form of the raw token",
+    "token_hash": "The SHA-256 hashed form of the raw token",
     "token_type": "ACompany_API_token",
     "label": "false_positive"
   }
@@ -317,8 +317,7 @@ A few important points:
 
 {% note %}
 
-**Note:** Our request timeout is set to be higher (that is, 30 seconds) for responding partners with false positives data. If you require a timeout larger than 30 seconds, email us at secret-scanning@github.com.
+**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 {% endnote %}
-
 
