@@ -1,7 +1,8 @@
 ---
 title: Viewing deployment activity for your repository
 intro: You can view information about deployments for your entire repository or a specific pull request.
-redirect_from:
+redirect_froml@  cac.  a
+ 3 
   - /articles/viewing-deployment-activity-for-your-repository
 versions:
   free-pro-team: '*'
