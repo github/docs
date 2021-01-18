@@ -93,6 +93,7 @@ At this screen you need to add next parameters:
 Click to "Save" button for adding a new online raster map to the list.
 
 ## Copy online map sources 
+
 ### Copy raster map package created on PC 
 
 You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
@@ -102,13 +103,23 @@ Next, you can move your map package file(s) to OsmAnd-tiles directory:
 For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd. 
 
 For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd.
+
+
 ![Online_maps](/assets/images/plugins/online-maps/om-5.png)
 
 ### Export / Import from OsmAnd
-In order to export online map sources, you can select them in the export file list of your application profile (Export -> Resources -> Map sources). 
-[Application profile/export](/osmand/app-profile) (**add image and link)**.
+In order to export online map sources, you can select them in the export file list of your [application profile](/osmand/app-profile):
 
-To import online map sources, you can import obf-file of application profile.  [Application profile/import](/osmand/app-profile) (**add image and link)
+**Android** {% data variables.android-values.export_profile %} → {% data variables.android-values.select_data_to_export %} → {% data variables.android-values.shared_string_resources %} → {% data variables.quick_action_map_source_title %}  
+[Application profile/export](/osmand/app-profile)
+
+**iOS** add way 
+
+To import online map sources, you can click to obf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.  [Application profile/import](/osmand/app-profile)
+
+**Android**  {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.shared_string_resources %} → {% data variables.android-values.quick_action_map_source_title %}
+
+**iOS** add way 
 
 ### Magic URL to install map source
 
