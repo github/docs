@@ -79,6 +79,7 @@
     "react-dom": "^17.0.1",
     "readline-sync": "^1.4.10",
     "remark-code-extra": "^1.0.1",
+    "remark-heading-id": "^1.0.0",
     "resolve-url-loader": "^3.1.2",
     "rimraf": "^3.0.0",
     "sass": "^1.26.3",
