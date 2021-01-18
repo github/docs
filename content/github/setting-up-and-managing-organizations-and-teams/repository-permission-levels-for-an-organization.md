@@ -133,7 +133,7 @@ In addition to managing organization-level settings, organization owners have ad
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 #### Permission requirements for security features
 
-In this section, you can find the repository permission levels required for {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_advanced_security %} features. 
+In this section, you can find the repository permission levels required for security features, such as {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_advanced_security %} features. 
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|{% if currentVersion == "free-pro-team@latest" %}
