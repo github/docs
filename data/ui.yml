@@ -148,7 +148,13 @@ product_sublanding:
   learning_paths: Learning paths
   learning_paths_desc: Learning paths are a collection of guides that help you master a particular subject.
   more_guides: more guides
-  guideTypes:
+  load_more: Load more guides
+  all_guides: All Guides
+  no_result: Sorry, there is no guide that match your filter.
+  filters:
+    type: Type
+    all: All
+  guide_types:
     overview: Overview
     quick_start: Quickstart
     tutorial: Tutorial
