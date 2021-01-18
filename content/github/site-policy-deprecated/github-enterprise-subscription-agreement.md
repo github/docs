@@ -4,6 +4,7 @@ hidden: true
 redirect_from:
   - /articles/github-enterprise-agreement/
   - /articles/github-enterprise-subscription-agreement
+  - /github/site-policy/github-enterprise-subscription-agreement
 versions:
   free-pro-team: '*'
 ---

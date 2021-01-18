@@ -27,7 +27,7 @@ versions:
 
 You can manage your work on {% data variables.product.product_name %} by creating labels to categorize issues and pull requests. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any issue or pull request within that repository.
 
-Anyone with read access to a repository can view and search the repository’s labels. To create, edit, apply, or delete a label, you must have write access to the repository.
+Anyone with read access to a repository can view and search the repository’s labels. Anyone with triage access to a repository can apply/dismiss existing labels. To create, edit, apply, or delete a label, you must have write access to the repository.
 
 ### About default labels
 

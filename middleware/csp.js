@@ -56,7 +56,9 @@ module.exports = async (req, res, next) => {
 
   // Exception for Algolia instantsearch in deprecated Enterprise docs (Node.js era)
   if (versionSatisfiesRange(requestedVersion, '<=2.19') && versionSatisfiesRange(requestedVersion, '>2.12')) {
-    csp.directives.scriptSrc.push("'unsafe-eval'")
+    csp.directives.scriptSrc.push("'unsafe-eval'", "'unsafe-inline'", 'http://www.google-analytics.com', 'https://ssl.google-analytics.com')
+    csp.directives.connectSrc.push('https://www.google-analytics.com')
+    csp.directives.imgSrc.push('http://www.google-analytics.com', 'https://ssl.google-analytics.com')
   }
 
   // Exception for search in deprecated Enterprise docs <=2.12 (static site era)
