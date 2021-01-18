@@ -46,7 +46,7 @@ In addition to managing organization-level settings, organization owners have ad
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** Repository permissions required for actions related to security features are listed in "[Permission requirements for security features](#permission-requirements-for-security-features)" below.
+**Note:** Repository permissions required to use security features are listed in "[Permission requirements for security features](#permission-requirements-for-security-features)" below.
 
 {% endnote %}
 {% endif %}
