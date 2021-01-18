@@ -4,7 +4,8 @@ intro: You can revert a specific commit to remove its changes from your branch.
 redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
 versions:
-  free-pro-team: '*'
+  free-pro-team: '*' 
+
 ---
 
 When you revert to a previous commit, the revert is also a commit. The original commit also remains in the repository's history.
