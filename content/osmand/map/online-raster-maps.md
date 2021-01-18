@@ -148,36 +148,36 @@ OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all ti
 
 In order to change tile format you can choose {% data variables.android-values.storage_format %} in edit menu of online maps:
 
-**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %} → {% data variables.android-values.storage_format %} → {% data variables.android-values.storage_sqlite_db_file %} /  {% data variables.android-values.one_image_per_tile %}
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %} → {% data variables.android-values.storage_format %} → {% data variables.android-values.sqlite_db_file %} / {% data variables.android-values.one_image_per_tile %}
 
-**iOS** 
+**iOS** Add way
 
 
 ### Clear raster map cache
 
 Tiles are saved in the cache during using Online Raster maps as Main / Overlay / Underlay layer, you can see the size of your SQ Lite or Metainfo file under name of your Online map in the list:
 
-iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps_. !!!ADD variable pictures
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %}
 
-Android: _menu -> Download maps -> Local -> Online and cashed tile maps_. !!!ADD variable pictures
+**iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps_. !!!ADD variable pictures
 
 ![Online_maps](/assets/images/plugins/online-maps/om-3.png)
 
 In order to clear map tiles cache you can do next:
 
-Android: _menu -> Download maps -> Local -> Online and cashed tile maps -> three dotes -> Clear all tiles_  !!!ADD variable pictures
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.clear_tile_data %}
 
-iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Clear cache_ !!!ADD variable pictures
+**iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Clear cache_ !!!ADD variable pictures
 
 ### Change raster map parameters
 
 In order to change raster map parameters:
 
-Android: _menu -> Download maps -> Local -> Online and cashed tile maps -> three dotes -> Edit_  !!!ADD variable pictures
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %}
 
-iOS: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Edit_ !!!ADD variable pictures
+**iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Edit_ !!!ADD variable pictures
 
-Here you can change Name of a map source; enter or copy and paste URL for an online source; change zoom levels; expiration time - cached tiles will be reloaded after specified time; choose Mercator Projection - Elliptic Mercator or Pseudo-Mercator projection; choose source format - SQ Lite or Metainfo.
+Look at [the chart](/osmand/osmand/map/online-raster-maps#add-new-online-raster-map-source) for see all parameters and description.
 
 ### Download / update tiles
 
