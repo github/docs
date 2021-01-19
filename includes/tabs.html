@@ -1,8 +1,5 @@
-{% comment %} {% if forloop.first %} selected{% endif %} {% endcomment -%}
 <nav class="UnderlineNav my-3">
   <div class="UnderlineNav-body tabs">
-    {%- for tab in tabs %}
-    <a href="#" class="UnderlineNav-item" data-group="{{ group }}" data-tab="{{ tab.id }}">{{ tab.title }}</a>
-    {%- endfor %}
+    {% for tab in tabs %}<a href="#" class="UnderlineNav-item" data-group="{{ group }}" data-tab="{{ tab.id }}">{{ tab.title }}</a>{% endfor %}
   </div>
 </nav>
