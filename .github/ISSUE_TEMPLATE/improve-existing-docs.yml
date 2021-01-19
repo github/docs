@@ -1,0 +1,52 @@
+name: Improve existing docs
+about: Make a suggestion to improve our existing documentation.
+title: ''
+labels: "content"
+inputs:
+- type: description
+  attributes:
+    value: HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+
+           For questions, ask in Discussions: https://github.com/github/docs/discussions
+- type: checkboxes
+  attributes:
+    label: Code of Conduct
+    description:
+    all-required: true
+    choices:
+    - value: I agree to follow the Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md
+- type: checkboxes
+  attributes:
+    label: Code of Conduct
+    description:
+    all-required: true
+    choices:
+    - value: I have read the Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md
+- type: checkboxes
+  attributes:
+    label: Code of Conduct
+    description:
+    all-required: true
+    choices:
+    - value: There is not a similar issue that has been already opened: https://github.com/github/docs/issues
+- type: textarea
+  attributes:
+    label: which article
+    description: What article on docs.github.com is affected?
+    required: true
+    placeholder: Add a link to the article you'd like to see updated
+    value:
+- type: textarea
+  attributes:
+    label: desired updates
+    description: What part(s) of the article would you like to see updated?
+    required: true
+    placeholder: Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+    value: 
+- type: textarea
+  attributes:
+    label: additional info
+    description: Additional information
+    required: false
+    placeholder: Add any other context or screenshots about the feature request here.
+    value:
