@@ -121,6 +121,7 @@ In order **to import** online map sources, you can click to osf-file of applicat
 
 **Android**:  {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
 
+<img src="/assets/images/plugins/online-maps/om-8.png"  height="500"/>
 
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
 
