@@ -77,14 +77,11 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    gem "github-pages", "~> 209", group: :jekyll_plugins
    ```
    If there is a newer version of the `github-pages` gem, replace `209` above with the latest version that is listed in [Rubygems](https://rubygems.org/gems/github-pages).
-   Then find the line that looks like this:
-   ```shell
-   gem "jekyll", "~> 4.2.0"
+   Comment out the Gemfile line which starts with:
+  ```shell
+   gem "jekyll"
    ```
-   and disable it by adding a `#` to it:
-   ```shell
-   # gem "jekyll", "~> 4.2.0"
-   ```
+  The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 10. Save and close the Gemfile.
 11. From the command line, run `bundle update`.
 11. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
