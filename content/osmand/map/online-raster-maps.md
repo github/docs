@@ -182,7 +182,7 @@ Tiles are saved in the cache during using Online Raster maps as Main / Overlay /
 
 <img src="/assets/images/plugins/online-maps/om-3.png" />
 
-In order to clear map tiles cache you can do next:
+In order to clear map tiles cache you need to do next:
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.clear_tile_data %}
 
