@@ -1,5 +1,5 @@
 <!doctype html>
-{% assign guideTypes = site.data.ui.product_sublanding.guideTypes %}
+{% assign guideTypes = site.data.ui.product_sublanding.guide_types %}
 
 <html lang="{{currentLanguage}}">
   {% include head %}
@@ -42,7 +42,7 @@
                       <div class="circle bg-white text-blue border-gradient--purple-pink d-inline-flex">
                         <span class="m-2 f2 lh-condensed-ultra text-center text-bold text-gradient--blue-purple" style="width: 24px; height: 24px;">{{ forloop.index }}</span>
                       </div>
-                      <div class="text-gray-light h6 text-uppercase">{{ guideTypes[guide.type] }}</div>
+                      <div class="text-gray-light h6 text-uppercase">{{ guideTypes[guide.page.type] }}</div>
                     </div>
                     <h3 class="font-mktg h2-mktg my-4 text-gray-dark">{{ guide.title }}</h3>
                     <div class="lead-mktg text-gray f5 my-4">{{ guide.intro }}</div>
@@ -87,7 +87,7 @@
                             <span class="m-2 f3 lh-condensed-ultra text-center text-bold text-gradient--purple-pink" style="min-width: 20px; height: 20px;">{{ forloop.index }}</span>
                           </div>
                           <h4 class="flex-auto">{{ guide.title }}</h4>
-                          <div class="text-gray-light h6 text-uppercase">{{ guideTypes[guide.type] }}</div>
+                          <div class="text-gray-light h6 text-uppercase">{{ guideTypes[guide.page.type] }}</div>
                         </a>
                       {% endfor %}
                     </div>
@@ -106,9 +106,7 @@
       </div>
 
       <div class="py-6 border-top border-gray">
-        <div class="container-xl px-3 px-md-6 pt-3 pb-2">
-
-        </div>
+        {% include 'article-cards' %}
       </div>
 
       <div class="border-top">
