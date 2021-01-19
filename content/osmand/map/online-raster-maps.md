@@ -117,13 +117,14 @@ In order **to export** online map sources, you can select them in the export fil
 
 **iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → choose your {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.actions %} → {% data variables.ios-values.export_profile %}
 
-In order **to import** online map sources, you can click to obf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.
+In order **to import** online map sources, you can click to osf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.
 
-**Android**:  {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %}
+**Android**:  {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
+
 
 ![Online_maps](/assets/images/plugins/online-maps/om-8.png)
 
-**iOS**: {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.export_profile %}
+**iOS**: {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
 
 ![Online_maps](/assets/images/plugins/online-maps/om-7.png)
 
