@@ -190,11 +190,11 @@ Look at [the table](/osmand/map/online-raster-maps#add-new-online-raster-map-sou
 
 Tiles are saved in cache when you use Online Raster maps as Main / Overlay / Underlay layer.
 
-In OsmAnd there is the feature to download / to update selected area. For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer). Next, you need to select the area by the size of your screen device and click on the map:
+In OsmAnd there is the feature to download / to update selected area. For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer): 
 
-**Note**: the selected area is an area that you see on your screen.
 
-**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %}
+**Android**: you need to select the area by the size of your screen device and to do a long click on the map: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %} → 
+At this screen you need to choose zoom levels → screen of downloading progress → {% data variables.android-values.shared_string_download %}
 
 <img src="/assets/images/plugins/online-maps/om-10.png" />
 
