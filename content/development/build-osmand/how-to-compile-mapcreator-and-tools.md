@@ -41,5 +41,18 @@ Native rendering library could be used to test Offline Rendering or Offline Nati
   cd core-legacy/targets
   ./intel-darwin.sh release # macOs release
   ./amd64-linux-clang.sh debug # linux debug - default
+  cd ....baked # like intel-darwin-intel-release.baked or amd64-linux-clang-release.baked
+  make -j4
   ```
 5. Binaries will be available at core-legacy/binaries.
+
+
+### Troubleshooting 
+- Missing files externals/libjpeg-turbo/jconfigint.h.in does not exist.
+If you experience that libjpeg-turbo couldn't compile
+```
+targets/.cmake/../../externals/skia/upstream.patched/third_party/externals/libjpeg-turbo/jconfigint.h.in does not exist.
+```
+You can find the files here and put them in the specified folder
+https://github.com/osmandapp/OsmAnd-core/blob/legacy_core/externals/jpeg/jconfig.h
+https://github.com/osmandapp/OsmAnd-core/blob/legacy_core/externals/jpeg/jconfigint.h
