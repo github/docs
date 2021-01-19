@@ -78,9 +78,34 @@ Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ### Publicar um pacote
 
-Você pode publicar um pacote no {% data variables.product.prodname_registry %}, efetuando a autenticação com um arquivo *nuget.config*. Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. Para obter mais informações sobre como criar seu pacote, consulte "[Criar e publicar um pacote](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" na documentação da Microsoft.
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}, or by using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} personal access token (PAT){% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### Publishing a package using a GitHub PAT as your API key
+
+If you don't already have a PAT to use for your {% data variables.product.prodname_dotcom %} account, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+1. Criar um novo projeto
+  ```shell
+  dotnet new console --name OctocatApp
+  ```
+2. Empacotar o projeto.
+  ```shell
+  dotnet pack --configuration Release
+  ```
+
+3. Publish the package using your PAT as the API key.
+  ```shell
+  dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg"  --api-key <em>YOUR_GITHUB_PAT</em> --source "github"
+  ```
 
 {% data reusables.package_registry.viewing-packages %}
+
+{% endif %}
+
+#### Publishing a package using a *nuget.config* file
+
+Ao fazer a publicação, você precisa usar o mesmo valor para `PROPRIETÁRIO` no seu arquivo *csproj* que você usa no seu arquivo de autenticação *nuget.config*. Especifique ou incremente o número da versão no seu *.csproj* e, em seguida, utilize o comando `dotnet pack` para criar um arquivo *.nuspec* para essa versão. Para obter mais informações sobre como criar seu pacote, consulte "[Criar e publicar um pacote](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" na documentação da Microsoft.
 
 {% data reusables.package_registry.authenticate-step %}
 2. Criar um novo projeto
@@ -117,6 +142,8 @@ Você pode publicar um pacote no {% data variables.product.prodname_registry %},
   ```shell
   dotnet nuget push "bin/Release/OctocatApp.1.0.0.nupkg" --source "github"
   ```
+
+{% data reusables.package_registry.viewing-packages %}
 
 ### Publicar vários pacotes no mesmo repositório
 

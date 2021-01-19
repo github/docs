@@ -20,7 +20,7 @@ Você pode usar {% data variables.product.prodname_code_scanning %} para encontr
 
 Se {% data variables.product.prodname_code_scanning %} encontrar uma vulnerabilidade potencial ou erro no seu código, {% data variables.product.prodname_dotcom %} exibirá um alerta no repositório. Depois de corrigir o código que desencadeou o alerta, {% data variables.product.prodname_dotcom %} fechará o alerta. Para obter mais informações, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)".
 
-{% data variables.product.prodname_code_scanning_capc %} usa {% data variables.product.prodname_actions %}. Para mais informações sobre endpoints de API, consulte  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
+To monitor results from {% data variables.product.prodname_code_scanning %} across your repositories or your organization, you can use webhooks and the {% data variables.product.prodname_code_scanning %} API. For information about the webhooks for {% data variables.product.prodname_code_scanning %}, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)." For information about API endpoints, see  "[{% data variables.product.prodname_code_scanning_capc %}](/rest/reference/code-scanning)."
 
 Para começar com {% data variables.product.prodname_code_scanning %}, consulte "[Habilitando {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning)."
 
@@ -54,7 +54,7 @@ Você pode visualizar e contribuir para as consultas do {% data variables.produc
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"{% endif %}
 - [{% data variables.product.prodname_security %}](https://securitylab.github.com/)
 - [Formato de Intercâmbio de Resultados de Análise Estática OASIS (SARIF) TC](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=sarif) no site do Comitê OASIS

@@ -234,7 +234,9 @@ No arquivo de workflow use o parâmetro `config-file` da ação `init` para espe
     config-file: ./.github/codeql/codeql-config.yml
 ```
 
-O arquivo de configuração pode ser localizado no repositório local ou em um repositório remoto público. Para repositórios remotos, você pode usar a sintaxe _owner/repository/file.yml@branch_. As configurações no arquivo são escritas no formato YAML.
+The configuration file can be located within the local repository, or in a remote, public repository. Using a remote, public repository allows you to specify configuration options for multiple repositories in a single place. When you reference a configuration file located in a remote repository, you can use the _OWNER/REPOSITORY/FILENAME@BRANCH_ syntax. For example, _monacorp/shared/codeql-config.yml@main_.
+
+As configurações no arquivo são escritas no formato YAML.
 
 #### Especificar consultas adicionais
 

@@ -18,7 +18,7 @@ Durch Klicken auf die Zeilennummer kannst Du eine bestimmte Zeile verknüpfen, o
 
 ### Daten durchsuchen
 
-Wenn Du in Deinem Datensatz einen bestimmten Wert suchst, gib einfach den Anfang des gesuchten Werts in die Suchleiste über der Datei ein. Die Zeilen werden daraufhin automatisch gefiltert:
+Wenn Du in Deinem Datensatz einen bestimmten Wert suchst, gib einfach den Anfang des gesuchten Werts in die Suchleiste über der Datei ein. The rows will filter automatically:
 
 ![Suche nach Werten](/assets/images/help/repository/searching_csvs.gif)
 
