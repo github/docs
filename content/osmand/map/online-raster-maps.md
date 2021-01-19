@@ -5,11 +5,11 @@ versions: '*'
 ---
 
 ## Use cases
-There is a big variety of possible use cases cause they vary on infinite external map sources possibilities. Here are some popular:
+There is a big variety of possible use cases cause they vary on infinite external map source possibilities. Here are some popular:
 - Satellite imagery as underlay
 - Live traffic information
 - Rain forecast as overlay
-- Rich topographics maps with hillshades / slopes
+- Rich topographic maps with hillshades / slopes
 - Active cycling / running trails as overlay
 - Live vessel information
 - Online OpenStreetMap tiles for OSM editing purposes
@@ -19,23 +19,23 @@ There is a big variety of possible use cases cause they vary on infinite externa
 **Note**: You can also change the main source of the map from vector maps to online tiles.
 
 ## Raster Maps
-Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells) - set of small images (tiles). In contrast of vector maps which consists of binary data like roads, points, polygons. Raster map tiles are usually regularly-spaced and square. They often look pixelated because each pixel has its own value or class.
+Online maps in OsmAnd are raster data. Raster data is made up of pixels (also referred to as grid cells) - set of small images (tiles). In contrast to vector maps which consists of binary data like roads, points, polygons. Raster map tiles are usually regularly-spaced and square. They often look pixelated because each pixel has its own value or class.
 
-Comparision to default vector maps.
+Comparison to default vector maps.
 
 **Advantages:**
-- Display time is reasonably faster, because maps are not rendered by the device.
+- Display time is reasonably faster because maps are not rendered by the device.
 - Raster maps could be loaded on the fly during map browse.
 - Possibility to preload data partially i.e. create offline cache and be able to download missing tiles on the fly.
-- Indefinite variety of external web-sources. Basically each web site with maps could be used as a source data.
+- Indefinite variety of external web-sources. Basically, each website with maps could be used as a source data.
 - The data could be updated after expiration like traffic tiles are updated every 20-30 minutes (configurable).
 
 **Disadvantages:**
 - Significantly bigger comparing to Vector maps. City example: Vector Map - 15 MB, Online 15th Zoom - 50 MB, 16th - 200 MB, 17th - 800 MB, ...
 - Places on raster maps are not clickable.
-- Not possible change map style or exclude certain objects.
-- Pixelized on zoom (if no high density tiles are not available).
-- It is not possible to rotate map with readable text (text will be rotated with the map itself, thus will not be easily readable).
+- Not possible to change map style or exclude certain objects.
+- Pixelized on zoom (if no high-density tiles are not available).
+- It is not possible to rotate a map with readable text (text will be rotated with the map itself, thus will not be easily readable).
 
 
 ## How to use Raster maps 
@@ -47,15 +47,15 @@ In order to use raster maps  in Android OsmAnd you need to enable [Online maps p
 For **iOS** OsmAnd this feature works by default.
 
 ### Select map as Main / Underlay / Overlay layer
-Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in:
+Raster maps can be used as Map source in OsmAnd (by default, offline vector maps are enabled). Map sources are configurable in:
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_map %}
 
 **iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
 
-You can choose one of its in the list or add yours.
+You can choose one of them in the list or add yours.
 
-Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
+Not only can you use one map, but you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put a cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
@@ -67,19 +67,19 @@ You can set the base map transparency for your layer and whether display the tra
 <img src="/assets/images/plugins/online-maps/om-2.png" />
 
 ### Tweak layer parameters
-In order to mix raster map layers better you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
+In order to mix raster map layers better, you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
 be more visible, especially useful for satellite imagery.
 
 ### Add new online raster map source
-To create a raster map source you need to know **tile URL**. This is URL that can distribute tiles in Mercator Projection. Here is a tile example URL https://tile.osmand.net/hd/6/55/25.png, where is the base part https://tile.osmand.net/hd/.
+To create a raster map source you need to know **the tile URL**. This is URL that can distribute tiles in Mercator Projection. Here is a tile example URL https://tile.osmand.net/hd/6/55/25.png, where is the base part https://tile.osmand.net/hd/.
 
-In order to add new online raster map source go to:
+In order to add a new online raster map source go to:
 
 **Android**  {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_map %} → {% data variables.android-values.shared_string_add %}
 
 **iOS**   {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
 
-At this screen you need to add next parameters:
+At this screen you need to add the next parameters:
 
 <img src="/assets/images/plugins/online-maps/om-4.png" />
 
@@ -102,7 +102,7 @@ You can create your own map package on PC by using special software as [MOBAC, O
 
 Next, you need to move your map package file(s) to OsmAnd-tiles directory:
 
-For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
 <img src="/assets/images/plugins/online-maps/om-11.png" />
 
@@ -117,7 +117,7 @@ In order **to export** online map sources, you can select them in the export fil
 
 **iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → choose your {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.actions %} → {% data variables.ios-values.export_profile %}
 
-In order **to import** online map sources, you can click to osf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.
+In order **to import** online map sources, you can click to osf-file of application profile in your storage, messenger, mail and etc, that choose OsmAnd app for opening, select the data to be imported.
 
 **Android**:
 
@@ -125,7 +125,7 @@ A. {% data variables.android-values.shared_string_import %} → {% data variable
 
 <img src="/assets/images/plugins/online-maps/om-8.png" />
 
-B. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+B. You can click the SQLiteDb-file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
 <img src="/assets/images/plugins/online-maps/om-6.png" />
 
@@ -137,7 +137,7 @@ A. {% data variables.ios-values.shared_string_import %} → {% data variables.io
 
 B. {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.import_from_docs %}
 
-C. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+C. You can click the SQLiteDb-file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
 <img src="/assets/images/plugins/online-maps/om-5.png" />
 
@@ -158,14 +158,14 @@ http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.v
 You find added Online map in the list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
 
 ## Manage raster maps
-Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
+Raster maps can take a significant amount of disk space, so you might need to regularly check it. For large datasets, it's recommended to use 'SQLite raster source' cause it will store all tiles in 1 large *.sqlite package. 
 
-### Sqlite vs Metainfo sources
+### SQLite vs Metainfo sources
 OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all tiles in 1 large package, Metainfo keeps one image file per tile:
 -   [**SQ Lite format**](/development/map-creation)
 -   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
 
-In order to change tile format you can choose {% data variables.android-values.storage_format %} in edit menu of online maps:
+In order to change tile format you can choose {% data variables.android-values.storage_format %} in the edit menu of online maps:
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %} → {% data variables.android-values.storage_format %} → {% data variables.android-values.sqlite_db_file %} / {% data variables.android-values.one_image_per_tile %}
 
@@ -200,17 +200,17 @@ Look at [the table](/osmand/map/online-raster-maps#add-new-online-raster-map-sou
 
 ### Download / update tiles
 
-Tiles are saved in cache when you use Online Raster maps as Main / Overlay / Underlay layer.
+Tiles are saved in the cache when you use Online Raster maps as Main / Overlay / Underlay layer.
 
-In OsmAnd there is the feature to download / to update selected area. For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer): 
+In OsmAnd there is the feature to download / to update selected areas. For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer): 
 
 
-**Android**: you need to select the area by the size of your screen device and to do a long click on the map: {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %} → 
+**Android**: you need to select the area by the size of your screen device and to do a long click on the map - {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %} → 
 At this screen you need to choose zoom levels → screen of downloading progress → {% data variables.android-values.shared_string_download %}
 
 <img src="/assets/images/plugins/online-maps/om-10.png" />
 
-**iOS** {% data variables.ios-values.actions %} → {% data variables.ios-values.download_map %} / {% data variables.ios-values.update_map %} → 
-At this screen you can select needed area, choose zoom levels. When you set all parameters you can see number of tiles and download size. Next, click to {% data variables.ios-values.shared_string_continue %} → screen of downloading progress.
+**iOS**: you need to do a long click on the map -  {% data variables.ios-values.actions %} → {% data variables.ios-values.download_map %} / {% data variables.ios-values.update_map %} → 
+At this screen you can select the needed area, choose zoom levels. When you set all parameters you can see a number of tiles and download size. Next, click to {% data variables.ios-values.shared_string_continue %} → screen of downloading progress.
 
 <img src="/assets/images/plugins/online-maps/om-9.png" />
