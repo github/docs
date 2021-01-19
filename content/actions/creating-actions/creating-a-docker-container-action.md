@@ -202,7 +202,7 @@ jobs:
 
 #### Example using a private action
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. You cannot publish a private action to marketplace and can be used only by you in the same repository.
+Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.
 
 {% raw %}
 **.github/workflows/main.yml**
