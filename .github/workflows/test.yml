@@ -27,32 +27,41 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '[".github/workflows/test.yml",".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
+          paths: '[".github/workflows/test.yml", ".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
 
   test:
     needs: see_if_should_skip
-    if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        test-group: [content, meta, rendering, routing, unit, links-and-images]
+        test-group:
+          [content, meta, rendering, routing, unit, links-and-images, graphql]
     steps:
-      - name: Check out repo
+      # Each of these ifs needs to be repeated at each step to make sure the required check still runs
+      # Even if if doesn't do anything
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Check out repo
         uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        with:
+          # Enables cloning the Early Access repo later with the relevant PAT
+          persist-credentials: 'false'
 
-      - name: Setup node
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Setup node
         uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
-      - name: Get npm cache directory
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Get npm cache directory
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
 
-      - name: Cache node modules
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Cache node modules
         uses: actions/cache@0781355a23dac32fd3bac414512f4b903437991a
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
@@ -60,20 +69,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Install dependencies
         run: npm ci
 
+      - name: Clone early access
+        if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
+        run: npm run heroku-postbuild
+        env:
+          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GIT_BRANCH: ${{ github.ref }}
+
       - name: Run build script
+        if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository != 'github/docs-internal' }}
         run: npm run build
 
-      - name: Run tests
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
-
-      - name: Send Slack notification if workflow fails
-        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
-        if: failure() && github.ref == 'early-access'
-        env:
-          SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
-          SLACK_MESSAGE: "Tests are failing on the `early-access` branch. https://github.com/github/docs-internal/tree/early-access"
+          NODE_OPTIONS: '--max_old_space_size=4096'

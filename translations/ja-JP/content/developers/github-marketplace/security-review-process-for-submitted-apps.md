@@ -27,67 +27,67 @@ OAuth Appよりは、GitHub Appをサブミットすることをおすすめし�
 - アプリケーションは、SaaSサービスを管理するためのメールやデータベースサービスのようなサービスアカウントを共有するべきではありません。
 - アプリケーションで使用されるすべてのサービスは、固有のログインとパスワードクレデンシャルを持たなければなりません。
 - プロダクションのホスティングインフラストラクチャへの管理権限でのアクセスは、管理業務を持つエンジニアや従業員にのみ与えられるべきです。
-- Apps cannot use personal access tokens to authenticate and must authenticate as an [OAuth App](/apps/about-apps/#about-oauth-apps) or [GitHub App](/apps/about-apps/#about-github-apps):
+- アプリケーションは、認証に個人アクセストークンを使うことはできず、[OAuth App](/apps/about-apps/#about-oauth-apps)あるいは[GitHub App](/apps/about-apps/#about-github-apps)として認証されなければなりません。
   - OAuth Appsは、[OAuthトークン](/apps/building-oauth-apps/authorizing-oauth-apps/)を使って認証を受けなければなりません。
-  - GitHub Apps must authenticate using either a [JSON Web Token (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app), [OAuth token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/), or [installation access token](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
+  - GitHub Appは、[JSON Webトークン (JWT)](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)、[OAuthトークン](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)、[インストールアクセストークン](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)のいずれかで認証を受けなければなりません。
 
-#### Data protection
+#### データの保護
 
-- Apps must encrypt data transferred over the public internet using HTTPS, with a valid TLS certificate, or SSH for Git.
-- Apps must store client ID and client secret keys securely. We recommend storing them as [environmental variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
-- Apps must delete all GitHub user data within 30 days of receiving a request from the user, or within 30 days of the end of the user's legal relationship with GitHub.
-- Apps cannot require the user to provide their GitHub password.
-- Apps should encrypt tokens, client IDs, and client secrets.
+- アプリケーションは、パブリックなインターネット上で転送されるデータを、有効なTLS証明書を用いたHTTPSもしくはSSH for Gitで暗号化しなければなりません。
+- アプリケーションは、クライアントIDとクライアントシークレットキーをセキュアに保存しなければなりません。 それらは[環境変数](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables)に保存することをおすすめします。
+- アプリケーションは、ユーザからの要求を受けてから30日以内、あるいはユーザのGitHubとの法的な関係が終了してから30日以内に、すべてのGitHubユーザデータを削除しなければなりません。
+- アプリケーションは、ユーザにGitHubパスワードの提供を求めてはなりません。
+- アプリケーションは、トークン、クライアントID、クライアントシークレットを暗号化すべきです。
 
-#### Logging and monitoring
+#### ロギング及びモニタリング
 
-- Apps must have logging and monitoring capabilities. App logs must be retained for at least 30 days and archived for at least one year. A security log should include:
-  - Authentication and authorization events
-  - Service configuration changes
-  - Object reads and writes
-  - All user and group permission changes
-  - Elevation of role to admin
-  - Consistent timestamping for each event
-  - Source users, IP addresses, and/or hostnames for all logged actions
+- アプリケーションは、ロギング及びモニタリングの機能を持たなければなりません。 アプリケーションのログは最低でも30日間保存され、最低でも1年間アーカイブされていなければなりません。 セキュリティログは以下を含まなければなりません。
+  - 認証及び認可イベント
+  - サービス設定の変更
+  - オブジェクトの読み書き
+  - すべてのユーザ及びグループの権限変更
+  - ロールの管理者への昇格
+  - 各イベントに対する一貫したタイムスタンプ
+  - 記録されたすべてのアクションのソースユーザ、IPアドレス及びホスト名
 
-#### Incident response workflow
+#### インシデントレスポンスのワークフロー
 
-- To partner with GitHub, you are required to have an [incident response plan](#incident-response-plan) in place before submitting your {% data variables.product.prodname_marketplace %} app listing.
-- We recommend having a security and operations incident response team in your company rather than using a third-party vendor.
-- You should have the capability to notify GitHub within 24 hours of a confirmed incident.
-- You should familiarize yourself with sections 3.7.5 - 3.7.5.6 of the [{% data variables.product.prodname_marketplace %} Developer Agreement](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), which include additional details on incident response workflow requirements.
+- GitHubと連携するには、{% data variables.product.prodname_marketplace %}アプリケーションのリストをサブミットする前に、[インシデントレスポンスプラン](#incident-response-plan)を用意しておかなければなりません。
+- サードパーティのベンダを利用するよりは、自社内にセキュリティ及び運用インシデントレスポンスチームを持つことをおすすめします。
+- インシデントの確認後24時間以内にGitHubに通知する機能を持っていなければなりません。
+- インシデントレスポンスワークフローの要件に関する追加の詳細を含む、[{% data variables.product.prodname_marketplace %}開発者契約](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities)のセクション3.7.5 - 3.7.5.6に馴染んでおかなければなりません。
 
-#### Vulnerability management and patching workflow
+#### 脆弱性管理とパッチ適用ワークフロー
 
-- You should conduct regular vulnerability scans of production infrastructure.
-- You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
-- You should familiarize yourself with section 3.7.3 of the [{% data variables.product.prodname_marketplace %} Developer Agreement](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), which includes additional details on vulnerability management and patching workflows requirements.
+- プロダクションインフラストラクチャーの定期的な脆弱性スキャンを行わなければなりません。
+- 脆弱性スキャンの結果をトリアージし、脆弱性の修正までの期間を定義して同意しなければなりません。
+- 脆弱性管理とパッチ適用ワークフローの要件に関する追加の詳細を含む、[{% data variables.product.prodname_marketplace %}開発者契約](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities)のセクション3.7.3に馴染んでおかなければなりません。
 
-### Security program documentation
+### セキュリティプログラムのドキュメンテーション
 
-During the Marketplace security review, you will be asked to submit your incident response plan and vulnerability management workflow. Each document must include a company-branded statement signed by management with a date stamp.
+Marketplaceのセキュリティレビューの間に、インシデントレスポンスプランと脆弱性管理のワークフローの提出を求められます。 それぞれのドキュメントには、日付スタンプ付きの経営陣が署名した会社ブランドでの声明が含まれていなければなりません。
 
-#### Incident response plan
-Your incident response plan documentation must include the current process that your company follows, who is accountable, and the person to contact or expect contact from if an incident occurs. The "[NIST Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)" is a great example of a document that covers incident response in general. Section 2.3 "Incident Response Policy, Plan, and Procedure Creation" specifically covers the policy. Another great example is the "[SANS Data Breach Response Policy](https://www.sans.org/security-resources/policies/general/pdf/data-breach-response)."
+#### インシデントレスポンスプラン
+インシデントレスポンスプランのドキュメンテーションには、会社が従う現在のプロセス、責任者、連絡先の人物もしくはインシデント発生時に想定される連絡先の人物が含まれていなければなりません。 「[NIST Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)」は、インシデントレスポンスを全般的に取り上げたドキュメントの素晴らしい例です。 セクション2.3の"Incident Response Policy, Plan, and Procedure Creation"は、特にこのポリシーを取り上げています。 もう1つの素晴らしい例としては「[SANS Data Breach Response Policy](https://www.sans.org/security-resources/policies/general/pdf/data-breach-response)」があります。
 
-#### Vulnerability management workflow
-Your vulnerability management workflow documentation must include the current process that your company follows for vulnerability management and the patching process used. If you don't have a full vulnerability management program, it might help to start by creating a patching process. For guidance in creating a patch management policy, read the article "[Establish a patch management policy](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)."
+#### 脆弱性管理のワークフロー
+脆弱性管理のワークフロードキュメンテーションには、使用されている脆弱性管理及びパッチ適用プロセスについて会社が従う現在のプロセスが含まれていなければなりません。 完全な脆弱性管理のプログラムがないなら、パッチ適用のプロセスの作成から始めると役立つでしょう。 パッチ管理ポリシーの作成のガイダンスとしては、「[Establish a patch management policy](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)」を読んでください。
 
 {% note %}
 
-**Note:** The incident response and vulnerability management workflow documents aren't expected to be massive formal policy or program documents. A page or two about what you do is more valuable than a lengthy policy template.
+**ノート:** インシデントレスポンス及び脆弱性管理ワークフローのドキュメントは、大規模な正式のポリシーあるいはプログラムドキュメントだとは想定されていません。 やることを書いた1〜2ページのドキュメントには、長いポリシーテンプレートよりも価値があります。
 
 {% endnote %}
 
-#### GitHub Marketplace security program questionnaire
+#### GitHub Marketplaceセキュリティプログラムアンケート
 
-During the app submission process, our {% data variables.product.prodname_marketplace %} onboarding team will also send you a questionnaire requesting information about your security practices. This document will serve as a written record attesting:
+アプリケーションのサブミットの過程で、弊社の{% data variables.product.prodname_marketplace %}オンボーディングチームからセキュリティプラクティスに関する情報を求めるアンケートが送られてきます。 このドキュメントは、以下を証明する書面による記録となります。
 
-- The authentication method and scopes required by your app.
-- That you're not requesting more scopes or {% data variables.product.product_name %} access than is needed for the app to perform its intended functionality, taking OAuth limitations and use of {% data variables.product.prodname_github_app %}s into account.
-- The use of any third-party services or infrastructure, such as SaaS, PaaS, or IaaS.
-- An incident response procedure exists.
-- Your app's method of key/token handling.
-- That a responsible disclosure policy and process in place or plans to implement one within six months.
-- Your vulnerability management workflow or program.
-- That you have logging and monitoring capabilities. You must also provide evidence that any relevant app logs are retained for at least 30 days and archived for at least one year.
+- アプリケーションが必要とする認証方式とスコープ。
+- OAuthの制限と{% data variables.product.prodname_github_app %}の利用を考慮した上で、アプリケーションが意図された機能を実行するのに必要となる以上のスコープや{% data variables.product.product_name %}のアクセスを要求していないこと。
+- SaaS、PaaS、IaaSといったサードパーティのサービスあるいはインフラストラクチャの利用。
+- インシデントレスポンスの手順が存在すること。
+- アプリケーションによるキー／トークンの処理方法。
+- 責任ある開示方針及び手続きがあること、もしくは6ヶ月以内に実施されること。
+- 脆弱性管理のワークフローもしくはプログラム。
+- ロギング及びモニタリングの機能があること。 関連するアプリケーションのログが少なくとも30日間保持され、少なくとも1年間アーカイブされるという証拠も提供しなければなりません。

@@ -37,7 +37,7 @@ Enabling {% data variables.product.prodname_github_connect %} also creates a {% 
 
 Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.prodname_ghe_server %}.
 
-For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
+For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/graphql/guides/managing-enterprise-accounts)."
 ### Enabling {% data variables.product.prodname_github_connect %}
 
 1. Sign in to {% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.

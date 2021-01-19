@@ -20,7 +20,11 @@ versions:
 
 オーナーおよびコントリビューターの双方にとって、コントリビューションガイドラインは、プルリクエストや Issue のリジェクトや再提出の手間を未然に軽減するための有効な手段です。
 
-You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}またはユーザアカウントのデフォルトのコントリビューションガイドラインを作成できます{% endif %}。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+
+{% endif %}
 
 {% tip %}
 
@@ -52,6 +56,6 @@ You can create default contribution guidelines for your organization{% if curren
 - オープンガバメント [コントリビューションガイドライン](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
 
 ### 参考リンク
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
-- [リポジトリへのライセンスの追加](/articles/adding-a-license-to-a-repository)
+- オープンソースガイドのセクション「[オープンソースプロジェクトを始める](https://opensource.guide/starting-a-project/)」{% if currentVersion == "free-pro-team@latest" %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+- 「[リポジトリへのライセンスの追加](/articles/adding-a-license-to-a-repository)」{% endif %}

@@ -12,7 +12,7 @@ Wenn Sie in Ihrer Organisation [SAML SSO](/articles/about-identity-and-access-ma
 
 Wenn Du SAML SSO verwendest, ohne SCIM zu implementieren, ist die Aufhebung der Bereitstellung nicht automatisiert. Wenn die Sitzungen der Organisationsmitglieder ablaufen, nachdem ihr Zugriff vom IdP entfernt wurde, werden sie nicht automatisch aus der Organisation entfernt. Autorisierte Token gewähren auch nach Ablauf ihrer Sitzungen Zugriff auf die Organisation. Um den Zugriff zu entfernen, können Administratoren entweder manuell das autorisierte Token aus der Organisation entfernen oder seine Entfernung mit SCIM automatisieren.
 
-These identity providers are compatible with the {% data variables.product.product_name %} SCIM API for organizations. Weitere Informationen findest Du unter [SCIM](/v3/scim/) in der {% data variables.product.product_name %}-API-Dokumentation.
+These identity providers are compatible with the {% data variables.product.product_name %} SCIM API for organizations. Weitere Informationen findest Du unter [SCIM](/rest/reference/scim) in der {% data variables.product.product_name %}-API-Dokumentation.
 - Azure AD
 - Okta
 - OneLogin

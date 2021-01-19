@@ -14,19 +14,19 @@ versions:
 
 ### 最新バージョン
 
-デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
+デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/developers/overview/about-githubs-apis)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/rest/overview/media-types#request-specific-version)ことをお勧めします。
 
     Accept: application/vnd.github.v3+json
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt '2.9' %}
 
-GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/v4/guides/migrating-from-rest/)」を参照してください。
+GitHub の GraphQL API についての情報は、[v4 ドキュメント](/graphql)を参照してください。 GraphQL への移行についての情報は、「[REST から移行する](/graphql/guides/migrating-from-rest-to-graphql)」を参照してください。
 
 {% endif %}
 
 ### スキーマ
 
-{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
+{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -41,8 +41,9 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
-> X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif currentVersion == "github-ae@latest" %}
+> X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
 > X-Content-Type-Options: nosniff
@@ -76,7 +77,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 ### 認証
 
-{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
+{% if currentVersion == "github-ae@latest" %} {% data variables.product.product_name %} REST API への認証には、[Webアプリケーションフロー](/developers/apps/authorizing-oauth-apps#web-application-flow)で OAuth2 トークンを作成することをお勧めします。 {% else %}{% data variables.product.product_name %} REST API を使用して認証する方法は 2 つあります。{% endif %} 認証を必要とするリクエストは、場所によって `403 Forbidden` ではなく `404 Not Found` を返します。  これは、許可されていないユーザにプライベートリポジトリが誤って漏洩するのを防ぐためです。
 
 #### Basic 認証
 
@@ -96,7 +97,7 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% endnote %}
 
-[OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
+[OAuth2 の詳細](/apps/building-oauth-apps/)をお読みください。  OAuth2 トークンは、本番アプリケーションの [Web アプリケーションフロー](/developers/apps/authorizing-oauth-apps#web-application-flow)で取得できることに注意してください。
 
 {% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 キー/シークレット
@@ -135,9 +136,9 @@ $ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 API は、無効な認証情報を含むリクエストを短期間に複数回検出すると、`403 Forbidden` で、そのユーザに対するすべての認証試行（有効な認証情報を含む）を一時的に拒否します。
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>valid_username</em>:<em>valid_token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>valid_username</em>:<em>valid_password</em> {% endif %}
 > HTTP/1.1 403 Forbidden
-
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
 >   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
@@ -165,22 +166,13 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" %}
+-u <em>username</em>:<em>token</em> {% endif %}{% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
-
-{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
-
-{% note %}
-
-**注釈:** {% data variables.product.prodname_ghe_server %} では、[他のすべてのエンドポイントと同様に](/v3/enterprise-admin/#endpoint-urls)、ユーザ名とパスワードを渡す必要があります。
-
-{% endnote %}
-
-{% endif %}
 
 ### GraphQL グローバルノード ID
 
-REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/v4/guides/using-global-node-ids)」のガイドを参照してください。
+REST API を介して `node_id` を検索し、それらを GraphQL 操作で使用する方法について詳しくは、「[グローバルノード ID を使用する](/graphql/guides/using-global-node-ids)」のガイドを参照してください。
 
 ### クライアントエラー
 
@@ -218,13 +210,13 @@ REST API を介して `node_id` を検索し、それらを GraphQL 操作で使
 
 すべてのエラーオブジェクトにはリソースとフィールドのプロパティがあるため、クライアントは問題の内容を認識することができます。  また、フィールドの問題点を知らせるエラーコードもあります。  発生する可能性のある検証エラーコードは次のとおりです。
 
-| エラーコード名          | 説明                                                                 |
-| ---------------- | ------------------------------------------------------------------ |
-| `missing`        | リソースが存在しません。                                                       |
-| `missing_field`  | リソースの必須フィールドが設定されていません。                                            |
-| `invalid`        | フィールドのフォーマットが無効です。  詳細については、ドキュメントを参照してください。                       |
-| `already_exists` | 別のリソースに、このフィールドと同じ値があります。  これは、一意のキー（ラベル名など）が必要なリソースで発生する可能性があります。 |
-| `unprocessable`  | 入力が無効です。                                                           |
+| エラーコード名          | 説明                                                                          |
+| ---------------- | --------------------------------------------------------------------------- |
+| `missing`        | リソースが存在しません。                                                                |
+| `missing_field`  | リソースの必須フィールドが設定されていません。                                                     |
+| `invalid`        | フィールドのフォーマットが無効です。  Review the documentation for more specific information. |
+| `already_exists` | 別のリソースに、このフィールドと同じ値があります。  これは、一意のキー（ラベル名など）が必要なリソースで発生する可能性があります。          |
+| `unprocessable`  | 入力が無効です。                                                                    |
 
 リソースはカスタム検証エラー（`code` が `custom`）を送信する場合もあります。 カスタムエラーには常にエラーを説明する `message` フィールドがあり、ほとんどのエラーには、エラーの解決に役立つ可能性があるコンテンツを指す `documentation_url` フィールドも含まれます。
 
@@ -243,14 +235,14 @@ API v3 は、必要に応じて HTTP リダイレクトを使用します。 ク
 
 API v3 は、可能な限り各アクションに適切な HTTPメソッドを使用しようとします。
 
-| メソッド     | 説明                                                                                                                                                                                                      |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `HEAD`   | HTTP ヘッダ情報のみを取得するために、任意のリソースに対して発行できます。                                                                                                                                                                 |
-| `GET`    | リソースを取得するために使用します。                                                                                                                                                                                      |
-| `POST`   | リソースを作成するために使用します。                                                                                                                                                                                      |
-| `PATCH`  | 部分的な JSON データでリソースを更新するために使用します。  たとえば、Issue リソースには `title` と `body` の属性があります。  PATCH リクエストは、リソースを更新するために 1 つ以上の属性を受け入れることができます。  PATCH は比較的新しく、一般的ではない HTTPメソッドであるため、リソースエンドポイントも `POST` リクエストを受け入れます。 |
-| `PUT`    | リソースまたはコレクションを置き換えるために使用します。 `body` 属性のない `PUT` リクエストでは、必ず `Content-Length` ヘッダをゼロに設定してください。                                                                                                            |
-| `DELETE` | リソースを削除するために使用します。                                                                                                                                                                                      |
+| メソッド     | 説明                                                                                                                                                               |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HEAD`   | HTTP ヘッダ情報のみを取得するために、任意のリソースに対して発行できます。                                                                                                                          |
+| `GET`    | リソースを取得するために使用します。                                                                                                                                               |
+| `POST`   | リソースを作成するために使用します。                                                                                                                                               |
+| `PATCH`  | 部分的な JSON データでリソースを更新するために使用します。 たとえば、Issue リソースには `title` と `body` の属性があります。 A `PATCH` request may accept one or more of the attributes to update the resource. |
+| `PUT`    | リソースまたはコレクションを置き換えるために使用します。 `body` 属性のない `PUT` リクエストでは、必ず `Content-Length` ヘッダをゼロに設定してください。                                                                     |
+| `DELETE` | リソースを削除するために使用します。                                                                                                                                               |
 
 ### ハイパーメディア
 
@@ -270,13 +262,15 @@ API v3 は、可能な限り各アクションに適切な HTTPメソッドを�
 
 ### ページネーション
 
-複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  `?page` パラメータを使用すると、さらにページを指定できます。 一部のリソースでは、`?per_page` パラメータを使用してカスタムページサイズを最大 100 に設定することもできます。 技術的な理由により、すべてのエンドポイントが `?per_page` パラメータを尊重するわけではないことに注意してください。例については、[イベント](/v3/activity/events/)を参照してください。
+複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  `page` パラメータを使用すると、さらにページを指定できます。 一部のリソースでは、`per_page` パラメータを使用してカスタムページサイズを最大 100 に設定することもできます。 技術的な理由により、すべてのエンドポイントが `per_page` パラメータを尊重するわけではないことに注意してください。例については、[イベント](/rest/reference/activity#events)を参照してください。
 
 ```shell
 $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
-ページ番号は 1 から始まり、`?page` パラメータを省略すると最初のページが返されることに注意してください。
+ページ番号は 1 から始まり、`page` パラメータを省略すると最初のページが返されることに注意してください。
+
+カーソルベースのページネーションを使用するエンドポイントもあります。 カーソルとは、結果セットで場所を示す文字列です。 カーソルベースのページネーションでは、結果セットで「ページ」という概念がなくなるため、特定のページに移動することはできません。 かわりに、`before` または `after` パラメータを使用して結果の中を移動できます。
 
 ページネーションの詳細については、[ページネーションでトラバースする][pagination-guide]のガイドをご覧ください。
 
@@ -288,14 +282,18 @@ $ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 
 {% endnote %}
 
-[Link ヘッダ](http://tools.ietf.org/html/rfc5988)には、ページネーション情報が含まれています。
+[Link ヘッダ](http://tools.ietf.org/html/rfc5988)には、ページネーション情報が含まれています。 例:
 
     Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
       <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _この例は、読みやすいように改行されています。_
 
-この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/v3/#hypermedia)リンク関係が含まれています。その一部には、[URI テンプレート](http://tools.ietf.org/html/rfc6570)としての拡張が必要な場合があります。
+エンドポイントでカーソルベースのページネーションを使用する場合:
+
+    Link: <{% data variables.product.api_url_code %}/orgs/ORG/audit-log?after=MTYwMTkxOTU5NjQxM3xZbGI4VE5EZ1dvZTlla09uWjhoZFpR&before=>; rel="next",
+
+この `Link` レスポンスヘッダには、1 つ以上の[ハイパーメディア](/rest#hypermedia)リンク関係が含まれています。その一部には、[URI テンプレート](http://tools.ietf.org/html/rfc6570)としての拡張が必要な場合があります。
 
 使用可能な `rel` の値は以下のとおりです。
 
@@ -320,7 +318,7 @@ Basic 認証または OAuth を使用する API リクエストの場合、1 時
 
 {% data reusables.enterprise.rate_limit %}
 
-[Search API にはカスタムのレート制限ルール](/v3/search/#rate-limit)があることに注意してください。
+[Search API にはカスタムのレート制限ルール](/rest/reference/search#rate-limit)があることに注意してください。
 
 API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
 
@@ -363,7 +361,7 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-API ヒットを発生させることなく、[レート制限ステータスを確認](/v3/rate_limit)できます。
+API ヒットを発生させることなく、[レート制限ステータスを確認](/rest/reference/rate-limit)できます。
 
 #### OAuth アプリケーションの認証されていないレート制限を増やす
 
@@ -594,9 +592,9 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 #### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 
-タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 これは[コミット API](/v3/git/commits) の例です。
+タイムスタンプを指定できる API 呼び出しの場合、その正確なタイムスタンプを使用します。 これは[コミット API](/rest/reference/git#commits) の例です。
 
-これらのタイムスタンプは、`2014-02-27T15:05:06+01:00` のようになります。 これらのタイムスタンプを指定する方法については、[こちらの例](/v3/git/commits/#example-input)も参照してください。
+これらのタイムスタンプは、`2014-02-27T15:05:06+01:00` のようになります。 これらのタイムスタンプを指定する方法については、[こちらの例](/rest/reference/git#example-input)も参照してください。
 
 #### `Time-Zone` ヘッダを使用する
 
@@ -606,7 +604,7 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 $ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
-つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 たとえば、[コンテンツ API](/v3/repos/contents/) は追加または変更ごとに git コミットを生成し、タイムスタンプとして現在の時刻を使用します。 このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
+つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 たとえば、[コンテンツ API](/rest/reference/repos#contents) は追加または変更ごとに git コミットを生成し、タイムスタンプとして現在の時刻を使用します。 このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
 
 #### ユーザが最後に認識されたタイムゾーンを使用する
 

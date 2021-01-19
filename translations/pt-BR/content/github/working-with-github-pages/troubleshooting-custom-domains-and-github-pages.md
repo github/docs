@@ -39,11 +39,7 @@ Verifique se o seu site não:
 - Usa mais de um subdomínio `www`. Por exemplo, `www.example.com` e `www.anotherexample.com`.
 - Usa um domínio apex e um subdomínio personalizado. Por exemplo, `example.com` e `docs.example.com`.
 
-{% warning %}
-
-**Aviso:** é altamente recomendável não usar registros DNS curingas, como `*.example.com`. O registro DNS curinga permite que qualquer pessoa hospede um site do {% data variables.product.prodname_pages %} em um dos subdomínios que você tem.
-
-{% endwarning %}
+{% data reusables.pages.wildcard-dns-warning %}
 
 Para obter uma lista de domínios personalizados compatíveis, consulte "[Sobre domínios personalizados e o {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages/#supported-custom-domains)".
 

@@ -23,7 +23,7 @@ Alle über den IdP vorgenommenen Änderungen an der Teammitgliedschaft werden im
 
 Um den Repository-Zugriff für jedes {% data variables.product.prodname_dotcom %}-Team zu verwalten, einschließlich Teams, die mit einer IdP-Gruppe verbunden sind, musst Du Änderungen mit {% data variables.product.product_name %} vornehmen. Weitere Informationen findest Du unter „[Informationen zu Teams](/articles/about-teams)“ und „[Teamzugriff auf ein Organisations-Repository verwalten](/articles/managing-team-access-to-an-organization-repository).“
 
-Du kannst die Teamsynchronisierung auch mit dem API verwalten. For more information, see "[Team synchronization](/v3/teams/team_sync/)."
+Du kannst die Teamsynchronisierung auch mit dem API verwalten. For more information, see "[Team synchronization](/rest/reference/teams#team-sync)."
 
 ### Anforderungen an Mitglieder synchronisierter Teams
 

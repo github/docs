@@ -8,7 +8,7 @@ versions:
   github-ae: '*'
 ---
 
-Esta API só está disponível para os integrantes autenticados da [organização](/v3/orgs) da equipe. Os tokens de acesso do OAuth exigem o escopo `read:org` [](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). {% data variables.product.prodname_dotcom %}  gera o `slug` da equipe a partir do `nome` da equipe.
+Esta API só está disponível para os integrantes autenticados da [organização](/rest/reference/orgs) da equipe. Os tokens de acesso do OAuth exigem o escopo `read:org` [](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). {% data variables.product.prodname_dotcom %}  gera o `slug` da equipe a partir do `nome` da equipe.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -16,7 +16,7 @@ Esta API só está disponível para os integrantes autenticados da [organizaçã
 
 ## Discussões
 
-A API de discussões de equipe permite que você obtenha, crie, edite e exclua postagens de discussão na página de uma equipe. Você pode usar discussões da equipe para ter conversas que não são específicas para um repositório ou projeto. Qualquer integrante da [organização](/v3/orgs) da equipe pode criar e ler posts de discussão públicos. The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. You can use team discussions to have conversations that are not specific to a repository or project. Esta API só está disponível para os integrantes autenticados da organização da equipe.
+A API de discussões de equipe permite que você obtenha, crie, edite e exclua postagens de discussão na página de uma equipe. Você pode usar discussões da equipe para ter conversas que não são específicas para um repositório ou projeto. Qualquer integrante da [organização](/rest/reference/orgs) da equipe pode criar e ler posts de discussão públicos. The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. To learn more about commenting on a discussion post, see the [team discussion comments API](/rest/reference/teams#discussion-comments). Esta API só está disponível para os integrantes autenticados da organização da equipe.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussions' %}{% include rest_operation %}{% endif %}
@@ -24,7 +24,7 @@ A API de discussões de equipe permite que você obtenha, crie, edite e exclua p
 
 ## Comentários da discussão
 
-A API de comentários de discussão em equipe permite que você obtenha, crie, edite e exclua comentários de discussão em um post de [discussão de equipe](/v3/teams/discussions). Qualquer integrante da organização da [organização](/v3/orgs) da equipe pode criar e ler comentários em uma discussão pública. The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. Esta API só está disponível para os integrantes autenticados da organização da equipe.
+A API de comentários de discussão em equipe permite que você obtenha, crie, edite e exclua comentários de discussão em um post de [discussão de equipe](/rest/reference/teams#discussions). Qualquer integrante da organização da [organização](/rest/reference/orgs) da equipe pode criar e ler comentários em uma discussão pública. The team discussions API allows you to get, create, edit, and delete discussion posts on a team's page. Esta API só está disponível para os integrantes autenticados da organização da equipe.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'discussion-comments' %}{% include rest_operation %}{% endif %}

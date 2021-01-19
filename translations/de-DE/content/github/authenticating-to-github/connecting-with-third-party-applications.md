@@ -32,7 +32,7 @@ Anwendungen können *Lese*- oder *Schreib*zugriff auf Deine {% data variables.pr
 
 *Scopes* sind benannte Gruppen von Berechtigungen, die eine Anwendung anfordern kann, um auf öffentliche und nicht öffentliche Daten zuzugreifen.
 
-Wenn Sie eine Drittanbieter-Anwendung verwenden möchten, die in {% data variables.product.product_name %} integriert ist, teilt diese Anwendung Ihnen mit, welche Art von Zugriff auf Ihre Daten benötigt wird. Wenn Du der App Zugriff erteilst, kann sie Aktionen in Deinem Namen durchführen, beispielsweise das Lesen oder Ändern von Daten. Wenn Du beispielsweise eine App verwenden möchtest, die den Scope `user:email` fordert, hat die App Lesezugriff auf Deine privaten E-Mail-Adressen. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+Wenn Sie eine Drittanbieter-Anwendung verwenden möchten, die in {% data variables.product.product_name %} integriert ist, teilt diese Anwendung Ihnen mit, welche Art von Zugriff auf Ihre Daten benötigt wird. Wenn Du der App Zugriff erteilst, kann sie Aktionen in Deinem Namen durchführen, beispielsweise das Lesen oder Ändern von Daten. Wenn Du beispielsweise eine App verwenden möchtest, die den Scope `user:email` fordert, hat die App Lesezugriff auf Deine privaten E-Mail-Adressen. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](/apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
 
 {% tip %}
 

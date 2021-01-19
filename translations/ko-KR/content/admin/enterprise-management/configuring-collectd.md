@@ -11,7 +11,7 @@ versions:
 
 ### Set up an external `collectd` server
 
-If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.product.product_location %}. Your `collectd` server must by running `collectd` version 5.x or higher.
+If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.product.product_location %}. Your `collectd` server must be running `collectd` version 5.x or higher.
 
 1. Log into your `collectd` server.
 2. Create or edit the `collectd` configuration file to load the network plugin and populate the server and port directives with the proper values. On most distributions, this is located at `/etc/collectd/collectd.conf`

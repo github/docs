@@ -61,7 +61,7 @@
 - 
   term: 分支
   description: >-
-    A branch is a parallel version of a repository. It is contained within the repository, but does not affect the primary or main branch allowing you to work freely without disrupting the "live" version. When you've made the changes you want to make, you can merge your branch back into the main branch to publish your changes.
+    分支是仓库的平行版本。它包含在仓库中，但不影响主要或 master 分支，可让您自由工作而不中断“即时”版本。在执行所需的更改后，可以将分支合并回 master 分支以发布更改。
 - 
   term: 分支限制
   description: >-
@@ -390,11 +390,11 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "main" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
 - 
   term: master
   description: >-
-    The default branch in many Git repositories. By default, when you create a new Git repository on the command line a branch called `master` is created. Many tools now use an alternative name for the default branch. For example, when you create a new repository on GitHub the default branch is called `main`.
+    许多 Git 存储库中的默认分支。默认情况下，在命令行上创建新的 Git 仓库时，将创建一个名为 "master" 的分支。许多工具现在对默认分支使用替代名称。例如，在 GitHub 上创建新仓库时，默认分支称为 "main"。
 - 
   term: 成员图
   description: 显示仓库所有分叉的仓库图。

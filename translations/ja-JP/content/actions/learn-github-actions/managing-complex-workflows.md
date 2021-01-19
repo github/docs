@@ -1,7 +1,7 @@
 ---
 title: 複雑なワークフローを管理する
 shortTitle: 複雑なワークフローを管理する
-intro: 'このガイドでは、{% data variables.product.prodname_actions %} の高度な機能を、シークレット管理、依存ジョブ、キャッシング、ビルドマトリックス、ラベルとともに使用する方法を説明します。'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} environments,{% endif %} and labels.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -57,7 +57,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - run: ./test_server.sh 
+      - run: ./test_server.sh
 ```
 
 詳しい情報については、[`jobs.<job_id>.needs`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds) を参照してください。
@@ -106,7 +106,7 @@ jobs:
 ```
 {% endraw %}
 
-詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
+詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ### データベースとサービスコンテナの利用
 
@@ -147,6 +147,12 @@ jobs:
 ```
 
 詳しい情報については、「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Using environments
+
+You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Environments](/actions/reference/environments)."
+{% endif %}
 
 ### 次のステップ
 

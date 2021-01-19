@@ -23,7 +23,7 @@ versions:
 
 要管理 {% data variables.product.prodname_dotcom %} 团队（包括连接到 IdP 组的团队）的仓库访问权限，您必须使用 {% data variables.product.product_name %} 进行更改。 更多信息请参阅“[关于团队](/articles/about-teams)”和“[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)”。
 
-您还可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/v3/teams/team_sync/)”。
+您还可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。
 
 ### 已同步团队成员的要求
 

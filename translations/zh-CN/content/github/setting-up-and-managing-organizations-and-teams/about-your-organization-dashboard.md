@@ -37,8 +37,8 @@ versions:
  - 提交拉取请求审查评论。
  - 对仓库复刻。
  - 创建 wiki 页面。
- - 推送提交。
- - 创建公共仓库。
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### 更多信息
 

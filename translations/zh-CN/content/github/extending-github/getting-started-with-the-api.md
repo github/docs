@@ -14,5 +14,5 @@ versions:
 
 ### 延伸阅读
 
-- "[Backing up a repository](/articles/backing-up-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
+- "[备份仓库](/articles/backing-up-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
 - “[关于集成](/articles/about-integrations)”{% endif %}

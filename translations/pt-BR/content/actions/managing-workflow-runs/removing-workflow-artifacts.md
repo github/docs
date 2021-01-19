@@ -26,7 +26,13 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Em **Artefatos**, clique em {% octicon "trashcan" aria-label="The trashcan icon" %} ao lado do artefato que você deseja remover. ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact.png)
+1. Em **Artefatos**, clique em
+{% octicon "trashcan" aria-label="The trashcan icon" %} ao lado do artefato que você deseja remover.
+    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+ ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact-updated.png)
+    {% else %}
+    ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact.png)
+    {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Definir o período de retenção para um artefato

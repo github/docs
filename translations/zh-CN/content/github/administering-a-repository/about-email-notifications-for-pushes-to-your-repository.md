@@ -25,7 +25,7 @@ versions:
 - 作为提交一部分所更改的文件
 - 提交消息
 
-您可以过滤因推送到仓库而收到的电子邮件通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." 您还可以对推送关闭电子邮件通知。 更多信息请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}”。
+您可以过滤因推送到仓库而收到的电子邮件通知。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}”[关于通知电子邮件](/github/receiving-notifications-about-activity-on-github/about-email-notifications)”。 您还可以对推送关闭电子邮件通知。 更多信息请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}”。
 
 ### 对推送到仓库启用电子邮件通知
 

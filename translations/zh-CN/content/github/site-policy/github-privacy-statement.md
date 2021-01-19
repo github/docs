@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: July 22, 2020
+Effective date: December 19, 2020
 
 感谢您将自己的源代码、项目和个人信息交托给 GitHub Inc. （“GitHub”、“我们”）。 保管您的私人信息是一项重大责任，我们希望您了解我们的处理方式。
 
@@ -26,24 +26,24 @@ Effective date: July 22, 2020
 
 ### 摘要
 
-| 节                                                                             | 说明                                                                                                                                         |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| [GitHub 收集哪些信息](#what-information-github-collects)                            | GitHub 直接从您的注册、付款、交易和用户个人资料中收集信息。 我们还自动从您的使用信息、cookie 和类似技术以及设备信息中收集，但在必要时会征得您的同意。 GitHub 可能还会从第三方收集用户个人信息。 我们只收集极少量的必要个人信息，除非您自己选择提供更多信息。 |
-| [GitHub_不_收集哪些信息](#what-information-github-does-not-collect)                  | 我们不会有意收集 13 岁以下儿童的信息，也不会收集[敏感个人信息](https://gdpr-info.eu/art-9-gdpr/)。                                                                      |
-| [GitHub 如何使用您的信息](#how-github-uses-your-information)                          | 本节介绍我们使用个人信息的方式，包括为您提供服务、与您沟通、出于安全和合规目的以及改善我们的服务。 我们还介绍了在法律要求的情况下处理个人信息的法律依据。                                                              |
-| [我们如何分享所收集的信息](#how-we-share-the-information-we-collect)                      | 在以下情况下，我们可能会与第三方分享您的信息：经您同意、与我们的服务提供商分享、出于安全目的、为履行我们的法律义务，或者公司实体或业务单位的控制权发生变更或出售。 我们不会出售您的个人信息，也不会在 GitHub 上发布广告。 您可以查看可访问您信息的服务提供商列表。     |
-| [其他重要信息](#other-important-information)                                        | 我们针对 GitHub 上的仓库内容、公共信息和组织而提供的附加说明。                                                                                                        |
-| [其他服务](#additional-services)                                                  | 我们提供有关其他服务产品的信息，包括第三方应用程序、GitHub Pages 和 GitHub 应用程序。                                                                                      |
-| [您如何访问和控制我们收集的信息](#how-you-can-access-and-control-the-information-we-collect) | 我们为您提供访问、更改或删除个人信息的途径。                                                                                                                     |
-| [我们使用 cookie 和跟踪技术](#our-use-of-cookies-and-tracking)                         | 我们使用 cookie 支持网站的整体功能，并在网站的某些部分使用少量的跟踪和分析服务。 我们提供了一个非常透明地说明此技术的网页。 请参阅本节了解更多信息。                                                            |
-| [GitHub 如何保护您的信息](#how-github-secures-your-information)                       | 我们采取所有合理必要的措施，保护 GitHub 上个人信息的机密性、完整性和可用性，并保护我们服务器的弹性。                                                                                     |
-| [GitHub 的全球隐私实践](#githubs-global-privacy-practices)                           | 我们为世界各地的所有用户提供同样的高标准隐私保护。                                                                                                                  |
-| [我们如何与您交流](#how-we-communicate-with-you)                                      | 我们通过电子邮件与您通信。 您可以在帐户设置中或通过联系我们来控制我们与您联系的方式。                                                                                                |
-| [解决投诉](#resolving-complaints)                                                 | 万一我们无法快速彻底地解决隐私问题，我们提供一条解决争议的途径。                                                                                                           |
-| [隐私声明的变更](#changes-to-our-privacy-statement)                                  | 如果本隐私声明发生重大变更，我们会在任何此类变更生效之前 30 天通知您。 您也可以在我们的站点政策仓库中跟踪变更。                                                                                 |
-| [许可](#license)                                                                | 本隐私声明的许可采用[知识共享零许可](https://creativecommons.org/publicdomain/zero/1.0/)原则。                                                                 |
-| [联系 GitHub](#contacting-github)                                               | 如果您对我们的隐私声明有疑问，请随时联系我们。                                                                                                                    |
-| [翻译](#translations)                                                           | 我们提供本隐私声明的一些翻译版本的链接。                                                                                                                       |
+| 节                                                                             | 说明                                                                                                                                                                                                                                   |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [GitHub 收集哪些信息](#what-information-github-collects)                            | GitHub 直接从您的注册、付款、交易和用户个人资料中收集信息。 We also automatically collect from you your usage information, cookies, and device information, subject, where necessary, to your consent. GitHub 可能还会从第三方收集用户个人信息。 我们只收集极少量的必要个人信息，除非您自己选择提供更多信息。 |
+| [GitHub_不_收集哪些信息](#what-information-github-does-not-collect)                  | 我们不会有意收集 13 岁以下儿童的信息，也不会收集[敏感个人信息](https://gdpr-info.eu/art-9-gdpr/)。                                                                                                                                                                |
+| [GitHub 如何使用您的信息](#how-github-uses-your-information)                          | 本节介绍我们使用个人信息的方式，包括为您提供服务、与您沟通、出于安全和合规目的以及改善我们的服务。 我们还介绍了在法律要求的情况下处理个人信息的法律依据。                                                                                                                                                        |
+| [我们如何分享所收集的信息](#how-we-share-the-information-we-collect)                      | 在以下情况下，我们可能会与第三方分享您的信息：经您同意、与我们的服务提供商分享、出于安全目的、为履行我们的法律义务，或者公司实体或业务单位的控制权发生变更或出售。 我们不会出售您的个人信息，也不会在 GitHub 上发布广告。 您可以查看可访问您信息的服务提供商列表。                                                                                               |
+| [其他重要信息](#other-important-information)                                        | 我们针对 GitHub 上的仓库内容、公共信息和组织而提供的附加说明。                                                                                                                                                                                                  |
+| [其他服务](#additional-services)                                                  | 我们提供有关其他服务产品的信息，包括第三方应用程序、GitHub Pages 和 GitHub 应用程序。                                                                                                                                                                                |
+| [您如何访问和控制我们收集的信息](#how-you-can-access-and-control-the-information-we-collect) | 我们为您提供访问、更改或删除个人信息的途径。                                                                                                                                                                                                               |
+| [我们使用 cookie 和跟踪技术](#our-use-of-cookies-and-tracking)                         | We only use strictly necessary cookies to provide, secure and improve our service. 我们提供了一个非常透明地说明此技术的网页。 请参阅本节了解更多信息。                                                                                                                |
+| [GitHub 如何保护您的信息](#how-github-secures-your-information)                       | 我们采取所有合理必要的措施，保护 GitHub 上个人信息的机密性、完整性和可用性，并保护我们服务器的弹性。                                                                                                                                                                               |
+| [GitHub 的全球隐私实践](#githubs-global-privacy-practices)                           | 我们为世界各地的所有用户提供同样的高标准隐私保护。                                                                                                                                                                                                            |
+| [我们如何与您交流](#how-we-communicate-with-you)                                      | 我们通过电子邮件与您通信。 您可以在帐户设置中或通过联系我们来控制我们与您联系的方式。                                                                                                                                                                                          |
+| [解决投诉](#resolving-complaints)                                                 | 万一我们无法快速彻底地解决隐私问题，我们提供一条解决争议的途径。                                                                                                                                                                                                     |
+| [隐私声明的变更](#changes-to-our-privacy-statement)                                  | 如果本隐私声明发生重大变更，我们会在任何此类变更生效之前 30 天通知您。 您也可以在我们的站点政策仓库中跟踪变更。                                                                                                                                                                           |
+| [许可](#license)                                                                | 本隐私声明的许可采用[知识共享零许可](https://creativecommons.org/publicdomain/zero/1.0/)原则。                                                                                                                                                           |
+| [联系 GitHub](#contacting-github)                                               | 如果您对我们的隐私声明有疑问，请随时联系我们。                                                                                                                                                                                                              |
+| [翻译](#translations)                                                           | 我们提供本隐私声明的一些翻译版本的链接。                                                                                                                                                                                                                 |
 
 ## GitHub 隐私声明
 
@@ -74,8 +74,8 @@ Effective date: July 22, 2020
 ##### 使用信息
 如果您访问我们的服务或网站，我们将与大多数服务商一样自动收集一些基本信息，但在必要时会征得您的同意。 这包括有关您如何使用服务的信息，例如您查看的页面、推荐站点、您的 IP 地址和会话信息，以及每个请求的日期和时间。 这是我们针对网站的每个访客收集的信息，无论他们是否有帐户。 此类信息可能包括用户个人信息。
 
-##### Cookie 和类似技术的信息
-如下所述，在必要时会征得您的同意，我们通过 cookie 和类似技术自动收集信息（例如 cookie ID 和设置）以保持您的登录状态、记住您的首选项以及识别您和您的设备 。
+##### Cookie
+As further described below, we automatically collect information from cookies (such as cookie ID and settings) to keep you logged in, to remember your preferences, to identify you and your device and to analyze your use of our service.
 
 ##### 设备信息
 我们可能会收集有关您设备的某些信息，例如其 IP 地址、浏览器或客户端应用程序信息、语言首选项、操作系统和应用程序版本、设备类型和 ID 以及设备型号和制造商。 此类信息可能包括用户个人信息。
@@ -150,15 +150,31 @@ GitHub 可能会从第三方收集用户个人信息。 例如，如果您报名
 
 请注意：《2018 年加州消费者隐私法案》(“CCPA”) 要求企业在其隐私政策中声明，他们是否会披露个人信息以换取金钱或其他有价值的报酬。 虽然 CCPA 只涵盖加州居民，但我们自愿将人们控制自己的数据之核心权利扩展到我们的_所有_用户，而不仅仅是居住在加州的用户。 您可以在[此处](/github/site-policy/githubs-notice-about-the-california-consumer-privacy-act)了解有关 CCPA 以及我们如何遵守它的更多信息。
 
-### 其他重要信息
+### 仓库内容
 
-#### 仓库内容
+#### Access to private repositories
 
-GitHub 人员[不会访问私有仓库，除非](/github/site-policy/github-terms-of-service#e-private-repositories)出于安全原因，或者为了协助仓库所有者解决支持问题、保持服务的完整性或履行我们的法律义务而需要这样做。 不过，虽然我们一般不搜索您的仓库中的内容，但可能扫描我们的服务器和内容，以根据算法指纹技术检测某些令牌或安全签名、已知活动的恶意软件或其他已知违反我们条款的内容，例如暴力极端主义或恐怖主义内容或儿童剥削图片。 我们的服务条款提供了[更多详细信息](/github/site-policy/github-terms-of-service#e-private-repositories)。
+If your repository is private, you control the access to your Content. If you include User Personal Information or Sensitive Personal Information, that information may only be accessible to GitHub in accordance with this Privacy Statement. GitHub personnel [do not access private repository content](/github/site-policy/github-terms-of-service#e-private-repositories) except for
+- security purposes
+- to assist the repository owner with a support matter
+- to maintain the integrity of the Service
+- to comply with our legal obligations
+- if we have reason to believe the contents are in violation of the law, or
+- 经您同意.
 
-如果您的仓库是公共仓库，则任何人都可以查看其内容。 如果您的公共仓库中含有私人、机密或[敏感个人信息](https://gdpr-info.eu/art-9-gdpr/)，例如电子邮件地址或密码，则该信息可能会被搜索引擎索引或被第三方使用。
+However, while we do not generally search for content in your repositories, we may scan our servers and content to detect certain tokens or security signatures, known active malware, known vulnerabilities in dependencies, or other content known to violate our Terms of Service, such as violent extremist or terrorist content or child exploitation imagery, based on algorithmic fingerprinting techniques (collectively, "automated scanning"). Our Terms of Service provides more details on [private repositories](/github/site-policy/github-terms-of-service#e-private-repositories).
+
+Please note, you may choose to disable certain access to your private repositories that is enabled by default as part of providing you with the Service (for example, automated scanning needed to enable Dependency Graph and Dependabot alerts).
+
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+
+#### Public repositories
+
+如果您的仓库是公共仓库，则任何人都可以查看其内容。 If you include User Personal Information, [Sensitive Personal Information](https://gdpr-info.eu/art-9-gdpr/), or confidential information, such as email addresses or passwords, in your public repository, that information may be indexed by search engines or used by third parties.
 
 更多信息请参阅[公共仓库中的用户个人信息](/github/site-policy/github-privacy-statement#public-information-on-github)。
+
+### 其他重要信息
 
 #### GitHub 上的公共信息
 
@@ -166,7 +182,7 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 与您的内容相关的用户个人信息可能被第三方收集在这些 GitHub 数据汇编中。 如果您不希望自己的用户个人信息出现在第三方的 GitHub 数据汇编中，请不要公开自己的用户个人信息，并确保在您的用户个人资料和 [Git 提交设置](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address)中[将您的电子邮件地址配置为私密](https://github.com/settings/emails)。 在当前版本中，用户的电子邮件地址默认设置为私密，但旧版 GitHub 的用户可能需要更新其设置。
 
-如果您要汇编 GitHub 数据，则必须遵守我们有关[搜刮](/github/site-policy/github-acceptable-use-policies#5-scraping-and-api-usage-restrictions)和[隐私](/github/site-policy/github-acceptable-use-policies#6-privacy)的服务条款，并且只能出于我们用户授权的目的使用所收集的任何面向公众的用户个人信息。 例如，如果 GitHub 用户出于身份识别和归因的目的而将电子邮件地址设为公开，则您不得将该电子邮件地址用于商业广告。 我们希望您合理地保护从 GitHub 收集的任何用户个人信息，并且必须及时回应 GitHub 或 GitHub 用户的投诉以及删除和“别碰”要求。
+If you would like to compile GitHub data, you must comply with our Terms of Service regarding [information usage](/github/site-policy/github-acceptable-use-policies#5-information-usage-restrictions) and [privacy](/github/site-policy/github-acceptable-use-policies#6-privacy), and you may only use any public-facing User Personal Information you gather for the purpose for which our user authorized it. For example, where a GitHub user has made an email address public-facing for the purpose of identification and attribution, do not use that email address for the purposes of sending unsolicited emails to users or selling User Personal Information, such as to recruiters, headhunters, and job boards, or for commercial advertising. 我们希望您合理地保护从 GitHub 收集的任何用户个人信息，并且必须及时回应 GitHub 或 GitHub 用户的投诉以及删除和“别碰”要求。
 
 同样，GitHub 上项目包含的公开用户个人信息可能在协作过程中被收集。 如果您要针对 GitHub 上的任何用户个人信息问题提出投诉，请参阅我们的[解决投诉](/github/site-policy/github-privacy-statement#resolving-complaints)部分。
 
@@ -185,7 +201,7 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 #### 第三方应用程序
 
-您可以选择在自己的帐户中启用或添加第三方应用程序（称为“开发者产品”）。 这些开发者产品并非使用 GitHub 的必要条件。 我们会在您要求时（例如从 Marketplace 购买开发者产品）将您的用户个人信息分享给第三方；但是，对于您使用第三方开发者产品以及您选择与之分享的用户个人信息，您自行负责。 您可以查看我们的 [API 文档](/v3/users/)，以了解您使用自己的 GitHub 个人资料向开发者产品验证时会提供哪些信息。
+您可以选择在自己的帐户中启用或添加第三方应用程序（称为“开发者产品”）。 这些开发者产品并非使用 GitHub 的必要条件。 我们会在您要求时（例如从 Marketplace 购买开发者产品）将您的用户个人信息分享给第三方；但是，对于您使用第三方开发者产品以及您选择与之分享的用户个人信息，您自行负责。 您可以查看我们的 [API 文档](/rest/reference/users)，以了解您使用自己的 GitHub 个人资料向开发者产品验证时会提供哪些信息。
 
 #### GitHub Pages
 
@@ -219,15 +235,17 @@ GitHub 的许多服务和功能都是面向公众的。 如果您的内容是面
 
 #### Cookie
 
-GitHub 使用 cookie 让服务交互变得简单而有意义。 Cookie 是网站通常存储在访客的计算机硬盘或移动设备上的小型文本文件。 我们使用 cookie（以及类似技术，例如 HTML5 localStorage）保持登录状态、记住您的首选项，并为 GitHub 的未来开发提供信息。 出于安全目的，我们使用 cookie 来识别设备。 使用我们的网站，即表示您同意我们将这些类型的 cookie 放在您的计算机或设备上。 如果您禁止浏览器或设备接受这些 cookie，则将无法登录或使用 GitHub 的服务。
+GitHub only uses strictly necessary cookies. Cookie 是网站通常存储在访客的计算机硬盘或移动设备上的小型文本文件。
 
-我们提供了一个有关 [cookie 和跟踪技术](/github/site-policy/github-subprocessors-and-cookies)的网页，介绍我们设置的 cookie、对这些 cookie 的需求以及它们的类型（临时或永久）。 它还列出了我们的第三方分析提供商和其他服务提供商，并明确说明了允许他们跟踪我们网站的哪些部分。
+We use cookies solely to provide, secure, and improve our service. For example, we use them to keep you logged in, remember your preferences, identify your device for security purposes, analyze your use of our service, compile statistical reports, and provide information for future development of GitHub. We use our own cookies for analytics purposes, but do not use any third-party analytics service providers.
 
-#### 跟踪和分析
+By using our service, you agree that we can place these types of cookies on your computer or device. If you disable your browser or device’s ability to accept these cookies, you will not be able to log in or use our service.
 
-我们使用许多第三方分析和服务提供商来帮助我们评估用户对 GitHub的使用； 汇编有关活动的统计报告；以及改善我们的内容和网站性能。 我们仅在网站的某些区域使用这些第三方分析提供商，他们全部与我们签署了数据保护协议，这些协议限制了他们可以收集的用户个人信息类型以及他们处理信息的目的。 此外，我们使用自己的内部分析软件来提供功能并改善我们的内容和性能。
+我们提供了一个有关 [cookie 和跟踪技术](/github/site-policy/github-subprocessors-and-cookies)的网页，介绍我们设置的 cookie、对这些 cookie 的需求以及它们的类型（临时或永久）。
 
-有些浏览器纳入了“别跟踪”(DNT) 功能，可向您访问的网站发送信号，表明您不希望被跟踪。 GitHub 响应浏览器的 DNT 信号，并遵循[关于响应 DNT 信号的 W3C 标准](https://www.w3.org/TR/tracking-dnt/)。 如果您没有在支持 DNT 的浏览器上启用 DNT，则我们网站某些部分的 cookie 会长期跟踪您在其他在线服务上的在线浏览活动，不过，我们不允许我们分析和服务提供商以外的第三方长期跟踪 GitHub 用户在 GitHub 上的活动。 You can read more about DNT in our [Tracking on GitHub](/github/site-policy/github-subprocessors-and-cookies#tracking-on-github) section of our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page.
+#### DNT
+
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHub 响应浏览器的 DNT 信号，并遵循[关于响应 DNT 信号的 W3C 标准](https://www.w3.org/TR/tracking-dnt/)。 If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. 还有一些很适合阻止在线跟踪的应用程序，例如 [Privacy Badger](https://privacybadger.org/)。
 
 ### GitHub 如何保护您的信息
 
@@ -300,7 +318,7 @@ GitHub 处理美国境内外的个人信息，并依靠标准合同条款作为�
 
 ### 隐私声明的变更
 
-GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 对于本隐私声明的非重大变更或不影响您权利的变更，我们建议用户经常查看我们的站点政策仓库。
+GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
 
 ### 许可
 

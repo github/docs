@@ -76,6 +76,7 @@ For more information, see:
 - "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)" for {% data variables.product.prodname_ghe_cloud %}{% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### Disabling and enabling workflows
 
 You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
@@ -83,3 +84,4 @@ You can enable and disable individual workflows in your repository on {% data va
 {% data reusables.actions.scheduled-workflows-disabled %}
 
 For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
+{% endif %}

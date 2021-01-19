@@ -3,10 +3,10 @@ name: Auto Merge Dependency Updates
 on:
   pull_request:
     paths:
-      - "package*.json"
-      - "Gemfile*"
-      - "Dockerfile"
-      - ".github/workflows/**"
+      - 'package*.json'
+      - 'Gemfile*'
+      - 'Dockerfile'
+      - '.github/workflows/**'
   pull_request_review:
     types:
       - edited
@@ -14,6 +14,7 @@ on:
 
 jobs:
   run:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
       - uses: tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0

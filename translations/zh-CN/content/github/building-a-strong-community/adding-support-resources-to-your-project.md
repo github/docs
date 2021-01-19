@@ -13,7 +13,11 @@ versions:
 
 ![支持指南](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-You can create default support resources for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
+您可以为组织或用户帐户创建默认支持资源。 更多信息请参阅“[创建默认社区健康文件](/github/building-a-strong-community/creating-a-default-community-health-file)”。
+
+{% endif %}
 
 {% tip %}
 

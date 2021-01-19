@@ -14,6 +14,8 @@ versions:
 
 在拉取请求中，您提议将您对头部分支所做的更改合并到基础分支。 {% data reusables.pull_requests.about-protected-branches %} 但是，对于何时可以将拉取请求合并到特定分支可能会有限制。 例如，如果必需状态检查通过，您可能只能将拉取请求合并到默认分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
 
+{% data reusables.pull_requests.you-can-auto-merge %}
+
 如果拉取请求具有合并冲突，或者您在测试前想测试更改，可以[本地检出拉取请求](/articles/checking-out-pull-requests-locally)，然后使用命令行合并。
 
 无法合并草稿拉取请求。 有关拉取请求草稿的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
@@ -45,7 +47,7 @@ versions:
 
    {% note %}
 
-   **Note:** The email selector is not available for rebase merges, which do not create a merge commit, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.
+   **注意：** 电子邮件选择器不可用于变基合并（无法创建合并提交） 或压缩合并（将创建拉取请求的用户计为压缩提交的作者）。
 
    {% endnote %}
 
