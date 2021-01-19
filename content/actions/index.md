@@ -25,21 +25,18 @@ featuredLinks:
     - /actions/reference/workflow-commands-for-github-actions
     - /actions/reference/environment-variables
 changelog:
+  - title: Workflow visualization
+    date: '2020-12-08'
+    href: https://github.blog/changelog/2020-12-08-github-actions-workflow-visualization/
   - title: Removing set-env and add-path commands on November 16
     date: '2020-11-09'
     href: https://github.blog/changelog/2020-10-01-github-actions-deprecating-set-env-and-add-path-commands/
   - title: Ubuntu-latest workflows will use Ubuntu-20.04
     date: '2020-10-29'
     href: https://github.blog/changelog/2020-10-29-github-actions-ubuntu-latest-workflows-will-use-ubuntu-20-04
-  - title: MacOS Big Sur Preview
-    date: '2020-10-29'
-    href: https://github.blog/changelog/2020-10-29-github-actions-macos-big-sur-preview
-  - title: Self-Hosted Runner Group Access Changes
-    date: '2020-10-16'
-    href: https://github.blog/changelog/2020-10-16-github-actions-self-hosted-runner-group-access-changes/
 
 product_video: https://www.youtube-nocookie.com/embed/cP0I9w2coGU
-  
+
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -75,7 +72,7 @@ versions:
     {% render 'code-example-card' for actionsCodeExamples as example %}
   </div>
 
-  <button class="js-filter-card-show-more btn btn-outline float-right">Show more {% octicon "arrow-right" %}</button>
+  <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">Show more {% octicon "arrow-right" %}</button>
 
   <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>

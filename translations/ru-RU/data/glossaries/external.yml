@@ -123,7 +123,7 @@
 - 
   term: коммит
   description: >-
-    Коммит или «версия» — это отдельное изменение файла (или набора файлов). При создании коммита для сохранения своей работы Git присваивает уникальный ID (также называемый «SHA» или «хэш»), который позволяет регистрировать конкретные изменения вместе с данными о том, кто и когда их внес. Обычно коммиты содержат сообщение о коммите, в котором кратко описаны сделанные изменения.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: автор коммита
   description: Пользователь, выполняющий коммит.
@@ -137,7 +137,7 @@
 - 
   term: сообщение коммита
   description: >-
-    Краткий описательный текст, который присутствует в коммите и содержит информацию об изменении, которое вносит коммит.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: сравнить ветвь
   description: >-
@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    Gist — это файл совместного доступа, который можно редактировать, клонировать и порождать его копию в GitHub. Gist может быть общедоступным или скрытым, хотя скрытый gist будет доступен всем, у кого есть URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -390,7 +390,7 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named "main" is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
 - 
   term: главная (ветвь)
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: оповещение
   description: >-
-    Обновления, доставляемые через Интернет или по электронной почте, в зависимости от ваших настроек, в которых содержится информация об интересующих вас действиях.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: Приложение OAuth
   description: >-

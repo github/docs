@@ -5,8 +5,9 @@ on:
       - main
 jobs:
   autoupdate:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: autoupdate
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: docker://chinthakagodawita/autoupdate-action:v1
         env:

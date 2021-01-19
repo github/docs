@@ -63,8 +63,8 @@ As ferramentas do software incluídas em executores hospedados em {% data variab
 * [Ubuntu 16.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
-* [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
-* [MacOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
+* [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [macOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
 {% data reusables.github-actions.macos-runner-preview %}
@@ -83,44 +83,11 @@ Se houver uma ferramenta que você queira solicitar, abra um problema em [action
 
 {% endnote %}
 
-Executores do Windows e Ubuntu são hospedados no Azure e têm os mesmos intervalos de endereços IP dos centros de dados Azure. Atualmente, todos os executores hospedados em {% data variables.product.prodname_dotcom %} do Windows e Ubuntu encontram-se nas seguintes regiões do Azure:
+Os executores do Windows e Ubuntu são hospedados no Azure e, consequentemente, têm as mesmas faixas de endereços IP que os centros de dados do Azure. Os executores do macOS estão hospedados na própria nuvem do macOS de {% data variables.product.prodname_dotcom %}.
 
-- Leste dos EUA (`eastus`)
-- Leste dos EUA 2 (`eastus2`)
-- Oeste dos EU 2 (`westus2`)
-- Centro dos EUA (`centralus`)
-- Centro-sul dos EUA (`southcentralus`)
+Para obter uma lista de intervalos de endereços IP que {% data variables.product.prodname_actions %} usa para executores hospedados em {% data variables.product.prodname_dotcom %}, você poderá usar a API REST de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a chave de `ações` na resposta do ponto de extremidade "[Obtenha as metainformações do GitHub](/rest/reference/meta#get-github-meta-information)". Você pode usar essa lista de endereços IP se precisar de uma lista de permissão para evitar acesso não autorizado para os seus recursos internos.
 
-A Microsoft atualiza os intervalos de endereços IP Azure semanalmente em um arquivo JSON que você pode baixar no site [Azure intervalos IP e tags de serviço - nuvem pública](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Você pode usar esse intervalo de endereços IP se precisar de uma lista de permissão para evitar acesso não-autorizado em seus recursos internos.
-
-O arquivo JSON contém um array chamado `values` (valores). Dentro desse array, você pode encontrar os endereços IP suportados em um objeto com `name` e `id` da região Azure, por exemplo `"AzureCloud. astus2"`.
-
-Você pode encontrar os intervalos de endereços IP compatíveis no objeto `"addressPrefixes"`. Este é um exemplo resumido do arquivo JSON.
-
-```json
-{
-  "changeNumber": 84,
-  "cloud": "Public",
-  "values": [
-    {
-      "name": "AzureCloud.eastus2",
-      "id": "AzureCloud.eastus2",
-      "properties": {
-        "changeNumber": 33,
-        "region": "eastus2",
-        "platform": "Azure",
-        "systemService": "",
-        "addressPrefixes": [
-          "13.68.0.0/17",
-          "13.77.64.0/18",
-          "13.104.147.0/25",
-          ...
-        ]
-      }
-    }
-  ]
-}
-```
+A lista de endereços IP de {% data variables.product.prodname_actions %} retornados pela API é atualizada uma vez por semana.
 
 ### Sistemas de arquivos
 

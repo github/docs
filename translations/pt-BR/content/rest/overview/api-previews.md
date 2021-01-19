@@ -61,7 +61,7 @@ Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
 
 ### Integrações
 
-Gerencie as [integrações](/early-access/integrations/) através da API.
+Gerencie as [integrações](/v3/integrations) através da API.
 
 **Tipo de mídia personalizada:** `machine-man-preview` **Anunciado em:** [2016-09-14](https://developer.github.com/changes/2016-09-14-Integrations-Early-Access/) 
 
@@ -82,17 +82,6 @@ Gerencie [projetos](/rest/reference/projects).
 [Pesquisa commits](/rest/reference/search).
 
 **Tipo de mídia personalizada:** `cloak-preview` **Anunciado em:** [2017-01-05](https://developer.github.com/changes/2017-01-05-commit-search-api/)
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-
-### Bloqueio de usuário
-
-Os usuários podem [bloquear outros usuários](/rest/reference/users#blocking). As organizações também podem [bloquear usuários](/rest/reference/orgs#blocking).
-
-**Tipo de mídia personalizado:** `giant-sentry-fist-preview` **Anunciado em:** [2011-05-31](https://github.com/blog/862-block-the-bullies) **Atualização 1:** [2016-04-04](https://github.com/blog/2146-organizations-can-now-block-abusive-users) **Atualização 2:** [2016-08-17](https://github.com/blog/2229-see-the-users-you-ve-blocked-on-your-settings-page) 
-
-{% endif %}
 
 
 

@@ -305,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Agrega um diretório à variável de sistema `PATH` para todas as ações subsequentes no trabalho atual. A ação que está em execução não pode acessar a nova variável de caminho.
+Prepara um diretório para a variável `PATH` do sistema e o torna disponível para todas as ações subsequentes no trabalho atual; a ação atualmente em execução não pode acessar a variável de caminho atualizada. Para ver os caminhos atualmente definidos para o seu trabalho, você pode usar o `echo "$PATH"` em uma etapa ou ação.
 
 #### Exemplo
 
+Este exemplo demonstra como adicionar o diretório `$HOME/.local/bin` ao `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

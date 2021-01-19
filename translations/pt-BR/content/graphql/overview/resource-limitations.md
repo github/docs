@@ -117,7 +117,7 @@ Estes dois exemplos mostram como calcular os nós totais em uma chamada.
 
                    = 22,060 total nodes</pre>
 
-### Limite de taxa
+## Limite de taxa
 
 O [limite de taxas](/rest/overview/resources-in-the-rest-api#rate-limiting) do GraphQL API v4 é diferente dos limites de taxa do REST API v3.
 
@@ -129,12 +129,6 @@ Para representar com precisão o custo de servidor de uma consulta, a API v4 do 
 * Cada nova conexão tem o seu valor próprio de pontos. Os pontos são combinados com outros pontos da chamada para uma pontuação de limite de taxa geral.
 
 O limite de taxa de câmbio da API v4 do GraphQL é **5.000 pontos por hora**.
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-Para {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_app %} que pertencem a uma conta do {% data variables.product.prodname_ghe_cloud %}, pedidos de recursos pertencentes à mesma conta {% data variables.product.prodname_ghe_cloud %} tem um limite ampliado de 15.000 pontos por hora.
-
-{% endif %}
 
 Observe que 5.000 pontos por hora não é o mesmo que 5.000 chamadas por hora: a API v4 do GraphQL e a API v3 de REST usam diferentes limites de taxa.
 

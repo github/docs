@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -76,7 +77,7 @@ etapas:
 
 #### Usar branches
 
-Fazer referência a um branch específico significa que a ação sempre incluirá as atualizações mais recentes no branch de destino, mas pode criar problemas se essas atualizações incluírem alterações significativas. Este exemplo é direcionado a um branch denominado `@main`:
+Especificar um branch de destino para a ação significa que ele sempre irá executar a versão atualmente nesse branch. Essa abordagem pode criar problemas se uma atualização do branch incluir mudanças significativas. Este exemplo é direcionado a um branch denominado `@main`:
 
 ```yaml
 steps:

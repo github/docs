@@ -3,7 +3,7 @@
 {% if currentVersion == "free-pro-team@latest" %}
 要使用
 {% data variables.product.prodname_actions %} 工作流程验证：
-- 对于包注册表 (`PACKAGE-REGISTRY.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`)，您可以使用 `GITHUB_TOKEN`。
+- 对于包注册表 (`PACKAGE-REGISTRY.pkg.github.com`)，您可以使用 `GITHUB_TOKEN`。
 - 对于容器注册表 (`ghcr.io/OWNER/IMAGE-NAME`)，必须使用个人访问令牌。
 {% else %}
 要

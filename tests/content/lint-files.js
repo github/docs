@@ -164,7 +164,7 @@ describe('lint-files', () => {
   describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
     'in "%s"',
     (markdownRelPath, markdownAbsPath) => {
-      let content, isHidden, isEarlyAccess
+      let content, isHidden, isEarlyAccess, isSitePolicy
 
       beforeAll(async () => {
         const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
@@ -173,10 +173,14 @@ describe('lint-files', () => {
         content = bodyContent
         isHidden = data.hidden === true
         isEarlyAccess = markdownRelPath.split('/').includes('early-access')
+        isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
       })
 
-      test('hidden docs must be Early Access', async () => {
-        expect(isHidden).toBe(isEarlyAccess)
+      // We need to support some non-Early Access hidden docs in Site Policy
+      test('hidden docs must be Early Access or Site Policy', async () => {
+        if (isHidden) {
+          expect(isEarlyAccess || isSitePolicy).toBe(true)
+        }
       })
 
       test('relative URLs must start with "/"', async () => {

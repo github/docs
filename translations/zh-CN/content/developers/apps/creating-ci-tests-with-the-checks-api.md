@@ -24,7 +24,7 @@ CI 服务器托管运行 CI 测试的代码，如代码语法检查（检查样�
 
 [检查 API](/rest/reference/checks) 允许您设置针对仓库中的每个代码提交自动运行的 CI 测试。 检查 API 在拉取请求的 **Checks（检查）**选项卡中报告 GitHub 上每个检查的详细信息。 使用检查 API，您可以创建带有特定代码行附加细节的注释。 注释在 **Checks（检查）**选项卡中可见。 当您为拉取请求中的文件创建注释时，注释也会显示在 **Files changed（文件已更改）**选项卡中。
 
-_检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行都包含 GitHub 上的拉取请求中可见的_状态_。 您可以使用状态来确定何时代码提交引入错误。 对[受保护分支](/rest/reference/repos#branches)使用这些状态可防止用户草率地合并拉取请求。 更多信息请参阅“[启用必需状态检查](/articles/enabling-required-status-checks/)”。
+_检查套件_是一组_检查运行_（单个 CI 测试）。 套件和运行都包含 GitHub 上的拉取请求中可见的_状态_。 您可以使用状态来确定何时代码提交引入错误。 对[受保护分支](/rest/reference/repos#branches)使用这些状态可防止用户草率地合并拉取请求。 See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
 
 每当有新代码推送到仓库时，检查 API 会将 [`check_suite` web 挂钩事件](/webhooks/event-payloads/#check_suite)发送到仓库中安装的所有 GitHub 应用程序。 要接收所有检查 API 事件操作，应用程序必须具有 `checks:write` 权限。 GitHub 使用默认流程自动为仓库中的新代码提交创建 `check_suite` 事件，但您可以根据需要[更新检查套件的仓库首选项](/rest/reference/checks#update-repository-preferences-for-check-suites)。 以下是默认流程的工作方式：
 
@@ -831,7 +831,7 @@ end
 
 ### 疑难解答
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
+以下是一些常见问题和一些建议的解决方案。 如果您遇到任何其他问题，可以在 {% data variables.product.prodname_support_forum_with_url %} 中寻求帮助或建议。
 
 * **问：**我的应用程序没有将代码推送到 GitHub。 我没有看到 RuboCop 自动进行修复！
 
@@ -857,7 +857,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### 结论
 
-完成本指南后，您已经学会了使用检查 API 创建 CI 服务器的基础知识！ To review, you:
+完成本指南后，您已经学会了使用检查 API 创建 CI 服务器的基础知识！ 回顾一下：
 
 * 配置您的服务器来接收检查 API 事件并创建检查运行。
 * 使用 RuboCop 来检查仓库中的代码并为错误创建注释。
@@ -865,7 +865,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 ### 后续步骤
 
-Here are some ideas for what you can do next:
+以下是有关接下来可以做什么的一些想法：
 
 * 目前，始终显示“Fix this（修复此问题）”按钮。 更新您编写的代码，仅在 RuboCop 发现错误时显示“Fix this（修复此问题）”按钮。
 * 如果您不希望 RuboCop 将文件直接提交到头部分支，您可以更新代码，以使用基于头部分支的新分支[创建拉取请求](/rest/reference/pulls#create-a-pull-request)。
