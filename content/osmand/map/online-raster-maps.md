@@ -168,7 +168,7 @@ Tiles are saved in the cache during using Online Raster maps as Main / Overlay /
 
 **iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %}
 
-<img src="/assets/images/plugins/online-maps/om-3.png"  height="300"/>
+<img src="/assets/images/plugins/online-maps/om-3.png" />
 
 In order to clear map tiles cache you can do next:
 
