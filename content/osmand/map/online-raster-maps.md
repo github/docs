@@ -108,6 +108,8 @@ For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _
 
 For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
+<img src="/assets/images/plugins/online-maps/om-12.png" />
+
 
 ### Export / Import from OsmAnd
 
