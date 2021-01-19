@@ -68,15 +68,11 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    $ jekyll new .
    # Creates a Jekyll site in the current directory
    ```
-8. Open the file called `Gemfile` that was created, and find the line that looks like this:
+8. Open the Gemfile that was created by jekyll.
+9. Add the github-pages gem: update the line starting with `# gem "github-pages"`so that it looks like this, replacing _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. This can be found on the "[Dependency versions](https://pages.github.com/versions/)" page of the {% data variables.product.prodname_pages %} site:
    ```shell
-   # gem "github-pages", group: :jekyll_plugins
+   gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
-   and update it so that it looks like this:
-   ```shell
-   gem "github-pages", "~> 209", group: :jekyll_plugins
-   ```
-   If there is a newer version of the `github-pages` gem, replace `209` above with the latest version that is listed in [Rubygems](https://rubygems.org/gems/github-pages).
    Comment out the Gemfile line which starts with:
   ```shell
    gem "jekyll"
