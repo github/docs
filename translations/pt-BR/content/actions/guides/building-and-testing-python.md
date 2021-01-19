@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -391,7 +392,7 @@ jobs:
 
 Você pode configurar o seu fluxo de trabalho para publicar seu pacote de Python em qualquer registro de pacote que você desejar quando forem aprovados os seus testes de CI.
 
-Você pode armazenar qualquer token de acesso ou credenciais necessárias para publicar seu pacote usando segredos do repositório. O exemplo a seguir cria e publica um pacote no PyPI usando `twine` e `dist`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+Você pode armazenar qualquer token de acesso ou credenciais necessárias para publicar seu pacote usando segredos. O exemplo a seguir cria e publica um pacote no PyPI usando `twine` e `dist`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 {% raw %}
 ```yaml

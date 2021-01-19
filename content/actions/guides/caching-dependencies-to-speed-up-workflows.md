@@ -9,6 +9,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
+type: 'tutorial'
 ---
 
 ### About caching workflow dependencies
@@ -123,14 +124,14 @@ A cache key can include any of the contexts, functions, literals, and operators 
 Using expressions to create a `key` allows you to automatically create a new cache when dependencies have changed. For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file.
 
 {% raw %}
-```
+```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
 
-```
+```yaml
 npm-d5ea0750
 ```
 
@@ -143,7 +144,7 @@ You can provide a list of restore keys to use when there is a cache miss on `key
 #### Example using multiple restore keys
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-${{ hashFiles('package-lock.json') }}
   npm-foobar-
@@ -154,7 +155,7 @@ restore-keys: |
 The runner evaluates the expressions, which resolve to these `restore-keys`:
 
 {% raw %}
-```
+```yaml
 restore-keys: |
   npm-foobar-d5ea0750
   npm-foobar-

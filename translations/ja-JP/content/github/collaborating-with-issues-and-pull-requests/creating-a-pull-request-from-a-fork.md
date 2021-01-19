@@ -3,7 +3,7 @@ title: フォークからプルリクエストを作成する
 intro: プルリクエストを作成して、上流リポジトリのフォークに加えた変更を提案できます。
 redirect_from:
   - /articles/creating-a-pull-request-from-a-fork
-permissions: リポジトリへの書き込みアクセスを持つユーザであれば、ユーザ所有のフォークからプルリクエストを作成できます。
+permissions: Anyone with write access to a repository can create a pull request from a user-owned fork.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

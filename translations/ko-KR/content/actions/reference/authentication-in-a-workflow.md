@@ -14,8 +14,6 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Anyone with `write` access to a repository can create, read, and use secrets.
-
 ### About the `GITHUB_TOKEN` secret
 
 {% data variables.product.prodname_dotcom %} automatically creates a `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.

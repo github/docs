@@ -1,0 +1,5 @@
+{% data variables.contact.premium_support %} podría considerar un ticket como resuelto después de proporcionar una explicación, recomendación, instrucciones de uso, instrucciones de solución alternativa, o recomendándote un lanzamiento disponible que trata el problema.
+
+Si usas un complemento personalizado o no compatible, módulo o código personalizado, {% data variables.contact.premium_support %} puede pedirte que elimines el complemento, el módulo o el código no compatible mientras intentas resolver el problema. {% data variables.contact.premium_support %} puede considerar el ticket como resuelto si el problema se soluciona cuando se elimina el plug-in, módulo, o código personalizado no compatible.
+
+{% data variables.contact.premium_support %} podría cerrar un ticket si éste está fuera de su alcance o si han habido varios intentos para contactarte sin éxito. Si {% data variables.contact.premium_support %} cierra un ticket por no haber recibido respuesta, puedes solicitar que lo reabra.

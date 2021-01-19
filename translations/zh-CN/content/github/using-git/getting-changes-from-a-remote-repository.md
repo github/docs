@@ -71,5 +71,5 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 ### 延伸阅读
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
+- [_Pro Git_ 手册中的“使用远程仓库”](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes){% if currentVersion == "free-pro-team@latest" %}
 - “[连接问题故障排除](/articles/troubleshooting-connectivity-problems)”{% endif %}

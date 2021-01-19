@@ -13,7 +13,12 @@ describe('liquid helper tags', () => {
     context.currentLanguage = 'en'
     context.currentVersion = nonEnterpriseDefaultVersion
     context.pages = pageMap
-    context.redirects = []
+    context.redirects = {
+      '/en/desktop/contributing-and-collaborating-using-github-desktop': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
+      '/ja/desktop/contributing-and-collaborating-using-github-desktop': `/ja/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`,
+      '/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories': `/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories`,
+      '/en/github/writing-on-github/basic-writing-and-formatting-syntax': `/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`
+    }
     context.site = {
       data: {
         reusables: {
@@ -40,6 +45,16 @@ describe('liquid helper tags', () => {
     const expected = '<a class="link-title Bump-link--hover no-underline" href="/ja/desktop/contributing-and-collaborating-using-github-desktop">'
     const output = await liquid.parseAndRender(template, context)
     expect(output.includes(expected)).toBe(true)
+    // set this back to english
+    context.currentLanguage = 'en'
+  })
+
+  test('link tag with local variable', async () => {
+    const template = `{% assign href = "/contributing-and-collaborating-using-github-desktop" %}
+    {% link {{ href }} %}`
+    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">'
+    const output = await liquid.parseAndRender(template, context)
+    expect(output.includes(expected)).toBe(true)
   })
 
   test('link tag with absolute path', async () => {
@@ -52,9 +67,9 @@ describe('liquid helper tags', () => {
 
   test('link_with_intro tag', async () => {
     const template = '{% link_with_intro /contributing-and-collaborating-using-github-desktop %}'
-    const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`]
+    const page = pageMap['/en/desktop/contributing-and-collaborating-using-github-desktop']
     const expected = `<a class="link-with-intro Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
-  <h4 class="link-with-intro-title">${page.title}<span class="Bump-link-symbol">→</span></h4>
+  <h2 class="link-with-intro-title f4">${page.title}<span class="Bump-link-symbol">→</span></h2>
 </a>
 <p class="link-with-intro-intro">${page.intro}</p>`
     const output = entities.decode(await liquid.parseAndRender(template, context))
@@ -63,7 +78,7 @@ describe('liquid helper tags', () => {
 
   test('homepage_link_with_intro tag', async () => {
     const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
-    const page = pageMap[`/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`]
+    const page = pageMap['/en/github/writing-on-github/basic-writing-and-formatting-syntax']
     const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
   <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
   <p class="link-with-intro-intro f5">${page.intro}</p>
@@ -79,9 +94,15 @@ describe('liquid helper tags', () => {
     expect(output).toBe(expected)
   })
 
-  test('link_with_short_title tag', async () => {
-    const template = '{% link_with_short_title /contributing-and-collaborating-using-github-desktop %}'
-    const expected = '<a class="link-title Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">Contributing and collaborating</a>'
+  test('link_as_article_card', async () => {
+    const template = '{% link_as_article_card /contributing-and-collaborating-using-github-desktop %}'
+    const expected = `<div class="d-flex col-12 col-md-4 pr-0 pr-md-6 pr-lg-8 <display condition> js-filter-card" data-type="">
+  <a class="no-underline d-flex flex-column py-4 border-bottom" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
+    <h4 class="h4 text-gray-dark mb-1">Contributing and collaborating using GitHub Desktop</h4>
+    <div class="text-purple h6 text-uppercase"></div>
+    <p class="text-gray my-3">Use GitHub Desktop to manage your projects, create meaningful commits, and track the project&apos;s history in an app instead of on the command line.</p>
+  </a>
+</div>`
     const output = await liquid.parseAndRender(template, context)
     expect(output).toBe(expected)
   })

@@ -335,7 +335,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
-### enterprise
+### Enterprise
 
 {% data reusables.webhooks.enterprise_short_desc %}
 
@@ -430,7 +430,7 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
 **注釈:** {% data reusables.pre-release-program.suspend-installation-beta %} 詳しい情報については、「[{% data variables.product.prodname_github_app %} のインストールをサスペンドする](/apps/managing-github-apps/suspending-a-github-app-installation/)」を参照してください。
@@ -534,13 +534,13 @@ webhook イベントは、登録したドメインの特異性に基づいてト
 
 #### webhook ペイロードオブジェクト
 
-| キー                     | 種類       | 説明                                                           |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `action`               | `string` | 実行されたアクション. `created`、`edited`、`deleted` のいずれかを指定可。          |
-| `ラベル`                  | `オブジェクト` | ラベルが追加された。                                                   |
-| `変更`                   | `オブジェクト` | アクションが `edited` の場合のラベルへの変更。                                 |
-| `changes[name][from]`  | `string` | The previous version of the name if the action was `edited`. |
-| `changes[color][from]` | `string` | アクションが `edited` の場合の以前のバージョンの色。                              |
+| キー                     | 種類       | 説明                                                  |
+| ---------------------- | -------- | --------------------------------------------------- |
+| `action`               | `string` | 実行されたアクション. `created`、`edited`、`deleted` のいずれかを指定可。 |
+| `label`                | `オブジェクト` | ラベルが追加された。                                          |
+| `changes`              | `オブジェクト` | アクションが `edited` の場合のラベルへの変更。                        |
+| `changes[name][from]`  | `string` | アクションが`edited`だった場合の、以前のバージョンの名前。                   |
+| `changes[color][from]` | `string` | アクションが `edited` の場合の以前のバージョンの色。                     |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -715,7 +715,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 ### package
 
-{% data variables.product.prodname_registry %} に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} 詳しい情報については、「[Organization ユーザをブロックする](/rest/reference/orgs#blocking)」REST API を参照してください。 {% data variables.product.prodname_registry %} の詳細については、「[{% data variables.product.prodname_registry %} を使用してパッケージを管理する](/github/managing-packages-with-github-packages)」を参照してください。
+{% data variables.product.prodname_registry %} に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} {% data variables.product.prodname_registry %} の詳細については、「[{% data variables.product.prodname_registry %} を使用してパッケージを管理する](/github/managing-packages-with-github-packages)」を参照してください。
 
 #### 利用の可否
 
@@ -1125,9 +1125,11 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
 ### security_advisory
 
 セキュリティアドバイザリに関連するアクティビティ。 セキュリティアドバイザリは、GitHub 上のソフトウェアのセキュリティ関連の脆弱性に関する情報を提供します。 セキュリティアドバイザリデータセットは、GitHub セキュリティアラートにも役立ちます。「[脆弱性のある依存関係のセキュリティアラートについて](/articles/about-security-alerts-for-vulnerable-dependencies/)」を参照してください。
+{% endif %}
 
 #### 利用の可否
 
@@ -1236,8 +1238,8 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 | `action`                                        | `string`  | 実行されたアクション. `created`、 `deleted`、`edited`、`added_to_repository`、`removed_from_repository` のいずれかを指定可。                                                              |
 | `Team`                                          | `オブジェクト`  | Team 自体。                                                                                                                                                          |
 | `変更`                                            | `オブジェクト`  | アクションが `edited` の場合の Team への変更。                                                                                                                                   |
-| `changes[description][from]`                    | `string`  | The previous version of the description if the action was `edited`.                                                                                               |
-| `changes[name][from]`                           | `string`  | The previous version of the name if the action was `edited`.                                                                                                      |
+| `changes[description][from]`                    | `string`  | アクションが `edited` の場合の以前のバージョンの説明。                                                                                                                                  |
+| `changes[name][from]`                           | `string`  | アクションが`edited`だった場合の、以前のバージョンの名前。                                                                                                                                 |
 | `changes[privacy][from]`                        | `string`  | アクションが `edited` の場合の以前のバージョンのTeam プライバシー。                                                                                                                         |
 | `changes[repository][permissions][from][admin]` | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `admin` 権限。                                                                                                    |
 | `changes[repository][permissions][from][pull]`  | `boolean` | アクションが `edited` の場合の、リポジトリに対する以前のバージョンの Team メンバーの `pull` 権限。                                                                                                     |

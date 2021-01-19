@@ -1,0 +1,1 @@
+{% data variables.product.prodname_actions %} te ayuda a automatizar tus flujos de trabajo de desarrollo de software en el mismo lugar en el que almacenas código y colaboras con informes de problemas y solicitudes de extracción. Puedes escribir tareas individuales, llamadas acciones, y combinarlas para crear un flujo de trabajo personalizado.

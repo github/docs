@@ -249,3 +249,53 @@ describe('platform specific content', () => {
     }
   })
 })
+
+describe('card filters', () => {
+  it('loads correctly', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownNoResult = await page.$('.js-filter-card-no-results:not(.d-none)')
+    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
+    expect(shownCards.length).toBe(maxCards)
+    expect(shownNoResult).toBeNull()
+  })
+
+  it('filters cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('input.js-filter-card-filter')
+    await page.type('input.js-filter-card-filter', 'issues')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const showMoreClasses = await page.$eval('.js-filter-card-show-more', btn => Object.values(btn.classList))
+    expect(showMoreClasses).toContain('d-none')
+    expect(shownCards.length).toBeGreaterThan(1)
+  })
+
+  it('works with select input', async () => {
+    await page.goto('http://localhost:4001/en/actions/guides')
+    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
+      cards.map(card => card.dataset.type)
+    )
+    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    expect(shownCards.length).toBeGreaterThan(0)
+  })
+
+  it('shows more cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
+    await page.click('.js-filter-card-show-more')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    expect(shownCards.length).toBe(maxCards * 2)
+  })
+
+  it('displays no result message', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('input.js-filter-card-filter')
+    await page.type('input.js-filter-card-filter', 'this should not work')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    expect(shownCards.length).toBe(0)
+    const noResultsClasses = await page.$eval('.js-filter-card-no-results', elem => Object.values(elem.classList))
+    expect(noResultsClasses).not.toContain('d-none')
+  })
+})

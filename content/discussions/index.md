@@ -43,7 +43,7 @@ versions:
     {% render 'discussions-community-card' for discussionsCommunityExamples as example %}
   </div>
   {% if discussionsCommunityExamples.length > 6 %}
-    <button class="js-filter-card-show-more btn btn-outline float-right">Show more {% octicon "arrow-right" %}</button>
+    <button class="js-filter-card-show-more btn btn-outline float-right" data-js-filter-card-max="6">Show more {% octicon "arrow-right" %}</button>
   {% endif %}
   <div class="js-filter-card-no-results d-none py-4 text-center text-gray font-mktg">
     <div class="mb-3">{% octicon "search" width="24" %}</div>

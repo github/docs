@@ -1,1 +1,1 @@
-すべての必須レビュー担当者がプルリクエストを承認した後で、ペンディングあるいは拒否されたレビューを持つオープンのプルリクエストが他にあり、それらのプルリクエストが同じコミットを指しているheadブランチを持っているなら、プルリクエストはマージできません。 マージするには、*書き込み*もしくは*管理*権限を持つ誰かが他のプルリクエスト上のブロックしているレビューを承認もしくは却下しなければなりません。
+Even after all required reviewers have approved a pull request, collaborators cannot merge the pull request if there are other open pull requests that have a head branch pointing to the same commit with pending or rejected reviews. Someone with write permissions must approve or dismiss the blocking review on the other pull requests first.
