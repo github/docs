@@ -104,7 +104,7 @@ Next, you need to move your map package file(s) to OsmAnd-tiles directory:
 
 For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
-<img src="/assets/images/plugins/online-maps/om-6.png" />
+<img src="/assets/images/plugins/online-maps/om-11.png" />
 
 For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
@@ -119,21 +119,25 @@ In order **to export** online map sources, you can select them in the export fil
 
 In order **to import** online map sources, you can click to osf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.
 
-**Android**:  1. {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
+**Android**:
 
-2. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+A. {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
 
 <img src="/assets/images/plugins/online-maps/om-8.png" />
 
+B. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+
+<img src="/assets/images/plugins/online-maps/om-6.png" />
+
 **iOS**:
 
-1. {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
+A. {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
 
 <img src="/assets/images/plugins/online-maps/om-7.png" />
 
-2. {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.import_from_docs %}
+B. {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.import_from_docs %}
 
-3. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+C. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
 <img src="/assets/images/plugins/online-maps/om-5.png" />
 
