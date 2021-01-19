@@ -26,7 +26,17 @@ A organização pode usar o e-mail `name@organization.com` como um ponto públic
 
 ### Criar commits com um selo `on-behalf-of` na linha de comando
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Digite sua mensagem de commit e uma descrição curta e significativa de suas alterações. Depois da descrição do commit, em vez de inserir aspas para encerrar, adicione duas linhas vazias.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
+
+  {% endtip %}
 
 2. Na próxima linha da mensagem do commit, digite `on-behalf-of: @org <name@organization.com>` e, em seguida, aspas de fechamento.
 

@@ -12,7 +12,9 @@ versions:
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-To make specific actions from {% data variables.product.prodname_dotcom_the_website %} available to use in workflows, you can use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise instance. For other ways of accessing actions from {% data variables.product.prodname_dotcom_the_website %}, see "[About using {% data variables.product.prodname_dotcom_the_website %} actions on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)."
+The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %} . For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
+
+However, if you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise instance.
 
 ### About the `actions-sync` tool
 
