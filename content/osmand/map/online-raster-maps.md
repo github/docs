@@ -14,7 +14,7 @@ There is a big variety of possible use cases cause they vary on infinite externa
 - Live vessel information
 - Online OpenStreetMap tiles for OSM editing purposes
 
-![Online_maps](/assets/images/plugins/online-maps/om-example.png)
+<img src="/assets/images/plugins/online-maps/om-example.png" />
 
 **Note**: You can also change the main source of the map from vector maps to online tiles.
 
@@ -49,7 +49,7 @@ For **iOS** OsmAnd this feature works by default.
 ### Select map as Main / Underlay / Overlay layer
 Raster maps can be used as Map source in OsmAnd (by default, oflline vector maps are enabled). Map sources are configurable in:
 
-**Android** {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %}
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_map %}
 
 **iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_type %} → {% data variables.ios-values.map_settings_online %}
 
@@ -58,11 +58,13 @@ You can choose one of its in the list or add yours.
 Not only can you use one map, you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-**Android** {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
-![Online_maps](/assets/images/plugins/online-maps/om-1.png)
+**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
+
+<img src="/assets/images/plugins/online-maps/om-1.png" />
 
 **iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %}
-![Online_maps](/assets/images/plugins/online-maps/om-2.png)
+
+<img src="/assets/images/plugins/online-maps/om-2.png" />
 
 ### Tweak layer parameters
 In order to mix raster map layers better you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
@@ -73,13 +75,13 @@ To create a raster map source you need to know **tile URL**. This is URL that ca
 
 In order to add new online raster map source go to:
 
-**Android**  {% data variables.android-values.shared_string_menu %} → [{% data variables.android-values.configure_map %}](/osmand/map/configure-map-menu) → {% data variables.android-values.layer_map %} → {% data variables.android-values.shared_string_add %}
+**Android**  {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_map %} → {% data variables.android-values.shared_string_add %}
 
 **iOS**   {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.map_settings_add_online_source %}
 
 At this screen you need to add next parameters:
 
-![Online_maps](/assets/images/plugins/online-maps/om-4.png)
+<img src="/assets/images/plugins/online-maps/om-4.png" />
 
 |Parameter          |Description|
 |:------------|:---------------|
@@ -90,7 +92,7 @@ At this screen you need to add next parameters:
 |[{% data variables.ios-values.res_mercator %}]|{% data variables.ios-values.res_pseudo_mercator %} or {% data variables.ios-values.res_elliptic_mercator %}|
 |[{% data variables.ios-values.res_source_format %}/{% data variables.android-values.storage_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
 
-Click to "Save" button for adding a new online raster map to the list.
+Click to "{% data variables.android-values.shared_string_save %}" button for adding a new online raster map to the list.
 
 ## Copy online map sources 
 
@@ -102,12 +104,10 @@ Next, you need to move your map package file(s) to OsmAnd-tiles directory:
 
 For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
-![Online_maps](/assets/images/plugins/online-maps/om-6.png)
+<img src="/assets/images/plugins/online-maps/om-6.png" />
 
-For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps in OsmAnd.
+For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
-
-![Online_maps](/assets/images/plugins/online-maps/om-5.png)
 
 ### Export / Import from OsmAnd
 
@@ -119,15 +119,23 @@ In order **to export** online map sources, you can select them in the export fil
 
 In order **to import** online map sources, you can click to osf-file of application profile in your storage, messenger, mail and etc, after that choose OsmAnd app for opening, select the data to be imported.
 
-**Android**:  {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
+**Android**:  1. {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
 
-<img src="/assets/images/plugins/online-maps/om-8.png"  height="500"/>
+2. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
-**iOS**: {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
+<img src="/assets/images/plugins/online-maps/om-8.png" />
 
-!!!Improt from document
+**iOS**:
 
-<img src="/assets/images/plugins/online-maps/om-7.png"  height="500"/>
+1. {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
+
+<img src="/assets/images/plugins/online-maps/om-7.png" />
+
+2. {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.import_from_docs %}
+
+3. You can click the SQLiteDb-file on your email, cloud or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+
+<img src="/assets/images/plugins/online-maps/om-5.png" />
 
 ### Magic URL to install map source
 
