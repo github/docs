@@ -157,7 +157,7 @@ In order to change tile format you can choose {% data variables.android-values.s
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %} → {% data variables.android-values.storage_format %} → {% data variables.android-values.sqlite_db_file %} / {% data variables.android-values.one_image_per_tile %}
 
-**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → choose your {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %} → {% data variables.ios-values.res_source_format %}
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %} → {% data variables.ios-values.res_source_format %} → {% data variables.ios-values.res_source_sqlite %} / {% data variables.ios-values.res_source_one_per_tile %}
 
 
 ### Clear raster map cache
@@ -166,15 +166,15 @@ Tiles are saved in the cache during using Online Raster maps as Main / Overlay /
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %}
 
-**iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps_. !!!ADD variable pictures
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %}
 
-![Online_maps](/assets/images/plugins/online-maps/om-3.png)
+<img src="/assets/images/plugins/online-maps/om-3.png"  height="300"/>
 
 In order to clear map tiles cache you can do next:
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.clear_tile_data %}
 
-**iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Clear cache_ !!!ADD variable pictures
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_clear_cache %}
 
 ### Change raster map parameters
 
