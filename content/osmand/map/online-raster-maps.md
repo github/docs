@@ -182,9 +182,9 @@ In order to change raster map parameters:
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %}
 
-**iOS**: _menu -> Maps & Resources -> Intalled -> Online raster maps -> i -> Edit_ !!!ADD variable pictures
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %}
 
-Look at [the table] to see all parameters and descriptions.
+Look at [the table](/osmand/map/online-raster-maps#add-new-online-raster-map-source) to see all parameters and descriptions.
 
 ### Download / update tiles
 
@@ -192,8 +192,13 @@ Tiles are saved in cache when you use Online Raster maps as Main / Overlay / Und
 
 In OsmAnd there is the feature to download / to update selected area. For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer). Next, you need to select the area by the size of your screen device and click on the map:
 
+**Note**: the selected area is an area that you see on your screen.
+
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %}
 
-**iOS** 
+<img src="/assets/images/plugins/online-maps/om-10.png" />
 
-**Note**: the selected area is an area that you see on your screen.
+**iOS** {% data variables.ios-values.actions %} → {% data variables.ios-values.download_map %} / {% data variables.ios-values.update_map %} → 
+At this screen you can select needed area, choose zoom levels. When you set all parameters you can see number of tiles and download size. Next, click to {% data variables.ios-values.shared_string_continue %} → screen of downloading progress.
+
+<img src="/assets/images/plugins/online-maps/om-9.png" />
