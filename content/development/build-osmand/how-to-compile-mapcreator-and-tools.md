@@ -41,10 +41,14 @@ Native rendering library could be used to test Offline Rendering or Offline Nati
   cd core-legacy/targets
   ./intel-darwin.sh release # macOs release
   ./amd64-linux-clang.sh debug # linux debug - default
-  cd ....baked # like intel-darwin-intel-release.baked or amd64-linux-clang-release.baked
+  cd ....baked # like intel-darwin-intel-darwin-clang-release.baked or amd64-linux-amd64-clang-release.baked
   make -j4
   ```
-5. Binaries will be available at core-legacy/binaries.
+5. Binaries will be available at core-legacy/binaries/.
+Example:
+  ```
+    core-legacy/binaries/darwin/intel/Debug/libosmand.dylib
+  ```
 
 
 ### Troubleshooting 
