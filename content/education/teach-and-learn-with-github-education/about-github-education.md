@@ -14,4 +14,4 @@ If your school agrees to meet certain requirements, your secondary school, unive
 - Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
 - Leadership development and technical training for students with the Campus Experts program
 
-For more information, see the [official {% data variables.product.prodname_education %}](https://education.github.com/partners/schools) page.
+For more information, see the [official {% data variables.product.prodname_education %}](https://education.github.com/schools) page.
