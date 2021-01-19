@@ -123,11 +123,11 @@ In order **to import** online map sources, you can click to osf-file of applicat
 
 <img src="/assets/images/plugins/online-maps/om-8.png"  height="500"/>
 
-![Online_maps](/assets/images/plugins/online-maps/om-8.png)
-
 **iOS**: {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
 
-![Online_maps](/assets/images/plugins/online-maps/om-7.png)
+!!!Improt from document
+
+<img src="/assets/images/plugins/online-maps/om-7.png"  height="500"/>
 
 ### Magic URL to install map source
 
@@ -143,7 +143,7 @@ http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.v
 |[URL]|template=http://h0.ortho.tiles.virtualearth.net/tiles/h{q}.jpg?g=45|
 |[Zoom levels]|min_zoom=9max_zoom=20|
 
-You find added Online map in list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
+You find added Online map in the list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
 
 ## Manage raster maps
 Raster maps can take significant amount of disk space, so you might need to regularly check it. For large datasets it's recommended to use 'sqlite raster source' cause it will store all tiles in 1 large *.sqlite package. 
@@ -157,7 +157,7 @@ In order to change tile format you can choose {% data variables.android-values.s
 
 **Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %} → {% data variables.android-values.storage_format %} → {% data variables.android-values.sqlite_db_file %} / {% data variables.android-values.one_image_per_tile %}
 
-**iOS** Add way
+**iOS** {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → choose your {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %} → {% data variables.ios-values.res_source_format %}
 
 
 ### Clear raster map cache
