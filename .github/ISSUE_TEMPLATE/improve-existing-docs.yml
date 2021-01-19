@@ -8,27 +8,39 @@ inputs:
     value: HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
 
            For questions, ask in Discussions: https://github.com/github/docs/discussions
-- type: checkboxes
+- type: dropdown
+  label: Code of Conduct
   attributes:
-    label: Code of Conduct
-    description:
-    all-required: true
     choices:
-    - value: I agree to follow the Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md
-- type: checkboxes
+    - description: I agree to follow the Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md
+      required: true
+      multi-select: false
+      free-text: false
+      choices:
+      - description: I agree
+        value: I agree
+- type: dropdown
+  label: Contributing
   attributes:
-    label: Code of Conduct
-    description:
-    all-required: true
     choices:
-    - value: I have read the Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md
-- type: checkboxes
+    - description: I have read the Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md
+      required: true
+      multi-select: false
+      free-text: false
+      choices:
+      - description: I agree
+        value: I agree
+- type: dropdown
+  label: Similar issue
   attributes:
-    label: Code of Conduct
-    description:
-    all-required: true
     choices:
-    - value: There is not a similar issue that has been already opened: https://github.com/github/docs/issues
+    - description: There is not a similar issue that has been already opened: https://github.com/github/docs/issues
+      required: true
+      multi-select: false
+      free-text: false
+      choices:
+      - description: No similar issues
+        value: No similar issues
 - type: textarea
   attributes:
     label: which article
