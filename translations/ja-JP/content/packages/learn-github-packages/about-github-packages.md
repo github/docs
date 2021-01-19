@@ -22,12 +22,19 @@ versions:
 
 1つのリポジトリで複数のパッケージをホストし、各パッケージのREADMEを見たり、統計をダウンロードしたり、バージョン履歴を見たりすることで、各パッケージに関する詳しい情報を見ることができます。
 
+<!--This diagram excludes ghcr.io since it's not released for GHES yet.-->
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/ghes-packages-diagram.png)
+
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 {% data variables.product.prodname_actions %}ワークフローを作成する際には、`GITHUB_TOKEN`を使って{% data variables.product.prodname_registry %}にパッケージを公開してインストールでき、個人アクセストークンを保存して管理する必要はありません。 詳しい情報については「[{% data variables.product.prodname_github_container_registry %}について](/packages/guides/about-github-container-registry)」を参照してください。
 
 {% data reusables.package_registry.container-registry-beta %}
 
-![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
 
 {% endif %}
 
@@ -143,7 +150,7 @@ For more information about Docker and
 
 ### パッケージの管理
 
-You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/manage-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
+You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API. GraphQL APIを使ってプライベートパッケージに対するクエリや削除を行う場合、{% data variables.product.prodname_registry %}の認証に使うのと同じトークンを使わなければなりません。 詳しい情報については、「[パッケージの削除](/packages/manage-packages/deleting-a-package)」と「[GraphQLでの呼び出しの作成](/graphql/guides/forming-calls-with-graphql)」を参照してください。
 
 webhookを設定して、パッケージの公開や更新といったパッケージ関連のイベントにサブスクライブできます。 詳しい情報については、「[`package` webhookイベント](/webhooks/event-payloads/#package)」を参照してください。
 

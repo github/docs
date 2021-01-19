@@ -13,8 +13,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### コンテキストと式について
 
@@ -75,6 +75,10 @@ env:
 - `a-Z` または `_` で始まる。
 - `a-Z` 、`0-9`、 `-`、または`_`が続く。
 
+#### Determining when to use contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
 #### `github` コンテキスト
 
 `github` コンテキストは、ワークフローの実行および、その実行をトリガーしたイベントの情報を含みます。 ほとんどの `github` コンテキストデータは、環境変数で読み取ることができます。 環境変数に関する詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
@@ -107,15 +111,14 @@ env:
 
 `env`コンテキストには、ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 ワークフローでの環境変数の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)」を参照してください。
 
-`env`の構文で、ワークフローファイル中の環境変数の値を利用できます。 ランナー中で環境変数の値を使いたい場合は、ランナーのオペレーティングシステムで環境変数を読み取る通常の方法を使ってください。
+`env`の構文で、ワークフローファイル中の環境変数の値を利用できます。 You can use the `env` context in the value of any key in a **step** except for the `id` and `uses` keys. ステップの構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)」を参照してください。
 
-`env`は`with`及び`name`キーの値の中で、あるいはステップの`if`条件の中でのみ使えます。 ステップの構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)」を参照してください。
+ランナー中で環境変数の値を使いたい場合は、ランナーのオペレーティングシステムで環境変数を読み取る通常の方法を使ってください。
 
 | プロパティ名                 | 種類       | 説明                                                             |
 | ---------------------- | -------- | -------------------------------------------------------------- |
 | `env`                  | `オブジェクト` | このコンテキストは、ジョブのステップごとに異なります。 このコンテキストには、ジョブのあらゆるステップからアクセスできます。 |
-| `env.<env name>` | `string` | 特定の環境変数の値。                                                     |
-
+| `env.<env_name>` | `string` | 特定の環境変数の値。                                                     |
 
 #### `job` コンテキスト
 
@@ -172,7 +175,7 @@ env:
 
 {% data reusables.github-actions.github-context-warning %}
 
-**.github/ワークフロー/メイン.yml**
+**.github/workflows/main.yml**
 {% raw %}
 ```yaml
 on: push
