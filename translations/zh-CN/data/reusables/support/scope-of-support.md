@@ -1,7 +1,7 @@
 
 ### 支持范围
 
-如果您的支持申请超出了我们团队可以帮助您的范围， 我们可能会提出后续措施建议，以便在 {% data variables.contact.github_support %} 之外解决您的问题。 Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
+如果您的支持申请超出了我们团队可以帮助您的范围， 我们可能会提出后续措施建议，以便在 {% data variables.contact.github_support %} 之外解决您的问题。 您的支持申请如果主要是关于以下方面，可能超出了 {% data variables.contact.github_support %} 的范围：
 - 第三方集成
 - 硬件设置
 - CI/CD，如 Jenkins

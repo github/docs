@@ -7,7 +7,7 @@ versions:
 
 有关*参与*和*关注*通知之间差异的更多信息，请参阅“[关于通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)”。
 
-为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 For more information on enabling web notifications, see "[Choosing the delivery method for your notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)." 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。
+为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。
 
 {% data reusables.notifications.shared_state %}
 

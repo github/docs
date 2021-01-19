@@ -46,7 +46,7 @@ O elemento `NameID` é obrigatório, mesmo que os outros atributos estejam prese
 
 ### Metadados SAML
 
-Os metadados do provedor de serviços da sua instância do {% data variables.product.prodname_ghe_server %} estão disponíveis em `http(s)://[hostname]/saml/metadata`.
+Os metadados do seu provedor de serviço da instância de {% data variables.product.prodname_ghe_server %} estão disponíveis em `http(s)://[hostname]/saml/metadata`.
 
 Para configurar seu provedor de identidade manualmente, a URL do serviço de consumidor de declaração (ACS, Assertion Consumer Service) é `http(s)://[hostname]/saml/consume` e usa a associação `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST`.
 

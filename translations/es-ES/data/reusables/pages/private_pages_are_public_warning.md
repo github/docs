@@ -1,0 +1,5 @@
+  {% warning %}
+
+  **Advertencia**: {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}Si tu administrador de sitio habilitó las Páginas Públicas, {% endif %}Los sitios de {% data variables.product.prodname_pages %} estarán disponibles al público general en la internet, aún si el repositorio del sitio es privado{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} o interno{% endif %}. Si tienes datos sensibles en el repositorio de tu sitio, tal vez quieras eliminarlos antes de publicarlo. Para obtener más información, consulta las secciones{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} "[Configurar {% data variables.product.prodname_pages %} para tu empresa](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)" y {% endif %} "[Acerca de la visibilidad del repositorio](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)".
+
+  {% endwarning %}
