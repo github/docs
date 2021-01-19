@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    gist 是一种可共享的文件，可用于在 GitHub 上编辑、克隆和分叉。您可以将 gist 设为公共或私密，但私密 gist 可供具有 URL 的任何人访问。
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: 通知
   description: >-
-    web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
+    Web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
 - 
   term: OAuth 应用程序
   description: >-

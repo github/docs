@@ -1,0 +1,1 @@
+Si tu balanceador de carga lo admite, es altamente recomendable implementar el protocolo PROXY. Cuando no está disponible el soporte de PROXY, también se puede balancear la carga de los puertos HTTP y HTTPS usando el encabezado `X-Forwarded-For`.

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,7 +47,7 @@ Neste guia, usaremos a ação `build-push-action` do Docker para criar a imagem 
 
 No exemplo do fluxo de trabalho abaixo, usamos a ação `build-push-action` do Docker para criar a imagem e, se a construção for bem-sucedida, faça o push da imagem criada para o Docker Hub.
 
-Para fazer push para o Docker Hub, você deverá ter uma conta Docker Hub e ter criado um repositório Docker Hub. For more information, see "[Pushing a Docker container image to Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" in the Docker documentation.
+Para fazer push para o Docker Hub, você deverá ter uma conta Docker Hub e ter criado um repositório Docker Hub. Para obter mais informações, consulte "[Fazer push de uma imagem de contêiner do Docker para o Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)" na documentação do Docker.
 
 As opções `build-push-action` necessárias para o Docker Hub são:
 
