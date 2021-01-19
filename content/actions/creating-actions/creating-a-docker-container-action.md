@@ -39,7 +39,7 @@ Before you begin, you'll need to create a GitHub repository.
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell
+  ```shell{:copy}
   cd hello-world-docker-action
   ```
 
@@ -48,7 +48,7 @@ Before you begin, you'll need to create a GitHub repository.
 In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. For more information, see "[Dockerfile support for {% data variables.product.prodname_actions %}](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
-```dockerfile
+```dockerfile{:copy}
 # Container image that runs your code
 FROM alpine:3.10
 
@@ -65,7 +65,7 @@ Create a new `action.yml` file in the `hello-world-docker-action` directory you 
 
 {% raw %}
 **action.yml**
-```yaml
+```yaml{:copy}
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -93,20 +93,14 @@ This metadata defines one `who-to-greet`  input and one `time` output parameter.
 
 You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)."
+Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must use a workflow command in a specific syntax: `echo "::set-output name=<output name>::<value>"`. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)." 
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
-
-1. Make your `entrypoint.sh` file executable:
-
-  ```shell
-  chmod +x entrypoint.sh
-  ```
 
 1. Add the following code to your `entrypoint.sh` file.
 
   **entrypoint.sh**
-  ```shell
+  ```shell{:copy}
   #!/bin/sh -l
   
   echo "Hello $1"
@@ -114,6 +108,12 @@ Next, the script gets the current time and sets it as an output variable that ac
   echo "::set-output name=time::$time"
   ```
 
+1. Make your `entrypoint.sh` file executable by running following command on your system:
+
+  ```shell{:copy}
+  chmod +x entrypoint.sh
+  ```
+  
   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 ### Creating a README
@@ -130,7 +130,7 @@ In your `hello-world-docker-action` directory, create a `README.md` file that sp
 - An example of how to use your action in a workflow.
 
 **README.md**
-```markdown
+```markdown{:copy}
 # Hello world docker action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -160,7 +160,7 @@ From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[About actions](/actions/automating-your-workflow-with-github-actions/about-actions#using-release-management-for-actions)."
 
-```shell
+```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
@@ -175,11 +175,11 @@ Now you're ready to test your action out in a workflow. When an action is in a p
 
 #### Example using a public action
 
-The following workflow code uses the completed hello world action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name.
+The following workflow code uses the completed hello world action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. Public actions can be used with or without publishing to marketplace. Publishing a public action requires you to add a release version tag.
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
@@ -189,6 +189,8 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
+      # For unpublished actions put <username>/<action-repository-name>@<branch-name>
+      # For published actions put <username>/<action-repository-name>@<version>
       uses: actions/hello-world-docker-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
@@ -200,11 +202,11 @@ jobs:
 
 #### Example using a private action
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
+Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. You cannot publish a private action to marketplace and can be used only by you in the same repository.
 
 {% raw %}
 **.github/workflows/main.yml**
-```yaml
+```yaml{:copy}
 on: [push]
 
 jobs:
