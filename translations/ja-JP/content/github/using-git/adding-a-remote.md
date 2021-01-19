@@ -37,7 +37,7 @@ $ git remote -v
 このエラーは、ローカルのリポジトリにすでに存在している名前でリモートを追加しようとしたということです。
 
 ```shell
-$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
 > fatal: remote origin already exists.
 ```
 

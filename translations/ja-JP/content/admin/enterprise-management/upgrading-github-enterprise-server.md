@@ -218,3 +218,9 @@ High Availability と Geo-replication が設定されたアプライアンスは
 #### フィーチャリリースのロールバック
 
 フィーチャリリースからロールバックするには、ルートおよびデータパーティションが整合した状態になることを保証するため、VM スナップショットからリストアしてください。 詳細は「[スナップショットを取得する](#taking-a-snapshot)」を参照してください。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 参考リンク
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

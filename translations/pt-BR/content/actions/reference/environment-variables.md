@@ -57,6 +57,16 @@ Você também pode usar o {% if currentVersion == "free-pro-team@latest" or curr
 | `GITHUB_API_URL`     | Retorna a URL da API. Por exemplo: `https://api.github.com`.                                                                                                                                                                                                                                                                                                                         |
 | `GITHUB_GRAPHQL_URL` | Retorna a URL API do GraphQL. Por exemplo: `https://api.github.com/graphql`.                                                                                                                                                                                                                                                                                                         |
 
+{% tip %}
+
+**Observação:** Se você precisar usar o URL de um fluxo de trabalho em um trabalho, você poderá combinar estas variáveis de ambiente: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+
+{% endtip %}
+
+#### Determinar quando usar variáveis de ambiente padrão ou contextos
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
 ### Convenções de nomenclatura para variáveis de ambiente
 
 {% note %}
