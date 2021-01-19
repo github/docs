@@ -24,6 +24,8 @@ versions:
 
 クラスタリングは冗長性を提供しますが、High Availability構成を置き換えることを意図したものではありません。 詳細は「[High Availability 構成](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability)」を参照してください。 プライマリ／セカンダリフェイルオーバー設定はクラスタリングよりもはるかにシンプルであり、多くの組織の要求に応えます。 詳しくは[クラスタリングと高可用性との違い](/enterprise/{{ currentVersion }}/admin/guides/clustering/differences-between-clustering-and-high-availability-ha/)を参照してください。
 
+{% data reusables.package_registry.packages-cluster-support %}
+
 ### クラスタリングを利用するには？
 
 クラスタリングは特定のスケーリングの状況のために設計されており、すべての組織を対象としたものではありません。 クラスタリングをご検討される場合は、専任の担当者または {% data variables.contact.contact_enterprise_sales %} にお問い合わせください。

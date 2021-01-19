@@ -13,7 +13,7 @@ versions:
 
 ### Sobre READMEs
 
-É possível adicionar um arquivo LEIAME a um repositório para comunicar informações importantes sobre o seu projeto. Um LEIAME, junto com uma licença de repositório{% if currentVersion == "free-pro-team@latest" %}, diretrizes de contribuição, e um código de conduta{% elsif enterpriseServerVersions contains currentVersion %} e diretrizes de contribuição{% endif %}, comunica as expectativas para o seu projeto e ajuda você a gerenciar contribuições.
+É possível adicionar um arquivo README a um repositório para comunicar informações importantes sobre o seu projeto. Um README, junto com uma licença de repositório{% if currentVersion == "free-pro-team@latest" %}, diretrizes de contribuição, e um código de conduta{% elsif enterpriseServerVersions contains currentVersion %} e diretrizes de contribuição{% endif %}, comunica as expectativas para o seu projeto e ajuda você a gerenciar contribuições.
 
 Para obter mais informações sobre como fornecer diretrizes para o seu projeto, consulte {% if currentVersion == "free-pro-team@latest" %}"[Adicionar um código de conduta ao seu projeto](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)e {% endif %}"[Configurar o seu projeto para contribuições saudáveis](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)".
 
@@ -42,7 +42,7 @@ Se você colocar o arquivo README na raiz do repositório, `docs`, ou no diretó
 
 ### Links de seção nos arquivos README e páginas blob
 
-Muitos projetos usam uma tabela de conteúdo no início de um LEIAME para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
+Muitos projetos usam uma tabela de conteúdo no início de um README para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
 
 ### Links relativos e caminhos de imagem em arquivos README
 

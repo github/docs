@@ -123,7 +123,7 @@
 - 
   term: commit
   description: >-
-    Commit, ou "revisão", é uma alteração individual em um arquivo (ou conjunto de arquivos). Quando você faz um commit para salvar seu trabalho, o Git cria um ID exclusivo (também conhecido como "SHA" ou "hash") que mantém um registro das alterações, dos autores e de quando as alterações foram feitas. Em geral, os commits têm uma mensagem que mostra uma breve descrição das alterações.
+    A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a commit message which is a brief description of what changes were made.
 - 
   term: autor do commit
   description: Usuário que fez o commit.
@@ -137,7 +137,7 @@
 - 
   term: mensagem do commit
   description: >-
-    Texto breve e descritivo que acompanha um commit e comunica a alteração que o commit apresenta.
+    Short, descriptive text that accompanies a commit and communicates the change the commit is introducing.
 - 
   term: comparar branches
   description: >-
@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    Gist é um arquivo compartilhável que você pode editar, clonar e bifurcar no GitHub. É possível deixar um gist público ou secreto, embora os secretos sempre fiquem disponíveis para qualquer pessoa que tenha a URL.
+    A gist is a shareable file that you can edit, clone, and fork on GitHub. You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - 
   term: Git
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: notificação
   description: >-
-    Atualizações enviadas pela web ou por e-mail, dependendo das suas configurações, que informam sobre as atividades do seu interesse.
+    Updates, delivered by either the web or email depending on your settings, that give you information about the activities you're interested in.
 - 
   term: aplicativo OAuth
   description: >-

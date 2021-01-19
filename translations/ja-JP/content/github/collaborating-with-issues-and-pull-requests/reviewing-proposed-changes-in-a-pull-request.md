@@ -36,9 +36,11 @@ versions:
 
 {% data reusables.repositories.changed-files %}
 
-1. マニフェストまたはロックファイルのヘッダの右側で、リッチ diff ボタンをクリックして依存関係のレビューを表示します。
+1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
    ![リッチ diff ボタン](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+
+{% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
 ### ファイルをレビュー済みとしてマークする
@@ -65,5 +67,5 @@ versions:
 
 ### 参考リンク
 
-- [プルリクエストのための必須レビューについて](/github/administering-a-repository/about-required-reviews-for-pull-requests)
+- [保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)
 - 「[プルリクエストをレビューステータスでフィルタリングする](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)」

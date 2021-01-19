@@ -113,7 +113,6 @@ versions:
     {% link_in_list /preparing-to-require-two-factor-authentication-in-your-organization %}
     {% link_in_list /requiring-two-factor-authentication-in-your-organization %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-organization %}
-    {% link_in_list /managing-secret-scanning-for-your-organization %}
     {% link_in_list /managing-allowed-ip-addresses-for-your-organization %}
     {% link_in_list /restricting-email-notifications-to-an-approved-domain %}
     {% link_in_list /reviewing-the-audit-log-for-your-organization %}
@@ -122,7 +121,7 @@ versions:
     {% link_in_list /about-identity-and-access-management-with-saml-single-sign-on %}
     {% link_in_list /about-scim %}
     {% link_in_list /connecting-your-identity-provider-to-your-organization %}
-    {% link_in_list /connecting-your-identity-provider-to-your-organization %}
+    {% link_in_list /configuring-saml-single-sign-on-and-scim-using-okta %}
     {% link_in_list /enabling-and-testing-saml-single-sign-on-for-your-organization %}
     {% link_in_list /preparing-to-enforce-saml-single-sign-on-in-your-organization %}
     {% link_in_list /enforcing-saml-single-sign-on-for-your-organization %}
