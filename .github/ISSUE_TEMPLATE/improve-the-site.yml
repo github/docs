@@ -1,0 +1,64 @@
+name: Improve the docs.github.com site
+about: Make a suggestions or report a problem on the docs.github.com website.
+title: ''
+labels: "engineering"
+inputs:
+- type: description
+  attributes:
+    value: HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+
+           For questions, ask in Discussions: https://github.com/github/docs/discussions
+- type: dropdown
+  label: Code of Conduct
+  attributes:
+    choices:
+    - description: I agree to follow the Code of Conduct: https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md
+      required: true
+      multi-select: false
+      free-text: false
+      choices:
+      - description: I agree
+        value: I agree
+- type: dropdown
+  label: Contributing
+  attributes:
+    choices:
+    - description: I have read the Contributing guide: https://github.com/github/docs/blob/main/CONTRIBUTING.md
+      required: true
+      multi-select: false
+      free-text: false
+      choices:
+      - description: I agree
+        value: I agree
+- type: dropdown
+  label: Similar issue
+  attributes:
+    choices:
+    - description: There is not a similar issue that has been already opened: https://github.com/github/docs/issues
+      required: true
+      multi-select: false
+      free-text: false
+      choices:
+      - description: No similar issues
+        value: No similar issues
+- type: textarea
+  attributes:
+    label: which article
+    description: What is the current behavior?
+    required: true
+    placeholder: Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
+    value:
+- type: textarea
+  attributes:
+    label: desired updates
+    description: What changes are you suggesting?
+    required: true
+    placeholder: Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+    value: 
+- type: textarea
+  attributes:
+    label: additional info
+    description: Additional information
+    required: false
+    placeholder: Any additional information, configuration, or data that might be necessary to reproduce the issue.
+    value:
