@@ -117,6 +117,7 @@ runs:
 {% endraw %}
 
 #### `outputs.<output_id>.value`
+
 **必須** 出力パラメーターがマップされる値。 これを `string` またはコンテキスト付きの式に設定できます。 たとえば、`steps` コンテキストを使用して、出力の `value` をステップの出力値に設定できます。
 
 コンテキストと式の構文の使用方法について詳しくは、「[{% data variables.product.prodname_actions %} のコンテキストと式の構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
@@ -204,9 +205,11 @@ runs:
 
 **必須** このアクションで実行する予定の実行ステップ。
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **必須** 実行するコマンド。 これは、インラインでも、アクションリポジトリ内のスクリプトでもかまいません。
+
+{% raw %}
 ```yaml
 runs:
   using: "composite"
@@ -214,6 +217,7 @@ runs:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+{% endraw %}
 
 または、`$GITHUB_ACTION_PATH` を使用できます。
 
@@ -227,23 +231,23 @@ runs:
 
 詳しい情報については、「[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
-##### `runs.steps.shell`
+##### `runs.steps[*].shell`
 
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)にリストされている任意のシェルを使用できます。
 
-##### `runs.steps.name`
+##### `runs.steps[*].name`
 
 **オプション** 複合実行ステップの名前。
 
-##### `runs.steps.id`
+##### `runs.steps[*].id`
 
 **オプション** ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
-##### `runs.steps.env`
+##### `runs.steps[*].env`
 
 **オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで {% if currentVersion == "free-pro-team@latest" または currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} を使用します。
 
-##### `runs.steps.working-directory`
+##### `runs.steps[*].working-directory`
 
 **オプション**  コマンドを実行する作業ディレクトリを指定します。
 

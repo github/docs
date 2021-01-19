@@ -1,21 +1,21 @@
 ---
-title: Run student code in an online IDE
-intro: You can run the code from a student assignment within the online integrated development environment (IDE) that you configured for the assignment.
+title: Execute o código do aluno em um IDE on-line
+intro: Você pode executar o código da atividade de um aluno dentro do ambiente de desenvolvimento integrado on-line (IDE) que você configurou para a atividade.
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/running-student-code
 ---
 
-### About student code and online IDEs
+### Sobre o código do estudante e os IDEs on-line
 
-If you configure an online integrated development environment (IDE) for an assignment, you can run the code within the online IDE. You don't need to clone the assignment repository to your computer.
+Se você configurar um ambiente de desenvolvimento integrado on-line (IDE) para uma atividade, você poderá executar o código dentro do IDE on-line. Você não precisa clonar o repositório da atividade no seu computador.
 
-For more information about online IDEs, see "[Integrate {% data variables.product.prodname_classroom %} with an online IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)."
+Para obter mais informações sobre IDEs on-line, consulte "[Integrar {% data variables.product.prodname_classroom %} a um IDE on-line](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide)".
 
-### Running student code in the online IDE
+### Executar o código do aluno no IDE on-line
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of the submission, click **View IDE**. !["View IDE" button for submission using an online IDE](/assets/images/help/classroom/assignments-click-view-ide.png)
+1. À direita do envio, clique em **Visualizar IDE**. ![Botão "Visualizar IDE" para envio usando um IDE on-line](/assets/images/help/classroom/assignments-click-view-ide.png)

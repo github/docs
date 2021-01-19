@@ -3,10 +3,9 @@ const { union, uniq } = require('lodash')
 const fs = require('fs')
 const path = require('path')
 
-const { getVersionStringFromPath } = require('../../lib/path-utils')
+const { getProductStringFromPath } = require('../../lib/path-utils')
 const patterns = require('../../lib/patterns')
 const { deprecated } = require('../../lib/enterprise-server-releases')
-const findPageInVersion = require('../../lib/find-page-in-version')
 const rest = require('../../middleware/contextualizers/rest')
 const graphql = require('../../middleware/contextualizers/graphql')
 const contextualize = require('../../middleware/context')
@@ -145,11 +144,8 @@ class LinksChecker {
         if (gheVersionInLink && deprecated.includes(gheVersionInLink[1])) continue
         // ------ END ONEOFF EXCLUSIONS -------///
 
-        // the link at this point should include a version via lib/rewrite-local-links
-        const versionFromHref = getVersionStringFromPath(link)
-
         // look for linked page
-        const linkedPage = findPageInVersion(link, context.pages, context.redirects, this.languageCode, versionFromHref)
+        const linkedPage = context.pages[link] || context.pages[context.redirects[link]]
         this.checkedLinksCache.add(link)
 
         if (!linkedPage) {
@@ -229,14 +225,16 @@ async function buildInitialContext () {
 
 async function buildPathContext (initialContext, page, permalink) {
   // Create a new object with path-specific properties.
-  // Note this is cherry-picking properties currently only needed by the middlware below;
+  // Note this is cherry-picking properties currently only needed by the middleware below;
   // See middleware/context.js for the rest of the properties we are NOT refreshing per page.
   // If we find this causes problems for link checking, we can call `contextualize` on
   // every page. For now, this cherry-picking approach is intended to improve performance so
   // we don't have to build the expensive `pages`, `redirects`, etc. data on every page we check.
+  const path = permalink.href
   const pathContext = {
     page,
     currentVersion: permalink.pageVersion,
+    currentProduct: getProductStringFromPath(path),
     relativePath: permalink.relativePath,
     currentPath: permalink.href
   }
@@ -246,7 +244,7 @@ async function buildPathContext (initialContext, page, permalink) {
 
   // Create a new req object using the combined context
   const req = {
-    path: permalink.href,
+    path,
     context: combinedContext,
     language: 'en',
     query: {}

@@ -1,5 +1,5 @@
 ---
-title: Apply for a student developer pack
+title: Aplicar ao pacote de desenvolvedor de aluno
 intro: 'Como um estudante, você pode se candidatar ao {% data variables.product.prodname_student_pack %}, que inclui ofertas e benefícios dos parceiros {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
@@ -18,7 +18,7 @@ Para se qualificar para o {% data variables.product.prodname_student_pack %}, vo
 - Ter uma conta de usuário do [{% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)
 - Ter pelo menos 13 anos
 
-Os documentos que comprovam seu status atual de estudante incluem uma foto de sua identificação escolar, horário de aulas, certificado e carta de confirmação de matrícula ou inscrição.
+Documentos que provam o seu estado atual do aluno incluem uma foto do seu ID da escola com a data atual de matrícula. cronograma de aula, histórico escolar e carta de verificação de afiliação ou inscrição.
 
 Durante o período como estudante, pode ser que você seja solicitado a verificar periodicamente seu status acadêmico atual.
 
