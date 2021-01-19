@@ -1,11 +1,10 @@
 ---
 title: Gerenciar fluxos de trabalhos complexos
 shortTitle: Gerenciar fluxos de trabalhos complexos
-intro: 'Este guia mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredo, trabalhos dependentes, cache, matrizes de compilação{{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ambientes,{% endif %} e etiquetas.'
+intro: 'Este guia mostra como usar os recursos avançados de {% data variables.product.prodname_actions %}, com gestão de segredo, trabalhos dependentes, cache, matrizes de compilação{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} ambientes,{% endif %} e etiquetas.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'how_to'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -154,15 +153,6 @@ Para obter mais informações, consulte  ["Usar etiquetas com executores auto-ho
 
 Você pode configurar ambientes com regras de proteção e segredos. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Ambientes](/actions/reference/environments)".
 {% endif %}
-
-### Usar um modelo do fluxo de trabalho
-
-{% data reusables.actions.workflow-template-overview %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-1. Caso o seu repositório tenha fluxos de trabalho existentes: No canto superior esquerdo, clique em **Novo fluxo de trabalho**. ![Criar um novo fluxo de trabalho](/assets/images/help/repository/actions-new-workflow.png)
-1. Sob, nome do template que você gostaria de usar, clique em **Configurar este fluxo de trabalho**. ![Configurar este fluxo de trabalho](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ### Próximas etapas
 

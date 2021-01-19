@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: **January 6, 2021**
+Entrada em vigor: **30 de dezembro de 2020**
 
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. To that end, we provide this page, which details [our subprocessors](#github-subprocessors), and how we use [cookies](#cookies-on-github).
 
@@ -25,9 +25,12 @@ Quando compartilhamos suas informações com terceiros subprocessadores, tais co
 | Braintree (PayPal)     | Processador de pagamento de assinatura com cartão de crédito          | Estados Unidos         | Estados Unidos          |
 | Clearbit               | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
 | Discourse              | Provedor de software do fórum comunitário                             | Estados Unidos         | Estados Unidos          |
+| DiscoverOrg            | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
 | Eloqua                 | Automatização da campanha marketing                                   | Estados Unidos         | Estados Unidos          |
 | Google Apps            | Infraestrutura interna da empresa                                     | Estados Unidos         | Estados Unidos          |
 | Google Analytics       | Análise e desempenho                                                  | Estados Unidos         | Estados Unidos          |
+| LinkedIn Navigator     | Data enrichment service                                               | Estados Unidos         | Estados Unidos          |
+| Magic Robot            | Relatórios de campanha (Complemento para Vendas)                      | Estados Unidos         | Estados Unidos          |
 | MailChimp              | Fornecedor de serviços de correio para emissão de bilhetes a clientes | Estados Unidos         | Estados Unidos          |
 | Mailgun                | Provedor de serviços de correio transacional                          | Estados Unidos         | Estados Unidos          |
 | Microsoft              | Microsoft Services                                                    | Estados Unidos         | Estados Unidos          |
