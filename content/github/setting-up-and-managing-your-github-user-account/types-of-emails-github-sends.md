@@ -34,7 +34,7 @@ If you've upgraded to paid products or features, then you'll receive billing rec
 - Usability testing sessions
 - Previewing early prototypes or concepts
 
-These emails are infrequent and you can choose whether or not to participate. If you're interested in additional opportunities to participate in research sessions, you may add yourself to the [GitHub Customer Research Panel](https://cxr.github.com).
+These emails are infrequent and you can choose whether or not to participate. If you're interested in additional opportunities to participate in research sessions, you may add yourself to the GitHub Customer Research Panel. For more information, see "[GitHub Customer Experience Research](https://cxr.github.com)."
 
 ### Marketing emails
 
