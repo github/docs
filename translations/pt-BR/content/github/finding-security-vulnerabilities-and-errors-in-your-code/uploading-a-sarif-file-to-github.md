@@ -27,8 +27,6 @@ Você pode fazer o upload dos resultados usando {% data variables.product.prodna
 - {% data variables.product.prodname_dotcom %} exibirá alertas de {% data variables.product.prodname_code_scanning %} do arquivo SARIF carregado em seu repositório. Se você bloquear o upload automático, quando você estiver pronto para fazer o upload de resultados, você poderá usar o comando `upload` (para obter mais informações, consulte "[Executar {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)").
 - Uma ferramenta que gera resultados como um artefato fora do seu repositório, você pode usar a API de {% data variables.product.prodname_code_scanning %} para fazer o upload do arquivo (para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF](/rest/reference/code-scanning#upload-a-sarif-file)").
 
-{% data reusables.code-scanning.not-available %}
-
 ### Fazer o upload uma análise de {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_actions %}
 
 Para fazer o upload de um arquivo SARIF de terceiros para {% data variables.product.prodname_dotcom %}, você precisará de um fluxo de trabalho de {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Aprender {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)" e "[Aprender {% data variables.product.prodname_actions %}](/actions/learn-github-actions)".

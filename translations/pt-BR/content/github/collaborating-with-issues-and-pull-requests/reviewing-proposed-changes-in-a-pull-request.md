@@ -36,11 +36,9 @@ Se o pull request contiver alterações em dependências, você poderá usar a r
 
 {% data reusables.repositories.changed-files %}
 
-1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
+1. À direita do cabeçalho para um manifesto ou arquivo de bloqueio, mostre a revisão de dependências clicando no botão de diff avançado.
 
    ![Botão de diff avançado](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
-
-{% data reusables.repositories.return-to-source-diff %}
 {% endif %}
 
 ### Marcar um arquivo como visualizado
@@ -67,5 +65,5 @@ Quando terminar de revisar os arquivos que deseja incluir na pull request, envie
 
 ### Leia mais
 
-- "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Sobre revisões obrigatórias para pull requests](/github/administering-a-repository/about-required-reviews-for-pull-requests)"
 - "[Filtrar pull requests por status de revisão](/github/managing-your-work-on-github/filtering-pull-requests-by-review-status)"

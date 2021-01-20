@@ -9,9 +9,9 @@ versions:
   github-ae: '*'
 ---
 
-For more information about required reviews, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+Para obter mais informações sobre revisões obrigatórias, consulte "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)".
 
-Você pode comentar em uma pull request, aprovar as alterações ou solicitar melhorias antes da aprovação. Para obter mais informações, consulte "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)".
+Você pode comentar em uma pull request, aprovar as alterações ou solicitar melhorias antes da aprovação. Para obter mais informações, consulte "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)" e "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)".
 
 {% data reusables.search.requested_reviews_search %}
 
@@ -34,5 +34,6 @@ Você pode comentar em uma pull request, aprovar as alterações ou solicitar me
 
 ### Leia mais
 
+- "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)"
 - "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
 - "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)"
