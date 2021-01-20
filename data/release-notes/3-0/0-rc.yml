@@ -134,7 +134,8 @@ sections:
     - '`ghe-config-apply` occassionally fails with `ERROR: Failure waiting for nomad jobs to apply` until the Nomad job queue is cleared. This currently requires as admin to delete `/etc/nomad-jobs/queue`.'
     - When configuring a multiple replica node, the status of the replica can be incorrectly synchronized.
     - Customers attempting to restore a 3.0 backup to a new instance should not pre-configure the instance, as it may lead to a bad state for user logins. We recommend restoring to a fresh, unconfigured instance.
-    - GitHub Enterprise Server 3.0 release candidates are not yet available in the Azure marketplace. To test RC1 in staging environments, start a 2.21 or 2.22 instance, and then upgrade it with the Azure upgrade package on the download page.
+    - GitHub Enterprise Server 3.0 release candidates are not yet available in the Azure marketplace. To test release candidates in staging environments, start a 2.21 or 2.22 instance, and then upgrade it with the Azure upgrade package on the download page.
+    - The image and upgrade package download size has increased. Customers on slow internet connections may find the packages take longer to download.
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.0 requires at least [GitHub Enterprise Backup Utilities 3.0.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/enterprise-server@3.0/admin/configuration/configuring-backups-on-your-appliance).'
