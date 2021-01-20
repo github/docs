@@ -1,0 +1,1 @@
+Una tarea individual es parte del trabajo del curso para cada alumno que participe en uno de ellos dentro de {% data variables.product.prodname_classroom %}. Se pretende que el alumno complete una tarea individual sin ayuda de otros alumnos.

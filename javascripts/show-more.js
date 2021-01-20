@@ -1,5 +1,5 @@
 /*
- *  This utility makes it easy to implement a list of items, some of which are hidden initially
+ *  This utility component implement a list of items, some of which are hidden initially
  *  until user clicks "show more".
  *
  *  Example:

@@ -8,6 +8,8 @@ on:
       - main
     types:
       - closed
+    paths:
+      - 'content/github/site-policy/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -33,8 +35,8 @@ jobs:
         with:
           source_folder: 'content/github/site-policy'
           destination_repo: 'github/site-policy'
-          destination_branch: 'non-substantive-changes'
+          destination_branch: 'repo-sync'
           destination_folder: 'Policies'
           user_email: 'pcihon@users.noreply.github.com'
           user_name: 'pcihon'
-          commit_msg: 'Mirroring non-substantive changes.'
+          commit_msg: 'Automatic sync from GitHub Docs.'

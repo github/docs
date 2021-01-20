@@ -1,0 +1,1 @@
+1. En la barra lateral de seguridad, da clic en **{% data variables.product.prodname_dependabot_alerts %}**. ![Pestaña {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/repository/dependabot-alerts-tab.png)
