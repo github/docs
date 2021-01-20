@@ -9,7 +9,7 @@ versions:
 
 {% data reusables.actions.environments-beta %}
 
-Você pode entregar implantações através de % if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_actions %} e ambientes ou com {% endif %}API REST e aplicativos de terceiros. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Para mais informações sobre {% data variables.product.prodname_actions %}, consulte "[{% data variables.product.prodname_actions %}](/actions) {% endif %}Para obter mais informações sobre implantações com a API REST, consulte "[Repositórios](/rest/reference/repos#deployments)".
+Você pode entregar implantações através de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_actions %} e ambientes ou com {% endif %}API REST e aplicativos de terceiros. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Para mais informações sobre {% data variables.product.prodname_actions %}, consulte "[{% data variables.product.prodname_actions %}](/actions) {% endif %}Para obter mais informações sobre implantações com a API REST, consulte "[Repositórios](/rest/reference/repos#deployments)".
 
 Para visualizar implantações atuais e anteriores, clique em **Ambientes** na página inicial do repositório. ![Ambientes](/assets/images/environments-sidebar.png)
 

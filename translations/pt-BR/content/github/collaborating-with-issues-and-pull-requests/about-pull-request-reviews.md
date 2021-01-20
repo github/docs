@@ -44,7 +44,9 @@ Você pode exibir todas as revisões que uma pull request recebeu na linha do te
 
 ### Revisões obrigatórias
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
+
+Para obter mais informações, consulte "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)".
 
 {% tip %}
 
@@ -55,5 +57,6 @@ Você pode exibir todas as revisões que uma pull request recebeu na linha do te
 ### Leia mais
 
 - "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
+- "[Habilitar revisões obrigatórias para pull requests](/articles/enabling-required-reviews-for-pull-requests)"
 - "[Exibir uma revisão de pull request](/articles/viewing-a-pull-request-review)"
 - "[Configurar diretrizes para os contribuidores do repositório](/articles/setting-guidelines-for-repository-contributors)"

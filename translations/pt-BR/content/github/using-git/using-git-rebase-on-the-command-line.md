@@ -124,11 +124,7 @@ Como antes, o Git mostra a mensagem do commit para você editar. Altere o texto 
 Como você alterou o histórico do Git, o `git push origin` normal **não** funcionará. É preciso modificar o comando forçando o push das alterações mais recentes:
 
 ```shell
-# Don't override changes
-$ git push origin main --force-with-lease
-
-# Override changes
-$ git push origin main --force
+$ git push origin master --force
 ```
 
 {% warning %}

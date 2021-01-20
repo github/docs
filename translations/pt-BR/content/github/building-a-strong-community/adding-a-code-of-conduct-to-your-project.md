@@ -43,7 +43,7 @@ Se o código de conduta que você deseja usar não estiver disponível nos model
 3. No campo do nome de arquivo, digite o nome e a extensão do arquivo. ![Nome do arquivo do novo código de conduta](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - Para tornar seu código de conduta visível no diretório raiz do repositório, digite *CODE_OF_CONDUCT* no campo do nome do arquivo.
     - Para tornar seu código de conduta visível no diretório `docs` do repositório, digite *docs/CODE_OF_CONDUCT*.
-    - To make your code of conduct visible in the repository's `.github` directory, type *.github/CODE_OF_CONDUCT*.
+    - Para tornar seu código de conduta visível no diretório `.github` do repositório, digite *.github/CODE_OF_CONDUCT*.
 4. No novo arquivo, adicione seu código de conduta personalizado.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

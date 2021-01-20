@@ -84,7 +84,6 @@ prodname_insights: 'GitHub Insights'
 prodname_sponsors: 'GitHub Sponsors'
 prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
 #GitHub Advanced Security
-prodname_GH_advanced_security: 'Segurança Avançada GitHub'
 prodname_advanced_security: 'Segurança Avançada'
 #Codespaces
 prodname_codespaces: 'Codespaces'
