@@ -78,13 +78,15 @@ A melhor maneira de resolver este erro é fazer o merge ou fechar alguns dos pul
 
 #### {% data variables.product.prodname_dependabot %} não pode resolver seus arquivos de dependência
 
-**Somente atualizações da versão.** Se {% data variables.product.prodname_dependabot %} tentar verificar se referências de dependências precisam ser atualizadas em um repositório, mas não for possível acessar um ou mais arquivos referenciados, você verá a mensagem de erro "{% data variables.product.prodname_dependabot %} não pode resolver seus arquivos de dependência de LANGUAGE".
+If {% data variables.product.prodname_dependabot %} attempts to check whether dependency references need to be updated in a repository, but can't access one or more of the referenced files, the operation will fail with the error message "{% data variables.product.prodname_dependabot %} can't resolve your LANGUAGE dependency files." The API error type is `git_dependencies_not_reachable`.
 
-{% data reusables.dependabot.private-dependencies-note %} Adicionalmente, {% data variables.product.prodname_dependabot %} não é compatível com dependências privadas {% data variables.product.prodname_dotcom %} para todos os gerenciadores de pacote. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
+To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.
+
+**Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. Para obter mais informações, consulte "[Sobre atualizações da versão do Dependabot](/github/administering-a-repository/about-dependabot-version-updates#supported-repositories-and-ecosystems)".
 
 ### Acionar um pull request de {% data variables.product.prodname_dependabot %} manualmente
 
 Se você desbloquear {% data variables.product.prodname_dependabot %}, você poderá iniciar manualmente uma nova tentativa de criar um pull request.
 
 - **Atualizações de segurança**—exibe o alerta de {% data variables.product.prodname_dependabot %}, que mostra o erro que você corrigiu e clique em **Criar atualização de segurança de {% data variables.product.prodname_dependabot %}**.
-- **Atualizações da versão**— exibir o arquivo de log para o manifesto que mostra o erro que você corrigiu e clique em **Verificar se há atualizações**.
+- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.

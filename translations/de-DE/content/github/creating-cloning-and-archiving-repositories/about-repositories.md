@@ -23,8 +23,8 @@ Jede Person und Organisation kann unbegrenzte Repositorys besitzen und eine unbe
 {% endif %}
 
 You can use repositories to manage your work and collaborate with others.
-- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."
-- {% data reusables.discussions.you-can-use-discussions %}
+- You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[About issues](/github/managing-your-work-on-github/about-issues)."{% if currentVersion == "free-pro-team@latest" %}
+- {% data reusables.discussions.you-can-use-discussions %}{% endif %}
 - You can use pull requests to propose changes to a repository. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests).“
 - You can use project boards to organize and prioritize your issues and pull requests. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/github/managing-your-work-on-github/about-project-boards).“
 
