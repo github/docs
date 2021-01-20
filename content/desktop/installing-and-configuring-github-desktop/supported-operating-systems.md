@@ -61,4 +61,5 @@ To troubleshoot, contact your system administrator.
 
 This error can occur when Mandatory ASLR is enabled. Enabling Mandatory ASLR affects the MSYS2 core library, which {% data variables.product.prodname_desktop %} relies upon to emulate process forking.
 
-To troubleshoot this error, either disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.
+To troubleshoot 
+her disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.
