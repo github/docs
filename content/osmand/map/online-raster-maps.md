@@ -70,6 +70,17 @@ You can set the base map transparency for your layer and whether display the tra
 In order to mix raster map layers better, you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
 be more visible, especially useful for satellite imagery.
 
+
+
+## Prepare / copy online map sources
+You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation)
+
+
+- Android: Copy raster maps created on PC to a [tiles subfolder of base osmand folder](/osmand/start-with/storage) .
+- Open ready to use *.sqlitedb* package with OsmAnd.
+- You can import package with prepared online maps from another OsmAnd application as a special package via [Import / export functionality](/personal/import-export).
+- Send a magic URL and open it with OsmAnd.
+
 ### Add new online raster map source
 To create a raster map source you need to know **the tile URL**. This is URL that can distribute tiles in Mercator Projection. Here is a tile example URL https://tile.osmand.net/hd/6/55/25.png, where is the base part https://tile.osmand.net/hd/.
 
@@ -93,55 +104,6 @@ At this screen you need to add the next parameters:
 |[{% data variables.ios-values.res_source_format %}/{% data variables.android-values.storage_format %}]|{% data variables.ios-values.res_source_sqlite %} or {% data variables.ios-values.res_source_one_per_tile %}|
 
 Click to "{% data variables.android-values.shared_string_save %}" button for adding a new online raster map to the list.
-
-## Prepare online map sources 
-
-### Copy raster map package created on PC 
-
-You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation). Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
-
-Next, you need to move your map package file(s) to OsmAnd-tiles directory:
-
-For **Android** OsmAnd - you need to access storage to copy file(s) from PC to the device folder [BASE_OSMAND_STORAGE](/osmand/start-with/storage)/tiles_ or you can click the file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
-
-<img src="/assets/images/plugins/online-maps/om-11.png" />
-
-For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
-
-<img src="/assets/images/plugins/online-maps/om-12.png" />
-
-
-### Export / Import from OsmAnd
-
-In order **to export** online map sources, you can select them in the export file list of your [application profile](/osmand/app-profile):
-
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_profile %} → {% data variables.android-values.export_profile %} → {% data variables.android-values.select_data_to_export %} → {% data variables.android-values.shared_string_resources %} → {% data variables.android-values.quick_action_map_source_title %}  
-
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.sett_settings %} → choose your {% data variables.ios-values.app_profiles %} → {% data variables.ios-values.actions %} → {% data variables.ios-values.export_profile %}
-
-In order **to import** online map sources, you can click to osf-file of application profile in your storage, messenger, mail and etc, that choose OsmAnd app for opening, select the data to be imported.
-
-{% data variables.product.android_button_seq %}
-
-A. {% data variables.android-values.shared_string_import %} → {% data variables.android-values.select_data_to_import %} → {% data variables.android-values.quick_action_map_source_title %} → {% data variables.android-values.shared_string_import_complete %} → {% data variables.android-values.shared_string_continue %} → {% data variables.android-values.shared_string_close %}
-
-<img src="/assets/images/plugins/online-maps/om-8.png" />
-
-B. You can click the SQLiteDb-file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
-
-<img src="/assets/images/plugins/online-maps/om-6.png" />
-
-{% data variables.product.ios_button_seq %}
-
-A. {% data variables.ios-values.shared_string_import %} → {% data variables.ios-values.quick_action_map_source_title %} → {% data variables.ios-values.shared_string_continue %} → {% data variables.ios-values.shared_string_import_complete %} → {% data variables.ios-values.gpx_finish %}
-
-<img src="/assets/images/plugins/online-maps/om-7.png" />
-
-B. {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_overunder %} → {% data variables.ios-values.import_from_docs %}
-
-C. You can click the SQLiteDb-file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
-
-<img src="/assets/images/plugins/online-maps/om-5.png" />
 
 ### Magic URL to install map source
 

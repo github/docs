@@ -8,6 +8,20 @@ versions: '*'
 - Folder structure (iOS / Android)
 - 
 
+## Copy raster map package created on PC 
+
+Map package can be saved in two formats: [SQ Lite and Metainfo](/osmand/map/online-raster-maps#sqlite-vs-metainfo-sources).
+
+Next, you need to move your map package file(s) to OsmAnd-tiles directory:
+
+For **Android** OsmAnd - you need to access storage to copy file(s) from PC to the device folder BASE_OSMAND_STORAGE/tiles_ or you can click the file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+
+<img src="/assets/images/plugins/online-maps/om-11.png" />
+
+For **iOS** OsmAnd - you need to click the file on your iTunes or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+
+<img src="/assets/images/plugins/online-maps/om-12.png" />
+
 (for the Android version only)
 
 ## In order to move the OsmAnd home (maps) folder to an external SD card:

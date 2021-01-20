@@ -9,5 +9,6 @@ Deal with personal data
 - Links to plugins like Audio Video notes etc
 - Personal maps
 - All General settings 
-- Import / Export
+
+{% link_with_intro /import-export %}
 
