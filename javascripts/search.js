@@ -1,9 +1,6 @@
+import { tags } from './hyperscript'
 import { sendEvent } from './events'
-const instantsearch = require('instantsearch.js').default
-const { searchBox, hits, configure, analytics } = require('instantsearch.js/es/widgets')
-const algoliasearch = require('algoliasearch')
 const searchWithYourKeyboard = require('search-with-your-keyboard')
-const querystring = require('querystring')
 const truncate = require('html-truncate')
 const languages = require('../lib/languages')
 const allVersions = require('../lib/all-versions')
@@ -12,261 +9,96 @@ const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-versi
 const languageCodes = Object.keys(languages)
 const maxContentLength = 300
 
-const hasStandaloneSearch = () => document.getElementById('landing') || document.querySelector('body.error-404') !== null
+let $searchInputContainer
+let $searchResultsContainer
+let $searchOverlay
+let $searchInput
 
-const resultTemplate = (item) => {
-  // Attach an `algolia-query` param to each result link so analytics
-  // can track the search query that led the user to this result
-  const input = document.querySelector('#search-input-container input')
-  if (input) {
-    const url = new URL(item.objectID, window.location.origin)
-    const queryParams = new URLSearchParams(url.search.slice(1))
-    queryParams.append('algolia-query', input.value)
-    url.search = queryParams.toString()
-    item.modifiedURL = url.toString()
-  }
+let placeholder = 'Search topics, products...'
+let version
+let language
 
-  // Display page title and heading (if present exists)
-  const title = item._highlightResult.heading
-    ? [item._highlightResult.title.value, item._highlightResult.heading.value].join(': ')
-    : item._highlightResult.title.value
+export default function search () {
+  $searchInputContainer = document.getElementById('search-input-container')
+  $searchResultsContainer = document.getElementById('search-results-container')
 
-  // Remove redundant title from the end of breadcrumbs
-  if (item.breadcrumbs && item.breadcrumbs.endsWith(item.title)) {
-    item.modifiedBreadcrumbs = item.breadcrumbs.replace(' / ' + item.title, '')
-  } else {
-    item.modifiedBreadcrumbs = item.breadcrumbs
-  }
+  if (!$searchInputContainer || !$searchResultsContainer) return
 
-  // Truncate and ellipsize the content string without breaking any HTML
-  // within it, such as the <mark> tags added by Algolia for emphasis.
-  item.modifiedContent = truncate(item._highlightResult.content.value, maxContentLength)
+  $searchOverlay = document.querySelector('.search-overlay-desktop')
 
-  // Construct the template to return
-  const html = `
-    <div class="search-result border-top border-gray-light py-3 px-2">
-      <a href="#" class="no-underline">
-        <div class="search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1">${item.modifiedBreadcrumbs}</div>
-        <div class="search-result-title d-block h4-mktg text-gray-dark">${title}</div>
-        <div class="search-result-content d-block text-gray">${item.modifiedContent}</div>
-      </a>
-    </div>
-  `
-
-  // Sanitize the link's href attribute using the DOM API to prevent XSS
-  const fragment = document.createRange().createContextualFragment(html)
-  fragment.querySelector('a').setAttribute('href', item.modifiedURL)
-  const div = document.createElement('div')
-  div.appendChild(fragment.cloneNode(true))
-
-  return div.innerHTML
-}
-
-export default function () {
-  if (!document.querySelector('#search-results-container')) return
-
-  window.initialPageLoad = true
-  const opts = {
-
-    // https://www.algolia.com/apps/ZI5KPY1HBE/dashboard
-    // This API key is public. There's also a private API key for writing to the Algolia API
-    searchClient: algoliasearch('ZI5KPY1HBE', '685df617246c3a10abba589b4599288f'),
-
-    // There's an index for every version/language combination
-    indexName: `github-docs-${deriveVersionFromPath()}-${deriveLanguageCodeFromPath()}`,
-
-    // allows "phrase queries" and "prohibit operator"
-    // https://www.algolia.com/doc/api-reference/api-parameters/advancedSyntax/
-    advancedSyntax: true,
-
-    // sync query params to search input
-    routing: true,
-
-    searchFunction: helper => {
-      // console.log('searchFunction', helper.state)
-      const query = helper.state.query
-      const queryPresent = query && query.length > 0
-      const results = document.querySelector('.ais-Hits')
-      // avoid conducting an empty search on page load;
-      if (window.initialPageLoad && !queryPresent) return
-
-      // after page load, search should be executed (even if the query is empty)
-      // so as not to upset the default instantsearch.js behaviors like clearing
-      // the input when [x] is clicked.
-      helper.search()
-
-      // If on homepage, toggle results container if query is present
-      if (hasStandaloneSearch()) {
-        const container = document.getElementById('search-results-container')
-        // Primer classNames for showing and hiding the results container
-        const activeClass = container.getAttribute('data-active-class')
-        const inactiveClass = container.getAttribute('data-inactive-class')
-
-        if (!activeClass) {
-          console.error('container is missing required `data-active-class` attribute', container)
-          return
-        }
-
-        if (!inactiveClass) {
-          console.error('container is missing required `data-inactive-class` attribute', container)
-          return
-        }
-
-        // hide the container when no query is present
-        container.classList.toggle(activeClass, queryPresent)
-        container.classList.toggle(inactiveClass, !queryPresent)
-      }
-
-      // Hack to work around a mysterious bug where the input is not cleared
-      // when the [x] is clicked. Note: this bug only occurs on pages
-      // loaded with a ?query=foo param already present
-      if (!queryPresent) {
-        setTimeout(() => {
-          document.querySelector('#search-input-container input').value = ''
-        }, 50)
-        results.style.display = 'none'
-      }
-
-      if (queryPresent && results) results.style.display = 'block'
-      window.initialPageLoad = false
-      toggleSearchDisplay()
-    }
-  }
-
-  const search = instantsearch(opts)
+  // There's an index for every version/language combination
+  version = deriveVersionFromPath()
+  language = deriveLanguageCodeFromPath()
 
   // Find search placeholder text in a <meta> tag, falling back to a default
-  const placeholderMeta = document.querySelector('meta[name="site.data.ui.search.placeholder"]')
-  const placeholder = placeholderMeta ? placeholderMeta.content : 'Search topics, products...'
+  const $placeholderMeta = document.querySelector('meta[name="site.data.ui.search.placeholder"]')
+  if ($placeholderMeta) {
+    placeholder = $placeholderMeta.content
+  }
 
-  search.addWidgets(
-    [
-      hits({
-        container: '#search-results-container',
-        templates: {
-          empty: 'No results',
-          item: resultTemplate
-        },
-        // useful for debugging template context, if needed
-        transformItems: items => {
-          // console.log(`transformItems`, items)
-          return items
-        }
-      }),
-      configure({
-        analyticsTags: [
-          'site:docs.github.com',
-          `env:${process.env.NODE_ENV}`
-        ]
-      }),
-      searchBox({
-        container: '#search-input-container',
-        placeholder,
-        // only autofocus on the homepage, and only if no #hash is present in the URL
-        autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
-        showReset: false,
-        showSubmit: false
-      }),
-      analytics({
-        pushFunction (params, state, results) {
-          sendEvent({
-            type: 'search',
-            search_query: results.query
-            // search_context
-          })
-        }
-      })
-    ]
-  )
+  $searchInputContainer.append(tmplSearchInput())
+  $searchInput = $searchInputContainer.querySelector('input')
 
-  // enable for debugging
-  search.on('render', (...args) => {
-    // console.log(`algolia render`, args)
-  })
-
-  search.on('error', (...args) => {
-    console.error('algolia error', args)
-  })
-
-  search.start()
   searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
   toggleSearchDisplay()
 
-  // delay removal of the query param so analytics client code has a chance to track it
-  setTimeout(() => { removeAlgoliaQueryTrackingParam() }, 500)
+  $searchInput.addEventListener('keyup', debounce(onSearch))
 }
 
-// When a user performs an in-site search an `algolia-query` param is
-// added to the URL so analytics can track the queries and the pages
-// they lead to. This function strips the query from the URL after page load,
-// so the bare article URL can be copied/bookmarked/shared, sans tracking param
-function removeAlgoliaQueryTrackingParam () {
-  if (
-    history &&
-    history.replaceState &&
-    location &&
-    location.search &&
-    location.search.includes('algolia-query=')
-  ) {
-    // parse the query string, remove the `algolia-query`, and put it all back together
-    let q = querystring.parse(location.search.replace(/^\?/, ''))
-    delete q['algolia-query']
-    q = Object.keys(q).length ? '?' + querystring.stringify(q) : ''
-
-    // update the URL in the address bar without modifying the history
-    history.replaceState(null, '', `${location.pathname}${q}${location.hash}`)
-  }
+// The home page and 404 pages have a standalone search
+function hasStandaloneSearch () {
+  return document.getElementById('landing') ||
+    document.querySelector('body.error-404') !== null
 }
 
-function toggleSearchDisplay (isReset) {
-  const input = document.querySelector('#search-input-container input')
-  const overlay = document.querySelector('.search-overlay-desktop')
-
-  // If not on homepage...
-  if (!hasStandaloneSearch()) {
-    // Open modal if input is clicked
-    input.addEventListener('focus', () => {
-      openSearch()
-    })
-
-    // Close modal if overlay is clicked
-    if (overlay) {
-      overlay.addEventListener('click', () => {
-        closeSearch()
-      })
-    }
-
-    // Open modal if page loads with query in the params/input
-    if (input.value) {
-      openSearch()
-    }
-  }
-
+function toggleSearchDisplay () {
   // Clear/close search, if ESC is clicked
   document.addEventListener('keyup', (e) => {
     if (e.key === 'Escape') {
       closeSearch()
     }
   })
+
+  // If not on homepage...
+  if (hasStandaloneSearch()) return
+
+  const $input = $searchInput
+
+  // Open modal if input is clicked
+  $input.addEventListener('focus', () => {
+    openSearch()
+  })
+
+  // Close modal if overlay is clicked
+  if ($searchOverlay) {
+    $searchOverlay.addEventListener('click', () => {
+      closeSearch()
+    })
+  }
+
+  // Open modal if page loads with query in the params/input
+  if ($input.value) {
+    openSearch()
+  }
 }
 
 function openSearch () {
-  document.querySelector('#search-input-container input').classList.add('js-open')
-  document.querySelector('#search-results-container').classList.add('js-open')
-  document.querySelector('.search-overlay-desktop').classList.add('js-open')
+  $searchInput.classList.add('js-open')
+  $searchResultsContainer.classList.add('js-open')
+  $searchOverlay.classList.add('js-open')
 }
 
 function closeSearch () {
   // Close modal if not on homepage
   if (!hasStandaloneSearch()) {
-    document.querySelector('#search-input-container input').classList.remove('js-open')
-    document.querySelector('#search-results-container').classList.remove('js-open')
-    document.querySelector('.search-overlay-desktop').classList.remove('js-open')
+    $searchInput.classList.remove('js-open')
+    $searchResultsContainer.classList.remove('js-open')
+    $searchOverlay.classList.remove('js-open')
   }
 
-  document.querySelector('.ais-Hits').style.display = 'none'
-  document.querySelector('#search-input-container input').value = ''
-  window.history.replaceState({}, 'clear search query', window.location.pathname)
+  const $hits = $searchResultsContainer.querySelector('.ais-Hits')
+  if ($hits) $hits.style.display = 'none'
+  $searchInput.value = ''
 }
 
 function deriveLanguageCodeFromPath () {
@@ -277,8 +109,8 @@ function deriveLanguageCodeFromPath () {
 
 function deriveVersionFromPath () {
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
-  const version = location.pathname.split('/')[2] || nonEnterpriseDefaultVersion
-  const versionObject = allVersions[version] || allVersions[nonEnterpriseDefaultVersion]
+  const versionStr = location.pathname.split('/')[2] || nonEnterpriseDefaultVersion
+  const versionObject = allVersions[versionStr] || allVersions[nonEnterpriseDefaultVersion]
 
   // if GHES, returns the release number like 2.21, 2.22, etc.
   // if FPT, returns 'dotcom'
@@ -286,4 +118,149 @@ function deriveVersionFromPath () {
   return versionObject.plan === 'enterprise-server'
     ? versionObject.currentRelease
     : versionObject.miscBaseName
+}
+
+function debounce (fn, delay = 300) {
+  let timer
+  return (...args) => {
+    clearTimeout(timer)
+    timer = setTimeout(() => fn.apply(null, args), delay)
+  }
+}
+
+async function onSearch (evt) {
+  const query = evt.target.value
+
+  const url = new URL(location.origin)
+  url.pathname = '/search'
+  url.search = new URLSearchParams({ query, version, language }).toString()
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const results = response.ok ? await response.json() : []
+
+  $searchResultsContainer.querySelectorAll('*').forEach(el => el.remove())
+  $searchResultsContainer.append(
+    tmplSearchResults(results)
+  )
+
+  toggleStandaloneSearch()
+
+  // Analytics tracking
+  sendEvent({
+    type: 'search',
+    search_query: query
+    // search_context
+  })
+}
+
+// If on homepage, toggle results container if query is present
+function toggleStandaloneSearch () {
+  if (!hasStandaloneSearch()) return
+
+  const query = $searchInput.value
+  const queryPresent = query && query.length > 0
+  const $results = document.querySelector('.ais-Hits')
+
+  // Primer classNames for showing and hiding the results container
+  const activeClass = $searchResultsContainer.getAttribute('data-active-class')
+  const inactiveClass = $searchResultsContainer.getAttribute('data-inactive-class')
+
+  if (!activeClass) {
+    console.error('container is missing required `data-active-class` attribute', $searchResultsContainer)
+    return
+  }
+
+  if (!inactiveClass) {
+    console.error('container is missing required `data-inactive-class` attribute', $searchResultsContainer)
+    return
+  }
+
+  // hide the container when no query is present
+  $searchResultsContainer.classList.toggle(activeClass, queryPresent)
+  $searchResultsContainer.classList.toggle(inactiveClass, !queryPresent)
+
+  if (queryPresent && $results) $results.style.display = 'block'
+}
+
+/** * Template functions ***/
+
+function tmplSearchInput () {
+  // only autofocus on the homepage, and only if no #hash is present in the URL
+  const autofocus = (hasStandaloneSearch() && !location.hash.length) || null
+  const { div, form, input, button } = tags
+  return div(
+    { class: 'ais-SearchBox' },
+    form(
+      { role: 'search', class: 'ais-SearchBox-form', novalidate: true },
+      input({
+        class: 'ais-SearchBox-input',
+        type: 'search',
+        placeholder,
+        autofocus,
+        autocomplete: 'off',
+        autocorrect: 'off',
+        autocapitalize: 'off',
+        spellcheck: 'false',
+        maxlength: '512'
+      }),
+      button({
+        class: 'ais-SearchBox-submit',
+        type: 'submit',
+        title: 'Submit the search query.',
+        hidden: true
+      })
+    )
+  )
+}
+
+function tmplSearchResults (items) {
+  const { div, ol, li } = tags
+  return div(
+    { class: 'ais-Hits', style: 'display:block' },
+    ol(
+      { class: 'ais-Hits-list' },
+      items.map(item => li(
+        { class: 'ais-Hits-item' },
+        tmplSearchResult(item)
+      ))
+    )
+  )
+}
+
+function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
+  const { div, a } = tags
+  return div(
+    { class: 'search-result border-top border-gray-light py-3 px-2' },
+    a(
+      { href: url, class: 'no-underline' },
+      div(
+        { class: 'search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1' },
+        // Remove redundant title from the end of breadcrumbs
+        emify((breadcrumbs || '').replace(` / ${title}`, ''))
+      ),
+      div(
+        { class: 'search-result-title d-block h4-mktg text-gray-dark' },
+        // Display page title and heading (if present exists)
+        emify(heading ? `${title}: ${heading}` : title)
+      ),
+      div(
+        { class: 'search-result-content d-block text-gray' },
+        // Truncate without breaking inner HTML tags
+        emify(truncate(content, maxContentLength))
+      )
+    )
+  )
+}
+
+// Allow em tags in search responses
+function emify (text) {
+  const { em } = tags
+  return text
+    .split(/<\/?em>/g)
+    .map((el, i) => i % 2 ? em(el) : el)
 }
