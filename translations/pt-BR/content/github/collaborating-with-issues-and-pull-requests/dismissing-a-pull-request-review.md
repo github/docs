@@ -1,6 +1,6 @@
 ---
 title: Ignorar uma revisão de pull request
-intro: 'If your repository requires reviews, you can dismiss pull request reviews that are no longer valid or are unable to be approved by the reviewer.'
+intro: 'Se o seu repositório [exige revisões](/articles/about-required-reviews-for-pull-requests), você pode ignorar revisões de pull request que já não sejam mais válidas ou que não tenham sido aprovadas pelo revisor.'
 redirect_from:
   - /articles/dismissing-a-pull-request-review
 versions:
@@ -24,4 +24,4 @@ Isso altera o status da revisão para um comentário de revisão. Quando você i
 
 - "[Sobre revisões de solicitação pull](/articles/about-pull-request-reviews)"
 - "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
-- "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)"
+- "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)"

@@ -113,6 +113,7 @@ versions:
     {% link_in_list /preparing-to-require-two-factor-authentication-in-your-organization %}
     {% link_in_list /requiring-two-factor-authentication-in-your-organization %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-organization %}
+    {% link_in_list /managing-secret-scanning-for-your-organization %}
     {% link_in_list /managing-allowed-ip-addresses-for-your-organization %}
     {% link_in_list /restricting-email-notifications-to-an-approved-domain %}
     {% link_in_list /reviewing-the-audit-log-for-your-organization %}

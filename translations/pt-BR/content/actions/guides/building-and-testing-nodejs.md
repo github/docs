@@ -8,7 +8,6 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
-type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -37,11 +36,7 @@ Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do
 ```yaml{:copy}
 name: Node.js CI
 
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+on: [push]
 
 jobs:
   build:
@@ -50,7 +45,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node-version: [8.x, 10.x, 12.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -58,9 +53,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
+    - run: npm install
     - run: npm run build --if-present
     - run: npm test
+      env:
+        CI: true
 ```
 {% endraw %}
 
@@ -72,7 +69,7 @@ A maneira mais fácil de especificar uma versão do Node.js é usar a ação `se
 
 A ação `setup-node` considera uma versão do Node.js como uma entrada e configura essa versão no executor. A ação `setup-node` localiza uma versão específica do Node.js da cache das ferramentas em casa executor e adiciona os binários necessários ao `PATH`, que persiste no resto do trabalho. Usar a ação `setup-node` é a forma recomendada de usar o Node.js com {% data variables.product.prodname_actions %}, pois garante um comportamento consistente nos diferentes executores e nas diferentes versões do Node.js. Se você estiver usando um executor auto-hospedado, você deverá instalar o Node.js e adicioná-lo ao `PATH`.
 
-O modelo inclui uma estratégia matriz que cria e testa seu código com quatro versões de Node.js: 10.x, 12.x, 14.x e 15.x. O "x" é um caractere curinga que corresponde à última versão menor e à versão do patch disponível para uma versão. Cada versão do Node.js especificada na matriz `node-version` cria uma tarefa que executa as mesmas etapas.
+O modelo inclui uma estratégia de matriz que cria e testa o seu código com três versões do Node.js: 8.x, 10.x, e 12.x. O "x" é um caractere curinga que corresponde à última versão menor e à versão do patch disponível para uma versão. Cada versão do Node.js especificada na matriz `node-version` cria uma tarefa que executa as mesmas etapas.
 
 Cada trabalho pode acessar o valor definido na matriz `node-version` usando o contexto `matriz`. A ação `setup-node` usa o contexto como entrada de `node-version`. A ação `setup-node` configura cada tarefa com uma versão diferente de Node.js antes de criar e testar o código. Para obter mais informações sobre os contextos e estratégias da matriz, consulte ""[Sintaxe do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" e "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
@@ -80,7 +77,7 @@ Cada trabalho pode acessar o valor definido na matriz `node-version` usando o co
 ```yaml
 strategy:
   matrix:
-    node-version: [10.x, 12.x, 14.x, 15.x]
+    node-version: [8.x, 10.x, 12.x]
 
 steps:
 - uses: actions/checkout@v2
@@ -118,9 +115,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm ci
+    - run: npm install
     - run: npm run build --if-present
     - run: npm test
+      env:
+        CI: true
 ```
 {% endraw %}
 
