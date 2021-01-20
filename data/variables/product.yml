@@ -14,3 +14,6 @@ product_name: >-
   {% if enterpriseServerVersions contains currentVersion %}GitHub Enterprise Server{% elsif currentVersion == "github-ae@latest" %}GitHub AE{% else %}GitHub{% endif %}
 ## Use this variable when the output should always be GitHub, regardless of the product the user is using
 prodname_dotcom: 'OsmAnd'
+
+android_button_seq: "**Android**: "
+ios_button_seq: "**iOS**: "
