@@ -5,9 +5,9 @@ inputs:
 - type: description
   attributes:
     value: |
-    HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+      HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
 
-    For questions, ask in Discussions: https://github.com/github/docs/discussions'
+      For questions, ask in Discussions: https://github.com/github/docs/discussions'
 - type: dropdown
   label: Code of Conduct
   attributes:
