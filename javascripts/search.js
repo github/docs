@@ -241,26 +241,26 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
       div(
         { class: 'search-result-breadcrumbs d-block text-gray-dark opacity-60 text-small pb-1' },
         // Remove redundant title from the end of breadcrumbs
-        emify((breadcrumbs || '').replace(` / ${title}`, ''))
+        markify((breadcrumbs || '').replace(` / ${title}`, ''))
       ),
       div(
         { class: 'search-result-title d-block h4-mktg text-gray-dark' },
         // Display page title and heading (if present exists)
-        emify(heading ? `${title}: ${heading}` : title)
+        markify(heading ? `${title}: ${heading}` : title)
       ),
       div(
         { class: 'search-result-content d-block text-gray' },
         // Truncate without breaking inner HTML tags
-        emify(truncate(content, maxContentLength))
+        markify(truncate(content, maxContentLength))
       )
     )
   )
 }
 
-// Allow em tags in search responses
-function emify (text) {
-  const { em } = tags
+// Convert em to mark tags in search responses
+function markify (text) {
+  const { mark } = tags
   return text
     .split(/<\/?em>/g)
-    .map((el, i) => i % 2 ? em(el) : el)
+    .map((el, i) => i % 2 ? mark(el) : el)
 }
