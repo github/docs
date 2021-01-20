@@ -149,23 +149,13 @@ In order to clear map tiles cache you need to do next:
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_clear_cache %}
 
-### Change raster map parameters
-
-Which parameters? Why do you need to configure?
-
-{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %}
-
-{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %}
-
-Look at [the table](/osmand/map/online-raster-maps#add-new-online-raster-map-source) to see all parameters and descriptions.
-
 ### Download / update tiles
 If you want to access raster maps offline, you might need to predownload tiles. It's possible to do on a mobile device though be aware that some services might block a large batch download. Same feature can be used to update already downloaded tiles for selected areas, otherwise OsmAnd will continue display tiles that are already stored in the cache. 
 
 **Hint**: if you want maps to automitically update tiles after some time, you can configure *expiration time*, so OsmAnd will redownload tiles once the tile is going to be displayed.
 
 
-For this, you need [to choose your online source as Map source](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer): 
+For this, you need [to choose your online source as Map source](#select-map-as-main--underlay--overlay-layer): 
 {% data variables.product.android_button_seq %} you need to select the area by the size of your screen device and to do a long click on the map - {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %} → 
 At this screen you need to choose zoom levels → screen of downloading progress → {% data variables.android-values.shared_string_download %}
 
@@ -175,3 +165,12 @@ At this screen you need to choose zoom levels → screen of downloading progress
 At this screen you can select the needed area, choose zoom levels. When you set all parameters you can see a number of tiles and download size. Next, click to {% data variables.ios-values.shared_string_continue %} → screen of downloading progress.
 
 <img src="/assets/images/plugins/online-maps/om-9.png" />
+
+### Change raster map parameters
+Raster maps can be used as is if tiles are already packaged inside the maps. In case raster maps are provided online, there is always a base url to be configured. There are some other basic parameters that can be modified for raster maps - [see here](#add-new-online-raster-map-source). More sophisticated parameters are encoded in the internals of [SQ Lite format](/development/osmand-file-formats/osmand-sqlite).
+
+You can change some raster map parameters inside OsmAnd itself.
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %}
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %}
+
