@@ -102,7 +102,7 @@ You can create your own map package on PC by using special software as [MOBAC, O
 
 Next, you need to move your map package file(s) to OsmAnd-tiles directory:
 
-For **Android** OsmAnd - you need to copy file(s) from PC to the device folder _...Android/data/net.osmand(.plus)/files/tiles_ or you can click the file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
+For **Android** OsmAnd - you need to access storage to copy file(s) from PC to the device folder [BASE_OSMAND_STORAGE](/osmand/start-with/storage)/tiles_ or you can click the file on your email, cloud, or messenger, download it and choose OsmAnd app to open. Map package is added automatically to your online maps list in OsmAnd.
 
 <img src="/assets/images/plugins/online-maps/om-11.png" />
 
