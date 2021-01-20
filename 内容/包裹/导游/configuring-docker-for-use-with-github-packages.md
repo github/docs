@@ -267,3 +267,4 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ### Further reading
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+Fur
