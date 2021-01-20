@@ -58,7 +58,7 @@ You can choose one of them in the list or add yours.
 Not only can you use one map, but you can also add up to two of the online tiles to the basic layer maps to combine three of them on the screen. For instance, you can open a basic OsmAnd offline vector maps, then add a satellite view for the overlay, and put a cycling routes map underneath.
 You can set the base map transparency for your layer and whether display the transparency slider on the main screen or not.
 
-**Android** {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.layer_overlay %} / {% data variables.android-values.layer_underlay %}
 
 <img src="/assets/images/plugins/online-maps/om-1.png" />
 
@@ -66,7 +66,7 @@ You can set the base map transparency for your layer and whether display the tra
 
 <img src="/assets/images/plugins/online-maps/om-2.png" />
 
-### Tweak layer parameters
+### Change layer parameters (transparency)
 In order to mix raster map layers better, you can change layer transparency (by using a screen slider) and also you can change vector map style (hide polygons), so the underlay layers will 
 be more visible, especially useful for satellite imagery.
 
