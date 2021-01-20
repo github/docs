@@ -71,15 +71,15 @@ In order to mix raster map layers better, you can change layer transparency (by 
 be more visible, especially useful for satellite imagery.
 
 
+## Prepare / copy raster maps to device
+There are multiple ways how to add new raster map, copy it from another device, prepare it on PC and predownloaded tiles to be used offline. For example, you can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation). Typically raster maps are distributed as files with *.sqlitedb* extension. 
 
-## Prepare / copy online map sources
-You can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation)
-
-
-- Android: Copy raster maps created on PC to a [tiles subfolder of base osmand folder](/osmand/start-with/storage) .
-- Open ready to use *.sqlitedb* package with OsmAnd.
-- You can import package with prepared online maps from another OsmAnd application as a special package via [Import / export functionality](/personal/import-export).
-- Send a magic URL and open it with OsmAnd.
+Here are the main methods how to add new raster map source which is not defined in OsmAnd yet:
+- Android: Copy a raster map to a **tiles** subfolder of [base osmand storage](/osmand/start-with/storage).
+- Open ready to use *.sqlitedb* file with OsmAnd.
+- Import package with prepared online maps from another OsmAnd application as a special **osf package** via [Import / export functionality](/personal/import-export).
+- Create new online map source on a mobile device itself.
+- Prepare a magic URL with online map source parameters and open it with OsmAnd.
 
 ### Add new online raster map source
 To create a raster map source you need to know **the tile URL**. This is URL that can distribute tiles in Mercator Projection. Here is a tile example URL https://tile.osmand.net/hd/6/55/25.png, where is the base part https://tile.osmand.net/hd/.
