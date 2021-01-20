@@ -94,7 +94,7 @@ At this screen you need to add the next parameters:
 
 Click to "{% data variables.android-values.shared_string_save %}" button for adding a new online raster map to the list.
 
-## Copy online map sources 
+## Prepare online map sources 
 
 ### Copy raster map package created on PC 
 
