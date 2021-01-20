@@ -75,7 +75,7 @@ be more visible, especially useful for satellite imagery.
 There are multiple ways how to add new raster map, copy it from another device, prepare it on PC and predownloaded tiles to be used offline. For example, you can create your own map package on PC by using special software as [MOBAC, OsmAndMapCreator and etc](/development/map-creation). Typically raster maps are distributed as files with *.sqlitedb* extension. 
 
 Here are the main methods how to add new raster map source which is not defined in OsmAnd yet:
-- Android: Copy a raster map to a **tiles** subfolder of [base osmand storage](/osmand/start-with/storage).
+- Copy a raster map to a **tiles** subfolder of [base osmand storage](/osmand/start-with/storage) (Android).
 - Open ready to use *.sqlitedb* file with OsmAnd.
 - Import package with prepared online maps from another OsmAnd application as a special **osf package** via [Import / export functionality](/personal/import-export).
 - Create new online map source on a mobile device itself.
@@ -122,12 +122,9 @@ http://osmand.net/add-tile-source?name=TEST&url_template=http://h0.ortho.tiles.v
 You find added Online map in the list of [Main / Underlay / Overlay layer](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer) menu.
 
 ## Manage raster maps
-Raster maps can take a significant amount of disk space, so you might need to regularly check it. For large datasets, it's recommended to use 'SQLite raster source' cause it will store all tiles in 1 large *.sqlite package. 
-
-### SQLite vs Metainfo sources
-OsmAnd Raster maps have two formats - SQ Lite and Metainfo. SQ Lite keeps all tiles in 1 large package, Metainfo keeps one image file per tile:
--   [**SQ Lite format**](/development/map-creation)
--   [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
+Raster maps can take a significant amount of disk space, so you might need to regularly check it. For large datasets, it's recommended to use 'SQLite raster source' cause it will store all tiles in 1 large file (sqlite database). 
+- [**SQ Lite format**](/development/osmand-file-formats/osmand-sqlite)
+- [**Metainfo format**](/development/osmand-file-formats/osmand-metainfo)
 
 In order to change tile format you can choose {% data variables.android-values.storage_format %} in the edit menu of online maps:
 
