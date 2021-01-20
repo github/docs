@@ -8,7 +8,7 @@ versions: '*'
 
 Editable Map styles are one of the main advantages of OsmAnd. Each user can customize the display of the map for himself and his hobbies, configure to show or hide certain map objects, change the scale on which to display certain objects. 
 
-## Default Map styles
+## Default Map styles:
 
 OsmAnd offers you numerous map styles and data layers to fit the purpose. Let's take a glance at the main ones.
 
