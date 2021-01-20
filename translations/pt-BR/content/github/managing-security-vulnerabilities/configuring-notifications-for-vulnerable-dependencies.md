@@ -42,7 +42,7 @@ Você pode definir as configurações de notificação para si mesmo ou para sua
 
 {% note %}
 
-**Note:** You can filter your notifications on {% data variables.product.company_short %} to show {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot %}{% else %} security{% endif %} alerts. Para obter mais informações, consulte "[Gerenciando notificações de sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
+**Observação:** Você pode filtrar suas notificações da caixa de entrada de {% data variables.product.company_short %} para mostrar {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot %}{% else %} alertas de segurança{% endif %}. Para obter mais informações, consulte "[Gerenciar notificações da sua caixa de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)".
 
 {% endnote %}
 

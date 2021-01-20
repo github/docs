@@ -29,7 +29,6 @@ versions:
     {% link_in_list /configuring-backups-on-your-appliance %}
     {% link_in_list /site-admin-dashboard %}
     {% link_in_list /enabling-private-mode %}
-    {% link_in_list /managing-github-for-mobile-for-your-enterprise %}
     {% link_in_list /configuring-email-for-notifications %}
     {% link_in_list /configuring-rate-limits %}
     {% link_in_list /configuring-applications %}
@@ -57,4 +56,3 @@ versions:
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
 {% topic_link_in_list /configuring-advanced-security-features %}
     {% link_in_list /configuring-code-scanning-for-your-appliance %}
-    {% link_in_list /configuring-secret-scanning-for-your-appliance %}

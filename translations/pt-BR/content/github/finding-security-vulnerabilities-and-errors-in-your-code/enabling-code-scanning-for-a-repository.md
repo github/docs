@@ -40,16 +40,13 @@ Você decide como gerar alertas do {% data variables.product.prodname_code_scann
 
 No {% data variables.product.prodname_codeql_workflow %} padrão, {% data variables.product.prodname_code_scanning %} está configurado para analisar o seu código cada vez que você fizer push de uma alteração no branch-padrão ou em qualquer branch protegido, ou criar um pull request contra o branch padrão. Como resultado, {% data variables.product.prodname_code_scanning %} vai começar agora.
 
-### Bulk enabling {% data variables.product.prodname_code_scanning %}
-You can enable {% data variables.product.prodname_code_scanning %} in many repositories in bulk using a script. For an example of a script that raises pull requests to add a {% data variables.product.prodname_actions %} workflow to multiple repositories, see the [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository.
-
 ### Visualizar a saída do registro de {% data variables.product.prodname_code_scanning %}
 
 Depois de habilitar o {% data variables.product.prodname_code_scanning %} para o seu repositório, você poderá inspecionar a saída das ações conforme forem executadas.
 
 {% data reusables.repositories.actions-tab %}
 
-  Você verá uma lista que inclui uma entrada para executar o fluxo de trabalho de {% data variables.product.prodname_code_scanning %}. The text of the entry is the title you gave your commit message.
+  Você verá uma lista que inclui uma entrada para executar o fluxo de trabalho de {% data variables.product.prodname_code_scanning %}.
 
   ![Lista de ações que mostram o fluxo de trabalho de {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-actions-list.png)
 

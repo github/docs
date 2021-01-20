@@ -30,7 +30,7 @@ Por exemplo, se um proprietário da organização concedeu a todos os integrante
 
 ### Visibilidade do quadro de projeto
 
-{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
+{% data reusables.project-management.project-board-visibility %} Você pode alterar a visibilidade do quadro de projeto de privada para pública e vice-versa. Para obter mais informações, consulte "[Alterar a visibilidade do quadro de projeto](/articles/changing-project-board-visibility)".
 
 ### Leia mais
 

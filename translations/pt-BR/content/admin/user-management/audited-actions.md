@@ -107,36 +107,32 @@ versions:
 
 #### Equipes
 
-|                      Nome | Descrição                                                                                                                                            |
-| -------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-|             `team.create` | Um repositório ou conta de usuário foi adicionado a uma equipe.                                                                                      |
-|             `team.delete` | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-|  `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.{% endif %}
-|            `team.destroy` | A team was deleted.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
-
+|           Nome | Descrição                                                       |
+| --------------:| --------------------------------------------------------------- |
+|  `team.create` | Um repositório ou conta de usuário foi adicionado a uma equipe. |
+|  `team.delete` | Um repositório ou conta de usuário foi removido de uma equipe.  |
+| `team.destroy` | Uma equipe foi excluída.                                        |
 
 #### Usuários
 
-|                            Nome | Descrição                                                                                                                                                               |
-| -------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                `user.add_email` | Um endereço de e-mail foi adicionado a uma conta de usuário.                                                                                                            |
-|             `user.async_delete` | Um trabalho assíncrono foi iniciado para destruir uma conta de usuário, eventualmente acionando `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
-|          `user.change_password` | Um usuário alterou sua senha.{% endif %}
-|                   `user.create` | Uma nova conta de usuário foi criada.                                                                                                                                   |
-|                   `user.delete` | Uma conta de usuário foi destruída por um trabalho assíncrono.                                                                                                          |
-|                   `user.demote` | Um administrador do site foi rebaixado a uma conta de usuário regular.                                                                                                  |
-|                  `user.destroy` | Um usuário excluiu a sua conta, acionando `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
-|             `user.failed_login` | Um usuário tentou fazer login com nome de usuário, senha ou código de autenticação de dois fatores incorretos.                                                          |
-|          `user.forgot_password` | Um usuário solicitou uma redefinição de senha através da página de login.{% endif %}
-|                    `user.login` | A user signed in.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
-|                  `user.promote` | Uma conta de usuário regular foi promovida a administrador do site.                                                                                                     |
-|             `user.remove_email` | Um endereço de e-mail foi removido de uma conta de usuário.                                                                                                             |
-|                   `user.rename` | Um nome de usuário foi alterado.                                                                                                                                        |
-|                  `user.suspend` | Uma conta de usuário foi suspensa por um administrador do site.{% if enterpriseServerVersions contains currentVersion %}
-|     `user.two_factor_requested` | Um código de autenticação de dois fatores foi solicitado de um usuário.{% endif %}
-|                `user.unsuspend` | Uma conta de usuário teve a suspensão cancelada por um administrador do site.                                                                                           |
+|                        Nome | Descrição                                                                                                                                                               |
+| ---------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|            `user.add_email` | Um endereço de e-mail foi adicionado a uma conta de usuário.                                                                                                            |
+|         `user.async_delete` | Um trabalho assíncrono foi iniciado para destruir uma conta de usuário, eventualmente acionando `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
+|      `user.change_password` | Um usuário alterou sua senha.{% endif %}
+|               `user.create` | Uma nova conta de usuário foi criada.                                                                                                                                   |
+|               `user.delete` | Uma conta de usuário foi destruída por um trabalho assíncrono.                                                                                                          |
+|               `user.demote` | Um administrador do site foi rebaixado a uma conta de usuário regular.                                                                                                  |
+|              `user.destroy` | Um usuário excluiu a sua conta, acionando `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
+|         `user.failed_login` | Um usuário tentou fazer login com nome de usuário, senha ou código de autenticação de dois fatores incorretos.                                                          |
+|      `user.forgot_password` | Um usuário solicitou uma redefinição de senha através da página de login.{% endif %}
+|                `user.login` | Um usuário fez login.                                                                                                                                                   |
+|              `user.promote` | Uma conta de usuário regular foi promovida a administrador do site.                                                                                                     |
+|         `user.remove_email` | Um endereço de e-mail foi removido de uma conta de usuário.                                                                                                             |
+|               `user.rename` | Um nome de usuário foi alterado.                                                                                                                                        |
+|              `user.suspend` | Uma conta de usuário foi suspensa por um administrador do site.{% if enterpriseServerVersions contains currentVersion %}
+| `user.two_factor_requested` | Um código de autenticação de dois fatores foi solicitado de um usuário.{% endif %}
+|            `user.unsuspend` | Uma conta de usuário teve a suspensão cancelada por um administrador do site.                                                                                           |
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [chave de implantação]: /guides/managing-deploy-keys/#deploy-keys
