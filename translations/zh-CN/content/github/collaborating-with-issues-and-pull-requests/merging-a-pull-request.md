@@ -12,7 +12,9 @@ versions:
 
 ### 关于拉取请求合并
 
-在拉取请求中，您提议将您对头部分支所做的更改合并到基础分支。 {% data reusables.pull_requests.about-protected-branches %} 但是，对于何时可以将拉取请求合并到特定分支可能会有限制。 例如，如果必需状态检查通过，您可能只能将拉取请求合并到默认分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
+在拉取请求中，您提议将您对头部分支所做的更改合并到基础分支。 默认情况下，任何拉取请求都可随时合并，除非头部分支与基本分支冲突。 但是，何时可以将拉取请求合并到特定分支中可能会有一些限制。 例如，如果必需状态检查通过，您可能只能将拉取请求合并到默认分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
+
+{% data reusables.pull_requests.you-can-auto-merge %}
 
 如果拉取请求具有合并冲突，或者您在测试前想测试更改，可以[本地检出拉取请求](/articles/checking-out-pull-requests-locally)，然后使用命令行合并。
 

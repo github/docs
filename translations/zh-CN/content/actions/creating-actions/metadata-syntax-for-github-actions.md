@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -110,12 +111,12 @@ outputs:
 
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -186,7 +187,7 @@ runs:
 
 #### `pre-if`
 
-**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。 
+**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 请注意，`step` 上下文不可用，因为尚未运行任何步骤。
 
 在此示例中，`cleanup.js` 仅在基于 Linux 的运行器上运行：
 
@@ -254,19 +255,23 @@ runs:
 
 
 
-##### `runs.steps.run`
+##### `runs.steps[*].run`
 
 **必要** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本：
+
+{% raw %}
 
 
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
 
+
+{% endraw %}
 
 或者，您也可以使用 `$GITHUB_ACTION_PATH`：
 
@@ -275,7 +280,7 @@ runs:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -285,31 +290,31 @@ runs:
 
 
 
-##### `runs.steps.shell`
+##### `runs.steps[*].shell`
 
 **必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#using-a-specific-shell)列出的任何 shell。
 
 
 
-##### `runs.steps.name`
+##### `runs.steps[*].name`
 
 **可选** 组合运行步骤的名称。
 
 
 
-##### `runs.steps.id`
+##### `runs.steps[*].id`
 
 **可选** 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
 
 
-##### `runs.steps.env`
+##### `runs.steps[*].env`
 
 **可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改工作流程中存储的环境变量，请在复合运行步骤中使用 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %}。
 
 
 
-##### `runs.steps.working-directory`
+##### `runs.steps[*].working-directory`
 
 **可选**  指定命令在其中运行的工作目录。
 
@@ -317,7 +322,7 @@ runs:
 
 ### 用于 Docker 操作的 `runs`
 
-**必要** 配置用于 Docker 操作的图像。 
+**必要** 配置用于 Docker 操作的图像。
 
 
 
@@ -326,7 +331,7 @@ runs:
 
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -339,7 +344,7 @@ runs:
 
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```

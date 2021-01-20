@@ -9,7 +9,7 @@ versions:
   github-ae: '*'
 ---
 
-You can restrict the ability to change repository visibility to organization owners only, or allow members with admin privileges for a repository to also change visibility.
+Você pode restringir a capacidade de alterar a visibilidade do repositório apenas para os proprietários da organização, ou permitir que os integrantes com privilégios de administrador de um repositório também alterem a visibilidade.
 
 {% warning %}
 

@@ -7,6 +7,7 @@ versions:
   enterprise-server: '>=2.22'
 authors:
   - potatoqualitee
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -214,7 +215,7 @@ jobs:
 
 ### 发布到 PowerShell Gallery
 
-您可以配置工作流程在 CI 测试通过时将 PowerShell 模块发布到 PowerShell Gallery。 您可以使用仓库机密来存储发布软件包所需的任何令牌或凭据。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+您可以配置工作流程在 CI 测试通过时将 PowerShell 模块发布到 PowerShell Gallery。 您可以使用机密来存储发布软件包所需的任何令牌或凭据。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 下面的示例创建软件包并使用 `Publish-Module` 将其发布到PowerShell Gallery：
 

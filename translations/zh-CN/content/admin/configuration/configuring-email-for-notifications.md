@@ -19,6 +19,7 @@ versions:
 {% data variables.contact.github_support %} 中的技术客户经理可以配置通过 SMTP 服务器发送电子邮件通知。 确保在支持请求中包含以下详细信息。
 
 - 您的 SMTP服务器地址
+- 用于验证服务器的登录信息：用户名和密码
 - SMTP 服务器用于发送电子邮件的端口
 - SMTP 服务器将随 HELO 响应发送的域名（如果有）
 - SMTP 服务器使用的加密类型
