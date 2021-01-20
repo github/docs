@@ -107,14 +107,13 @@ Next, the script gets the current time and sets it as an output variable that ac
   time=$(date)
   echo "::set-output name=time::$time"
   ```
+  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
-1. Make your `entrypoint.sh` file executable by running following command on your system:
+1. Make your `entrypoint.sh` file executable by running the following command on your system.
 
   ```shell{:copy}
-  chmod +x entrypoint.sh
+  $ chmod +x entrypoint.sh
   ```
-  
-  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 ### Creating a README
 
@@ -202,7 +201,7 @@ jobs:
 
 #### Example using a private action
 
-Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.
+Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% if currentVersion == "free-pro-team@latest" %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
