@@ -170,6 +170,7 @@ At this screen you can select the needed area, choose zoom levels. When you set 
 Raster maps can be used as is if tiles are already packaged inside the maps. In case raster maps are provided online, there is always a base url to be configured. There are some other basic parameters that can be modified for raster maps - [see here](#add-new-online-raster-map-source). More sophisticated parameters are encoded in the internals of [SQ Lite format](/development/osmand-file-formats/osmand-sqlite).
 
 You can change some raster map parameters inside OsmAnd itself.
+
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.welmode_download_maps %} → {% data variables.android-values.download_tab_local %} → {% data variables.android-values.local_indexes_cat_tile %} → choose online maps →  &#xe802; → {% data variables.android-values.shared_string_edit %}
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.res_mapsres %} → {% data variables.ios-values.res_installed %} → {% data variables.ios-values.online_raster_maps %} → i → {% data variables.ios-values.shared_string_edit %}
