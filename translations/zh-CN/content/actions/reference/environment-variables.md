@@ -57,6 +57,16 @@ steps:
 | `GITHUB_API_URL`     | 返回 API URL。 返回 {% data variables.product.product_name %} 服务器的 URL。 例如：`https://github.com`。                                                                                                                                       |
 | `GITHUB_GRAPHQL_URL` | 返回 GraphQL API URL。 例如：`https://api.github.com/graphql`。                                                                                                                                                                          |
 
+{% tip %}
+
+**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+
+{% endtip %}
+
+#### Determining when to use default environment variables or contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
 ### 环境变量命名约定
 
 {% note %}

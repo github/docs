@@ -11,7 +11,7 @@ versions:
 
 {% note %}
 
-**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. For information on how to see if issues are disabled for a repository, see "[Disabling issues](/github/managing-your-work-on-github/disabling-issues) ."
+**注：**要将仓库链接到组织或用户拥有的项目板，仓库需要启用议题。 有关如何查看仓库是否禁用了议题，请参阅“[禁用议题](/github/managing-your-work-on-github/disabling-issues)”。
 
 {% endnote %}
 

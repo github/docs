@@ -466,18 +466,21 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-To show global webhook deliveries:
-```shell
-ghe-webhook-logs --global
 ```
 
 ### Clustering

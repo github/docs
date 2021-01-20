@@ -62,7 +62,7 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 ### Git のコミットメールアドレスを設定する
 
-`git config`コマンドを使用して、Git コミットに関連付けたられているメールアドレスを変更できます。 設定した新しいメールアドレスは、コマンドラインから {% data variables.product.product_name %} にプッシュするこれからのコミットに表示されます。 コミットメールアドレスを変更する前のコミットは、まだ過去のメールアドレスに関連付けられます。
+`git config`コマンドを使用して、Git コミットに関連付けられているメールアドレスを変更できます。 設定した新しいメールアドレスは、コマンドラインから {% data variables.product.product_name %} にプッシュするこれからのコミットに表示されます。 コミットメールアドレスを変更する前のコミットは、まだ過去のメールアドレスに関連付けられます。
 
 #### コンピュータにあるすべてのリポジトリ用にメールアドレスを設定する
 
