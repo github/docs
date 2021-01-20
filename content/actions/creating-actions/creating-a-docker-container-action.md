@@ -188,8 +188,6 @@ jobs:
     steps:
     - name: Hello world action step
       id: hello
-      # For unpublished actions put <username>/<action-repository-name>@<branch-name>
-      # For published actions put <username>/<action-repository-name>@<version>
       uses: actions/hello-world-docker-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
