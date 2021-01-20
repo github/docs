@@ -1,13 +1,13 @@
 name: Improve the docs.github.com site
 about: Make a suggestions or report a problem on the docs.github.com website.
-title: ''
-labels: "engineering"
+labels: engineering
 inputs:
 - type: description
   attributes:
-    value: 'HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+    value: |
+    HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
 
-           For questions, ask in Discussions: https://github.com/github/docs/discussions'
+    For questions, ask in Discussions: https://github.com/github/docs/discussions'
 - type: dropdown
   label: Code of Conduct
   attributes:
@@ -54,11 +54,9 @@ inputs:
     description: What changes are you suggesting?
     required: true
     placeholder: Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
-    value: 
 - type: textarea
   attributes:
     label: additional info
     description: Additional information
     required: false
     placeholder: Any additional information, configuration, or data that might be necessary to reproduce the issue.
-    value:
