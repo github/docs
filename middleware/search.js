@@ -3,6 +3,7 @@ const algoliasearch = require('algoliasearch')
 const { namePrefix } = require('../lib/search/config')
 const languages = new Set(Object.keys(require('../lib/languages')))
 const versions = require('../lib/search/versions')
+const { get } = require('lodash')
 
 const router = express.Router()
 
@@ -23,10 +24,10 @@ async function loadAlgoliaResults ({ version, language, query, limit }) {
 
   return hits.map(hit => ({
     url: hit.url,
-    breadcrumbs: hit._highlightResult.breadcrumbs.value,
-    heading: hit._highlightResult.heading.value,
-    title: hit._highlightResult.title.value,
-    content: hit._highlightResult.content.value
+    breadcrumbs: get(hit, '_highlightResult.breadcrumbs.value'),
+    heading: get(hit, '_highlightResult.heading.value'),
+    title: get(hit, '_highlightResult.title.value'),
+    content: get(hit, '_highlightResult.content.value')
   }))
 }
 
