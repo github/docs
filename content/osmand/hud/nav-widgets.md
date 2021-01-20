@@ -1,5 +1,5 @@
 ---
-title: "Informational widgets"
+title: "Navigational widgets"
 intro: "Add intro..."
 versions: '*'
 ---
