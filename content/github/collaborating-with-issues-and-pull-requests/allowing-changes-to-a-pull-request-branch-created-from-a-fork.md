@@ -1,5 +1,4 @@
----
-title: Allowing changes to a pull request branch created from a fork
+Desireec1971#
 intro: 'For greater collaboration, you can allow commits on branches you''ve created from forks owned by your user account.'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
