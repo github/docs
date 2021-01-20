@@ -53,7 +53,7 @@ Offroad - for off-road driving, based on the "Topo" topographic style, can be us
 Snowmobile - fro snowmobile riding. Contrast snowmobile trails.
 
 
-### Map legend
+## Map legend
 
 Map legend of maps you can find [here](https://osmand.net/help-online/map-legend/)
 
