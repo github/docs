@@ -130,6 +130,12 @@ Library name | Repository
 **GitHub API Gem**|[peter-murach/github](https://github.com/peter-murach/github)
 **Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)
 
+### Rust
+
+Library name | Repository
+|---|---|
+**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
+
 ### Scala
 
 Library name | Repository

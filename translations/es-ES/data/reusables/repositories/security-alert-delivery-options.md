@@ -1,0 +1,4 @@
+{% if currentVersion != "github-ae@latest" %}
+Si tu repositorio cuenta con un manifiesto compatible de la dependencia
+{% if currentVersion == "free-pro-team@latest" %} (y si configuraste la gráfica de dependencias en caso de que sea un repositorio privado){% endif %}, cada que {% data variables.product.product_name %} detecte una dependencia vulnerable en éste, recibirás un resumen semanal por correo electrónico. También puedes configurar tus alertas de seguridad y notificaciones web, notificaciones individuales por correo electrónico, resúmenes diarios por correo electrónico o alertas en la interfaz de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+{% endif %}
