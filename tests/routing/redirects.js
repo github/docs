@@ -40,8 +40,8 @@ describe('redirects', () => {
     expect(page.redirects[`/en/${nonEnterpriseDefaultVersion}/articles`]).toBe('/en/github')
     expect(page.redirects['/common-issues-and-questions']).toBe('/en/github')
     expect(page.redirects['/en/common-issues-and-questions']).toBe('/en/github')
-    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
-    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
+    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/articles`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
+    expect(page.redirects[`/en/enterprise/${enterpriseServerReleases.latest}/user/common-issues-and-questions`]).toBe(`/en/enterprise-server@${enterpriseServerReleases.latest}/github`)
   })
 
   test('converts single `redirect_from` strings values into arrays', async () => {
@@ -205,6 +205,18 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(enterpriseAdmin)
     })
 
+    test('admin/guides redirects to admin', async () => {
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/admin/guides`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(enterpriseAdmin)
+    })
+
+    test('no version plus admin/guides redirects to admin on latest version', async () => {
+      const res = await get('/en/enterprise/admin/guides')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(enterpriseAdmin)
+    })
+
     test('admin/guides redirects to admin in redirects', async () => {
       const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/admin/guides/installation/upgrading-github-enterprise`)
       expect(res.statusCode).toBe(301)
@@ -216,6 +228,12 @@ describe('redirects', () => {
 
     test('no version redirects to latest version (japanese)', async () => {
       const res = await get('/ja/enterprise/admin')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
+    })
+
+    test('admin/guides redirects to admin (japanese)', async () => {
+      const res = await get(`/ja/enterprise/${enterpriseServerReleases.latest}/admin/guides`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseEnterpriseAdmin)
     })
@@ -232,19 +250,19 @@ describe('redirects', () => {
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/github`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/github`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(enterpriseUser)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/github')
+      const res = await get('/en/enterprise/user/github')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(enterpriseUser)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/github')
+      const res = await get('/ja/enterprise/user/github')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseEnterpriseUser)
     })
@@ -255,7 +273,7 @@ describe('redirects', () => {
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('no product redirects to GitHub.com product on the latest version', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/articles/set-up-git`)
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user/articles/set-up-git`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
@@ -267,19 +285,19 @@ describe('redirects', () => {
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/github/getting-started-with-github/set-up-git`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user/github/getting-started-with-github/set-up-git`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get('/en/enterprise/github/getting-started-with-github/set-up-git')
+      const res = await get('/en/enterprise/user/github/getting-started-with-github/set-up-git')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get('/ja/enterprise/github/getting-started-with-github/set-up-git')
+      const res = await get('/ja/enterprise/user/github/getting-started-with-github/set-up-git')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
@@ -291,25 +309,25 @@ describe('redirects', () => {
     const japaneseUserArticle = userArticle.replace('/en/', '/ja/')
 
     test('redirects to expected article', async () => {
-      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}${redirectFromPath}`)
+      const res = await get(`/en/enterprise/${enterpriseServerReleases.latest}/user${redirectFromPath}`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no language code redirects to english', async () => {
-      const res = await get(`/enterprise/${enterpriseServerReleases.latest}${redirectFromPath}`)
+      const res = await get(`/enterprise/${enterpriseServerReleases.latest}/user${redirectFromPath}`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version', async () => {
-      const res = await get(`/en/enterprise${redirectFromPath}`)
+      const res = await get(`/en/enterprise/user${redirectFromPath}`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(userArticle)
     })
 
     test('no version redirects to latest version (japanese)', async () => {
-      const res = await get(`/ja/enterprise${redirectFromPath}`)
+      const res = await get(`/ja/enterprise/user${redirectFromPath}`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(japaneseUserArticle)
     })
@@ -317,11 +335,24 @@ describe('redirects', () => {
 
   describe('desktop guide', () => {
     const desktopGuide = '/en/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request'
+    const japaneseDesktopGuides = desktopGuide.replace('/en/', '/ja/')
 
     test('no language code redirects to english', async () => {
       const res = await get('/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(desktopGuide)
+    })
+
+    test('desktop/guides redirects to desktop', async () => {
+      const res = await get('/en/desktop/guides/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(desktopGuide)
+    })
+
+    test('desktop/guides redirects to desktop (japanese)', async () => {
+      const res = await get('/ja/desktop/guides/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request')
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(japaneseDesktopGuides)
     })
   })
 })

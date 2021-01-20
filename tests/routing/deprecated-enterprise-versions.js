@@ -24,7 +24,7 @@ describe('enterprise deprecation', () => {
     expect(res.headers.location).toBe('/en/enterprise/2.13')
   })
 
-  test.only('workaround for lost frontmatter redirects works in deprecated enterprise content >=2.13', async () => {
+  test('workaround for lost frontmatter redirects works in deprecated enterprise content >=2.13', async () => {
     const res = await get('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page')
     expect(res.statusCode).toBe(301)
     expect(res.headers.location).toBe('/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile')
