@@ -56,14 +56,14 @@ This data contains all details of a route built with **OsmAnd** (route segments,
 A gpx file may contain several routes. Each of them is contained in a specific segment under **trkseg** / **extensions**. A gpx file is saved in this form when exporting a constructed route or when saving a track that consists of several separate segments via the **Plan a route** functionality.
 **Plan a route** also adds one (or several, in accordance with the number of contained separate segments / tracks) **rte** blocks to the gpx file, containing route key points (**rtept**).
 #### Gpx structure:
-```
+```xml
 <trk>
   <trkseg>
     // List of segment points. The order of the points corresponds to the order and length of the route segments (<route><segment length="x" ... />).
     // The value of the "length" attribute corresponds to the number of points in this segment of the route.
     <trkpt ... ></trkpt>
     <extensions>
-      <!-- List of route segments -->
+      <![CDATA[<!-- List of route segments -->]]>
       <route>
         <segment ... />
       </route>
