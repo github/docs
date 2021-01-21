@@ -24,7 +24,7 @@ versions: '*'
 
 # Gradle tasks / flavors
 
-Gradle task **assembleNightlyFreeLegacyFatDebug** will produce apk android/OsmAnd/build/outputs/apk/nightlyFreeLegacyFat/debug/OsmAnd-nightlyFree-legacy-fat-debug.apk. assembleNightlyFreeLegacyFatDebug consists of :
+Gradle task **assembleNightlyFreeLegacyFatDebug** will produce apk at *android/OsmAnd/build/outputs/apk/* *nightlyFreeLegacyFat/debug/OsmAnd-nightlyFree-legacy-fat-debug.apk*. Task name *assembleNightlyFreeLegacyFatDebug* consists of :
 - assemble - standard task to build apk
 - nightlyFree - build flavor described below
 - legacy - legacy / opengl / opengldebug - defines whether produced apk will have native libraries to use opengl map rendering or not. More information in Development plugin.
