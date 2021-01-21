@@ -57,6 +57,16 @@ Es wird dringend empfohlen, dass Aktionen Umgebungsvariablen verwenden, um auf d
 | `GITHUB_API_URL`     | Gibt die API-URL zurück. For example: `https://api.github.com`.                                                                                                                                                                                                                                                                                                                        |
 | `GITHUB_GRAPHQL_URL` | Gibt die GraphQL-API-URL zurück. For example: `https://api.github.com/graphql`.                                                                                                                                                                                                                                                                                                        |
 
+{% tip %}
+
+**Note:** If you need to use a workflow run's URL from within a job, you can combine these environment variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+
+{% endtip %}
+
+#### Determining when to use default environment variables or contexts
+
+{% data reusables.github-actions.using-context-or-environment-variables %}
+
 ### Namens-Konventionen für Umgebungsvariablen
 
 {% note %}

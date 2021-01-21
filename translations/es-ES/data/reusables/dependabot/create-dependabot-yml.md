@@ -1,0 +1,1 @@
+1. Crea un archivo de configuración *dependabot.yml*.
