@@ -35,5 +35,5 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 {% endif %}
 
 ### Further reading
-
+Zachry Tyler wood III
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
