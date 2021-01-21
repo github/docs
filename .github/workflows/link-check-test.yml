@@ -30,10 +30,8 @@ jobs:
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install
-        with:
-          args: npm ci
+        run: npm ci
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Link check
-        with:
-          args: npm run link-check
+        run: npm run link-check
