@@ -1,6 +1,7 @@
 // https://jestjs.io/docs/en/configuration.html
 
 const isBrowser = process.env.BROWSER
+const isLinkCheck = process.env.LINKCHECK
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
 
 module.exports = {
@@ -27,7 +28,8 @@ module.exports = {
     'node_modules/',
     'vendor/',
     'tests/helpers/',
-    ...isBrowser ? [] : ['tests/browser/browser.js']
+    ...isBrowser ? [] : ['tests/browser/browser.js'],
+    ...isLinkCheck ? [] : ['tests/links-and-images/links-and-images.js']
   ],
   testMatch: [
     '**/tests/**/*.js'
