@@ -105,15 +105,18 @@ steps:
   - name: Cache Gradle packages
     uses: actions/cache@v2
     with:
-      path: ~/.gradle/caches
-      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      restore-keys: ${{ runner.os }}-gradle
+      path: |
+        ~/.gradle/caches
+        ~/.gradle/wrapper
+      key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+      restore-keys: |
+        ${{ runner.os }}-gradle-
   - name: Build with Gradle
     run: ./gradlew build
 ```
 {% endraw %}
 
-This workflow will save the contents of your local Gradle package cache, located in the `.gradle/caches` directory of the runner's home directory. The cache key will be the hashed contents of the gradle build files, so changes to them will invalidate the cache.
+This workflow will save the contents of your local Gradle package cache, located in the `.gradle/caches` and `.gradle/wrapper` directories of the runner's home directory. The cache key will be the hashed contents of the gradle build files (including the Gradle wrapper properties file), so any changes to them will invalidate the cache.
 
 ### Packaging workflow data as artifacts
 
