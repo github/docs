@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: "Hello world when it's Monday"
         if: env.DAY_OF_WEEK == 'Mon'
-        run: echo "Hello world $FIRST_NAME $middle_name $Last_Name, today is Monday!"
+        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
         env:
           FIRST_NAME: Mona
           middle_name: The
