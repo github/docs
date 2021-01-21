@@ -33,5 +33,9 @@ jobs:
         run: npm ci
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+        name: Build
+        run: npm run build
+
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Link check
         run: npm run link-check
