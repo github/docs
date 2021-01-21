@@ -42,6 +42,8 @@ export default function search () {
   searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
   toggleSearchDisplay()
 
+  $searchInputContainer.querySelector('form')
+    .addEventListener('submit', evt => evt.preventDefault())
   $searchInput.addEventListener('keyup', debounce(onSearch))
 }
 
