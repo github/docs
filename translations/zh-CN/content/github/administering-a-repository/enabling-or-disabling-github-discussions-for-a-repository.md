@@ -1,20 +1,20 @@
 ---
-title: Enabling or disabling GitHub Discussions for a repository
-intro: 'You can use discussions in a repository as a place for your community to have conversations, ask questions, and post answers without scoping work in an issue.'
+title: 启用或禁用仓库的 GitHub 讨论
+intro: '您可以使用仓库中的讨论为社区提供对话、提问和发布答案的空间，而无需界定议题的范围。'
 product: '{% data reusables.gated-features.discussions %}'
-permissions: People with admin permissions to a repository can enable discussions for the repository.
+permissions: 拥有仓库管理员权限的人可为仓库启用讨论。
 versions:
   free-pro-team: '*'
 ---
 
 {% data reusables.discussions.beta %}
 
-### Enabling or disabling discussions for your repository
+### 为仓库启用或禁用讨论
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
-1. To disable discussions, under "Features", unselect **Discussions**.
+1. 要禁用讨论，请在“Features（功能）”下，取消选择 **Discussions（讨论）**。
 
 ### 延伸阅读
 
-- "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[Managing discussions for your community](/discussions/managing-discussions-for-your-community)"
+- "[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+- "[管理社区的讨论](/discussions/managing-discussions-for-your-community)"

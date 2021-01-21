@@ -335,7 +335,7 @@ describe('Page class', () => {
         }
       }
       await page.render(context)
-      expect(getLinkData).toHaveBeenCalledWith(guides, context, ['type'])
+      expect(getLinkData).toHaveBeenCalledWith(guides, context)
       expect(page.learningTracks).toHaveLength(2)
     })
   })
