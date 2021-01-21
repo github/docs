@@ -44,7 +44,7 @@ jobs:
     - name: Setup .NET Core SDK ${{ matrix.dotnet }}
       uses: actions/setup-dotnet@v1.6.0
       with:
-        dotnet-version: {{ matrix.dotnet-version }}
+        dotnet-version: ${{ matrix.dotnet-version }}
     - name: Install dependencies
       run: dotnet restore
     - name: Build
