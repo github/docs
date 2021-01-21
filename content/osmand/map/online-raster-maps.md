@@ -14,7 +14,7 @@ There is a big variety of possible use cases cause they vary on infinite externa
 - Live vessel information
 - Online OpenStreetMap tiles for OSM editing purposes
 
-<img src="/assets/images/plugins/online-maps/om-example.png" />
+<img src="/assets/images/plugins/online-maps/om-0.png" />
 
 **Note**: You can also change the main source of the map from vector maps to online tiles.
 
