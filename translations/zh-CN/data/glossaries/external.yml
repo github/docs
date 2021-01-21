@@ -252,7 +252,7 @@
 - 
   term: Gist
   description: >-
-    gist 是一种可共享的文件，可用于在 GitHub 上编辑、克隆和分叉。您可以将 gist 设为公共或私密，但私密 gist 可供具有 URL 的任何人访问。
+    Gist 是一个您可以在 GitHub 上编辑、克隆和复刻的可共享文件。您可以将 Gist 设为{% if currentVersion == "github-ae@latest" %}内部{% else %}公共{% endif %}或机密，但机密 gist 可用于具有 URL 的{% if currentVersion == "github-ae@latest" %}任何企业成员{% else %}任何人{% endif %}。
 - 
   term: Git
   description: >-
@@ -390,7 +390,7 @@
 - 
   term: main
   description: >-
-    The default development branch. Whenever you create a Git repository, a branch named `main` is created, and becomes the active branch. In most cases, this contains the local development, though that is purely by convention and is not required.
+    默认开发分支。只要创建 Git 仓库，就会创建一个名为 "main" 的分支，并且它会变为活动的分支。大多数情况下，这包含本地开发，但纯属惯例，而非必需。
 - 
   term: master
   description: >-
@@ -436,7 +436,7 @@
 - 
   term: 通知
   description: >-
-    web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
+    Web 或电子邮件（根据您的设置）传送的更新，提供您感兴趣的活动的相关信息。
 - 
   term: OAuth 应用程序
   description: >-

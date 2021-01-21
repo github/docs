@@ -12,7 +12,7 @@ versions:
 
 完成应用程序的上架信息后，您将会看到两个按钮，允许您请求在验证或不验证的情况下发布上架产品。 如果您在上架信息中发布了任何付费定价计划，则“发布而不验证”的 **Request（请求）**按钮将被禁用。
 
-![Unverified and verified request button](/assets/images/marketplace/marketplace-request-button.png)
+![未经验证和已验证请求按钮](/assets/images/marketplace/marketplace-request-button.png)
 
 {% data reusables.marketplace.launch-with-free %}
 
@@ -24,7 +24,7 @@ versions:
 
 请求验证上架信息之前，您需要将 {% data variables.product.prodname_marketplace %} 帐单流程和 web 挂钩集成到应用程序中。 更多信息请参阅“[在应用程序中使用 {% data variables.product.prodname_marketplace %} API](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)”。
 
-如果已满足上架要求并且已集成 {% data variables.product.prodname_marketplace %} API，请继续提交您的上架信息。 For more information, see "[Requirements for listing an app](/developers/github-marketplace/requirements-for-listing-an-app)."
+如果已满足上架要求并且已集成 {% data variables.product.prodname_marketplace %} API，请继续提交您的上架信息。 更多信息请参阅“[上架应用程序的要求](/developers/github-marketplace/requirements-for-listing-an-app)”。
 
 {% data reusables.marketplace.app-transfer-to-org-for-verification %} 有关如何执行此操作的信息，请参阅下面的“[在提交之前将应用程序转让给组织](#transferring-an-app-to-an-organization-before-you-submit)”。
 

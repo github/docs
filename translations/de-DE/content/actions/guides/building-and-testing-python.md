@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -122,7 +123,7 @@ jobs:
 
 #### Eine bestimmten Python-Version verwenden
 
-Du kannst eine bestimmte Version von Python konfigurieren, For example, 3.8. Alternativ kannst Du auch Syntax für semantische Versionierung verwenden, um das neuste Minor Release zu erhalten. Dieses Beispiel verwendet das neueste Minor Release von Python 3.
+Du kannst eine bestimmte Version von Python konfigurieren, For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. Dieses Beispiel verwendet das neueste Minor Release von Python 3.
 
 {% raw %}
 ```yaml
@@ -391,7 +392,7 @@ jobs:
 
 You can configure your workflow to publish your Python package to any package registry you'd like when your CI tests pass.
 
-You can store any access tokens or credentials needed to publish your package using repository secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. Weitere Informationen findest Du unter "[Verschlüsselte Geheimnisse erstellen und verwenden](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+You can store any access tokens or credentials needed to publish your package using secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. Weitere Informationen findest Du unter "[Verschlüsselte Geheimnisse erstellen und verwenden](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 {% raw %}
 ```yaml

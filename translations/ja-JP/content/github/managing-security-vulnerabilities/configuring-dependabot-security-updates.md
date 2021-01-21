@@ -13,7 +13,7 @@ versions:
 
 ### About configuring {% data variables.product.prodname_dependabot_security_updates %}
 
-You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
+You can enable {% data variables.product.prodname_dependabot_security_updates %} for any repository that uses {% data variables.product.prodname_dependabot_alerts %} and the dependency graph. 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 
 個々のリポジトリ、またはユーザアカウントまたは Organization が所有するすべてのリポジトリに対して {% data variables.product.prodname_dependabot_security_updates %} を無効にすることができます。 詳しい情報については、以下の「[リポジトリの {% data variables.product.prodname_dependabot_security_updates %} を管理する](#managing-dependabot-security-updates-for-your-repositories)」を参照してください。
 
@@ -42,16 +42,18 @@ You can enable {% data variables.product.prodname_dependabot_security_updates %}
 
 ### リポジトリの {% data variables.product.prodname_dependabot_security_updates %} を管理する
 
-個別のリポジトリに対して {% data variables.product.prodname_dependabot_security_updates %} を有効または無効にできます。
+You can enable or disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository (see below).
 
 ユーザアカウントまたは Organization が所有するすべてのリポジトリの {% data variables.product.prodname_dependabot_security_updates %} を有効または無効にすることもできます。 詳しい情報については、「[ユーザーアカウントのセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」または「[Organization のセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
 
 {% data variables.product.prodname_dependabot_security_updates %} には特定のリポジトリ設定が必要です。 詳しい情報については、「[サポートされているリポジトリについて](#supported-repositories)」を参照してください。
 
+#### Enabling or disabling {% data variables.product.prodname_dependabot_security_updates %} for an individual repository
+
 {% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-dependabot-alerts %}
-1. アラート一覧の上にあるドロップダウンメニューで [**{% data variables.product.prodname_dependabot %} security updates**] を選択または選択解除します。 ![{% data variables.product.prodname_dependabot_security_updates %} を有効にするオプションを含むドロップダウンメニュー](/assets/images/help/repository/enable-dependabot-security-updates-drop-down.png)
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+1. Under "Configure security and analysis features", to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** or **Disable**. !["Configure security and analysis features" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png)
 
 ### 参考リンク
 

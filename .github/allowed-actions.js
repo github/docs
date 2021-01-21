@@ -12,6 +12,8 @@ module.exports = [
   'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
   'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
+  'crykn/copy_folder_to_another_repo_action@abc264e1c16eb3d7b1f7763bfdb0e1699ad43120',
+  'cschleiden/actions-linter@43fd4e08e52ed40c0e2782dc2425694388851576',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289',
@@ -19,7 +21,7 @@ module.exports = [
   'github/codeql-action/init@v1',
   'ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb',
   'juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8',
-  'juliangruber/find-pull-request-action@64d55773c959748ad30a4184f4dc102af1669f7b',
+  'juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9',
   'juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512',
   'lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8',
   'pascalgn/automerge-action@c9bd182',

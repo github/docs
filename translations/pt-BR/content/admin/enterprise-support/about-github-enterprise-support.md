@@ -94,7 +94,7 @@ O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA
 | Ação de Graças (Dia 2)  | 4ª sexta-feira de novembro    |
 | Natal (Dia 1)           | 24 de dezembro                |
 | Natal (Dia 2)           | 25 de dezembro                |
-| Natal (Dia 3)           | 26 de dezembro                |
+| Natal (Dia 3)           | 28 de dezembro                |
 | Ano-Novo                | 31 de dezembro                |
 
 #### Feriados no Japão

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -46,11 +47,11 @@ versions:
 
 在下面的示例工作流程中，我们使用 Docker `build-push-action` 操作构建 Docker 映像，如果构建成功，则将构建映像推送到 Docker Hub。
 
-要推送到 Docker Hub，您需要有一个 Docker Hub 帐户，并创建一个 Docker Hub 仓库。 更多信息请参阅 Docker 文档中的“[在 Docker Hub 上共享映像](https://docs.docker.com/get-started/part3/)”。
+要推送到 Docker Hub，您需要有一个 Docker Hub 帐户，并创建一个 Docker Hub 仓库。 更多信息请参阅 Docker 文档中的“[将 Docker 容器映像推送到 Docker Hub](https://docs.docker.com/docker-hub/repos/#pushing-a-docker-container-image-to-docker-hub)”。
 
 Docker Hub 需要的 `build-push-action` 选项包括：
 
-* `username` 和 `password`：这是您的 Docker Hub 用户名和密码。 建议将 Docker Hub 用户名和密码在 {% data variables.product.prodname_dotcom %} 仓库中存储为加密密码，以免它们暴露在工作流程文件中。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+* `username` 和 `password`：这是您的 Docker Hub 用户名和密码。 我们建议将 Docker Hub 用户名和密码存储为机密，使它们不会公开在工作流程文件中。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 * `repository`：`DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY` 格式的 Docker Hub 仓库。
 
 {% raw %}

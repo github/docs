@@ -283,7 +283,7 @@ $ ghe-saml-mapping-csv -u -n -f /path/to/file
 
 新しい値でSAMLマッピングを更新するには、次のようにします。
 ```shell
-$ ghe-saml-mapping-csv -u -n -f /path/to/file
+$ ghe-saml-mapping-csv -u -f /path/to/file
 ```
 
 #### ghe-service-list
@@ -467,18 +467,21 @@ ghe-webhook-logs
 ```
 
 過去1日の失敗したフックデリバリーを表示するには、以下のようにします。
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 フックのペイロードの全体や結果、デリバリーの例外を表示するには、以下のようにします。
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-グローバルな webhook のデリバリーを表示するには、以下のようにします。
-```shell
-ghe-webhook-logs --global
 ```
 
 ### クラスタリング
