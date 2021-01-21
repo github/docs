@@ -13,7 +13,7 @@ versions: '*'
     ```
     - Compile with command line 
     ```
-    cd android/OsmAnd && ../gradlew assembleFreedevLegacyFatDebug
+    cd android/OsmAnd && ../gradlew assembleNightlyFreeLegacyFatDebug
     ```
 3. **Android Studio**:
  ```
