@@ -156,6 +156,7 @@ If you want to access raster maps offline, you might need to predownload tiles. 
 
 
 For this, you need [to choose your online source as Map source](#select-map-as-main--underlay--overlay-layer): 
+
 {% data variables.product.android_button_seq %} you need to select the area by the size of your screen device and to do a long click on the map - {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.shared_string_actions %} → {% data variables.android-values.shared_string_download_map %} /  {% data variables.android-values.update_tile %} → 
 At this screen you need to choose zoom levels → screen of downloading progress → {% data variables.android-values.shared_string_download %}
 
