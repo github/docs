@@ -36,7 +36,7 @@ Issueについては、以下も検索に利用できます。
 プルリクエストについては、検索を利用して以下の操作もできます。
 - [ドラフト](/articles/about-pull-requests#draft-pull-requests)プルリクエストのフィルタリング: `is:draft`
 - まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
-- マージされる前に[レビューを必要とする](/articles/about-required-reviews-for-pull-requests)プルリクエストのフィルタリング: `state:open type:pr review:required`
+- マージされる前に[レビューを必要とする](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)プルリクエストのフィルタリング: `state:open type:pr review:required`
 - レビュー担当者が承認したプルリクエストのフィルタリング: `state:open type:pr review:approved`
 - レビュー担当者が変更を要求したプルリクエストのフィルタリング: `state:open type:pr review:changes_requested`
 - [レビュー担当者](/articles/about-pull-request-reviews/)によるプルリクエストのフィルタリング: `state:open type:pr reviewed-by:octocat`
