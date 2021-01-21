@@ -1,0 +1,20 @@
+---
+date: '07-04-2020'
+sections:
+  security_fixes:
+    - 'Los paquetes se han actualizado a sus últimas versiones de seguridad. {% comment %} https://github.com/github/enterprise2/pull/19536, https://github.com/github/enterprise2/pull/19494 {% endcomment %}'
+  bugs:
+    - 'El tamaño máximo de 100MB en un objeto de Git no se pudo seleccionar para un repositorio cuando la cuenta empresarial global configuró una opción de tamaño de objeto de Git diferente a 100MB. {% comment %} https://github.com/github/github/pull/138805, https://github.com/github/github/pull/138683 {% endcomment %}'
+    - 'Los resultados de la API de propuestas y de solicitudes de cambio pudieron tener un comportamiento inconsistente cuando se ordenaron por el campo `updated_at`. {% comment %} https://github.com/github/github/pull/139247, https://github.com/github/github/pull/138486 {% endcomment %}'
+    - 'El campo `package` de las vulnerabilidades de seguridad no pudo consultarse a través de la API de GraphQL. {% comment %} https://github.com/github/github/pull/139418, https://github.com/github/github/pull/138245 {% endcomment %}'
+    - 'Cambiar un repositorio de *público* a *interno* mostró un mensaje de facturación irrelevante. {% comment %} https://github.com/github/github/pull/139531, https://github.com/github/github/pull/139492 {% endcomment %}'
+  known_issues:
+    - 'En un GitHub Enterprise Server recién configurado sin ningún usuario, un atacante podría crear el primer usuario administrador. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}'
+    - 'Las reglas de cortafuegos personalizadas no se mantienen durante una mejora. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio. {% comment %} https://github.com/github/github/issues/54684 {% endcomment %}'
+    - 'Las propuestas no pueden cerrarse si contienen un enlace permanente a un blob en el mismo repositorio en donde la ruta es mayor a 255 caracteres. {% comment %} https://github.com/github/github/issues/107731 {% endcomment %}'
+    - 'Cuando se sube información a un gist, una excepción pudo haberse activado durante el gancho de post-recepción. {% comment %} https://github.com/github/github/issues/129091 {% endcomment %}'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluyen en los resultados de la búsqueda de GitHub.com. {% comment %} https://github.com/github/admin-experience/issues/571 {% endcomment %}'
+    - 'Cuando se actualiza desde versiones anteriores, los trabajadores de jobs en segundo plano no pueden generar, lo cual impide las características esenciales tales como fusionar las solicitudes de cambios. {% comment %} https://github.com/github/enterprise2/issues/19232 {% endcomment %}'
+    - 'Las alertas de seguridad no se reportan cuando se sube información a un repositorio en la líneade comandos. (actualizado 2020-06-23) {% comment %} https://github.com/github/github/issues/143190 {% endcomment %}'
+    - 'La gráficade dependencias no detecta las dependencias cuando se despliega en una configuración de un agrupamiento con nodos múltiples de Redis. (updated 2020-06-30) {% comment %} https://github.com/github/dependency-graph/issues/81 {% endcomment %}'

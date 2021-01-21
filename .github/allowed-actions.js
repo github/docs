@@ -21,7 +21,7 @@ module.exports = [
   'github/codeql-action/init@v1',
   'ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb',
   'juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8',
-  'juliangruber/find-pull-request-action@64d55773c959748ad30a4184f4dc102af1669f7b',
+  'juliangruber/find-pull-request-action@2fc55e82a6d5d36fe1e7f1848f7e64fd02d99de9',
   'juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512',
   'lee-dohm/close-matching-issues@22002609b2555fe18f52b8e2e7c07cbf5529e8a8',
   'pascalgn/automerge-action@c9bd182',
