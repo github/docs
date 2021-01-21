@@ -63,7 +63,7 @@ A gpx file may contain several routes. Each of them is contained in a specific s
     // The value of the "length" attribute corresponds to the number of points in this segment of the route.
     <trkpt ... ></trkpt>
     <extensions>
-      // List of route segments
+      <!-- List of route segments -->
       <route>
         <segment ... />
       </route>
