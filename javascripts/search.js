@@ -263,6 +263,6 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
 function markify (text) {
   const { mark } = tags
   return text
-    .split(/<\/?em>/g)
+    .split(/<\/?mark>/g)
     .map((el, i) => i % 2 ? mark(el) : el)
 }
