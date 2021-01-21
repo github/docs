@@ -127,7 +127,7 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Note that you can't retrieve Git events using the GraphQL API. Instead, try the [REST API](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#git-category-actions). 
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](git-category-actions)." 
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.
