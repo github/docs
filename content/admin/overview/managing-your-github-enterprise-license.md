@@ -18,7 +18,7 @@ versions:
 
 ### About {% data variables.product.prodname_enterprise %} licenses
 
-When you purchase or renew {% data variables.product.prodname_enterprise %}, you receive a license file to validate your application. A license file has an expiration date and controls the number of user licenses you can add to {% data variables.product.prodname_enterprise %}. After you download and install {% data variables.product.prodname_enterprise %}, uploading the license file unlocks the application for you to use.
+When you purchase or renew {% data variables.product.prodname_enterprise %}, you receive a license file to validate your application. A license file has an expiration date and controls the number of user licenses you can add to {% data variables.product.prodname_enterprise %}. After you [download](https://enterprise.github.com/releases/) and [install](https://docs.github.com/en/enterprise-server/admin/installation/setting-up-a-github-enterprise-server-instance) {% data variables.product.prodname_enterprise %}, uploading the license file unlocks the application for you to use. 
 
 You can allocate the user licenses included in your {% data variables.product.prodname_enterprise %} license to users in {% data variables.product.product_location_enterprise %} and a {% data variables.product.prodname_ghe_cloud %} enterprise account. When you add a user to either environment, they will consume a license. If a user has accounts in both environments, to consume only one license, their primary {% data variables.product.prodname_enterprise %} email address must be the same as their verified {% data variables.product.prodname_ghe_cloud %} email address. You can sync license count and usage between the environments.
 
