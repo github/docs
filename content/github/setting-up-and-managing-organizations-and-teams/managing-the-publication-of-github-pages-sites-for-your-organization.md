@@ -7,7 +7,8 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=3.0'
 redirect_from:
-  - /github/setting-up-and-managing-organizations-and-teams/disabling-the-publication-of-github-pages-sites-for-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization
+  
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
