@@ -9,3 +9,4 @@ versions: '*'
 {% link_with_intro /nav-widgets %}
 {% link_with_intro /markers %}
 {% link_with_intro /radius-ruler %}
+{% link_with_intro /quick-action %}
