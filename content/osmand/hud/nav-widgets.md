@@ -8,6 +8,9 @@ versions: '*'
 
 ## Destinations
 
+## Relative / magnetic bearing
+
+
 ## Arrival time
 
 ## Max speed

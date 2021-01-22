@@ -10,7 +10,7 @@ versions: '*'
 - Trip recording (plugin)
 - Audio-video notes (plugin)
 - Tracker widget (plugin)
-- FPS-info (plugin)
+- Mapillary (plugin)
 
 {% link_with_intro /info-widgets %}
 {% link_with_intro /nav-widgets %}

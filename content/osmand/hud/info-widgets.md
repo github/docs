@@ -1,6 +1,6 @@
 ---
 title: "Informational widgets"
-intro: "Add intro..."
+intro: "Informational widgets allow user see information about current location, speed, time, battery level, bearing on the map display."
 versions: '*'
 ---
 
@@ -10,11 +10,10 @@ versions: '*'
 
 ## Speed
 
-## Relative / magnetic bearing
-
-## Mapillary
-
 ## Battery level (Android)
 
 ## GPS Info (Android)
+
+## FPS-info (Development plugin)
+
 
