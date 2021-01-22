@@ -38,12 +38,12 @@ jobs:
         name: Install
         run: npm ci
 
-      - if: ${{ github.repository == 'github/docs-internal' &&  needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Clone early access
-        run: npm run heroku-postbuild
-        env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.ref }}
+      # - if: ${{ github.repository == 'github/docs-internal' &&  needs.see_if_should_skip.outputs.should_skip != 'true' }}
+      #   name: Clone early access
+      #   run: npm run heroku-postbuild
+      #   env:
+      #     DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
+      #     GIT_BRANCH: ${{ github.ref }}
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Build
