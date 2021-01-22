@@ -4,7 +4,7 @@ intro: "Most typical issues encountered in navigation mode"
 versions: '*'
 ---
 
-# Route calculation
+## Route calculation
 ### Route calculation is slow 
 Should we add content here? If yes, we need to update it.
 
@@ -15,15 +15,11 @@ Should we add content here? If yes, we need to update it.
 ## The calculated route does not seem correct
 Should we add content here? If yes, we need to update it.
 
-# Road information
+## Road information
 ### OsmAnd only shows some speed cams
 Should we add content here? If yes, we need to update it.
 
-# Other
-### Navigation stops while screen is off
-- Link to trip recording section of the same question
-
-# Voice navigation
+## Voice navigation
 ### What is the difference between TTS (text to speech) and recorded voices?
 
 TTS (text to speech) synthesizes any voice prompt just from a specified text "on the fly", while recorded voices depend on combining every command from a set of snippets pre-recorded from a human voice.
@@ -60,3 +56,8 @@ supporting the language you are looking for: Install it on your device, and foll
 -   [SVOX](https://play.google.com/store/apps/details?id=com.svox.classic)
 -   [IVONA](https://play.google.com/store/apps/developer?id=IVONA+Text-to-Speech)
 -   [eSpeak](https://play.google.com/store/apps/details?id=com.googlecode.eyesfree.espeak)
+
+## Other
+
+### Navigation stops while screen is off
+- Link to trip recording section of the same question

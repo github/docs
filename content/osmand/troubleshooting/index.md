@@ -7,21 +7,25 @@ versions: '*'
 ## Most typical issue categories
 
 {% link_in_list /setup %}
-    - Purchases
-    - Data transfer
-    - Plugins
-    - Import Files (GPX / KML / Garmin)
+    - [Initial setup (Recovery)](setup#initial-setup)
+    - [Plugins](setup#plugins)
+    - [Purchases](setup#purchases)
+    - [Import Files (GPX / KML / Garmin)](setup#import-files)
 {% link_in_list /maps-data %}
-    - Download / Update maps
-    - Search results are incomplete or incorrect
-    - Create Paper maps
+    - [Maps](maps-data#maps)
+    - [Search](maps-data#search)
+    - [Points of Interest](maps-data#points-of-interest)
+    - [Tracks and points](maps-data#tracks-and-points)
 {% link_in_list /navigation %}
-    - Route calculation is very slow or not correct
-    - Voice navigation doesn't function properly
+    - [Route calculation](navigation#route-calculation)
+    - [Road information](navigation#road-information)
+    - [Voice navigation](navigation#voice-navigation)
+    - [Other issues](navigation#other)
 {% link_in_list /general %}
-    {% link_in_list /general#battery %}
-    - Trip recording stops while screen is off
-    {% link_in_list /general#privacy %}
+    - [Battery consumption](general#battery)
+    - [Privacy related issues](/general#privacy)
+    - [Other issues](general#other)
+    
 
 ## Frequently asked questions
 
@@ -29,7 +33,8 @@ versions: '*'
 - [What is the difference between TTS (text to speech) and recorded voices?](navigation/#what-is-the-difference-between-tts-text-to-speech-and-recorded-voices)
 - [Import GPX file](setup#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
 - [Why does OsmAnd not offer access to Google Maps?](maps-data#)
-
+- [Trip recording or navigation stops while screen is off](general#)
+.....
 
 
 

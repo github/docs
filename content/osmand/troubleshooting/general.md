@@ -4,7 +4,10 @@ intro: "General issues related to various OsmAnd's features"
 versions: '*'
 ---
 
-# Battery
+
+## Battery consumption
+Some information about batttery consumption in general.
+
 ### OsmAnd seems to drain too much battery power
 
 There have on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though under some circumstances OsmAnd is reported responsible for 90% of the battery usage. Please be aware that OsmAnd does not run anything in background except a service while needed for ongoing functionality live navigation or track recording. The presence of the service is displayed in the Android notification area. If you do not see anything there, OsmAnd is not consuming any power at all in the background.
@@ -28,9 +31,15 @@ OsmAnd Function | Battery Consumption<br>per Hour
 **Navigation**  with screen on | 12 %
 
 
-# Privacy
-Privacy related issues (delete history / check internet usage / permissions)
+## Privacy
+Privacy related issues (delete history / check internet usage / permissions).
+
 ### How to delete search history
 To remove search history, please open the Search menu, make a long tap on any search result and select which results to delete. You can also enable the select all option in the upper-left corner of the screen to remove all of the search results. After that, please press the Trash icon in the upper-right corner of the screen.
 
 You can also follow [this guide](https://osmand.net/features/find-something-on-map) to learn more about the search in OsmAnd.
+
+
+## Other
+
+### Trip recording stops while screen is off

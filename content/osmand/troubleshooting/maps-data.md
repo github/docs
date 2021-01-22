@@ -4,7 +4,7 @@ intro: "Issues related to maps, search and other data"
 versions: '*'
 ---
 
-
+# Maps
 ### Why does OsmAnd not offer access to Google Maps?
 
 Firstly, OsmAnd is meant to support OpenStreetMap and tries to go that path as far as possible. Secondly, there are licensing issues, so OsmAnd cannot be distributed with Google Maps data.
@@ -13,11 +13,15 @@ Firstly, OsmAnd is meant to support OpenStreetMap and tries to go that path as f
 
 Unfortunately not. This would require the generation of completely separate contour line data with different geometry and labels. You can obviously generate maps yourself using GDAL and OsmAndMapCreator but that requires technical environment check [Technical Documentation](/development).
 
+### Create own maps
+
+# Search
 ### Offline search by address does not show all streets
 Should we add content here? If yes, we need to update it.
 
+# Points of Interest
 
-
+# Tracks and Points
 ### How to mark different places on the map
 *It looks like duplicated content for Personal Data category*
 You can leave notes for future usage in several forms:
