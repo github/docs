@@ -10,4 +10,3 @@ versions:
   enterprise-server: '*'
   github-ae: '*'
 ---
-
