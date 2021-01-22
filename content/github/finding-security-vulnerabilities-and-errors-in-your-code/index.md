@@ -28,3 +28,4 @@ versions:
     {% link_in_list /running-codeql-code-scanning-in-your-ci-system %}
     {% link_in_list /configuring-codeql-code-scanning-in-your-ci-system %}
     {% link_in_list /troubleshooting-codeql-code-scanning-in-your-ci-system %}
+    -COPYRIGHT AGAINST NUDES [2021].
