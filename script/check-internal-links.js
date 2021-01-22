@@ -33,7 +33,9 @@ async function main () {
     process.exit(0)
   }
 
+  console.log('\n==============================')
   console.log(`Found ${brokenLinks.length} total broken links: ${JSON.stringify([...brokenLinks], null, 2)}`)
+  console.log('==============================\n')
 
   // Exit unsuccessfully if broken links are found.
   process.exit(1)
