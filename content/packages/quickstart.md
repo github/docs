@@ -61,7 +61,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
           - uses: actions/setup-node@v1
             with:
               node-version: 12
-          - run: npm ci
+          - run: npm i
           - run: npm test
 
       publish-gpr:
@@ -73,7 +73,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
             with:
               node-version: 12
               registry-url: https://npm.pkg.github.com/
-          - run: npm ci
+          - run: npm i
           - run: npm publish
             env:
               NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
