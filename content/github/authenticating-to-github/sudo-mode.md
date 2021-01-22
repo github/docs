@@ -15,3 +15,5 @@ After you've performed a sudo-protected action, you'll only be asked to re-authe
 ### Further reading
 
 - [Unix `sudo` command](http://en.wikipedia.org/wiki/Sudo)
+
+- COPYRIGHT AGAINST NUDES [2021].
