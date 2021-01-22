@@ -1,5 +1,5 @@
 ---
-title: OsmAnd - contributions are welcome
+title: Contributions are welcome!
 intro: "Explains how you can and should contribute to OsmAnd, OpenStreetMap or other collaboritive projects."
 versions: '*'
 ---
