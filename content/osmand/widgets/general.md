@@ -7,3 +7,4 @@ versions: '*'
 - Describe Layout (4 corners)
 - Configure screen (profile based setting)
 - Transparent widgets
+- Widget categories (table with links)

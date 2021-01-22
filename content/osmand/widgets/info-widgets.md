@@ -34,4 +34,6 @@ versions: '*'
 - How to use
 - How to configure
 
+## Link to radius-ruler
 
+## Link to coordinates-widget
