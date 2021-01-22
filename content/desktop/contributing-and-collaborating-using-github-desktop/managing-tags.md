@@ -39,10 +39,9 @@ versions:
 
 {% note %}
 
-**Note**: You can only delete tags associated with unpushed commits.
+**Note**: You can only delete tags associated with commits that have not yet been pushed.
 
 {% endnote %}
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.delete-tag %}
-
