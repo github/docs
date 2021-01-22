@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,7 +20,7 @@ Este guia explica como configurar o fortalecimento de segurança para certos rec
 
 ### Usar segredos
 
-Valores sensíveis nunca devem ser armazenados como texto simples em arquivos de fluxo de trabalho, mas como segredos. [Os segredos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) podem ser configurados no nível da organização ou do repositório e permitem que você armazene informações confidenciais em {% data variables.product.product_name %}.
+Valores sensíveis nunca devem ser armazenados como texto simples em arquivos de fluxo de trabalho, mas como segredos. [Os segredos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) podem ser configurados na organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}, repositório, ambiente{% else %} ou níveis do repositório{% endif %} e permitem que você armazene informações confidenciais em {% data variables.product.product_name %}.
 
 Os segredos usam [caixas fechadas de Libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) de modo que sejam criptografadas antes de atingir {% data variables.product.product_name %}. Isso ocorre quando o segredo é enviado [usando a interface de usuário](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) ou através da [API REST](/rest/reference/actions#secrets). Esta criptografia do lado do cliente ajuda a minimizar os riscos relacionados ao registro acidental (por exemplo, registros de exceções e de solicitação, entre outros) dentro da infraestrutura do {% data variables.product.product_name %}. Uma vez realizado o upload do segredo, o {% data variables.product.product_name %} poderá descriptografá-lo para que possa ser injetado no tempo de execução do fluxo de trabalho.
 
@@ -38,6 +39,10 @@ Para ajudar a prevenir a divulgação acidental, o {% data variables.product.pro
 - **Audite e gire os segredos registrados**
     - Reveja, periodicamente, os segredos registrados para confirmar se ainda são necessários. Remova aqueles que não são mais necessários.
     - Gire os segredos periodicamente para reduzir a janela de tempo durante a qual um segredo comprometido é válido.
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+- **Considere a necessidade de revisão para acesso a segredos**
+    - Você pode usar revisores necessários para proteger os segredos do ambiente. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por um revisor. Para mais informações sobre armazenar segredos em ambientes ou exigir revisões para ambientes, consulte "[segredos criptografados](/actions/reference/encrypted-secrets)" e "[Ambientes](/actions/reference/environments)".
+{% endif %}
 
 ### Usando ações de terceiros
 
@@ -66,13 +71,13 @@ Isso significa que comprometer uma única ação dentro de um fluxo de trabalho 
 
 ### Considerar acesso entre repositórios
 
-O {% data variables.product.product_name %} tem um escopo intencional para um único repositório por vez. O `GITHUB_TOKEN` usado no ambiente de fluxo de trabalho concede o mesmo nível de acesso que um usuário com acesso de gravação, porque qualquer usuário com acesso de gravação pode acessar esse token criando ou modificando arquivos de fluxo de trabalho. Os usuários têm permissões específicas para cada repositório. Portanto, fazer com que o `GITHUB_TOKEN` para um repositório conceda acesso a outro impactaria o modelo de permissão {% data variables.product.prodname_dotcom %} se não for implementado cuidadosamente. Da mesma forma, deve-se ter cuidado ao adicionar tokens de autenticação do {% data variables.product.prodname_dotcom %} ao ambiente do fluxo de trabalho, porque isto também pode afetar o modelo de permissão de {% data variables.product.prodname_dotcom %} concedendo, inadvertidamente, amplo acesso aos colaboradores.
+O {% data variables.product.product_name %} tem um escopo intencional para um único repositório por vez. O `GITHUB_TOKEN` concede o mesmo nível de acesso que um usuário com acesso de gravação, porque qualquer usuário com acesso de gravação pode acessar esse token criando ou modificando arquivos de fluxo de trabalho. Os usuários têm permissões específicas para cada repositório. Portanto, fazer com que o `GITHUB_TOKEN` para um repositório conceda acesso a outro impactaria o modelo de permissão {% data variables.product.prodname_dotcom %} se não for implementado cuidadosamente. Da mesma forma, deve-se ter cuidado ao adicionar tokens de autenticação de {% data variables.product.prodname_dotcom %} a um fluxo de trabalho, porque isto também pode afetar o modelo de permissão de {% data variables.product.prodname_dotcom %} concedendo inadvertidamente amplo acesso aos colaboradores.
 
-Temos [ um plano no roteiro de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap/issues/74) para suportar um fluxo que permite o acesso de todos os repositórios em {% data variables.product.product_name %}, embora ainda não seja um recurso compatível. Atualmente, a única maneira de executar interações privilegiadas entre repositórios é colocar um token de autenticação do {% data variables.product.prodname_dotcom %} ou chave SSH como um segredo dentro do ambiente de fluxo de trabalho. Uma vez que muitos tipos de token de autenticação não permitem acesso granular a recursos específicos, há um risco significativo no uso do tipo incorreto de token, pois ele pode conceder acesso muito mais amplo do que o pretendido.
+Temos [ um plano no roteiro de {% data variables.product.prodname_dotcom %}](https://github.com/github/roadmap/issues/74) para suportar um fluxo que permite o acesso de todos os repositórios em {% data variables.product.product_name %}, embora ainda não seja um recurso compatível. Atualmente, a única maneira de executar interações privilegiadas entre repositórios é colocar um token de autenticação do {% data variables.product.prodname_dotcom %} ou chave SSH como um segredo dentro do fluxo de trabalho. Uma vez que muitos tipos de token de autenticação não permitem acesso granular a recursos específicos, há um risco significativo no uso do tipo incorreto de token, pois ele pode conceder acesso muito mais amplo do que o pretendido.
 
 Esta lista descreve as abordagens recomendadas para acessar os dados do repositório dentro de um fluxo de trabalho, em ordem decrescente de preferência:
 
-1. **O `GITHUB_TOKEN` no ambiente de fluxo de trabalho**
+1. **O `GITHUB_TOKEN`**
     -  Este token tem um escopo intencional para o único repositório que invocou o fluxo de trabalho, e tem o mesmo nível de acesso que um usuário de acesso de gravação no repositório. O token é criado antes de cada trabalho começar e expira quando o trabalho é finalizado. Para obter mais informações, consulte "[Autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
     - O `GITHUB_TOKEN` deve ser usado sempre que possível.
 2. **Chave de implantação do repositório**

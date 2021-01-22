@@ -117,7 +117,7 @@ versions:
 
                    = 22,060 total nodes</pre>
 
-### 速率限制
+## 速率限制
 
 GraphQL API v4 限制不同于 REST API v3 的 [速率限制](/rest/overview/resources-in-the-rest-api#rate-limiting)。
 
@@ -129,12 +129,6 @@ API 速率限制为什么不同？ 使用 [GraphQL](/graphql)，一个 GraphQL �
 * 每个连接都有自己的点值。 此点值与调用的其他点数相结合，计入总速率限制分数。
 
 GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点）**。
-
-{% if currentVersion == "free-pro-team@latest" %}
-
-对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %}，对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源的请求上限已提升至每小时 15,000 点。
-
-{% endif %}
 
 请注意，每小时 5,000 点与每小时 5,000 个调用不同：GraphQL API v4 和 REST API v3 使用的速率限制不同。
 

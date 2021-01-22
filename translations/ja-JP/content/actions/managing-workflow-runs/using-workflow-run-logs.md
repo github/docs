@@ -7,12 +7,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ワークフローの実行ページから、ワークフローの実行が進行中か完了しているかを確認できます。 パブリックなリポジトリの分も含むワークフローの実行情報を見るには、{% data variables.product.prodname_dotcom %}のアカウントにログインしなければなりません。 詳細は「[GitHub 上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
-実行が完了している場合には、結果が成功か失敗か、キャンセルされたか、またはニュートラルかを確認できます。 実行が失敗した場合には、ビルドログを表示して検索し、失敗の原因を診断してワークフローを再実行することもできます。 また、課金対象のジョブ実行時間を表示したり、ログをダウンロードして成果物をビルドすることもできます。
+実行が完了している場合には、結果が成功か失敗か、キャンセルされたか、またはニュートラルかを確認できます。 実行が失敗した場合には、ビルドログを表示して検索し、失敗の原因を診断してワークフローを再実行することもできます。 また、課金対象のジョブ実行時間を表示したり、ログやビルドの成果物をダウンロードすることもできます。
 
 {% data variables.product.prodname_actions %}は、Checks APIを使用してワークフローのステータス、結果、ログを出力します。 {% data variables.product.prodname_dotcom %} は、ワークフローの実行に対してそれぞれ新しいチェックスイートを作成します。 チェックスイートには、ワークフロー内の各ジョブに対するチェック実行が含まれ、各ジョブにはステップが含まれています。 {% data variables.product.prodname_actions %}は、ワークフローのステップとして実行されます。 For more information about the Checks API, see "[Checks](/rest/reference/checks)."
 
@@ -20,7 +20,7 @@ versions:
 
 ### ログを表示してエラーを診断する
 
-ワークフローの実行を失敗した場合には、どのステップが失敗の原因になったかを確認し、失敗したステップのビルドログを確かめてトラブルシューティングすることができます。 各ステップの実行にかかった時間もわかります。 ログファイルの特定の行のパーマリンクをコピーして、チームで共有することもできます。 {% data reusables.repositories.permissions-statement-read %}
+ワークフローの実行が失敗した場合には、どのステップが失敗の原因になったかを確認し、失敗したステップのビルドログを確かめてトラブルシューティングすることができます。 各ステップの実行にかかった時間もわかります。 ログファイルの特定の行のパーマリンクをコピーして、チームで共有することもできます。 {% data reusables.repositories.permissions-statement-read %}
 
 ワークフローファイルで設定されたステップに加えて、{% data variables.product.prodname_dotcom %} はジョブの実行をセットアップして完了するために、各ジョブに 2 つの追加ステップを追加します。 これらのステップは、「Set up job」および「Complete job」として実行されるワークフローに記録されます。
 
@@ -44,7 +44,7 @@ versions:
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. ログ出力の右上隅にある [**Search logs**] 検索ボックスに、検索語句を入力します。
+1. ログ出力の右上隅にある [**Search logs（ログの検索）**] 検索ボックスに、検索クエリを入力します。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
   ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box-updated-2.png)
 {% else %}
@@ -52,7 +52,7 @@ versions:
 {% endif %}
 {% else %}
 1. 検索に含めたい各ステップを展開するには、そのステップをクリックします。![ステップの名前](/assets/images/help/repository/failed-check-step.png)
-1. ログ出力の右上隅にある [**Search logs**] 検索ボックスに、検索語句を入力します。 ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box.png)
+1. ログ出力の右上隅にある [**Search logs（ログの検索）**] 検索ボックスに、検索クエリを入力します。 ![ログを検索するための検索ボックス](/assets/images/help/repository/search-log-box.png)
 {% endif %}
 
 ### ログのダウンロード

@@ -7,10 +7,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -122,7 +123,7 @@ jobs:
 
 #### 　特定のバージョンのPythonの利用
 
-Pythonの特定バージョンを設定することができます。 たとえば3.8が利用できます。 あるいは、セマンティックバージョン構文を使い、最新のマイナーリリースを使うことができます。 以下の例では、Python 3の最新のマイナーリリースを使います。
+Pythonの特定バージョンを設定することができます。 たとえば3.8が利用できます。 Alternatively, you can use semantic version syntax to get the latest minor release. 以下の例では、Python 3の最新のマイナーリリースを使います。
 
 {% raw %}
 ```yaml
@@ -391,7 +392,7 @@ jobs:
 
 CIテストにパスしたなら、Pythonパッケージを任意のパッケージレジストリに公開するようにワークフローを設定できます。
 
-パッケージを公開するのに必要なアクセストークンやクレデンシャルは、リポジトリシークレットを使って保存できます。 以下の例では、`twine`と`dist`を使ってパッケージを作成してPyPIに公開しています。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+You can store any access tokens or credentials needed to publish your package using secrets. 以下の例では、`twine`と`dist`を使ってパッケージを作成してPyPIに公開しています。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 {% raw %}
 ```yaml

@@ -22,7 +22,7 @@ Check to make sure someone hasn't already opened a similar issue: https://github
 
 ### What is the current behavior?
 
-<!-- include links to articles where you're seeing a problem, screenshots, what browser you're using, etc. -->
+<!-- Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc. -->
 
 ### What changes are you suggesting?
 

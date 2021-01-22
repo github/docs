@@ -5,10 +5,11 @@ intro: '{% data variables.product.prodname_actions %} は、堅牢で動的な�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 概要
 
@@ -57,7 +58,7 @@ jobs:
 
 ### ジョブ間でデータを共有する
 
-ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_アーティファクト_として {% data variables.product.prodname_dotcom %} に保存できます。 アーティファクトとは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、アーティファクトには、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 アーティファクトは、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。
+ジョブが同じワークフロー内の別のジョブと共有するファイルを生成する場合、または後で参照できるようにファイルを保存する場合は、それらを_アーティファクト_として {% data variables.product.prodname_dotcom %} に保存できます。 成果物とは、コードをビルドしてテストするときに作成されるファイルのことです。 たとえば、成果物には、バイナリまたパッケージファイル、テスト結果、スクリーンショット、ログファイルなどがあります。 アーティファクトは、それが作成されたワークフロー実行に関連付けられており、別のジョブで使用できます。
 
 たとえば、ファイルを作成し、それをアーティファクトとしてアップロードできます。
 
