@@ -4,8 +4,18 @@ const linkinator = require('linkinator')
 const checker = new linkinator.LinkChecker()
 const { deprecated } = require('../lib/enterprise-server-releases')
 
+// [start-readme]
+//
+// This script runs in CI via GitHub Action to check all *internal* links in English content,
+// not including deprecated Enterprise Server content. This is different from script/check-english-links.js,
+// which checks *all* links in the site, both internal and external, and is much slower.
+//
+// [end-readme]
+
 const config = {
   path: 'http://localhost:4002/en',
+  // Use concurrency = 10 to optimize for Actions
+  // See https://github.com/JustinBeckwith/linkinator/issues/135#issuecomment-623240879
   concurrency: 10,
   recurse: true,
   linksToSkip: [
