@@ -42,84 +42,45 @@ describe('algolia browser search', () => {
   })
 
   it('sends the correct data to algolia for Enterprise Server', async () => {
-    expect.assertions(12) // 3 assertions x 4 letters ('test')
+    expect.assertions(2)
 
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
-        const data = JSON.parse(interceptedRequest.postData())
-        const { indexName, params } = data.requests[0]
-        const parsedParams = querystring.parse(params)
-        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
-        expect(indexName).toBe('github-docs-2.22-ja')
-        expect(analyticsTags).toHaveLength(2)
-        // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
+        const { version, language } = querystring.parse(interceptedRequest.url())
+        expect(version).toBe('2.22')
+        expect(language).toBe('ja')
       }
       interceptedRequest.continue()
     })
 
     await newPage.click('#search-input-container input[type="search"]')
     await newPage.type('#search-input-container input[type="search"]', 'test')
+    await newPage.waitForSelector('.search-result')
   })
 
   it('sends the correct data to algolia for GHAE', async () => {
-    expect.assertions(12) // 3 assertions x 4 letters ('test')
+    expect.assertions(2)
 
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
-        const data = JSON.parse(interceptedRequest.postData())
-        const { indexName, params } = data.requests[0]
-        const parsedParams = querystring.parse(params)
-        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
-        expect(indexName).toBe('github-docs-ghae-en')
-        expect(analyticsTags).toHaveLength(2)
-        // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
+        const { version, language } = querystring.parse(interceptedRequest.url())
+        expect(version).toBe('ghae')
+        expect(language).toBe('en')
       }
       interceptedRequest.continue()
     })
 
     await newPage.click('#search-input-container input[type="search"]')
     await newPage.type('#search-input-container input[type="search"]', 'test')
-  })
-
-  it('removes `algolia-query` query param after page load', async () => {
-    await page.goto('http://localhost:4001/en?algolia-query=helpme')
-
-    // check that the query is still present at page load
-    let location = await getLocationObject(page)
-    expect(location.search).toBe('?algolia-query=helpme')
-
-    // query removal is in a setInterval, so wait a bit
-    await sleep(1000)
-
-    // check that the query has been removed after a bit
-    location = await getLocationObject(page)
-    expect(location.search).toBe('')
-  })
-
-  it('does not remove hash when removing `algolia-query` query', async () => {
-    await page.goto('http://localhost:4001/en?algolia-query=helpme#some-header')
-
-    // check that the query is still present at page load
-    let location = await getLocationObject(page)
-    expect(location.search).toBe('?algolia-query=helpme')
-
-    // query removal is in a setInterval, so wait a bit
-    await sleep(1000)
-
-    // check that the query has been removed after a bit
-    location = await getLocationObject(page)
-    expect(location.search).toBe('')
-    expect(location.hash).toBe('#some-header')
+    await newPage.waitForSelector('.search-result')
   })
 })
 
@@ -165,13 +126,6 @@ describe('csrf meta', () => {
     await page.waitForSelector('meta[name="csrf-token"]')
   })
 })
-
-async function getLocationObject (page) {
-  const location = await page.evaluate(() => {
-    return Promise.resolve(JSON.stringify(window.location, null, 2))
-  })
-  return JSON.parse(location)
-}
 
 describe('platform specific content', () => {
   // from tests/javascripts/user-agent.js
@@ -247,5 +201,55 @@ describe('platform specific content', () => {
         await page.waitForSelector(`.extended-markdown.${other}`, { hidden: true, timeout: 3000 })
       }
     }
+  })
+})
+
+describe('card filters', () => {
+  it('loads correctly', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownNoResult = await page.$('.js-filter-card-no-results:not(.d-none)')
+    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
+    expect(shownCards.length).toBe(maxCards)
+    expect(shownNoResult).toBeNull()
+  })
+
+  it('filters cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('input.js-filter-card-filter')
+    await page.type('input.js-filter-card-filter', 'issues')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const showMoreClasses = await page.$eval('.js-filter-card-show-more', btn => Object.values(btn.classList))
+    expect(showMoreClasses).toContain('d-none')
+    expect(shownCards.length).toBeGreaterThan(1)
+  })
+
+  it('works with select input', async () => {
+    await page.goto('http://localhost:4001/en/actions/guides')
+    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
+      cards.map(card => card.dataset.type)
+    )
+    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    expect(shownCards.length).toBeGreaterThan(0)
+  })
+
+  it('shows more cards', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    const maxCards = await page.$eval('.js-filter-card-show-more', btn => parseInt(btn.dataset.jsFilterCardMax))
+    await page.click('.js-filter-card-show-more')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    expect(shownCards.length).toBe(maxCards * 2)
+  })
+
+  it('displays no result message', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('input.js-filter-card-filter')
+    await page.type('input.js-filter-card-filter', 'this should not work')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    expect(shownCards.length).toBe(0)
+    const noResultsClasses = await page.$eval('.js-filter-card-no-results', elem => Object.values(elem.classList))
+    expect(noResultsClasses).not.toContain('d-none')
   })
 })

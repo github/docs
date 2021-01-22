@@ -36,6 +36,11 @@ async function renderPatchNotes (patch, ctx) {
     }))
   }
 
+  // Also render the patch's intro
+  if (patch.intro) {
+    patch.intro = await renderContent(patch.intro, ctx)
+  }
+
   return patch
 }
 
