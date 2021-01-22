@@ -41,6 +41,12 @@ The following steps occur to trigger a workflow run:
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 
+{% note %}
+
+Note: Currently due to load `schedule` actions can have up to an hour delay, this is being looked into but please make considerations for this in the interim.
+
+{% endnote %}
+
 #### `schedule`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
