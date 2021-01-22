@@ -12,3 +12,4 @@ versions:
   github-ae: '*'
 ---
 
+content/github/authenticating-to-github/managing-commit-signature-verification.md
