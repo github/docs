@@ -7,7 +7,7 @@ on:
 jobs:
   see_if_should_skip:
     continue-on-error: true
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     # Map a step output to a job output
     outputs:
       should_skip: ${{ steps.skip_check.outputs.should_skip }}
@@ -20,7 +20,7 @@ jobs:
           paths: '[".github/workflows/link-check-test.yml", "assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
   build:
     needs: see_if_should_skip
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
