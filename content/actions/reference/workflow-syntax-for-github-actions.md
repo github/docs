@@ -299,6 +299,7 @@ Available {% data variables.product.prodname_dotcom %}-hosted runner types are:
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 ##### Example
 
@@ -518,7 +519,7 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ```yaml
 steps:    
   # Reference a specific commit
-  - uses: actions/setup-node@74bc508
+  - uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
   # Reference the major version of a release
   - uses: actions/setup-node@v1
   # Reference a minor version of a release
