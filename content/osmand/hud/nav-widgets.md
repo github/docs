@@ -3,4 +3,20 @@ title: "Navigational widgets"
 intro: "Add intro..."
 versions: '*'
 ---
-Add description...
+
+## Compass
+
+## Destinations
+
+## Arrival time
+
+## Max speed
+
+## Lanes
+
+## Alert information
+
+## Street name
+
+## Next turns
+
