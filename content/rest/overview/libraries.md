@@ -25,7 +25,7 @@ versions:
 
 ### Clojure
 
-Library name | Repository 
+Library name | Repository
 |---|---|
 **Tentacles**| [Raynes/tentacles](https://github.com/Raynes/tentacles)
 
@@ -107,6 +107,12 @@ Library name | Repository
 **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)
 **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-Github](https://github.com/GrahamCampbell/Laravel-GitHub)
 **PHP7 Client & WebHook wrapper**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
+
+### PowerShell
+
+Library name | Repository
+|---|---|
+**PowerShellForGitHub**|[microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 
