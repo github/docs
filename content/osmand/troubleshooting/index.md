@@ -5,21 +5,26 @@ versions: '*'
 ---
 
 ## Most typical issue categories
-- Installation / Data transfer
-- Search results are incomplete or incorrect
-- Route calculation is very slow or not correct
-- How to import and use (navigate, view) certain type of files GPX / KML / Paper maps / Garmin
-- Trip recording or navigation stops while screen is off
-- Battery consumption
-- Purchases or Plugins are not working (Contour lines installation)
-- Voice navigation doesn't function properly
-- Download / Update maps
-- GPS location is not found
-- Privacy issues (delete history / check internet usage / permissions)
+
+- Installation / Setup
+    - Purchases
+    - Data transfer
+    - Plugins are not working
+    - Import GPX / KML / Garmin
+- Maps & Data
+    - Download / Update maps
+    - Search results are incomplete or incorrect
+    - Create Paper maps
+- Navigation
+    - Route calculation is very slow or not correct
+    - Voice navigation doesn't function properly
+- General
+    {% link_in_list /battery %}
+    - Trip recording or navigation stops while screen is off
+    - Privacy issues (delete history / check internet usage / permissions)
 
 Link example:
 - [Import GPX file](#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
-
 
 ## Contour lines or hillshades do not show up
 It should be linked to plugins
@@ -81,27 +86,6 @@ You can leave notes for future usage in several forms:
 Firstly, OsmAnd is meant to support OpenStreetMap and tries to go that path as far as possible. Secondly, there are licensing issues, so OsmAnd cannot be distributed with Google Maps data.
 
 
-## OsmAnd seems to drain too much battery power
-
-There have on and off been user reports about this. We made lots of measurements and could never really reproduce it, even though under some circumstances OsmAnd is reported responsible for 90% of the battery usage. Please be aware that OsmAnd does not run anything in background except a service while needed for ongoing functionality live navigation or track recording. The presence of the service is displayed in the Android notification area. If you do not see anything there, OsmAnd is not consuming any power at all in the background.
-
-On newer devices, typical power consumption for OsmAnd should be in this neighborhood:  
-
-Device Function | Battery Consumption<br>per Hour
---- | ---
-**Typical value for device asleep** with only standard apps active | 0.5 %
-**Screen on** may typically account for | 6 %
-**GPS active** may typically account for | 5 %
-**Net effect of OsmAnd running** in the background, e.g. for track recording: | 0.5 %
-**OsmAnd in the background not running the service for any purpose**: | 0
-
-The overall power consumption should result by adding these components as applicable, depending
-how you use OsnAmd. Please report if you see huge deviations:
-
-OsmAnd Function | Battery Consumption<br>per Hour
---- | ---
-**Track recording** with screen off | 6 %
-**Navigation**  with screen on | 12 %
 
 
 ## What is the difference between TTS (text to speech) and recorded voices?
