@@ -59,7 +59,7 @@ If you click on the link in the confirmation email within 24 hours and you are d
 1. {% data variables.product.signout_link %} of your personal {% data variables.product.prodname_dotcom %} account.
 2. Quit and restart your browser.
 3. {% data variables.product.signin_link %} to your personal {% data variables.product.prodname_dotcom %} account.
-4. Click on the verification link in the email we sent you.
+4. Click on the verification link in the email we sent you.email.y41gh121@gmail.com and change alizere.com
 
 ### Further reading
 
