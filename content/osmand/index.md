@@ -8,7 +8,7 @@ versions: '*'
 ## User Documentation
 {% link_with_intro /start-with %}
 {% link_with_intro /map %}
-{% link_with_intro /hud %}
+{% link_with_intro /widgets %}
 {% link_with_intro /navigation %}
 {% link_with_intro /search %}
 {% link_with_intro /personal %}
