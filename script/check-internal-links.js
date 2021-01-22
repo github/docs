@@ -6,7 +6,7 @@ const { deprecated } = require('../lib/enterprise-server-releases')
 
 const config = {
   path: 'http://localhost:4002/en',
-  concurrency: 400,
+  concurrency: 10,
   recurse: true,
   linksToSkip: [
     // Skip any link that is not an internal link
