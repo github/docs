@@ -1,6 +1,6 @@
 ---
 title: "Navigational widgets"
-intro: "Navigational widgets are used to display information related to the navigation such as distance, arrival / left time, next turns, bearing, current street name, lanes information, max speed, approaching alerts, POIs, waypoints"
+intro: "Navigational widgets are used to display information related to the navigation such as distance, arrival / left time, next turns, bearing, current street name, lanes information, max speed, approaching alerts, POIs, waypoints."
 versions: '*'
 ---
 
