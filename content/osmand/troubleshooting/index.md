@@ -7,33 +7,32 @@ versions: '*'
 ## Most typical issue categories
 
 {% link_in_list /setup %}
-    - [Initial setup (Recovery)](setup#initial-setup)
-    - [Plugins](setup#plugins)
-    - [Purchases](setup#purchases)
-    - [Import Files (GPX / KML / Garmin)](setup#import-files)
+    - [Initial setup (Recovery)](troubleshooting/setup#initial-setup)
+    - [Plugins](troubleshooting/setup#plugins)
+    - [Purchases](troubleshooting/setup#purchases)
+    - [Import Files (GPX / KML / Garmin)](troubleshooting/setup#import-files)
 {% link_in_list /maps-data %}
-    - [Maps](maps-data#maps)
-    - [Search](maps-data#search)
-    - [Points of Interest](maps-data#points-of-interest)
-    - [Tracks and points](maps-data#tracks-and-points)
+    - [Maps](troubleshooting/maps-data#maps)
+    - [Search](troubleshooting/maps-data#search)
+    - [Points of Interest](troubleshooting/maps-data#points-of-interest)
+    - [Tracks and points](troubleshooting/maps-data#tracks-and-points)
 {% link_in_list /navigation %}
-    - [Route calculation](navigation#route-calculation)
-    - [Road information](navigation#road-information)
-    - [Voice navigation](navigation#voice-navigation)
-    - [Other issues](navigation#other)
+    - [Route calculation](troubleshooting/navigation#route-calculation)
+    - [Road information](troubleshooting/navigation#road-information)
+    - [Voice navigation](troubleshooting/navigation#voice-navigation)
+    - [Other issues](troubleshooting/navigation#other)
 {% link_in_list /general %}
-    - [Battery consumption](general#battery)
-    - [Privacy related issues](/general#privacy)
-    - [Other issues](general#other)
-    
+    - [Battery consumption](troubleshooting/general#battery)
+    - [Privacy related issues](troubleshooting/general#privacy)
+    - [Other issues](troubleshooting/general#other)
 
 ## Frequently asked questions
 
-- [Why route calculation is slow?](navigation/#route-calculation-is-slow)
-- [What is the difference between TTS (text to speech) and recorded voices?](navigation/#what-is-the-difference-between-tts-text-to-speech-and-recorded-voices)
-- [Import GPX file](setup#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
-- [Why does OsmAnd not offer access to Google Maps?](maps-data#)
-- [Trip recording or navigation stops while screen is off](general#)
+- [Why route calculation is slow?](troubleshooting/navigation/#route-calculation-is-slow)
+- [What is the difference between TTS (text to speech) and recorded voices?](troubleshooting/navigation/#what-is-the-difference-between-tts-text-to-speech-and-recorded-voices)
+- [Import GPX file](troubleshooting/setup#i-have-a-gpx-file-how-do-i-get-it-into-osmand)
+- [Why does OsmAnd not offer access to Google Maps?](troubleshooting/maps-data#)
+- [Trip recording or navigation stops while screen is off](troubleshooting/general#)
 .....
 
 

@@ -1,5 +1,5 @@
 ---
-title: Navigation troubleshooting
+title: Navigation
 intro: "Most typical issues encountered in navigation mode"
 versions: '*'
 ---
