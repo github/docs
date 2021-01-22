@@ -30,7 +30,7 @@ jobs:
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Setup node
-        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
+        uses: actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e
         with:
           node-version: 14.x
 
