@@ -700,7 +700,7 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this case, needs to be installed in the environment, please check [the documentation on virtual environments](https://github.com/actions/virtual-environments) for the list of commands, languages and utilities available.
+The command used, `perl` in this example, must be installed on the runner. For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
 
 #### Exit codes and error action preference
 
