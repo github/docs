@@ -1,6 +1,7 @@
 /* global page, browser */
 const sleep = require('await-sleep')
 const querystring = require('querystring')
+const { latest } = require('../../lib/enterprise-server-releases')
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -226,6 +227,17 @@ describe('card filters', () => {
 
   it('works with select input', async () => {
     await page.goto('http://localhost:4001/en/actions/guides')
+    await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
+    const shownCards = await page.$$('.js-filter-card:not(.d-none)')
+    const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>
+      cards.map(card => card.dataset.type)
+    )
+    shownCardsAttrib.map(attrib => expect(attrib).toBe('overview'))
+    expect(shownCards.length).toBeGreaterThan(0)
+  })
+
+  it('works with select input on an Enterprise version', async () => {
+    await page.goto(`http://localhost:4001/en/enterprise-server@${latest}/actions/guides`)
     await page.select('.js-filter-card-filter-dropdown[name="type"]', 'overview')
     const shownCards = await page.$$('.js-filter-card:not(.d-none)')
     const shownCardsAttrib = await page.$$eval('.js-filter-card:not(.d-none)', cards =>

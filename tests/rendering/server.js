@@ -52,8 +52,7 @@ describe('server', () => {
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
-    expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
-    
+
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
