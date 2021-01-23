@@ -1,5 +1,6 @@
 ---
 title: GitHub 的产品
+intro: '{% data variables.product.prodname_dotcom %} 的产品和定价计划概述。'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -97,7 +98,7 @@ versions:
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" and "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
+- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. 更多信息请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)”。{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}。 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)“。{% endif %}
 - [组织的 {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
 
-有关注册 {% data variables.product.prodname_ghe_one %} 的更多信息，请联系 [{% data variables.product.product_name %} 的销售团队](https://enterprise.github.com/contact)。
+有关注册 {% data variables.product.prodname_ghe_one %} 的更多信息，请联系 {% data variables.contact.contact_enterprise_sales %}。

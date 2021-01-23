@@ -164,14 +164,14 @@ Cria uma mensagem de erro e a imprime no log. Cria uma mensagem de erro e a impr
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
-### Grouping log lines
+### Agrupar linhas dos registros
 
 ```
 ::group::{title}
 ::endgroup::
 ```
 
-Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
+Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
 
 #### Exemplo
 
@@ -181,7 +181,7 @@ echo "Inside group"
 echo "::endgroup::"
 ```
 
-![Foldable group in workflow run log](/assets/images/actions-log-group.png)
+![Grupo dobrável no registro da execução do fluxo de trabalho](/assets/images/actions-log-group.png)
 
 ### Mascarar um valor no registro
 
@@ -278,7 +278,7 @@ echo "action_state=yellow" >> $GITHUB_ENV
 
 Executar `$action_state` em uma etapa futura agora retornará `amarelo`
 
-#### Multiline strings
+#### Strings de linha múltipla
 
 Para strings linha múltipla, você pode usar um delimitador com a seguinte sintaxe.
 
@@ -305,11 +305,13 @@ steps:
 
 `echo "{path}" >> $GITHUB_PATH`
 
-Agrega um diretório à variável de sistema `PATH` para todas as ações subsequentes no trabalho atual. A ação que está em execução não pode acessar a nova variável de caminho.
+Prepends a directory to the system `PATH` variable and makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
 #### Exemplo
 
+This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
+
 ``` bash
-echo "/path/to/dir" >> $GITHUB_PATH
+echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 {% endif %}

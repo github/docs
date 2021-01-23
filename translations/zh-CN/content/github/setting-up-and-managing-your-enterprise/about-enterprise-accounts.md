@@ -20,13 +20,13 @@ versions:
 - 安全性（单点登录、双重身份验证）
 - 与 {% data variables.contact.enterprise_support %} 共享请求和支持包
 
-{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}有关管理 {% data variables.product.prodname_ghe_cloud %} 订阅的更多信息，请参阅“[查看企业帐户的订阅和使用情况](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)”。 有关管理 {% data variables.product.prodname_ghe_server %} 帐单设置的更多信息，请参阅“[管理企业的帐单](/admin/overview/managing-billing-for-your-enterprise)”。
 
 有关 {% data variables.product.prodname_ghe_cloud %} 与 {% data variables.product.prodname_ghe_server %} 之间差异的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。 要升级至 {% data variables.product.prodname_enterprise %} 或开始使用企业帐户，请联系 {% data variables.contact.contact_enterprise_sales %}。
 
-For more information about member access and management, see "{% if currentVersion == "free-pro-team@latest" %}[Managing users in your enterprise](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[Managing users, organizations, and repositories](/admin/user-management){% endif %}."
+有关成员权限和管理的更多信息，请参阅“{% if currentVersion == "free-pro-team@latest" %}[管理企业中的用户](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise){% elsif currentVersion == "enterprise-ae@latest" or enterpriseServerVersions contains currentVersion %}[管理用户、组织和仓库](/admin/user-management){% endif %}”。
 
-有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
+有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/graphql/guides/managing-enterprise-accounts)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: '개요'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,8 +34,8 @@ You can build Docker container and JavaScript actions. Actions require a metadat
 | 유형                  | Operating system      |
 | ------------------- | --------------------- |
 | Docker container    | Linux                 |
-| JavaScript          | Linux, MacOS, Windows |
-| Composite run steps | Linux, MacOS, Windows |
+| JavaScript          | Linux, macOS, Windows |
+| Composite run steps | Linux, macOS, Windows |
 
 #### Docker container actions
 

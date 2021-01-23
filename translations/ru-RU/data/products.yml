@@ -5,10 +5,12 @@
 productsInOrder:
   - github
   - admin
+  - discussions
   - actions
   - пакеты
   - developers
   - rest
   - graphql
   - insights
+  - education
   - desktop

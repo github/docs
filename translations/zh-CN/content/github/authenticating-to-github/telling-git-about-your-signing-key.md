@@ -1,6 +1,6 @@
 ---
 title: 将您的签名密钥告知 Git
-intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
+intro: "要在本地对提交签名，您需要通知 Git 您想要使用的 GPG 或 X.509 密钥。"
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key

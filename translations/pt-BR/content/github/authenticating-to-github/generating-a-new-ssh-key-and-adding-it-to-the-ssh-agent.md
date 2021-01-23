@@ -24,7 +24,7 @@ Caso não queira reinserir sua frase secreta cada vez que usa a chave SSH, é po
   ```
   {% note %}
 
-  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  **Observação:** Se você estiver usando um sistema legado que não é compatível com o algoritmo Ed25519, use:
   ```shell
    $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
   ```
@@ -89,7 +89,7 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
+    * Abre o seu arquivo `~/.ssh/config` file, then modify the file, replacing `~/.ssh/id_ed25519` se você não estiver usando o local e nome padrão para a sua chave `id_ed25519`.
 
       ```
       Host *
@@ -98,13 +98,19 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
         IdentityFile ~/.ssh/id_ed25519
       ```
 
+     {% note %}
+
+     **Observação:** Se você optou por não adicionar uma frase secreta à sua chave, você deve omitir a linha `UseKeychain`.
+
+     {% endnote %}
+
 3. Adicione sua chave SSH privada ao ssh-agent e armazene sua frase secreta no keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 
-  **Observação:** a opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent.
+  **Observação:** a opção `-K` está presente na versão padrão da Apple do `ssh-add` e armazena a frase secreta no keychain quando você adiciona uma chave SSH ao ssh-agent. Se você optou por não adicionar uma frase secreta à sua chave, execute o comando sem a opção `-K`.
 
   Caso não tenha a versão standard da Apple instalada, você poderá receber uma mensagem de erro. Para obter mais informações sobre como resolver esse erro, consulte "[Erro: ssh-add: opção ilícita -- K](/articles/error-ssh-add-illegal-option-k)".
 
@@ -120,8 +126,8 @@ Antes de adicionar uma nova chave SSH ao ssh-agent para gerenciar suas chaves, v
 
 1. Certifique-se de que o ssh-agent está em execução. Você pode usar as instruções "Lançamento automático do ssh-agent" em "[Trabalhando com palavras-chave SSH](/articles/working-with-ssh-key-passphrases)" ou iniciá-lo manualmente:
   ```shell
-  # inicie o ssh-agent em segundo plano
-  $ eval $(ssh-agent -s)
+  # start the ssh-agent in the background
+  $ eval `ssh-agent -s`
   > Agent pid 59566
   ```
 

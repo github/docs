@@ -21,5 +21,5 @@ versions:
 
 您可以查看测试版中可用的功能列表以及各功能的简短说明。 每项功能都包含一个链接，用于提供反馈。
 
-1. 在任何页面的右上角，单击您的个人资料照片，然后单击 **Feature preview（功能预览）**。 ![功能预览按钮](/assets/images/help/settings/feature-preview-button.png)
+{% data reusables.feature-preview.feature-preview-setting  %}
 2. （可选）在功能右侧，单击 **Enable（启用）**或 **Disable（禁用）**。 ![在功能预览中启用按钮](/assets/images/help/settings/enable-feature-button.png)

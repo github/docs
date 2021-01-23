@@ -4,10 +4,11 @@ intro: '{% data variables.product.prodname_actions %} と GitLab CI/CDはいく�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -20,7 +21,7 @@ GitLab CI/CD と {% data variables.product.prodname_actions %} は、どちら�
 
 いくつかの違いがありますので、このガイドでは、ワークフローを {% data variables.product.prodname_actions %} に移行できるようにする際の重要な違いを説明します。
 
-### Jobs
+### ジョブ
 
 GitLab CI/CD のジョブは、{% data variables.product.prodname_actions %} のジョブと非常によく似ています。 どちらのシステムでも、ジョブは以下の特徴を持ちます。
 
@@ -262,7 +263,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "This job will be run first, in parallel with build_a"
-  
+
   test_ab:
     runs-on: ubuntu-latest
     needs: [build_a,build_b]
@@ -346,7 +347,7 @@ jobs:
 </tr>
 </table>
 
-詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/guides/caching-dependencies-to-speed-up-workflows)」を参照してください。
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners. 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ### 成果物
 
@@ -367,7 +368,7 @@ GitLab CI/CD
 <td class="d-table-cell v-align-top">
 {% raw %}
 ```yaml
-script: 
+script:
 artifacts:
   paths:
   - math-homework.txt
@@ -414,20 +415,20 @@ GitLab CI/CD
 container-job:
   variables:
     POSTGRES_PASSWORD: postgres
-    # PostgreSQL サービスコンテナとの通信に 
-    # 使用されるホスト名
+    # The hostname used to communicate with the
+    # PostgreSQL service container
     POSTGRES_HOST: postgres
-    # デフォルトの PostgreSQL ポート
+    # The default PostgreSQL port
     POSTGRES_PORT: 5432
   image: node:10.18-jessie
   services:
     - postgres
   script:
-  # 「package.json」ファイル内のすべての依存関係の 
-  # クリーンインストールを実行する
+  # Performs a clean installation of all dependencies
+  # in the `package.json` file
    - npm ci
-   # PostgreSQL クライアントを作成してクライアントにデータを入力し 
-   # データを取得するスクリプトを実行する
+   # Runs a script that creates a PostgreSQL client,
+   # populates the client with data, and retrieves data
    - node client.js
   tags:
     - docker
@@ -452,20 +453,20 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      # 「package.json」ファイル内のすべての依存関係の 
-      # クリーンインストールを実行する
+      # Performs a clean installation of all dependencies
+      # in the `package.json` file
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # PostgreSQL クライアントを作成してクライアントにデータを入力し 
-        # データを取得するスクリプトを実行する
+        # Runs a script that creates a PostgreSQL client,
+        # populates the client with data, and retrieves data
         run: node client.js
         env:
-          # PostgreSQL サービスコンテナとの通信に  
-          # 使用されるホスト名
+          # The hostname used to communicate with the
+          # PostgreSQL service container
           POSTGRES_HOST: postgres
-          # デフォルトの PostgreSQL ポート
+          # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
 {% endraw %}

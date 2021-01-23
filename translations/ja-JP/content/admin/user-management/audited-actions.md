@@ -36,12 +36,12 @@ versions:
 
 #### Enterprise configuration settings
 
-|                                                      名前 | 説明                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------------------------------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `business.update_member_repository_creation_permission` | A site admin restricts repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."                                                                                       |
-|               `business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."                                                                         |
-|           `enterprise.config.lock_anonymous_git_access` | A site admin locks anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)." |
-|         `enterprise.config.unlock_anonymous_git_access` | A site admin unlocks anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."     |
+|                                                      名前 | 説明                                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `business.update_member_repository_creation_permission` | A site admin restricts repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."                                                                                              |
+|               `business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% if enterpriseServerVersions contains currentVersion %}
+|           `enterprise.config.lock_anonymous_git_access` | A site admin locks anonymous Git read access to prevent repository admins from changing existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."        |
+|         `enterprise.config.unlock_anonymous_git_access` | A site admin unlocks anonymous Git read access to allow repository admins to change existing anonymous Git read access settings for repositories in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)."{% endif %}
 
 #### Issue およびプルリクエスト
 
@@ -77,23 +77,23 @@ versions:
 
 #### リポジトリ
 
-|                                         名前 | 説明                                                                                                                                                                                                                                             |
-| ------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                              `repo.access` | プライベートリポジトリが公開されたか、パブリックリポジトリが非公開にされました。                                                                                                                                                                                                       |
-|                             `repo.archive` | リポジトリがアーカイブされました。 For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."                                        |
-|                          `repo.add_member` | リポジトリにコラボレーターが追加されました。                                                                                                                                                                                                                         |
-|                              `repo.config` | サイト管理者がフォースプッシュをブロックしました。 詳しくは、 [リポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)を参照してください。                                                                      |
-|                              `repo.create` | リポジトリが作成されました。                                                                                                                                                                                                                                 |
-|                             `repo.destroy` | リポジトリが削除されました。                                                                                                                                                                                                                                 |
-|                       `repo.remove_member` | コラボレーターがリポジトリから削除されました。                                                                                                                                                                                                                        |
-|                              `repo.rename` | リポジトリの名前が変更されました。                                                                                                                                                                                                                              |
-|                            `repo.transfer` | ユーザーが転送されたリポジトリを受け取る要求を受け入れました。                                                                                                                                                                                                                |
-|                      `repo.transfer_start` | ユーザーがリポジトリを別のユーザーまたは Organization に転送する要求を送信しました。                                                                                                                                                                                              |
-|                           `repo.unarchive` | リポジトリがアーカイブ解除されました。 For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."                                      |
-| `repo.config.disable_anonymous_git_access` | 匿名 Git 読み取りアクセスがパブリックリポジトリに対して無効になります。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                     |
-|  `repo.config.enable_anonymous_git_access` | 匿名 Git 読み取りアクセスがパブリックリポジトリに対して有効になっています。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                   |
-|    `repo.config.lock_anonymous_git_access` | リポジトリの匿名 Git 読み取りアクセス設定がロックされているため、リポジトリ管理者はこの設定を変更 (有効化または無効化) できません。 詳細は「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。  |
-|  `repo.config.unlock_anonymous_git_access` | リポジトリの匿名 Git 読み取りアクセス設定がロック解除されているため、リポジトリ管理者はこの設定を変更 (有効化または無効化) できます。 詳細は「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。 |
+|                                         名前 | 説明                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                              `repo.access` | The visibility of a repository changed to private{% if enterpriseServerVersions contains currentVersion %}, public,{% endif %} or internal.                                                                                                                                                        |
+|                             `repo.archive` | リポジトリがアーカイブされました。 For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."                                                                                            |
+|                          `repo.add_member` | リポジトリにコラボレーターが追加されました。                                                                                                                                                                                                                                                                             |
+|                              `repo.config` | サイト管理者がフォースプッシュをブロックしました。 詳しくは、 [リポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)を参照してください。                                                                                                                          |
+|                              `repo.create` | リポジトリが作成されました。                                                                                                                                                                                                                                                                                     |
+|                             `repo.destroy` | リポジトリが削除されました。                                                                                                                                                                                                                                                                                     |
+|                       `repo.remove_member` | コラボレーターがリポジトリから削除されました。                                                                                                                                                                                                                                                                            |
+|                              `repo.rename` | リポジトリの名前が変更されました。                                                                                                                                                                                                                                                                                  |
+|                            `repo.transfer` | ユーザーが転送されたリポジトリを受け取る要求を受け入れました。                                                                                                                                                                                                                                                                    |
+|                      `repo.transfer_start` | ユーザーがリポジトリを別のユーザーまたは Organization に転送する要求を送信しました。                                                                                                                                                                                                                                                  |
+|                           `repo.unarchive` | リポジトリがアーカイブ解除されました。 For more information, see "[Archiving a {% data variables.product.prodname_dotcom %} repository](/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository)."{% if enterpriseServerVersions contains currentVersion %}
+| `repo.config.disable_anonymous_git_access` | Anonymous Git read access is disabled for a repository. 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                                                        |
+|  `repo.config.enable_anonymous_git_access` | Anonymous Git read access is enabled for a repository. 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                                                         |
+|    `repo.config.lock_anonymous_git_access` | リポジトリの匿名 Git 読み取りアクセス設定がロックされているため、リポジトリ管理者はこの設定を変更 (有効化または無効化) できません。 詳細は「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。                                                      |
+|  `repo.config.unlock_anonymous_git_access` | リポジトリの匿名 Git 読み取りアクセス設定がロック解除されているため、リポジトリ管理者はこの設定を変更 (有効化または無効化) できます。 For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
 
 #### サイトアドミンのツール
 
@@ -107,38 +107,42 @@ versions:
 
 #### Team
 
-|             名前 | 説明                                |
-| --------------:| --------------------------------- |
-|  `team.create` | ユーザアカウントまたはリポジトリが Team に追加されました。  |
-|  `team.delete` | ユーザアカウントまたはリポジトリが Team から削除されました。 |
-| `team.destroy` | Teamが削除されました。                     |
+|                        名前 | 説明                                                                                                                                                   |
+| -------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             `team.create` | ユーザアカウントまたはリポジトリが Team に追加されました。                                                                                                                     |
+|             `team.delete` | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+|  `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.{% endif %}
+|            `team.destroy` | A team was deleted.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
+
 
 #### ユーザ
 
-|                          名前 | 説明                                                                                                                                                       |
-| ---------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|            `user.add_email` | ユーザアカウントにメールアドレスが追加されました。                                                                                                                                |
-|         `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
-|      `user.change_password` | A user changed his or her password.{% endif %}
-|               `user.create` | 新規ユーザが作成されました。                                                                                                                                           |
-|               `user.delete` | ユーザアカウントが非同期的ジョブによって削除されました。                                                                                                                             |
-|               `user.demote` | サイトアドミンが一般ユーザアカウントに変更されました。                                                                                                                              |
-|              `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
-|         `user.failed_login` | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                                          |
-|      `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
-|                `user.login` | ユーザがサインインしました。                                                                                                                                           |
-|              `user.promote` | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                             |
-|         `user.remove_email` | ユーザアカウントからメールアドレスが削除されました。                                                                                                                               |
-|               `user.rename` | ユーザ名が変更されました。                                                                                                                                            |
-|              `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
-| `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
-|            `user.unsuspend` | サイトアドミンがユーザアカウント停止を解除しました。                                                                                                                               |
+|                              名前 | 説明                                                                                                                                                                   |
+| -------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                `user.add_email` | ユーザアカウントにメールアドレスが追加されました。                                                                                                                                            |
+|             `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
+|          `user.change_password` | A user changed his or her password.{% endif %}
+|                   `user.create` | 新規ユーザが作成されました。                                                                                                                                                       |
+|                   `user.delete` | ユーザアカウントが非同期的ジョブによって削除されました。                                                                                                                                         |
+|                   `user.demote` | サイトアドミンが一般ユーザアカウントに変更されました。                                                                                                                                          |
+|                  `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
+|             `user.failed_login` | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                                                      |
+|          `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
+|                    `user.login` | A user signed in.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
+|                  `user.promote` | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                                         |
+|             `user.remove_email` | ユーザアカウントからメールアドレスが削除されました。                                                                                                                                           |
+|                   `user.rename` | ユーザ名が変更されました。                                                                                                                                                        |
+|                  `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
+|     `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
+|                `user.unsuspend` | サイトアドミンがユーザアカウント停止を解除しました。                                                                                                                                           |
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [デプロイキー]: /guides/managing-deploy-keys/#deploy-keys
   [deploy key]: /guides/managing-deploy-keys/#deploy-keys
   [generate token]: /articles/creating-an-access-token-for-command-line-use
-  [OAuth アクセストークン]: /v3/oauth/
+  [OAuth アクセストークン]: /developers/apps/authorizing-oauth-apps
   [OAuth application]: /guides/basics-of-authentication/#registering-your-app
   [OAuth アプリケーション]: /guides/basics-of-authentication/#registering-your-app
   [2fa]: /articles/about-two-factor-authentication

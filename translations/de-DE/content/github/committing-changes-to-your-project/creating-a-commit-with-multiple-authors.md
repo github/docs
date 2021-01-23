@@ -31,7 +31,7 @@ Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen
 
 ### Commits mit Co-Autor mit {% data variables.product.prodname_desktop %} erstellen
 
-Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit einem Co-Autor erstellen. Weitere Informationen findest Du unter „[Commit-Mitteilung schreiben und Deine Änderungen via Push übertragen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)“ und „[{% data variables.product.prodname_desktop %}](https://desktop.github.com)“.
+Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit einem Co-Autor erstellen. Weitere Informationen findest Du unter „[Commit-Mitteilung schreiben und Deine Änderungen via Push übertragen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)“ und „[{% data variables.product.prodname_desktop %}](https://desktop.github.com)“.
 
 ![Einen Co-Autor zur Commit-Mitteilung hinzufügen](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -39,7 +39,17 @@ Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit e
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. Gib Deine Commit-Mitteilung ein und eine kurze, aussagekräftige Beschreibung Deiner Änderungen. Füge nach Deiner Commit-Beschreibung zwei Leerzeilen statt eines abschließenden Anführungszeichens hinzu.
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tipp:** Wenn Du auf der Befehlszeile einen Texteditor verwendest, um Deine Commit-Mitteilung einzugeben, stelle sicher, dass es zwei Zeilenumbrüche hat zwischen dem Ende Deiner Commit-Beschreibung und dem `Co-authored-by:` Commit-Trailer.
+
+  {% endtip %}
 
 3. Gib in der nächsten Zeile der Commit-Mitteilung `Co-authored-by: name <name@example.com>` mit spezifischen Informationen zu jedem Co-Autor ein. Füge nach den Angaben zu den Co-Autoren ein abschließendes Anführungszeichen ein.
 
@@ -74,4 +84,4 @@ Der neue Commit samt Mitteilung wird auf {% data variables.product.product_locat
 - „[Eine Zusammenfassung der Repository-Aktivitäten anzeigen](/articles/viewing-a-summary-of-repository-activity)“
 - „[Die Mitarbeiter eines Projekts anzeigen](/articles/viewing-a-projects-contributors)“
 - „[Eine Commit-Mitteilung ändern](/articles/changing-a-commit-message)“
-- „[Änderungen an Deinem Projekt freigeben und überprüfen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)“ in der {% data variables.product.prodname_desktop %}-Dokumentation
+- „[Änderungen an Deinem Projekt freigeben und überprüfen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#4-write-a-commit-message-and-push-your-changes)“ in der {% data variables.product.prodname_desktop %}-Dokumentation

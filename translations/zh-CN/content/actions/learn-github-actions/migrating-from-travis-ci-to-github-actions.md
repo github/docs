@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 ### 简介
@@ -163,13 +164,19 @@ git:
 </tr>
 </table>
 
+#### 在矩阵中使用环境变量
+
+Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义环境变量添加到测试矩阵，这可让您在后面的步骤中引用该变量。
+
+在 {% data variables.product.prodname_actions %}中，您可以使用 `include` 键将自定义环境变量添加到矩阵中。 {% data reusables.github-actions.matrix-variable-example %}
+
 ### {% data variables.product.prodname_actions %} 中的关键功能
 
 从 Travis CI 迁移时，请考虑 {% data variables.product.prodname_actions %} 中的以下关键功能：
 
 #### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 还包括允许您在仓库和组织级别限制对密码的访问的策略。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% if currentversion == "free-proteam@latest" or currentversion ver_gt "enterprise-server@3.0" %}环境保护规则可要求工作流程获得手动批准才能访问环境机密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 #### 在作业和工作流程之间共享文件
 
@@ -281,7 +288,7 @@ jobs:
 
 ### 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。 
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -316,7 +323,7 @@ cache: npm
 </tr>
 </table>
 
-更多信息请参阅“[缓存依赖项以加快工作流程](/actions/guides/caching-dependencies-to-speed-up-workflows)”。
+{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom %} 托管的运行器。  更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
 ### 常见任务示例
 

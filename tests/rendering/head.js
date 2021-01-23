@@ -1,4 +1,4 @@
-const { getDOM } = require('../helpers')
+const { getDOM } = require('../helpers/supertest')
 const languages = require('../../lib/languages')
 
 describe('<head>', () => {

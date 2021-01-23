@@ -1,7 +1,7 @@
 const revalidator = require('revalidator')
 const schema = require('../../lib/site-tree-schema')
 const latestEnterpriseRelease = require('../../lib/enterprise-server-releases').latest
-const { getJSON } = require('../helpers')
+const { getJSON } = require('../helpers/supertest')
 const flat = require('flat')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
@@ -24,23 +24,23 @@ describe('siteTree', () => {
   test('object order', () => {
     expect(Object.keys(siteTree)[0]).toBe('en')
     expect(Object.keys(siteTree.en)[0]).toBe(nonEnterpriseDefaultVersion)
-    expect(Object.keys(siteTree.en[nonEnterpriseDefaultVersion].products.github.categories)[0]).toBe(`/${nonEnterpriseDefaultVersion}/github/getting-started-with-github`)
+    expect(Object.keys(siteTree.en[nonEnterpriseDefaultVersion].products.github.categories)[0]).toBe('/en/github/getting-started-with-github')
   })
 
   test('object structure', () => {
     expect(nonEnterpriseDefaultVersion in siteTree.en).toBe(true)
     expect(`enterprise-server@${latestEnterpriseRelease}` in siteTree.en).toBe(true)
-    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.href`]).toBe(`/${nonEnterpriseDefaultVersion}/github`)
-    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./${nonEnterpriseDefaultVersion}/github/getting-started-with-github.href`]).toBe(`/${nonEnterpriseDefaultVersion}/github/getting-started-with-github`)
+    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.href`]).toBe('/en/github')
+    expect(flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/github/getting-started-with-github.href`]).toBe('/en/github/getting-started-with-github')
   })
 
   describe('localized titles', () => {
     test('titles for categories', () => {
-      const japaneseTitle = flatTree[`ja.${nonEnterpriseDefaultVersion}.products.github.categories./${nonEnterpriseDefaultVersion}/github/getting-started-with-github.title`]
+      const japaneseTitle = flatTree[`ja.${nonEnterpriseDefaultVersion}.products.github.categories./ja/github/getting-started-with-github.title`]
       expect(typeof japaneseTitle).toBe('string')
       expect(japaneseCharacters.presentIn(japaneseTitle)).toBe(true)
 
-      const englishTitle = flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./${nonEnterpriseDefaultVersion}/github/getting-started-with-github.title`]
+      const englishTitle = flatTree[`en.${nonEnterpriseDefaultVersion}.products.github.categories./en/github/getting-started-with-github.title`]
       expect(typeof englishTitle).toBe('string')
       expect(japaneseCharacters.presentIn(englishTitle)).toBe(false)
     })
@@ -52,7 +52,7 @@ describe('siteTree', () => {
     test('articles that include site data in liquid templating', () => {
       const pageWithDynamicTitle = siteTree.en[`enterprise-server@${latestEnterpriseRelease}`]
         .products.admin
-        .categories[`/enterprise-server@${latestEnterpriseRelease}/admin/enterprise-support`]
+        .categories[`/en/enterprise-server@${latestEnterpriseRelease}/admin/enterprise-support`]
       // Source frontmatter from article:
       // title: 'Working with {{ site.data.variables.contact.github_support }}'
       expect(pageWithDynamicTitle.title).toEqual('Working with GitHub Support')

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -122,7 +123,7 @@ jobs:
 
 #### Eine bestimmten Python-Version verwenden
 
-Du kannst eine bestimmte Version von Python konfigurieren, For example, 3.8. Alternativ kannst Du auch Syntax für semantische Versionierung verwenden, um das neuste Minor Release zu erhalten. Dieses Beispiel verwendet das neueste Minor Release von Python 3.
+Du kannst eine bestimmte Version von Python konfigurieren, For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. Dieses Beispiel verwendet das neueste Minor Release von Python 3.
 
 {% raw %}
 ```yaml
@@ -141,9 +142,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         # Semantic version range syntax or exact version of a Python version
-        python-version: '3.x' 
+        python-version: '3.x'
         # Optional - x64 or x86 architecture, defaults to x64
-        architecture: 'x64' 
+        architecture: 'x64'
     # You can test your matrix by printing the current Python version
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
@@ -192,7 +193,7 @@ Wir empfehlen, `setup-python` zu verwenden, um die Version von Python zu konfigu
 
 Auf {% data variables.product.prodname_dotcom %}-gehosteten Runnern ist der Paketmanager pip installiert. Du kannst pip verwenden, um Abhängigkeiten von der PyPI-Paket-Registry zu installieren, bevor Du Deinen Code baust und testest. Zum Beispiel installiert oder aktualisiert der folgende YAML den Paket-Installierer `pip` sowie die Pakete `setuptools` und `wheel`.
 
-Du kannst Abhängigkeiten auch im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen. Weitere Informationen findest Du unter „[Abhängigkeiten im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“.
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can also cache dependencies to speed up your workflow. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 {% raw %}
 ```yaml
@@ -228,7 +229,7 @@ steps:
 
 #### Abhängigkeiten im Cache zwischenspeichern
 
-You can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
+When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. Weitere Informationen findest Du unter „<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Abhängigkeiten zur Beschleunigung von Workflows im Cache zwischenspeichern</a>“.
 
 Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
@@ -391,7 +392,7 @@ jobs:
 
 You can configure your workflow to publish your Python package to any package registry you'd like when your CI tests pass.
 
-You can store any access tokens or credentials needed to publish your package using repository secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. Weitere Informationen findest Du unter "[Verschlüsselte Geheimnisse erstellen und verwenden](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
+You can store any access tokens or credentials needed to publish your package using secrets. The following example creates and publishes a package to PyPI using `twine` and `dist`. Weitere Informationen findest Du unter "[Verschlüsselte Geheimnisse erstellen und verwenden](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
 {% raw %}
 ```yaml

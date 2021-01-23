@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 ### はじめに
@@ -163,13 +164,19 @@ git:
 </tr>
 </table>
 
+#### Using environment variables in a matrix
+
+Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
+
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+
 ### Key features in {% data variables.product.prodname_actions %}
 
 When migrating from Travis CI, consider the following key features in {% data variables.product.prodname_actions %}:
 
 #### シークレットを保存する
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} also includes policies that allow you to limit access to secrets at the repository and organization level. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 #### Sharing files between jobs and workflows
 
@@ -187,7 +194,7 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
   - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
-  - [Building and testing PowerShell](/actions/guides/building-and-testing-powershell)
+  - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
   - [MavenでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-maven)
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)
@@ -281,7 +288,7 @@ jobs:
 
 ### 依存関係のキャッシング
 
-Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system. 
+Travis CI and {% data variables.product.prodname_actions %} let you manually cache dependencies for later reuse. This example demonstrates the cache syntax for each system.
 
 <table>
 <tr>
@@ -316,7 +323,7 @@ cache: npm
 </tr>
 </table>
 
-詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/guides/caching-dependencies-to-speed-up-workflows)」を参照してください。
+{% data variables.product.prodname_actions %} caching is only applicable to {% data variables.product.prodname_dotcom %}-hosted runners.  詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 
 ### 一般的なタスクの例
 

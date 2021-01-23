@@ -14,8 +14,8 @@ versions:
   github-ae: '*'
 ---
 
-{% data variables.product.product_name %} uses the open source [Linguist library](https://github.com/github/linguist) to
-determine file languages for syntax highlighting and repository statistics. 语言统计数据在您推送更改到默认分支后将会更新。
+{% data variables.product.product_name %} 使用开源 [Linguist 库](https://github.com/github/linguist)来
+确定用于语法突出显示和仓库统计信息的文件语言。 语言统计数据在您推送更改到默认分支后将会更新。
 
 有些文件难以识别，有时项目包含的库和供应商文件多于其主要代码。 如果您收到错误结果，请查阅 Linguist [故障排除指南](https://github.com/github/linguist#troubleshooting)寻求帮助。
 

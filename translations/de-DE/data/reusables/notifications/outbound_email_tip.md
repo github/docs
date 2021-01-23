@@ -1,7 +1,7 @@
 {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-  {% tip %}
+{% note %}
 
-  Du wirst nur dann E-Mail-Benachrichtigungen erhalten, wenn der ausgehende E-Mail-Support auf {% data variables.product.product_location %} aktiviert ist. Für weitere Informationen kontaktiere Deinen Websiteadministrator.
+**Note**: You'll only receive email notifications if outbound email support is enabled on {% data variables.product.product_location %}. Für weitere Informationen kontaktiere Deinen Websiteadministrator.
 
-  {% endtip %}
+{% endnote %}
 {% endif %}

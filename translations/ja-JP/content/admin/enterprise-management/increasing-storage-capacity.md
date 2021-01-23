@@ -20,6 +20,8 @@ versions:
 
 {% endnote %}
 
+#### Minimum requirements
+
 {% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### データパーティションサイズの増加

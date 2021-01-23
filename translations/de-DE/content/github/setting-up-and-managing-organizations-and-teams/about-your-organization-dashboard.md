@@ -37,8 +37,8 @@ Beispielsweise werden im Newsfeed der Organisation Aktualisierungen angezeigt, w
  - einen Pull-Request-Review-Kommentar absendet,
  - ein Repository forkt,
  - eine Wiki-Seite erstellt,
- - Commits pusht,
- - ein öffentliches Repository erstellt.
+ - Pushes commits.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+ - Creates a public repository.{% endif %}
 
 ### Weiterführende Informationen
 

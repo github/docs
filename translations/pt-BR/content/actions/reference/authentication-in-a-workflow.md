@@ -14,8 +14,6 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Qualquer pessoa com acesso de `gravar` em um repositório pode criar, ler e usar secredos.
-
 ### Sobre o segredo `GITHUB_TOKEN`
 
 O {% data variables.product.prodname_dotcom %} cria automaticamente um segredo `GITHUB_TOKEN` para uso no fluxo de trabalho. Você pode usar o `GITHUB_TOKEN` para autenticar em uma execução de fluxo de trabalho.
@@ -79,7 +77,7 @@ Você pode usar o `GITHUB_TOKEN` para fazer chamadas de API autenticada. Este ex
 
 ### Permissões para o `GITHUB_TOKEN`
 
-Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/v3/apps/permissions/). "
+Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/rest/reference/permissions-required-for-github-apps). "
 
 | Permissão               | Tipo de acesso   | Acesso pelos repositórios bifurcados |
 | ----------------------- | ---------------- | ------------------------------------ |

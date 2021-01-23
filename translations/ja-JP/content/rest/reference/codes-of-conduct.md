@@ -9,6 +9,6 @@ versions:
   github-ae: '*'
 ---
 
-Codes of Conduct API を使用して、リポジトリの行動規範に関する情報を取得できます。 リポジトリの行動規範を取得するには、「[Get a repository](/v3/repos/#get-a-repository)」エンドポイントを使用します。
+Codes of Conduct API を使用して、リポジトリの行動規範に関する情報を取得できます。 リポジトリの行動規範を取得するには、「[Get a repository](/rest/reference/repos#get-a-repository)」エンドポイントを使用します。
 
 {% include rest_operations_at_current_path %}

@@ -18,7 +18,7 @@ You can add YAML frontmatter to each issue template to pre-fill the issue title,
 
 Here is example YAML front matter.
 
-```
+```yaml
 ---
 name: Tracking issue
 about: Use this template for tracking new features.
@@ -39,7 +39,11 @@ assignees: octocat
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+
 {% data reusables.repositories.default-issue-templates %}
+
+{% endif %}
 
 ### Adding an issue template
 

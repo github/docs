@@ -1,6 +1,6 @@
 ---
 title: 日志转发
-intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward {% if enterpriseServerVersions contains currentVersion %}system{% elsif currentVersion == "github-ae@latest" %}Git{% endif %} and application logs to the server you specify.'
+intro: '{% data variables.product.product_name %} 使用 `syslog-ng` 将 {% if enterpriseServerVersions contains currentVersion %}系统{% elsif currentVersion == "github-ae@latest" %}Git{% endif %} 和应用程序日志转发到您指定的服务器。'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -25,18 +25,18 @@ versions:
 {% elsif currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **Log forwarding**. ![Log forwarding tab](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
-1. Under "Log forwarding", select **Enable log forwarding**. ![Checkbox to enable log forwarding](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
-1. Under "Server address", enter the address of the server you want to forward logs to. ![Server address field](/assets/images/enterprise/business-accounts/server-address-field.png)
-1. Use the "Protocol" drop-down menu, and select a protocol. ![Protocol drop-down menu](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
-1. Optionally, to enable TLS encrypted communication between syslog endpoints, select **Enable TLS**. ![Checkbox to enable TLS](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
-1. Under "Public certificate", paste your x509 certificate. ![Text box for public certificate](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
-1. 单击 **Save（保存）**。 ![Save button for log forwarding](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
+1. 在 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**下，单击 **Log forwarding（日志转发）**。 ![日志转发选项卡](/assets/images/enterprise/business-accounts/log-forwarding-tab.png)
+1. 在“Log forwarding（日志转发）”下，选择 **Enable log forwarding（启用日志转发）**。 ![启用日志转发的复选框](/assets/images/enterprise/business-accounts/enable-log-forwarding-checkbox.png)
+1. 在“Server address（服务器地址）”下，输入您想要日志转发到的服务器地址。 ![服务器地址字段](/assets/images/enterprise/business-accounts/server-address-field.png)
+1. 使用“Protocol（协议）”下拉菜单选择一个协议。 ![协议下拉菜单](/assets/images/enterprise/business-accounts/protocol-drop-down-menu.png)
+1. （可选）要在系统日志端点之间的训用 TLS 加密通信，请选择 **Enable TLS（启用 TLS）**。 ![启用 TLS 的复选框](/assets/images/enterprise/business-accounts/enable-tls-checkbox.png)
+1. 在“Public certificate（公共证书）”下，粘贴您的 x509 证书。 ![公共证书文本框](/assets/images/enterprise/business-accounts/public-certificate-text-box.png)
+1. 单击 **Save（保存）**。 ![用于日志转发的 Save（保存）按钮](/assets/images/enterprise/business-accounts/save-button-log-forwarding.png)
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion %}
 ### 疑难解答
-If you run into issues with log forwarding, contact
+如果遇到日志转发问题，请联系
 
-{% data variables.contact.contact_ent_support %} and attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email.
+{% data variables.contact.contact_ent_support %} 并在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件。
 {% endif %}

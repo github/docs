@@ -1,0 +1,40 @@
+{% if guide.page.authors %}
+  {% assign authors = guide.page.authors %}
+{% else %}
+  {% assign authors = 'GitHub' | split: ' ' %}
+{% endif %}
+{% assign authorsString = authors | join: ", @" %}
+
+<div class="col-lg-4 col-12 mb-3">
+  <a class="Box box-shadow-medium height-full d-block hover-shadow-large no-underline text-gray-dark p-5" href="{{ guide.href }}">
+    <h2>{{ guide.title }}</h2>
+    <p class="mt-2 mb-4 text-gray-light">{{ guide.intro }}</p>
+
+    <footer class="d-flex">
+      <div class="mr-1">
+        {% if authors.length == 1 %}
+          <img class="avatar avatar-2 circle mr-1" src="https://github.com/{{ authors[0] }}.png" alt="@{{ authors[0] }}" />
+        {% else %}
+          <div class="AvatarStack AvatarStack--three-plus">
+            <div
+              class="AvatarStack-body tooltipped tooltipped-se tooltipped-align-left-1"
+              aria-label="@{{ authorsString }}"
+            >
+              {% for author in authors %}
+                <img
+                  class="avatar circle"
+                  alt="@{{ author }}"
+                  src="https://github.com/{{ author }}.png"
+                />
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+
+      <div>
+        @{{ authorsString }}
+      </div>
+    </footer>
+  </a>
+</div>
