@@ -19,15 +19,19 @@ versions:
   github-ae: '*'
 ---
 
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
+
 ### 通知递送选项
 
 您可以在以下位置的 {% data variables.product.product_name %} 上接收活动的通知。
 
-  - {% data variables.product.product_name %} Web 界面{% if currentversion == "free-pro-team@latest" %}中的通知收件箱
+  - {% data variables.product.product_name %} Web 界面{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}中的通知收件箱
   - {% data variables.product.prodname_mobile %} 上的通知收件箱，它与 {% data variables.product.product_name %} 上的收件箱同步{% endif %}
-  - 使用经验证电子邮件地址的电子邮件客户端，也可以与 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} 及 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱同步
+  - 使用经验证电子邮件地址的电子邮件客户端，也可以与 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 及 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱同步
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} 更多信息请参阅“[选择通知设置](#choosing-your-notification-settings)”。
 {% endif %}
 
@@ -35,7 +39,7 @@ versions:
 
 #### 通知收件箱的优点
 
-{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱包含专为您的 {% data variables.product.product_name %} 通知流程设计的分类选项，包括：
+{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的通知收件箱包含专为您的 {% data variables.product.product_name %} 通知流程设计的分类选项，包括：
   - 一次对多种通知进行分类。
   - 将已完成的通知标记为**完成**并从收件箱中删除它们。 要查看标记为**完成**的所有通知，请使用 `is:done` 查询。
   - 保存通知以供以后查看。 保存的通知将在收件箱中标记并无限期保留。 要查看所有已保存的通知，请使用 `is:saved` 查询。
@@ -45,7 +49,7 @@ versions:
   - 创建自定义过滤器，以便按需要关注不同的通知。
   - 按仓库或日期对收件箱中的通知进行分组，以快速概览通知，减少上下文切换
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 此外，
 {% data variables.product.prodname_mobile %} 上的通知收件箱允许您在黑暗模式下对通知进行分类，并接收直接提及的推送通知。 更多信息请参阅“[为移动版 GitHub 启用推送通知](#enabling-push-notifications-with-github-for-mobile)”或“[移动版 GitHub](/github/getting-started-with-github/github-for-mobile)”。
 {% endif %}
@@ -77,7 +81,7 @@ versions:
 #### 参与对话
 每当您在对话中发表评论或有人 @提及您的用户名时，您都在_参与_对话。 默认情况下，当您参与对话时，会自动订阅该对话。 您可以通过单击议题或拉取请求上的 **Unsubscribe（取消订阅）**或通过通知收件箱中的 **Unsubscribe（取消订阅）**选项，手动取消订阅已参与的对话。
 
-对于您关注或参与的对话，您可以选择是通过电子邮件还是 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} 和 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱接收通知。
+对于您关注或参与的对话，您可以选择是通过电子邮件还是 {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" % 和 {% data variables.product.prodname_mobile %}{% endif %} 上的收件箱接收通知。
 
 ![参与和关注通知选项](/assets/images/help/notifications-v2/participating-and-watching-options.png)
 
@@ -85,7 +89,7 @@ versions:
   - 如果您不希望将通知发送到您的电子邮件地址，请取消选中 **email（电子邮件）**以便参与和查看通知。
   - 如果您希望在参与对话时通过电子邮件接收通知，则可以选中“Participating（参与）”下的 **email（电子邮件）**。
 
-如果您未对 Web{% if currentVersion == "free-pro-team@latest" %} 和移动{% endif %} 启用关注或参与通知，则您的通知收件箱不会收到任何更新。
+如果您未对 Web{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} 和移动{% endif %} 启用关注或参与通知，则您的通知收件箱不会收到任何更新。
 
 ### 自定义电子邮件通知
 
@@ -197,12 +201,14 @@ versions:
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 ### 使用 {% data variables.product.prodname_mobile %} 启用推送通知
 
 安装 {% data variables.product.prodname_mobile %} 时，您将自动选择 web 通知。 然后，您可以针对应用程序中的直接提及启用推送通知。
 
 目前，您只能针对 {% data variables.product.prodname_mobile %} 上仓库的推送接收通知。
+
+{% data reusables.mobile.push-notifications-on-ghes %}
 
 #### 使用 {% data variables.product.prodname_ios %} 启用推送通知
 
@@ -211,9 +217,11 @@ versions:
 3. 要更新通知设置，请点击 **Push notifications（推送通知）**。
 4. 要针对直接提及开启推送通知，请使用 **Direct Mentions（直接提及）**切换按钮。
 
+{% if currentVersion == "free-pro-team@latest" %}
 #### 使用 {% data variables.product.prodname_android %} 启用推送通知
 
 1. 在“Home（主页）”上，点击您的个人资料照片。
 2. 要查看设置，请点击 {% octicon "gear" aria-label="The Gear icon" %}。 ![Android 版 GitHub 的设置图标](/assets/images/help/mobile/android-settings-icon.png)
 3. 要针对直接提及开启推送通知，请使用 **Direct mentions（直接提及）**切换按钮。
+{% endif %}
 {% endif %}
