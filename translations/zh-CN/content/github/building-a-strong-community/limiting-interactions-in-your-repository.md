@@ -9,7 +9,7 @@ versions:
 permissions: 对仓库具有管理员权限的人可以临时限制该仓库中的交互。
 ---
 
-### About temporary interaction limits
+### 关于临时交互限制
 
 {% data reusables.community.interaction-limits-restrictions %}
 

@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -104,12 +105,12 @@ As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` 
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -213,7 +214,7 @@ Por exemplo, este `cleanup.js` só será executado em executores baseados no Lin
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
@@ -224,7 +225,7 @@ Como alternativa, você pode usar `$GITHUB_ACTION_PATH`:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -258,7 +259,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 #### Exemplos de uso do arquivo Docker no repositório
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -266,7 +267,7 @@ runs:
 #### Exemplo usando um contêiner de registro Docker público
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```

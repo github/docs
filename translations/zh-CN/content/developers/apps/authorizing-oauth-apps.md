@@ -72,13 +72,13 @@ versions:
 
 ##### 参数
 
-| 名称              | 类型    | 描述                                                                                                                  |
-| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端 ID。 |
-| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_github_app %} 的客户端密钥。  |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                              |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                             |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                               |
+| 名称              | 类型    | 描述                                                                                                                 |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端 ID。 |
+| `client_secret` | `字符串` | **必填。**您从 {% data variables.product.product_name %} 收到的 {% data variables.product.prodname_oauth_app %} 的客户端密钥。  |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                             |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。                                                                                            |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                              |
 
 ##### 响应
 
@@ -213,7 +213,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### 设备流程的速率限制
 
-当用户在浏览器上提交验证码时，每个应用程序在一个小时内的提交速率限制为 50 个。
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
 如果您在请求之间所需的最短时间段（或 `interval`）内发出多个访问令牌请求 (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`)，您将达到速率限制并收到 `slow_down` 错误响应。 `slow_down` 错误响应将给最近的`间隔`增加 5 秒。 更多信息请参阅“[设备流程的错误](#errors-for-the-device-flow)”。
 

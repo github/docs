@@ -167,7 +167,7 @@ For more information on creating a package, see the [maven.apache.org documentat
   {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation enabled:
   {% endif %}
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -178,7 +178,7 @@ For more information on creating a package, see the [maven.apache.org documentat
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation disabled:
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -203,7 +203,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
 
-  ```
+  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>

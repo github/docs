@@ -218,3 +218,9 @@ For more information, see "[Command-line utilities](/enterprise/{{ currentVersio
 #### Rolling back a feature release
 
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 더 읽을거리
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}
