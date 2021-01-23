@@ -329,8 +329,8 @@ describe('server', () => {
     })
 
     test('admin articles that link to Enterprise user articles have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/admin/policies/enforcing-repository-management-policies-in-your-enterprise`)
-      expect($('article a[href*="about-repository-visibility"]').length).toBe(1)
+      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/customizing-user-messages-for-your-enterprise`)
+      expect($('article a[href*="about-writing-and-formatting-on-github"]').length).toBe(1)
     })
 
     test('articles that link to external links that contain /articles/ are not rewritten', async () => {
