@@ -1,0 +1,1 @@
+`changes`|`object` | Los cambios al comentario en caso de que la acción sea `edited`. `changes[body][from]` |`string` | La versión previa del cuerpo si la acción aparece como `edited`. `pull_request`|`object` | La [solicitud de extracción](/rest/reference/pulls) a la cual pertenece el comentario. `comment`|`object` | El [comentario](/rest/reference/pulls#comments) mismo.

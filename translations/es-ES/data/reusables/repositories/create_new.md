@@ -1,0 +1,1 @@
+1. En la esquina superior derecha de cualquier página, utiliza el menú desplegable {% octicon "plus" aria-label="Plus symbol" %} y selecciona **Repositorio Nuevo**. ![Menú desplegable con opción para crear un repositorio nuevo](/assets/images/help/repository/repo-create.png)

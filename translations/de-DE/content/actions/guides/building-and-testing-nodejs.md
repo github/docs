@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +37,11 @@ Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` 
 ```yaml{:copy}
 name: Node.js CI
 
-on: [push]
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -45,7 +50,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -53,11 +58,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
 ```
 {% endraw %}
 
@@ -69,7 +72,7 @@ Der einfachste Weg, eine Node.js-Version anzugeben, ist die Aktion `setup-node` 
 
 Die Aktion `setup-node` nimmt eine Node.js-Version als Eingabe und konfiguriert diese Version auf dem Runner. Die Aktion `setup-node` findet auf jedem Runner eine bestimmte Version von Node.js aus dem Tools-Cache und legt die notwendigen Binärdateien im `PATH` ab, wo sie für den Rest des Jobs bestehen bleiben. Für Node.js mit {% data variables.product.prodname_actions %} wird empfohlen, die Aktion `setup-node` zu verwenden, weil dadurch über verschiedenen Runner und verschiedenen Versionen von Node.js hinweg ein konsistentes Verhalten sicherstellt wird. Wenn Du einen selbst gehosteten Runner verwendest, musst Du Node.js installieren und zum `PATH` hinzufügen.
 
-Die Vorlage enthält eine Matrix-Strategie, die Deinen Code mit drei Node.js-Versionen baut und testet: 8.x, 10.x und 12.x. Das 'x' ist ein Platzhalterzeichen, für das neueste Minor- und Patch-Release des jeweiligen Major-Releases steht. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Jede Version von Node.js, die im Array `node-version` festgelegt ist, erstellt einen Job, der die gleichen Schritte ausführt.
+The template includes a matrix strategy that builds and tests your code with four Node.js versions: 10.x, 12.x, 14.x, and 15.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Jede Version von Node.js, die im Array `node-version` festgelegt ist, erstellt einen Job, der die gleichen Schritte ausführt.
 
 Jeder Job in der Matrix kann mithilfe des `Matrix`-Kontexts auf den im Array `node-version` definierten Wert zugreifen. Die Aktion `setup-node` verwendet den Kontext als Eingabe für `node-version`. Die Aktion `setup-node` konfiguriert jeden Job mit einer anderen Node.js-Version bevor sie den Code baut und testet. Weitere Informationen zu Matrix-Strategien und Kontexten findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)“ und „[Kontext- und Ausdruckssyntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)“.
 
@@ -77,7 +80,7 @@ Jeder Job in der Matrix kann mithilfe des `Matrix`-Kontexts auf den im Array `no
 ```yaml
 strategy:
   matrix:
-    node-version: [8.x, 10.x, 12.x]
+    node-version: [10.x, 12.x, 14.x, 15.x]
 
 steps:
 - uses: actions/checkout@v2
@@ -115,11 +118,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-    - run: npm install
+    - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
 ```
 {% endraw %}
 
