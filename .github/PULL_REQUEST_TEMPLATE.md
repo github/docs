@@ -3,6 +3,8 @@ Thank you for contributing to this project! You must fill out the information be
 
 See our [CONTRIBUTING.md](/main/CONTRIBUTING.md) for information how to contribute.
 
+Please do not use this repo to create test pull requests. Use [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) instead.
+
 For changes to content in [site policy](https://github.com/github/docs/tree/main/content/github/site-policy), see the [CONTRIBUTING guide in the site-policy repo](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md).
 
 We cannot accept changes to our translated content right now. See the [contributing.md](/main/CONTRIBUTING.md#earth_asia-translations) for more information.
