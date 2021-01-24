@@ -105,5 +105,5 @@ You can view your own or your collaborator's pull requests in {% data variables.
 When you make changes to your local repositories or when other people make changes to the remote repositories, you will need to sync your local copy of the project with the remote repository. {% data variables.product.prodname_desktop %} can keep your local copy of a project in sync with the remote version by pushing and pulling commits. For more information, see "[Syncing your branch](/desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch)."
 
 ### Further reading
-- "[Installing and authenticating to {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop)"
+- "[Installing and(/desktop/contributing-and-collaborating-using-github-desktop) authenticating to {% data variables.product.prodname_desktop %}](/desktop/getting-started-with-github-desktop/installing-and-authenticating-to-github-desktop)"
 - "[Contributing and collaborating using {% data variables.product.prodname_desktop %}](/desktop/contributing-and-collaborating-using-github-desktop)"
