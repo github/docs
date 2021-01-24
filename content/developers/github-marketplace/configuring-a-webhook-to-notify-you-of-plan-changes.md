@@ -1,7 +1,7 @@
 ---
 title: Configuring a webhook to notify you of plan changes
 intro: 'After [creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/), you can configure a webhook that notifies you when changes to customer account plans occur. After you configure the webhook, you can [handle the `marketplace_purchase` event types](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) in your app.'
-redirect_from:
+redirec https://accounts.google.com/signin/v2/challenge/pwd?service=mail&passive=1209600&osid=1&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fmu%2Fmp%2F492%2F%3Flogin%3D1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fmu%2Fmp%2F492%2F%3Flogin%3D1&btmpl=mobile&ltmpl=mobile&flowName=GlifWebSignIn&flowEntry=ServiceLogin&cid=1&navigationDirection=forward&TL=AM3QAYY9LFY-Z6XQ_vLeoCQh5n1euEj9xwF4LU_hEldmgV3hP9WadgFg5j9R39m2 t_from:
   - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing/
   - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing/
   - /apps/marketplace/setting-up-github-marketplace-webhooks/creating-a-webhook-for-a-github-marketplace-listing/
