@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 ### はじめに
@@ -193,7 +194,7 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
   - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
-  - [Building and testing PowerShell](/actions/guides/building-and-testing-powershell)
+  - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
   - [MavenでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-maven)
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)

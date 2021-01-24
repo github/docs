@@ -44,8 +44,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
 | [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% if currentVersion == "free-pro-team@latest" %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
-| [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to disabling the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Restricting publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
+| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+| [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
 | [`org`](#org-category-actions) | Contains activities related to organization membership.{% if currentVersion == "free-pro-team@latest" %}
 | [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 | [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.{% endif %}
@@ -63,8 +63,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot %} alerts. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 | [`secret_scanning`](#secret_scanning-category-actions) | Contains organization-level configuration activities for secret scanning in existing repositories. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 | [`secret_scanning_new_repos`](#secret_scanning_new_repos-category-actions) | Contains organization-level configuration activities for secret scanning for new repositories created in the organization. {% endif %}{% if currentVersion == "free-pro-team@latest" %}
-| [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
-| [`team`](#team-category-actions) | Contains all activities related to teams in your organization.{% endif %}
+| [`sponsors`](#sponsors-category-actions) | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}
+| [`team`](#team-category-actions) | Contains all activities related to teams in your organization.
 | [`team_discussions`](#team_discussions-category-actions) | Contains activities related to managing team discussions for an organization.
 
 You can search for specific sets of actions using these terms. For example:
@@ -127,7 +127,7 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 {% data reusables.audit_log.audit-log-api-info %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Note that you can't retrieve Git events using the GraphQL API.
+Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)." 
 {% endif %}
 
 The GraphQL response can include data for up to 90 to 120 days.
@@ -307,11 +307,11 @@ For more information about the audit log REST API, see "[Organizations](/rest/re
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
 
 #### `members_can_create_pages` category actions
 
-For more information, see "[Restricting publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
+For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
 | Action | Description |
 | :- | :- |
@@ -572,7 +572,6 @@ For more information, see "[Restricting publication of {% data variables.product
 | `waitlist_join` | Triggered when you join the waitlist to become a sponsored organization (see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)")
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 #### `team` category actions
 
 | Action | Description
@@ -581,11 +580,12 @@ For more information, see "[Restricting publication of {% data variables.product
 | `add_repository` | Triggered when a team is given control of a repository.
 | `change_parent_team` | Triggered when a child team is created or [a child team's parent is changed](/articles/moving-a-team-in-your-organization-s-hierarchy).
 | `change_privacy` | Triggered when a team's privacy level is changed.
-| `create` | Triggered when a new team is created.
-| `destroy` | Triggered when a team is deleted from the organization.
+| `create` | Triggered when a new team is created.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`demote_maintainer` | Triggered when a user was demoted from a team maintainer to a team member. For more information, see "[Giving "team maintainer" permissions to an organization member](/github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %}
+| `destroy` | Triggered when a team is deleted from the organization.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+`team.promote_maintainer` | Triggered when a user was promoted from a team member to a team maintainer. For more information, see "[Giving "team maintainer" permissions to an organization member](/github/setting-up-and-managing-organizations-and-teams/giving-team-maintainer-permissions-to-an-organization-member)."{% endif %}
 | `remove_member` | Triggered when a member of an organization is [removed from a team](/articles/removing-organization-members-from-a-team).
 | `remove_repository` | Triggered when a repository is no longer under a team's control.
-{% endif %}
 
 #### `team_discussions` category actions
 

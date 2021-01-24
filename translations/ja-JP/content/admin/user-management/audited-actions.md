@@ -107,32 +107,36 @@ versions:
 
 #### Team
 
-|             名前 | 説明                                |
-| --------------:| --------------------------------- |
-|  `team.create` | ユーザアカウントまたはリポジトリが Team に追加されました。  |
-|  `team.delete` | ユーザアカウントまたはリポジトリが Team から削除されました。 |
-| `team.destroy` | Teamが削除されました。                     |
+|                        名前 | 説明                                                                                                                                                   |
+| -------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+|             `team.create` | ユーザアカウントまたはリポジトリが Team に追加されました。                                                                                                                     |
+|             `team.delete` | A user account or repository was removed from a team.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+|  `team.demote_maintainer` | A user was demoted from a team maintainer to a team member.{% endif %}
+|            `team.destroy` | A team was deleted.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `team.promote_maintainer` | A user was promoted from a team member to a team maintainer.{% endif %}
+
 
 #### ユーザ
 
-|                          名前 | 説明                                                                                                                                                       |
-| ---------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|            `user.add_email` | ユーザアカウントにメールアドレスが追加されました。                                                                                                                                |
-|         `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
-|      `user.change_password` | A user changed his or her password.{% endif %}
-|               `user.create` | 新規ユーザが作成されました。                                                                                                                                           |
-|               `user.delete` | ユーザアカウントが非同期的ジョブによって削除されました。                                                                                                                             |
-|               `user.demote` | サイトアドミンが一般ユーザアカウントに変更されました。                                                                                                                              |
-|              `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
-|         `user.failed_login` | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                                          |
-|      `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
-|                `user.login` | ユーザがサインインしました。                                                                                                                                           |
-|              `user.promote` | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                             |
-|         `user.remove_email` | ユーザアカウントからメールアドレスが削除されました。                                                                                                                               |
-|               `user.rename` | ユーザ名が変更されました。                                                                                                                                            |
-|              `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
-| `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
-|            `user.unsuspend` | サイトアドミンがユーザアカウント停止を解除しました。                                                                                                                               |
+|                              名前 | 説明                                                                                                                                                                   |
+| -------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                `user.add_email` | ユーザアカウントにメールアドレスが追加されました。                                                                                                                                            |
+|             `user.async_delete` | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% if enterpriseServerVersions contains currentVersion %}
+|          `user.change_password` | A user changed his or her password.{% endif %}
+|                   `user.create` | 新規ユーザが作成されました。                                                                                                                                                       |
+|                   `user.delete` | ユーザアカウントが非同期的ジョブによって削除されました。                                                                                                                                         |
+|                   `user.demote` | サイトアドミンが一般ユーザアカウントに変更されました。                                                                                                                                          |
+|                  `user.destroy` | A user deleted his or her account, triggering `user.async_delete`.{% if enterpriseServerVersions contains currentVersion %}
+|             `user.failed_login` | ユーザが間違ったユーザネームやパスワード、または二段階認証コードでサインインしようとしました。                                                                                                                      |
+|          `user.forgot_password` | A user requested a password reset via the sign-in page.{% endif %}
+|                    `user.login` | A user signed in.{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+| `user.mandatory_message_viewed` | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
+|                  `user.promote` | 一般ユーザアカウントがサイトアドミンへと変更されました。                                                                                                                                         |
+|             `user.remove_email` | ユーザアカウントからメールアドレスが削除されました。                                                                                                                                           |
+|                   `user.rename` | ユーザ名が変更されました。                                                                                                                                                        |
+|                  `user.suspend` | A user account was suspended by a site admin.{% if enterpriseServerVersions contains currentVersion %}
+|     `user.two_factor_requested` | A user was prompted for a two-factor authentication code.{% endif %}
+|                `user.unsuspend` | サイトアドミンがユーザアカウント停止を解除しました。                                                                                                                                           |
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [デプロイキー]: /guides/managing-deploy-keys/#deploy-keys

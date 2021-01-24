@@ -21,6 +21,7 @@ learningTracks:
   - getting_started
   - continuous_integration
   - continuous_deployment
+  - deploy_to_the_cloud
   - hosting_your_own_runners
   - create_actions
 layout: product-sublanding
@@ -28,6 +29,7 @@ layout: product-sublanding
 <!-- {% link_in_list /about-continuous-integration %} -->
 <!-- {% link_in_list /setting-up-continuous-integration-using-workflow-templates %} -->
 <!-- {% link_in_list /building-and-testing-nodejs %} -->
+<!-- {% link_in_list /building-and-testing-net %} -->
 <!-- {% link_in_list /building-and-testing-powershell %} -->
 <!-- {% link_in_list /building-and-testing-python %} -->
 <!-- {% link_in_list /building-and-testing-ruby %} -->
