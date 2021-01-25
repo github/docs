@@ -6,19 +6,23 @@ versions: '*'
 
 ## Use cases
 
-Editable Map styles are one of the main advantages of OsmAnd. Each user can customize the display of the map for himself and his hobbies, configure to show or hide certain map objects, change the scale on which to display certain objects. 
+Editable Map styles are one of the main advantages of OsmAnd. Each user can customize the display of the map for himself and his hobbies, configure to show or hide certain map objects, sizes and colors of this objects,  change the scale on which to display certain objects. 
 
 ## Default Map styles:
 
-OsmAnd offers you numerous map styles and data layers to fit the purpose. Let's take a glance at the main ones.
+OsmAnd offers you numerous map styles and data layers to fit the purpose by default. Let's take a glance at the main ones for day and night modes.
 
 ### OsmAnd
 
 OsmAnd style is the default style of map rendering. It offers details about the city such as streets, buildings, transport stops, etc.
 
+![Map styles](/assets/images/map/ms-1.png)
+
 ### Touring view
 
 Touring view is created to meet the needs of tourists and has higher contrast than the regular one.
+
+![Map styles](/assets/images/map/ms-2.png)
 
 ### UniRS and LightRS
 
