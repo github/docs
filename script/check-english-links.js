@@ -67,6 +67,9 @@ async function main () {
 
   // Update CLI output and append to logfile after each checked link.
   checker.on('link', result => {
+    // We don't need to dump all of the HTTP and HTML details
+    delete result.failureDetails
+
     fs.appendFileSync(logFile, JSON.stringify(result) + '\n')
   })
 
@@ -113,11 +116,7 @@ function displayBrokenLinks (brokenLinks) {
   const allStatusCodes = uniq(brokenLinks
     // Coerce undefined status codes into `Invalid` strings so we can display them.
     // Without this, undefined codes get JSON.stringified as `0`, which is not useful output.
-    .map(link => {
-      if (!link.status) link.status = 'Invalid'
-      return link
-    })
-    .map(link => link.status)
+    .map(link => link.status || 'Invalid')
   )
 
   allStatusCodes.forEach(statusCode => {
@@ -126,6 +125,9 @@ function displayBrokenLinks (brokenLinks) {
     console.log(`## Status ${statusCode}: Found ${brokenLinksForStatus.length} broken links`)
     console.log('```')
     brokenLinksForStatus.forEach(brokenLinkObj => {
+      // We don't need to dump all of the HTTP and HTML details
+      delete brokenLinkObj.failureDetails
+
       console.log(JSON.stringify(brokenLinkObj, null, 2))
     })
     console.log('```')

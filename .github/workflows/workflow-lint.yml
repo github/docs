@@ -2,12 +2,12 @@ name: Lint workflows
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches-ignore:
-      - translations
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches-ignore:
+  #     - translations
 
 jobs:
   lint:

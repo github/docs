@@ -28,14 +28,20 @@ versions:
     {% link_in_list /managing-unowned-organizations-in-your-enterprise-account %}
     {% link_in_list /viewing-the-audit-logs-for-organizations-in-your-enterprise-account %}
     {% link_in_list /configuring-webhooks-for-organization-events-in-your-enterprise-account %}
+{% topic_link_in_list /configuring-identity-and-access-management-for-your-enterprise-account %}
+    {% link_in_list /about-identity-and-access-management-for-your-enterprise-account %}
+    {% link_in_list /enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account %}
+    {% link_in_list /about-user-provisioning-for-organizations-in-your-enterprise-account %}
+    {% link_in_list /configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta %}
+    {% link_in_list /managing-team-synchronization-for-organizations-in-your-enterprise-account %}
 {% topic_link_in_list /setting-policies-for-organizations-in-your-enterprise-account %}
     {% link_in_list /enforcing-repository-management-policies-in-your-enterprise-account %}
     {% link_in_list /enforcing-project-board-policies-in-your-enterprise-account %}
     {% link_in_list /enforcing-team-policies-in-your-enterprise-account %}
     {% link_in_list /enforcing-security-settings-in-your-enterprise-account %}
-    {% link_in_list /configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta %}
     {% link_in_list /verifying-your-enterprise-accounts-domain %}
     {% link_in_list /restricting-email-notifications-for-your-enterprise-account-to-approved-domains %}
     {% link_in_list /enforcing-a-policy-on-dependency-insights-in-your-enterprise-account %}
     {% link_in_list /enforcing-github-actions-policies-in-your-enterprise-account %}
     {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account %}
+

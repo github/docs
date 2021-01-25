@@ -21,14 +21,24 @@ versions:
 To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the [`jobs.<job_id>.steps[*].env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv), [`jobs.<job_id>.env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idenv), and [`env`](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) keywords. For more information, see "[Workflow syntax for {% data variables.product.prodname_dotcom %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
 ```yaml
-steps:
-  - name: Hello world
-    run: echo Hello world $FIRST_NAME $middle_name $Last_Name!
+jobs:
+  weekday_job:
+    runs-on: ubuntu-latest
     env:
-      FIRST_NAME: Mona
-      middle_name: The
-      Last_Name: Octocat
+      DAY_OF_WEEK: Mon
+    steps:
+      - name: "Hello world when it's Monday"
+        if: env.DAY_OF_WEEK == 'Mon'
+        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
 ```
+
+To use the value of an environment variable in a workflow file, you should use the [`env` context](/actions/reference/context-and-expression-syntax-for-github-actions#env-context). If you want to use the value of an environment variable inside a runner, you can use the runner operating system's normal method for reading environment variables.
+
+If you use the workflow file's `run` key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the `env` context to read environment variables; this is because workflow keys (such as `if`) require the variable to be substituted during workflow processing before it is sent to the runner.
 
 You can also use the {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`GITHUB_ENV` environment file{% else %} `set-env` workflow command{% endif %} to set an environment variable that the following steps in a workflow can use. The {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}environment file{% else %} `set-env` command{% endif %} can be used directly by an action or as a shell command in a workflow file using the `run` keyword. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions/#setting-an-environment-variable)."
 

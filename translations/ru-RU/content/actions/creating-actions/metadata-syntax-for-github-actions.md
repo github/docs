@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'ссылка'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -104,12 +105,12 @@ outputs:
 {% raw %}
 ```yaml
 outputs:
-  random-number: 
+  random-number:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
-  steps: 
+  steps:
     - id: random-number-generator
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
@@ -213,7 +214,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
@@ -224,7 +225,7 @@ Alternatively, you can use `$GITHUB_ACTION_PATH`:
 ```yaml
 runs:
   using: "composite"
-  steps: 
+  steps:
     - run: $GITHUB_ACTION_PATH/script.sh
       shell: bash
 ```
@@ -258,7 +259,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 #### Example using a Dockerfile in your repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -266,7 +267,7 @@ runs:
 #### Example using public Docker registry container
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'docker://debian:stretch-slim'
 ```

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: '참조'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,14 +61,14 @@ ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
  To supply `args` defined in the action's metadata file to a Docker container that uses the _exec_ form in the `ENTRYPOINT`, we recommend creating a shell script called `entrypoint.sh` that you call from the `ENTRYPOINT` instruction:
 
 ##### Example *Dockerfile*
-``` 
+```
 # Container image that runs your code
 FROM debian:9.5-slim
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-# Executes `entrypoint.sh` when the Docker container starts up 
+# Executes `entrypoint.sh` when the Docker container starts up
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -78,14 +79,14 @@ Using the example Dockerfile above, {% data variables.product.product_name %} wi
 ``` sh
 #!/bin/sh
 
-# `$*` expands the `args` supplied in an `array` individually 
+# `$*` expands the `args` supplied in an `array` individually
 # or splits `args` in a string separated by whitespace.
 sh -c "echo $*"
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
   ``` sh
-  chmod +x entrypoint.sh    
+  chmod +x entrypoint.sh
   ```
 
 When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:

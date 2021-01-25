@@ -4,6 +4,7 @@ intro: You can use labels to organize your self-hosted runners based on their ch
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: '튜토리얼'
 ---
 
 {% data reusables.actions.enterprise-beta %}

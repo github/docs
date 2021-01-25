@@ -1,0 +1,1 @@
+Puedes volver a solicitar una revisión, por ejemplo, después de que hayas hecho cambios sustanciales a tu solicitud de cambios. Para solicitar que un revisor haga una revisión nueva, en la barra lateral de la pestaña de **Conversación**, da clic en el icono de {% octicon "sync" aria-label="The sync icon" %}.

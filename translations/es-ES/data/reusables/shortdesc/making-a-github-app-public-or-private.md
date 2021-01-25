@@ -1,0 +1,1 @@
+Cuando configuras una GitHub App, puedes hacer que su instalación sea pública para que cualquier usario u organización de GitHub pueda instalarla, o privada para que solo la puedas instalar en la cuenta que la creó.

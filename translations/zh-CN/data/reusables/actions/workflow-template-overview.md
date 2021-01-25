@@ -1,0 +1,3 @@
+{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can customize to create your own continuous integration workflow. {% data variables.product.product_name %} analyzes your code and shows you CI templates that might be useful for your repository. 例如，如果仓库包含 Node.js 代码，您就会看到 Node.js 项目的建议。 您可以使用工作流程模板作为基础来构建自定义工作流程，或按原样使用模板。
+
+您可以在 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) 仓库{% else %} {% data variables.product.product_location %} 上的 `actions/starter-workflows` 仓库{% endif %}中浏览工作流程模板的完整列表。

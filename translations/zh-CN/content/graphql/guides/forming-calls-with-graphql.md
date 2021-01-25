@@ -103,6 +103,7 @@ GraphQL 查询仅返回您指定的数据。 要建立查询，必须指定[字�
 <pre>mutation {
   <em>mutationName</em>(input: {<em>MutationNameInput!</em>}) {
     <em>MutationNamePayload</em>
+  }
 }</pre>
 
 本示例中的输入对象为 `MutationNameInput`，有效负载对象为 `MutationNamePayload`。

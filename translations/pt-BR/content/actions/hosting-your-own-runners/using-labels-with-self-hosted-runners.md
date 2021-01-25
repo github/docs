@@ -4,6 +4,7 @@ intro: Você pode usar etiquetas para organizar os seus executores auto-hospedad
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}

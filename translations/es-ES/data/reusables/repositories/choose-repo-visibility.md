@@ -1,0 +1,1 @@
+1. Elige la visibilidad del repositorio. Para obtener más información, consulta la sección "[Acerca de la visibilidad de un repositorio](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)". ![Botones radiales para seleccionar la visibilidad del repositorio](/assets/images/help/repository/create-repository-public-private.png)

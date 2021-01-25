@@ -1,6 +1,6 @@
 ---
 title: インボックスからの通知を管理する
-intro: 'インボックスを使用して、メール{% if currentVersion == "free-pro-team@latest" %}とモバイル{% endif %}間で通知をすばやくトリアージして同期します。'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -10,9 +10,13 @@ versions:
   github-ae: '*'
 ---
 
+{% if enterpriseServerVersions contains currentVersion %}
+{% data reusables.mobile.ghes-release-phase %}
+{% endif %}
+
 ### インボックスについて
 
-{% if currentVersion == "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.22" %}
 {% data reusables.notifications-v2.notifications-inbox-required-setting %} 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)」を参照してください。
 {% endif %}
 
@@ -86,31 +90,16 @@ versions:
 
 ### カスタムフィルタでサポートされているクエリ
 
-使用できるフィルタには、次の 3 種類があります。
+These are the types of filters that you can use:
   - `repo:` を使用したリポジトリによるフィルタ
   - `is:` を使用したディスカッションタイプによるフィルタ
-  - `reason:` を使用した通知理由によるフィルタ
+  - Filter by notification reason with `reason:`{% if currentVersion == "free-pro-team@latest" %}
+  - Filter by notification author with `author:`
+  - Filter by organization with `org:`{% endif %}
 
-`repo:` フィルタを追加するには、リポジトリの所有者をクエリに含める必要があります。 たとえば、`repo:atom/atom` は、Atom Organization が所有する Atom リポジトリを表します。
+#### Supported `repo:` queries
 
-#### サポートされている `reason:` クエリ
-
-更新を受信した理由で通知をフィルタするには、`reason:` クエリを使用できます。 たとえば、自分 (または自分が所属する Team) がプルリクエストのレビューをリクエストされたときに通知を表示するには、`reason:review-requested` を使用します。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)」を参照してください。
-
-| クエリ                       | 説明                                                                                           |
-| ------------------------- | -------------------------------------------------------------------------------------------- |
-| `reason:assign`           | 割り当てられている Issue またはプルリクエストに更新があるとき。                                                          |
-| `reason:author`           | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。                                                    |
-| `reason:comment`          | Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。                                                    |
-| `reason:participating`    | Issue、プルリクエスト、Team ディスカッションについてコメントしたり、@メンションされているとき。                                        |
-| `reason:invitation`       | Team、Organization、またはリポジトリに招待されたとき。                                                          |
-| `reason:manual`           | まだサブスクライブしていない Issue またはプルリクエストで [**Subscribe**] をクリックしたとき。                                  |
-| `reason:mention`          | 直接@メンションされたとき。                                                                               |
-| `reason:review-requested` | 自分または参加している Team が、プルリクエストを確認するようにリクエストされているとき。{% if currentVersion != "github-ae@latest" %}
-| `reason:security-alert`   | リポジトリに対してセキュリティアラートが発行されたとき。{% endif %}
-| `reason:state-change`     | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。                       |
-| `reason:team-mention`     | メンバーになっている Team が@メンションされたとき。                                                                |
-| `reason:ci-activity`      | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。                                                       |
+To add a `repo:` filter, you must include the owner of the repository in the query: `repo:owner/repository`. An owner is the organization or the user who owns the {% data variables.product.prodname_dotcom %} asset that triggers the notification. For example, `repo:octo-org/octo-repo` will show notifications triggered in the octo-repo repository within the octo-org organization.
 
 #### サポートされている `is:` クエリ
 
@@ -138,3 +127,59 @@ versions:
 - `is:done`
 - `is:unread`
 - `is:read`
+
+#### サポートされている `reason:` クエリ
+
+更新を受信した理由で通知をフィルタするには、`reason:` クエリを使用できます。 たとえば、自分 (または自分が所属する Team) がプルリクエストのレビューをリクエストされたときに通知を表示するには、`reason:review-requested` を使用します。 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)」を参照してください。
+
+| クエリ                       | 説明                                                                                           |
+| ------------------------- | -------------------------------------------------------------------------------------------- |
+| `reason:assign`           | 割り当てられている Issue またはプルリクエストに更新があるとき。                                                          |
+| `reason:author`           | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。                                                    |
+| `reason:comment`          | Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。                                                    |
+| `reason:participating`    | Issue、プルリクエスト、Team ディスカッションについてコメントしたり、@メンションされているとき。                                        |
+| `reason:invitation`       | Team、Organization、またはリポジトリに招待されたとき。                                                          |
+| `reason:manual`           | まだサブスクライブしていない Issue またはプルリクエストで [**Subscribe**] をクリックしたとき。                                  |
+| `reason:mention`          | 直接@メンションされたとき。                                                                               |
+| `reason:review-requested` | 自分または参加している Team が、プルリクエストを確認するようにリクエストされているとき。{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | リポジトリに対してセキュリティアラートが発行されたとき。{% endif %}
+| `reason:state-change`     | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。                       |
+| `reason:team-mention`     | メンバーになっている Team が@メンションされたとき。                                                                |
+| `reason:ci-activity`      | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。                                                       |
+
+{% if currentVersion == "free-pro-team@latest" %}
+#### Supported `author:` queries
+
+To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.
+
+#### Supported `org:` queries
+
+To filter notifications by organization, you can use the  `org` query. The organization you need to specify in the query is the organization of the repository for which you are being notified on {% data variables.product.prodname_dotcom %}. This query is useful if you belong to several organizations, and want to see notifications for a specific organization.
+
+For example, to see notifications from the octo-org organization, use `org:octo-org`.
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+### {% data variables.product.prodname_dependabot %} custom filters
+
+{% if currentVersion == "free-pro-team@latest" %}
+If you use
+{% data variables.product.prodname_dependabot %} to keep your dependencies up-to-date, you can use and save these custom filters:
+- `is:repository_vulnerability_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
+- `reason:security_alert` to show notifications for {% data variables.product.prodname_dependabot_alerts %} and security update pull requests.
+- `author:app/dependabot` to show notifications generated by {% data variables.product.prodname_dependabot %}. This includes {% data variables.product.prodname_dependabot_alerts %}, security update pull requests, and version update pull requests.
+For more information about
+
+{% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+If you use
+{% data variables.product.prodname_dependabot %} to keep your dependencies-up-to-date, you can use and save the `is:repository_vulnerability_alert` custom filter to show notifications for {% data variables.product.prodname_dependabot_alerts %}.
+For more information about
+
+{% data variables.product.prodname_dependabot %}, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+{% endif %}
+
+{% endif %}

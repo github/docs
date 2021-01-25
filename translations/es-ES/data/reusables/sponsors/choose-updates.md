@@ -1,0 +1,1 @@
+4. Decide si quieres recibir actualizaciones por correo electrónico desde la cuenta patrocinada y después selecciona o deselecciona "Recibir actualizaciones desde _CUENTA_". ![Casilla de verificación para recibir actualizaciones de la cuenta patrocinada](/assets/images/help/sponsors/updates-checkbox-manage.png)

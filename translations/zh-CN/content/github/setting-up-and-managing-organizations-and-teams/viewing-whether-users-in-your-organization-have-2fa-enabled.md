@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**Note:** You can require that all members{% if currentVersion == "free-pro-team@latest" %}, including, owners, billing managers and{% else %} and{% endif %} outside collaborators in your organization have two-factor authentication enabled. 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
+**注：**您可以要求所有成员{% if currentVersion == "free-pro-team@latest" %}（包括组织中的所有者、帐单管理员和{% else %} 和{% endif %} 外部协作者）均启用双因素身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)”。
 
 {% endnote %}
 

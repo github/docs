@@ -1,0 +1,1 @@
+Opcionalmente, puedes elegir un repositorio de plantilla como un código de inicio para la tarea. El repositorio de plantilla debe pertenecer a tu organización o ser un repositorio público en {% data variables.product.product_name %}. 

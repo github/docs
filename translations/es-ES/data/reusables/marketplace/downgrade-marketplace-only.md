@@ -1,0 +1,1 @@
+Canceling an app or downgrading an app to free does not affect your [other paid subscriptions](/articles/about-billing-on-github) on {% data variables.product.prodname_dotcom %}. Si deseas cancelar todas tus suscripciones pagas en {% data variables.product.prodname_dotcom %}, debes bajar de categoría cada suscripción paga por separado.

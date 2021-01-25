@@ -8,7 +8,6 @@ versions:
 ---
 
 {% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About {% data variables.product.prodname_actions %} permissions for your enterprise
 

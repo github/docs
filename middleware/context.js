@@ -7,6 +7,7 @@ const { getVersionStringFromPath, getProductStringFromPath, getPathWithoutLangua
 const productNames = require('../lib/product-names')
 const warmServer = require('../lib/warm-server')
 const featureFlags = Object.keys(require('../feature-flags'))
+const builtAssets = require('../lib/built-asset-urls')
 
 // Supply all route handlers with a baseline `req.context` object
 // Note that additional middleware in middleware/index.js adds to this context object
@@ -41,6 +42,9 @@ module.exports = async function contextualize (req, res, next) {
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree
   req.context.pages = pageMap
+
+  // JS + CSS asset paths
+  req.context.builtAssets = builtAssets
 
   return next()
 }

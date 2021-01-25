@@ -9,18 +9,36 @@ redirect_from:
   - /github/managing-security-vulnerabilities/managing-alerts-for-vulnerable-dependencies-in-your-organization
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 ---
 
-### セキュリティおよび分析機能の有効化または無効化
+{% if currentVersion == "free-pro-team@latest" %}
+### Enabling or disabling security and analysis features for public repositories
 
-{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
+You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-public.png)
+{% endif %}
+
+### Enabling or disabling security and analysis features{% if currentVersion == "free-pro-team@latest" %} for private repositories{% endif %}
+
+You can manage the security and analysis features for your {% if currentVersion == "free-pro-team@latest" %}private or internal {% endif %}repository. If your organization or enterprise has a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。 ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable.png)
+4. [Configure security and analysis features] で、機能の右側にある [**Disable**] または [**Enable**] をクリックします。
+{% if currentVersion == "free-pro-team@latest" %}If "{% data variables.product.prodname_secret_scanning_caps %}" is not displayed, you may need to enable {% data variables.product.prodname_GH_advanced_security %} first.
+  ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-dotcom-private.png)
+  {% endif %}
+  {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+  ![[Configure security and analysis] 機能の [Enable] または [Disable] ボタン](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghe.png)
+  {% endif %}
 
 ### セキュリティアラートへのアクセスを許可する
 
@@ -35,7 +53,13 @@ Organization owners and repository administrators can only grant access to view 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Access to alerts", in the search field, start typing the name of the person or team you'd like to find, then click a name in the list of matches. ![ユーザまたは Team にセキュリティアラートへのアクセスを付与するための検索フィールド](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+4. Under "Access to alerts", in the search field, start typing the name of the person or team you'd like to find, then click a name in the list of matches.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![ユーザまたは Team にセキュリティアラートへのアクセスを付与するための検索フィールド](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search.png)
+   {% endif %}
+   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   ![ユーザまたは Team にセキュリティアラートへのアクセスを付与するための検索フィールド](/assets/images/help/repository/security-and-analysis-security-alerts-person-or-team-search-ghe.png)
+   {% endif %}
 5. [**Save changes**] をクリックします。 ![セキュリティアラート設定を変更するための "Save changes" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-save-changes.png)
 
 ### セキュリティアラートへのアクセスを削除する
@@ -43,7 +67,14 @@ Organization owners and repository administrators can only grant access to view 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click {% octicon "x" aria-label="X symbol" %}. ![リポジトリのセキュリティアラートへのアクセスを削除する "x" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+4. Under "Access to alerts", to the right of the person or team whose access you'd like to remove, click
+{% octicon "x" aria-label="X symbol" %}.
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![リポジトリのセキュリティアラートへのアクセスを削除する "x" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
+   {% endif %}
+   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   ![リポジトリのセキュリティアラートへのアクセスを削除する "x" ボタン](/assets/images/help/repository/security-and-analysis-security-alerts-username-x-ghe.png)
+   {% endif %}
 
 ### 参考リンク
 

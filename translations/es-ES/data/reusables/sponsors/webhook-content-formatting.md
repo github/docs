@@ -1,0 +1,1 @@
+4. Debajo de "Tipo de contenido", selecciona qué formato de datos quisieras recibir. Para obtener más información, consulta la sección "[Crear webhooks](/webhooks/creating/#content-type)" ![Menú para dar formato a los webhooks](/assets/images/help/sponsors/webhook-content-menu.png)

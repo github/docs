@@ -1,0 +1,1 @@
+1. En el campo dominio, escribe el dominio que deseas verificar, después haz clic en **Add domain (Agregar dominio)**. ![Campo para agregar un dominio](/assets/images/help/organizations/add-domain-field.png)

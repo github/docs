@@ -15,8 +15,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}{% link_in_list /using-the-visualization-graph %}{% endif %}
 {% link_in_list /viewing-workflow-run-history %}

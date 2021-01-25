@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -103,16 +104,16 @@ outputs:
 
 {% raw %}
 ```yaml
-Outputs:
-  Zufallszahl: 
-    Beschreibung: "Zufallszahl"
-    Wert:{{ steps.random-number-generator.outputs.random-id }}
-läuft:
-  mit: "composite"
-  Schritten: 
-    - id: zuzufälliger Zahlengenerator
-      ausführen: echo "::set-output name=random-id::'(echo $RANDOM)"
-      Shell: bash
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: random-number-generator
+      run: echo "::set-output name=random-id::$(echo $RANDOM)"
+      shell: bash
 ```
 {% endraw %}
 
@@ -211,22 +212,22 @@ In diesem Beispiel läuft `cleanup.js` nur auf Linux-basierten Runnern:
 
 {% raw %}
 ```yaml
-läuft:
-  mit: "composite"
-  Schritte: 
-    - ausführen:{{ github.action_path }}/test/script.sh
-      Shell: bash
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/test/script.sh
+      shell: bash
 ```
 {% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
 
 ```yaml
-läuft:
-  verwenden: "composite"
-  Schritte: 
-    - ausführen: $GITHUB_ACTION_PATH/script.sh
-      Shell: bash
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: bash
 ```
 
 For more information, see "[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
@@ -258,7 +259,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 #### Beispiel für die Nutzung eines Dockerfiles in Deinem Repository
 
 ```yaml
-runs: 
+runs:
   using: 'docker'
   image: 'Dockerfile'
 ```
@@ -266,9 +267,9 @@ runs:
 #### Beispiel zur Nutzung des öffentlichen Docker-Registry-Containers
 
 ```yaml
-läuft: 
-  mit: 'docker'
-  Image: 'docker://debian:stretch-slim'
+runs:
+  using: 'docker'
+  image: 'docker://debian:stretch-slim'
 ```
 
 #### `runs.using`

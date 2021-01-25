@@ -218,3 +218,9 @@ Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{
 #### Rollback einer Feature-Veröffentlichung durchführen
 
 Um ein Rollback von einer Feature-Veröffentlichung durchzuführen, stellen Sie diese über einen VM-Snapshot wieder her, um sicherzustellen, dass die Root- und Datenpartitionen einen konsistenten Zustand aufweisen. Weitere Informationen finden Sie unter „[Snapshot erstellen](#taking-a-snapshot)“.
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### Weiterführende Informationen
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

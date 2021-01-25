@@ -24,7 +24,7 @@ A CI server hosts code that runs CI tests such as code linters (which check styl
 
 The [Checks API](/rest/reference/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
 
-A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/reference/repos#branches) can prevent people from merging pull requests prematurely. See "[Enabling required status checks](/articles/enabling-required-status-checks/)" for more details.
+A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/reference/repos#branches) can prevent people from merging pull requests prematurely. See "[About protected branches](/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging)" for more details.
 
 The Checks API sends the [`check_suite` webhook event](/webhooks/event-payloads/#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/rest/reference/checks#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
 
@@ -724,7 +724,7 @@ To push to a repository, your app must have write permissions for "Repository co
 
 In order to commit files, Git must know which [username](/articles/setting-your-username-in-git/) and [email](/articles/setting-your-commit-email-address-in-git/) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. For example:
 
-```
+```ini
 GITHUB_APP_USER_NAME=Octoapp
 GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
 ```

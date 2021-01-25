@@ -23,7 +23,6 @@ versions:
     {% link_in_list /increasing-storage-capacity %}
     {% link_in_list /increasing-cpu-or-memory-resources %}
     {% link_in_list /migrating-from-github-enterprise-1110x-to-2123 %}
-    {% link_in_list /migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later %}
 {% topic_link_in_list /configuring-clustering %}
     {% link_in_list /about-clustering %}
     {% link_in_list /differences-between-clustering-and-high-availability-ha %}

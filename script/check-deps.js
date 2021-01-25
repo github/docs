@@ -32,7 +32,6 @@ const main = async () => {
       '@babel/*',
       'babel-preset-env',
       '@primer/*',
-      'instantsearch.js',
       'querystring',
       'pa11y-ci',
       'sass',

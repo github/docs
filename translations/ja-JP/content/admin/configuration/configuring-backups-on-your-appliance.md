@@ -80,6 +80,14 @@ versions:
 
 万が一、プライマリサイトで長時間の停止または壊滅的なイベントが発生した場合は、別の {% data variables.product.prodname_enterprise %} アプライアンスをプロビジョニングしてバックアップホストから復元を実行することで、{% data variables.product.product_location %} を復元できます。 アプライアンスを復元する前に、バックアップホストの SSH キーをターゲットの {% data variables.product.prodname_enterprise %} アプライアンスに認証済み SSH キーとして追加する必要があります。
 
+{%if currentVersion ver_gt "enterprise-server@2.22"%}
+{% note %}
+
+**Note:** If {% data variables.product.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance before running the the `ghe-restore` command. For more information, see "[Backing up and restoring {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %} enabled](/admin/github-actions/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+{% endnote %}
+{% endif %}
+
 最後に成功したスナップショットから {% data variables.product.product_location %} を復元するには、`ghe-restore` コマンドを使用します。 以下と同じような出力が表示されるでしょう:
 
 ```shell

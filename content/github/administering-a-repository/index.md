@@ -44,19 +44,8 @@ versions:
     {% link_in_list /managing-the-automatic-deletion-of-branches %}
 {% topic_link_in_list /defining-the-mergeability-of-pull-requests %}
     {% link_in_list /about-protected-branches %}
-    {% link_in_list /configuring-protected-branches %}
-    {% link_in_list /about-required-status-checks %}
-    {% link_in_list /types-of-required-status-checks %}
-    {% link_in_list /enabling-required-status-checks %}
-    {% link_in_list /about-branch-restrictions %}
-    {% link_in_list /enabling-branch-restrictions %}
-    {% link_in_list /about-required-reviews-for-pull-requests %}
-    {% link_in_list /enabling-required-reviews-for-pull-requests %}
-    {% link_in_list /about-required-commit-signing %}
-    {% link_in_list /enabling-required-commit-signing %}
-    {% link_in_list /requiring-a-linear-commit-history %}
-    {% link_in_list /enabling-force-pushes-to-a-protected-branch %}
-    {% link_in_list /enabling-deletion-of-a-protected-branch %}
+    {% link_in_list /managing-a-branch-protection-rule %}
+    {% link_in_list /troubleshooting-required-status-checks %}
 {% topic_link_in_list /releasing-projects-on-github %}
     {% link_in_list /about-releases %}
     {% link_in_list /managing-releases-in-a-repository %}

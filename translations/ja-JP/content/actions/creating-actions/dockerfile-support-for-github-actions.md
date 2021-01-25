@@ -8,10 +8,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Dockerfileの命令について
 
@@ -19,7 +20,7 @@ versions:
 
 ### Dockerfileの命令とオーバーライド
 
-Dockerの命令の中にはGitHub Actionと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
+Dockerの命令の中にはGitHub Actionsと関わるものがあり、アクションのメタデータファイルはDockerの命令のいくつかをオーバーライドできます。 予期しない動作を避けるために、Dockerfileが{% data variables.product.prodname_actions %}とどのように関わるかについて馴染んでおいてください。
 
 #### USER
 
@@ -60,14 +61,14 @@ ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
  アクションのメタデータファイルに定義された`args`を、`ENTRYPOINT`中で_exec_形式を使うDockerコンテナに渡すには、`ENTRYPOINT`命令から呼ぶ`entrypoint.sh`というシェルスクリプトを作成することをおすすめします。
 
 ##### *Dockerfile*の例
-``` 
+```
 # コードを実行するコンテナイメージ
 FROM debian:9.5-slim
 
-# アクションリポジトリからコンテナのファイルシステムパスの`/`にコードファイルをコピー
+# アクションのリポジトリからコードをコンテナのファイルシステムパス `/` にコピー
 COPY entrypoint.sh /entrypoint.sh
 
-# Dockerコンテナの起動時に`entrypoint.sh`を実行
+# Dockerコンテナの起動時に `entrypoint.sh` を実行
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -79,13 +80,13 @@ ENTRYPOINT ["/entrypoint.sh"]
 #!/bin/sh
 
 # `$*`は`array`内で渡された`args`を個別に展開するか、
-# を空白で区切られた文字列中の`args`を分割します。
+# 空白で区切られた文字列中の`args`を分割します。
 sh -c "echo $*"
 ```
 
 コードは実行可能になっていなければなりません。 `entrypoint.sh`ファイルをワークフロー中で使う前に、`execute`権限が付けられていることを確認してください。 この権限は、ターミナルから以下のコマンドで変更できます。
   ``` sh
-  chmod +x entrypoint.sh    
+  chmod +x entrypoint.sh
   ```
 
 `ENTRYPOINT`シェルスクリプトが実行可能ではなかった場合、以下のようなエラーが返されます。

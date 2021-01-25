@@ -66,6 +66,7 @@ module.exports = function (app) {
   app.use('/public', express.static('data/graphql'))
   app.use('/events', require('./events'))
   app.use('/csrf', require('./csrf-route'))
+  app.use('/search', require('./search'))
   app.use(require('./archived-enterprise-versions'))
   app.use(require('./robots'))
   app.use(/(\/.*)?\/early-access$/, require('./contextualizers/early-access-links'))

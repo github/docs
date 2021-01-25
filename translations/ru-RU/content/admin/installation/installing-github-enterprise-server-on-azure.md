@@ -106,8 +106,8 @@ We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can u
   {% data reusables.enterprise_installation.instance-will-restart-automatically %}
   {% data reusables.enterprise_installation.visit-your-instance %}
 
+### Дополнительная литература
 
-  ### Дополнительная литература
-
-  - "[System overview](/enterprise/admin/guides/installation/system-overview)"
+- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% if currentVersion ver_gt "enterprise-server@2.22" %}
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
   

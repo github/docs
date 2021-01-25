@@ -209,6 +209,12 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 ```
 {% endif %}
 
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Using the official NPM registry
+
+{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+{% endif %}
+
 ### 参考リンク
 
 - [パッケージの削除](/packages/publishing-and-managing-packages/deleting-a-package/)

@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, para ver tus notificaciones guardadas, da clic en **Guardado para después**. ![Botón de guardado para después](/assets/images/help/notifications/saved-for-later-tab.png)

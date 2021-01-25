@@ -1,13 +1,13 @@
 const fs = require('fs')
 const path = require('path')
 const cheerio = require('cheerio')
-const parsePageSectionsIntoRecords = require('../../../lib/algolia/parse-page-sections-into-records')
+const parsePageSectionsIntoRecords = require('../../../lib/search/parse-page-sections-into-records')
 const fixtures = {
   pageWithSections: fs.readFileSync(path.join(__dirname, 'fixtures/page-with-sections.html'), 'utf8'),
   pageWithoutSections: fs.readFileSync(path.join(__dirname, 'fixtures/page-without-sections.html'), 'utf8')
 }
 
-describe('algolia parsePageSectionsIntoRecords module', () => {
+describe('search parsePageSectionsIntoRecords module', () => {
   test('works for pages with sections', () => {
     const html = fixtures.pageWithSections
     const $ = cheerio.load(html)

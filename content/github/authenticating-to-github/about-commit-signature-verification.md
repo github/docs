@@ -19,7 +19,7 @@ You can sign commits and tags locally, so other people can verify that your work
 
 If a commit or tag has a signature that cannot be verified, {% data variables.product.product_name %} marks the commit or tag as unverified.
 
-Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About required commit signing](/articles/about-required-commit-signing)."
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches#require-signed-commits)."
 
 You can check the verification status of your signed commits or tags on {% data variables.product.product_name %} and view why your commit signatures might be unverified. For more information, see "[Checking your commit and tag signature verification status](/articles/checking-your-commit-and-tag-signature-verification-status)."
 

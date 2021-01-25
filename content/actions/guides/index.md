@@ -21,6 +21,7 @@ learningTracks:
   - getting_started
   - continuous_integration
   - continuous_deployment
+  - deploy_to_the_cloud
   - hosting_your_own_runners
   - create_actions
 layout: product-sublanding
