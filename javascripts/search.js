@@ -133,31 +133,34 @@ function debounce (fn, delay = 300) {
 async function onSearch (evt) {
   const query = evt.target.value
 
-  const url = new URL(location.origin)
-  url.pathname = '/search'
-  url.search = new URLSearchParams({ query, version, language }).toString()
+  if(query.trim()){
+    const url = new URL(location.origin)
+    url.pathname = '/search'
+    url.search = new URLSearchParams({ query, version, language }).toString()
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  const results = response.ok ? await response.json() : []
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const results = response.ok ? await response.json() : []
 
-  $searchResultsContainer.querySelectorAll('*').forEach(el => el.remove())
-  $searchResultsContainer.append(
-    tmplSearchResults(results)
-  )
+    $searchResultsContainer.querySelectorAll('*').forEach(el => el.remove())
+    $searchResultsContainer.append(
+      tmplSearchResults(results)
+    )
 
-  toggleStandaloneSearch()
+    toggleStandaloneSearch()
 
-  // Analytics tracking
-  sendEvent({
-    type: 'search',
-    search_query: query
-    // search_context
-  })
+    // Analytics tracking
+    sendEvent({
+      type: 'search',
+      search_query: query
+      // search_context
+    })
+  }
+
 }
 
 // If on homepage, toggle results container if query is present
