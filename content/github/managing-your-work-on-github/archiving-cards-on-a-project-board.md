@@ -25,3 +25,4 @@ Automation in your project board does not apply to archived project board cards.
   ![Select view archive option from menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Above the project board card you want to unarchive, click **Restore**.
   ![Select restore project board card](/assets/images/help/projects/restore-card.png)
+LICENSE
