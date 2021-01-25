@@ -11,7 +11,7 @@ versions:
 You can see examples of pre-receive hooks for {% data variables.product.prodname_ghe_server %} in the [`github/platform-samples` repository](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ### Writing a pre-receive hook script
-A pre-receive hook script executes in a pre-receive hook environment on the {% data variables.product.prodname_ghe_server %} appliance. When you create a pre-receive hook script, consider the available input, output, exit-status and environment variables.  
+A pre-receive hook script executes in a pre-receive hook environment on the {% data variables.product.prodname_ghe_server %} appliance. When you create a pre-receive hook script, consider the available input, output, exit-status and environment variables.
 
 #### Input (stdin)
 After a push occurs and before any refs are updated on the remote repository, the `git-receive-pack` process invokes the pre-receive hook script with the standard input of one line per ref to be updated:
@@ -94,30 +94,30 @@ You can test a pre-receive hook script locally before you create or update it on
 
 2. Create a file called `Dockerfile.dev` containing:
 
-   ```
-   FROM gliderlabs/alpine:3.3
-   RUN \
-     apk add --no-cache git openssh bash && \
-     ssh-keygen -A && \
-     sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
-     adduser git -D -G root -h /home/git -s /bin/bash && \
-     passwd -d git && \
-     su git -c "mkdir /home/git/.ssh && \
-     ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
-     mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
-     mkdir /home/git/test.git && \
-     git --bare init /home/git/test.git"
+      ```dockerfile
+      FROM gliderlabs/alpine:3.3
+      RUN \
+      apk add --no-cache git openssh bash && \
+      ssh-keygen -A && \
+      sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /etc/ssh/sshd_config && \
+      adduser git -D -G root -h /home/git -s /bin/bash && \
+      passwd -d git && \
+      su git -c "mkdir /home/git/.ssh && \
+      ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P '' && \
+      mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && \
+      mkdir /home/git/test.git && \
+      git --bare init /home/git/test.git"
 
-   VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
-   WORKDIR /home/git
+      VOLUME ["/home/git/.ssh", "/home/git/test.git/hooks"]
+      WORKDIR /home/git
 
-   CMD ["/usr/sbin/sshd", "-D"]
-   ```
+      CMD ["/usr/sbin/sshd", "-D"]
+      ```
 
-3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
+   3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
-   ```
-   #!/usr/bin/env bash
+      ```shell
+      #!/usr/bin/env bash
 
    echo "error: rejecting all pushes"
    exit 1

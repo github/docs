@@ -22,7 +22,7 @@ Administer a classroom, assign and review work from your students, and teach the
 - [Basics of setting up {% data variables.product.prodname_classroom %} ](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)
 - [Manage classrooms](/education/manage-coursework-with-github-classroom/manage-classrooms)
 - [Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)
-- [Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
+- [グループ課題の作成](/education/manage-coursework-with-github-classroom/create-a-group-assignment)
 - [Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/create-an-assignment-from-a-template-repository)
 - [Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/leave-feedback-with-pull-requests)
 - [Use autograding](/education/manage-coursework-with-github-classroom/use-autograding)
