@@ -1,4 +1,4 @@
----
+---Hello-🌎-Fix-🐛Re: ​{ "salesReceiptDraftDetails": { "externalMetadata": [ { "name": "account_id", "value": "a-1234" }, { "name": "deal_id", "value": "d-12345" } ], "transactionDate": "2020-09-16", "customer": { "displayName": "Test Customer" }, "currency": { �
 title: Access permissions on GitHub
 redirect_from:
   - /articles/needs-to-be-written-what-can-the-different-types-of-org-team-permissions-do/
