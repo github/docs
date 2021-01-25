@@ -55,6 +55,7 @@ To connect {% data variables.product.prodname_insights %} to {% data variables.p
       - Metadata: **Read-only**
       - Pull requests: **Read-only**
       - Commit statuses: **Read-only**
+      - Issues: **Read-only**
     - Organization:
       - Members: **Read-only**
       - Projects: **Read-only**
