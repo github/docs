@@ -1,4 +1,4 @@
----
+9---
 title: Disabling OAuth App access restrictions for your organization
 intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_app %}s that have access to the organization''s resources.'
 redirect_from:
@@ -8,11 +8,11 @@ versions:
   free-pro-team: '*'
 ---
 
-{% danger %}
+
 
 **Warning**: When you disable {% data variables.product.prodname_oauth_app %} access restrictions for your organization, any organization member will automatically authorize {% data variables.product.prodname_oauth_app %} access to the organization's private resources when they approve an application for use in their personal account settings.
 
-{% enddanger %}
+
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
