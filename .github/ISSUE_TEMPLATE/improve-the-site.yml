@@ -43,17 +43,10 @@ inputs:
               value: No similar issues
   - type: textarea
     attributes:
-      label: which article
-      description: What is the current behavior?
-      required: true
-      placeholder: Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
-      value:
-  - type: textarea
-    attributes:
-      label: desired updates
+      label: suggestion
       description: What changes are you suggesting?
       required: true
-      placeholder: Give as much detail as you can to help us understand the change you want to see. Why should the docs be changed? What use cases does it support? What is the expected outcome?
+      placeholder: Explain, in writing, with as much detail as possible, what changes you're suggesting and why. Provide supporting information using screenshots and URLs where possible, to help us understand your suggested changes.
   - type: textarea
     attributes:
       label: additional info
