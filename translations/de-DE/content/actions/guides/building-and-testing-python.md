@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -122,7 +123,7 @@ jobs:
 
 #### Eine bestimmten Python-Version verwenden
 
-Du kannst eine bestimmte Version von Python konfigurieren, For example, 3.8. Alternativ kannst Du auch Syntax für semantische Versionierung verwenden, um das neuste Minor Release zu erhalten. Dieses Beispiel verwendet das neueste Minor Release von Python 3.
+Du kannst eine bestimmte Version von Python konfigurieren, For example, 3.8. Alternatively, you can use semantic version syntax to get the latest minor release. Dieses Beispiel verwendet das neueste Minor Release von Python 3.
 
 {% raw %}
 ```yaml

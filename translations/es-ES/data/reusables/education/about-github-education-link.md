@@ -1,0 +1,1 @@
+Antes de solicitar un descuento individual, comprueba si tu comunidad de aprendizaje ya está asociada con nosotros como escuela de {% data variables.product.prodname_education %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_education %}](/education/teach-and-learn-with-github-education/about-github-education)".
