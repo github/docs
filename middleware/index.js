@@ -84,6 +84,7 @@ module.exports = function (app) {
   app.use(require('./enterprise-server-releases'))
   app.use(require('./dev-toc'))
   app.use(require('./featured-links'))
+  app.use(require('./learning-track'))
 
   // *** Rendering, must go last ***
   app.get('/*', asyncMiddleware(require('./render-page')))
