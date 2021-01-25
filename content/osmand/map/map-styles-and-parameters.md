@@ -28,13 +28,23 @@ Touring view is created to meet the needs of tourists and has higher contrast th
 
 UniRS and LightRS styles are author styles that render the basic map information but in different color schemes. It may be quite useful for cyclists.
 
+UniRS style:
+![Map styles](/assets/images/map/ms-3.png)
+
+LightRS style:
+![Map styles](/assets/images/map/ms-4.png)
+
 ### Nautical 
 
-Nautical map style will come in handy at overwater travels: you'll see the details of infrastructure like ports, sailing routes, navigation lights, etc. Read more about Nautical maps https://osmand.net/features/nautical-charts
+Nautical map style will come in handy at overwater travels: you'll see the details of infrastructure like ports, sailing routes, navigation lights, etc. Read more about [Nautical maps](https://osmand.net/features/nautical-charts).
+
+![Map styles](/assets/images/map/ms-5.png)
 
 ### Winter and ski
 
-Winter and ski style is designed to help you navigate on winter sports locations: you'll be able to see ski pistes and other details such as complexity of skiing tracks and ski lift markers. Read more about Ski maps https://osmand.net/features/ski-plugin
+Winter and ski style is designed to help you navigate on winter sports locations: you'll be able to see ski pistes and other details such as complexity of skiing tracks and ski lift markers. Read more about [Ski maps](https://osmand.net/features/ski-plugin).
+
+![Map styles](/assets/images/map/ms-6.png)
 
 ### Topo
 
