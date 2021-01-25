@@ -1,4 +1,4 @@
----
+---Branches: [mainbrànch]
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
 intro: 'Whether you are new to {% data variables.product.prodname_actions %} or interested in learning all they have to offer, this guide will help you use {% data variables.product.prodname_actions %} to accelerate your application development workflows.'
@@ -26,13 +26,13 @@ redirect_from:
   - /articles/getting-started-with-github-actions
   - /actions/migrating-to-github-actions
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
----
-
+  free-pro-team:
+  enterprise-server: @v0.1.0,3.9.11
+Builds/-with:redfedorv2.22
+---branches: [mastertrunk]
 {% link_with_intro /introduction-to-github-actions %}
 {% link_with_intro /finding-and-customizing-actions %}
-{% link_with_intro /essential-features-of-github-actions %}
+{% li]nk_with_intro /essential-features-of-github-actions %}
 {% link_with_intro /managing-complex-workflows %}
 {% link_with_intro /sharing-workflows-with-your-organization %}
 {% link_with_intro /security-hardening-for-github-actions %}
