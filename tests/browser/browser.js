@@ -1,6 +1,5 @@
 /* global page, browser */
 const sleep = require('await-sleep')
-const querystring = require('querystring')
 const { latest } = require('../../lib/enterprise-server-releases')
 
 describe('homepage', () => {
@@ -12,7 +11,7 @@ describe('homepage', () => {
   })
 })
 
-describe('algolia browser search', () => {
+describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
   it('works on the homepage', async () => {
@@ -42,18 +41,18 @@ describe('algolia browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to algolia for Enterprise Server', async () => {
+  it('sends the correct data to search for Enterprise Server', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+    await newPage.goto('http://localhost:4001/ja/enterprise-server@2.22/admin/installation')
 
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
       if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
-        const { version, language } = querystring.parse(interceptedRequest.url())
-        expect(version).toBe('2.22')
-        expect(language).toBe('ja')
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('2.22')
+        expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()
     })
@@ -63,7 +62,7 @@ describe('algolia browser search', () => {
     await newPage.waitForSelector('.search-result')
   })
 
-  it('sends the correct data to algolia for GHAE', async () => {
+  it('sends the correct data to search for GHAE', async () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
@@ -72,9 +71,9 @@ describe('algolia browser search', () => {
     await newPage.setRequestInterception(true)
     newPage.on('request', interceptedRequest => {
       if (interceptedRequest.method() === 'GET' && /search/i.test(interceptedRequest.url())) {
-        const { version, language } = querystring.parse(interceptedRequest.url())
-        expect(version).toBe('ghae')
-        expect(language).toBe('en')
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('ghae')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
