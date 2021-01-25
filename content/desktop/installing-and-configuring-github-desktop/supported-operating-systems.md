@@ -2,11 +2,7 @@
 title: Supported operating systems
 intro: 'You can use {% data variables.product.prodname_desktop %} on any supported operating system.'
 miniTocMaxHeadingLevel: 4
-redirect_from:
-  - /desktop/getting-started-with-github-desktop/supported-operating-systems
-versions:
-  free-pro-team: '*'
----
+⁰
 
 ### About supported operating systems
 
