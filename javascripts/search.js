@@ -133,7 +133,7 @@ function debounce (fn, delay = 300) {
 async function onSearch (evt) {
   const query = evt.target.value
 
-  if(query.trim()){
+  if (query.trim()) {
     const url = new URL(location.origin)
     url.pathname = '/search'
     url.search = new URLSearchParams({ query, version, language }).toString()
