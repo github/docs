@@ -32,7 +32,6 @@ const main = async () => {
       '@babel/*',
       'babel-preset-env',
       '@primer/*',
-      'querystring',
       'pa11y-ci',
       'sass',
       'babel-loader',
