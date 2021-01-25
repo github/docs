@@ -1,6 +1,6 @@
 ---
 title: 更新 OSX 密钥链中的凭据
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% if currentVersion != "github-ae@latest" %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
+intro: '如果在 {% data variables.product.product_name %} 上更改您的{% if currentVersion != "github-ae@latest" %}用户名、密码或{% endif %}个人访问令牌，您需要在 "git-credit al-osxkeychain" 小助手中更新您保存的凭据。'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - 密钥链中的 GitHub 密码条目
@@ -21,7 +21,7 @@ versions:
 
 ### 通过命令行删除凭据
 
-Through the command line, you can use the credential helper directly to erase the keychain entry.
+通过命令行，您可以使用凭据小助手直接擦除密钥链条目。
 
 ```shell
 $ git credential-osxkeychain erase
@@ -30,7 +30,7 @@ protocol=https
 > <em>[Press Return]</em>
 ```
 
-如果成功，则不会打印出任何内容。 To test that it works, try and clone a repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
+如果成功，则不会打印出任何内容。 要测试其是否有效，请尝试并克隆 {% data variables.product.product_location %} 仓库。 如果提示您输入密码，则该密钥链条目已删除。
 
 ### 延伸阅读
 

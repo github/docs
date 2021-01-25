@@ -1,0 +1,1 @@
+1. En la barra de menú, utiliza el menú desplegable de **{% data variables.product.prodname_desktop %}** y luego da clic en **Preferencias**. ![El valor de preferencias en el menú desplegable de {% data variables.product.prodname_desktop %}](/assets/images/help/desktop/mac-choose-preferences.png)

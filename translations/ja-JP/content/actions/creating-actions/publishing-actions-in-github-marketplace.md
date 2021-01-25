@@ -8,6 +8,7 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
 versions:
   free-pro-team: '*'
+type: 'how_to'
 ---
 
 {% data variables.product.prodname_marketplace %}でアクションを公開するには、利用規約に同意していなければなりません。
