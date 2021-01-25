@@ -160,7 +160,6 @@ async function onSearch (evt) {
       // search_context
     })
   }
-
 }
 
 // If on homepage, toggle results container if query is present
