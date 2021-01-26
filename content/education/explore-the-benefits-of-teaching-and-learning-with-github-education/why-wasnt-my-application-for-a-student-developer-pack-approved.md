@@ -2,6 +2,7 @@
 title: Why wasn't my application for a student developer pack approved?
 intro: 'Review common reasons that applications for the {% data variables.product.prodname_student_pack %} are not approved and learn tips for reapplying successfully.'
 redirect_from:
+  - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-a-student-developer-pack-approved
   - /articles/why-was-my-application-for-a-student-developer-pack-denied/
   - /articles/why-wasn-t-my-application-for-a-student-developer-pack-approved
@@ -64,4 +65,4 @@ Your instructor may still apply for a {% data variables.product.prodname_educati
 ### Further reading
 
 - "[How to get the GitHub Student Developer Pack without a student ID](https://github.blog/2019-07-30-how-to-get-the-github-student-developer-pack-without-a-student-id/)" on {% data variables.product.prodname_blog %}
-- "[Apply for a student developer pack](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack)"
+- "[Apply for a student developer pack](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack)"

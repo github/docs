@@ -2,6 +2,7 @@
 title: About GitHub Education
 intro: '{% data variables.product.prodname_education %} offers a special free product for schools that want to make the most of {% data variables.product.prodname_dotcom %} for their community and agree to specific program requirements.'
 redirect_from:
+  - /education/teach-and-learn-with-github-education/about-github-education
   - /github/teaching-and-learning-with-github-education/about-github-education
   - /articles/about-github-education
 versions:
@@ -20,4 +21,4 @@ Teachers can manage a course on software development with {% data variables.prod
 
 To learn more about training programs for student leaders and teachers, see "[{% data variables.product.prodname_dotcom %} Campus Experts](https://education.github.com/students/experts)" and "[Campus Advisors](https://education.github.com/teachers/advisors)."
 
-If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_education %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/teach-and-learn-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/teach-and-learn-with-github-education/use-github-in-your-classroom-and-research/)."
+If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_education %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. For more information, see "[Use {% data variables.product.prodname_dotcom %} for your schoolwork](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork)" or "[Use {% data variables.product.prodname_dotcom %} in your classroom and research](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/)."

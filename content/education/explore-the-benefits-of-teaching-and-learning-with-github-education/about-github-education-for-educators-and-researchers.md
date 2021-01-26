@@ -2,6 +2,7 @@
 title: About GitHub Education for educators and researchers
 intro: '{% data variables.product.prodname_education %} offers a variety of tools to help educators and researchers work more effectively inside and outside of the classroom.'
 redirect_from:
+  - /education/teach-and-learn-with-github-education/about-github-education-for-educators-and-researchers
   - /github/teaching-and-learning-with-github-education/about-github-education-for-educators-and-researchers
   - /articles/about-github-education-for-educators-and-researchers
 versions:

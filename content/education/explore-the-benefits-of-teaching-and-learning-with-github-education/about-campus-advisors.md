@@ -2,6 +2,7 @@
 title: About Campus Advisors
 intro: 'As an instructor or mentor, learn to use {% data variables.product.prodname_dotcom %} at your school with Campus Advisors training and support.'
 redirect_from:
+  - /education/teach-and-learn-with-github-education/about-campus-advisors
   - /github/teaching-and-learning-with-github-education/about-campus-advisors
   - /articles/about-campus-advisors
 versions:

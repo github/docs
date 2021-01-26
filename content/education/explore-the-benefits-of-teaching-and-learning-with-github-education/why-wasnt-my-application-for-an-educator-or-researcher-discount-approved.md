@@ -2,6 +2,7 @@
 title: Why wasn't my application for an educator or researcher discount approved?
 intro: Review common reasons that applications for an educator or researcher discount are not approved and learn tips for reapplying successfully.
 redirect_from:
+  - /education/teach-and-learn-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /github/teaching-and-learning-with-github-education/why-wasnt-my-application-for-an-educator-or-researcher-discount-approved
   - /articles/why-was-my-application-for-an-educator-or-researcher-discount-denied/
   - /articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved
@@ -42,4 +43,4 @@ Educators and researchers are not eligible for the partner offers that come with
 
 ### Further reading
 
-- "[Apply for an educator or researcher discount](/education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount)"
+- "[Apply for an educator or researcher discount](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount)"

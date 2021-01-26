@@ -2,6 +2,7 @@
 title: Apply for a student developer pack
 intro: 'As a student, you can apply for the {% data variables.product.prodname_student_pack %}, which includes offers and benefits from {% data variables.product.prodname_dotcom %} partners.'
 redirect_from:
+  - /education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack
   - /github/teaching-and-learning-with-github-education/applying-for-a-student-developer-pack
   - /articles/applying-for-a-student-developer-pack
 versions:
@@ -28,7 +29,7 @@ During your tenure as a student, you may be prompted to periodically re-verify y
 
 {% endnote %}
 
-For information about renewing your {% data variables.product.prodname_student_pack %}, see "[Expiration and renewals](/education/teach-and-learn-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)."
+For information about renewing your {% data variables.product.prodname_student_pack %}, see "[Expiration and renewals](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-a-student-developer-pack/#expiration-and-renewals)."
 
 ### Applying for a {% data variables.product.prodname_student_pack %}
 
