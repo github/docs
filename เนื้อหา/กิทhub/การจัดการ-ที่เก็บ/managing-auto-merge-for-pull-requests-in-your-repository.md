@@ -1,9 +1,10 @@
 ---
+Hello world
 title: Managing auto-merge for pull requests in your repository
 intro: "You can allow or disallow auto-merge for pull requests in your repository."
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
-  free-pro-team: '*'
+  free-pro-team: 'Ekkarat30'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
 ---
 
