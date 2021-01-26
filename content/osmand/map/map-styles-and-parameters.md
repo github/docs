@@ -103,6 +103,7 @@ In {% data variables.android-values.rendering_category_details %} you can show o
 |[{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}]|Colors for road quality|![Map styles](/assets/images/map/ms-14.png)|
 |[{% data variables.ios-values.rendering_attr_showAccess_name %}]|Colors for access |![Map styles](/assets/images/map/ms-15.png)|
 |[{% data variables.ios-values.rendering_attr_showLez_name %}]|Green board and labels for Low Emission Zones|![Map styles](/assets/images/map/ms-16.png)|
+|[{% data variables.ios-values.rendering_attr_coloredBuildings_name}]|Special colors scheme for buildings|![Map styles](/assets/images/map/ms-17.png)|
 |[{% data variables.ios-values.rendering_attr_streetLighting_name}]|{% data variables.ios-values.res_source_sqlite %} |
 |[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name}]|{% data variables.ios-values.res_source_sqlite %} |
 |[{% data variables.ios-values.rendering_attr_depthContours_name}]|{% data variables.ios-values.res_source_sqlite %} |
