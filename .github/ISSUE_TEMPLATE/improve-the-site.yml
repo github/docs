@@ -5,7 +5,7 @@ inputs:
   - type: description
     attributes:
       value: |
-        HUBBERS BEWARE! THE GITHUB/DOCS REPO IS PUBLIC TO THE ENTIRE INTERNET. OPEN AN ISSUE IN GITHUB/DOCS-CONTENT INSTEAD.
+        HUBBERS BEWARE! Please confirm you're on the github/docs-internal repo and not the github/docs repo before proceeding, unless you want to make your work public to the entire internet. The github/docs repo is open source and public to the entire internet.
 
         For questions, ask in Discussions: https://github.com/github/docs/discussions
   - type: dropdown
