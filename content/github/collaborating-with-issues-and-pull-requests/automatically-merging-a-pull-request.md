@@ -27,7 +27,7 @@ People with write permissions to a repository can enable auto-merge for a pull r
   !["Enable auto-merge" drop-down menu](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
 1. Click **Enable auto-merge**.
   ![Button to enable auto-merge](/assets/images/help/pull_requests/enable-auto-merge-button.png)
-1. If you chose the merge or squash and merge methods, type a commit message and description and choose the email address you want to author the merge commit.
+1. If you chose the merge or squash and merge methods, type a commit message and description and choose the email address you want to author the merge commit with.
   ![Fields to enter commit message and description and choose commit author email](/assets/images/help/pull_requests/pull-request-information-fields.png)
 1. Click **Confirm auto-merge**.
   ![Button to confirm auto-merge](/assets/images/help/pull_requests/confirm-auto-merge-button.png)
