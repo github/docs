@@ -88,7 +88,13 @@ Map legend of OsmAnd maps you can find [here](https://osmand.net/help-online/map
 
 ## How to change parameters for Map style (Map rendering)
 
+In OsmAnd application you can customize map rendering. It's mean, that you can show or hide details and routes on the map, change map mode, map language, choose text size and map magnifier. All this settings help you to make your map more useful during your trips. The general settings is choosing of [Map style](/osmand/map/map-styles-and-parameters#default-map-styles), which we discrebed above in this article:
 
+In {% data variables.android-values.rendering_category_details %} you can show or hide next additional map details:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.rendering_category_details %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.res_details %}
 
 ## How to create and to add your own Map style (Map rendering)
 
