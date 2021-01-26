@@ -113,7 +113,7 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 
 ### Hide
 
-Sometimes we need to hide objects on the map for better vision. For example to hide water during using [Underlay layer of Sattelite online maps](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer).
+Sometimes we need to hide objects on the map for better vision. For example to hide water during using [Underlay layer of Satellite online maps](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer).
 In order to hide some objects on the map you can choose them in this menu:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.shared_string_hide %} 
