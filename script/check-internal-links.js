@@ -2,14 +2,15 @@
 
 const linkinator = require('linkinator')
 const checker = new linkinator.LinkChecker()
-const { deprecated } = require('../lib/enterprise-server-releases')
+const { deprecated, latest } = require('../lib/enterprise-server-releases')
 const englishRoot = 'http://localhost:4002/en'
 
 // [start-readme]
 //
-// This script runs in CI via GitHub Action to check all *internal* links in English content,
-// not including deprecated Enterprise Server content. This is different from script/check-english-links.js,
-// which checks *all* links in the site, both internal and external, and is much slower.
+// This script runs in CI via GitHub Action to check all *internal* links in English content for a
+// given version, not including deprecated Enterprise Server content. This is different from
+// script/check-english-links.js, which checks *all* links in the site, both internal and external,
+// and is much slower.
 //
 // If you want to run it locally, you must have a local server running. You can use `npm run link-check`.
 //
@@ -31,14 +32,34 @@ const config = {
     // Skip dist files
     '/dist/index.*',
     // Skip deprecated Enterprise content
-    `enterprise(-server@|/)(${deprecated.join('|')})/?`
+    `enterprise(-server@|/)(${deprecated.join('|')})(/|$)`
   ]
+}
+
+// Customize config for specific versions
+if (process.env.VERSION === 'dotcom') {
+  // If Dotcom, skip Enterprise Server and GitHub AE links
+  config.linksToSkip.push('^.*/enterprise-server@.*$', '^.*/enterprise/.*$', '^.*/github-ae@latest.*$')
+} else if (process.env.VERSION === 'enterprise-server') {
+  // If Enterprise Server, skip links that are not Enterprise Server links
+  config.path = `${englishRoot}/enterprise-server@${latest}`
+  config.linksToSkip.push('^((?!enterprise-server@).)*$')
+}else if (process.env.VERSION === 'github-ae') {
+  // If GitHub AE, skip links that are not GitHub AE links
+  config.path = `${englishRoot}/github-ae@latest`
+  config.linksToSkip.push('^((?!github-ae@latest).)*$')
 }
 
 main()
 
 async function main () {
+  process.env.VERSION
+    ? console.log(`Checking internal links for version ${process.env.VERSION}!\n`)
+    : console.log('Checking internal links for all versions!\n')
+
+  console.time('check')
   const result = (await checker.check(config)).links
+  console.timeEnd('check')
 
   const brokenLinks = result
     .filter(link => link.state === 'BROKEN')
