@@ -11,7 +11,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/overview
   - /actions/getting-started-with-github-actions/getting-started-with-github-actions
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax/
-  - /actions/configuring-and-managing-workflows/configuring-a-workflow
+  - /actions/configuring-and-managing-workflows/configuring-a-workflow/automate
   - /articles/creating-a-workflow-with-github-actions/
   - /articles/configuring-a-workflow
   - /github/automating-your-workflow-with-github-actions/configuring-a-workflow
