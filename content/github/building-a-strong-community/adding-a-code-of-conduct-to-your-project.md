@@ -37,7 +37,7 @@ You can create a default code of conduct for your organization or user account. 
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-### Adding a code of conduct manually
+### Adding a code of conduct manually 
 
 If the code of conduct you want to use isn't available in the provided templates, you can manually add a code of conduct.
 
