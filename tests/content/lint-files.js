@@ -4,11 +4,13 @@ const fs = require('fs')
 const walk = require('walk-sync')
 const { zip } = require('lodash')
 const yaml = require('js-yaml')
+const revalidator = require('revalidator')
+const generateMarkdownAST = require('mdast-util-from-markdown')
+const visit = require('unist-util-visit')
 const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
-const revalidator = require('revalidator')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -164,16 +166,22 @@ describe('lint-files', () => {
   describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(
     'in "%s"',
     (markdownRelPath, markdownAbsPath) => {
-      let content, isHidden, isEarlyAccess, isSitePolicy
+      let content, ast, links, isHidden, isEarlyAccess, isSitePolicy
 
       beforeAll(async () => {
         const fileContents = await fs.promises.readFile(markdownAbsPath, 'utf8')
         const { data, content: bodyContent } = frontmatter(fileContents)
 
         content = bodyContent
+        ast = generateMarkdownAST(content)
         isHidden = data.hidden === true
         isEarlyAccess = markdownRelPath.split('/').includes('early-access')
         isSitePolicy = markdownRelPath.split('/').includes('site-policy-deprecated')
+
+        links = []
+        visit(ast, ['link', 'definition'], node => {
+          links.push(node.url)
+        })
       })
 
       // We need to support some non-Early Access hidden docs in Site Policy
@@ -184,58 +192,16 @@ describe('lint-files', () => {
       })
 
       test('relative URLs must start with "/"', async () => {
-        const initialMatches = (content.match(relativeArticleLinkRegex) || [])
+        const matches = links.filter(link => {
+          if (
+            link.startsWith('http://') ||
+            link.startsWith('https://') ||
+            link.startsWith('tel:') ||
+            link.startsWith('mailto:') ||
+            link.startsWith('#') ||
+            link.startsWith('/')
+          ) return false
 
-        // Filter out some very specific false positive matches
-        const matches = initialMatches.filter(match => {
-          if (markdownRelPath === 'content/github/enforcing-best-practices-with-github-policies/overview.md') {
-            if (match === '[A-Z]([a-z]|-)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/enforcing-best-practices-with-github-policies/constraints.md') {
-            if (match === '[a-z]([a-z]|-)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/building-a-strong-community/editing-wiki-content.md') {
-            if (match === '[Link Text](full-URL-of-wiki-page)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/admin/configuration/configuring-email-for-notifications.md') {
-            if (/^\[\d+\]: (?:connect|disconnect|[0-9A-F]+:)\s*$/.test(match)) {
-              return false
-            }
-          } else if (markdownRelPath === 'content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md') {
-            if (/^\[\d+\]: (?:Starting|Started|√|\d{4}-\d{2}-\d{2})\s*$/.test(match)) {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning.md') {
-            if (/^\[(?:here|ruleIndex|ruleID)\]\(\d+\)\s*$/.test(match)) {
-              return false
-            }
-          } else if (markdownRelPath === 'content/github/building-a-strong-community/manually-creating-a-single-issue-template-for-your-repository.md') {
-            if (match === '[DATE]: [FEATURE ') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/rest/overview/libraries.md') {
-            if (
-              match === '[pithub-github] ([CPAN][pithub-cpan])' ||
-              match === '[net-github-github] ([CPAN][net-github-cpan])'
-            ) {
-              return false
-            }
-          } else if (markdownRelPath === 'data/reusables/repositories/relative-links.md') {
-            if (match === '[Contribution guidelines for this project](docs/CONTRIBUTING.md)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/constraints.md') {
-            if (match === '[a-z]([a-z]|-)') {
-              return false
-            }
-          } else if (markdownRelPath === 'content/early-access/github/enforcing-best-practices-with-github-policies/overview.md') {
-            if (match === '[A-Z]([a-z]|-)') {
-              return false
-            }
-          }
           return true
         })
 
@@ -244,7 +210,10 @@ describe('lint-files', () => {
       })
 
       test('URLs must not contain a hard-coded language code', async () => {
-        const matches = (content.match(languageLinkRegex) || [])
+        const matches = links.filter(link => {
+          return /\/(?:${languageCodes.join('|')})\//.test(link)
+        })
+
         const errorMessage = formatLinkError(languageLinkErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
