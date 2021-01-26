@@ -51,13 +51,27 @@ You can also clone a repository directly from {% data variables.product.prodname
 {% endwindows %}
 
 ### Forking repositories
+{% mac %}
 
-1. If you've cloned a repository where you don't have write access and try to commit changes, {% data variables.product.prodname_desktop %} will warn that "You don't have write access to **REPOSITORY**. Click **create a fork**.
-![Create a fork link](/assets/images/help/desktop/create-a-fork.png)
-3. Click **Fork this repository**.
-![Fork this repo button](/assets/images/help/desktop/fork-this-repo-button.png)
-4. To view your fork on {% data variables.product.prodname_dotcom %}, in the top right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **Your repositories**.
-![Your repositories link](/assets/images/help/profile/your-repositories.png)
+{% data reusables.desktop.fork-type-prompt %}
+  ![Menu to select if a fork will contribute to an upstream repository](/assets/images/help/desktop/mac-fork-options-prompt.png)
+{% data reusables.desktop.open-repository-settings %}
+  ![Repository settings menu option in the Mac app](/assets/images/help/desktop/mac-repository-settings.png)
+{% data reusables.desktop.select-fork-behavior %}
+  ![Options in the fork behavior menu](/assets/images/help/desktop/mac-fork-behavior-menu.png)
+
+{% endmac %}
+
+{% windows %}
+
+{% data reusables.desktop.fork-type-prompt %}
+  ![Menu to select if a fork will contribute to an upstream repository](/assets/images/help/desktop/windows-fork-options-prompt.png)
+{% data reusables.desktop.open-repository-settings %}
+  ![Repository settings menu option in the Windows app](/assets/images/help/desktop/windows-repository-settings.png)
+{% data reusables.desktop.select-fork-behavior %}
+  ![Options in the fork behavior menu](/assets/images/help/desktop/windows-fork-behavior-menu.png)
+
+{% endwindows %}
 
 ### Further reading
 - [About remote repositories](/github/using-git/about-remote-repositories)
