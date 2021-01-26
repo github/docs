@@ -26,7 +26,7 @@ Touring view is created to meet the needs of tourists and has higher contrast th
 
 ### UniRS and LightRS
 
-UniRS and LightRS styles are author styles that render the basic map information but in different color schemes. It may be quite useful for cyclists.
+UniRS and LightRS styles are author styles that render the basic map information but in different color schemes.
 
 UniRS style: Simple and contrast style for car navigation. Gentle for the eyes in the night mode. Key features: contour lines, contrast orange styled roads, less distracting secondary map objects.
 ![Map styles](/assets/images/map/ms-3.png)
@@ -35,23 +35,19 @@ LightRS style:
 ![Map styles](/assets/images/map/ms-4.png)
 
 ### Nautical 
-
-Nautical map style will come in handy at overwater travels: you'll see the details of infrastructure like ports, sailing routes, navigation lights, etc. Read more about [Nautical maps](https://osmand.net/features/nautical-charts).
-Style for marine and river navigation. Key features: buoys, lighthouses, water navigation lines and marks, harbours, seamark services, depth contours.
+Style for marine and river navigation. Key features: buoys, lighthouses, water navigation lines and marks, harbours, seamark services, depth contours. Read more about [Nautical maps](https://osmand.net/features/nautical-charts).
 
 ![Map styles](/assets/images/map/ms-5.png)
 
 ### Winter and ski
 
-Winter and ski style is designed to help you navigate on winter sports locations: you'll be able to see ski pistes and other details such as complexity of skiing tracks and ski lift markers. Read more about [Ski maps](https://osmand.net/features/ski-plugin).
-Key features: renders pistes, aerial ways and other ski features in a convenient way. Less distracting secondary map objects.
+Winter and ski style is designed to help you navigate on winter sports locations: you'll be able to see ski pistes and other details such as complexity of skiing tracks and ski lift markers. Key features: renders pistes, aerial ways and other ski features in a convenient way. Less distracting secondary map objects. Read more about [Ski maps](https://osmand.net/features/ski-plugin).
 
 ![Map styles](/assets/images/map/ms-6.png)
 
 ### Topo
 
-Topo - for hiking, trekking and cycling in nature. Readable outdoors and in difficult lighting. Contrast roads and natural objects, various types of routes, contour lines with advanced settings, additional details. The option “Quality of road surface” allows you to distinguish between roads with different surface quality. There is no night mode.
-Contrast style designed primarily for nature hiking, trekking and cycling. Good readability in complex external lighting. Key features: contrast roads and natural objects, different types of routes, contour lines with advanced settings, more
+Contrast style designed primarily for nature hiking, trekking and cycling. Good readability in complex external lighting. Key features: contrast roads and natural objects, different types of routes, contour lines with advanced settings, more details at corresponding zoom levels than "default" style. "Surface integrity" option allows you distinguish between roads with different surface quality. No night mode.
 
 ![Map styles](/assets/images/map/ms-7.png)
 
@@ -82,9 +78,11 @@ Snowmobile - fro snowmobile riding. Contrast snowmobile trails.
 
 ## Map legend
 
-Map legend of maps you can find [here](https://osmand.net/help-online/map-legend/)
+Map legend is a visual explanation of the symbols used on the map. It typically includes a sample of each symbol (point, line, or area), and a short description of what the symbol means. For example, a short segment of a blue sinuous line may be labeled 'rivers'.
+Map legend of OsmAnd maps you can find [here](https://osmand.net/help-online/map-legend/).
 
 ## How to change parameters for Map style (Map rendering)
+
 
 
 ## How to create and to add your own Map style (Map rendering)
