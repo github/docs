@@ -113,6 +113,29 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 
 ### Hide
 
+Sometimes we need to hide objects on the map for better vision. For example to hide water during using [Underlay layer of Sattelite online maps](/osmand/map/online-raster-maps#select-map-as-main--underlay--overlay-layer).
+In order to hide some objects on the map you can choose them in this menu:
+
+{% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.shared_string_hide %} 
+
+{% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.rendering_category_hide %}
+
+You can hide next obects:
+
+{% data variables.android-values.rendering_attr_noAdminboundaries_name %}
+{% data variables.android-values.rendering_attr_noPolygons_name %}
+{% data variables.android-values.rendering_attr_hideBuildings_name %}
+{% data variables.android-values.rendering_attr_hideWaterPolygons_name %}
+{% data variables.android-values.rendering_attr_hideHouseNumbers_name %}
+{% data variables.android-values.rendering_attr_hideProposed_name %}
+{% data variables.android-values.rendering_attr_rendering_attr_hideIcons_name %}
+{% data variables.android-values.rendering_attr_hidePOILabels_name %}
+{% data variables.android-values.rendering_attr_hideUnderground_name %}
+{% data variables.android-values.rendering_attr_hideOverground_name %}
+
+
+
+
 
 
 ## How to create and to add your own Map style (Map rendering)
