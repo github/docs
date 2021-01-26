@@ -31,7 +31,7 @@ const config = {
     // Skip dist files
     '/dist/index.*',
     // Skip deprecated Enterprise content
-    `enterprise(-server@|/)(${deprecated.join('|')})/?`
+    `enterprise(-server@|/)(${deprecated.join('|')})(/|$)`
   ]
 }
 
