@@ -44,7 +44,7 @@ if (process.env.VERSION === 'dotcom') {
   // If Enterprise Server, skip links that are not Enterprise Server links
   config.path = `${englishRoot}/enterprise-server@${latest}`
   config.linksToSkip.push('^((?!enterprise-server@).)*$')
-}else if (process.env.VERSION === 'github-ae') {
+} else if (process.env.VERSION === 'github-ae') {
   // If GitHub AE, skip links that are not GitHub AE links
   config.path = `${englishRoot}/github-ae@latest`
   config.linksToSkip.push('^((?!github-ae@latest).)*$')
