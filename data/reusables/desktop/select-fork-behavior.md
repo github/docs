@@ -1,0 +1,1 @@
+1. Click **Fork behavior**, then select **To contribute to the parent repository** if you want the fork to make pull requests to the original upstream repository or select **For my own purposes** if you want to keep changes to the fork separate from the upstream, and then click **Save**.
