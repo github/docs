@@ -159,8 +159,7 @@ You'll notice that `metroplex` catches the inbound message, processes it, then m
 
 #### Verify your DNS settings
 
-In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incom
- emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 
 #### Check firewall or AWS Security Group settings
 

@@ -14,16 +14,18 @@ let $searchResultsContainer
 let $searchOverlay
 let $searchInput
 
+// This is our default placeholder, but it can be localized with a <meta> tag
 let placeholder = 'Search topics, products...'
 let version
 let language
 
 export default function search () {
+  // First, only initialize search if the elements are on the page
   $searchInputContainer = document.getElementById('search-input-container')
   $searchResultsContainer = document.getElementById('search-results-container')
-
   if (!$searchInputContainer || !$searchResultsContainer) return
 
+  // This overlay exists so if you click off the search, it closes
   $searchOverlay = document.querySelector('.search-overlay-desktop')
 
   // There's an index for every version/language combination
@@ -36,15 +38,25 @@ export default function search () {
     placeholder = $placeholderMeta.content
   }
 
+  // Write the search form into its container
   $searchInputContainer.append(tmplSearchInput())
   $searchInput = $searchInputContainer.querySelector('input')
 
-  searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
-  toggleSearchDisplay()
-
+  // Prevent 'enter' from refreshing the page
   $searchInputContainer.querySelector('form')
     .addEventListener('submit', evt => evt.preventDefault())
+
+  // Search when the user finished typing
   $searchInput.addEventListener('keyup', debounce(onSearch))
+
+  // Adds ability to navigate search results with keyboard (up, down, enter, esc)
+  searchWithYourKeyboard('#search-input-container input', '.ais-Hits-item')
+
+  // If the user already has a query in the URL, parse it and search away
+  parseExistingSearch()
+
+  // If not on home page, decide if search panel should be open
+  toggleSearchDisplay() // must come after parseExistingSearch
 }
 
 // The home page and 404 pages have a standalone search
@@ -64,43 +76,37 @@ function toggleSearchDisplay () {
   // If not on homepage...
   if (hasStandaloneSearch()) return
 
-  const $input = $searchInput
+  // Open panel if input is clicked
+  $searchInput.addEventListener('focus', openSearch)
 
-  // Open modal if input is clicked
-  $input.addEventListener('focus', () => {
-    openSearch()
-  })
-
-  // Close modal if overlay is clicked
+  // Close panel if overlay is clicked
   if ($searchOverlay) {
-    $searchOverlay.addEventListener('click', () => {
-      closeSearch()
-    })
+    $searchOverlay.addEventListener('click', closeSearch)
   }
 
-  // Open modal if page loads with query in the params/input
-  if ($input.value) {
+  // Open panel if page loads with query in the params/input
+  if ($searchInput.value) {
     openSearch()
   }
 }
 
+// On most pages, opens the search panel
 function openSearch () {
   $searchInput.classList.add('js-open')
   $searchResultsContainer.classList.add('js-open')
   $searchOverlay.classList.add('js-open')
 }
 
+// Close panel if not on homepage
 function closeSearch () {
-  // Close modal if not on homepage
   if (!hasStandaloneSearch()) {
     $searchInput.classList.remove('js-open')
     $searchResultsContainer.classList.remove('js-open')
     $searchOverlay.classList.remove('js-open')
   }
 
-  const $hits = $searchResultsContainer.querySelector('.ais-Hits')
-  if ($hits) $hits.style.display = 'none'
   $searchInput.value = ''
+  onSearch()
 }
 
 function deriveLanguageCodeFromPath () {
@@ -122,6 +128,7 @@ function deriveVersionFromPath () {
     : versionObject.miscBaseName
 }
 
+// Wait for the event to stop triggering for X milliseconds before responding
 function debounce (fn, delay = 300) {
   let timer
   return (...args) => {
@@ -130,34 +137,47 @@ function debounce (fn, delay = 300) {
   }
 }
 
-async function onSearch (evt) {
-  const query = evt.target.value
+// When the user finishes typing, update the results
+async function onSearch () {
+  const query = $searchInput.value
 
-  const url = new URL(location.origin)
-  url.pathname = '/search'
-  url.search = new URLSearchParams({ query, version, language }).toString()
+  // Update the URL with the search parameters in the query string
+  const pushUrl = new URL(location)
+  pushUrl.search = query ? new URLSearchParams({ query }) : ''
+  history.pushState({}, '', pushUrl)
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  const results = response.ok ? await response.json() : []
+  // If there's a query, call the endpoint
+  // Otherwise, there's no results by default
+  let results = []
+  if (query.trim()) {
+    const endpointUrl = new URL(location.origin)
+    endpointUrl.pathname = '/search'
+    endpointUrl.search = new URLSearchParams({ language, version, query })
 
+    const response = await fetch(endpointUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    results = response.ok ? await response.json() : []
+  }
+
+  // Either way, update the display
   $searchResultsContainer.querySelectorAll('*').forEach(el => el.remove())
   $searchResultsContainer.append(
     tmplSearchResults(results)
   )
-
   toggleStandaloneSearch()
 
   // Analytics tracking
-  sendEvent({
-    type: 'search',
-    search_query: query
-    // search_context
-  })
+  if (query.trim()) {
+    sendEvent({
+      type: 'search',
+      search_query: query
+      // search_context
+    })
+  }
 }
 
 // If on homepage, toggle results container if query is present
@@ -187,6 +207,14 @@ function toggleStandaloneSearch () {
   $searchResultsContainer.classList.toggle(inactiveClass, !queryPresent)
 
   if (queryPresent && $results) $results.style.display = 'block'
+}
+
+// If the user shows up with a query in the URL, go ahead and search for it
+function parseExistingSearch () {
+  const params = new URLSearchParams(location.search)
+  if (!params.has('query')) return
+  $searchInput.value = params.get('query')
+  onSearch()
 }
 
 /** * Template functions ***/
