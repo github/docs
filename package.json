@@ -72,7 +72,6 @@
     "parse5": "^6.0.1",
     "platform-utils": "^1.2.0",
     "port-used": "^2.0.8",
-    "querystring": "^0.2.0",
     "rate-limit-redis": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
