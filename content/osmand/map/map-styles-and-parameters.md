@@ -104,9 +104,9 @@ In {% data variables.android-values.rendering_category_details %} you can show o
 |[{% data variables.ios-values.rendering_attr_showAccess_name %}]|Colors for access |![Map styles](/assets/images/map/ms-15.png)|
 |[{% data variables.ios-values.rendering_attr_showLez_name %}]|Green board and labels for Low Emission Zones|![Map styles](/assets/images/map/ms-16.png)|
 |[{% data variables.ios-values.rendering_attr_coloredBuildings_name %}]|Special colors scheme for buildings|![Map styles](/assets/images/map/ms-17.png)|
-|[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|{% data variables.ios-values.res_source_sqlite %} |
-|[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|{% data variables.ios-values.res_source_sqlite %} |
-|[{% data variables.ios-values.rendering_attr_depthContours_name %}]|{% data variables.ios-values.res_source_sqlite %} |
+|[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|Show street lighting on the map. On the map you can see illuminated and not illumintated street.|![Map styles](/assets/images/map/ms-18.png)|
+|[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
+|[{% data variables.ios-values.rendering_attr_depthContours_name %}]|Showed nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps. |![Map styles](/assets/images/map/ms-20.png)|
 
 
 ## How to create and to add your own Map style (Map rendering)
