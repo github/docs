@@ -11,6 +11,7 @@ const frontmatter = require('../../lib/frontmatter')
 const languages = require('../../lib/languages')
 const { tags } = require('../../lib/liquid-tags/extended-markdown')
 const ghesReleaseNotesSchema = require('../../lib/release-notes-schema')
+const renderContent = require('../../lib/render-content')
 
 const rootDir = path.join(__dirname, '../..')
 const contentDir = path.join(rootDir, 'content')
@@ -295,6 +296,15 @@ describe('lint-files', () => {
             expect(matches.length, errorMessage).toBe(0)
           }
         })
+      })
+
+      test('contains valid Liquid', async () => {
+        // If Liquid can't parse the file, it'll throw an error.
+        // For example, the following is invalid and will fail this test:
+        // {% if currentVersion ! "github-ae@latest" %}
+        await expect(renderContent.liquid.parse(content))
+          .resolves
+          .toBeTruthy()
       })
     }
   )
