@@ -40,13 +40,16 @@ versions:
 
 在默认 {% data variables.product.prodname_codeql_workflow %} 中，{% data variables.product.prodname_code_scanning %} 配置为在每次将更改推送到默认分支或任何受保护分支或者对默认分支提出拉取请求时分析代码。 因此，{% data variables.product.prodname_code_scanning %} 将立即开始。
 
+### 批量启用 {% data variables.product.prodname_code_scanning %}
+您可以使用脚本在多个仓库中批量启用 {% data variables.product.prodname_code_scanning %}。 有关提出拉取请求以向多个仓库添加 {% data variables.product.prodname_actions %} 工作流程的脚本示例，请参阅 [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) 仓库。
+
 ### You decide how you generate {% data variables.product.prodname_code_scanning %} alerts, and which tools you use, at a repository level. {% data variables.product.product_name %} provides fully integrated support for {% data variables.product.prodname_codeql %} analysis, and also supports analysis using third-party tools. For more information, see "[About {% data variables.product.prodname_codeql %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning#about-codeql)."
 
 After you enable {% data variables.product.prodname_code_scanning %}, you can monitor analysis, view results, and further customize how you scan your code.
 
 {% data reusables.repositories.actions-tab %}
 
-  You can view the run status of {% data variables.product.prodname_code_scanning %} and get notifications for completed runs. For more information, see "[Managing a workflow run](/actions/configuring-and-managing-workflows/managing-a-workflow-run)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)."
+  You can view the run status of {% data variables.product.prodname_code_scanning %} and get notifications for completed runs. For more information, see "[Managing a workflow run](/actions/configuring-and-managing-workflows/managing-a-workflow-run)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)." 条目的文本是提交消息的标题。
 
   ![After you commit the workflow file or create a pull request, {% data variables.product.prodname_code_scanning %} will analyze your code according to the frequency you specified in your workflow file. If you created a pull request, {% data variables.product.prodname_code_scanning %} will only analyze the code on the pull request's topic branch until you merge the pull request into the default branch of the repository.](/assets/images/help/repository/code-scanning-actions-list.png)
 
@@ -58,7 +61,7 @@ After you enable {% data variables.product.prodname_code_scanning %}, you can mo
 
 1. 查看此工作流运行时操作的日志记录输出。
 
-1. 在所有作业完成后，您可以查看已识别的任何 {% data variables.product.prodname_code_scanning %} 警报的详细信息。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+1. 在所有作业完成后，您可以查看已识别的任何 {% data variables.product.prodname_code_scanning %} 警报的详细信息。 更多信息请参阅“[管理仓库的 {% data variables.product.prodname_code_scanning %} 警报](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)”。
 
 {% note %}
 
