@@ -96,12 +96,12 @@ In {% data variables.android-values.rendering_category_details %} you can show o
 
 {% data variables.product.ios_button_seq %} {% data variables.ios-values.menu %} → {% data variables.ios-values.map_settings_map %} → {% data variables.ios-values.map_settings_style %} → {% data variables.ios-values.res_details %}
 
-|Parameter          |Description|
-|:------------|:---------------|
-|[{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|![Map styles](/assets/images/map/ms-12.png)|
-|[{% data variables.ios-values.rendering_attr_showSurfaces_name %}]|{% data variables.ios-values.res_online_url_descr %}|
-|[{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}]|{% data variables.ios-values.res_zoom_levels_desc %}|
-|[{% data variables.ios-values.rendering_attr_showAccess_name %}]|{% data variables.ios-values.res_expire_time_desc %}|
+|Parameter          |Description          |Example          
+|:------------|:---------------|:---------------|
+|[{% data variables.ios-values.rendering_attr_moreDetailed_name %}]|More details at low zooms|![Map styles](/assets/images/map/ms-12.png)|
+|[{% data variables.ios-values.rendering_attr_showSurfaces_name %}]|Colors for road surfaces|![Map styles](/assets/images/map/ms-13.png)|
+|[{% data variables.ios-values.rendering_attr_showSurfaceGrade_name %}]|Colors for road quality|![Map styles](/assets/images/map/ms-14.png)|
+|[{% data variables.ios-values.rendering_attr_showAccess_name %}]|Colors for access |![Map styles](/assets/images/map/ms-15.png)|
 |[{% data variables.ios-values.rendering_attr_showLez_name %}]|{% data variables.ios-values.res_pseudo_mercator %} or {% data variables.ios-values.res_elliptic_mercator %}|
 |[{% data variables.ios-values.rendering_attr_coloredBuildings_name}]|{% data variables.ios-values.res_source_sqlite %} |
 |[{% data variables.ios-values.rendering_attr_streetLighting_name}]|{% data variables.ios-values.res_source_sqlite %} |
