@@ -17,7 +17,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '[".github/workflows/link-check-test.yml", "assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
+          paths: '[".github/workflows/link-check-*.yml", "assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
   build:
     needs: see_if_should_skip
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
@@ -51,5 +51,7 @@ jobs:
         run: npm run build
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
-        name: Link check
+        name: 'Link check: GitHub AE'
+        env:
+          VERSION: 'github-ae'
         run: npm run link-check
