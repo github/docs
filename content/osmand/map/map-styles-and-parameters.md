@@ -90,6 +90,7 @@ Map legend of OsmAnd maps you can find [here](https://osmand.net/help-online/map
 
 In OsmAnd application you can customize map rendering. It's mean, that you can show or hide details and routes on the map, change map mode, map language, choose text size and map magnifier. All this settings help you to make your map more useful during your trips. The general settings is choosing of [Map style](/osmand/map/map-styles-and-parameters#default-map-styles), which we discrebed above in this article:
 
+### Details
 In **{% data variables.android-values.rendering_category_details %} menu** you can show or hide next additional map details:
 
 {% data variables.product.android_button_seq %} {% data variables.android-values.shared_string_menu %} → {% data variables.android-values.configure_map %} → {% data variables.android-values.map_widget_map_rendering %} → {% data variables.android-values.rendering_category_details %} 
@@ -107,6 +108,11 @@ In **{% data variables.android-values.rendering_category_details %} menu** you c
 |[{% data variables.ios-values.rendering_attr_streetLighting_name %}]|Showed street lighting on the map. On the map you can see illuminated and not illumintated street, undeground illuminated way, temporarily illuminated street. Look at [Map legend](https://osmand.net/help-online/map-legend/).|![Map styles](/assets/images/map/ms-18.png)|
 |[{% data variables.ios-values.rendering_attr_OSMMapperAssistant_name %}]|Special setting for mappers. Showed refs, remarks, comment from on the map from others mappers. |![Map styles](/assets/images/map/ms-19.png)|
 |[{% data variables.ios-values.rendering_attr_depthContours_name %}]|Showed nautical depth contours on seas. You need have [nautical plugin](/osmand/plugins/nautical-charts) and download Nautical maps. |![Map styles](/assets/images/map/ms-20.png)|
+
+### Routes
+
+### Hide
+
 
 
 ## How to create and to add your own Map style (Map rendering)
