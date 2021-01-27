@@ -123,16 +123,16 @@ In order to hide some objects on the map you can choose them in this menu:
 
 |Parameter          |Description        
 |:------------|:---------------|
-|[{% data variables.android-values.rendering_attr_noAdminboundaries_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_noPolygons_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hideBuildings_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hideWaterPolygons_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hideHouseNumbers_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hideProposed_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_rendering_attr_hideIcons_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hidePOILabels_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hideUnderground_name %}]|ADD NOTES |
-|[{% data variables.android-values.rendering_attr_hideOverground_name %}]|ADD NOTES |
+|[{% data variables.android-values.rendering_attr_noAdminboundaries_name %}]| Hide regional boundaries inside of countries, but state boundaries are visible. |
+|[{% data variables.android-values.rendering_attr_noPolygons_name %}]|Hide all polygons of natural objects, special function for [Underlay/Overlay layer](https://docs.osmand.net/en/main@latest/osmand/map/online-raster-maps#change-layer-parameters-transparency).  |
+|[{% data variables.android-values.rendering_attr_hideBuildings_name %}]|Hide all polygons of buildings. |
+|[{% data variables.android-values.rendering_attr_hideWaterPolygons_name %}]|Hide all polygons of water (seas, lakes, reservoirs and etc.)  |
+|[{% data variables.android-values.rendering_attr_hideHouseNumbers_name %}]|Hide house numbers on the map.  |
+|[{% data variables.android-values.rendering_attr_hideProposed_name %}]|Hide proposed objects, that objects which plan for building, but only have a project (projected roads, crossroads, buildings and etc.)  |
+|[{% data variables.android-values.rendering_attr_hideIcons_name %}]|Hide POI icons from the map. But labels of these POI will be on the map. |
+|[{% data variables.android-values.rendering_attr_hidePOILabels_name %}]|Hide POI labels from the map. But icons of these POI will be on the map.  |
+|[{% data variables.android-values.rendering_attr_hideUnderground_name %}]| Hide all underground objects, like tunnels, passes, floors, etc. Special for clearing map on cities from nonuseful objects.  |
+|[{% data variables.android-values.rendering_attr_hideOverground_name %}]|Hide all overground objects. Special for seeing only underground objects like tunnels, passed, etc.  |
 
 ## How to create and to add your own Map style (Map rendering)
 
