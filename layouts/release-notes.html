@@ -47,7 +47,7 @@
                     </h2>
 
                     {% if patch.release_candidate %}
-                      <span class="IssueLabel bg-orange text-white ml-3">Release Candidate</span>
+                      <span class="IssueLabel bg-orange text-white ml-3" style="white-space: pre">Release Candidate</span>
                     {% endif %}
 
                     <a href="https://enterprise.github.com/releases/{{ patch.version | replace: '-rc', '' }}/download" class="ml-3 text-small text-bold">
