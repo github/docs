@@ -1,6 +1,7 @@
 /* global page, browser */
 const sleep = require('await-sleep')
 const { latest } = require('../../lib/enterprise-server-releases')
+const languages = require('../../lib/languages')
 
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
@@ -262,5 +263,21 @@ describe('card filters', () => {
     expect(shownCards.length).toBe(0)
     const noResultsClasses = await page.$eval('.js-filter-card-no-results', elem => Object.values(elem.classList))
     expect(noResultsClasses).not.toContain('d-none')
+  })
+})
+
+describe('language banner', () => {
+  it('directs user to the English version of the article', async () => {
+    const wipLanguageKey = Object.keys(languages).find(key => languages[key].wip)
+
+    // This kinda sucks, but if we don't have a WIP language, we currently can't
+    // run a reliable test. But hey, on the bright side, if we don't have a WIP
+    // language then this code will never run anyway!
+    if (wipLanguageKey) {
+      const res = await page.goto(`http://localhost:4001/${wipLanguageKey}/actions`)
+      expect(res.ok()).toBe(true)
+      const href = await page.$eval('a#to-english-doc', el => el.href)
+      expect(href.endsWith('/en/actions')).toBe(true)
+    }
   })
 })

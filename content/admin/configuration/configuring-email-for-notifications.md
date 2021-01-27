@@ -44,12 +44,6 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
     - In the **Authentication** dropdown, choose the type of encryption used by your SMTP server.
     - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
 
-    {% note %}
-
-    **Note:** If you select the **Send from author** checkbox in a repository’s **Services** email webhook, outbound email for that repository will send from the author and not from the no-reply email address. For more information, see "[About email notifications for pushes to your repository](/github/administering-a-repository/about-email-notifications-for-pushes-to-your-repository)."
-
-    {% endnote %}
-
 6. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
 ![Checkbox to discard emails addressed to the no-reply email address](/assets/images/enterprise/management-console/discard-noreply-emails.png)
 7. Under **Support**, choose a type of link to offer additional support to your users:
