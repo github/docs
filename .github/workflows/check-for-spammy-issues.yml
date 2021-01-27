@@ -44,20 +44,13 @@ jobs:
             // has the minimum number of words required, proceed.
             // 
 
-            // Add the invalid label
-            await github.issues.addLabels({
+            // Close the issue and add the invalid label
+            await github.issues.update({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
               labels: ['invalid'],
-            });
-
-            // Remove triage label
-            await github.issues.removeLabel({
-              owner: owner,
-              repo: repo,
-              issue_number: issue.number,
-              name: 'triage',
+              state: 'closed'
             });
 
             // Comment on the issue
@@ -66,12 +59,4 @@ jobs:
               repo: repo,
               issue_number: issue.number,
               body: "This issue appears to have been opened accidentally. I'm going to close it now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
-            });
-
-            // Close the issue
-            await github.issues.update({
-              owner: owner,
-              repo: repo,
-              issue_number: issue.number,
-              state: 'closed'
             });
