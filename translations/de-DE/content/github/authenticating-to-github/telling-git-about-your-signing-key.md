@@ -30,8 +30,8 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Wenn Du die GPG-Suite nicht verwendest, füge den nachfolgenden Text ein, um den GPG-Schlüssel Deinem Bash-Profil hinzuzufügen:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
   ```
   {% note %}
 
@@ -92,8 +92,8 @@ Wenn Du mehrere GPG-Schlüssel hast, musst Du Git mitteilen, welcher zu verwende
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Um Deinen GPG-Schlüssel zu Deinem Bash-Profil hinzuzufügen, füge den folgenden Text ein:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
   ```
   {% note %}
 
