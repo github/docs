@@ -8,7 +8,7 @@ module.exports = [
   'actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f', //actions/checkout@v2.3.4
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
-  'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d', //actions/setup-node@v1.4.4
+  'actions/setup-node@c46424eee26de4078d34105d3de3cc4992202b1e', //actions/setup-node@v2.1.4
   'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
   'actions/stale@af4072615903a8b031f986d25b1ae3bf45ec44d4', //actions/stale@v3.0.13
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
@@ -33,7 +33,7 @@ module.exports = [
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
   'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd',
-  'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0',
+  'tjenkinson/gh-action-auto-merge-dependency-updates@4d7756c04d9d999c5968697a621b81c47f533d61',
   'EndBug/add-and-commit@9358097a71ad9fb9e2f9624c6098c89193d83575',
   'dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58'
 ]
