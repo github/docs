@@ -1,0 +1,1 @@
+Edite o emoji, título, descrição e formato de discussão para a categoria. For more information about discussion formats, see "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."

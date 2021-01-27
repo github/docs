@@ -1,5 +1,6 @@
 ---
 title: GitHub の製品
+intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
   - /articles/github-s-products
   - /articles/githubs-products
@@ -97,7 +98,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" and "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
+- {% data variables.product.prodname_GH_advanced_security %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.22" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."{% endif %}
 - [Organization の {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
 
-{% data variables.product.prodname_ghe_one %} へのサインアップの詳細については、[{% data variables.product.product_name %} の販売チーム](https://enterprise.github.com/contact)にお問い合わせください。
+For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact {% data variables.contact.contact_enterprise_sales %}.

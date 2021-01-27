@@ -19,4 +19,4 @@ versions:
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
 5. Click **Remove restrictions**. ![Remove restrictions button](/assets/images/help/settings/settings-third-party-remove-restrictions.png)
-6. After you review the information about disabling third-party application restrictions, click **Yes, remove application restrictions**. ![Remove confirmation button button](/assets/images/help/settings/settings-third-party-confirm-disable.png)
+6. After you review the information about disabling third-party application restrictions, click **Yes, remove application restrictions**. ![Remove confirmation button](/assets/images/help/settings/settings-third-party-confirm-disable.png)

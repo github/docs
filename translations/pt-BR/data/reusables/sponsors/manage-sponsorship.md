@@ -1,0 +1,1 @@
+1. To the right of your current tier, click **Manage**. ![Botão de gerenciar o seu patrocínio](/assets/images/help/sponsors/manage-your-sponsorship-button.png)

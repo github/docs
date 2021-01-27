@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -33,8 +34,8 @@ Você pode compilar ações do contêiner Docker e JavaScript. As ações exigem
 | Tipo                         | Sistema operacional   |
 | ---------------------------- | --------------------- |
 | Contêiner Docker             | Linux                 |
-| JavaScript                   | Linux, MacOS, Windows |
-| Etapas de execução compostas | Linux, MacOS, Windows |
+| JavaScript                   | Linux, macOS, Windows |
+| Etapas de execução compostas | Linux, macOS, Windows |
 
 #### Ações de contêiner docker
 

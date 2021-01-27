@@ -1,0 +1,1 @@
+`member`|`object` | El [user](/rest/reference/users) que se agregó. `changes`|`object`| Los cambios a los permisos del colaborador si la acción fue `edited`. `changes[old_permission][from]`|`string` | Los permisos previos del colaborador si la acción fue `edited`.

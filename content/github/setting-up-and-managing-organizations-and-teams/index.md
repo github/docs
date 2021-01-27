@@ -84,14 +84,16 @@ versions:
     {% link_in_list /disabling-or-limiting-github-actions-for-your-organization %}
     {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization %}
     {% link_in_list /setting-permissions-for-adding-outside-collaborators %}
-    {% link_in_list /allowing-people-to-delete-issues-in-your-organization %}
+    {% link_in_list /allowing-people-to-delete-issues-in-your-organization %}{% if currentVersion == "free-pro-team@latest" %}
+    {% link_in_list /managing-discussion-creation-for-repositories-in-your-organization %}{% endif %}
     {% link_in_list /setting-team-creation-permissions-in-your-organization %}
     {% link_in_list /managing-scheduled-reminders-for-your-organization %}
     {% link_in_list /managing-the-default-branch-name-for-repositories-in-your-organization %}
     {% link_in_list /managing-default-labels-for-repositories-in-your-organization %}
     {% link_in_list /changing-the-visibility-of-your-organizations-dependency-insights %}
     {% link_in_list /managing-the-display-of-member-names-in-your-organization %}
-    {% link_in_list /disabling-publication-of-github-pages-sites-for-your-organization %}
+    {% link_in_list /managing-updates-from-accounts-your-organization-sponsors %}
+    {% link_in_list /managing-the-publication-of-github-pages-sites-for-your-organization %}
     {% link_in_list /deleting-an-organization-account %}
     {% link_in_list /converting-an-organization-into-a-user %}
     {% link_in_list /integrating-jira-with-your-organization-project-board %}
@@ -111,7 +113,6 @@ versions:
     {% link_in_list /preparing-to-require-two-factor-authentication-in-your-organization %}
     {% link_in_list /requiring-two-factor-authentication-in-your-organization %}
     {% link_in_list /managing-security-and-analysis-settings-for-your-organization %}
-    {% link_in_list /managing-secret-scanning-for-your-organization %}
     {% link_in_list /managing-allowed-ip-addresses-for-your-organization %}
     {% link_in_list /restricting-email-notifications-to-an-approved-domain %}
     {% link_in_list /reviewing-the-audit-log-for-your-organization %}

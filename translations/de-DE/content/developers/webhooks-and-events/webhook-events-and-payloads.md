@@ -145,7 +145,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -430,7 +430,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+{% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
 **Note:** {% data reusables.pre-release-program.suspend-installation-beta %} For more information, see "[Suspending a {% data variables.product.prodname_github_app %} installation](/apps/managing-github-apps/suspending-a-github-app-installation/)."
@@ -445,7 +445,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 #### Webhook payload object
 
 {% data reusables.webhooks.installation_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 #### Webhook payload example
@@ -469,7 +469,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 #### Webhook payload object
 
 {% data reusables.webhooks.installation_repositories_properties %}
-{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.app_always_desc %}
 {% data reusables.webhooks.sender_desc %}
 
 #### Webhook payload example
@@ -715,7 +715,7 @@ The webhook this event is configured on was deleted. This event will only listen
 
 ### paketieren
 
-Activity related to {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} For more information, see the "[blocking organization users](/rest/reference/orgs#blocking)" REST API. For more information, see "[Managing packages with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" to learn more about {% data variables.product.prodname_registry %}.
+Activity related to {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} For more information, see "[Managing packages with {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" to learn more about {% data variables.product.prodname_registry %}.
 
 #### Availability
 
@@ -1047,7 +1047,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 | Schlüssel | Typ      | Beschreibung                                                                     |
 | --------- | -------- | -------------------------------------------------------------------------------- |
-| `action`  | `string` | die Aktion, die durchgeführt wurde. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
+| `action`  | `string` | die Aktion, die durchgeführt wurde. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted.</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1100,9 +1100,36 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+
+### secret_scanning_alert
+
+{% data reusables.webhooks.secret_scanning_alert_event_short_desc %}
+
+#### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_app %}s with the `secret_scanning_alerts:read` permission
+
+#### Webhook payload object
+
+{% data reusables.webhooks.secret_scanning_alert_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+`sender` | `object` | If the `action` is `resolved` or `reopened`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
+
+#### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@1.19" %}
 ### security_advisory
 
 Activity related to a security advisory. A security advisory provides information about security-related vulnerabilities in software on GitHub. The security advisory dataset also powers the GitHub security alerts, see "[About security alerts for vulnerable dependencies](/articles/about-security-alerts-for-vulnerable-dependencies/)."
+{% endif %}
 
 #### Availability
 
@@ -1305,7 +1332,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### workflow_run
 
-When a {% data variables.product.prodname_actions %} workflow run is requested or completed. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows#workflow_run)."
+When a {% data variables.product.prodname_actions %} workflow run is requested or completed. Weitere Informationen findest Du unter "[Ereignisse, die Workflows auslösen](/actions/reference/events-that-trigger-workflows#workflow_run)."
 
 #### Availability
 

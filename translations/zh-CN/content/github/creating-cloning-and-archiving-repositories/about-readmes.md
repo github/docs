@@ -13,9 +13,9 @@ versions:
 
 ### 关于自述文件
 
-You can add a README file to a repository to communicate important information about your project. A README, along with a repository license{% if currentVersion == "free-pro-team@latest" %}, contribution guidelines, and a code of conduct{% elsif enterpriseServerVersions contains currentVersion %} and contribution guidelines{% endif %}, communicates expectations for your project and helps you manage contributions.
+您可以将 README 文件添加到仓库来交流有关您项目的重要信息。 README 连同仓库许可{% if currentVersion == "free-pro-team@latest" %}、参与指南以及行为准则{% elsif enterpriseServerVersions contains currentVersion %} 和参与指南{% endif %}，用于传达项目的要求，并且帮助您管理参与。
 
-For more information about providing guidelines for your project, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a code of conduct to your project](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)" and {% endif %}"[Setting up your project for healthy contributions](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)."
+有关为项目提供指南的更多信息，请参阅 {% if currentVersion == "free-pro-team@latest" %}“[为项目添加行为准则](/github/building-a-strong-community/adding-a-code-of-conduct-to-your-project)”和{% endif %}“[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)”。
 
 自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
 - 项目做什么

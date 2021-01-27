@@ -127,7 +127,7 @@ function cleanPreviewTitle (title) {
 
 /**
  * Turn the given title into an HTML-ready anchor.
- * (ported from https://github.com/github/graphql-docs/blob/master/lib/graphql_docs/update_internal_developer/change_log.rb#L281)
+ * (ported from graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L281)
  * @param {string} [previewTitle]
  * @return {string}
 */
@@ -155,7 +155,7 @@ function cleanMessagesFromChanges (changes) {
  * Split `changesToReport` into two parts,
  * one for changes in the main schema,
  * and another for changes that are under preview.
- * (Ported from https://github.com/github/graphql-docs/blob/7e6a5ccbf13cc7d875fee65527b25bc49e886b41/lib/graphql_docs/update_internal_developer/change_log.rb#L230)
+ * (Ported from /graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L230)
  * @param {Array<object>} changesToReport
  * @param {object} previews
  * @return {object}
@@ -203,7 +203,7 @@ function segmentPreviewChanges (changesToReport, previews) {
 // Deprecations are covered by "upcoming changes."
 // By listing the changes explicitly here, we can make sure that,
 // if the library changes, we don't miss publishing anything that we mean to.
-// This was originally ported from https://github.com/github/graphql-docs/blob/7e6a5ccbf13cc7d875fee65527b25bc49e886b41/lib/graphql_docs/update_internal_developer/change_log.rb#L35-L103
+// This was originally ported from graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L35-L103
 const CHANGES_TO_REPORT = [
   ChangeType.FieldArgumentDefaultChanged,
   ChangeType.FieldArgumentTypeChanged,

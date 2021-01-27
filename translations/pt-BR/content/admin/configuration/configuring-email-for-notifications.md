@@ -19,6 +19,7 @@ O seu gerente de contas técnico dedicado em
 {% data variables.contact.github_support %} pode configurar o e-mail para notificações serem enviadas através de seu servidor SMTP. Certifique-se de incluir os detalhes a seguir na sua solicitação de suporte.
 
 - O endereço do seu servidor SMTP
+- Informações de login para efetuar a autenticação no servidor: nome de usuário e senha
 - A porta que o seu servidor SMTP usa para enviar e-mail
 - O nome de domínio que o seu servidor SMTP enviará com uma resposta HELO, se houver
 - O tipo de criptografia usado pelo seu servidor SMTP

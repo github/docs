@@ -90,3 +90,9 @@ header summary,
     background: transparent;
   }
 }
+
+.nav-dropdown  {
+  @media (min-width: 1012px) and (max-width: 1279px) {
+    right: 0;
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: 複数の作者を持つコミットを作成する
-intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} に表示され、プロファイルコントリビューショングラフとリポジトリの統計に含めることができます{% endif %}。'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
@@ -39,7 +39,17 @@ versions:
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. コミットメッセージと、変更の短く分かりやすい説明を入力してください。 コミットの説明の後に、閉じる引用符の代わりに 2 つの空の行を追加してください。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **Tip:** コミットメッセージを入力するのにコマンドライン上のテキストエディタを使っているなら、コミットの説明とコミットトレーラーの`Co-authored-by:`との間に新しい2行があることを確認してください。
+
+  {% endtip %}
 
 3. コミットメッセージの次の行に、各共作者の情報を `Co-authored-by: name <name@example.com>` という形式で入力します。 共同作者の情報の後に、閉じる引用符を追加します。
 
