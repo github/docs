@@ -24,13 +24,22 @@ module.exports = async (req, res, next) => {
 
   if (guideIndex > 0) {
     const prevGuidePath = track.guides[guideIndex - 1]
-    const { href, title } = await getLinkData(prevGuidePath, req.context, { title: true, intro: false })
+    const result = await getLinkData(prevGuidePath, req.context, { title: true, intro: false })
+    if (!result) return noTrack()
+
+    const href = result.href
+    const title = result.title
     currentLearningTrack.prevGuide = { href, title }
   }
 
   if (guideIndex < track.guides.length - 1) {
     const nextGuidePath = track.guides[guideIndex + 1]
-    const { href, title } = await getLinkData(nextGuidePath, req.context, { title: true, intro: false })
+    const result = await getLinkData(nextGuidePath, req.context, { title: true, intro: false })
+    if (!result) return noTrack()
+
+    const href = result.href
+    const title = result.title
+
     currentLearningTrack.nextGuide = { href, title }
   }
 

@@ -48,7 +48,9 @@ const main = async () => {
       'uuid',
       'imurmurhash',
       'js-cookie',
-      'clipboard'
+      'clipboard',
+      'mdast-util-from-markdown',
+      'unist-util-visit'
     ]
   })
 
