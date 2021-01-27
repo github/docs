@@ -14,7 +14,7 @@ versions:
 
 <!--UI-LINK: Displayed as a link on the https://github.com/marketplace/new page.-->
 
-The requirements for listing an app on {% data variables.product.prodname_marketplace %} vary according to whether you want to offer a free or a paid app.
+Os requisitos para a anunciar um aplicativo em {% data variables.product.prodname_marketplace %} variam de acordo com o fato de você desejar oferecer um aplicativo grátis ou pago.
 
 ### Requisitos para todos os anúncios de {% data variables.product.prodname_marketplace %}
 
@@ -24,7 +24,7 @@ Todos os anúncios em {% data variables.product.prodname_marketplace %} devem se
 
 Todos os anúncios devem atender aos requisitos a seguir, independentemente de serem para um aplicativo grátis ou pago.
 
-- Listings must not actively persuade users away from {% data variables.product.product_name %}.
+- Os anúncios não devem persuadir ativamente os usuários para fora de {% data variables.product.product_name %}.
 - Os anúncios devem incluir informações de contato válidas para o editor.
 - Os anúncios devem ter uma descrição relevante do aplicativo.
 - Os anúncios devem especificar um plano de preços.
@@ -53,7 +53,7 @@ Além dos requisitos para todos os aplicativos acima, cada aplicativo que você 
 - Os {% data variables.product.prodname_github_app %}s deve ter, no mínimo, 100 instalações.
 - Os {% data variables.product.prodname_oauth_app %}s devem ter, no mínimo, 200 usuários.
 - Todos os aplicativos pagos devem lidar com eventos de compra de {% data variables.product.prodname_marketplace %} para novas compras, atualizações, downgrades, cancelamentos e testes grátis. Para obter mais informações, consulte "[Requisitos de cobrança para aplicativos pagos](#billing-requirements-for-paid-apps)" abaixo.
-- As organizações publicadoras devem ter um domínio verificado e devem habilitar a autenticação de dois fatores. Para obter mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization.")
+- As organizações publicadoras devem ter um domínio verificado e devem habilitar a autenticação de dois fatores. Para obter mais informações, consulte "[Exigir a autenticação de dois fatores na sua organização](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
 
 Quando estiver pronto para publicar o aplicativo em {% data variables.product.prodname_marketplace %}, você deverá solicitar a verificação para o anúncio.
 

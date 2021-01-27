@@ -1,13 +1,13 @@
 ---
-title: Attributing sponsorships to your organization
-intro: 'You can attribute the sponsorships paid by one of your organizations to another organization.'
+title: Atribuir patrocínios à sua organização
+intro: 'Você pode atribuir os patrocínios pagos por uma das suas organizações a outra organização.'
 versions:
   free-pro-team: '*'
-permissions: People who are organization owners of both organizations can attribute one organization's sponsorships to another organization.
+permissions: As pessoas que são proprietárias de organizações de ambas as organizações podem atribuir patrocínios de uma organização à outra organização.
 ---
 
-1. Navigate to the organization whose sponsorships you want to attribute to another organization.
-1. Under your organization name, click {% octicon "heart" aria-label="The heart icon" %} **Sponsoring**. !["Sponsoring" tab](/assets/images/help/sponsors/sponsoring-tab.png)
-1. In the upper-right corner, click {% octicon "gear" aria-label="The gear icon" %} **Settings**. !["Settings" button](/assets/images/help/sponsors/sponsoring-settings-button.png)
-1. Under "Link sponsorships to another account", use the drop-down menu, then click the organization you want this organization's sponsorships to be attributed to. ![Drop-down menu to select account](/assets/images/help/sponsors/select-an-account-drop-down.png)
-1. Click **Link account**. !["Link account" button](/assets/images/help/sponsors/link-account-button.png)
+1. Acesse a organização cujos patrocínios você deseja atribuir a outra organização.
+1. No nome da sua organização, clique em {% octicon "heart" aria-label="The heart icon" %} **Patrocínio**. ![Aba "Patrocínio"](/assets/images/help/sponsors/sponsoring-tab.png)
+1. No canto superior direito, clique em {% octicon "gear" aria-label="The gear icon" %} **Configurações**. ![Botão "Configurações"](/assets/images/help/sponsors/sponsoring-settings-button.png)
+1. Em "Vincular patrocínios a outra conta", use o menu suspenso e, em seguida, clique na organização à qual você deseja que os patrocínios desta organização sejam atribuídos. ![Menu suspenso para selecionar conta](/assets/images/help/sponsors/select-an-account-drop-down.png)
+1. Clique em **Vincular conta**. ![Botão "Vincular conta"](/assets/images/help/sponsors/link-account-button.png)

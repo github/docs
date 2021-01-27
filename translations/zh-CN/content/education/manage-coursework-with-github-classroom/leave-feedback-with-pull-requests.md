@@ -1,31 +1,31 @@
 ---
-title: Leave feedback with pull requests
-intro: You can leave feedback for your students in a special pull request within the repository for each assignment.
-permissions: People with read permissions to a repository can leave feedback in a pull request for the repository.
+title: 通过拉取请求留下反馈
+intro: 您可以仓库内的特定拉取请求中给学生的每个作业留反馈。
+permissions: 对仓库具有读取权限的用户可以在仓库的拉取请求中留下反馈。
 versions:
   free-pro-team: '*'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/leaving-feedback-in-github
 ---
 
-### About feedback pull requests for assignments
+### 关于作业的反馈拉取请求
 
 {% data reusables.classroom.you-can-create-a-pull-request-for-feedback %}
 
-When you enable the pull request for feedback for an assignment, {% data variables.product.prodname_classroom %} will create a special pull request titled **Feedback** in the assignment repository for each student or team. The pull request automatically shows every commit that a student pushed to the assignment repository's default branch.
+对作业启用反馈拉取请求时，{% data variables.product.prodname_classroom %} 将在作业仓库中为每个学生或团队创建标题为**反馈**的拉取请求。 拉取请求会自动显示学生推送到作业仓库的默认分支的每个提交。
 
 ### 基本要求
 
-To create and access the feedback pull request, you must enable the feedback pull request when you create the assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
+要创建和访问反馈拉取请求，您必须在创建作业时启用反馈拉取请求。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-### Leaving feedback in a pull request for an assignment
+### 在作业的拉取请求中留下反馈
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. In the list of classrooms, click the classroom with the assignment you want to review. ![Classroom in list of classrooms for an organization](/assets/images/help/classroom/click-classroom-in-list.png)
+1. 在教室列表中，单击包含要查看的作业的教室。 ![组织教室列表中的教室](/assets/images/help/classroom/click-classroom-in-list.png)
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of the submission, click **Review**. ![Review button for assignment in list of submissions for an assignment](/assets/images/help/classroom/assignments-click-review-button.png)
-1. Review the pull request. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)."
+1. 对于提交的右侧，请单击 **Review（查看）**。 ![作业提交列表中的作业查看按钮](/assets/images/help/classroom/assignments-click-review-button.png)
+1. 查看拉取请求。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request)”。
 
 ### 延伸阅读
 
-- "[Integrate {% data variables.product.prodname_classroom %} with an IDE](http://localhost:4000/en/free-pro-team@latest/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"
+- "[集成 {% data variables.product.prodname_classroom %} 与 IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"

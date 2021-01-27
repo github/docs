@@ -5,6 +5,7 @@ intro: '{% data variables.product.prodname_actions %} 旨在帮助您建立强�
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'overview'
 ---
 
 {% data reusables.actions.enterprise-beta %}

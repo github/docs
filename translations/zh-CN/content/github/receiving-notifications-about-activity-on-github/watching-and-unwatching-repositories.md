@@ -33,7 +33,7 @@ versions:
 
 {% note %}
 
-**注：**您也可以选择忽略仓库。 如果忽略仓库，将不会收到任何通知。 我们不建议忽略仓库，因为这样您被@提及时将不会收到通知。 {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {% data reusables.policies.abuse %}{% endif %}
+**注：**您也可以选择忽略仓库。 如果忽略仓库，将不会收到任何通知。 我们不建议忽略仓库，因为这样您被@提及时将不会收到通知。 {% if currentVersion == "free-pro-team@latest" %}如果您发现滥用问题并且想忽略某个仓库，请联系 {% data variables.contact.contact_support %} 获取帮助。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

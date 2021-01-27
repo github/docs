@@ -19,6 +19,7 @@ Your dedicated technical account manager in
 {% data variables.contact.github_support %} can configure email for notifications to be sent through your SMTP server. Make sure you include the following details in your support request.
 
 - Your SMTP server address
+- Login information to authenticate to the server: username and password
 - The port your SMTP server uses to send email
 - The domain name that your SMTP server will send with a HELO response, if any
 - The type of encryption used by your SMTP server

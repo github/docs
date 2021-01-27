@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 ### はじめに
@@ -175,7 +176,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 #### シークレットを保存する
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} also includes policies that allow you to limit access to secrets at the repository and organization level. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 #### Sharing files between jobs and workflows
 
@@ -193,7 +194,7 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
   - [Node.js のビルドとテスト](/actions/guides/building-and-testing-nodejs)
-  - [Building and testing PowerShell](/actions/guides/building-and-testing-powershell)
+  - [PowerShell のビルドとテスト](/actions/guides/building-and-testing-powershell)
   - [Python のビルドとテスト](/actions/guides/building-and-testing-python)
   - [MavenでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-maven)
   - [GradleでのJavaのビルドとテスト](/actions/guides/building-and-testing-java-with-gradle)
