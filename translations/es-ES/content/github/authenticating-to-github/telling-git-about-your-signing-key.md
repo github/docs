@@ -30,8 +30,8 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Si no estás utilizando GPG Suite, pega el texto que aparece a continuación para agregar la llave GPG a tu perfil bash:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 
@@ -92,8 +92,8 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Para agregar tu llave GPG a tu perfil bash, pega el texto que aparece a continuación:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 

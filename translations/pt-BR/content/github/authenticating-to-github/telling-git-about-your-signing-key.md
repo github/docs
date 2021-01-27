@@ -30,8 +30,8 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Se você não estiver usando o conjunto de GPG, cole o texto abaixo para adicionar a chave GPG ao seu perfil de bash:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 
@@ -92,8 +92,8 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Para adicionar a chave GPG ao seu perfil de bash, cole o texto abaixo:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 

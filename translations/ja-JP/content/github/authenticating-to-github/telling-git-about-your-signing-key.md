@@ -30,8 +30,8 @@ versions:
 {% data reusables.gpg.paste-gpg-key-id %}
 1. GPG スイートを使っていない場合、bash プロフィールに GPG キーを追加するために下記のテキストをペーストしてください:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 
@@ -92,8 +92,8 @@ versions:
 {% data reusables.gpg.paste-gpg-key-id %}
 1. Bash プロフィールに GPG キーを追加するには、下記のテキストを貼り付けてください。
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 

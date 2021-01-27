@@ -30,8 +30,8 @@ versions:
 {% data reusables.gpg.paste-gpg-key-id %}
 1. 如果没有使用 GPG Suite，请粘贴下面的文本以将 GPG 密钥添加到您的 bash 配置文件：
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 
@@ -92,8 +92,8 @@ versions:
 {% data reusables.gpg.paste-gpg-key-id %}
 1. 要将 GPG 密钥添加到 bash 配置文件，请粘贴下面的文本：
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 

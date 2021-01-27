@@ -30,8 +30,8 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.paste-gpg-key-id %}
 1. If you aren't using the GPG suite, paste the text below to add the GPG key to your bash profile:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 
@@ -92,8 +92,8 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.paste-gpg-key-id %}
 1. To add your GPG key to your bash profile, paste the text below:
   ```shell
-  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$TTY' >> ~/.bash_profile
-  $ echo 'export GPG_TTY=$TTY' >> ~/.profile
+  $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
+  $ echo 'export GPG_TTY=$(tty)' >> ~/.profile
   ```
   {% note %}
 
