@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'tutorial'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -42,7 +43,7 @@ Each time you create a new release, you can trigger a workflow to publish your p
 You can define a new Maven repository in the publishing block of your _build.gradle_ file that points to your package repository.  For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _build.gradle_ could specify a repository with the name `"OSSRH"`.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publishing {
   ...
 
@@ -66,7 +67,7 @@ In the deploy step, you’ll need to set environment variables for the username 
 
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -104,7 +105,7 @@ The `GITHUB_TOKEN` exists in your repository by default and has read and write p
 For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publishing {
   ...
 
@@ -125,7 +126,7 @@ publishing {
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to GitHub Packages
 on:
   release:
@@ -161,7 +162,7 @@ For example, if you deploy to the Central Repository through the OSSRH hosting p
 If your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
 
 {% raw %}
-```groovy
+```groovy{:copy}
 publishing {
   ...
 
@@ -190,7 +191,7 @@ publishing {
 With this configuration, you can create a workflow that publishes your package to both the Maven Central Repository and {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:

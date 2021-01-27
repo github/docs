@@ -1,1 +1,1 @@
-SAML SSOは、{% data variables.product.prodname_dotcom %}上のOrganizationのオーナー及びEnterpriseのオーナーに対し、リポジトリ、Issue、プルリクエストのようなOrganizationのリソースに対するアクセスをコントロールし、セキュアに保つ方法を提供します。
+SAML single sign-on (SSO) gives organization owners and enterprise owners on {% data variables.product.prodname_dotcom %} a way to control and secure access to organization resources like repositories, issues, and pull requests.
