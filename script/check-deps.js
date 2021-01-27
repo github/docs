@@ -32,7 +32,6 @@ const main = async () => {
       '@babel/*',
       'babel-preset-env',
       '@primer/*',
-      'querystring',
       'pa11y-ci',
       'sass',
       'babel-loader',
@@ -49,7 +48,9 @@ const main = async () => {
       'uuid',
       'imurmurhash',
       'js-cookie',
-      'clipboard'
+      'clipboard',
+      'mdast-util-from-markdown',
+      'unist-util-visit'
     ]
   })
 
