@@ -31,6 +31,6 @@ yarn | `nmp` | v1 | | |
 
 (B) {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
 
-(C) {% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version 4.8. Version 4.9 introduces lockfiles, which are unsupported.
+(C) {% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version 4.8.
 
 For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your *dependabot.yml* file.
