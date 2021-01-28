@@ -1,17 +1,5 @@
 # Search
 
-## Table of contents
-- [Overview](#overview)
-- [Production deploys](#production-deploys)
-- [Manual sync from a checkout](#manual-sync-from-a-checkout)
-  - [Build without sync (dry run)](#build-without-sync-dry-run)
-  - [Build and sync](#build-and-sync)
-- [Label-triggered Actions workflow](#label-triggered-actions-workflow)
-- [Files](#files)
-  - [GitHub Actions workflow files](#github-actions-workflow-files)
-  - [Code files](#code-files)
-
-
 ## Overview
 
 This site's search functionality is powered by [Algolia](https://www.algolia.com), a third-party service.
@@ -23,6 +11,12 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 ![search-screenshot](https://user-images.githubusercontent.com/2289/65067899-68bd1c80-d93c-11e9-93ec-f57293e56113.png)
 
 ---
+
+## How to search
+
+The site search is part of every version of docs.github.com. On any page, you can use the search box to search the documents we've indexed. 
+You can also query our search endpoint directly at: https://docs.github.com/search?language=en&version=dotcom&query=jekyll
+This endpoint responds in JSON format, and fronts Algolia and Lunr. We recommend using this endpoint over directly integrating with Algolia or Lunr, as the endpoint will be more stable.
 
 ## Production deploys
 

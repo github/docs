@@ -52,7 +52,6 @@ describe('server', () => {
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
-    expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
 
@@ -330,8 +329,8 @@ describe('server', () => {
     })
 
     test('admin articles that link to Enterprise user articles have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/configuring-email-for-notifications`)
-      expect($('article a[href*="about-email-notifications-for-pushes-to-your-repository"]').length).toBe(1)
+      const $ = await getDOM(`${latestEnterprisePath}/admin/user-management/customizing-user-messages-for-your-enterprise`)
+      expect($('article a[href*="about-writing-and-formatting-on-github"]').length).toBe(1)
     })
 
     test('articles that link to external links that contain /articles/ are not rewritten', async () => {
