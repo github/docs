@@ -287,7 +287,7 @@ function tmplSearchResult ({ url, breadcrumbs, heading, title, content }) {
   )
 }
 
-// Convert em to mark tags in search responses
+// Convert mark tags in search responses
 function markify (text) {
   const { mark } = tags
   return text
