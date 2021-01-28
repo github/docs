@@ -1,6 +1,6 @@
 const express = require('express')
 const languages = new Set(Object.keys(require('../lib/languages')))
-const versions = require('../lib/search/versions')
+const versions = new Set(Object.values(require('../lib/search/versions')))
 const loadLunrResults = require('../lib/search/lunr-search')
 const loadAlgoliaResults = require('../lib/search/algolia-search')
 
