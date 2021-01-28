@@ -1,17 +1,22 @@
 ---
-title: About verified creator badges
-intro: 'Learn about the verified creator badges that are shown for some listings for apps and actions on {% data variables.product.prodname_marketplace %}.'
+title: About marketplace badges
+intro: 'Learn about the badges that you may see for some apps and actions listings on {% data variables.product.prodname_marketplace %}.'
+redirect_from:
+  - /developers/github-marketplace/about-verified-creator-badges
 versions:
   free-pro-team: '*'
 ---
 
 ### For GitHub Apps
 
-Apps with the {% octicon "verified" aria-label="The verified badge" %}, or verified creator badge, are owned by an organization that has completed the publisher verification process. 
+Apps with the {% octicon "verified" aria-label="The verified badge" %}, are owned by an organization that has:
+- Confirmed their domain
+- Confirmed their email address so {% data variables.product.prodname_dotcom %} Support can reach the organization
+- Required two-factor authentication for their organization. For more information, see "[Requiring two-factor authentication in your organization](/github/setting-up-and-managing-organizations-and-teams/requiring-two-factor-authentication-in-your-organization)."
 
-![Verified creator badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-creator-badges.png)
+![Marketplace badge for GitHub Apps](/assets/images/marketplace/apps-with-verified-publisher-badge.png)
 
-To learn more about the publisher verification process, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
+To learn how you can add this badge to your app, see "[Applying for publisher verification for your organization](/developers/github-marketplace/applying-for-publisher-verification-for-your-organization)."
 
 For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[Requirements for listing an app on {% data variables.product.prodname_marketplace %}](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)."
 
