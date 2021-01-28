@@ -6,7 +6,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{% topic_link_in_list /installing-and-updating-github-insights %}
+{% topic_link_in_list /installing-and-updating-github-insig
+hts %}
     {% link_in_list /about-github-insights %}
     {% link_in_list /system-overview-for-github-insights %}
     {% link_in_list /installing-github-insights %}
@@ -23,3 +24,5 @@ versions:
     {% link_in_list /managing-organizations %}
     {% link_in_list /managing-goals %}
     {% link_in_list /managing-events %}
+Get 7 
+/18403 /lifecycle-faq-device-operating-system-policy /run 
