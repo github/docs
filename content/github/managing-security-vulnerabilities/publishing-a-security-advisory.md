@@ -24,6 +24,16 @@ When you publish a security advisory, you notify your community about the securi
 
 Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. For more information, see "[Collaborating in a temporary private fork to resolve a security vulnerability](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)."
 
+{% warning %}
+
+**Warning**: you should always add a fix version prior to publishing an advisory. If you don't, 
+
+- If a fix version is imminently available, they may want to wait to disclose the issue when they have the version ready
+- If a fix version is in development but not yet available, they may want to specify that and edit it later after publication
+- If they are not planning on fixing it, they may want to specify that
+
+{% endwarning %}
+
 When you publish a draft advisory from a public repository, everyone is able to see:
 
 - The current version of the advisory data.
