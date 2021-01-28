@@ -63,7 +63,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.github-actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
 
-### Supported operating systems for self-hosted runners
+### Supported architectures and operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
 
@@ -93,6 +93,13 @@ The following operating systems are supported for the self-hosted runner applica
 - macOS 10.13 (High Sierra) or later
 
 {% if enterpriseServerVersions contains currentVersion %}
+
+#### Architectures
+
+- x64
+- x86
+- ARM64
+- ARM32
 
 ### Supported actions on self-hosted runners
 
