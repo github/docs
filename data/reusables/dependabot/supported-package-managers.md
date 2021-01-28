@@ -10,8 +10,8 @@ Bundler | `bundler` | v1 | | **✓** |
 Cargo | `cargo` | v1 | **✓** | |
 Composer | `composer` | v1,v2  | **✓** | |
 Docker | `docker` | v1 | **✓** | |
-Elixir | `hex` | TBD | | |
 Elm | `elm` | v0.18, v0.19 | **✓** | |
+Hex | `hex` | TBD | | |
 git submodule | `gitsubmodule` | N/A (no version) | **✓** | |
 GitHub Actions | `github-actions` |  N/A (no version) | **✓** | |
 Go modules | `gomod` | v1 | **✓** | **✓** |
@@ -22,7 +22,7 @@ npm | `npm` | v6 | **✓** | |
 NuGet | `nuget` | <= 4.8.</br>See (C) below | **✓** | |
 pip | `pip` | v20 | | |
 pipenv | `pip` | <= 2018.11.26 | | |
-pip-compile | `pip` | TBD | | |
+pip-compile | `pip` | 5.5.0 | | |
 poetry | `pip` | TBD | | |
 Terraform | `terraform` | <= 0.11 | **✓** | |
 yarn | `nmp` | v1 | | |
