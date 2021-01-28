@@ -92,13 +92,13 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) or later
 
-{% if enterpriseServerVersions contains currentVersion %}
-
 #### Architectures
 
 - x64
 - ARM64 (Linux only)
 - ARM32 (Linux only)
+
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Supported actions on self-hosted runners
 
