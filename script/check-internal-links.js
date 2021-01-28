@@ -4,6 +4,7 @@ const linkinator = require('linkinator')
 const checker = new linkinator.LinkChecker()
 const { deprecated, latest } = require('../lib/enterprise-server-releases')
 const englishRoot = 'http://localhost:4002/en'
+const allowedVersions = ['dotcom', 'enterprise-server', 'github-ae']
 
 // [start-readme]
 //
@@ -53,7 +54,7 @@ if (process.env.VERSION === 'dotcom') {
 main()
 
 async function main () {
-  process.env.VERSION
+  process.env.VERSION && allowedVersions.includes(process.env.VERSION)
     ? console.log(`Checking internal links for version ${process.env.VERSION}!\n`)
     : console.log('Checking internal links for all versions!\n')
 
