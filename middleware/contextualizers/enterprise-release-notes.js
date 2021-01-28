@@ -9,7 +9,15 @@ const enterpriseReleases = require('../../lib/enterprise-server-releases').suppo
  */
 function sortPatchKeys (release, version) {
   const keys = Object.keys(release)
-    .map(key => ({ version: `${version}.${key}`, patchVersion: key, ...release[key] }))
+    .map(key => {
+      const keyWithDots = key.replace(/-/g, '.')
+      return {
+        version: `${version}.${keyWithDots}`,
+        patchVersion: keyWithDots,
+        downloadVersion: `${version}.${keyWithDots.replace(/\.rc\d*$/, '')}`,
+        ...release[key]
+      }
+    })
   return keys
     .sort((a, b) => {
       if (semver.gt(a.version, b.version)) return -1
