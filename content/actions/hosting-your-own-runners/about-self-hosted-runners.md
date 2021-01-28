@@ -97,9 +97,8 @@ The following operating systems are supported for the self-hosted runner applica
 #### Architectures
 
 - x64
-- x86
-- ARM64
-- ARM32
+- ARM64 (Linux only)
+- ARM32 (Linux only)
 
 ### Supported actions on self-hosted runners
 
