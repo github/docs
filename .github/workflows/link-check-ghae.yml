@@ -53,5 +53,5 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: 'Link check: GitHub AE'
         env:
-          VERSION: 'github-ae'
+          DOCS_VERSION: 'github-ae'
         run: npm run link-check

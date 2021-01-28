@@ -53,5 +53,5 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: 'Link check: Dotcom'
         env:
-          VERSION: 'dotcom'
+          DOCS_VERSION: 'dotcom'
         run: npm run link-check

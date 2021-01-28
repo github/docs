@@ -53,5 +53,5 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: 'Link check: Enterprise Server'
         env:
-          VERSION: 'enterprise-server'
+          DOCS_VERSION: 'enterprise-server'
         run: npm run link-check

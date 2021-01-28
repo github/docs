@@ -38,14 +38,14 @@ const config = {
 }
 
 // Customize config for specific versions
-if (process.env.VERSION === 'dotcom') {
+if (process.env.DOCS_VERSION === 'dotcom') {
   // If Dotcom, skip Enterprise Server and GitHub AE links
   config.linksToSkip.push('^.*/enterprise-server@.*$', '^.*/enterprise/.*$', '^.*/github-ae@latest.*$')
-} else if (process.env.VERSION === 'enterprise-server') {
+} else if (process.env.DOCS_VERSION === 'enterprise-server') {
   // If Enterprise Server, skip links that are not Enterprise Server links
   config.path = `${englishRoot}/enterprise-server@${latest}`
   config.linksToSkip.push('^((?!enterprise-server@).)*$')
-} else if (process.env.VERSION === 'github-ae') {
+} else if (process.env.DOCS_VERSION === 'github-ae') {
   // If GitHub AE, skip links that are not GitHub AE links
   config.path = `${englishRoot}/github-ae@latest`
   config.linksToSkip.push('^((?!github-ae@latest).)*$')
@@ -54,8 +54,8 @@ if (process.env.VERSION === 'dotcom') {
 main()
 
 async function main () {
-  process.env.VERSION && allowedVersions.includes(process.env.VERSION)
-    ? console.log(`Checking internal links for version ${process.env.VERSION}!\n`)
+  process.env.DOCS_VERSION && allowedVersions.includes(process.env.DOCS_VERSION)
+    ? console.log(`Checking internal links for version ${process.env.DOCS_VERSION}!\n`)
     : console.log('Checking internal links for all versions!\n')
 
   console.time('check')
