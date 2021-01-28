@@ -26,11 +26,13 @@ Before you publish a security advisory, you can privately collaborate to fix the
 
 {% warning %}
 
-**Warning**: you should always add a fix version prior to publishing an advisory. If you don't, 
+**Warning**: Whenever possible, you should always add a fix version to an advisory prior to publishing the advisory. If you don't, the CVE will be published without a fixed version, and {% data variables.product.prodname_dependabot %} will keep alerting your users about the issue, and not offer any safe version to update to.
 
-- If a fix version is imminently available, they may want to wait to disclose the issue when they have the version ready
-- If a fix version is in development but not yet available, they may want to specify that and edit it later after publication
-- If they are not planning on fixing it, they may want to specify that
+We recommend you take the following steps in these different situations:
+
+- If a fix version is imminently available, wait to disclose the issue when the fix is ready.
+- If a fix version is in development but not yet available, mention this in the advisory, and edit the advisory later, after publication.
+- If you are not planning to fix the issue, be clear about it in the advisory so that your users don't contact you to ask if a fix will be made.
 
 {% endwarning %}
 
