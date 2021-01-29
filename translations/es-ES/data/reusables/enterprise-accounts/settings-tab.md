@@ -1,0 +1,1 @@
+1. En la barra lateral de la cuenta de empresa, haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Configuraciones). ![Pestaña Settings (Configuraciones) en la barra lateral de la cuenta de empresa](/assets/images/help/business-accounts/enterprise-account-settings-tab.png)

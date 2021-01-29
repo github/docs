@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.sponsors.payout-info %}
 
-### Viewing and editing payout information
+### 查看和编辑付款信息
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-payouts-tab %}
