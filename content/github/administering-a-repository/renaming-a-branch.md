@@ -4,6 +4,7 @@ intro: You can change the name of a branch in a repository.
 permissions: People with write permissions to a repository can rename a branch in the repository. People with admin permissions can rename the default branch.
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.1'
 ---
 
 ### About renaming branches
@@ -32,5 +33,5 @@ From the local clone of the repository on a computer, run the following commands
 ```shell
 $ git branch -m <em>OLD-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 $ git fetch origin
-$ git branch -u origin/<em>NEW-DEFAULT-BRANCH-NAME</em> <em>NEW-DEFAULT-BRANCH-NAME</em>
+$ git branch -u origin/<em>NEW-BRANCH-NAME</em> <em>NEW-BRANCH-NAME</em>
 ```
