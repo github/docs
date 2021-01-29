@@ -10,7 +10,7 @@ Bundler | `bundler` | v1 | | **✓** |
 Cargo | `cargo` | v1 | **✓** | |
 Composer | `composer` | v1,v2  | **✓** | |
 Docker | `docker` | v1 | **✓** | |
-Elixir | | `mix` | v1 | **✓** | |
+Elixir | `mix` | v1 | **✓** | |
 Elm | `elm` | v0.18, v0.19 | **✓** | |
 git submodule | `gitsubmodule` | N/A (no version) | **✓** | |
 GitHub Actions | `github-actions` |  N/A (no version) | **✓** | |
