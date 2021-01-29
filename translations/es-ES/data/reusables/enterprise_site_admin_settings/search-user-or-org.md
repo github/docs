@@ -1,0 +1,1 @@
+1. En el campo de búsqueda, teclea el nombre del usuario u organización y da clic en **Buscar**. ![Site admin settings search field](/assets/images/enterprise/site-admin-settings/search-for-things.png)

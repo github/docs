@@ -34,3 +34,14 @@ versions:
 
 3. All tags associated with the commit are visible in that commit's metadata.
 ![Viewing a tag in the commit](/assets/images/help/desktop/viewing-tags-in-commit.png)
+
+### Deleting tags
+
+{% note %}
+
+**Note**: You can only delete tags associated with commits that have not yet been pushed.
+
+{% endnote %}
+
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.delete-tag %}

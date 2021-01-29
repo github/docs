@@ -1,0 +1,1 @@
+Los ejecutores auto-hospedados te permiten hospedr tus propios ejecutores y personalizar el ambiente que se utiliza para ejecutar jobs en tus flujos de trabajo de {% data variables.product.prodname_actions %}.

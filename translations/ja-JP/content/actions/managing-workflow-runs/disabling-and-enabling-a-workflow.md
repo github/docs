@@ -7,8 +7,8 @@ versions:
   enterprise-server: '>=2.23'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ワークフローを無効にすると、リポジトリからファイルを削除することなく、ワークフローがトリガーされないようにすることができます。 {% data variables.product.prodname_dotcom %} でワークフローを簡単に再度有効にすることができます。 REST API を使用して、ワークフローを無効化または有効化することもできます。 詳しい情報については、「[アクション REST API](/rest/reference/actions#workflows)」を参照してください。
 

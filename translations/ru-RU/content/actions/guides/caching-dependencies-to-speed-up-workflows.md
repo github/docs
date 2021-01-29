@@ -9,6 +9,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows
 versions:
   free-pro-team: '*'
+type: 'руководство'
 ---
 
 ### About caching workflow dependencies

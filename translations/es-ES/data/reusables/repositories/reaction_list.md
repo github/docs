@@ -1,0 +1,10 @@
+| contenido    | emoji      |
+| ------------ | ---------- |
+| `+1`         | :+1:       |
+| `-1`         | :-1:       |
+| `risa`       | :smile:    |
+| `confundido` | :confused: |
+| `corazón`    | :heart:    |
+| `viva`       | :tada:     |
+| `cohete`     | :rocket:   |
+| `ojos`       | :eyes:     |

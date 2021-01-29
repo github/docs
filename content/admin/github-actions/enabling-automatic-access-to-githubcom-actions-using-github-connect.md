@@ -13,7 +13,7 @@ versions:
 
 By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.prodname_ghe_server %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 
-To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can connect {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} using {% data variables.product.prodname_github_connect %}. For other ways of accessing actions from {% data variables.product.prodname_dotcom_the_website %}, see "[About using {% data variables.product.prodname_dotcom_the_website %} actions on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/github-actions/about-using-githubcom-actions-on-github-enterprise-server)."
+To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %}. For other ways of accessing actions from {% data variables.product.prodname_dotcom_the_website %}, see "[About using actions on {% data variables.product.prodname_ghe_server %}](/admin/github-actions/about-using-actions-on-github-enterprise-server)."
 
 ### Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
 
@@ -24,3 +24,4 @@ Before enabling access to all actions from {% data variables.product.prodname_do
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "Server can use actions from GitHub.com in workflows runs", use the drop-down menu and select **Enabled**.
   ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
+1. {% data reusables.actions.enterprise-limit-actions-use %}

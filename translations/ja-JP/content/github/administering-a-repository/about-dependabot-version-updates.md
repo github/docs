@@ -43,3 +43,7 @@ versions:
 {% data reusables.dependabot.supported-package-managers %}
 
 リポジトリですでに依存関係管理にインテグレーションを使用している場合は、{% data variables.product.prodname_dependabot %} を有効にする前にそれを無効にする必要があります。 詳しい情報については、「[インテグレーションについて](/github/customizing-your-github-workflow/about-integrations)」を参照してください。
+
+### About notifications for {% data variables.product.prodname_dependabot %} version updates
+
+You can filter your notifications on {% data variables.product.company_short %} to show {% data variables.product.prodname_dependabot %} version updates. 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。

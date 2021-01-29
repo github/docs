@@ -1,0 +1,1 @@
+No puedes convertir un debate en una propuesta.

@@ -1,0 +1,1 @@
+1. Debajo de "Autenticación", selecciona **Requerir autenticación de dos factores para todos en tu organización**, y después da clic en **Guardar**. ![Casilla de Requerir autenticación bifactorial](/assets/images/help/organizations/require-2fa-checkbox.png)

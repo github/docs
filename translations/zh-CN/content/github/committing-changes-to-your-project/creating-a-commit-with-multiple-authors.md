@@ -39,7 +39,17 @@ versions:
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
+1. 输入提交消息以及简短、有意义的更改描述。 在提交描述后，不要加上右引号，而是添加两个空行。
+  ```shell
+  $ git commit -m "Refactor usability tests.
+  >
+  >
+  ```
+  {% tip %}
+
+  **提示：** 如果您使用文本编辑器在命令行上输入提交消息，请确保在提交描述末尾与 `Co-authored-by:` 提交尾行之间有两个换行符。
+
+  {% endtip %}
 
 3. 在提交消息的下一行，根据每个合作作者的特定信息键入 `Co-authored-by: name <name@example.com>`。 在合作作者的信息后面，添加一个右引号。
 

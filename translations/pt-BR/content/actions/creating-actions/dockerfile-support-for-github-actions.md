@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,14 +61,14 @@ ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
  Para fornecer os `args` definidos no arquivo de metadados da ação para um contêiner Dock que usa a forma _exec_ no `ENTRYPOINT`, recomendamos criar um script do shell denominado `entrypoint.sh` que você pode acessar a partir da instrução `ENTRYPOINT`:
 
 ##### Exemplo *arquivo Docker*
-``` 
-# Imagem do contêiner que executa o seu código
-DE debian:9.5-slim
+```
+# Container image that runs your code
+FROM debian:9.5-slim
 
-# Cópias do seu arquivo de código do seu repositório de ação para o caminho do sistema do arquivo `/` do contêiner
-CÓPIA entrypoint.sh /entrypoint.sh
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-# Executa `entrypoint.sh` quando o contêiner Docker é inicializado 
+# Executes `entrypoint.sh` when the Docker container starts up
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -78,14 +79,14 @@ Ao usar o arquivo Docker acima, {% data variables.product.product_name %}, envia
 ``` sh
 #!/bin/sh
 
-# `$*` expande os `args` fornecidos em um `array` individualmente 
-# ou separa os `args` em uma string separados por um espaço em branco.
+# `$*` expands the `args` supplied in an `array` individually
+# or splits `args` in a string separated by whitespace.
 sh -c "echo $*"
 ```
 
 O seu código deve ser executável. Certifique-se de que o arquivo `entrypoint.sh`tenha permissões `de execução` antes de usá-lo em um fluxo de trabalho. Você pode modificar as permissões a partir do seu terminal usando este comando:
   ``` sh
-  chmod +x entrypoint.sh    
+  chmod +x entrypoint.sh
   ```
 
 Quando o script do shell de um `ENTRYPOINT` não for executável, você receberá uma mensagem de erro semelhante à mensagem a seguir:

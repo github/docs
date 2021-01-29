@@ -74,7 +74,7 @@ versions:
 - 如果对分支启用了必需状态检查，则在所有必需 CI 测试通过之前，无法将更改合并到分支。 更多信息请参阅“[关于状态检查](/articles/about-status-checks)”。
 - 如果对分支启用了必需拉取请求审查，则在满足拉取请求审查策略中的所有要求之前，无法将更改合并到分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
 - 如果对分支启用了代码所有者的必需审查，并且拉取请求修改具有所有者的代码，则代码所有者必须批准拉取请求后才可合并。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners)”。
-- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”和“[关于必需提交签名](/articles/about-required-commit-signing)”。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+- 如果对分支启用了必需提交签名，则无法将任何提交推送到未签名和验证的分支。 更多信息请参阅“[关于提交签名验证](/articles/about-commit-signature-verification)”和“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-signed-commits)”。{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 - 如果您使用 {% data variables.product.prodname_dotcom %} 的冲突编辑器来解决从受保护分支创建拉取请求的冲突，{% data variables.product.prodname_dotcom %} 可帮助您为拉取请求创建一个备用分支，以解决合并冲突。 更多信息请参阅“[解决 {% data variables.product.prodname_dotcom %} 上的合并冲突](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)”。{% endif %}
 
 ### 延伸阅读

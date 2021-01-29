@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
+type: 'reference'
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -60,14 +61,14 @@ ENTRYPOINT ["sh", "-c", "echo $GITHUB_SHA"]
  Um `args` aus der Metadaten-Datei der Aktion an einen Docker Container zu übergeben, der die _exec_-Form im `ENTRYPOINT` verwendet, empfehlen wir, ein Shell-Skript namens `entrypoint.sh` zu erstellen und dieses von der `ENTRYPOINT`-Anweisung aus anrufen:
 
 ##### Beispiel *Dockerfile*
-``` 
-# Container-Image, das Deinen Code ausführt
+```
+# Container image that runs your code
 FROM debian:9.5-slim
 
-# Kopiert Deine Code-Datei aus Deinem Aktions-Repository in den Dateisystem-Pfad `/` des Containers
+# Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
-# Ruft `entrypoint.sh` wenn der Docker-Container hochfaehrt
+# Executes `entrypoint.sh` when the Docker container starts up
 ENTRYPOINT ["/entrypoint.sh"]
 ```
 
@@ -78,14 +79,14 @@ Mit dem obigen Dockerfile-Beispiel sendet {% data variables.product.product_name
 ``` sh
 #!/bin/sh
 
-# `$*` erweitert die in einem `array` gelieferten `args` individuell 
-# oder teilt einen String `args` an Whitespaces in Teil-Strings auf.
+# `$*` expands the `args` supplied in an `array` individually
+# or splits `args` in a string separated by whitespace.
 sh -c "echo $*"
 ```
 
 Dein Code muss ausführbar sein. Stelle sicher, dass die Datei `entrypoint.sh` die Berechtigunge `execute` hat, bevor Du sie in einem Workflow verwendest. Du kannst die Berechtigung von Deinem Terminal aus mit diesem Befehl ändern:
   ``` sh
-  chmod +x entrypoint.sh    
+  chmod +x entrypoint.sh
   ```
 
 Wenn ein `ENTRYPOINT`-Shell-Skript nicht ausführbar ist, erhältst Du einen Fehler, der ungefähr so aussieht:

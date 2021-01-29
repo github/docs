@@ -7,7 +7,7 @@ sections:
       heading: GitHub Actions Beta
       notes:
         - |
-          [GitHub Actions](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. GitHub Actions on Enteprise Server includes tools to help you manage the service, including key metrics in the Management Console, audit logs and access controls to help you control the roll out.
+          [GitHub Actions](https://github.com/features/actions) is a powerful, flexible solution for CI/CD and workflow automation. GitHub Actions on Enterprise Server includes tools to help you manage the service, including key metrics in the Management Console, audit logs and access controls to help you control the roll out.
 
           You will need to provide your own [storage](https://docs.github.com/en/enterprise/2.22/admin/github-actions/enabling-github-actions-and-configuring-storage) and runners for GitHub Actions. AWS S3, Azure Blob Storage and MinIO are supported. Please review the [updated minimum requirements for your platform](https://docs.github.com/en/enterprise/2.22/admin/installation/setting-up-a-github-enterprise-server-instance) before you turn on GitHub Actions. To learn more, contact the GitHub Sales team or [sign up for the beta](https://resources.github.com/beta-signup/). {% comment %} https://github.com/github/releases/issues/775 {% endcomment %}
     - 
@@ -90,6 +90,19 @@ sections:
           #### GraphQL Schema Changes
 
           * [The GraphQL schema changes](https://docs.github.com/enterprise/2.22/user/graphql/overview/changelog) include backwards-compatible changes, schema previews, and upcoming breaking changes.
+    - 
+      heading: VMware Network Driver Changes
+      notes:
+        - |
+          The GitHub Enterprise Server default network adapter type for VMware customers has been changed from E1000 to VMXNET3, starting with release 2.22.0. When upgrading from an earlier release to 2.22.0 or newer, if an E1000 network adapter is detected during the pre-upgrade check, the following message will be displayed at the command line:
+
+          ```
+          WARNING: Your virtual appliance is currently using an emulated Intel E1000 network adapter.
+          For optimal performance, please update the virtual machine configuration on your VMware host to use the VMXNET3 driver.
+          Proceed with installation? [y/N]
+          ```
+
+          The administrator can choose to update the network adapter type to VMXNET3 either before or after the GitHub Enterprise Server upgrade. The virtual appliance will need to be shutdown for this change. Customers should follow the VMware recommended steps for [changing the virtual machine network adapter configuration](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3719A0BE-4B4A-44FF-8A21-290950918FBD.html) to VMXNET3. Please note that `VMXNET3` will not be an option if the OS version for the virtual appliance is set to `Other Linux (64-bit)`. In that case, the OS version would first need to be changed from `Other Linux (64-bit)` to `Other 2.6.x Linux (64-bit)` or if available, `Debian GNU/Linux 9` . We recommend testing these changes on a [staging instance](https://docs.github.com/en/enterprise-server@2.22/admin/installation/setting-up-a-staging-instance) before it is performed on a production GitHub Enterprise Server. {% comment %} https://github.com/github/ghes-infrastructure/issues/781 {% endcomment %}
   bugs:
     - The stafftools page for viewing pending collaborator showed a `500 Internal Server Error` when there was a pending email invite. {% comment %} https://github.com/github/github/pull/150836 {% endcomment %}
     - The Repository Health Check in stafftools could give incorrect results on busy repositories. {% comment %} https://github.com/github/github/pull/151160 {% endcomment %}
@@ -113,8 +126,8 @@ sections:
       heading: Deprecation of OAuth Application API
       notes:
         - GitHub no longer supports the OAuth application endpoints that contain `access_token` as a path parameter. We have introduced new endpoints that allow you to securely manage tokens for OAuth Apps by moving `access_token` to the request body. While deprecated, the endpoints are still accessible in this version. We intend to remove these endpoints on GitHub Enterprise Server 3.4. For more information, see the [deprecation announcement blog post](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/).
-  #- type: Backup and Disaster recovery
-  #note: GitHub Enterprise Server 2.22 requires at least [GitHub Enterprise Backup Utilities](https://github.com/github/backup-utils) 2.22.0 for [Backups and Disaster Recovery](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/).
+  backups:
+    - GitHub Enterprise Server 2.22 requires at least [GitHub Enterprise Backup Utilities](https://github.com/github/backup-utils) 2.22.0 for [Backups and Disaster Recovery](https://help.github.com/enterprise/2.22/admin/guides/installation/backups-and-disaster-recovery/).
   known_issues:
     - On a freshly set up GitHub Enterprise Server without any users, an attacker could create the first admin user. {% comment %} https://github.com/github/enterprise2/issues/1889 {% endcomment %}
     - Custom firewall rules are not maintained during an upgrade. {% comment %} https://github.com/github/enterprise2/issues/2823 {% endcomment %}

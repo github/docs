@@ -24,3 +24,9 @@ versions:
 1. {% data variables.product.prodname_enterprise_backup_utilities %}を使って本番インスタンスをバックアップしてください。 詳細は「[アプライアンスでバックアップを設定する](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#about-github-enterprise-server-backup-utilities)」の「{% data variables.product.prodname_enterprise_backup_utilities %} について」セクションを参照してください。
 2. 新しいインスタンスをステージング環境として動作するようにセットアップしてください。 ステージングインスタンスのプロビジョニングとインストールについては、本番インスタンスと同じガイドが利用できます。 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)」を参照してください。
 3. バックアップをステージングインスタンスにリストアしてください。 詳しい情報については "[アプライアンスでのバックアップの設定](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)"の"バックアップのリストア"セクションを参照してください。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 参考リンク
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

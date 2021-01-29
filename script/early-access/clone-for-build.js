@@ -49,7 +49,8 @@ const earlyAccessRepoName = 'docs-early-access'
 const earlyAccessDirName = 'early-access'
 const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessRepoName}`
 
-const earlyAccessCloningParentDir = os.tmpdir()
+// On our Azure self-hosted runners, os.tmpdir() doesn't work reliably. On Heroku, os.homedir doesn't work reliably.
+const earlyAccessCloningParentDir = process.env.CI ? os.homedir() : os.tmpdir()
 const earlyAccessCloningDir = path.join(earlyAccessCloningParentDir, earlyAccessRepoName)
 
 const destinationDirNames = ['content', 'data', 'assets/images']

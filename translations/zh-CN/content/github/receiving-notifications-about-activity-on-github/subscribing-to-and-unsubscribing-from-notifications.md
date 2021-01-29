@@ -12,7 +12,7 @@ versions:
 3. 选择要订阅的议题或拉取请求。
 4. 在右侧边栏中，单击 **Subscribe（订阅）**或 **Unsubscribe（取消订阅）**。 ![对话订阅按钮](/assets/images/help/notifications/subscribe_button_with_gear.png)
 5. 要自定义您的通知，请单击 {% octicon "gear" aria-label="The gear icon" %}。 ![对话订阅旁边的齿轮按钮](/assets/images/help/notifications/subscribe_button_with_gear_chosen.png)
-6. 选择您要为此对话接收的通知类型，然后单击 **Save（保存）**。 ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png) You can see a list of all the issues and pull requests you're subscribed to. 更多信息请参阅“[列出您订阅的议题和拉取请求](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)”。
+6. 选择您要为此对话接收的通知类型，然后单击 **Save（保存）**。 ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png) 您可以看到订阅的所有议题和拉取请求的列表。 更多信息请参阅“[列出您订阅的议题和拉取请求](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)”。
 
 ### 订阅团队讨论
 

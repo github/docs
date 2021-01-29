@@ -14,9 +14,11 @@ versions:
 
 Du kannst Feedback von Benutzern sammeln, Softwarefehler melden und Aufgaben organisieren, die Du mit Issues in einem Repository durchführen möchtest. Issues sind mehr als nur ein Ort zum Melden von Softwarefehlern.
 
+{% if currentVersion == "free-pro-team@latest" %}
 Other conversations are more suitable for discussions. {% data reusables.discussions.you-can-use-discussions %}
 
 {% data reusables.discussions.you-cannot-convert-a-discussion %}
+{% endif %}
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 

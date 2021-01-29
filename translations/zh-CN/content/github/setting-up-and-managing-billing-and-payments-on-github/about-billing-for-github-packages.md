@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
-{% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.package_registry.packages-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
 
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 
@@ -54,6 +54,6 @@ versions:
 
 {% data reusables.package_registry.packages-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[Managing your spending limit for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)."
+有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_registry %} 的支出限制](/github/setting-up-and-managing-billing-and-payments-on-github/managing-your-spending-limit-for-github-packages)”。
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

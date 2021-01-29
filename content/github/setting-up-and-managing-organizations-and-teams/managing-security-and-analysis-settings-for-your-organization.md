@@ -2,8 +2,11 @@
 title: Managing security and analysis settings for your organization
 intro: 'You can control features that secure and analyze the code in your organization''s projects on {% data variables.product.prodname_dotcom %}.'
 permissions: Organization owners can manage security and analysis settings for repositories in the organization.
+redirect_from:
+  - /github/setting-up-and-managing-organizations-and-teams/managing-secret-scanning-for-your-organization
 versions:
   free-pro-team: '*'
+  enterprise-server: '>=3.0'
 ---
 
 ### About management of security and analysis settings
@@ -53,7 +56,12 @@ You can enable or disable features for all repositories. {% if currentVersion ==
    !["Enable by default" option for new repositories](/assets/images/help/organizations/security-and-analysis-secret-scanning-enable-by-default-ghe.png)
    {% endif %}
 1. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
-  ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
+   {% if currentVersion == "free-pro-team@latest" %}
+   ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
+   {% endif %}
+   {% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.22" %}
+   ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-secret-scanning-ghe.png)
+   {% endif %}
 
 ### Enabling or disabling a feature automatically when new repositories are added
 
@@ -67,6 +75,8 @@ You can enable or disable features for all repositories. {% if currentVersion ==
    {% endif %}
 
    {% data reusables.advanced-security.note-org-enable-uses-seats %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 ### Allowing Dependabot to access private repositories
 
@@ -83,13 +93,12 @@ By default, {% data variables.product.prodname_dependabot %} can't update depend
    ![The Repositories list](/assets/images/help/organizations/repositories-dialog.png)
 1. Select the repositories that {% data variables.product.prodname_dependabot %} can access.
 1. Click **Select repositories**.
-
+{% endif %}
 
 ### Further reading
 
-{% if currentVersion == "free-pro-team@latest" %}- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
-- "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"
-- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"
-{% endif %}
+- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Keeping your dependencies updated automatically](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 - "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"

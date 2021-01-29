@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### はじめに
 
@@ -66,9 +66,9 @@ versions:
 {% endif %}
 {% data reusables.repositories.view-failed-job-results-superlinter %}
 
-### その他のスターターワークフロー
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} では、事前設定されたワークフローテンプレートが用意されており、継続的インテグレーションワークフローの自動化や作成が可能です。 {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) リポジトリ{% else %} {% data variables.product.product_location %} の `actions/starter-workflows` リポジトリで、ワークフローテンプレートの完全なリストを閲覧できます{% endif %}。
+{% data reusables.actions.workflow-template-overview %}
 
 ### 次のステップ
 
@@ -120,7 +120,7 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. In the left sidebar, click the workfow you want to run.
+1. In the left sidebar, click the workflow you want to run.
    ![Select say hello job](/assets/images/help/repository/say-hello-job.png)
 1. On the right, click the **Run workflow** drop-down and click **Run workflow**. Optionally, you can enter a custom message into the "Person to greet" input before running the workflow.
    ![Trigger the manual workflow](/assets/images/help/repository/manual-workflow-trigger.png)
@@ -131,9 +131,9 @@ Printing "Hello, World!" is a great way to explore the basic set up and syntax o
 1. In the workflow logs, expand the 'Run echo "Hello World!"' section.
    ![Workflow detail](/assets/images/help/repository/workflow-log-listing.png)
 
-### More starter workflows
+### More workflow templates
 
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
+{% data reusables.actions.workflow-template-overview %}
 
 ### Next steps
 

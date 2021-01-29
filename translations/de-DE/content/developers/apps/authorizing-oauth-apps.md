@@ -72,13 +72,13 @@ Exchange this `code` for an access token:
 
 ##### Parameters
 
-| Name            | Typ      | Beschreibung                                                                                                                                             |
-| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.     |
-| `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}. |
-| `Code`          | `string` | **Required.** The code you received as a response to Step 1.                                                                                             |
-| `redirect_uri`  | `string` | The URL in your application where users are sent after authorization.                                                                                    |
-| `state`         | `string` | The unguessable random string you provided in Step 1.                                                                                                    |
+| Name            | Typ      | Beschreibung                                                                                                                                            |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.     |
+| `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}. |
+| `Code`          | `string` | **Required.** The code you received as a response to Step 1.                                                                                            |
+| `redirect_uri`  | `string` | The URL in your application where users are sent after authorization.                                                                                   |
+| `state`         | `string` | The unguessable random string you provided in Step 1.                                                                                                   |
 
 ##### Response
 
@@ -213,7 +213,7 @@ Once the user has authorized, the app will receive an access token that can be u
 
 #### Rate limits for the device flow
 
-When a user submits the verification code on the browser, there is a there is a rate limit of 50 submissions in an hour per application.
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
 If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
 

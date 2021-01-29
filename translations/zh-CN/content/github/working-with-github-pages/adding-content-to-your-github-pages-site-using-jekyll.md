@@ -62,6 +62,8 @@ Jekyll 站点中内容的主要类型是页面和帖子。 页面是指与某个
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
+您的帖子现在应该显示在您的站点上！ 如果站点的基础 URL 是 `https://octocat.github.io`，则您的新帖子将位于 `https://octocat.github.io/YYYY/MM/DD/TITLE.html`。
+
 ### 后续步骤
 
 {% data reusables.pages.add-jekyll-theme %}更多信息请参阅“[使用 Jekyll 添加主题到 {% data variables.product.prodname_pages %} 站点](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)”。

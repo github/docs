@@ -169,6 +169,16 @@ describe('JS and CSS assets', () => {
     expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
   })
 
+  it('returns the expected node_modules', async () => {
+    const result = await supertest(app)
+      .get('/node_modules/algoliasearch/dist/algoliasearch.min.js')
+      .set('Referrer', '/en/enterprise/2.17')
+
+    expect(result.statusCode).toBe(200)
+    expect(result.get('x-is-archived')).toBe('true')
+    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+  })
+
   it('returns the expected favicon', async () => {
     const result = await supertest(app)
       .get('/assets/images/site/favicon.svg')
@@ -179,7 +189,7 @@ describe('JS and CSS assets', () => {
     expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
   })
 
-  it('returns the expected CSS file  ( <2.13 )', async () => {
+  it('returns the expected CSS file ( <2.13 )', async () => {
     const result = await supertest(app)
       .get('/assets/stylesheets/application.css')
       .set('Referrer', '/en/enterprise/2.12')

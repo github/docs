@@ -37,7 +37,7 @@
 - term: bio
   description: >-
     The user-generated description found on a profile:
-    https://help.github.com/articles/adding-a-bio-to-your-profile/
+    [Adding a bio to your profile](/articles/adding-a-bio-to-your-profile)
 - term: billing cycle
   description: The interval of time for your specific billing plan.
 - term: billing email
@@ -160,8 +160,8 @@
 - term: contributions
   description: >-
     Specific activities on GitHub that will:
-    - Add a square to a user's contribution graph: "[What counts as a contribution](https://help.github.com/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)"
-    - Add activities to a user's timeline on their profile: "[Contribution activity](https://help.github.com/articles/viewing-contributions-on-your-profile/#contribution-activity)"
+    - Add a square to a user's contribution graph: "[What counts as a contribution](/articles/viewing-contributions-on-your-profile/#what-counts-as-a-contribution)"
+    - Add activities to a user's timeline on their profile: "[Contribution activity](/articles/viewing-contributions-on-your-profile/#contribution-activity)"
 - term: contributor
   description: >-
     A contributor is someone who does not have collaborator access to a repository but has contributed to a project and had a pull request they opened merged into the repository.
@@ -230,7 +230,7 @@
   description: >-
     A branch used to experiment with a new feature or fix an issue that is not in production. Also called a topic branch.
 - term: fenced code block
-  description: An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](https://help.github.com/en/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).
+  description: An indented block of code you can create with GitHub Flavored Markdown using triple backticks \`\`\` before and after the code block. See this [example](/articles/creating-and-highlighting-code-blocks#fenced-code-blocks).
 - term: fetch
   description: >-
     When you use `git fetch`, you're adding changes from the remote repository to
@@ -256,8 +256,8 @@
 - term: Gist
   description: >-
     A gist is a shareable file that you can edit, clone, and fork on GitHub.
-    You can make a gist public or secret, although secret gists will be
-    available to anyone with the URL.
+    You can make a gist {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} or secret, although secret gists will be
+    available to {% if currentVersion == "github-ae@latest" %}any enterprise member{% else %}anyone{% endif %} with the URL.
 - term: Git
   description: >-
     Git is an open source program for tracking changes in text files. It was

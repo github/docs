@@ -7,6 +7,7 @@ versions:
   enterprise-server: '>=2.22'
 authors:
   - potatoqualitee
+type: '튜토리얼'
 ---
 
 {% data reusables.actions.enterprise-beta %}

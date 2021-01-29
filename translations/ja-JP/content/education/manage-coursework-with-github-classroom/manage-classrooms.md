@@ -102,5 +102,5 @@ You can archive a classroom that you no longer use on {% data variables.product.
 {% data reusables.classroom.click-settings %}
 1. To the right of "Delete this classroom", click **Delete classroom**. !["Delete repository" button](/assets/images/help/classroom/click-delete-classroom-button.png)
 1. **警告を読みます**。
-1. To verify that you're deleting the correct classroom, type the name of the classroom you want to delete. ![Modal for deleting a classrom with warnings and text field for classroom name](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
+1. To verify that you're deleting the correct classroom, type the name of the classroom you want to delete. ![Modal for deleting a classroom with warnings and text field for classroom name](/assets/images/help/classroom/delete-classroom-modal-with-warning.png)
 1. Click **Delete classroom**. !["Delete classroom" button](/assets/images/help/classroom/delete-classroom-click-delete-classroom-button.png)

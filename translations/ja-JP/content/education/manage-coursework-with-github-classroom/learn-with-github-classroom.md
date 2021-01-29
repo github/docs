@@ -1,6 +1,6 @@
 ---
-title: Learn with GitHub Classroom
-intro: You can participate in coursework in {% data variables.product.prodname_classroom %} and see results from your teacher.
+title: GitHub Classroomで学ぶ
+intro: '{% data variables.product.prodname_classroom %} の授業に参加し、教師からの評価を見ることができます。'
 mapTopic: true
 versions:
   free-pro-team: '*'

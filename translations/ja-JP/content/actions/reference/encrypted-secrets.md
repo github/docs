@@ -11,9 +11,9 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
+{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.environments-beta %}
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 暗号化されたシークレットについて
 
@@ -69,9 +69,9 @@ REST API を使用してシークレットを管理することもできます�
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.github-actions.sidebar-secret %}
 1. Click **New repository secret**.
-1. [名前]</strong> 入力ボックスにシークレットの名前 **入力します。</li>
-1 シークレットの値を入力します。
-1 [**Add secret**] をクリックします。</ol>
+1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+1. シークレットの値を入力します。
+1. [**Add secret（シークレットの追加）**] をクリックします。
 
 If your repository {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}has environment secrets or {% endif %}can access secrets from the parent organization, then those secrets are also listed on this page.
 
@@ -85,15 +85,14 @@ If your repository {% if currentVersion == "free-pro-team@latest" or currentVers
 {% data reusables.github-actions.sidebar-environment %}
 1. Click on the environment that you want to add a secret to.
 1. Under **Environment secrets**, click **Add secret**.
-1. [名前]</strong> 入力ボックスにシークレットの名前 **入力します。</li>
-1 シークレットの値を入力します。
-1
-[**Add secret**] をクリックします。
-{% endif %}</ol>
+1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+1. シークレットの値を入力します。
+1. [**Add secret（シークレットの追加）**] をクリックします。
+{% endif %}
 
-### 組織の暗号化されたシークレットの作成
+### Organizationの暗号化されたシークレットの作成
 
-組織でシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
+Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
 {% data reusables.github-actions.permissions-statement-secrets-organization %}
 
@@ -101,20 +100,20 @@ If your repository {% if currentVersion == "free-pro-team@latest" or currentVers
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
 1. Click **New organization secret**.
-1. [名前]</strong> 入力ボックスにシークレットの名前 **入力します。</li>
-1 シークレットの **値** を入力します。
-1 [ **リポジトリアクセス** ドロップダウン リストから、アクセス ポリシーを選択します。
-1 [**Add secret**] をクリックします。</ol>
+1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+1. シークレットの **Value（値）** を入力します。
+1. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。
+1. [**Add secret（シークレットの追加）**] をクリックします。
 
-### 組織レベルのシークレットへのアクセスの確認
+### Organizationレベルのシークレットへのアクセスの確認
 
-組織内のシークレットに適用されているアクセス ポリシーを確認できます。
+Organization内のシークレットに適用されているアクセス ポリシーを確認できます。
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.github-actions.sidebar-secret %}
-1. シークレットのリストには、構成済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
-1. 各シークレットに構成されているアクセス許可の詳細については、[更新</strong>**] をクリックしてください。</p></li> </ol>
+1. シークレットのリストには、設定済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
+1. 各シークレットに設定されているアクセス許可の詳細については、[**Update（更新）**] をクリックしてください。
 
 ### 暗号化されたシークレットのワークフロー内での利用
 
@@ -184,7 +183,7 @@ You can store up to 1,000 secrets per organization{% if currentVersion == "free-
 
 {% warning %}
 
-**警告**: アクションを実行する際、シークレットは出力されないので注意してください。 この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
+**警告**: アクションを実行する際、シークレットが出力されないよう注意してください。 この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
 
 {% endwarning %}
 
@@ -205,12 +204,12 @@ You can store up to 1,000 secrets per organization{% if currentVersion == "free-
   ``` shell
   #!/bin/sh
 
-  # mkdir $HOME/secrets
-  # --batch
-  ファイルを復号化して、インタラクティブなコマンド
-  # --yes を防ぎ、質問に対して "はい" を
-  -- yes --はい --パスフレーズを解読する ="$LARGE_SECRET_PASSPHRASE" \
-  -- $HOME/secrets/my_secret.json my_secret.json.gpg
+  # ファイルを復号化
+  mkdir $HOME/secrets
+  # --batchでインタラクティブなコマンドを防ぎ、
+  # --yes で質問に対して "はい" が返るようにする
+  gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+  --output $HOME/secrets/my_secret.json my_secret.json.gpg
   ```
 
 1. リポジトリにチェックインする前に、シェルスクリプトが実行可能であることを確かめてください。
@@ -222,27 +221,27 @@ You can store up to 1,000 secrets per organization{% if currentVersion == "free-
   $ git push
   ```
 
-1. ワークフローから、`step`を使用してシェルスクリプトを呼び出し、シークレットを復号化します。 ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として、`run`コマンドを使用することで、シェルスクリプトを参照します。
+1. ワークフローから、`step`を使用してシェルスクリプトを呼び出し、シークレットを復号化します。 ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として`run`コマンドを使用し、シェルスクリプトを参照します。
 
 {% raw %}
   ```yaml
-  名前: 大きな
+  name: Workflows with large secrets
 
-  秘密を持つワークフロー: プッシュ
+  on: push
 
-  ジョブ
-    : プッシュジョブ:
-      名:のジョブ
-      実行: ubuntu 最新
-      ステップ:
-        - 使用: アクション/checkout@v2
-        - 名前: 大規模な秘密
-          を復号化
-          実行: ./.github/scripts/decrypt_secret.sh  env:
+  jobs:
+    my-job:
+      name: My Job
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Decrypt large secret
+          run: ./.github/scripts/decrypt_secret.sh
+          env:
             LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
         # このコマンドは、あなたの秘密が印刷されていることを示す例
-        # あなたの印刷シークレットを削除します。 GitHub does
-        # not hide secrets that use this workaround.
+        # シークレットを出力する文は必ず削除してください。 GitHubは
+        # この回避先を使うシークレットは隠蔽しません。
         - name: Test printing your secret (Remove this step in production)
           run: cat $HOME/secrets/my_secret.json
   ```

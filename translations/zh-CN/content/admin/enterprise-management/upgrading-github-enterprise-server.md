@@ -218,3 +218,9 @@ versions:
 #### 回滚功能版本
 
 要从功能版本回滚，请从 VM 快照恢复，以确保根分区和数据分区处于一致的状态。 更多信息请参阅“[生成快照](#taking-a-snapshot)”。
+
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+### 延伸阅读
+
+- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"
+{% endif %}

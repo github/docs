@@ -80,6 +80,8 @@ versions:
 
 您可以使用 [crontab guru](https://crontab.guru/) 帮助生成计划任务语法并确认它在何时运行。 为帮助您开始，我们还提供了一系列 [crontab guru 示例](https://crontab.guru/examples.html)。
 
+Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, please see "[Notifications for workflow runs](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)."
+
 ### 手动事件
 
 您可以手动触发工作流程运行。 要触发仓库中的特定工作流程，请使用 `workflow_dispatch` 事件。 要触发仓库中的多个工作流程并创建自定义事件和事件类型，请使用 `repository_dispatch` 事件。
@@ -593,7 +595,8 @@ on:
 例如，您可以在拉取请求为 `assigned`、`opened`、`synchronize` 或 `reopened` 时运行工作流程。
 
 ```yaml
-on: pull_request_target
+on:
+  pull_request_target:
     types: [assigned, opened, synchronize, reopened]
 ```
 

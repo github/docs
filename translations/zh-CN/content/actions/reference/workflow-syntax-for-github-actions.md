@@ -187,7 +187,7 @@ on:
 
 ### `env`
 
-环境变量的 `map` 可用于工作流程中的所有作业和步骤。 您还可以设置仅适用于作业或步骤的环境变量。 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
+A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -639,14 +639,15 @@ jobs:
 
 您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。
 
-| 支持的平台         | `shell` 参数   | 描述                                                                                                               | 内部运行命令                                          |
-| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                   | `bash --noprofile --norc -eo pipefail {0}`      |
-| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                             | `pwsh -command ". '{0}'"`                       |
-| 所有            | `python`     | 执行 python 命令。                                                                                                    | `python {0}`                                    |
-| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                  | `sh -e {0}`                                     |
-| Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                     | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows       | `powershell` | 这是 Windows 上使用的默认 shell。 Desktop PowerShell。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 | `powershell -command ". '{0}'"`.                |
+| 支持的平台         | `shell` 参数   | 描述                                                                                                                                                                                                                                     | 内部运行命令                                          |
+| ------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                                                                                                                                         | `bash --noprofile --norc -eo pipefail {0}`      |
+| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                                                                   | `pwsh -command ". '{0}'"`                       |
+| 所有            | `python`     | 执行 python 命令。                                                                                                                                                                                                                          | `python {0}`                                    |
+| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                                                                                                                                        | `sh -e {0}`                                     |
+| Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                                                                                                                                           | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows       | `pwsh`       | 这是 Windows 上使用的默认 shell。 PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead. | `pwsh -command ". '{0}'"`.                      |
+| Windows       | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                                                                                                                                            | `powershell -command ". '{0}'"`.                |
 
 #### 使用 bash 运行脚本的示例
 
@@ -673,6 +674,15 @@ steps:
   - name: Display the path
     run: echo ${env:PATH}
     shell: pwsh
+```
+
+#### Example: Using PowerShell Desktop to run a script
+
+```yaml
+steps:
+  - name: Display the path
+    run: echo ${env:PATH}
+    shell: powershell
 ```
 
 #### 运行 python 脚本的示例
@@ -1149,7 +1159,7 @@ volumes:
 - `**`： 匹配零个或多个任何字符。
 - `?`：匹配零个或一个字符。 例如 `Octoc?t` 匹配 `Octocat`。
 - `+`: 匹配一个或多个前置字符。
-- `[]` 匹配列在括号中或包含在范围内的一个字符。 范围只能包含 `a-z`、`A-Z` 和 `0-9`。 例如，范围 `[0-9a-f]` 匹配任何数字或小写字母。 例如，`[CB]at` 匹配 `Cat` 或 `Bat`，`[1-2]00` 匹配 `100` 和 `200`。
+- `[]` 匹配列在括号中或包含在范围内的一个字符。 范围只能包含 `a-z`、`A-Z` 和 `0-9`。 For example, the range`[0-9a-z]` matches any digit or lowercase letter. 例如，`[CB]at` 匹配 `Cat` 或 `Bat`，`[1-2]00` 匹配 `100` 和 `200`。
 - `!`：在模式开始时，它将否定以前的正模式。 如果不是第一个字符，它就没有特殊的意义。
 
 字符 `*`、`[` 和 `!` 是 YAML 中的特殊字符。 如果模式以 `*`、`[` 或 `!` 开头，必须用引号括住模式。
@@ -1167,35 +1177,35 @@ volumes:
 
 #### 匹配分支和标记的模式
 
-| 模式                                            | 描述                                                                   | 示例匹配                                                                                               |
-| --------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `功能/*`                                        | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `功能/**`                                       | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`main`<br/>-`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | -`main`<br/>-`releases/mona-the-octocat`                                                     |
-| `'*'`                                         | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | -`main`<br/>-`releases`                                                                      |
-| `'**'`                                        | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*功能'`                                       | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                         | 匹配以 `v2` 开头的分支和标记名称。                                                 | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                         | 将所有语义版本控制标记与主要版本 1 或 2 匹配                                            | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| 模式                                                     | 描述                                                                   | 示例匹配                                                                                                                  |
+| ------------------------------------------------------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `功能/*`                                                 | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | `feature/my-branch`<br/><br/>`feature/your-branch`                                                        |
+| `功能/**`                                                | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | `feature/beta-a/my-branch`<br/><br/>`feature/your-branch`<br/><br/>`feature/mona/the/octocat` |
+| `main`<br/><br/>`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | `main`<br/><br/>`releases/mona-the-octocat`                                                               |
+| `'*'`                                                  | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `main`<br/><br/>`releases`                                                                                |
+| `'**'`                                                 | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | `all/the/branches`<br/><br/>`every/tag`                                                                   |
+| `'*功能'`                                                | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
+| `v2*`                                                  | 匹配以 `v2` 开头的分支和标记名称。                                                 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                                  | 将所有语义版本控制标记与主要版本 1 或 2 匹配                                            | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 #### 匹配文件路径的模式
 
 路径模式必须匹配整个路径，并从仓库根开始。
 
-| 模式                                                   | 匹配描述                                                                   | 示例匹配                                                                                         |
-| ---------------------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `'*'`                                                | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | -`README.md`<br/>-`server.rb`                                                          |
-| `'*.jsx?'`                                           | `?` 个字符匹配零个或一个前缀字符。                                                    | -`page.js`<br/>-`page.jsx`                                                             |
-| `'**'`                                               | The `**` 通配符匹配任何字符，包括斜杠 (`/`)。 这是不使用 `path` 过滤器时的默认行为。                 | -`all/the/files.md`                                                                          |
-| `'*.js'`                                             | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 匹配仓库根目录上的所有 `.js` 文件。                      | -`app.js`<br/>-`index.js`                                                              |
-| `'**.js'`                                            | 匹配仓库中的所有 `.js` 文件。                                                     | -`index.js`<br/>-`js/index.js`<br/>-`src/js/app.js`                              |
-| `文档/*`                                               | 仓库根目录下 `docs` 根目录中的所有文件。                                               | -`docs/README.md`<br/>-`docs/file.txt`                                                 |
-| `文档/**`                                              | 仓库根目录下 `/docs` 目录中的任何文件。                                               | -`docs/README.md`<br/>-`docs/mona/octocat.txt`                                         |
-| `docs/**/*.md`                                       | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | -`docs/README.md`<br/>-`docs/mona/hello-world.md`<br/>-`docs/a/markdown/file.md` |
-| `'**/文档/**'`                                         | 仓库中任意位置 `docs` 目录下的任何文件。                                               | -`/docs/hello.md`<br/>-`dir/docs/my-file.txt`<br/>-`space/docs/plan/space.doc`   |
-| `'**/README.md'`                                     | 仓库中任意位置的 README.md 文件。                                                 | -`README.md`<br/>-`js/README.md`                                                       |
-| `'**/*src/**'`                                       | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | -`a/src/app.js`<br/>-`my-src/code/js/app.js`                                           |
-| `'**/*-post.md'`                                     | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | -`my-post.md`<br/>-`path/their-post.md`                                                |
-| `'**/migrate-*.sql'`                                 | 仓库中任意位置具有前缀 `migrate-` 和后缀 `.sql` 的文件。                                 | -`migrate-10909.sql`<br/>-`db/migrate-v1.0.sql`<br/>-`db/sept/migrate-v1.sql`    |
-| -`*.md`<br/>-`!README.md`                      | 模式前使用感叹号 (`!`) 对其进行否定。 当文件与模式匹配并且也匹配文件后面定义的否定模式时，则不包括该文件。              | -`hello.md`<br/>_Does not match_<br/>-`README.md`<br/>-`docs/hello.md`   |
-| -`*.md`<br/>-`!README.md`<br/>-`README*` | 按顺序检查模式。 否定前一个模式的模式将重新包含文件路径。                                          | -`hello.md`<br/>-`README.md`<br/>-`README.doc`                                   |
+| 模式                                                                      | 匹配描述                                                                   | 示例匹配                                                                                                                     |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `'*'`                                                                   | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | `README.md`<br/><br/>`server.rb`                                                                             |
+| `'*.jsx?'`                                                              | `?` 个字符匹配零个或一个前缀字符。                                                    | `page.js`<br/><br/>`page.jsx`                                                                                |
+| `'**'`                                                                  | The `**` 通配符匹配任何字符，包括斜杠 (`/`)。 这是不使用 `path` 过滤器时的默认行为。                 | `all/the/files.md`                                                                                                       |
+| `'*.js'`                                                                | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。 匹配仓库根目录上的所有 `.js` 文件。                      | `app.js`<br/><br/>`index.js`                                                                                 |
+| `'**.js'`                                                               | 匹配仓库中的所有 `.js` 文件。                                                     | `index.js`<br/><br/>`js/index.js`<br/><br/>`src/js/app.js`                                       |
+| `文档/*`                                                                  | 仓库根目录下 `docs` 根目录中的所有文件。                                               | `docs/README.md`<br/><br/>`docs/file.txt`                                                                    |
+| `文档/**`                                                                 | 仓库根目录下 `/docs` 目录中的任何文件。                                               | `docs/README.md`<br/><br/>`docs/mona/octocat.txt`                                                            |
+| `docs/**/*.md`                                                          | `docs` 目录中任意位置具有 `.md` 后缀的文件。                                          | `docs/README.md`<br/><br/>`docs/mona/hello-world.md`<br/><br/>`docs/a/markdown/file.md`          |
+| `'**/文档/**'`                                                            | 仓库中任意位置 `docs` 目录下的任何文件。                                               | `/docs/hello.md`<br/><br/>`dir/docs/my-file.txt`<br/><br/>`space/docs/plan/space.doc`            |
+| `'**/README.md'`                                                        | 仓库中任意位置的 README.md 文件。                                                 | `README.md`<br/><br/>`js/README.md`                                                                          |
+| `'**/*src/**'`                                                          | 仓库中任意位置具有 `src` 后缀的文件夹中的任何文件。                                          | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`                                                              |
+| `'**/*-post.md'`                                                        | 仓库中任意位置具有后缀 `-post.md` 的文件。                                            | `my-post.md`<br/><br/>`path/their-post.md`                                                                   |
+| `'**/migrate-*.sql'`                                                    | 仓库中任意位置具有前缀 `migrate-` 和后缀 `.sql` 的文件。                                 | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql`             |
+| `*.md`<br/><br/>`!README.md`                                | 模式前使用感叹号 (`!`) 对其进行否定。 当文件与模式匹配并且也匹配文件后面定义的否定模式时，则不包括该文件。              | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | 按顺序检查模式。 否定前一个模式的模式将重新包含文件路径。                                          | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`                                            |

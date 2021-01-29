@@ -27,7 +27,6 @@ A project board's automation is also enabled by default. For more information, s
 ![Field to type a description for the copied project board](/assets/images/help/projects/copied-project-board-description.png)
 7. Optionally, under "Automation settings", select whether you want to copy the configured automatic workflows. This option is enabled by default. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards/)."
 ![Select automation settings for copied project board](/assets/images/help/projects/copied-project-board-automation-settings.png)
-8. If you are copying an organization-owned project board, under "Visibility", select whether you want your copied project board to be private or public.
-![Select visibility settings for copied project board](/assets/images/help/projects/copied-project-board-visibility-settings.png)
+{% data reusables.project-management.choose-visibility %}
 9. Click **Copy project**.
 ![Confirm Copy button](/assets/images/help/projects/confirm-copy-project-board.png)

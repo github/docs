@@ -46,7 +46,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 ### SAML-Metadaten
 
-Die Service Provider-Metadaten Ihrer {% data variables.product.prodname_ghe_server %}-Instanzen sind unter `http(s)://[hostname]/saml/metadata` verfügbar.
+Your {% data variables.product.prodname_ghe_server %} instance's service provider metadata is available at `http(s)://[hostname]/saml/metadata`.
 
 Wenn Sie Ihren Identity Provider manuell konfigurieren möchten, lautet die Assertionsverbraucherdienst-URL (ACS) `http(s)://[hostname]/saml/consume`. Dafür wird die Bindung `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` verwendet.
 

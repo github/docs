@@ -74,8 +74,8 @@ $ ghe-config -l
 ```
 Allows you to find the uuid of your node in `cluster.conf`.
 
-``` shell
-  $ ghe-config _hostname_.uuid
+```shell
+  $ ghe-config <em>HOSTNAME</em>.uuid
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -466,18 +466,21 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
+{% if currentVersion ver_gt "enterprise-server@2.22" %}
+```shell
+ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+```
+
+The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
+{% else %}
 ```shell
 ghe-webhook-logs -f -a <em>YYYYMMDD</em>
 ```
+{% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
 ```shell
 ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-
-To show global webhook deliveries:
-```shell
-ghe-webhook-logs --global
 ```
 
 ### Clustering
@@ -540,8 +543,8 @@ ghe-dpages status
 ```
 
 To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
-``` shell
-ghe-dpages evacuate pages-server-<uuid>
+```shell
+ghe-dpages evacuate pages-server-<em>UUID</em>
 ```
 
 #### ghe-spokes
@@ -566,16 +569,16 @@ ghe-spokes route
 
 To evacuate storage services on a cluster node:
 
-``` shell
-ghe-spokes server evacuate git-server-<uuid>
+```shell
+ghe-spokes server evacuate git-server-<em>UUID</em>
 ```
 
 #### ghe-storage
 
 This utility allows you to evacuate all storage services before evacuating a cluster node.
 
-``` shell
-ghe-storage evacuate storage-server-<uuid>
+```shell
+ghe-storage evacuate storage-server-<em>UUID</em>
 ```
 
 ### Git

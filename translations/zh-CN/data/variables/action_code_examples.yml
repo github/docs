@@ -292,7 +292,7 @@
 - 
   title: Distribute funding in free and open source projects
   description: Continuous Distribution of funding to project contributors and dependencies
-  languages: 'Python, Docerfile, Shell, Ruby'
+  languages: 'Python, Dockerfile, Shell, Ruby'
   href: protontypes/libreselery
   tags:
     - sponsors
@@ -311,7 +311,7 @@
 - 
   title: Codeowner validator
   description: Ensures the correctness of your GitHub CODEOWNERS file, supports public and private GitHub repositories and also GitHub Enterprise installations
-  languages: 'Go, Shell, Makefile, Docerfile'
+  languages: 'Go, Shell, Makefile, Dockerfile'
   href: mszostok/codeowners-validator
   tags:
     - codeowners

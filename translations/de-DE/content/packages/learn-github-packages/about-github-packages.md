@@ -22,12 +22,19 @@ You can integrate {% data variables.product.prodname_registry %} with {% data va
 
 You can host multiple packages in one repository and see more information about each package by viewing the package's README, download statistics, version history, and more.
 
+<!--This diagram excludes ghcr.io since it's not released for GHES yet.-->
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+
+![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/ghes-packages-diagram.png)
+
+{% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_github_container_registry %}](/packages/guides/about-github-container-registry)“.
 
 {% data reusables.package_registry.container-registry-beta %}
 
-![Diagram showing Node, RubyGems, Apache Maven, Gradle, Nuget, and the container registry with their hosting urls](/assets/images/help/package-registry/packages-overview-diagram.png)
+![Diagram showing the GitHub Packages hosting urls for npm, RubyGems, Apache Maven, Gradle, Nuget, and Docker](/assets/images/help/package-registry/packages-overview-diagram.png)
 
 {% endif %}
 
@@ -143,7 +150,7 @@ Weitere Informationen findest Du unter:
 
 ### Managing packages
 
-You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+You can delete a version of a private package in the {% data variables.product.product_name %} user interface or using the GraphQL API. When you use the GraphQL API to query and delete private packages, you must use the same token you use to authenticate to {% data variables.product.prodname_registry %}. For more information, see "[Deleting a package](/packages/manage-packages/deleting-a-package)" and "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
 
 You can configure webhooks to subscribe to package-related events, such as when a package is published or updated. For more information, see the "[`package` webhook event](/webhooks/event-payloads/#package)."
 

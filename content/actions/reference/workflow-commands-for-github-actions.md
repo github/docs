@@ -253,7 +253,7 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 **Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
 
-```
+```yaml
 steps:
   - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
@@ -287,7 +287,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 ##### Example
 
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
-```
+```yaml
 steps:
   - name: Set the value
     id: step_one

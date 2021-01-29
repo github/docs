@@ -1,0 +1,1 @@
+1. Debajo de "Almacenamiento para Actions y Packages", visualiza los detalles de tu uso de almacenamiento combinado de {% data variables.product.prodname_actions %} y {% data variables.product.prodname_registry %}. Los datos de uso de almacenamiento se sincronizan cada hora. ![Detalles de uso de almacenamiento](/assets/images/help/billing/actions-packages-storage.png)
