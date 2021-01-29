@@ -49,6 +49,8 @@
     "got": "^9.6.0",
     "gray-matter": "^4.0.1",
     "hast-util-from-parse5": "^6.0.1",
+    "hast-util-parse-selector": "^2.2.5",
+    "hast-util-select": "^4.0.2",
     "hastscript": "^6.0.0",
     "helmet": "^3.21.2",
     "highlightjs-graphql": "^1.0.2",
