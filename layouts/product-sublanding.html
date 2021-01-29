@@ -102,9 +102,11 @@
         </div>
       </div>
 
-      <div class="py-6 border-top border-gray">
-        {% include 'article-cards' %}
-      </div>
+      {% if page.includeGuides %}
+        <div class="py-6 border-top border-gray">
+          {% include 'article-cards' %}
+        </div>
+      {% endif %}
 
       <div class="border-top">
         {% include small-footer %}
