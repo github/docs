@@ -1,4 +1,4 @@
----
+quynhthibanh@gmail.com
 title: Telling Git about your signing key
 intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
 redirect_from:
@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
   github-ae: '*'
----
+---tranbaobien
 
 {% mac %}
 
