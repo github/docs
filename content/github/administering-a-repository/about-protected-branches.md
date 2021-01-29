@@ -82,7 +82,7 @@ After enabling required status checks, all required status checks must pass befo
 
 {% endnote %}
 
-You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up-to-date with the base branch before merging.
+You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
 
 | Type of required status check | Setting | Merge requirements | Considerations |
 | --- | --- | --- | --- |
