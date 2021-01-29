@@ -1,0 +1,1 @@
+Si eres un cliente que paga mensualmente, tu cuenta tendrá un límite de gastos predeterminado de $0, lo cual previene el uso adicional de almacenamiento o transferencia de datos después de que alcances las cantidades incluidas. Si pagas tu cuenta por factura, ésta tendrá un límite de gastos ilimitado predeterminadamente.

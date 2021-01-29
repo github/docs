@@ -112,6 +112,7 @@ Library name | Repository
 
 Library name | Repository
 |---|---|
+**gidgethub**|[brettcannon/gidgethub](https://github.com/brettcannon/gidgethub)
 **ghapi**|[fastai/ghapi](https://github.com/fastai/ghapi)
 **PyGithub**|[PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
 **libsaas**|[duckboard/libsaas](https://github.com/ducksboard/libsaas)
@@ -119,7 +120,7 @@ Library name | Repository
 **sanction**|[demianbrecht/sanction](https://github.com/demianbrecht/sanction)
 **agithub**|[jpaugh/agithub](https://github.com/jpaugh/agithub)
 **octohub**|[turnkeylinux/octohub](https://github.com/turnkeylinux/octohub)
-**github-flask**|[github-flask (Oficial Website)](http://github-flask.readthedocs.org)
+**github-flask**|[github-flask (Official Website)](http://github-flask.readthedocs.org)
 **torngithub**|[jkeylu/torngithub](https://github.com/jkeylu/torngithub)
 
 ### Ruby
@@ -128,6 +129,12 @@ Library name | Repository
 |---|---|
 **GitHub API Gem**|[peter-murach/github](https://github.com/peter-murach/github)
 **Ghee**|[rauhryan/ghee](https://github.com/rauhryan/ghee)
+
+### Rust
+
+Library name | Repository
+|---|---|
+**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
 
 ### Scala
 

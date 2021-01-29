@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### About sponsors and sponsorships
+### Sobre patrocinadores e patrocínios
 
 Você pode ver a análise sobre seus patrocínios atuais e anteriores, os pagamentos que recebeu de patrocinadores e eventos, como cancelamentos e mudanças na camada dos patrocinadores para seus patrocínios. Você também pode visualizar as atividades, tais como novos patrocinadores, alterações e cancelamentos nos patrocínios. Você pode filtrar a lista de atividades por data. Você também pode exportar dados de patrocínio para a conta que você está visualizando em formato CSV ou JSON.
 
@@ -23,7 +23,7 @@ Você pode ver a análise sobre seus patrocínios atuais e anteriores, os pagame
 
 ### Exportando seus dados de patrocínio
 
-If you have sponsors, you can export your sponsorship data. {% data variables.product.prodname_dotcom %} will send you an email with export data for all of your sponsors for the month you select. After the export is complete, you can export another month of data. You can export up to 10 sets of data per hour for any of your sponsored accounts.
+Se você tiver patrocinadores, você poderá exportar os seus dados de patrocínio. {% data variables.product.prodname_dotcom %} enviará um e-mail com os dados de exportação de todos os seus patrocinadores para o mês que você selecionar. Depois que a exportação estiver concluída, você poderá exportar mais um mês de dados. Você pode exportar até 10 conjuntos de dados por hora para qualquer uma das suas contas patrocinadas.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsors-tab %}

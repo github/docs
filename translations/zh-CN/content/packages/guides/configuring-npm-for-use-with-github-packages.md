@@ -16,6 +16,17 @@ versions:
 
 **注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+### 已发布 npm 版本的限制
+
+如果您发布超过 1,000npm 软件包版本到 {% data variables.product.prodname_registry %}，在使用过程中可能会出现性能问题和超时。
+
+要减少为 npm 包发布的版本数，请考虑删除包版本。 更多信息请参阅“[删除包](/packages/manage-packages/deleting-a-package)”。
+
+将来，{% data variables.product.company_short %} 将对发布超过 1,000 个版本 npm 包实施硬性限制。  当我们开始对 {% data variables.product.prodname_registry %} 上托管的每个 npm 包实施 1,000 个版本限制时，我们将提供有关如何管理包版本的更多指导。
+
+{% endif %}
+
 ### 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -196,6 +207,12 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 @<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
+{% endif %}
+
+{% if currentVersion == "enterprise-server@3.0" or currentVersion ver_gt "enterprise-server@3.0" %}
+### Using the official NPM registry
+
+{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-packages-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}
 
 ### 延伸阅读

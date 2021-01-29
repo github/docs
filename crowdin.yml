@@ -4,6 +4,7 @@ files:
     ignore:
       - '/content/README.md'
       - '/content/early-access'
+      - '/content/github/site-policy-deprecated'
   - source: /data/**/*.yml
     translation: /translations/%locale%/%original_path%/%original_file_name%
   - source: /data/**/*.md

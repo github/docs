@@ -166,7 +166,7 @@ curl -X "POST" "https://api.github.com/graphql" \
     }
     ```
 
-4. [在本地运行 GitHub 应用程序](https://probot.github.io/docs/development/#running-the-app-locally)。 导航到 [localhost:3000](http://localhost:3000)， 然后单击 **Register GitHub App（注册 GitHub 应用程序）**按钮：
+4. [在本地运行 GitHub 应用程序](https://probot.github.io/docs/development/#running-the-app-locally)。 导航到 `http://localhost:3000`， 然后单击 **Register GitHub App（注册 GitHub 应用程序）**按钮：
 
    ![注册 Probot GitHub 应用程序](/assets/images/github-apps/github_apps_probot-registration.png)
 

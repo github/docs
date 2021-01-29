@@ -7,17 +7,17 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
-{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-write %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
-1. ワークフロー実行を削除するには、[ {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ] ドロップダウン メニューを使用して、[ワークフローの削除 ****を実行する] を選択します。
+1. ワークフロー実行を削除するには、[ {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] ドロップダウン メニューを使用して、[**Delete workflow run（ワークフロー実行の削除）**] を選択します。
 
     ![ワークフロー実行の削除](/assets/images/help/settings/workflow-delete-run.png)
-2. 確認プロンプトを確認し、[はい、このワークフロー実行</strong>を完全に削除 **をクリックします。</p>
+2. 確認プロンプトを確認し、[**Yes, permanently delete this workflow run（はい、このワークフロー実行を完全に削除）**をクリックします。
 
-    ![ワークフロー実行確認の削除](/assets/images/help/settings/workflow-delete-run-confirmation.png)</li> </ol>
+    ![ワークフロー実行確認の削除](/assets/images/help/settings/workflow-delete-run-confirmation.png)

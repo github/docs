@@ -1,5 +1,5 @@
 ---
-title: Apply for an educator or researcher discount
+title: Solicitar um desconto de educador ou pesquisador
 intro: 'Sendo um educador ou pesquisador, você pode se candidatar para receber o {% data variables.product.prodname_team %} gratuitamente para a conta da sua organização.'
 redirect_from:
   - /github/teaching-and-learning-with-github-education/applying-for-an-educator-or-researcher-discount
@@ -18,7 +18,7 @@ versions:
 
 {% data reusables.education.educator-requirements %}
 
-For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+Para obter mais informações sobre contas de usuário em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
 
 ### Candidatar-se a um desconto de educador ou pesquisador
 
