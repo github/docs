@@ -16,7 +16,6 @@ git submodule | `gitsubmodule` | N/A (no version) | **✓** | |
 GitHub Actions | `github-actions` |  N/A (no version) | **✓** | |
 Go modules | `gomod` | v1 | **✓** | **✓** |
 Gradle | `gradle` | see (A) below | **✓** | |
-Hex | `hex` | TBD | | |
 Maven | `maven` | see (B) below | **✓** | |
 npm | `npm` | v6 | **✓** | |
 NuGet | `nuget` | <= 4.8.</br>see (C) below | **✓** | |
